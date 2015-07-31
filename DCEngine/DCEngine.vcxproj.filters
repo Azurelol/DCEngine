@@ -11,9 +11,6 @@
     <Filter Include="Core\Engine">
       <UniqueIdentifier>{efb22701-0e1c-44c1-8fec-ff5808f06682}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Engine\Window">
-      <UniqueIdentifier>{495158d8-2e33-4653-b3e2-1920b9ab0715}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Debug">
       <UniqueIdentifier>{0f04524d-b6b8-40cb-b81f-e43b8749bc46}</UniqueIdentifier>
     </Filter>
@@ -23,6 +20,12 @@
     <Filter Include="Documentation">
       <UniqueIdentifier>{d5fa81a9-01f4-4476-926b-40a95a31f554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems">
+      <UniqueIdentifier>{88dab47a-8167-486e-a062-356197ed9e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Window">
+      <UniqueIdentifier>{495158d8-2e33-4653-b3e2-1920b9ab0715}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -30,6 +33,12 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\Engine.cpp">
       <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowSFML.cpp">
+      <Filter>Core\Systems\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\System.cpp">
+      <Filter>Core\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="Libraries\Timer.h">
       <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowSFML.h">
+      <Filter>Core\Systems\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\System.h">
+      <Filter>Core\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

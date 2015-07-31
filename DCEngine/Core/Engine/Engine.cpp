@@ -73,7 +73,13 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::Update(float dt) {
     DCEngine::Debug::PrintString("Updating!");
-    DCEngine::Debug::PrintFPS(dt);
+    //DCEngine::Debug::PrintFPS(dt);
+
+    // Update the window management system (window, input)
+
+    // Tell window management system to begin new frame
+
+    // Tell window management system to end the frame
     
   }
 
