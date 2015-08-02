@@ -13,15 +13,15 @@ namespace DCEngine {
   extern std::unique_ptr<Engine> ENGINE;
 
   namespace Systems {
-    WindowSFML::WindowSFML() : System(std::string("WindowsSFMLSystem"), ES_WindowSFML),
-                               _Fullscreen(false),
-                               _Window(nullptr),
-                               _Context(),
-                               _Width(ScreenWidth),
-                               _Height(ScreenHeight)
-    {
-      DCEngine::Debug::PrintString("WindowSFML constructed"); 
-    }
+    //WindowSFML::WindowSFML() : System(std::string("WindowsSFMLSystem"), ES_WindowSFML),
+    //                           _Fullscreen(false),
+    //                           _Window(nullptr),
+    //                           _Context(),
+    //                           _Width(ScreenWidth),
+    //                           _Height(ScreenHeight)
+    //{
+    //  DCEngine::Debug::PrintString("WindowSFML constructed"); 
+    //}
 
     void WindowSFML::Initialize() {
       // Register the component

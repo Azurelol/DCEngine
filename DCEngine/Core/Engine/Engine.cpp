@@ -12,12 +12,13 @@ Description here.
 
 */
 /******************************************************************************/
+#include "Engine.h"
+
 #include <cassert> // Assert
 
-
-#include "Engine.h"
+#include "..\Systems\SystemsInclude.h"
 #include "..\..\Libraries\Timer.h"
-#include "..\Debug\Debug.h"
+#include "..\Debug\Debug.h" // PrintString
 
 namespace DCEngine {
 
@@ -41,10 +42,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Initialize() {
-    DCEngine::Debug::PrintString("Daisy Chain Engine Initialized. Beep boop.");
-    _Active = true;
+    Debug::PrintString("Engine::Initialize");
+    
+    // Autowolves, howl out!
+    _active = true;
 
     // Systems are added to to the engine's systems vector
+    _systems.push_back(SystemPtr(new Systems::WindowGLFW));
 
     // Creates the default local space
 
@@ -52,6 +56,10 @@ namespace DCEngine {
 
     // Specify which systems should be updated
 
+    // Initialize all systems
+    for (auto sys : _systems) {
+      sys->Initialize();
+    }
 
   }
 
@@ -62,7 +70,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Terminate() {
-    DCEngine::Debug::PrintString("Terminating Daisy Chain Engine... ");
+    Debug::PrintString("Engine::Terminate");
+
+    for (auto sys : _systems)
+      sys->Terminate();
+
+    _systems.clear();
+
     ENGINE.reset();
   }
 
@@ -72,10 +86,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Update(float dt) {
-    DCEngine::Debug::PrintString("Updating!");
-    //DCEngine::Debug::PrintFPS(dt);
-
+    Debug::PrintString("Engine::Update");
+    using Systems::WindowGLFW;
+    
     // Update the window management system (window, input)
+    GETSYSTEM(WindowGLFW)->Update(dt);
 
     // Tell window management system to begin new frame
 
@@ -91,7 +106,7 @@ namespace DCEngine {
   void Engine::Loop() {
     dt = 1.0f / _FrameRate;
 
-    while (_Active) {
+    while (_active) {
       ScopeTimer frameTimer(&dt);
       Update(dt);
     }

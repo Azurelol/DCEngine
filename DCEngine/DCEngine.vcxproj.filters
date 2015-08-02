@@ -34,11 +34,14 @@
     <ClCompile Include="Core\Engine\Engine.cpp">
       <Filter>Core\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Window\WindowSFML.cpp">
-      <Filter>Core\Systems\Window</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\System.cpp">
       <Filter>Core\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp">
+      <Filter>Core\Systems\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Debug\Debug.cpp">
+      <Filter>Core\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,10 +54,13 @@
     <ClInclude Include="Libraries\Timer.h">
       <Filter>Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Window\WindowSFML.h">
+    <ClInclude Include="Core\Systems\System.h">
+      <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowGLFW.h">
       <Filter>Core\Systems\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\System.h">
+    <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
     </ClInclude>
   </ItemGroup>

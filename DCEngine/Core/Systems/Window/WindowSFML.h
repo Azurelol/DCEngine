@@ -2,6 +2,7 @@
 
 #include <memory>
 
+
 #include "..\System.h"
 #include "..\..\..\Dependencies\include\SFML\Window.hpp"
 

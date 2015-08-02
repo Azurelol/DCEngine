@@ -71,9 +71,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -90,8 +95,9 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,7 +113,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,16 +153,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
-    <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
+    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Systems\System.h" />
-    <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
+    <ClInclude Include="Core\Systems\SystemsInclude.h" />
+    <ClInclude Include="Core\Systems\Window\WindowGLFW.h" />
     <ClInclude Include="Libraries\Timer.h" />
   </ItemGroup>
   <ItemGroup>
