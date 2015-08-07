@@ -30,15 +30,11 @@ ARTCHITECTURE: Set GAMESTATEDRIVEN to 1 to use the Gamestate-driven architecture
 */
 #define GAMESTATEDRIVEN 1
 
-
-namespace Debug {
-  extern std::unique_ptr<Trace> traceObj;
-}
-
 namespace DCEngine {
 
   // A pointer to the 'ENGINE' object
-  std::unique_ptr<Engine> ENGINE = nullptr;  
+  std::unique_ptr<Engine> ENGINE = nullptr;
+  
 
   /**************************************************************************/
   /*!
@@ -68,7 +64,11 @@ namespace DCEngine {
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));      
     
+    trace << "lol2u \n";
+
     *traceObj << "I am tracing! " << _defaultSpace << "\n";
+
+    *traceObj << "I am tracing too! \n";
     
     // Autowolves, howl out!
     _active = true;

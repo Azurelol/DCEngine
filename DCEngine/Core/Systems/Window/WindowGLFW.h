@@ -37,7 +37,6 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-
       void StartFrame();
       void EndFrame();
 
@@ -46,11 +45,12 @@ namespace DCEngine {
       void PollEvents();
       void ViewportUpdate();
 
+      //  KEYBOARD INPUT //
       inline static auto KeyCallback(GLFWwindow* win,
         int key, int scancode,
         int action, int mode) {
         WindowGLFW* window = static_cast<WindowGLFW*>(glfwGetWindowUserPointer(win));
-
+               
         switch (key) {
         case GLFW_KEY_ESCAPE:
           if (action == GLFW_PRESS) {

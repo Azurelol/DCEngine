@@ -21,9 +21,6 @@ http://www.learnopengl.com/#!Getting-Started/Hello-Window
 #include "..\Input\InputGLFW.h"
 #include "..\..\Debug\Debug.h"
 
-namespace Debug {
-  extern std::unique_ptr<Trace> traceObj;
-}
 
 namespace DCEngine {
 
@@ -50,6 +47,7 @@ namespace DCEngine {
     void WindowGLFW::Initialize() {
       
       glfwInit();
+      trace << "Yahello \n";
       std::cout << "WindowGLFW::Initialize" << std::endl;
 
       // Tells GLFW which OpenGL version we want to use
