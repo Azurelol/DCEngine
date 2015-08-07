@@ -44,6 +44,9 @@ artifacts/
 *_i.c
 *_p.c
 *_i.h
+*.tlog
+*.enc
+*.idb
 *.ilk
 *.meta
 *.pch
@@ -64,6 +67,7 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+
 
 # Chutzpah Test files
 _Chutzpah*
