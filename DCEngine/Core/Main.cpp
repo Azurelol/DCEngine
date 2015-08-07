@@ -4,9 +4,7 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
-\brief
-The x
-
+\brief  The entry point for the application.
 
 */
 /******************************************************************************/
@@ -22,8 +20,10 @@ namespace DCEngine {
 int main(int argc, char* args[]) {
 
   new Engine();
-
+    
   ENGINE->Initialize();
+
+  ENGINE->PushGamestate(Gamestates::SandboxPtr(new Gamestates::Sandbox()));
 
   ENGINE->Loop();
 

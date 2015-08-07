@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="class_d_c_engine_1_1_component" kind="class" language="C++" prot="public">
+    <compoundname>DCEngine::Component</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_d_c_engine_1_1_component_1a7bf6bc963e69c04e3dc0e6bca8815ae4" prot="public" static="no" mutable="no">
+        <type>const EnumeratedComponent</type>
+        <definition>const EnumeratedComponent DCEngine::Component::_type</definition>
+        <argsstring></argsstring>
+        <name>_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="51" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_component_1a22777cdc225183192dce8b7ce056ef89" prot="public" static="no" mutable="no">
+        <type>const BitfieldComponent</type>
+        <definition>const BitfieldComponent DCEngine::Component::_mask</definition>
+        <argsstring></argsstring>
+        <name>_mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="52" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_c_engine_1_1_component_1a752d9440ddc2d1aeb82386ab0143179e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Component::Component</definition>
+        <argsstring>(EnumeratedComponent type, BitfieldComponent mask)</argsstring>
+        <name>Component</name>
+        <param>
+          <type>EnumeratedComponent</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>BitfieldComponent</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="44" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_component_1a0772cc39c090f3e9139dbe8aacfdff7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual DCEngine::Component::~Component</definition>
+        <argsstring>()</argsstring>
+        <name>~Component</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="48" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_c_engine_1_1_component_1a01110c95a4ab8ca2881edde6c6ff5bd5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Component::Component</definition>
+        <argsstring>()=delete</argsstring>
+        <name>Component</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="55" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="42" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="42" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_d_c_engine_1_1_component_1a22777cdc225183192dce8b7ce056ef89" prot="public" virt="non-virtual"><scope>DCEngine::Component</scope><name>_mask</name></member>
+      <member refid="class_d_c_engine_1_1_component_1a7bf6bc963e69c04e3dc0e6bca8815ae4" prot="public" virt="non-virtual"><scope>DCEngine::Component</scope><name>_type</name></member>
+      <member refid="class_d_c_engine_1_1_component_1a752d9440ddc2d1aeb82386ab0143179e" prot="public" virt="non-virtual"><scope>DCEngine::Component</scope><name>Component</name></member>
+      <member refid="class_d_c_engine_1_1_component_1a01110c95a4ab8ca2881edde6c6ff5bd5" prot="private" virt="non-virtual"><scope>DCEngine::Component</scope><name>Component</name></member>
+      <member refid="class_d_c_engine_1_1_component_1a0772cc39c090f3e9139dbe8aacfdff7f" prot="public" virt="virtual"><scope>DCEngine::Component</scope><name>~Component</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="_main_8cpp" kind="file" language="C++">
+    <compoundname>Main.cpp</compoundname>
+    <includes refid="_engine_8h" local="yes">Engine\Engine.h</includes>
+    <incdepgraph>
+      <node id="116">
+        <label>..\Systems\System.h</label>
+        <link refid="_system_8h"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>cassert</label>
+      </node>
+      <node id="117">
+        <label>string</label>
+      </node>
+      <node id="113">
+        <label>D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Main.cpp</label>
+        <link refid="Main.cpp"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>..\Engine\Entity.h</label>
+        <link refid="_entity_8h_source"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>Engine\Engine.h</label>
+        <link refid="_engine_8h"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>vector</label>
+      </node>
+      <node id="121">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespace_d_c_engine">DCEngine</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_main_8cpp_1a700a0caa5b70a06d1064e576f9f3cf65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *args[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>args</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Main.cpp" line="20" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Main.cpp" bodystart="20" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The entry point for the application. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Christian Sagel </para></simplesect>
+<simplesect kind="par"><title>email: c.sagel@digipen.edu</title><para></para></simplesect>
+<simplesect kind="date"><para>7/30/2015 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************/</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">/******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_engine_8h" kindref="compound">Engine\Engine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_c_engine" kindref="compound">DCEngine</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_c_engine" kindref="compound">DCEngine</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>???</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;Engine&gt;<sp/>ENGINE;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>args[])<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_d_c_engine_1_1_engine" kindref="compound">Engine</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>ENGINE-&gt;Initialize();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>ENGINE-&gt;Loop();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>ENGINE-&gt;Terminate();<sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Main.cpp"/>
+  </compounddef>
+</doxygen>

@@ -26,6 +26,54 @@
     <Filter Include="Core\Systems\Window">
       <UniqueIdentifier>{495158d8-2e33-4653-b3e2-1920b9ab0715}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Input">
+      <UniqueIdentifier>{7e688f75-7c4f-4736-8939-8b7305f94194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Graphics">
+      <UniqueIdentifier>{f1d06d07-6ea6-4ecb-aa81-505f4a658ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Graphics\Shaders">
+      <UniqueIdentifier>{a1505c9b-1038-4f25-9df8-690768dfd395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entity">
+      <UniqueIdentifier>{6de51837-0d1f-4ca3-8536-922cf04782fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Space">
+      <UniqueIdentifier>{64b178b0-9574-4671-87f5-456dad04787f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{5f85f994-42af-4524-b6ef-777fbca636be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Component">
+      <UniqueIdentifier>{4400ef6b-5bf1-4abc-945f-ce21896efdcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Gamestate">
+      <UniqueIdentifier>{fc8e1226-6241-477a-b2e6-87d5ae7a14a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates">
+      <UniqueIdentifier>{d4b995c0-7f71-4db5-b975-f691e140934d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gamestates\Sandbox">
+      <UniqueIdentifier>{5d48bcc3-d869-4829-8869-7d289d1618ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Level">
+      <UniqueIdentifier>{7d38fb96-82c8-419b-b2fe-11d7321d83e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resource">
+      <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Archetype">
+      <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object">
+      <UniqueIdentifier>{fd761f3f-379a-4577-a8be-09f0d98c8742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Action">
+      <UniqueIdentifier>{1d11a521-8c77-4dc3-8e68-6d085cfd8d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event">
+      <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -42,6 +90,24 @@
     </ClCompile>
     <ClCompile Include="Core\Debug\Debug.cpp">
       <Filter>Core\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Space.cpp">
+      <Filter>Core\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp">
+      <Filter>Core\Gamestate</Filter>
+    </ClCompile>
+    <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp">
+      <Filter>Gamestates\Sandbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Entity.cpp">
+      <Filter>Core\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GLTutorial.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +128,60 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\InputGLFW.h">
+      <Filter>Core\Systems\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Entity.h">
+      <Filter>Core\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Component.h">
+      <Filter>Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Space.h">
+      <Filter>Core\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Gamestate\Gamestate.h">
+      <Filter>Core\Gamestate</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Config.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\ComponentsInclude.h">
+      <Filter>Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamestates\GamestatesInclude.h">
+      <Filter>Gamestates</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamestates\Sandbox\Sandbox.h">
+      <Filter>Gamestates\Sandbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Level.h">
+      <Filter>Core\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Resource.h">
+      <Filter>Core\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Archetype.h">
+      <Filter>Core\Archetype</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Object.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Action.h">
+      <Filter>Core\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ActionList.h">
+      <Filter>Core\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Event.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\GLTutorial.h">
+      <Filter>Core\Systems\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

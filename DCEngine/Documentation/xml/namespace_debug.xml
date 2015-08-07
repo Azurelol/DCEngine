@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="namespace_debug" kind="namespace" language="C++">
+    <compoundname>Debug</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_debug_1a31a836c8a0ca3bb3ab53448d700d374b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Debug::PrintString</definition>
+        <argsstring>(std::string sentence)</argsstring>
+        <name>PrintString</name>
+        <param>
+          <type>std::string</type>
+          <declname>sentence</declname>
+        </param>
+        <briefdescription>
+<para>Given a string, prints it to the console. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sentence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Debug/Debug.cpp" line="21" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Debug/Debug.cpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_debug_1a77fb55c0947f50b5d123eaea7b712ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Debug::PrintFPS</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>PrintFPS</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Prints the current FPS to the console. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function call can be made much easier using the GETSYSTEM macro that takes a system typename and expands it to fill the template parameters. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Debug/Debug.cpp" line="33" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Debug/Debug.cpp" bodystart="33" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Debug/Debug.cpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>

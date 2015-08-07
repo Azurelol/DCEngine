@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="namespace_d_c_engine" kind="namespace" language="C++">
+    <compoundname>DCEngine</compoundname>
+    <innerclass refid="class_d_c_engine_1_1_component" prot="public">DCEngine::Component</innerclass>
+    <innerclass refid="class_d_c_engine_1_1_engine" prot="public">DCEngine::Engine</innerclass>
+    <innerclass refid="class_d_c_engine_1_1_entity" prot="public">DCEngine::Entity</innerclass>
+    <innerclass refid="class_d_c_engine_1_1_space" prot="public">DCEngine::Space</innerclass>
+    <innerclass refid="class_d_c_engine_1_1_system" prot="public">DCEngine::System</innerclass>
+    <innernamespace refid="namespace_d_c_engine_1_1_systems">DCEngine::Systems</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1" prot="public" static="no">
+        <name>EnumeratedComponent</name>
+        <enumvalue id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1a6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1a2ff4148554480a37f85efd299df04850" prot="public">
+          <name>Transform</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1a51f2b7b14433aa22c67d1f4fc18943cd" prot="public">
+          <name>Sprite</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1adb83586953626fa768361e2e8dd18959" prot="public">
+          <name>Drawable</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1a2070acdb2779359386a6c15177dd3aa1a3b8f7696879f77dfc8c74aa8df8db24b" prot="public">
+          <name>Capacity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="22" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="22" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69" prot="public" static="no">
+        <name>BitfieldComponent</name>
+        <enumvalue id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69abd9f7c5d6ab4201b138a3e51dab7056f" prot="public">
+          <name>Alive</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69a2ff4148554480a37f85efd299df04850" prot="public">
+          <name>Transform</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69a51f2b7b14433aa22c67d1f4fc18943cd" prot="public">
+          <name>Sprite</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69adb83586953626fa768361e2e8dd18959" prot="public">
+          <name>Drawable</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1ad1a794911fd3dcee76908840742ffe69a00d1bdd9f7637df8cf6a18686bb9ecb1" prot="public">
+          <name>NoObjects</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="32" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="32" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_d_c_engine_1a341591152788b3462130bbcf8c4805cb" prot="public" static="no">
+        <name>EnumeratedSystem</name>
+        <enumvalue id="namespace_d_c_engine_1a341591152788b3462130bbcf8c4805cba77a872a299c480573c76602da561f7ff" prot="public">
+          <name>WindowGLFW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_c_engine_1a341591152788b3462130bbcf8c4805cba39716f594d1dcfe6b8ed4ee571239f97" prot="public">
+          <name>GraphicsGL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" line="22" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" bodystart="22" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a368adc05af87f06e0df93cc805cda622" prot="public" static="no">
+        <type>unsigned</type>
+        <definition>using DCEngine::mask = typedef unsigned</definition>
+        <argsstring></argsstring>
+        <name>mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="18" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1aa6ac25a69516ae5e1d0b13812973baf4" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="class_d_c_engine_1_1_component" kindref="compound">Component</ref> &gt;</type>
+        <definition>using DCEngine::ComponentPtr = typedef std::shared_ptr&lt;Component&gt;</definition>
+        <argsstring></argsstring>
+        <name>ComponentPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="59" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a2e7f474eec165d1a7552f0b4473ee4cd" prot="public" static="no">
+        <type>std::vector&lt; ComponentPtr &gt;</type>
+        <definition>using DCEngine::ComponentVec = typedef std::vector&lt;ComponentPtr&gt;</definition>
+        <argsstring></argsstring>
+        <name>ComponentVec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="60" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1ab8c32f2bbf4540fd004daf060736b830" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="class_d_c_engine_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>using DCEngine::EntityPtr = typedef std::shared_ptr&lt;Entity&gt;</definition>
+        <argsstring></argsstring>
+        <name>EntityPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="38" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a2c7646cec3086843b0dd5d63dbd70cac" prot="public" static="no">
+        <type>std::vector&lt; EntityPtr &gt;</type>
+        <definition>using DCEngine::EntityVec = typedef std::vector&lt;EntityPtr&gt;</definition>
+        <argsstring></argsstring>
+        <name>EntityVec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="39" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a47ef64c25153eee7ce8f136689160830" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="class_d_c_engine_1_1_space" kindref="compound">Space</ref> &gt;</type>
+        <definition>using DCEngine::SpacePtr = typedef std::shared_ptr&lt;Space&gt;</definition>
+        <argsstring></argsstring>
+        <name>SpacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="54" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a396ae49846fea65f7a97616600233c5e" prot="public" static="no">
+        <type>EnumeratedSystem</type>
+        <definition>using DCEngine::ESys = typedef EnumeratedSystem</definition>
+        <argsstring></argsstring>
+        <name>ESys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" line="31" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a768b682449db5128155afda362871943" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="class_d_c_engine_1_1_system" kindref="compound">System</ref> &gt;</type>
+        <definition>using DCEngine::SystemPtr = typedef std::shared_ptr&lt;System&gt;</definition>
+        <argsstring></argsstring>
+        <name>SystemPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" line="64" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_d_c_engine_1a285425049f043057862000e2a3cdeead" prot="public" static="no">
+        <type>std::vector&lt; SystemPtr &gt;</type>
+        <definition>using DCEngine::SystemVec = typedef std::vector&lt;SystemPtr&gt;</definition>
+        <argsstring></argsstring>
+        <name>SystemVec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" line="65" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_d_c_engine_1ad6e9720c2808519dd015d75d1af0b284" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_d_c_engine_1_1_engine" kindref="compound">Engine</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; Engine &gt; DCEngine::ENGINE</definition>
+        <argsstring></argsstring>
+        <name>ENGINE</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Engine.cpp" line="29" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Engine.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Component.h" line="16" column="1"/>
+  </compounddef>
+</doxygen>

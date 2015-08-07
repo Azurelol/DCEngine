@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="class_d_c_engine_1_1_space" kind="class" language="C++" prot="public">
+    <compoundname>DCEngine::Space</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_c_engine_1_1_space_1a4162ba5fac0d91e07488f99000c165c8" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DCEngine::Space::_name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="41" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_space_1abbb3126f4f8a814ae466eff49bf550be" prot="private" static="no" mutable="no">
+        <type>EntityPtr</type>
+        <definition>EntityPtr DCEngine::Space::_camera</definition>
+        <argsstring></argsstring>
+        <name>_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="42" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_space_1ae33b2403e55bca4bc42abbebc209ae6a" prot="private" static="no" mutable="no">
+        <type>EntityVec</type>
+        <definition>EntityVec DCEngine::Space::_entities</definition>
+        <argsstring></argsstring>
+        <name>_entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="43" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_space_1a49d3d3372c6ad254cc627fa209161c95" prot="private" static="no" mutable="no">
+        <type>SystemVec</type>
+        <definition>SystemVec DCEngine::Space::_systems</definition>
+        <argsstring></argsstring>
+        <name>_systems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="44" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a7cfd0ac32189aae2e219a8f4650ffff5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Space::Space</definition>
+        <argsstring>(std::string &amp;name)</argsstring>
+        <name>Space</name>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="class_d_c_engine_1_1_space" kindref="compound">Space</ref> class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="25" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a844d3c1a2ef3318b49033b62686135c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Space::~Space</definition>
+        <argsstring>()</argsstring>
+        <name>~Space</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1aa89094484fab236624982dcc6f911b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::Update</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>Update</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Updates every system in the space. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="28" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="20" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a8a805d4178b8c302c316abd6c547caa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::AddSystem</definition>
+        <argsstring>(SystemPtr system)</argsstring>
+        <name>AddSystem</name>
+        <param>
+          <type>SystemPtr</type>
+          <declname>system</declname>
+        </param>
+        <briefdescription>
+<para>Adds the system to the space. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="30" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1ae62f9721155ffe30191bb7c6006bd79c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::RemoveSystem</definition>
+        <argsstring>(std::string system)</argsstring>
+        <name>RemoveSystem</name>
+        <param>
+          <type>std::string</type>
+          <declname>system</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a7b3b91567dcabb297efb3813ff872b8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EntityPtr</type>
+        <definition>EntityPtr DCEngine::Space::CreateEntity</definition>
+        <argsstring>()</argsstring>
+        <name>CreateEntity</name>
+        <briefdescription>
+<para>Creates an entity, adds it to the space. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the entity that was added. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="33" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a4093f56f1f9693a646fea3fa5132d66f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::AddEntity</definition>
+        <argsstring>(EntityPtr)</argsstring>
+        <name>AddEntity</name>
+        <param>
+          <type>EntityPtr</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="34" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1acc1abe9447bed6ccbd57a7b055dadb9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::PopulateEntities</definition>
+        <argsstring>(SystemPtr sys) const </argsstring>
+        <name>PopulateEntities</name>
+        <param>
+          <type>SystemPtr</type>
+          <declname>sys</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the entity has all of a set of components by OR-ing together multiple MaskComponente values. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the component has every specified component. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="35" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="63" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1a179bddce438754872fdad2d052356ce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::RemoveEntity</definition>
+        <argsstring>(EntityPtr)</argsstring>
+        <name>RemoveEntity</name>
+        <param>
+          <type>EntityPtr</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1ac294560dd721350c4fbe15b46bcc18f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Space::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+<para>Removes all systems and entities from the space. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="37" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.cpp" bodystart="88" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1adb15a44fa1d7f8f873f42c2fca376c6d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Space::Space</definition>
+        <argsstring>()=delete</argsstring>
+        <name>Space</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_space_1ab2b64cfbc5b6fef7a9c2cf6c5bc6ddea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DCEngine::Space::Space</definition>
+        <argsstring>(Space &amp;space)=delete</argsstring>
+        <name>Space</name>
+        <param>
+          <type><ref refid="class_d_c_engine_1_1_space" kindref="compound">Space</ref> &amp;</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="49" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" line="22" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Space.h" bodystart="22" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_d_c_engine_1_1_space_1abbb3126f4f8a814ae466eff49bf550be" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>_camera</name></member>
+      <member refid="class_d_c_engine_1_1_space_1ae33b2403e55bca4bc42abbebc209ae6a" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>_entities</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a4162ba5fac0d91e07488f99000c165c8" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>_name</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a49d3d3372c6ad254cc627fa209161c95" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>_systems</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a4093f56f1f9693a646fea3fa5132d66f" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>AddEntity</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a8a805d4178b8c302c316abd6c547caa2" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>AddSystem</name></member>
+      <member refid="class_d_c_engine_1_1_space_1ac294560dd721350c4fbe15b46bcc18f2" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>Clear</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a7b3b91567dcabb297efb3813ff872b8b" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>CreateEntity</name></member>
+      <member refid="class_d_c_engine_1_1_space_1acc1abe9447bed6ccbd57a7b055dadb9c" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>PopulateEntities</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a179bddce438754872fdad2d052356ce9" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>RemoveEntity</name></member>
+      <member refid="class_d_c_engine_1_1_space_1ae62f9721155ffe30191bb7c6006bd79c" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>RemoveSystem</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a7cfd0ac32189aae2e219a8f4650ffff5" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>Space</name></member>
+      <member refid="class_d_c_engine_1_1_space_1adb15a44fa1d7f8f873f42c2fca376c6d" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>Space</name></member>
+      <member refid="class_d_c_engine_1_1_space_1ab2b64cfbc5b6fef7a9c2cf6c5bc6ddea" prot="private" virt="non-virtual"><scope>DCEngine::Space</scope><name>Space</name></member>
+      <member refid="class_d_c_engine_1_1_space_1aa89094484fab236624982dcc6f911b1e" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>Update</name></member>
+      <member refid="class_d_c_engine_1_1_space_1a844d3c1a2ef3318b49033b62686135c8" prot="public" virt="non-virtual"><scope>DCEngine::Space</scope><name>~Space</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

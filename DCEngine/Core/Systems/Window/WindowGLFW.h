@@ -20,11 +20,9 @@ Description here.
 
 // GLEW
 #define GLEW_STATIC
-//#include "GLEW\glew.h"
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
 // GLFW
 #define GLFW_BUILD_DLL
-//#include "GLFW\glfw3.h"
 #include "..\..\..\Dependencies\include\GLFW\glfw3.h"
 
 
@@ -40,17 +38,34 @@ namespace DCEngine {
       void Terminate();
 
 
+      void StartFrame();
+      void EndFrame();
+
+
     private:
       void PollEvents();
       void ViewportUpdate();
-      void PollWindowEvent();
-      void PollKeyEvent();
-      void PollMouseEvent();
+
+      inline static auto KeyCallback(GLFWwindow* win,
+        int key, int scancode,
+        int action, int mode) {
+        WindowGLFW* window = static_cast<WindowGLFW*>(glfwGetWindowUserPointer(win));
+
+        switch (key) {
+        case GLFW_KEY_ESCAPE:
+          if (action == GLFW_PRESS) {
+            glfwSetWindowShouldClose(win, GL_TRUE);
+            break;
+          }
+        case GLFW_KEY_F1:
+          break;
+        }
+      }
       
       GLFWwindow* _window;      
 
-      int _width = 800;
-      int _height = 600;
+      const GLuint _width = 800;
+      const GLuint _height = 600;
 
 
     };

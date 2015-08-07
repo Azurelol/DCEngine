@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="_system_8cpp" kind="file" language="C++">
+    <compoundname>System.cpp</compoundname>
+    <includes refid="_system_8h" local="yes">System.h</includes>
+    <incdepgraph>
+      <node id="153">
+        <label>System.h</label>
+        <link refid="_system_8h"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+      </node>
+      <node id="158">
+        <label>cassert</label>
+      </node>
+      <node id="154">
+        <label>string</label>
+      </node>
+      <node id="152">
+        <label>D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.cpp</label>
+        <link refid="System.cpp"/>
+        <childnode refid="153" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>..\Engine\Entity.h</label>
+        <link refid="_entity_8h_source"/>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>vector</label>
+      </node>
+      <node id="159">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>The base System class. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Christian Sagel </para></simplesect>
+<simplesect kind="par"><title>email: c.sagel@digipen.edu</title><para></para></simplesect>
+<simplesect kind="date"><para>7/30/2015 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************/</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">/******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_system_8h" kindref="compound">System.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DCEngine::System::ClearEntities()<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>_entities.clear();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/System.cpp"/>
+  </compounddef>
+</doxygen>

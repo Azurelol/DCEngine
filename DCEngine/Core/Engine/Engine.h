@@ -8,45 +8,81 @@
 
 */
 /******************************************************************************/
-
 #pragma once
+
 #include <memory> // unique_ptr
+#include <unordered_map>
+#include <stack>
 
+#include "Space.h"
+#include "Entity.h"
+#include "Component.h"
 #include "..\Systems\System.h"
+#include "..\Systems\Gamestate\Gamestate.h"
 
+#include "..\..\Gamestates\GamestatesInclude.h"
+#include "..\Systems\SystemsInclude.h"
+
+//extern std::string DefaultSpace = "Daisy World";
 
 namespace DCEngine {
   class Engine {
     public:
 
       Engine();
-      void Initialize();
-      
+
+      void Initialize();      
       void Update(float dt);
       void Loop();
-
       auto Stop() { _active = false; } // Signals the engine to stop running
       void Terminate();
+      
+      auto Getdt() { return dt; }
 
       template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
-      auto Getdt() { return dt; }
+      
+
      // auto GetEngine() { return std::shared_ptr<Engine> = this; }
 
+     // GAMESTATE //
+      GamestatePtr GetCurrentState() const;
+      void PushGamestate(GamestatePtr gamestate);
+      void PopGameState();
+
+      // SPACE //
+      SpacePtr CreateSpace(std::string name);
+      SpacePtr GetSpace(std::string name);
+      SpacePtr SetActiveSpace(std::string name);
+      SpacePtr GetActiveSpace();
+      std::string GetDefaultSpace() { return _defaultSpace; }
 
     private:
-      float dt;
-      float _FrameRate = 60.0f;
-      bool _active;
 
-      SystemVec _systems;
+      void UpdateSpace(SpacePtr space, float dt);
 
+      float dt; //!< Delta time. 
+      float _framerate = 60.0f; //!< The target frame rate.
+      float _runtime; //!< How long the engine has been running.
+      bool _active; //!< Whether the engine is active or not.
+      std::string _defaultSpace = "Daisy World";
 
+      // CONTAINERS //
+      SystemVec _systems; //!< Container for the engine's systems.
+      std::string _activeSpace; //!< The current active space.
+      std::stack<GamestatePtr> _gamestates; //!< A stack of gamestates. See below.      
+      SpaceMap _spaces; //!< A map of spaces created by the engine.
+
+      /* Reference: http://www.cplusplus.com/reference/stack/stack/
+      Stacks are a type of container adaptor, specifically designed to operate in a 
+      LIFO context (last-in first-out), where elements are inserted and extracted only 
+      from one end of the container.
+      */
       
-  };
+  }; // Engine
 
   // DEFINE MACRO 
   #define GETSYSTEM( systype ) \
-  ENGINE->GetSystem<systype>(ES_##systype)
+  ENGINE->GetSystem<systype>(EnumeratedSystem::##systype)
 
   /**************************************************************************/
   /*!
@@ -54,8 +90,8 @@ namespace DCEngine {
   \note   This function call can be made much easier using the GETSYSTEM
           macro that takes a system typename and expands it to fill the
           template parameters.
-  \param[in]  sysType
-  \return A shared poitner to the requested system.
+  \para   An enumerated system.
+  \return A shared pointer to the requested system.
   */
   /**************************************************************************/
   template <typename T>
@@ -70,5 +106,4 @@ namespace DCEngine {
 
   }
 
-
-}
+} // DCEngine

@@ -1,14 +1,36 @@
+/******************************************************************************/
+/*!
+\file   System.h
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   7/30/2015
+\brief  The base System class.
+
+*/
+/******************************************************************************/
 #pragma once
+
 #include <string>
 #include <memory>
 #include <vector>
 
+#include "..\Engine\Entity.h"
+
+
 namespace DCEngine {
 
-  enum EnumeratedSystem {
+  enum class EnumeratedSystem {
     // Window Handler
-    ES_WindowSFML,
-    ES_WindowGLFW
+    WindowGLFW,
+
+    // Graphics
+    GraphicsGL,
+
+    // Gamestate
+    Gamestate,
+
+    // The amount of systems
+    Capacity
   };
 
   // Alias for the enum
@@ -25,13 +47,23 @@ namespace DCEngine {
     virtual void Update(float dt) = 0;
     virtual void Terminate() = 0;
 
-    friend class Engine; // Allows Engine to access protected/private
+    void ClearEntities();
+
+    inline mask Mask() { return _mask; }
+
+    // Sharing is caring
+    friend class Space;
+    friend class Engine; 
 
   private:
+    System() = delete;
 
   protected:
-    const ESys _type;
     std::string _name;
+    const ESys _type;
+    EntityVec _entities;
+    mask _mask;
+    
   };
 
   // ALIASES

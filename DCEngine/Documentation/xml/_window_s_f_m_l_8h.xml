@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="_window_s_f_m_l_8h" kind="file" language="C++">
+    <compoundname>WindowSFML.h</compoundname>
+    <includes local="no">memory</includes>
+    <includes refid="_system_8h" local="yes">..\System.h</includes>
+    <includes local="yes">..\..\..\Dependencies\include\SFML\Window.hpp</includes>
+    <includedby refid="_window_s_f_m_l_8cpp" local="yes">D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/Window/WindowSFML.cpp</includedby>
+    <incdepgraph>
+      <node id="111">
+        <label>..\System.h</label>
+        <link refid="_system_8h"/>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>string</label>
+      </node>
+      <node id="109">
+        <label>D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/Window/WindowSFML.h</label>
+        <link refid="WindowSFML.h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>vector</label>
+      </node>
+      <node id="114">
+        <label>..\..\..\Dependencies\include\SFML\Window.hpp</label>
+      </node>
+      <node id="110">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_d_c_engine_1_1_systems_1_1_window_s_f_m_l" prot="public">DCEngine::Systems::WindowSFML</innerclass>
+    <innernamespace refid="namespace_d_c_engine">DCEngine</innernamespace>
+    <innernamespace refid="namespace_d_c_engine_1_1_systems">DCEngine::Systems</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;..\System.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;..\..\..\Dependencies\include\SFML\Window.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>References:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>http://www.sfml-dev.org/tutorials/2.0/start-vc.php</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>http://www.sfml-dev.org/tutorials/2.0/window-opengl.php</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_c_engine" kindref="compound">DCEngine</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Systems<sp/>{</highlight></codeline>
+<codeline lineno="16" refid="class_d_c_engine_1_1_systems_1_1_window_s_f_m_l" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_d_c_engine_1_1_systems_1_1_window_s_f_m_l" kindref="compound">WindowSFML</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_d_c_engine_1_1_system" kindref="compound">System</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_d_c_engine_1_1_systems_1_1_window_s_f_m_l" kindref="compound">WindowSFML</ref>();<sp/></highlight><highlight class="comment">//<sp/>What<sp/>is<sp/>ctor?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Initialize();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Update(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Terminate();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sf::Window<sp/>_Window;<sp/></highlight><highlight class="comment">//<sp/>The<sp/>window</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sf::Context<sp/>_Context;<sp/></highlight><highlight class="comment">//<sp/>OpenGL<sp/>context</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sf::Event<sp/>_Event;<sp/></highlight><highlight class="comment">//<sp/>Events<sp/>from<sp/>the<sp/>window</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_Fullscreen;<sp/></highlight><highlight class="comment">//<sp/>Whether<sp/>screen<sp/>is<sp/>fullscreen.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_Width;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_Height;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/Window/WindowSFML.h"/>
+  </compounddef>
+</doxygen>

@@ -4,8 +4,7 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
-\brief
-The x
+\brief  
 
 Functions include:
 - Name
@@ -18,33 +17,40 @@ http://www.learnopengl.com/#!Getting-Started/Hello-Window
 /******************************************************************************/
 #include "WindowGLFW.h"
 
+#include "..\..\Engine\Engine.h"
+#include "..\Input\InputGLFW.h"
 #include "..\..\Debug\Debug.h"
 
+namespace Debug {
+  extern std::unique_ptr<Trace> traceObj;
+}
+
 namespace DCEngine {
+
+  extern std::unique_ptr<Engine> ENGINE;
+
   namespace Systems {
 
     /**************************************************************************/
     /*!
-    \brief  
+    \brief  Constructor for the WindowGLFW class.
     */
     /**************************************************************************/
-    WindowGLFW::WindowGLFW() : System(std::string("WindowGLFWSystem"), ES_WindowGLFW) {
+    WindowGLFW::WindowGLFW() : System(std::string("WindowGLFWSystem"), EnumeratedSystem::WindowGLFW) {
     }
     
 
+    //void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
+
     /**************************************************************************/
     /*!
-    \brief
+    \brief  Initializes GLFW, configuring the window before creating it.
     */
     /**************************************************************************/
     void WindowGLFW::Initialize() {
       
       glfwInit();
-      Debug::PrintString("WindowGLFW::Initialize");
-
-      /*  The first argument of glfwWindowHint tells us what option we want to configure,
-      where we can select the option from a large enum of possible options prefixed with
-      GLFW_. The second argument is an integer that sets the value of our option */
+      std::cout << "WindowGLFW::Initialize" << std::endl;
 
       // Tells GLFW which OpenGL version we want to use
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -64,9 +70,8 @@ namespace DCEngine {
       
       // ASSERT
       if (_window == nullptr) {
-        Debug::PrintString("Failed to create GLFW window");
+        std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
-        // return -1;
       }
 
       /*  After that we tell GLFW to make the context of our window the main
@@ -80,19 +85,21 @@ namespace DCEngine {
       
       // ASSERT
       if (glewInit() != GLEW_OK) {
-        Debug::PrintString("Failed to initialize GLEW");
-        // return -1
+        std::cout << "Failed to initialize GLEW" << std::endl;
       }
+
+      // Callback functions
+      glfwSetKeyCallback(_window, KeyCallback);
 
     }
 
     /**************************************************************************/
     /*!
-    \brief
+    \brief  Updates the viewport, then polls window/input events.
     */
     /**************************************************************************/
     void WindowGLFW::Update(float dt) {
-      Debug::PrintString("WindowGLFW::Update");
+      std::cout << "WindowGLFW::Update" << std::endl;
       ViewportUpdate();
       PollEvents();
     }
@@ -109,6 +116,30 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    \brief  At the start of each render iteration clears the screen.
+    */
+    /**************************************************************************/
+    void WindowGLFW::StartFrame() {
+      glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // State-setting function
+      glClear(GL_COLOR_BUFFER_BIT);         // State-using function
+      std::cout << "WindowGLFW::StartFrame" << std::endl;
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Ends the current frame.
+    */
+    /**************************************************************************/
+    void WindowGLFW::EndFrame() {
+      // Swaps the color buffer (A large color buffer that contains
+      // color values for each pixel in GLFW's window) that has been used
+      // to draw in during this iteration and show it as output to the screen.
+      glfwSwapBuffers(_window);
+      std::cout << "WindowGLFW::EndFrame" << std::endl;
+    }
+
+    /**************************************************************************/
+    /*!
     \brief  Tells OpenGL the size of the rendering window
             First two parameters set the location of the lower left corner of the
             window. The third and fourth parameters set the width and height
@@ -120,11 +151,13 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowGLFW::ViewportUpdate() {
       glViewport(0, 0, _width, _height);
+      std::cout << "WindowGLFW::ViewportUpdate - Width: " << _width
+                                           << " Height: " << _height << std::endl;
     }
 
     /**************************************************************************/
     /*!
-    \brief  
+    \brief  Polls events.
     */
     /**************************************************************************/
     void WindowGLFW::PollEvents() {
@@ -132,32 +165,17 @@ namespace DCEngine {
       // Checks at the start of loop iteration if GLFW has been instructed
       // to close, and if so the function returns true and the game loop
       // starts running.
-      while (!glfwWindowShouldClose(_window)) {
-
-        // Checks if any events are triggered (like keyboard input, or mouse 
-        // movement events) and calls the corresponding functions (which we can
-        // we set via callback methods). We call eventprocessing functions
-        // at the start of a loop operation)
-        glfwPollEvents();
+      if (glfwWindowShouldClose(_window)) {
+        ENGINE->Stop();
+      }
         
-        PollWindowEvent();
-      }      
-    }
+      // Checks if any events are triggered (like keyboard input, or mouse 
+      // movement events) and calls the corresponding functions (which we c
+      // we set via callback methods). We call eventprocessing functions
+      // at the start of a loop operation)
+      glfwPollEvents();
+    } 
 
-
-
-    /**************************************************************************/
-    /*!
-    \brief
-    */
-    /**************************************************************************/
-    void WindowGLFW::PollWindowEvent() {
-      // Swaps the color buffer (A large color buffer that contains
-      // color values for each pixel in GLFW's window) that has been used
-      // to draw in during this iteration and show it as output to the screen.
-      glfwSwapBuffers(_window);
-
-    }
 
   } // Systems
 } // DCEngine

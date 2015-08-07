@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="_entity_8cpp" kind="file" language="C++">
+    <compoundname>Entity.cpp</compoundname>
+    <includes refid="_entity_8h" local="yes">Entity.h</includes>
+    <incdepgraph>
+      <node id="68">
+        <label>cassert</label>
+      </node>
+      <node id="71">
+        <label>string</label>
+      </node>
+      <node id="67">
+        <label>Entity.h</label>
+        <link refid="_entity_8h_source"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>vector</label>
+      </node>
+      <node id="72">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.cpp</label>
+        <link refid="Entity.cpp"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>The x. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Christian Sagel </para></simplesect>
+<simplesect kind="par"><title>email: c.sagel@digipen.edu</title><para></para></simplesect>
+<simplesect kind="date"><para>7/30/2015 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************/</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">/******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Entity.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_d_c_engine_1_1_entity_1a15f844f0a3bfb278affd89400dc6f1f7" kindref="member">DCEngine::Entity::CheckMask</ref>(mask<sp/>m)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((_mask<sp/>&amp;<sp/>m)<sp/>==<sp/>m);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.cpp"/>
+  </compounddef>
+</doxygen>

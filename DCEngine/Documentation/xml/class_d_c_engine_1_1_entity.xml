@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="class_d_c_engine_1_1_entity" kind="class" language="C++" prot="public">
+    <compoundname>DCEngine::Entity</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_c_engine_1_1_entity_1a531ea60c9745ceceed994f21274e1443" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DCEngine::Entity::_name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="29" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_entity_1a897aa3ded8d8287b6dc6f6593817ee64" prot="private" static="no" mutable="no">
+        <type>mask</type>
+        <definition>mask DCEngine::Entity::_mask</definition>
+        <argsstring></argsstring>
+        <name>_mask</name>
+        <initializer>= static_cast&lt;int&gt;(BitfieldComponent::Alive)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="30" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_entity_1ab46187f1210bf357585b3fd2682b17e5" prot="private" static="no" mutable="no">
+        <type>EnumeratedComponent</type>
+        <definition>EnumeratedComponent DCEngine::Entity::_collider</definition>
+        <argsstring></argsstring>
+        <name>_collider</name>
+        <initializer>= EnumeratedComponent::None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="31" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_c_engine_1_1_entity_1a0dd90154d85469fe214a3bd19e67d95a" prot="private" static="no" mutable="no">
+        <type>ComponentPtr</type>
+        <definition>ComponentPtr DCEngine::Entity::_components[static_cast&lt; int &gt;(EnumeratedComponent::Capacity)]</definition>
+        <argsstring>[static_cast&lt; int &gt;(EnumeratedComponent::Capacity)]</argsstring>
+        <name>_components</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="32" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1a47a5178e7a622391d2a489389537de35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Entity::AddComponent</definition>
+        <argsstring>(std::shared_ptr&lt; Component &gt; component)</argsstring>
+        <name>AddComponent</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_d_c_engine_1_1_component" kindref="compound">Component</ref> &gt;</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1acb3561ee7fa96f33e54fca192fdee5d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DCEngine::Entity::RemoveComponent</definition>
+        <argsstring>(EnumeratedComponent ec)</argsstring>
+        <name>RemoveComponent</name>
+        <param>
+          <type>EnumeratedComponent</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1af7da2de0770f799411d808da65c994f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DCEngine::Entity::HasComponent</definition>
+        <argsstring>(EnumeratedComponent ec)</argsstring>
+        <name>HasComponent</name>
+        <param>
+          <type>EnumeratedComponent</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1a728d435cdf9d25f6c8a93c9f21714a19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>mask</type>
+        <definition>mask DCEngine::Entity::Mask</definition>
+        <argsstring>()</argsstring>
+        <name>Mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1a15f844f0a3bfb278affd89400dc6f1f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DCEngine::Entity::CheckMask</definition>
+        <argsstring>(mask m)</argsstring>
+        <name>CheckMask</name>
+        <param>
+          <type>mask</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the entity has all of a set of components by OR-ing together multiple MaskComponente values. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the component has every specified component. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="20" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1aa6d72c4fb8cc7832de393115bd8ae833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EnumeratedComponent</type>
+        <definition>EnumeratedComponent DCEngine::Entity::GetCollider</definition>
+        <argsstring>()</argsstring>
+        <name>GetCollider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_c_engine_1_1_entity_1ae4a0528d6fa668243c7b4fc20bed5bda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::shared_ptr&lt; T &gt;</type>
+        <definition>std::shared_ptr&lt;T&gt; DCEngine::Entity::GetComponent</definition>
+        <argsstring>(EnumeratedComponent ec)</argsstring>
+        <name>GetComponent</name>
+        <param>
+          <type>EnumeratedComponent</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="26" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" line="12" column="1" bodyfile="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Engine/Entity.h" bodystart="12" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_d_c_engine_1_1_entity_1ab46187f1210bf357585b3fd2682b17e5" prot="private" virt="non-virtual"><scope>DCEngine::Entity</scope><name>_collider</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a0dd90154d85469fe214a3bd19e67d95a" prot="private" virt="non-virtual"><scope>DCEngine::Entity</scope><name>_components</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a897aa3ded8d8287b6dc6f6593817ee64" prot="private" virt="non-virtual"><scope>DCEngine::Entity</scope><name>_mask</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a531ea60c9745ceceed994f21274e1443" prot="private" virt="non-virtual"><scope>DCEngine::Entity</scope><name>_name</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a47a5178e7a622391d2a489389537de35" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>AddComponent</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a15f844f0a3bfb278affd89400dc6f1f7" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>CheckMask</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1aa6d72c4fb8cc7832de393115bd8ae833" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>GetCollider</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1ae4a0528d6fa668243c7b4fc20bed5bda" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>GetComponent</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1af7da2de0770f799411d808da65c994f6" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>HasComponent</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1a728d435cdf9d25f6c8a93c9f21714a19" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>Mask</name></member>
+      <member refid="class_d_c_engine_1_1_entity_1acb3561ee7fa96f33e54fca192fdee5d0" prot="public" virt="non-virtual"><scope>DCEngine::Entity</scope><name>RemoveComponent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

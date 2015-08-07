@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.10">
+  <compounddef id="namespace_d_c_engine_1_1_systems" kind="namespace" language="C++">
+    <compoundname>DCEngine::Systems</compoundname>
+    <innerclass refid="class_d_c_engine_1_1_systems_1_1_graphics_g_l" prot="public">DCEngine::Systems::GraphicsGL</innerclass>
+    <innerclass refid="class_d_c_engine_1_1_systems_1_1_window_g_l_f_w" prot="public">DCEngine::Systems::WindowGLFW</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Google Drive/Digipen Institute of Technology/GAM 200/GAM200.git/DCEngine/Core/Systems/Graphics/GraphicsGL.cpp" line="16" column="1"/>
+  </compounddef>
+</doxygen>

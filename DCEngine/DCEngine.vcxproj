@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Google Drive\Digipen Institute of Technology\GAM 200\GAM200.git\DCEngine\Dependencies\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -155,16 +155,40 @@
   <ItemGroup>
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
+    <ClCompile Include="Core\Engine\Entity.cpp" />
+    <ClCompile Include="Core\Engine\Space.cpp" />
     <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GLTutorial.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
+    <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Components\ComponentsInclude.h" />
+    <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
+    <ClInclude Include="Core\Engine\Action.h" />
+    <ClInclude Include="Core\Engine\ActionList.h" />
+    <ClInclude Include="Core\Engine\Archetype.h" />
+    <ClInclude Include="Core\Engine\Component.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
+    <ClInclude Include="Core\Engine\Entity.h" />
+    <ClInclude Include="Core\Engine\Event.h" />
+    <ClInclude Include="Core\Engine\Level.h" />
+    <ClInclude Include="Core\Engine\Object.h" />
+    <ClInclude Include="Core\Engine\Resource.h" />
+    <ClInclude Include="Core\Engine\Space.h" />
+    <ClInclude Include="Core\Systems\Gamestate\Gamestate.h" />
+    <ClInclude Include="Core\Systems\Graphics\GLTutorial.h" />
+    <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
+    <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\WindowGLFW.h" />
+    <ClInclude Include="Gamestates\GamestatesInclude.h" />
+    <ClInclude Include="Gamestates\Sandbox\Sandbox.h" />
     <ClInclude Include="Libraries\Timer.h" />
   </ItemGroup>
   <ItemGroup>
