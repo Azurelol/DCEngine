@@ -13,5 +13,6 @@ The ECS engine I will be writing first, "Daisy Chain" will be directly based on 
 I am also documenting my day-to-day progress in a log of sorts:
 
 [Daisy Chain Development Progress Log](https://docs.google.com/spreadsheets/d/1owN00AVVGzIan5TGH_BJrXHaZ0YIHjNjQBijRDP-hFw/edit?usp=sharing)
+
 (If you know a better alternative for logging something like this, that's easy/fast to use let me know!)
 
