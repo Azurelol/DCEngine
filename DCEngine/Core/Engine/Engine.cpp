@@ -57,19 +57,14 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Initialize() {
-    std::cout << "-- Daisy Chain v1.lol -- " << std::endl << std::endl;
-    std::cout << "Engine::Initialize" << std::endl;
     
     // Initialize the trace object
     using namespace Debug;
-    traceObj.reset(new Trace("Log.txt"));      
+    traceObj.reset(new Trace("Log.txt"));  
     
-    trace << "lol2u \n";
+    trace << "Daisy Chain v1.lol \n \n";
+    trace << "Engine::Initialize \n";
 
-    *traceObj << "I am tracing! " << _defaultSpace << "\n";
-
-    *traceObj << "I am tracing too! \n";
-    
     // Autowolves, howl out!
     _active = true;
 

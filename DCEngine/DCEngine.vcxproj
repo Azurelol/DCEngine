@@ -159,8 +159,8 @@
     <ClCompile Include="Core\Engine\Space.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp" />
-    <ClCompile Include="Core\Systems\Graphics\GLTutorial.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTriangle.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
     <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp" />
@@ -181,8 +181,9 @@
     <ClInclude Include="Core\Engine\Resource.h" />
     <ClInclude Include="Core\Engine\Space.h" />
     <ClInclude Include="Core\Systems\Gamestate\Gamestate.h" />
-    <ClInclude Include="Core\Systems\Graphics\GLTutorial.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTriangle.h" />
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTutorial.h" />
     <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
@@ -193,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Systems\Graphics\Tutorials\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

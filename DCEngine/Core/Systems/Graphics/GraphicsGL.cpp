@@ -12,7 +12,10 @@
 
 #include "..\..\Debug\Debug.h"
 
-#include "GLTutorial.h" // Tutorial for learning
+#include "Tutorials\GLTriangle.h"
+
+
+// std::unique_ptr<Tutorial::GLTutorial> GLTUTORIAL;
 
 namespace DCEngine {
   namespace Systems {
@@ -35,7 +38,7 @@ namespace DCEngine {
       std::cout << "GraphicsGL::Initialize" << std::endl;
       
       // Tutorial Code
-      Tutorial::Initialize();
+      Tutorial::GLTriangle::Initialize();
     }
 
     /**************************************************************************/
@@ -46,7 +49,7 @@ namespace DCEngine {
     void GraphicsGL::Update(float dt) {
       std::cout << "GraphicsGL::Update" << std::endl;
       // Tutorial code
-      Tutorial::Update();
+      Tutorial::GLTriangle::Update();
     }
 
     /**************************************************************************/

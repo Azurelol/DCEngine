@@ -74,6 +74,12 @@
     <Filter Include="Core\Event">
       <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Graphics\Tutorials">
+      <UniqueIdentifier>{f2fcc741-bd2f-4392-a92f-8e4cdf63b119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Graphics\Tutorials\Triangle">
+      <UniqueIdentifier>{4a830ebb-3f89-451a-8ef8-f259cf678d34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -106,8 +112,8 @@
     <ClCompile Include="Core\Engine\Entity.cpp">
       <Filter>Core\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Graphics\GLTutorial.cpp">
-      <Filter>Core\Systems\Graphics</Filter>
+    <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTriangle.cpp">
+      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -180,13 +186,21 @@
     <ClInclude Include="Core\Engine\Event.h">
       <Filter>Core\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Graphics\GLTutorial.h">
-      <Filter>Core\Systems\Graphics</Filter>
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTutorial.h">
+      <Filter>Core\Systems\Graphics\Tutorials</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTriangle.h">
+      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
       <Filter>Documentation</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Systems\Graphics\Tutorials\VertexShader.glsl">
+      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+    </None>
   </ItemGroup>
 </Project>

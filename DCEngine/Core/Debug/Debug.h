@@ -19,7 +19,8 @@
 namespace Debug {
   
   class Trace {
-  public:
+  public:    
+
     Trace(std::string fileName);
     ~Trace();    
 
@@ -29,6 +30,40 @@ namespace Debug {
       _file << data;
       return *this;
     }
+    
+    //// Takes a custom stream and returns it
+    //typedef Trace& (*TraceManip)(Trace&);
+    //// Takes in a function with the custom signature
+    //Trace& operator<<(TraceManip manip) {
+    //  // Call the function and return its value
+    //  return manip(*this);
+    //}
+
+    //static Trace& endl(Trace& stream) {
+    //  std::cout << std::endl;
+    //  //_file << std::endl;
+    //  return stream;
+    //}
+
+    //using CoutType = std::basic_ostream<char, std::char_traits<char>>;
+    //typedef CoutType& (*StandardEndline)(CoutType&);
+
+    //// Operator to take in std::endl
+    //Trace& operator<<(StandardEndline manip) {
+    //  manip(std::cout);
+    //  return *this;
+    //}
+
+    ////Trace& operator<<(std::ostream& (*manip)(std::ostream&)) { 
+    ////  std::cout << std::endl; 
+    ////  _file << std::endl;
+    ////  return *this;
+    ////}
+
+    ////Trace& operator<<(std::ostream& (*manip)(std::ostream&)) {
+    ////  if 
+    ////}
+
 
   private:
     std::ofstream _file;
