@@ -96,7 +96,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowGLFW::Update(float dt) {
-      std::cout << "WindowGLFW::Update" << std::endl;
+      trace << "WindowGLFW::Update \n";
       ViewportUpdate();
       PollEvents();
     }
@@ -119,7 +119,7 @@ namespace DCEngine {
     void WindowGLFW::StartFrame() {
       glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // State-setting function
       glClear(GL_COLOR_BUFFER_BIT);         // State-using function
-      std::cout << "WindowGLFW::StartFrame" << std::endl;
+      trace << "WindowGLFW::StartFrame \n";
     }
 
     /**************************************************************************/
@@ -132,7 +132,7 @@ namespace DCEngine {
       // color values for each pixel in GLFW's window) that has been used
       // to draw in during this iteration and show it as output to the screen.
       glfwSwapBuffers(_window);
-      std::cout << "WindowGLFW::EndFrame" << std::endl;
+      trace << "WindowGLFW::EndFrame \n";
     }
 
     /**************************************************************************/

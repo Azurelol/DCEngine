@@ -1,5 +1,8 @@
 #include "GLTriangle.h"
 
+#define WIREFRAME 1
+#define DRAW_RECTANGLE 0 // When set to 0, will draw a triangle instead
+
 namespace Tutorial {
 
   /**************************************************************************/
@@ -9,7 +12,7 @@ namespace Tutorial {
   /*    Initialize()
   /**********************/
   void GLTriangle::Initialize() {
-    trace << "GLTriangle::Initialize \n";
+    trace << "GLTriangle::Initialize \n";    
 
     //////////////////
     // 1.1 VERTEX INPUT
@@ -18,50 +21,74 @@ namespace Tutorial {
     /* 1. To start drawing something we first have to give OpenGL some input vertex
        data. Because we want to render a single triangle, we want to specify a total
        of 3 vertices with each vertex having a 3D position. We define them
-       in a normalized device coorddinates (the visible region of OpenGL) in a
+       in a normalized device coordinates (the visible region of OpenGL) in a
        GLFloat array. */
-    
 
-    GLfloat vertices[]{
-      -0.5f, -0.5f, 0.0f, // Because OpenGL works in 3D space, we render a 2D triangle
-      0.5f,  -0.5f, 0.0f, // with each vertex having a z coordinate of 0.0
-      0.0f,  0.5f,  0.0f  // This way the depth of the triangle remains the same.
-    };
-    
     /* (!) Normalized Device Coordinates (NDC)
        Once vertex coordinates have been processed in the vertex shader, they should
        be in NDC coordinates which is a small space where the x,y,z values range from
        -1.0 to 1.0. Any coordinates outside this range will be discarded/clipped and
        won't be visible on screen.
-       
+
        Unlike usual screen coordinates, the positive y-axis points in the up-direction,
        and the (0, 0) coordinates are at the center of the graph. Eventually you want
        all transformed coordinates to end up in this coordinate space, otherwise
        they won't be visible.
-       
+
        NDC coordinates will be transformed to screen-space coordinates via the
        viewport transofmr using the data provided with glViewport. The resulting
        screen space coordinates are then transformed to fragments as inputs to
        the fragment shader. */
-
+    #if(!DRAW_RECTANGLE)
+    GLfloat vertices[]{
+      -0.5f, -0.5f, 0.0f, // Because OpenGL works in 3D space, we render a 2D triangle
+      0.5f,  -0.5f, 0.0f, // with each vertex having a z coordinate of 0.0
+      0.0f,  0.5f,  0.0f  // This way the depth of the triangle remains the same.
+    };
 
     /* 2. With the vertex data defined, we'd like to send it as input to the first
-       process of the graphics pipeline: the vertex shader. This is done by:
-       - Creating memory on the GPU where we store the vertex data
-       - Configure how OpenGL should interpret the memory
-       - Specify how to send the data to the graphics card
-       The vertex shader then processes as much vertices as well it to from its memory. */
+    process of the graphics pipeline: the vertex shader. This is done by:
+    - Creating memory on the GPU where we store the vertex data
+    - Configure how OpenGL should interpret the memory
+    - Specify how to send the data to the graphics card
+    The vertex shader then processes as much vertices as well it to from its memory. */
+    #endif 
 
     /* Vertex Buffer Objects (VBO), An OpenGL object which has an unique ID corrresponding
-       to the buffer. It stores a large number of vertices in the GPU's memory. The
-       advantage of using these buffer objects is that a large batch of data can be sent 
-       all at once to the graphics card. */
+    to the buffer. It stores a large number of vertices in the GPU's memory. The
+    advantage of using these buffer objects is that a large batch of data can be sent
+    all at once to the graphics card. */
     //GLuint VBO;
     glGenBuffers(1, &VBO); // Generates the buffer ID
+
+    /* Element Buffer Objects (EBO). An EBO is a buffer, just like A VBO, that stores
+       indices that OpenGL uses to decide what vertices to draw. This is called 'indexed
+       drawing' and allows us to store only the unique vertices of a shape then specify
+       the order at which we want to draw these vertices in. */
+
+    // First, we have to specify the unique (vertices),
+    #if(DRAW_RECTANGLE)
+    GLfloat vertices[]{ 
+      0.5f,  0.5f, 0.0f, // Top Right
+      0.5f, -0.5f, 0.0f, // Bottom Right
+      -0.5f, -0.5f, 0.0f, // Bottom Left
+      -0.5f,  0.5f, 0.0f  // Top Left
+    };
+    
+
+    // and the indices to draw them as a rectangle.
+    GLuint indices[]{ // (!) Note that we start from element [0] in the verticesEBO array
+      0, 1, 3, // First Triangle
+      1, 2, 3  // Second Triangle
+    };
+
+    glGenBuffers(1, &EBO);
+    #endif
 
     /* (!) OpenGL has many types of buffer objects and the buffer type of a vertex buffer
        object is GL_ARRAY_BUFFER. OpenGL allows us to bind several buffers at once as
        long as they have a different buffer type. */
+    #if(!DRAW_RECTANGLE)
     glBindBuffer(GL_ARRAY_BUFFER, VBO); // We bind the newly created buffer to the GL_
                                         // ARRAY_BUFFER target with glBindBUffer function.
 
@@ -79,10 +106,15 @@ namespace Tutorial {
        data. This can take 3 forms:
        - GL_STATIC_DRAW: The data will most likely not change at all.
        - GL_DYNAMIC_DRAW: The data is likely to change a lot.
-       - GL_STREAM_DRAW: The data will change everytime it is drawn.
-       
-    */
+       - GL_STREAM_DRAW: The data will change everytime it is drawn. */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    #endif
+    
+    #if(DRAW_RECTANGLE)
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO); 
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    #endif
+
 
     /* (?) Since the position data of the triangle won't be changing and will stay
        the same for every render call, its usage type should be GL_STATIC_DRAW.
@@ -100,9 +132,8 @@ namespace Tutorial {
     /* We now want to create a vertex and fragment shader that process this data. 
        The vertex shader is one of the shaders programmable by us. Modern OpenGL requires
        that we at least set up a vertex and fragment shader if we want to do some rendering. 
-    */
-
-    /* The first thing needed is to write the vertex shader in the shader language GLSL, then
+      
+       The first thing needed is to write the vertex shader in the shader language GLSL, then
        compile the shader so it can be used in the application. */
 
     //////////////////////////////////////////////////////////////////////////
@@ -316,27 +347,49 @@ namespace Tutorial {
        As soon as we want to draw an object, we simply bind the VAO with the preferred settings
        before drawing the object. */
 
-    /*(!) Initialization code for the object we want to draw */
+    /* 
+      (!) Initialization code for the object we want to draw 
+    */
     
-    // 1. Bind the Vertex Array Object
+    // 1. Bind the Vertex Array Object    
     glBindVertexArray(VAO);
+
     // 2. Copy the vertices array in a buffer for OpenGL to use
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    // 3. Set our vertex attribute pointers
+    
+    #if(DRAW_RECTANGLE)
+    // 3.1 Copy our index array in an element buffer for OpenGL to use
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    #endif
+    
+    // 3.2 Then set the vertex attribute pointers
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
+
     // 4. Unbind the VAO
     glBindVertexArray(0);
 
     /* (!) It is common practice to unbind OpenGL objects when we're done configuring them,
-       as to not mistakenly misconfigure them elsewhere. */
-
-    /* Usually when you have multiple objects that you want to draw, you first generate/configure
+       as to not mistakenly misconfigure them elsewhere. 
+       
+       Usually when you have multiple objects that you want to draw, you first generate/configure
        all the VAOs (and thus, the requried VBO and attrib pointers) and store them for later use. 
        
        The moment you want to draw one of our objects, we take the corresponding VAO, bind it,
        draw the object, then unbind the VAO again. */   
+
+    #if (WIREFRAME)
+    /* You can configure how OpenGL draws its primitives via 'glPolygonMode'. 
+       The first argument says we want to apply it to front and back all of triangles,
+       and the secondline tells us to draw them as lines. Any subsequent drawing calls
+       will render the triangles in wireframe mode until we set it back to its default. */
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    
+    // To set back to default:
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    #endif
   }
 
   /************************/
@@ -347,17 +400,41 @@ namespace Tutorial {
     /*(!) Drawing code for the object */
     glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
-    /* OpenGL function that draws the object:
-      + The first argument is the OpenGL primitive type we want to draw. 
-      + The second argument specifies the starting index of the vertex array, left at 0.
-      + The third argument specifies how many vertices to draw.
-        (?) Since we are only rendering 1 triangle from our data, it is exactly 3 vertices long. */   
-    //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-    glBindVertexArray(0); 
-    trace << "GLTriangle::Update - Drawing triangle \n";
-    
 
+    #if(!DRAW_RECTANGLE)
+    /* OpenGL function that draws the object:
+    + The first argument is the OpenGL primitive type we want to draw.
+    + The second argument specifies the starting index of the vertex array, left at 0.
+    + The third argument specifies how many vertices to draw.
+    (?) Since we are only rendering 1 triangle from our data, it is exactly 3 vertices long. */
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    #endif
+
+    #if(DRAW_RECTANGLE)
+    /* OpenGL function that draws the object:
+    + The first argument specifies the mode we want to draw in.
+    + The second argument is the count or number elements we want to draw.
+    (?) We specified 6 indices so we want to draw 6 vertices in total.
+    + The third argument is the type of indices, which is of type GL_UNSIGNED_INT.
+    + The last argument allows us to specify an offset in the EBO (or pass in an index array),
+    but that is when you're not using element buffer objects.
+
+    The 'glDrawElements' function takes its indices from the EBO currently bound
+    to the GL_ELEMENT_ARRAY_BUFFER. We have to bind the corresponding EBO each time
+    we render an object with indices. A VAO also keeps track of element buffer object
+    bindings. The EBO currently bound while a VAO is bound, is stored as the VAO's
+    EBO.
+
+    Thus, binding to a VAO also automatically binds its EBO.
+
+    A VAO stores its glBindBuffer calls when the target is GL_ELEMENT_ARRAY_BUFFER.
+    This means it stores its unbind calls, so make sure you don't unbind the EBO
+    before unbinding your VAO. Otherwise it won't have an EBO configured. */
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    #endif    
+
+    glBindVertexArray(0);
+    trace << "GLTriangle::Update - Drawing triangle \n";
   }
 
 }

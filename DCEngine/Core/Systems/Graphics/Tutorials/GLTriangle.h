@@ -21,11 +21,11 @@ namespace Tutorial {
   public:
     void Initialize();
     void Update();
-
+    
   private:
-    //GLfloat* vertices;
+
     GLuint vertexShader, fragmentShader;
-    GLuint VBO, VAO;
+    GLuint VBO, VAO, EBO;
     GLuint shaderProgram;
 
   };

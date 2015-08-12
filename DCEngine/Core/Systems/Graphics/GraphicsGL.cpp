@@ -36,6 +36,7 @@ namespace DCEngine {
     void GraphicsGL::Initialize() {
       trace << "GraphicsGL::Initialize \n";
       
+      // Tutorial code
       GLTutorial.reset(new Tutorial::GLTriangle());
       GLTutorial->Initialize();
     }

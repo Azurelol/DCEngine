@@ -134,8 +134,7 @@ namespace DCEngine {
     // Tell window management system to begin new frame
     GETSYSTEM(WindowGLFW)->StartFrame();
     
-    // Tell window management system to end the frame
-    GETSYSTEM(WindowGLFW)->EndFrame();
+
 
     // Update all the systems in the space
     for (auto space : _spaces) {
@@ -144,6 +143,9 @@ namespace DCEngine {
 
     std::cout << "Engine::Update - All systems updated." << std::endl;
     std::cout << std::endl;
+
+    // Tell window management system to end the frame
+    GETSYSTEM(WindowGLFW)->EndFrame();
   }
   
   /**************************************************************************/

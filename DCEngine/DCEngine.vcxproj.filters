@@ -80,6 +80,9 @@
     <Filter Include="Core\Systems\Graphics\Tutorials\Triangle">
       <UniqueIdentifier>{4a830ebb-3f89-451a-8ef8-f259cf678d34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Graphics\Tutorials\Shaders">
+      <UniqueIdentifier>{167c9227-143f-4e77-ba69-2601d78d6d98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">

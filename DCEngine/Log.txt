@@ -8,141 +8,302 @@ GLTriangle::Initialize
 GLTutorial::AssertShaderCompilation - Vertex shader compiled! 
 GLTutorial::AssertShaderCompilation - Fragment shader compiled! 
 GLTutorial::AssertShaderCompilation - Shader Program linked! 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
-GLTriangle::Update - Drawing triangle 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriangle::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLTriang
