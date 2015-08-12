@@ -47,8 +47,7 @@ namespace DCEngine {
     void WindowGLFW::Initialize() {
       
       glfwInit();
-      trace << "Yahello \n";
-      std::cout << "WindowGLFW::Initialize" << std::endl;
+      trace << "WindowGLFW::Initialize \n";
 
       // Tells GLFW which OpenGL version we want to use
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

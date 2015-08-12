@@ -1,18 +1,23 @@
 #pragma once
 
 #include <string>
-#include <fstream>
+#include <fstream> // ifstream
 #include <iostream> // cout
 
 #define GLEW_STATIC
 #include "..\..\..\..\Dependencies\include\GLEW\glew.h"
+#include "..\..\..\Debug\Debug.h"
+
 
 namespace Tutorial {
 
   class GLTutorial {
 
   public:
-    //GLTutorial() {};
+    GLTutorial() {
+      trace << "GLTutorial::GLTutorial() - An OpenGL tutorial is now being used! \n";
+    }
+
     virtual void Initialize() = 0;
     virtual void Update() = 0;
 
@@ -32,7 +37,7 @@ namespace Tutorial {
       
       // We have to get the location of the folder, then append the filename
       std::string shaderFileName(fileName);
-      std::string shaderLocation("/Core/Systems/Graphics/Tutorials/");
+      std::string shaderLocation("Core/Systems/Graphics/Tutorials/");
       shaderLocation += shaderFileName;
       // Load the file
       std::ifstream shaderFile(shaderLocation.c_str(), std::ios::in);
@@ -48,7 +53,7 @@ namespace Tutorial {
       }
       // FAILURE
       else {
-        std::cout << "Failed to load the shader file: " << fileName << std::endl;
+        trace << "Failed to load the shader file: " << fileName << "\n";
         exit(1);
         //return "";
       }
@@ -62,22 +67,47 @@ namespace Tutorial {
     \return A string.
     */
     /**************************************************************************/
-    static void AssertShaderCompilation(GLuint shader) {
-      // Define an integer to indicate success
-      GLint success;
-      // Container for the error messages (if any)
-      GLchar infoLog[512];
+    static void AssertShaderCompilation(GLuint shader, std::string shaderName) {
+      GLint success;       // Define an integer to indicate success
+      GLchar infoLog[512]; // Container for the error messages (if any)
+
       // Check if compilation was successful.
       glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
-      if (!success) {
+      if (success) {
+        trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " compiled! \n";
+      } 
+      else {
         glGetShaderInfoLog(shader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED \n"
-          << infoLog << std::endl;
+        trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
+          << infoLog << "\n";
       }
-
-
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Checks if the shader program linked successfully.
+    \para   The shader.
+    \return A string.
+    */
+    /**************************************************************************/
+    static void AssertShaderProgramLinking(GLuint shaderProgram, std::string programName) {
+      GLint success;       // Define an integer to indicate success
+      GLchar infoLog[512]; // Container for the error messages (if any)
+
+      // Check if compilation was successful.
+      glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+
+      if (success) {
+        trace << "GLTutorial::AssertShaderCompilation - " << programName << " linked! \n";
+      } 
+      else {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        trace << "GLTutorial::AssertShaderCompilation - " << programName << " failed to link! \n"
+          << infoLog << "\n";
+      }
+    }
+
 
   private:
 

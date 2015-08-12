@@ -5,11 +5,7 @@
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
 \brief
-The x
 
-Functions include:
-- Name
-Description here.
 
 */
 /******************************************************************************/

@@ -9,6 +9,7 @@ namespace Tutorial {
   /*    Initialize()
   /**********************/
   void GLTriangle::Initialize() {
+    trace << "GLTriangle::Initialize \n";
 
     //////////////////
     // 1.1 VERTEX INPUT
@@ -19,12 +20,14 @@ namespace Tutorial {
        of 3 vertices with each vertex having a 3D position. We define them
        in a normalized device coorddinates (the visible region of OpenGL) in a
        GLFloat array. */
+    
+
     GLfloat vertices[]{
       -0.5f, -0.5f, 0.0f, // Because OpenGL works in 3D space, we render a 2D triangle
       0.5f,  -0.5f, 0.0f, // with each vertex having a z coordinate of 0.0
       0.0f,  0.5f,  0.0f  // This way the depth of the triangle remains the same.
     };
-
+    
     /* (!) Normalized Device Coordinates (NDC)
        Once vertex coordinates have been processed in the vertex shader, they should
        be in NDC coordinates which is a small space where the x,y,z values range from
@@ -53,7 +56,7 @@ namespace Tutorial {
        to the buffer. It stores a large number of vertices in the GPU's memory. The
        advantage of using these buffer objects is that a large batch of data can be sent 
        all at once to the graphics card. */
-    GLuint VBO;
+    //GLuint VBO;
     glGenBuffers(1, &VBO); // Generates the buffer ID
 
     /* (!) OpenGL has many types of buffer objects and the buffer type of a vertex buffer
@@ -104,6 +107,8 @@ namespace Tutorial {
 
     //////////////////////////////////////////////////////////////////////////
     // The vertex shader has been written in the file "VertexShader.glsl"
+    std::string vertexSource = GetGLSLCode("VertexShader.glsl");
+    const GLchar* vertexShaderSource = (GLchar*)vertexSource.c_str();
 
     /* This vertex shader is currently the most simple vertex shader we can imagine
        as it did no processing on input data and simply forwarded it to the shader's output.
@@ -114,17 +119,14 @@ namespace Tutorial {
     //////////////////////////////////
     // 1.3 COMPILING THE VERTEX SHADER
     //////////////////////////////////
-
-    std::string vertexSource = GetGLSLCode("VertexShader.glsl");      
-    const GLchar* vertexShaderSource = (GLchar*)vertexSource.c_str();
-
+    
     /* We wrote the source code for the vertex shader, but in order for OpenGL to use
        the shader it has to dynamically compile it at run-time from its source code. 
        The first thing we need to do is create a shader object, again referenced by an ID.
     */
 
     // We store the vertex shader in a GLuint
-    GLuint vertexShader;
+    //GLuint vertexShader;
     // Create the shader, providing the type of shader we want to create as an argument
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     /* The 'glShaderSource' function will attach the shader source code. It takes: 
@@ -138,7 +140,7 @@ namespace Tutorial {
     glCompileShader(vertexShader);
     
     // Check if the shader was compiled successfully
-    AssertShaderCompilation(vertexShader);
+    AssertShaderCompilation(vertexShader, "Vertex shader");
 
     ////////////////////////////////
     // 2.1 CREATING FRAGMENT SHADER
@@ -155,28 +157,206 @@ namespace Tutorial {
 
     //////////////////////////////////////////////////////////////////////////
     // The fragment shader has been written in the file "FragmentShader.glsl"
+    std::string fragmentSource = GetGLSLCode("FragmentShader.glsl");
+    const GLchar* fragmentShaderSource = (GLchar*)fragmentSource.c_str();
 
     ///////////////////////////////////
-    // 2.1 COMPILING THE FRAGMENT SHADER
+    // 2.2 COMPILING THE FRAGMENT SHADER
     ///////////////////////////////////
 
     /* The process for compiling a fragment shader is similar to that of a vertex 
        shader. */
-    GLuint fragmentShader;
+    //GLuint fragmentShader;
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
+    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
     
+    // Check if the shader was compiled successfully
+    AssertShaderCompilation(fragmentShader, "Fragment shader");
+  
+    ///////////////////////////////////
+    // 3.1 SHADER PROGRAM
+    ///////////////////////////////////
+
+    /* A shader program is the final linked version of multiple shaders combined. To use
+       recently compiled shaders we have to link them to a shader program object, then
+       activate this shader program when rendering objects. The activated shader program's 
+       shaders will be the ones used when we issue render calls. 
+       
+       When linking shaders into a program it links the outputs of each shader to the
+       inputs of the next shader. (This is why you get linking errors if outputs and
+       inputs do not match.)
+       
+    */
+
+    // The 'glCreateProgram' function creates a program and returns the ID reference
+    // to the newly created program object.
+    //GLuint shaderProgram;
+    shaderProgram = glCreateProgram();
+
+    // Attaches the previously compiled shaders to the program object
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    // Links them
+    glLinkProgram(shaderProgram);
+    // Check if the shader program linked successfully
+    AssertShaderProgramLinking(shaderProgram, "Shader Program");
     
-    //glShaderSource()
-   
+    // We now have a program object that we can activate 
+    //glUseProgram(shaderProgram);
 
+    /* (!) Every shader and rendering call after glUseProgram will now use
+        this program object (and thus the shaders). */
+    
+     // Now that we have linked the shader objects with the program object, 
+     // we no longer need them. Delete them!
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
 
+    /* We have sent the input vertex data to the GPU and instructed how it 
+       should process the vertex data within a vertex and fragment shader. 
+       
+       We still have to tell OpenGL how it should it interpret the vertex data 
+       in memory and how it should connect the vertex data to the vertex shader's 
+       attributes. */
+
+    ///////////////////////////////////
+    // 4.1 LINKING VERTEX ATTRIBUTES
+    ///////////////////////////////////
+
+    /* The vertex shader allows us to specify any input we want in the form of vertex
+       attributes. While this allows for great flexibility, it means we have to manually
+       specify what part of our input data goes to which vertex attribute in the vertex
+       shader. 
+       
+       We have to specify how OpenGL should interpret the vertex data before rendering. 
+       
+       Vertex buffer data is formatted as follows:
+
+       [  VERTEX 1 ][  VERTEX 2 ][  VERTEX 3 ]
+       [ X | Y | Z ][ X | Y | Z ][ X | Y | Z ]
+       BYTE:     0   4   8   12   16  20  24   28  32  36
+       POSITION: --STRIDE:12->
+       -OFFSET: 0
+
+       + The position data is stored as 32-bit (4 byte) floating point values.
+       + Each position is compsoed of 3 of those values.
+       + There is no space (or other values) between each set of 3 values. They are
+         tightly packed in the array.
+       + The first value in the data is the beginning of the buffer.
+       
+    */
+
+    /* We can tell OpenGL how it should interpret the vertex data (per vertex attribute)
+       using 'glVertexAttribPointer':
+
+       + The first argument specifies which vertex attribute we want to configure. 
+         (?) Remember that we specified the location of the 'position' vertex attribute
+         in the vertex shader with 'layout (location = 0)'. 
+       + The second argument specifies the size of the vertex attribute. 
+         (?) The vertex attribute is a vec3 so it's composed of 3 values.
+       + The third argument specifies the type of the data which is GL_FLOAT.
+         (?) A vec* in GLSL consists of floating point values.
+       + The fourth argument specifies if we want the data to be normalized. When set to
+         true all data that doesn't have a value between 0 (or -1 for signed) and 1 will be
+         mapped to those values.
+         (?) We leave this at false.
+       + The fifth argument is known as the stride and tells us the space between consecutive
+         vertex attribute sets. Since the next set of position data is located exactly 3
+         times the size of a GLfloat away, we use that value as the stride.
+         We could have specified the the stride as 0 to let OpenGL determine the stride.
+         (Only works when the values are tightly packed.)
+       + The six and last argument is of type GLvoid* and requires a weirdd cast. This is the
+         offset where the position data begins in the buffer. 
+         (?) Since the position data is at the start of the data array the value is just 0. */
+
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    
+    // Enables the vertex attribute, giving the vertex attribute location as its argument.
+    // Vertex attributes are disabledby default.
+    // glEnableVertexAttribArray(0);
+
+    /* (!) Each vertex attribute takes its data from memory managed by a VBO, and which VBO
+       takes it data from (one could have multiple VBOs) is determined by the VBO currently
+       bound to GL_ARRAY_BUFFER when calling 'glVertexAttribPointer'.
+       Since the previously defined VBO was bound before calling 'glVertexAttribPointer',
+       vertex attribute '0' is now associated with its vertex data. */
+
+    /* We have everything set up: We have initialized the vertex data in a buffer using a
+       VBO, set up a vertex and fragment shader and told OpenGL how to link the vertex data to
+       to the vertex shader's attributes. We now have to draw the object. */
+
+       ////////////////////////////
+       // 5.1 VERTEX ARRAY OBJECT
+       ////////////////////////////
+
+    /* A vertex array object (VAO) can be bound just like a vertex buffer object and any
+       subsequent vertex attribute calls from that point on will be stored inside the VAO. 
+       This has the advantage that when configuring vertex attribute pointers you only have to
+       make those calls once and whenever we want to draw the object, we can just bind the
+       corresponding VAO.
+       This makes switching between different vertex data and attribute configurations as easy
+       as binding a different AO. All the state we just set is stored inside the VAO.
+       Core OpenGL requires that we use a VAO so that it knows what to do with our vertex
+       inputs. If we fail to bind a VAO, OpenGL will refuse to draw. 
+       
+       A vertex array object stores:
+       + Calls to 'glEnableVertexAttribArray' or 'glDisableVertexAttribArray'
+       + Vertex attribute configurations via 'glVertexAttribPointer'
+       + Vertex buffer objects associated with vertex atrtibutes by calls to 'glVertexAttribPointer'
+    */
+
+    // THe process to generate a VAO looks similar to that of a VBO
+    //GLuint VAO;
+    glGenVertexArrays(1, &VAO);
+
+    /* To use a VAO all you have to do is bind the VAO using 'glBindVertexArray'. From then on,
+       we bind/configure the corresponding VBO(s) and attribute pointer(s), then unbind the VAO
+       for later use. 
+       As soon as we want to draw an object, we simply bind the VAO with the preferred settings
+       before drawing the object. */
+
+    /*(!) Initialization code for the object we want to draw */
+    
+    // 1. Bind the Vertex Array Object
+    glBindVertexArray(VAO);
+    // 2. Copy the vertices array in a buffer for OpenGL to use
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // 3. Set our vertex attribute pointers
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    // 4. Unbind the VAO
+    glBindVertexArray(0);
+
+    /* (!) It is common practice to unbind OpenGL objects when we're done configuring them,
+       as to not mistakenly misconfigure them elsewhere. */
+
+    /* Usually when you have multiple objects that you want to draw, you first generate/configure
+       all the VAOs (and thus, the requried VBO and attrib pointers) and store them for later use. 
+       
+       The moment you want to draw one of our objects, we take the corresponding VAO, bind it,
+       draw the object, then unbind the VAO again. */   
   }
 
   /************************/
   /*    Update()
   /************************/
   void GLTriangle::Update() {
+
+    /*(!) Drawing code for the object */
+    glUseProgram(shaderProgram);
+    glBindVertexArray(VAO);
+    /* OpenGL function that draws the object:
+      + The first argument is the OpenGL primitive type we want to draw. 
+      + The second argument specifies the starting index of the vertex array, left at 0.
+      + The third argument specifies how many vertices to draw.
+        (?) Since we are only rendering 1 triangle from our data, it is exactly 3 vertices long. */   
+    //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glBindVertexArray(0); 
+    trace << "GLTriangle::Update - Drawing triangle \n";
+    
 
   }
 

@@ -12,10 +12,9 @@
 
 #include "..\..\Debug\Debug.h"
 
+// OpenGL tutorial. Change the header to execute a different tutorial.
 #include "Tutorials\GLTriangle.h"
-
-
-// std::unique_ptr<Tutorial::GLTutorial> GLTUTORIAL;
+std::unique_ptr<Tutorial::GLTutorial> GLTutorial;
 
 namespace DCEngine {
   namespace Systems {
@@ -35,10 +34,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Initialize() {
-      std::cout << "GraphicsGL::Initialize" << std::endl;
+      trace << "GraphicsGL::Initialize \n";
       
-      // Tutorial Code
-      Tutorial::GLTriangle::Initialize();
+      GLTutorial.reset(new Tutorial::GLTriangle());
+      GLTutorial->Initialize();
     }
 
     /**************************************************************************/
@@ -48,8 +47,9 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::Update(float dt) {
       std::cout << "GraphicsGL::Update" << std::endl;
+      
       // Tutorial code
-      Tutorial::GLTriangle::Update();
+      GLTutorial->Update();
     }
 
     /**************************************************************************/

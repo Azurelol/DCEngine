@@ -202,5 +202,8 @@
     <None Include="Core\Systems\Graphics\Tutorials\VertexShader.glsl">
       <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
     </None>
+    <None Include="Core\Systems\Graphics\Tutorials\FragmentShader.glsl">
+      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+    </None>
   </ItemGroup>
 </Project>

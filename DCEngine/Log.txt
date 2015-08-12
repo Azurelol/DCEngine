@@ -1,0 +1,107 @@
+Daisy Chain v1.lol 
+ 
+Engine::Initialize 
+WindowGLFW::Initialize 
+GraphicsGL::Initialize 
+GLTutorial::GLTutorial() - An OpenGL tutorial is now being used! 
+GLTriangle::Initialize 
+GLTutorial::AssertShaderCompilation - Vertex shader compiled! 
+GLTutorial::AssertShaderCompilation - Fragment shader compiled! 
+GLTutorial::AssertShaderCompilation - Shader Program linked! 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
+GLTriangle::Update - Drawing triangle 
