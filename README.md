@@ -8,7 +8,7 @@ This repository is for my DigiPen GAM 200 team, "Moonward":
 
 It will contain my notes, research into writing an ECS engine as well as a project in Unity to prototype gameplay for the game we will be making.
 
-The ECS engine I will be writing first, "Daisy Chain" will be directly based on reverse-engineering Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine) (Ok, I know it's not really reverse engineering if the code is fully exposed. I just wanna sound cool!!!)
+The ECS engine I will be writing first, "Daisy Chain" will be directly based on reverse-engineering Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as implementing graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
 
 I am also documenting my day-to-day progress in a log of sorts:
 
