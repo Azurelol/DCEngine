@@ -55,14 +55,9 @@ namespace DCEngine {
       // Close the files
       vertexShaderFile.close();
       fragmentShaderFile.close();
-      // Convert the streams into GLChar arrays
-      std::string vertexCode;
-      std::string fragmentCode;   
+      // Store the shader code within the object   
       vertexCode = vertexShaderStream.str();
-      fragmentCode = fragmentShaderStream.str();
-      // Store the shader code within the object           
-      vShaderCode = vertexCode.c_str();
-      fShaderCode = fragmentCode.c_str();      
+      fragmentCode = fragmentShaderStream.str();    
     }
     catch (std::ifstream::failure e) {
       trace << "GLShader::LoadShaders failed! \n";
@@ -79,14 +74,17 @@ namespace DCEngine {
   /**************************************************************************/
   void GLShader::Compile() {
     trace << "GLShader::Compile \n";
-    GLuint vertex, fragment;
+    GLuint vertex, fragment;   
+    
     // Vertex Shader
     vertex = glCreateShader(GL_VERTEX_SHADER);
+    const GLchar* vShaderCode = vertexCode.c_str();
     glShaderSource(vertex, 1, &vShaderCode, NULL);
     glCompileShader(vertex);
     AssertShaderCompilation(vertex, "Vertex Shader");
     // Fragment Shader
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    const GLchar* fShaderCode = fragmentCode.c_str();
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
     AssertShaderCompilation(fragment, "Fragment Shader");

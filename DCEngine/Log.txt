@@ -1,0 +1,484 @@
+Daisy Chain v1.lol 
+ 
+Engine::Initialize 
+WindowGLFW::Initialize 
+GraphicsGL::Initialize 
+GLTutorial::GLTutorial() - An OpenGL tutorial is now being used! 
+GLShaderTutorial::Initialize 
+GLShader::GLShader() 
+GLShader::Load 
+Opening files 
+GLShader::Compile 
+GLTutorial::AssertShaderCompilation - Vertex Shader compiled! 
+GLTutorial::AssertShaderCompilation - Fragment Shader compiled! 
+GLTutorial::AssertShaderCompilation - Shader program linked! 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFrame 
+WindowGLFW::Update 
+WindowGLFW::StartFrame 
+GLShader::Use 
+GLShaderTutorial::Update - Drawing triangle 
+WindowGLFW::EndFra

@@ -34,6 +34,7 @@ namespace DCEngine {
     void Use();
 
     GLuint Get() {
+      
       return _shaderProgram;
     }
 
@@ -42,8 +43,10 @@ namespace DCEngine {
     void AssertShaderCompilation(GLuint shader, std::string shaderName);
     void AssertShaderProgramLinking(GLuint shaderProgram);
     
-    const GLchar* vShaderCode; //!< The raw vertex shader code in GLSL
-    const GLchar* fShaderCode; //!< The raw fragment shader  code in GLSL
+    std::string vertexCode;  //!< The raw vertex shader code in GLSL
+    std::string fragmentCode;
+
+
         
     GLuint _shaderProgram; //!< The shader program, tracked by its id
 

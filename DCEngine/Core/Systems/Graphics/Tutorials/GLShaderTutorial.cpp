@@ -2,6 +2,7 @@
 
 
 #define USE_SHADER_CLASS 1
+#define UNIFORM_OFFSET 1
 
 namespace Tutorial {
 
@@ -130,8 +131,12 @@ namespace Tutorial {
     GLint vertexColorLocation = glGetUniformLocation(shader->Get(), "ourColor");
     #endif
 
-
+    #if(UNIFORM_OFFSET)
+    GLfloat offset = -0.5f;
+    glUniform1f(glGetUniformLocation(shader->Get(), "xOffset"), offset);
+    #endif
     
+
     // Finding an uniform location does not require you to use the shader program,
     // however updating the uniform does.
     glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);

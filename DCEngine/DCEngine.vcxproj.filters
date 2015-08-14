@@ -59,15 +59,6 @@
     <Filter Include="Core\Event">
       <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Graphics\Tutorials">
-      <UniqueIdentifier>{f2fcc741-bd2f-4392-a92f-8e4cdf63b119}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Graphics\Tutorials\Triangle">
-      <UniqueIdentifier>{4a830ebb-3f89-451a-8ef8-f259cf678d34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Graphics\Tutorials\Shaders">
-      <UniqueIdentifier>{167c9227-143f-4e77-ba69-2601d78d6d98}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Resource">
       <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
     </Filter>
@@ -85,6 +76,21 @@
     </Filter>
     <Filter Include="Core\Object\Resource\Mesh">
       <UniqueIdentifier>{092616a1-a542-4150-8dc6-96a80009a805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Resource\Texture">
+      <UniqueIdentifier>{8721c496-d348-4385-aa82-f99599e6bbc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorials">
+      <UniqueIdentifier>{f2fcc741-bd2f-4392-a92f-8e4cdf63b119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorials\Triangle">
+      <UniqueIdentifier>{4a830ebb-3f89-451a-8ef8-f259cf678d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorials\Shaders">
+      <UniqueIdentifier>{167c9227-143f-4e77-ba69-2601d78d6d98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorials\Textures">
+      <UniqueIdentifier>{0c609124-275b-4a67-a617-7c000bac4d19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -119,13 +125,16 @@
       <Filter>Core\Object\Entity</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTriangle.cpp">
-      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+      <Filter>Tutorials\Triangle</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.cpp">
-      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+      <Filter>Tutorials\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\GLShader.cpp">
       <Filter>Core\Systems\Graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTextureTutorial.cpp">
+      <Filter>Tutorials\Textures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,13 +205,13 @@
       <Filter>Core\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTutorial.h">
-      <Filter>Core\Systems\Graphics\Tutorials</Filter>
+      <Filter>Tutorials</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTriangle.h">
-      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+      <Filter>Tutorials\Triangle</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.h">
-      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+      <Filter>Tutorials\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\GLShader.h">
       <Filter>Core\Systems\Graphics\Shaders</Filter>
@@ -213,6 +222,12 @@
     <ClInclude Include="Core\Resources\Mesh.h">
       <Filter>Core\Object\Resource\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTextureTutorial.h">
+      <Filter>Tutorials\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Texture.h">
+      <Filter>Core\Object\Resource\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -221,19 +236,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Systems\Graphics\Tutorials\VertexShader.glsl">
-      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+      <Filter>Tutorials\Triangle</Filter>
     </None>
     <None Include="Core\Systems\Graphics\Tutorials\FragmentShader.glsl">
-      <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
-    </None>
-    <None Include="Core\Systems\Graphics\Tutorials\ShaderExample.glsl">
-      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+      <Filter>Tutorials\Triangle</Filter>
     </None>
     <None Include="Core\Systems\Graphics\Tutorials\FragmentShader_Uniform.glsl">
-      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+      <Filter>Tutorials\Shaders</Filter>
     </None>
     <None Include="Core\Systems\Graphics\Tutorials\VertexShader2.glsl">
-      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+      <Filter>Tutorials\Shaders</Filter>
+    </None>
+    <None Include="Core\Systems\Graphics\Tutorials\ShaderExample.vs">
+      <Filter>Tutorials\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>
