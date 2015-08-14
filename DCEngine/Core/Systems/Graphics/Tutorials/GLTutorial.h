@@ -4,9 +4,14 @@
 #include <fstream> // ifstream
 #include <iostream> // cout
 
+// GLEW
 #define GLEW_STATIC
 #include "..\..\..\..\Dependencies\include\GLEW\glew.h"
-#include "..\..\..\Debug\Debug.h"
+// GLFW
+#define GLFW_BUILD_DLL
+#include "..\..\..\..\Dependencies\include\GLFW\glfw3.h"
+
+#include "..\..\..\Debug\Debug.h" // trace
 
 
 namespace Tutorial {
@@ -20,6 +25,7 @@ namespace Tutorial {
 
     virtual void Initialize() = 0;
     virtual void Update() = 0;
+    virtual void Terminate() = 0;
 
 
     /**************************************************************************/

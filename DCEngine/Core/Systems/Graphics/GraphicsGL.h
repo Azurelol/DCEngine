@@ -9,11 +9,12 @@
 */
 /******************************************************************************/
 #pragma once
-
 #include "..\System.h"
 
 #define GLEW_STATIC
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
+
+#include "..\..\Resources\GLShader.h"
 
 namespace DCEngine {
   namespace Systems {

@@ -158,8 +158,10 @@
     <ClCompile Include="Core\Engine\Entity.cpp" />
     <ClCompile Include="Core\Engine\Space.cpp" />
     <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Core\Resources\GLShader.cpp" />
     <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTriangle.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
@@ -180,8 +182,11 @@
     <ClInclude Include="Core\Engine\Object.h" />
     <ClInclude Include="Core\Engine\Resource.h" />
     <ClInclude Include="Core\Engine\Space.h" />
+    <ClInclude Include="Core\Resources\GLShader.h" />
+    <ClInclude Include="Core\Resources\Mesh.h" />
     <ClInclude Include="Core\Systems\Gamestate\Gamestate.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.h" />
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTriangle.h" />
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTutorial.h" />
     <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
@@ -197,7 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Systems\Graphics\Tutorials\FragmentShader.glsl" />
+    <None Include="Core\Systems\Graphics\Tutorials\FragmentShader_Uniform.glsl" />
+    <None Include="Core\Systems\Graphics\Tutorials\ShaderExample.glsl" />
     <None Include="Core\Systems\Graphics\Tutorials\VertexShader.glsl" />
+    <None Include="Core\Systems\Graphics\Tutorials\VertexShader2.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

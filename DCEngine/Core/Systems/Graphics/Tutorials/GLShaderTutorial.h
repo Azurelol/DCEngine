@@ -4,8 +4,8 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
-\brief  My study of the "Hello Triangle" tutorial:
-        "http://learnopengl.com/#!Getting-started/Hello-Triangle"
+\brief  My study of the "Shader" tutorial:
+        "http://learnopengl.com/#!Getting-started/Shaders"
 
 */
 /******************************************************************************/
@@ -13,21 +13,25 @@
 #pragma once
 
 #include "GLTutorial.h" // Tutorial for learning
+#include "..\..\..\Resources\GLShader.h"
 
 namespace Tutorial {
 
-  class GLTriangle : public GLTutorial {
+  class GLShaderTutorial : public GLTutorial {
 
   public:
     void Initialize();
     void Update();
     void Terminate();
-    
+
   private:
 
     GLuint vertexShader, fragmentShader;
     GLuint VBO, VAO, EBO;
     GLuint shaderProgram;
+
+    DCEngine::ShaderPtr shader;
+
 
   };
 

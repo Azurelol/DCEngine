@@ -35,17 +35,8 @@
     <Filter Include="Core\Systems\Graphics\Shaders">
       <UniqueIdentifier>{a1505c9b-1038-4f25-9df8-690768dfd395}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Entity">
-      <UniqueIdentifier>{6de51837-0d1f-4ca3-8536-922cf04782fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Space">
-      <UniqueIdentifier>{64b178b0-9574-4671-87f5-456dad04787f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Components">
       <UniqueIdentifier>{5f85f994-42af-4524-b6ef-777fbca636be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Component">
-      <UniqueIdentifier>{4400ef6b-5bf1-4abc-945f-ce21896efdcb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Gamestate">
       <UniqueIdentifier>{fc8e1226-6241-477a-b2e6-87d5ae7a14a4}</UniqueIdentifier>
@@ -55,12 +46,6 @@
     </Filter>
     <Filter Include="Gamestates\Sandbox">
       <UniqueIdentifier>{5d48bcc3-d869-4829-8869-7d289d1618ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Level">
-      <UniqueIdentifier>{7d38fb96-82c8-419b-b2fe-11d7321d83e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Resource">
-      <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Archetype">
       <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
@@ -83,6 +68,24 @@
     <Filter Include="Core\Systems\Graphics\Tutorials\Shaders">
       <UniqueIdentifier>{167c9227-143f-4e77-ba69-2601d78d6d98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Resource">
+      <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component">
+      <UniqueIdentifier>{4400ef6b-5bf1-4abc-945f-ce21896efdcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity">
+      <UniqueIdentifier>{6de51837-0d1f-4ca3-8536-922cf04782fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\Space">
+      <UniqueIdentifier>{64b178b0-9574-4671-87f5-456dad04787f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Resource\Level">
+      <UniqueIdentifier>{7d38fb96-82c8-419b-b2fe-11d7321d83e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Resource\Mesh">
+      <UniqueIdentifier>{092616a1-a542-4150-8dc6-96a80009a805}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -104,7 +107,7 @@
       <Filter>Core\Systems\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Space.cpp">
-      <Filter>Core\Space</Filter>
+      <Filter>Core\Object\Entity\Space</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp">
       <Filter>Core\Gamestate</Filter>
@@ -113,10 +116,16 @@
       <Filter>Gamestates\Sandbox</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Entity.cpp">
-      <Filter>Core\Entity</Filter>
+      <Filter>Core\Object\Entity</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\Tutorials\GLTriangle.cpp">
       <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.cpp">
+      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\GLShader.cpp">
+      <Filter>Core\Systems\Graphics\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,13 +154,13 @@
       <Filter>Core\Systems\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Entity.h">
-      <Filter>Core\Entity</Filter>
+      <Filter>Core\Object\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Component.h">
-      <Filter>Core\Component</Filter>
+      <Filter>Core\Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Space.h">
-      <Filter>Core\Space</Filter>
+      <Filter>Core\Object\Entity\Space</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Gamestate\Gamestate.h">
       <Filter>Core\Gamestate</Filter>
@@ -160,7 +169,7 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Components\ComponentsInclude.h">
-      <Filter>Core\Component</Filter>
+      <Filter>Core\Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="Gamestates\GamestatesInclude.h">
       <Filter>Gamestates</Filter>
@@ -169,10 +178,7 @@
       <Filter>Gamestates\Sandbox</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Level.h">
-      <Filter>Core\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Resource.h">
-      <Filter>Core\Resource</Filter>
+      <Filter>Core\Object\Resource\Level</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Archetype.h">
       <Filter>Core\Archetype</Filter>
@@ -195,6 +201,18 @@
     <ClInclude Include="Core\Systems\Graphics\Tutorials\GLTriangle.h">
       <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\Tutorials\GLShaderTutorial.h">
+      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\GLShader.h">
+      <Filter>Core\Systems\Graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Resource.h">
+      <Filter>Core\Object\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Mesh.h">
+      <Filter>Core\Object\Resource\Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -207,6 +225,15 @@
     </None>
     <None Include="Core\Systems\Graphics\Tutorials\FragmentShader.glsl">
       <Filter>Core\Systems\Graphics\Tutorials\Triangle</Filter>
+    </None>
+    <None Include="Core\Systems\Graphics\Tutorials\ShaderExample.glsl">
+      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+    </None>
+    <None Include="Core\Systems\Graphics\Tutorials\FragmentShader_Uniform.glsl">
+      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
+    </None>
+    <None Include="Core\Systems\Graphics\Tutorials\VertexShader2.glsl">
+      <Filter>Core\Systems\Graphics\Tutorials\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

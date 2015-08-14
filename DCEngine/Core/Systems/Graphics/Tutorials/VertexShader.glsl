@@ -20,6 +20,9 @@ layout(location = 0) in vec3 position;
    in space (It's 3D, not 4D) but used for perspective division. 
 */
 
+// Specifies a color output to the fragment shader
+out vec4 vertexColor; 
+
 void main() {
 
 /* To set the output of the vertex shader, we assign the position data to the predefined
@@ -31,4 +34,8 @@ void main() {
    setting the 'w' component to 1.0f (Later to be explained why)
 */
   gl_Position = vec4(position.x, position.y, position.z, 1.0);
+
+  // Set the output variable (that will be used as an input by the fragment shader)
+  vertexColor = vec4(0.5f, 0.0f, 0.0f, 1.0f);
+
 }

@@ -13,7 +13,9 @@
 #include "..\..\Debug\Debug.h"
 
 // OpenGL tutorial. Change the header to execute a different tutorial.
-#include "Tutorials\GLTriangle.h"
+//#include "Tutorials\GLTriangle.h"
+#include "Tutorials\GLShaderTutorial.h"
+
 std::unique_ptr<Tutorial::GLTutorial> GLTutorial;
 
 namespace DCEngine {
@@ -37,7 +39,7 @@ namespace DCEngine {
       trace << "GraphicsGL::Initialize \n";
       
       // Tutorial code
-      GLTutorial.reset(new Tutorial::GLTriangle());
+      GLTutorial.reset(new Tutorial::GLShaderTutorial());
       GLTutorial->Initialize();
     }
 
@@ -59,6 +61,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Terminate() {
+
+      // Tutorial code
+      GLTutorial->Terminate();
+
     }
 
 

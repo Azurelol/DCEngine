@@ -5,9 +5,11 @@
    We can declare output values with the 'out' keyword.
 */
  
+ // The input variable from the vertex shader (same name, same type)
+in vec4 vertexColor; 
 out vec4 color; 
 
 void main() {
   // We set it as the orange color with alpha 1
-  color = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+  color = vertexColor;;
 }

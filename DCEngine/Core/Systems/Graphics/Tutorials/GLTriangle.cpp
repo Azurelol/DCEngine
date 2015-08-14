@@ -1,6 +1,6 @@
 #include "GLTriangle.h"
 
-#define WIREFRAME 1
+#define WIREFRAME 0
 #define DRAW_RECTANGLE 0 // When set to 0, will draw a triangle instead
 
 namespace Tutorial {
@@ -435,6 +435,15 @@ namespace Tutorial {
 
     glBindVertexArray(0);
     trace << "GLTriangle::Update - Drawing triangle \n";
+  }
+
+  void GLTriangle::Terminate() {
+
+    // Properly de-allocate all resources once they've outlived their purpose
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
+
   }
 
 }
