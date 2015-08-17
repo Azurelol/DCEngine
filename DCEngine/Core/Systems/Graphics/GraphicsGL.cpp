@@ -14,8 +14,8 @@
 
 // OpenGL tutorial. Change the header to execute a different tutorial.
 //#include "Tutorials\GLTriangle.h"
-#include "Tutorials\GLShaderTutorial.h"
-#include "Tutorials\GLTextureTutorial.h"
+#include "..\..\..\Tutorials\OpenGL\GLShaderTutorial.h"
+#include "..\..\..\Tutorials\OpenGL\GLTextureTutorial.h"
 
 std::unique_ptr<Tutorial::GLTutorial> GLTutorial;
 
@@ -40,7 +40,7 @@ namespace DCEngine {
       trace << "GraphicsGL::Initialize \n";
       
       // Tutorial code
-      GLTutorial.reset(new Tutorial::GLShaderTutorial());
+      GLTutorial.reset(new Tutorial::GLTextureTutorial());
       GLTutorial->Initialize();
     }
 

@@ -13,8 +13,6 @@ checks for errors and other useful functions.
 #include <fstream>
 #include <sstream>
 
-
-
 namespace DCEngine {
 
   GLShader::GLShader(std::string vertexPath, std::string fragmentPath) : Resource("Shader") {
@@ -35,7 +33,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GLShader::Load(std::string vertexPath, std::string fragmentPath) {
-    trace << "GLShader::Load \n";
+    trace << "GLShader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
 
@@ -45,7 +43,7 @@ namespace DCEngine {
 
     try {
       // Open the files ( YES I KNOW THIS WAY IS DUMB PLZ HELP )
-      std::string shaderLocation("Core/Systems/Graphics/Tutorials/");
+      std::string shaderLocation("Tutorials/OpenGL/");
       vertexShaderFile.open(shaderLocation + vertexPath);
       fragmentShaderFile.open(shaderLocation + fragmentPath);
       // Use C++ filestreams to read the content from the file
@@ -61,10 +59,7 @@ namespace DCEngine {
     }
     catch (std::ifstream::failure e) {
       trace << "GLShader::LoadShaders failed! \n";
-    }
-
-    trace << "Opening files \n";
-
+    }    
   }
 
   /**************************************************************************/
