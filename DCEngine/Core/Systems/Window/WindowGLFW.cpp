@@ -33,7 +33,8 @@ namespace DCEngine {
     \brief  Constructor for the WindowGLFW class.
     */
     /**************************************************************************/
-    WindowGLFW::WindowGLFW() : System(std::string("WindowGLFWSystem"), EnumeratedSystem::WindowGLFW) {
+    WindowGLFW::WindowGLFW() {
+    //WindowGLFW::WindowGLFW() : System(std::string("WindowGLFWSystem"), EnumeratedSystem::WindowGLFW) {
     }
     
 
@@ -47,7 +48,7 @@ namespace DCEngine {
     void WindowGLFW::Initialize() {
       
       glfwInit();
-      trace << "WindowGLFW::Initialize \n";
+      //trace << "WindowGLFW::Initialize \n";
 
       // Tells GLFW which OpenGL version we want to use
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -62,7 +63,7 @@ namespace DCEngine {
       first two arguments respectively. The third argument allows us to create a 
       name for the window; We can ignore the last 2 parameters. The function 
       returns a GLFWwindow object that we'll later need for other GLFW operations.  */
-      _window = glfwCreateWindow(800, 600, "Daisy Chain Engine",
+      _window = glfwCreateWindow(_width, _height, _caption.c_str(),
         nullptr, nullptr);
       
       // ASSERT
@@ -96,7 +97,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowGLFW::Update(float dt) {
-      trace << "WindowGLFW::Update \n";
+      //trace << "WindowGLFW::Update \n";
       ViewportUpdate();
       PollEvents();
     }
@@ -117,11 +118,12 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowGLFW::StartFrame() {
+      //trace << "WindowGLFW::StartFrame \n";
       // GLFW automatically creates a depth buffer for you
       glEnable(GL_DEPTH_TEST);
       glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // State-setting function
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // State-using function
-      trace << "WindowGLFW::StartFrame \n";
+      
     }
 
     /**************************************************************************/
@@ -130,11 +132,20 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowGLFW::EndFrame() {
+      //trace << "WindowGLFW::EndFrame \n";
       // Swaps the color buffer (A large color buffer that contains
       // color values for each pixel in GLFW's window) that has been used
       // to draw in during this iteration and show it as output to the screen.
-      glfwSwapBuffers(_window);
-      trace << "WindowGLFW::EndFrame \n";
+      glfwSwapBuffers(_window);      
+    }
+
+    void WindowGLFW::SetWindowSize(int width, int height) {
+      _width = width;
+      _height = height;
+    }
+
+    void WindowGLFW::SetWindowCaption(std::string caption) {
+      _caption = caption;
     }
 
     /**************************************************************************/
@@ -148,10 +159,9 @@ namespace DCEngine {
             the 2D coordinates it processed to coordinates on your screen.
     */
     /**************************************************************************/
-    void WindowGLFW::ViewportUpdate() {
+    void WindowGLFW::ViewportUpdate() {      
       glViewport(0, 0, _width, _height);
-      std::cout << "WindowGLFW::ViewportUpdate - Width: " << _width
-                                           << " Height: " << _height << std::endl;
+
     }
 
     /**************************************************************************/

@@ -21,7 +21,7 @@ namespace DCEngine {
 
   enum class EnumeratedSystem {
     // Window Handler
-    WindowGLFW,
+    Window,
 
     // Graphics
     GraphicsGL,

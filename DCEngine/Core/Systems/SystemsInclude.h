@@ -3,7 +3,8 @@
 /*
     WINDOW HANDLING
                       */
-#include "../Systems/Window/WindowGLFW.h"
+//#include "../Systems/Window/WindowGLFW.h"
+#include "../Systems/Window/Window.h"
 
 /*
     GRAPHICS

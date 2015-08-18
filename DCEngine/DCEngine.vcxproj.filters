@@ -101,6 +101,9 @@
     <Filter Include="Core\Object\Component\Camera">
       <UniqueIdentifier>{67259a44-4f66-4428-8026-0166459acb37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Window\GLFW">
+      <UniqueIdentifier>{94925210-7e25-42c6-a773-c78600509e13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -111,9 +114,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\System.cpp">
       <Filter>Core\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp">
-      <Filter>Core\Systems\Window</Filter>
     </ClCompile>
     <ClCompile Include="Core\Debug\Debug.cpp">
       <Filter>Core\Debug</Filter>
@@ -152,6 +152,12 @@
       <Filter>Core\Object\Component\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Component.cpp" />
+    <ClCompile Include="Core\Systems\Window\Window.cpp">
+      <Filter>Core\Systems\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp">
+      <Filter>Core\Systems\Window\GLFW</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -165,9 +171,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\System.h">
       <Filter>Core\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Window\WindowGLFW.h">
-      <Filter>Core\Systems\Window</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
@@ -249,6 +252,15 @@
     </ClInclude>
     <ClInclude Include="Core\Components\Camera.h">
       <Filter>Core\Object\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\Window.h">
+      <Filter>Core\Systems\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowGLFW.h">
+      <Filter>Core\Systems\Window\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\Input.h">
+      <Filter>Core\Systems\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

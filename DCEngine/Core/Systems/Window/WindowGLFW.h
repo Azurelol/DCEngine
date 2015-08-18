@@ -4,12 +4,10 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
-\brief
-
+\brief  The Window implementation through GLFW.
 
 */
 /******************************************************************************/
-
 #pragma once
 
 #include "../System.h"
@@ -25,7 +23,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    class WindowGLFW : public System {
+    class WindowGLFW {
     public:
 
       WindowGLFW();
@@ -35,6 +33,13 @@ namespace DCEngine {
 
       void StartFrame();
       void EndFrame();
+
+      void SetWindowSize(int width, int height);
+      void SetWindowCaption(std::string caption);
+
+      GLFWwindow* GetWindow() {
+        return _window;
+      }
 
 
     private:
@@ -60,8 +65,9 @@ namespace DCEngine {
       
       GLFWwindow* _window;      
 
-      const GLuint _width = 800;
-      const GLuint _height = 600;
+      std::string _caption;
+      GLuint _width = 800;
+      GLuint _height = 600;
 
 
     };

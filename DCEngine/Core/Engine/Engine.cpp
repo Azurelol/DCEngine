@@ -69,7 +69,7 @@ namespace DCEngine {
     _active = true;
 
     // Systems are added to to the engine's systems vector
-    _systems.push_back(SystemPtr(new Systems::WindowGLFW));
+    _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
     // Creates the default local space
@@ -127,12 +127,12 @@ namespace DCEngine {
       SetActiveSpace(logicalSpace);    
     #endif     
     
-    using Systems::WindowGLFW;
+    using Systems::Window;
     // Update the window management system (window, input)
-    GETSYSTEM(WindowGLFW)->Update(dt);
+    GETSYSTEM(Window)->Update(dt);
 
     // Tell window management system to begin new frame
-    GETSYSTEM(WindowGLFW)->StartFrame();
+    GETSYSTEM(Window)->StartFrame();
     
 
 
@@ -145,7 +145,7 @@ namespace DCEngine {
     std::cout << std::endl;
 
     // Tell window management system to end the frame
-    GETSYSTEM(WindowGLFW)->EndFrame();
+    GETSYSTEM(Window)->EndFrame();
   }
   
   /**************************************************************************/
