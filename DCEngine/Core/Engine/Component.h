@@ -8,8 +8,9 @@
 
 */
 /******************************************************************************/
-
+#include "Object.h"
 #pragma once
+
 #include <memory>
 #include <vector>
 
@@ -40,9 +41,8 @@ namespace DCEngine {
   };
   
   class Component : public Object {
-  public:
-    Component(EnumeratedComponent type, BitfieldComponent mask) : _type(type),
-                                                                  _mask(mask) { }
+  public:    
+    Component(EnumeratedComponent type, BitfieldComponent mask);
 
     // Derived component types need to be deallocated properly
     virtual ~Component(); 

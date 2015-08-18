@@ -41,6 +41,10 @@ namespace Tutorial {
     void ApplyTexture();
     void ApplyProjection();
 
+    void CameraInitialize();
+    void CameraUpdate();
+    
+
   private:
     const GLfloat screenWidth = 800;
     const GLfloat screenHeight = 600;
@@ -50,7 +54,8 @@ namespace Tutorial {
     
     glm::vec4 vec; //!< Define a vec using GLM's built-in vector class
     glm::mat4 transform; //!< // Define a 'mat4', a 4-by-4 identity matrix by default
-    
+    glm::vec3 cameraPos, cameraFront, cameraUp, cameraTarget, cameraDirection;
+
     //const glm::vec3* cubePositions;
     std::vector<glm::vec3> cubePositions;
     glm::mat4 model, view, projection;

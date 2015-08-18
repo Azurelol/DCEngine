@@ -106,16 +106,6 @@ namespace Tutorial {
         &verticesTemp[sizeof(verticesTemp) / sizeof(GLfloat)]);
     }
 
-
-
-    //GLfloat vertices[] = {
-    //  // Positions          // Colors           // Texture Coords
-    //  0.5f,  0.5f, 0.0f,    1.0f, 0.0f, 0.0f,    1.0f, 1.0f,   // Top Right
-    //  0.5f, -0.5f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 0.0f,   // Bottom Right
-    //  -0.5f, -0.5f, 0.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,   // Bottom Left
-    //  -0.5f,  0.5f, 0.0f,    1.0f, 1.0f, 0.0f,    0.0f, 1.0f    // Top Left 
-    //};
-
     GLuint indices[]{
       0, 1, 3, // First Triangle
       1, 2, 3  // Second Triangle
@@ -237,6 +227,7 @@ namespace Tutorial {
     //glm::mat4 view;
     // Note that we're translating the scene in the reverse direction of where we want to move
     view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // -3 in the z axis
+
     
     // Define the projection matrix. We want to use perspective projection
     //glm::mat4 projection;
@@ -279,6 +270,7 @@ namespace Tutorial {
     GLint projectionLoc = glGetUniformLocation(shader->Get(), "projection");
     
     //glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+    
     glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));    
     glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
@@ -298,6 +290,73 @@ namespace Tutorial {
     }
   }
 
+  void GLCameraTutorial::CameraInitialize() {
+    /* The view matrix transforms all of the world coordinates into view coordinates
+       that are relative to the camera's position and direction.
+
+       To define a camera we need:
+       - Its position in world space
+       - The direction it's looking at
+       - A vector pointing to the right
+       - A vector pointing upwards from the camera.
+       
+       We are actually going to create a coordinate system with 3 perpendicular unit axes
+       with the camera's position as the origin. This p rocess is known as the
+       Gram-Schmidth process in linear algebra. */
+
+    // 1. Camera position
+    cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+    cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
+    // 2. Camera direction: By switching the substraction order we get a vector pointing 
+    // towards the camera's +y-axis. (It should be probably named cameraReverseDireection??)
+    cameraDirection = glm::normalize(cameraPos - cameraTarget);
+    // 3. Right axis: A right vector represents the positive x-axis of the camera space.
+    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+    // Since the result of a cross product is a vector perpendicular to both vectors, 
+    // we get a vector that points in the +x-axis. (If we switched the vetors, we'd get
+    // a vector pointing in -x-axis.
+    glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
+    // 4. Up axis
+    glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
+
+    /* Using these camera vectors we can now create a LookAt matrix. 
+       If you define a coordinate space using 3 perpendicular you can create a matrix
+       with those 3 axes plus a translation vector and you can transform any vector
+       to that coordinate space by multiplying with this matrix. 
+       This is what the LookAt matrix does. */
+    
+    glm::mat4 view;
+    // GLM already does this for us. We specify a camera position, target position
+    // and a vector that represents the up vector in world space.
+    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f),
+      glm::vec3(0.0f, 0.0f, 0.0f),
+      glm::vec3(0.0f, 1.0f, 0.0f));
+
+
+
+  }
+
+  void GLCameraTutorial::CameraUpdate() {
+    /* Using trigonometry, create an x and z coordinate each frame that represent
+     a point on a circle and use these for the camera position. By re-calculating
+      the x and y coordinate we're traversing all the points in a circle and thus
+      the camera rotates around the scene. */    
+    GLfloat radius = 10.0f;
+    GLfloat camX = sin(glfwGetTime()) * radius;
+    GLfloat camZ = cos(glfwGetTime()) * radius;
+    view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), 
+                       glm::vec3(0.0, 1.0, 0.0));
+
+
+    //cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+    //cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    //cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    //view = glm::lookAt(cameraPos, /* Direction */ cameraPos + cameraFront, cameraUp);
+
+  }
+
+  
+
   void GLCameraTutorial::Update() {
     ApplyTexture();
 
@@ -307,7 +366,8 @@ namespace Tutorial {
     // Draw container
     glBindVertexArray(VAO);
 
-    UpdateViewMatrix();
+    //UpdateViewMatrix();
+    CameraUpdate();
 
     // Create transformations
     if (APPLY_PROJECTION) {

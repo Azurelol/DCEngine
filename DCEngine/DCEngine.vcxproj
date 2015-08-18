@@ -153,7 +153,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
+    <ClCompile Include="Core\Engine\Component.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Engine\Entity.cpp" />
     <ClCompile Include="Core\Engine\Space.cpp" />
@@ -171,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\ComponentsInclude.h" />
+    <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Engine\Action.h" />

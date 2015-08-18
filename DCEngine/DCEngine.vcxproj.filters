@@ -98,6 +98,9 @@
     <Filter Include="Tutorials\Camera">
       <UniqueIdentifier>{540ac63d-567f-4ef1-955f-9e2892088d9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Component\Camera">
+      <UniqueIdentifier>{67259a44-4f66-4428-8026-0166459acb37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -145,6 +148,10 @@
     <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp">
       <Filter>Tutorials\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\Camera.cpp">
+      <Filter>Core\Object\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -239,6 +246,9 @@
     </ClInclude>
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h">
       <Filter>Tutorials\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Camera.h">
+      <Filter>Core\Object\Component\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
