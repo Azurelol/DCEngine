@@ -164,6 +164,7 @@
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
     <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp" />
+    <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Gamestates\GamestatesInclude.h" />
     <ClInclude Include="Gamestates\Sandbox\Sandbox.h" />
     <ClInclude Include="Libraries\Timer.h" />
+    <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLTriangle.h" />
@@ -206,6 +208,7 @@
   <ItemGroup>
     <None Include="Tutorials\OpenGL\FragmentShader.glsl" />
     <None Include="Tutorials\OpenGL\FragmentShader_Uniform.glsl" />
+    <None Include="Tutorials\OpenGL\GLCameraTutorial.vs" />
     <None Include="Tutorials\OpenGL\GLTexture.frag" />
     <None Include="Tutorials\OpenGL\GLTexture.vs" />
     <None Include="Tutorials\OpenGL\ShaderExample.vs" />

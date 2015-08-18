@@ -117,8 +117,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowGLFW::StartFrame() {
+      // GLFW automatically creates a depth buffer for you
+      glEnable(GL_DEPTH_TEST);
       glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // State-setting function
-      glClear(GL_COLOR_BUFFER_BIT);         // State-using function
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // State-using function
       trace << "WindowGLFW::StartFrame \n";
     }
 
