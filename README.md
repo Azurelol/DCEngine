@@ -8,6 +8,8 @@ My GAM 200 team, "Moonward":
 - John Myres
 - Allan Deutsch
 
+Note that at this time, this won't be the engine that the team will be using, but the one I am personally writing to learn graphics programming, engine architecture, software practices, etc.
+
 The ECS engine I am writing, "Daisy Chain" will be directly based on reverse-engineering Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as implementing graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
 
 I have plugged in the tutorial code into the engine, adding functionality through classes to the engine 
