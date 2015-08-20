@@ -18,6 +18,7 @@
 
 namespace DCEngine {
   
+  // (?) EXPLAIN
   using mask = unsigned;
 
 #pragma region metadataEnums
@@ -43,15 +44,16 @@ namespace DCEngine {
   };
   
   class Component : public Object {
+
   public:    
     Component(EnumeratedComponent type, BitfieldComponent mask);
-    virtual ~Component(); // Derived component types need to be deallocated properly
+    virtual ~Component() {} // Derived component types need to be deallocated properly
 
-    virtual void Initialize(); // Every component needs to be initialized.
-    virtual void Update(float dt); // Every component needs to be updated.
+    virtual void Initialize() = 0; // Every component needs to be initialized.
+    //virtual void Update() = 0; // Components are updated through events.
 
-    void Connect(); // The component has to register to a system to be updated.
-    void Disconnect(); // The component can unregister from a system.
+    void Connect(); // The component has to register to an event to be updated.
+    void Disconnect(); // The component can unsubscribe from listening to an event.
 
     // Once the component is created, it should never change types
     const EnumeratedComponent _type;

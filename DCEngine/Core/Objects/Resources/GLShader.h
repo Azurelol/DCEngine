@@ -13,11 +13,12 @@
 
 // GLEW
 #define GLEW_STATIC
-
-#include "..\..\Dependencies\include\GLEW\glew.h"
+#include "..\..\..\Dependencies\include\GLEW\glew.h"
+//#include "..\..\Dependencies\include\GLEW\glew.h"
 // GLFW
 #define GLFW_BUILD_DLL
-#include "..\..\Dependencies\include\GLFW\glfw3.h"
+#include "..\..\..\Dependencies\include\GLFW\glfw3.h"
+//#include "..\..\Dependencies\include\GLFW\glfw3.h"
 
 #include <string>
 #include <memory>
@@ -46,8 +47,6 @@ namespace DCEngine {
     
     std::string vertexCode;  //!< The raw vertex shader code in GLSL
     std::string fragmentCode;
-
-
         
     GLuint _shaderProgram; //!< The shader program, tracked by its id
 

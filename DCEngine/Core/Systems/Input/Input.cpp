@@ -14,11 +14,11 @@ namespace DCEngine {
     }
 
     void Input::Update(float dt) {
-
+      trace << "Input::Update \n";
     }
 
     void Input::Terminate() {
-
+      trace << "Input::Terminate \n";
     }
 
   }

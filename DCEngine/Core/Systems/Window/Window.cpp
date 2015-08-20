@@ -42,7 +42,7 @@ namespace DCEngine {
 
     void Window::Update(float dt) {
       if (TRACE_ON)
-        trace << "\nWindow::Update \n";
+        trace << "Window::Update \n";
 
       GLFWHandler->Update(dt);
     }

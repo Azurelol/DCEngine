@@ -28,4 +28,6 @@ namespace DCEngine {
 
   };
 
+  using ResourcePtr = std::shared_ptr<Resource>;
+
 }

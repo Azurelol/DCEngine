@@ -31,6 +31,7 @@ namespace DCEngine {
     public:
 
       Engine();
+      ~Engine();
 
       void Initialize();      
       void Update(float dt);

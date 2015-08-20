@@ -1,14 +1,14 @@
 #include "GameSession.h"
 
 #include "../../Debug/Debug.h"
-
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
 
   extern std::unique_ptr<Engine> ENGINE;
 
   GameSession::GameSession(std::string& name) : Entity(name) {
-    trace << "GameSession::GameSession constructed of name: " << name << " created \n";
+    trace << _name << "::GameSession - Constructor\n";
   }
 
   GameSession::~GameSession() {
@@ -24,18 +24,20 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Initialize() {
-    trace << "GameSession::Initialize \n";
+    trace << _name << "::Initialize \n";
 
     // Systems are added to the GameSession
     _systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
     // Creates the default space
-    SpacePtr space = CreateSpace(_defaultSpaceName);
+    SpacePtr space = CreateSpace(_defaultSpace);
 
-    // Initialize all internal systems
-    for (auto sys : _systems) {
-      sys->Initialize();
-    }
+    using namespace Systems;
+    space->AddSystem(GETSYSTEM(Input));
+    space->AddSystem(GETSYSTEM(GraphicsGL));
+
+    space->Initialize();
+
   }
 
   /**************************************************************************/
@@ -50,13 +52,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Update(float dt) {
-    trace << "GameSession::Update \n";
+    trace << _name << "::Update \n";
 
     // Update all the systems in the space
     for (auto space : _spaces)
       UpdateSpace(space.second, dt);
 
-    trace << "GameSession::Update - All systems updated. \n";
+    trace << _name << "::Update - All spaces updated. \n";
   }
 
   /**************************************************************************/
@@ -67,7 +69,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   SpacePtr GameSession::CreateSpace(std::string name) {
-    trace << "GameSession::CreateSpace - " << name << " has been constructed. \n";
+    trace << _name << "::CreateSpace - " << name << " has been constructed. \n";
 
     // Check if the space already exists.
     auto space = _spaces.find(name);

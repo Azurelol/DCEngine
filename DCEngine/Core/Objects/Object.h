@@ -8,6 +8,8 @@
 */
 /******************************************************************************/
 #pragma once
+
+#include <cassert>
 #include <string>
 #include <memory>
 
@@ -20,6 +22,8 @@ namespace DCEngine {
     public:
       Object(std::string name) { _name = name; }
       Object() { _name = "Object"; }
+
+      std::string Name() { return _name; }
 
     protected:
       std::string _name;

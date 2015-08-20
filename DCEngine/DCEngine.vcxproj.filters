@@ -110,7 +110,13 @@
     <Filter Include="Projects\Tutorials\OpenGL\Textures">
       <UniqueIdentifier>{c38e659b-60de-4389-aced-64bc0edde4fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\Tutorials\Camera">
+    <Filter Include="Core\Event\Update">
+      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Dollhouse">
+      <UniqueIdentifier>{e7afe250-fa5f-4cc5-b011-cfee266461c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Tutorials\OpenGL\Camera">
       <UniqueIdentifier>{540ac63d-567f-4ef1-955f-9e2892088d9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -146,7 +152,7 @@
       <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
     </ClCompile>
     <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp">
-      <Filter>Projects\Tutorials\Camera</Filter>
+      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Window\Window.cpp">
       <Filter>Core\Systems\Window</Filter>
@@ -175,6 +181,7 @@
     <ClCompile Include="Core\Objects\Resources\GLShader.cpp">
       <Filter>Core\Object\Resource\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\Resources\Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -232,7 +239,7 @@
       <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
     </ClInclude>
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h">
-      <Filter>Projects\Tutorials\Camera</Filter>
+      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Window\Window.h">
       <Filter>Core\Systems\Window</Filter>
@@ -282,6 +289,21 @@
     <ClInclude Include="Core\Events\KeyboardEvent.h">
       <Filter>Core\Event\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Events\EventsInclude.h">
+      <Filter>Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\UpdateEvent.h">
+      <Filter>Core\Event\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\Transform.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -311,7 +333,7 @@
       <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
     </None>
     <None Include="Tutorials\OpenGL\GLCameraTutorial.vs">
-      <Filter>Projects\Tutorials\Camera</Filter>
+      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
     </None>
   </ItemGroup>
 </Project>

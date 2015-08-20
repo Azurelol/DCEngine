@@ -30,17 +30,18 @@ namespace DCEngine {
   public:
     Space(std::string& name);
     ~Space();
-
+    
+    void Initialize();
     void Update(float dt);
 
     void AddSystem(SystemPtr system);
     void RemoveSystem(std::string system);
 
     // LEVEL
-    void LoadLevel();
+    void LoadLevel(LevelPtr level);
 
     EntityPtr CreateEntity();
-    void AddEntity(EntityPtr);
+    void AddEntity(EntityPtr entity);
     void PopulateEntities(SystemPtr sys) const;
     void RemoveEntity(EntityPtr);
     void Clear(); // Remves all entities and systems
@@ -50,6 +51,7 @@ namespace DCEngine {
 
 
   private:
+    LevelPtr _currentLevel;
     EntityPtr _camera;
     EntityVec _entities;
     SystemVec _systems; 

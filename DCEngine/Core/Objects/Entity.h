@@ -10,27 +10,28 @@
 /******************************************************************************/
 #pragma once
 
-#include <cassert>
-#include <memory>
 #include <vector>
-#include <string>
 
 #include "Object.h"
 #include "Component.h"
+#include "..\Events\Event.h"
+#include "..\Events\EventsInclude.h"
 
 namespace DCEngine {
 
   class Entity : public Object {
   public:
-    Entity(std::string name) {
-      _name = name;
-    }
+    Entity(std::string name);
     Entity() { _name = "Entity"; }
-
 
     void AddComponent(std::shared_ptr<Component> component);
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
+    void Initialize(); // Initializes all of the entity's components
+
+    void DispatchEvent(std::string eventId, Event event); // Dispatches an event on object
+    void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
+    void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively
 
     mask Mask();
     bool CheckMask(mask m);
@@ -42,13 +43,16 @@ namespace DCEngine {
     template <typename T> std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
   private:
-    int _runtimeId;
-    std::vector<Component> _components; //!< The list of components attached to the entity.
+    int RuntimeId;
+    //Space Space;
+    //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
+    ComponentVec _components; //!< The list of components attached to the entity.
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     //EnumeratedComponent _collider = EnumeratedComponent::None;
    
-    //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
+
+    
 
     
 

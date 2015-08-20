@@ -15,12 +15,14 @@
 // OpenGL tutorial. Change the header to execute a different tutorial.
 //#include "..\..\..\Tutorials\GLTriangle.h"
 //#include "..\..\..\Tutorials\OpenGL\GLShaderTutorial.h"
-#include "..\..\..\Tutorials\OpenGL\GLTextureTutorial.h"
+//#include "..\..\..\Tutorials\OpenGL\GLTextureTutorial.h"
 #include "..\..\..\Tutorials\OpenGL\GLCameraTutorial.h"
 
-std::unique_ptr<Tutorial::GLTutorial> GLTutorial;
 
 namespace DCEngine {
+  
+  std::unique_ptr<Tutorial::GLTutorial> GLTutorial;
+
   namespace Systems {
 
     /**************************************************************************/
@@ -41,8 +43,8 @@ namespace DCEngine {
       trace << "GraphicsGL::Initialize \n";
       
       // Tutorial code
-      GLTutorial.reset(new Tutorial::GLCameraTutorial());
-      GLTutorial->Initialize();
+      //GLTutorial.reset(new Tutorial::GLCameraTutorial());
+      //GLTutorial->Initialize();
     }
 
     /**************************************************************************/
@@ -51,10 +53,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Update(float dt) {
-      std::cout << "GraphicsGL::Update" << std::endl;
+      trace << "GraphicsGL::Update \n";
       
       // Tutorial code
-      GLTutorial->Update();
+     //GLTutorial->Update();
     }
 
     /**************************************************************************/
@@ -63,9 +65,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Terminate() {
-
+      trace << "GraphicsGL::Terminate \n";
       // Tutorial code
-      GLTutorial->Terminate();
+      //GLTutorial->Terminate();
 
     }
 

@@ -40,8 +40,8 @@ namespace DCEngine {
   private:
     void UpdateSpace(SpacePtr space, float dt);
         
-    std::string _defaultSpaceName = "Daisy Space";
-
+    std::string _defaultSpace = "Daisy Space";
+    
     // CONTAINERS //
     SystemVec _systems; //!< Container for the GameSession's systems. 
     SpaceMap _spaces; //!< A map of spaces created by the engine.

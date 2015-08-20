@@ -14,23 +14,25 @@
 
 #include "GLTutorial.h" // Tutorial for learning
 
-namespace Tutorial {
+namespace DCEngine {
+  namespace Tutorial {
 
-  class GLTriangle : public GLTutorial {
+    class GLTriangle : public GLTutorial {
 
-  public:
-    void Initialize();
-    void Update();
-    void Terminate();
-    
-  private:
+    public:
+      ~GLTriangle() {};
 
-    GLuint vertexShader, fragmentShader;
-    GLuint VBO, VAO, EBO;
-    GLuint shaderProgram;
+      void Initialize();
+      void Update();
+      void Terminate();
 
-  };
+    private:
 
+      GLuint vertexShader, fragmentShader;
+      GLuint VBO, VAO, EBO;
+      GLuint shaderProgram;
 
+    };
+  }
 
 }

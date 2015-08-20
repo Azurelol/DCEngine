@@ -162,6 +162,7 @@
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
     <ClCompile Include="Core\Objects\Resources\GLShader.cpp" />
+    <ClCompile Include="Core\Objects\Resources\Level.cpp" />
     <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
@@ -181,10 +182,14 @@
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
+    <ClInclude Include="Core\Events\EventsInclude.h" />
+    <ClInclude Include="Core\Events\UpdateEvent.h" />
     <ClInclude Include="Core\Events\Event.h" />
     <ClInclude Include="Core\Events\KeyboardEvent.h" />
     <ClInclude Include="Core\Objects\Component.h" />
     <ClInclude Include="Core\Objects\Components\Camera.h" />
+    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h" />
+    <ClInclude Include="Core\Objects\Components\Transform.h" />
     <ClInclude Include="Core\Objects\Entities\GameSession.h" />
     <ClInclude Include="Core\Objects\Entities\Space.h" />
     <ClInclude Include="Core\Objects\Entity.h" />
@@ -205,6 +210,7 @@
     <ClInclude Include="Gamestates\GamestatesInclude.h" />
     <ClInclude Include="Gamestates\Sandbox\Sandbox.h" />
     <ClInclude Include="Libraries\Timer.h" />
+    <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h" />

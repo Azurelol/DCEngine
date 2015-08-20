@@ -22,35 +22,36 @@
 #include "..\..\Dependencies\include\GLM\gtc\matrix_transform.hpp"
 #include "..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
 
-namespace Tutorial {
+namespace DCEngine {
+  namespace Tutorial {
 
-  class GLTextureTutorial : public GLTutorial {
+    class GLTextureTutorial : public GLTutorial {
 
-  public:
-    void Initialize();
-    void Update();
-    void Terminate();
+    public:
+      ~GLTextureTutorial() {};
 
-    void ApplyTransformation();
-    void GenerateMesh();
-    void GenerateTexture(const std::string imagePath, GLuint& texture);
+      void Initialize();
+      void Update();
+      void Terminate();
 
-  private:
-    int width, height;
-    unsigned char* image;
-    GLuint texture1, texture2;
+      void ApplyTransformation();
+      void GenerateMesh();
+      void GenerateTexture(const std::string imagePath, GLuint& texture);
 
-    glm::vec4 vec; //!< Define a vec using GLM's built-in vector class
-    glm::mat4 transform; //!< // Define a 'mat4', a 4-by-4 identity matrix by default
-    DCEngine::ShaderPtr shader;
-    
-    GLuint vertexShader, fragmentShader;
-    GLuint VBO, VAO, EBO;
-    GLuint shaderProgram;
+    private:
+      int width, height;
+      unsigned char* image;
+      GLuint texture1, texture2;
 
+      glm::vec4 vec; //!< Define a vec using GLM's built-in vector class
+      glm::mat4 transform; //!< // Define a 'mat4', a 4-by-4 identity matrix by default
+      DCEngine::ShaderPtr shader;
 
-  };
+      GLuint vertexShader, fragmentShader;
+      GLuint VBO, VAO, EBO;
+      GLuint shaderProgram;
 
+    };
 
-
+  }
 }

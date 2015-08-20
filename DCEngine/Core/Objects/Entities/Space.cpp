@@ -1,5 +1,8 @@
 #include "Space.h"
 
+// TEST: Level loading
+#include "..\..\..\Projects\Dollhouse\Dollhouse.h"
+
 namespace DCEngine {
 
   extern std::unique_ptr<Engine> ENGINE;
@@ -11,7 +14,10 @@ namespace DCEngine {
   /**************************************************************************/
   Space::Space(std::string & name) : Entity(name) {
     if (TRACE_ON)
-      trace << "Space::Space - Constructed " << name << "\n";
+      trace << _name << "::Space - Constructor \n";
+
+    // TEST
+    //Initialize();
   }
   
   /**************************************************************************/
@@ -25,10 +31,29 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief  Initializes the space.
+  */
+  /**************************************************************************/
+  void Space::Initialize() {
+    trace << _name << "::Initialize \n";
+    // TESTING: Level loading
+    LoadLevel(LevelPtr(new DollHouse));
+    
+    // Initialize all entities (in effect, initializing all attached components)
+    for (auto entity : _entities)
+      entity->Initialize();
+
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Updates every system in the space.
   */
   /**************************************************************************/
   void Space::Update(float dt) {
+    if (TRACE_ON)
+      trace << _name << "::Update \n";
+
     for (auto &system : _systems) {
       // Checks if the system has all the entities in this space which
       // meet the requirements
@@ -53,7 +78,7 @@ namespace DCEngine {
     _systems.push_back(system);
     
     if (TRACE_ON)
-      trace << "Space::AddSystem; " << _name << " has added " << system->_name << "\n";
+      trace << _name << "::AddSystem " << "- Added " << system->_name << "\n";
   }
 
   /**************************************************************************/
@@ -61,7 +86,17 @@ namespace DCEngine {
   \brief  Loads a level, container for entities, into the space. 
   */
   /**************************************************************************/
-  void Space::LoadLevel() {
+  void Space::LoadLevel(LevelPtr level) {
+    trace << _name << "::LoadLevel - Loading " << level->Name() << " level.\n";
+
+    // Set it as the current level
+    _currentLevel = level;
+
+    // Load entities into the space
+    for (auto entity : _currentLevel->Entities) {
+      AddEntity(entity);
+    }      
+
   }
 
   /**************************************************************************/
@@ -77,8 +112,20 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief  Adds an entity directly to the space.
+  */
+  /**************************************************************************/
+  void Space::AddEntity(EntityPtr entity) {
+    _entities.push_back(entity);
+
+    if (TRACE_ON)
+      trace << _name << "::AddEntity - Added " << entity->Name() << " to the space.\n";
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Checks if the entity has all of a set of components by OR-ing
-  together multiple MaskComponente values.
+          together multiple MaskComponente values.
   \return True if the component has every specified component.
   */
   /**************************************************************************/
