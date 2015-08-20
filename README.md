@@ -10,12 +10,16 @@ My GAM 200 team, "Moonward":
 
 Note that at this time, this won't be the engine that the team will be using, but the one I am personally writing to learn graphics programming, engine architecture, software practices, etc.
 
-The ECS engine I am writing, "Daisy Chain" will be directly based on reverse-engineering Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as implementing graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
+The ECS engine I am writing, "Daisy Chain" will be directly based on "reverse-engineering" Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as implementing graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
 
 I have plugged in the tutorial code into the engine, adding functionality through classes to the engine 
 (such as shader objects, camera class) as I learn them. 
 
 While AJEngine is a gamestate-driven engine that follows a model us sophomores will be used to by now (after CS 230), I am writing Daisy Chain engine in mind to enable gameplay through components and objects added to a 'game' object and the spaces it contains. In that regard, I want that part to be similar to how the Zero Engine works. 
+
+There is a roadmap of the engine itself in terms of features to be implemented next, bugs, and technical questions that stump me:
+
+[Daisy Chain Engine Roadmap](https://trello.com/b/vDmSAbFm/daisy-chain-engine-roadmap)
 
 I am also documenting my day-to-day progress in a log of sorts:
 
