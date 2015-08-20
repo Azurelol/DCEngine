@@ -9,10 +9,11 @@
 */
 /******************************************************************************/
 #pragma once
-#include "..\Engine\Resource.h"
+#include "..\Resource.h"
 
 // GLEW
 #define GLEW_STATIC
+
 #include "..\..\Dependencies\include\GLEW\glew.h"
 // GLFW
 #define GLFW_BUILD_DLL
@@ -21,7 +22,7 @@
 #include <string>
 #include <memory>
 
-#include "..\Debug\Debug.h" // trace
+#include "..\..\Debug\Debug.h" // trace
 
 namespace DCEngine {
 

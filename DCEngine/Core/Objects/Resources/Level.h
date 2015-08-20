@@ -11,7 +11,7 @@
 /******************************************************************************/
 #pragma once
 
-#include "Resource.h"
+#include "..\Resource.h"
 
 namespace DCEngine {
 

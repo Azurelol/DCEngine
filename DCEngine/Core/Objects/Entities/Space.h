@@ -9,6 +9,7 @@
         Each space has its own instances of the core systems of the engine.
 */
 /******************************************************************************/
+#include "..\Entity.h"
 #pragma once
 
 #include <string>
@@ -16,10 +17,11 @@
 #include <memory>
 #include <unordered_map>
 
-#include "..\Systems\System.h"
-#include "Entity.h"
-#include "Component.h"
-#include "Level.h"
+#include "..\..\Systems\System.h"
+#include "..\Component.h"
+#include "..\Resources\Level.h"
+
+#define TRACE_ON 1
 
 namespace DCEngine {
   
@@ -36,7 +38,6 @@ namespace DCEngine {
 
     // LEVEL
     void LoadLevel();
-
 
     EntityPtr CreateEntity();
     void AddEntity(EntityPtr);

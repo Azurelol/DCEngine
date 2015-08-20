@@ -1,10 +1,10 @@
 #pragma once
 
 /*
-    WINDOW HANDLING
-                      */
-//#include "../Systems/Window/WindowGLFW.h"
+    WINDOW HANDLING, INPUT
+                            */
 #include "../Systems/Window/Window.h"
+#include "../Systems/Input/Input.h"
 
 /*
     GRAPHICS

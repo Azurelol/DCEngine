@@ -14,7 +14,7 @@
 #include <string>
 #include <memory>
 
-#include "..\..\Engine\Space.h"
+#include "..\..\Objects\Entities\Space.h"
 #include "..\System.h"
 
 namespace DCEngine {

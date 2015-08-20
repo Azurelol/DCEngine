@@ -12,8 +12,7 @@
 #include "..\..\Dependencies\include\GLFW\glfw3.h"
 
 #include "..\..\Core\Debug\Debug.h"
-#include "..\..\Core\Resources\GLShader.h"
-
+#include "..\..\Core\Objects\Resources\GLShader.h"
 
 namespace Tutorial {
 

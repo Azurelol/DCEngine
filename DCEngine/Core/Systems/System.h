@@ -14,7 +14,7 @@
 #include <memory>
 #include <vector>
 
-#include "..\Engine\Entity.h"
+#include "..\Objects\Entity.h"
 
 
 namespace DCEngine {
@@ -22,7 +22,8 @@ namespace DCEngine {
   enum class EnumeratedSystem {
     // Window Handler
     Window,
-
+    // Input
+    Input,
     // Graphics
     GraphicsGL,
 

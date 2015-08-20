@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Entity.h
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   8/18/2015
+\brief  The main object composition class.
+
+*/
+/******************************************************************************/
 #pragma once
 
 #include <cassert>
@@ -17,6 +27,7 @@ namespace DCEngine {
     }
     Entity() { _name = "Entity"; }
 
+
     void AddComponent(std::shared_ptr<Component> component);
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
@@ -31,12 +42,13 @@ namespace DCEngine {
     template <typename T> std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
   private:
-    std::string _archetypeName;
     int _runtimeId;
+    std::vector<Component> _components; //!< The list of components attached to the entity.
+    std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     //EnumeratedComponent _collider = EnumeratedComponent::None;
    
-    ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
+    //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
 
     
 

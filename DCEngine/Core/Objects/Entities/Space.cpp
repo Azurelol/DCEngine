@@ -1,5 +1,4 @@
 #include "Space.h"
-#include "..\Debug\Debug.h"
 
 namespace DCEngine {
 
@@ -11,6 +10,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Space::Space(std::string & name) : Entity(name) {
+    if (TRACE_ON)
+      trace << "Space::Space - Constructed " << name << "\n";
   }
   
   /**************************************************************************/
@@ -40,7 +41,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Adds the system to the space.
+  \brief  Adds an engine's system to the space.
   */
   /**************************************************************************/
   void Space::AddSystem(SystemPtr system) {
@@ -50,7 +51,17 @@ namespace DCEngine {
     }
 
     _systems.push_back(system);
-    std::cout << "Space::AddSystem; " << _name << " has added " << system->_name << std::endl;
+    
+    if (TRACE_ON)
+      trace << "Space::AddSystem; " << _name << " has added " << system->_name << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Loads a level, container for entities, into the space. 
+  */
+  /**************************************************************************/
+  void Space::LoadLevel() {
   }
 
   /**************************************************************************/
@@ -87,8 +98,6 @@ namespace DCEngine {
           sys->_entities.push_back(it);
       }
     }
-    
-
   }
 
   /**************************************************************************/

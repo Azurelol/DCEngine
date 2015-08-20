@@ -16,6 +16,9 @@
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
 
 #define USE_GLFW 1
+#define TRACE_ON 1
+
+class WindowGLFW;
 
 namespace DCEngine {
   namespace Systems {
@@ -33,6 +36,9 @@ namespace DCEngine {
       const std::string Caption = "Daisy Chain Engine v.lol";
       const int Width = 1024;
       const int Height = 600;
+
+      // GLFW
+      //std::unique_ptr<WindowGLFW> WindowObj;
     };
   }
 

@@ -14,7 +14,7 @@
 #define GLEW_STATIC
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
 
-#include "..\..\Resources\GLShader.h"
+#include "..\..\Objects\Resources\GLShader.h"
 
 namespace DCEngine {
   namespace Systems {

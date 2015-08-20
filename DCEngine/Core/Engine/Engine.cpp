@@ -17,7 +17,6 @@ Description here.
 #include <cassert> // Assert
 #include <algorithm> // for_each
 
-#include "Space.h"
 #include "..\Systems\SystemsInclude.h"
 #include "..\..\Libraries\Timer.h"
 #include "..\Debug\Debug.h" // Trace
@@ -68,39 +67,45 @@ namespace DCEngine {
     // Autowolves, howl out!
     _active = true;
 
-    // Systems are added to to the engine's systems vector
+    // Systems are added to to the engine's systems vector. 
+    // (?) Why should the engine have the same systems as the spaces?
     _systems.push_back(SystemPtr(new Systems::Window));
+    _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
-    // Creates the default local space
-    SpacePtr space = CreateSpace(_defaultSpace);
-    
-    // Sets the space as the active space
-    SetActiveSpace(_defaultSpace);
+    // Create the gamesession object, the "game" itself,  which contains all spaces.
+    //_gameSession.reset(new GameSession(_projectName));
+    // Initialize it
+    //_gameSession->Initialize();
 
-    // Load a level into the current space
-    
+    if (GAMESTATEDRIVEN) {
+      //Creates the default local space
+      SpacePtr space = CreateSpace(_defaultSpace);
 
-    // Specify which systems should be updated
-    using namespace Systems;
-    space->AddSystem(GETSYSTEM(GraphicsGL));
+      //Sets the space as the active space
+      SetActiveSpace(_defaultSpace);
 
-    /* - Allan
-    We need namespace Systems for this macro expansion to work properly.
-    The system types are ot defined outside the Systems namespace,
-    and using the using Systems::SystemName would cause the macro to
-    incorrectly expand into:
-    ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
-    The parameter would be invalid.
+      // Specify which systems should be updated
+      using namespace Systems;
+      space->AddSystem(GETSYSTEM(GraphicsGL));
+      space->AddSystem(GETSYSTEM(Input));
 
-    */
+      /* - Allan
+      We need namespace Systems for this macro expansion to work properly.
+      The system types are ot defined outside the Systems namespace,
+      and using the using Systems::SystemName would cause the macro to
+      incorrectly expand into:
+      ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
+      The parameter would be invalid.
+      */
+    }
+
+
     
     // Initialize all systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
-
-    std::cout << std::endl;
   }
 
   /**************************************************************************/
@@ -132,9 +137,11 @@ namespace DCEngine {
     GETSYSTEM(Window)->Update(dt);
 
     // Tell window management system to begin new frame
-    GETSYSTEM(Window)->StartFrame();
-    
+    GETSYSTEM(Window)->StartFrame();    
 
+    // Update the current GameSession, which will propagate the update
+    // through all its spaces, and the spaces into all objects in the game
+    //_gameSession->Update(dt);
 
     // Update all the systems in the space
     for (auto space : _spaces) {

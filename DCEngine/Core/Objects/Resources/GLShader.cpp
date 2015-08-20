@@ -21,8 +21,6 @@ namespace DCEngine {
     Load(vertexPath, fragmentPath);
     // Compiles the shader
     Compile();
-
-
   }
 
   /**************************************************************************/

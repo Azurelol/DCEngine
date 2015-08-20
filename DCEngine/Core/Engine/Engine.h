@@ -14,9 +14,10 @@
 #include <unordered_map>
 #include <stack>
 
-#include "Space.h"
-#include "Entity.h"
-#include "Component.h"
+#include "..\Objects\Entities\GameSession.h"
+#include "..\Objects\Entities\Space.h"
+#include "..\Objects\Entity.h"
+#include "..\Objects\Component.h"
 #include "..\Systems\System.h"
 #include "..\Systems\Gamestate\Gamestate.h"
 
@@ -39,8 +40,7 @@ namespace DCEngine {
       
       auto Getdt() { return dt; }
 
-      template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
-      
+      template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);      
 
      // auto GetEngine() { return std::shared_ptr<Engine> = this; }
 
@@ -57,14 +57,16 @@ namespace DCEngine {
       std::string GetDefaultSpace() { return _defaultSpace; }
 
     private:
-
       void UpdateSpace(SpacePtr space, float dt);
 
+      // VARIABLES //
+      GameSessionPtr _gameSession; //!< The current GameSession object.
       float dt; //!< Delta time. 
       float _framerate = 60.0f; //!< The target frame rate.
       float _runtime; //!< How long the engine has been running.
       bool _active; //!< Whether the engine is active or not.
-      std::string _defaultSpace = "Daisy World";
+      std::string _projectName = "Daisy Project"; //!< The current project.
+      std::string _defaultSpace = "Daisy World"; 
 
       // CONTAINERS //
       SystemVec _systems; //!< Container for the engine's systems.
@@ -103,7 +105,6 @@ namespace DCEngine {
 
     // Throw an error if the system doesn't exist in the engine.
     throw std::range_error("The specified system does not exist.");
-
   }
 
 } // DCEngine

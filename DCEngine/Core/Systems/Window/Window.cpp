@@ -30,29 +30,41 @@ namespace DCEngine {
     }
 
     void Window::Initialize() {
-      trace << "Window::Initialize \n";
+      if (TRACE_ON)
+        trace << "Window::Initialize \n";
+
       GLFWHandler->SetWindowSize(Width, Height);
       GLFWHandler->SetWindowCaption(Caption);
-      GLFWHandler->Initialize();      
+      GLFWHandler->Initialize();
+      // Store a pointer to the window object. This will be used by the 'Input' system.
+      //WindowObj.reset(GLFWHandler);
     }
 
     void Window::Update(float dt) {
-      trace << "Window::Update \n \n";
+      if (TRACE_ON)
+        trace << "\nWindow::Update \n";
+
       GLFWHandler->Update(dt);
     }
 
     void Window::Terminate() {
-      trace << "Window::Terminate \n";
+      if (TRACE_ON)
+        trace << "Window::Terminate \n";
+
       GLFWHandler->Terminate();
     }
 
     void Window::StartFrame() {
-      trace << "Window::StartFrame \n";
+      if (TRACE_ON)
+        trace << "Window::StartFrame \n";
+
       GLFWHandler->StartFrame();
     }
 
     void Window::EndFrame() {
-      trace << "Window::EndFrame \n";
+      if (TRACE_ON)
+        trace << "Window::EndFrame \n";
+
       GLFWHandler->EndFrame();
     }
 

@@ -9,15 +9,19 @@
 */
 /******************************************************************************/
 #include "..\System.h"
-
 #pragma once
 
 namespace DCEngine{
   namespace Systems {
-    class Input : System {
+    class Input : public System {
     public:
       Input();
-      KeyIsDown(Key key);
+
+      void Initialize();
+      void Update(float dt);
+      void Terminate();
+
+      //KeyIsDown(Key key);
       //KeyIsPressed
       //KeyIsReleased
       //KeyIsUp

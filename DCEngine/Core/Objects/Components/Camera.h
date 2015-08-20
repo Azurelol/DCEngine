@@ -9,7 +9,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "..\Engine\Component.h"
+#include "..\Component.h"
 
 namespace DCEngine {
   class Camera : public Component {

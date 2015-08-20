@@ -11,6 +11,9 @@
 #include <string>
 #include <memory>
 
+// Every object can access 'trace'
+#include "..\Debug\Debug.h"
+
 namespace DCEngine {
 
   class Object {
