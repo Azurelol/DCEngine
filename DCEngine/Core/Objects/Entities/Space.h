@@ -60,8 +60,6 @@ namespace DCEngine {
     // Spaces should never be default or copy constructed.
     Space() = delete;
     Space(Space& space) = delete;
-
-
   };
 
   using SpacePtr = std::shared_ptr<Space>;

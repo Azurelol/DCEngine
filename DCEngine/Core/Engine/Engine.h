@@ -58,7 +58,6 @@ namespace DCEngine {
       std::string GetDefaultSpace() { return _defaultSpace; }
 
     private:
-      void UpdateSpace(SpacePtr space, float dt);
 
       // VARIABLES //
       GameSessionPtr _gameSession; //!< The current GameSession object.

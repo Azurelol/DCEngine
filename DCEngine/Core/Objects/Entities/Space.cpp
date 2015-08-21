@@ -36,6 +36,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Initialize() {
     trace << _name << "::Initialize \n";
+
     // TESTING: Level loading
     LoadLevel(LevelPtr(new DollHouse));
     

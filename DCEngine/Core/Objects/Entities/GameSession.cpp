@@ -32,6 +32,14 @@ namespace DCEngine {
     // Creates the default space
     SpacePtr space = CreateSpace(_defaultSpace);
 
+    /* - Allan
+    We need namespace Systems for this macro expansion to work properly.
+    The system types are ot defined outside the Systems namespace,
+    and using the using Systems::SystemName would cause the macro to
+    incorrectly expand into:
+    ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
+    The parameter would be invalid.
+    */
     using namespace Systems;
     space->AddSystem(GETSYSTEM(Input));
     space->AddSystem(GETSYSTEM(GraphicsGL));

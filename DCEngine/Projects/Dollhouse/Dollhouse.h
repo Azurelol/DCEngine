@@ -14,7 +14,7 @@ namespace DCEngine {
       AddEntity(doll);
     }
 
-  private:
+  //private:
     EntityPtr doll;
 
   };

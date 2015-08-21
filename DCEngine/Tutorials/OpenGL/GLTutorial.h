@@ -33,7 +33,7 @@ namespace DCEngine {
     class GLTutorial : public Component {
 
     public:
-      GLTutorial() : Component(EnumeratedComponent::Transform, BitfieldComponent::Alive) {
+      GLTutorial() : Component(EnumeratedComponent::None, BitfieldComponent::Alive) {
         trace << "GLTutorial::GLTutorial - Constructor \n-An OpenGL tutorial is now being used!- \n";
       }
       ~GLTutorial() {};

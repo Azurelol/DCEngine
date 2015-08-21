@@ -23,12 +23,6 @@ Description here.
 
 #include "..\Config.h" // DefaultSpace
 
-/* 
-ARTCHITECTURE: Set GAMESTATEDRIVEN to 1 to use the Gamestate-driven architecture
-               for gameplay. Gamestates are
-*/
-#define OLD_ARCHITECTURE 0
-
 namespace DCEngine {
 
   // A pointer to the 'ENGINE' object
@@ -44,7 +38,6 @@ namespace DCEngine {
     // Assert makes sure there's only one instance of the engine 
     assert(ENGINE == nullptr);
     ENGINE.reset(this);
-
     
   }
   
@@ -84,44 +77,17 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
-
-
-
-    if (OLD_ARCHITECTURE) {
-      //Creates the default local space
-      SpacePtr space = CreateSpace(_defaultSpace);
-
-      //Sets the space as the active space
-      SetActiveSpace(_defaultSpace);
-
-      // Specify which systems should be updated
-      using namespace Systems;
-      space->AddSystem(GETSYSTEM(GraphicsGL));
-      space->AddSystem(GETSYSTEM(Input));
-
-      /* - Allan
-      We need namespace Systems for this macro expansion to work properly.
-      The system types are ot defined outside the Systems namespace,
-      and using the using Systems::SystemName would cause the macro to
-      incorrectly expand into:
-      ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
-      The parameter would be invalid.
-      */
-    }
-    else {
-      // Create the gamesession object, the "game" itself,  which contains all spaces.
-      _gameSession.reset(new GameSession(_projectName));
-      // Initialize it
-      _gameSession->Initialize();
-    }
-
-
-
-
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
+    trace << "[Engine::Initialize - All engine systems initialized]\n";
+
+    // Create the gamesession object, the "game" itself,  which contains all spaces.
+    _gameSession.reset(new GameSession(_projectName));
+    // Initialize it
+    _gameSession->Initialize();
+
   }
 
   /**************************************************************************/
@@ -141,13 +107,6 @@ namespace DCEngine {
   void Engine::Update(float dt) {
     trace << "\n[Engine::Update] \n";
     
-    #if(OLD_ARCHITECTURE)       
-      // Sets the active space to be the one for the current gamestate.
-      //? Insures that the mouse will be in worldspace coordinates for that space.
-      auto logicalSpace = GetCurrentState()->GetLogicalSpace();
-      SetActiveSpace(logicalSpace);    
-    #endif     
-    
     using Systems::Window;
     // Update the window management system (window, input)
     GETSYSTEM(Window)->Update(dt);
@@ -155,62 +114,17 @@ namespace DCEngine {
     // Tell window management system to begin new frame
     GETSYSTEM(Window)->StartFrame();    
 
-
-
-    if (OLD_ARCHITECTURE) {
-     // Update all the systems in the space
-        for (auto space : _spaces) {
-          UpdateSpace(space.second, dt);
-        }
-    }
-    else {
-      // Update the current GameSession, which will propagate the update
-      // through all its spaces, and the spaces into all objects in the game
-      _gameSession->Update(dt);
-    }
-
+    // Update the current GameSession, which will propagate the update
+    // through all its spaces, and the spaces into all objects in the game
+    _gameSession->Update(dt);
+    //_gameSession->DispatchEvent()
+    
     trace << "[Engine::Update - All systems updated.] \n";
 
     // Tell window management system to end the frame
     GETSYSTEM(Window)->EndFrame();
-  }
-  
-  /**************************************************************************/
-  /*!
-  \brief Updates the space, updating all its systems.
-  */
-  /**************************************************************************/
-  void Engine::UpdateSpace(SpacePtr space, float dt) {
-    trace << "\n[Engine::UpdateSpace - " << "Updating "
-          << space->GetName() << "]\n";
-    
-    // Sets the space as the active one        
-    SetActiveSpace(space->GetName());
+  }  
 
-    #if(OLD_ARCHITECTURE)
-    GamestatePtr gamestate = GetCurrentState();    
-
-    // If this is a space that the current gamestate wants to update,
-    // populate it with the relevant entities before updating
-    if (space->GetName() == gamestate->GetLogicalSpace()) {
-      space->PopulateEntities(gamestate);
-      gamestate->Update(dt);
-    }
-
-    // Verify that this space is supposed to be updated
-    if (gamestate->CheckSpaceActive(space->GetName()))
-      // Fill the space's systems with relevant entities then update
-      space->Update(dt); 
-    #endif
-       
-    #if(!OLD_ARCHITECTURE)
-
-    #endif
-
-
-
-
-  }
   /**************************************************************************/
   /*!
   \brief  Terminates all the systems, clears out the spaces, and shuts down
@@ -240,8 +154,6 @@ namespace DCEngine {
       ScopeTimer frameTimer(&dt);
       Update(dt);
     }
-
-
   }
 
   /**************************************************************************/

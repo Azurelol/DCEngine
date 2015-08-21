@@ -50,11 +50,11 @@ namespace DCEngine {
 
     //_components[component->_type] = component;
 
-    trace << _name << "::AddComponent - " << component->Name() << "\n";
+    
 
     // Adds the component to the entity
     _components.push_back(component);
-
+    trace << _name << "::AddComponent - " << component->Name() << "\n";
     
   }
 
