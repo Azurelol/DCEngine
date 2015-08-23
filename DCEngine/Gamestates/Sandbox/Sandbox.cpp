@@ -6,7 +6,7 @@
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> ENGINE;
+  extern std::unique_ptr<Engine> Daisy;
 
   namespace Gamestates {
 
@@ -21,10 +21,10 @@ namespace DCEngine {
       //SetLogicalSpace(ENGINE->);
 
       // Register the spaces to be updated within this system
-      RegisterSpace(ENGINE->GetDefaultSpace());
+      RegisterSpace(Daisy->GetDefaultSpace());
 
       // Set which space this gamestate's Update() should be used with
-      SetLogicalSpace(ENGINE->GetDefaultSpace());
+      SetLogicalSpace(Daisy->GetDefaultSpace());
 
       // Register for drawable objects
 

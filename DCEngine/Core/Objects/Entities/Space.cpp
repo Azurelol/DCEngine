@@ -5,7 +5,7 @@
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> ENGINE;
+  extern std::unique_ptr<Engine> Daisy;
   
   /**************************************************************************/
   /*!
@@ -55,14 +55,23 @@ namespace DCEngine {
     if (TRACE_ON)
       trace << _name << "::Update \n";
 
-    for (auto &system : _systems) {
-      // Checks if the system has all the entities in this space which
-      // meet the requirements
-      PopulateEntities(system);
+    // !!! BAND-AID: Pass the update to every entity, who propagate it to their
+    // components. In the desired implementation, components will be updated
+    // through an update event... which requires an event system.
+    for (auto entity : _entities)
+      entity->Update(dt);
 
-      // Update the system now that it has been filled with the correct entities.
+    for (auto system : _systems)
       system->Update(dt);
-    }
+
+    //for (auto &system : _systems) {
+    //  // Checks if the system has all the entities in this space which
+    //  // meet the requirements
+    //  PopulateEntities(system);
+
+    //  // Update the system now that it has been filled with the correct entities.
+    //  system->Update(dt);
+    //}
   }
 
   /**************************************************************************/

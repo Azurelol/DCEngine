@@ -23,6 +23,7 @@
 
 #include "..\..\Gamestates\GamestatesInclude.h"
 #include "..\Systems\SystemsInclude.h"
+//#include "..\Events\Event.h"
 
 //extern std::string DefaultSpace = "Daisy World";
 
@@ -44,6 +45,10 @@ namespace DCEngine {
       template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);      
 
      // auto GetEngine() { return std::shared_ptr<Engine> = this; }
+
+     // EVENTS//
+     void Connect(const Entity& entity, Event event);
+     void Disconnect(Event event);
 
      // GAMESTATE //
       GamestatePtr GetCurrentState() const;
@@ -79,12 +84,13 @@ namespace DCEngine {
       LIFO context (last-in first-out), where elements are inserted and extracted only 
       from one end of the container.
       */
+            
       
   }; // Engine
 
   // DEFINE MACRO 
   #define GETSYSTEM( systype ) \
-  ENGINE->GetSystem<systype>(EnumeratedSystem::##systype)
+  Daisy->GetSystem<systype>(EnumeratedSystem::##systype)
 
   /**************************************************************************/
   /*!

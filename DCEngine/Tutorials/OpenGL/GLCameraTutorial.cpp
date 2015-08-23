@@ -3,10 +3,22 @@
 // For loading images, generating textures
 #include "..\..\Dependencies\include\SOIL2\SOIL2.h"
 
+// Access to the engine for key_callback
+#include "..\..\Core\Engine\Engine.h"
+
 #define APPLY_PROJECTION 1 // If 0, edit the comments in the vertex shader
 #define DRAW_CUBES 1
 
+// Variables for the key_callback function
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
 namespace DCEngine {
+  
+  // Need access to the engine to get a pointer to the GLFWwindow object
+  extern std::unique_ptr<Engine> Daisy;
+  
   namespace Tutorial {
 
     void GLCameraTutorial::Initialize() {
@@ -24,7 +36,6 @@ namespace DCEngine {
 
       if (APPLY_PROJECTION)
         GenerateProjection();
-
     }
 
     void GLCameraTutorial::GenerateMesh() {
@@ -342,21 +353,17 @@ namespace DCEngine {
        a point on a circle and use these for the camera position. By re-calculating
         the x and y coordinate we're traversing all the points in a circle and thus
         the camera rotates around the scene. */
-      GLfloat radius = 10.0f;
-      GLfloat camX = sin(glfwGetTime()) * radius;
-      GLfloat camZ = cos(glfwGetTime()) * radius;
-      view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0),
-        glm::vec3(0.0, 1.0, 0.0));
-
-
-      //cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-      //cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-      //cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
-      //view = glm::lookAt(cameraPos, /* Direction */ cameraPos + cameraFront, cameraUp);
-
+      //GLfloat radius = 10.0f;
+      //GLfloat camX = sin(glfwGetTime()) * radius;
+      //GLfloat camZ = cos(glfwGetTime()) * radius;
+      //view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0),
+      //  glm::vec3(0.0, 1.0, 0.0));
+      
+      cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+      cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+      cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+      view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
     }
-
-
 
     void GLCameraTutorial::Update() {
       ApplyTexture();
@@ -375,8 +382,6 @@ namespace DCEngine {
         ApplyProjection();
       }
 
-
-
       // When not drawing a cube
       if (!DRAW_CUBES)
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -391,5 +396,5 @@ namespace DCEngine {
       glDeleteBuffers(1, &EBO);
     }
 
-  }
-}
+  } // Tutorial
+} // DCEngine

@@ -119,6 +119,15 @@
     <Filter Include="Projects\Tutorials\OpenGL\Camera">
       <UniqueIdentifier>{540ac63d-567f-4ef1-955f-9e2892088d9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Input\GLFW">
+      <UniqueIdentifier>{6b879444-ec36-4523-b225-1720817af1a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Window\SFML">
+      <UniqueIdentifier>{faf60919-f8c7-420d-8b0e-b746f624a70e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Input\SFML">
+      <UniqueIdentifier>{ed89e610-20ac-48b7-ba9d-0cd99271f078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -182,6 +191,15 @@
       <Filter>Core\Object\Resource\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Resources\Level.cpp" />
+    <ClCompile Include="Core\Systems\Input\InputGLFW.cpp">
+      <Filter>Core\Systems\Input\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowSFML.cpp">
+      <Filter>Core\Systems\Window\SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Input\InputSFML.cpp">
+      <Filter>Core\Systems\Input\SFML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -198,9 +216,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Input\InputGLFW.h">
-      <Filter>Core\Systems\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h">
       <Filter>Core\Systems\Graphics</Filter>
@@ -303,6 +318,15 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\Transform.h">
       <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\InputGLFW.h">
+      <Filter>Core\Systems\Input\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowSFML.h">
+      <Filter>Core\Systems\Window\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\InputSFML.h">
+      <Filter>Core\Systems\Input\SFML</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,27 +4,16 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
-\brief  
-
-Functions include:
-- Name
-Description here.
-
-References:
-http://www.learnopengl.com/#!Getting-Started/Hello-Window
-
 */
 /******************************************************************************/
 #include "WindowGLFW.h"
 
 #include "..\..\Engine\Engine.h"
-#include "..\Input\InputGLFW.h"
 #include "..\..\Debug\Debug.h"
-
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> ENGINE;
+  extern std::unique_ptr<Engine> Daisy;
 
   namespace Systems {
 
@@ -33,8 +22,7 @@ namespace DCEngine {
     \brief  Constructor for the WindowGLFW class.
     */
     /**************************************************************************/
-    WindowGLFW::WindowGLFW() {
-    //WindowGLFW::WindowGLFW() : System(std::string("WindowGLFWSystem"), EnumeratedSystem::WindowGLFW) {
+    WindowGLFW::WindowGLFW() {    
     }
     
 
@@ -68,7 +56,7 @@ namespace DCEngine {
       
       // ASSERT
       if (_window == nullptr) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        trace << "Failed to create GLFW window \n";
         glfwTerminate();
       }
 
@@ -85,10 +73,6 @@ namespace DCEngine {
       if (glewInit() != GLEW_OK) {
         std::cout << "Failed to initialize GLEW" << std::endl;
       }
-
-      // Callback functions
-      glfwSetKeyCallback(_window, KeyCallback);
-
     }
 
     /**************************************************************************/
@@ -175,7 +159,7 @@ namespace DCEngine {
       // to close, and if so the function returns true and the game loop
       // starts running.
       if (glfwWindowShouldClose(_window)) {
-        ENGINE->Stop();
+        Daisy->Stop();
       }
         
       // Checks if any events are triggered (like keyboard input, or mouse 

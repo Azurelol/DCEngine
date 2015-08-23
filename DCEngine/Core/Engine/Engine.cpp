@@ -26,8 +26,7 @@ Description here.
 namespace DCEngine {
 
   // A pointer to the 'ENGINE' object
-  std::unique_ptr<Engine> ENGINE = nullptr;
-  
+  std::unique_ptr<Engine> Daisy = nullptr;  
 
   /**************************************************************************/
   /*!
@@ -36,8 +35,8 @@ namespace DCEngine {
   /**************************************************************************/
   Engine::Engine() {
     // Assert makes sure there's only one instance of the engine 
-    assert(ENGINE == nullptr);
-    ENGINE.reset(this);
+    assert(Daisy == nullptr);
+    Daisy.reset(this);
     
   }
   
@@ -139,7 +138,7 @@ namespace DCEngine {
 
     _systems.clear();
 
-    ENGINE.reset();
+    Daisy.reset();
   }
 
   /**************************************************************************/

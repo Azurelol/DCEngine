@@ -5,13 +5,15 @@
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
 \brief  The Window implementation through GLFW.
+\note   References:
+        "http://www.learnopengl.com/#!Getting-Started/Hello-Window"
 
 */
 /******************************************************************************/
 #pragma once
 
-#include "../System.h"
-
+// STD
+#include <string>
 // GLEW
 #define GLEW_STATIC
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
@@ -24,6 +26,7 @@ namespace DCEngine {
   namespace Systems {
 
     class WindowGLFW {
+    friend class InputGLFW;
     public:
 
       WindowGLFW();
@@ -46,22 +49,7 @@ namespace DCEngine {
       void PollEvents();
       void ViewportUpdate();
 
-      //  KEYBOARD INPUT //
-      inline static auto KeyCallback(GLFWwindow* win,
-        int key, int scancode,
-        int action, int mode) {
-        WindowGLFW* window = static_cast<WindowGLFW*>(glfwGetWindowUserPointer(win));
-               
-        switch (key) {
-        case GLFW_KEY_ESCAPE:
-          if (action == GLFW_PRESS) {
-            glfwSetWindowShouldClose(win, GL_TRUE);
-            break;
-          }
-        case GLFW_KEY_F1:
-          break;
-        }
-      }
+
       
       GLFWwindow* _window;      
 

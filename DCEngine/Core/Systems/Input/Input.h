@@ -11,7 +11,16 @@
 #include "..\System.h"
 #pragma once
 
+//#define USE_SFML 1
+
 namespace DCEngine{
+  
+  enum class Keys {
+    ESCAPE,
+  };
+
+
+  
   namespace Systems {
     class Input : public System {
     public:
@@ -27,7 +36,7 @@ namespace DCEngine{
       //KeyIsUp
 
     private:
-
+      
 
     };
 

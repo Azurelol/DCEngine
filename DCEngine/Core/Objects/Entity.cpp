@@ -26,6 +26,19 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief BAND-AID: Pass the update to every entity, who propagate it to their
+         components. In the desired implementation, components will be updated
+         through an update event... which requires an event system.
+  */
+  /**************************************************************************/
+  void Entity::Update(float dt) {
+    for (auto component : _components)
+      component->Update();
+  }
+
+
+  /**************************************************************************/
+  /*!
   \brief  Checks if the entity has all of a set of components by OR-ing
           together multiple MaskComponente values.
   \return True if the component has every specified component.

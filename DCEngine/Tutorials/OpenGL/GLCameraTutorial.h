@@ -66,9 +66,8 @@ namespace DCEngine {
 
       GLuint VBO, VAO, EBO;
       DCEngine::ShaderPtr shader;
+
     };
-
-
 
   }
 }

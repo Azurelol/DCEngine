@@ -14,10 +14,15 @@
 #include <memory>
 #include <vector>
 
+//#include "..\Engine\Engine.h"
+
 //class Entity; // Forward declaration: EntityPtr
 
 namespace DCEngine {
   
+  // Give every component access to the engine object.
+  //extern std::unique_ptr<Engine> Daisy;
+
   // (?) EXPLAIN
   using mask = unsigned;
 
@@ -50,7 +55,7 @@ namespace DCEngine {
     virtual ~Component() {} // Derived component types need to be deallocated properly
 
     virtual void Initialize() = 0; // Every component needs to be initialized.
-    //virtual void Update() = 0; // Components are updated through events.
+    virtual void Update() = 0; // Components are updated through events.
 
     void Connect(); // The component has to register to an event to be updated.
     void Disconnect(); // The component can unsubscribe from listening to an event.

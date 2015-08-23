@@ -24,11 +24,13 @@ namespace DCEngine {
     Entity(std::string name);
     Entity() { _name = "Entity"; }
 
+    void Update(float dt);
     void AddComponent(std::shared_ptr<Component> component);
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
     void Initialize(); // Initializes all of the entity's components
 
+    // EVENTS //
     void DispatchEvent(std::string eventId, Event event); // Dispatches an event on object
     void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
     void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively

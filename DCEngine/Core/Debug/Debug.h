@@ -18,6 +18,8 @@
 
 namespace Debug {
   
+  #define TRACE_UPDATE 1
+
   class Trace {
   public:    
 

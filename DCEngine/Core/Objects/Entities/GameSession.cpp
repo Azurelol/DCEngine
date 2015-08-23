@@ -5,7 +5,7 @@
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> ENGINE;
+  extern std::unique_ptr<Engine> Daisy;
 
   GameSession::GameSession(std::string& name) : Entity(name) {
     trace << _name << "::GameSession - Constructor\n";
@@ -43,6 +43,7 @@ namespace DCEngine {
     using namespace Systems;
     space->AddSystem(GETSYSTEM(Input));
     space->AddSystem(GETSYSTEM(GraphicsGL));
+    
 
     space->Initialize();
 
@@ -62,10 +63,10 @@ namespace DCEngine {
   void GameSession::Update(float dt) {
     trace << _name << "::Update \n";
 
-    // Update all the systems in the space
+    // Update all active spaces
     for (auto space : _spaces)
       UpdateSpace(space.second, dt);
-
+    
     trace << _name << "::Update - All spaces updated. \n";
   }
 

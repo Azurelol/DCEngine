@@ -14,19 +14,19 @@ using namespace DCEngine;
 
 namespace DCEngine {
   // ???
-  extern std::unique_ptr<Engine> ENGINE;
+  extern std::unique_ptr<Engine> Daisy;
 }
 
 int main(int argc, char* args[]) {
 
   new Engine();
     
-  ENGINE->Initialize();
+  Daisy->Initialize();
 
-  ENGINE->PushGamestate(Gamestates::SandboxPtr(new Gamestates::Sandbox()));
+  //Daisy->PushGamestate(Gamestates::SandboxPtr(new Gamestates::Sandbox()));
 
-  ENGINE->Loop();
+  Daisy->Loop();
 
-  ENGINE->Terminate();  
+  Daisy->Terminate();  
 
 }
