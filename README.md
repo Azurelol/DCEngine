@@ -1,4 +1,4 @@
-# GAM200
+# DCEngine
 
 This repository is for my DigiPen GAM 200 Engine, "Daisy Chain". 
 
