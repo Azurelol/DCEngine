@@ -27,15 +27,19 @@ class InputSFML;
 class InputGLFW;
 #endif
 
+class GLCameraTutorial;
+
 namespace DCEngine {
   namespace Systems {
     class Window : public System {      
+
+      friend class GLCameraTutorial;
 
       #if(USE_SFML)
       friend class InputSFML;
       #else
       friend class InputGLFW;
-      #endif
+      #endif     
 
     public:
       Window();
@@ -46,17 +50,32 @@ namespace DCEngine {
 
       void StartFrame();
       void EndFrame();
+
+      // (!!!) TEMPORARY FOR TUTORIAL USE      
+      #if(USE_SFML)
+      std::unique_ptr<WindowSFML> WindowHandler;
+      #else
+      std::unique_ptr<WindowGLFW> WindowHandler;
+      #endif
+
+      //#if(USE_SFML)
+      //WindowSFML* GetWindowHandler() {
+      //  return WindowHandler.get();
+      //}
+      //#else
+      //std::unique_ptr<WindowGLFW> WindowHandler;
+      //#endif
       
     private:
       const std::string Caption = "Daisy Chain Engine v.lol";
       const int Width = 1024;
       const int Height = 600;
       
-      #if(USE_SFML)
-      std::unique_ptr<WindowSFML> WindowHandler;
-      #else
-      std::unique_ptr<WindowGLFW> WindowHandler;
-      #endif
+      //#if(USE_SFML)
+      //std::unique_ptr<WindowSFML> WindowHandler;
+      //#else
+      //std::unique_ptr<WindowGLFW> WindowHandler;
+      //#endif
 
 
       //std::unique_ptr<WindowGLFW> WindowHandler;

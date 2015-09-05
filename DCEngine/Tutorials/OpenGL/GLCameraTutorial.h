@@ -18,9 +18,12 @@ GLM library.
 #include "GLTutorial.h"
 
 // OpenGL Mathematics for doing transformations
+#define GLM_FORCE_RADIANS // functions taking degrees is deprecated.
 #include "..\..\Dependencies\include\GLM\glm.hpp"
 #include "..\..\Dependencies\include\GLM\gtc\matrix_transform.hpp"
 #include "..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
+// SFML
+#include "..\..\Dependencies\include\SFML\Window.hpp"
 
 #include <vector>
 
@@ -44,11 +47,14 @@ namespace DCEngine {
       void ApplyTexture();
       void ApplyProjection();
 
+      void CameraInputPoll();
+      void CameraInputEvent(sf::Event& event);
       void CameraInitialize();
       void CameraUpdate();
 
 
     private:
+      sf::Window* _window; // A pointer to the sf::Window object for input polling
       const GLfloat screenWidth = 800;
       const GLfloat screenHeight = 600;
       int width, height;
@@ -58,6 +64,7 @@ namespace DCEngine {
       glm::vec4 vec; //!< Define a vec using GLM's built-in vector class
       glm::mat4 transform; //!< // Define a 'mat4', a 4-by-4 identity matrix by default
       glm::vec3 cameraPos, cameraFront, cameraUp, cameraTarget, cameraDirection;
+      GLfloat cameraSpeed = 0.05f;
 
       //const glm::vec3* cubePositions;
       std::vector<glm::vec3> cubePositions;

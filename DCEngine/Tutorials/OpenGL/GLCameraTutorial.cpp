@@ -10,9 +10,12 @@
 #define DRAW_CUBES 1
 
 // Variables for the key_callback function
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+//glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+//glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+//glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+
+
 
 namespace DCEngine {
   
@@ -36,6 +39,14 @@ namespace DCEngine {
 
       if (APPLY_PROJECTION)
         GenerateProjection();
+
+      // Need access to the engine for input
+      using Systems::Window;
+      _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
+
+
+      Owner()->Connect();
+      
     }
 
     void GLCameraTutorial::GenerateMesh() {
@@ -300,6 +311,24 @@ namespace DCEngine {
       else {
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
       }
+    }
+
+    void GLCameraTutorial::CameraInputPoll() {
+
+      // Create an object event to capture current input
+      sf::Event event;
+      _window->pollEvent(event);
+
+      // We will move in a direction depending on the speed
+      if (event.key.code == sf::Keyboard::W)
+        cameraPos += cameraSpeed * cameraFront;
+      else if (event.key.code == sf::Keyboard::S)
+        cameraPos -= cameraSpeed * cameraFront;
+
+      if (event.key.code == sf::Keyboard::A)
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+      if (event.key.code == sf::Keyboard::D)
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     }
 
     void GLCameraTutorial::CameraInitialize() {

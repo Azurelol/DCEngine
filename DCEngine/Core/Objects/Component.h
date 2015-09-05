@@ -8,18 +8,19 @@
 
 */
 /******************************************************************************/
-#include "Object.h"
+#ifndef COMPONENT_H
+#define COMPONENT_H
 #pragma once
 
-#include <memory>
-#include <vector>
+// Base class
+#include "Object.h"
+// Headers
 
-//#include "..\Engine\Engine.h"
-
-//class Entity; // Forward declaration: EntityPtr
 
 namespace DCEngine {
-  
+
+  class Entity;
+
   // Give every component access to the engine object.
   //extern std::unique_ptr<Engine> Daisy;
 
@@ -49,16 +50,17 @@ namespace DCEngine {
   };
   
   class Component : public Object {
+	  friend class Entity; // _owner
 
   public:    
     Component(EnumeratedComponent type, BitfieldComponent mask);
-    virtual ~Component() {} // Derived component types need to be deallocated properly
+    
+	virtual ~Component() {} // Derived component types need to be deallocated properly
 
     virtual void Initialize() = 0; // Every component needs to be initialized.
     virtual void Update() = 0; // Components are updated through events.
-
-    void Connect(); // The component has to register to an event to be updated.
-    void Disconnect(); // The component can unsubscribe from listening to an event.
+	
+    Entity* Owner(); // Returns a pointer to the component's owner
 
     // Once the component is created, it should never change types
     const EnumeratedComponent _type;
@@ -66,12 +68,13 @@ namespace DCEngine {
 
   private:
     Component() = delete; // No default construction
-    //EntityPtr _owner; // The owner of this component.
-
+    
+    //Entity* _owner; // The owner of this component.
   };
 
   using ComponentPtr = std::shared_ptr<Component>;
   using ComponentVec = std::vector<ComponentPtr>;
   //using ComponentPtr = std::shared_ptr<Component>;
 
-}
+} // DCEngine
+#endif

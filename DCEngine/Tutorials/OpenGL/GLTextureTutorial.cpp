@@ -10,6 +10,7 @@ namespace DCEngine {
 
     void GLTextureTutorial::Initialize() {
 
+      
       // 1. Build and compile the shader program
       shader.reset(new DCEngine::GLShader("GLTexture.vs", "GLTexture.frag"));
 

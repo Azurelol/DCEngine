@@ -14,10 +14,10 @@
 //#define USE_SFML 1
 
 namespace DCEngine{
-  
-  enum class Keys {
-    ESCAPE,
-  };
+  //
+  //enum class Keys {
+  //  ESCAPE,
+  //};
 
 
   
@@ -25,6 +25,7 @@ namespace DCEngine{
     class Input : public System {
     public:
       Input();
+      
 
       void Initialize();
       void Update(float dt);

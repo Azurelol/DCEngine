@@ -40,6 +40,11 @@ namespace DCEngine {
       void SetWindowSize(int width, int height);
       void SetWindowCaption(std::string caption);
 
+      // (!!!) Temporary public access to the sf::Window object
+      sf::Window* GetWindow() {
+        return _window.get();
+      }
+
     private:
       void ViewportUpdate();
 

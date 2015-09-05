@@ -23,6 +23,9 @@
 // GLFW
 #define GLFW_BUILD_DLL
 #include "..\..\Dependencies\include\GLFW\glfw3.h"
+// SFML
+
+
 
 #include "..\..\Core\Debug\Debug.h"
 #include "..\..\Core\Objects\Resources\GLShader.h"
@@ -34,7 +37,8 @@ namespace DCEngine {
 
     public:
       GLTutorial() : Component(EnumeratedComponent::None, BitfieldComponent::Alive) {
-        trace << "GLTutorial::GLTutorial - Constructor \n-An OpenGL tutorial is now being used!- \n";
+        _name = "GLTutorial";
+        trace << "GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- \n";
       }
       ~GLTutorial() {};
 

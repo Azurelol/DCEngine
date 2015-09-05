@@ -9,14 +9,14 @@
         Each space has its own instances of the core systems of the engine.
 */
 /******************************************************************************/
-#include "..\Entity.h"
 #pragma once
+#include "..\Entity.h"
 
-#include <string>
+// Libraries
 #include <vector>
-#include <memory>
 #include <unordered_map>
 
+// Headers
 #include "..\..\Systems\System.h"
 #include "..\Component.h"
 #include "..\Resources\Level.h"

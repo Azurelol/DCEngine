@@ -17,9 +17,9 @@ Daisy Space::AddSystem - Added GraphicsGLSystem
 Daisy Space::Initialize 
 Dollhouse::Level - Constructor 
 Doll::Entity - Constructor 
-GLTutorial::GLTutorial - Constructor 
--An OpenGL tutorial is now being used!- 
-Doll::AddComponent - Component
+GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- 
+Component: 'GLTutorial' is owned by: 'Doll'
+Doll::AddComponent - GLTutorial
 Daisy Space::LoadLevel - Loading Dollhouse level.
 Daisy Space::AddEntity - Added Doll to the space.
 Doll::Initialize 

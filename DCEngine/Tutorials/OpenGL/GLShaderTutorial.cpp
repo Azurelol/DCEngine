@@ -119,9 +119,9 @@ namespace DCEngine {
          Instead of passing a isngle color, we will gradually change the color over time. */
 
          // Retrieve the running time in seconds
-      GLfloat timeValue = glfwGetTime();
+      GLfloat timeValue = static_cast<float>(glfwGetTime());
       // Vary the color in the range of 0.0 - 1.0 by using the sin function
-      GLfloat greenValue = (sin(timeValue) / 2) + 0.5;
+      GLfloat greenValue = static_cast<float>((sin(timeValue) / 2) + 0.5);
       // Query for the location, supplying a shader program and the name of the uniform
 
 #if(!USE_SHADER_CLASS)

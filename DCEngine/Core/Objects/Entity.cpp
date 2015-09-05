@@ -10,7 +10,9 @@
 /******************************************************************************/
 #include "Entity.h"
 
+// Headers
 #include "Components\ComponentsInclude.h"
+//#include "Component.h"
 
 namespace DCEngine {
 
@@ -19,7 +21,7 @@ namespace DCEngine {
   \brief  Constructor.
   */
   /**************************************************************************/
-  Entity::Entity(std::string name) {
+  Entity::Entity(std::string name) : Object("Entity") {
     _name = name;
     trace << _name << "::Entity - Constructor \n";
   }
@@ -62,8 +64,11 @@ namespace DCEngine {
     //assert(_components[component->_type].get() == nullptr);
 
     //_components[component->_type] = component;
+     
 
-    
+    // Sets the entity's owner
+    component->_owner = this;
+    trace << "Component: '" << component->_name << "' is owned by: '" << _name << "'\n";
 
     // Adds the component to the entity
     _components.push_back(component);
@@ -80,6 +85,14 @@ namespace DCEngine {
     trace << _name << "::Initialize \n";
     for (auto component : _components)
       component->Initialize();
+  }
+
+  void Entity::Connect()
+  {
+  }
+
+  void Entity::Disconnect()
+  {
   }
 
 }

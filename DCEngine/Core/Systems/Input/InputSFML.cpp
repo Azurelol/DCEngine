@@ -61,7 +61,8 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Polls for keyboard events.
+    \brief  Polls for keyboard events. Everytime a key is pressed, send an event
+            to the engine.
     */
     /**************************************************************************/
     void InputSFML::PollKeyboard(sf::Event& event) {
