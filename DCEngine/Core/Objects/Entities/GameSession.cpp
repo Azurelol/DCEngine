@@ -8,7 +8,8 @@ namespace DCEngine {
   extern std::unique_ptr<Engine> Daisy;
 
   GameSession::GameSession(std::string& name) : Entity(name) {
-    trace << _name << "::GameSession - Constructor\n";
+    if (TRACE_ON && TRACE_CONSTRUCTOR)
+      trace << _name << "::GameSession - Constructor\n";
   }
 
   GameSession::~GameSession() {
@@ -61,13 +62,15 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Update(float dt) {
-    trace << _name << "::Update \n";
+    if (TRACE_UPDATE)
+      trace << _name << "::Update \n";
 
     // Update all active spaces
     for (auto space : _spaces)
       UpdateSpace(space.second, dt);
     
-    trace << _name << "::Update - All spaces updated. \n";
+    if (TRACE_UPDATE)
+      trace << _name << "::Update - All spaces updated. \n";
   }
 
   /**************************************************************************/
@@ -87,7 +90,7 @@ namespace DCEngine {
 
     // If the space doesn't exist, create it
     else
-      _spaces.emplace(name, SpacePtr(new Space(name)));
+      _spaces.emplace(name, SpacePtr(new DCEngine::Space(name)));
 
     /* http://en.cppreference.com/w/cpp/container/unordered_map/emplace
     Inserts a new element into the container by constructing it in-place
@@ -103,6 +106,8 @@ namespace DCEngine {
     than max_load_factor()*bucket_count().
     */
 
+    // Set the space's gamesession
+    GetSpace(name)->gamesession_ = this;
     return GetSpace(name);
   }
 

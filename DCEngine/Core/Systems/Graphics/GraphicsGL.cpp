@@ -40,7 +40,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Initialize() {
-      trace << "GraphicsGL::Initialize \n";
+      if (TRACE_ON)
+        trace << "GraphicsGL::Initialize \n";
       
       // Tutorial code
       //GLTutorial.reset(new Tutorial::GLCameraTutorial());
@@ -53,7 +54,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Update(float dt) {
-      trace << "GraphicsGL::Update \n";
+      if (TRACE_ON && TRACE_UPDATE)
+        trace << "GraphicsGL::Update \n";
       
       // Tutorial code
      //GLTutorial->Update();
@@ -65,7 +67,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Terminate() {
-      trace << "GraphicsGL::Terminate \n";
+      if (TRACE_ON)
+        trace << "GraphicsGL::Terminate \n";
       // Tutorial code
       //GLTutorial->Terminate();
 

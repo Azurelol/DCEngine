@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <stack>
 
+#include "Delegate.h"
+
 #include "..\Objects\Entities\GameSession.h"
 #include "..\Objects\Entities\Space.h"
 #include "..\Objects\Entity.h"
@@ -28,6 +30,9 @@
 //extern std::string DefaultSpace = "Daisy World";
 
 namespace DCEngine {
+
+  using function = void(*)(void);
+
   class Engine {
     public:
 
@@ -47,8 +52,8 @@ namespace DCEngine {
      // auto GetEngine() { return std::shared_ptr<Engine> = this; }
 
      // EVENTS//
-     void Connect(const Entity& entity, Event event);
-     void Disconnect(Event event);
+      void Connect(const Entity& entity, Event event, function fn);
+      void Disconnect(const Entity& entity, Event event);
 
      // GAMESTATE //
       GamestatePtr GetCurrentState() const;

@@ -156,10 +156,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Debug\Debug.cpp" />
+    <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Components\Camera.cpp" />
+    <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
@@ -186,6 +188,7 @@
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
+    <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Events\EventsInclude.h" />
     <ClInclude Include="Core\Events\UpdateEvent.h" />
@@ -195,6 +198,7 @@
     <ClInclude Include="Core\Objects\Components\Camera.h" />
     <ClInclude Include="Core\Objects\Components\ComponentsInclude.h" />
     <ClInclude Include="Core\Objects\Components\Transform.h" />
+    <ClInclude Include="Core\Objects\Entities\GameObject.h" />
     <ClInclude Include="Core\Objects\Entities\GameSession.h" />
     <ClInclude Include="Core\Objects\Entities\Space.h" />
     <ClInclude Include="Core\Objects\Entity.h" />

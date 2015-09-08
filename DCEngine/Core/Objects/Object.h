@@ -22,18 +22,33 @@ namespace DCEngine {
 
   //using ObjectPtr = std::shared_ptr<Object>;
 
+  // Foward-declarations
+  class Space;
+  class GameSession;
+
   class Object {
+    friend class GameSession;
+    friend class Space;
+
     public:
       Object(std::string name) { _name = name; }
       Object() { _name = "Object"; }
       virtual ~Object() {}; // Let's not leak memory
 	    
       //virtual void Owner() = 0; // Every class needs to implement its owner pointer.
-      std::string Name() { return _name; }
+
+      // INTERFACE
+      std::string Name() { return _name; }    
+      //Space* Space() { return _space; } //!< Return a pointer to the object's space.
+      //GameSession* GameSession() { return _gameSession; } //!< Return a pointer to the GameSession
+     
 
     protected:
       std::string _name;
-      Object* _owner; // Should this be a smart pointer?
+      int RuntimeId;
+      Object* owner_; //!< Should this be a smart pointer?
+
+
       //std::shared_ptr<Object> _owner;
 
   private:

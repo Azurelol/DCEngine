@@ -104,7 +104,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Update(float dt) {
-    trace << "\n[Engine::Update] \n";
+    if (TRACE_UPDATE)
+      trace << "\n[Engine::Update] \n";
     
     using Systems::Window;
     // Update the window management system (window, input)
@@ -118,7 +119,8 @@ namespace DCEngine {
     _gameSession->Update(dt);
     //_gameSession->DispatchEvent()
     
-    trace << "[Engine::Update - All systems updated.] \n";
+    if (TRACE_UPDATE)
+      trace << "[Engine::Update - All systems updated.] \n";
 
     // Tell window management system to end the frame
     GETSYSTEM(Window)->EndFrame();
@@ -153,6 +155,21 @@ namespace DCEngine {
       ScopeTimer frameTimer(&dt);
       Update(dt);
     }
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Connects an observer to a subject's events by passing a function pointer.
+          The engine will construct the delegate which it will pass to the subject.
+  \param  entity The subject to which the observer wants to listen to.
+  \param  event The specific event the observer wants to listen to.
+  */
+  /**************************************************************************/
+  void Engine::Connect(const Entity & entity, Event event, function fn) {
+
+  }
+
+  void Engine::Disconnect(const Entity & entity, Event event) {
   }
 
   /**************************************************************************/

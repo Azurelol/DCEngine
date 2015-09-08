@@ -31,12 +31,15 @@
 #include "..\..\Core\Objects\Resources\GLShader.h"
 
 namespace DCEngine {
-  namespace Tutorial {
+  
+  class Entity;
 
+  namespace Tutorial {
+        
     class GLTutorial : public Component {
 
     public:
-      GLTutorial() : Component(EnumeratedComponent::None, BitfieldComponent::Alive) {
+      GLTutorial(Entity& owner) : Component(EnumeratedComponent::None, BitfieldComponent::Alive, owner) {
         _name = "GLTutorial";
         trace << "GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- \n";
       }

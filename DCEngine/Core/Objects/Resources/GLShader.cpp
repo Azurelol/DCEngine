@@ -31,7 +31,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GLShader::Load(std::string vertexPath, std::string fragmentPath) {
-    trace << "GLShader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
+    if (TRACE_ON)
+      trace << "GLShader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
 
@@ -56,7 +57,8 @@ namespace DCEngine {
       fragmentCode = fragmentShaderStream.str();    
     }
     catch (std::ifstream::failure e) {
-      trace << "GLShader::LoadShaders failed! \n";
+      if (TRACE_ON)
+        trace << "GLShader::LoadShaders failed! \n";
     }    
   }
 
@@ -66,7 +68,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GLShader::Compile() {
-    trace << "GLShader::Compile \n";
+    if (TRACE_ON)
+      trace << "GLShader::Compile \n";
     GLuint vertex, fragment;   
     
     // Vertex Shader
@@ -99,7 +102,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GLShader::Use() {
-    trace << "GLShader::Use \n";
+    if (TRACE_ON && TRACE_UPDATE)
+      trace << "GLShader::Use \n";
+
     glUseProgram(this->_shaderProgram);
   }
 

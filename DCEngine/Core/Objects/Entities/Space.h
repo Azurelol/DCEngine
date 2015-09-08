@@ -18,14 +18,16 @@
 
 // Headers
 #include "..\..\Systems\System.h"
-#include "..\Component.h"
 #include "..\Resources\Level.h"
-
-#define TRACE_ON 1
+#include "..\Component.h"
+#include "GameObject.h"
 
 namespace DCEngine {
-  
+
+  class GameSession;
+
   class Space : public Entity {
+    friend class GameSession;
   
   public:
     Space(std::string& name);
@@ -37,29 +39,31 @@ namespace DCEngine {
     void AddSystem(SystemPtr system);
     void RemoveSystem(std::string system);
 
+    void SetParentReference() {};
+
     // LEVEL
     void LoadLevel(LevelPtr level);
 
-    EntityPtr CreateEntity();
-    void AddEntity(EntityPtr entity);
-    void PopulateEntities(SystemPtr sys) const;
-    void RemoveEntity(EntityPtr);
+    GameObjectPtr CreateObject();
+    void AddObject(GameObjectPtr entity);
+    void PopulateObjects(SystemPtr sys) const;
+    void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 
     // Allows read only access to the space's name
     const std::string& GetName() const { return _name;  }
 
-
   private:
-    LevelPtr _currentLevel;
-    EntityPtr _camera;
-    EntityVec _entities;
-    SystemVec _systems; 
-
+    LevelPtr _currentLevel; //!< The currently-loaded level.
+    //GameObjectPtr _camera;
+    SystemVec _systems; //!< A container of systems this space is running.
+    GameSession* gamesession_; //!< The gamesession in which this space resides
+    GameObjectVec gameobjects_; //!< A vector of GameObjects this space holds.
 
     // Spaces should never be default or copy constructed.
     Space() = delete;
     Space(Space& space) = delete;
+
   };
 
   using SpacePtr = std::shared_ptr<Space>;

@@ -33,11 +33,14 @@ namespace DCEngine {
     class GLCameraTutorial : public GLTutorial {
 
     public:
+      GLCameraTutorial(Entity& owner) : GLTutorial(owner) {}
       ~GLCameraTutorial() {};
 
       void Initialize();
       void Update();
       void Terminate();
+
+      void OnEvent(Event& eventObj);
 
       void GenerateMesh();
       void GenerateTexture(const std::string imagePath, GLuint& texture);
@@ -46,6 +49,7 @@ namespace DCEngine {
       void UpdateViewMatrix();
       void ApplyTexture();
       void ApplyProjection();
+      void ApplyTransformation(GLuint box);
 
       void CameraInputPoll();
       void CameraInputEvent(sf::Event& event);

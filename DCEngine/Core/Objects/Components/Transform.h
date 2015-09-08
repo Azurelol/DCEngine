@@ -5,9 +5,7 @@ namespace DCEngine {
   
   class Transform : public Component {
   public:
-    Transform() : Component(EnumeratedComponent::Transform, BitfieldComponent::Transform) {
-
-    }
+    Transform(Entity& owner) : Component(EnumeratedComponent::Transform, BitfieldComponent::Transform, owner) {}
 
 
 

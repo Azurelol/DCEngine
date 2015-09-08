@@ -17,8 +17,8 @@ namespace DCEngine {
   \return A pointer to the entity that was added.
   */
   /**************************************************************************/
-  void Level::AddEntity(EntityPtr entity) {
-    Entities.push_back(entity);
+  void Level::AddGameObject(GameObjectPtr gameObject) {
+    GameObjects.push_back(gameObject);
   }
 
 

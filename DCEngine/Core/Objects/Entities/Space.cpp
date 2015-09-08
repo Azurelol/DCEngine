@@ -4,7 +4,7 @@
 #include "..\..\..\Projects\Dollhouse\Dollhouse.h"
 
 namespace DCEngine {
-
+    
   extern std::unique_ptr<Engine> Daisy;
   
   /**************************************************************************/
@@ -12,8 +12,8 @@ namespace DCEngine {
   \brief  Constructor for the Space class.
   */
   /**************************************************************************/
-  Space::Space(std::string & name) : Entity(name) {
-    if (TRACE_ON)
+  Space::Space(std::string& name) : Entity(name) {
+    if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << _name << "::Space - Constructor \n";
 
     // TEST
@@ -26,7 +26,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Space::~Space() {
-    _entities.clear();
+    gameobjects_.clear();
   }
 
   /**************************************************************************/
@@ -38,12 +38,21 @@ namespace DCEngine {
     trace << _name << "::Initialize \n";
 
     // TESTING: Level loading
-    LoadLevel(LevelPtr(new DollHouse));
+    LevelPtr dollhouse = LevelPtr(new DollHouse(*this, *gamesession_));
+    LoadLevel(dollhouse);
+    //LoadLevel(LevelPtr(new DollHouse(*this, *gamesession_)));
     
     // Initialize all entities (in effect, initializing all attached components)
-    for (auto entity : _entities)
-      entity->Initialize();
-
+    for (auto gameObject : gameobjects_) {
+      // TEMPORARY: Should space, gamesession be even set this way?
+      //            Should they not be set on the constructor?
+      //            The problem is the Level object is constructing them,
+      //            at the moment.
+      gameObject->space_ = this;
+      gameObject->gamesession_ = gamesession_;
+      gameObject->Initialize();
+    }
+      
   }
 
   /**************************************************************************/
@@ -52,13 +61,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Update(float dt) {
-    if (TRACE_ON)
+    if (TRACE_ON && TRACE_UPDATE)
       trace << _name << "::Update \n";
 
     // !!! BAND-AID: Pass the update to every entity, who propagate it to their
     // components. In the desired implementation, components will be updated
     // through an update event... which requires an event system.
-    for (auto entity : _entities)
+    for (auto entity : gameobjects_)
       entity->Update(dt);
 
     for (auto system : _systems)
@@ -97,14 +106,20 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
-    trace << _name << "::LoadLevel - Loading " << level->Name() << " level.\n";
+    if (TRACE_ON)
+      trace << _name << "::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
     _currentLevel = level;
 
-    // Load entities into the space
-    for (auto entity : _currentLevel->Entities) {
-      AddEntity(entity);
+    // Load GameObjects into the space
+    for (auto gameObject : _currentLevel->GameObjects) {
+      AddObject(gameObject);
+      // TEMPORARY: Set the component's space and gamesession
+      for (auto component : gameObject->_components) {
+        //component->_space = this;
+        //component->_gameSession = _gameSession;
+      }
     }      
 
   }
@@ -115,9 +130,9 @@ namespace DCEngine {
   \return A pointer to the entity that was added.
   */
   /**************************************************************************/
-  EntityPtr Space::CreateEntity() {
-    _entities.push_back(std::shared_ptr<Entity>(new Entity));
-    return _entities.back();
+  GameObjectPtr Space::CreateObject() {
+    gameobjects_.push_back(std::shared_ptr<GameObject>(new GameObject));
+    return gameobjects_.back();
   }
 
   /**************************************************************************/
@@ -125,11 +140,11 @@ namespace DCEngine {
   \brief  Adds an entity directly to the space.
   */
   /**************************************************************************/
-  void Space::AddEntity(EntityPtr entity) {
-    _entities.push_back(entity);
+  void Space::AddObject(GameObjectPtr gameObject) {
+    gameobjects_.push_back(gameObject);
 
     if (TRACE_ON)
-      trace << _name << "::AddEntity - Added " << entity->Name() << " to the space.\n";
+      trace << _name << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
   }
 
   /**************************************************************************/
@@ -139,7 +154,7 @@ namespace DCEngine {
   \return True if the component has every specified component.
   */
   /**************************************************************************/
-  void Space::PopulateEntities(SystemPtr sys) const {
+  void Space::PopulateObjects(SystemPtr sys) const {
     
     // Clear out old entities
     sys->ClearEntities();
@@ -148,7 +163,7 @@ namespace DCEngine {
       
       // Add any entities living in this space that fit the system
       // to its cache.
-      for (auto &it : _entities) {
+      for (auto &it : gameobjects_) {
         
         auto m = sys->Mask();
         if (it->CheckMask(m))
@@ -163,8 +178,10 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Clear() {
-    _entities.clear();
+    gameobjects_.clear();
     _systems.clear();
   }
+
+
 
 } // DCEngine

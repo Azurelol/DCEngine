@@ -7,6 +7,7 @@
 #include "..\..\Core\Engine\Engine.h"
 
 #define APPLY_PROJECTION 1 // If 0, edit the comments in the vertex shader
+#define APPLY_TRANSFORM 1
 #define DRAW_CUBES 1
 
 // Variables for the key_callback function
@@ -16,10 +17,9 @@
 
 
 
-
 namespace DCEngine {
   
-  // Need access to the engine to get a pointer to the GLFWwindow object
+  // All components can access the engine.
   extern std::unique_ptr<Engine> Daisy;
   
   namespace Tutorial {
@@ -39,14 +39,20 @@ namespace DCEngine {
 
       if (APPLY_PROJECTION)
         GenerateProjection();
-
+      
       // Need access to the engine for input
       using Systems::Window;
       _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
 
+      // Connect this to an event
 
-      Owner()->Connect();
+      //Daisy->Connect(Owner(), event, )
       
+      
+    }
+
+    void GLCameraTutorial::OnEvent(Event & eventObj) {
+
     }
 
     void GLCameraTutorial::GenerateMesh() {
@@ -306,11 +312,32 @@ namespace DCEngine {
           glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
           glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
         }
       }
       else {
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
       }
+    }
+
+    void GLCameraTutorial::ApplyTransformation(GLuint box) {
+      // Building the identity matrix each frame that it works
+      transform = glm::mat4();
+
+      // This will make the object rotate in the lower right corner
+      transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+      transform = glm::rotate(transform, (GLfloat)glfwGetTime() * 50.0f,
+        glm::vec3(0.0f, 0.0f, 1.0f));
+
+      // This will make the object spin around the screen (switched the order) See Note #1
+      transform = glm::rotate(transform, (GLfloat)glfwGetTime() * 50.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+      transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+
+      // Get matrix's uniform location 
+      GLuint transformLoc = glGetUniformLocation(shader->Get(), "transform");
+      glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
     }
 
     void GLCameraTutorial::CameraInputPoll() {
@@ -397,6 +424,8 @@ namespace DCEngine {
     void GLCameraTutorial::Update() {
       ApplyTexture();
 
+
+
       // Activate shader
       shader->Use();
 
@@ -411,6 +440,11 @@ namespace DCEngine {
         ApplyProjection();
       }
 
+      //if (APPLY_TRANSFORM) {
+      //  ApplyTransformation();
+      //}
+
+
       // When not drawing a cube
       if (!DRAW_CUBES)
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -424,6 +458,8 @@ namespace DCEngine {
       glDeleteBuffers(1, &VBO);
       glDeleteBuffers(1, &EBO);
     }
+
+
 
   } // Tutorial
 } // DCEngine

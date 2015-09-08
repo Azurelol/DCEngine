@@ -14,6 +14,9 @@
 #include "Components\ComponentsInclude.h"
 //#include "Component.h"
 
+#include "Entities\Space.h"
+#include "Entities\GameSession.h"
+
 namespace DCEngine {
 
   /**************************************************************************/
@@ -23,7 +26,8 @@ namespace DCEngine {
   /**************************************************************************/
   Entity::Entity(std::string name) : Object("Entity") {
     _name = name;
-    trace << _name << "::Entity - Constructor \n";
+    if (TRACE_ON && TRACE_CONSTRUCTOR)
+      trace << _name << "::Entity - Constructor \n";
   }
 
   /**************************************************************************/
@@ -66,9 +70,6 @@ namespace DCEngine {
     //_components[component->_type] = component;
      
 
-    // Sets the entity's owner
-    component->_owner = this;
-    trace << "Component: '" << component->_name << "' is owned by: '" << _name << "'\n";
 
     // Adds the component to the entity
     _components.push_back(component);
@@ -87,12 +88,5 @@ namespace DCEngine {
       component->Initialize();
   }
 
-  void Entity::Connect()
-  {
-  }
-
-  void Entity::Disconnect()
-  {
-  }
 
 }

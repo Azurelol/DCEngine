@@ -15,15 +15,16 @@
 // Base class
 #include "Object.h"
 // Headers
+#include "../Events/Event.h" //!< Components need to access events.
+#include "../Events/EventsInclude.h" //!< A list of events that can be added.
 
+//#include "../../Core/Engine/Engine.h"
 
 namespace DCEngine {
 
-  class Entity;
-
-  // Give every component access to the engine object.
+  // All components can access the engine.
   //extern std::unique_ptr<Engine> Daisy;
-
+  
   // (?) EXPLAIN
   using mask = unsigned;
 
@@ -49,11 +50,19 @@ namespace DCEngine {
 
   };
   
+  // FORWARD-DECLARATIONS
+  class Entity;
+  class GameObject;
+  class Space;
+  class GameSession;
+
   class Component : public Object {
 	  friend class Entity; // _owner
+    friend class GameObject; 
 
   public:    
-    Component(EnumeratedComponent type, BitfieldComponent mask);
+    Component(EnumeratedComponent type, BitfieldComponent mask, 
+              Entity& owner);
     
 	virtual ~Component() {} // Derived component types need to be deallocated properly
 
@@ -67,9 +76,10 @@ namespace DCEngine {
     const BitfieldComponent _mask;
 
   private:
+    Space* space_;
+    GameSession* gamesession_;
+
     Component() = delete; // No default construction
-    
-    //Entity* _owner; // The owner of this component.
   };
 
   using ComponentPtr = std::shared_ptr<Component>;

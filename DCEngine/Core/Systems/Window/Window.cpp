@@ -55,7 +55,7 @@ namespace DCEngine {
     }
 
     void Window::Update(float dt) {
-      if (TRACE_ON)
+      if (TRACE_ON && TRACE_UPDATE)
         trace << "Window::Update \n";
 
       WindowHandler->Update(dt);
@@ -69,14 +69,14 @@ namespace DCEngine {
     }
 
     void Window::StartFrame() {
-      if (TRACE_ON)
+      if (TRACE_ON && TRACE_UPDATE)
         trace << "Window::StartFrame \n";
 
       WindowHandler->StartFrame();
     }
 
     void Window::EndFrame() {
-      if (TRACE_ON)
+      if (TRACE_ON && TRACE_UPDATE)
         trace << "Window::EndFrame \n";
 
       WindowHandler->EndFrame();

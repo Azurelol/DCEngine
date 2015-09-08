@@ -46,17 +46,20 @@ namespace DCEngine {
     }
 
     void Input::Initialize() {
-      trace << "Input::Initialize \n";
+      if (TRACE_ON)
+        trace << "Input::Initialize \n";
       InputHandler->Initialize();
     }
 
     void Input::Update(float dt) {
-      trace << "Input::Update \n";
+      if (TRACE_ON && TRACE_UPDATE)
+        trace << "Input::Update \n";
       InputHandler->Update(dt);
     }
 
     void Input::Terminate() {
-      trace << "Input::Terminate \n";
+      if (TRACE_ON)
+        trace << "Input::Terminate \n";
       InputHandler->Terminate();
     }
 

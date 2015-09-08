@@ -4,7 +4,7 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/18/2015
-\brief  The main object composition class.
+\brief  The base object composition class.
 
 */
 /******************************************************************************/
@@ -19,32 +19,36 @@
 #include "..\Events\EventsInclude.h"
 
 #include "Component.h"
-//class Component;
 
 namespace DCEngine {
+  
+  class Engine; // The engine has complete access to entities.
+  class Space;
+  class GameSession;
 
   class Entity : public Object {
+    friend class Engine;
+    friend class Space;
+
   public:
     Entity(std::string name);
     Entity() { _name = "Entity"; }
 
-    void Update(float dt);
-    void AddComponent(ComponentPtr component);
-    //void AddComponent(std::shared_ptr<Component> component);
-    void RemoveComponent(EnumeratedComponent ec);
-    bool HasComponent(EnumeratedComponent ec);
-    void Initialize(); // Initializes all of the entity's components
+    void Initialize(); //!< Initializes all of the entity's components
+    void Update(float dt); //!< Updates all the entity's components directly. (TEMPORARY)
 
-    // EVENTS //
-	  void Connect(); // The component has to register to an event to be updated.
-	  void Disconnect(); // The component can unsubscribe from listening to an event.
-    
-    
+    void AddComponent(ComponentPtr component);
+    void RemoveComponent(EnumeratedComponent ec);
+    bool HasComponent(EnumeratedComponent ec);    
+
+    // VIRTUAL FUNCTIONS //
+    //virtual void SetParentReference();
+
+    // EVENTS //    
     void Dispatch(std::string eventId, Event event); // Dispatches an event on object
     void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
     void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively
-
-    mask Mask();
+    
     bool CheckMask(mask m);
 
     //EnumeratedComponent GetCollider();
@@ -53,16 +57,16 @@ namespace DCEngine {
     #define GET_COMPONENT(type) \ GetComponent<type>(EnumeratedSystem::##type);
     template <typename T> std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
-  private:
-    int RuntimeId;
-    //Space Space;
-    // EntityPtr _parent;
-	  Entity* _parent;
+  protected:
+    ComponentVec _observers; //!< A list of the current listeners to this object.
+    ComponentVec _components; //!< The list of components attached to the entity.  
 
+  private:    
+	  Entity* _parent; //!< The entity to which this object is parented to.
+    
     //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
 
-	ComponentVec _observers; //!< A list of the current listeners to this object.
-    ComponentVec _components; //!< The list of components attached to the entity.
+  
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     //EnumeratedComponent _collider = EnumeratedComponent::None;
