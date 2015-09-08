@@ -59,10 +59,12 @@ namespace DCEngine {
     SystemVec _systems; //!< A container of systems this space is running.
     GameSession* gamesession_; //!< The gamesession in which this space resides
     GameObjectVec gameobjects_; //!< A vector of GameObjects this space holds.
+    
 
     // Spaces should never be default or copy constructed.
     Space() = delete;
     Space(Space& space) = delete;
+    void OnUpdateEvent(Event& eventObj);
 
   };
 

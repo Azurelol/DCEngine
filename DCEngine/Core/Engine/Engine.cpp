@@ -75,6 +75,7 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::GraphicsGL));
+    _systems.push_back(SystemPtr(new Systems::Audio));
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {
@@ -84,6 +85,24 @@ namespace DCEngine {
 
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     _gameSession.reset(new GameSession(_projectName));
+    
+    // Connect it to engine update events
+    
+    // Create a downcasted entity reference to pass into Connect()
+    Entity& gamessionRef = *_gameSession; // <- UGLY
+
+    //gsFunction onUpdate = &(Engine::_gameSession)->GameSession::OnUpdateEvent;
+    //Connect(gamessionRef, EventType::UpdateEvent, onUpdate);
+
+    auto b = std::mem_fn(&Engine::Update);
+    //auto a = std::mem_fn(Engine::_gameSession->GameSession::OnUpdateEvent);
+   
+    
+
+
+    //Connect(_gameSession, updateEvent, _gameSession->OnUpdateEvent)
+    //Connect(_gameSession, , )
+
     // Initialize it
     _gameSession->Initialize();
 
@@ -117,6 +136,11 @@ namespace DCEngine {
     // Update the current GameSession, which will propagate the update
     // through all its spaces, and the spaces into all objects in the game
     _gameSession->Update(dt);
+
+    // Need to create the event object here to pass it.
+    //UpdateEvent updateObj(); // Find a better syntax?
+    //_gameSession->Dispatch(updateEvent);
+    //_gameSession->DispatchLol(updateEvent);
     //_gameSession->DispatchEvent()
     
     if (TRACE_UPDATE)
@@ -162,15 +186,15 @@ namespace DCEngine {
   \brief  Connects an observer to a subject's events by passing a function pointer.
           The engine will construct the delegate which it will pass to the subject.
   \param  entity The subject to which the observer wants to listen to.
-  \param  event The specific event the observer wants to listen to.
+  \param  event An enum. The specific event the observer wants to listen to.
   */
   /**************************************************************************/
-  void Engine::Connect(const Entity & entity, Event event, function fn) {
+  //void Engine::Connect(const Entity & entity, EventType eventType, function fn) {
+  //  
+  //}
 
-  }
-
-  void Engine::Disconnect(const Entity & entity, Event event) {
-  }
+  //void Engine::Disconnect(const Entity & entity, EventType eventType) {
+  //}
 
   /**************************************************************************/
   /*!

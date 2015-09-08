@@ -13,6 +13,7 @@
 #include <memory> // unique_ptr
 #include <unordered_map>
 #include <stack>
+#include <functional> // std::function, std::bind
 
 #include "Delegate.h"
 
@@ -30,8 +31,15 @@
 //extern std::string DefaultSpace = "Daisy World";
 
 namespace DCEngine {
-
-  using function = void(*)(void);
+  
+  // Pointer-to-member-functions "http://yosefk.com/c++fqa/function.html#fqa-33.1"
+  /* You cannot cast a function pointer to void*.
+     If you want a function pointer to point to a member function you 
+     must declare the type as 'ReturnType (ClassType::*)(ParameterTypes...)' */
+  //using function = void(*)(void);
+  using function = void(Object::*)(void);
+  using gsFunction = void(GameSession::*)(void);
+  using spFunction = void(Space::*)(void);
 
   class Engine {
     public:
@@ -52,10 +60,15 @@ namespace DCEngine {
      // auto GetEngine() { return std::shared_ptr<Engine> = this; }
 
      // EVENTS//
-      void Connect(const Entity& entity, Event event, function fn);
-      void Disconnect(const Entity& entity, Event event);
+      //void Connect(static_cast<Entity> entity, Event, function fn);
+      //void Connect(const Entity& entity, EventType, function fn);
+
+      //void Connect(const Entity& entity, EventType, std::mem_fn fn) {}
+      void Connect(const Entity& entity, EventType, gsFunction fn) {}
+      void Disconnect(const Entity& entity, EventType);
 
      // GAMESTATE //
+
       GamestatePtr GetCurrentState() const;
       void PushGamestate(GamestatePtr gamestate);
       void PopGameState();
@@ -83,6 +96,7 @@ namespace DCEngine {
       std::string _activeSpace; //!< The current active space.
       std::stack<GamestatePtr> _gamestates; //!< A stack of gamestates. See below.      
       SpaceMap _spaces; //!< A map of spaces created by the engine.
+      
 
       /* Reference: http://www.cplusplus.com/reference/stack/stack/
       Stacks are a type of container adaptor, specifically designed to operate in a 

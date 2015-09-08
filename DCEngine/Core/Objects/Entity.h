@@ -44,8 +44,9 @@ namespace DCEngine {
     // VIRTUAL FUNCTIONS //
     //virtual void SetParentReference();
 
-    // EVENTS //    
-    void Dispatch(std::string eventId, Event event); // Dispatches an event on object
+    // EVENTS // 
+
+    void Dispatch(Event& eventObj); // Dispatches an event on object
     void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
     void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively
     
@@ -61,9 +62,10 @@ namespace DCEngine {
     ComponentVec _observers; //!< A list of the current listeners to this object.
     ComponentVec _components; //!< The list of components attached to the entity.  
 
+
   private:    
 	  Entity* _parent; //!< The entity to which this object is parented to.
-    
+    std::vector<EventType> _events; //!< The events the entity is currently subscribed to.
     //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
 
   

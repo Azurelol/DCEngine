@@ -15,16 +15,21 @@
 
 #pragma once
 #include <string>
+#include <memory>
+#include <vector>
 
 namespace DCEngine {
 
-  class Event {
-  public:
+    class Event {
+    public:
 
-  private:
-    std::string _eventId;
+    private:
+      std::string _eventId;
 
 
-  };
+    };
+
+  using EventPtr = std::shared_ptr<Event>;
+  using EventVec = std::vector<EventPtr>;
 
 }

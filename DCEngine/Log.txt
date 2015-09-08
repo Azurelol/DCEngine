@@ -2,9 +2,11 @@
 
 [Engine::Initialize] 
 *Using SFML Context for Window and Input 
+*Using FMOD for Audio 
 Window::Initialize 
 Input::Initialize 
 GraphicsGL::Initialize 
+Audio::Initialize 
 [Engine::Initialize - All engine systems initialized]
 Daisy Project::Entity - Constructor 
 Daisy Project::GameSession - Constructor
@@ -14,6 +16,7 @@ Daisy Space::Entity - Constructor
 Daisy Space::Space - Constructor 
 Daisy Space::AddSystem - Added InputSystem
 Daisy Space::AddSystem - Added GraphicsGLSystem
+Daisy Space::AddSystem - Added AudioSystem
 Daisy Space::Initialize 
 Dollhouse::Level - Constructor 
 Doll::Entity - Constructor 
@@ -38,3 +41,4 @@ Loaded Tutorials/OpenGL/aritmei.png
 Window::Terminate 
 Input::Terminate 
 GraphicsGL::Terminate 
+Audio::Terminate 

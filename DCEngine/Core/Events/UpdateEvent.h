@@ -12,16 +12,19 @@
 #include "Event.h"
 
 namespace DCEngine {
-  class UpdateEvent : public Event {
-  public:
-    float Dt;
-    float TimePassed;
-    float RealTimePassed;
+
+    // Engine-wide update event
+    class UpdateEvent : public Event {
+    public:
+      float Dt;
+      float TimePassed;
+      float RealTimePassed;
 
 
-  private:
+    private:
 
 
-  };
+    };
+
 
 }

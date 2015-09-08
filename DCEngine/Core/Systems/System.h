@@ -26,6 +26,8 @@ namespace DCEngine {
     Input,
     // Graphics
     GraphicsGL,
+    // Audio
+    Audio,
 
     // Gamestate
     Gamestate,

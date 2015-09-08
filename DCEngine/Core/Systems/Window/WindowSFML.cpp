@@ -59,6 +59,11 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Updates the window.
+    */
+    /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
       // Tells OpenGL the size of the rendering window

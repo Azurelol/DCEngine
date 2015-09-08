@@ -44,6 +44,7 @@ namespace DCEngine {
     using namespace Systems;
     space->AddSystem(GETSYSTEM(Input));
     space->AddSystem(GETSYSTEM(GraphicsGL));
+    space->AddSystem(GETSYSTEM(Audio));
     
 
     space->Initialize();
@@ -143,5 +144,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GameSession::UpdateSpace(SpacePtr space, float dt) {
     space->Update(dt);
+  }
+
+  void GameSession::OnUpdateEvent(Event & eventObj) {
   }
 }

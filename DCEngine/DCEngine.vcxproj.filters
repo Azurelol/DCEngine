@@ -134,6 +134,12 @@
     <Filter Include="Core\Object\Entity\GameObject">
       <UniqueIdentifier>{ada8a8de-fe9a-48b1-bfcc-05f80ab8769f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Audio">
+      <UniqueIdentifier>{73bd2eb4-d032-48f2-abe5-7d86283f64d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Audio\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -213,6 +219,12 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Resources\Level.cpp">
       <Filter>Core\Object\Resource\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\Audio.cpp">
+      <Filter>Core\Systems\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +359,12 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Entities\GameObject.h">
       <Filter>Core\Object\Entity\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\Audio.h">
+      <Filter>Core\Systems\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,7 @@ namespace DCEngine {
       doll.reset(new GameObject("Doll", *space_, *gamesession_));     
       AddGameObject(doll);
       
-      // These are both legal!
+      // UGLY
       Entity &dollRef = *doll;
 
       ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(dollRef));

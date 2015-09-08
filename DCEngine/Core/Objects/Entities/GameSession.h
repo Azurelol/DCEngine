@@ -23,7 +23,11 @@
 
 namespace DCEngine {
 
+  class Engine;
+  
   class GameSession : public Entity {
+    friend class Engine; //!< Engine has access to gamesession.
+
   public:
     GameSession(std::string& name);
     ~GameSession();
@@ -39,9 +43,10 @@ namespace DCEngine {
 
   private:
     void UpdateSpace(SpacePtr space, float dt);
-        
-    std::string _defaultSpace = "Daisy Space";
-    
+    void OnUpdateEvent() {};
+    void OnUpdateEvent(Event& eventObj);
+
+    std::string _defaultSpace = "Daisy Space";    
     // CONTAINERS //
     SystemVec _systems; //!< Container for the GameSession's systems. 
     SpaceMap _spaces; //!< A map of spaces created by the engine.
