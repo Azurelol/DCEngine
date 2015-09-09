@@ -22,9 +22,7 @@ int main(int argc, char* args[]) {
   new Engine();
     
   Daisy->Initialize();
-
-  //Daisy->PushGamestate(Gamestates::SandboxPtr(new Gamestates::Sandbox()));
-
+  
   Daisy->Loop();
 
   Daisy->Terminate();  

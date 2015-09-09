@@ -30,18 +30,19 @@ namespace DCEngine {
     friend class GameSession;
   
   public:
+
     Space(std::string& name);
     ~Space();
     
+    /*/ PUBLIC MEMBER [FUNCTIONS] /*/
     void Initialize();
     void Update(float dt);
 
     void AddSystem(SystemPtr system);
     void RemoveSystem(std::string system);
 
-    void SetParentReference() {};
+    GameSession* GetGameSession();
 
-    // LEVEL
     void LoadLevel(LevelPtr level);
 
     GameObjectPtr CreateObject();
@@ -54,18 +55,20 @@ namespace DCEngine {
     const std::string& GetName() const { return _name;  }
 
   private:
+
+    /*/ MEMBER [FUNCTIONS] /*/
+    Space() = delete; //!< Spaces should never be default or copy constructed.
+    Space(Space& space) = delete;
+
+    void OnUpdateEvent(Event& eventObj);
+
+    /*/ MEMBER [VARIABLES] /*/
     LevelPtr _currentLevel; //!< The currently-loaded level.
     //GameObjectPtr _camera;
     SystemVec _systems; //!< A container of systems this space is running.
     GameSession* gamesession_; //!< The gamesession in which this space resides
     GameObjectVec gameobjects_; //!< A vector of GameObjects this space holds.
     
-
-    // Spaces should never be default or copy constructed.
-    Space() = delete;
-    Space(Space& space) = delete;
-    void OnUpdateEvent(Event& eventObj);
-
   };
 
   using SpacePtr = std::shared_ptr<Space>;

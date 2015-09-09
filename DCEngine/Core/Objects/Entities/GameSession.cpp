@@ -146,6 +146,5 @@ namespace DCEngine {
     space->Update(dt);
   }
 
-  void GameSession::OnUpdateEvent(Event & eventObj) {
-  }
+
 }

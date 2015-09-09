@@ -17,4 +17,14 @@ namespace DCEngine {
 
   }
 
+
+
+  Space * GameObject::GetSpace() {
+    return space_;
+  }
+
+  GameSession * GameObject::GetGameSession() {
+    return gamesession_;
+  }
+
 }

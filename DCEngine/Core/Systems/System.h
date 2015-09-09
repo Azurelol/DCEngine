@@ -46,9 +46,7 @@ namespace DCEngine {
                                            _type(type)
     { }
 
-    virtual void Initialize() = 0;
-    virtual void Update(float dt) = 0;
-    virtual void Terminate() = 0;
+
 
     void ClearEntities();
 
@@ -60,6 +58,10 @@ namespace DCEngine {
 
   private:
     System() = delete;
+    virtual void Initialize() = 0;
+    virtual void Update(float dt) = 0;
+    virtual void Terminate() = 0;
+
 
   protected:
     std::string _name;

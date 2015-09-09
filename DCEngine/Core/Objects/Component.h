@@ -64,8 +64,7 @@ namespace DCEngine {
     Component(EnumeratedComponent type, BitfieldComponent mask, 
               Entity& owner);
     
-	virtual ~Component() {} // Derived component types need to be deallocated properly
-
+	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
     virtual void Update() = 0; // Components are updated through events.
 	
@@ -76,15 +75,15 @@ namespace DCEngine {
     const BitfieldComponent _mask;
 
   private:
+    Component() = delete; // No default construction
+
     Space* space_;
     GameSession* gamesession_;
 
-    Component() = delete; // No default construction
   };
 
   using ComponentPtr = std::shared_ptr<Component>;
   using ComponentVec = std::vector<ComponentPtr>;
-  //using ComponentPtr = std::shared_ptr<Component>;
 
 } // DCEngine
 #endif

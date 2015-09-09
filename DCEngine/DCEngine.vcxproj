@@ -156,8 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Debug\Debug.cpp" />
-    <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
+    <ClCompile Include="Core\Events\Delegate.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Components\Camera.cpp" />
@@ -178,7 +178,6 @@
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
-    <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp" />
     <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp" />
@@ -190,8 +189,8 @@
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
-    <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
+    <ClInclude Include="Core\Events\Delegate.h" />
     <ClInclude Include="Core\Events\EventsInclude.h" />
     <ClInclude Include="Core\Events\UpdateEvent.h" />
     <ClInclude Include="Core\Events\Event.h" />
@@ -222,8 +221,6 @@
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowGLFW.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
-    <ClInclude Include="Gamestates\GamestatesInclude.h" />
-    <ClInclude Include="Gamestates\Sandbox\Sandbox.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />
@@ -233,7 +230,9 @@
     <ClInclude Include="Tutorials\OpenGL\GLTutorial.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Core\Events\DelegateDeprecated.txt" />
     <Text Include="Documentation\Style Guide.txt" />
+    <Text Include="Engine.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Tutorials\OpenGL\FragmentShader.glsl" />

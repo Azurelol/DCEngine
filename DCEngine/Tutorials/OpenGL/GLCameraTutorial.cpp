@@ -44,10 +44,10 @@ namespace DCEngine {
       using Systems::Window;
       _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
 
-      // Connect this to an event
+      // Connect this to an event     
 
       //Daisy->Connect(Owner(), event, )
-      
+      //Daisy->Connect(Owner(), EventType::UpdateEvent, OnEvent);
       
     }
 

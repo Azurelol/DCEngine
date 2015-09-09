@@ -26,7 +26,9 @@ namespace DCEngine {
     GameObject() {
       _name = "GameObject";
     }
-    
+
+    Space* GetSpace();
+    GameSession* GetGameSession();  
     
 
   private:

@@ -38,12 +38,6 @@
     <Filter Include="Core\Gamestate">
       <UniqueIdentifier>{fc8e1226-6241-477a-b2e6-87d5ae7a14a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gamestates">
-      <UniqueIdentifier>{d4b995c0-7f71-4db5-b975-f691e140934d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Gamestates\Sandbox">
-      <UniqueIdentifier>{5d48bcc3-d869-4829-8869-7d289d1618ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Archetype">
       <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
     </Filter>
@@ -140,6 +134,9 @@
     <Filter Include="Core\Systems\Audio\FMOD">
       <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Deprecated">
+      <UniqueIdentifier>{ecae1942-5cc2-4adf-b105-63a8e98a9559}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -159,9 +156,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Gamestate\Gamestate.cpp">
       <Filter>Core\Gamestate</Filter>
-    </ClCompile>
-    <ClCompile Include="Gamestates\Sandbox\Sandbox.cpp">
-      <Filter>Gamestates\Sandbox</Filter>
     </ClCompile>
     <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
       <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
@@ -211,9 +205,6 @@
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp">
       <Filter>Core\Systems\Input\SFML</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Delegate.cpp">
-      <Filter>Core\Event\Delegate</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp">
       <Filter>Core\Object\Entity\GameObject</Filter>
     </ClCompile>
@@ -225,6 +216,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
       <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Events\Delegate.cpp">
+      <Filter>Core\Event\Delegate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,12 +245,6 @@
     </ClInclude>
     <ClInclude Include="Core\Config.h">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Gamestates\GamestatesInclude.h">
-      <Filter>Gamestates</Filter>
-    </ClInclude>
-    <ClInclude Include="Gamestates\Sandbox\Sandbox.h">
-      <Filter>Gamestates\Sandbox</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Archetype.h">
       <Filter>Core\Archetype</Filter>
@@ -354,9 +342,6 @@
     <ClInclude Include="Core\Systems\Input\InputSFML.h">
       <Filter>Core\Systems\Input\SFML</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\Delegate.h">
-      <Filter>Core\Event\Delegate</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Entities\GameObject.h">
       <Filter>Core\Object\Entity\GameObject</Filter>
     </ClInclude>
@@ -366,10 +351,19 @@
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Events\Delegate.h">
+      <Filter>Core\Event\Delegate</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
       <Filter>Documentation</Filter>
+    </Text>
+    <Text Include="Engine.txt">
+      <Filter>Deprecated</Filter>
+    </Text>
+    <Text Include="Core\Events\DelegateDeprecated.txt">
+      <Filter>Core\Event\Delegate</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

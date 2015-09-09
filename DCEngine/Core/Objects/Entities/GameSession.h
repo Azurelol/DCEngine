@@ -22,7 +22,7 @@
 
 
 namespace DCEngine {
-
+   
   class Engine;
   
   class GameSession : public Entity {
@@ -35,21 +35,25 @@ namespace DCEngine {
     void Initialize();
     void Update(float dt);
     
-    template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
-
-    // SPACE //
     SpacePtr CreateSpace(std::string name);
     SpacePtr GetSpace(std::string name);
 
+    template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
+
   private:
+        
+    /*/ MEMBER [FUNCTIONS] /*/
     void UpdateSpace(SpacePtr space, float dt);
     void OnUpdateEvent() {};
-    void OnUpdateEvent(Event& eventObj);
+    //void OnUpdateEvent(Event& eventObj);
 
-    std::string _defaultSpace = "Daisy Space";    
+    /*/ MEMBER [VARIABLES] /*/
+    std::string _defaultSpace = "Daisy Space";
+
     // CONTAINERS //
     SystemVec _systems; //!< Container for the GameSession's systems. 
     SpaceMap _spaces; //!< A map of spaces created by the engine.
+
   }; // GameSession
 
   using GameSessionPtr = std::unique_ptr<GameSession>;

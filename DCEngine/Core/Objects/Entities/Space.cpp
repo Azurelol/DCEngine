@@ -100,6 +100,10 @@ namespace DCEngine {
       trace << _name << "::AddSystem " << "- Added " << system->_name << "\n";
   }
 
+  GameSession * Space::GetGameSession() {
+    return gamesession_;
+  }
+
   /**************************************************************************/
   /*!
   \brief  Loads a level, container for entities, into the space. 

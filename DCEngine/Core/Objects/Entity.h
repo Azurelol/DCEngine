@@ -63,12 +63,16 @@ namespace DCEngine {
     ComponentVec _components; //!< The list of components attached to the entity.  
 
 
-  private:    
-	  Entity* _parent; //!< The entity to which this object is parented to.
-    std::vector<EventType> _events; //!< The events the entity is currently subscribed to.
+  private:
+    ////////////////////////////////
+    // PRIVATE MEMBER [FUNCTIONS] 
+
     //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
 
-  
+    /////////////////////////////////
+    // PRIVATE MEMBER [VARIABLES]
+    Entity* _parent; //!< The entity to which this object is parented to.
+    std::vector<EventType> _events; //!< The events the entity is currently subscribed to.
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     //EnumeratedComponent _collider = EnumeratedComponent::None;

@@ -37,18 +37,12 @@ namespace DCEngine {
 	    
       //virtual void Owner() = 0; // Every class needs to implement its owner pointer.
 
-      // INTERFACE
-      std::string Name() { return _name; }    
-      //Space* Space() { return _space; } //!< Return a pointer to the object's space.
-      //GameSession* GameSession() { return _gameSession; } //!< Return a pointer to the GameSession
-     
+      const std::string& Name() const { return _name; } 
 
     protected:
       std::string _name;
       int RuntimeId;
       Object* owner_; //!< Should this be a smart pointer?
-
-
       //std::shared_ptr<Object> _owner;
 
   private:
