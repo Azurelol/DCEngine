@@ -44,14 +44,26 @@ namespace DCEngine {
       using Systems::Window;
       _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
 
-      // Connect this to an event     
+      // Connect this to an event
+      Entity* entityPtr = (Entity*)(Owner());
 
+      auto memFunc = std::mem_fn(&GLCameraTutorial::OnEvent);
+
+      //Daisy->Connect<DCEngine::UpdateEvent>(entityPtr, memFunc, this);
+      //Daisy->Connect<UpdateEvent>(entityPtr, std::mem_fn(&GLCameraTutorial::OnEvent), this);
+      
+      Connect(Owner(), Events::UpdateEvent, GLCameraTutorial::OnEvent);
+      
+      //CONNECT(UpdateEvent, entityPtr, &GLCameraTutorial::OnEvent);
+      
+      
       //Daisy->Connect(Owner(), event, )
       //Daisy->Connect(Owner(), EventType::UpdateEvent, OnEvent);
       
     }
 
-    void GLCameraTutorial::OnEvent(Event & eventObj) {
+    void GLCameraTutorial::OnEvent(Event* eventObj) {
+      trace << "GLCameraTutorial::OnEvent - Being called \n";
 
     }
 

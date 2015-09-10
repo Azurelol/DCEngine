@@ -27,9 +27,61 @@
 
 // Libraries
 #include <list> // doubly-linked list
+#include <functional>
 
 namespace DCEngine {
 
+  // Forward declarations
+  class Component;
+  class Event;
+  class Delegate;
+
+  // Alias declarations
+  using ComponentFnPtr = void(Component::*)(DCEngine::Event*);
+  using DelegateFnPtr = void(Delegate::*)(DCEngine::Event*);
+  
+  // Class declaration
+  class Delegate {
+  public:
+    Delegate(void) : componentPtr(NULL) {}
+
+    //template <typename GenericComponent>
+    //void Create(GenericComponent* component, ComponentFnPtr fn) {
+    //  componentPtr = component;
+    //  functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
+    //  caller_ = &Delegate::Invoke<GenericComponent>;
+    //}
+
+    template <typename GenericComponent, typename MemberFunction>
+    void Create(GenericComponent* component, MemberFunction fn) {
+      componentPtr = component;
+      //functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
+      caller_ = &Delegate::Invoke<GenericComponent>;
+    }
+
+    void Call(DCEngine::Event* eventObj) {
+      (this->*caller_)(eventObj);
+    }
+
+  private:
+    Component* componentPtr;
+    void (Delegate::*caller_)(DCEngine::Event* eventObj);
+    void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
+    //std::function<ComponentFnPtr> funcPtr;
+
+    template <typename GenericComponent>
+    void Invoke(DCEngine::Event* eventObj) {
+
+      if (componentPtr == NULL) {
+        trace << "Delegate::Invoke - Fatal: No component provided \n";
+      }
+
+      GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);
+      (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
+    }
+
+
+  };
 
 
 

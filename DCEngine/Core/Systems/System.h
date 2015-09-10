@@ -15,6 +15,7 @@
 #include <vector>
 
 #include "..\Objects\Entity.h"
+#include "..\Debug\Debug.h"
 
 
 namespace DCEngine {

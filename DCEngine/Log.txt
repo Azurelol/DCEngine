@@ -14,6 +14,9 @@ Daisy Project::Initialize
 Daisy Project::CreateSpace - Daisy Space has been constructed. 
 Daisy Space::Entity - Constructor 
 Daisy Space::Space - Constructor 
+Component::Component - Constructor - Owner: 'Daisy Space'
+SoundSpace::SoundSpace - Constructor 
+Daisy Space::AddComponent - Component
 Daisy Space::AddSystem - Added InputSystem
 Daisy Space::AddSystem - Added GraphicsGLSystem
 Daisy Space::AddSystem - Added AudioSystem
@@ -36,6 +39,9 @@ GLTutorial::AssertShaderCompilation - Fragment Shader compiled!
 GLTutorial::AssertShaderCompilation - Shader program linked! 
 Loaded Tutorials/OpenGL/container.jpg
 Loaded Tutorials/OpenGL/aritmei.png
+Engine::Connect - GLTutorial has connected to Doll for event  
+UpdateEvent::UpdateEvent - Constructor, ID: 12
+GLCameraTutorial::OnEvent - Being called 
 
 [Engine::Terminate] 
 Window::Terminate 

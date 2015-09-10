@@ -13,6 +13,7 @@
 
 namespace DCEngine {
 
+  namespace Events {
     class KeyboardEvent : public Event {
     public:
 
@@ -23,6 +24,7 @@ namespace DCEngine {
     private:
 
     };
+  }
 
 
 }

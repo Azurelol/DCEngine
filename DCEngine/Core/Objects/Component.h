@@ -36,6 +36,8 @@ namespace DCEngine {
     Sprite = 2,
     Drawable = 3,
 
+    SoundSpace = 10,
+
     Capacity,    
 
   };
@@ -45,6 +47,8 @@ namespace DCEngine {
     Transform = 1 << 1,
     Sprite = 1 << 2,
     Drawable = 1 << 3,
+
+    SoundSpace = 1 << 10,
 
     NoObjects = -1,
 

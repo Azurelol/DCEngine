@@ -22,6 +22,7 @@ Description here.
 #include "..\Debug\Debug.h" // Trace
 
 #include "..\Config.h" // DefaultSpace
+#include "..\..\Core\Events\EventsInclude.h"
 
 namespace DCEngine {
 
@@ -94,15 +95,19 @@ namespace DCEngine {
     //gsFunction onUpdate = &(Engine::_gameSession)->GameSession::OnUpdateEvent;
     //Connect(gamessionRef, EventType::UpdateEvent, onUpdate);
 
-    auto b = std::mem_fn(&Engine::Update);
-    auto a = std::mem_fn(&GameSession::OnUpdateEvent);
+    //auto b = std::mem_fn(&Engine::Update);
+    //auto a = std::mem_fn(&GameSession::OnUpdateEvent);
    
+    //Events::UpdateEvent updObj;
 
     //Connect(_gameSession, updateEvent, _gameSession->OnUpdateEvent)
     //Connect(_gameSession, , )
 
     // Initialize it
     _gameSession->Initialize();
+
+    // Test
+
 
   }
 
@@ -179,6 +184,13 @@ namespace DCEngine {
     }
   }
 
+  /*template<typename GenericEvent, typename GenericComponent>*/
+  //void Engine::Connect(Entity*, void (GenericComponent::*)(Event*)) {
+  ////void Engine::Connect(DCEngine::Entity*, void (GenericComponent::*)(DCEngine::Event*)) {
+
+  //  trace << "Connected to " << entity->Name() << "\n";
+
+  //}
 
 
 

@@ -10,7 +10,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "..\Engine\Resource.h"
+#include "..\Resource.h"
 
 namespace DCEngine {
 

@@ -16,6 +16,7 @@ namespace DCEngine {
   enum class EventType {
     UpdateEvent,
     KeyboardEvent,
+    PleaseWorkEvent,
 
   };
 

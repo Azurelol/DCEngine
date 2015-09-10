@@ -14,11 +14,14 @@
 
 // Base class
 #include "Object.h"
+
+// Libraries
+#include <map>
+#include <list>
 // Headers
+#include "Component.h"
 #include "..\Events\Event.h"
 #include "..\Events\EventsInclude.h"
-
-#include "Component.h"
 
 namespace DCEngine {
   
@@ -66,6 +69,8 @@ namespace DCEngine {
   private:
     ////////////////////////////////
     // PRIVATE MEMBER [FUNCTIONS] 
+    template <typename GenericEvent, typename GenericComponent>
+    unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
 
     //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
 
@@ -75,6 +80,11 @@ namespace DCEngine {
     std::vector<EventType> _events; //!< The events the entity is currently subscribed to.
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
+    
+    std::map<unsigned int, std::list<DCEngine::Delegate>> ListenerRegistry;
+    std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
+    
+
     //EnumeratedComponent _collider = EnumeratedComponent::None;
 
   };

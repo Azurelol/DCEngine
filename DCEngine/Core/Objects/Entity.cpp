@@ -63,7 +63,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Entity::AddComponent(std::shared_ptr<Component> component) {
-    
+    if (TRACE_ON)
+      trace << _name << "::AddComponent - " << component->Name() << "\n";
     // If this evaluates to 0, there is already a component of the specified type.
     //assert(_components[component->_type].get() == nullptr);
 
@@ -73,7 +74,6 @@ namespace DCEngine {
 
     // Adds the component to the entity
     _components.push_back(component);
-    trace << _name << "::AddComponent - " << component->Name() << "\n";
     
   }
 

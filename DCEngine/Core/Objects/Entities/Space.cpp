@@ -3,6 +3,9 @@
 // TEST: Level loading
 #include "..\..\..\Projects\Dollhouse\Dollhouse.h"
 
+// Space Components
+#include "../Components/SoundSpace.h"
+
 namespace DCEngine {
     
   extern std::unique_ptr<Engine> Daisy;
@@ -15,6 +18,9 @@ namespace DCEngine {
   Space::Space(std::string& name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << _name << "::Space - Constructor \n";
+
+    // Add space-type components
+    AddComponent(ComponentPtr(new SoundSpace(*this)));
 
     // TEST
     //Initialize();
@@ -37,6 +43,12 @@ namespace DCEngine {
   void Space::Initialize() {
     trace << _name << "::Initialize \n";
 
+    // Initialize Space-components
+    for (auto component : _components) {
+      component->Initialize();
+    }    
+
+
     // TESTING: Level loading
     LevelPtr dollhouse = LevelPtr(new DollHouse(*this, *gamesession_));
     LoadLevel(dollhouse);
@@ -52,6 +64,9 @@ namespace DCEngine {
       gameObject->gamesession_ = gamesession_;
       gameObject->Initialize();
     }
+
+    // TEMPORARY: THIS IS MY JAM
+    
       
   }
 
@@ -63,6 +78,9 @@ namespace DCEngine {
   void Space::Update(float dt) {
     if (TRACE_ON && TRACE_UPDATE)
       trace << _name << "::Update \n";
+
+   
+
 
     // !!! BAND-AID: Pass the update to every entity, who propagate it to their
     // components. In the desired implementation, components will be updated

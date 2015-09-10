@@ -137,6 +137,12 @@
     <Filter Include="Deprecated">
       <UniqueIdentifier>{ecae1942-5cc2-4adf-b105-63a8e98a9559}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Resource\SoundCue">
+      <UniqueIdentifier>{789ea38a-fa58-4374-80ed-1727b35d7df6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component\Space">
+      <UniqueIdentifier>{e94267f9-85cf-4012-b5d9-cb717d0a95f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -219,6 +225,9 @@
     </ClCompile>
     <ClCompile Include="Core\Events\Delegate.cpp">
       <Filter>Core\Event\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\SoundSpace.cpp">
+      <Filter>Core\Object\Component\Space</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -353,6 +362,15 @@
     </ClInclude>
     <ClInclude Include="Core\Events\Delegate.h">
       <Filter>Core\Event\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\SoundCue.h">
+      <Filter>Core\Object\Resource\SoundCue</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\ResourcesInclude.h">
+      <Filter>Core\Object\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\SoundSpace.h">
+      <Filter>Core\Object\Component\Space</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

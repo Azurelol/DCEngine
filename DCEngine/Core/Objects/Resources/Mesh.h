@@ -8,7 +8,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "..\Engine\Resource.h"
+#include "..\Resource.h"
 
 // GLEW
 #define GLEW_STATIC

@@ -25,6 +25,7 @@
 #include "..\..\Gamestates\GamestatesInclude.h"
 #include "..\Systems\SystemsInclude.h"
 #include "..\Events\Event.h"
+#include "..\Events\Delegate.h"
 
 //extern std::string DefaultSpace = "Daisy World";
 
@@ -44,13 +45,9 @@ namespace DCEngine {
       
       auto Getdt() { return dt; }
             
-      /*/ EVENTS/*/
-      //void Connect(static_cast<Entity> entity, Event, function fn);
-      //void Connect(const Entity& entity, EventType, function fn);
-      //void Connect(const Entity& entity, EventType, std::mem_fn fn) {}
-
-      void Connect(const Entity& entity, EventType) {}
-      void Disconnect(const Entity& entity, EventType);
+      template <typename GenericEvent, typename GenericComponent, typename MemberFunction>
+      void Connect(Entity* entity, MemberFunction fn, GenericComponent* comp);
+      //void Disconnect(const Entity& entity, EventType);
 
       template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
 
@@ -77,10 +74,42 @@ namespace DCEngine {
             
       
   }; // Engine
+  
+     /**************************************************************************/
+     /*!
+     \brief  Subscribes a component to an entity, registering it to its listeners'
+             registry for the specific event.
+     \note   A very helpful 'Connect' macro has been provided to simplify the call.
+     \param  A pointer to the entity.
+     \param  A member function from the component.
+     \param  A pointer to the component.
+     \return A shared pointer to the requested system.
+     */
+     /**************************************************************************/
+    template<typename GenericEvent, typename GenericComponent, typename MemberFunction>
+    void Engine::Connect(Entity* entity, MemberFunction fn, GenericComponent* comp) {
 
-  // DEFINE MACRO 
-  #define GETSYSTEM( systype ) \
-  Daisy->GetSystem<systype>(EnumeratedSystem::##systype)
+      if (TRACE_CONNECT) {
+        trace << "Engine::Connect - " << comp->Name() << " has connected to " 
+              << entity->Name() << " for event  " << "\n";   
+      }
+
+      // Construct the delegate
+      Delegate dg;
+      //dg.Create(comp, fn);
+
+      // Store it in the subject's (the entity) listener registry. When the entity receives 
+      // an event of that type, the methods on the listener will be called.
+      
+
+      // Testlol
+      Events::UpdateEvent eventObj;
+      fn(comp, &eventObj); // Test: Calls member function
+
+
+
+
+  }
 
   /**************************************************************************/
   /*!
@@ -98,9 +127,30 @@ namespace DCEngine {
       if (it->_type == sysType)
         return std::static_pointer_cast<T>(it);
     }
-
     // Throw an error if the system doesn't exist in the engine.
     throw std::range_error("The specified system does not exist.");
   }
+
+  /////////////////////////////////////////
+  /*/ MACROS ( I AM SORRY VOLPER, MEAD )/*/
+  /////////////////////////////////////////
+  // Expansion macro for system
+  #define GETSYSTEM( systype ) \
+  Daisy->GetSystem<systype>(EnumeratedSystem::##systype)
+
+  /**************************************************************************/
+  /*!
+  \brief  A macro to simplify the Connect function. It subscribes to an entity's 
+          events, receiving them when they are called on the function provided.
+  \param  EntityObj A pointer to an Entity-derived object which gets casted to 
+          a base Entity pointer
+  \param  Event A specifier for a specific event (via enum)
+  \param  Function A member function belonging to the component, gets passed
+          into the function by the std::mem_fn wrapper for member functions.
+  */
+  /**************************************************************************/
+  #define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), std::mem_fn(&Function), this)
+  
+  //#define CONNECT(EVENT_TYPE, ENTITY, MEMFN) Daisy->Connect<::DCEngine::EVENT_TYPE>(ENTITY, MEMFN, this)
 
 } // DCEngine

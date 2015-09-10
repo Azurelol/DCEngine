@@ -22,24 +22,15 @@
 
 namespace DCEngine {
 
-  class Component;
-
-  /* Pointer-to-member-functions "http://yosefk.com/c++fqa/function.html#fqa-33.1"
-     You cannot cast a function pointer to void*.
-     If you want a function pointer to point to a member function you
-     must declare the type as 'ReturnType (ClassType::*)(ParameterTypes...)'
-     Example: using function = void(*)(void);  */
-
-  /* http://blog.molecular-matters.com/2011/09/19/generic-type-safe-delegates-and-events-in-c/ */
-  using function = void(Component::*)(int);
-
     class Event {
 
     public:
+      virtual ~Event(void) {}
+
+      unsigned int EventID;
 
     private:
-
-      std::string _eventId;
+      
 
 
     };
