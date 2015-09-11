@@ -13,10 +13,10 @@ namespace DCEngine {
   void SoundSpace::Initialize() {
 
     // THIS IS MY JAM
-    //Space* spacePtr = (Space*)Owner();
-    //using namespace Systems;
-    //std::string myJam = "Sunflower.ogg";
-    //spacePtr->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlaySound(myJam);
+    Space* spacePtr = (Space*)Owner();
+    using namespace Systems;
+    std::string myJam = "Sunflower.ogg";
+    spacePtr->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
 
   }
 

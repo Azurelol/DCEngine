@@ -72,6 +72,8 @@ namespace DCEngine {
     virtual void Initialize() = 0; // Every component needs to be initialized.
     virtual void Update() = 0; // Components are updated through events.
 	
+    // 
+    
     Entity* Owner(); // Returns a pointer to the component's owner
 
     // Once the component is created, it should never change types

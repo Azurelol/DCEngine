@@ -21,6 +21,9 @@ Daisy Space::AddSystem - Added InputSystem
 Daisy Space::AddSystem - Added GraphicsGLSystem
 Daisy Space::AddSystem - Added AudioSystem
 Daisy Space::Initialize 
+Audio::PlayMusic - Playing: etio.mp3
+AudioFMOD::CreateSound 
+AudioFMOD::PlaySound 
 Dollhouse::Level - Constructor 
 Doll::Entity - Constructor 
 Doll::GameObject - Constructor - ', Space: 'Daisy Space', GameSession 'Daisy Project
@@ -40,9 +43,14 @@ GLTutorial::AssertShaderCompilation - Shader program linked!
 Loaded Tutorials/OpenGL/container.jpg
 Loaded Tutorials/OpenGL/aritmei.png
 Engine::Connect - GLTutorial has connected to Doll for event  
+fnlol
 UpdateEvent::UpdateEvent - Constructor, ID: 12
 GLCameraTutorial::OnEvent - Being called 
-
+lolEngine::Connect - GLTutorial has connected to Doll for event  
+fnlol
+UpdateEvent::UpdateEvent - Constructor, ID: 12
+GLCameraTutorial::OnEvent - Being called 
+lol
 [Engine::Terminate] 
 Window::Terminate 
 Input::Terminate 

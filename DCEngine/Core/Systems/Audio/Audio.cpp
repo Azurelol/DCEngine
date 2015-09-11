@@ -41,15 +41,13 @@ namespace DCEngine {
     }
 
     void Audio::PlaySound(std::string & fileName) {
+
+    }
+
+    void Audio::PlayMusic(std::string & filePath) {
       if (TRACE_ON)
-        trace << "Audio::PlaySound - Playing: " << fileName.c_str() << "\n";
-
-      FMOD::Sound* soundFile;
-
-      std::string resourceLocation("Projects/Resources/Sounds/");
-      
-      AudioHandler->CreateSound(&soundFile, resourceLocation + fileName);
-      AudioHandler->PlaySound(soundFile, true);
+        trace << "Audio::PlayMusic - Playing: " << filePath.c_str() << "\n";
+      AudioHandler->PlayMusic(filePath);
     }
 
   }

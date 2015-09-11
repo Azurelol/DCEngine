@@ -96,7 +96,7 @@ namespace DCEngine {
 
       // Construct the delegate
       Delegate dg;
-      //dg.Create(comp, fn);
+      dg.Create(comp, fn);
 
       // Store it in the subject's (the entity) listener registry. When the entity receives 
       // an event of that type, the methods on the listener will be called.
@@ -105,6 +105,7 @@ namespace DCEngine {
       // Testlol
       Events::UpdateEvent eventObj;
       fn(comp, &eventObj); // Test: Calls member function
+      trace << "lol";
 
 
 

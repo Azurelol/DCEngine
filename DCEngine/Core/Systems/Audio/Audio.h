@@ -41,6 +41,7 @@ namespace DCEngine {
 
     private:
       void PlaySound(std::string& filePath);
+      void PlayMusic(std::string& filePath);
 
     #if(USE_FMOD)
     std::unique_ptr<AudioFMOD> AudioHandler;

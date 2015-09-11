@@ -15,6 +15,7 @@ namespace DCEngine {
 
       void CreateSound(FMOD::Sound** soundPtr, std::string& filePtr);
       void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
+      void PlayMusic(std::string& filePath);
       void ReleaseSound(FMOD::Sound* soundPtr);
 
       void Initialize();
@@ -25,6 +26,7 @@ namespace DCEngine {
       //FMOD::System* _system;
       std::unique_ptr<FMOD::System> system_;
       std::unique_ptr<FMOD::Channel> channel_;
+      std::unique_ptr<FMOD::Sound> CurrentMusic;
 
 
     };

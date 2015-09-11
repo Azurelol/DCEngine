@@ -55,8 +55,10 @@ namespace DCEngine {
     template <typename GenericComponent, typename MemberFunction>
     void Create(GenericComponent* component, MemberFunction fn) {
       componentPtr = component;
+      
+      trace << "fnlol\n";
       //functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
-      caller_ = &Delegate::Invoke<GenericComponent>;
+      //caller_ = &Delegate::Invoke<GenericComponent>;
     }
 
     void Call(DCEngine::Event* eventObj) {

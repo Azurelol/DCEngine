@@ -45,6 +45,13 @@ namespace DCEngine {
       system_->playSound(soundPtr, NULL, 0, &channel);
     }
 
+    void AudioFMOD::PlayMusic(std::string & filePath) {
+      std::string resourceLocation("Projects/Resources/Sounds/");
+      FMOD::Sound* musicPtr = CurrentMusic.get();
+      CreateSound(&musicPtr, resourceLocation + filePath);
+      PlaySound(CurrentMusic.get(), true);
+    }
+
     /**************************************************************************/
     /*!
     \brief  Releases a sound, stopping it from playing.
