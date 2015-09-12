@@ -19,7 +19,7 @@ namespace DCEngine {
     public:
       UpdateEvent() { 
         EventID = 12; 
-        trace << "UpdateEvent::UpdateEvent - Constructor, ID: " << EventID << "\n";
+        //trace << "UpdateEvent::UpdateEvent - Constructor, ID: " << EventID << "\n";
       } // Test
 
       float Dt;

@@ -48,14 +48,18 @@ namespace DCEngine {
       Entity* entityPtr = (Entity*)(Owner());
 
       //auto memFunc = std::mem_fn(&GLCameraTutorial::OnEvent);
-      auto memFunc = &GLCameraTutorial::OnEvent;
+      //auto memFunc = &GLCameraTutorial::OnEvent;
 
       //Daisy->Connect<DCEngine::UpdateEvent>(entityPtr, memFunc, this);
       //Daisy->Connect<Events::UpdateEvent>(entityPtr, std::mem_fn(&GLCameraTutorial::OnEvent), this);
-      Daisy->Connect<Events::UpdateEvent>(entityPtr, memFunc, this);
+      //Daisy->Connect<Events::UpdateEvent>(entityPtr, memFunc, this);
       
-      //Connect(Owner(), Events::UpdateEvent, GLCameraTutorial::OnEvent);
+      Connect(Owner(), Events::UpdateEvent, GLCameraTutorial::OnEvent);
       
+      trace << "Test: Sending an UpdateEvent to Space\n";
+      auto update = new Events::UpdateEvent();
+      Owner()->Dispatch<Events::UpdateEvent>(update);
+
       //CONNECT(UpdateEvent, entityPtr, &GLCameraTutorial::OnEvent);
       
       

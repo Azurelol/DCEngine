@@ -21,6 +21,9 @@
         he walked me through the way he implemented the event system in his Junior
         game, "Coffee Break".
 
+        9/11/2015: I finally finished the delegate implementation, in no small measure
+        thanks to Gab and Arend.
+
 */
 /******************************************************************************/
 #pragma once
@@ -47,26 +50,17 @@ namespace DCEngine {
   class Delegate {
   public:
     Delegate(void) : componentPtr(NULL) {}
-
-    //template <typename GenericComponent>
-    //void Create(GenericComponent* component, ComponentFnPtr fn) {
-    //  componentPtr = component;
-    //  functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
-    //  caller_ = &Delegate::Invoke<GenericComponent>;
-    //}
-
+    
     template <typename GenericComponent, typename MemberFunction>
     void Create(GenericComponent* component, MemberFunction fn) {
-      componentPtr = component;
+      componentPtr = component;    
       
-      trace << "Delegate::Create - \n";
-      //std::vector<fn> a;
-
-      //static_cast<foo::*>(&derivedFoo::poke));
       funcPtr = static_cast<void(Component::*)(DCEngine::Event*)>(fn);
-      
-
-      trace << "Delegate::Create - I did stuff.\n";
+      if (TRACE_CONNECT) {
+        trace << "Delegate::Create - Component: " << componentPtr->Name()
+          << "\n";
+      }
+        
       //functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
       //caller_ = &Delegate::Invoke<GenericComponent>;
     }
@@ -77,9 +71,12 @@ namespace DCEngine {
       //(this->*caller_)(eventObj);
     }
 
+    Component* componentPtr;
+    ComponentFnPtr funcPtr;
+    void (Delegate::*caller_)(DCEngine::Event* eventObj);
+
   private:
-
-
+    
     template <typename GenericComponent>
     void Invoke(DCEngine::Event* eventObj) {
 
@@ -90,14 +87,7 @@ namespace DCEngine {
       GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);
       (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
     }
-
-    Component* componentPtr;
-    void (Delegate::*caller_)(DCEngine::Event* eventObj);
     void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
-    ComponentFnPtr funcPtr;
-    
-    //std::function<ComponentFnPtr> funcPtr;
-
   };
 
 

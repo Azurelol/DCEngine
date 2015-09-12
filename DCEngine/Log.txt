@@ -43,13 +43,13 @@ GLTutorial::AssertShaderCompilation - Fragment Shader compiled!
 GLTutorial::AssertShaderCompilation - Shader program linked! 
 Loaded Tutorials/OpenGL/container.jpg
 Loaded Tutorials/OpenGL/aritmei.png
-[Engine::Connect] - GLTutorial has connected to Doll for event  
+[Engine::Connect] - GLTutorial has connected to Doll
 Delegate::Create - 
-Delegate::Create - I did stuff.
-UpdateEvent::UpdateEvent - Constructor, ID: 12
-Calling GLTutorialmember functionLooking for the event << by typeid through the registry
-Matched the event! Calling the delegates for each
-Calling this delegate's member function
+** About to dispatch UpdateEvent
+Doll::Dispatch - Sending event
+Doll::Dispatch - Looking for the event by typeid through the registry
+Doll::Dispatch - Found delegates with matching event type!
+Doll::Dispatch - Calling member function on GLTutorial
 GLCameraTutorial::OnEvent - Being called 
 
 [Engine::Terminate] 

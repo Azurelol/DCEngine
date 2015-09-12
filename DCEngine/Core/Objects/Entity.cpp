@@ -42,14 +42,6 @@ namespace DCEngine {
       component->Update();
   }
 
-
-  /**************************************************************************/
-  /*!
-  \brief  Checks if the entity has all of a set of components by OR-ing
-          together multiple MaskComponente values.
-  \return True if the component has every specified component.
-  */
-  /**************************************************************************/
   bool Entity::CheckMask(mask m) {
     return ((_mask & m) == m);
   }

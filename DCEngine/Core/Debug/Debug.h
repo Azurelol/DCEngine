@@ -22,6 +22,7 @@ namespace Debug {
   #define TRACE_UPDATE 0
   #define TRACE_CONSTRUCTOR 1
   #define TRACE_CONNECT 1
+  #define TRACE_DISPATCH 1
 
   class Trace {
   public:    

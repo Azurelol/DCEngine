@@ -49,14 +49,13 @@ namespace DCEngine {
 
     // EVENTS // 
 
-    void Dispatch(Event& eventObj); // Dispatches an event on object
+    template <typename EventClass>
+    void Dispatch(Event* eventObj); // Dispatches an event on object
+
     void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
     void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively
     
     bool CheckMask(mask m);
-
-    //EnumeratedComponent GetCollider();
-
     // Allows access to attached components of the entity.
     #define GET_COMPONENT(type) \ GetComponent<type>(EnumeratedSystem::##type);
     template <typename T> std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
@@ -90,7 +89,43 @@ namespace DCEngine {
 
     //EnumeratedComponent _collider = EnumeratedComponent::None;
 
-  };
+  }; // class Entity
+
+     /**************************************************************************/
+     /*!
+     \brief  Checks if the entity has all of a set of components by OR-ing
+     together multiple MaskComponente values.
+     \return True if the component has every specified component.
+     */
+     /**************************************************************************/
+    template <typename EventClass>
+    void Entity::Dispatch(Event * eventObj) {
+      if (TRACE_DISPATCH)
+        trace << Name() << "::Dispatch - Sending event\n";
+
+      // For every delegate in the registry
+      auto eventTypeID = std::type_index(typeid(EventClass));
+      // Look for a matching event among the keys
+      for (auto& eventKey : ObserverRegistry) {
+        if (TRACE_DISPATCH)
+          trace << Name() << "::Dispatch - Looking for the event" << " by typeid through the registry\n";
+        if (eventTypeID == eventKey.first) {
+          if (TRACE_DISPATCH)
+            trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
+          // For every delegate in the list for this specific event
+          for (auto& deleg : eventKey.second) {
+            // Call the delegate's member function
+            if (TRACE_DISPATCH)
+              trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
+            deleg.Call(eventObj);
+          }
+        }
+        else {
+          if (TRACE_DISPATCH)
+            trace << Name() << "::Dispatch - No delegate with event type matched!\n";
+        }
+      }
+    }
 
   using EntityPtr = std::shared_ptr<Entity>;
   using EntityVec = std::vector<EntityPtr>;
