@@ -191,6 +191,7 @@
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
+    <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Events\Delegate.h" />
     <ClInclude Include="Core\Events\EventsInclude.h" />
     <ClInclude Include="Core\Events\UpdateEvent.h" />

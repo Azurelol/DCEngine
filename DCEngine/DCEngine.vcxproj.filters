@@ -372,6 +372,9 @@
     <ClInclude Include="Core\Objects\Components\SoundSpace.h">
       <Filter>Core\Object\Component\Space</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Types.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

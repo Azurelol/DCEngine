@@ -41,7 +41,8 @@ namespace DCEngine {
 
     private:
       void PlaySound(std::string& filePath);
-      void PlayMusic(std::string& filePath);
+      void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
+      void StopMusic(); //!< Stops the currently playing music file.
 
     #if(USE_FMOD)
     std::unique_ptr<AudioFMOD> AudioHandler;

@@ -28,6 +28,9 @@
 // Libraries
 #include <list> // doubly-linked list
 #include <functional>
+#include <typeindex>
+#include <typeinfo>
+#include "..\Engine\Types.h"
 
 namespace DCEngine {
 
@@ -56,20 +59,26 @@ namespace DCEngine {
     void Create(GenericComponent* component, MemberFunction fn) {
       componentPtr = component;
       
-      trace << "fnlol\n";
+      trace << "Delegate::Create - \n";
+      //std::vector<fn> a;
+
+      //static_cast<foo::*>(&derivedFoo::poke));
+      funcPtr = static_cast<void(Component::*)(DCEngine::Event*)>(fn);
+      
+
+      trace << "Delegate::Create - I did stuff.\n";
       //functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
       //caller_ = &Delegate::Invoke<GenericComponent>;
     }
 
     void Call(DCEngine::Event* eventObj) {
-      (this->*caller_)(eventObj);
+      //trace << "Delegate::Calling member function\n";
+      (componentPtr->*funcPtr)(eventObj);
+      //(this->*caller_)(eventObj);
     }
 
   private:
-    Component* componentPtr;
-    void (Delegate::*caller_)(DCEngine::Event* eventObj);
-    void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
-    //std::function<ComponentFnPtr> funcPtr;
+
 
     template <typename GenericComponent>
     void Invoke(DCEngine::Event* eventObj) {
@@ -82,6 +91,12 @@ namespace DCEngine {
       (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
     }
 
+    Component* componentPtr;
+    void (Delegate::*caller_)(DCEngine::Event* eventObj);
+    void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
+    ComponentFnPtr funcPtr;
+    
+    //std::function<ComponentFnPtr> funcPtr;
 
   };
 

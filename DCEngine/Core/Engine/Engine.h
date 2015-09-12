@@ -14,6 +14,7 @@
 #include <unordered_map>
 #include <stack>
 #include <functional> // std::function, std::bind
+#include "..\Engine\Types.h" // any
 
 #include "..\Objects\Entities\GameSession.h"
 #include "..\Objects\Entities\Space.h"
@@ -90,7 +91,7 @@ namespace DCEngine {
     void Engine::Connect(Entity* entity, MemberFunction fn, GenericComponent* comp) {
 
       if (TRACE_CONNECT) {
-        trace << "Engine::Connect - " << comp->Name() << " has connected to " 
+        trace << "[Engine::Connect] - " << comp->Name() << " has connected to " 
               << entity->Name() << " for event  " << "\n";   
       }
 
@@ -98,17 +99,45 @@ namespace DCEngine {
       Delegate dg;
       dg.Create(comp, fn);
 
-      // Store it in the subject's (the entity) listener registry. When the entity receives 
+      // (!) Store it in the subject's (the entity) listener registry. When the entity receives 
       // an event of that type, the methods on the listener will be called.
-      
 
+      // Store the delegate to the <EventClass, std::list<Delegate> > map
+      entity->ObserverRegistry[typeid(Events::KeyboardEvent)].push_back(dg);
       // Testlol
       Events::UpdateEvent eventObj;
-      fn(comp, &eventObj); // Test: Calls member function
-      trace << "lol";
+      //fn(comp, &eventObj); // Test: Calls member function
+      trace << "Calling " << comp->Name() << "member function";
 
+      // Test of calling the member function through the Observer registry
+      
+      // For every delegate in the registry
+      auto eventType = std::type_index(typeid(Events::KeyboardEvent));
+      // Look for a matching event among the keys
+      for (auto& eventKey : entity->ObserverRegistry) {        
+        trace << "Looking for the event" << " << by typeid through the registry\n";
+        if (eventType == eventKey.first) {
+        //if (std::type_index(typeid(Events::KeyboardEvent)) == eventKey.first) {
+          trace << "Matched the event! Calling the delegates for each\n";
+          // For every delegate in the list for this specific event
+          for (auto& deleg : eventKey.second) {
+            // Call the delegate's member function
+            trace << "Calling this delegate's member function\n";
+            deleg.Call(&eventObj);
+          }
+        }
+        else {
+          trace << "Event type did not match!\n";
+        }
+          
+      
+        // For 
+       /* for (auto& eventType : deg.second) {
+          
+        }*/
+      }
 
-
+      //entity->ObserverRegistry[typeid::(Events::KeyboardEvent)]
 
   }
 

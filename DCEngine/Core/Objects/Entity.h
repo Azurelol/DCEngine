@@ -81,6 +81,9 @@ namespace DCEngine {
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     
+    // Reference: http://www.cplusplus.com/reference/map/map/
+    // http://stackoverflow.com/questions/9859390/use-data-type-class-type-as-key-in-a-map
+    std::map<std::type_index, std::list<DCEngine::Delegate>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Delegate>> ListenerRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     

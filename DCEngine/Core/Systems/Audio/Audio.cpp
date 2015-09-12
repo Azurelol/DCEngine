@@ -50,5 +50,9 @@ namespace DCEngine {
       AudioHandler->PlayMusic(filePath);
     }
 
+    void Audio::StopMusic() {
+      AudioHandler->StopMusic();
+    }
+
   }
 }
