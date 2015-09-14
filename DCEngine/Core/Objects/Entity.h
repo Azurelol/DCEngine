@@ -25,6 +25,12 @@
 
 namespace DCEngine {
   
+  enum class EntityType {
+    GameObject,
+    Space,
+    GameSession,
+  };
+
   class Engine; // The engine has complete access to entities.
   class Space;
   class GameSession;
@@ -39,6 +45,7 @@ namespace DCEngine {
 
     void Initialize(); //!< Initializes all of the entity's components
     void Update(float dt); //!< Updates all the entity's components directly. (TEMPORARY)
+    EntityType Type() { return type_; }
 
     void AddComponent(ComponentPtr component);
     void RemoveComponent(EnumeratedComponent ec);
@@ -51,9 +58,10 @@ namespace DCEngine {
 
     template <typename EventClass>
     void Dispatch(Event* eventObj); // Dispatches an event on object
-
-    void DispatchUp(); // Dispatches an event to the object itself and up the tree to each parent
-    void DispatchDown(); // Dispatches an event to the object itself and down to each children recursively
+    template <typename EventClass>
+    void DispatchUp(Event* eventObj); //!< Dispatches an event to the object itself and up the tree to each parent    
+    template <typename EventClass>
+    void DispatchDown(Event* eventObj); //!< Dispatches an event to the object itself and down to each children recursively
     
     bool CheckMask(mask m);
     // Allows access to attached components of the entity.
@@ -63,7 +71,7 @@ namespace DCEngine {
   protected:
     ComponentVec _observers; //!< A list of the current listeners to this object.
     ComponentVec _components; //!< The list of components attached to the entity.  
-
+    EntityType type_;
 
   private:
     ////////////////////////////////
@@ -80,6 +88,7 @@ namespace DCEngine {
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     
+    
     // Reference: http://www.cplusplus.com/reference/map/map/
     // http://stackoverflow.com/questions/9859390/use-data-type-class-type-as-key-in-a-map
     std::map<std::type_index, std::list<DCEngine::Delegate>> ObserverRegistry;
@@ -93,15 +102,54 @@ namespace DCEngine {
 
      /**************************************************************************/
      /*!
-     \brief  Checks if the entity has all of a set of components by OR-ing
-     together multiple MaskComponente values.
-     \return True if the component has every specified component.
+     \brief  Dispatches an event to the object.
+     \param The event class
+     \param The event object that is being passed.
      */
      /**************************************************************************/
     template <typename EventClass>
     void Entity::Dispatch(Event * eventObj) {
       if (TRACE_DISPATCH)
         trace << Name() << "::Dispatch - Sending event\n";
+
+      // For every delegate in the registry
+      auto eventTypeID = std::type_index(typeid(EventClass));
+      // Look for a matching event among the keys
+      for (auto& eventKey : ObserverRegistry) {
+        if (TRACE_DISPATCH)
+          trace << Name() << "::Dispatch - Looking for the event" << " by typeid through the registry\n";
+        if (eventTypeID == eventKey.first) {
+          if (TRACE_DISPATCH)
+            trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
+          // For every delegate in the list for this specific event
+          for (auto& deleg : eventKey.second) {
+            // Call the delegate's member function
+            if (TRACE_DISPATCH)
+              trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
+            deleg.Call(eventObj);
+          }
+        }
+        else {
+          if (TRACE_DISPATCH)
+            trace << Name() << "::Dispatch - No delegate with event type matched!\n";
+        }
+      }
+
+
+
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Dispatches an event to the object itself and down to each children 
+            recursively
+    \return True if the component has every specified component.
+    */
+    /**************************************************************************/
+    template <typename EventClass>
+    void Entity::DispatchDown(Event * eventObj) {
+      if (TRACE_DISPATCH)
+        trace << Name() << "::DispatchDown - Sending event\n";
 
       // For every delegate in the registry
       auto eventTypeID = std::type_index(typeid(EventClass));

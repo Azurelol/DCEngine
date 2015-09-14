@@ -85,30 +85,9 @@ namespace DCEngine {
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 
     // Create the gamesession object, the "game" itself,  which contains all spaces.
-    _gameSession.reset(new GameSession(_projectName));
-    
-    // Connect it to engine update events
-    
-    // Create a downcasted entity reference to pass into Connect()
-    Entity& gamessionRef = *_gameSession; // <- UGLY
-
-    //gsFunction onUpdate = &(Engine::_gameSession)->GameSession::OnUpdateEvent;
-    //Connect(gamessionRef, EventType::UpdateEvent, onUpdate);
-
-    //auto b = std::mem_fn(&Engine::Update);
-    //auto a = std::mem_fn(&GameSession::OnUpdateEvent);
-   
-    //Events::UpdateEvent updObj;
-
-    //Connect(_gameSession, updateEvent, _gameSession->OnUpdateEvent)
-    //Connect(_gameSession, , )
-
+    gamesession_.reset(new GameSession(_projectName));
     // Initialize it
-    _gameSession->Initialize();
-
-    // Test
-
-
+    gamesession_->Initialize();
   }
 
   /**************************************************************************/
@@ -138,7 +117,11 @@ namespace DCEngine {
 
     // Update the current GameSession, which will propagate the update
     // through all its spaces, and the spaces into all objects in the game
-    _gameSession->Update(dt);
+    gamesession_->Update(dt);
+
+    // Send an event to the gamesession
+    auto upd = new Events::LogicUpdate();
+    gamesession_->Dispatch<Events::LogicUpdate>(upd);
 
     // Need to create the event object here to pass it.
     //UpdateEvent updateObj(); // Find a better syntax?

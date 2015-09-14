@@ -15,12 +15,9 @@ namespace DCEngine {
 
   namespace Events {
     // Engine-wide update event
-    class UpdateEvent : public Event {
+    class LogicUpdate : public Event {
     public:
-      UpdateEvent() { 
-        EventID = 12; 
-        //trace << "UpdateEvent::UpdateEvent - Constructor, ID: " << EventID << "\n";
-      } // Test
+      LogicUpdate() {}
 
       float Dt;
       float TimePassed;

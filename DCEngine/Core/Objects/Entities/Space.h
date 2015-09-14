@@ -52,6 +52,8 @@ namespace DCEngine {
     void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 
+    GameSession* Owner() { return gamesession_; };
+
     // Allows read only access to the space's name
     const std::string& GetName() const { return _name;  }
 
@@ -61,7 +63,7 @@ namespace DCEngine {
     Space() = delete; //!< Spaces should never be default or copy constructed.
     Space(Space& space) = delete;
 
-    void OnUpdateEvent(Event& eventObj);
+    //void OnUpdateEvent(Event& eventObj);
 
     /*/ MEMBER [VARIABLES] /*/
     LevelPtr _currentLevel; //!< The currently-loaded level.

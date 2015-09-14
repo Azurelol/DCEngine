@@ -36,7 +36,11 @@ namespace DCEngine {
     Sprite = 2,
     Drawable = 3,
 
-    SoundSpace = 10,
+    TimeSpace = 10,
+    GraphicsSpace = 11,
+    PhysicsSpace = 12,
+    SoundSpace = 13,
+
 
     Capacity,    
 
@@ -48,7 +52,10 @@ namespace DCEngine {
     Sprite = 1 << 2,
     Drawable = 1 << 3,
 
-    SoundSpace = 1 << 10,
+    TimeSpace = 1 << 10,
+    GraphicsSpace = 1 << 11,
+    PhysicsSpace = 1 << 12,
+    SoundSpace = 1 << 13,
 
     NoObjects = -1,
 
@@ -65,8 +72,8 @@ namespace DCEngine {
     friend class GameObject; 
 
   public:    
-    Component(EnumeratedComponent type, BitfieldComponent mask, 
-              Entity& owner);
+    Component(EnumeratedComponent type, BitfieldComponent mask,
+      Entity& owner);
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
@@ -82,6 +89,7 @@ namespace DCEngine {
 
   private:
     Component() = delete; // No default construction
+    void SetReferences();
 
     Space* space_;
     GameSession* gamesession_;

@@ -18,9 +18,9 @@ namespace DCEngine {
   Space::Space(std::string& name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << _name << "::Space - Constructor \n";
+    type_ = EntityType::Space;
 
-    // Add space-type components
-    AddComponent(ComponentPtr(new SoundSpace(*this)));
+
 
     // TEST
     //Initialize();
@@ -42,6 +42,9 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Initialize() {
     trace << _name << "::Initialize \n";
+
+    // Add Space-type components
+    AddComponent(ComponentPtr(new SoundSpace(*this)));
 
     // Initialize Space-components
     for (auto component : _components) {

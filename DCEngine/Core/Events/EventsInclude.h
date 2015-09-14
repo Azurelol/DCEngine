@@ -3,7 +3,7 @@
 /********
   UPDATE
 ********/
-#include "UpdateEvent.h"
+#include "LogicUpdate.h"
 
 /*******
   INPUT
@@ -14,7 +14,7 @@
 namespace DCEngine {
 
   enum class EventType {
-    UpdateEvent,
+    LogicUpdate,
     KeyboardEvent,
     PleaseWorkEvent,
 

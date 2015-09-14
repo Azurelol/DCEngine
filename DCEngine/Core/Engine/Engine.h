@@ -55,7 +55,7 @@ namespace DCEngine {
      private:
 
       /*/ VARIABLES /*/
-      GameSessionPtr _gameSession; //!< The current GameSession object.
+      GameSessionPtr gamesession_; //!< The current GameSession object.
       float dt; //!< Delta time. 
       float _framerate = 60.0f; //!< The target frame rate.
       float _runtime; //!< How long the engine has been running.

@@ -71,14 +71,8 @@
     <Filter Include="Core\Object\Resource\Texture">
       <UniqueIdentifier>{8721c496-d348-4385-aa82-f99599e6bbc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Component\Camera">
-      <UniqueIdentifier>{67259a44-4f66-4428-8026-0166459acb37}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Window\GLFW">
       <UniqueIdentifier>{94925210-7e25-42c6-a773-c78600509e13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Input">
-      <UniqueIdentifier>{0e135a08-733d-462e-852d-f9425b35621b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Object\Entity\GameSession">
       <UniqueIdentifier>{c54cee38-c250-49a2-aa6e-880911e47d6c}</UniqueIdentifier>
@@ -103,9 +97,6 @@
     </Filter>
     <Filter Include="Projects\Tutorials\OpenGL\Textures">
       <UniqueIdentifier>{c38e659b-60de-4389-aced-64bc0edde4fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Update">
-      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Projects\Dollhouse">
       <UniqueIdentifier>{e7afe250-fa5f-4cc5-b011-cfee266461c6}</UniqueIdentifier>
@@ -140,7 +131,25 @@
     <Filter Include="Core\Object\Resource\SoundCue">
       <UniqueIdentifier>{789ea38a-fa58-4374-80ed-1727b35d7df6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Component\Space">
+    <Filter Include="Events">
+      <UniqueIdentifier>{6a057c5d-e202-48e8-9f36-e77a9d6a762d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Input">
+      <UniqueIdentifier>{0e135a08-733d-462e-852d-f9425b35621b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Update">
+      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Camera">
+      <UniqueIdentifier>{67259a44-4f66-4428-8026-0166459acb37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Sprite">
+      <UniqueIdentifier>{5da67166-bbe7-4de8-8187-959c4337f478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Transform">
+      <UniqueIdentifier>{2ddee58b-627c-4c9b-b0ea-2b28756f2d83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Space">
       <UniqueIdentifier>{e94267f9-85cf-4012-b5d9-cb717d0a95f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -197,7 +206,7 @@
       <Filter>Core\Object\Component</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\Camera.cpp">
-      <Filter>Core\Object\Component\Camera</Filter>
+      <Filter>Components\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Resources\GLShader.cpp">
       <Filter>Core\Object\Resource\Shader</Filter>
@@ -227,7 +236,10 @@
       <Filter>Core\Event\Delegate</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\SoundSpace.cpp">
-      <Filter>Core\Object\Component\Space</Filter>
+      <Filter>Components\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\TimeSpace.cpp">
+      <Filter>Components\Space</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,7 +316,7 @@
       <Filter>Core\Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\Camera.h">
-      <Filter>Core\Object\Component\Camera</Filter>
+      <Filter>Components\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Resource.h">
       <Filter>Core\Object\Resource</Filter>
@@ -325,22 +337,10 @@
       <Filter>Core\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\KeyboardEvent.h">
-      <Filter>Core\Event\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\EventsInclude.h">
-      <Filter>Core\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\UpdateEvent.h">
-      <Filter>Core\Event\Update</Filter>
+      <Filter>Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
       <Filter>Projects\Dollhouse</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h">
-      <Filter>Core\Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Transform.h">
-      <Filter>Core\Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Input\InputGLFW.h">
       <Filter>Core\Systems\Input\GLFW</Filter>
@@ -370,10 +370,34 @@
       <Filter>Core\Object\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\SoundSpace.h">
-      <Filter>Core\Object\Component\Space</Filter>
+      <Filter>Components\Space</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\Transform.h">
+      <Filter>Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\Sprite.h">
+      <Filter>Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\LogicUpdate.h">
+      <Filter>Events\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\EventsInclude.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\TimeSpace.h">
+      <Filter>Components\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\PhysicsSpace.h">
+      <Filter>Components\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\GraphicsSpace.h">
+      <Filter>Components\Space</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -382,9 +406,6 @@
     </Text>
     <Text Include="Engine.txt">
       <Filter>Deprecated</Filter>
-    </Text>
-    <Text Include="Core\Events\DelegateDeprecated.txt">
-      <Filter>Core\Event\Delegate</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

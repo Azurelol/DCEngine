@@ -7,7 +7,9 @@ namespace DCEngine {
 
   SoundSpace::SoundSpace(Entity & owner) : Component(EnumeratedComponent::SoundSpace, BitfieldComponent::SoundSpace, owner) {
     if (TRACE_CONSTRUCTOR)
+      auto a = Owner();
       trace << "SoundSpace::SoundSpace - Constructor \n";
+
   }
 
   void SoundSpace::Initialize() {

@@ -14,7 +14,7 @@ namespace DCEngine {
         << "\n";
     }
 
-
+    type_ = EntityType::GameObject;
   }
 
 

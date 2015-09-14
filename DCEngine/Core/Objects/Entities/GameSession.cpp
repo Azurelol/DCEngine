@@ -10,6 +10,7 @@ namespace DCEngine {
   GameSession::GameSession(std::string& name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << _name << "::GameSession - Constructor\n";
+    type_ = EntityType::GameSession;
   }
 
   GameSession::~GameSession() {
