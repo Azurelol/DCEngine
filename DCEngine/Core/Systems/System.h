@@ -21,17 +21,11 @@
 namespace DCEngine {
 
   enum class EnumeratedSystem {
-    // Window Handler
     Window,
-    // Input
     Input,
-    // Graphics
-    GraphicsGL,
-    // Audio
+    Graphics,
     Audio,
-
-    // Gamestate
-    Gamestate,
+    Physics,
 
     // The amount of systems
     Capacity
@@ -45,7 +39,7 @@ namespace DCEngine {
   public:
     System(std::string& name, ESys type) : _name(name),
                                            _type(type)
-    { }
+    {}
 
 
 

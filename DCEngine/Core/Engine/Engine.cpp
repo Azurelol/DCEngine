@@ -75,7 +75,8 @@ namespace DCEngine {
     // (?) Why should the engine have the same systems as the spaces?
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
-    _systems.push_back(SystemPtr(new Systems::GraphicsGL));
+    _systems.push_back(SystemPtr(new Systems::Graphics));
+    _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
 
     // Initialize all internal engine systems
@@ -119,9 +120,13 @@ namespace DCEngine {
     // through all its spaces, and the spaces into all objects in the game
     gamesession_->Update(dt);
 
-    // Send an event to the gamesession
+    // Send the update event to the gamesession and to its spaces
     auto upd = new Events::LogicUpdate();
+    upd->Dt = dt;
     gamesession_->Dispatch<Events::LogicUpdate>(upd);
+    for (auto space : gamesession_->_spaces)
+      space.second->Dispatch<Events::LogicUpdate>(upd);
+
 
     // Need to create the event object here to pass it.
     //UpdateEvent updateObj(); // Find a better syntax?

@@ -10,12 +10,12 @@
 */
 /******************************************************************************/
 #pragma once
-#include "..\Entity.h"
 
+// Base class
+#include "..\Entity.h"
 // Libraries
 #include <vector>
 #include <unordered_map>
-
 // Headers
 #include "..\..\Systems\System.h"
 #include "..\Resources\Level.h"
@@ -31,7 +31,7 @@ namespace DCEngine {
   
   public:
 
-    Space(std::string& name);
+    Space(std::string& name, GameSession& gamesession);
     ~Space();
     
     /*/ PUBLIC MEMBER [FUNCTIONS] /*/
@@ -52,7 +52,7 @@ namespace DCEngine {
     void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 
-    GameSession* Owner() { return gamesession_; };
+    const GameSession* Owner() { return gamesession_; };
 
     // Allows read only access to the space's name
     const std::string& GetName() const { return _name;  }

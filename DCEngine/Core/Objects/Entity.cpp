@@ -26,21 +26,22 @@ namespace DCEngine {
   /**************************************************************************/
   Entity::Entity(std::string name) : Object("Entity") {
     _name = name;
-    if (TRACE_ON && TRACE_CONSTRUCTOR)
-      trace << _name << "::Entity - Constructor \n";
+    //if (TRACE_ON && TRACE_CONSTRUCTOR)
+    //  trace << _name << "::Entity - Constructor \n";
   }
 
-  /**************************************************************************/
-  /*!
-  \brief BAND-AID: Pass the update to every entity, who propagate it to their
-         components. In the desired implementation, components will be updated
-         through an update event... which requires an event system.
-  */
-  /**************************************************************************/
-  void Entity::Update(float dt) {
-    for (auto component : _components)
-      component->Update();
-  }
+  ///**************************************************************************/
+  ///*!
+  //\brief BAND-AID: Pass the update to every entity, who propagate it to their
+  //       components. In the desired implementation, components will be updated
+  //       through an update event... which requires an event system.
+  //*/
+  ///**************************************************************************/
+  //void Entity::Update(float dt) {
+
+  //  for (auto component : _components)
+  //    component->Update();
+  //}
 
   bool Entity::CheckMask(mask m) {
     return ((_mask & m) == m);

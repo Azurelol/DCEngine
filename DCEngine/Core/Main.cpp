@@ -23,6 +23,7 @@ int main(int argc, char* args[]) {
     
   Daisy->Initialize();
   
+  trace << "\n[Engine::Loop]\n";
   Daisy->Loop();
 
   Daisy->Terminate();  

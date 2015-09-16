@@ -12,10 +12,11 @@ namespace DCEngine {
   // All components can access the engine.
   //extern std::unique_ptr<Engine> Daisy;
 
-  Component::Component(EnumeratedComponent type, BitfieldComponent mask, 
+  Component::Component(std::string& name, EnumeratedComponent type, BitfieldComponent mask, 
                        Entity& owner)
-                        : Object("Component"), _type(type), _mask(mask) {
+                        : Object(name), _type(type), _mask(mask) {
     owner_ = (Object*)&owner;
+
     // Set references
     SetReferences();
 
@@ -43,10 +44,6 @@ namespace DCEngine {
     // If the owner is a 'GameSession' entity
     if (type == EntityType::GameSession)
       gamesession_ = (GameSession*)Owner();
-
-    trace << "lol";
-
-
   }
 
 }

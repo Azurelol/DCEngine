@@ -98,6 +98,7 @@ namespace DCEngine {
       // Construct the delegate
       Delegate dg;
       dg.Create(comp, fn);
+      //dg.Create(comp, std::type_index(typeid(GenericEvent)), fn);
       // Store the delegate to the <EventClass, std::list<Delegate> > map
       entity->ObserverRegistry[typeid(GenericEvent)].push_back(dg); 
   }

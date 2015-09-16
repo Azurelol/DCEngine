@@ -17,16 +17,11 @@ namespace DCEngine {
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {
       // TESTING: A simple entity, "Doll"
-      // The space will create an entity.
-      
-      
-
+      // The space will create an entity
       doll.reset(new GameObject("Doll", *space_, *gamesession_));     
-      AddGameObject(doll);
-      
+      AddGameObject(doll);      
       // UGLY
       Entity &dollRef = *doll;
-
       ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(dollRef));
       doll->AddComponent(glTut);
       //doll->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial()));

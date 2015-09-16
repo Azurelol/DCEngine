@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../Component.h"
 
 namespace DCEngine {
@@ -10,10 +9,17 @@ namespace DCEngine {
     friend class Space;
 
   public:
-    SoundSpace(Entity& owner);
+    SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), 
+                                             EnumeratedComponent::SoundSpace, 
+                                             BitfieldComponent::SoundSpace, owner) {}
+
 
     void Initialize();
+    void OnLogicUpdate(Events::LogicUpdate* updateEvent);
+
+    void TestMusic();
     void Update() {}
+
 
   private:
 

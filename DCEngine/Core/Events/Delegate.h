@@ -51,25 +51,29 @@ namespace DCEngine {
   public:
     Delegate(void) : componentPtr(NULL) {}
     
+
     template <typename GenericComponent, typename MemberFunction>
     void Create(GenericComponent* component, MemberFunction fn) {
-      componentPtr = component;    
-      
+      componentPtr = component;
       funcPtr = static_cast<void(Component::*)(DCEngine::Event*)>(fn);
-      if (TRACE_CONNECT) {
-        trace << "Delegate::Create - Component: " << componentPtr->Name()
-          << "\n";
-      }
-        
-      //functionPtr = reinterpret_cast<DelegateFnPtr>(fn);
-      //caller_ = &Delegate::Invoke<GenericComponent>;
     }
 
     void Call(DCEngine::Event* eventObj) {
-      //trace << "Delegate::Calling member function\n";
       (componentPtr->*funcPtr)(eventObj);
       //(this->*caller_)(eventObj);
     }
+
+
+    //template <typename GenericComponent, typename EventClass, typename MemberFunction>
+    //void Create(GenericComponent* component, EventClass eventType, MemberFunction fn) {
+    //  componentPtr = component;      
+    //  funcPtr = static_cast<void(Component::*)(std::type_index(typeid(EventClass*)))>(fn);
+    //}
+
+    //template <typename EventClass>
+    //void Call(Event* eventObj) {
+    //  (componentPtr->*(void(Component::*)(std::type_index(typeid(EventClass*)))))(eventObj);
+    //}
 
     Component* componentPtr;
     ComponentFnPtr funcPtr;

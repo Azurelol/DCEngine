@@ -17,6 +17,7 @@
 // Headers
 #include "../Events/Event.h" //!< Components need to access events.
 #include "../Events/EventsInclude.h" //!< A list of events that can be added.
+//#include "Components\ComponentsInclude.h" //!< Components need to know of other components.
 
 //#include "../../Core/Engine/Engine.h"
 
@@ -72,27 +73,31 @@ namespace DCEngine {
     friend class GameObject; 
 
   public:    
-    Component(EnumeratedComponent type, BitfieldComponent mask,
+    Component(std::string& name, EnumeratedComponent type, BitfieldComponent mask,
       Entity& owner);
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
-    virtual void Update() = 0; // Components are updated through events.
-	
-    // 
-    
+    //virtual void Update() = 0; // Components are updated through events.
+
+    // Access    
     Entity* Owner(); // Returns a pointer to the component's owner
+    Space* space() { return space_; }
+    GameSession* gamesession() { return gamesession_; }
 
     // Once the component is created, it should never change types
     const EnumeratedComponent _type;
     const BitfieldComponent _mask;
 
+  protected:
+    Space* space_;
+    GameSession* gamesession_;
+    
   private:
     Component() = delete; // No default construction
     void SetReferences();
 
-    Space* space_;
-    GameSession* gamesession_;
+
 
   };
 

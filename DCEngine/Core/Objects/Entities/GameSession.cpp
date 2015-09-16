@@ -29,7 +29,7 @@ namespace DCEngine {
     trace << _name << "::Initialize \n";
 
     // Systems are added to the GameSession
-    _systems.push_back(SystemPtr(new Systems::GraphicsGL));
+    //_systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
     // Creates the default space
     SpacePtr space = CreateSpace(_defaultSpace);
@@ -44,9 +44,9 @@ namespace DCEngine {
     */
     using namespace Systems;
     space->AddSystem(GETSYSTEM(Input));
-    space->AddSystem(GETSYSTEM(GraphicsGL));
+    space->AddSystem(GETSYSTEM(Graphics));
     space->AddSystem(GETSYSTEM(Audio));
-    
+    space->AddSystem(GETSYSTEM(Physics));
 
     space->Initialize();
 
@@ -92,7 +92,7 @@ namespace DCEngine {
 
     // If the space doesn't exist, create it
     else
-      _spaces.emplace(name, SpacePtr(new DCEngine::Space(name)));
+      _spaces.emplace(name, SpacePtr(new DCEngine::Space(name, *this)));
 
     /* http://en.cppreference.com/w/cpp/container/unordered_map/emplace
     Inserts a new element into the container by constructing it in-place

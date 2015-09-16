@@ -3,9 +3,30 @@
 
 namespace DCEngine {
 
-  class Sprite : public Component {
-    Sprite(Entity& owner) : Component(EnumeratedComponent::Sprite, BitfieldComponent::Sprite, owner) {}
+  enum class BlendMode {
+    Alpha,
+    Additive,
+    Multiply,
+    MultiplyAdd,
+    ColorAdditive,
+    None,
+  };
 
+  class SpriteSource;
+  class Sprite : public Component {
+  public:
+    Sprite(Entity& owner) : Component(std::string("Sprite"), 
+                            EnumeratedComponent::Sprite, 
+                            BitfieldComponent::Sprite, owner) {}
+    void Initialize();
+
+    // Properties
+    bool Visible;
+    Real4 Color;
+    BlendMode _BlendMode;
+    SpriteSource* _SpriteSource;
+    bool FlipX;
+    bool FlipY;
 
   };
 

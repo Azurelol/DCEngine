@@ -13,13 +13,12 @@
 
 #define GLEW_STATIC
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
-
 #include "..\..\Objects\Resources\GLShader.h"
 
 namespace DCEngine {
   namespace Systems {
 
-    class GraphicsGL : public System {
+    class GraphicsGL {
     
     public:
       GraphicsGL();

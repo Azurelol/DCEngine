@@ -39,8 +39,8 @@ namespace DCEngine {
     class GLTutorial : public Component {
 
     public:
-      GLTutorial(Entity& owner) : Component(EnumeratedComponent::None, BitfieldComponent::Alive, owner) {
-        _name = "GLTutorial";
+      GLTutorial(Entity& owner) : Component(std::string("GLTutorial"), EnumeratedComponent::None, BitfieldComponent::Alive, owner) {
+        //_name = "GLTutorial";
         trace << "GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- \n";
       }
       ~GLTutorial() {};

@@ -14,7 +14,6 @@
 
 // Base class
 #include "Object.h"
-
 // Libraries
 #include <map>
 #include <list>
@@ -116,8 +115,6 @@ namespace DCEngine {
       auto eventTypeID = std::type_index(typeid(EventClass));
       // Look for a matching event among the keys
       for (auto& eventKey : ObserverRegistry) {
-        if (TRACE_DISPATCH)
-          trace << Name() << "::Dispatch - Looking for the event" << " by typeid through the registry\n";
         if (eventTypeID == eventKey.first) {
           if (TRACE_DISPATCH)
             trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
@@ -127,6 +124,7 @@ namespace DCEngine {
             if (TRACE_DISPATCH)
               trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
             deleg.Call(eventObj);
+            //deleg.Call<eventTypeID>(eventObj);
           }
         }
         else {

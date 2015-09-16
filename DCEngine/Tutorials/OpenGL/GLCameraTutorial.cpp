@@ -5,6 +5,7 @@
 
 // Access to the engine for key_callback
 #include "..\..\Core\Engine\Engine.h"
+#include "..\..\Core\Objects\Entities\GameObject.h"
 
 #define APPLY_PROJECTION 1 // If 0, edit the comments in the vertex shader
 #define APPLY_TRANSFORM 1
@@ -44,33 +45,14 @@ namespace DCEngine {
       using Systems::Window;
       _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
 
-      // Connect this to an event
-      Entity* entityPtr = (Entity*)(Owner());
-
-      //auto memFunc = std::mem_fn(&GLCameraTutorial::OnEvent);
-      //auto memFunc = &GLCameraTutorial::OnEvent;
-
-      //Daisy->Connect<DCEngine::UpdateEvent>(entityPtr, memFunc, this);
-      //Daisy->Connect<Events::UpdateEvent>(entityPtr, std::mem_fn(&GLCameraTutorial::OnEvent), this);
-      //Daisy->Connect<Events::UpdateEvent>(entityPtr, memFunc, this);
-      
-      Connect(Owner(), Events::LogicUpdate, GLCameraTutorial::OnEvent);
-      
-      trace << "Test: Sending an UpdateEvent to Space\n";
-      auto update = new Events::LogicUpdate();
-      Owner()->Dispatch<Events::LogicUpdate>(update);
-
-      //CONNECT(UpdateEvent, entityPtr, &GLCameraTutorial::OnEvent);
-      
-      
-      //Daisy->Connect(Owner(), event, )
-      //Daisy->Connect(Owner(), EventType::UpdateEvent, OnEvent);
-      
+      // Connect to a LogicUpdate
+      auto doll = (GameObject*)Owner();
+      auto space = doll->GetSpace();
+      Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
     }
 
-    void GLCameraTutorial::OnEvent(Event* eventObj) {
-      trace << "GLCameraTutorial::OnEvent - Being called \n";
-
+    void GLCameraTutorial::OnLogicUpdate(Event* eventObj) {
+      Update();
     }
 
     void GLCameraTutorial::GenerateMesh() {

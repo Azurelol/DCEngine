@@ -21,7 +21,7 @@ namespace DCEngine {
             ptr = nullptr;
             //throw something;
           }
-          trace << "FMODSystemPtr - Constructor\n";
+          //trace << "FMODSystemPtr - Constructor\n";
         }
         FMODSystemPtr(FMODSystemPtr&&) = default;
         FMODSystemPtr& operator=(FMODSystemPtr&&) = default;

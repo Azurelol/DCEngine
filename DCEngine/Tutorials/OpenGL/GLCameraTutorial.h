@@ -37,10 +37,10 @@ namespace DCEngine {
       ~GLCameraTutorial() {};
 
       void Initialize();
+      void OnLogicUpdate(Event* eventObj);
       void Update();
       void Terminate();
 
-      void OnEvent(Event* eventObj);
 
       void GenerateMesh();
       void GenerateTexture(const std::string imagePath, GLuint& texture);

@@ -3,8 +3,8 @@
 // TEST: Level loading
 #include "..\..\..\Projects\Dollhouse\Dollhouse.h"
 
-// Space Components
-#include "../Components/SoundSpace.h"
+// Space-Components
+#include "../Components/ComponentsInclude.h"
 
 namespace DCEngine {
     
@@ -15,11 +15,10 @@ namespace DCEngine {
   \brief  Constructor for the Space class.
   */
   /**************************************************************************/
-  Space::Space(std::string& name) : Entity(name) {
+  Space::Space(std::string& name, GameSession& gamesession) : Entity(name), gamesession_(&gamesession) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << _name << "::Space - Constructor \n";
     type_ = EntityType::Space;
-
 
 
     // TEST
@@ -41,10 +40,12 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Initialize() {
-    trace << _name << "::Initialize \n";
+    trace << "|" << _name << "::Initialize| \n";
 
     // Add Space-type components
     AddComponent(ComponentPtr(new SoundSpace(*this)));
+    AddComponent(ComponentPtr(new TimeSpace(*this)));
+    AddComponent(ComponentPtr(new GraphicsSpace(*this)));
 
     // Initialize Space-components
     for (auto component : _components) {
@@ -82,14 +83,11 @@ namespace DCEngine {
     if (TRACE_ON && TRACE_UPDATE)
       trace << _name << "::Update \n";
 
-   
-
-
     // !!! BAND-AID: Pass the update to every entity, who propagate it to their
     // components. In the desired implementation, components will be updated
     // through an update event... which requires an event system.
-    for (auto entity : gameobjects_)
-      entity->Update(dt);
+    //for (auto entity : gameobjects_)
+    //  entity->Update(dt);
 
     for (auto system : _systems)
       system->Update(dt);
@@ -121,7 +119,7 @@ namespace DCEngine {
       trace << _name << "::AddSystem " << "- Added " << system->_name << "\n";
   }
 
-  GameSession * Space::GetGameSession() {
+  GameSession* Space::GetGameSession() {
     return gamesession_;
   }
 
