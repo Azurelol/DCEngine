@@ -18,6 +18,7 @@
 #include <memory>
 #include <vector>
 
+#include "../Engine/Types.h"
 #include "Delegate.h"
 
 namespace DCEngine {

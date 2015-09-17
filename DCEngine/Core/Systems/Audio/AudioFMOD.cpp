@@ -67,7 +67,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Terminate() {
-      //delete MusicPtr;
+      //delete(MusicPtr);
       //delete CurrentChannel;
     }
 

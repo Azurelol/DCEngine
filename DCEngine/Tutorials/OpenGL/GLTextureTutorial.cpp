@@ -12,7 +12,7 @@ namespace DCEngine {
 
       
       // 1. Build and compile the shader program
-      shader.reset(new DCEngine::GLShader("GLTexture.vs", "GLTexture.frag"));
+      shader.reset(new DCEngine::Shader("GLTexture.vs", "GLTexture.frag"));
 
       // 2. Set up vertex data, buffers and attrib pointers
       GenerateMesh();

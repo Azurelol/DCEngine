@@ -18,7 +18,8 @@ namespace DCEngine {
     \brief  The constructor for the Engine object.
     */
     /**************************************************************************/
-    GraphicsGL::GraphicsGL() {      
+    GraphicsGL::GraphicsGL() { 
+      
     }
     
     /**************************************************************************/

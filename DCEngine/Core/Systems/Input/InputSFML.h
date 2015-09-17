@@ -18,6 +18,7 @@
 class WindowSFML;
 
 namespace DCEngine {
+  
   namespace Systems {
 
     class InputSFML {
@@ -31,17 +32,15 @@ namespace DCEngine {
 
     private:
       void PollEvents();
-      void PollKeyboard(sf::Event& event);
+      void PollKeyPressed(sf::Event& event);
+      void PollKeyReleased(sf::Event& event);
+      void PollMouseButtonPressed(sf::Event& event);
 
       // Observing pointers are pointers which do not keep 
       // a pointed object alive. The simplest kind is a raw pointer.
       sf::Window* _window; 
       sf::Event _event;
-
-      //sf::Keyboard _keyboard;
-            
-      //sf::Event* _event;
-      //sf::Keyboard _keyboard;
+      bool RepeatInput = false;
 
     };
 

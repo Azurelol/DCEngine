@@ -1,10 +1,23 @@
-
+/******************************************************************************/
+/*!
+\file   AudioFMOD.h
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   9/16/2015
+\brief  The interface for FMOD.
+*/
+/******************************************************************************/
 #pragma once
-#include "..\..\..\Dependencies\include\FMOD\fmod.hpp"
-#include "..\..\..\Dependencies\include\FMOD\fmod_errors.h"
 
+// Libraries
 #include <memory>
 #include <string>
+#include <FMOD/fmod.hpp>
+#include <FMOD/fmod_errors.h>
+//#include "..\..\..\Dependencies\include\FMOD\fmod.hpp"
+//#include "..\..\..\Dependencies\include\FMOD\fmod_errors.h"
+
+// Headers
 #include "..\..\..\Core\Debug\Debug.h"
 
 namespace DCEngine {

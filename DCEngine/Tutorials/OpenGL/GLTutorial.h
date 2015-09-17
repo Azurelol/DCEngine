@@ -28,7 +28,7 @@
 
 
 #include "..\..\Core\Debug\Debug.h"
-#include "..\..\Core\Objects\Resources\GLShader.h"
+#include "..\..\Core\Objects\Resources\Shader.h"
 
 namespace DCEngine {
   

@@ -17,15 +17,9 @@
 // Headers
 #include "../Events/Event.h" //!< Components need to access events.
 #include "../Events/EventsInclude.h" //!< A list of events that can be added.
-//#include "Components\ComponentsInclude.h" //!< Components need to know of other components.
-
-//#include "../../Core/Engine/Engine.h"
 
 namespace DCEngine {
 
-  // All components can access the engine.
-  //extern std::unique_ptr<Engine> Daisy;
-  
   // (?) EXPLAIN
   using mask = unsigned;
 

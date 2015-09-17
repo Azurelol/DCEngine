@@ -10,23 +10,22 @@
 /******************************************************************************/
 #pragma once
 
+// Libraries
 #include <memory> // unique_ptr
 #include <unordered_map>
 #include <stack>
 #include <functional> // std::function, std::bind
+
+// Headers
 #include "..\Engine\Types.h" // any
 
-#include "..\Objects\Entities\GameSession.h"
-#include "..\Objects\Entities\Space.h"
-#include "..\Objects\Entity.h"
-#include "..\Objects\Component.h"
-#include "..\Systems\System.h"
-#include "..\Systems\Gamestate\Gamestate.h"
+#include "../Objects/Entities/EntitiesInclude.h"
+#include "../Objects/ObjectsInclude.h"
 
-#include "..\..\Gamestates\GamestatesInclude.h"
+#include "..\Systems\System.h"
 #include "..\Systems\SystemsInclude.h"
+
 #include "..\Events\Event.h"
-#include "..\Events\Delegate.h"
 
 //extern std::string DefaultSpace = "Daisy World";
 
@@ -45,7 +44,10 @@ namespace DCEngine {
       void Terminate();
       
       auto Getdt() { return dt; }
-            
+      
+      Keyboard* GetKeyboard() { return keyboard_.get(); }
+      Mouse* GetMouse() { return mouse_.get(); }
+
       template <typename GenericEvent, typename GenericComponent, typename MemberFunction>
       void Connect(Entity* entity, MemberFunction fn, GenericComponent* comp);
       //void Disconnect(const Entity& entity, EventType);
@@ -56,10 +58,13 @@ namespace DCEngine {
 
       /*/ VARIABLES /*/
       GameSessionPtr gamesession_; //!< The current GameSession object.
+      KeyboardPtr keyboard_;
+      MousePtr mouse_;
       float dt; //!< Delta time. 
       float _framerate = 60.0f; //!< The target frame rate.
       float _runtime; //!< How long the engine has been running.
       bool _active; //!< Whether the engine is active or not.
+      
       std::string _projectName = "Daisy Project"; //!< The current project.
       std::string _defaultSpace = "Daisy World"; 
 
@@ -97,7 +102,7 @@ namespace DCEngine {
 
       // Construct the delegate
       Delegate dg;
-      dg.Create(comp, fn);
+      dg.Create(comp, std::type_index(typeid(GenericEvent)), fn);
       //dg.Create(comp, std::type_index(typeid(GenericEvent)), fn);
       // Store the delegate to the <EventClass, std::list<Delegate> > map
       entity->ObserverRegistry[typeid(GenericEvent)].push_back(dg); 

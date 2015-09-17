@@ -4,6 +4,7 @@ namespace DCEngine {
   namespace Systems {
 
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
+      trace << "*Using OpenGL for Graphics \n";
     }
 
     void Graphics::Initialize() {

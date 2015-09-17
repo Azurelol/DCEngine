@@ -8,15 +8,15 @@
 checks for errors and other useful functions.
 */
 /******************************************************************************/
-#include "GLShader.h"
+#include "Shader.h"
 
 #include <fstream>
 #include <sstream>
 
 namespace DCEngine {
 
-  GLShader::GLShader(std::string vertexPath, std::string fragmentPath) : Resource("Shader") {
-    trace << "GLShader::GLShader() \n";
+  Shader::Shader(std::string vertexPath, std::string fragmentPath) : Resource("Shader") {
+    trace << "Shader::Shader() \n";
     // Loads the shaders
     Load(vertexPath, fragmentPath);
     // Compiles the shader
@@ -30,9 +30,9 @@ namespace DCEngine {
   \param   The path of the fragment shader.
   */
   /**************************************************************************/
-  void GLShader::Load(std::string vertexPath, std::string fragmentPath) {
+  void Shader::Load(std::string vertexPath, std::string fragmentPath) {
     if (TRACE_ON)
-      trace << "GLShader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
+      trace << "Shader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
 
@@ -58,7 +58,7 @@ namespace DCEngine {
     }
     catch (std::ifstream::failure e) {
       if (TRACE_ON)
-        trace << "GLShader::LoadShaders failed! \n";
+        trace << "Shader::LoadShaders failed! \n";
     }    
   }
 
@@ -67,9 +67,9 @@ namespace DCEngine {
   \brief   Creates the shaders from their sources, then links them.
   */
   /**************************************************************************/
-  void GLShader::Compile() {
+  void Shader::Compile() {
     if (TRACE_ON)
-      trace << "GLShader::Compile \n";
+      trace << "Shader::Compile \n";
     GLuint vertex, fragment;   
     
     // Vertex Shader
@@ -101,9 +101,9 @@ namespace DCEngine {
   \brief   Activates the shader program.
   */
   /**************************************************************************/
-  void GLShader::Use() {
+  void Shader::Use() {
     if (TRACE_ON && TRACE_UPDATE)
-      trace << "GLShader::Use \n";
+      trace << "Shader::Use \n";
 
     glUseProgram(this->_shaderProgram);
   }
@@ -115,7 +115,7 @@ namespace DCEngine {
   \param   The name of the shader.
   */
   /**************************************************************************/
-  void GLShader::AssertShaderCompilation(GLuint shader, std::string shaderName) {
+  void Shader::AssertShaderCompilation(GLuint shader, std::string shaderName) {
     GLint success;       // Define an integer to indicate success
     GLchar infoLog[512]; // Container for the error messages (if any)
 
@@ -123,11 +123,11 @@ namespace DCEngine {
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
     if (success) {
-      trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " compiled! \n";
+      trace << "Shader::AssertShaderCompilation - " << shaderName << " compiled! \n";
     }
     else {
       glGetShaderInfoLog(shader, 512, NULL, infoLog);
-      trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
+      trace << "Shader::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
         << infoLog << "\n";
     }
   }
@@ -138,7 +138,7 @@ namespace DCEngine {
   \param   The shader program.
   */
   /**************************************************************************/
-  void GLShader::AssertShaderProgramLinking(GLuint shaderProgram) {
+  void Shader::AssertShaderProgramLinking(GLuint shaderProgram) {
     GLint success;       // Define an integer to indicate success
     GLchar infoLog[512]; // Container for the error messages (if any)
 
@@ -146,11 +146,11 @@ namespace DCEngine {
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
     if (success) {
-      trace << "GLTutorial::AssertShaderCompilation - Shader program linked! \n";
+      trace << "Shader::AssertShaderCompilation - Shader program linked! \n";
     }
     else {
       glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-      trace << "GLTutorial::AssertShaderCompilation - Shader program failed to link! \n"
+      trace << "Shader::AssertShaderCompilation - Shader program failed to link! \n"
         << infoLog << "\n";
     }
   }

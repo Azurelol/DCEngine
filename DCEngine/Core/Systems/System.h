@@ -10,10 +10,12 @@
 /******************************************************************************/
 #pragma once
 
+// Libraries
 #include <string>
 #include <memory>
 #include <vector>
 
+// Headers
 #include "..\Objects\Entity.h"
 #include "..\Debug\Debug.h"
 

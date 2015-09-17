@@ -12,9 +12,9 @@
 #define DRAW_CUBES 1
 
 // Variables for the key_callback function
-//glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-//glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-//glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 
 
@@ -29,7 +29,7 @@ namespace DCEngine {
       trace << "Tutorial::GLCameraTutorial - Initialized. \n";
 
       // 1. Build and compile the shader program
-      shader.reset(new DCEngine::GLShader("GLCameraTutorial.vs", "GLTexture.frag"));
+      shader.reset(new DCEngine::Shader("GLCameraTutorial.vs", "GLTexture.frag"));
 
       // 2. Set up vertex data, buffers and attrib pointers
       GenerateMesh();
@@ -45,10 +45,34 @@ namespace DCEngine {
       using Systems::Window;
       _window = GETSYSTEM(Window)->WindowHandler->GetWindow();      
 
+      //CameraInitialize();
+      cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+      cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+      cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
       // Connect to a LogicUpdate
       auto doll = (GameObject*)Owner();
       auto space = doll->GetSpace();
       Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
+      Connect(Daisy->GetKeyboard(), Events::KeyDown, GLCameraTutorial::OnKeyDown);
+    }
+
+    void GLCameraTutorial::OnKeyDown(Event* eventObj) {
+      auto event = (Events::KeyDown*)(eventObj);
+
+      trace << "GLCameraTutorial::OnKeyDown\n";
+
+      // We will move in a direction depending on the speed
+      if (event->Key == Keys::W)
+        cameraPos += cameraSpeed * cameraFront;
+      else if (event->Key == Keys::S)
+        cameraPos -= cameraSpeed * cameraFront;
+      
+      if (event->Key == Keys::A)
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+      else if (event->Key == Keys::D)
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+
     }
 
     void GLCameraTutorial::OnLogicUpdate(Event* eventObj) {
@@ -256,6 +280,7 @@ namespace DCEngine {
          //glm::mat4 view;
          // Note that we're translating the scene in the reverse direction of where we want to move
       view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // -3 in the z axis
+      view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // -3 in the z axis
 
 
       // Define the projection matrix. We want to use perspective projection
@@ -339,25 +364,7 @@ namespace DCEngine {
       glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
 
     }
-
-    void GLCameraTutorial::CameraInputPoll() {
-
-      // Create an object event to capture current input
-      sf::Event event;
-      _window->pollEvent(event);
-
-      // We will move in a direction depending on the speed
-      if (event.key.code == sf::Keyboard::W)
-        cameraPos += cameraSpeed * cameraFront;
-      else if (event.key.code == sf::Keyboard::S)
-        cameraPos -= cameraSpeed * cameraFront;
-
-      if (event.key.code == sf::Keyboard::A)
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-      if (event.key.code == sf::Keyboard::D)
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-    }
-
+    
     void GLCameraTutorial::CameraInitialize() {
       /* The view matrix transforms all of the world coordinates into view coordinates
          that are relative to the camera's position and direction.
@@ -371,6 +378,8 @@ namespace DCEngine {
          We are actually going to create a coordinate system with 3 perpendicular unit axes
          with the camera's position as the origin. This p rocess is known as the
          Gram-Schmidth process in linear algebra. */
+
+      
 
          // 1. Camera position
       cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -400,6 +409,8 @@ namespace DCEngine {
         glm::vec3(0.0f, 0.0f, 0.0f),
         glm::vec3(0.0f, 1.0f, 0.0f));
 
+      
+
 
 
     }
@@ -415,16 +426,11 @@ namespace DCEngine {
       //view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0),
       //  glm::vec3(0.0, 1.0, 0.0));
       
-      cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-      cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-      cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
       view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
     }
 
     void GLCameraTutorial::Update() {
       ApplyTexture();
-
-
 
       // Activate shader
       shader->Use();

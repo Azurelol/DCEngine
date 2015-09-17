@@ -83,7 +83,6 @@ namespace DCEngine {
     /////////////////////////////////
     // PRIVATE MEMBER [VARIABLES]
     Entity* _parent; //!< The entity to which this object is parented to.
-    std::vector<EventType> _events; //!< The events the entity is currently subscribed to.
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
     

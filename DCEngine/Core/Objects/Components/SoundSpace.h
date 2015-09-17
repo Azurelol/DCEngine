@@ -16,6 +16,9 @@ namespace DCEngine {
 
     void Initialize();
     void OnLogicUpdate(Events::LogicUpdate* updateEvent);
+    void OnKeyDown(Event* eventPtr);
+    void OnKeyUp(Event* eventPtr);
+    void OnMouseDown(Event* eventPtr);
 
     void TestMusic();
     void Update() {}

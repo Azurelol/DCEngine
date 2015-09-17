@@ -71,6 +71,10 @@ namespace DCEngine {
     // Autowolves, howl out!
     _active = true;
 
+    // Construct the input interface objects
+    keyboard_.reset(new Keyboard());
+    mouse_.reset(new Mouse());
+
     // Systems are added to to the engine's systems vector. 
     // (?) Why should the engine have the same systems as the spaces?
     _systems.push_back(SystemPtr(new Systems::Window));
@@ -126,13 +130,6 @@ namespace DCEngine {
     gamesession_->Dispatch<Events::LogicUpdate>(upd);
     for (auto space : gamesession_->_spaces)
       space.second->Dispatch<Events::LogicUpdate>(upd);
-
-
-    // Need to create the event object here to pass it.
-    //UpdateEvent updateObj(); // Find a better syntax?
-    //_gameSession->Dispatch(updateEvent);
-    //_gameSession->DispatchLol(updateEvent);
-    //_gameSession->DispatchEvent()
     
     if (TRACE_UPDATE)
       trace << "[Engine::Update - All systems updated.] \n";

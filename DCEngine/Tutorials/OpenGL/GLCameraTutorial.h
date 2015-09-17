@@ -37,7 +37,7 @@ namespace DCEngine {
       ~GLCameraTutorial() {};
 
       void Initialize();
-      void OnLogicUpdate(Event* eventObj);
+      void OnLogicUpdate(Event*);
       void Update();
       void Terminate();
 
@@ -51,8 +51,7 @@ namespace DCEngine {
       void ApplyProjection();
       void ApplyTransformation(GLuint box);
 
-      void CameraInputPoll();
-      void CameraInputEvent(sf::Event& event);
+      void OnKeyDown(Event*);
       void CameraInitialize();
       void CameraUpdate();
 

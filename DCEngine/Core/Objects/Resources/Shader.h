@@ -27,9 +27,9 @@
 
 namespace DCEngine {
 
-  class GLShader : public Resource {
+  class Shader : public Resource {
   public:
-    GLShader(std::string vertexPath, std::string fragmentPath);
+    Shader(std::string vertexPath, std::string fragmentPath);
     
     void Load(std::string vertexPath, std::string fragmentPath);
     void Compile();    
@@ -53,7 +53,7 @@ namespace DCEngine {
 
   };
 
-  using ShaderPtr = std::shared_ptr<GLShader>;
+  using ShaderPtr = std::shared_ptr<Shader>;
   
 
 }

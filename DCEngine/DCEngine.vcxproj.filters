@@ -32,9 +32,6 @@
     <Filter Include="Core\Systems\Graphics">
       <UniqueIdentifier>{f1d06d07-6ea6-4ecb-aa81-505f4a658ee6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components">
-      <UniqueIdentifier>{5f85f994-42af-4524-b6ef-777fbca636be}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Archetype">
       <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
     </Filter>
@@ -161,6 +158,12 @@
     <Filter Include="Core\Object\Resource\SpriteSource">
       <UniqueIdentifier>{496b300e-780a-494b-8a33-108101795e25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Entity\Keyboard">
+      <UniqueIdentifier>{2725547b-cd48-4ddf-be50-644be343acfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\Mouse">
+      <UniqueIdentifier>{98251cfa-f9d3-45cd-a8bb-dd41d7852c8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -204,9 +207,6 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Entities\Space.cpp">
       <Filter>Core\Object\Entity\Space</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Resources\GLShader.cpp">
-      <Filter>Core\Object\Resource\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp">
       <Filter>Core\Systems\Input\GLFW</Filter>
@@ -264,6 +264,18 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\Transform.cpp">
       <Filter>Core\Object\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\Keyboard.cpp">
+      <Filter>Core\Object\Entity\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\Mouse.cpp">
+      <Filter>Core\Object\Entity\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Resources\Shader.cpp">
+      <Filter>Core\Object\Resource\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Resources\Mesh.cpp">
+      <Filter>Core\Object\Resource\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,14 +354,8 @@
     <ClInclude Include="Core\Objects\Resources\Texture.h">
       <Filter>Core\Object\Resource\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\GLShader.h">
-      <Filter>Core\Object\Resource\Shader</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Events\Event.h">
       <Filter>Core\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\KeyboardEvent.h">
-      <Filter>Core\Event\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
       <Filter>Projects\Dollhouse</Filter>
@@ -432,8 +438,47 @@
     <ClInclude Include="Core\Objects\Components\ProjectSetup.h">
       <Filter>Core\Object\Component\GameSession</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\SpriteSource.h">
+    <ClInclude Include="Core\Objects\Components\ObjectReferences.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\ObjectsInclude.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\Keyboard.h">
+      <Filter>Core\Object\Entity\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\Mouse.h">
+      <Filter>Core\Object\Entity\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\KeyDownEvent.h">
+      <Filter>Core\Event\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\KeyUpEvent.h">
+      <Filter>Core\Event\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseDown.h">
+      <Filter>Core\Event\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Serializer.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\Material.h">
       <Filter>Core\Object\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\Shader.h">
+      <Filter>Core\Object\Resource\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\Texture2D.h">
+      <Filter>Core\Object\Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resources\SpriteSource.h">
+      <Filter>Core\Object\Resource\SpriteSource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\RigidBody.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\BoxCollider.h">
+      <Filter>Core\Object\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

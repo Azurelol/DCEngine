@@ -1,6 +1,5 @@
 #include "Input.h"
 
-#include "..\..\Debug\Debug.h" // trace
 #include "..\..\Engine\Engine.h" 
 
 // SFML implementation
@@ -14,25 +13,7 @@ std::unique_ptr<DCEngine::Systems::InputGLFW> InputHandler;
 #endif
 
 namespace DCEngine {
-
-  enum class Keys {
-
-    #if(USE_SFML)
-    Escape = sf::Keyboard::Escape,
-    Space = sf::Keyboard::Space,
-    Return = sf::Keyboard::Return,
-    Up = sf::Keyboard::Up,
-    Down = sf::Keyboard::Down,
-    Left = sf::Keyboard::Left,
-    Right = sf::Keyboard::Right,
-    
-
-    #else
-
-    #endif
-
-  };
-
+  
   extern std::unique_ptr<Engine> Daisy;
 
   namespace Systems {

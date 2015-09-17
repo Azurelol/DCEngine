@@ -8,6 +8,7 @@ namespace DCEngine {
     TimeSpace(Entity& owner) : Component(std::string("TimeSpace"), EnumeratedComponent::TimeSpace, BitfieldComponent::TimeSpace, owner) {}
     void Initialize();
     void OnLogicUpdate(Event* updateEvent);
+    
 
   };
 

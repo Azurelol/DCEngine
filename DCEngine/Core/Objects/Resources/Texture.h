@@ -4,9 +4,8 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
-\brief  My study of the "Textures" tutorial:
-"http://learnopengl.com/#!Getting-started/Textures"
-
+\brief  The texture class organizes texture data.
+\note   "http://learnopengl.com/#!Getting-started/Textures"
 */
 /******************************************************************************/
 #pragma once
@@ -15,9 +14,13 @@
 namespace DCEngine {
 
   class Texture : public Resource {
-
+  public:
+    GLuint id;
+    std::string type;
 
   };
+
+  using TextureVec = std::vector<Texture>;
 
 
 }

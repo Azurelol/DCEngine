@@ -28,12 +28,13 @@ namespace DCEngine {
     /**************************************************************************/
     void InputSFML::Initialize() {
 
-     #if(USE_SFML)
-      //WindowHandler = std::move(Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler);
-      //WindowHandler.reset(Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler);
-      //_window = Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->_window;      
+     #if(USE_SFML)      
       _window = Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->_window.get();
-     #endif    
+     #endif
+
+      // Should key presses repeat?
+      _window->setKeyRepeatEnabled(false);
+     
 
     }
 
@@ -52,26 +53,117 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void InputSFML::PollEvents() {
-      // Check all window's events that were triggered since the last ieration
-      _window->pollEvent(_event);
+      
+      // Check all window's events that were triggered since the last iteration
+      if (_window->pollEvent(_event) == false)
+        return;
+      
+      switch (_event.type) {
+      case sf::Event::KeyPressed:
+        PollKeyPressed(_event);
+        break;
+      case sf::Event::KeyReleased:
+        PollKeyReleased(_event);
+        break;
+      case sf::Event::MouseButtonPressed:
+        PollMouseButtonPressed(_event);
+        break;
+      // Don't process other events
+      default: 
+        break;
+      }
 
-      if (_event.type == sf::Event::KeyPressed)
-        PollKeyboard(_event);
+
     }
 
     /**************************************************************************/
     /*!
-    \brief  Polls for keyboard events. Everytime a key is pressed, send an event
-            to the engine.
+    \brief  Polls for keyboard events. Everytime a key is pressed, sends an 
+            event to the keyboard interface.
     */
     /**************************************************************************/
-    void InputSFML::PollKeyboard(sf::Event& event) {
+    void InputSFML::PollKeyPressed(sf::Event& event) {
 
-      //if (event.KeyPressed == sf::Keyboard::Escape)
-      if (event.key.code == sf::Keyboard::Escape)
+      // Create a keyboard pressed event
+      auto keyDown = new Events::KeyDown();
+      
+      switch (event.key.code) {
+      case sf::Keyboard::Escape:
         Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        break;
+      case sf::Keyboard::Up:
+        keyDown->Key = Keys::Up;
+        break;
+      case sf::Keyboard::Down:
+        keyDown->Key = Keys::Down;
+        break;
+      case sf::Keyboard::Left:
+        keyDown->Key = Keys::Left;
+        break;
+      case sf::Keyboard::Right:
+        keyDown->Key = Keys::Right;
+        break;
+      case sf::Keyboard::W:
+        keyDown->Key = Keys::W;
+        break;
+      case sf::Keyboard::S:
+        keyDown->Key = Keys::S;
+        break;
+      case sf::Keyboard::A:
+        keyDown->Key = Keys::A;
+        break;
+      case sf::Keyboard::D:
+        keyDown->Key = Keys::D;
+        break;
 
+      }
+      // Dispatch the event to the keyboard interface
+      Daisy->GetKeyboard()->Dispatch<Events::KeyDown>(keyDown);
+    }
 
+    /**************************************************************************/
+    /*!
+    \brief  Polls for keyboard events. Everytime a key is released, sends an
+            event to the keyboard interface.
+    */
+    /**************************************************************************/
+    void InputSFML::PollKeyReleased(sf::Event & event) {
+
+      // Create a keyboard pressed event
+      auto keyUp = new Events::KeyUp();
+
+      switch (event.key.code) {
+      case sf::Keyboard::Escape:
+        
+        Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        break;
+      case sf::Keyboard::Up:
+        keyUp->Key = Keys::Up;
+        break;
+      case sf::Keyboard::Down:
+        keyUp->Key = Keys::Down;
+        break;
+      case sf::Keyboard::Left:
+        keyUp->Key = Keys::Left;
+        break;
+      case sf::Keyboard::Right:
+        keyUp->Key = Keys::Right;
+        break;
+
+      }
+
+      // Dispatch the event to the keyboard interface
+      Daisy->GetKeyboard()->Dispatch<Events::KeyUp>(keyUp);
+    }
+
+    void InputSFML::PollMouseButtonPressed(sf::Event & event) {
+
+      // Create a mouse button pressed event
+      auto mouseDown = new Events::MouseDown();
+      //if (event.key.code == sf::Mouse::Left)
+
+      // Dispatch the event to the mouse interface
+      Daisy->GetMouse()->Dispatch<Events::MouseDown>(mouseDown);
     }
 
     /**************************************************************************/

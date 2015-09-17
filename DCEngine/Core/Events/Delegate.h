@@ -44,54 +44,59 @@ namespace DCEngine {
 
   // Alias declarations
   using ComponentFnPtr = void(Component::*)(DCEngine::Event*);
-  using DelegateFnPtr = void(Delegate::*)(DCEngine::Event*);
   
   // Class declaration
+
+  class BaseDelegate {
+  public:
+    BaseDelegate() {}
+    virtual ~BaseDelegate() {};
+    virtual void Call() = 0;
+
+  };
+
   class Delegate {
   public:
     Delegate(void) : componentPtr(NULL) {}
     
-
-    template <typename GenericComponent, typename MemberFunction>
-    void Create(GenericComponent* component, MemberFunction fn) {
+    /**************************************************************************/
+    /*!
+    \brief  Creates the delegate.
+    \param  A pointer to the component.
+    \param  A pointer to the component's member function.
+    */
+    /**************************************************************************/
+    template <typename GenericComponent, typename EventClass, typename MemberFunction>
+    void Create(GenericComponent* component, EventClass eventclass, MemberFunction fn) {
       componentPtr = component;
-      funcPtr = static_cast<void(Component::*)(DCEngine::Event*)>(fn);
+      //auto eventClass = std::type_index(typeid(EventClass));
+      //auto newPtr = static_cast<void<Component::*><((std::type_index(typeid(EventClass)))*)>(fn);
+      //untypedPtr = fn;
+
+      funcPtr = static_cast<void(Component::*)(Event*)>(fn);
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Calls the component's member function.
+    \param  A pointer to the event object to be passed into the component's 
+            member function.
+    */
+    /**************************************************************************/
     void Call(DCEngine::Event* eventObj) {
+      // Test: Cast the event object pointer back into its derived class
+      //auto derivedEventPtr = dynamic_cast<*>(eventObj);
+     //auto derivedEventPtr = reinterpret_cast<void(*)(Event*)>(eventObj);      
+     //(componentPtr->*funcPtr)(derivedEventPtr);
+
+      // Works
       (componentPtr->*funcPtr)(eventObj);
-      //(this->*caller_)(eventObj);
     }
-
-
-    //template <typename GenericComponent, typename EventClass, typename MemberFunction>
-    //void Create(GenericComponent* component, EventClass eventType, MemberFunction fn) {
-    //  componentPtr = component;      
-    //  funcPtr = static_cast<void(Component::*)(std::type_index(typeid(EventClass*)))>(fn);
-    //}
-
-    //template <typename EventClass>
-    //void Call(Event* eventObj) {
-    //  (componentPtr->*(void(Component::*)(std::type_index(typeid(EventClass*)))))(eventObj);
-    //}
 
     Component* componentPtr;
     ComponentFnPtr funcPtr;
-    void (Delegate::*caller_)(DCEngine::Event* eventObj);
-
-  private:
-    
-    template <typename GenericComponent>
-    void Invoke(DCEngine::Event* eventObj) {
-
-      if (componentPtr == NULL) {
-        trace << "Delegate::Invoke - Fatal: No component provided \n";
-      }
-
-      GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);
-      (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
-    }
-    void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
+    void* untypedPtr;
+    std::type_index classType = typeid(int*);
   };
 
 

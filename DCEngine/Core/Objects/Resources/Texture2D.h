@@ -1,30 +1,21 @@
 /******************************************************************************/
 /*!
-\file   KeyboardEvent.h
+\file   Texture2D.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
-\date   8/17/2015
-\brief  The keyboard event class.
-
+\date   9/16/2015
+\brief  The texture class organizes texture data.
+\note   "http://learnopengl.com/#!Getting-started/Textures"
 */
 /******************************************************************************/
-#include "Event.h"
 #pragma once
+#include "../Resource.h"
 
 namespace DCEngine {
 
-  namespace Events {
-    class KeyboardEvent : public Event {
-    public:
+  class Texture2D : public Resource {
 
 
-      //uint State;
-      bool ShiftPressed;
-
-    private:
-
-    };
-  }
-
+  };
 
 }

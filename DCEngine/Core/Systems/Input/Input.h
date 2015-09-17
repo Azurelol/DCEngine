@@ -11,13 +11,13 @@
 #include "..\System.h"
 #pragma once
 
-//#define USE_SFML 1
+#define USE_SFML 1
+
+#if(USE_SFML)
+#include "InputSFML.h"
+#endif
 
 namespace DCEngine{
-  //
-  //enum class Keys {
-  //  ESCAPE,
-  //};
 
 
   
