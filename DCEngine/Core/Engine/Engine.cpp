@@ -24,6 +24,9 @@ Description here.
 #include "..\Config.h" // DefaultSpace
 #include "..\..\Core\Events\EventsInclude.h"
 
+// Testing
+#include "../Testing.h" // Dollhouse
+
 namespace DCEngine {
 
   // A pointer to the 'ENGINE' object
@@ -76,12 +79,11 @@ namespace DCEngine {
     mouse_.reset(new Mouse());
 
     // Systems are added to to the engine's systems vector. 
-    // (?) Why should the engine have the same systems as the spaces?
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
-    _systems.push_back(SystemPtr(new Systems::Graphics));
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
+    _systems.push_back(SystemPtr(new Systems::Graphics));
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {
@@ -89,9 +91,38 @@ namespace DCEngine {
     }
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 
+    // Loads the project file to start up the game
+    LoadProject(std::string("Default")); // Temporarily default
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Loads the project, using serialization to load all the project data.
+  \param The name of the project file.
+  */
+  /**************************************************************************/
+  void Engine::LoadProject(std::string & filename) {
+
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
-    // Initialize it
+    // Deserialize from the file
+
+    // Load the gamesession object from the archetype
+    // Add components, change non-default values
+    
+    
+
+    // Load the default space
+    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
+
+    // Load a level into the space
+    
+      // !!! TESTING: Level loading
+      LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
+      defaultSpace->LoadLevel(dollhouse);
+
+    // Initialize the gamesession. (This will initialize its spaces,
+    // and later, its gameobjects)
     gamesession_->Initialize();
   }
 
@@ -114,28 +145,28 @@ namespace DCEngine {
       trace << "\n[Engine::Update] \n";
     
     using Systems::Window;
-    // Update the window management system (window, input)
-    GETSYSTEM(Window)->Update(dt);
-
     // Tell window management system to begin new frame
-    GETSYSTEM(Window)->StartFrame();    
+    GETSYSTEM(Window)->StartFrame();
 
-    // Update the current GameSession, which will propagate the update
-    // through all its spaces, and the spaces into all objects in the game
-    gamesession_->Update(dt);
-
-    // Send the update event to the gamesession and to its spaces
-    auto upd = new Events::LogicUpdate();
-    upd->Dt = dt;
-    gamesession_->Dispatch<Events::LogicUpdate>(upd);
+    // Construct the update event and assign it the engine's dt
+    auto logicUpdateEvent = new Events::LogicUpdate();
+    logicUpdateEvent->Dt = dt;
+    // Dispatch the logic update event to the gamesession
+    gamesession_->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    // Dispatch the logic update event to all active spaces
     for (auto space : gamesession_->_spaces)
-      space.second->Dispatch<Events::LogicUpdate>(upd);
-    
-    if (TRACE_UPDATE)
-      trace << "[Engine::Update - All systems updated.] \n";
+      space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+
+    // Update all the sytems at the end of the frame, based on the order
+    // they were added to the engine. (Or split it and do it individually?)
+    for (auto system : _systems)
+      system->Update(dt);
 
     // Tell window management system to end the frame
     GETSYSTEM(Window)->EndFrame();
+
+    if (TRACE_UPDATE)
+      trace << "[Engine::Update - All systems updated.] \n";
   }  
 
   /**************************************************************************/
@@ -154,6 +185,8 @@ namespace DCEngine {
 
     Daisy.reset();
   }
+
+
 
   /**************************************************************************/
   /*!

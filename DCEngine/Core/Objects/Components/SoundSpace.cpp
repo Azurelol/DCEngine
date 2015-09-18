@@ -23,7 +23,7 @@ namespace DCEngine {
      // THIS IS MY JAM
      using namespace Systems;
      std::string myJam = "spacejam.mp3";
-     space_->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
+     Daisy->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
    }
 
    void SoundSpace::OnLogicUpdate(Events::LogicUpdate* eventPtr) {

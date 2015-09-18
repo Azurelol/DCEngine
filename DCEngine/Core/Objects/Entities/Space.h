@@ -94,7 +94,6 @@ namespace DCEngine {
     throw std::range_error("The specified system does not exist.");
   }
 
-
   using SpacePtr = std::shared_ptr<Space>;
   using SpaceMap = std::unordered_map<std::string, SpacePtr>;
 

@@ -35,9 +35,16 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
+      void DrawSprite(GameObject& gameObj);
+      void DrawModel(GameObject& gameObj);
+      void DrawDebug();
+
       void Render();
 
     private:
+      // TEMP: Change these two to const
+      GLfloat screenwidth_;
+      GLfloat screenheight_;
 
 
 

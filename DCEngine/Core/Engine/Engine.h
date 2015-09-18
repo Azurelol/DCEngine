@@ -42,11 +42,11 @@ namespace DCEngine {
       void Loop();
       auto Stop() { _active = false; } // Signals the engine to stop running
       void Terminate();
-      
-      auto Getdt() { return dt; }
-      
+           
       Keyboard* GetKeyboard() { return keyboard_.get(); }
       Mouse* GetMouse() { return mouse_.get(); }
+
+      void LoadProject(std::string& filename); //!< Load a project from a filename
 
       template <typename GenericEvent, typename GenericComponent, typename MemberFunction>
       void Connect(Entity* entity, MemberFunction fn, GenericComponent* comp);

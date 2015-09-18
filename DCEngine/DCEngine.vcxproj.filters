@@ -107,9 +107,6 @@
     <Filter Include="Core\Systems\Input\SFML">
       <UniqueIdentifier>{ed89e610-20ac-48b7-ba9d-0cd99271f078}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Event\Delegate">
-      <UniqueIdentifier>{7ab80eee-285f-40ed-9dcd-6d37e4c5390c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Entity\GameObject">
       <UniqueIdentifier>{ada8a8de-fe9a-48b1-bfcc-05f80ab8769f}</UniqueIdentifier>
     </Filter>
@@ -134,20 +131,11 @@
     <Filter Include="Core\Event\Events\Update">
       <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Component\Camera">
-      <UniqueIdentifier>{77988e87-2943-4497-ab04-451e09befd9a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Component\Transform">
       <UniqueIdentifier>{ec751781-cd15-48ad-b5a4-a512743c9987}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Component\Sprite">
-      <UniqueIdentifier>{a2ef4b75-b907-4947-878f-5655f815ef02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Component\Space">
       <UniqueIdentifier>{06e99dc6-47c0-4967-93b6-a375a4d2d912}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\GameSession">
-      <UniqueIdentifier>{57898321-e48a-4bee-9def-3bf04f03b1c9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Graphics\OpenGL">
       <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
@@ -163,6 +151,21 @@
     </Filter>
     <Filter Include="Core\Object\Entity\Mouse">
       <UniqueIdentifier>{98251cfa-f9d3-45cd-a8bb-dd41d7852c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event\Events\Delegate">
+      <UniqueIdentifier>{7ab80eee-285f-40ed-9dcd-6d37e4c5390c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Event\Events\Graphics">
+      <UniqueIdentifier>{6ce22829-b9e0-47b7-bfb0-4edfed619a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component\Graphics">
+      <UniqueIdentifier>{f13e1ca9-73c0-43e9-8afe-6c2f34c33d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component\Physics">
+      <UniqueIdentifier>{3035be46-7451-44e0-9c17-0cd858a23150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component\Audio">
+      <UniqueIdentifier>{de7efd78-fc44-4a7a-835c-c5d94a68a1db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -230,16 +233,10 @@
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
     <ClCompile Include="Core\Events\Delegate.cpp">
-      <Filter>Core\Event\Delegate</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\Camera.cpp">
-      <Filter>Core\Object\Component\Camera</Filter>
+      <Filter>Core\Event\Events\Delegate</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\SoundSpace.cpp">
-      <Filter>Core\Object\Component\Space</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\TimeSpace.cpp">
       <Filter>Core\Object\Component\Space</Filter>
@@ -252,15 +249,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Physics.cpp">
       <Filter>Core\Systems\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\PhysicsSpace.cpp">
-      <Filter>Core\Object\Component\Space</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\GraphicsSpace.cpp">
-      <Filter>Core\Object\Component\Space</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\Sprite.cpp">
-      <Filter>Core\Object\Component\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\Transform.cpp">
       <Filter>Core\Object\Component\Transform</Filter>
@@ -276,6 +264,21 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Resources\Mesh.cpp">
       <Filter>Core\Object\Resource\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\GraphicsSpace.cpp">
+      <Filter>Core\Object\Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\Sprite.cpp">
+      <Filter>Core\Object\Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\PhysicsSpace.cpp">
+      <Filter>Core\Object\Component\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\SoundSpace.cpp">
+      <Filter>Core\Object\Component\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Components\Camera.cpp">
+      <Filter>Core\Object\Component\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -379,7 +382,7 @@
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\Delegate.h">
-      <Filter>Core\Event\Delegate</Filter>
+      <Filter>Core\Event\Events\Delegate</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Resources\SoundCue.h">
       <Filter>Core\Object\Resource\SoundCue</Filter>
@@ -399,29 +402,14 @@
     <ClInclude Include="Core\Objects\Components\ComponentsInclude.h">
       <Filter>Core\Object\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Camera.h">
-      <Filter>Core\Object\Component\Camera</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Component.h">
       <Filter>Core\Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\GraphicsSpace.h">
-      <Filter>Core\Object\Component\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\PhysicsSpace.h">
-      <Filter>Core\Object\Component\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\SoundSpace.h">
-      <Filter>Core\Object\Component\Space</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\TimeSpace.h">
       <Filter>Core\Object\Component\Space</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\Transform.h">
       <Filter>Core\Object\Component\Transform</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Sprite.h">
-      <Filter>Core\Object\Component\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h">
       <Filter>Core\Object\Entity</Filter>
@@ -434,9 +422,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Physics.h">
       <Filter>Core\Systems\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\ProjectSetup.h">
-      <Filter>Core\Object\Component\GameSession</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\ObjectReferences.h">
       <Filter>Core\Object\Component</Filter>
@@ -474,11 +459,32 @@
     <ClInclude Include="Core\Objects\Resources\SpriteSource.h">
       <Filter>Core\Object\Resource\SpriteSource</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Components\RigidBody.h">
-      <Filter>Core\Object\Component</Filter>
+    <ClInclude Include="Core\Objects\Components\GraphicsSpace.h">
+      <Filter>Core\Object\Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\Sprite.h">
+      <Filter>Core\Object\Component\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Components\BoxCollider.h">
+      <Filter>Core\Object\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\RigidBody.h">
+      <Filter>Core\Object\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\PhysicsSpace.h">
+      <Filter>Core\Object\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\SoundSpace.h">
+      <Filter>Core\Object\Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\Camera.h">
+      <Filter>Core\Object\Component\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\ProjectSetup.h">
       <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Testing.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

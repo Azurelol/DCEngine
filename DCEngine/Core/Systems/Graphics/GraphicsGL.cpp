@@ -47,6 +47,12 @@ namespace DCEngine {
 
     }
 
+    void GraphicsGL::DrawSprite(GameObject & gameObj) {
+    }
+
+    void GraphicsGL::Render() {
+    }
+
 
 
 

@@ -254,6 +254,7 @@
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowGLFW.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
+    <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />

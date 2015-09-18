@@ -11,21 +11,32 @@
 /******************************************************************************/
 #pragma once
 #include "..\Component.h"
+#include "..\Entities\GameObject.h"
 
 namespace DCEngine {
 
+  class Graphics;
+
   class GraphicsSpace : public Component {
+    friend class Graphics; 
+
   public:
     GraphicsSpace(Entity& owner) : Component(std::string("GraphicsSpace"),
                                    EnumeratedComponent::GraphicsSpace,
                                    BitfieldComponent::GraphicsSpace, owner) {}
     void Initialize();
+
+    void OnSpriteRegistrationEvent(Event* eventObj);
+    void OnSpriteUnregistrationEvent(Event* eventObj);
+    std::vector<GameObject>& getSprites(); // Return the vector of sprites to be drawn
+
     void OnLogicUpdate(Event* updateEvent);
-    
-    void Draw();
-    void Render(); //!< Renders a sprite a draw
 
-
+  private:
+    // Container of sprites that need to be drawn
+    std::vector<GameObject> sprites_;
+    // Container of models that need to be rendered
+    std::vector<GameObject> models_;
 
   };
 

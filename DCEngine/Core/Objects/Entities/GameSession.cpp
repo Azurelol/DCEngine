@@ -32,7 +32,7 @@ namespace DCEngine {
     //_systems.push_back(SystemPtr(new Systems::GraphicsGL));
 
     // Creates the default space
-    SpacePtr space = CreateSpace(_defaultSpace);
+    //SpacePtr space = CreateSpace(_defaultSpace);
 
     /* - Allan
     We need namespace Systems for this macro expansion to work properly.
@@ -42,13 +42,18 @@ namespace DCEngine {
     ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
     The parameter would be invalid.
     */
-    using namespace Systems;
-    space->AddSystem(GETSYSTEM(Input));
-    space->AddSystem(GETSYSTEM(Graphics));
-    space->AddSystem(GETSYSTEM(Audio));
-    space->AddSystem(GETSYSTEM(Physics));
+    //using namespace Systems;
+    //space->AddSystem(GETSYSTEM(Input));
+    //space->AddSystem(GETSYSTEM(Graphics));
+    //space->AddSystem(GETSYSTEM(Audio));
+    //space->AddSystem(GETSYSTEM(Physics));
 
-    space->Initialize();
+    //space->Initialize();
+
+    // Initialize all spaces
+    for (auto space : _spaces)
+      space.second->Initialize();
+
 
   }
 
@@ -67,9 +72,10 @@ namespace DCEngine {
     if (TRACE_UPDATE)
       trace << _name << "::Update \n";
 
+    // DEPRECATED: Spaces are not updated by gamesession
     // Update all active spaces
-    for (auto space : _spaces)
-      UpdateSpace(space.second, dt);
+    //for (auto space : _spaces)
+    //  UpdateSpace(space.second, dt);
     
     if (TRACE_UPDATE)
       trace << _name << "::Update - All spaces updated. \n";

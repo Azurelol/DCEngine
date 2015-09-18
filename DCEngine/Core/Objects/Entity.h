@@ -47,6 +47,8 @@ namespace DCEngine {
     EntityType Type() { return type_; }
 
     void AddComponent(ComponentPtr component);
+    Component* GetComponent(std::string& name);
+
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);    
 

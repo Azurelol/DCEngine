@@ -81,5 +81,23 @@ namespace DCEngine {
       component->Initialize();
   }
 
+  /**************************************************************************/
+  /*!
+  \brief  Returns a pointer to the given component.
+  \param  The name, in a string, of the component.
+  \return A pointer to the component.
+  */
+  /**************************************************************************/
+  Component* Entity::GetComponent(std::string & name) {
+
+    for (auto component : _components) {
+      if (component->Name() == name)
+        return component.get();
+    }
+
+    return NULL;
+
+  }
+
 
 }
