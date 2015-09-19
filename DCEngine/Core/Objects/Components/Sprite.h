@@ -1,5 +1,6 @@
 #pragma once
-#include "..\Component.h"
+#include "../Component.h"
+#include "../Resources/SpriteSource.h"
 
 //Note: 1. BlendMode and SpriteSource 0%
 //      2. Visible, Color, FlipX/Y need Graphics Pipeline. Local prgress done.
@@ -27,7 +28,7 @@ namespace DCEngine {
     bool Visible;
     Real4 Color;
     BlendMode _BlendMode;
-    SpriteSource* _SpriteSource;
+    SpriteSource* getSpriteSource();
     bool FlipX;	
     bool FlipY;
 	void UpdateSprite();
@@ -36,6 +37,7 @@ namespace DCEngine {
 	bool XFlipped;
 	bool YFlipped;
 	glm::mat4 FlipMatrix;
+	std::unique_ptr<SpriteSource> SpriteSourceObj;
 
 
 	//Update
