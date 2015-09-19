@@ -4,7 +4,7 @@
 // Testing
 #include "..\..\Tutorials\OpenGL\GLCameraTutorial.h"
 #include "..\..\Core\Objects\Entity.h"
-//#include "..\..\Core\Objects\Entities\GameObject.h"
+#include "..\..\Core\Objects\Components\ComponentsInclude.h"
 
 namespace DCEngine {
 
@@ -16,20 +16,42 @@ namespace DCEngine {
   public:
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {
-      // TESTING: A simple entity, "Doll"
-      // The space will create an entity
-      doll.reset(new GameObject("Doll", *space_, *gamesession_));     
-      AddGameObject(doll);      
-      // UGLY
-      Entity &dollRef = *doll;
-      ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(dollRef));
-      doll->AddComponent(glTut);
-      //doll->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial()));
+      
+      // THIS IS MY PSEUDO-SERIALIZATION JAM!
+
+      //doll.reset(new GameObject("Doll", *space_, *gamesession_));
+      //AddGameObject(doll);
+      //Entity &dollRef = *doll;
+      //ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(dollRef));
+      //ComponentPtr transform = ComponentPtr(new Transform(dollRef));
+      //ComponentPtr sprite = ComponentPtr(new Sprite(dollRef));
+      //doll->AddComponent(transform);
+      //doll->AddComponent(sprite);
+      //doll->AddComponent(glTut);
+
+      GameObjectPtr rango = ConstructGameObject("Rango");
+      GameObjectPtr khasox = ConstructGameObject("Khasocks");
+      GameObjectPtr bankplank = ConstructGameObject("Bankplank");
+    }
+    
+    // Constructs a GameObject and loads some components onto it
+    GameObjectPtr ConstructGameObject(std::string name) {
+      GameObjectPtr gameObj(new GameObject(name, *space_, *gamesession_));
+
+      AddGameObject(gameObj);
+      Entity &gameObjRef = *gameObj;
+      //ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(gameObjRef));
+      //ComponentPtr transform = ComponentPtr(new Transform(*gameObj));
+      //ComponentPtr sprite = ComponentPtr(new Sprite(*gameObj));
+      //gameObj->AddComponent(sprite);
+      //gameObj->AddComponent(glTut);
+      gameObj->AddComponent(ComponentPtr(new Sprite(*gameObj)));
+      gameObj->AddComponent(ComponentPtr(new Transform(*gameObj)));
+      
+      return gameObj;
     }
 
-  //private:
     GameObjectPtr doll;
-    
 
     // (TEMP) Resources should not contain data of their owners
     Space* space_;
