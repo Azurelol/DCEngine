@@ -19,7 +19,7 @@ namespace DCEngine {
 
 
 
-  Space * GameObject::GetSpace() {
+  Space* GameObject::GetSpace() {
     return space_;
   }
 

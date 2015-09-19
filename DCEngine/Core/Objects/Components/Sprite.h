@@ -1,5 +1,6 @@
 #pragma once
-#include "..\Component.h"
+#include "../Component.h"
+#include "../Resources/SpriteSource.h"
 
 namespace DCEngine {
 
@@ -24,9 +25,12 @@ namespace DCEngine {
     bool Visible;
     Real4 Color;
     BlendMode _BlendMode;
-    SpriteSource* _SpriteSource;
+    SpriteSource* getSpriteSource();
     bool FlipX;
     bool FlipY;
+
+  private:
+    std::unique_ptr<SpriteSource> SpriteSourceObj;
 
   };
 

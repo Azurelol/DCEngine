@@ -6,6 +6,11 @@
 #include "LogicUpdate.h"
 
 /*******
+GRAPHICS
+*******/
+#include "SpriteRegistrationEvent.h"
+
+/*******
   INPUT
 *******/
 #include "KeyDownEvent.h"

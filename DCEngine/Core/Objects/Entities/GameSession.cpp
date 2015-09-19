@@ -26,35 +26,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Initialize() {
-    trace << _name << "::Initialize \n";
-
-    // Systems are added to the GameSession
-    //_systems.push_back(SystemPtr(new Systems::GraphicsGL));
-
-    // Creates the default space
-    //SpacePtr space = CreateSpace(_defaultSpace);
-
-    /* - Allan
-    We need namespace Systems for this macro expansion to work properly.
-    The system types are ot defined outside the Systems namespace,
-    and using the using Systems::SystemName would cause the macro to
-    incorrectly expand into:
-    ENGINE->GetSystem<Systems::SystemName>(EnumeratedSystems::SystemName).
-    The parameter would be invalid.
-    */
-    //using namespace Systems;
-    //space->AddSystem(GETSYSTEM(Input));
-    //space->AddSystem(GETSYSTEM(Graphics));
-    //space->AddSystem(GETSYSTEM(Audio));
-    //space->AddSystem(GETSYSTEM(Physics));
-
-    //space->Initialize();
+    trace << "[" << _name << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
     for (auto space : _spaces)
       space.second->Initialize();
-
-
   }
 
   /**************************************************************************/

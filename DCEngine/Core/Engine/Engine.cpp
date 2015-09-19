@@ -186,8 +186,6 @@ namespace DCEngine {
     Daisy.reset();
   }
 
-
-
   /**************************************************************************/
   /*!
   \brief  Creates a timer and calls Update(dt) repeatedly. 
@@ -201,15 +199,4 @@ namespace DCEngine {
       Update(dt);
     }
   }
-
-  /*template<typename GenericEvent, typename GenericComponent>*/
-  //void Engine::Connect(Entity*, void (GenericComponent::*)(Event*)) {
-  ////void Engine::Connect(DCEngine::Entity*, void (GenericComponent::*)(DCEngine::Event*)) {
-
-  //  trace << "Connected to " << entity->Name() << "\n";
-
-  //}
-
-
-
 }

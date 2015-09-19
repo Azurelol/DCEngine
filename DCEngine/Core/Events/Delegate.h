@@ -42,61 +42,30 @@ namespace DCEngine {
   class Event;
   class Delegate;
 
-  // Alias declarations
-  using ComponentFnPtr = void(Component::*)(DCEngine::Event*);
-  
-  // Class declaration
-
-  class BaseDelegate {
-  public:
-    BaseDelegate() {}
-    virtual ~BaseDelegate() {};
-    virtual void Call() = 0;
-
-  };
-
   class Delegate {
   public:
-    Delegate(void) : componentPtr(NULL) {}
-    
-    /**************************************************************************/
-    /*!
-    \brief  Creates the delegate.
-    \param  A pointer to the component.
-    \param  A pointer to the component's member function.
-    */
-    /**************************************************************************/
-    template <typename GenericComponent, typename EventClass, typename MemberFunction>
-    void Create(GenericComponent* component, EventClass eventclass, MemberFunction fn) {
-      componentPtr = component;
-      //auto eventClass = std::type_index(typeid(EventClass));
-      //auto newPtr = static_cast<void<Component::*><((std::type_index(typeid(EventClass)))*)>(fn);
-      //untypedPtr = fn;
+    Delegate() {}
+    virtual ~Delegate() {};
+    virtual void Call(Event* event) = 0;
+  };
 
-      funcPtr = static_cast<void(Component::*)(Event*)>(fn);
-    }
+  template <typename ComponentClass, typename EventClass>
+  class MemberFunctionDelegate : public Delegate {
+  public:
+    typedef void(ComponentClass::*EventFn)(EventClass* event);
+    EventFn FuncPtr;
+    ComponentClass* CompInst;
 
     /**************************************************************************/
     /*!
-    \brief  Calls the component's member function.
-    \param  A pointer to the event object to be passed into the component's 
-            member function.
+    \brief  Calls the member function given an event.
+    \param  A pointer to the event object.
     */
     /**************************************************************************/
-    void Call(DCEngine::Event* eventObj) {
-      // Test: Cast the event object pointer back into its derived class
-      //auto derivedEventPtr = dynamic_cast<*>(eventObj);
-     //auto derivedEventPtr = reinterpret_cast<void(*)(Event*)>(eventObj);      
-     //(componentPtr->*funcPtr)(derivedEventPtr);
-
-      // Works
-      (componentPtr->*funcPtr)(eventObj);
+    virtual void Call(Event* event) {
+      EventClass* eventObj = dynamic_cast<EventClass*>(event);
+      (CompInst->*FuncPtr)(eventObj);
     }
-
-    Component* componentPtr;
-    ComponentFnPtr funcPtr;
-    void* untypedPtr;
-    std::type_index classType = typeid(int*);
   };
 
 

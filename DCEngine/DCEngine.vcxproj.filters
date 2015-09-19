@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{579a6ab1-da3e-4309-be9e-c655152148c4}</UniqueIdentifier>
     </Filter>
@@ -167,6 +163,12 @@
     <Filter Include="Core\Object\Component\Audio">
       <UniqueIdentifier>{de7efd78-fc44-4a7a-835c-c5d94a68a1db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Resources">
+      <UniqueIdentifier>{85eebe1e-1b45-4eec-9013-ac9901d269ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Shaders">
+      <UniqueIdentifier>{0d72dc57-2382-4dc6-a9ad-a2793adaaf75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -279,6 +281,9 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Components\Camera.cpp">
       <Filter>Core\Object\Component\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Resources\Texture2D.cpp">
+      <Filter>Core\Object\Resource\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -486,6 +491,9 @@
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
+      <Filter>Core\Event\Events\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -519,6 +527,12 @@
     </None>
     <None Include="Tutorials\OpenGL\GLCameraTutorial.vs">
       <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
+    </None>
+    <None Include="Core\Resources\Shaders\SpriteShader.vs">
+      <Filter>Core\Resources\Shaders</Filter>
+    </None>
+    <None Include="Core\Objects\Resources\SpriteShader.frag">
+      <Filter>Core\Resources\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

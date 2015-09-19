@@ -53,8 +53,8 @@ namespace DCEngine {
       // Connect to a LogicUpdate
       auto doll = (GameObject*)Owner();
       auto space = doll->GetSpace();
-      Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
-      Connect(Daisy->GetKeyboard(), Events::KeyDown, GLCameraTutorial::OnKeyDown);
+      //Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
+      //Connect(Daisy->GetKeyboard(), Events::KeyDown, GLCameraTutorial::OnKeyDown);
     }
 
     void GLCameraTutorial::OnKeyDown(Event* eventObj) {

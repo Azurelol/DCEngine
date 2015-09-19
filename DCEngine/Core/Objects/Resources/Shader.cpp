@@ -42,7 +42,7 @@ namespace DCEngine {
 
     try {
       // Open the files ( YES I KNOW THIS WAY IS DUMB PLZ HELP )
-      std::string shaderLocation("Tutorials/OpenGL/");
+      std::string shaderLocation("Core/Resources/Shaders/");
       vertexShaderFile.open(shaderLocation + vertexPath);
       fragmentShaderFile.open(shaderLocation + fragmentPath);
       // Use C++ filestreams to read the content from the file
@@ -54,7 +54,8 @@ namespace DCEngine {
       fragmentShaderFile.close();
       // Store the shader code within the object   
       vertexCode = vertexShaderStream.str();
-      fragmentCode = fragmentShaderStream.str();    
+      fragmentCode = fragmentShaderStream.str();  
+      trace << "lol\n";
     }
     catch (std::ifstream::failure e) {
       if (TRACE_ON)

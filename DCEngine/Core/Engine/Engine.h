@@ -48,8 +48,8 @@ namespace DCEngine {
 
       void LoadProject(std::string& filename); //!< Load a project from a filename
 
-      template <typename GenericEvent, typename GenericComponent, typename MemberFunction>
-      void Connect(Entity* entity, MemberFunction fn, GenericComponent* comp);
+      template <typename EventClass, typename ComponentClass, typename MemberFunction>
+      void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
       //void Disconnect(const Entity& entity, EventType);
 
       template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
@@ -92,20 +92,22 @@ namespace DCEngine {
      \return A shared pointer to the requested system.
      */
      /**************************************************************************/
-    template<typename GenericEvent, typename GenericComponent, typename MemberFunction>
-    void Engine::Connect(Entity* entity, MemberFunction fn, GenericComponent* comp) {
+    template<typename EventClass, typename ComponentClass, typename MemberFunction>
+    void Engine::Connect(Entity* entity, MemberFunction fn, ComponentClass* comp) {
 
       if (TRACE_CONNECT) {
         trace << "[Engine::Connect] - " << comp->Name() << " has connected to " 
               << entity->Name() << "\n";   
       }
 
-      // Construct the delegate
-      Delegate dg;
-      dg.Create(comp, std::type_index(typeid(GenericEvent)), fn);
-      //dg.Create(comp, std::type_index(typeid(GenericEvent)), fn);
-      // Store the delegate to the <EventClass, std::list<Delegate> > map
-      entity->ObserverRegistry[typeid(GenericEvent)].push_back(dg); 
+      // Construct the member function delegate
+      auto memDeg = new MemberFunctionDelegate<ComponentClass, EventClass>();
+      memDeg->FuncPtr = fn;
+      memDeg->CompInst = comp;
+      // Create a base delegate pointer to pass to the entity's container
+      auto degPtr = (Delegate*)memDeg;
+      // Store the base delegate to the <EventClass, std::list<Delegate*> > map
+      entity->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
   }
 
   /**************************************************************************/

@@ -176,6 +176,7 @@
     <ClCompile Include="Core\Objects\Resources\Mesh.cpp" />
     <ClCompile Include="Core\Objects\Resources\Shader.cpp" />
     <ClCompile Include="Core\Objects\Resources\Level.cpp" />
+    <ClCompile Include="Core\Objects\Resources\Texture2D.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="Core\Events\LogicUpdate.h" />
     <ClInclude Include="Core\Events\Event.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
+    <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Objects\Component.h" />
     <ClInclude Include="Core\Objects\Components\BoxCollider.h" />
     <ClInclude Include="Core\Objects\Components\Camera.h" />
@@ -268,6 +270,8 @@
     <Text Include="Engine.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Core\Objects\Resources\SpriteShader.frag" />
+    <None Include="Core\Resources\Shaders\SpriteShader.vs" />
     <None Include="Tutorials\OpenGL\FragmentShader.glsl" />
     <None Include="Tutorials\OpenGL\FragmentShader_Uniform.glsl" />
     <None Include="Tutorials\OpenGL\GLCameraTutorial.vs" />

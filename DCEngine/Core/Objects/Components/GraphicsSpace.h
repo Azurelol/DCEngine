@@ -26,17 +26,17 @@ namespace DCEngine {
                                    BitfieldComponent::GraphicsSpace, owner) {}
     void Initialize();
 
-    void OnSpriteRegistrationEvent(Event* eventObj);
+    void OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj);
     void OnSpriteUnregistrationEvent(Event* eventObj);
-    std::vector<GameObject>& getSprites(); // Return the vector of sprites to be drawn
+    std::vector<GameObject*> getSprites(); // Return the vector of sprites to be drawn
 
-    void OnLogicUpdate(Event* updateEvent);
+    void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
   private:
     // Container of sprites that need to be drawn
-    std::vector<GameObject> sprites_;
+    std::vector<GameObject*> sprites_;
     // Container of models that need to be rendered
-    std::vector<GameObject> models_;
+    std::vector<GameObject*> models_;
 
   };
 

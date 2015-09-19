@@ -15,13 +15,26 @@ Daisy Project::GameSession - Constructor
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Daisy World::Space - Constructor 
 Dollhouse::Level - Constructor 
-Doll::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
-GLTutorial::Component - Constructor - Owner: 'Doll'
-GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- 
-Doll::AddComponent - GLTutorial
+Rango::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Rango'
+Rango::AddComponent - Sprite
+Transform::Component - Constructor - Owner: 'Rango'
+Rango::AddComponent - Transform
+Khasocks::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Khasocks'
+Khasocks::AddComponent - Sprite
+Transform::Component - Constructor - Owner: 'Khasocks'
+Khasocks::AddComponent - Transform
+Bankplank::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Bankplank'
+Bankplank::AddComponent - Sprite
+Transform::Component - Constructor - Owner: 'Bankplank'
+Bankplank::AddComponent - Transform
 Daisy World::LoadLevel - Loading Dollhouse level.
-Daisy World::AddEntity - Added Doll to the space.
-Daisy Project::Initialize 
+Daisy World::AddEntity - Added Rango to the space.
+Daisy World::AddEntity - Added Khasocks to the space.
+Daisy World::AddEntity - Added Bankplank to the space.
+[Daisy Project::Initialize - Initializing all spaces... ] 
 |Daisy World::Initialize| 
 SoundSpace::Component - Constructor - Owner: 'Daisy World'
 Daisy World::AddComponent - SoundSpace
@@ -29,6 +42,7 @@ TimeSpace::Component - Constructor - Owner: 'Daisy World'
 Daisy World::AddComponent - TimeSpace
 GraphicsSpace::Component - Constructor - Owner: 'Daisy World'
 Daisy World::AddComponent - GraphicsSpace
+[Engine::Connect] - SoundSpace has connected to Daisy World
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::PlaySound 
@@ -36,52 +50,36 @@ AudioFMOD::PlaySound
 [Engine::Connect] - SoundSpace has connected to Keyboard
 [Engine::Connect] - SoundSpace has connected to Mouse
 Graphics::Register -  Daisy World has registered to the Graphics system
-Doll::Initialize 
-Tutorial::GLCameraTutorial - Initialized. 
-Shader::Shader() 
-Shader::Load - Vertex: GLCameraTutorial.vs , Fragment: GLTexture.frag
-Shader::Compile 
-Shader::AssertShaderCompilation - Vertex Shader compiled! 
-Shader::AssertShaderCompilation - Fragment Shader compiled! 
-Shader::AssertShaderCompilation - Shader program linked! 
-Loaded Tutorials/OpenGL/container.jpg
-Loaded Tutorials/OpenGL/aritmei.png
-[Engine::Connect] - GLTutorial has connected to Daisy World
-[Engine::Connect] - GLTutorial has connected to Keyboard
+[Engine::Connect] - GraphicsSpace has connected to Daisy World
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Rango::Initialize 
+Rango::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Rango
+000000A324D00758
+Rango::Transform::Initialize
+Khasocks::Initialize 
+Khasocks::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Khasocks
+000000A324D00758
+Khasocks::Transform::Initialize
+Bankplank::Initialize 
+Bankplank::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Bankplank
+000000A324D00758
+Bankplank::Transform::Initialize
 
 [Engine::Loop]
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 SoundSpace::OnKeyReleased
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 SoundSpace::OnKeyReleased
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 SoundSpace::OnKeyReleased
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 SoundSpace::OnKeyReleased
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 SoundSpace::OnKeyReleased
 SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
-SoundSpace::OnKeyReleased
-SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
-SoundSpace::OnKeyReleased
-SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
-SoundSpace::OnKeyReleased
-SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
-SoundSpace::OnKeyReleased
-SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
-SoundSpace::OnKeyReleased
-SoundSpace::OnKeyPressed
-GLCameraTutorial::OnKeyDown
 
 [Engine::Terminate] 
 Window::Terminate 

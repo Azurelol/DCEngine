@@ -10,7 +10,7 @@ namespace DCEngine {
   extern std::unique_ptr<Engine> Daisy; // TEMPORARY
 
    void SoundSpace::Initialize() {
-     //Connect(space_, Events::LogicUpdate, SoundSpace::OnLogicUpdate); 
+     Connect(space_, Events::LogicUpdate, SoundSpace::OnLogicUpdate); 
      TestMusic();
 
      // Testing Keyboard
@@ -26,13 +26,11 @@ namespace DCEngine {
      Daisy->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
    }
 
-   void SoundSpace::OnLogicUpdate(Events::LogicUpdate* eventPtr) {
-     trace << "SoundSpace::OnLogicUpdate - Dt: " << eventPtr->Dt << "\n";
+   void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {
+     //trace << "SoundSpace::OnLogicUpdate \n";
    }
 
-   void SoundSpace::OnKeyDown(Event * eventPtr) {
-     auto event = (Events::KeyDown*)eventPtr;
-
+   void SoundSpace::OnKeyDown(Events::KeyDown * event) {
      trace << "SoundSpace::OnKeyPressed\n";
 
      if (event->Key == Keys::Up) {
@@ -50,8 +48,7 @@ namespace DCEngine {
 
    }
 
-   void SoundSpace::OnKeyUp(Event * eventPtr) {
-     auto event = (Events::KeyUp*)eventPtr;
+   void SoundSpace::OnKeyUp(Events::KeyUp * event) {
 
      trace << "SoundSpace::OnKeyReleased\n";
 
@@ -70,8 +67,7 @@ namespace DCEngine {
 
    }
 
-   void SoundSpace::OnMouseDown(Event * eventPtr) {
-     auto event = (Events::MouseDown*)eventPtr;
+   void SoundSpace::OnMouseDown(Events::MouseDown * event) {
      trace << "Mouse down!\n";
 
    }

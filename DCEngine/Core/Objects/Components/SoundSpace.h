@@ -15,10 +15,10 @@ namespace DCEngine {
 
 
     void Initialize();
-    void OnLogicUpdate(Events::LogicUpdate* updateEvent);
-    void OnKeyDown(Event* eventPtr);
-    void OnKeyUp(Event* eventPtr);
-    void OnMouseDown(Event* eventPtr);
+    void OnLogicUpdate(Events::LogicUpdate* event);
+    void OnKeyDown(Events::KeyDown* event);
+    void OnKeyUp(Events::KeyUp* event);
+    void OnMouseDown(Events::MouseDown* event);
 
     void TestMusic();
     void Update() {}

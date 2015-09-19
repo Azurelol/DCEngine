@@ -35,6 +35,13 @@ namespace DCEngine {
     auto type = Owner()->Type();
     auto entity = (Entity*)Owner();
 
+    // If the owner is a 'GameObject' entity
+    if (type == EntityType::GameObject) {
+      auto gameObj = (GameObject*)entity;
+      space_ = gameObj->GetSpace();
+      gamesession_ = gameObj->GetGameSession();
+    }
+
     // If the owner is a 'Space' entity
     if (type == EntityType::Space) {
       space_ = (Space*)entity;

@@ -17,30 +17,36 @@ namespace DCEngine {
       trace << "Graphics::Initialize \n";
       GraphicsHandler->Initialize();
 
+      // Connect to graphics space registration events
     }
 
     void Graphics::Update(float dt) {
       if (TRACE_UPDATE)
       trace << "Graphics::Update \n";
-      GraphicsHandler->Update(dt);
 
       // For every graphics space component
       for (auto gfxSpace : graphicsSpaces_) {
         // Draw sprites
-        for (auto gameObj : gfxSpace.getSprites())
-          DrawSprite(gameObj);
+        for (auto gameObj : gfxSpace->getSprites()) {
+          // If the sprite is visible
+          DrawSprite(*gameObj);
+        }          
       }
 
     }
 
-    void Graphics::Register(GraphicsSpace & graphicsSpace) {
-      graphicsSpaces_.push_back(graphicsSpace);
-      trace << "Graphics::Register -  "  
-            << graphicsSpace.Owner()->Name() 
-            << " has registered to the Graphics system\n";
+    void Graphics::Register(GraphicsSpace& graphicsSpace) {
+      graphicsSpaces_.push_back(&graphicsSpace);
+      trace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
+        << " has registered to the Graphics system\n";
+
+      
+
     }
 
     void Graphics::DrawSprite(GameObject & gameObj) {
+      if (TRACE_UPDATE)
+        trace << "Graphics::DrawSprite - Drawing " << gameObj.Name() << "\n";
       GraphicsHandler->DrawSprite(gameObj);
     }
 

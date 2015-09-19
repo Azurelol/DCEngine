@@ -44,6 +44,8 @@ namespace DCEngine {
     for (auto component : _components) {
       component->Initialize();
     }        
+
+    trace << "[" << _name << "::Initialize - Initializing all GameObjects...] \n";
     // Initialize all entities (in effect, initializing all attached components)
     for (auto gameObject : gameobjects_) {
       // TEMPORARY: Should space, gamesession be even set this way?
@@ -104,11 +106,6 @@ namespace DCEngine {
     // Load GameObjects into the space
     for (auto gameObject : _currentLevel->GameObjects) {
       AddObject(gameObject);
-      // TEMPORARY: Set the component's space and gamesession
-      for (auto component : gameObject->_components) {
-        //component->_space = this;
-        //component->_gameSession = _gameSession;
-      }
     }      
 
   }

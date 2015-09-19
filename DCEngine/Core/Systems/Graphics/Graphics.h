@@ -34,17 +34,14 @@ namespace DCEngine {
       void DrawDebug();  
 
     private:
-      // Graphics handler
       std::unique_ptr<GraphicsGL> GraphicsHandler;
-      // The active camera
       const int screenwidth_ = 800;
       const int screenheight_ = 600;
       Mat4 ProjMatrix;
       Mat4 ViewMatrix;
       Mat4 ViewProjMatrix;
 
-      // Container of graphics spaces accessing this system
-      std::vector<GraphicsSpace> graphicsSpaces_;
+      std::vector<GraphicsSpace*> graphicsSpaces_; //!< Container of graphics spaces accessing this system
 
     };
 

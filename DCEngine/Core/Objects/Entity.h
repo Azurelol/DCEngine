@@ -50,12 +50,7 @@ namespace DCEngine {
     Component* GetComponent(std::string& name);
 
     void RemoveComponent(EnumeratedComponent ec);
-    bool HasComponent(EnumeratedComponent ec);    
-
-    // VIRTUAL FUNCTIONS //
-    //virtual void SetParentReference();
-
-    // EVENTS // 
+    bool HasComponent(EnumeratedComponent ec);
 
     template <typename EventClass>
     void Dispatch(Event* eventObj); // Dispatches an event on object
@@ -91,8 +86,7 @@ namespace DCEngine {
     
     // Reference: http://www.cplusplus.com/reference/map/map/
     // http://stackoverflow.com/questions/9859390/use-data-type-class-type-as-key-in-a-map
-    std::map<std::type_index, std::list<DCEngine::Delegate>> ObserverRegistry;
-    std::map<unsigned int, std::list<DCEngine::Delegate>> ListenerRegistry;
+    std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     
 
@@ -120,11 +114,11 @@ namespace DCEngine {
           if (TRACE_DISPATCH)
             trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
           // For every delegate in the list for this specific event
-          for (auto& deleg : eventKey.second) {
+          for (auto deleg : eventKey.second) {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
-              trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
-            deleg.Call(eventObj);
+              trace << Name() << "::Dispatch - Calling member function on " << "\n";
+            deleg->Call(eventObj);
             //deleg.Call<eventTypeID>(eventObj);
           }
         }
@@ -160,7 +154,7 @@ namespace DCEngine {
           if (TRACE_DISPATCH)
             trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
           // For every delegate in the list for this specific event
-          for (auto& deleg : eventKey.second) {
+          for (auto deleg : eventKey.second) {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
               trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";

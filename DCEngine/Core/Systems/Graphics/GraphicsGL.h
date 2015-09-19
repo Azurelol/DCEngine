@@ -35,6 +35,7 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
+      void InitializeSpriteRenderData();
       void DrawSprite(GameObject& gameObj);
       void DrawModel(GameObject& gameObj);
       void DrawDebug();
@@ -43,8 +44,12 @@ namespace DCEngine {
 
     private:
       // TEMP: Change these two to const
-      GLfloat screenwidth_;
-      GLfloat screenheight_;
+      GLuint screenwidth_;
+      GLuint screenheight_;
+
+      // Used for drawing sprites
+      ShaderPtr SpriteShader;
+      GLuint SpriteVAO; // A Quad VAO
 
 
 
