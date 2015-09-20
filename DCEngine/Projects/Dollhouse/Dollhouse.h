@@ -1,10 +1,10 @@
 #pragma once
-#include "..\..\Core\Objects\Resources\Level.h"
+#include "..\..\Core\Resources\Level.h"
 
 // Testing
 #include "..\..\Tutorials\OpenGL\GLCameraTutorial.h"
 #include "..\..\Core\Objects\Entity.h"
-#include "..\..\Core\Objects\Components\ComponentsInclude.h"
+#include "..\..\Core\ComponentsInclude.h"
 
 namespace DCEngine {
 
@@ -30,8 +30,13 @@ namespace DCEngine {
       //doll->AddComponent(glTut);
 
       GameObjectPtr rango = ConstructGameObject("Rango");
-      GameObjectPtr khasox = ConstructGameObject("Khasocks");
-      GameObjectPtr bankplank = ConstructGameObject("Bankplank");
+      rango->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+
+      //rango->getComponent<Sprite>()->getSpriteSource()->
+      
+      //GameObjectPtr khasox = ConstructGameObject("Khasocks");
+      //GameObjectPtr bankplank = ConstructGameObject("Bankplank");
     }
     
     // Constructs a GameObject and loads some components onto it

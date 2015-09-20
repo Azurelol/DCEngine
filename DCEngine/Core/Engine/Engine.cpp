@@ -145,8 +145,10 @@ namespace DCEngine {
       trace << "\n[Engine::Update] \n";
     
     using Systems::Window;
+    using Systems::Graphics;
     // Tell window management system to begin new frame
     GETSYSTEM(Window)->StartFrame();
+    GETSYSTEM(Graphics)->StartFrame();
 
     // Construct the update event and assign it the engine's dt
     auto logicUpdateEvent = new Events::LogicUpdate();
@@ -163,6 +165,7 @@ namespace DCEngine {
       system->Update(dt);
 
     // Tell window management system to end the frame
+    GETSYSTEM(Graphics)->EndFrame();
     GETSYSTEM(Window)->EndFrame();
 
     if (TRACE_UPDATE)

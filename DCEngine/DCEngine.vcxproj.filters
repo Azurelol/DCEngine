@@ -7,9 +7,6 @@
     <Filter Include="Core\Engine">
       <UniqueIdentifier>{efb22701-0e1c-44c1-8fec-ff5808f06682}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Debug">
-      <UniqueIdentifier>{0f04524d-b6b8-40cb-b81f-e43b8749bc46}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libraries">
       <UniqueIdentifier>{5aeca2fa-ba93-4d9d-80e8-32096d8aae0f}</UniqueIdentifier>
     </Filter>
@@ -28,17 +25,8 @@
     <Filter Include="Core\Systems\Graphics">
       <UniqueIdentifier>{f1d06d07-6ea6-4ecb-aa81-505f4a658ee6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Archetype">
-      <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object">
       <UniqueIdentifier>{fd761f3f-379a-4577-a8be-09f0d98c8742}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Action">
-      <UniqueIdentifier>{1d11a521-8c77-4dc3-8e68-6d085cfd8d10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event">
-      <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Object\Resource">
       <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
@@ -52,15 +40,6 @@
     <Filter Include="Core\Object\Entity\Space">
       <UniqueIdentifier>{64b178b0-9574-4671-87f5-456dad04787f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Resource\Level">
-      <UniqueIdentifier>{7d38fb96-82c8-419b-b2fe-11d7321d83e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Resource\Mesh">
-      <UniqueIdentifier>{092616a1-a542-4150-8dc6-96a80009a805}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Resource\Texture">
-      <UniqueIdentifier>{8721c496-d348-4385-aa82-f99599e6bbc5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Window\GLFW">
       <UniqueIdentifier>{94925210-7e25-42c6-a773-c78600509e13}</UniqueIdentifier>
     </Filter>
@@ -69,9 +48,6 @@
     </Filter>
     <Filter Include="Projects">
       <UniqueIdentifier>{e4a088af-bf36-4199-8320-2aad748ba5b1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Resource\Shader">
-      <UniqueIdentifier>{c1edb312-3764-4b9a-84d7-713ca31d1b52}</UniqueIdentifier>
     </Filter>
     <Filter Include="Projects\Tutorials">
       <UniqueIdentifier>{f2fcc741-bd2f-4392-a92f-8e4cdf63b119}</UniqueIdentifier>
@@ -112,35 +88,11 @@
     <Filter Include="Core\Systems\Audio\FMOD">
       <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Deprecated">
-      <UniqueIdentifier>{ecae1942-5cc2-4adf-b105-63a8e98a9559}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Resource\SoundCue">
-      <UniqueIdentifier>{789ea38a-fa58-4374-80ed-1727b35d7df6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Events">
-      <UniqueIdentifier>{6a057c5d-e202-48e8-9f36-e77a9d6a762d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Events\Input">
-      <UniqueIdentifier>{0e135a08-733d-462e-852d-f9425b35621b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Events\Update">
-      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\Transform">
-      <UniqueIdentifier>{ec751781-cd15-48ad-b5a4-a512743c9987}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\Space">
-      <UniqueIdentifier>{06e99dc6-47c0-4967-93b6-a375a4d2d912}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Graphics\OpenGL">
       <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Physics">
       <UniqueIdentifier>{9f4bb25a-b39c-4bef-9db8-c50934f476fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Resource\SpriteSource">
-      <UniqueIdentifier>{496b300e-780a-494b-8a33-108101795e25}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Object\Entity\Keyboard">
       <UniqueIdentifier>{2725547b-cd48-4ddf-be50-644be343acfa}</UniqueIdentifier>
@@ -148,25 +100,55 @@
     <Filter Include="Core\Object\Entity\Mouse">
       <UniqueIdentifier>{98251cfa-f9d3-45cd-a8bb-dd41d7852c8a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Event\Events\Delegate">
-      <UniqueIdentifier>{7ab80eee-285f-40ed-9dcd-6d37e4c5390c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Event\Events\Graphics">
-      <UniqueIdentifier>{6ce22829-b9e0-47b7-bfb0-4edfed619a91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\Graphics">
-      <UniqueIdentifier>{f13e1ca9-73c0-43e9-8afe-6c2f34c33d0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\Physics">
-      <UniqueIdentifier>{3035be46-7451-44e0-9c17-0cd858a23150}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Component\Audio">
-      <UniqueIdentifier>{de7efd78-fc44-4a7a-835c-c5d94a68a1db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Resources">
       <UniqueIdentifier>{85eebe1e-1b45-4eec-9013-ac9901d269ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Resources\Shaders">
+    <Filter Include="Core\Engine\Action">
+      <UniqueIdentifier>{1d11a521-8c77-4dc3-8e68-6d085cfd8d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components">
+      <UniqueIdentifier>{732458b4-efac-44b1-972f-d784e2be8d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Archetype">
+      <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics">
+      <UniqueIdentifier>{d8d3fdef-189c-4567-91e2-5937000bbeb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Physics">
+      <UniqueIdentifier>{d1f0b10f-a53f-437d-8e7d-bba879726018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Audio">
+      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events">
+      <UniqueIdentifier>{6a057c5d-e202-48e8-9f36-e77a9d6a762d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Input">
+      <UniqueIdentifier>{0e135a08-733d-462e-852d-f9425b35621b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Update">
+      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Graphics">
+      <UniqueIdentifier>{6ce22829-b9e0-47b7-bfb0-4edfed619a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Event">
+      <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Debug">
+      <UniqueIdentifier>{0f04524d-b6b8-40cb-b81f-e43b8749bc46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Graphics">
+      <UniqueIdentifier>{2fa96746-5f46-460b-ba71-1adc6c8ffd7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Audio">
+      <UniqueIdentifier>{0247d43a-bb7a-41d9-b7b5-3e9b3dc5b186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Object">
+      <UniqueIdentifier>{9417a7ee-6c97-4289-9e06-8ffa37598ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Graphics\Shaders">
       <UniqueIdentifier>{0d72dc57-2382-4dc6-a9ad-a2793adaaf75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -181,7 +163,7 @@
       <Filter>Core\Systems</Filter>
     </ClCompile>
     <ClCompile Include="Core\Debug\Debug.cpp">
-      <Filter>Core\Debug</Filter>
+      <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
       <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
@@ -225,23 +207,14 @@
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp">
       <Filter>Core\Object\Entity\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Resources\Level.cpp">
-      <Filter>Core\Object\Resource\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Audio\Audio.cpp">
       <Filter>Core\Systems\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Events\Delegate.cpp">
-      <Filter>Core\Event\Events\Delegate</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Components\TimeSpace.cpp">
-      <Filter>Core\Object\Component\Space</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
@@ -252,38 +225,47 @@
     <ClCompile Include="Core\Systems\Physics\Physics.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\Transform.cpp">
-      <Filter>Core\Object\Component\Transform</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Objects\Entities\Keyboard.cpp">
       <Filter>Core\Object\Entity\Keyboard</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp">
       <Filter>Core\Object\Entity\Mouse</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Resources\Shader.cpp">
-      <Filter>Core\Object\Resource\Shader</Filter>
+    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
+      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Resources\Mesh.cpp">
-      <Filter>Core\Object\Resource\Mesh</Filter>
+    <ClCompile Include="Core\Components\Sprite.cpp">
+      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\GraphicsSpace.cpp">
-      <Filter>Core\Object\Component\Graphics</Filter>
+    <ClCompile Include="Core\Components\SoundSpace.cpp">
+      <Filter>Core\Components\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\Sprite.cpp">
-      <Filter>Core\Object\Component\Graphics</Filter>
+    <ClCompile Include="Core\Components\Camera.cpp">
+      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\PhysicsSpace.cpp">
-      <Filter>Core\Object\Component\Physics</Filter>
+    <ClCompile Include="Core\Components\PhysicsSpace.cpp">
+      <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\SoundSpace.cpp">
-      <Filter>Core\Object\Component\Audio</Filter>
+    <ClCompile Include="Core\Components\TimeSpace.cpp">
+      <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Components\Camera.cpp">
-      <Filter>Core\Object\Component\Graphics</Filter>
+    <ClCompile Include="Core\Events\Delegate.cpp">
+      <Filter>Core\Engine\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Objects\Resources\Texture2D.cpp">
-      <Filter>Core\Object\Resource\Texture</Filter>
+    <ClCompile Include="Core\Components\Transform.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Level.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Texture2D.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Shader.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Mesh.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,7 +273,7 @@
       <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Debug\Debug.h">
-      <Filter>Core\Debug</Filter>
+      <Filter>Core\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Libraries\Timer.h">
       <Filter>Libraries</Filter>
@@ -306,13 +288,13 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Archetype.h">
-      <Filter>Core\Archetype</Filter>
+      <Filter>Core\Engine\Archetype</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Action.h">
-      <Filter>Core\Action</Filter>
+      <Filter>Core\Engine\Action</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\ActionList.h">
-      <Filter>Core\Action</Filter>
+      <Filter>Core\Engine\Action</Filter>
     </ClInclude>
     <ClInclude Include="Tutorials\OpenGL\GLTutorial.h">
       <Filter>Projects\Tutorials\OpenGL</Filter>
@@ -338,9 +320,6 @@
     <ClInclude Include="Core\Systems\Input\Input.h">
       <Filter>Core\Systems\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Object.h">
-      <Filter>Core\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Entity.h">
       <Filter>Core\Object\Entity</Filter>
     </ClInclude>
@@ -350,20 +329,8 @@
     <ClInclude Include="Core\Objects\Entities\Space.h">
       <Filter>Core\Object\Entity\Space</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Resource.h">
-      <Filter>Core\Object\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Level.h">
-      <Filter>Core\Object\Resource\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Mesh.h">
-      <Filter>Core\Object\Resource\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Texture.h">
-      <Filter>Core\Object\Resource\Texture</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Events\Event.h">
-      <Filter>Core\Event</Filter>
+      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
       <Filter>Projects\Dollhouse</Filter>
@@ -386,35 +353,14 @@
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Events\Delegate.h">
-      <Filter>Core\Event\Events\Delegate</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\SoundCue.h">
-      <Filter>Core\Object\Resource\SoundCue</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\ResourcesInclude.h">
-      <Filter>Core\Object\Resource</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\LogicUpdate.h">
-      <Filter>Core\Event\Events\Update</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\EventsInclude.h">
-      <Filter>Core\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h">
-      <Filter>Core\Object\Component</Filter>
+      <Filter>Core\Events\Update</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Component.h">
       <Filter>Core\Object\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\TimeSpace.h">
-      <Filter>Core\Object\Component\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Transform.h">
-      <Filter>Core\Object\Component\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h">
       <Filter>Core\Object\Entity</Filter>
@@ -428,9 +374,6 @@
     <ClInclude Include="Core\Systems\Physics\Physics.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\Components\ObjectReferences.h">
-      <Filter>Core\Object\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\ObjectsInclude.h">
       <Filter>Core\Object</Filter>
     </ClInclude>
@@ -441,66 +384,108 @@
       <Filter>Core\Object\Entity\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\KeyDownEvent.h">
-      <Filter>Core\Event\Events\Input</Filter>
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\KeyUpEvent.h">
-      <Filter>Core\Event\Events\Input</Filter>
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\MouseDown.h">
-      <Filter>Core\Event\Events\Input</Filter>
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Serializer.h">
       <Filter>Core\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Material.h">
-      <Filter>Core\Object\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Shader.h">
-      <Filter>Core\Object\Resource\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\Texture2D.h">
-      <Filter>Core\Object\Resource\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Resources\SpriteSource.h">
-      <Filter>Core\Object\Resource\SpriteSource</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\GraphicsSpace.h">
-      <Filter>Core\Object\Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Sprite.h">
-      <Filter>Core\Object\Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\BoxCollider.h">
-      <Filter>Core\Object\Component\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\RigidBody.h">
-      <Filter>Core\Object\Component\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\PhysicsSpace.h">
-      <Filter>Core\Object\Component\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\SoundSpace.h">
-      <Filter>Core\Object\Component\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\Camera.h">
-      <Filter>Core\Object\Component\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Components\ProjectSetup.h">
-      <Filter>Core\Object\Component</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
-      <Filter>Core\Event\Events\Graphics</Filter>
+      <Filter>Core\Events\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ProjectSetup.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GraphicsSpace.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Sprite.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ComponentReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\EngineReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SoundSpace.h">
+      <Filter>Core\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\BoxCollider.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Camera.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\PhysicsSpace.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\RigidBody.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\TimeSpace.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ComponentsInclude.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\Delegate.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EventsInclude.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Transform.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourcesInclude.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Level.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resource.h">
+      <Filter>Core\Object\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Object.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SoundCue.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Texture2D.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Texture.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SpriteSource.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Shader.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Mesh.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Material.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourceReference.h">
+      <Filter>Core\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
       <Filter>Documentation</Filter>
-    </Text>
-    <Text Include="Engine.txt">
-      <Filter>Deprecated</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
@@ -529,10 +514,10 @@
       <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
     </None>
     <None Include="Core\Resources\Shaders\SpriteShader.vs">
-      <Filter>Core\Resources\Shaders</Filter>
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Objects\Resources\SpriteShader.frag">
-      <Filter>Core\Resources\Shaders</Filter>
+    <None Include="Core\Resources\Shaders\SpriteShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

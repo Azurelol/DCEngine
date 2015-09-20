@@ -9,6 +9,9 @@
 */
 /******************************************************************************/
 #include "GraphicsGL.h"
+#include "../../Objects/Entities/GameObject.h"
+#include "../../Components/Sprite.h"
+#include "../../Components/Transform.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -20,11 +23,7 @@ namespace DCEngine {
     /**************************************************************************/
     GraphicsGL::GraphicsGL() { 
 
-      // Initialize the sprite shader
-      std::string vertexPath = "SpriteShader.vs";
-      std::string fragmentPath = "SpriteShader.frag";
-      //SpriteShader.reset(new Shader(vertexPath, fragmentPath));
-      //SpriteShader.reset(new Shader("SpriteShader.vs", "SpriteShader.frag"));
+      
 
     }
     
@@ -35,6 +34,18 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::Initialize() {
 
+      // GLEW manages function pointers for OpenGL, so we want to initialize
+      // it before calling any OpenGL functions. Setting glewExperimental to
+      // true uses more modern techniques for managing OpenGL functionality.
+      glewExperimental = GL_TRUE;
+
+      // If OpenGL failed to initialize...
+      if (glewInit() != GLEW_OK) {
+        trace << "Failed to initialize GLEW \n";
+      }
+
+      // Initialize the sprite shader
+      SpriteShader.reset(new Shader("SpriteShader.vs", "SpriteShader.frag"));
     }
 
     /**************************************************************************/
@@ -43,15 +54,28 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::Update(float dt) {
+
+      // Tells OpenGL the current size of the rendering window
+      glViewport(0, 0, screenwidth_, screenheight_);
     }
 
     /**************************************************************************/
     /*!
-    \brief  
+    \brief  Starts the current frame with OpenGL calls.
     */
     /**************************************************************************/
-    void GraphicsGL::Terminate() {
+    void GraphicsGL::StartFrame() {
+      glEnable(GL_DEPTH_TEST);
+      glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    }
 
+    /**************************************************************************/
+    /*!
+    \brief  Ends the current frame.
+    */
+    /**************************************************************************/
+    void GraphicsGL::EndFrame() {
     }
 
     /**************************************************************************/
@@ -61,12 +85,19 @@ namespace DCEngine {
            define a single VAO.
     */
     /**************************************************************************/
-    void GraphicsGL::InitializeSpriteRenderData() {
+    void GraphicsGL::ConfigureSpriteShader() {
       
-      // Configure VAO/VBO
+      /*
+      We first define a set of vertices with (0,0) coordinate being the top-left
+      corner of the quad. This means that when translation or scaling transformations
+      are applied onto the quad, they're transformmed from the top-left position
+      of the quad.
+      This is commonly accepted in 2D graphics/GUI systems where elements' positions
+      are correspond to the top-left corner of the elements.
+      */
       GLuint VBO;
       GLfloat vertices[]{
-        // Pos        // Tex
+        // Position,  Texture
         0.0f, 1.0f, 0.0f, 1.0f,
         1.0f, 0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 0.0f, 0.0f,
@@ -76,6 +107,10 @@ namespace DCEngine {
         1.0f, 0.0f, 1.0f, 0.0f
       };
 
+      /*
+        Next, we simply send the vertices to the GPU and configure the vertex attributes,
+        which in this case is a single vertex attribute.
+      */
       glGenVertexArrays(1, &this->SpriteVAO);
       glGenBuffers(1, &VBO);
 
@@ -88,6 +123,18 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
+    void GraphicsGL::SetSpriteShader() {
+      GLfloat Near = -1.0f;
+      GLfloat Far = 1.0f;
+
+      glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->screenwidth_),
+        static_cast<GLfloat>(this->screenheight_),
+        0.0f, Near, Far);
+      SpriteShader->SetInteger("image", 0);
+      SpriteShader->SetMatrix4("projection", projection);
+                                    
+    }
+
     /**************************************************************************/
     /*!
     \brief Draws a sprite on screen.
@@ -96,40 +143,64 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::DrawSprite(GameObject & gameObj) {
-      
+      trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       // Set the sprite shader as the current shader
-
+      this->SpriteShader->Use();
+      
       // The data to be used to draw the sprite:
+      //auto transform = (Transform*)gameObj.getComponentByName("Transform");
+      //auto sprite = (Sprite*)gameObj.getComponentByName("Transform");
       
+      auto transform = gameObj.getComponent<Transform>();
+      auto sprite = gameObj.getComponent<Sprite>();
+      //trace << transform2->LocalScale << "\n";
+      
+      // Get references of the GameObject's sprite and transform components
+
       // Create the model matrix
-      Mat4 model;
+      glm::mat4 model;
       // Translate
-      
+      model = glm::translate(model, transform->Translation);
       // Translate
+      model = glm::translate(model, glm::vec3(0.5f * transform->Scale.x,
+                                              0.5f * transform->Scale.y,
+                                              0.0f));
       // Rotate
-      // Translate
+      model = glm::rotate(model, (GLfloat)0, transform->Rotation);
+      // Translate back
+      model = glm::translate(model, glm::vec3(-0.5f * transform->Scale.x,
+                                              -0.5f * transform->Scale.y,
+                                              0.0f));
       // Scale
+      model = glm::scale(model, glm::vec3(transform->Scale.x,
+                                          transform->Scale.y,
+                                          0.0f));
 
       // Pass the model matrix into the shader
-      // Pass the color into the shader
-
+      this->SpriteShader->SetMatrix4("model", model);
+      // Pass the color into the shader's uniform
+      this->SpriteShader->SetVector3f("spriteColor", sprite->Color);
       // Set the active texture
-
+      glActiveTexture(GL_TEXTURE0);
       // Bind the texture
-
+      sprite->getSpriteSource()->getTexture().Bind();
       // Bind the vertex array
+      glBindVertexArray(this->SpriteVAO);
       // Draw the array
-
+      glDrawArrays(GL_TRIANGLES, 0, 6);
       // Unbind the vertex array
-
-
-
-
+      glBindVertexArray(0);
     }
 
-    void GraphicsGL::Render() {
-    }
 
+    /**************************************************************************/
+    /*!
+    \brief  Terminates the system.
+    */
+    /**************************************************************************/
+    void GraphicsGL::Terminate() {
+
+    }
 
 
 

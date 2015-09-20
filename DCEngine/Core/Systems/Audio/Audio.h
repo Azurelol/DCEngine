@@ -10,8 +10,7 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
-
-#include "../../Objects/Resources/SoundCue.h" // The SoundCue object
+#include "../../Resources/SoundCue.h"
 
 #define USE_FMOD 1
 

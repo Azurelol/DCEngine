@@ -5,7 +5,7 @@
 in vec2 TexCoords;
 out vec4 color;
 
-uniform Sampler2D image;
+uniform sampler2D image;
 // An uniform color vector means we can change the sprite color from game-code
 uniform vec3 spriteColor;
 

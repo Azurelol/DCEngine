@@ -155,28 +155,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Components\Camera.cpp" />
+    <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
+    <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
+    <ClCompile Include="Core\Components\SoundSpace.cpp" />
+    <ClCompile Include="Core\Components\Sprite.cpp" />
+    <ClCompile Include="Core\Components\TimeSpace.cpp" />
+    <ClCompile Include="Core\Components\Transform.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Events\Delegate.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
-    <ClCompile Include="Core\Objects\Components\Camera.cpp" />
-    <ClCompile Include="Core\Objects\Components\GraphicsSpace.cpp" />
-    <ClCompile Include="Core\Objects\Components\PhysicsSpace.cpp" />
-    <ClCompile Include="Core\Objects\Components\SoundSpace.cpp" />
-    <ClCompile Include="Core\Objects\Components\Sprite.cpp" />
-    <ClCompile Include="Core\Objects\Components\TimeSpace.cpp" />
-    <ClCompile Include="Core\Objects\Components\Transform.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
     <ClCompile Include="Core\Objects\Entities\Keyboard.cpp" />
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
-    <ClCompile Include="Core\Objects\Resources\Mesh.cpp" />
-    <ClCompile Include="Core\Objects\Resources\Shader.cpp" />
-    <ClCompile Include="Core\Objects\Resources\Level.cpp" />
-    <ClCompile Include="Core\Objects\Resources\Texture2D.cpp" />
+    <ClCompile Include="Core\Resources\Level.cpp" />
+    <ClCompile Include="Core\Resources\Mesh.cpp" />
+    <ClCompile Include="Core\Resources\Shader.cpp" />
+    <ClCompile Include="Core\Resources\Texture2D.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
@@ -195,6 +195,19 @@
     <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\ComponentsInclude.h" />
+    <ClInclude Include="Core\Components\BoxCollider.h" />
+    <ClInclude Include="Core\Components\Camera.h" />
+    <ClInclude Include="Core\Components\ComponentReference.h" />
+    <ClInclude Include="Core\Components\EngineReference.h" />
+    <ClInclude Include="Core\Components\GraphicsSpace.h" />
+    <ClInclude Include="Core\Components\PhysicsSpace.h" />
+    <ClInclude Include="Core\Components\ProjectSetup.h" />
+    <ClInclude Include="Core\Components\RigidBody.h" />
+    <ClInclude Include="Core\Components\SoundSpace.h" />
+    <ClInclude Include="Core\Components\Sprite.h" />
+    <ClInclude Include="Core\Components\TimeSpace.h" />
+    <ClInclude Include="Core\Components\Transform.h" />
     <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Engine\Action.h" />
@@ -203,8 +216,8 @@
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Serializer.h" />
     <ClInclude Include="Core\Engine\Types.h" />
+    <ClInclude Include="Core\EventsInclude.h" />
     <ClInclude Include="Core\Events\Delegate.h" />
-    <ClInclude Include="Core\Events\EventsInclude.h" />
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\LogicUpdate.h" />
@@ -212,18 +225,6 @@
     <ClInclude Include="Core\Events\MouseDown.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Objects\Component.h" />
-    <ClInclude Include="Core\Objects\Components\BoxCollider.h" />
-    <ClInclude Include="Core\Objects\Components\Camera.h" />
-    <ClInclude Include="Core\Objects\Components\ComponentsInclude.h" />
-    <ClInclude Include="Core\Objects\Components\GraphicsSpace.h" />
-    <ClInclude Include="Core\Objects\Components\ObjectReferences.h" />
-    <ClInclude Include="Core\Objects\Components\PhysicsSpace.h" />
-    <ClInclude Include="Core\Objects\Components\ProjectSetup.h" />
-    <ClInclude Include="Core\Objects\Components\RigidBody.h" />
-    <ClInclude Include="Core\Objects\Components\SoundSpace.h" />
-    <ClInclude Include="Core\Objects\Components\Sprite.h" />
-    <ClInclude Include="Core\Objects\Components\TimeSpace.h" />
-    <ClInclude Include="Core\Objects\Components\Transform.h" />
     <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h" />
     <ClInclude Include="Core\Objects\Entities\GameObject.h" />
     <ClInclude Include="Core\Objects\Entities\GameSession.h" />
@@ -234,15 +235,16 @@
     <ClInclude Include="Core\Objects\Object.h" />
     <ClInclude Include="Core\Objects\ObjectsInclude.h" />
     <ClInclude Include="Core\Objects\Resource.h" />
-    <ClInclude Include="Core\Objects\Resources\Shader.h" />
-    <ClInclude Include="Core\Objects\Resources\Level.h" />
-    <ClInclude Include="Core\Objects\Resources\Material.h" />
-    <ClInclude Include="Core\Objects\Resources\Mesh.h" />
-    <ClInclude Include="Core\Objects\Resources\ResourcesInclude.h" />
-    <ClInclude Include="Core\Objects\Resources\SoundCue.h" />
-    <ClInclude Include="Core\Objects\Resources\SpriteSource.h" />
-    <ClInclude Include="Core\Objects\Resources\Texture.h" />
-    <ClInclude Include="Core\Objects\Resources\Texture2D.h" />
+    <ClInclude Include="Core\Resources\Level.h" />
+    <ClInclude Include="Core\Resources\Material.h" />
+    <ClInclude Include="Core\Resources\Mesh.h" />
+    <ClInclude Include="Core\Resources\ResourceReference.h" />
+    <ClInclude Include="Core\Resources\ResourcesInclude.h" />
+    <ClInclude Include="Core\Resources\Shader.h" />
+    <ClInclude Include="Core\Resources\SoundCue.h" />
+    <ClInclude Include="Core\Resources\SpriteSource.h" />
+    <ClInclude Include="Core\Resources\Texture.h" />
+    <ClInclude Include="Core\Resources\Texture2D.h" />
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
@@ -267,10 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt" />
-    <Text Include="Engine.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\Objects\Resources\SpriteShader.frag" />
+    <None Include="Core\Resources\Shaders\SpriteShader.frag" />
     <None Include="Core\Resources\Shaders\SpriteShader.vs" />
     <None Include="Tutorials\OpenGL\FragmentShader.glsl" />
     <None Include="Tutorials\OpenGL\FragmentShader_Uniform.glsl" />

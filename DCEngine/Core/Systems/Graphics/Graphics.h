@@ -14,7 +14,7 @@
 
 // OpenGL rendering
 #include "GraphicsGL.h"
-#include "../../Objects/Components/GraphicsSpace.h"
+#include "../../Components/GraphicsSpace.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -26,6 +26,9 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+
+      void StartFrame();
+      void EndFrame();
 
       void Register(GraphicsSpace& graphicsSpace);
 

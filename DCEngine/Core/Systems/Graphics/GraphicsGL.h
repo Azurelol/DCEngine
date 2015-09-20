@@ -20,7 +20,7 @@
 #include "..\..\..\Dependencies\include\GLM\gtc\matrix_transform.hpp"
 #include "..\..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
 // Graphics resources
-#include "..\..\Objects\Resources\Shader.h"
+#include "..\..\Resources\Shader.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -35,12 +35,15 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-      void InitializeSpriteRenderData();
+      void StartFrame();
+      void EndFrame();
+
+      void ConfigureSpriteShader();
+      void SetSpriteShader();
       void DrawSprite(GameObject& gameObj);
+
       void DrawModel(GameObject& gameObj);
       void DrawDebug();
-
-      void Render();
 
     private:
       // TEMP: Change these two to const

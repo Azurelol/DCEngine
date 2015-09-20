@@ -11,9 +11,7 @@
 #include "Entity.h"
 
 // Headers
-#include "Components\ComponentsInclude.h"
-//#include "Component.h"
-
+#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
 
@@ -26,28 +24,11 @@ namespace DCEngine {
   /**************************************************************************/
   Entity::Entity(std::string name) : Object("Entity") {
     _name = name;
-    //if (TRACE_ON && TRACE_CONSTRUCTOR)
-    //  trace << _name << "::Entity - Constructor \n";
   }
-
-  ///**************************************************************************/
-  ///*!
-  //\brief BAND-AID: Pass the update to every entity, who propagate it to their
-  //       components. In the desired implementation, components will be updated
-  //       through an update event... which requires an event system.
-  //*/
-  ///**************************************************************************/
-  //void Entity::Update(float dt) {
-
-  //  for (auto component : _components)
-  //    component->Update();
-  //}
 
   bool Entity::CheckMask(mask m) {
     return ((_mask & m) == m);
   }
-
-
 
   /**************************************************************************/
   /*!
@@ -66,7 +47,7 @@ namespace DCEngine {
 
 
     // Adds the component to the entity
-    _components.push_back(component);
+    components_.push_back(component);
     
   }
 
@@ -77,7 +58,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::Initialize() {
     trace << _name << "::Initialize \n";
-    for (auto component : _components)
+    for (auto component : components_)
       component->Initialize();
   }
 
@@ -88,9 +69,9 @@ namespace DCEngine {
   \return A pointer to the component.
   */
   /**************************************************************************/
-  Component* Entity::GetComponent(std::string & name) {
+  Component* Entity::getComponentByName(std::string name) {
 
-    for (auto component : _components) {
+    for (auto component : components_) {
       if (component->Name() == name)
         return component.get();
     }

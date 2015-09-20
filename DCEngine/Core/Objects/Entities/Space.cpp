@@ -1,7 +1,10 @@
 #include "Space.h"
 
-// Space-Components
-#include "../Components/ComponentsInclude.h"
+// Space-level components
+#include "../../Components/GraphicsSpace.h"
+#include "../../Components/PhysicsSpace.h"
+#include "../../Components/TimeSpace.h"
+#include "../../Components/SoundSpace.h"
 
 namespace DCEngine {
     
@@ -41,7 +44,7 @@ namespace DCEngine {
     AddComponent(ComponentPtr(new GraphicsSpace(*this)));
 
     // Initialize Space-components
-    for (auto component : _components) {
+    for (auto component : components_) {
       component->Initialize();
     }        
 

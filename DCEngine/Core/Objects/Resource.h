@@ -22,10 +22,8 @@ namespace DCEngine {
   class Resource : public Object {
   public:
     Resource(std::string name) : Object(name) {}
-    std::string& FileLocation() { return _fileLocation; }
 
   protected:
-    std::string _fileLocation;
 
   private:
 

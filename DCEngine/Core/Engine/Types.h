@@ -1,13 +1,16 @@
 #pragma once
 
+#include <string>
+#include <memory>
 #include <typeinfo>
 #include <algorithm>
+
 #include <GLM\glm.hpp>
-// GLEW
+#include <GLM\matrix.hpp>
+#include <GLM\gtc\type_ptr.hpp>
+#include <GLM\gtc\matrix_transform.hpp>
 #define GLEW_STATIC
 #include <GLEW\glew.h>
-
-//#include <BOOST\any.hpp>
 
 namespace DCEngine {
   

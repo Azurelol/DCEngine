@@ -23,12 +23,7 @@
 // GLFW
 #define GLFW_BUILD_DLL
 #include "..\..\Dependencies\include\GLFW\glfw3.h"
-// SFML
-
-
-
-#include "..\..\Core\Debug\Debug.h"
-#include "..\..\Core\Objects\Resources\Shader.h"
+#include "..\..\Core\Resources\Shader.h"
 
 namespace DCEngine {
   

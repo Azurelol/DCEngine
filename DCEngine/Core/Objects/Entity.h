@@ -20,7 +20,7 @@
 // Headers
 #include "Component.h"
 #include "..\Events\Event.h"
-#include "..\Events\EventsInclude.h"
+#include "..\EventsInclude.h"
 
 namespace DCEngine {
   
@@ -47,7 +47,10 @@ namespace DCEngine {
     EntityType Type() { return type_; }
 
     void AddComponent(ComponentPtr component);
-    Component* GetComponent(std::string& name);
+
+    template <typename ComponentClass>
+    ComponentClass* getComponent();    
+    Component* getComponentByName(std::string name);
 
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
@@ -60,25 +63,16 @@ namespace DCEngine {
     void DispatchDown(Event* eventObj); //!< Dispatches an event to the object itself and down to each children recursively
     
     bool CheckMask(mask m);
-    // Allows access to attached components of the entity.
-    #define GET_COMPONENT(type) \ GetComponent<type>(EnumeratedSystem::##type);
-    template <typename T> std::shared_ptr<T> GetComponent(EnumeratedComponent ec);
 
   protected:
-    ComponentVec _observers; //!< A list of the current listeners to this object.
-    ComponentVec _components; //!< The list of components attached to the entity.  
+    ComponentVec observers_; //!< A list of the current listeners to this object.
+    ComponentVec components_; //!< The list of components attached to the entity.  
     EntityType type_;
 
   private:
-    ////////////////////////////////
-    // PRIVATE MEMBER [FUNCTIONS] 
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
 
-    //ComponentPtr _components[static_cast<int>(EnumeratedComponent::Capacity)];
-
-    /////////////////////////////////
-    // PRIVATE MEMBER [VARIABLES]
     Entity* _parent; //!< The entity to which this object is parented to.
     std::string _archetypeName;    
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
@@ -88,11 +82,28 @@ namespace DCEngine {
     // http://stackoverflow.com/questions/9859390/use-data-type-class-type-as-key-in-a-map
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    
-
-    //EnumeratedComponent _collider = EnumeratedComponent::None;
 
   }; // class Entity
+  
+  /**************************************************************************/
+  /*!
+  \brief  Finds a component belonging to the entity.
+  \param  The component class.
+  \return If a match was found, a pointer to the component. If not, NULL.
+  */
+  /**************************************************************************/
+  template<typename ComponentClass>
+  ComponentClass* Entity::getComponent() { 
+    // Iterate through the container of component pointers...
+    for (auto componentPtr : components_) {
+      auto component = componentPtr.get();
+      // If the component was found
+      if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))
+        return (dynamic_cast<ComponentClass*>(component));
+    }
+    // No matching component was found
+    return NULL;
+  }
 
      /**************************************************************************/
      /*!

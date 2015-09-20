@@ -47,16 +47,6 @@ namespace DCEngine {
         trace << "Failed to create SFNL window \n";
         // Terminate??
       }
-
-      // GLEW manages function pointers for OpenGL, so we want to initialize
-      // it before calling any OpenGL functions. Setting glewExperimental to
-      // true uses more modern techniques for managing OpenGL functionality.
-      glewExperimental = GL_TRUE;
-
-      // ASSERT
-      if (glewInit() != GLEW_OK) {
-        trace << "Failed to initialize GLEW \n";
-      }
     }
 
     /**************************************************************************/
@@ -66,8 +56,7 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-      // Tells OpenGL the size of the rendering window
-      glViewport(0, 0, _width, _height);
+
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
@@ -82,20 +71,16 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::StartFrame() {
-      glEnable(GL_DEPTH_TEST);
-      glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     /**************************************************************************/
     /*!
-    \brief  Ends the current frame.
+    \brief Displays on the screen what has been rendered to the window so far,
+           typically called after all OpenGL rendering calls have been done
+           for the current frame.     
     */
     /**************************************************************************/
-    void WindowSFML::EndFrame() {
-      // Displays on the screen what has been rendered to the window so far,
-      // typically called after all OpenGL rendering calls have been done
-      // for the current frame.      
+    void WindowSFML::EndFrame() {    
       _window->display();
     }
 

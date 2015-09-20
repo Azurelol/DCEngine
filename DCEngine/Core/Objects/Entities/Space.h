@@ -18,8 +18,7 @@
 #include <unordered_map>
 // Headers
 #include "..\..\Systems\System.h"
-#include "..\Resources\Level.h"
-#include "..\Component.h"
+#include "..\..\Resources\Level.h"
 #include "GameObject.h"
 
 namespace DCEngine {

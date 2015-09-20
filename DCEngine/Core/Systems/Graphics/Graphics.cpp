@@ -1,7 +1,5 @@
 #include "Graphics.h"
 
-#include "../../Objects/Components/GraphicsSpace.h" // sprites_, vectors_
-
 namespace DCEngine {
   namespace Systems {
 
@@ -26,22 +24,24 @@ namespace DCEngine {
 
       // For every graphics space component
       for (auto gfxSpace : graphicsSpaces_) {
-        // Draw sprites
+        // 1. Draw all sprites. Since we will be drawing all
+        // visible sprites, we will set the sprite shader 'once',
+        // then draw them all with it.
+        GraphicsHandler->SetSpriteShader();
         for (auto gameObj : gfxSpace->getSprites()) {
-          // If the sprite is visible
           DrawSprite(*gameObj);
-        }          
-      }
+        }
 
+        // 2. Render all models
+
+        // 3. Render al particles
+      }
     }
 
     void Graphics::Register(GraphicsSpace& graphicsSpace) {
       graphicsSpaces_.push_back(&graphicsSpace);
       trace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
         << " has registered to the Graphics system\n";
-
-      
-
     }
 
     void Graphics::DrawSprite(GameObject & gameObj) {
@@ -53,6 +53,14 @@ namespace DCEngine {
     void Graphics::Terminate() {
       trace << "Graphics::Terminate \n";
       GraphicsHandler->Terminate();
+    }
+
+    void Graphics::StartFrame() {
+      GraphicsHandler->StartFrame();
+    }
+
+    void Graphics::EndFrame() {
+      GraphicsHandler->EndFrame();
     }
 
 
