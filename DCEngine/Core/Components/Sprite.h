@@ -33,14 +33,10 @@ namespace DCEngine {
     void Initialize();    
     void setSpriteSource(std::string fileName);
     SpriteSource* getSpriteSource();
-<<<<<<< HEAD:DCEngine/Core/Components/Sprite.h
-=======
-    bool FlipX;	
-    bool FlipY;
-	void UpdateSprite();
->>>>>>> origin/master:DCEngine/Core/Objects/Components/Sprite.h
+	  void UpdateSprite();
 
   private:
+
 	bool XFlipped;
 	bool YFlipped;
 	glm::mat4 FlipMatrix;
