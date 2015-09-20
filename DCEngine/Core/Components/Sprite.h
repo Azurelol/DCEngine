@@ -2,6 +2,9 @@
 #include "ComponentReference.h"
 #include "../Resources/SpriteSource.h"
 
+//Note: 1. BlendMode and SpriteSource 0%
+//      2. Visible, Color, FlipX/Y need Graphics Pipeline. Local prgress done.
+
 namespace DCEngine {
 
   enum class BlendModeType {
@@ -30,9 +33,22 @@ namespace DCEngine {
     void Initialize();    
     void setSpriteSource(std::string fileName);
     SpriteSource* getSpriteSource();
+<<<<<<< HEAD:DCEngine/Core/Components/Sprite.h
+=======
+    bool FlipX;	
+    bool FlipY;
+	void UpdateSprite();
+>>>>>>> origin/master:DCEngine/Core/Objects/Components/Sprite.h
 
   private:
-    std::unique_ptr<SpriteSource> SpriteSourceObj;
+	bool XFlipped;
+	bool YFlipped;
+	glm::mat4 FlipMatrix;
+	std::unique_ptr<SpriteSource> SpriteSourceObj;
+
+
+	//Update
+	void UpdateFlip();
 
   };
 

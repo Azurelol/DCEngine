@@ -15,6 +15,11 @@
 9/14 - Camera Projection done. (not tested)
 Log: Change Projection to Orthographic or Perspective when
 needed.
+
+9/18
+Log: Deleted two variables width and height. Replaced by size.
+     Camera shouuld be set to square and changed with screen
+	 or windows resolution.
 */
 /**************************************************************/
 #pragma once
@@ -27,25 +32,21 @@ namespace DCEngine {
   };
   class Camera : public Component {
   public:
-    //(Need coordinates system)
-    glm::vec3 Position;
     // Camera Attributes
     glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;
     glm::vec3 WorldUp;
-    // Euler Angles
+    // Euler Angles(not needed in 2D camera)
     GLfloat Yaw;
     GLfloat Pitch;
-    // Camera Options
-    GLfloat MovementSpeed;
-    GLfloat MouseSensitivity;
-    GLfloat Zoom;
+	GLfloat Roll;// rotation degree
     //Projection Type
     CameraProjection Projection = Orthographic;
     GLfloat FieldOfView = 45;
     GLfloat CameraWidth = 800;
     GLfloat CameraHeight = 600;
+	GLfloat Size = 20;
     //Clipping plane
     GLfloat NearPlane;
     GLfloat FarPlane;
@@ -53,12 +54,14 @@ namespace DCEngine {
     // Returns view matrix calculated using Euler Angles and LookAt Matrix
     glm::mat4 GetViewMatrix();
     glm::mat4 GetProjectionMatrix();
+	//Temporary update function
+	void TransformUpdate(glm::vec3 &PositionInput, GLfloat RotationDegree);//
 
   private:
+    //(Need coordinates system, it is a temporary function)
+    glm::vec3 Position;
     // Calculates the front vector from the Camera's (updated) Euler angles
     void UpdateCameraVectors();
-
-    GLfloat Size; //!< Size of the orthographic projection <-- this is splited to Camera Width and Camera Height
 
 
   };
