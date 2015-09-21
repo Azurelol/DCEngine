@@ -5,6 +5,8 @@ namespace DCEngine {
 
   class Serializer {
   public:
+
+    /* Entity Serialization */
     static bool Serialize(Entity* entityObj, std::string& outputFile) {
       return SerializerJSONCPP::Serialize(entityObj, outputFile);
     }
@@ -12,8 +14,15 @@ namespace DCEngine {
       return SerializerJSONCPP::Deserialize(entityObj, inputFile);
     }
 
-  private:
+    /* Component Serialization */
+    //static bool Serialize(Entity* entityObj, std::string& outputFile) {
+    //  return SerializerJSONCPP::Serialize(entityObj, outputFile);
+    //}
+    //static bool Deserialize(Entity* entityObj, std::string& inputFile) {
+    //  return SerializerJSONCPP::Deserialize(entityObj, inputFile);
+    //}
 
+  private:
 
   };
   

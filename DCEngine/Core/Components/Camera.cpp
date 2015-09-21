@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "EngineReference.h"
+#include "Transform.h"
 
 namespace DCEngine {
 
@@ -11,6 +12,14 @@ namespace DCEngine {
 
 		Roll = RotationDegree;
 	}
+
+  void Camera::Initialize() {
+    auto gameObjOwner = (GameObject*)Owner();
+    auto transform = gameObjOwner->getComponent<Transform>();
+    
+
+
+  }
 
   glm::mat4 Camera::GetViewMatrix() {
     return glm::lookAt(Position, Position + Front, Up);

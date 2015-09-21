@@ -54,4 +54,33 @@ namespace DCEngine {
     return true;
   }
 
+  /**************************************************************************/
+  /*!
+  \brief  Serializes an component object into a file.
+  \param  A pointer to the component.
+  \param  The name of the output string.
+  \return The success of the operation.
+  \note
+  */
+  /**************************************************************************/
+  bool SerializerJSONCPP::Serialize(Component * componentObj, std::string & output) {
+    if (componentObj == NULL)
+      return false;
+
+    //// Create an instance of Json::Value to act as our root
+    //Json::Value serializeRoot;
+    //// Pass it to the Serialize method which will fill the 'Value' object
+    //// with all the serialized data.
+    //componentObj->Serialize(serializeRoot);
+    //// Create an instance of 'StyledWriter' to write the Json data to the 
+    //// string that was passed in
+    //Json::StyledWriter writer;
+    //output = writer.write(serializeRoot);
+    //return true;
+  }
+
+  bool SerializerJSONCPP::Deserialize(Component * componentObj, std::string & input) {
+    return false;
+  }
+
 }

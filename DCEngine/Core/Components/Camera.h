@@ -40,18 +40,19 @@ namespace DCEngine {
     // Euler Angles(not needed in 2D camera)
     GLfloat Yaw;
     GLfloat Pitch;
-	GLfloat Roll;// rotation degree
+	  GLfloat Roll;// rotation degree
     //Projection Type
     CameraProjection Projection = Orthographic;
     GLfloat FieldOfView = 45;
     GLfloat CameraWidth = 800;
     GLfloat CameraHeight = 600;
-	GLfloat Size = 20;
+	  GLfloat Size = 20;
     //Clipping plane
     GLfloat NearPlane;
     GLfloat FarPlane;
 
     // Returns view matrix calculated using Euler Angles and LookAt Matrix
+    void Initialize();
     glm::mat4 GetViewMatrix();
     glm::mat4 GetProjectionMatrix();
 	//Temporary update function

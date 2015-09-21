@@ -65,6 +65,27 @@ Pikapikano!::Transform::Initialize
 [Engine::Loop]
 Mouse down!
 SoundSpace::OnKeyPressed
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyPressed
+SoundSpace::OnKeyReleased
+SoundSpace::OnKeyReleased
+Mouse down!
+SoundSpace::OnKeyPressed
 
 [Engine::Terminate] 
 Window::Terminate 

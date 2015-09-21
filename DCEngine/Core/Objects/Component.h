@@ -68,32 +68,33 @@ namespace DCEngine {
 	  friend class Entity; // _owner
     friend class GameObject; 
 
-  public:    
+  public:   
+
+    const EnumeratedComponent _type;
+    const BitfieldComponent _mask;
+
     Component(std::string& name, EnumeratedComponent type, BitfieldComponent mask,
       Entity& owner);
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
-    //virtual void Update() = 0; // Components are updated through events.
-
-    // Access    
+    //virtual void Serialize(Json::Value& root) = 0;
+    //virtual void Deserialize(Json::Value& root) = 0;
+   
     Entity* Owner(); // Returns a pointer to the component's owner
     Space* space() { return space_; }
     GameSession* gamesession() { return gamesession_; }
 
-    // Once the component is created, it should never change types
-    const EnumeratedComponent _type;
-    const BitfieldComponent _mask;
 
   protected:
+
     Space* space_;
     GameSession* gamesession_;
     
   private:
+
     Component() = delete; // No default construction
     void SetReferences();
-
-
 
   };
 
