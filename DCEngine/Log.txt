@@ -27,8 +27,18 @@ Sprite::Component - Constructor - Owner: 'Rango'
 Rango::AddComponent - Sprite
 Transform::Component - Constructor - Owner: 'Rango'
 Rango::AddComponent - Transform
+Raw Json Input
+{ "Name" : "Pikapikano!"}
+
+
+GameObject Serialized Output
+{
+   "Name" : "Pikapikano!"
+}
+
+
 Daisy World::LoadLevel - Loading Dollhouse level.
-Daisy World::AddEntity - Added Rango to the space.
+Daisy World::AddEntity - Added Pikapikano! to the space.
 [Daisy Project::Initialize - Initializing all spaces... ] 
 |Daisy World::Initialize| 
 SoundSpace::Component - Constructor - Owner: 'Daisy World'
@@ -47,14 +57,13 @@ AudioFMOD::PlaySound
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Engine::Connect] - GraphicsSpace has connected to Daisy World
 [Daisy World::Initialize - Initializing all GameObjects...] 
-Rango::Initialize 
-Rango::Sprite::Initialize
-GraphicsSpace::OnSpriteRegistrationEvent - Rango
-Rango::Transform::Initialize
+Pikapikano!::Initialize 
+Pikapikano!::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Pikapikano!
+Pikapikano!::Transform::Initialize
 
 [Engine::Loop]
-SoundSpace::OnKeyPressed
-SoundSpace::OnKeyReleased
+Mouse down!
 SoundSpace::OnKeyPressed
 
 [Engine::Terminate] 

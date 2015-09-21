@@ -37,10 +37,10 @@ namespace DCEngine {
       
       // Serializer test
       std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
-      SerializerJSONCPP::Deserialize(rango.get(), input);
+      Serializer::Deserialize(rango.get(), input);
       trace << "Raw Json Input\n" << input << "\n\n";
       std::string output;
-      SerializerJSONCPP::Serialize(rango.get(), output);
+      Serializer::Serialize(rango.get(), output);
       trace << "GameObject Serialized Output\n" << output << "\n\n";
 
     }
