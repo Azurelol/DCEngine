@@ -20,6 +20,8 @@ namespace DCEngine {
     }
 
     void Initialize();
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
   };
 
   using KeyboardPtr = std::unique_ptr<Keyboard>;

@@ -7,4 +7,10 @@ namespace DCEngine {
 
   }
 
+  void Keyboard::Serialize(Json::Value & root) {
+  }
+
+  void Keyboard::Deserialize(Json::Value & root) {
+  }
+
 }

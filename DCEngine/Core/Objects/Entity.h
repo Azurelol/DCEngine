@@ -17,7 +17,9 @@
 // Libraries
 #include <map>
 #include <list>
+//#include <JSONCPP\json.h>
 // Headers
+#include "..\Systems\Factory\Serializer.h"
 #include "Component.h"
 #include "..\Events\Event.h"
 #include "..\EventsInclude.h"
@@ -43,7 +45,10 @@ namespace DCEngine {
     Entity() { _name = "Entity"; }
 
     void Initialize(); //!< Initializes all of the entity's components
-    void Update(float dt); //!< Updates all the entity's components directly. (TEMPORARY)
+    virtual void Serialize(Json::Value& root) = 0;
+    virtual void Deserialize(Json::Value& root) = 0;
+
+                       //void Update(float dt); //!< Updates all the entity's components directly. (TEMPORARY)
     EntityType Type() { return type_; }
 
     void AddComponent(ComponentPtr component);

@@ -71,6 +71,12 @@ namespace DCEngine {
       trace << _name << "::Update \n";
   }
 
+  void Space::Serialize(Json::Value & root) {
+  }
+
+  void Space::Deserialize(Json::Value & root) {
+  }
+
   /**************************************************************************/
   /*!
   \brief  Adds an engine's system to the space.
@@ -115,8 +121,10 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Creates an entity, adds it to the space.
+  \brief  Creates a GameObject, adds it to the space.
   \return A pointer to the entity that was added.
+  \note   This function requests the entity to be created through
+          the object factory.
   */
   /**************************************************************************/
   GameObjectPtr Space::CreateObject() {

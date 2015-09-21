@@ -19,6 +19,16 @@ namespace DCEngine {
 
 
 
+  void GameObject::Serialize(Json::Value & root) {
+    // Serialize primitives
+    root["Name"] = _name;
+  }
+
+  void GameObject::Deserialize(Json::Value & root) {
+    // Deserialize primitives
+    _name = root.get("Name", "").asString();
+  }
+
   Space* GameObject::GetSpace() {
     return space_;
   }

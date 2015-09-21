@@ -273,6 +273,9 @@
     <ClCompile Include="Core\Systems\Factory\Factory.cpp">
       <Filter>Core\Systems\Factory</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -489,6 +492,12 @@
       <Filter>Core\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Factory\Factory.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\Serializer.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h">
       <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
   </ItemGroup>

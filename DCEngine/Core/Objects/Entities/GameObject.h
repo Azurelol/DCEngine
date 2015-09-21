@@ -27,6 +27,8 @@ namespace DCEngine {
       _name = "GameObject";
     }
 
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
     Space* GetSpace();
     GameSession* GetGameSession();  
     

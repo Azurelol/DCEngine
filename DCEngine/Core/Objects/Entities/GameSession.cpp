@@ -57,6 +57,12 @@ namespace DCEngine {
       trace << _name << "::Update - All spaces updated. \n";
   }
 
+  void GameSession::Serialize(Json::Value & root) {
+  }
+
+  void GameSession::Deserialize(Json::Value & root) {
+  }
+
   /**************************************************************************/
   /*!
   \brief  Creates a space with the given name.

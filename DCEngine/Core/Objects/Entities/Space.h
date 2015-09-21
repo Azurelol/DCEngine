@@ -32,19 +32,19 @@ namespace DCEngine {
 
     Space(std::string& name, GameSession& gamesession);
     ~Space();
-    
-    /*/ PUBLIC MEMBER [FUNCTIONS] /*/
     void Initialize();
     void Update(float dt);
 
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
+    
     void AddSystem(SystemPtr system);
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     void RemoveSystem(std::string system);
-
+    
     GameSession* GetGameSession();
 
     void LoadLevel(LevelPtr level);
-
     GameObjectPtr CreateObject();
     void AddObject(GameObjectPtr entity);
     void PopulateObjects(SystemPtr sys) const;

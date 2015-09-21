@@ -13,8 +13,8 @@
 
 // Libraries
 #include <set>
-#include <JSONCPP\json.h>
-
+#include "Serializer.h"
+//#include <JSONCPP\json.h>
 #include "../../Objects/Entities/GameObject.h"
 
 namespace DCEngine {

@@ -5,6 +5,7 @@
 #include "..\..\Tutorials\OpenGL\GLCameraTutorial.h"
 #include "..\..\Core\Objects\Entity.h"
 #include "..\..\Core\ComponentsInclude.h"
+#include "..\..\Core\Systems\Factory\Serializer.h"
 
 namespace DCEngine {
 
@@ -29,14 +30,19 @@ namespace DCEngine {
       //doll->AddComponent(sprite);
       //doll->AddComponent(glTut);
 
+      
       GameObjectPtr rango = ConstructGameObject("Rango");
       rango->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-
-      //rango->getComponent<Sprite>()->getSpriteSource()->
       
-      //GameObjectPtr khasox = ConstructGameObject("Khasocks");
-      //GameObjectPtr bankplank = ConstructGameObject("Bankplank");
+      // Serializer test
+      std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
+      SerializerJSONCPP::Deserialize(rango.get(), input);
+      trace << "Raw Json Input\n" << input << "\n\n";
+      std::string output;
+      SerializerJSONCPP::Serialize(rango.get(), output);
+      trace << "GameObject Serialized Output\n" << output << "\n\n";
+
     }
     
     // Constructs a GameObject and loads some components onto it

@@ -34,6 +34,9 @@ namespace DCEngine {
 
     void Initialize();
     void Update(float dt);
+
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
     
     SpacePtr CreateSpace(std::string name);
     SpacePtr GetSpace(std::string name);
