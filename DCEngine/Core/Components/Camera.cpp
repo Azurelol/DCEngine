@@ -4,7 +4,6 @@
 
 namespace DCEngine {
 
-<<<<<<< HEAD
   Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
   }
 
@@ -17,10 +16,6 @@ namespace DCEngine {
 		Roll = RotationDegree;
 	}
 
-
-
-=======
->>>>>>> origin/master
   void Camera::Initialize() {
     auto gameObjOwner = (GameObject*)Owner();
 	if (Transform_ != gameObjOwner->getComponent<Transform>())
@@ -42,15 +37,11 @@ namespace DCEngine {
 	UpdateCameraVectors();
   }
 
-<<<<<<< HEAD
   void Camera::Serialize(Json::Value & root) {
   }
 
   void Camera::Deserialize(Json::Value & root) {
   }
-=======
-
->>>>>>> origin/master
 
   glm::mat4 Camera::GetViewMatrix() {
     return glm::lookAt(Transform_->Translation, Transform_->Translation + Front, Up);
