@@ -79,11 +79,13 @@ namespace DCEngine {
     mouse_.reset(new Mouse());
 
     // Systems are added to to the engine's systems vector. 
+    _systems.push_back(SystemPtr(new Systems::Factory));
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
+
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {

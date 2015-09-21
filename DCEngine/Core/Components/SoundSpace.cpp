@@ -8,16 +8,16 @@ namespace DCEngine {
      TestMusic();
 
      // Testing Keyboard
-     Connect(Daisy->GetKeyboard(), Events::KeyDown, SoundSpace::OnKeyDown);
-     Connect(Daisy->GetKeyboard(), Events::KeyUp, SoundSpace::OnKeyUp);
-     Connect(Daisy->GetMouse(), Events::MouseDown, SoundSpace::OnMouseDown);
+     Connect(Daisy->getKeyboard(), Events::KeyDown, SoundSpace::OnKeyDown);
+     Connect(Daisy->getKeyboard(), Events::KeyUp, SoundSpace::OnKeyUp);
+     Connect(Daisy->getMouse(), Events::MouseDown, SoundSpace::OnMouseDown);
   }
 
    void SoundSpace::TestMusic() {
      // THIS IS MY JAM
      using namespace Systems;
      std::string myJam = "spacejam.mp3";
-     Daisy->GetSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
+     Daisy->getSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
    }
 
    void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {

@@ -38,7 +38,7 @@ namespace DCEngine {
     SpacePtr CreateSpace(std::string name);
     SpacePtr GetSpace(std::string name);
 
-    template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
+    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
 
   private:
         

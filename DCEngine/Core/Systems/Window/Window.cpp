@@ -39,9 +39,6 @@ namespace DCEngine {
         #endif
     }
 
-    Window::~Window() {
-    }
-
     void Window::Initialize() {
       if (TRACE_ON)
         trace << "Window::Initialize \n";

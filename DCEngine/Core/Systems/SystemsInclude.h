@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../Systems/Window/Window.h"
-#include "../Systems/Input/Input.h"
-#include "../Systems//Audio/Audio.h"
-#include "../Systems/Graphics/Graphics.h"
-#include "../Systems/Physics/Physics.h"
+#include "Window/Window.h"
+#include "Input/Input.h"
+#include "Audio/Audio.h"
+#include "Graphics/Graphics.h"
+#include "Physics/Physics.h"
+#include "Factory/Factory.h"

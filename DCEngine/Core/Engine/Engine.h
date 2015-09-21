@@ -27,59 +27,62 @@
 
 #include "..\Events\Event.h"
 
-//extern std::string DefaultSpace = "Daisy World";
-
 namespace DCEngine {
-  
-  class Engine {
-    public:
 
+  class EngineLauncher {
+  public:
+    void Initialize();
+    void Loop();
+    void Terminate();
+
+  };
+
+  // Temporary, perhaps an entity that receives events for the engine.                         
+
+  class Engine {
+    friend class EngineLauncher;
+    public:
+      
       Engine();
       ~Engine();
 
       void Initialize();
-      void Update(float dt);
       void Loop();
-      auto Stop() { _active = false; } // Signals the engine to stop running
       void Terminate();
+      auto Stop() { _active = false; } // Signals the engine to stop running
            
-      Keyboard* GetKeyboard() { return keyboard_.get(); }
-      Mouse* GetMouse() { return mouse_.get(); }
-
-      void LoadProject(std::string& filename); //!< Load a project from a filename
-
+      Keyboard* getKeyboard() { return keyboard_.get(); }
+      Mouse* getMouse() { return mouse_.get(); }
+      Systems::Factory& getFactory() { 
+        return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
+      }
       template <typename EventClass, typename ComponentClass, typename MemberFunction>
       void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
       //void Disconnect(const Entity& entity, EventType);
 
-      template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
+      template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
+      template<typename T> std::shared_ptr<T> getSystem();
 
      private:
 
-      /*/ VARIABLES /*/
       GameSessionPtr gamesession_; //!< The current GameSession object.
       KeyboardPtr keyboard_;
       MousePtr mouse_;
       float dt; //!< Delta time. 
       float _framerate = 60.0f; //!< The target frame rate.
       float _runtime; //!< How long the engine has been running.
-      bool _active; //!< Whether the engine is active or not.
-      
+      bool _active; //!< Whether the engine is active or not.      
       std::string _projectName = "Daisy Project"; //!< The current project.
       std::string _defaultSpace = "Daisy World"; 
-
-      /*/ CONTAINERS /*/
       SystemVec _systems; //!< Container for the engine's systems.   
-      SpaceMap _spaces; //!< A map of spaces created by the engine.      
+      SpaceMap _spaces; //!< A map of spaces created by the engine.
 
-      /* Reference: http://www.cplusplus.com/reference/stack/stack/
-      Stacks are a type of container adaptor, specifically designed to operate in a 
-      LIFO context (last-in first-out), where elements are inserted and extracted only 
-      from one end of the container.
-      */
-            
+      void Update(float dt);
       
-  }; // Engine
+      void LoadProject(std::string& filename); //!< Load a project from a filename
+
+      
+  }; // Engine. Template definitions are found below.
   
      /**************************************************************************/
      /*!
@@ -121,10 +124,20 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template <typename T>
-  std::shared_ptr<T> Engine::GetSystem(EnumeratedSystem sysType) {
+  std::shared_ptr<T> Engine::getSystem(EnumeratedSystem sysType) {
     for (auto &it : _systems) {
       if (it->_type == sysType)
         return std::static_pointer_cast<T>(it);
+    }
+    // Throw an error if the system doesn't exist in the engine.
+    throw std::range_error("The specified system does not exist.");
+  }
+
+  template<typename SystemClass>
+  inline std::shared_ptr<SystemClass> Engine::getSystem() {
+    for (auto &systemPtr : _systems) {
+      if (std::type_index(typeid(systemPtr)) == std::type_index(typeid(SystemClass)))
+        return std::static_pointer_cast<SystemClass>(systemPtr);
     }
     // Throw an error if the system doesn't exist in the engine.
     throw std::range_error("The specified system does not exist.");
@@ -135,7 +148,7 @@ namespace DCEngine {
   /////////////////////////////////////////
   // Expansion macro for system
   #define GETSYSTEM( systype ) \
-  Daisy->GetSystem<systype>(EnumeratedSystem::##systype)
+  Daisy->getSystem<systype>(EnumeratedSystem::##systype)
 
   /**************************************************************************/
   /*!

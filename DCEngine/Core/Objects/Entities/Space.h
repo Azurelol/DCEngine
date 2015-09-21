@@ -38,7 +38,7 @@ namespace DCEngine {
     void Update(float dt);
 
     void AddSystem(SystemPtr system);
-    template<typename T> std::shared_ptr<T> GetSystem(EnumeratedSystem sysType);
+    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     void RemoveSystem(std::string system);
 
     GameSession* GetGameSession();
@@ -84,7 +84,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template <typename T>
-  std::shared_ptr<T> Space::GetSystem(EnumeratedSystem sysType) {
+  std::shared_ptr<T> Space::getSystem(EnumeratedSystem sysType) {
     for (auto &it : _systems) {
       if (it->_type == sysType)
         return std::static_pointer_cast<T>(it);

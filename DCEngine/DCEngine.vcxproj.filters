@@ -151,6 +151,9 @@
     <Filter Include="Core\Resources\Graphics\Shaders">
       <UniqueIdentifier>{0d72dc57-2382-4dc6-a9ad-a2793adaaf75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Factory">
+      <UniqueIdentifier>{44226fb0-e7f8-4165-ad36-0cc7ee6483bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -266,6 +269,9 @@
     </ClCompile>
     <ClCompile Include="Core\Resources\Mesh.cpp">
       <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\Factory.cpp">
+      <Filter>Core\Systems\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\ResourceReference.h">
       <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\Factory.h">
+      <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

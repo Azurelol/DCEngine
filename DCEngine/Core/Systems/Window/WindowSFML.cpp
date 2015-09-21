@@ -56,13 +56,10 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-
-
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
       if (_event.type == sf::Event::Closed)
         Terminate();
-
     }
 
     /**************************************************************************/

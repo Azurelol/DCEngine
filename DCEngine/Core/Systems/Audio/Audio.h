@@ -21,24 +21,25 @@ class AudioFMOD;
 #else
 #endif
 
-namespace DCEngine {
-  
+namespace DCEngine {  
+  class Engine;
+
   namespace Systems {   
     class Audio : public System {
       friend class Engine;
       friend class SoundSpace;
     public:
-      Audio();
-      ~Audio();
 
       void PlaySound(SoundCue& soundcue);
       void StopSound(SoundCue& soundcue);
 
+    private:
+
+      Audio();
       void Initialize();
       void Update(float dt);
       void Terminate();
 
-    private:
       void PlaySound(std::string& filePath);
       void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
       void StopMusic(); //!< Stops the currently playing music file.

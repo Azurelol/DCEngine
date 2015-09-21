@@ -11,8 +11,6 @@ namespace DCEngine {
     #endif
     }
 
-    Audio::~Audio() {
-    }
 
     void Audio::PlaySound(SoundCue & soundcue) {
 

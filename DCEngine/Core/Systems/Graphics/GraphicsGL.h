@@ -14,7 +14,6 @@
 // Libraries
 #define GLEW_STATIC
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
-// OpenGL Mathematics for doing transformations
 #define GLM_FORCE_RADIANS // functions taking degrees is deprecated.
 #include "..\..\..\Dependencies\include\GLM\glm.hpp"
 #include "..\..\..\Dependencies\include\GLM\gtc\matrix_transform.hpp"

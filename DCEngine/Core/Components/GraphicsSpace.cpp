@@ -8,7 +8,7 @@ namespace DCEngine {
 
   void GraphicsSpace::Initialize() {
     // Register self to the graphics system
-    Daisy->GetSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->Register(*this);   
+    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->Register(*this);   
     // Connect to sprite registration events
     Connect(space_, Events::SpriteRegistration, GraphicsSpace::OnSpriteRegistrationEvent);
 

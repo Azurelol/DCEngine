@@ -143,7 +143,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::DrawSprite(GameObject & gameObj) {
-      trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       // Set the sprite shader as the current shader
       this->SpriteShader->Use();
       

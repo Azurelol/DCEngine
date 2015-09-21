@@ -29,7 +29,7 @@ namespace DCEngine {
     void InputSFML::Initialize() {
 
      #if(USE_SFML)      
-      _window = Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->_window.get();
+      _window = Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->_window.get();
      #endif
 
       // Should key presses repeat?
@@ -89,7 +89,7 @@ namespace DCEngine {
       
       switch (event.key.code) {
       case sf::Keyboard::Escape:
-        Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         break;
       case sf::Keyboard::Up:
         keyDown->Key = Keys::Up;
@@ -118,7 +118,7 @@ namespace DCEngine {
 
       }
       // Dispatch the event to the keyboard interface
-      Daisy->GetKeyboard()->Dispatch<Events::KeyDown>(keyDown);
+      Daisy->getKeyboard()->Dispatch<Events::KeyDown>(keyDown);
     }
 
     /**************************************************************************/
@@ -135,7 +135,7 @@ namespace DCEngine {
       switch (event.key.code) {
       case sf::Keyboard::Escape:
         
-        Daisy->GetSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         break;
       case sf::Keyboard::Up:
         keyUp->Key = Keys::Up;
@@ -153,7 +153,7 @@ namespace DCEngine {
       }
 
       // Dispatch the event to the keyboard interface
-      Daisy->GetKeyboard()->Dispatch<Events::KeyUp>(keyUp);
+      Daisy->getKeyboard()->Dispatch<Events::KeyUp>(keyUp);
     }
 
     void InputSFML::PollMouseButtonPressed(sf::Event & event) {
@@ -163,7 +163,7 @@ namespace DCEngine {
       //if (event.key.code == sf::Mouse::Left)
 
       // Dispatch the event to the mouse interface
-      Daisy->GetMouse()->Dispatch<Events::MouseDown>(mouseDown);
+      Daisy->getMouse()->Dispatch<Events::MouseDown>(mouseDown);
     }
 
     /**************************************************************************/

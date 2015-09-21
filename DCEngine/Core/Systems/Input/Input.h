@@ -18,26 +18,18 @@
 #endif
 
 namespace DCEngine{
+  class Engine;
 
-
-  
   namespace Systems {
     class Input : public System {
+      friend class Engine;
     public:
-      Input();
-      
 
+    private:
+      Input();
       void Initialize();
       void Update(float dt);
       void Terminate();
-
-      //KeyIsDown(Key key);
-      //KeyIsPressed
-      //KeyIsReleased
-      //KeyIsUp
-
-    private:
-      
 
     };
 

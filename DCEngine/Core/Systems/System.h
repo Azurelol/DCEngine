@@ -16,9 +16,9 @@
 #include <vector>
 
 // Headers
+//#include "../Objects/Entities/EntitiesInclude.h"
 #include "..\Objects\Entity.h"
 #include "..\Debug\Debug.h"
-
 
 namespace DCEngine {
 
@@ -28,6 +28,9 @@ namespace DCEngine {
     Graphics,
     Audio,
     Physics,
+    Factory,
+    Content,
+    Serializer,
 
     // The amount of systems
     Capacity
@@ -42,8 +45,6 @@ namespace DCEngine {
     System(std::string& name, ESys type) : _name(name),
                                            _type(type)
     {}
-
-
 
     void ClearEntities();
 

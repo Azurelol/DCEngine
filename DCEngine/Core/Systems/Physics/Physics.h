@@ -2,12 +2,16 @@
 #include "../System.h"
 
 namespace DCEngine {
-  namespace Systems {
+  class Engine;
 
+  namespace Systems {    
     class Physics : public System {
+      friend class Engine;
     public:
-      Physics();
 
+
+    private:
+      Physics();
       void Initialize();
       void Update(float dt);
       void Terminate();
@@ -15,5 +19,4 @@ namespace DCEngine {
     };
 
   }
-
 }
