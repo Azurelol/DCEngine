@@ -10,8 +10,8 @@ namespace DCEngine {
 
   class SerializerJSONCPP {
   public:
-    static bool Serialize(Entity* entityObj, std::string& outputFile);
-    static bool Deserialize(Entity* entityObj, std::string& inputFile);
+    static bool Serialize(Entity* entityObj, std::string& output);
+    static bool Deserialize(Entity* entityObj, std::string& input);
 
   private:
 
