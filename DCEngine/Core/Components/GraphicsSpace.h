@@ -26,12 +26,11 @@ namespace DCEngine {
 
   public:
 
-
-    GraphicsSpace(Entity& owner) : Component(std::string("GraphicsSpace"),
-                                   EnumeratedComponent::GraphicsSpace,
-                                   BitfieldComponent::GraphicsSpace, owner) {}
+    GraphicsSpace(Entity& owner) : Component(std::string("GraphicsSpace"), owner) {}
     void Initialize();
 
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
     void OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj);
     void OnSpriteUnregistrationEvent(Event* eventObj);
     std::vector<GameObject*> getSprites(); // Return the vector of sprites to be drawn
@@ -39,10 +38,9 @@ namespace DCEngine {
     void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
   private:
-    // Container of sprites that need to be drawn
-    std::vector<GameObject*> sprites_;
-    // Container of models that need to be rendered
-    std::vector<GameObject*> models_;
+    
+    std::vector<GameObject*> sprites_; // Container of sprites that need to be drawn    
+    std::vector<GameObject*> models_;  // Container of models that need to be rendered
 
   };
 

@@ -49,26 +49,8 @@
     <Filter Include="Projects">
       <UniqueIdentifier>{e4a088af-bf36-4199-8320-2aad748ba5b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\Tutorials">
-      <UniqueIdentifier>{f2fcc741-bd2f-4392-a92f-8e4cdf63b119}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Tutorials\OpenGL">
-      <UniqueIdentifier>{a26d5328-461b-48fd-a791-143e844d41d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Tutorials\OpenGL\Triangle">
-      <UniqueIdentifier>{8b3da60f-448c-4b3b-b587-442cdaec3a55}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Tutorials\OpenGL\Shaders">
-      <UniqueIdentifier>{8eeddc62-6b89-4a8f-a252-484520106ebc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Tutorials\OpenGL\Textures">
-      <UniqueIdentifier>{c38e659b-60de-4389-aced-64bc0edde4fa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Dollhouse">
       <UniqueIdentifier>{e7afe250-fa5f-4cc5-b011-cfee266461c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Tutorials\OpenGL\Camera">
-      <UniqueIdentifier>{540ac63d-567f-4ef1-955f-9e2892088d9a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Input\GLFW">
       <UniqueIdentifier>{6b879444-ec36-4523-b225-1720817af1a4}</UniqueIdentifier>
@@ -168,18 +150,6 @@
     <ClCompile Include="Core\Debug\Debug.cpp">
       <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
-      <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp">
-      <Filter>Projects\Tutorials\OpenGL\Shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp">
-      <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp">
-      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Window\Window.cpp">
       <Filter>Core\Systems\Window</Filter>
     </ClCompile>
@@ -276,6 +246,9 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Factory</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\CameraViewport.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -304,21 +277,6 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\ActionList.h">
       <Filter>Core\Engine\Action</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTutorial.h">
-      <Filter>Projects\Tutorials\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTriangle.h">
-      <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h">
-      <Filter>Projects\Tutorials\OpenGL\Shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h">
-      <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h">
-      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Window\Window.h">
       <Filter>Core\Systems\Window</Filter>
@@ -443,9 +401,6 @@
     <ClInclude Include="Core\Components\TimeSpace.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\ComponentsInclude.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Events\Delegate.h">
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
@@ -500,6 +455,12 @@
     <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h">
       <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="Core\ComponentsInclude.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\CameraViewport.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -507,30 +468,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorials\OpenGL\VertexShader.glsl">
-      <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\FragmentShader.glsl">
-      <Filter>Projects\Tutorials\OpenGL\Triangle</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\FragmentShader_Uniform.glsl">
-      <Filter>Projects\Tutorials\OpenGL\Shaders</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\ShaderExample.vs">
-      <Filter>Projects\Tutorials\OpenGL\Shaders</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\VertexShader2.glsl">
-      <Filter>Projects\Tutorials\OpenGL\Shaders</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\GLTexture.frag">
-      <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\GLTexture.vs">
-      <Filter>Projects\Tutorials\OpenGL\Textures</Filter>
-    </None>
-    <None Include="Tutorials\OpenGL\GLCameraTutorial.vs">
-      <Filter>Projects\Tutorials\OpenGL\Camera</Filter>
-    </None>
     <None Include="Core\Resources\Shaders\SpriteShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>

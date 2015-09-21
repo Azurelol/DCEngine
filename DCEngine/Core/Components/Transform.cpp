@@ -6,4 +6,8 @@ namespace DCEngine {
     if (TRACE_INITIALIZE)
       trace << Owner()->Name() << "::" << _name << "::Initialize\n";
   }
+  void Transform::Serialize(Json::Value & root) {
+  }
+  void Transform::Deserialize(Json::Value & root) {
+  }
 }

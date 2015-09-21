@@ -5,6 +5,7 @@
 #include "../../Components/PhysicsSpace.h"
 #include "../../Components/TimeSpace.h"
 #include "../../Components/SoundSpace.h"
+#include "../../Components/CameraViewport.h"
 
 namespace DCEngine {
     
@@ -42,6 +43,7 @@ namespace DCEngine {
     AddComponent(ComponentPtr(new SoundSpace(*this)));
     AddComponent(ComponentPtr(new TimeSpace(*this)));
     AddComponent(ComponentPtr(new GraphicsSpace(*this)));
+    AddComponent(ComponentPtr(new CameraViewport(*this)));
 
     // Initialize Space-components
     for (auto component : components_) {
@@ -130,6 +132,23 @@ namespace DCEngine {
   GameObjectPtr Space::CreateObject() {
     gameobjects_.push_back(std::shared_ptr<GameObject>(new GameObject));
     return gameobjects_.back();
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Finds a GameObject in the current space and returns a pointer to it.
+  \return A pointer to the GameObject that was added. NULL if the GameObject
+          was not found.
+  */
+  /**************************************************************************/
+  GameObject* Space::FindObjectByName(const std::string & name) {
+    // Search through the space's gameobjects
+    for (auto gameObj : gameobjects_) {
+      if (gameObj->Name() == name)
+        return gameObj.get();
+    }
+    // No match was found.
+    return NULL;
   }
 
   /**************************************************************************/

@@ -2,6 +2,10 @@
 #include "EngineReference.h"
 
 namespace DCEngine {
+
+  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
+  }
+
   void Sprite::Initialize() {
     if (TRACE_INITIALIZE)
       trace << Owner()->Name() << "::" << _name << "::Initialize\n";
@@ -10,6 +14,12 @@ namespace DCEngine {
     auto registerEvent = new Events::SpriteRegistration();
     registerEvent->SpriteObj = (GameObject*)Owner(); // SHOULD THIS BE CASTED?
     space_->Dispatch<Events::SpriteRegistration>(registerEvent);
+  }
+
+  void Sprite::Serialize(Json::Value & root) {
+  }
+
+  void Sprite::Deserialize(Json::Value & root) {
   }
 
   void Sprite::setSpriteSource(std::string imageFile) {

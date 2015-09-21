@@ -26,15 +26,16 @@ namespace DCEngine {
       for (auto gfxSpace : graphicsSpaces_) {
         // 1. Draw all sprites. Since we will be drawing all
         // visible sprites, we will set the sprite shader 'once',
-        // then draw them all with it.
-        GraphicsHandler->SetSpriteShader();
+        // then draw them all with it. We will be passing a pointer
+        // to the graphics space component.
+        GraphicsHandler->SetSpriteShader(gfxSpace);
         for (auto gameObj : gfxSpace->getSprites()) {
           DrawSprite(*gameObj);
         }
 
-        // 2. Render all models
+        // 2. Render all models. Load the model shader.
 
-        // 3. Render al particles
+        // 3. Render al particles. Load different shader.
       }
     }
 

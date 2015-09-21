@@ -20,17 +20,11 @@ namespace DCEngine {
       
       // THIS IS MY PSEUDO-SERIALIZATION JAM!
 
-      //doll.reset(new GameObject("Doll", *space_, *gamesession_));
-      //AddGameObject(doll);
-      //Entity &dollRef = *doll;
-      //ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(dollRef));
-      //ComponentPtr transform = ComponentPtr(new Transform(dollRef));
-      //ComponentPtr sprite = ComponentPtr(new Sprite(dollRef));
-      //doll->AddComponent(transform);
-      //doll->AddComponent(sprite);
-      //doll->AddComponent(glTut);
-
+      // Camera object
+      GameObjectPtr cameraObj = ConstructGameObject("Camera");
+      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       
+      // Simple entity
       GameObjectPtr rango = ConstructGameObject("Rango");
       rango->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");

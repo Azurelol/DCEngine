@@ -9,9 +9,14 @@
 */
 /******************************************************************************/
 #include "GraphicsGL.h"
-#include "../../Objects/Entities/GameObject.h"
+
+
+// (!) Should these be included? Perhaps only the data needed should be passed in.
 #include "../../Components/Sprite.h"
 #include "../../Components/Transform.h"
+#include "../../Components/GraphicsSpace.h"
+#include "../../Components/CameraViewport.h"
+#include "../../Components/Camera.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -123,9 +128,12 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
-    void GraphicsGL::SetSpriteShader() {
+    void GraphicsGL::SetSpriteShader(GraphicsSpace* gfxSpace) {
       GLfloat Near = -1.0f;
       GLfloat Far = 1.0f;
+
+      auto cameraViewportRef = gfxSpace->Owner()->getComponent<CameraViewport>();
+      auto camera = cameraViewportRef->getCamera();
 
       glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->screenwidth_),
         static_cast<GLfloat>(this->screenheight_),

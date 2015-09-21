@@ -66,6 +66,12 @@ namespace DCEngine {
 
    }
 
+   void SoundSpace::Serialize(Json::Value & root) {
+   }
+
+   void SoundSpace::Deserialize(Json::Value & root) {
+   }
+
 
 
 }

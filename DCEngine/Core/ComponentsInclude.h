@@ -10,3 +10,4 @@
 #include "Components\RigidBody.h"
 #include "Components\BoxCollider.h"
 #include "Components\Camera.h"
+#include "Components\CameraViewport.h"

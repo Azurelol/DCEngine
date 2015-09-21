@@ -10,6 +10,12 @@ namespace DCEngine {
 
   }
 
+  void TimeSpace::Serialize(Json::Value & root) {
+  }
+
+  void TimeSpace::Deserialize(Json::Value & root) {
+  }
+
 
   void TimeSpace::OnLogicUpdate(Events::LogicUpdate* updateEvent) {
     //Events::LogicUpdate* upcastedEvent = (Events::LogicUpdate*)updateEvent;

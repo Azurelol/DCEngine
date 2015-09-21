@@ -14,6 +14,12 @@ namespace DCEngine {
 
   }
 
+  void GraphicsSpace::Serialize(Json::Value & root) {
+  }
+
+  void GraphicsSpace::Deserialize(Json::Value & root) {
+  }
+
   void GraphicsSpace::OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj) {
     sprites_.push_back(eventObj->SpriteObj);
     trace << "GraphicsSpace::OnSpriteRegistrationEvent - " 

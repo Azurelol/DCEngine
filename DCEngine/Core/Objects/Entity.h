@@ -53,10 +53,8 @@ namespace DCEngine {
 
     void AddComponent(ComponentPtr component);
 
-    template <typename ComponentClass>
-    ComponentClass* getComponent();    
+    template <typename ComponentClass> ComponentClass* getComponent();    
     Component* getComponentByName(std::string name);
-
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
 

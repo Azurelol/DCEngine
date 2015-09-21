@@ -19,6 +19,7 @@
 // Headers
 #include "../Events/Event.h" //!< Components need to access events.
 #include "../Events/EventsInclude.h" //!< A list of events that can be added.
+#include "../Systems/Factory/Serializer.h" 
 
 namespace DCEngine {
 
@@ -27,6 +28,8 @@ namespace DCEngine {
 
 #pragma region metadataEnums
   
+  enum class EntityType;
+
   enum class EnumeratedComponent {
     None = 0,
     Transform = 1,
@@ -70,17 +73,18 @@ namespace DCEngine {
 
   public:   
 
-    const EnumeratedComponent _type;
-    const BitfieldComponent _mask;
+    //const EnumeratedComponent _type;
+    //const BitfieldComponent _mask;
 
-    Component(std::string& name, EnumeratedComponent type, BitfieldComponent mask,
-      Entity& owner);
+    Component(std::string& name, Entity& owner);
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
-    //virtual void Serialize(Json::Value& root) = 0;
-    //virtual void Deserialize(Json::Value& root) = 0;
+    virtual void Serialize(Json::Value& root) = 0;
+    virtual void Deserialize(Json::Value& root) = 0;
    
+    template <typename EntityClass> EntityClass* getOwner();
+
     Entity* Owner(); // Returns a pointer to the component's owner
     Space* space() { return space_; }
     GameSession* gamesession() { return gamesession_; }
@@ -93,6 +97,7 @@ namespace DCEngine {
     
   private:
 
+    EntityType ownerType_;
     Component() = delete; // No default construction
     void SetReferences();
 
@@ -100,6 +105,17 @@ namespace DCEngine {
 
   using ComponentPtr = std::shared_ptr<Component>;
   using ComponentVec = std::vector<ComponentPtr>;
+
+  template<typename EntityClass>
+  inline EntityClass* Component::getOwner() {
+    if (ownerType_ == EntityType::GameObject)
+      return dynamic_cast<GameObject*>(owner_);
+    else if (ownerType_ == EntityType::Space)
+      return dynamic_cast<Space*>(owner_);
+    else if (ownerType_ == EntityType::GameSession) 
+      return dynamic_cast<GameSession*>(owner_);
+   return NULL;
+  }
 
 } // DCEngine
 #endif

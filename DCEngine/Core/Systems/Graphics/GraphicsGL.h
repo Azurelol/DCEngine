@@ -22,6 +22,9 @@
 #include "..\..\Resources\Shader.h"
 
 namespace DCEngine {
+  
+  class GraphicsSpace;
+
   namespace Systems {
 
     class GraphicsGL {
@@ -38,7 +41,7 @@ namespace DCEngine {
       void EndFrame();
 
       void ConfigureSpriteShader();
-      void SetSpriteShader();
+      void SetSpriteShader(GraphicsSpace* gfxSpace);
       void DrawSprite(GameObject& gameObj);
 
       void DrawModel(GameObject& gameObj);

@@ -26,11 +26,11 @@ namespace DCEngine {
     bool FlipX = false;
     bool FlipY = false;
 
+    Sprite(Entity& owner);
+    void Initialize();
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
 
-    Sprite(Entity& owner) : Component(std::string("Sprite"), 
-                            EnumeratedComponent::Sprite, 
-                            BitfieldComponent::Sprite, owner) {}
-    void Initialize();    
     void setSpriteSource(std::string fileName);
     SpriteSource* getSpriteSource();
 	  void UpdateSprite();
