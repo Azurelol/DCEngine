@@ -25,6 +25,7 @@ Log: Deleted two variables width and height. Replaced by size.
 #pragma once
 #include "ComponentReference.h"
 #include "../Engine/Types.h"
+#include "Transform.h"
 
 namespace DCEngine {
   enum CameraProjection {
@@ -37,16 +38,20 @@ namespace DCEngine {
     glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;
-    glm::vec3 WorldUp;
     // Euler Angles(not needed in 2D camera)
     GLfloat Yaw;
     GLfloat Pitch;
+<<<<<<< HEAD
     GLfloat Roll;// rotation degree
+=======
+	GLfloat Roll;// rotation degree
+>>>>>>> origin/master
     //Projection Type
     CameraProjection Projection = Orthographic;
     GLfloat FieldOfView = 45;
     GLfloat CameraWidth = 800;
     GLfloat CameraHeight = 600;
+<<<<<<< HEAD
     GLfloat Size = 20;
     //Clipping plane
     GLfloat NearPlane;
@@ -65,6 +70,23 @@ namespace DCEngine {
 
     //(Need coordinates system, it is a temporary function)
     glm::vec3 Position;
+=======
+	GLfloat Size = 20;
+    //Clipping plane
+    GLfloat NearPlane = 0.5;
+    GLfloat FarPlane = 200;
+
+    // Returns view matrix calculated using Euler Angles and LookAt Matrix
+    void Initialize();
+	void Update();
+    glm::mat4 GetViewMatrix();
+    glm::mat4 GetProjectionMatrix();
+	//Temporary update function
+	
+
+  private:
+	Transform *Transform_;
+>>>>>>> origin/master
     // Calculates the front vector from the Camera's (updated) Euler angles
     void UpdateCameraVectors();
 
