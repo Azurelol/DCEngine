@@ -136,6 +136,9 @@
     <Filter Include="Core\Systems\Factory">
       <UniqueIdentifier>{44226fb0-e7f8-4165-ad36-0cc7ee6483bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Content">
+      <UniqueIdentifier>{262f1be3-c6a6-48ef-b75b-49742011dde3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">

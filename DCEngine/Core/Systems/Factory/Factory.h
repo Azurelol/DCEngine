@@ -27,23 +27,34 @@ namespace DCEngine {
       friend class Engine;
 
     public:
-
+            
+      
       GameObjectPtr CreateGameObject(const std::string& fileName, bool init);
       void DestroyGameObject(GameObject& gameObj);
       void DestroyAllObjects(); //!< Destroys all objects
 
+      void LoadResources(); //!< Load project resources into different maps
+      void LoadLevel(std::string& levelName);
+
     private:
 
       unsigned LastGameObjectId; //!< Incrementally generate unique IDs
-      std::vector<GameObject> gameObjVec;
+      std::vector<GameObject> gameObjVec; //!< Container of active gameObjects
       std::set<GameObject*> gameObjsToBeDeleted;
+      
+      // Resource maps: (Resource Name, FilePath)
+      std::map<std::string, std::string> SoundCueMap_; 
+      std::map<std::string, std::string> SpriteSourceMap_;
+      std::map<std::string, std::string> LevelMap_;
+      std::map<std::string, std::string> ArchetypeMap_;      
 
+      // Functions
       Factory();
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
-      
+      void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
 
     };
   }

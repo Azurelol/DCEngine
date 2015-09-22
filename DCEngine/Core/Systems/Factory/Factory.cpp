@@ -17,6 +17,7 @@ namespace DCEngine {
       if (TRACE_UPDATE)
         trace << "Factory::Terminate \n";
     }
+
     GameObjectPtr Factory::CreateGameObject(const std::string & fileName, bool init) {
       GameObjectPtr gameObj = BuildAndSerialize(fileName);
       if (init)
@@ -32,8 +33,13 @@ namespace DCEngine {
 
     }
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {
+      // Construct the object with defaults
       GameObjectPtr gameObj(new GameObject());
+      // Open the input file
+
+
       return gameObj;
+
     }
   }
 }

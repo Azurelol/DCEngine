@@ -105,6 +105,26 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::LoadProject(std::string & filename) {
 
+    // 1. Deserialize the input file for information about the project,
+    // and store that in a struct owned by the engine.
+
+    // 2. Scan through the "Assets" folder given for game resources:
+    // SpriteSources, SoundCues, Levels. Add these resources to the content
+    // system hashmaps, as "Name"/"FileName" pairs.
+
+    // 3. Scan through the "Scripts" folder for game components (scripts):
+    // Add these components dynamically to the engine's components to be used
+    // for gameplay.
+
+    // 4. Scan through the "Archetypes" folder for serialized archetypes to
+    // be used in the game. These are GameObjects with specific components,
+    // and will be added to an "Archetype"/"FileName" map.
+
+    // 5. Scan the archetyped "GameSession" object and use the values in its
+    // 'ProjectSetup' component: DefaultSpace, DefaultLevel to load an 
+    // archetyped space and load the specified default level onto it. 
+    // (This level is looked for in the content's system "Levels map" container.
+
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
     // Deserialize from the file

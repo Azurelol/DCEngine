@@ -31,6 +31,7 @@ namespace DCEngine {
   };
 
   // Built-in types
+  using Real = float;
   using Real2 = glm::vec2;
   using Real3 = glm::vec3;
   using Real4 = glm::vec4;
