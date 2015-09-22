@@ -15,6 +15,11 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+      
+      void Integrate();
+      void BroadPhaseDetection();
+      void NarrowPhaseDetection();
+      void Resolve();
 
     };
 
