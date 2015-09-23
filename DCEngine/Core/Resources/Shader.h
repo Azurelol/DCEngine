@@ -18,7 +18,7 @@ namespace DCEngine {
   public:
     GLuint ShaderID;
     
-    Shader(std::string vertexPath, std::string fragmentPath);
+    Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath);
     
     void Load(std::string vertexPath, std::string fragmentPath);
     void Compile();    

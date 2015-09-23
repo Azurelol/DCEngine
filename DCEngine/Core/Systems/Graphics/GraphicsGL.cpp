@@ -50,7 +50,7 @@ namespace DCEngine {
       }
 
       // Construct the sprite shader
-      SpriteShader.reset(new Shader("SpriteShader.vs", "SpriteShader.frag"));
+      SpriteShader.reset(new Shader(std::string("SpriteShader"), "SpriteShader.vs", "SpriteShader.frag"));
       // Configure the sprite shader VAO
       ConfigureSpriteVAO();
     }

@@ -11,12 +11,14 @@ Window::Initialize
 Input::Initialize 
 Audio::Initialize 
 Graphics::Initialize 
-Shader::Shader() 
-Shader::Load - Vertex: SpriteShader.vs , Fragment: SpriteShader.frag
-Shader::Compile 
-Shader::AssertShaderCompilation - Vertex Shader compiled! 
-Shader::AssertShaderCompilation - Fragment Shader compiled! 
-Shader::AssertShaderCompilation - Shader program linked! 
+
+SpriteShader::Shader - Constructor 
+SpriteShader::Load - Vertex: SpriteShader.vs , Fragment: SpriteShader.frag
+SpriteShader::Compile 
+SpriteShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteShader::AssertShaderCompilation - Shader program linked! 
+
 [Engine::Initialize - All engine systems initialized]
 Daisy Project::GameSession - Constructor
 Daisy Project::CreateSpace - Daisy World has been constructed. 
@@ -83,13 +85,24 @@ GraphicsSpace::OnSpriteRegistrationEvent - Pikapikano!
 Pikapikano!::Transform::Initialize
 
 [Engine::Loop]
+Mouse down!
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Camera is now at (2, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Camera is now at (2, 2)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 Camera is now at (1, 2)
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Camera is now at (2, 2)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Camera is now at (1, 2)
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Camera is now at (1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Camera is now at (2, 3)
-Camera is now at (2, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Camera is now at (2, 4)
+Camera is now at (2, 4)
 
 [Engine::Terminate] 
 Window::Terminate 

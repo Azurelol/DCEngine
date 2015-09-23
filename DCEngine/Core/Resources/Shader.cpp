@@ -15,8 +15,8 @@ checks for errors and other useful functions.
 
 namespace DCEngine {
 
-  Shader::Shader(std::string vertexPath, std::string fragmentPath) : Resource("Shader") {
-    trace << "Shader::Shader() \n";
+  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath) : Resource(shaderName) {
+    trace << "\n" << _name << "::Shader - Constructor \n";
     // Loads the shaders
     Load(vertexPath, fragmentPath);
     // Compiles the shader
@@ -32,7 +32,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Shader::Load(std::string vertexPath, std::string fragmentPath) {
     if (TRACE_ON)
-      trace << "Shader::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
+      trace << _name << "::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
 
@@ -58,7 +58,7 @@ namespace DCEngine {
     }
     catch (std::ifstream::failure e) {
       if (TRACE_ON)
-        trace << "Shader::LoadShaders failed! \n";
+        trace << _name << "Shader::LoadShaders failed! \n";
     }    
   }
 
@@ -69,7 +69,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Shader::Compile() {
     if (TRACE_ON)
-      trace << "Shader::Compile \n";
+      trace << _name << "::Compile \n";
     GLuint vertex, fragment;   
     
     // Vertex Shader
@@ -103,7 +103,7 @@ namespace DCEngine {
   /**************************************************************************/
   Shader& Shader::Use() {
     if (TRACE_ON && TRACE_UPDATE)
-      trace << "Shader::Use \n";
+      trace << _name << "::Use \n";
 
     glUseProgram(this->_shaderProgram);
     return *this;
@@ -124,11 +124,11 @@ namespace DCEngine {
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
     if (success) {
-      trace << "Shader::AssertShaderCompilation - " << shaderName << " compiled! \n";
+      trace << _name << "::AssertShaderCompilation - " << shaderName << " compiled! \n";
     }
     else {
       glGetShaderInfoLog(shader, 512, NULL, infoLog);
-      trace << "Shader::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
+      trace << _name << "::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
         << infoLog << "\n";
     }
   }
@@ -148,13 +148,15 @@ namespace DCEngine {
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
     if (success) {
-      trace << "Shader::AssertShaderCompilation - Shader program linked! \n";
+      trace << _name << "::AssertShaderCompilation - Shader program linked! \n";
     }
     else {
       glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-      trace << "Shader::AssertShaderCompilation - Shader program failed to link! \n"
+      trace << _name << "::AssertShaderCompilation - Shader program failed to link! \n"
         << infoLog << "\n";
     }
+
+    trace << "\n";
   }
 
   /**************************************************************************/
