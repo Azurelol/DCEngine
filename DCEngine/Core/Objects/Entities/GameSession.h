@@ -23,10 +23,13 @@
 
 namespace DCEngine {
    
+  // Forward declarations
   class Engine;
+  class Factory;
   
   class GameSession : public Entity {
     friend class Engine; //!< Engine has access to gamesession.
+    friend class Factory;
 
   public:
     GameSession(std::string& name);

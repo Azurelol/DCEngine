@@ -98,8 +98,8 @@ namespace DCEngine {
       trace << _name << "::AddSystem " << "- Added " << system->_name << "\n";
   }
 
-  GameSession* Space::GetGameSession() {
-    return gamesession_;
+  GameSession& Space::getGameSession() {
+    return *gamesession_;
   }
 
   /**************************************************************************/
@@ -130,6 +130,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GameObjectPtr Space::CreateObject() {
+    // Calls the object factory to create the object from an archetype
+
     gameobjects_.push_back(std::shared_ptr<GameObject>(new GameObject));
     return gameobjects_.back();
   }

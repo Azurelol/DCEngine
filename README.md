@@ -2,18 +2,19 @@
 
 This repository is for my DigiPen GAM 200 Engine, "Daisy Chain". 
 
-My GAM 200 team, "Moonward":
+My GAM 200 team, "Moonward". The developer team:
 - Christian Sagel
 - Connor Tilley
 - John Myres
 - Allan Deutsch
+- Chen Shu
+- Blaine Reiner
 
-Note that at this time, this won't be the engine that the team will be using, but the one I am personally writing to learn graphics programming, engine architecture, software practices, etc.
+And our esteemed artists:
+- Mariah Millard
+- Chikara Honda
 
-The ECS engine I am writing, "Daisy Chain" will be directly based on "reverse-engineering" Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as implementing graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
-
-I have plugged in the tutorial code into the engine, adding functionality through classes to the engine 
-(such as shader objects, camera class) as I learn them. 
+This ECS engine me and my team are writing, "Daisy Chain" will be directly based on "reverse-engineering" Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as [DigiPen's Zero Engine](http://zero.digipen.edu/). It is implements graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
 
 While AJEngine is a gamestate-driven engine that follows a model us sophomores will be used to by now (after CS 230), I am writing Daisy Chain engine in mind to enable gameplay through components and objects added to a 'game' object and the spaces it contains. In that regard, I want that part to be similar to how the Zero Engine works. 
 

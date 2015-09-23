@@ -3,6 +3,7 @@
 
 // Testing
 #include "..\..\Tutorials\OpenGL\GLCameraTutorial.h"
+#include "..\..\Core\Components\EngineReference.h"
 #include "..\..\Core\Objects\Entity.h"
 #include "..\..\Core\ComponentsInclude.h"
 #include "..\..\Core\Systems\Factory\Serializer.h"
@@ -22,6 +23,12 @@ namespace DCEngine {
       // THIS IS MY PSEUDO-SERIALIZATION JAM!
 
       // Camera object
+
+      // Return an empty GameObject with a transform
+      auto factoryTest = Daisy->getFactory().CreateGameObject(space, false);
+      AddGameObject(factoryTest);
+
+
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));

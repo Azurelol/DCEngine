@@ -23,10 +23,13 @@
 
 namespace DCEngine {
 
+  // Forward declarations
   class GameSession;
+  class Factory;
 
   class Space : public Entity {
     friend class GameSession;
+    friend class Factory;
   
   public:
 
@@ -42,7 +45,7 @@ namespace DCEngine {
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     void RemoveSystem(std::string system);
     
-    GameSession* GetGameSession();
+    GameSession& getGameSession();
 
     void LoadLevel(LevelPtr level);
     GameObjectPtr CreateObject();

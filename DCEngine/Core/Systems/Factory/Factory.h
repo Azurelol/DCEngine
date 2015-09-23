@@ -21,6 +21,7 @@
 
 namespace DCEngine {
 
+  // Forward declarations
   class Engine;
   
   namespace Systems {
@@ -30,9 +31,11 @@ namespace DCEngine {
 
     public:            
       
-      GameObjectPtr CreateGameObject(bool init); //!< Creates a default gameObj
-      GameObjectPtr CreateGameObject(const std::string& gameObjName, bool init);
+      GameObjectPtr CreateGameObject(Space& space, bool init); //!< Creates a default gameObj
+      GameObjectPtr CreateGameObject(const std::string& gameObjName, const Space& space, bool init);
+      
       ComponentPtr CreateComponent(const std::string& compName, bool init);
+
       ResourcePtr CreateResource(const std::string& resourceName, bool init);
 
       void DestroyGameObject(GameObject& gameObj);
@@ -44,8 +47,11 @@ namespace DCEngine {
     private:
 
       unsigned LastGameObjectId; //!< Incrementally generate unique IDs
-      std::vector<GameObject> gameObjVec; //!< Container of active gameObjects
-      std::set<GameObject*> gameObjsToBeDeleted;         
+      GameObjectVec gameObjVec; //!< Container of active GameObjects
+      ComponentVec componentVec; //!< Container of active Components
+
+
+      std::set<GameObject*> gameObjsToBeDeleted; 
 
       /* Functions */
       Factory();
@@ -55,7 +61,17 @@ namespace DCEngine {
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
 
-    };
+      template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
+
+
+    }; 
+
+    /* Templates */
+    template<typename ComponentClass>
+    inline ComponentPtr Factory::CreateComponent(Entity& owner, bool init)
+    {
+      //return new(ComponentClass)
+    }
   }
 
   using FactoryPtr = std::unique_ptr<Systems::Factory>;
