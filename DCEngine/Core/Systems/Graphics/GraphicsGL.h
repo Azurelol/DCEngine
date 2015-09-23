@@ -56,6 +56,10 @@ namespace DCEngine {
       ShaderPtr SpriteShader;
       GLuint SpriteVAO; // A Quad VAO
 
+      void SetUpTest();
+      void DrawTest();
+      GLuint testVAO;
+      
 
 
     }; // GraphicsGL 

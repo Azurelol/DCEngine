@@ -37,6 +37,10 @@ namespace DCEngine {
 
         // 3. Render al particles. Load different shader.
       }
+
+      // Testing Draw
+      GraphicsHandler->DrawTest();
+
     }
 
     void Graphics::Register(GraphicsSpace& graphicsSpace) {

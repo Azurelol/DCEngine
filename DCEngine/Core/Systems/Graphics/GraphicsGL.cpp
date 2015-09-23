@@ -53,6 +53,9 @@ namespace DCEngine {
       SpriteShader.reset(new Shader(std::string("SpriteShader"), "SpriteShader.vs", "SpriteShader.frag"));
       // Configure the sprite shader VAO
       ConfigureSpriteVAO();
+      
+        // TESTING
+        SetUpTest();
     }
 
     /**************************************************************************/
@@ -207,6 +210,48 @@ namespace DCEngine {
       // Draw the array
       glDrawArrays(GL_TRIANGLES, 0, 6);
       // Unbind the vertex array
+      glBindVertexArray(0);
+    }
+
+    void GraphicsGL::SetUpTest()
+    {
+      /* 1. CONFIGURE VAO */
+      GLuint VBO;
+      GLfloat vertices[]{
+        // Position,  Texture
+        0.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 0.0f,
+
+        0.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 1.0f, 1.0f,
+        1.0f, 0.0f, 1.0f, 0.0f
+      };
+
+      /*
+      Next, we simply send the vertices to the GPU and configure the vertex attributes,
+      which in this case is a single vertex attribute.
+      */
+      glGenVertexArrays(1, &testVAO);
+      glGenBuffers(1, &VBO);
+
+      glBindBuffer(GL_ARRAY_BUFFER, VBO);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+      glBindVertexArray(testVAO);
+      glEnableVertexAttribArray(0);
+      glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+      glBindVertexArray(0);
+    }
+
+    /* Testing Draw */
+    void GraphicsGL::DrawTest()
+    {        
+      // Draw our first triangle
+      SpriteShader->Use();
+      glBindVertexArray(testVAO);
+      //glDrawArrays(GL_TRIANGLES, 0, 6);
+      glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
       glBindVertexArray(0);
     }
 
