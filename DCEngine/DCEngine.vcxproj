@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
+    <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
     <ClCompile Include="Core\Components\SoundSpace.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
+    <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
     <ClInclude Include="Core\Components\ComponentReference.h" />
     <ClInclude Include="Core\Components\EngineReference.h" />

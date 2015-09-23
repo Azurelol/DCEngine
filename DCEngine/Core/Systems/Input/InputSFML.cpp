@@ -133,8 +133,7 @@ namespace DCEngine {
       auto keyUp = new Events::KeyUp();
 
       switch (event.key.code) {
-      case sf::Keyboard::Escape:
-        
+      case sf::Keyboard::Escape:        
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         break;
       case sf::Keyboard::Up:

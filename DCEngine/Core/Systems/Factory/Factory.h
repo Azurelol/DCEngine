@@ -44,9 +44,16 @@ namespace DCEngine {
       void LoadResources(); //!< Load project resources into different maps
       void LoadLevel(std::string& levelName);
 
+      // !< When components are constructed they register themselves to the map.
+      template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
+
+
     private:
 
       unsigned LastGameObjectId; //!< Incrementally generate unique IDs
+      std::map<std::string, std::type_index> ComponentClassMap; 
+      
+
       GameObjectVec gameObjVec; //!< Container of active GameObjects
       ComponentVec componentVec; //!< Container of active Components
 

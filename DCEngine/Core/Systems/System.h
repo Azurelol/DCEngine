@@ -43,7 +43,7 @@ namespace DCEngine {
 
   public:
     System(std::string& name, ESys type) : _name(name), _type(type) {
-      trace << _name << "::Constructor \n";
+      //trace << _name << "::Constructor \n";
     }
 
     void ClearEntities();

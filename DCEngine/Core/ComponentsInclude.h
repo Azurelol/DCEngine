@@ -11,3 +11,4 @@
 #include "Components\BoxCollider.h"
 #include "Components\Camera.h"
 #include "Components\CameraViewport.h"
+#include "Components\DebugMoveController.h"

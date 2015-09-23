@@ -49,7 +49,7 @@ namespace DCEngine {
                     
     void AddComponentByName(std::string& componentName);
     void RemoveComponentByName(std::string& componentName);
-    void AddComponent(ComponentPtr component);
+    bool AddComponent(ComponentPtr component);
     template <typename ComponentClass> ComponentClass* getComponent();    
     Component* getComponentByName(std::string name);
     void RemoveComponent(EnumeratedComponent ec);

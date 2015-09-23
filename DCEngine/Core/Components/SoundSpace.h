@@ -23,9 +23,7 @@ namespace DCEngine {
     void PlayCueAt();
     
     void OnLogicUpdate(Events::LogicUpdate* event);
-    void OnKeyDown(Events::KeyDown* event);
-    void OnKeyUp(Events::KeyUp* event);
-    void OnMouseDown(Events::MouseDown* event);
+
 
 
 
