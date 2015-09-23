@@ -42,8 +42,15 @@ namespace DCEngine {
       GameObjectPtr rango = ConstructGameObject("Rango");
       rango->AddComponent(ComponentPtr(new Sprite(*rango)));
       rango->AddComponent(ComponentPtr(new Transform(*rango)));
-      rango->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
       rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+
+      // Simple entity
+      GameObjectPtr bango = ConstructGameObject("Bango");
+      bango->AddComponent(ComponentPtr(new Sprite(*bango)));
+      bango->AddComponent(ComponentPtr(new Transform(*bango)));
+      bango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
+      bango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
       
       // Serializer test
       std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";

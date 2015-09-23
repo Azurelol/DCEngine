@@ -1,6 +1,8 @@
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
 
+
+
 namespace DCEngine {
   namespace Systems {
 
@@ -15,7 +17,6 @@ namespace DCEngine {
       if (TRACE_ON && TRACE_INITIALIZE)
       trace << "Graphics::Initialize \n";
       GraphicsHandler->Initialize();
-
       // Connect to graphics space registration events
     }
 
@@ -43,9 +44,6 @@ namespace DCEngine {
 
         // 3. Render al particles. Load different shader.
       }
-
-      // Testing Draw
-      GraphicsHandler->DrawTest();
 
     }
 

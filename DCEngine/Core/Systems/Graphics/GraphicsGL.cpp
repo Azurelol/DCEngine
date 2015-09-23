@@ -18,6 +18,8 @@
 #include "../../Components/CameraViewport.h"
 #include "../../Components/Camera.h"
 
+#define DRAW_TEST 0
+
 namespace DCEngine {
   namespace Systems {
 
@@ -55,8 +57,11 @@ namespace DCEngine {
       ConfigureSpriteVAO();
       
       // TESTING
-      SimpleShader.reset(new Shader(std::string("SimpleShader"), "SimpleShader.vs", "SimpleShader.frag"));
-      SetUpTest();
+      
+      if (DRAW_TEST) {
+        SimpleShader.reset(new Shader(std::string("SimpleShader"), "SimpleShader.vs", "SimpleShader.frag"));
+        SetUpTest();
+      }
     }
 
     /**************************************************************************/
@@ -106,6 +111,7 @@ namespace DCEngine {
       This is commonly accepted in 2D graphics/GUI systems where elements' positions
       are correspond to the top-left corner of the elements.
       */
+      GLuint VBO;
       GLfloat vertices[]{
         // Position,  Texture
         0.0f, 1.0f, 0.0f, 1.0f,
@@ -122,14 +128,15 @@ namespace DCEngine {
         which in this case is a single vertex attribute.
       */
       glGenVertexArrays(1, &this->SpriteVAO);
-      glGenBuffers(1, &SpriteVBO);
+      glGenBuffers(1, &VBO);
 
-      glBindBuffer(GL_ARRAY_BUFFER, SpriteVBO);
+      glBindBuffer(GL_ARRAY_BUFFER, VBO);
       glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
       
       glBindVertexArray(this->SpriteVAO);
       glEnableVertexAttribArray(0);
       glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+      glBindBuffer(GL_ARRAY_BUFFER, 0);
       glBindVertexArray(0);
     }
 
@@ -173,38 +180,39 @@ namespace DCEngine {
       auto sprite = gameObj.getComponent<Sprite>();
 
       // Create the matrix of the transform
-      glm::mat4 objectToWorld;
-      // Translate
-      objectToWorld = glm::translate(objectToWorld, transform->Translation);
-      // Translate
-      objectToWorld = glm::translate(objectToWorld, glm::vec3(0.5f * transform->Scale.x,
+      glm::mat4 modelMatrix;
+      modelMatrix = glm::translate(modelMatrix, transform->Translation);
+     /* objectToWorld = glm::translate(objectToWorld, glm::vec3(0.5f * transform->Scale.x,
                                               0.5f * transform->Scale.y,
-                                              0.0f));
-      // Rotate
-      objectToWorld = glm::rotate(objectToWorld, (GLfloat)0, transform->Rotation);
-      // Translate back
-      objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
-                                              -0.5f * transform->Scale.y,
-                                              0.0f));
-      // Scale
-      objectToWorld = glm::scale(objectToWorld, glm::vec3(transform->Scale.x,
+                                              0.0f));*/
+      //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
+      modelMatrix = glm::rotate(modelMatrix, (GLfloat)0, transform->Rotation);
+      //objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
+      //                                        -0.5f * transform->Scale.y,
+      //                                        0.0f));
+      modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
 
       // Update the uniforms in the shader to this particular sprite's data
-      this->SpriteShader->SetMatrix4("model", objectToWorld);
-      // Pass the color into the shader's uniform
+      
+      this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector3f("spriteColor", sprite->Color);
       // Set the active texture
       glActiveTexture(GL_TEXTURE0);
-      // Bind the texture
       sprite->getSpriteSource()->getTexture().Bind();
+
+      //this->SpriteShader->SetInteger("image", sprite->getSpriteSource()->getTexture().TextureID);
       // Bind the vertex array
       glBindVertexArray(this->SpriteVAO);
       // Draw the array
       glDrawArrays(GL_TRIANGLES, 0, 6);
       // Unbind the vertex array
       glBindVertexArray(0);
+
+      if (DRAW_TEST) {
+        DrawTest();
+      }
     }
 
     void GraphicsGL::SetUpTest()

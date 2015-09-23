@@ -12,6 +12,9 @@ namespace DCEngine {
     void Factory::Update(float dt) {
       if (TRACE_UPDATE)
         trace << "Factory::Update \n";
+
+      // Destroy all objects on the to-be-deleted list
+
     }
     void Factory::Terminate() {
       if (TRACE_UPDATE)
