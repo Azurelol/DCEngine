@@ -2,8 +2,10 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include <typeinfo>
 #include <algorithm>
+#include <cassert>
 
 #include <GLM\glm.hpp>
 #include <GLM\matrix.hpp>

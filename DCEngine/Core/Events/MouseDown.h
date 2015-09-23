@@ -7,8 +7,8 @@
 \brief  The keyboard input event for when the mouse button is pressed.
 */
 /******************************************************************************/
-#include "Event.h"
 #pragma once
+#include "EventReference.h"
 
 namespace DCEngine {
 

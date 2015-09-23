@@ -29,6 +29,7 @@ Description here.
 
 namespace DCEngine {
 
+
   // A pointer to the 'ENGINE' object
   std::unique_ptr<Engine> Daisy = nullptr;  
 
@@ -79,6 +80,7 @@ namespace DCEngine {
     mouse_.reset(new Mouse());
 
     // Systems are added to to the engine's systems vector. 
+    _systems.push_back(SystemPtr(new Systems::Content));
     _systems.push_back(SystemPtr(new Systems::Factory));
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));

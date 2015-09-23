@@ -7,8 +7,8 @@
 \brief  The keyboard input event for when a key is pressed.
 */
 /******************************************************************************/
-#include "Event.h"
 #pragma once
+#include "EventReference.h"
 
 namespace DCEngine {
 

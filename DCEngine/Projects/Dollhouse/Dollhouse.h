@@ -6,6 +6,7 @@
 #include "..\..\Core\Objects\Entity.h"
 #include "..\..\Core\ComponentsInclude.h"
 #include "..\..\Core\Systems\Factory\Serializer.h"
+#include "..\..\Core\Systems\Factory\Factory.h"
 
 namespace DCEngine {
 
@@ -22,10 +23,15 @@ namespace DCEngine {
 
       // Camera object
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
+      cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      
+      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+
+
       // Simple entity
       GameObjectPtr rango = ConstructGameObject("Rango");
+      rango->AddComponent(ComponentPtr(new Sprite(*rango)));
+      rango->AddComponent(ComponentPtr(new Transform(*rango)));
       rango->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
       
@@ -50,8 +56,6 @@ namespace DCEngine {
       //ComponentPtr sprite = ComponentPtr(new Sprite(*gameObj));
       //gameObj->AddComponent(sprite);
       //gameObj->AddComponent(glTut);
-      gameObj->AddComponent(ComponentPtr(new Sprite(*gameObj)));
-      gameObj->AddComponent(ComponentPtr(new Transform(*gameObj)));
       
       return gameObj;
     }

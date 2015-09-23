@@ -12,13 +12,8 @@
 
 */
 /******************************************************************************/
-
 #pragma once
-#include <string>
-#include <memory>
-#include <vector>
-
-#include "../Engine/Types.h"
+#include "Types.h"
 #include "Delegate.h"
 
 namespace DCEngine {

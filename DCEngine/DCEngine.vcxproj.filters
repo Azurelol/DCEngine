@@ -100,9 +100,6 @@
     <Filter Include="Core\Components\Physics">
       <UniqueIdentifier>{d1f0b10f-a53f-437d-8e7d-bba879726018}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\Audio">
-      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Events">
       <UniqueIdentifier>{6a057c5d-e202-48e8-9f36-e77a9d6a762d}</UniqueIdentifier>
     </Filter>
@@ -138,6 +135,9 @@
     </Filter>
     <Filter Include="Core\Systems\Content">
       <UniqueIdentifier>{262f1be3-c6a6-48ef-b75b-49742011dde3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics\Audio">
+      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -214,7 +214,7 @@
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SoundSpace.cpp">
-      <Filter>Core\Components\Audio</Filter>
+      <Filter>Core\Components\Graphics\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Camera.cpp">
       <Filter>Core\Components\Graphics</Filter>
@@ -224,9 +224,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\TimeSpace.cpp">
       <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Events\Delegate.cpp">
-      <Filter>Core\Engine\Event</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Transform.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -251,6 +248,12 @@
     </ClCompile>
     <ClCompile Include="Core\Components\CameraViewport.cpp">
       <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Content\Content.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Delegate.cpp">
+      <Filter>Core\Engine\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -298,9 +301,6 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Entities\Space.h">
       <Filter>Core\Object\Entity\Space</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\Event.h">
-      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
       <Filter>Projects\Dollhouse</Filter>
@@ -387,7 +387,7 @@
       <Filter>Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SoundSpace.h">
-      <Filter>Core\Components\Audio</Filter>
+      <Filter>Core\Components\Graphics\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\BoxCollider.h">
       <Filter>Core\Components\Physics</Filter>
@@ -403,9 +403,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\TimeSpace.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\Delegate.h">
-      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\EventsInclude.h">
       <Filter>Core</Filter>
@@ -463,6 +460,24 @@
     </ClInclude>
     <ClInclude Include="Core\Components\CameraViewport.h">
       <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\Content.h">
+      <Filter>Core\Systems\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\ZilchComponent.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ZilchEvent.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\EventReference.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Event.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Delegate.h">
+      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

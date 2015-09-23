@@ -9,7 +9,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "Event.h"
+#include "EventReference.h"
 
 namespace DCEngine {
 

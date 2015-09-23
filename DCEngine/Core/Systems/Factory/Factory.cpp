@@ -3,8 +3,8 @@
 namespace DCEngine {
   namespace Systems {
     Factory::Factory() : System(std::string("FactorySystem"), EnumeratedSystem::Factory) {
-
     }
+
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
         trace << "Factory::Initialize \n";
@@ -18,11 +18,29 @@ namespace DCEngine {
         trace << "Factory::Terminate \n";
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Creates a game object with default components.
+    \param  The component class.
+    \return If a match was found, a pointer to the component. If not, NULL.
+    */
+    /**************************************************************************/
+    GameObjectPtr Factory::CreateGameObject(bool init) {
+      GameObjectPtr gameObj(new GameObject());
+      //CreateComponent("Transorm")
+
+      return GameObjectPtr();
+    }
+
     GameObjectPtr Factory::CreateGameObject(const std::string & fileName, bool init) {
       GameObjectPtr gameObj = BuildAndSerialize(fileName);
       if (init)
         gameObj->Initialize();
       return gameObj;
+    }
+
+    ComponentPtr Factory::CreateComponent(const std::string & compName, bool init) {
+      return ComponentPtr();
     }
 
     void Factory::DestroyGameObject(GameObject& gameObj) {
@@ -36,8 +54,6 @@ namespace DCEngine {
       // Construct the object with defaults
       GameObjectPtr gameObj(new GameObject());
       // Open the input file
-
-
       return gameObj;
 
     }

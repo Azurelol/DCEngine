@@ -11,10 +11,6 @@
 
 // Libraries
 #include <cassert>
-#include <string>
-#include <memory>
-#include <vector>
-
 // Headers
 #include "../Engine/Types.h"
 #include "..\Debug\Debug.h" // Every object can access 'trace'

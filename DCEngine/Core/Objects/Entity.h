@@ -17,11 +17,10 @@
 // Libraries
 #include <map>
 #include <list>
-//#include <JSONCPP\json.h>
 // Headers
 #include "..\Systems\Factory\Serializer.h"
 #include "Component.h"
-#include "..\Events\Event.h"
+#include "../Engine/Event.h"
 #include "..\EventsInclude.h"
 
 namespace DCEngine {
@@ -41,18 +40,16 @@ namespace DCEngine {
     friend class Space;
 
   public:
+
     Entity(std::string name);
     Entity() { _name = "Entity"; }
-
     void Initialize(); //!< Initializes all of the entity's components
     virtual void Serialize(Json::Value& root) = 0;
     virtual void Deserialize(Json::Value& root) = 0;
-
-                       //void Update(float dt); //!< Updates all the entity's components directly. (TEMPORARY)
-    EntityType Type() { return type_; }
-
+                    
+    void AddComponentByName(std::string& componentName);
+    void RemoveComponentByName(std::string& componentName);
     void AddComponent(ComponentPtr component);
-
     template <typename ComponentClass> ComponentClass* getComponent();    
     Component* getComponentByName(std::string name);
     void RemoveComponent(EnumeratedComponent ec);
@@ -66,25 +63,25 @@ namespace DCEngine {
     void DispatchDown(Event* eventObj); //!< Dispatches an event to the object itself and down to each children recursively
     
     bool CheckMask(mask m);
+    EntityType Type() { return type_; }
 
   protected:
+
     ComponentVec observers_; //!< A list of the current listeners to this object.
     ComponentVec components_; //!< The list of components attached to the entity.  
     EntityType type_;
 
   private:
-    template <typename GenericEvent, typename GenericComponent>
-    unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
 
-    Entity* _parent; //!< The entity to which this object is parented to.
-    std::string _archetypeName;    
-    mask _mask = static_cast<int>(BitfieldComponent::Alive);
-    
-    
-    // Reference: http://www.cplusplus.com/reference/map/map/
-    // http://stackoverflow.com/questions/9859390/use-data-type-class-type-as-key-in-a-map
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
+    Entity* _parent;
+    std::string _archetypeName;
+    mask _mask = static_cast<int>(BitfieldComponent::Alive);
+
+    template <typename GenericEvent, typename GenericComponent>
+    unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
+    
 
   }; // class Entity
   

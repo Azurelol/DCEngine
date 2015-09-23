@@ -11,34 +11,22 @@
 #pragma once
 
 // Libraries
-#include <memory> // unique_ptr
 #include <unordered_map>
 #include <stack>
 #include <functional> // std::function, std::bind
 
 // Headers
-#include "..\Engine\Types.h" // any
+#include "Types.h"
+#include "Event.h"
 
-#include "../Objects/Entities/EntitiesInclude.h"
 #include "../Objects/ObjectsInclude.h"
-
+#include "../Objects/Entities/EntitiesInclude.h"
 #include "..\Systems\System.h"
 #include "..\Systems\SystemsInclude.h"
 
-#include "..\Events\Event.h"
-
 namespace DCEngine {
-
-  class EngineLauncher {
-  public:
-    void Initialize();
-    void Loop();
-    void Terminate();
-
-  };
-
-  // Temporary, perhaps an entity that receives events for the engine.                         
-
+    
+  // Temporary, perhaps an entity that receives events for the engine.  
   class Engine {
     friend class EngineLauncher;
     public:
@@ -77,8 +65,7 @@ namespace DCEngine {
       SystemVec _systems; //!< Container for the engine's systems.   
       SpaceMap _spaces; //!< A map of spaces created by the engine.
 
-      void Update(float dt);
-      
+      void Update(float dt);      
       void LoadProject(std::string& filename); //!< Load a project from a filename
 
       
@@ -164,6 +151,26 @@ namespace DCEngine {
   //#define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), std::mem_fn(&Function), this)
   #define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), &Function, this)
   
-  //#define CONNECT(EVENT_TYPE, ENTITY, MEMFN) Daisy->Connect<::DCEngine::EVENT_TYPE>(ENTITY, MEMFN, this)
+  /* 
+    The interface for launching Daisy Chain engine.
+  */
+  class EngineLauncher {
+  public:
+    EngineLauncher() {
+      engine_.reset(new Engine());
+    }
+    void InitializeEngine() {
+      engine_->Initialize();
+    }
+    void StartLoop() {
+      engine_->Loop();
+    }
+    void TerminateEngine() {
+      engine_->Terminate();
+    }
+
+  private:
+    std::unique_ptr<Engine> engine_;
+  }; 
 
 } // DCEngine
