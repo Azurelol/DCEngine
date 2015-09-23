@@ -276,6 +276,8 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Core\Resources\Shaders\SimpleShader.frag" />
+    <None Include="Core\Resources\Shaders\SimpleShader.vs" />
     <None Include="Core\Resources\Shaders\SpriteShader.frag" />
     <None Include="Core\Resources\Shaders\SpriteShader.vs" />
   </ItemGroup>

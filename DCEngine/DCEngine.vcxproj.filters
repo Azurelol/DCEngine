@@ -501,5 +501,11 @@
     <None Include="Core\Resources\Shaders\SpriteShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Core\Resources\Shaders\SimpleShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Resources\Shaders\SimpleShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

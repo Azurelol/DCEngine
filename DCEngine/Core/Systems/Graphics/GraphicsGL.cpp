@@ -54,8 +54,9 @@ namespace DCEngine {
       // Configure the sprite shader VAO
       ConfigureSpriteVAO();
       
-        // TESTING
-        SetUpTest();
+      // TESTING
+      SimpleShader.reset(new Shader(std::string("SimpleShader"), "SimpleShader.vs", "SimpleShader.frag"));
+      SetUpTest();
     }
 
     /**************************************************************************/
@@ -105,7 +106,6 @@ namespace DCEngine {
       This is commonly accepted in 2D graphics/GUI systems where elements' positions
       are correspond to the top-left corner of the elements.
       */
-      GLuint VBO;
       GLfloat vertices[]{
         // Position,  Texture
         0.0f, 1.0f, 0.0f, 1.0f,
@@ -122,9 +122,9 @@ namespace DCEngine {
         which in this case is a single vertex attribute.
       */
       glGenVertexArrays(1, &this->SpriteVAO);
-      glGenBuffers(1, &VBO);
+      glGenBuffers(1, &SpriteVBO);
 
-      glBindBuffer(GL_ARRAY_BUFFER, VBO);
+      glBindBuffer(GL_ARRAY_BUFFER, SpriteVBO);
       glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
       
       glBindVertexArray(this->SpriteVAO);
@@ -216,7 +216,6 @@ namespace DCEngine {
     void GraphicsGL::SetUpTest()
     {
       /* 1. CONFIGURE VAO */
-      GLuint VBO;
       GLfloat vertices[]{
         // Position,  Texture
         0.0f, 1.0f, 0.0f, 1.0f,
@@ -233,9 +232,9 @@ namespace DCEngine {
       which in this case is a single vertex attribute.
       */
       glGenVertexArrays(1, &testVAO);
-      glGenBuffers(1, &VBO);
+      glGenBuffers(1, &testVBO);
 
-      glBindBuffer(GL_ARRAY_BUFFER, VBO);
+      glBindBuffer(GL_ARRAY_BUFFER, testVBO);
       glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
       glBindVertexArray(testVAO);
@@ -244,14 +243,17 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
-    /* Testing Draw */
     void GraphicsGL::DrawTest()
     {        
+      // Send matrixes to the shader
+
+
+
       // Draw our first triangle
-      SpriteShader->Use();
+      this->SimpleShader->Use();
       glBindVertexArray(testVAO);
-      //glDrawArrays(GL_TRIANGLES, 0, 6);
-      glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+      glDrawArrays(GL_TRIANGLES, 0, 6);
+      // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
       glBindVertexArray(0);
     }
 
