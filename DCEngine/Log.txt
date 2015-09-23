@@ -83,20 +83,16 @@ GraphicsSpace::OnSpriteRegistrationEvent - Pikapikano!
 Pikapikano!::Transform::Initialize
 
 [Engine::Loop]
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Camera is now at (2, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Camera is now at (1, 2)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Camera is now at (2, 2)
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
 Camera is now at (2, 3)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Camera is now at (2, 4)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Camera is now at (2, 5)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Camera is now at (3, 5)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Camera is now at (3, 4)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Camera is now at (2, 4)
-DebugMoveController::OnKeyDownEvent - P
+Camera is now at (2, 3)
+
+[Engine::Terminate] 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

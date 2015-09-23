@@ -49,8 +49,10 @@ namespace DCEngine {
         trace << "Failed to initialize GLEW \n";
       }
 
-      // Initialize the sprite shader
+      // Construct the sprite shader
       SpriteShader.reset(new Shader("SpriteShader.vs", "SpriteShader.frag"));
+      // Configure the sprite shader VAO
+      ConfigureSpriteVAO();
     }
 
     /**************************************************************************/
@@ -90,7 +92,7 @@ namespace DCEngine {
            define a single VAO.
     */
     /**************************************************************************/
-    void GraphicsGL::ConfigureSpriteShader() {
+    void GraphicsGL::ConfigureSpriteVAO() {
       
       /*
       We first define a set of vertices with (0,0) coordinate being the top-left
@@ -128,6 +130,14 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
+
+    /**************************************************************************/
+    /*!
+    \brief Sets the sprite shader once before drawing every sprite.
+    \param A pointer to the graphics space.
+    \note
+    */
+    /**************************************************************************/
     void GraphicsGL::SetSpriteShader(GraphicsSpace* gfxSpace) {
       GLfloat Near = -1.0f;
       GLfloat Far = 1.0f;

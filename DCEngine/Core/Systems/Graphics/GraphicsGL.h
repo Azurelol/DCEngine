@@ -40,7 +40,7 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
 
-      void ConfigureSpriteShader();
+      void ConfigureSpriteVAO();
       void SetSpriteShader(GraphicsSpace* gfxSpace);
       void DrawSprite(GameObject& gameObj);
 
