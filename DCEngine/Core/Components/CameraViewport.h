@@ -30,6 +30,8 @@ namespace DCEngine {
     Camera* getCamera() { return cameraObj_; }
 
   private:
+    glm::mat4 OrthographicProjection; // Orthographic projection for the camera
+    glm::mat4 ViewMatrix; // View matrix for the camera
 
     Camera* cameraObj_;
 

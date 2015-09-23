@@ -24,6 +24,7 @@
 namespace DCEngine {
   
   class GraphicsSpace;
+  class Camera;
 
   namespace Systems {
 
@@ -41,8 +42,8 @@ namespace DCEngine {
       void EndFrame();
 
       void ConfigureSpriteVAO();
-      void SetSpriteShader(GraphicsSpace* gfxSpace);
-      void DrawSprite(GameObject& gameObj);
+      void SetShaderProjectionUniform(Camera& camera);
+      void DrawSprite(GameObject& gameObj, Camera& camera);
 
       void DrawModel(GameObject& gameObj);
       void DrawDebug();

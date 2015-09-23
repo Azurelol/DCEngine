@@ -136,24 +136,23 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Sets the sprite shader once before drawing every sprite.
-    \param A pointer to the graphics space.
+    \brief Sets the shader's camera projection matrix once before drawing
+           everything.            
+    \param A pointer to camera object.
     \note
     */
     /**************************************************************************/
-    void GraphicsGL::SetSpriteShader(GraphicsSpace* gfxSpace) {
-      GLfloat Near = -1.0f;
-      GLfloat Far = 1.0f;
+    void GraphicsGL::SetShaderProjectionUniform(Camera& camera) {
 
-      auto cameraViewportRef = gfxSpace->Owner()->getComponent<CameraViewport>();
-      auto camera = cameraViewportRef->getCamera();
+      auto camTrans = camera.Owner()->getComponent<Transform>();
 
-      glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->screenwidth_),
-        static_cast<GLfloat>(this->screenheight_),
-        0.0f, Near, Far);
+      // (???) Sets the "image" uniform to 0
       SpriteShader->SetInteger("image", 0);
-      SpriteShader->SetMatrix4("projection", projection);
-                                    
+      // Set the projection matrix
+      SpriteShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+      // Set the view matrix
+      SpriteShader->SetMatrix4("view", camera.GetViewMatrix());
+
     }
 
     /**************************************************************************/
@@ -163,42 +162,37 @@ namespace DCEngine {
     \note  
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSprite(GameObject & gameObj) {
+    void GraphicsGL::DrawSprite(GameObject& gameObj, Camera& camera) {
       //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+
       // Set the sprite shader as the current shader
       this->SpriteShader->Use();
       
-      // The data to be used to draw the sprite:
-      //auto transform = (Transform*)gameObj.getComponentByName("Transform");
-      //auto sprite = (Sprite*)gameObj.getComponentByName("Transform");
-      
+      // The data to be used to draw the sprite:      
       auto transform = gameObj.getComponent<Transform>();
       auto sprite = gameObj.getComponent<Sprite>();
-      //trace << transform2->LocalScale << "\n";
-      
-      // Get references of the GameObject's sprite and transform components
 
-      // Create the model matrix
-      glm::mat4 model;
+      // Create the matrix of the transform
+      glm::mat4 objectToWorld;
       // Translate
-      model = glm::translate(model, transform->Translation);
+      objectToWorld = glm::translate(objectToWorld, transform->Translation);
       // Translate
-      model = glm::translate(model, glm::vec3(0.5f * transform->Scale.x,
+      objectToWorld = glm::translate(objectToWorld, glm::vec3(0.5f * transform->Scale.x,
                                               0.5f * transform->Scale.y,
                                               0.0f));
       // Rotate
-      model = glm::rotate(model, (GLfloat)0, transform->Rotation);
+      objectToWorld = glm::rotate(objectToWorld, (GLfloat)0, transform->Rotation);
       // Translate back
-      model = glm::translate(model, glm::vec3(-0.5f * transform->Scale.x,
+      objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
                                               -0.5f * transform->Scale.y,
                                               0.0f));
       // Scale
-      model = glm::scale(model, glm::vec3(transform->Scale.x,
+      objectToWorld = glm::scale(objectToWorld, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
 
-      // Pass the model matrix into the shader
-      this->SpriteShader->SetMatrix4("model", model);
+      // Update the uniforms in the shader to this particular sprite's data
+      this->SpriteShader->SetMatrix4("model", objectToWorld);
       // Pass the color into the shader's uniform
       this->SpriteShader->SetVector3f("spriteColor", sprite->Color);
       // Set the active texture
@@ -246,8 +240,6 @@ namespace DCEngine {
     void GraphicsGL::DrawTest()
     {        
       // Send matrixes to the shader
-
-
 
       // Draw our first triangle
       this->SimpleShader->Use();

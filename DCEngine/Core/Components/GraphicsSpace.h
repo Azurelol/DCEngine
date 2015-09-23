@@ -14,12 +14,7 @@
 #include "../Objects/Entities/GameObject.h"
 
 namespace DCEngine {
-
-  enum class ProjectionType {
-    Orthographic,
-    Perspective,
-  };
-
+  
   class Graphics;
   class GraphicsSpace : public Component {
     friend class Graphics; 

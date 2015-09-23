@@ -36,6 +36,7 @@ namespace DCEngine {
       cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
 
+      //
 
       // Simple entity
       GameObjectPtr rango = ConstructGameObject("Rango");

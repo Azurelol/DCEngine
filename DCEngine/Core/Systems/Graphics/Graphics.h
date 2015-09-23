@@ -18,6 +18,7 @@
 
 namespace DCEngine {  
   class Engine;
+  class Camera;
 
   namespace Systems {
 
@@ -28,7 +29,8 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
       void Register(GraphicsSpace& graphicsSpace);
-      void DrawSprite(GameObject& gameObj);
+
+      void DrawSprite(GameObject& gameObj, Camera& camera);
       void DrawModel(GameObject& gameObj);
       void DrawDebug();  
 

@@ -1,4 +1,5 @@
 #include "Graphics.h"
+#include "../../Components/CameraViewport.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -28,9 +29,14 @@ namespace DCEngine {
         // visible sprites, we will set the sprite shader 'once',
         // then draw them all with it. We will be passing a pointer
         // to the graphics space component.
-        GraphicsHandler->SetSpriteShader(gfxSpace);
+
+        // Get the default camera from the viewport component
+        auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
+        // Set the shader's projection matrix
+        GraphicsHandler->SetShaderProjectionUniform(*camera);
+        // Draw every sprite
         for (auto gameObj : gfxSpace->getSprites()) {
-          DrawSprite(*gameObj);
+         DrawSprite(*gameObj, *camera);
         }
 
         // 2. Render all models. Load the model shader.
@@ -49,10 +55,10 @@ namespace DCEngine {
         << " has registered to the Graphics system\n";
     }
 
-    void Graphics::DrawSprite(GameObject & gameObj) {
+    void Graphics::DrawSprite(GameObject & gameObj, Camera& cam) {
       if (TRACE_UPDATE)
         trace << "Graphics::DrawSprite - Drawing " << gameObj.Name() << "\n";
-      GraphicsHandler->DrawSprite(gameObj);
+      GraphicsHandler->DrawSprite(gameObj, cam);
     }
 
     void Graphics::Terminate() {

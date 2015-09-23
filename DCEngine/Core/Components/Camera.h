@@ -28,9 +28,12 @@ Log: Deleted two variables width and height. Replaced by size.
 #include "Transform.h"
 
 namespace DCEngine {
-  enum CameraProjection {
-    Orthographic, Perspective
+
+  enum class ProjectionMode {
+    Orthographic = 0,
+    Perspective,
   };
+
   class Camera : public Component {
   public:
 
@@ -41,9 +44,9 @@ namespace DCEngine {
     // Euler Angles(not needed in 2D camera)
     GLfloat Yaw;
     GLfloat Pitch;
-    GLfloat Roll;// rotation degree
-    //Projection Type
-    CameraProjection Projection = Orthographic;
+    GLfloat Roll; // rotation degree
+    //Projection Mode
+    ProjectionMode Projection = ProjectionMode::Orthographic;
     GLfloat FieldOfView = 45;
     GLfloat CameraWidth = 800;
     GLfloat CameraHeight = 600;
