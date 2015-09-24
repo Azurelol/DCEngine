@@ -261,6 +261,9 @@
     <ClCompile Include="Core\Components\DebugMoveController.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\RigidBody.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

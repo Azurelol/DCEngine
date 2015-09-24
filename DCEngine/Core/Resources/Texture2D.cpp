@@ -3,7 +3,7 @@
 namespace DCEngine {
 
   Texture2D::Texture2D(std::string& imageFile) : Resource(imageFile), 
-                       Width(0), Height(0), InternalFormat(GL_RGB), ImageFormat(GL_RGB),
+                       Width(0), Height(0), InternalFormat(GL_RGBA), ImageFormat(GL_RGBA),
                        Wrap_S(GL_REPEAT), Wrap_T(GL_REPEAT), FilterMin(GL_LINEAR),
                        FilterMax(GL_LINEAR)
   {
@@ -17,6 +17,9 @@ namespace DCEngine {
     glBindTexture(GL_TEXTURE_2D, this->TextureID);
     glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, width, height, 0,
                  this->ImageFormat, GL_UNSIGNED_BYTE, data);
+    // Check for error
+    glGetError();
+
     // Set texture wrap and filter modes
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, this->Wrap_S);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, this->Wrap_T);

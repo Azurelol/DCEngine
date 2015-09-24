@@ -28,9 +28,7 @@ namespace DCEngine {
     \brief  The constructor for the Engine object.
     */
     /**************************************************************************/
-    GraphicsGL::GraphicsGL() { 
-
-      
+    GraphicsGL::GraphicsGL() {      
 
     }
     
@@ -115,12 +113,12 @@ namespace DCEngine {
       GLfloat vertices[]{
         // Position,      Texture
         -1.0f, 1.0f,     0.0f, 1.0f,
-        1.0f, 1.0f,     1.0f, 0.0f,
+        1.0f, 1.0f,      1.0f, 0.0f,
         1.0f, -1.0f,     0.0f, 0.0f,
 
-        1.0f, -1.0f,     0.0f, 1.0f,
+        1.0f, -1.0f,      0.0f, 1.0f,
         -1.0f, -1.0f,     1.0f, 1.0f,
-        -1.0f, 1.0f,     1.0f, 0.0f
+        -1.0f, 1.0f,      1.0f, 0.0f
       };
 
       /*
@@ -131,8 +129,7 @@ namespace DCEngine {
       glGenBuffers(1, &VBO);
 
       glBindBuffer(GL_ARRAY_BUFFER, VBO);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-      
+      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);      
       glBindVertexArray(this->SpriteVAO);
       glEnableVertexAttribArray(0);
       glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
@@ -157,21 +154,23 @@ namespace DCEngine {
       SpriteShader->SetInteger("image", 0);
       // Set the projection matrix      
       
-      glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 1.0f, 10.0f);
+     // glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 1.0f, 10.0f);
+      glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800),
+        static_cast<GLfloat>(600), 0.0f, -1.0f, 1.0f);
 
-      //this->SpriteShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-      this->SpriteShader->SetMatrix4("projection", proj);
-     
-      glm::mat4 view = glm::lookAt(
-        glm::vec3(1.2f, 1.2f, 1.2f),
-        glm::vec3(0.0f, 0.0f, 0.0f),
-        glm::vec3(0.0f, 0.0f, 1.0f)
-        );
+      this->SpriteShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+      //this->SpriteShader->SetMatrix4("projection", projection);
+      auto projM = camera.GetProjectionMatrix();
+      //glm::mat4 view = glm::lookAt(
+      //  glm::vec3(1.2f, 1.2f, 1.2f),
+      //  glm::vec3(0.0f, 0.0f, 0.0f),
+      //  glm::vec3(0.0f, 0.0f, 1.0f)
+      //  );
 
       // Set the view matrix
-      //this-> SpriteShader->SetMatrix4("view", camera.GetViewMatrix());
-      this->SpriteShader->SetMatrix4("view", view);
-      auto viewm = camera.GetViewMatrix();
+      this->SpriteShader->SetMatrix4("view", camera.GetViewMatrix());
+      //this->SpriteShader->SetMatrix4("view", view);
+      auto viewM = camera.GetViewMatrix();
 
       //trace << "lol";
 
@@ -185,45 +184,36 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::DrawSprite(GameObject& gameObj, Camera& camera) {
-      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      this->SpriteShader->Use();
 
       // Enable alpha blending for opacity.
-      //glEnable(GL_BLEND);
-      //glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE);
       
       // Set the sprite shader as the current shader
-      
-
-      //SetShaderProjectionUniform(camera);
       // The data to be used to draw the sprite:      
       auto transform = gameObj.getComponent<Transform>();
       auto sprite = gameObj.getComponent<Sprite>();
 
       // Create the matrix of the transform
       glm::mat4 modelMatrix;
-      modelMatrix = glm::translate(modelMatrix, transform->Translation);
-     /* objectToWorld = glm::translate(objectToWorld, glm::vec3(0.5f * transform->Scale.x,
-                                              0.5f * transform->Scale.y,
-                                              0.0f));*/
+      modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+                                                          transform->Translation.y, 
+                                                          0.0f));
       //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
-     // modelMatrix = glm::rotate(modelMatrix, (GLfloat)0, transform->Rotation);
+      modelMatrix = glm::rotate(modelMatrix, 0.0f, Real3(0.0f, 0.0f, 1.0f));
       //objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
       //                                        -0.5f * transform->Scale.y,
       //                                        0.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
+                 
+      // Update the uniforms in the shader to this particular sprite's data      
+      this->SpriteShader->SetMatrix4("model", modelMatrix);
+      this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
 
-      // Update the uniforms in the shader to this particular sprite's data
-      
-      glm::mat4 modellol;
-
-      this->SpriteShader->Use();
-      this->SpriteShader->SetMatrix4("model", modellol);
-      
-      this->SpriteShader->SetVector4f("spriteColor", Real4(1.0f, 0.0f, 0.0f, 1.0f));
-      //this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
-      
       // Set the active texture
       glActiveTexture(GL_TEXTURE0); // Used for 3D
       sprite->getSpriteSource()->getTexture().Bind();

@@ -47,6 +47,10 @@ namespace DCEngine {
                                                << TransformRef->Translation.y << ", "
                                                 << TransformRef->Translation.z << ")\n";
 
+    //auto rangoTransform = space_->FindObjectByName("Bango")->getComponent<Transform>();
+    //trace << space_->FindObjectByName("Rango")->Name() << " is now at (" << rangoTransform->Translation.x << ", "
+    //                                                   << rangoTransform->Translation.y << ", "
+    //                                                   << rangoTransform->Translation.z << ")\n";
   }
 
   void DebugMoveController::OnKeyUpEvent(Events::KeyUp* event) {

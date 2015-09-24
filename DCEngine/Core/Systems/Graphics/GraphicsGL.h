@@ -1,11 +1,13 @@
 /******************************************************************************/
 /*!
-\file   GraphicsGL.cpp
-\author Christian Sagel
+\file   GraphicsGL.h
+\author Christian Sagel, Chen Shu
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
-\brief  The
-
+\brief  The GraphicsGL system handles direct access to the GPU through OpenGL
+        interface by GLEW, using the GLM library for arithmetic operations.
+        It receives drawing requests directly from the Graphics system, 
+        its interface.
 */
 /******************************************************************************/
 #pragma once

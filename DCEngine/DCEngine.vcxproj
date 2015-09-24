@@ -160,6 +160,7 @@
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
+    <ClCompile Include="Core\Components\RigidBody.cpp" />
     <ClCompile Include="Core\Components\SoundSpace.cpp" />
     <ClCompile Include="Core\Components\Sprite.cpp" />
     <ClCompile Include="Core\Components\TimeSpace.cpp" />

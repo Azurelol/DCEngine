@@ -26,6 +26,7 @@ namespace DCEngine {
           << eventObj->SpriteObj->Name() << "\n";
   }
 
+
   std::vector<GameObject*> GraphicsSpace::getSprites() {
     return sprites_;
   }

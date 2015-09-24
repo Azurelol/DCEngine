@@ -12,7 +12,7 @@ namespace DCEngine {
     
     // Properties
     Real3 Translation = Real3(0.0f, 0.0f, 0.0f);
-    Real3 Rotation = Real3(0.0f, 0.0f, 0.0f);
+    Real3 Rotation = Real3(0.0f, 0.0f, 1.0f);
     Real3 Scale = Real3(1.0f, 1.0f, 1.0f);
     // Relative to the world
     Real3 WorldTranslation = Translation;

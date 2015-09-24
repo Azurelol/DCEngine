@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*!
 \file   Graphics.h
-\author Christian Sagel
+\author Christian Sagel, Chen Shu
 \par    email: c.sagel\@digipen.edu
 \date   9/12/2015
 \brief  The graphics system is the bridge between the rendering calls from the 
@@ -29,7 +29,7 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
       void Register(GraphicsSpace& graphicsSpace);
-
+      
       void DrawSprite(GameObject& gameObj, Camera& camera);
       void DrawModel(GameObject& gameObj);
       void DrawDebug();  
