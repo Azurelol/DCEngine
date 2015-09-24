@@ -52,8 +52,8 @@ namespace DCEngine {
     GLfloat CameraHeight = 600;
     GLfloat Size = 20;
     //Clipping plane
-    GLfloat NearPlane;
-    GLfloat FarPlane;
+    GLfloat NearPlane = 1.0f;
+    GLfloat FarPlane = 10.0f;
         
     Camera(Entity& owner);
     void Initialize();

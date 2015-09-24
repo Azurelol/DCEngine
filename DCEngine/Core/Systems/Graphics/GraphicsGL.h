@@ -55,7 +55,7 @@ namespace DCEngine {
 
       // Used for drawing sprites
       ShaderPtr SpriteShader;
-      GLuint SpriteVAO, SpriteVBO; // A Quad VAO
+      GLuint SpriteVAO; // A Quad VAO
 
       // Testing
       ShaderPtr SimpleShader;

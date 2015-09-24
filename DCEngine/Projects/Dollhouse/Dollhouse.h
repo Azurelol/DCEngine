@@ -34,7 +34,7 @@ namespace DCEngine {
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
-      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 5.0f);
 
       //
 

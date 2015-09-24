@@ -6,9 +6,10 @@ in vec2 TexCoords;
 out vec4 color;
 
 uniform sampler2D image;
-// An uniform color vector means we can change the sprite color from game-code
-uniform vec3 spriteColor;
+uniform vec4 spriteColor;
 
 void main() {
-  color = vec4(spriteColor, 1.0) * texture(image, TexCoords);
+  color = spriteColor;
+  //gl_FragColor = color;
+  //color = vec4(spriteColor) * texture(image, TexCoords);
 }

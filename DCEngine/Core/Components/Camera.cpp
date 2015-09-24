@@ -45,16 +45,7 @@ namespace DCEngine {
   void Camera::Deserialize(Json::Value & root) {
   }
 
-  /**************************************************************************/
-  /*!
-  \brief Calculates the view matrix off the camera and returns it.
-  \return The view matrix.
-  \note
-  */
-  /**************************************************************************/
-  glm::mat4 Camera::GetViewMatrix() {
-    return glm::lookAt(Transform_->Translation, Transform_->Translation + Front, Up);
-  }
+
 
   /**************************************************************************/
   /*!
@@ -79,7 +70,17 @@ namespace DCEngine {
     Up = glm::normalize(up);
   }
 
-
+  /**************************************************************************/
+  /*!
+  \brief Calculates the view matrix off the camera and returns it.
+  \return The view matrix.
+  \note
+  */
+  /**************************************************************************/
+  glm::mat4 Camera::GetViewMatrix() {
+    return glm::lookAt(Transform_->Translation, Transform_->Translation + Front, Up);
+  }
+  
   /**************************************************************************/
   /*!
   \brief Calculates the current projection matrix and returns it.

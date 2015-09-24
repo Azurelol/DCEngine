@@ -27,11 +27,11 @@ namespace DCEngine {
     switch (event->Key) {
     case Keys::W:
       trace << _name << "::OnKeyDownEvent - Pressed: 'W' \n";
-      TransformRef->Translation.y += MoveSpeed;
+      TransformRef->Translation.z -= MoveSpeed;
       break;    
     case Keys::S:
       trace << _name << "::OnKeyDownEvent - Pressed: 'S' \n";
-      TransformRef->Translation.y -= MoveSpeed;
+      TransformRef->Translation.z += MoveSpeed;
       break;
     case Keys::A:
       trace << _name << "::OnKeyDownEvent - Pressed: 'A' \n";
@@ -44,7 +44,8 @@ namespace DCEngine {
     }
 
     trace << Owner()->Name() << " is now at (" << TransformRef->Translation.x << ", " 
-                                               << TransformRef->Translation.y << ")\n";
+                                               << TransformRef->Translation.y << ", "
+                                                << TransformRef->Translation.z << ")\n";
 
   }
 
