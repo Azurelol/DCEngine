@@ -209,9 +209,12 @@ namespace DCEngine {
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
-                 
-      // Update the uniforms in the shader to this particular sprite's data      
-      this->SpriteShader->SetMatrix4("model", modelMatrix);
+      
+      glm::mat4x4 idMat;
+      
+      // Update the uniforms in the shader to this particular sprite's data 
+      glUniformMatrix4fv(glGetUniformLocation(this->SpriteShader->Get(), "model"), 1, GL_FALSE, glm::value_ptr(idMat));
+      //this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
 
       // Set the active texture
