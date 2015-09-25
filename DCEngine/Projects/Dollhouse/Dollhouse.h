@@ -38,6 +38,7 @@ namespace DCEngine {
       gameObj1->AddComponent(ComponentPtr(new Sprite(*gameObj1)));
       gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
       gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
+	  gameObj1->AddComponent(ComponentPtr(new RigidBody(*gameObj1)));
       gameObj1->AddComponent(ComponentPtr(new DebugReport(*gameObj1)));
       gameObj1->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
       gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");

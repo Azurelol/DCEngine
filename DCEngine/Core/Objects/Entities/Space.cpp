@@ -42,6 +42,7 @@ namespace DCEngine {
     // Add Space-type components
     AddComponent(ComponentPtr(new SoundSpace(*this)));
     AddComponent(ComponentPtr(new TimeSpace(*this)));
+	AddComponent(ComponentPtr(new PhysicsSpace(*this)));
     AddComponent(ComponentPtr(new GraphicsSpace(*this)));
     AddComponent(ComponentPtr(new CameraViewport(*this)));
 
