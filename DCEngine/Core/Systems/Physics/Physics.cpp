@@ -47,7 +47,6 @@ namespace DCEngine {
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
-				trace << "Colision\n";
 				GameObjectRawVec pairs = BroadPhaseDetection(physpace);
 
 				NarrowPhaseDetection(pairs);
@@ -103,7 +102,7 @@ namespace DCEngine {
 		{
 			GameObject * obj1, *obj2;
 			
-			trace << _name << "::NarrowPhase \n";
+			//trace << _name << "::NarrowPhase \n";
 			for (int i = 0; i < pairs.size(); ++i)
 			{
 				/* set pointers to the objects we are checking collision with */
