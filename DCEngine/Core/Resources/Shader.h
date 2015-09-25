@@ -12,20 +12,33 @@
 #include "ResourceReference.h"
 #include "..\Engine\Types.h"
 
+#include <unordered_map>
+
 namespace DCEngine {
 
   class Shader : public Resource {
   public:
-    GLuint ShaderProgramID;
     
     Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath);
     
     void Load(std::string vertexPath, std::string fragmentPath);
     void Compile();    
     Shader& Use();
-    GLuint Get() { return _shaderProgram; }
+    GLuint Get() { return ShaderProgramID; }
+    
+    /* Uniform testing */
+    template <typename T> void UpdateUniforms(const std::string& uniformName, const T& data);
+    bool AddUniform(const std::string& uniformName);   
+    void LoadShaderUniform(const GLint location, const GLint &data);
+    void LoadShaderUniform(const GLint location, const GLuint &data);
+    void LoadShaderUniform(const GLint location, const GLfloat &data);
+    void LoadShaderUniform(const GLint location, const glm::vec2 &data);
+    void LoadShaderUniform(const GLint location, const glm::vec3 &data);
+    void LoadShaderUniform(const GLint location, const glm::vec4 &data);
+    void LoadShaderUniform(const GLint location, const glm::mat3x3 &data);
+    void LoadShaderUniform(const GLint location, const glm::mat4x4 &data);
 
-    /* Utility functions */
+    /* (Soon-to-be deprecated) utility functions */
     void    SetFloat(const GLchar *name, GLfloat value, GLboolean useShader = false);
     void    SetInteger(const GLchar *name, GLint value, GLboolean useShader = false);
     void    SetVector2f(const GLchar *name, GLfloat x, GLfloat y, GLboolean useShader = false);
@@ -36,19 +49,32 @@ namespace DCEngine {
     void    SetVector4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader = false);
     void    SetMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
 
-
   private:
+
+    std::string vertexCode;  //!< The raw vertex shader code in GLSL
+    std::string fragmentCode; //!< The raw fragment shader code in GLSL
+    std::unordered_map<std::string, GLint> ShaderUniformsMap;
+    GLuint ShaderProgramID; //!< The shader program, tracked by its id
+
     void AssertShaderCompilation(GLuint shader, std::string shaderName);
     void AssertShaderProgramLinking(GLuint shaderProgram);
     
-    std::string vertexCode;  //!< The raw vertex shader code in GLSL
-    std::string fragmentCode;        
-    GLuint _shaderProgram; //!< The shader program, tracked by its id
-
 
   };
 
   using ShaderPtr = std::shared_ptr<Shader>;
   
+  /**************************************************************************/
+  /*!
+  \brief Updates the uniform in th
+  \param A reference to the GameObject with the sprite component.
+  \note
+  */
+  /**************************************************************************/
+  template<typename T>
+  inline void Shader::UpdateUniforms(const std::string & uniformName, const T& data)
+  {
+    LoadShaderUniform(ShaderUniformsMap[uniformName], data);
+  }
 
 }

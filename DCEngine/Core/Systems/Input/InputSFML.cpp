@@ -115,6 +115,12 @@ namespace DCEngine {
       case sf::Keyboard::D:
         keyDown->Key = Keys::D;
         break;
+      case sf::Keyboard::Q:
+        keyDown->Key = Keys::Q;
+        break;
+      case sf::Keyboard::E:
+        keyDown->Key = Keys::E;
+        break;
 
       }
       // Dispatch the event to the keyboard interface

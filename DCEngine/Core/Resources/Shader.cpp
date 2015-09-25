@@ -85,11 +85,11 @@ namespace DCEngine {
     glCompileShader(fragment);
     AssertShaderCompilation(fragment, "Fragment Shader");
     // Link shader program
-    this->_shaderProgram = glCreateProgram();
-    glAttachShader(this->_shaderProgram, vertex);
-    glAttachShader(this->_shaderProgram, fragment);
-    glLinkProgram(this->_shaderProgram);
-    AssertShaderProgramLinking(this->_shaderProgram);
+    this->ShaderProgramID = glCreateProgram();
+    glAttachShader(this->ShaderProgramID, vertex);
+    glAttachShader(this->ShaderProgramID, fragment);
+    glLinkProgram(this->ShaderProgramID);
+    AssertShaderProgramLinking(this->ShaderProgramID);
     // Delete the shaders as they're now linked into the program and no longer necessary
     glDeleteShader(vertex);
     glDeleteShader(fragment);
@@ -108,7 +108,7 @@ namespace DCEngine {
     if (TRACE_ON && TRACE_UPDATE)
       trace << _name << "::Use \n";
 
-    glUseProgram(this->_shaderProgram);
+    glUseProgram(this->ShaderProgramID);
     return *this;
   }
 
@@ -164,6 +164,27 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Searches for and adds the uniform to the shader's map. This map
+         is used later by the template UpdateUniforms function.
+  \param The name of the uniform
+  \param A bool to decide whether to start using the shader program.
+  */
+  /**************************************************************************/
+  bool Shader::AddUniform(const std::string & uniformName)
+  {
+    // Searches for the target uniform in the shader
+    ShaderUniformsMap[uniformName] = glGetUniformLocation(ShaderProgramID, uniformName.c_str());
+
+    if (ShaderUniformsMap[uniformName] == -1) {
+      trace << _name << "::AddUniform - Failed to find the uniform: " << uniformName << "\n";
+      return false;
+    }
+
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Utility functions to quickly set unfirom values.
   \param The name of the uniform
   \param The value(s) to set.
@@ -210,16 +231,10 @@ namespace DCEngine {
       this->Use();
     glUniform4f(glGetUniformLocation(this->ShaderProgramID, name), value.x, value.y, value.z, value.w);
   }
-  void Shader::SetMatrix4(const GLchar *uniformName, const glm::mat4 &matrix, GLboolean useShader) {
-    trace << "Shader Name " << this->Name() << ", ID is " << ShaderProgramID << "\n";
-    trace << uniformName;
-    
+  void Shader::SetMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader) {
     if (useShader)
       this->Use();
-    trace << this->Name() << glGetUniformLocation(this->ShaderProgramID, uniformName) << "for " << uniformName << "\n";
-    glUniformMatrix4fv(glGetUniformLocation(this->ShaderProgramID, uniformName), 1, GL_FALSE, glm::value_ptr(matrix));
-    trace << "After: ShaderName for " << this->Name() << "id is " << ShaderProgramID << "\n";
-    trace << uniformName << "\n";
+    glUniformMatrix4fv(glGetUniformLocation(this->ShaderProgramID, name), 1, GL_FALSE, glm::value_ptr(matrix));
   }
 
 

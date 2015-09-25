@@ -34,6 +34,11 @@ namespace DCEngine {
       void DrawModel(GameObject& gameObj);
       void DrawDebug();  
 
+      /* Debug Drawing functions*/
+      void DrawCircle(Real3 pos, Real radius, Real4 color);
+      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
+      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+
     private:
 
       std::unique_ptr<GraphicsGL> GraphicsHandler;

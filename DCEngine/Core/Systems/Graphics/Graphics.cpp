@@ -59,6 +59,29 @@ namespace DCEngine {
       GraphicsHandler->DrawSprite(gameObj, cam);
     }
 
+    ///////////////
+    // DEBUG DRAW
+    ///////////////
+
+    void Graphics::DrawCircle(Real3 pos, Real radius, Real4 color)
+    {
+      GraphicsHandler->DrawCircle(pos, radius, color);
+    }
+
+    void Graphics::DrawRectangle(Real3 pos, Real width, Real height, Real4 color)
+    {
+      GraphicsHandler->DrawRectangle(pos, width, height, color);
+    }
+
+    void Graphics::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color)
+    {
+      GraphicsHandler->DrawLineSegment(startPos, endPos, length, color);
+    }
+
+    /////////////////
+    // FRAME UPDATE
+    /////////////////
+
     void Graphics::Terminate() {
       trace << "Graphics::Terminate \n";
       GraphicsHandler->Terminate();

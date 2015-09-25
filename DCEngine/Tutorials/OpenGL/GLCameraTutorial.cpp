@@ -77,7 +77,6 @@ namespace DCEngine {
 
     void GLCameraTutorial::OnLogicUpdate(Events::LogicUpdate* event) {
       Update();
-      trace << "GLCamShaderID: " << shader->ShaderProgramID << "\n";
     }
 
     void GLCameraTutorial::GenerateMesh() {
@@ -333,7 +332,7 @@ namespace DCEngine {
 
       glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
       glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
-      trace << shader->ShaderProgramID << "glCam id \n";
+      //trace << shader->ShaderProgramID << "glCam id \n";
 
       if (DRAW_CUBES) {
         for (GLuint i = 0; i < 10; ++i) {

@@ -94,6 +94,48 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    \brief Draws a circle on screen.
+    \param The position of the center of the circle.
+    \param The radius of the circle.
+    \param The color of the circle.
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color)
+    {
+      // Do your magic here Chen
+
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Draws a rectangle on screen.
+    \param  The position of the center of the rectangle.
+    \param  The length of the rectangle.
+    \param  The height of the rectangle.
+    \param  The color of the rectangle.
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawRectangle(Real3 pos, Real width, Real height, Real4 color)
+    {
+
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Draws a line segment on screen.
+    \param  The starting position of the line segment.
+    \param  The ending position of the line segment.
+    \param  The length of the line segment.
+    \param  The color of the line segment.
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color)
+    {
+
+    }
+
+    /**************************************************************************/
+    /*!
     \brief Configures the QuadVAO, used for drawing sprites.
     \note  Because all sprites share the same vertex data, we only have to
            define a single VAO.
@@ -233,6 +275,7 @@ namespace DCEngine {
         DrawTest();
       }
     }
+
 
     void GraphicsGL::SetUpTest()
     {

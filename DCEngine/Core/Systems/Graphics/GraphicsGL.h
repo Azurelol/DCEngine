@@ -48,7 +48,11 @@ namespace DCEngine {
       void DrawSprite(GameObject& gameObj, Camera& camera);
 
       void DrawModel(GameObject& gameObj);
-      void DrawDebug();
+
+      void DrawCircle(Real3 pos, Real radius, Real4 color);
+      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
+      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+
 
     private:
       // TEMP: Change these two to const

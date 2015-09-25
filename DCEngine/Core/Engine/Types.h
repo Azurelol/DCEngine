@@ -30,6 +30,8 @@ namespace DCEngine {
     A,
     S,
     D,
+    Q,
+    E,
   };
 
   // Built-in types

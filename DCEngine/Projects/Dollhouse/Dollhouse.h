@@ -27,22 +27,33 @@ namespace DCEngine {
       // Run the GLCameraTutorial
       auto glCamTut = Daisy->getFactory().CreateGameObject(space, false);
       AddGameObject(glCamTut);
-      glCamTut->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial(*glCamTut)));
+      //glCamTut->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial(*glCamTut)));
 
       // Default camera object for the space
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
+      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 5.0f);
       
       // Simple entity
-      GameObjectPtr bango = ConstructGameObject("Bango");
-      bango->AddComponent(ComponentPtr(new Sprite(*bango)));
-      bango->AddComponent(ComponentPtr(new Transform(*bango)));
-      bango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
-      bango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+      GameObjectPtr gameObj1 = ConstructGameObject("Reiner");
+      gameObj1->AddComponent(ComponentPtr(new Sprite(*gameObj1)));
+      gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
+      gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
+      gameObj1->AddComponent(ComponentPtr(new DebugReport(*gameObj1)));
+      gameObj1->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
+      gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+
+      // Simple entity
+      GameObjectPtr gameObj2 = ConstructGameObject("Myres");
+      gameObj2->AddComponent(ComponentPtr(new Sprite(*gameObj2)));
+      gameObj2->AddComponent(ComponentPtr(new Transform(*gameObj2)));
+      gameObj2->AddComponent(ComponentPtr(new DebugReport(*gameObj2)));
+      gameObj2->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
+      gameObj2->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+
 
       //SerializeTest();
       

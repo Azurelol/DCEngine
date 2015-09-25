@@ -27,11 +27,11 @@ namespace DCEngine {
     switch (event->Key) {
     case Keys::W:
       trace << _name << "::OnKeyDownEvent - Pressed: 'W' \n";
-      TransformRef->Translation.z -= MoveSpeed;
+      TransformRef->Translation.y += MoveSpeed;
       break;    
     case Keys::S:
       trace << _name << "::OnKeyDownEvent - Pressed: 'S' \n";
-      TransformRef->Translation.z += MoveSpeed;
+      TransformRef->Translation.y -= MoveSpeed;
       break;
     case Keys::A:
       trace << _name << "::OnKeyDownEvent - Pressed: 'A' \n";
@@ -41,11 +41,18 @@ namespace DCEngine {
       trace << _name << "::OnKeyDownEvent - Pressed: 'D' \n";
       TransformRef->Translation.x += MoveSpeed;
       break;
+    case Keys::E:
+      trace << _name << "::OnKeyDownEvent - Pressed: 'Q' \n";
+      TransformRef->Translation.z -= MoveSpeed;
+      break;
+    case Keys::Q:
+      trace << _name << "::OnKeyDownEvent - Pressed: 'E' \n";
+      TransformRef->Translation.z += MoveSpeed;
     }
 
-    trace << Owner()->Name() << " is now at (" << TransformRef->Translation.x << ", " 
-                                               << TransformRef->Translation.y << ", "
-                                                << TransformRef->Translation.z << ")\n";
+    //trace << Owner()->Name() << " is now at (" << TransformRef->Translation.x << ", " 
+    //                                           << TransformRef->Translation.y << ", "
+    //                                            << TransformRef->Translation.z << ")\n";
 
     //auto rangoTransform = space_->FindObjectByName("Bango")->getComponent<Transform>();
     //trace << space_->FindObjectByName("Rango")->Name() << " is now at (" << rangoTransform->Translation.x << ", "

@@ -27,9 +27,6 @@ Dollhouse::Level - Constructor
 GameObject::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
 Transform::Component - Constructor - Owner: 'GameObject'
 GameObject::AddComponent - Added Transform
-GLTutorial::Component - Constructor - Owner: 'GameObject'
-GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- 
-GameObject::AddComponent - Added GLTutorial
 Camera::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
 Transform::Component - Constructor - Owner: 'Camera'
 Camera::AddComponent - Added Transform
@@ -37,17 +34,27 @@ Camera::Component - Constructor - Owner: 'Camera'
 Camera::AddComponent - Added Camera
 Camera::Component - Constructor - Owner: 'Camera'
 Camera::AddComponent - Failure! Camera is already present!
-DebugMoveController::Component - Constructor - Owner: 'Camera'
-Camera::AddComponent - Added DebugMoveController
-Bango::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
-Sprite::Component - Constructor - Owner: 'Bango'
-Bango::AddComponent - Added Sprite
-Transform::Component - Constructor - Owner: 'Bango'
-Bango::AddComponent - Added Transform
+Reiner::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added Sprite
+Transform::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added Transform
+DebugMoveController::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added DebugMoveController
+DebugReport::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added DebugReport
+Myres::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added Sprite
+Transform::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added Transform
+DebugReport::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added DebugReport
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added GameObject to the space.
 Daisy World::AddEntity - Added Camera to the space.
-Daisy World::AddEntity - Added Bango to the space.
+Daisy World::AddEntity - Added Reiner to the space.
+Daisy World::AddEntity - Added Myres to the space.
 [Daisy Project::Initialize - Initializing all spaces... ] 
 |Daisy World::Initialize| 
 SoundSpace::Component - Constructor - Owner: 'Daisy World'
@@ -67,677 +74,403 @@ Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 GameObject::Initialize 
 GameObject::Transform::Initialize
-Tutorial::GLCameraTutorial - Initialized. 
-
-GLCamShader::Shader - Constructor 
-GLCamShader::Load - Vertex: GLCameraTutorial.vs , Fragment: GLTexture.frag
-GLCamShader::Compile 
-GLCamShader::AssertShaderCompilation - Vertex Shader compiled! 
-GLCamShader::AssertShaderCompilation - Fragment Shader compiled! 
-GLCamShader::AssertShaderCompilation - Shader program linked! 
-
-Loaded Tutorials/OpenGL/container.jpg
-Loaded Tutorials/OpenGL/aritmei.png
-[Engine::Connect] - GLTutorial has connected to Daisy World
 Camera::Initialize 
 Camera::Transform::Initialize
+Reiner::Initialize 
+Reiner::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Reiner
+Reiner::Transform::Initialize
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Mouse
-Bango::Initialize 
-Bango::Sprite::Initialize
-GraphicsSpace::OnSpriteRegistrationEvent - Bango
-Bango::Transform::Initialize
+[Engine::Connect] - DebugReport has connected to Keyboard
+Myres::Initialize 
+Myres::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Myres
+Myres::Transform::Initialize
+[Engine::Connect] - DebugReport has connected to Keyboard
 
 [Engine::Loop]
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Mouse down!
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
-0 is modelLoc
-4 is viewLoc
-3 is projectionLoc
-3452816845glCam id 
-GLCamShaderID: 3452816845
-Camera is now at (1, 1, 5)
-Shader Name SpriteShader, ID is 3452816845
-projectionSpriteShader-1for projection
-After: ShaderName for SpriteShaderid is 3452816845
-projection
-Shader Name SpriteShader, ID is 3452816845
-viewSpriteShader-1for view
-After: ShaderName for SpriteShaderid is 3452816845
-view
-Shader Name SpriteShader, ID is 3452816845
-modelSpriteShader-1for model
-After: ShaderName for SpriteShaderid is 3452816845
-model
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (1.25, 1, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, 1, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-1, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, 1, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (1.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-1, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-1, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -2, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -2.75, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -2.75, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, -2, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -2, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.25, -2.75, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, -2, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, -1.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, 0.25, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.25, -0.5, 3)
+Myres is now at (2, 1, 3)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
+Reiner is now at (-0.25, 0.25, 3)
+Myres is now at (2, 1, 3)
 
 [Engine::Terminate] 
 Window::Terminate 

@@ -279,6 +279,9 @@
     <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
       <Filter>Projects\OpenGLTutorial</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\DebugReport.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -520,6 +523,9 @@
     </ClInclude>
     <ClInclude Include="Tutorials\OpenGL\GLTutorial.h">
       <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugReport.h">
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
