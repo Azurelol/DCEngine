@@ -12,4 +12,3 @@
 #include "Components\Camera.h"
 #include "Components\CameraViewport.h"
 #include "Components\DebugMoveController.h"
-#include "Components\DebugReport.h"
