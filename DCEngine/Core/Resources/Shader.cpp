@@ -197,6 +197,7 @@ namespace DCEngine {
 
   void Shader::LoadShaderUniform(const GLint location, const GLuint & data)
   {
+    glUniform1ui(location, data);
   }
 
   void Shader::LoadShaderUniform(const GLint location, const GLfloat & data)

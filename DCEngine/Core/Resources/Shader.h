@@ -68,8 +68,10 @@ namespace DCEngine {
   /*!
   \brief Updates the uniform in the shader.
   \param The name of the uniform with which to update.
-  \param 
-  \note
+  \param The data to set into the uniform.
+  \note  This function is templatized in order to streamline the variety 
+         of uniform functions to be called. So you call this function,
+         which will handle deciding which other functions to call.
   */
   /**************************************************************************/
   template<typename T>
