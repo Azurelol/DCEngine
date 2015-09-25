@@ -24,42 +24,28 @@ namespace DCEngine {
 
       // Camera object
 
-      // Return an empty GameObject with a transform
-      auto factoryTest = Daisy->getFactory().CreateGameObject(space, false);
-      AddGameObject(factoryTest);
+      // Run the GLCameraTutorial
+      auto glCamTut = Daisy->getFactory().CreateGameObject(space, false);
+      AddGameObject(glCamTut);
+      glCamTut->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial(*glCamTut)));
 
-
+      // Default camera object for the space
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 5.0f);
-
-      //
-
-      // Simple entity
-      GameObjectPtr rango = ConstructGameObject("Rango");
-      rango->AddComponent(ComponentPtr(new Sprite(*rango)));
-      rango->AddComponent(ComponentPtr(new Transform(*rango)));
-      rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
-      rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-
+      
       // Simple entity
       GameObjectPtr bango = ConstructGameObject("Bango");
       bango->AddComponent(ComponentPtr(new Sprite(*bango)));
       bango->AddComponent(ComponentPtr(new Transform(*bango)));
       bango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
       bango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-      
-      // Serializer test
-      std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
-      Serializer::Deserialize(rango.get(), input);
-      trace << "Raw Json Input\n" << input << "\n\n";
-      std::string output;
-      Serializer::Serialize(rango.get(), output);
-      trace << "GameObject Serialized Output\n" << output << "\n\n";
 
+      //SerializeTest();
+      
     }
     
     // Constructs a GameObject and loads some components onto it
@@ -75,6 +61,23 @@ namespace DCEngine {
       //gameObj->AddComponent(glTut);
       
       return gameObj;
+    }
+
+    void SerializeTest() {
+      // Simple entity
+      GameObjectPtr rango = ConstructGameObject("Rango");
+      rango->AddComponent(ComponentPtr(new Sprite(*rango)));
+      rango->AddComponent(ComponentPtr(new Transform(*rango)));
+      rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
+      rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+
+      // Serializer test
+      std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
+      Serializer::Deserialize(rango.get(), input);
+      trace << "Raw Json Input\n" << input << "\n\n";
+      std::string output;
+      Serializer::Serialize(rango.get(), output);
+      trace << "GameObject Serialized Output\n" << output << "\n\n";
     }
 
     GameObjectPtr doll;

@@ -29,7 +29,7 @@ namespace DCEngine {
       trace << "Tutorial::GLCameraTutorial - Initialized. \n";
 
       // 1. Build and compile the shader program
-      shader.reset(new DCEngine::Shader("GLCameraTutorial.vs", "GLTexture.frag"));
+      shader.reset(new DCEngine::Shader(std::string("GLCamShader"), "GLCameraTutorial.vs", "GLTexture.frag"));
 
       // 2. Set up vertex data, buffers and attrib pointers
       GenerateMesh();
@@ -53,7 +53,7 @@ namespace DCEngine {
       // Connect to a LogicUpdate
       auto doll = (GameObject*)Owner();
       auto space = doll->GetSpace();
-      //Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
+      Connect(space, Events::LogicUpdate, GLCameraTutorial::OnLogicUpdate);
       //Connect(Daisy->GetKeyboard(), Events::KeyDown, GLCameraTutorial::OnKeyDown);
     }
 
@@ -75,8 +75,9 @@ namespace DCEngine {
 
     }
 
-    void GLCameraTutorial::OnLogicUpdate(Event* eventObj) {
+    void GLCameraTutorial::OnLogicUpdate(Events::LogicUpdate* event) {
       Update();
+      trace << "GLCamShaderID: " << shader->ShaderProgramID << "\n";
     }
 
     void GLCameraTutorial::GenerateMesh() {
@@ -322,11 +323,17 @@ namespace DCEngine {
       GLint modelLoc = glGetUniformLocation(shader->Get(), "model");
       GLint viewLoc = glGetUniformLocation(shader->Get(), "view");
       GLint projectionLoc = glGetUniformLocation(shader->Get(), "projection");
+      
+      trace << modelLoc << " is modelLoc\n";
+      trace << viewLoc << " is viewLoc\n";
+      trace << projectionLoc << " is projectionLoc\n";
+
 
       //glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
       glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
       glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+      trace << shader->ShaderProgramID << "glCam id \n";
 
       if (DRAW_CUBES) {
         for (GLuint i = 0; i < 10; ++i) {
@@ -463,6 +470,14 @@ namespace DCEngine {
       glDeleteVertexArrays(1, &VAO);
       glDeleteBuffers(1, &VBO);
       glDeleteBuffers(1, &EBO);
+    }
+
+    void GLCameraTutorial::Serialize(Json::Value & root)
+    {
+    }
+
+    void GLCameraTutorial::Deserialize(Json::Value & root)
+    {
     }
 
 

@@ -37,11 +37,12 @@ namespace DCEngine {
       ~GLCameraTutorial() {};
 
       void Initialize();
-      void OnLogicUpdate(Event*);
+      void OnLogicUpdate(Events::LogicUpdate* event);
       void Update();
       void Terminate();
 
-
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
       void GenerateMesh();
       void GenerateTexture(const std::string imagePath, GLuint& texture);
       void GenerateProjection();

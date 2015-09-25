@@ -184,7 +184,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::DrawSprite(GameObject& gameObj, Camera& camera) {
-      trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       this->SpriteShader->Use();
 
       // Enable alpha blending for opacity.
@@ -213,8 +213,8 @@ namespace DCEngine {
       glm::mat4x4 idMat;
       
       // Update the uniforms in the shader to this particular sprite's data 
-      glUniformMatrix4fv(glGetUniformLocation(this->SpriteShader->Get(), "model"), 1, GL_FALSE, glm::value_ptr(idMat));
-      //this->SpriteShader->SetMatrix4("model", modelMatrix);
+      //UniformMatrix4fv(glGetUniformLocation(this->SpriteShader->Get(), "model"), 1, GL_FALSE, glm::value_ptr(idMat));
+      this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
 
       // Set the active texture

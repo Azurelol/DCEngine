@@ -142,6 +142,9 @@
     <Filter Include="Core\Components\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Projects\OpenGLTutorial">
+      <UniqueIdentifier>{c1eff3ef-21f0-4641-a0ae-d46929c4afb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -263,6 +266,18 @@
     </ClCompile>
     <ClCompile Include="Core\Components\RigidBody.cpp">
       <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
+      <Filter>Projects\OpenGLTutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +506,21 @@
     <ClInclude Include="Core\ComponentsInclude.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorials\OpenGL\GLTriangle.h">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorials\OpenGL\GLTutorial.h">
+      <Filter>Projects\OpenGLTutorial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -509,6 +539,9 @@
     </None>
     <None Include="Core\Resources\Shaders\SimpleShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Tutorials\OpenGL\GLCameraTutorial.vs">
+      <Filter>Projects\OpenGLTutorial</Filter>
     </None>
   </ItemGroup>
 </Project>

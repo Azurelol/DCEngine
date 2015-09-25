@@ -16,7 +16,7 @@ namespace DCEngine {
 
   class Shader : public Resource {
   public:
-    GLuint ShaderID;
+    GLuint ShaderProgramID;
     
     Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath);
     

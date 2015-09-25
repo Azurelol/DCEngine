@@ -57,7 +57,7 @@ namespace DCEngine {
 
 #if(USE_SHADER_CLASS)
       //DCEngine::GLShader Shader = DCEngine::GLShader("VertexShader2.glsl", "FragmentShader_Uniform,glsl");
-      shader.reset(new DCEngine::Shader("VertexShader2.glsl", "FragmentShader_Uniform.glsl"));
+      shader.reset(new DCEngine::Shader(std::string("GLCamShader"), "VertexShader2.glsl", "FragmentShader_Uniform.glsl"));
       //DCEngine::GLShader
 #endif
 
