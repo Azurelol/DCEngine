@@ -18,8 +18,8 @@ needed.
 
 9/18
 Log: Deleted two variables width and height. Replaced by size.
-     Camera shouuld be set to square and changed with screen
-   or windows resolution.
+Camera shouuld be set to square and changed with screen
+or windows resolution.
 */
 /**************************************************************/
 #pragma once
@@ -29,57 +29,51 @@ Log: Deleted two variables width and height. Replaced by size.
 
 namespace DCEngine {
 
-  enum class ProjectionMode {
-    Orthographic = 0,
-    Perspective,
-  };
+	enum class ProjectionMode {
+		Orthographic = 0,
+		Perspective,
+	};
 
-  class Camera : public Component {
-  public:
+	class Camera : public Component {
+	public:
 
-    // Camera Attributes
-    glm::vec3 Front;
-    glm::vec3 Up;
-    glm::vec3 Right;
-    // Euler Angles(not needed in 2D camera)
-    GLfloat Yaw;
-    GLfloat Pitch;
-    GLfloat Roll; // rotation degree
-    //Projection Mode
-    ProjectionMode Projection = ProjectionMode::Orthographic;
-    GLfloat FieldOfView = 45;
-    GLfloat CameraWidth = 800;
-    GLfloat CameraHeight = 600;
-    GLfloat Size = 20;
-    //Clipping plane
-    GLfloat NearPlane = 1.0f;
-    GLfloat FarPlane = 10.0f;
-        
-    Camera(Entity& owner);
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-    glm::mat4 GetViewMatrix();
-    glm::mat4 GetProjectionMatrix();
-    //Temporary update function
-    void TransformUpdate(glm::vec3 &PositionInput, GLfloat RotationDegree);//
+		// Camera Attributes
+		glm::vec3 Front;
+		glm::vec3 Up;
+		glm::vec3 Right;
+		// Euler Angles(Yaw and Pitch are not needed in 2D camera)
+		GLfloat Yaw;
+		GLfloat Pitch;
+		GLfloat Roll; // rotation degree
+					  //Projection Mode
+		ProjectionMode Projection = ProjectionMode::Orthographic;
+		GLfloat FieldOfView = 45;
+		GLfloat WindowsWidth = 8;
+		GLfloat WindowsHeight = 6;
+		GLfloat Size = 90;//0 - 100 **need a if statement to control outranged value
+						  //Clipping plane
+		GLfloat NearPlane = 0.1f;
+		GLfloat FarPlane = 100.0f;
 
-  private:
+		Camera(Entity& owner);
+		void Initialize();
+		virtual void Serialize(Json::Value& root);
+		virtual void Deserialize(Json::Value& root);
+		glm::mat4 GetViewMatrix();
+		glm::mat4 GetProjectionMatrix();
+		void OnLogicUpdate(Events::LogicUpdate* event);
+		Transform *Transform_;
 
-    //(Need coordinates system, it is a temporary function)
-    glm::vec3 Position;
-
-    // Returns view matrix calculated using Euler Angles and LookAt Matrix;
-	  void Update();
-	
-
-  private:
-	Transform *Transform_;
-    // Calculates the front vector from the Camera's (updated) Euler angles
-    void UpdateCameraVectors();
+	private:
 
 
-  };
+		// Returns view matrix calculated using Euler Angles and LookAt Matrix;
+		void Update();
+		// Calculates the front vector from the Camera's (updated) Euler angles
+		void UpdateCameraVectors();
+
+
+	};
 
 
 }
