@@ -31,9 +31,9 @@ namespace DCEngine {
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));    
-      cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
+     // cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));
-      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 5.0f);
+      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       
       // Simple entity #1
       GameObjectPtr gameObj1 = ConstructGameObject("Reiner");
@@ -41,16 +41,25 @@ namespace DCEngine {
       gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
       //gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
 	    gameObj1->AddComponent(ComponentPtr(new RigidBody(*gameObj1)));
+      gameObj1->AddComponent(ComponentPtr(new BoxCollider(*gameObj1)));
+      gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
       gameObj1->AddComponent(ComponentPtr(new DebugReport(*gameObj1)));
-      gameObj1->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
+      
+      // Change the properties of the components
+      gameObj1->getComponent<DebugMoveController>()->MoveSpeed = 0.25;
+      gameObj1->getComponent<Transform>()->Translation = Real3(-0.5f, 0.0f, 0.0f);
+      gameObj1->getComponent<Transform>()->Scale = Real3(0.1, 0.1f, 1.0f);
       gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 
       // Simple entity #2
       GameObjectPtr gameObj2 = ConstructGameObject("Myres");
       gameObj2->AddComponent(ComponentPtr(new Sprite(*gameObj2)));
       gameObj2->AddComponent(ComponentPtr(new Transform(*gameObj2)));
+      gameObj2->AddComponent(ComponentPtr(new BoxCollider(*gameObj2)));
       gameObj2->AddComponent(ComponentPtr(new DebugReport(*gameObj2)));
-      gameObj2->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
+      // Change the properties of the components
+      gameObj2->getComponent<Transform>()->Translation = Real3(0.5f, 0.0f, 1.0f);
+      gameObj2->getComponent<Transform>()->Scale = Real3(0.1f, 0.1f, 1.0f);
       gameObj2->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 
 

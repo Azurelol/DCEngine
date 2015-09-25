@@ -52,7 +52,7 @@ namespace DCEngine {
 				// For all gameobjects with a 'BoxCollider' component
 				for (auto bc : physpace->getColliders())
 				{
-
+          
 				}
 			}
 		}
