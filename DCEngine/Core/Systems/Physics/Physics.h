@@ -10,31 +10,35 @@
 #pragma once
 #include "../System.h"
 #include "../../Components/PhysicsSpace.h"
+#include "Manifold.h"
 
 namespace DCEngine {
-  class Engine;
+	class Engine;
 
-  namespace Systems {    
-    class Physics : public System {
-      friend class Engine;
-    public:
-      void RegisterSpace(PhysicsSpace& physicsSpace);
+	namespace Systems {
+		class Physics : public System {
+			friend class Engine;
+		public:
+			void RegisterSpace(PhysicsSpace& physicsSpace);
 
-    private:
+		private:
 
-      std::vector<PhysicsSpace*> physicsSpaces_;
+			std::vector<PhysicsSpace*> physicsSpaces_;
 
-      Physics();
-      void Initialize();
-      void Update(float dt);
-      void Terminate();
-      
-      void Integrate();
-      void BroadPhaseDetection();
-      void NarrowPhaseDetection();
-      void Resolve();
+			Physics();
+			void Initialize();
+			void Update(float dt);
+			void Terminate();
 
-    };
+			void Integrate();
+			GameObjectRawVec Physics::BroadPhaseDetection(PhysicsSpace* physpace);
+			Manifold NarrowPhaseDetection(GameObjectRawVec pairs);
+			bool BoxtoBox(GameObject *obj1, GameObject *obj2);
+			bool CircletoBox(GameObject *obj1, GameObject *obj2);
+			bool CircletoCircle(GameObject *obj1, GameObject *obj2);
+			void Resolve(Manifold data);
 
-  }
+		};
+
+	}
 }

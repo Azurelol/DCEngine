@@ -158,7 +158,6 @@
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
-    <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
@@ -191,6 +190,7 @@
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
+    <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
@@ -208,7 +208,6 @@
     <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
     <ClInclude Include="Core\Components\ComponentReference.h" />
-    <ClInclude Include="Core\Components\DebugReport.h" />
     <ClInclude Include="Core\Components\EngineReference.h" />
     <ClInclude Include="Core\Components\GraphicsSpace.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
@@ -269,6 +268,7 @@
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
+    <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
