@@ -25,6 +25,8 @@ namespace Debug {
   #define TRACE_CONNECT 1
   #define TRACE_DISPATCH 0
 
+  #define TRACE_SHADER 1
+
   class Trace {
   public:    
 

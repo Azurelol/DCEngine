@@ -202,26 +202,33 @@ namespace DCEngine {
 
   void Shader::LoadShaderUniform(const GLint location, const GLfloat & data)
   {
+    glUniform1f(location, data);
   }
 
   void Shader::LoadShaderUniform(const GLint location, const glm::vec2 & data)
   {
+    // glm::value_ptr helps data transfer over to the GPU.
+    glUniform2fv(location, 1, glm::value_ptr(data));
   }
 
   void Shader::LoadShaderUniform(const GLint location, const glm::vec3 & data)
   {
+    glUniform3fv(location, 1, glm::value_ptr(data));
   }
 
   void Shader::LoadShaderUniform(const GLint location, const glm::vec4 & data)
   {
+    glUniform4fv(location, 1, glm::value_ptr(data));
   }
 
   void Shader::LoadShaderUniform(const GLint location, const glm::mat3x3 & data)
   {
+    glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(data));
   }
 
   void Shader::LoadShaderUniform(const GLint location, const glm::mat4x4 & data)
   {
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(data));
   }
 
   /**************************************************************************/

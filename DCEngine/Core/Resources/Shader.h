@@ -27,8 +27,8 @@ namespace DCEngine {
     GLuint Get() { return ShaderProgramID; }
     
     /* Uniform testing */
-    template <typename T> void UpdateUniforms(const std::string& uniformName, const T& data);
-    bool AddUniform(const std::string& uniformName);   
+    bool AddUniform(const std::string& uniformName);
+    template <typename T> void UpdateUniforms(const std::string& uniformName, const T& data);    
     void LoadShaderUniform(const GLint location, const GLint &data);
     void LoadShaderUniform(const GLint location, const GLuint &data);
     void LoadShaderUniform(const GLint location, const GLfloat &data);
