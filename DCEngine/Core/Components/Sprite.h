@@ -21,7 +21,7 @@ namespace DCEngine {
   public:
 
     bool Visible = true;
-    Real4 Color = Real4(1.0f, 0.0f, 0.0f, 1.0f);
+    Real4 Color = Real4(1.0f, 0.0f, 0.0f, 1.0f); //!< Default color is red.
     BlendModeType BlendMode = BlendModeType::Alpha;
     bool FlipX = false;
     bool FlipY = false;

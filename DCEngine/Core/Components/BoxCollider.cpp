@@ -6,8 +6,11 @@ namespace DCEngine {
   
   void BoxCollider::Initialize()
   {
+    auto owner = dynamic_cast<GameObject*>(Owner());
+    // Store a reference to the Transform Component
+    TransformComponent = owner->getComponent<Transform>();
     // Subscribe this physics component to the physics space
-    space_->getComponent<PhysicsSpace>()->AddCollider(dynamic_cast<GameObject*>(Owner()));
+    space_->getComponent<PhysicsSpace>()->AddCollider(owner);
   }
 
   void BoxCollider::Serialize(Json::Value & root)

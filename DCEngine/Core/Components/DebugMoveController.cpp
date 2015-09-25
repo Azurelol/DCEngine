@@ -2,6 +2,9 @@
 #include "EngineReference.h"
 #include "Transform.h"
 
+// Access to the SoundSpace to play sounds
+#include "SoundSpace.h"
+
 namespace DCEngine {
   
   void DebugMoveController::Initialize()
@@ -50,14 +53,9 @@ namespace DCEngine {
       TransformRef->Translation.z += MoveSpeed;
     }
 
-    //trace << Owner()->Name() << " is now at (" << TransformRef->Translation.x << ", " 
-    //                                           << TransformRef->Translation.y << ", "
-    //                                            << TransformRef->Translation.z << ")\n";
-
-    //auto rangoTransform = space_->FindObjectByName("Bango")->getComponent<Transform>();
-    //trace << space_->FindObjectByName("Rango")->Name() << " is now at (" << rangoTransform->Translation.x << ", "
-    //                                                   << rangoTransform->Translation.y << ", "
-    //                                                   << rangoTransform->Translation.z << ")\n";
+    if (FootstepSoundEnabled)
+      PlayFootstepSound();
+    
   }
 
   void DebugMoveController::OnKeyUpEvent(Events::KeyUp* event) {
@@ -79,6 +77,19 @@ namespace DCEngine {
   void DebugMoveController::OnMouseDownEvent(Events::MouseDown * event) {
     trace << "Mouse down!\n";
 
+  }
+
+  void DebugMoveController::SetFootstepSound(std::string & soundfileName) {
+
+    // Save the footstep sound
+    FootstepSound = soundfileName;
+    // Now that a footstep sound has been set, this component will play footsteps
+    FootstepSoundEnabled = true;
+  }
+
+  void DebugMoveController::PlayFootstepSound()
+  {
+    //space_->getComponent<SoundSpace>()->
   }
 
 }

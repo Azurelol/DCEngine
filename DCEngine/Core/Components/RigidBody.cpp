@@ -5,9 +5,12 @@
 namespace DCEngine {
 
   void RigidBody::Initialize()
-  {
+  {    
+    auto owner = dynamic_cast<GameObject*>(Owner());
+    // Store a reference to the Transform Component
+    TransformComponent = owner->getComponent<Transform>();
     // Subscribe this physics component to the physics space
-    space_->getComponent<PhysicsSpace>()->AddRigidBody(dynamic_cast<GameObject*>(Owner()));
+    space_->getComponent<PhysicsSpace>()->AddRigidBody(owner);
 
   }
 

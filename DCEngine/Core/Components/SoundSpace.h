@@ -4,6 +4,7 @@
 namespace DCEngine {
 
   class Entity;
+  class SoundCue;
  
   class SoundSpace : public Component {
     friend class Space;

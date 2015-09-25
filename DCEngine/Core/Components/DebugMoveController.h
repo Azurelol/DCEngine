@@ -7,7 +7,7 @@ namespace DCEngine {
   class DebugMoveController : public Component {
 
   public:
-
+        
     bool Translation = true;
     Real MoveSpeed = 0.75;
     Transform* TransformRef; 
@@ -19,6 +19,12 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);
     void OnMouseDownEvent(Events::MouseDown* event);
+    void SetFootstepSound(std::string& soundfileName);
+
+  private:
+    void PlayFootstepSound();
+    std::string FootstepSound;
+    Boolean FootstepSoundEnabled = false;
   };
 
 

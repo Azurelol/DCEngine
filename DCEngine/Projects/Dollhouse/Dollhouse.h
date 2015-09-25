@@ -50,6 +50,7 @@ namespace DCEngine {
       gameObj1->getComponent<Transform>()->Translation = Real3(-0.5f, 0.0f, 0.0f);
       gameObj1->getComponent<Transform>()->Scale = Real3(0.1, 0.1f, 1.0f);
       gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+      gameObj1->getComponent<Sprite>()->Color = Real4(0, 0, 1, 1); // Color: Blue
 
       // Simple entity #2
       GameObjectPtr gameObj2 = ConstructGameObject("Myres");
