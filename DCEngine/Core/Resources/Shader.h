@@ -66,8 +66,9 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
-  \brief Updates the uniform in th
-  \param A reference to the GameObject with the sprite component.
+  \brief Updates the uniform in the shader.
+  \param The name of the uniform with which to update.
+  \param 
   \note
   */
   /**************************************************************************/

@@ -21,9 +21,6 @@ namespace DCEngine {
                             space_(&space), gamesession_(&gamesession) {
       
       // THIS IS MY PSEUDO-SERIALIZATION JAM!
-
-      // Camera object
-
       // Run the GLCameraTutorial
       auto glCamTut = Daisy->getFactory().CreateGameObject(space, false);
       AddGameObject(glCamTut);
@@ -33,11 +30,10 @@ namespace DCEngine {
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      
+      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 5.0f);
       
-      // Simple entity
+      // Simple entity #1
       GameObjectPtr gameObj1 = ConstructGameObject("Reiner");
       gameObj1->AddComponent(ComponentPtr(new Sprite(*gameObj1)));
       gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
@@ -46,7 +42,7 @@ namespace DCEngine {
       gameObj1->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 3.0f);
       gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 
-      // Simple entity
+      // Simple entity #2
       GameObjectPtr gameObj2 = ConstructGameObject("Myres");
       gameObj2->AddComponent(ComponentPtr(new Sprite(*gameObj2)));
       gameObj2->AddComponent(ComponentPtr(new Transform(*gameObj2)));

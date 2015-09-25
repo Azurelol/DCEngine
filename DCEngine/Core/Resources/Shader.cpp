@@ -185,6 +185,46 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Utility functions to send shader uniform data to the GPU.
+  \param The location of the handle of the shader.
+  \param The uniform data.
+  */
+  /**************************************************************************/
+  void Shader::LoadShaderUniform(const GLint location, const GLint & data)
+  {
+    glUniform1i(location, data);
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const GLuint & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const GLfloat & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const glm::vec2 & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const glm::vec3 & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const glm::vec4 & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const glm::mat3x3 & data)
+  {
+  }
+
+  void Shader::LoadShaderUniform(const GLint location, const glm::mat4x4 & data)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Utility functions to quickly set unfirom values.
   \param The name of the uniform
   \param The value(s) to set.
