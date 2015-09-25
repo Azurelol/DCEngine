@@ -46,9 +46,8 @@ namespace DCEngine {
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
-				GameObjectRawVec pairs = BroadPhaseDetection(physpace);
-
-				NarrowPhaseDetection(pairs);
+				//GameObjectRawVec pairs = BroadPhaseDetection(physpace);
+        //NarrowPhaseDetection(pairs);
 
 				// For all gameobjects with a 'BoxCollider' component
 				for (auto bc : physpace->getColliders())
