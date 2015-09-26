@@ -145,6 +145,9 @@
     <Filter Include="Projects\OpenGLTutorial">
       <UniqueIdentifier>{c1eff3ef-21f0-4641-a0ae-d46929c4afb8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\DebugDraw">
+      <UniqueIdentifier>{e40ca2d8-f034-46da-910e-857d9f0d09a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -547,6 +550,24 @@
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCamera.h">
       <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugDrawReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawSphere.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawRectangle.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DebugDrawInclude.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawLine.h">
+      <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

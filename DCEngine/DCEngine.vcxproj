@@ -211,6 +211,7 @@
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\DebugCamera.h" />
+    <ClInclude Include="Core\Components\DebugDrawReference.h" />
     <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
     <ClInclude Include="Core\Components\ComponentReference.h" />
@@ -244,6 +245,11 @@
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Objects\Component.h" />
     <ClInclude Include="Core\Objects\Components\ZilchComponent.h" />
+    <ClInclude Include="Core\Objects\DebugDraw.h" />
+    <ClInclude Include="Core\Objects\DebugDraw\DebugDrawInclude.h" />
+    <ClInclude Include="Core\Objects\DebugDraw\DrawLine.h" />
+    <ClInclude Include="Core\Objects\DebugDraw\DrawRectangle.h" />
+    <ClInclude Include="Core\Objects\DebugDraw\DrawSphere.h" />
     <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h" />
     <ClInclude Include="Core\Objects\Entities\GameObject.h" />
     <ClInclude Include="Core\Objects\Entities\GameSession.h" />
