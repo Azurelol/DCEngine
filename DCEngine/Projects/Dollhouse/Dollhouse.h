@@ -9,8 +9,6 @@
 #include "..\..\Core\Systems\Factory\Serializer.h"
 #include "..\..\Core\Systems\Factory\Factory.h"
 
-#define CAMERA_MOVECONTROLLER 0
-
 namespace DCEngine {
 
   class Space;
@@ -22,23 +20,14 @@ namespace DCEngine {
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {      
 
-      // Run the GLCameraTutorial
-      auto glCamTut = Daisy->getFactory().CreateGameObject(space, false);
-      AddGameObject(glCamTut);
-      //glCamTut->AddComponent(ComponentPtr(new Tutorial::GLCameraTutorial(*glCamTut)));
-
       // Default camera object for the space
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj))); // Reject duplicate components!
       cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));
+      cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
-
-      if (CAMERA_MOVECONTROLLER)
-        cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
-      
-
+      cameraObj->getComponent<Camera>()->Size = 50;
 
       // Graphics Testing: Chen
       GalleryTesting();

@@ -294,6 +294,9 @@
     <ClCompile Include="Projects\Dollhouse\Laboratory.cpp">
       <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\DebugCamera.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -540,6 +543,9 @@
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugReport.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugCamera.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
   </ItemGroup>

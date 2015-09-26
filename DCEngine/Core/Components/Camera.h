@@ -45,13 +45,13 @@ namespace DCEngine {
 		GLfloat Yaw;
 		GLfloat Pitch;
 		GLfloat Roll; // rotation degree
-					  //Projection Mode
+		//Projection Mode
 		ProjectionMode Projection = ProjectionMode::Orthographic;
 		GLfloat FieldOfView = 45;
 		GLfloat WindowsWidth = 8;
 		GLfloat WindowsHeight = 6;
 		GLfloat Size = 90;//0 - 100 **need a if statement to control outranged value
-						  //Clipping plane
+		//Clipping plane
 		GLfloat NearPlane = 0.1f;
 		GLfloat FarPlane = 100.0f;
 

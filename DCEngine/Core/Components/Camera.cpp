@@ -8,7 +8,12 @@ namespace DCEngine {
 	}
 
 
-
+  /**************************************************************************/
+  /*!
+  \brief Initializes the camera component and its settings.
+  \note
+  */
+  /**************************************************************************/
 	void Camera::Initialize() {
 		auto gameObjOwner = (GameObject*)Owner();
 		Transform_ = gameObjOwner->getComponent<Transform>();
@@ -26,6 +31,23 @@ namespace DCEngine {
 		Right = glm::vec3(1.0f, 0.0f, 0.0f);
 	}
 
+  /**************************************************************************/
+  /*!
+  \brief The camera is updated on every LogicUpdate event.
+  \param The update event.
+  */
+  /**************************************************************************/
+  void Camera::OnLogicUpdate(Events::LogicUpdate* event)
+  {
+    Update();
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Updates the camera. First...
+  \note 
+  */
+  /**************************************************************************/
 	void Camera::Update()
 	{
 		Roll = this->Roll + Transform_->Rotation.z;
@@ -37,16 +59,25 @@ namespace DCEngine {
 		UpdateCameraVectors();
 	}
 
-	void Camera::Serialize(Json::Value & root) {
-	}
 
-	void Camera::Deserialize(Json::Value & root) {
-	}
 
+  /**************************************************************************/
+  /*!
+  \brief  Computes the camera view matrix based on its translation and
+          Front and Up vectors.
+  \return A 4x4 matrix that is used for the shader uniform "view".
+  */
+  /**************************************************************************/
 	glm::mat4 Camera::GetViewMatrix() {
 		return glm::lookAt(Transform_->Translation, Transform_->Translation + Front, Up);
 	}
 
+  /**************************************************************************/
+  /*!
+  \brief  Computes the current camera vectors.
+  \note   References:
+  */
+  /**************************************************************************/
 	void Camera::UpdateCameraVectors() {
 		// Calculate the new front vector
 		glm::vec3 front;
@@ -64,6 +95,13 @@ namespace DCEngine {
 		Up = glm::normalize(up);
 	}
 
+  /**************************************************************************/
+  /*!
+  \brief  Computes the camera projection matrix based on its translation.
+  \return A 4x4 matrix that is used for the shader uniform "projection".
+  \note  
+  */
+  /**************************************************************************/
 	glm::mat4 Camera::GetProjectionMatrix() {
 		if (Projection == ProjectionMode::Orthographic) {
 
@@ -84,16 +122,23 @@ namespace DCEngine {
 		else if (Projection == ProjectionMode::Perspective) {
 			return glm::perspective(FieldOfView, 1.0f, NearPlane, FarPlane);
 		}
-		else
-		{
-			trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
 
-		}
+    trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
+     // Throw exception here. return 0;
+		
 	}
-	void Camera::OnLogicUpdate(Events::LogicUpdate* event)
-	{
-		Update();
-	}
+
+  /**************************************************************************/
+  /*!
+  \brief Serialization functions.
+  */
+  /**************************************************************************/
+  void Camera::Serialize(Json::Value & root) {
+  }
+
+  void Camera::Deserialize(Json::Value & root) {
+  }
+
 
 }
 

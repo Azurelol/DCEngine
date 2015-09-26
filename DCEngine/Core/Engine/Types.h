@@ -32,6 +32,14 @@ namespace DCEngine {
     D,
     Q,
     E,
+
+    Add,
+    Subtract,
+
+    F1,
+    F2,
+    F3,
+    F4,
   };
 
   // Built-in types

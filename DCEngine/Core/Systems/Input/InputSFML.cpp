@@ -91,6 +91,7 @@ namespace DCEngine {
       case sf::Keyboard::Escape:
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         break;
+
       case sf::Keyboard::Up:
         keyDown->Key = Keys::Up;
         break;
@@ -103,6 +104,7 @@ namespace DCEngine {
       case sf::Keyboard::Right:
         keyDown->Key = Keys::Right;
         break;
+
       case sf::Keyboard::W:
         keyDown->Key = Keys::W;
         break;
@@ -121,6 +123,29 @@ namespace DCEngine {
       case sf::Keyboard::E:
         keyDown->Key = Keys::E;
         break;
+
+      case sf::Keyboard::F1:
+        keyDown->Key = Keys::F1;
+        break;
+      case sf::Keyboard::F2:
+        keyDown->Key = Keys::F2;
+        break;
+      case sf::Keyboard::F3:
+        keyDown->Key = Keys::F3;
+        break;
+      case sf::Keyboard::F4:
+        keyDown->Key = Keys::F4;
+        break;
+
+        /* Numpad */
+      case sf::Keyboard::Add :
+        keyDown->Key = Keys::Add;
+        break;
+      case sf::Keyboard::Subtract:
+        keyDown->Key = Keys::Subtract;
+        break;
+
+
 
       }
       // Dispatch the event to the keyboard interface

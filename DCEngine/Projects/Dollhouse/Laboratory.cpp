@@ -12,31 +12,30 @@ namespace DCEngine {
     gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
     gameObj1->AddComponent(ComponentPtr(new RigidBody(*gameObj1)));
     gameObj1->AddComponent(ComponentPtr(new BoxCollider(*gameObj1)));
-    if (CAMERA_MOVECONTROLLER == false) {
-      gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
-      gameObj1->getComponent<DebugMoveController>()->MoveSpeed = 0.5;
-    }
+    gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
     gameObj1->AddComponent(ComponentPtr(new DebugReport(*gameObj1)));
     // Transform properties
     gameObj1->getComponent<Transform>()->Translation = Real3(-2, 0.0f, 0.0f);
     gameObj1->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
     // Sprite properties
     gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-    gameObj1->getComponent<Sprite>()->Color = Real4(0, 0, 1, 1); // Color: Blue
+    gameObj1->getComponent<Sprite>()->Color = Real4(1, 0, 0, 1); // Color: Red
+    // MoveController properties
+    gameObj1->getComponent<DebugMoveController>()->MoveSpeed = 0.5;
 
     // Simple entity #2
-    GameObjectPtr gameObj2 = ConstructGameObject("Myres");
-    gameObj2->AddComponent(ComponentPtr(new Sprite(*gameObj2)));
-    gameObj2->AddComponent(ComponentPtr(new Transform(*gameObj2)));
-    gameObj2->AddComponent(ComponentPtr(new RigidBody(*gameObj2)));
-    gameObj2->AddComponent(ComponentPtr(new BoxCollider(*gameObj2)));
-    gameObj2->AddComponent(ComponentPtr(new DebugReport(*gameObj2)));
+    GameObjectPtr john = ConstructGameObject("Myres");
+    john->AddComponent(ComponentPtr(new Sprite(*john)));
+    john->AddComponent(ComponentPtr(new Transform(*john)));
+    john->AddComponent(ComponentPtr(new RigidBody(*john)));
+    john->AddComponent(ComponentPtr(new BoxCollider(*john)));
+    john->AddComponent(ComponentPtr(new DebugReport(*john)));
     // Change the properties of the components
-    gameObj2->getComponent<Transform>()->Translation = Real3(2, 0.0f, 1.0f);
-    gameObj2->getComponent<Transform>()->Scale = Real3(1, 1, 1.0f);
+    john->getComponent<Transform>()->Translation = Real3(2, 0.0f, 1.0f);
+    john->getComponent<Transform>()->Scale = Real3(1, 1, 1.0f);
     // Sprite properties
-    gameObj2->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-    gameObj2->getComponent<Sprite>()->Color = Real4(1, 0, 0, 1); // Color: Red
+    john->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+    john->getComponent<Sprite>()->Color = Real4(0, 0, 1, 1); // Color: Blue
   }
 
 
