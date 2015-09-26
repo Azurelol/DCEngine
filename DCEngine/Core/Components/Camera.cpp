@@ -85,9 +85,9 @@ namespace DCEngine {
 			return glm::perspective(FieldOfView, 1.0f, NearPlane, FarPlane);
 		}
 		else
-
 		{
 			trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
+
 		}
 	}
 	void Camera::OnLogicUpdate(Events::LogicUpdate* event)

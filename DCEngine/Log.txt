@@ -36,6 +36,15 @@ Camera::Component - Constructor - Owner: 'Camera'
 Camera::AddComponent - Failure! Camera is already present!
 DebugReport::Component - Constructor - Owner: 'Camera'
 Camera::AddComponent - Added DebugReport
+Camera::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added Transform
+Camera::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added Camera
+Camera::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Failure! Camera is already present!
+DebugReport::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added DebugReport
 Reiner::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
 Sprite::Component - Constructor - Owner: 'Reiner'
 Reiner::AddComponent - Added Sprite
@@ -54,12 +63,15 @@ Sprite::Component - Constructor - Owner: 'Myres'
 Myres::AddComponent - Added Sprite
 Transform::Component - Constructor - Owner: 'Myres'
 Myres::AddComponent - Added Transform
+RigidBody::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added RigidBody
 BoxCollider::Component - Constructor - Owner: 'Myres'
 Myres::AddComponent - Added BoxCollider
 DebugReport::Component - Constructor - Owner: 'Myres'
 Myres::AddComponent - Added DebugReport
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added GameObject to the space.
+Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
@@ -88,6 +100,9 @@ GameObject::Transform::Initialize
 Camera::Initialize 
 Camera::Transform::Initialize
 [Engine::Connect] - DebugReport has connected to Keyboard
+Camera::Initialize 
+Camera::Transform::Initialize
+[Engine::Connect] - DebugReport has connected to Keyboard
 Reiner::Initialize 
 Reiner::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Reiner
@@ -102,105 +117,218 @@ Myres::Initialize
 Myres::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Myres
 Myres::Transform::Initialize
+PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 [Engine::Connect] - DebugReport has connected to Keyboard
 
 [Engine::Loop]
 Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-0.75, 0, 0)
-Myres is now at (0.5, 0, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-1.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-1, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Reiner is now at (-0.5, 0, 0)
-Myres is now at (0.5, 0, 1)
+Myres is now at (2, 0, 1)
 Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-0.25, 0, 0)
-Myres is now at (0.5, 0, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Reiner is now at (0, 0, 0)
-Myres is now at (0.5, 0, 1)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (0.25, 0, 0)
-Myres is now at (0.5, 0, 1)
+Reiner is now at (0.5, 0, 0)
+Myres is now at (2, 0, 1)
 Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (0.25, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (0.5, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (0.75, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (0.75, 0, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (0.75, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (0.5, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (0.25, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (0.25, 0, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (0.25, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (0.5, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (0.75, 0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (0.75, 0, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (0.75, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (0.5, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (0.25, -0.25, 0)
-Myres is now at (0.5, 0, 1)
-Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (0.25, 0, 0)
-Myres is now at (0.5, 0, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 Reiner is now at (0, 0, 0)
-Myres is now at (0.5, 0, 1)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-0.25, 0, 0)
-Myres is now at (0.5, 0, 1)
+Reiner is now at (-0.5, 0, 0)
+Myres is now at (2, 0, 1)
 Camera is now at (1, 1, 1)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (-0.25, -0.25, 0)
-Myres is now at (0.5, 0, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-1, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-1.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
 Camera is now at (1, 1, 1)
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-1, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (-0.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 0.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (0.5, 1, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1, 1, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (1, 1.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (1, 2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.5, 2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (2, 2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (2.5, 2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (2.5, 1.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (2.5, 1, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (2.5, 0.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (2.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (2, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (1.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (1, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (0, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner is now at (-0.5, 0, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.5, -0.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.5, -1, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (-0.5, -1.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0, -1.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (0, -2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (0.5, -2, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner is now at (0.5, -2.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1, -2.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (1.5, -2.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+Reiner is now at (2, -2.5, 0)
+Myres is now at (2, 0, 1)
+Camera is now at (1, 1, 1)
+Camera is now at (1, 1, 1)
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner is now at (2, -2, 0)
+My

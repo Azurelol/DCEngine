@@ -542,12 +542,6 @@
     <ClInclude Include="Core\Components\DebugReport.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Dollhouse\Laboratory.h">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Dollhouse\Gallery.h">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

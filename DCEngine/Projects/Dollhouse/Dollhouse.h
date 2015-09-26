@@ -9,10 +9,7 @@
 #include "..\..\Core\Systems\Factory\Serializer.h"
 #include "..\..\Core\Systems\Factory\Factory.h"
 
-// Graphics Testing
-#include "Gallery.h"
-// Physics Testing
-#include "Laboratory.h"
+#define CAMERA_MOVECONTROLLER 0
 
 namespace DCEngine {
 
@@ -34,17 +31,19 @@ namespace DCEngine {
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));    
-      // cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
+      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj))); // Reject duplicate components!
       cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+
+      if (CAMERA_MOVECONTROLLER)
+        cameraObj->AddComponent(ComponentPtr(new DebugMoveController(*cameraObj)));
       
 
 
       // Graphics Testing: Chen
       GalleryTesting();
       // Physics Testing: Blaine
-      BlainesLaboratory();      
+      LaboratoryTesting();
       // Serialization Testing
 
       //SerializeTest();

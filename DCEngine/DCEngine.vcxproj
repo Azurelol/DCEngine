@@ -283,8 +283,6 @@
     <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
-    <ClInclude Include="Projects\Dollhouse\Gallery.h" />
-    <ClInclude Include="Projects\Dollhouse\Laboratory.h" />
     <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h" />
     <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h" />
