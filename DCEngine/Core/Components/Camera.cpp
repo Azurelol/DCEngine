@@ -125,6 +125,7 @@ namespace DCEngine {
 
     trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
      // Throw exception here. return 0;
+    return glm::mat4();
 		
 	}
 

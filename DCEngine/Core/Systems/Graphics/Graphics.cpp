@@ -11,6 +11,7 @@ namespace DCEngine {
       GraphicsHandler.reset(new GraphicsGL());
       GraphicsHandler->screenwidth_ = screenwidth_;
       GraphicsHandler->screenheight_ = screenheight_;
+      GraphicsHandler->ClearColor = ClearColor;
     }
 
     void Graphics::Initialize() {

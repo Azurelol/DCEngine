@@ -26,6 +26,21 @@ namespace DCEngine {
           << eventObj->SpriteObj->Name() << "\n";
   }
 
+  void GraphicsSpace::DrawCircle(Real3 pos, Real radius, Real4 color)
+  {
+    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawCircle(pos, radius, color);
+  }
+
+  void GraphicsSpace::DrawRectangle(Real3 pos, Real width, Real height, Real4 color)
+  {
+    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawRectangle(pos, width, height, color);
+  }
+
+  void GraphicsSpace::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color)
+  {
+    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawLineSegment(startPos, endPos, length, color);
+  }
+
 
   std::vector<GameObject*> GraphicsSpace::getSprites() {
     return sprites_;

@@ -58,6 +58,7 @@ namespace DCEngine {
       // TEMP: Change these two to const
       GLuint screenwidth_;
       GLuint screenheight_;
+      glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
 
       // Used for drawing sprites
       ShaderPtr SpriteShader;

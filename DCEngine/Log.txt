@@ -99,19 +99,19 @@ Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
 Camera::Transform::Initialize
-[Engine::Connect] - DebugReport has connected to Keyboard
+[Engine::Connect] - DebugReport has connected to Daisy World
 [Engine::Connect] - DebugCamera has connected to Keyboard
 [Engine::Connect] - DebugCamera has connected to Keyboard
 Chen::Initialize 
 Chen::Transform::Initialize
 Chen::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Chen
-[Engine::Connect] - DebugReport has connected to Keyboard
+[Engine::Connect] - DebugReport has connected to Daisy World
 Connor::Initialize 
 Connor::Transform::Initialize
 Connor::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Connor
-[Engine::Connect] - DebugReport has connected to Keyboard
+[Engine::Connect] - DebugReport has connected to Daisy World
 Reiner::Initialize 
 Reiner::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Reiner
@@ -121,208 +121,446 @@ PhysicsSpace::AddCollider - Reiner
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Mouse
-[Engine::Connect] - DebugReport has connected to Keyboard
+[Engine::Connect] - DebugReport has connected to Daisy World
 Myres::Initialize 
 Myres::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Myres
 Myres::Transform::Initialize
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
-[Engine::Connect] - DebugReport has connected to Keyboard
+[Engine::Connect] - DebugReport has connected to Daisy World
 
 [Engine::Loop]
-Mouse down!
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-2, 0.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1.5, 0.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1.5, 1, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1.5, 1.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-2, 1.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1.5, 1.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1, 1.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1, 2, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1, 2.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1, 3, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-1.5, 3, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-2, 3, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-2, 3.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-2.5, 3.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-2, 3.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1.5, 3.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1.5, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-1, 4.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-0.5, 4.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-Reiner is now at (-0.5, 5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-1, 5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-1.5, 5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-2, 5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (-2, 4.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1.5, 4.5, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner is now at (-1.5, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-1, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner is now at (-0.5, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-1, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner is now at (-1.5, 4, 0)
-Myres is now at (2, 0, 1)
-Camera is now at (1, 1, 1)
-Chen is now at (5, 5, 0)
-Connor is now at (-5, 5, 0)
-Reiner is now at (-1.5, 4, 0)
-Myres is now at (2, 0, 1)
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
+Drawing a circle
 
 [Engine::Terminate] 
 Window::Terminate 

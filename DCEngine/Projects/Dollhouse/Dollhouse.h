@@ -21,13 +21,25 @@ namespace DCEngine {
                             space_(&space), gamesession_(&gamesession) {      
 
       // Default camera object for the space
+      //auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
+      //auto cam = factory->CreateGameObject(String("Camera"),*space_, false);
+      //cam->AddComponent(factory->CreateComponent<Transform>(*cam, false));
+      //cam->AddComponent(factory->CreateComponent<Camera>(*cam, false));
+      //cam->AddComponent(factory->CreateComponent<DebugReport>(*cam, false));
+      //cam->AddComponent(factory->CreateComponent<DebugCamera>(*cam, false));
+      //cam->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      //cam->getComponent<Camera>()->Size = 50;
+
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));
+      cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 50;
+
+      // Let's try having a background sprite, should be drawn behind others.
+
 
       // Graphics Testing: Chen
       GalleryTesting();

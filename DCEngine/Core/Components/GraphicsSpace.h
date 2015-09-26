@@ -31,12 +31,17 @@ namespace DCEngine {
     void OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj);
     void OnSpriteUnregistrationEvent(Event* eventObj);
 
+    /* Debug Drawing functions*/
+    void DrawCircle(Real3 pos, Real radius, Real4 color);
+    void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
+    void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+
     GameObjectRawVec getSprites(); // Return the vector of sprites to be drawn
 
     void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
   private:
-    
+    Graphics* GraphicsSystem;
     GameObjectRawVec sprites_; //!< Container of sprites that need to be drawn    
     GameObjectRawVec models_;  //!< Container of models that need to be rendered
 

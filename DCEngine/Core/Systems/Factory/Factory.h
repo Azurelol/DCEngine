@@ -31,10 +31,13 @@ namespace DCEngine {
 
     public:            
       
-      GameObjectPtr CreateGameObject(Space& space, bool init); //!< Creates a default gameObj
+      /* GameObjects*/
+      GameObjectPtr CreateGameObject(std::string& name, Space& space, bool init); //!< Creates a default gameObj
       GameObjectPtr CreateGameObject(const std::string& gameObjName, const Space& space, bool init);
       
+      /* Components */
       ComponentPtr CreateComponent(const std::string& compName, bool init);
+      template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
 
       ResourcePtr CreateResource(const std::string& resourceName, bool init);
 
@@ -52,12 +55,8 @@ namespace DCEngine {
 
       unsigned LastGameObjectId; //!< Incrementally generate unique IDs
       std::map<std::string, std::type_index> ComponentClassMap; 
-      
-
       GameObjectVec gameObjVec; //!< Container of active GameObjects
-      ComponentVec componentVec; //!< Container of active Components
-
-
+      ComponentVec ComponentContainer; //!< Container of active Components
       std::set<GameObject*> gameObjsToBeDeleted; 
 
       /* Functions */
@@ -68,7 +67,7 @@ namespace DCEngine {
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
 
-      template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
+      
 
 
     }; 
@@ -76,8 +75,10 @@ namespace DCEngine {
     /* Templates */
     template<typename ComponentClass>
     inline ComponentPtr Factory::CreateComponent(Entity& owner, bool init)
-    {
-      //return new(ComponentClass)
+    {      
+      ComponentPtr newComp = new ComponentClass(*owner);
+      ComponentContainer.push_back(newComp);
+      return newComp;
     }
   }
 

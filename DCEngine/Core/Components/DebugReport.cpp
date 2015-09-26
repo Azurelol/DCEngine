@@ -5,8 +5,9 @@
 namespace DCEngine {
     
   void DebugReport::Initialize() {   
-    Connect(Daisy->getKeyboard(), Events::KeyDown, DebugReport::OnKeyDownEvent);    
+    
     TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>();
+    Connect(space_, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
   }
 
   void DebugReport::Serialize(Json::Value & root)
@@ -35,6 +36,30 @@ namespace DCEngine {
 
   void DebugReport::OnMouseDownEvent(Events::MouseDown * event)
   {
+  }
+
+  void DebugReport::OnLogicUpdateEvent(Events::LogicUpdate * event)
+  {
+    // Example zilch code from my GAM150 project for drawing. example to find positions??
+    /*
+    // Casts a sphere of radius
+        //var currPos =  this.Owner.Transform.WorldTranslation;
+        var lookDir = this.Owner.Orientation.WorldForward;
+        //JDebug("World Forward: `lookDir`");
+        this.SphereOrigin = (this.Owner.Transform.Translation + lookDir * this.InteractRadius );
+        //this.SphereOrigin = (this.Owner.Transform.Translation - lookDir * this.InteractRadius );
+           
+    */
+    // Calculate an offset from current position and stuff??
+
+
+    
+    auto pos = Real3(1, 1, 1);
+    auto radius = 5;
+    auto color = Real4(1, 0, 1, 1);
+    space_->getComponent<GraphicsSpace>()->DrawCircle(pos, radius, color);
+    //trace << "hey";
+   
   }
 
 }

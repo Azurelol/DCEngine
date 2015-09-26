@@ -80,7 +80,8 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::StartFrame() {
       glEnable(GL_DEPTH_TEST);
-      glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+      //glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+      glClearColor(ClearColor.x, ClearColor.y, ClearColor.z, ClearColor.w);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
@@ -103,7 +104,7 @@ namespace DCEngine {
     void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color)
     {
       // Do your magic here Chen
-
+      trace << "Drawing a circle\n";
     }
 
     /**************************************************************************/

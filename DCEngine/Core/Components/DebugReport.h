@@ -17,6 +17,7 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);
     void OnMouseDownEvent(Events::MouseDown* event);
+    void OnLogicUpdateEvent(Events::LogicUpdate* event);
   };
 
 

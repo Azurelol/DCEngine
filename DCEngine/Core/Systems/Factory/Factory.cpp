@@ -29,13 +29,13 @@ namespace DCEngine {
     \return If a match was found, a pointer to the component. If not, NULL.
     */
     /**************************************************************************/
-    GameObjectPtr Factory::CreateGameObject(Space& space, bool init) {
+    GameObjectPtr Factory::CreateGameObject(std::string& name, Space& space, bool init) {
       // Create the GameObject
-      GameObjectPtr gameObj(new GameObject(std::string("GameObject"), space, space.getGameSession()));
+      GameObjectPtr gameObj(new GameObject(name, space, space.getGameSession()));
       gameObjVec.push_back(gameObj);
       // Create the Component, and add it to the GameObject
       ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObj)));
-      componentVec.push_back(transform);
+      ComponentContainer.push_back(transform);
       gameObj->AddComponent(transform);
       // Return the GameObject by shared_ptr.
       return gameObj;
