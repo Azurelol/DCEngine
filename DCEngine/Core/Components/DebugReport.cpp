@@ -60,6 +60,8 @@ namespace DCEngine {
     auto radius = 5.0f;
     auto color = Real4(1, 0, 1, 1);
     space_->getComponent<GraphicsSpace>()->DrawCircle(pos, radius, color);
+	//space_->getComponent<GraphicsSpace>()->DrawLineSegment(pos, Real3(5, 1, 1), radius, color);
+	//space_->getComponent<GraphicsSpace>()->DrawRectangle(pos, radius, radius, color);
     //trace << "hey";
    
   }
