@@ -179,7 +179,7 @@ namespace DCEngine {
     void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam)
     {
       // Do your magic here Chen
-      trace << "Drawing a circle\n";
+      //trace << "Drawing a circle\n";
     }
 
     /**************************************************************************/

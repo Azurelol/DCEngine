@@ -87,4 +87,75 @@ PhysicsSpace::Component - Constructor - Owner: 'Daisy World'
 Daisy World::AddComponent - Added PhysicsSpace
 CameraViewport::Component - Constructor - Owner: 'Daisy World'
 Daisy World::AddComponent - Added CameraViewport
-GraphicsSpace::Component - Constructor - O
+GraphicsSpace::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added GraphicsSpace
+[Engine::Connect] - SoundSpace has connected to Daisy World
+Audio::PlayMusic - Playing: spacejam.mp3
+AudioFMOD::CreateStream 
+AudioFMOD::PlaySound 
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Engine::Connect] - GraphicsSpace has connected to Daisy World
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Camera::Transform::Initialize
+[Engine::Connect] - DebugReport has connected to Daisy World
+[Engine::Connect] - DebugCamera has connected to Keyboard
+[Engine::Connect] - DebugCamera has connected to Keyboard
+Chen::Initialize 
+Chen::Transform::Initialize
+Chen::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Chen
+[Engine::Connect] - DebugReport has connected to Daisy World
+Connor::Initialize 
+Connor::Transform::Initialize
+Connor::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Connor
+[Engine::Connect] - DebugReport has connected to Daisy World
+Reiner::Initialize 
+Reiner::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Reiner
+Reiner::Transform::Initialize
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+[Engine::Connect] - DebugMoveController has connected to Keyboard
+[Engine::Connect] - DebugMoveController has connected to Keyboard
+[Engine::Connect] - DebugMoveController has connected to Mouse
+[Engine::Connect] - DebugReport has connected to Daisy World
+Myres::Initialize 
+Myres::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Myres
+Myres::Transform::Initialize
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+[Engine::Connect] - DebugReport has connected to Daisy World
+
+[Engine::Loop]
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+'Up' key was released!
+'Up' key was released!
+'Down' key was released!
+'Down' key was released!
+'Left' key was released!
+
+[Engine::Terminate] 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

@@ -32,10 +32,12 @@ namespace DCEngine {
 
   void DebugReport::OnKeyUpEvent(Events::KeyUp * event)
   {
+
   }
 
   void DebugReport::OnMouseDownEvent(Events::MouseDown * event)
   {
+
   }
 
   void DebugReport::OnLogicUpdateEvent(Events::LogicUpdate * event)
