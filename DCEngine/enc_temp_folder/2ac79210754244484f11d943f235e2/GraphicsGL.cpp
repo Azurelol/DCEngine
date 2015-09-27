@@ -198,6 +198,7 @@ namespace DCEngine {
 		glBegin(GL_LINE_LOOP);
 		glColor3f(color.x, color.y, color.z);
 
+
 		double M_PI = 3.1415926535;
 		static double PointsNumber = 128;
 		for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))

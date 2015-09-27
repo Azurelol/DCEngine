@@ -6,7 +6,7 @@ namespace DCEngine {
     
   void DebugReport::Initialize() {   
     
-    TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>();
+    TransformComponent = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>();
     Connect(space_, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
   }
 
@@ -23,9 +23,9 @@ namespace DCEngine {
     // Keyboard Input broken?
     //switch (event->Key) {
     //case Keys::W:
-      trace << Owner()->Name() << " is now at (" << TransformRef->Translation.x << ", "
-                                                 << TransformRef->Translation.y << ", "
-                                                 << TransformRef->Translation.z << ")\n";
+      trace << Owner()->Name() << " is now at (" << TransformComponent->Translation.x << ", "
+                                                 << TransformComponent->Translation.y << ", "
+                                                 << TransformComponent->Translation.z << ")\n";
     //  break;    
     //}
   }
@@ -53,17 +53,24 @@ namespace DCEngine {
            
     */
     // Calculate an offset from current position and stuff??
+    DebugDraw();
+  }
 
+  void DebugReport::DebugDraw()
+  {
+    auto currPos = Real3(TransformComponent->Translation.x, 
+                        TransformComponent->Translation.y, 
+                        TransformComponent->Translation.z);
 
-    
-    auto pos = Real3(1, 1, 1);
-    auto radius = 5.0f;
-    auto color = Real4(1, 0, 1, 1);
-    space_->getComponent<GraphicsSpace>()->DrawCircle(pos, radius, color);
-	//space_->getComponent<GraphicsSpace>()->DrawLineSegment(pos, Real3(5, 1, 1), radius, color);
-	//space_->getComponent<GraphicsSpace>()->DrawRectangle(pos, radius, radius, color);
-    //trace << "hey";
-   
+    if (DrawType == DebugDrawType::Line) {
+      space_->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Radius, Color);
+    }
+    else if (DrawType == DebugDrawType::Circle) {
+      space_->getComponent<GraphicsSpace>()->DrawCircle(currPos + Offset, Radius, Color);
+    }
+    else if (DrawType == DebugDrawType::Rectangle) {
+      space_->getComponent<GraphicsSpace>()->DrawRectangle(currPos + Offset, Radius, Height, Color);
+    }
   }
 
 }

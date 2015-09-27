@@ -89,8 +89,6 @@ namespace DCEngine {
       void SetUpTest();
       void DrawTest();
       GLuint testVAO, testVBO;
-      
-
 
     }; // GraphicsGL 
 

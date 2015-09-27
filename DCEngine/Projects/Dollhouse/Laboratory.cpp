@@ -22,6 +22,12 @@ namespace DCEngine {
     gameObj1->getComponent<Sprite>()->Color = Real4(1, 0, 0, 1); // Color: Red
     // MoveController properties
     gameObj1->getComponent<DebugMoveController>()->MoveSpeed = 0.5;
+    // DebugDraw properties
+    gameObj1->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
+    gameObj1->getComponent<DebugReport>()->Radius = 4;
+    gameObj1->getComponent<DebugReport>()->Offset = Real3(5, -2, 0);
+    gameObj1->getComponent<DebugReport>()->Color = Real4(1, 0, 0, 1); // Color: Red
+
 
     // Simple entity #2
     GameObjectPtr john = ConstructGameObject("Myres");
