@@ -3,7 +3,7 @@
 
 namespace DCEngine {
 
-  class DebugDraw : public Object {
+  class DebugDrawObject : public Object {
 
   public:    
     virtual void Draw();
@@ -11,5 +11,8 @@ namespace DCEngine {
   private:
 
   };
+
+  using DebugDrawObjPtr = std::shared_ptr<DebugDrawObject>;
+  using DebugDrawObjVec = std::vector<DebugDrawObjPtr>;
 
 }

@@ -300,6 +300,9 @@
     <ClCompile Include="Core\Components\DebugCamera.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -557,9 +560,6 @@
     <ClInclude Include="Core\Objects\DebugDraw.h">
       <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Objects\DebugDraw\DrawSphere.h">
-      <Filter>Core\Object\DebugDraw</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw\DrawRectangle.h">
       <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
@@ -567,6 +567,9 @@
       <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw\DrawLine.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawCircle.h">
       <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
   </ItemGroup>

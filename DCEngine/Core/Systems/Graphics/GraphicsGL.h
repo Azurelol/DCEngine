@@ -22,6 +22,9 @@
 #include "..\..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
 // Graphics resources
 #include "..\..\Resources\Shader.h"
+// DebugDraw
+#include "../../Objects/DebugDraw.h"
+#include "../../Objects/DebugDraw/DebugDrawInclude.h"
 
 namespace DCEngine {
   
@@ -34,24 +37,37 @@ namespace DCEngine {
       friend class Graphics;
           
     public:
-      GraphicsGL();
-      
+      GraphicsGL();      
       void Initialize();
       void Update(float dt);
       void Terminate();
-
       void StartFrame();
-      void EndFrame();
+      void EndFrame();      
 
+      /* Sprite */
       void ConfigureSpriteVAO();
       void SetShaderProjectionUniform(Camera& camera);
+
       void DrawSprite(GameObject& gameObj, Camera& camera);
 
+      /* Model */
       void DrawModel(GameObject& gameObj);
 
-      void DrawCircle(Real3 pos, Real radius, Real4 color);
-      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
-      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+      /* DebugDraw */
+      void ConfigureLineVAO();
+      void ConfigureCircleVAO();
+      void ConfigureRectangleVAO();
+
+      void SetDebugDrawShaderProjViewUniform(Camera& camera);
+
+      void DrawDebug(DebugDrawObject& debugDrawObj, Camera& cam); 
+      void DrawCircle(DrawCircleObj& obj);
+      void DrawRectangle(DrawRectObj& obj);
+      
+      void DrawLineSegment(DrawLineObj& obj);
+      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam);
+      void DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam);
+      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam);
 
 
     private:
@@ -60,9 +76,13 @@ namespace DCEngine {
       GLuint screenheight_;
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
 
-      // Used for drawing sprites
+      // Sprites
       ShaderPtr SpriteShader;
       GLuint SpriteVAO; // A Quad VAO
+
+      // DebugDraw
+      ShaderPtr DebugDrawShader;
+      GLuint LineVAO, CircleVAO, RectVAO;
 
       // Testing
       ShaderPtr SimpleShader;

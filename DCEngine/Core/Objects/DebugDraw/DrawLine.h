@@ -3,7 +3,7 @@
 
 namespace DCEngine {
 
-  class DrawLine : public DebugDraw
+  class DrawLineObj : public DebugDrawObject
   {
   public:
 

@@ -19,6 +19,7 @@
 namespace DCEngine {  
   class Engine;
   class Camera;
+  class DebugDrawObject;
 
   namespace Systems {
 
@@ -32,12 +33,12 @@ namespace DCEngine {
       
       void DrawSprite(GameObject& gameObj, Camera& camera);
       void DrawModel(GameObject& gameObj);
-      void DrawDebug();  
+      void DrawDebug(DebugDrawObject& debugDraw);  
 
       /* Debug Drawing functions*/
-      void DrawCircle(Real3 pos, Real radius, Real4 color);
-      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
-      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+      void DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam);
+      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam);
+      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam);
 
     private:
 

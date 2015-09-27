@@ -3,14 +3,9 @@
 
 namespace DCEngine {
 
-  class DrawSphere : public DebugDraw
-  {
+  class DrawCircleObj : public DebugDrawObject {
   public:
 
-
-
-
   };
-
 
 }

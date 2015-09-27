@@ -55,7 +55,7 @@ namespace DCEngine {
 
     
     auto pos = Real3(1, 1, 1);
-    auto radius = 5;
+    auto radius = 5.0f;
     auto color = Real4(1, 0, 1, 1);
     space_->getComponent<GraphicsSpace>()->DrawCircle(pos, radius, color);
     //trace << "hey";

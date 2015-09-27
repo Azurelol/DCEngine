@@ -1,6 +1,7 @@
 #include "BoxCollider.h"
 #include "PhysicsSpace.h"
 #include "EngineReference.h"
+#include "DebugDrawReference.h"
 
 namespace DCEngine {
   
@@ -11,6 +12,7 @@ namespace DCEngine {
     TransformComponent = owner->getComponent<Transform>();
     // Subscribe this physics component to the physics space
     space_->getComponent<PhysicsSpace>()->AddCollider(owner);
+    
   }
 
   void BoxCollider::Serialize(Json::Value & root)

@@ -190,6 +190,7 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
@@ -247,9 +248,9 @@
     <ClInclude Include="Core\Objects\Components\ZilchComponent.h" />
     <ClInclude Include="Core\Objects\DebugDraw.h" />
     <ClInclude Include="Core\Objects\DebugDraw\DebugDrawInclude.h" />
+    <ClInclude Include="Core\Objects\DebugDraw\DrawCircle.h" />
     <ClInclude Include="Core\Objects\DebugDraw\DrawLine.h" />
     <ClInclude Include="Core\Objects\DebugDraw\DrawRectangle.h" />
-    <ClInclude Include="Core\Objects\DebugDraw\DrawSphere.h" />
     <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h" />
     <ClInclude Include="Core\Objects\Entities\GameObject.h" />
     <ClInclude Include="Core\Objects\Entities\GameSession.h" />

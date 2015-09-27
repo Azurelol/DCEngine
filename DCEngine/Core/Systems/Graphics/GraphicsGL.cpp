@@ -5,7 +5,6 @@
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
 \brief  The 
-
 */
 /******************************************************************************/
 #include "GraphicsGL.h"
@@ -95,16 +94,65 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Draws a circle on screen.
-    \param The position of the center of the circle.
-    \param The radius of the circle.
-    \param The color of the circle.
+    \brief  Configures the DebugDraw Line VAO.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color)
+    void GraphicsGL::ConfigureLineVAO()
     {
-      // Do your magic here Chen
-      trace << "Drawing a circle\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Configures the DebugDraw Circle VAO.
+    */
+    /**************************************************************************/
+    void GraphicsGL::ConfigureCircleVAO()
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Configures the DebugDraw Rectangle VAO.
+    */
+    /**************************************************************************/
+    void GraphicsGL::ConfigureRectangleVAO()
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Sets the DebugDraw projection and view uniforms from the camera
+    */
+    /**************************************************************************/
+    void GraphicsGL::SetDebugDrawShaderProjViewUniform(Camera & camera)
+    {
+
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Takes a DrawDebug object and draws depending on.
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Camera& cam)
+    {
+      // The received object is a DrawLine
+      //if (std::type_index(typeid(debugDrawObj)) == typeid(DrawLine)) {
+      //  
+      //}
+
+    }
+
+    void GraphicsGL::DrawCircle(DrawCircleObj & obj)
+    {
+    }
+
+    void GraphicsGL::DrawRectangle(DrawRectObj & obj)
+    {
+    }
+
+    void GraphicsGL::DrawLineSegment(DrawLineObj & obj)
+    {
     }
 
     /**************************************************************************/
@@ -116,9 +164,22 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Real3 pos, Real width, Real height, Real4 color)
+    void GraphicsGL::DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam)
     {
-
+      
+    }
+    /**************************************************************************/
+    /*!
+    \brief Draws a circle on screen.
+    \param The position of the center of the circle.
+    \param The radius of the circle.
+    \param The color of the circle.
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam)
+    {
+      // Do your magic here Chen
+      trace << "Drawing a circle\n";
     }
 
     /**************************************************************************/
@@ -130,7 +191,7 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color)
+    void GraphicsGL::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam)
     {
 
     }

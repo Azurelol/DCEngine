@@ -110,7 +110,7 @@ namespace DCEngine {
 				if (BoxtoBox(obj1, obj2))
 				{
 					// generate collision data
-					trace << "Colision\n";
+					trace << "Physics::NarrowPhaseDetection - Colision between " << obj1->Name() << " and " << obj2->Name() << "\n";
 				}
 
 

@@ -1,8 +1,6 @@
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
 
-
-
 namespace DCEngine {
   namespace Systems {
 
@@ -27,20 +25,21 @@ namespace DCEngine {
 
       // For every graphics space component
       for (auto gfxSpace : graphicsSpaces_) {
-        // 1. Draw all sprites. Since we will be drawing all
-        // visible sprites, we will set the sprite shader 'once',
-        // then draw them all with it. We will be passing a pointer
-        // to the graphics space component.
-
         // Get the default camera from the viewport component
         auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
-        // Set the shader's projection matrix
+        // Set the sprite shader's projection/view matrix uniform once per frame
         GraphicsHandler->SetShaderProjectionUniform(*camera);
         // Draw every sprite
         for (auto gameObj : gfxSpace->getSprites()) {
          DrawSprite(*gameObj, *camera);
         }
 
+        
+        // Set the debugdraw shader's projection/view matrix uniform once per frame
+
+        // Draw every debug object
+
+        
         // 2. Render all models. Load the model shader.
 
         // 3. Render al particles. Load different shader.
@@ -60,23 +59,27 @@ namespace DCEngine {
       GraphicsHandler->DrawSprite(gameObj, cam);
     }
 
+    void Graphics::DrawDebug(DebugDrawObject & debugDraw)
+    {
+    }
+
     ///////////////
     // DEBUG DRAW
     ///////////////
 
-    void Graphics::DrawCircle(Real3 pos, Real radius, Real4 color)
+    void Graphics::DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam)
     {
-      GraphicsHandler->DrawCircle(pos, radius, color);
+      GraphicsHandler->DrawCircle(pos, radius, color, cam);
     }
 
-    void Graphics::DrawRectangle(Real3 pos, Real width, Real height, Real4 color)
+    void Graphics::DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam)
     {
-      GraphicsHandler->DrawRectangle(pos, width, height, color);
+      GraphicsHandler->DrawRectangle(pos, width, height, color, cam);
     }
 
-    void Graphics::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color)
+    void Graphics::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam)
     {
-      GraphicsHandler->DrawLineSegment(startPos, endPos, length, color);
+      GraphicsHandler->DrawLineSegment(startPos, endPos, length, color, cam);
     }
 
     /////////////////

@@ -1,4 +1,5 @@
 #pragma once
 
 #include "DrawRectangle.h"
-#include "DrawSphere.h"
+#include "DrawLine.h"
+#include "DrawCircle.h"

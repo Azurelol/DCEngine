@@ -3,7 +3,7 @@
 
 namespace DCEngine {
 
-  class DrawRectangle : public DebugDraw {
+  class DrawRectObj : public DebugDrawObject {
   public:
 
   };

@@ -12,9 +12,12 @@
 #pragma once
 #include "ComponentReference.h"
 #include "../Objects/Entities/GameObject.h"
+#include "../Objects/DebugDraw.h"
 
 namespace DCEngine {
   
+  class Camera;
+  class CameraViewport;
   class Graphics;
   class GraphicsSpace : public Component {
     friend class Graphics; 
@@ -42,8 +45,10 @@ namespace DCEngine {
 
   private:
     Graphics* GraphicsSystem;
+    CameraViewport* CameraViewportComponent;
     GameObjectRawVec sprites_; //!< Container of sprites that need to be drawn    
     GameObjectRawVec models_;  //!< Container of models that need to be rendered
+    DebugDrawObjVec debugDrawObjs_; //!< Container of debug draw objects to be drawn this frame.
 
   };
 
