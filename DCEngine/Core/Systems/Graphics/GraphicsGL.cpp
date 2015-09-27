@@ -167,7 +167,7 @@ namespace DCEngine {
     void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
     {
 		glBegin(GL_LINE_LOOP);
-		glColor3f(color.x, color.y, color.z);
+		glColor3f(color.r, color.g, color.b);
 
 		auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
 		auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
@@ -196,13 +196,13 @@ namespace DCEngine {
       // Do your magic here Chen
       //trace << "Drawing a circle\n";
 		glBegin(GL_LINE_LOOP);
-		glColor3f(color.x, color.y, color.z);
+		glColor3f(color.r, color.g, color.b);
 
 		double M_PI = 3.1415926535;
 		static double PointsNumber = 128;
 		for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))
 		{
-			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
+			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0f);
 			PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
 			glm::vec4 Position = glm::vec4(PositionOrigin.x + radius * cos(i), PositionOrigin.y + radius * sin(i), PositionOrigin.z, 0.0);
 			//trace << Position.x << " ," << Position.y << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][2] << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][3] << "\n";
@@ -225,7 +225,7 @@ namespace DCEngine {
     {
 		glBegin(GL_LINE_LOOP);
 
-		glColor3f(color.x, color.y, color.z);
+		glColor3f(color.r, color.g, color.b);
 		auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);
 		auto Position2 = glm::vec4(endPos.x, endPos.y, endPos.z, 0.0);
 		glVertex3f(Position1.x, Position1.y, Position1.z);
@@ -344,7 +344,7 @@ namespace DCEngine {
                                                           transform->Translation.y, 
                                                           0.0f));
       //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
-      modelMatrix = glm::rotate(modelMatrix, 0.0f, Real3(0.0f, 0.0f, 1.0f));
+      modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
       //objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
       //                                        -0.5f * transform->Scale.y,
       //                                        0.0f));
