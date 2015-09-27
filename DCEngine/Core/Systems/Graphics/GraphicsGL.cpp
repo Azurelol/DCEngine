@@ -164,7 +164,7 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam)
+    void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
     {
 		glBegin(GL_LINE_LOOP);
 		glColor3f(color.x, color.y, color.z);
@@ -191,7 +191,7 @@ namespace DCEngine {
     \param The color of the circle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam)
+    void GraphicsGL::DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam)
     {
       // Do your magic here Chen
       //trace << "Drawing a circle\n";
@@ -221,7 +221,7 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam)
+    void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
     {
 		glBegin(GL_LINE_LOOP);
 

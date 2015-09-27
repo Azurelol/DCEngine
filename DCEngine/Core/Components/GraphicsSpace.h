@@ -35,9 +35,9 @@ namespace DCEngine {
     void OnSpriteUnregistrationEvent(Event* eventObj);
 
     /* Debug Drawing functions*/
-    void DrawCircle(Real3 pos, Real radius, Real4 color);
-    void DrawRectangle(Real3 pos, Real width, Real height, Real4 color);
-    void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color);
+    void DrawCircle(Real3& pos, Real& radius, Real4& color);
+    void DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color);
+    void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color);
 
     GameObjectRawVec getSprites(); // Return the vector of sprites to be drawn
 

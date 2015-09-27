@@ -65,11 +65,10 @@ namespace DCEngine {
       void DrawRectangle(DrawRectObj& obj);
       
       void DrawLineSegment(DrawLineObj& obj);
-      void DrawRectangle(Real3 pos, Real width, Real height, Real4 color, Camera& cam);
-      void DrawCircle(Real3 pos, Real radius, Real4 color, Camera& cam);
-      void DrawLineSegment(Real3 startPos, Real3 endPos, Real length, Real4 color, Camera& cam);
-
-
+      void DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam);
+      void DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam);
+      void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam);
+      
     private:
       // TEMP: Change these two to const
       GLuint screenwidth_;
