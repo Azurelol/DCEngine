@@ -368,7 +368,7 @@ namespace DCEngine {
       glActiveTexture(GL_TEXTURE0); // Used for 3D
       sprite->getSpriteSource()->getTexture().Bind();
 
-      //this->SpriteShader->SetInteger("image", sprite->getSpriteSource()->getTexture().TextureID);
+      this->SpriteShader->SetInteger("image", sprite->getSpriteSource()->getTexture().TextureID);
       // Bind the vertex array
       glBindVertexArray(this->SpriteVAO);
       // Draw the array
