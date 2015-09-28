@@ -22,7 +22,7 @@ Description here.
 #include "..\Debug\Debug.h" // Trace
 
 #include "..\Config.h" // DefaultSpace
-#include "..\..\Core\Events\EventsInclude.h"
+#include "..\EventsInclude.h"
 
 // Testing
 #include "../Testing.h" // Dollhouse

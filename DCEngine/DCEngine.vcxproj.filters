@@ -136,9 +136,6 @@
     <Filter Include="Core\Systems\Content">
       <UniqueIdentifier>{262f1be3-c6a6-48ef-b75b-49742011dde3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\Graphics\Audio">
-      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Components\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
@@ -147,6 +144,12 @@
     </Filter>
     <Filter Include="Core\Object\DebugDraw">
       <UniqueIdentifier>{e40ca2d8-f034-46da-910e-857d9f0d09a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Audio">
+      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Physics">
+      <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -223,7 +226,7 @@
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SoundSpace.cpp">
-      <Filter>Core\Components\Graphics\Audio</Filter>
+      <Filter>Core\Components\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Camera.cpp">
       <Filter>Core\Components\Graphics</Filter>
@@ -374,9 +377,6 @@
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Events\LogicUpdate.h">
-      <Filter>Core\Events\Update</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Component.h">
       <Filter>Core\Object\Component</Filter>
     </ClInclude>
@@ -435,7 +435,7 @@
       <Filter>Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SoundSpace.h">
-      <Filter>Core\Components\Graphics\Audio</Filter>
+      <Filter>Core\Components\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\BoxCollider.h">
       <Filter>Core\Components\Physics</Filter>
@@ -451,9 +451,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\TimeSpace.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\EventsInclude.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Transform.h">
       <Filter>Core\Components\Physics</Filter>
@@ -571,6 +568,18 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw\DrawCircle.h">
       <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SpriteText.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\CollisionEvents.h">
+      <Filter>Core\Events\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\UpdateEvents.h">
+      <Filter>Core\Events\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EventsInclude.h">
+      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

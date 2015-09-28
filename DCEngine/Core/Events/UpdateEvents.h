@@ -1,11 +1,10 @@
 /******************************************************************************/
 /*!
-\file   Event.h
+\file   UpdateEvents.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/17/2015
-\brief  Update event that contains current time and delta time.
-
+\brief  Update events sent by the engine.
 */
 /******************************************************************************/
 #pragma once
@@ -14,7 +13,7 @@
 namespace DCEngine {
 
   namespace Events {
-    // Engine-wide update event
+
     class LogicUpdate : public Event {
     public:
       LogicUpdate() {}
@@ -24,11 +23,20 @@ namespace DCEngine {
       float RealTimePassed;
 
 
-    private:
-
-
     };
 
+    class PhysicsUpdate : public Event {
+    public:
+      PhysicsUpdate() {}
+
+      float Dt;
+      float TimePassed;
+      float RealTimePassed;
+
+
+    private:
+
+    };
 
   }
 }

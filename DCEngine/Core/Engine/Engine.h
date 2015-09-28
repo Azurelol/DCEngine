@@ -65,7 +65,8 @@ namespace DCEngine {
       SystemVec _systems; //!< Container for the engine's systems.   
       SpaceMap _spaces; //!< A map of spaces created by the engine.
 
-      void Update(float dt);      
+      void Update(float dt);
+      void DispatchUpdateEvents(float dt);
       void LoadProject(std::string& filename); //!< Load a project from a filename
 
       

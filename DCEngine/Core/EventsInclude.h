@@ -3,12 +3,17 @@
 /********
   UPDATE
 ********/
-#include "Events\LogicUpdate.h"
+#include "Events\UpdateEvents.h"
 
 /*******
 GRAPHICS
 *******/
 #include "Events\SpriteRegistrationEvent.h"
+
+/*******
+PHYSICS
+*******/
+#include "Events\CollisionEvents.h"
 
 /*******
   INPUT

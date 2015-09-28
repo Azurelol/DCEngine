@@ -76,7 +76,7 @@ namespace DCEngine {
     template<typename ComponentClass>
     inline ComponentPtr Factory::CreateComponent(Entity& owner, bool init)
     {      
-      ComponentPtr newComp = new ComponentClass(*owner);
+      ComponentPtr newComp = ComponentPtr(new ComponentClass(owner));
       ComponentContainer.push_back(newComp);
       return newComp;
     }

@@ -79,8 +79,8 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::StartFrame() {
       glEnable(GL_DEPTH_TEST);
-      glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
-      //glClearColor(ClearColor.x, ClearColor.y, ClearColor.z, ClearColor.w);
+      //glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+      glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
@@ -132,6 +132,8 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     \brief  Takes a DrawDebug object and draws depending on.
+    \param  A reference to the drawdebug object.
+    \para   A reference to the space's camera.
     */
     /**************************************************************************/
     void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Camera& cam)

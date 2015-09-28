@@ -20,10 +20,10 @@ namespace DCEngine {
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {      
 
-      // Default camera object for the space
-      //auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
-      //auto cam = factory->CreateGameObject(String("Camera"),*space_, false);
-      //cam->AddComponent(factory->CreateComponent<Transform>(*cam, false));
+      auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
+      
+      auto cam = factory->CreateGameObject(String("FactoryTesty"),*space_, false);
+      cam->AddComponent(factory->CreateComponent<Transform>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<Camera>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<DebugReport>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<DebugCamera>(*cam, false));

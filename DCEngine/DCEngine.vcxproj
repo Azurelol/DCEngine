@@ -224,6 +224,7 @@
     <ClInclude Include="Core\Components\RigidBody.h" />
     <ClInclude Include="Core\Components\SoundSpace.h" />
     <ClInclude Include="Core\Components\Sprite.h" />
+    <ClInclude Include="Core\Components\SpriteText.h" />
     <ClInclude Include="Core\Components\TimeSpace.h" />
     <ClInclude Include="Core\Components\Transform.h" />
     <ClInclude Include="Core\Config.h" />
@@ -238,12 +239,13 @@
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
+    <ClInclude Include="Core\Events\CollisionEvents.h" />
     <ClInclude Include="Core\Events\EventReference.h" />
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
-    <ClInclude Include="Core\Events\LogicUpdate.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
+    <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Objects\Component.h" />
     <ClInclude Include="Core\Objects\Components\ZilchComponent.h" />
     <ClInclude Include="Core\Objects\DebugDraw.h" />
