@@ -122,170 +122,15 @@ PhysicsSpace::AddCollider - Myres
 [Engine::Connect] - DebugReport has connected to Daisy World
 
 [Engine::Loop]
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
@@ -331,13 +176,6 @@ Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
@@ -370,7 +208,52 @@ Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
@@ -437,10 +320,26 @@ Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
@@ -458,8 +357,67 @@ Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
 Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+Camera - Size: 80
+Camera - Size: 90
+Camera - Size: 100
+Camera - Size: 11
+Camera - Size: 21
+Camera - Size: 31
+Camera - Size: 41
+Camera - Size: 51
+Camera - Size: 61
+Camera - Size: 71
+Camera - Size: 81
+Camera - Size: 91
+Camera - Size: 101
 
 [Engine::Terminate] 
 Window::Terminate 

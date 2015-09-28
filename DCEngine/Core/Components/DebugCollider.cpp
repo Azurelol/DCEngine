@@ -8,7 +8,7 @@ namespace DCEngine {
   {
     auto gameObj = dynamic_cast<GameObject*>(Owner());
     SpriteComponent = gameObj->getComponent<Sprite>();
-    CollisionCue = SoundCue(String("CollisionSound"), String("collision.wav"));
+    //CollisionCue = SoundCue(String("CollisionSound"), String("collision.wav"));
 
     // Save the current color
     SpriteColor = SpriteComponent->Color;
@@ -33,7 +33,7 @@ namespace DCEngine {
     // Change color    
     SpriteComponent->Color = CollisionColor;
     // Play a collision 
-    space_->getComponent<SoundSpace>()->PlayCue();
+    //space_->getComponent<SoundSpace>()->PlayCue();
   }
 
   void DebugCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
