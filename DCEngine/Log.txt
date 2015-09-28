@@ -19,6 +19,14 @@ SpriteShader::AssertShaderCompilation - Vertex Shader compiled!
 SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteShader::AssertShaderCompilation - Shader program linked! 
 
+
+SpriteTextShader::Shader - Constructor 
+SpriteTextShader::Load - Vertex: SpriteTextShader.vs , Fragment: SpriteTextShader.frag
+SpriteTextShader::Compile 
+SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Shader program linked! 
+
 [Engine::Initialize - All engine systems initialized]
 Daisy Project::GameSession - Constructor
 Daisy Project::CreateSpace - Daisy World has been constructed. 
@@ -49,6 +57,11 @@ Sprite::Component - Constructor - Owner: 'Connor'
 Connor::AddComponent - Added Sprite
 DebugReport::Component - Constructor - Owner: 'Connor'
 Connor::AddComponent - Added DebugReport
+SpriteTextor::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'SpriteTextor'
+SpriteTextor::AddComponent - Added Transform
+SpriteText::Component - Constructor - Owner: 'SpriteTextor'
+SpriteTextor::AddComponent - Added SpriteText
 Reiner::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
 Sprite::Component - Constructor - Owner: 'Reiner'
 Reiner::AddComponent - Added Sprite
@@ -77,6 +90,7 @@ Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Chen to the space.
 Daisy World::AddEntity - Added Connor to the space.
+Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
 [Daisy Project::Initialize - Initializing all spaces... ] 
@@ -108,18 +122,25 @@ Chen::Initialize
 Chen::Transform::Initialize
 Chen::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Chen
+SpriteSource::LoadTexture - Failed to load image file!
 [Engine::Connect] - DebugReport has connected to Daisy World
 Connor::Initialize 
 Connor::Transform::Initialize
 Connor::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Connor
+SpriteSource::LoadTexture - Failed to load image file!
 [Engine::Connect] - DebugReport has connected to Daisy World
+SpriteTextor::Initialize 
+SpriteTextor::Transform::Initialize
+GraphicsSpace::AddSpriteText - SpriteTextor
 Reiner::Initialize 
 Reiner::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Reiner
+SpriteSource::LoadTexture - Failed to load image file!
 Reiner::Transform::Initialize
 PhysicsSpace::AddRigidBody - Reiner
 PhysicsSpace::AddCollider - Reiner
+[Engine::Connect] - BoxCollider has connected to Daisy World
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Keyboard
 [Engine::Connect] - DebugMoveController has connected to Mouse
@@ -127,29 +148,320 @@ PhysicsSpace::AddCollider - Reiner
 Myres::Initialize 
 Myres::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Myres
+SpriteSource::LoadTexture - Failed to load image file!
 Myres::Transform::Initialize
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
+[Engine::Connect] - BoxCollider has connected to Daisy World
 [Engine::Connect] - DebugReport has connected to Daisy World
 
 [Engine::Loop]
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
 
 [Engine::Terminate] 
 Window::Terminate 

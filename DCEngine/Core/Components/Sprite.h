@@ -16,7 +16,9 @@ namespace DCEngine {
     None,
   };
 
+  class Transform;
   class SpriteSource;
+
   class Sprite : public Component {
   public:
 
@@ -30,17 +32,18 @@ namespace DCEngine {
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
-
     void setSpriteSource(std::string fileName);
     SpriteSource* getSpriteSource();
 	  void UpdateSprite();
 
   private:
 
-	bool XFlipped;
-	bool YFlipped;
-	glm::mat4 FlipMatrix;
-	std::unique_ptr<SpriteSource> SpriteSourceObj;
+    Transform* TransformComponent;
+
+    bool XFlipped;
+    bool YFlipped;
+    glm::mat4 FlipMatrix;
+    std::unique_ptr<SpriteSource> SpriteSourceObj;
 
 
 	//Update

@@ -5,7 +5,11 @@
 namespace DCEngine {
 
 
-
+  /**************************************************************************/
+  /*!
+  \brief Initializes the GraphicsSpace component.
+  */
+  /**************************************************************************/
   void GraphicsSpace::Initialize() {
     // Store a reference to the space's 'CameraViewport' component
     CameraViewportComponent = Owner()->getComponent<CameraViewport>();
@@ -15,6 +19,11 @@ namespace DCEngine {
     Connect(space_, Events::SpriteRegistration, GraphicsSpace::OnSpriteRegistrationEvent);
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Serialize/Deserialize.
+  */
+  /**************************************************************************/
   void GraphicsSpace::Serialize(Json::Value & root) {
 
   }
@@ -23,12 +32,34 @@ namespace DCEngine {
 
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Registers a Sprite into the GraphicsSpace.
+  */
+  /**************************************************************************/
   void GraphicsSpace::OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj) {
     sprites_.push_back(eventObj->SpriteObj);
     trace << "GraphicsSpace::OnSpriteRegistrationEvent - " 
           << eventObj->SpriteObj->Name() << "\n";
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Registers a SpriteText into the GraphicsSpace
+  */
+  /**************************************************************************/
+  void GraphicsSpace::AddSpriteText(SpriteText& spriteText)
+  {
+    SpriteTextContainer.push_back(&spriteText);
+    trace << "GraphicsSpace::AddSpriteText - "
+      << spriteText.Owner()->Name() << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Passes a call requesting a DebugDraw call on to the Graphics System.
+  */
+  /**************************************************************************/
   void GraphicsSpace::DrawCircle(Real3& pos, Real& radius, Real4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
@@ -47,9 +78,19 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawLineSegment(startPos, endPos, length, color, cam);
   }
 
-
+  /**************************************************************************/
+  /*!
+  \brief  Returns the container of Sprite pointers.
+  \return A container of Sprite pointers.
+  */
+  /**************************************************************************/
   std::vector<GameObject*> GraphicsSpace::getSprites() {
     return sprites_;
+  }
+
+  SpriteTextContainer GraphicsSpace::getSpriteTextContainer()
+  {
+    return SpriteTextContainer;
   }
 
 }

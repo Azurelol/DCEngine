@@ -139,9 +139,6 @@
     <Filter Include="Core\Components\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\OpenGLTutorial">
-      <UniqueIdentifier>{c1eff3ef-21f0-4641-a0ae-d46929c4afb8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\DebugDraw">
       <UniqueIdentifier>{e40ca2d8-f034-46da-910e-857d9f0d09a9}</UniqueIdentifier>
     </Filter>
@@ -273,18 +270,6 @@
     <ClCompile Include="Core\Components\RigidBody.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
@@ -305,6 +290,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SpriteText.cpp">
+      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -527,21 +515,6 @@
     <ClInclude Include="Core\ComponentsInclude.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTriangle.h">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorials\OpenGL\GLTutorial.h">
-      <Filter>Projects\OpenGLTutorial</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Manifold.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
@@ -600,8 +573,11 @@
     <None Include="Core\Resources\Shaders\SimpleShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Tutorials\OpenGL\GLCameraTutorial.vs">
-      <Filter>Projects\OpenGLTutorial</Filter>
+    <None Include="Core\Resources\Shaders\SpriteTextShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Resources\Shaders\SpriteTextShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

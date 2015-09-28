@@ -1,8 +1,6 @@
-// Fragment shader used by 'Sprite'
+// Vertex Shader used by 'SpriteText'
 #version 330 core
 
-// We take a texture and color vector that both affect the final color of the
-// fragment. 
 in vec2 TexCoords;
 out vec4 color;
 

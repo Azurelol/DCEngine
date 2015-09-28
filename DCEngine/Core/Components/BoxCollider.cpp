@@ -28,7 +28,7 @@ namespace DCEngine {
   void BoxCollider::DrawCollider()
   {
     auto debugScale = Real2(TransformComponent->Scale.x * Size.x,
-      TransformComponent->Scale.y * Size.y);
+                            TransformComponent->Scale.y * Size.y);
 
     space_->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset, 
                                                           debugScale.x, //TransformComponent->Scale.x * Size.x,

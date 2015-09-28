@@ -25,7 +25,7 @@ namespace DCEngine {
     void GraphicsGL::BufferCleaner()
     {
    	  glm::mat4 cleanup;
-	  this->SpriteShader->SetMatrix4("model", cleanup);	
+	    this->SpriteShader->SetMatrix4("model", cleanup);	
 	}
 
     /**************************************************************************/
@@ -54,17 +54,17 @@ namespace DCEngine {
         trace << "Failed to initialize GLEW \n";
       }
 
-      // Construct the sprite shader
+      // Construct the Sprite shader
       SpriteShader.reset(new Shader(std::string("SpriteShader"), "SpriteShader.vs", "SpriteShader.frag"));
-      // Configure the sprite shader VAO
+      // Configure the Sprite shader VAO
       ConfigureSpriteVAO();
-      
-      // TESTING
-      
-      if (DRAW_TEST) {
-        SimpleShader.reset(new Shader(std::string("SimpleShader"), "SimpleShader.vs", "SimpleShader.frag"));
-        SetUpTest();
-      }
+
+      // Construct the SpriteText shader
+      SpriteTextShader.reset(new Shader(std::string("SpriteTextShader"), "SpriteTextShader.vs", "SpriteTextShader.frag"));
+      // Configure the SpriteText shader VAO
+      ConfigureSpriteTextVAO();
+
+
     }
 
     /**************************************************************************/
@@ -85,8 +85,8 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::StartFrame() {
       glEnable(GL_DEPTH_TEST);
-      //glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
-      glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
+      glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+      //glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
@@ -289,43 +289,38 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
+    void GraphicsGL::ConfigureSpriteTextVAO()
+    {
+    }
 
     /**************************************************************************/
     /*!
-    \brief Sets the shader's camera projection matrix once before drawing
-           everything.            
-    \param A pointer to camera object.
-    \note
+    \brief Sets the shader's camera projection matrix and view uniforms.
+    \param A (smart) pointer to the shader object.
+    \param A reference to camera object.
+    \note 
     */
     /**************************************************************************/
-    void GraphicsGL::SetShaderProjectionUniform(Camera& camera) {
+    void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Camera& camera) {
 
       auto camTrans = camera.Owner()->getComponent<Transform>();
 
       // (???) Sets the "image" uniform to 0
-      SpriteShader->SetInteger("image", 0);
-      // Set the projection matrix      
-      
-     // glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 1.0f, 10.0f);
-      glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800),
-        static_cast<GLfloat>(600), 0.0f, -1.0f, 1.0f);
-
-      this->SpriteShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-      //this->SpriteShader->SetMatrix4("projection", projection);
-      auto projM = camera.GetProjectionMatrix();
-      //glm::mat4 view = glm::lookAt(
-      //  glm::vec3(1.2f, 1.2f, 1.2f),
-      //  glm::vec3(0.0f, 0.0f, 0.0f),
-      //  glm::vec3(0.0f, 0.0f, 1.0f)
-      //  );
-
+      //SpriteShader->SetInteger("image", 0);
+      // Set the projection matrix
+      shader->SetMatrix4("projection", camera.GetProjectionMatrix());
       // Set the view matrix
-      this->SpriteShader->SetMatrix4("view", camera.GetViewMatrix());
-      //this->SpriteShader->SetMatrix4("view", view);
-      auto viewM = camera.GetViewMatrix();
+      shader->SetMatrix4("view", camera.GetViewMatrix());
+    }
 
-      //trace << "lol";
+    void GraphicsGL::SetSpriteShader(Camera& camera)
+    {
+      SetShaderProjViewUniforms(this->SpriteShader, camera);
+    }
 
+    void GraphicsGL::SetSpriteTextShader(Camera& camera)
+    {
+      SetShaderProjViewUniforms(this->SpriteTextShader, camera);
     }
 
     /**************************************************************************/
@@ -381,54 +376,20 @@ namespace DCEngine {
       // Unbind the vertex array
       glBindVertexArray(0);
 
-      if (DRAW_TEST) {
-        DrawTest();
-      }
     }
 
-
-    void GraphicsGL::SetUpTest()
+    /**************************************************************************/
+    /*!
+    \brief Draws a SpriteText on screen.
+    \param A reference to the SpriteText component.
+    \param A reference to the space's viewport camera.
+    \note
+    */
+    /**************************************************************************/
+    void GraphicsGL::DrawSpriteText(SpriteText & st, Camera & camera)
     {
-      /* 1. CONFIGURE VAO */
-      GLfloat vertices[]{
-        // Position,  Texture
-        0.0f, 1.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 0.0f, 0.0f,
-
-        0.0f, 1.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 1.0f, 1.0f,
-        1.0f, 0.0f, 1.0f, 0.0f
-      };
-
-      /*
-      Next, we simply send the vertices to the GPU and configure the vertex attributes,
-      which in this case is a single vertex attribute.
-      */
-      glGenVertexArrays(1, &testVAO);
-      glGenBuffers(1, &testVBO);
-
-      glBindBuffer(GL_ARRAY_BUFFER, testVBO);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-      glBindVertexArray(testVAO);
-      glEnableVertexAttribArray(0);
-      glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
-      glBindVertexArray(0);
+      trace << "GraphicsGL::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
     }
-
-    void GraphicsGL::DrawTest()
-    {        
-      // Send matrixes to the shader
-
-      // Draw our first triangle
-      this->SimpleShader->Use();
-      glBindVertexArray(testVAO);
-      glDrawArrays(GL_TRIANGLES, 0, 6);
-      // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-      glBindVertexArray(0);
-    }
-
 
     /**************************************************************************/
     /*!

@@ -4,6 +4,12 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    \brief Default constructor for the Graphics System.
+    \note  It sets several values for the OpenGL interface...
+    */
+    /**************************************************************************/
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
       trace << "*Using OpenGL for Graphics \n";
       GraphicsHandler.reset(new GraphicsGL());
@@ -12,6 +18,11 @@ namespace DCEngine {
       GraphicsHandler->ClearColor = ClearColor;
     }
 
+    /**************************************************************************/
+    /*!
+    \brief Initializes the Graphics system.
+    */
+    /**************************************************************************/
     void Graphics::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
       trace << "Graphics::Initialize \n";
@@ -19,46 +30,94 @@ namespace DCEngine {
       // Connect to graphics space registration events
     }
 
+    /**************************************************************************/
+    /*!
+    \brief Updates the graphics system, rendering each graphical object..
+    \param The delta time.
+    \note  The projection/view uniforms are set once for each shader, 
+           while the others change depending on the object.
+    */
+    /**************************************************************************/
     void Graphics::Update(float dt) {
       if (TRACE_UPDATE)
       trace << "Graphics::Update \n";
 
-      // For every graphics space component
+      // For every Space with a 'GraphicsSpace' component...
       for (auto gfxSpace : graphicsSpaces_) {
-        // Get the default camera from the viewport component
+        // Get the default camera from the 'CameraViewport' component
         auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
-        // Set the sprite shader's projection/view matrix uniform once per frame
-        GraphicsHandler->SetShaderProjectionUniform(*camera);
-        // Draw every sprite
+
+        // Render every 'Sprite'
+        GraphicsHandler->SetSpriteShader(*camera);
         for (auto gameObj : gfxSpace->getSprites()) {
          DrawSprite(*gameObj, *camera);
         }
 
-        
-        // Set the debugdraw shader's projection/view matrix uniform once per frame
+        // Render every 'SpriteText'
+        GraphicsHandler->SetSpriteTextShader(*camera);
+        for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
+          DrawSpriteText(*spriteText, *camera);
+        }
 
-        // Draw every debug object
+        // Render every 'DebugDrawObject'
 
         
-        // 2. Render all models. Load the model shader.
+        // Render all models. Load the model shader.
 
         // 3. Render al particles. Load different shader.
       }
 
     }
 
+    /**************************************************************************/
+    /*!
+    \brief Registers a space to this graphics system.
+    \param A reference to the 'GraphicsSpace' component in the Space.
+    \note  
+    */
+    /**************************************************************************/
     void Graphics::Register(GraphicsSpace& graphicsSpace) {
       graphicsSpaces_.push_back(&graphicsSpace);
       trace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
         << " has registered to the Graphics system\n";
     }
 
+    /**************************************************************************/
+    /*!
+    \brief Draws a sprite, by forwarding the data to OpenGL.
+    \param A reference to the GameObject.
+    \param A reference to the camera object in the Space.
+    \note
+    */
+    /**************************************************************************/
     void Graphics::DrawSprite(GameObject & gameObj, Camera& cam) {
       if (TRACE_UPDATE)
         trace << "Graphics::DrawSprite - Drawing " << gameObj.Name() << "\n";
       GraphicsHandler->DrawSprite(gameObj, cam);
     }
 
+    /**************************************************************************/
+    /*!
+    \brief Draws a 'SpriteText', by forwarding the data to OpenGL.
+    \param A reference to the SpriteText component.
+    \param A reference to the camera object in the Space.
+    \note
+    */
+    /**************************************************************************/
+    void Graphics::DrawSpriteText(SpriteText & st, Camera & cam)
+    {
+      if (TRACE_UPDATE)
+        trace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+      GraphicsHandler->DrawSpriteText(st, cam);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief Draws a 'DebugDrawObject', by forwarding the data to OpenGL.
+    \param A reference to the DebugDrawObject.
+    \note
+    */
+    /**************************************************************************/
     void Graphics::DrawDebug(DebugDrawObject & debugDraw)
     {
     }

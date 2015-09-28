@@ -6,7 +6,8 @@ namespace DCEngine {
   /* Chen, write your tests here. */
   void DollHouse::GalleryTesting()
   {
-    // Construct and draw something else here?
+    // Reference to the factory system
+    auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
 
     GameObjectPtr chenObj = ConstructGameObject("Chen");
     chenObj->AddComponent(ComponentPtr(new Transform(*chenObj)));
@@ -39,6 +40,17 @@ namespace DCEngine {
     connorObj->getComponent<DebugReport>()->Height = 10.0f;
     connorObj->getComponent<DebugReport>()->Offset = Real3(5, 5, 3);
     connorObj->getComponent<DebugReport>()->Color = Real4(1, 1, 0, 1); // Color: Yellow
+
+    /* SPRITE TEXT */
+    //auto st = factory->CreateGameObject(String("SpriteTextObj"), *space_, false);
+    ////st->AddComponent(factory->CreateComponent<Transform>(*st, false));
+    //st->AddComponent(factory->CreateComponent<SpriteText>(*st, false));
+    //AddGameObject(st);
+
+    GameObjectPtr boro = ConstructGameObject("SpriteTextor");
+    boro->AddComponent(ComponentPtr(new Transform(*boro)));
+    boro->AddComponent(ComponentPtr(new SpriteText(*boro)));
+
 
   }
 }

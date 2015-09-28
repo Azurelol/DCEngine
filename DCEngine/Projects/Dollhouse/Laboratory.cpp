@@ -7,26 +7,29 @@ namespace DCEngine {
   void DollHouse::LaboratoryTesting() {
 
     // Simple entity #1
-    GameObjectPtr gameObj1 = ConstructGameObject("Reiner");
-    gameObj1->AddComponent(ComponentPtr(new Sprite(*gameObj1)));
-    gameObj1->AddComponent(ComponentPtr(new Transform(*gameObj1)));
-    gameObj1->AddComponent(ComponentPtr(new RigidBody(*gameObj1)));
-    gameObj1->AddComponent(ComponentPtr(new BoxCollider(*gameObj1)));
-    gameObj1->AddComponent(ComponentPtr(new DebugMoveController(*gameObj1)));
-    gameObj1->AddComponent(ComponentPtr(new DebugReport(*gameObj1)));
+    GameObjectPtr reiner = ConstructGameObject("Reiner");
+    reiner->AddComponent(ComponentPtr(new Sprite(*reiner)));
+    reiner->AddComponent(ComponentPtr(new Transform(*reiner)));
+    reiner->AddComponent(ComponentPtr(new RigidBody(*reiner)));
+    reiner->AddComponent(ComponentPtr(new BoxCollider(*reiner)));
+    reiner->AddComponent(ComponentPtr(new DebugMoveController(*reiner)));
+    reiner->AddComponent(ComponentPtr(new DebugReport(*reiner)));
+    // BoxCollider properties
+    reiner->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+    reiner->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Transform properties
-    gameObj1->getComponent<Transform>()->Translation = Real3(-2, 0.0f, 0.0f);
-    gameObj1->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+    reiner->getComponent<Transform>()->Translation = Real3(-2, 0.0f, 0.0f);
+    reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
     // Sprite properties
-    gameObj1->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-    gameObj1->getComponent<Sprite>()->Color = Real4(1, 0, 0, 1); // Color: Red
+    //reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
+    reiner->getComponent<Sprite>()->Color = Real4(1, 0.5, 0, 1); // Color: Orange
     // MoveController properties
-    gameObj1->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
+    reiner->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
     // DebugDraw properties
-    gameObj1->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
-    gameObj1->getComponent<DebugReport>()->Radius = 8.0f;
-    gameObj1->getComponent<DebugReport>()->Offset = Real3(5.0f, 0.0f, 0.0f);
-    gameObj1->getComponent<DebugReport>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f); // Purple line
+    reiner->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
+    reiner->getComponent<DebugReport>()->Radius = 8.0f;
+    reiner->getComponent<DebugReport>()->Offset = Real3(5.0f, 0.0f, 0.0f);
+    reiner->getComponent<DebugReport>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f); // Purple line
 
 
     // Simple entity #2
@@ -42,6 +45,9 @@ namespace DCEngine {
     // Sprite properties
     john->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
     john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
+    // BoxCollider properties
+    john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);
+    john->getComponent<BoxCollider>()->IsDrawingCollider = true;
   }
 
 

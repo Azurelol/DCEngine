@@ -3,8 +3,10 @@
 
 namespace DCEngine {
 
+  class Transform;
   class SpriteText : public Component {
   public:
+
     Boolean Visible;
     Boolean Color;
     //Font Font::
@@ -12,15 +14,14 @@ namespace DCEngine {
     String Text;
     Integer PixelsPerUnit;
     Boolean Smoothing;
-
-
-
-  private:
-
-    SpriteText(Entity& owner);
+     
+    SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
+
+  private:
+    Transform* TransformComponent;
 
   };
 

@@ -14,11 +14,20 @@
 #include "../Objects/Entities/GameObject.h"
 #include "../Objects/DebugDraw.h"
 
+//#include "../Components/Sprite.h"
+#include "../Components/SpriteText.h"
+
 namespace DCEngine {
   
+  // Forward Declarations
+  class Graphics;
   class Camera;
   class CameraViewport;
-  class Graphics;
+  class Sprite;
+  //class SpriteText;
+    
+  using SpriteTextContainer = std::vector<SpriteText*>;
+
   class GraphicsSpace : public Component {
     friend class Graphics; 
 
@@ -28,11 +37,14 @@ namespace DCEngine {
     void Initialize();
 
     virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root); 
 
     void RegisterSprite(GameObject* sprite);
     void OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj);
     void OnSpriteUnregistrationEvent(Event* eventObj);
+    
+    void AddSpriteText(SpriteText& spriteText);
+
 
     /* Debug Drawing functions*/
     void DrawCircle(Real3& pos, Real& radius, Real4& color);
@@ -40,6 +52,8 @@ namespace DCEngine {
     void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color);
 
     GameObjectRawVec getSprites(); // Return the vector of sprites to be drawn
+    SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
+
 
     void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
@@ -48,7 +62,8 @@ namespace DCEngine {
     CameraViewport* CameraViewportComponent;
     GameObjectRawVec sprites_; //!< Container of sprites that need to be drawn    
     GameObjectRawVec models_;  //!< Container of models that need to be rendered
-    DebugDrawObjVec debugDrawObjs_; //!< Container of debug draw objects to be drawn this frame.
+    SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
+    DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
 
   };
 

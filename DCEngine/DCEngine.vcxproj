@@ -166,6 +166,7 @@
     <ClCompile Include="Core\Components\RigidBody.cpp" />
     <ClCompile Include="Core\Components\SoundSpace.cpp" />
     <ClCompile Include="Core\Components\Sprite.cpp" />
+    <ClCompile Include="Core\Components\SpriteText.cpp" />
     <ClCompile Include="Core\Components\TimeSpace.cpp" />
     <ClCompile Include="Core\Components\Transform.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
@@ -202,10 +203,6 @@
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
     <ClCompile Include="Projects\Dollhouse\Gallery.cpp" />
     <ClCompile Include="Projects\Dollhouse\Laboratory.cpp" />
-    <ClCompile Include="Tutorials\OpenGL\GLCameraTutorial.cpp" />
-    <ClCompile Include="Tutorials\OpenGL\GLShaderTutorial.cpp" />
-    <ClCompile Include="Tutorials\OpenGL\GLTextureTutorial.cpp" />
-    <ClCompile Include="Tutorials\OpenGL\GLTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
@@ -294,11 +291,6 @@
     <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
-    <ClInclude Include="Tutorials\OpenGL\GLCameraTutorial.h" />
-    <ClInclude Include="Tutorials\OpenGL\GLShaderTutorial.h" />
-    <ClInclude Include="Tutorials\OpenGL\GLTextureTutorial.h" />
-    <ClInclude Include="Tutorials\OpenGL\GLTriangle.h" />
-    <ClInclude Include="Tutorials\OpenGL\GLTutorial.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt" />
@@ -308,7 +300,8 @@
     <None Include="Core\Resources\Shaders\SimpleShader.vs" />
     <None Include="Core\Resources\Shaders\SpriteShader.frag" />
     <None Include="Core\Resources\Shaders\SpriteShader.vs" />
-    <None Include="Tutorials\OpenGL\GLCameraTutorial.vs" />
+    <None Include="Core\Resources\Shaders\SpriteTextShader.frag" />
+    <None Include="Core\Resources\Shaders\SpriteTextShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

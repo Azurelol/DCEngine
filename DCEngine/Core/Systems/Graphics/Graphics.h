@@ -19,6 +19,7 @@
 namespace DCEngine {  
   class Engine;
   class Camera;
+  class SpriteText;
   class DebugDrawObject;
 
   namespace Systems {
@@ -32,6 +33,7 @@ namespace DCEngine {
       void Register(GraphicsSpace& graphicsSpace);
       
       void DrawSprite(GameObject& gameObj, Camera& camera);
+      void DrawSpriteText(SpriteText& st, Camera& cam);
       void DrawModel(GameObject& gameObj);
       void DrawDebug(DebugDrawObject& debugDraw);  
 
@@ -45,7 +47,7 @@ namespace DCEngine {
       std::unique_ptr<GraphicsGL> GraphicsHandler;
       const int screenwidth_ = 800;
       const int screenheight_ = 600;
-      Real4 ClearColor = Real4(0.3f, 0.2f, 0.5f, 1.0f);
+      Real4 ClearColor = Real4(0.0f, 0.5f, 1.0f, 1.0f);
       Mat4 ProjMatrix;
       Mat4 ViewMatrix;
       Mat4 ViewProjMatrix;

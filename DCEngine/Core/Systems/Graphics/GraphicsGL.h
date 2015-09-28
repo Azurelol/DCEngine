@@ -28,8 +28,10 @@
 
 namespace DCEngine {
   
+  // Forward declarations
   class GraphicsSpace;
   class Camera;
+  class SpriteText;
 
   namespace Systems {
 
@@ -44,11 +46,16 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();      
 
-      /* Sprite */
-      void ConfigureSpriteVAO();
-      void SetShaderProjectionUniform(Camera& camera);
+      void SetShaderProjViewUniforms(ShaderPtr shader, Camera& camera);
 
+      /* Sprite */
+      void ConfigureSpriteVAO();      
+      void SetSpriteShader(Camera& camera);
       void DrawSprite(GameObject& gameObj, Camera& camera);
+      /* SpriteText */
+      void ConfigureSpriteTextVAO();
+      void SetSpriteTextShader(Camera& camera);
+      void DrawSpriteText(SpriteText& st, Camera& camera);
 
       /* Model */
       void DrawModel(GameObject& gameObj);
@@ -77,18 +84,19 @@ namespace DCEngine {
 
       // Sprites
       ShaderPtr SpriteShader;
-      GLuint SpriteVAO; // A Quad VAO
-
+      GLuint SpriteVAO; 
+      // SpriteText
+      ShaderPtr SpriteTextShader;
+      GLuint SpriteTextVAO;
       // DebugDraw
       ShaderPtr DebugDrawShader;
       GLuint LineVAO, CircleVAO, RectVAO;
 
       // Testing
       ShaderPtr SimpleShader;
-      void SetUpTest();
-      void DrawTest();
-      GLuint testVAO, testVBO;
-	  void BufferCleaner();
+
+      // Temporary
+	    void BufferCleaner();
 
     }; // GraphicsGL 
 

@@ -1,9 +1,6 @@
-// Vertex shader used by 'Sprite'
+// Fragment shader used by 'SpriteText'
 #version 330 core
 
-// We can store both position and texture-coordinate data in a single 'vec4' variable
-// Because both position and texture coordinates contain two floats, we can combine them
-// into a single vertex attribute. 
 layout (location = 0) in vec4 vertex; 
 
 out vec2 TexCoords; 
