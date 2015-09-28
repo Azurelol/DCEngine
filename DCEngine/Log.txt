@@ -1,0 +1,213 @@
+[Engine::Engine - Constructor] 
+
+[Engine::Initialize] 
+Keyboard Interface - Constructor 
+Mouse Interface - Constructor 
+*Using SFML Context for Window and Input 
+*Using FMOD for Audio 
+*Using OpenGL for Graphics 
+Factory::Initialize 
+Window::Initialize 
+Input::Initialize 
+Audio::Initialize 
+Graphics::Initialize 
+
+SpriteShader::Shader - Constructor 
+SpriteShader::Load - Vertex: SpriteShader.vs , Fragment: SpriteShader.frag
+SpriteShader::Compile 
+SpriteShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteShader::AssertShaderCompilation - Shader program linked! 
+
+
+SpriteTextShader::Shader - Constructor 
+SpriteTextShader::Load - Vertex: SpriteTextShader.vs , Fragment: SpriteTextShader.frag
+SpriteTextShader::Compile 
+SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Shader program linked! 
+
+[Engine::Initialize - All engine systems initialized]
+Daisy Project::GameSession - Constructor
+Daisy Project::CreateSpace - Daisy World has been constructed. 
+Daisy World::Space - Constructor 
+Dollhouse::Level - Constructor 
+Transform::Component - Constructor - Owner: 'GameObject'
+GameObject::AddComponent - Added Transform
+Camera::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added Transform
+Camera::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added Camera
+DebugReport::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added DebugReport
+DebugCamera::Component - Constructor - Owner: 'Camera'
+Camera::AddComponent - Added DebugCamera
+Chen::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'Chen'
+Chen::AddComponent - Added Transform
+Sprite::Component - Constructor - Owner: 'Chen'
+Chen::AddComponent - Added Sprite
+DebugReport::Component - Constructor - Owner: 'Chen'
+Chen::AddComponent - Added DebugReport
+SpriteSource::LoadTexture: Core/Resources/Sprites/angryeyes.png
+Connor::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'Connor'
+Connor::AddComponent - Added Transform
+Sprite::Component - Constructor - Owner: 'Connor'
+Connor::AddComponent - Added Sprite
+DebugReport::Component - Constructor - Owner: 'Connor'
+Connor::AddComponent - Added DebugReport
+SpriteSource::LoadTexture: Core/Resources/Sprites/angryeyes.png
+SpriteTextor::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Transform::Component - Constructor - Owner: 'SpriteTextor'
+SpriteTextor::AddComponent - Added Transform
+SpriteText::Component - Constructor - Owner: 'SpriteTextor'
+SpriteTextor::AddComponent - Added SpriteText
+Reiner::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added Sprite
+Transform::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added Transform
+RigidBody::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added RigidBody
+BoxCollider::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added BoxCollider
+DebugMoveController::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added DebugMoveController
+DebugReport::Component - Constructor - Owner: 'Reiner'
+Reiner::AddComponent - Added DebugReport
+Myres::GameObject - Constructor - ', Space: 'Daisy World', GameSession 'Daisy Project
+Sprite::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added Sprite
+Transform::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added Transform
+RigidBody::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added RigidBody
+BoxCollider::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added BoxCollider
+DebugReport::Component - Constructor - Owner: 'Myres'
+Myres::AddComponent - Added DebugReport
+SpriteSource::LoadTexture: Core/Resources/Sprites/angryeyes.png
+Daisy World::LoadLevel - Loading Dollhouse level.
+Daisy World::AddEntity - Added Camera to the space.
+Daisy World::AddEntity - Added Chen to the space.
+Daisy World::AddEntity - Added Connor to the space.
+Daisy World::AddEntity - Added SpriteTextor to the space.
+Daisy World::AddEntity - Added Reiner to the space.
+Daisy World::AddEntity - Added Myres to the space.
+[Daisy Project::Initialize - Initializing all spaces... ] 
+|Daisy World::Initialize| 
+SoundSpace::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added SoundSpace
+TimeSpace::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added TimeSpace
+PhysicsSpace::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added PhysicsSpace
+CameraViewport::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added CameraViewport
+GraphicsSpace::Component - Constructor - Owner: 'Daisy World'
+Daisy World::AddComponent - Added GraphicsSpace
+[Engine::Connect] - SoundSpace has connected to Daisy World
+Audio::PlayMusic - Playing: spacejam.mp3
+AudioFMOD::CreateStream 
+AudioFMOD::PlaySound 
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Engine::Connect] - GraphicsSpace has connected to Daisy World
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Camera::Transform::Initialize
+[Engine::Connect] - DebugReport has connected to Daisy World
+[Engine::Connect] - DebugCamera has connected to Keyboard
+[Engine::Connect] - DebugCamera has connected to Keyboard
+Chen::Initialize 
+Chen::Transform::Initialize
+Chen::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Chen
+SpriteSource::LoadTexture - Failed to load image file!
+[Engine::Connect] - DebugReport has connected to Daisy World
+Connor::Initialize 
+Connor::Transform::Initialize
+Connor::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Connor
+SpriteSource::LoadTexture - Failed to load image file!
+[Engine::Connect] - DebugReport has connected to Daisy World
+SpriteTextor::Initialize 
+SpriteTextor::Transform::Initialize
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+Reiner::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Reiner
+SpriteSource::LoadTexture - Failed to load image file!
+Reiner::Transform::Initialize
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+[Engine::Connect] - BoxCollider has connected to Daisy World
+[Engine::Connect] - DebugMoveController has connected to Keyboard
+[Engine::Connect] - DebugMoveController has connected to Keyboard
+[Engine::Connect] - DebugMoveController has connected to Mouse
+[Engine::Connect] - DebugReport has connected to Daisy World
+Myres::Initialize 
+Myres::Sprite::Initialize
+GraphicsSpace::OnSpriteRegistrationEvent - Myres
+SpriteSource::LoadTexture - Failed to load image file!
+Myres::Transform::Initialize
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+[Engine::Connect] - BoxCollider has connected to Daisy World
+[Engine::Connect] - DebugReport has connected to Daisy World
+
+[Engine::Loop]
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+GraphicsGL::DrawSpriteText - Drawing SpriteTextor
+
+[Engine::Terminate] 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

@@ -2,6 +2,7 @@
 #include "ResourceReference.h"
 #include "Texture2D.h"
 #include <SOIL2\SOIL2.h>
+#include <string>
 
 namespace DCEngine {
 
@@ -47,7 +48,10 @@ namespace DCEngine {
       }
 
       // Load image
-      std::string spritePath = "Core/Resources/Sprites/" + ImageFileName;
+	  std::string spritePath;
+	  spritePath.append("Core/Resources/Sprites/");
+	  spritePath.append(ImageFileName);
+	  //spritePath = "Core/Resources/Sprites/" + ImageFileName;
       int width, height;
       unsigned char* image = SOIL_load_image(spritePath.c_str(),
         &width, &height, 
@@ -57,6 +61,10 @@ namespace DCEngine {
       if (image == NULL) {
         trace << "SpriteSource::LoadTexture - Failed to load image file!\n";
       }
+	  else
+	  {
+		  trace << "SpriteSource::LoadTexture: " << spritePath.c_str() << "\n";
+	  }
 
       // Generate texture
       TextureObj->Generate(width, height, image);
