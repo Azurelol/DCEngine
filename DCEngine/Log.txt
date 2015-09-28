@@ -134,46 +134,25 @@ PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Mouse down!
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-Mouse down!
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
+DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
 DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'W' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pr
+
+[Engine::Terminate] 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
