@@ -67,10 +67,10 @@ namespace DCEngine {
       space_->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Radius, Color);
     }
     else if (DrawType == DebugDrawType::Circle) {
-      space_->getComponent<GraphicsSpace>()->DrawCircle(currPos + Offset, Radius, Color);
+      space_->getComponent<GraphicsSpace>()->DrawCircle(currPos, Radius, Color);
     }
     else if (DrawType == DebugDrawType::Rectangle) {
-      space_->getComponent<GraphicsSpace>()->DrawRectangle(currPos + Offset, Radius, Height, Color);
+      space_->getComponent<GraphicsSpace>()->DrawRectangle(currPos, Radius, Height, Color);
     }
   }
 

@@ -88,6 +88,7 @@ namespace DCEngine {
       void SetUpTest();
       void DrawTest();
       GLuint testVAO, testVBO;
+	  void BufferCleaner();
 
     }; // GraphicsGL 
 

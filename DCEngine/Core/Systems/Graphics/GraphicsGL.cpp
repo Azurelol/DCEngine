@@ -22,6 +22,12 @@
 namespace DCEngine {
   namespace Systems {
 
+    void GraphicsGL::BufferCleaner()
+    {
+   	  glm::mat4 cleanup;
+	  this->SpriteShader->SetMatrix4("model", cleanup);	
+	}
+
     /**************************************************************************/
     /*!
     \brief  The constructor for the Engine object.
@@ -168,15 +174,16 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
     {
+		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
+		BufferCleaner();
 		glBegin(GL_LINE_LOOP);
-		glColor3f(color.r, color.g, color.b);
 
-		auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
+		//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
 		auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-		auto Position1 = CameraMatrix * (PositionOrigin) + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
-		auto Position2 = CameraMatrix * (PositionOrigin) + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position3 = CameraMatrix * (PositionOrigin) + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position4 = CameraMatrix * (PositionOrigin) + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
+		auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
+		auto Position2 = PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
+		auto Position3 = PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
+		auto Position4 = PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
 
 		glVertex3f(Position1.x, Position1.y, Position1.z);
 		glVertex3f(Position2.x, Position2.y, Position2.z);
@@ -195,17 +202,17 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam)
     {
-      // Do your magic here Chen
-      //trace << "Drawing a circle\n";
+		// Do your magic here Chen
+		//trace << "Drawing a circle\n";
+		BufferCleaner();
 		glBegin(GL_LINE_LOOP);
-		glColor3f(color.r, color.g, color.b);
 
 		double M_PI = 3.1415926535;
 		static double PointsNumber = 128;
 		for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))
 		{
 			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0f);
-			PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
+			//PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
 			glm::vec4 Position = glm::vec4(PositionOrigin.x + radius * cos(i), PositionOrigin.y + radius * sin(i), PositionOrigin.z, 0.0);
 			//trace << Position.x << " ," << Position.y << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][2] << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][3] << "\n";
 			glVertex3f(Position.x, Position.y, Position.z);
@@ -225,9 +232,10 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
     {
+		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
+		BufferCleaner();
 		glBegin(GL_LINE_LOOP);
 
-		glColor3f(color.r, color.g, color.b);
 		auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);
 		auto Position2 = glm::vec4(endPos.x, endPos.y, endPos.z, 0.0);
 		glVertex3f(Position1.x, Position1.y, Position1.z);
