@@ -11,6 +11,7 @@ namespace DCEngine{
     /* Properties */
     Real4 CollisionColor = Real4(1, 0, 0, 1);
     Real4 SpriteColor;
+    SoundCue CollisionCue;
 
     /* Initialize */
     DebugCollider(Entity& owner) : Component(std::string("DebugCollider"), owner) {}

@@ -39,6 +39,7 @@ namespace DCEngine {
       ComponentPtr CreateComponent(const std::string& compName, bool init);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
 
+      /* Resources*/
       ResourcePtr CreateResource(const std::string& resourceName, bool init);
 
       void DestroyGameObject(GameObject& gameObj);
