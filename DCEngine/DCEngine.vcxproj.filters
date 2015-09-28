@@ -294,6 +294,9 @@
     <ClCompile Include="Core\Components\SpriteText.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\DebugCollider.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -553,6 +556,12 @@
     </ClInclude>
     <ClInclude Include="Core\EventsInclude.h">
       <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Font.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugCollider.h">
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

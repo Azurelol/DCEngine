@@ -18,3 +18,4 @@
 #include "Components\DebugMoveController.h"
 #include "Components\DebugReport.h"
 #include "Components\DebugCamera.h"
+#include "Components\DebugCollider.h"

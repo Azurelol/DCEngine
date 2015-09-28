@@ -12,6 +12,7 @@ namespace DCEngine {
     reiner->AddComponent(ComponentPtr(new Transform(*reiner)));
     reiner->AddComponent(ComponentPtr(new RigidBody(*reiner)));
     reiner->AddComponent(ComponentPtr(new BoxCollider(*reiner)));
+    reiner->AddComponent(ComponentPtr(new DebugCollider(*reiner)));
     reiner->AddComponent(ComponentPtr(new DebugMoveController(*reiner)));
     reiner->AddComponent(ComponentPtr(new DebugReport(*reiner)));
     // BoxCollider properties
@@ -38,6 +39,7 @@ namespace DCEngine {
     john->AddComponent(ComponentPtr(new Transform(*john)));
     john->AddComponent(ComponentPtr(new RigidBody(*john)));
     john->AddComponent(ComponentPtr(new BoxCollider(*john)));
+    john->AddComponent(ComponentPtr(new DebugCollider(*john)));
     john->AddComponent(ComponentPtr(new DebugReport(*john)));
     // Change the properties of the components
     john->getComponent<Transform>()->Translation = Real3(2.0f, 0.0f, 1.0f);

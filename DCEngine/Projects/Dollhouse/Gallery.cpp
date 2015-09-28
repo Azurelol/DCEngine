@@ -20,9 +20,9 @@ namespace DCEngine {
     chenObj->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
     chenObj->getComponent<Sprite>()->Color = Real4(0, 1, 1, 1); // Color: Blue
     // DebugDraw properties
-    chenObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Circle;
+    chenObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Circle; // Purple circle
     chenObj->getComponent<DebugReport>()->Radius = 15;
-    chenObj->getComponent<DebugReport>()->Color = Real4(1, 0, 0, 1); // Color: Red
+    chenObj->getComponent<DebugReport>()->Color = Real4(1, 0, 1, 1); 
 
     GameObjectPtr connorObj = ConstructGameObject("Connor");
     connorObj->AddComponent(ComponentPtr(new Transform(*connorObj)));

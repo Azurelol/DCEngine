@@ -205,6 +205,7 @@ namespace DCEngine {
 		// Do your magic here Chen
 		//trace << "Drawing a circle\n";
 		BufferCleaner();
+    this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
 		glBegin(GL_LINE_LOOP);
 
 		double M_PI = 3.1415926535;
@@ -388,7 +389,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawSpriteText(SpriteText & st, Camera & camera)
     {
-      trace << "GraphicsGL::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+      
     }
 
     /**************************************************************************/

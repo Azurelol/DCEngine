@@ -41,7 +41,6 @@ namespace DCEngine {
     fragmentShaderFile.exceptions(std::ifstream::badbit);
 
     try {
-      // Open the files ( YES I KNOW THIS WAY IS DUMB PLZ HELP )
       std::string shaderLocation("Core/Resources/Shaders/");
       vertexShaderFile.open(shaderLocation + vertexPath);
       fragmentShaderFile.open(shaderLocation + fragmentPath);

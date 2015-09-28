@@ -1,0 +1,45 @@
+#include "DebugCollider.h"
+#include "EngineReference.h"
+#include "Sprite.h"
+
+namespace DCEngine {
+
+  void DebugCollider::Initialize()
+  {
+    auto gameObj = dynamic_cast<GameObject*>(Owner());
+    SpriteComponent = gameObj->getComponent<Sprite>();
+
+    // Save the current color
+    SpriteColor = SpriteComponent->Color;
+    // Connect to collision events
+    Connect(gameObj, Events::CollisionStarted, DebugCollider::OnCollisionStartedEvent);
+    Connect(gameObj, Events::CollisionEnded, DebugCollider::OnCollisionEndedEvent);
+  }
+
+  void DebugCollider::Serialize(Json::Value & root)
+  {
+  }
+
+  void DebugCollider::Deserialize(Json::Value & root)
+  {
+  }
+
+  void DebugCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
+  {
+    trace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "
+          << event->OtherObject->Name() << "\n";
+
+    // Change color    
+    SpriteComponent->Color = CollisionColor;
+
+    // Play a collision 
+  }
+
+  void DebugCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
+  {
+    // Change the color back
+    SpriteComponent->Color = SpriteColor;
+
+    // Stop playing a collision
+  }
+}

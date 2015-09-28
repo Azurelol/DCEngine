@@ -20,10 +20,7 @@ namespace DCEngine {
     
   }
 
-  void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
-  {
-    DrawCollider();
-  }
+
 
   void BoxCollider::DrawCollider()
   {
@@ -42,6 +39,47 @@ namespace DCEngine {
 
   void BoxCollider::Deserialize(Json::Value & root)
   {
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  CollisionEvents
+  */
+  /**************************************************************************/
+  void BoxCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
+  {
+    // Move the GameObject??
+  }
+
+  void BoxCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
+  {
+
+  }
+
+  void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
+  {
+    DrawCollider();
+  }
+  
+  /* Getters */
+  Real3 BoxCollider::getSize(void)
+  {
+    return this->Size;
+  }
+
+  Real3 BoxCollider::getOffset(void)
+  {
+    return this->Offset;
+  }
+
+  bool BoxCollider::getGhost(void)
+  {
+    return this->Ghost;
+  }
+
+  bool BoxCollider::getSendsEvents(void)
+  {
+    return this->SendsEvents;
   }
 
 }

@@ -15,8 +15,15 @@
 namespace DCEngine {
 	class Engine;
 
-	namespace Systems {
-		class Physics : public System {
+  struct CollisionData {
+    GameObject* Object; //!< The object this event was sent to.
+    GameObject* OtherObject; //!< The other object in the collision.
+  };
+
+	namespace Systems 
+	{
+		class Physics : public System 
+		{
 			friend class Engine;
 		public:
 			void RegisterSpace(PhysicsSpace& physicsSpace);
@@ -31,12 +38,15 @@ namespace DCEngine {
 			void Terminate();
 
 			void Integrate();
-			GameObjectRawVec Physics::BroadPhaseDetection(PhysicsSpace* physpace);
+			void Step(float dt);
+			GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
 			Manifold NarrowPhaseDetection(GameObjectRawVec pairs);
 			bool BoxtoBox(GameObject *obj1, GameObject *obj2);
 			bool CircletoBox(GameObject *obj1, GameObject *obj2);
 			bool CircletoCircle(GameObject *obj1, GameObject *obj2);
-			void Resolve(Manifold data);
+			void Resolve(Manifold data); 
+      void DispatchCollisionStarted(CollisionData& collisionData);
+      void DispatchCollisionEnded(CollisionData& collisionData);
 
 		};
 

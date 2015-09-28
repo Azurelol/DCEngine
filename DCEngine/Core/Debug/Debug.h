@@ -21,7 +21,7 @@ namespace Debug {
   #define TRACE_ON 1
   #define TRACE_INITIALIZE 1
   #define TRACE_UPDATE 0
-  #define TRACE_CONSTRUCTOR 1
+  #define TRACE_CONSTRUCTOR 0
   #define TRACE_CONNECT 1
   #define TRACE_DISPATCH 0
 

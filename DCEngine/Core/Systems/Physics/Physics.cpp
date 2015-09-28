@@ -44,19 +44,33 @@ namespace DCEngine {
 		\brief The main update function for all physical bodies.
 		*/
 		/**************************************************************************/
-		void Physics::Update(float dt) {
+		void Physics::Update(float dt) 
+		{
+			Step(dt);
+		}
+
+		void Physics::Step(float dt)
+		{
+
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
-				//GameObjectRawVec pairs = BroadPhaseDetection(physpace);
-        //NarrowPhaseDetection(pairs);
+				auto pairs = BroadPhaseDetection(physpace);
 
-				// For all gameobjects with a 'BoxCollider' component
-				for (auto bc : physpace->getColliders())
-				{
-          
-				}
+				NarrowPhaseDetection(pairs);
+
+				//IntegrateBodies(dt);
+
+				//Contacts.Reset();
+
+				//DetectContacts(dt);
+
+				//Contacts.ResolveContacts(dt);
+
+				//PublishResults();
 			}
+
+
 		}
 
 		/**************************************************************************/
@@ -83,7 +97,7 @@ namespace DCEngine {
 
 			for (int i = 0; i < list.size(); ++i)
 			{
-				for (int j = i + 1; i < list.size(); ++j)
+				for (int j = i + 1; j < list.size(); ++j)
 				{
 					result.push_back(list[i]);
 					result.push_back(list[j]);
@@ -109,11 +123,26 @@ namespace DCEngine {
 				obj1 = pairs[i];
 				obj2 = pairs[++i];
 
+        // COLLISION DETECTED
 				if (BoxtoBox(obj1, obj2))
 				{
 					// generate collision data
-					trace << "Physics::NarrowPhaseDetection - Colision between " << obj1->Name() << " and " << obj2->Name() << "\n";
+
+          // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+          CollisionData boxToBoxCollision;
+          boxToBoxCollision.Object = obj1;
+          boxToBoxCollision.OtherObject = obj2;
+          DispatchCollisionStarted(boxToBoxCollision);
+
+					//trace << "Physics::NarrowPhaseDetection - Colision between " << obj1->Name() << " and " << obj2->Name() << "\n";
 				}
+        // NO COLLISION DETECTED
+        else {
+          CollisionData boxToBoxCollision;
+          boxToBoxCollision.Object = obj1;
+          boxToBoxCollision.OtherObject = obj2;
+          DispatchCollisionEnded(boxToBoxCollision);
+        }
 
 
 			}
@@ -122,23 +151,48 @@ namespace DCEngine {
 
 		bool Physics::BoxtoBox(GameObject * obj1, GameObject * obj2)
 		{
-			Component *rigidbody1, *rigidbody2, *boxcollider1, *boxcollider2, *transform1, *transform2;
-
-			/* get the rigidbodies */
-			rigidbody1 = obj1->getComponentByName(std::string("RigidBody"));
-			rigidbody2 = obj2->getComponentByName(std::string("RigidBody"));
-
-			/* get the colliders */
-			boxcollider1 = obj1->getComponentByName(std::string("BoxCollider"));
-			boxcollider2 = obj2->getComponentByName(std::string("BoxCollider"));
-
-			/* get the transforms */
-			transform1 = obj1->getComponentByName(std::string("Transform"));
-			transform2 = obj2->getComponentByName(std::string("Transform"));
+			     /* get the rigidbodies */
+			auto rigidbody1 = obj1->getComponent<RigidBody>();
+			auto rigidbody2 = obj2->getComponent<RigidBody>();
+			     
+			     /* get the colliders */
+			auto boxcollider1 = obj1->getComponent<BoxCollider>();
+			auto boxcollider2 = obj2->getComponent<BoxCollider>();
+			     
+			     /* get the transforms */
+			auto transform1 = obj1->getComponent<Transform>();
+			auto transform2 = obj2->getComponent<Transform>();
 
 
+			float topA = transform1->Translation.y + 0.5f * boxcollider1->getSize().y;
+			float leftA = transform1->Translation.x - 0.5f * boxcollider1->getSize().x;
+			float rightA = transform1->Translation.x + 0.5f * boxcollider1->getSize().x;
+			float bottomA = transform1->Translation.y - 0.5f * boxcollider1->getSize().y;
 
+			float topB = transform2->Translation.y + 0.5f * boxcollider2->getSize().y;
+			float leftB = transform2->Translation.x - 0.5f * boxcollider2->getSize().x;
+			float rightB = transform2->Translation.x + 0.5f * boxcollider2->getSize().x;
+			float bottomB = transform2->Translation.y - 0.5f * boxcollider2->getSize().y;
 
+			if (leftA > rightB)
+			{
+				return false;
+			}
+
+			if (leftB > rightA)
+			{
+				return false;
+			}
+
+			if (topA < bottomB)
+			{
+				return false;
+			}
+
+			if (topB < bottomA)
+			{
+				return false;
+			}
 
 			return true;
 		}
@@ -161,6 +215,32 @@ namespace DCEngine {
 		void Physics::Resolve(Manifold data)
 		{
 		}
+
+    void Physics::DispatchCollisionStarted(CollisionData & collisionData)
+    {
+      auto collisionStartedEvent = new Events::CollisionStarted();
+      // Dispatch collision event to the first object
+      collisionStartedEvent->Object = collisionData.Object;
+      collisionStartedEvent->OtherObject = collisionData.OtherObject;
+      collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      // Dispatch collision event to the second object
+      collisionStartedEvent->Object = collisionData.OtherObject;
+      collisionStartedEvent->OtherObject = collisionData.Object;
+      collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+    }
+
+    void Physics::DispatchCollisionEnded(CollisionData & collisionData)
+    {
+      auto collisionEndedEvent = new Events::CollisionEnded();
+      // Dispatch collision event to the first object
+      collisionEndedEvent->Object = collisionData.Object;
+      collisionEndedEvent->OtherObject = collisionData.OtherObject;
+      collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      // Dispatch collision event to the second object
+      collisionEndedEvent->Object = collisionData.OtherObject;
+      collisionEndedEvent->OtherObject = collisionData.Object;
+      collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+    }
 
 
 		/**************************************************************************/

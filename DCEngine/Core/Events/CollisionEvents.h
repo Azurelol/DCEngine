@@ -18,6 +18,7 @@ namespace DCEngine {
   namespace Events
   {
     class CollisionStarted : public Event {
+    public:
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
@@ -29,12 +30,15 @@ namespace DCEngine {
     };
 
     class CollisionEnded : public Event {
+    public:
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
     };
 
     class CollisionPersisted : public Event {
+    public:
+
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;

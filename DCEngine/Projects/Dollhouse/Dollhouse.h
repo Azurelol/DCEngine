@@ -36,7 +36,7 @@ namespace DCEngine {
       cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
-      cameraObj->getComponent<Camera>()->Size = 50;
+      cameraObj->getComponent<Camera>()->Size = 70;
 
       // Let's try having a background sprite, should be drawn behind others.
 

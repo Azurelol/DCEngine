@@ -159,6 +159,7 @@
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
     <ClCompile Include="Core\Components\DebugCamera.cpp" />
+    <ClCompile Include="Core\Components\DebugCollider.cpp" />
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\DebugCamera.h" />
+    <ClInclude Include="Core\Components\DebugCollider.h" />
     <ClInclude Include="Core\Components\DebugDrawReference.h" />
     <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
@@ -260,6 +262,7 @@
     <ClInclude Include="Core\Objects\Object.h" />
     <ClInclude Include="Core\Objects\ObjectsInclude.h" />
     <ClInclude Include="Core\Objects\Resource.h" />
+    <ClInclude Include="Core\Resources\Font.h" />
     <ClInclude Include="Core\Resources\Level.h" />
     <ClInclude Include="Core\Resources\Material.h" />
     <ClInclude Include="Core\Resources\Mesh.h" />

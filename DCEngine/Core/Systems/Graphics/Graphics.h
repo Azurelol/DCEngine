@@ -45,8 +45,8 @@ namespace DCEngine {
     private:
 
       std::unique_ptr<GraphicsGL> GraphicsHandler;
-      const int screenwidth_ = 800;
-      const int screenheight_ = 600;
+      const int screenwidth_ = 1024;
+      const int screenheight_ = 768;
       Real4 ClearColor = Real4(0.0f, 0.5f, 1.0f, 1.0f);
       Mat4 ProjMatrix;
       Mat4 ViewMatrix;

@@ -23,6 +23,14 @@ namespace DCEngine {
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
 
+    void OnCollisionStartedEvent(Events::CollisionStarted* event);
+    void OnCollisionEndedEvent(Events::CollisionEnded* event);
+
+    Real3 getSize(void);
+    Real3 getOffset(void);
+    bool getGhost(void);
+    bool getSendsEvents(void);
+
 
   private:
     Transform* TransformComponent;
