@@ -54,14 +54,7 @@ namespace DCEngine {
     // Constructs a GameObject and loads some components onto it
     GameObjectPtr ConstructGameObject(std::string name) {
       GameObjectPtr gameObj(new GameObject(name, *space_, *gamesession_));
-
       AddGameObject(gameObj);
-      Entity &gameObjRef = *gameObj;
-      //ComponentPtr glTut = ComponentPtr(new Tutorial::GLCameraTutorial(gameObjRef));
-      //ComponentPtr transform = ComponentPtr(new Transform(*gameObj));
-      //ComponentPtr sprite = ComponentPtr(new Sprite(*gameObj));
-      //gameObj->AddComponent(sprite);
-      //gameObj->AddComponent(glTut);
       
       return gameObj;
     }
