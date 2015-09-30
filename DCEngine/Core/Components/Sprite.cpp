@@ -18,7 +18,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Sprite::Initialize() {
-    if (TRACE_INITIALIZE)
+    if (TRACE_COMPONENT_INITIALIZE)
       trace << Owner()->Name() << "::" << _name << "::Initialize\n";
     
     // Store the reference to this owner's Transform component

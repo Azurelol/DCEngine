@@ -117,7 +117,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,7 +154,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -184,6 +184,7 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Resources\Font.cpp" />
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
     <ClCompile Include="Core\Resources\Shader.cpp" />

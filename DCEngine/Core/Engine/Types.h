@@ -32,6 +32,8 @@ namespace DCEngine {
     D,
     Q,
     E,
+    Z,
+    X,
 
     Add,
     Subtract,

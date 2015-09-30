@@ -45,7 +45,7 @@ namespace DCEngine {
       }        
     }
 
-    if (TRACE_ON)
+    if (TRACE_COMPONENT_ADD)
       trace << _name << "::AddComponent - Added " << component->Name() << "\n";
 
     // Adds the component to the entity

@@ -29,29 +29,34 @@ namespace DCEngine {
   void DebugMoveController::OnKeyDownEvent(Events::KeyDown* event) {
     switch (event->Key) {
     case Keys::W:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'W' \n";
       TransformRef->Translation.y += MoveSpeed;
       break;    
     case Keys::S:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'S' \n";
       TransformRef->Translation.y -= MoveSpeed;
       break;
     case Keys::A:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'A' \n";
       TransformRef->Translation.x -= MoveSpeed;
       break;
     case Keys::D:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'D' \n";
       TransformRef->Translation.x += MoveSpeed;
       break;
     case Keys::E:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'Q' \n";
       TransformRef->Translation.z -= MoveSpeed;
       break;
     case Keys::Q:
-      trace << _name << "::OnKeyDownEvent - Pressed: 'E' \n";
       TransformRef->Translation.z += MoveSpeed;
+      break;
+    case Keys::Z:
+      TransformRef->Rotation.z -= RotSpeed;
+      break;
+    case Keys::X:
+      TransformRef->Rotation.z += RotSpeed;
+      break;
     }
+
+    trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+                                                 << ", " << TransformRef->Translation.y
+                                                 << ", " << TransformRef->Translation.z << ")\n";
 
     if (FootstepSoundEnabled)
       PlayFootstepSound();

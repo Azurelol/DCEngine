@@ -123,8 +123,8 @@ namespace DCEngine {
 
   template<typename SystemClass>
   inline std::shared_ptr<SystemClass> Engine::getSystem() {
-    for (auto &systemPtr : _systems) {
-      if (std::type_index(typeid(systemPtr)) == std::type_index(typeid(SystemClass)))
+    for (auto systemPtr : _systems) {
+      if (std::type_index(typeid(*systemPtr.get())) == std::type_index(typeid(SystemClass)))
         return std::static_pointer_cast<SystemClass>(systemPtr);
     }
     // Throw an error if the system doesn't exist in the engine.

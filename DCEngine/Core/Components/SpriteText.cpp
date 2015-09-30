@@ -15,7 +15,6 @@ namespace DCEngine {
 
   void SpriteText::Serialize(Json::Value & root)
   {
-
   }
 
   void SpriteText::Deserialize(Json::Value & root)

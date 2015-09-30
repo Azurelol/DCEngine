@@ -54,10 +54,10 @@ namespace DCEngine {
         }
 
         // Render every 'SpriteText'
-        GraphicsHandler->SetSpriteTextShader(*camera);
-        for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
-          DrawSpriteText(*spriteText, *camera);
-        }
+        //GraphicsHandler->SetSpriteTextShader(*camera);
+        //for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
+        //  DrawSpriteText(*spriteText, *camera);
+        //}
 
         // Render every 'DebugDrawObject'
 

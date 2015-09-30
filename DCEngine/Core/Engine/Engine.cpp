@@ -85,9 +85,10 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Physics));
-    _systems.push_back(SystemPtr(new Systems::Audio));
+    _systems.push_back(SystemPtr(new Systems::Audio));    
     _systems.push_back(SystemPtr(new Systems::Graphics));
-
+    
+    trace << "\n";
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {

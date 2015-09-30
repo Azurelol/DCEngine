@@ -162,7 +162,7 @@ namespace DCEngine {
   void Space::AddObject(GameObjectPtr gameObject) {
     gameobjects_.push_back(gameObject);
 
-    if (TRACE_ON)
+    if (TRACE_GAMEOBJECT_ADD)
       trace << _name << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
   }
 

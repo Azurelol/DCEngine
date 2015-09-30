@@ -16,6 +16,7 @@ namespace DCEngine {
     // Transform properties
     chenObj->getComponent<Transform>()->Translation = Real3(5, 5, 0.0f);
     chenObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 2.0f);
+    chenObj->getComponent<Transform>()->Rotation = Real3(2.0f, 2.0f, 2.0f);
     // Sprite properties
     chenObj->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
     chenObj->getComponent<Sprite>()->Color = Real4(0, 1, 1, 1); // Color: Blue
@@ -50,6 +51,9 @@ namespace DCEngine {
     GameObjectPtr boro = ConstructGameObject("SpriteTextor");
     boro->AddComponent(ComponentPtr(new Transform(*boro)));
     boro->AddComponent(ComponentPtr(new SpriteText(*boro)));
+    // SpriteText properties
+    boro->getComponent<SpriteText>()->Font = "Verdana";
+    boro->getComponent<SpriteText>()->Text = "This is our jam!";
 
 
   }

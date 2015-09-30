@@ -11,7 +11,10 @@
 
 
 // (!) Should these be included? Perhaps only the data needed should be passed in.
+
+#include "../../Components/EngineReference.h"
 #include "../../Components/Sprite.h"
+#include "../../Components/SpriteText.h"
 #include "../../Components/Transform.h"
 #include "../../Components/GraphicsSpace.h"
 #include "../../Components/CameraViewport.h"
@@ -54,17 +57,20 @@ namespace DCEngine {
         trace << "Failed to initialize GLEW \n";
       }
 
+      trace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
+
       // Construct the Sprite shader
-      SpriteShader.reset(new Shader(std::string("SpriteShader"), "SpriteShader.vs", "SpriteShader.frag"));
+      SpriteShader = Daisy->getSystem<Content>()->getShader(std::string( "SpriteShader"));
+      SpriteShader->Compile();
       // Configure the Sprite shader VAO
       ConfigureSpriteVAO();
-
       // Construct the SpriteText shader
-      SpriteTextShader.reset(new Shader(std::string("SpriteTextShader"), "SpriteTextShader.vs", "SpriteTextShader.frag"));
+      SpriteTextShader = Daisy->getSystem<Content>()->getShader(std::string("SpriteTextShader"));
+      SpriteTextShader->Compile();
       // Configure the SpriteText shader VAO
       ConfigureSpriteTextVAO();
 
-
+      trace << "[GraphicsGL::Initialize] - Finished compiling shaders \n\n";
     }
 
     /**************************************************************************/
@@ -290,8 +296,28 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Configures the VAO used for SpriteText. 
+    @note  We reserve enough memory when initiating the VBO so that we can
+           later update the VBO's memory when rendering characters.
+           THe 2D quad requries 6 vertices of 4 floats each so we reserve
+           6 * 4 floats of memory. 
+           Because we will be updating the content of the VBO's memory quite often, 
+           we allocate with GL_DYNAMIC_DRAW.
+    */
+    /**************************************************************************/
     void GraphicsGL::ConfigureSpriteTextVAO()
     {
+      glGenVertexArrays(1, &SpriteTextVAO);
+      glGenBuffers(1, &SpriteTextVBO);
+      glBindVertexArray(SpriteTextVAO);
+      glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+      glEnableVertexAttribArray(0);
+      glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+      glBindBuffer(GL_ARRAY_BUFFER, 0);
+      glBindVertexArray(0);
     }
 
     /**************************************************************************/
@@ -350,10 +376,8 @@ namespace DCEngine {
                                                           transform->Translation.y, 
                                                           0.0f));
       //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
+      modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-      //objectToWorld = glm::translate(objectToWorld, glm::vec3(-0.5f * transform->Scale.x,
-      //                                        -0.5f * transform->Scale.y,
-      //                                        0.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
@@ -361,7 +385,6 @@ namespace DCEngine {
       glm::mat4x4 idMat;
       
       // Update the uniforms in the shader to this particular sprite's data 
-      //UniformMatrix4fv(glGetUniformLocation(this->SpriteShader->Get(), "model"), 1, GL_FALSE, glm::value_ptr(idMat));
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
 
@@ -381,15 +404,69 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Draws a SpriteText on screen.
-    \param A reference to the SpriteText component.
-    \param A reference to the space's viewport camera.
-    \note
+    @brief Draws a SpriteText on screen.
+    @param A reference to the SpriteText component.
+    @param A reference to the space's viewport camera.
+    @note  To render each character, we extract the corresponding Character
+           struct from the Characters map and calculate the quad dimensions
+           using the character's metrics. 
     */
     /**************************************************************************/
     void GraphicsGL::DrawSpriteText(SpriteText & st, Camera & camera)
     {
+      // Enable alpha blending for opacity.
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+      // Activate the SpriteText shader
+      SpriteTextShader->Use();
+      SpriteTextShader->SetVector4f("textColor", st.Color);
+      glActiveTexture(GL_TEXTURE0);
+      glBindVertexArray(SpriteTextVAO);
+
+      // Retrieve the Font resource from the content system
+      auto font = Daisy->getSystem<Content>()->getFont(st.Font);
       
+      // (!) This is used to advance cursoes
+      GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
+
+      // Iterate through all the characters
+      for (auto c : st.Text) {
+        // Access a character glyph from the characters map
+        Character ch = font->Characters[c];
+
+        // Calculate the origin position of the quad 
+        GLfloat xPos = x + ch.Bearing.x * st.FontSize;
+        GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y) * st.FontSize;
+        // Calculate the quad's size
+        GLfloat w = ch.Size.x * static_cast<GLfloat>(st.FontSize);
+        GLfloat h = ch.Size.y * static_cast<GLfloat>(st.FontSize);
+        // Generate a set of 6 vertices to form the 2D quad
+        GLfloat vertices[6][4] = {
+          { xPos    , yPos + h, 0.0, 0.0 },
+          { xPos    , yPos    , 0.0, 1.0 },
+          { xPos + w, yPos    , 1.0, 1.0 },
+
+          { xPos    , yPos + h, 0.0, 0.0 },
+          { xPos + w, yPos    , 1.0, 1.0 },
+          { xPos + w, yPos + h, 1.0, 1.0 },
+        };
+
+        // Render glyph texture over quad
+        glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
+        // Update content of VBO memory
+        glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        // Render quad
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        // Advance cursors for next glyph (Advance is number of 1/64 pixels)
+        x += (ch.Advance >> 6) * st.FontSize;
+      }
+
+      // Unbind
+      glBindVertexArray(0);
+      glBindTexture(GL_TEXTURE_2D, 0);      
     }
 
     /**************************************************************************/

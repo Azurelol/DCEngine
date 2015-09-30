@@ -15,12 +15,16 @@ checks for errors and other useful functions.
 
 namespace DCEngine {
 
-  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath) : Resource(shaderName) {
-    trace << "\n" << _name << "::Shader - Constructor \n";
+  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath) 
+                 : Resource(shaderName), VertexPath(vertexPath), FragmentPath(fragmentPath) {
+    if (TRACE_CONSTRUCTOR)
+      trace << "\n" << _name << "::Shader - Constructor \n";
+
+
     // Loads the shaders
-    Load(vertexPath, fragmentPath);
+    Load();
     // Compiles the shader
-    Compile();
+    //Compile();
   }
 
   /**************************************************************************/
@@ -30,9 +34,9 @@ namespace DCEngine {
   \param   The path of the fragment shader.
   */
   /**************************************************************************/
-  void Shader::Load(std::string vertexPath, std::string fragmentPath) {
-    if (TRACE_ON)
-      trace << _name << "::Load - Vertex: " << vertexPath << " , Fragment: " << fragmentPath << "\n";
+  void Shader::Load() {
+    //if (TRACE_ON)
+    //  trace << _name << "::Load - Vertex: " << VertexPath << " , Fragment: " << FragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
 
@@ -42,8 +46,8 @@ namespace DCEngine {
 
     try {
       std::string shaderLocation("Core/Resources/Shaders/");
-      vertexShaderFile.open(shaderLocation + vertexPath);
-      fragmentShaderFile.open(shaderLocation + fragmentPath);
+      vertexShaderFile.open(shaderLocation + VertexPath);
+      fragmentShaderFile.open(shaderLocation + FragmentPath);
       // Use C++ filestreams to read the content from the file
       std::stringstream vertexShaderStream, fragmentShaderStream;
       vertexShaderStream << vertexShaderFile.rdbuf();
@@ -158,7 +162,7 @@ namespace DCEngine {
         << infoLog << "\n";
     }
 
-    trace << "\n";
+    //trace << "\n";
   }
 
   /**************************************************************************/

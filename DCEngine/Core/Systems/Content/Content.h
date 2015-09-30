@@ -12,6 +12,7 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+#include "../../Resources/ResourcesInclude.h"
 
 namespace DCEngine {
 
@@ -27,20 +28,38 @@ namespace DCEngine {
       friend class Factory;
     public:
 
-      void LoadResources();
-      void ScanFolder();
+      void LoadDefaultResources(); //!< Load default content files for the engine.     
+      void LoadProjectResources(); //!< Load resources from a project.
+      
+      /* Getters */
+      ShaderPtr getShader(std::string& shaderName);
+      FontPtr getFont(std::string& fontName);
+      //template <typename ResourceClass> getResource(); //!< Returns
+
 
     private:
 
-      ResourceMap SoundCueMap;
-      ResourceMap SpriteSourceMap;
-      ResourceMap LevelMap;
-      ResourceMap ArchetypeMap;
+      /* Resource maps */
+      std::map<std::string, SoundCuePtr> SoundCueMap;
+      std::map<std::string, ShaderPtr> ShaderMap;
+      std::map<std::string, FontPtr> FontMap;
+      std::map<std::string, SpriteSourcePtr> SpriteSourceMap;
 
+      /* Map functions */
+      void AddFont(std::string& fontName, FontPtr fontPtr);
+      void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
+
+      /* Core functions */
       Content();
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
+
+      /* Loading functions */
+      void ScanFolder();
+      void LoadFile();
+      void LoadArchetypes(); //!< Load archetypes from a project.
+      void LoadSpriteSources(); //!< Load spritesources from a project
 
 
 

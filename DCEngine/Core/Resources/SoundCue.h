@@ -6,9 +6,7 @@ namespace DCEngine {
   class SoundCue : public Resource {
   public:
     SoundCue(std::string& name, std::string& soundFile) : Resource(name) {}
-
-
-
   };
 
+  using SoundCuePtr = std::shared_ptr<SoundCue>;
 }

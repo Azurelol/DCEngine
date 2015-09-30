@@ -84,5 +84,7 @@ namespace DCEngine {
 
   };
 
+  using SpriteSourcePtr = std::shared_ptr<SpriteSource>;
+
 
 }

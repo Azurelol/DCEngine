@@ -10,6 +10,7 @@ namespace DCEngine {
         
     bool Translation = true;
     Real MoveSpeed = 0.75;
+    Real RotSpeed = 15;
     Transform* TransformRef; 
 
     DebugMoveController(Entity& owner) : Component(std::string("DebugMoveController"), owner) {}

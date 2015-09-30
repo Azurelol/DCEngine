@@ -4,55 +4,35 @@
 *Using SFML Context for Window and Input 
 *Using FMOD for Audio 
 *Using OpenGL for Graphics 
+
+Content::Initialize 
+
+[Content::LoadDefaultResources] - Loading default resources 
+Content::AddShader - SpriteShader was added.
+Content::AddShader - SpriteTextShader was added.
+Font::Load - Font was successfully loaded! 
+Content::AddFont - Verdana was added.
+[Content::LoadDefaultResources] - Finished loading default resources 
+
 Factory::Initialize 
 Window::Initialize 
 Input::Initialize 
 Audio::Initialize 
 Graphics::Initialize 
 
-SpriteShader::Shader - Constructor 
-SpriteShader::Load - Vertex: SpriteShader.vs , Fragment: SpriteShader.frag
+[GraphicsGL::Initialize] - Compiling shaders 
 SpriteShader::Compile 
 SpriteShader::AssertShaderCompilation - Vertex Shader compiled! 
 SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteShader::AssertShaderCompilation - Shader program linked! 
-
-
-SpriteTextShader::Shader - Constructor 
-SpriteTextShader::Load - Vertex: SpriteTextShader.vs , Fragment: SpriteTextShader.frag
 SpriteTextShader::Compile 
 SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
+[GraphicsGL::Initialize] - Finished compiling shaders 
 
 [Engine::Initialize - All engine systems initialized]
 Daisy Project::CreateSpace - Daisy World has been constructed. 
-GameObject::AddComponent - Added Transform
-Camera::AddComponent - Added Transform
-Camera::AddComponent - Added Camera
-Camera::AddComponent - Added DebugReport
-Camera::AddComponent - Added DebugCamera
-Chen::AddComponent - Added Transform
-Chen::AddComponent - Added Sprite
-Chen::AddComponent - Added DebugReport
-Connor::AddComponent - Added Transform
-Connor::AddComponent - Added Sprite
-Connor::AddComponent - Added DebugReport
-SpriteTextor::AddComponent - Added Transform
-SpriteTextor::AddComponent - Added SpriteText
-Reiner::AddComponent - Added Sprite
-Reiner::AddComponent - Added Transform
-Reiner::AddComponent - Added RigidBody
-Reiner::AddComponent - Added BoxCollider
-Reiner::AddComponent - Added DebugCollider
-Reiner::AddComponent - Added DebugMoveController
-Reiner::AddComponent - Added DebugReport
-Myres::AddComponent - Added Sprite
-Myres::AddComponent - Added Transform
-Myres::AddComponent - Added RigidBody
-Myres::AddComponent - Added BoxCollider
-Myres::AddComponent - Added DebugCollider
-Myres::AddComponent - Added DebugReport
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Chen to the space.
@@ -62,127 +42,60 @@ Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
 [Daisy Project::Initialize - Initializing all spaces... ] 
 |Daisy World::Initialize| 
-Daisy World::AddComponent - Added SoundSpace
-Daisy World::AddComponent - Added TimeSpace
-Daisy World::AddComponent - Added PhysicsSpace
-Daisy World::AddComponent - Added CameraViewport
-Daisy World::AddComponent - Added GraphicsSpace
-[Engine::Connect] - SoundSpace has connected to Daisy World
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::PlaySound 
 Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
-[Engine::Connect] - GraphicsSpace has connected to Daisy World
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
-Camera::Transform::Initialize
-[Engine::Connect] - DebugReport has connected to Daisy World
-[Engine::Connect] - DebugCamera has connected to Keyboard
-[Engine::Connect] - DebugCamera has connected to Keyboard
 Chen::Initialize 
-Chen::Transform::Initialize
-Chen::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Chen
 SpriteSource::LoadTexture - Failed to load image file!
-[Engine::Connect] - DebugReport has connected to Daisy World
 Connor::Initialize 
-Connor::Transform::Initialize
-Connor::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Connor
 SpriteSource::LoadTexture - Failed to load image file!
-[Engine::Connect] - DebugReport has connected to Daisy World
 SpriteTextor::Initialize 
-SpriteTextor::Transform::Initialize
 GraphicsSpace::AddSpriteText - SpriteTextor
 Reiner::Initialize 
-Reiner::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Reiner
 SpriteSource::LoadTexture - Failed to load image file!
-Reiner::Transform::Initialize
 PhysicsSpace::AddRigidBody - Reiner
 PhysicsSpace::AddCollider - Reiner
-[Engine::Connect] - BoxCollider has connected to Daisy World
-[Engine::Connect] - DebugCollider has connected to Reiner
-[Engine::Connect] - DebugCollider has connected to Reiner
-[Engine::Connect] - DebugMoveController has connected to Keyboard
-[Engine::Connect] - DebugMoveController has connected to Keyboard
-[Engine::Connect] - DebugMoveController has connected to Mouse
-[Engine::Connect] - DebugReport has connected to Daisy World
 Myres::Initialize 
-Myres::Sprite::Initialize
 GraphicsSpace::OnSpriteRegistrationEvent - Myres
 SpriteSource::LoadTexture - Failed to load image file!
-Myres::Transform::Initialize
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
-[Engine::Connect] - BoxCollider has connected to Daisy World
-[Engine::Connect] - DebugCollider has connected to Myres
-[Engine::Connect] - DebugCollider has connected to Myres
-[Engine::Connect] - DebugReport has connected to Daisy World
 
 [Engine::Loop]
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'D' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'A' 
-DebugMoveController::OnKeyDownEvent - Pressed: 'S' 
-
-[Engine::Terminate] 
-Window::Terminate 
-Input::Terminate 
-Audio::Terminate 
-Graphics::Terminate 
+Reiner::Transform.Translation(-1.5, 0, 0)
+Reiner::Transform.Translation(-2, 0, 0)
+Reiner::Transform.Translation(-2.5, 0, 0)
+Reiner::Transform.Translation(-2.5, -0.5, 0)
+Reiner::Transform.Translation(-2.5, -1, 0)
+Reiner::Transform.Translation(-2.5, -1, -0.5)
+Reiner::Transform.Translation(-2.5, -1, -0.5)
+Reiner::Transform.Translation(-2.5, -1, -0.5)
+Reiner::Transform.Translation(-2.5, -1, -0.5)
+Reiner::Transform.Translation(-2.5, -1.5, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -0.5)
+Reiner::Transform.Translation(-2.5, -2, -

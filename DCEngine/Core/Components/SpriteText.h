@@ -2,18 +2,19 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
-
+    
   class Transform;
   class SpriteText : public Component {
   public:
 
-    Boolean Visible;
-    Boolean Color;
-    //Font Font::
-    Integer FontSize;
-    String Text;
-    Integer PixelsPerUnit;
-    Boolean Smoothing;
+    Transform* TransformComponent;
+    Boolean Visible = true;
+    Real4 Color = Real4(0, 0, 0, 1);
+    String Font = "Verdana";
+    Integer FontSize = 12;
+    String Text = "";
+    Integer PixelsPerUnit = 64;
+    Boolean Smoothing = true;
      
     SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
     void Initialize();
@@ -21,7 +22,6 @@ namespace DCEngine {
     virtual void Deserialize(Json::Value& root);
 
   private:
-    Transform* TransformComponent;
 
   };
 

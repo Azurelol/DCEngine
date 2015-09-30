@@ -17,7 +17,6 @@ namespace DCEngine {
 
     }
     void Factory::Terminate() {
-      if (TRACE_UPDATE)
         trace << "Factory::Terminate \n";
     }
 

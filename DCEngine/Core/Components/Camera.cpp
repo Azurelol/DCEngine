@@ -19,7 +19,7 @@ namespace DCEngine {
 		Transform_ = gameObjOwner->getComponent<Transform>();
 		if (Transform_ != gameObjOwner->getComponent<Transform>())
 		{
-			trace << "Camera: Intialize failed. No Transform component";
+			trace << "Camera::Initialize - Failed. No Transform component";
 			return;
 		}
 		Yaw = -90.0f;

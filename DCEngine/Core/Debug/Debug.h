@@ -22,8 +22,16 @@ namespace Debug {
   #define TRACE_INITIALIZE 1
   #define TRACE_UPDATE 0
   #define TRACE_CONSTRUCTOR 0
-  #define TRACE_CONNECT 1
+  #define TRACE_REGISTER 1
+  #define TRACE_CONNECT 0
   #define TRACE_DISPATCH 0
+
+  #define TRACE_GAMEOBJECT_ADD 1
+  #define TRACE_GAMEOBJECT_INITIALIZE 0
+  #define TRACE_COMPONENT_ADD 0
+  #define TRACE_COMPONENT_INITIALIZE 0
+
+
 
   #define TRACE_PHYSICS 0
   #define TRACE_GRAPHICS 0  

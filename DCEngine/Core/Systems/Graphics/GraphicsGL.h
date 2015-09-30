@@ -87,7 +87,7 @@ namespace DCEngine {
       GLuint SpriteVAO; 
       // SpriteText
       ShaderPtr SpriteTextShader;
-      GLuint SpriteTextVAO;
+      GLuint SpriteTextVAO, SpriteTextVBO;
       // DebugDraw
       ShaderPtr DebugDrawShader;
       GLuint LineVAO, CircleVAO, RectVAO;

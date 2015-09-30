@@ -123,6 +123,12 @@ namespace DCEngine {
       case sf::Keyboard::E:
         keyDown->Key = Keys::E;
         break;
+      case sf::Keyboard::Z:
+        keyDown->Key = Keys::Z;
+        break;
+      case sf::Keyboard::X:
+        keyDown->Key = Keys::X;
+        break;
 
       case sf::Keyboard::F1:
         keyDown->Key = Keys::F1;

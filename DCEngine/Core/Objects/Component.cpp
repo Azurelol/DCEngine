@@ -19,7 +19,7 @@ namespace DCEngine {
     // Set references
     SetReferences();
 
-    if (TRACE_ON && TRACE_CONSTRUCTOR) {
+    if (TRACE_CONSTRUCTOR) {
       trace << _name << "::Component - Constructor - "
         << "Owner: '" << owner_->Name()
         << "'\n";
