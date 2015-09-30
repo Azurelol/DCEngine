@@ -20,14 +20,11 @@ namespace DCEngine {
 
   void DebugReport::OnKeyDownEvent(Events::KeyDown * event)
   {
-    // Keyboard Input broken?
-    //switch (event->Key) {
-    //case Keys::W:
+    if (ReportTranslation) {
       trace << Owner()->Name() << " is now at (" << TransformComponent->Translation.x << ", "
-                                                 << TransformComponent->Translation.y << ", "
-                                                 << TransformComponent->Translation.z << ")\n";
-    //  break;    
-    //}
+        << TransformComponent->Translation.y << ", "
+        << TransformComponent->Translation.z << ")\n";
+    }
   }
 
   void DebugReport::OnKeyUpEvent(Events::KeyUp * event)

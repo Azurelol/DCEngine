@@ -150,6 +150,33 @@ namespace DCEngine {
       case sf::Keyboard::Subtract:
         keyDown->Key = Keys::Subtract;
         break;
+      case sf::Keyboard::Num1:
+        keyDown->Key = Keys::Num1;
+        break;
+      case sf::Keyboard::Num2:
+        keyDown->Key = Keys::Num2;
+        break;
+      case sf::Keyboard::Num3:
+        keyDown->Key = Keys::Num3;
+        break;
+      case sf::Keyboard::Num4:
+        keyDown->Key = Keys::Num4;
+        break;
+      case sf::Keyboard::Num5:
+        keyDown->Key = Keys::Num5;
+        break;
+      case sf::Keyboard::Num6:
+        keyDown->Key = Keys::Num6;
+        break;
+      case sf::Keyboard::Num7:
+        keyDown->Key = Keys::Num7;
+        break;
+      case sf::Keyboard::Num8:
+        keyDown->Key = Keys::Num8;
+        break;
+      case sf::Keyboard::Num9:
+        keyDown->Key = Keys::Num9;
+        break;
 
 
 

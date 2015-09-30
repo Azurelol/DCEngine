@@ -24,6 +24,7 @@ namespace DCEngine {
 
   private:
     void PlayFootstepSound();
+    void PrintTranslation();
     std::string FootstepSound;
     Boolean FootstepSoundEnabled = false;
   };

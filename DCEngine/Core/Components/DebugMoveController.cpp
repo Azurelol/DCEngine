@@ -30,33 +30,34 @@ namespace DCEngine {
     switch (event->Key) {
     case Keys::W:
       TransformRef->Translation.y += MoveSpeed;
+      PrintTranslation();
       break;    
     case Keys::S:
       TransformRef->Translation.y -= MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::A:
       TransformRef->Translation.x -= MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::D:
       TransformRef->Translation.x += MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::E:
       TransformRef->Translation.z -= MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::Q:
       TransformRef->Translation.z += MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::Z:
       TransformRef->Rotation.z -= RotSpeed;
       break;
     case Keys::X:
       TransformRef->Rotation.z += RotSpeed;
-      break;
     }
-
-    trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-                                                 << ", " << TransformRef->Translation.y
-                                                 << ", " << TransformRef->Translation.z << ")\n";
 
     if (FootstepSoundEnabled)
       PlayFootstepSound();
@@ -95,6 +96,13 @@ namespace DCEngine {
   void DebugMoveController::PlayFootstepSound()
   {
     //space_->getComponent<SoundSpace>()->
+  }
+
+  void DebugMoveController::PrintTranslation()
+  {
+    trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+      << ", " << TransformRef->Translation.y
+      << ", " << TransformRef->Translation.z << ")\n";
   }
 
 }

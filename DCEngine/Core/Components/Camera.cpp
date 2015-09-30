@@ -16,19 +16,23 @@ namespace DCEngine {
   /**************************************************************************/
 	void Camera::Initialize() {
 		auto gameObjOwner = (GameObject*)Owner();
-		Transform_ = gameObjOwner->getComponent<Transform>();
-		if (Transform_ != gameObjOwner->getComponent<Transform>())
+		TransformComponent = gameObjOwner->getComponent<Transform>();
+
+		if (TransformComponent != gameObjOwner->getComponent<Transform>())
 		{
 			trace << "Camera::Initialize - Failed. No Transform component";
 			return;
 		}
-		Yaw = -90.0f;
-		Pitch = 0.0f;
-		Roll = 90.0f;
 
-		Front = glm::vec3(0.0f, 0.0f, -1.0f);
-		Up = glm::vec3(0.0f, 1.0f, 0.0f);
-		Right = glm::vec3(1.0f, 0.0f, 0.0f);
+    Connect(space_, Events::LogicUpdate, Camera::OnLogicUpdate);
+
+		//Yaw = -90.0f;
+		//Pitch = 0.0f;
+		//Roll = 90.0f;
+
+		//Front = glm::vec3(0.0f, 0.0f, -1.0f);
+		//Up =    glm::vec3(0.0f, 1.0f, 0.0f);
+		//Right = glm::vec3(1.0f, 0.0f, 0.0f);
 	}
 
   /**************************************************************************/
@@ -39,6 +43,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Camera::OnLogicUpdate(Events::LogicUpdate* event)
   {
+    //trace << "Updatelol";
     Update();
   }
 
@@ -50,8 +55,8 @@ namespace DCEngine {
   /**************************************************************************/
 	void Camera::Update()
 	{
-		Roll = this->Roll + Transform_->Rotation.z;
-		trace << FieldOfView << "\n";
+		Roll = BaseRollVal + TransformComponent->Rotation.z;
+		//trace << FieldOfView << "\n";
 		if (FieldOfView >= 90.0f)
 		{
 			FieldOfView = 89;
@@ -69,23 +74,26 @@ namespace DCEngine {
   */
   /**************************************************************************/
 	glm::mat4 Camera::GetViewMatrix() {
-		return glm::lookAt(Transform_->Translation, Transform_->Translation + Front, Up);
+		return glm::lookAt(TransformComponent->Translation, TransformComponent->Translation + Front, Up);
 	}
 
   /**************************************************************************/
   /*!
-  \brief  Computes the current camera vectors.
-  \note   References:
+  \brief  Computes the current camera vectors. If the camera projection mode
+          is perspective, it calculates the front vector as well.
   */
   /**************************************************************************/
 	void Camera::UpdateCameraVectors() {
 		// Calculate the new front vector
 		glm::vec3 front;
 		glm::vec3 up;
-		front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-		front.y = sin(glm::radians(Pitch));
-		front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-		Front = glm::normalize(front);
+
+    if (Projection == ProjectionMode::Perspective) {
+      front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+      front.y = sin(glm::radians(Pitch));
+      front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+      Front = glm::normalize(front);
+    }
 
 		up.x = cos(glm::radians(Roll));
 		up.y = sin(glm::radians(Roll));
@@ -112,10 +120,10 @@ namespace DCEngine {
 			{
 				Size = 1;
 			}
-			return glm::ortho(Transform_->Translation.x - (WindowsWidth / WindowsHeight) * (100 - Size),
-				Transform_->Translation.x + (WindowsWidth / WindowsHeight) * (100 - Size),
-				Transform_->Translation.y - (WindowsHeight / WindowsWidth) * (100 - Size),
-				Transform_->Translation.y + (WindowsHeight / WindowsWidth) * (100 - Size),
+			return glm::ortho(TransformComponent->Translation.x - (WindowsWidth / WindowsHeight) * (100 - Size),
+				TransformComponent->Translation.x + (WindowsWidth / WindowsHeight) * (100 - Size),
+				TransformComponent->Translation.y - (WindowsHeight / WindowsWidth) * (100 - Size),
+				TransformComponent->Translation.y + (WindowsHeight / WindowsWidth) * (100 - Size),
 				NearPlane,
 				FarPlane);
 		}

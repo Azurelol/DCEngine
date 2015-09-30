@@ -10,6 +10,7 @@ namespace DCEngine {
 
     /* Properties */
     Real MoveSpeed = 3;
+    Real RotSpeed = 15;
     Real ZoomSpeed = 10;
     
     /* Initialize */
@@ -21,6 +22,7 @@ namespace DCEngine {
     /* Events */
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);
+    void PrintTranslation();
 
   private:
     Camera* CameraComponent;

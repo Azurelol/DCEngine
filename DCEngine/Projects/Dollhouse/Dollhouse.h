@@ -33,10 +33,13 @@ namespace DCEngine {
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
+      //cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
+      // Camera properties      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;
+      cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Orthographic;
+
 
       // Let's try having a background sprite, should be drawn behind others.
 

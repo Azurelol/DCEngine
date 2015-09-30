@@ -31,17 +31,35 @@ namespace DCEngine {
       /* Movement */
     case Keys::Up:
       TransformComponent->Translation.y += MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::Down:
       TransformComponent->Translation.y -= MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::Left:
       TransformComponent->Translation.x -= MoveSpeed;
+      PrintTranslation();
       break;
     case Keys::Right:
       TransformComponent->Translation.x += MoveSpeed;
+      PrintTranslation();
       break;
+    case Keys::F1:
+      TransformComponent->Rotation.z -= RotSpeed;
+      break;
+    case Keys::F2:
+      TransformComponent->Rotation.z += RotSpeed;
+      
     }
+
+
+  }
+
+  void DebugCamera::PrintTranslation() {
+    trace << Owner()->Name() << "::Transform.Translation(" << TransformComponent->Translation.x
+      << ", " << TransformComponent->Translation.y
+      << ", " << TransformComponent->Translation.z << ")\n";
   }
 
   void DebugCamera::OnKeyUpEvent(Events::KeyUp * event)

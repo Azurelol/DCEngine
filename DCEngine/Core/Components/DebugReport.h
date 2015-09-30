@@ -16,6 +16,7 @@ namespace DCEngine {
   public:
 
     Transform* TransformComponent;
+    Boolean ReportTranslation = false;
     DebugDrawType DrawType = DebugDrawType::None;
     Real Radius = 1;
     Real Height = 1;

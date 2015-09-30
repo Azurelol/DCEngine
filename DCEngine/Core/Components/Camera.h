@@ -38,13 +38,14 @@ namespace DCEngine {
 	public:
 
 		// Camera Attributes
-		glm::vec3 Front;
-		glm::vec3 Up;
-		glm::vec3 Right;
+		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 Right = glm::vec3(1.0f, 0.0f, 0.0f);
 		// Euler Angles(Yaw and Pitch are not needed in 2D camera)
-		GLfloat Yaw;
-		GLfloat Pitch;
-		GLfloat Roll; // rotation degree
+    GLfloat Yaw = 90.0f;
+    GLfloat Pitch = 0.0f;;
+    GLfloat Roll = 90.0f; // rotation degree
+    GLfloat BaseRollVal = 90.0f;
 		//Projection Mode
 		ProjectionMode Projection = ProjectionMode::Orthographic;
 		GLfloat FieldOfView = 45;
@@ -62,7 +63,7 @@ namespace DCEngine {
 		glm::mat4 GetViewMatrix();
 		glm::mat4 GetProjectionMatrix();
 		void OnLogicUpdate(Events::LogicUpdate* event);
-		Transform *Transform_;
+		Transform *TransformComponent;
 
 	private:
 
