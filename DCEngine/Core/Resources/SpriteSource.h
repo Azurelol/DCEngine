@@ -48,7 +48,9 @@ namespace DCEngine {
       }
 
       // Load image
-      std::string spritePath = "Core/Resources/Sprites/" + ImageFileName;
+	  std::string spritePath;
+	  spritePath.append("Core/Resources/Sprites/");
+	  spritePath.append(ImageFileName);
       int width, height;
       unsigned char* image = SOIL_load_image(spritePath.c_str(),
         &width, &height, 
