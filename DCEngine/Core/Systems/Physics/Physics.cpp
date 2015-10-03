@@ -44,7 +44,7 @@ namespace DCEngine {
 		\brief The main update function for all physical bodies.
 		*/
 		/**************************************************************************/
-		void Physics::Update(float dt) 
+		void Physics::Update(float dt)
 		{
 			Step(dt);
 		}
@@ -59,7 +59,7 @@ namespace DCEngine {
 
 				NarrowPhaseDetection(pairs);
 
-				//IntegrateBodies(dt);
+				Integrate(dt, physpace);
 
 				//Contacts.Reset();
 
@@ -67,7 +67,7 @@ namespace DCEngine {
 
 				//Contacts.ResolveContacts(dt);
 
-				//PublishResults();
+				PublishResults(physpace);
 			}
 
 
@@ -75,11 +75,32 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief Do
+		\brief  go through all the rigid bodies and update velocity
 		*/
 		/**************************************************************************/
-		void Physics::Integrate()
+		void Physics::Integrate(float dt, PhysicsSpace* physpace)
 		{
+			auto bodies = physpace->getRigidbodies();
+
+			for (int i = 0; i < bodies.size(); ++i)
+			{
+				bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+			}
+		}
+
+		/**************************************************************************/
+		/*!
+		\brief go through all the rigid bodies and update position
+		*/
+		/**************************************************************************/
+		void Physics::PublishResults(PhysicsSpace* physpace)
+		{
+			auto bodies = physpace->getRigidbodies();
+
+			for (int i = 0; i < bodies.size(); ++i)
+			{
+				bodies[i]->getComponent<RigidBody>()->PublishResults();
+			}
 		}
 
 		/**************************************************************************/
@@ -115,7 +136,7 @@ namespace DCEngine {
 		Manifold Physics::NarrowPhaseDetection(GameObjectRawVec pairs)
 		{
 			GameObject * obj1, *obj2;
-			
+
 			//trace << _name << "::NarrowPhase \n";
 			for (int i = 0; i < pairs.size(); ++i)
 			{
@@ -123,26 +144,26 @@ namespace DCEngine {
 				obj1 = pairs[i];
 				obj2 = pairs[++i];
 
-        // COLLISION DETECTED
+				// COLLISION DETECTED
 				if (BoxtoBox(obj1, obj2))
 				{
 					// generate collision data
 
-          // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-          CollisionData boxToBoxCollision;
-          boxToBoxCollision.Object = obj1;
-          boxToBoxCollision.OtherObject = obj2;
-          DispatchCollisionStarted(boxToBoxCollision);
+					// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+					CollisionData boxToBoxCollision;
+					boxToBoxCollision.Object = obj1;
+					boxToBoxCollision.OtherObject = obj2;
+					DispatchCollisionStarted(boxToBoxCollision);
 
 					//trace << "Physics::NarrowPhaseDetection - Colision between " << obj1->Name() << " and " << obj2->Name() << "\n";
 				}
-        // NO COLLISION DETECTED
-        else {
-          CollisionData boxToBoxCollision;
-          boxToBoxCollision.Object = obj1;
-          boxToBoxCollision.OtherObject = obj2;
-          DispatchCollisionEnded(boxToBoxCollision);
-        }
+				// NO COLLISION DETECTED
+				else {
+					CollisionData boxToBoxCollision;
+					boxToBoxCollision.Object = obj1;
+					boxToBoxCollision.OtherObject = obj2;
+					DispatchCollisionEnded(boxToBoxCollision);
+				}
 
 
 			}
@@ -151,15 +172,15 @@ namespace DCEngine {
 
 		bool Physics::BoxtoBox(GameObject * obj1, GameObject * obj2)
 		{
-			     /* get the rigidbodies */
+			/* get the rigidbodies */
 			auto rigidbody1 = obj1->getComponent<RigidBody>();
 			auto rigidbody2 = obj2->getComponent<RigidBody>();
-			     
-			     /* get the colliders */
+
+			/* get the colliders */
 			auto boxcollider1 = obj1->getComponent<BoxCollider>();
 			auto boxcollider2 = obj2->getComponent<BoxCollider>();
-			     
-			     /* get the transforms */
+
+			/* get the transforms */
 			auto transform1 = obj1->getComponent<Transform>();
 			auto transform2 = obj2->getComponent<Transform>();
 
@@ -216,31 +237,31 @@ namespace DCEngine {
 		{
 		}
 
-    void Physics::DispatchCollisionStarted(CollisionData & collisionData)
-    {
-      auto collisionStartedEvent = new Events::CollisionStarted();
-      // Dispatch collision event to the first object
-      collisionStartedEvent->Object = collisionData.Object;
-      collisionStartedEvent->OtherObject = collisionData.OtherObject;
-      collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
-      // Dispatch collision event to the second object
-      collisionStartedEvent->Object = collisionData.OtherObject;
-      collisionStartedEvent->OtherObject = collisionData.Object;
-      collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
-    }
+		void Physics::DispatchCollisionStarted(CollisionData & collisionData)
+		{
+			auto collisionStartedEvent = new Events::CollisionStarted();
+			// Dispatch collision event to the first object
+			collisionStartedEvent->Object = collisionData.Object;
+			collisionStartedEvent->OtherObject = collisionData.OtherObject;
+			collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+			// Dispatch collision event to the second object
+			collisionStartedEvent->Object = collisionData.OtherObject;
+			collisionStartedEvent->OtherObject = collisionData.Object;
+			collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+		}
 
-    void Physics::DispatchCollisionEnded(CollisionData & collisionData)
-    {
-      auto collisionEndedEvent = new Events::CollisionEnded();
-      // Dispatch collision event to the first object
-      collisionEndedEvent->Object = collisionData.Object;
-      collisionEndedEvent->OtherObject = collisionData.OtherObject;
-      collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
-      // Dispatch collision event to the second object
-      collisionEndedEvent->Object = collisionData.OtherObject;
-      collisionEndedEvent->OtherObject = collisionData.Object;
-      collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
-    }
+		void Physics::DispatchCollisionEnded(CollisionData & collisionData)
+		{
+			auto collisionEndedEvent = new Events::CollisionEnded();
+			// Dispatch collision event to the first object
+			collisionEndedEvent->Object = collisionData.Object;
+			collisionEndedEvent->OtherObject = collisionData.OtherObject;
+			collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+			// Dispatch collision event to the second object
+			collisionEndedEvent->Object = collisionData.OtherObject;
+			collisionEndedEvent->OtherObject = collisionData.Object;
+			collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+		}
 
 
 		/**************************************************************************/
