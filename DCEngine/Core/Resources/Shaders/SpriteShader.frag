@@ -12,4 +12,10 @@ uniform vec4 spriteColor;
 void main() {
   color = spriteColor;
   //color = vec4(spriteColor) * texture(image, TexCoords);
+
+  //Debug code
+  if (TexCoords.x == 1)
+  {
+    color.x = color.x + 1;
+  }
 }
