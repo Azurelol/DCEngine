@@ -49,6 +49,12 @@ namespace DCEngine {
 			Step(dt);
 		}
 
+
+		/**************************************************************************/
+		/*!
+		\brief The function that actually goes through the spaces and updates objects
+		*/
+		/**************************************************************************/
 		void Physics::Step(float dt)
 		{
 
@@ -170,6 +176,11 @@ namespace DCEngine {
 			return Manifold();
 		}
 
+		/**************************************************************************/
+		/*!
+		\brief This function determines if two boxes are colliding.
+		*/
+		/**************************************************************************/
 		bool Physics::BoxtoBox(GameObject * obj1, GameObject * obj2)
 		{
 			/* get the rigidbodies */

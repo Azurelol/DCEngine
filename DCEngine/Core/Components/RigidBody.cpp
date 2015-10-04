@@ -26,12 +26,22 @@ namespace DCEngine
 
 	}
 
-
+	/**************************************************************************/
+	/*!
+	\brief add a force on to this rigidbody.
+	*/
+	/**************************************************************************/
 	void RigidBody::AddForce(Real3 force)
 	{
 		AccumulatedForce += force;
 	}
 
+
+	/**************************************************************************/
+	/*!
+	\brief update acceleration velocity position and other properties.
+	*/
+	/**************************************************************************/
 	void RigidBody::Integrate(float dt)
 	{
 		//Do not integrate static bodies
@@ -70,16 +80,33 @@ namespace DCEngine
 		AccumulatedForce = Real3(0, 0, 0);
 	}
 
+	/**************************************************************************/
+	/*!
+	\brief set the position.
+	*/
+	/**************************************************************************/
 	void RigidBody::SetPosition(Real3 pos)
 	{
 		TransformComponent->Translation = pos;
 	}
 
+
+	/**************************************************************************/
+	/*!
+	\brief set the velocity.
+	*/
+	/**************************************************************************/
 	void RigidBody::SetVelocity(Real3 vel)
 	{
 		Velocity = vel;
 	}
 
+
+	/**************************************************************************/
+	/*!
+	\brief actually push the position to what it should be.
+	*/
+	/**************************************************************************/
 	void RigidBody::PublishResults(void)
 	{
 		TransformComponent->Translation = Position;
