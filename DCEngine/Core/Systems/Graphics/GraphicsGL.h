@@ -31,6 +31,7 @@ namespace DCEngine {
   // Forward declarations
   class GraphicsSpace;
   class Camera;
+  class Sprite;
   class SpriteText;
 
   namespace Systems {
@@ -51,7 +52,7 @@ namespace DCEngine {
       /* Sprite */
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Camera& camera);
-      void DrawSprite(GameObject& gameObj, Camera& camera);
+      void DrawSprite(Sprite& sprite, Camera& camera);
       /* SpriteText */
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Camera& camera);

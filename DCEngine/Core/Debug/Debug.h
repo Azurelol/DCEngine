@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
+#include <exception>
 
 #pragma once
 
@@ -30,8 +31,6 @@ namespace Debug {
   #define TRACE_GAMEOBJECT_INITIALIZE 0
   #define TRACE_COMPONENT_ADD 0
   #define TRACE_COMPONENT_INITIALIZE 0
-
-
 
   #define TRACE_PHYSICS 0
   #define TRACE_GRAPHICS 0  

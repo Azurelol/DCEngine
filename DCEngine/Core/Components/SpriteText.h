@@ -4,7 +4,10 @@
 namespace DCEngine {
     
   class Transform;
+  class GraphicsGL;
+
   class SpriteText : public Component {
+    friend class GraphicsGL;
   public:
 
     Transform* TransformComponent;

@@ -88,14 +88,14 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Audio));    
     _systems.push_back(SystemPtr(new Systems::Graphics));
     
-    trace << "\n";
+    //trace << "\n";
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
     trace << "[Engine::Initialize - All engine systems initialized]\n";
-
+        
     // Loads the project file to start up the game
     LoadProject(std::string("Default")); // Temporarily default
   }
@@ -107,6 +107,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::LoadProject(std::string & filename) {
+
+    trace << "\n[Engine::LoadProject - Loading " << "]\n";
 
     // 1. Deserialize the input file for information about the project,
     // and store that in a struct owned by the engine.
@@ -127,6 +129,9 @@ namespace DCEngine {
     // 'ProjectSetup' component: DefaultSpace, DefaultLevel to load an 
     // archetyped space and load the specified default level onto it. 
     // (This level is looked for in the content's system "Levels map" container.
+    
+    // Load all resources, both defaults and project-specific
+    getSystem<Systems::Content>()->LoadAllResources();
 
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
@@ -145,6 +150,9 @@ namespace DCEngine {
       // !!! TESTING: Level loading
       LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
       defaultSpace->LoadLevel(dollhouse);
+
+
+      trace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)

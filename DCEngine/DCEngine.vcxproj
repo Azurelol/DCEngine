@@ -188,6 +188,8 @@
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
     <ClCompile Include="Core\Resources\Shader.cpp" />
+    <ClCompile Include="Core\Resources\SoundCue.cpp" />
+    <ClCompile Include="Core\Resources\SpriteSource.cpp" />
     <ClCompile Include="Core\Resources\Texture2D.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
@@ -279,6 +281,7 @@
     <ClInclude Include="Core\Resources\Texture2D.h" />
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
+    <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Factory\Serializer.h" />

@@ -92,10 +92,10 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSprite(GameObject & gameObj, Camera& cam) {
+    void Graphics::DrawSprite(Sprite & sprite, Camera& cam) {
       if (TRACE_UPDATE)
-        trace << "Graphics::DrawSprite - Drawing " << gameObj.Name() << "\n";
-      GraphicsHandler->DrawSprite(gameObj, cam);
+        trace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
+      GraphicsHandler->DrawSprite(sprite, cam);
     }
 
     /**************************************************************************/

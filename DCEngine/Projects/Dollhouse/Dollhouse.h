@@ -68,7 +68,6 @@ namespace DCEngine {
       rango->AddComponent(ComponentPtr(new Sprite(*rango)));
       rango->AddComponent(ComponentPtr(new Transform(*rango)));
       rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
-      rango->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 
       // Serializer test
       std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";

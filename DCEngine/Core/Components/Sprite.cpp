@@ -24,14 +24,20 @@ namespace DCEngine {
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
 
+    // Register this component to the GraphicsSpace so that it can be drawn
+    // by the graphics system.
+    // Subscribe this component to the graphics space
+    space_->getComponent<GraphicsSpace>()->AddSprite(*this);
+
+
     // Register this component, and thus its GameObject to the GraphicsSpace
     auto registerEvent = new Events::SpriteRegistration();
     registerEvent->SpriteObj = (GameObject*)Owner(); // SHOULD THIS BE CASTED?
     space_->Dispatch<Events::SpriteRegistration>(registerEvent);
 
     // Load the default SpriteSource
-    SpriteSourceObj.reset(new SpriteSource());
-    SpriteSourceObj->LoadTexture(true);
+    //SpriteSourceObj.reset(new SpriteSource());
+    //SpriteSourceObj->LoadTexture(true);
   }
 
   /**************************************************************************/
@@ -44,27 +50,6 @@ namespace DCEngine {
 
   void Sprite::Deserialize(Json::Value & root) {
   }
-
-  /**************************************************************************/
-  /*!
-  \brief Changes the SpriteSource.
-  */
-  /**************************************************************************/
-  void Sprite::setSpriteSource(std::string imageFile) {
-    SpriteSourceObj.reset(new SpriteSource(imageFile));
-    SpriteSourceObj->LoadTexture(true);
-  }
-  
-  /**************************************************************************/
-  /*!
-  \brief Gets a pointer to the SpriteSource resource.
-  \param A pointer to the SpriteSource resource used by this Sprite component.
-  */
-  /**************************************************************************/
-  SpriteSource * Sprite::getSpriteSource() {
-    return SpriteSourceObj.get();
-  }
-
 
   /**************************************************************************/
   /*!

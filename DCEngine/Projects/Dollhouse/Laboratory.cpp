@@ -45,7 +45,6 @@ namespace DCEngine {
     john->getComponent<Transform>()->Translation = Real3(2.0f, 0.0f, 1.0f);
     john->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
     // Sprite properties
-    john->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
     john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
     // BoxCollider properties
     john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);

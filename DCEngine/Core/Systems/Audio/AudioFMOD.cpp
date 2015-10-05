@@ -1,4 +1,16 @@
+/******************************************************************************/
+/*!
+\file   AudioFMOD.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   9/16/2015
+\brief  The implementation for FMOD.
+*/
+/******************************************************************************/
 #include "AudioFMOD.h"
+
+// Headers
+#include "..\..\Components\EngineReference.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -84,10 +96,10 @@ namespace DCEngine {
             necessary.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateSound(FMOD::Sound** soundPtr, std::string& filePtr) {
-      trace << "AudioFMOD::CreateSound \n";
+    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound* soundPtr) {
+      trace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
       FMOD_RESULT result;
-      result = system_.ptr->createSound(filePtr.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
+      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, &soundPtr);
       ErrorCheck(result);
     }
 
@@ -97,10 +109,10 @@ namespace DCEngine {
             bufferred segment on the fly during playback.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateStream(FMOD::Sound ** streamPtr, std::string & filePtr) {
+    void AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
       trace << "AudioFMOD::CreateStream \n";
       FMOD_RESULT result;
-      result = system_.ptr->createStream(filePtr.c_str(), FMOD_DEFAULT, 0, streamPtr);
+      result = system_.ptr->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr);
       ErrorCheck(result);
     }
 
@@ -131,7 +143,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::PlayMusic(std::string & filePath) {
       std::string resourceLocation("Projects/Resources/Sounds/");
-      CreateStream(&MusicPtr, resourceLocation + filePath);
+      CreateStream(resourceLocation + filePath, &MusicPtr);
       PlaySound(MusicPtr, true);
     }
 

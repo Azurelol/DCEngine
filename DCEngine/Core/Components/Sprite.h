@@ -16,34 +16,33 @@ namespace DCEngine {
     None,
   };
 
+  // Forward declarations
   class Transform;
-  class SpriteSource;
 
   class Sprite : public Component {
   public:
 
+    Transform* TransformComponent;
+    String SpriteSource = "Square";
     bool Visible = true;
     Real4 Color = Real4(1.0f, 0.0f, 0.0f, 1.0f); //!< Default color is red.
     BlendModeType BlendMode = BlendModeType::Alpha;
     bool FlipX = false;
     bool FlipY = false;
 
+
     Sprite(Entity& owner);
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
-    void setSpriteSource(std::string fileName);
-    SpriteSource* getSpriteSource();
 	  void UpdateSprite();
 
   private:
 
-    Transform* TransformComponent;
 
     bool XFlipped;
     bool YFlipped;
     glm::mat4 FlipMatrix;
-    std::unique_ptr<SpriteSource> SpriteSourceObj;
 
 
 	//Update

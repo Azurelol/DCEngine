@@ -4,14 +4,16 @@
 *Using SFML Context for Window and Input 
 *Using FMOD for Audio 
 *Using OpenGL for Graphics 
-
 Content::Initialize 
 
 [Content::LoadDefaultResources] - Loading default resources 
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
+SpriteSource::LoadTexture - Image was successfully loaded!
+Content::AddSpriteSource - Square was added.
 Font::Load - Font was successfully loaded! 
 Content::AddFont - Verdana was added.
+Content::AddSoundCue - SpaceJam was added.
 [Content::LoadDefaultResources] - Finished loading default resources 
 
 Factory::Initialize 
@@ -32,6 +34,9 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [GraphicsGL::Initialize] - Finished compiling shaders 
 
 [Engine::Initialize - All engine systems initialized]
+
+[Engine::LoadProject - Loading ]
+AudioFMOD::CreateSound: Core/Resources/Sounds/spacejam.mp3
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
@@ -40,62 +45,55 @@ Daisy World::AddEntity - Added Connor to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
+
+[Engine::LoadProject - Finished loading ]
+
 [Daisy Project::Initialize - Initializing all spaces... ] 
 |Daisy World::Initialize| 
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::PlaySound 
+Audio::Register -  Daisy World has registered to the Audio system
 Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
 Chen::Initialize 
-GraphicsSpace::OnSpriteRegistrationEvent - Chen
-SpriteSource::LoadTexture - Failed to load image file!
+GraphicsSpace::AddSprite - Chen
 Connor::Initialize 
-GraphicsSpace::OnSpriteRegistrationEvent - Connor
-SpriteSource::LoadTexture - Failed to load image file!
+GraphicsSpace::AddSprite - Connor
 SpriteTextor::Initialize 
 GraphicsSpace::AddSpriteText - SpriteTextor
 Reiner::Initialize 
-GraphicsSpace::OnSpriteRegistrationEvent - Reiner
-SpriteSource::LoadTexture - Failed to load image file!
+GraphicsSpace::AddSprite - Reiner
 PhysicsSpace::AddRigidBody - Reiner
 PhysicsSpace::AddCollider - Reiner
 Myres::Initialize 
-GraphicsSpace::OnSpriteRegistrationEvent - Myres
-SpriteSource::LoadTexture - Failed to load image file!
+GraphicsSpace::AddSprite - Myres
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Reiner::Transform.Translation(8.77601, 0, 0)
-Reiner::Transform.Translation(12.7821, 0.5, 0)
-Reiner::Transform.Translation(16.7909, 0.5, 0)
-Reiner::Transform.Translation(20.4626, 0, 0)
-Reiner::Transform.Translation(23.3016, 0, 0)
-Reiner::Transform.Translation(23.9695, 0, 0)
-Reiner::Transform.Translation(26.6403, 0.5, 0)
-Reiner::Transform.Translation(28.1427, 0.5, 0)
-Reiner::Transform.Translation(29.1442, 0.5, 0)
-Reiner::Transform.Translation(31.4795, 0.5, 0)
-Reiner::Transform.Translation(32.4839, 0.5, 0)
-Reiner::Transform.Translation(35.4887, 0.5, 0)
-Reiner::Transform.Translation(36.9928, 0.5, 0)
-Reiner::Transform.Translation(38.3289, 0.5, 0)
-Reiner::Transform.Translation(39.3325, 0.5, 0)
-Reiner::Transform.Translation(40.1663, 0.5, 0)
-Reiner::Transform.Translation(41.0021, 0.5, 0)
-Reiner::Transform.Translation(42.3366, 0.5, 0)
-Reiner::Transform.Translation(43.8406, 0.5, 0)
-Reiner::Transform.Translation(45.0092, 0.5, 0)
-Reiner::Transform.Translation(45.8472, 0.5, 0)
-Reiner::Transform.Translation(46.6807, 0.5, 0)
-Reiner::Transform.Translation(47.5177, 0.5, 0)
-Reiner::Transform.Translation(47.5153, 0.5, 0)
-Reiner::Transform.Translation(48.3519, 0.5, 0)
-Reiner::Transform.Translation(48.8527, 0.5, 0)
-Reiner::Transform.Translation(49.5212, 0.5, 0)
-Reiner::Transform.Translation(50.1893, 0.5, 0)
-Reiner::Transform.Translation(50.6915, 0.5, 0)
-Rein
+Reiner::Transform.Translation(0.701482, -0.5, 0)
+Reiner::Transform.Translation(1.53889, -1, 0)
+Reiner::Transform.Translation(2.45205, -0.5, 0)
+Reiner::Transform.Translation(3.28409, 0, 0)
+Reiner::Transform.Translation(3.95021, 0.5, 0)
+Reiner::Transform.Translation(5.534, 0, 0)
+Reiner::Transform.Translation(6.36846, -0.5, 0)
+Reiner::Transform.Translation(11.7831, -0.5, 0)
+Reiner::Transform.Translation(12.2042, -0.5, 0)
+Reiner::Transform.Translation(12.5363, -0.5, 0)
+Reiner::Transform.Translation(12.782, -0.5, 0)
+Reiner::Transform.Translation(13.367, -0.5, 0)
+Reiner::Transform.Translation(13.7796, -0.5, 0)
+Reiner::Transform.Translation(14.113, -0.5, 0)
+Reiner::Transform.Translation(14.3661, -0.5, 0)
+
+[Engine::Terminate] 
+Content::Terminate
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

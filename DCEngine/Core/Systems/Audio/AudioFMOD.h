@@ -14,15 +14,13 @@
 #include <string>
 #include <FMOD/fmod.hpp>
 #include <FMOD/fmod_errors.h>
-//#include "..\..\..\Dependencies\include\FMOD\fmod.hpp"
-//#include "..\..\..\Dependencies\include\FMOD\fmod_errors.h"
 
 // Headers
 #include "..\..\..\Core\Debug\Debug.h"
 
 namespace DCEngine {
   namespace Systems {
-    
+
     class AudioFMOD {
       // Reference: "http://stackoverflow.com/questions/27680981/using-c11-smart-pointers-as-c-function-arguments"
       class FMODSystemPtr {
@@ -51,8 +49,6 @@ namespace DCEngine {
       AudioFMOD();
       ~AudioFMOD();
 
-
-
       void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
       void PlayMusic(std::string& filePath);
       void StopMusic();
@@ -64,8 +60,8 @@ namespace DCEngine {
 
     private:
       void ErrorCheck(FMOD_RESULT result);
-      void CreateSound(FMOD::Sound** soundPtr, std::string& filePtr);
-      void CreateStream(FMOD::Sound** soundPtr, std::string& filePtr);
+      void CreateSound(std::string& soundFile, FMOD::Sound* soundPtr);
+      void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
 
       //FMOD::System* _system;
       FMODSystemPtr system_; // Wrapper for the C-style pointer

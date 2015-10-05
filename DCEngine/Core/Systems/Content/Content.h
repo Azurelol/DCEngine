@@ -21,22 +21,23 @@ namespace DCEngine {
 
   namespace Systems {
 
+    //using SoundCueMap = std::map<std::string, SoundCuePtr>;
     using ResourceMap = std::map<std::string, std::string>;    
 
     class Content : public System {
       friend class Engine;
       friend class Factory;
-    public:
-
-      void LoadDefaultResources(); //!< Load default content files for the engine.     
+    public:      
+       
       void LoadProjectResources(); //!< Load resources from a project.
       
       /* Getters */
       ShaderPtr getShader(std::string& shaderName);
       FontPtr getFont(std::string& fontName);
+      SpriteSourcePtr getSpriteSrc(std::string& spriteName);
+      SoundCuePtr getSoundCue(std::string& soundCueName);
+
       //template <typename ResourceClass> getResource(); //!< Returns
-
-
     private:
 
       /* Resource maps */
@@ -48,6 +49,8 @@ namespace DCEngine {
       /* Map functions */
       void AddFont(std::string& fontName, FontPtr fontPtr);
       void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
+      void AddSpriteSource(std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
+      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
 
       /* Core functions */
       Content();
@@ -56,6 +59,8 @@ namespace DCEngine {
       void Terminate();
 
       /* Loading functions */
+      void LoadAllResources(); 
+      void LoadDefaultResources(); //!< Load default content files for the engine.   
       void ScanFolder();
       void LoadFile();
       void LoadArchetypes(); //!< Load archetypes from a project.

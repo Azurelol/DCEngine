@@ -13,10 +13,8 @@ namespace DCEngine {
   void GraphicsSpace::Initialize() {
     // Store a reference to the space's 'CameraViewport' component
     CameraViewportComponent = Owner()->getComponent<CameraViewport>();
-    // Register self to the graphics system
+    // Register this space to the graphics system
     Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->Register(*this);   
-    // Connect to sprite registration events
-    Connect(space_, Events::SpriteRegistration, GraphicsSpace::OnSpriteRegistrationEvent);
   }
 
   /**************************************************************************/
@@ -34,17 +32,6 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief Registers a Sprite into the GraphicsSpace.
-  */
-  /**************************************************************************/
-  void GraphicsSpace::OnSpriteRegistrationEvent(Events::SpriteRegistration* eventObj) {
-    sprites_.push_back(eventObj->SpriteObj);
-    trace << "GraphicsSpace::OnSpriteRegistrationEvent - " 
-          << eventObj->SpriteObj->Name() << "\n";
-  }
-
-  /**************************************************************************/
-  /*!
   \brief Registers a SpriteText into the GraphicsSpace
   */
   /**************************************************************************/
@@ -53,6 +40,19 @@ namespace DCEngine {
     SpriteTextContainer.push_back(&spriteText);
     trace << "GraphicsSpace::AddSpriteText - "
       << spriteText.Owner()->Name() << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Registers a SpriteText into the GraphicsSpace
+  @param  A reference to an instance of the 'Sprite' component.
+  */
+  /**************************************************************************/
+  void GraphicsSpace::AddSprite(Sprite & sprite)
+  {
+    SpriteContainer.push_back(&sprite);
+    trace << "GraphicsSpace::AddSprite - "
+      << sprite.Owner()->Name() << "\n";
   }
 
   /**************************************************************************/
@@ -84,8 +84,8 @@ namespace DCEngine {
   \return A container of Sprite pointers.
   */
   /**************************************************************************/
-  std::vector<GameObject*> GraphicsSpace::getSprites() {
-    return sprites_;
+  std::vector<Sprite*> GraphicsSpace::getSprites() {
+    return SpriteContainer;
   }
 
   SpriteTextContainer GraphicsSpace::getSpriteTextContainer()

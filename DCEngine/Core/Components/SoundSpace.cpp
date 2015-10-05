@@ -7,8 +7,8 @@ namespace DCEngine {
      Connect(space_, Events::LogicUpdate, SoundSpace::OnLogicUpdate); 
      TestMusic();
 
-     // Testing Keyboard
-
+     // Register this space to the sound system
+     Daisy->getSystem<Systems::Audio>()->Register(*this);
   }
 
    void SoundSpace::TestMusic() {
@@ -16,6 +16,11 @@ namespace DCEngine {
      using namespace Systems;
      std::string myJam = "spacejam.mp3";
      Daisy->getSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
+   }
+
+   void SoundSpace::PlayCue(std::string soundCueName)
+   {
+     Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
    }
 
    void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {

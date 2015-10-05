@@ -10,6 +10,9 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+
+// Resources
+#include "../../Components/SoundSpace.h"
 #include "../../Resources/SoundCue.h"
 
 #define USE_FMOD 1
@@ -21,6 +24,8 @@ class AudioFMOD;
 #else
 #endif
 
+
+
 namespace DCEngine {  
   class Engine;
 
@@ -30,10 +35,15 @@ namespace DCEngine {
       friend class SoundSpace;
     public:
 
+      void CreateSound(std::string& soundFile, FMODSoundPtr& soundPtr);
       void PlaySound(SoundCue& soundcue);
       void StopSound(SoundCue& soundcue);
 
+      void Register(SoundSpace& soundSpace);
+
     private:
+
+      std::vector<SoundSpace*> SoundSpaceContainer; //!< Container of registered soundspace components.
 
       Audio();
       void Initialize();

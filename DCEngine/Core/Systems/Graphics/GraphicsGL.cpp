@@ -70,7 +70,7 @@ namespace DCEngine {
       // Configure the SpriteText shader VAO
       ConfigureSpriteTextVAO();
 
-      trace << "[GraphicsGL::Initialize] - Finished compiling shaders \n\n";
+      trace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
     }
 
     /**************************************************************************/
@@ -357,7 +357,7 @@ namespace DCEngine {
     \note  
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSprite(GameObject& gameObj, Camera& camera) {
+    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera) {
       //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       this->SpriteShader->Use();
 
@@ -365,10 +365,11 @@ namespace DCEngine {
       glEnable(GL_BLEND);
       glBlendFunc(GL_SRC_ALPHA, GL_ONE);
       
-      // Set the sprite shader as the current shader
-      // The data to be used to draw the sprite:      
-      auto transform = gameObj.getComponent<Transform>();
-      auto sprite = gameObj.getComponent<Sprite>();
+      // Retrieve the 'SpriteSource' resource from the content system
+      auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
+            
+      // We use transform data for drawing:
+      auto transform = sprite.TransformComponent;
 
       // Create the matrix of the transform
       glm::mat4 modelMatrix;
@@ -386,13 +387,12 @@ namespace DCEngine {
       
       // Update the uniforms in the shader to this particular sprite's data 
       this->SpriteShader->SetMatrix4("model", modelMatrix);
-      this->SpriteShader->SetVector4f("spriteColor", sprite->Color);
+      this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
 
       // Set the active texture
       glActiveTexture(GL_TEXTURE0); // Used for 3D
-      sprite->getSpriteSource()->getTexture().Bind();
-
-      this->SpriteShader->SetInteger("image", sprite->getSpriteSource()->getTexture().TextureID);
+      spriteSrc->getTexture().Bind();
+      this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID);
       // Bind the vertex array
       glBindVertexArray(this->SpriteVAO);
       // Draw the array

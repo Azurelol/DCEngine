@@ -26,6 +26,8 @@
 
 namespace DCEngine {
     
+  extern std::unique_ptr<Engine> Daisy;
+
   // Temporary, perhaps an entity that receives events for the engine.  
   class Engine {
     friend class EngineLauncher;
