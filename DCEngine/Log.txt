@@ -73,22 +73,175 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Reiner::Transform.Translation(5.1332, -0.5, 0)
-Reiner::Transform.Translation(6.04981, -1, 0)
-Reiner::Transform.Translation(6.88488, -1.5, 0)
-Reiner::Transform.Translation(7.71622, -2, 0)
-Reiner::Transform.Translation(8.05117, -2, 0)
-Reiner::Transform.Translation(8.38432, -2, 0)
-Reiner::Transform.Translation(8.55148, -2, 0)
-Reiner::Transform.Translation(8.79905, -2, 0)
-Reiner::Transform.Translation(8.9693, -2, 0)
-Reiner::Transform.Translation(9.46479, -1.5, 0)
-Reiner::Transform.Translation(9.46616, -1.5, 0)
-Reiner::Transform.Translation(9.63922, -1, 0)
-Reiner::Transform.Translation(9.88118, -1, 0)
-Reiner::Transform.Translation(10.3, -1, 0)
-Reiner::Transform.Translation(10.6302, -1, 0)
-Reiner::Transform.Translation(10.717, -1, 0)
+Mouse down!
+Reiner::Transform.Translation(1.59833, -0.5, 0)
+Reiner::Transform.Translation(5.84806, 0, 0)
+Reiner::Transform.Translation(6.59761, 0, 0)
+Reiner::Transform.Translation(6.84765, 0, 0)
+Reiner::Transform.Translation(7.26298, 0, 0)
+Reiner::Transform.Translation(7.5967, 0, 0)
+Reiner::Transform.Translation(7.93099, 0, 0)
+Reiner::Transform.Translation(10.8457, 0, 0)
+Reiner::Transform.Translation(12.0141, 0, 0)
+Reiner::Transform.Translation(13.3461, 0, 0)
+Reiner::Transform.Translation(14.8447, 0, 0)
+Reiner::Transform.Translation(16.0121, 0, 0)
+Reiner::Transform.Translation(17.2599, 0, 0)
+Reiner::Transform.Translation(18.4266, 0, 0)
+Reiner::Transform.Translation(19.6783, 0, 0)
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::Transform.Translation(20.9479, 0, 0)
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::Transform.Translation(22.9429, 0, 0)
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::Transform.Translation(23.7784, 0, 0)
+Reiner::Transform.Translation(27.0884, 0, 0)
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
+Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
+Reiner::Transform.Translation(28.1929, 0, 0)
 Mouse down!
 
 [Engine::Terminate] 

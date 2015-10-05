@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   RigidBody.h
+@author Blaine Reiner, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/24/2015
+@brief  The RigidBody component handles calls the update of forces for the
+        object, such as acceleration, velocity, etc. This component interacts 
+        directly with the physics system.
+*/
+/******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
 
@@ -17,7 +28,6 @@ namespace DCEngine
 	public:
 
 		Real3 InitialVelocity = Real3(0, 0, 0);
-
 
 		RigidBody(Entity& owner) : Component(std::string("RigidBody"), owner) {}
 

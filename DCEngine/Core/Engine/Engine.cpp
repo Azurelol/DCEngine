@@ -191,6 +191,8 @@ namespace DCEngine {
     // Dispatch the logic update event to all active spaces
     for (auto space : gamesession_->_spaces)
       space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    // Delete the event
+    delete logicUpdateEvent;
 
     // Update all the sytems at the end of the frame, based on the order
     // they were added to the engine. (Or split it and do it individually?)

@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+@file   Sprite.h
+@author Chen Shu, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/19/2015
+@brief  The Sprite component allows the graphical representation of this object
+        in the world space through the drawing of sprites.
+*/
+/******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
 #include "../Resources/SpriteSource.h"

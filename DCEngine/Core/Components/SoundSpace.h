@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+@file   SoundSpace.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/9/2015
+@brief  The SoundSpace component handles calls for playing sounds and forwards
+        them to the Audio system.
+*/
+/******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
 

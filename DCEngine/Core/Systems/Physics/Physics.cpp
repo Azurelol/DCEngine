@@ -41,7 +41,8 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief The main update function for all physical bodies.
+		@brief The main update function for all physical bodies.
+    @param The delta time.
 		*/
 		/**************************************************************************/
 		void Physics::Update(float dt)
@@ -52,7 +53,10 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief The function that actually goes through the spaces and updates objects
+		@brief The function that actually goes through the spaces and updates objects
+    @param The delta time.
+    @note  For every space, we update the objects in the following manner:
+           1. 
 		*/
 		/**************************************************************************/
 		void Physics::Step(float dt)
@@ -81,7 +85,9 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief  go through all the rigid bodies and update velocity
+		@brief  Iterate through all the rigid bodies and update velocity.
+    @param  The delta time.
+    @param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
 		void Physics::Integrate(float dt, PhysicsSpace* physpace)
@@ -96,7 +102,9 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief go through all the rigid bodies and update position
+	  @brief Iterate through all the objects with a 'RigidBody' component and 
+            update their position.
+    @param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
 		void Physics::PublishResults(PhysicsSpace* physpace)
@@ -111,10 +119,10 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief set up pairs of objects that might be colliding
+		@brief Sets up pairs of objects that might be colliding with one another.
+    @param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-
 		GameObjectRawVec Physics::BroadPhaseDetection(PhysicsSpace* physpace)
 		{
 			// For all gameobjects with a 'RigidBody' component
@@ -136,7 +144,8 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief actually detect if collision is happening and store info about it
+		@brief Detect if collision is happening and store information about it.
+    @param A vector of GameObjects.
 		*/
 		/**************************************************************************/
 		Manifold Physics::NarrowPhaseDetection(GameObjectRawVec pairs)
@@ -153,15 +162,14 @@ namespace DCEngine {
 				// COLLISION DETECTED
 				if (BoxtoBox(obj1, obj2))
 				{
-					// generate collision data
-
 					// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 					CollisionData boxToBoxCollision;
 					boxToBoxCollision.Object = obj1;
 					boxToBoxCollision.OtherObject = obj2;
 					DispatchCollisionStarted(boxToBoxCollision);
 
-					//trace << "Physics::NarrowPhaseDetection - Colision between " << obj1->Name() << " and " << obj2->Name() << "\n";
+					//trace << "Physics::NarrowPhaseDetection - Colision between " 
+          //      << obj1->Name() << " and " << obj2->Name() << "\n";
 				}
 				// NO COLLISION DETECTED
 				else {
@@ -178,7 +186,11 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief This function determines if two boxes are colliding.
+		@brief  This function determines if two 'GameObjects' with the 'BoxCollider'
+            component are colliding.
+    @param  A pointer to the first object.
+    @param  A pointer to the second object.
+    @return True if a collision was detected, false otherwise.
 		*/
 		/**************************************************************************/
 		bool Physics::BoxtoBox(GameObject * obj1, GameObject * obj2)
@@ -229,11 +241,30 @@ namespace DCEngine {
 			return true;
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief  This function determines if two 'GameObjects', one with a 
+            'BoxCollider' component and the other with a 'SphereCollider'
+            component are colliding.
+    @param  A pointer to the first object with the 'BoxCollider'.
+    @param  A pointer to the second object with the 'SphereCollider'.
+    @return True if a collision was detected, false otherwise.
+    */
+    /**************************************************************************/
 		bool Physics::CircletoBox(GameObject * obj1, GameObject * obj2)
 		{
 			return false;
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief  This function determines if two 'GameObjects' with the 
+            'SphereCollider' component are colliding.
+    @param  A pointer to the first object.
+    @param  A pointer to the second object.
+    @return True if a collision was detected, false otherwise.
+    */
+    /**************************************************************************/
 		bool Physics::CircletoCircle(GameObject * obj1, GameObject * obj2)
 		{
 			return false;
@@ -241,13 +272,21 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief resolve the collisions
+		@brief Resolve all collisions
+    @param A manifold.
 		*/
 		/**************************************************************************/
 		void Physics::Resolve(Manifold data)
 		{
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief Dispatch the event that signals that a collision has started between
+           an object and another object.
+    @param A struct that contains the collision data detected by the engine.
+    */
+    /**************************************************************************/
 		void Physics::DispatchCollisionStarted(CollisionData & collisionData)
 		{
 			auto collisionStartedEvent = new Events::CollisionStarted();
@@ -261,6 +300,13 @@ namespace DCEngine {
 			collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief Dispatch the event that signals that a collision has ended between
+           an object and another object.
+    @param A struct that contains the collision data detected by the engine.
+    */
+    /**************************************************************************/
 		void Physics::DispatchCollisionEnded(CollisionData & collisionData)
 		{
 			auto collisionEndedEvent = new Events::CollisionEnded();
@@ -286,37 +332,3 @@ namespace DCEngine {
 	}
 
 }
-
-// 1. Integration: F->V->P (rigidbody)
-
-// 2. Broadphase: Pair(collider) (collider)
-
-// 3. Narrowphase: Input(Pairs), Output(Manifold) (collider)
-// Whatever contact information is sent through
-
-// Manifold: pair. normal. Points(2), PenetrationDistance
-// Information to solve collisions in 2D.
-// Ou can also have poitns in bodyspace[1]
-
-// n-square bounding box. wrap in AABB
-
-// 4. Resolution (Impulse solver): Input(Manifolds), (rigidbody)
-/* for (0 -> 10) number of iterations
-solve all manifolds
-
-Rigidbody holds mass information
-collider holds collision information
-
-functions SphereSphere, BoxSphere, BoxBox
-give each collider an ID )is it a box,  a sphere
-Then do a collision lookup table. An array of function pointers.
-lists for performance
-n-list
-
-virtual interface for the collider.
-
-physis
-
-*/
-
-// 5. Send events to the objects who have collided after resolution.  

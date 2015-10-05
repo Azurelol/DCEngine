@@ -580,6 +580,9 @@
     <Text Include="Documentation\Style Guide.txt">
       <Filter>Documentation</Filter>
     </Text>
+    <Text Include="Core\Systems\Physics\PhysicsNotes.txt">
+      <Filter>Core\Components\Physics</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Resources\Shaders\SpriteShader.vs">

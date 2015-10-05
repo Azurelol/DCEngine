@@ -303,6 +303,7 @@
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Core\Systems\Physics\PhysicsNotes.txt" />
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>

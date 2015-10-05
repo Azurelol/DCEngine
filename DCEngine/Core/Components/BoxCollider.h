@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   BoxCollider.h
+@author Blaine Reiner, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/23/2015
+@brief  The BoxCollider component gives a physical representation of a bounding
+        box in world space so objects can experience collisions with one 
+        another. This component interacts directly with the physics system.
+*/
+/******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
 
@@ -13,23 +24,22 @@ namespace DCEngine {
     Boolean SendsEvents = true;
     Boolean IsDrawingCollider = false;
 
-    void OnLogicUpdateEvent(Events::LogicUpdate* event);
+    Real3 getSize(void);
+    Real3 getOffset(void);
+    bool getGhost(void);
+    bool getSendsEvents(void);
+
     void DrawCollider();
-
-
+    
     // These should be private!
     BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
 
+    void OnLogicUpdateEvent(Events::LogicUpdate* event);
     void OnCollisionStartedEvent(Events::CollisionStarted* event);
     void OnCollisionEndedEvent(Events::CollisionEnded* event);
-
-    Real3 getSize(void);
-    Real3 getOffset(void);
-    bool getGhost(void);
-    bool getSendsEvents(void);
 
 
   private:

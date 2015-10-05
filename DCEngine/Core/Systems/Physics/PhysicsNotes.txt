@@ -1,0 +1,34 @@
+
+// 1. Integration: F->V->P (rigidbody)
+
+// 2. Broadphase: Pair(collider) (collider)
+
+// 3. Narrowphase: Input(Pairs), Output(Manifold) (collider)
+// Whatever contact information is sent through
+
+// Manifold: pair. normal. Points(2), PenetrationDistance
+// Information to solve collisions in 2D.
+// Ou can also have poitns in bodyspace[1]
+
+// n-square bounding box. wrap in AABB
+
+// 4. Resolution (Impulse solver): Input(Manifolds), (rigidbody)
+/* for (0 -> 10) number of iterations
+solve all manifolds
+
+Rigidbody holds mass information
+collider holds collision information
+
+functions SphereSphere, BoxSphere, BoxBox
+give each collider an ID )is it a box,  a sphere
+Then do a collision lookup table. An array of function pointers.
+lists for performance
+n-list
+
+virtual interface for the collider.
+
+physis
+
+*/
+
+// 5. Send events to the objects who have collided after resolution.  

@@ -1,10 +1,10 @@
 /******************************************************************************/
 /*!
-\file   Audio.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   9/9/2015
-\brief  The abstract interface for the Audio class.
+@file   Audio.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/9/2015
+@brief  The abstract interface for the Audio class.
 
 */
 /******************************************************************************/
@@ -15,6 +15,7 @@
 #include "../../Components/SoundSpace.h"
 #include "../../Resources/SoundCue.h"
 
+// Switch for Audio Interface
 #define USE_FMOD 1
 
 // Audio Handler
@@ -23,8 +24,6 @@
 class AudioFMOD;
 #else
 #endif
-
-
 
 namespace DCEngine {
   class Engine;
@@ -54,10 +53,10 @@ namespace DCEngine {
       void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
       void StopMusic(); //!< Stops the currently playing music file.
 
-#if(USE_FMOD)
+      #if(USE_FMOD)
       std::unique_ptr<AudioFMOD> AudioHandler;
-#else
-#endif
+      #else
+      #endif
 
 
 
