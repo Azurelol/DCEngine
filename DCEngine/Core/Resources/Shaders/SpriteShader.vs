@@ -15,5 +15,9 @@ uniform mat4 projection;
 void main() {
   TexCoords = vertex.zw;  
   gl_Position = projection * view * model * vec4(vertex.xy, 0.0, 1.0);
+  if (TexCoords.x > 1)//For debugging. TexCoords.x and TexCoords.y should be smaller than 1;
+  {
+    gl_Position.x = gl_Position.x + 1;
+  }
 
 }

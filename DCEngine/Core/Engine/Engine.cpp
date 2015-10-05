@@ -88,14 +88,22 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Audio));    
     _systems.push_back(SystemPtr(new Systems::Graphics));
     
+<<<<<<< .merge_file_a07628
     //trace << "\n";
+=======
+    trace << "\n";
+>>>>>>> .merge_file_a21400
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
     trace << "[Engine::Initialize - All engine systems initialized]\n";
+<<<<<<< .merge_file_a07628
         
+=======
+
+>>>>>>> .merge_file_a21400
     // Loads the project file to start up the game
     LoadProject(std::string("Default")); // Temporarily default
   }
@@ -108,8 +116,11 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::LoadProject(std::string & filename) {
 
+<<<<<<< .merge_file_a07628
     trace << "\n[Engine::LoadProject - Loading " << "]\n";
 
+=======
+>>>>>>> .merge_file_a21400
     // 1. Deserialize the input file for information about the project,
     // and store that in a struct owned by the engine.
 
@@ -129,9 +140,12 @@ namespace DCEngine {
     // 'ProjectSetup' component: DefaultSpace, DefaultLevel to load an 
     // archetyped space and load the specified default level onto it. 
     // (This level is looked for in the content's system "Levels map" container.
+<<<<<<< .merge_file_a07628
     
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
+=======
+>>>>>>> .merge_file_a21400
 
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
@@ -151,9 +165,12 @@ namespace DCEngine {
       LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
       defaultSpace->LoadLevel(dollhouse);
 
+<<<<<<< .merge_file_a07628
 
       trace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
+=======
+>>>>>>> .merge_file_a21400
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     gamesession_->Initialize();

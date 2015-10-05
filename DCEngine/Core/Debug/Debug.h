@@ -13,7 +13,10 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
+<<<<<<< .merge_file_a17496
 #include <exception>
+=======
+>>>>>>> .merge_file_a13812
 
 #pragma once
 
@@ -32,6 +35,11 @@ namespace Debug {
   #define TRACE_COMPONENT_ADD 0
   #define TRACE_COMPONENT_INITIALIZE 0
 
+<<<<<<< .merge_file_a17496
+=======
+
+
+>>>>>>> .merge_file_a13812
   #define TRACE_PHYSICS 0
   #define TRACE_GRAPHICS 0  
   #define TRACE_SHADER 0

@@ -24,20 +24,28 @@ namespace DCEngine {
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
 
+<<<<<<< .merge_file_a19428
     // Register this component to the GraphicsSpace so that it can be drawn
     // by the graphics system.
     // Subscribe this component to the graphics space
     space_->getComponent<GraphicsSpace>()->AddSprite(*this);
 
 
+=======
+>>>>>>> .merge_file_a15804
     // Register this component, and thus its GameObject to the GraphicsSpace
     auto registerEvent = new Events::SpriteRegistration();
     registerEvent->SpriteObj = (GameObject*)Owner(); // SHOULD THIS BE CASTED?
     space_->Dispatch<Events::SpriteRegistration>(registerEvent);
 
     // Load the default SpriteSource
+<<<<<<< .merge_file_a19428
     //SpriteSourceObj.reset(new SpriteSource());
     //SpriteSourceObj->LoadTexture(true);
+=======
+    SpriteSourceObj.reset(new SpriteSource());
+    SpriteSourceObj->LoadTexture(true);
+>>>>>>> .merge_file_a15804
   }
 
   /**************************************************************************/
@@ -53,6 +61,30 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+<<<<<<< .merge_file_a19428
+=======
+  \brief Changes the SpriteSource.
+  */
+  /**************************************************************************/
+  void Sprite::setSpriteSource(std::string imageFile) {
+    SpriteSourceObj.reset(new SpriteSource(imageFile));
+    SpriteSourceObj->LoadTexture(true);
+  }
+  
+  /**************************************************************************/
+  /*!
+  \brief Gets a pointer to the SpriteSource resource.
+  \param A pointer to the SpriteSource resource used by this Sprite component.
+  */
+  /**************************************************************************/
+  SpriteSource * Sprite::getSpriteSource() {
+    return SpriteSourceObj.get();
+  }
+
+
+  /**************************************************************************/
+  /*!
+>>>>>>> .merge_file_a15804
   \brief Updates the flip??
   */
   /**************************************************************************/

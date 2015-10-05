@@ -26,8 +26,11 @@
 
 namespace DCEngine {
     
+<<<<<<< .merge_file_a21076
   extern std::unique_ptr<Engine> Daisy;
 
+=======
+>>>>>>> .merge_file_a14144
   // Temporary, perhaps an entity that receives events for the engine.  
   class Engine {
     friend class EngineLauncher;
