@@ -31,7 +31,7 @@ namespace DCEngine {
 
 
   // A pointer to the 'ENGINE' object
-  std::unique_ptr<Engine> Daisy = nullptr;  
+  std::unique_ptr<Engine> Daisy = nullptr;
 
   /**************************************************************************/
   /*!
@@ -42,9 +42,9 @@ namespace DCEngine {
     // Assert makes sure there's only one instance of the engine 
     assert(Daisy == nullptr);
     Daisy.reset(this);
-    
+
   }
-  
+
   /**************************************************************************/
   /*!
   \brief  The destructor for the Engine object.
@@ -57,18 +57,18 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   \brief Initializes the engine.
-        1. Systems are added to a container in the engine.
-        2. Creates the default local space, sets it as the active space.
-        3. Specify which systems should be updated.
-        4. All systems in the container are initialized.
+  1. Systems are added to a container in the engine.
+  2. Creates the default local space, sets it as the active space.
+  3. Specify which systems should be updated.
+  4. All systems in the container are initialized.
   */
   /**************************************************************************/
   void Engine::Initialize() {
-    
+
     // Initialize the trace object
     using namespace Debug;
-    traceObj.reset(new Trace("Log.txt"));  
-    
+    traceObj.reset(new Trace("Log.txt"));
+
     trace << "[Engine::Engine - Constructor] \n";
     trace << "\n[Engine::Initialize] \n";
 
@@ -85,25 +85,17 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Physics));
-    _systems.push_back(SystemPtr(new Systems::Audio));    
+    _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
-    
-<<<<<<< .merge_file_a07628
+
     //trace << "\n";
-=======
-    trace << "\n";
->>>>>>> .merge_file_a21400
 
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
     trace << "[Engine::Initialize - All engine systems initialized]\n";
-<<<<<<< .merge_file_a07628
-        
-=======
 
->>>>>>> .merge_file_a21400
     // Loads the project file to start up the game
     LoadProject(std::string("Default")); // Temporarily default
   }
@@ -116,11 +108,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::LoadProject(std::string & filename) {
 
-<<<<<<< .merge_file_a07628
     trace << "\n[Engine::LoadProject - Loading " << "]\n";
 
-=======
->>>>>>> .merge_file_a21400
     // 1. Deserialize the input file for information about the project,
     // and store that in a struct owned by the engine.
 
@@ -140,12 +129,9 @@ namespace DCEngine {
     // 'ProjectSetup' component: DefaultSpace, DefaultLevel to load an 
     // archetyped space and load the specified default level onto it. 
     // (This level is looked for in the content's system "Levels map" container.
-<<<<<<< .merge_file_a07628
-    
+
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
-=======
->>>>>>> .merge_file_a21400
 
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
@@ -153,24 +139,21 @@ namespace DCEngine {
 
     // Load the gamesession object from the archetype
     // Add components, change non-default values
-    
-    
+
+
 
     // Load the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
 
     // Load a level into the space
-    
-      // !!! TESTING: Level loading
-      LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
-      defaultSpace->LoadLevel(dollhouse);
 
-<<<<<<< .merge_file_a07628
+    // !!! TESTING: Level loading
+    LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
+    defaultSpace->LoadLevel(dollhouse);
 
-      trace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
-=======
->>>>>>> .merge_file_a21400
+    trace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
+
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     gamesession_->Initialize();
@@ -178,14 +161,14 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief Updates the engine, at multiple levels. 
-         1. The window handler is updated, sending events about window changes 
-         and input events.
-         2. The gamestate's every space that the engine decides is updated.
-         When a space is updated, it provides each of the systems added to it
-         with a vector of entities that meet the system's registration
-         requirements.
-         The space then tells each system to update.
+  \brief Updates the engine, at multiple levels.
+  1. The window handler is updated, sending events about window changes
+  and input events.
+  2. The gamestate's every space that the engine decides is updated.
+  When a space is updated, it provides each of the systems added to it
+  with a vector of entities that meet the system's registration
+  requirements.
+  The space then tells each system to update.
   \param The time that elapsed during the last frame update.
 
   */
@@ -193,7 +176,7 @@ namespace DCEngine {
   void Engine::Update(float dt) {
     if (TRACE_UPDATE)
       trace << "\n[Engine::Update] \n";
-    
+
     using Systems::Window;
     using Systems::Graphics;
     // Tell window management system to begin new frame
@@ -220,7 +203,7 @@ namespace DCEngine {
 
     if (TRACE_UPDATE)
       trace << "[Engine::Update - All systems updated.] \n";
-  }  
+  }
 
   /**************************************************************************/
   /*!
@@ -241,7 +224,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Creates a timer and calls Update(dt) repeatedly. 
+  \brief  Creates a timer and calls Update(dt) repeatedly.
   */
   /**************************************************************************/
   void Engine::Loop() {

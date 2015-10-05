@@ -4,14 +4,10 @@
 namespace DCEngine {
     
   class Transform;
-<<<<<<< .merge_file_a07644
   class GraphicsGL;
 
   class SpriteText : public Component {
     friend class GraphicsGL;
-=======
-  class SpriteText : public Component {
->>>>>>> .merge_file_a12264
   public:
 
     Transform* TransformComponent;

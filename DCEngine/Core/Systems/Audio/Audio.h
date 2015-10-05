@@ -26,10 +26,10 @@ class AudioFMOD;
 
 
 
-namespace DCEngine {  
+namespace DCEngine {
   class Engine;
 
-  namespace Systems {   
+  namespace Systems {
     class Audio : public System {
       friend class Engine;
       friend class SoundSpace;
@@ -54,10 +54,10 @@ namespace DCEngine {
       void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
       void StopMusic(); //!< Stops the currently playing music file.
 
-    #if(USE_FMOD)
-    std::unique_ptr<AudioFMOD> AudioHandler;
-    #else
-    #endif
+#if(USE_FMOD)
+      std::unique_ptr<AudioFMOD> AudioHandler;
+#else
+#endif
 
 
 

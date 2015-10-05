@@ -32,7 +32,6 @@ SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled!
 SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
 [GraphicsGL::Initialize] - Finished compiling shaders 
-
 [Engine::Initialize - All engine systems initialized]
 
 [Engine::LoadProject - Loading ]
@@ -74,21 +73,23 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Reiner::Transform.Translation(0.701482, -0.5, 0)
-Reiner::Transform.Translation(1.53889, -1, 0)
-Reiner::Transform.Translation(2.45205, -0.5, 0)
-Reiner::Transform.Translation(3.28409, 0, 0)
-Reiner::Transform.Translation(3.95021, 0.5, 0)
-Reiner::Transform.Translation(5.534, 0, 0)
-Reiner::Transform.Translation(6.36846, -0.5, 0)
-Reiner::Transform.Translation(11.7831, -0.5, 0)
-Reiner::Transform.Translation(12.2042, -0.5, 0)
-Reiner::Transform.Translation(12.5363, -0.5, 0)
-Reiner::Transform.Translation(12.782, -0.5, 0)
-Reiner::Transform.Translation(13.367, -0.5, 0)
-Reiner::Transform.Translation(13.7796, -0.5, 0)
-Reiner::Transform.Translation(14.113, -0.5, 0)
-Reiner::Transform.Translation(14.3661, -0.5, 0)
+Reiner::Transform.Translation(5.1332, -0.5, 0)
+Reiner::Transform.Translation(6.04981, -1, 0)
+Reiner::Transform.Translation(6.88488, -1.5, 0)
+Reiner::Transform.Translation(7.71622, -2, 0)
+Reiner::Transform.Translation(8.05117, -2, 0)
+Reiner::Transform.Translation(8.38432, -2, 0)
+Reiner::Transform.Translation(8.55148, -2, 0)
+Reiner::Transform.Translation(8.79905, -2, 0)
+Reiner::Transform.Translation(8.9693, -2, 0)
+Reiner::Transform.Translation(9.46479, -1.5, 0)
+Reiner::Transform.Translation(9.46616, -1.5, 0)
+Reiner::Transform.Translation(9.63922, -1, 0)
+Reiner::Transform.Translation(9.88118, -1, 0)
+Reiner::Transform.Translation(10.3, -1, 0)
+Reiner::Transform.Translation(10.6302, -1, 0)
+Reiner::Transform.Translation(10.717, -1, 0)
+Mouse down!
 
 [Engine::Terminate] 
 Content::Terminate
