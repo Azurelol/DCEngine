@@ -24,7 +24,7 @@ namespace DCEngine {
 			return;
 		}
 
-    Connect(space_, Events::LogicUpdate, Camera::OnLogicUpdate);
+    Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
 
 		//Yaw = -90.0f;
 		//Pitch = 0.0f;

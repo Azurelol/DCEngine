@@ -19,10 +19,10 @@ namespace DCEngine {
   void CameraViewport::Deserialize(Json::Value & root) {
   }
   void CameraViewport::setCamera() {
-    cameraObj_ = space_->FindObjectByName("Camera")->getComponent<Camera>();
+    cameraObj_ = SpaceRef->FindObjectByName("Camera")->getComponent<Camera>();
 
     // Search through the space's gameObjects list
-    //for (auto gameObj : space_-> )
+    //for (auto gameObj : SpaceRef-> )
 
   }
 }

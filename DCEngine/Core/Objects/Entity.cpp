@@ -23,7 +23,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Entity::Entity(std::string name) : Object("Entity") {
-    _name = name;
+    ObjName = name;
   }
 
   bool Entity::CheckMask(mask m) {
@@ -40,13 +40,13 @@ namespace DCEngine {
     // If there is already a component of the same class, reject the operation
     for (auto componentOwned : components_) {
       if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(*component.get())))) {
-        trace << _name << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
+        trace << ObjName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
         return false;
       }        
     }
 
     if (TRACE_COMPONENT_ADD)
-      trace << _name << "::AddComponent - Added " << component->Name() << "\n";
+      trace << ObjName << "::AddComponent - Added " << component->Name() << "\n";
 
     // Adds the component to the entity
     components_.push_back(component);
@@ -59,7 +59,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Entity::Initialize() {
-    trace << _name << "::Initialize \n";
+    trace << ObjName << "::Initialize \n";
     for (auto component : components_)
       component->Initialize();
   }

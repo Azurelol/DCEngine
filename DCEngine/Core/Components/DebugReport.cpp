@@ -7,7 +7,7 @@ namespace DCEngine {
   void DebugReport::Initialize() {   
     
     TransformComponent = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>();
-    Connect(space_, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
+    Connect(SpaceRef, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
   }
 
   void DebugReport::Serialize(Json::Value & root)
@@ -61,13 +61,13 @@ namespace DCEngine {
                         TransformComponent->Translation.z);
 
     if (DrawType == DebugDrawType::Line) {
-      space_->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Radius, Color);
+      SpaceRef->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Radius, Color);
     }
     else if (DrawType == DebugDrawType::Circle) {
-      space_->getComponent<GraphicsSpace>()->DrawCircle(currPos, Radius, Color);
+      SpaceRef->getComponent<GraphicsSpace>()->DrawCircle(currPos, Radius, Color);
     }
     else if (DrawType == DebugDrawType::Rectangle) {
-      space_->getComponent<GraphicsSpace>()->DrawRectangle(currPos, Radius, Height, Color);
+      SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(currPos, Radius, Height, Color);
     }
   }
 

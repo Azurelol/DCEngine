@@ -152,7 +152,7 @@ namespace DCEngine {
 		{
 			GameObject * obj1, *obj2;
 
-			//trace << _name << "::NarrowPhase \n";
+			//trace << ObjName << "::NarrowPhase \n";
 			for (int i = 0; i < pairs.size(); ++i)
 			{
 				/* set pointers to the objects we are checking collision with */

@@ -4,7 +4,7 @@
 namespace DCEngine {
 
   void TimeSpace::Initialize() {
-    //Connect(space_, Events::LogicUpdate, TimeSpace::OnLogicUpdate);
+    //Connect(SpaceRef, Events::LogicUpdate, TimeSpace::OnLogicUpdate);
 
 
 

@@ -14,8 +14,7 @@ namespace DCEngine {
     Connect(Daisy->getMouse(), Events::MouseDown, DebugMoveController::OnMouseDownEvent);
 
     TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
-    
-
+        
   }
 
   void DebugMoveController::Serialize(Json::Value & root)
@@ -95,7 +94,7 @@ namespace DCEngine {
 
   void DebugMoveController::PlayFootstepSound()
   {
-    //space_->getComponent<SoundSpace>()->
+    //SpaceRef->getComponent<SoundSpace>()->
   }
 
   void DebugMoveController::PrintTranslation()

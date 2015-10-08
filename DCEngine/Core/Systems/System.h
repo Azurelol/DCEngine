@@ -42,7 +42,7 @@ namespace DCEngine {
   class System {
 
   public:
-    System(std::string& name, ESys type) : _name(name), _type(type) {
+    System(std::string& name, ESys type) : SysName(name), _type(type) {
       //trace << _name << "::Constructor \n";
     }
 
@@ -62,7 +62,7 @@ namespace DCEngine {
 
 
   protected:
-    std::string _name;
+    std::string SysName;
     const ESys _type;
     EntityVec _entities;
     mask _mask;

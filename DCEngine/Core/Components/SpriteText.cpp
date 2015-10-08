@@ -10,7 +10,7 @@ namespace DCEngine {
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
     // Subscribe this component to the graphics space
-    space_->getComponent<GraphicsSpace>()->AddSpriteText(*this);
+    SpaceRef->getComponent<GraphicsSpace>()->AddSpriteText(*this);
   }
 
   void SpriteText::Serialize(Json::Value & root)

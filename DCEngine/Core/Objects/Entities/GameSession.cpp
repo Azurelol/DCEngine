@@ -9,7 +9,7 @@ namespace DCEngine {
 
   GameSession::GameSession(std::string& name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
-      trace << _name << "::GameSession - Constructor\n";
+      trace << ObjName << "::GameSession - Constructor\n";
     type_ = EntityType::GameSession;
   }
 
@@ -26,7 +26,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Initialize() {
-    trace << "[" << _name << "::Initialize - Initializing all spaces... ] \n";
+    trace << "[" << ObjName << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
     for (auto space : _spaces)
@@ -46,7 +46,7 @@ namespace DCEngine {
   /**************************************************************************/
   void GameSession::Update(float dt) {
     if (TRACE_UPDATE)
-      trace << _name << "::Update \n";
+      trace << ObjName << "::Update \n";
 
     // DEPRECATED: Spaces are not updated by gamesession
     // Update all active spaces
@@ -54,7 +54,7 @@ namespace DCEngine {
     //  UpdateSpace(space.second, dt);
     
     if (TRACE_UPDATE)
-      trace << _name << "::Update - All spaces updated. \n";
+      trace << ObjName << "::Update - All spaces updated. \n";
   }
 
   void GameSession::Serialize(Json::Value & root) {
@@ -71,7 +71,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   SpacePtr GameSession::CreateSpace(std::string name) {
-    trace << _name << "::CreateSpace - " << name << " has been constructed. \n";
+    trace << ObjName << "::CreateSpace - " << name << " has been constructed. \n";
 
     // Check if the space already exists.
     auto space = _spaces.find(name);

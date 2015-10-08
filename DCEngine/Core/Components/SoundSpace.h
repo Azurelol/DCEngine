@@ -12,12 +12,14 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
-
+  
   class Entity;
   class SoundCue;
+  class SoundEmitter;
 
   class SoundSpace : public Component {
     friend class Space;
+    friend class SoundEmitter;
 
   public:
 
@@ -27,16 +29,20 @@ namespace DCEngine {
 
     void PlayCue(std::string soundCueName);
     void PlayCueAt(std::string soundCueName);
-
-    void OnLogicUpdate(Events::LogicUpdate* event);
-    void Update() {}
+    
     SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
 
   private:
-    void TestMusic();
+     StringVec CuesCurrentlyPlaying;    
+     
+     void StopCue(std::string soundCueName);
+     void OnLogicUpdate(Events::LogicUpdate* event);
+     void Update() {}
+
+     void TestMusic();
 
   };
 

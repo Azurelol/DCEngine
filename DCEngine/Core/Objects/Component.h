@@ -86,18 +86,17 @@ namespace DCEngine {
     template <typename EntityClass> EntityClass* getOwner();
 
     Entity* Owner(); // Returns a pointer to the component's owner
-    Space* space() { return space_; }
-    GameSession* gamesession() { return gamesession_; }
-
-
+    const Space& ThisSpace() const { return  *SpaceRef; } const
+    const GameSession& ThisGameSession() const { return *GameSessionRef; } 
+    
   protected:
 
-    Space* space_;
-    GameSession* gamesession_;
+    Space* SpaceRef;
+    GameSession* GameSessionRef;
     
   private:
 
-    EntityType ownerType_;
+    EntityType OwnerClass;
     Component() = delete; // No default construction
     void SetReferences();
 

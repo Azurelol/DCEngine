@@ -19,7 +19,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Sprite::Initialize() {
     if (TRACE_COMPONENT_INITIALIZE)
-      trace << Owner()->Name() << "::" << _name << "::Initialize\n";
+      trace << Owner()->Name() << "::" << ObjName << "::Initialize\n";
     
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
@@ -27,7 +27,7 @@ namespace DCEngine {
     // Register this component to the GraphicsSpace so that it can be drawn
     // by the graphics system.
     // Subscribe this component to the graphics space
-    space_->getComponent<GraphicsSpace>()->AddSprite(*this);
+    SpaceRef->getComponent<GraphicsSpace>()->AddSprite(*this);
 
   }
 

@@ -42,7 +42,7 @@ namespace DCEngine {
   public:
 
     Entity(std::string name);
-    Entity() { _name = "Entity"; }
+    Entity() { ObjName = "Entity"; }
     void Initialize(); //!< Initializes all of the entity's components
     virtual void Serialize(Json::Value& root) = 0;
     virtual void Deserialize(Json::Value& root) = 0;
@@ -75,8 +75,8 @@ namespace DCEngine {
 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    Entity* _parent;
-    std::string _archetypeName;
+    Entity* ParentRef;
+    std::string Archetype;
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
 
     template <typename GenericEvent, typename GenericComponent>

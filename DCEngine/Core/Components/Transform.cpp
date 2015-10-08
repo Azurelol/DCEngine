@@ -5,7 +5,7 @@ namespace DCEngine {
 
   void Transform::Initialize() {
     if (TRACE_COMPONENT_INITIALIZE)
-      trace << Owner()->Name() << "::" << _name << "::Initialize\n";
+      trace << Owner()->Name() << "::" << ObjName << "::Initialize\n";
   }
 
   void Transform::Serialize(Json::Value & root) {

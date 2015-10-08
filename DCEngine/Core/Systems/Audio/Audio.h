@@ -35,8 +35,8 @@ namespace DCEngine {
     public:
 
       void CreateSound(std::string& soundFile, FMODSoundPtr& soundPtr);
-      void PlaySound(SoundCue& soundcue);
-      void StopSound(SoundCue& soundcue);
+      void PlaySound(std::string& soundCueName);
+      void StopSound(std::string& soundcueName);
 
       void Register(SoundSpace& soundSpace);
 
@@ -49,7 +49,6 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-      void PlaySound(std::string& filePath);
       void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
       void StopMusic(); //!< Stops the currently playing music file.
 

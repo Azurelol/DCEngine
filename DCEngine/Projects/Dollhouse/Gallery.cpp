@@ -41,7 +41,7 @@ namespace DCEngine {
     connorObj->getComponent<DebugReport>()->Color = Real4(1, 1, 0, 1); // Color: Yellow
 
     /* SPRITE TEXT */
-    //auto st = factory->CreateGameObject(String("SpriteTextObj"), *space_, false);
+    //auto st = factory->CreateGameObject(String("SpriteTextObj"), *SpaceRef, false);
     ////st->AddComponent(factory->CreateComponent<Transform>(*st, false));
     //st->AddComponent(factory->CreateComponent<SpriteText>(*st, false));
     //AddGameObject(st);

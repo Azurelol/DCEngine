@@ -28,16 +28,16 @@ namespace DCEngine {
     friend class Space;
 
     public:
-      Object(std::string name) { _name = name; }
-      Object() { _name = "Object"; }
+      Object(std::string name) { ObjName = name; }
+      Object() { ObjName = "Object"; }
       virtual ~Object() {}; // Let's not leak memory
 	    
       //virtual void Owner() = 0; // Every class needs to implement its owner pointer.
 
-      const std::string& Name() const { return _name; } 
+      const std::string& Name() const { return ObjName; }
 
     protected:
-      std::string _name;
+      std::string ObjName;
       int RuntimeId;
       Object* owner_; //!< Should this be a smart pointer?
       //std::shared_ptr<Object> _owner;

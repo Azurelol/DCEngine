@@ -65,7 +65,8 @@ namespace DCEngine {
   using Mat3 = glm::mat3;
   using Mat4 = glm::mat4;
 
-
+  // Common Containers
+  using StringVec = std::vector<std::string>;
 
 
 

@@ -4,14 +4,25 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    @brief  Constructs the Audio system.
+    */
+    /**************************************************************************/
     Audio::Audio() : System(std::string("AudioSystem"), EnumeratedSystem::Audio) {
-#if(USE_FMOD)
+      #if(USE_FMOD)
       trace << "*Using FMOD for Audio \n";
       AudioHandler.reset(new AudioFMOD());
-#else
-#endif
+      #else
+      #endif
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Registers a space into the Audio system.
+    @param  soundSpace The 'SoundSpace' component of the space.
+    */
+    /**************************************************************************/
     void Audio::Register(SoundSpace & soundSpace)
     {
       SoundSpaceContainer.push_back(&soundSpace);
@@ -19,35 +30,66 @@ namespace DCEngine {
         << " has registered to the Audio system\n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Registers a space into the Audio system.
+    @param  soundSpace The 'SoundSpace' component of the space.
+    */
+    /**************************************************************************/
     void Audio::Initialize() {
       if (TRACE_ON)
         trace << "Audio::Initialize \n";
       AudioHandler->Initialize();
     }
 
-
+    /**************************************************************************/
+    /*!
+    @brief  Updates the Audio system. This is a necessary step for FMOD.
+    @param  dt The delta time.
+    */
+    /**************************************************************************/
     void Audio::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
         trace << "Audio::Update \n";
       AudioHandler->Update(dt);
     }
-
+    /**************************************************************************/
+    /*!
+    @brief  Registers a SoundFile to be played through FMOD.
+    @param  soundFile The name of the sound file.
+    @param  soundPtr  A pointer to the ..
+    */
+    /**************************************************************************/
     void Audio::CreateSound(std::string & soundFile, FMODSoundPtr& soundPtr)
     {
       std::string resourceLocation("Core/Resources/Sounds/");
       AudioHandler->CreateSound(resourceLocation + soundFile, soundPtr.SoundPtr);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Plays a sound through FMOD.
+    @param  soundCueName The name (string) of the sound in the content system.
+    */
+    /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
-      // Grab the 'SoundCue' resource from the content system
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->PlaySound(soundCue->SoundPtr.SoundPtr, soundCue->Loop);
-
     }
 
-    void Audio::StopSound(SoundCue & soundcue) {
+    /**************************************************************************/
+    /*!
+    @brief  Stops a sound from playing through FMOD, by releasing it.
+    @param  soundCueName The name (string) of the sound in the content system.
+    */
+    /**************************************************************************/
+    void Audio::StopSound(std::string& soundCueName) {
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      AudioHandler->ReleaseSound(soundCue->SoundPtr.SoundPtr);
     }
 
+
+    /* Music Testing */
     void Audio::PlayMusic(std::string & filePath) {
       if (TRACE_ON)
         trace << "Audio::PlayMusic - Playing: " << filePath.c_str() << "\n";

@@ -24,7 +24,7 @@ namespace DCEngine {
   public:
     GameObject(std::string name, Space& space, GameSession& gamesession);
     GameObject() {
-      _name = "GameObject";
+      ObjName = "GameObject";
     }
 
     virtual void Serialize(Json::Value& root);

@@ -8,7 +8,7 @@ namespace DCEngine {
     : Entity(name), space_(&space), gamesession_(&gamesession) {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
-      trace << _name << "::GameObject - Constructor - "
+      trace << ObjName << "::GameObject - Constructor - "
         << "', Space: '" << space_->Name()
         << "', GameSession '" << gamesession_->Name()
         << "\n";
@@ -21,12 +21,12 @@ namespace DCEngine {
 
   void GameObject::Serialize(Json::Value & root) {
     // Serialize primitives
-    root["Name"] = _name;
+    root["Name"] = ObjName;
   }
 
   void GameObject::Deserialize(Json::Value & root) {
     // Deserialize primitives
-    _name = root.get("Name", "").asString();
+    ObjName = root.get("Name", "").asString();
   }
 
   Space* GameObject::GetSpace() {

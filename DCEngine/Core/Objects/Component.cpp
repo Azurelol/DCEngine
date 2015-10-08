@@ -20,7 +20,7 @@ namespace DCEngine {
     SetReferences();
 
     if (TRACE_CONSTRUCTOR) {
-      trace << _name << "::Component - Constructor - "
+      trace << ObjName << "::Component - Constructor - "
         << "Owner: '" << owner_->Name()
         << "'\n";
     }
@@ -37,19 +37,20 @@ namespace DCEngine {
     // If the owner is a 'GameObject' entity
     if (type == EntityType::GameObject) {
       auto gameObj = (GameObject*)entity;
-      space_ = gameObj->GetSpace();
-      gamesession_ = gameObj->GetGameSession();
+      SpaceRef = gameObj->GetSpace();
+      GameSessionRef = gameObj->GetGameSession();
     }
 
     // If the owner is a 'Space' entity
     if (type == EntityType::Space) {
-      space_ = (Space*)entity;
-      gamesession_ = (GameSession*)(space_->Owner());
+      SpaceRef = (Space*)entity;
+      GameSessionRef = (GameSession*)(SpaceRef->Owner());
     }
       
     // If the owner is a 'GameSession' entity
     if (type == EntityType::GameSession)
-      gamesession_ = (GameSession*)Owner();
+      SpaceRef = NULL;
+      GameSessionRef = (GameSession*)Owner();
   }
 
 }

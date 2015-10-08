@@ -17,7 +17,7 @@ namespace DCEngine
 		// Store a reference to the Transform Component
 		TransformComponent = owner->getComponent<Transform>();
 		// Subscribe this physics component to the physics space
-		space_->getComponent<PhysicsSpace>()->AddRigidBody(owner);
+		SpaceRef->getComponent<PhysicsSpace>()->AddRigidBody(owner);
     // Stores the initial position
 		Position = TransformComponent->Translation;
 	}

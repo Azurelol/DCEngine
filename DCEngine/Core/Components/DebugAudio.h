@@ -3,18 +3,14 @@
 
 namespace DCEngine {
 
-  class Camera;
-  class Transform;
-  class DebugCamera : public Component {
+  class DebugAudio : public Component {
   public:
-
-    /* Properties */
-    Real MoveSpeed = 3;
-    Real RotSpeed = 15;
-    Real ZoomSpeed = 10;
     
+    String SoundCue1 = "spacejam";
+    String SoundCue2 = "spacejam1";
+
     /* Initialize */
-    DebugCamera(Entity& owner) : Component(std::string("DebugCamera"), owner) {}
+    DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
@@ -22,10 +18,7 @@ namespace DCEngine {
     /* Events */
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);
-    void PrintTranslation();
 
   private:
-    Camera* CameraComponent;
-    Transform* TransformComponent;
   };
 }

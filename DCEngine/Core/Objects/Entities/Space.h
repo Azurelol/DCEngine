@@ -58,7 +58,7 @@ namespace DCEngine {
     const GameSession* Owner() { return gamesession_; };
 
     // Allows read only access to the space's name
-    const std::string& GetName() const { return _name;  }
+    const std::string& GetName() const { return ObjName;  }
 
   private:
 

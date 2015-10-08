@@ -11,12 +11,12 @@ namespace DCEngine {
     // Store a reference to the Transform Component
     TransformComponent = owner->getComponent<Transform>();
     // Subscribe this physics component to the physics space
-    space_->getComponent<PhysicsSpace>()->AddCollider(owner);
+    SpaceRef->getComponent<PhysicsSpace>()->AddCollider(owner);
    
     // If this component needs to draw the collider with debug draw,
     // subscribe to LogicUpdate events so it can draw
     if (IsDrawingCollider)
-      Connect(space_, Events::LogicUpdate, BoxCollider::OnLogicUpdateEvent);
+      Connect(SpaceRef, Events::LogicUpdate, BoxCollider::OnLogicUpdateEvent);
     
   }
 
@@ -27,7 +27,7 @@ namespace DCEngine {
     auto debugScale = Real2(TransformComponent->Scale.x * Size.x,
                             TransformComponent->Scale.y * Size.y);
 
-    space_->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset, 
+    SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset, 
                                                           debugScale.x, //TransformComponent->Scale.x * Size.x,
                                                           debugScale.y, //TransformComponent->Scale.y * Size.y, 
                                                           Real4(1, 0, 0, 1)); // Red

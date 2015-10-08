@@ -18,7 +18,7 @@ namespace DCEngine {
   /**************************************************************************/
   Space::Space(std::string& name, GameSession& gamesession) : Entity(name), gamesession_(&gamesession) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
-      trace << _name << "::Space - Constructor \n";
+      trace << ObjName << "::Space - Constructor \n";
     type_ = EntityType::Space;
   }
   
@@ -37,7 +37,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Initialize() {
-    trace << "|" << _name << "::Initialize| \n";
+    trace << "|" << ObjName << "::Initialize| \n";
 
     // Add Space-type components
     AddComponent(ComponentPtr(new SoundSpace(*this)));
@@ -51,7 +51,7 @@ namespace DCEngine {
       component->Initialize();
     }        
 
-    trace << "[" << _name << "::Initialize - Initializing all GameObjects...] \n";
+    trace << "[" << ObjName << "::Initialize - Initializing all GameObjects...] \n";
     // Initialize all entities (in effect, initializing all attached components)
     for (auto gameObject : gameobjects_) {
       // TEMPORARY: Should space, gamesession be even set this way?
@@ -71,7 +71,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Update(float dt) {
     if (TRACE_ON && TRACE_UPDATE)
-      trace << _name << "::Update \n";
+      trace << ObjName << "::Update \n";
   }
 
   void Space::Serialize(Json::Value & root) {
@@ -96,7 +96,7 @@ namespace DCEngine {
     _systems.push_back(system);
     
     if (TRACE_ON)
-      trace << _name << "::AddSystem " << "- Added " << system->_name << "\n";
+      trace << ObjName << "::AddSystem " << "- Added " << system->SysName << "\n";
   }
 
   GameSession& Space::getGameSession() {
@@ -110,7 +110,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
-      trace << _name << "::LoadLevel - Loading " << level->Name() << " level.\n";
+      trace << ObjName << "::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
     _currentLevel = level;
@@ -163,7 +163,7 @@ namespace DCEngine {
     gameobjects_.push_back(gameObject);
 
     if (TRACE_GAMEOBJECT_ADD)
-      trace << _name << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
+      trace << ObjName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
   }
 
   /**************************************************************************/
