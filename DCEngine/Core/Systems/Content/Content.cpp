@@ -71,6 +71,11 @@ namespace DCEngine {
       trace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 
+    void Content::ScanFolder()
+    {
+
+    }
+
     /**************************************************************************/
     /*!
     @brief Grabs a shader resource.
