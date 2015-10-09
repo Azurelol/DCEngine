@@ -5,6 +5,7 @@
 #include "../../Components/BoxCollider.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
+#include "Collision.h"
 
 namespace DCEngine {
 	namespace Systems {
@@ -152,7 +153,6 @@ namespace DCEngine {
 		{
 			GameObject * obj1, *obj2;
 
-			//trace << ObjName << "::NarrowPhase \n";
 			for (int i = 0; i < pairs.size(); ++i)
 			{
 				/* set pointers to the objects we are checking collision with */
@@ -168,8 +168,6 @@ namespace DCEngine {
 					boxToBoxCollision.OtherObject = obj2;
 					DispatchCollisionStarted(boxToBoxCollision);
 
-					//trace << "Physics::NarrowPhaseDetection - Colision between " 
-          //      << obj1->Name() << " and " << obj2->Name() << "\n";
 				}
 				// NO COLLISION DETECTED
 				else {
@@ -184,91 +182,7 @@ namespace DCEngine {
 			return Manifold();
 		}
 
-		/**************************************************************************/
-		/*!
-		@brief  This function determines if two 'GameObjects' with the 'BoxCollider'
-            component are colliding.
-    @param  A pointer to the first object.
-    @param  A pointer to the second object.
-    @return True if a collision was detected, false otherwise.
-		*/
-		/**************************************************************************/
-		bool Physics::BoxtoBox(GameObject * obj1, GameObject * obj2)
-		{
-			/* get the rigidbodies */
-			auto rigidbody1 = obj1->getComponent<RigidBody>();
-			auto rigidbody2 = obj2->getComponent<RigidBody>();
 
-			/* get the colliders */
-			auto boxcollider1 = obj1->getComponent<BoxCollider>();
-			auto boxcollider2 = obj2->getComponent<BoxCollider>();
-
-			/* get the transforms */
-			auto transform1 = obj1->getComponent<Transform>();
-			auto transform2 = obj2->getComponent<Transform>();
-
-
-			float topA = transform1->Translation.y + 0.5f * boxcollider1->getSize().y;
-			float leftA = transform1->Translation.x - 0.5f * boxcollider1->getSize().x;
-			float rightA = transform1->Translation.x + 0.5f * boxcollider1->getSize().x;
-			float bottomA = transform1->Translation.y - 0.5f * boxcollider1->getSize().y;
-
-			float topB = transform2->Translation.y + 0.5f * boxcollider2->getSize().y;
-			float leftB = transform2->Translation.x - 0.5f * boxcollider2->getSize().x;
-			float rightB = transform2->Translation.x + 0.5f * boxcollider2->getSize().x;
-			float bottomB = transform2->Translation.y - 0.5f * boxcollider2->getSize().y;
-
-			if (leftA > rightB)
-			{
-				return false;
-			}
-
-			if (leftB > rightA)
-			{
-				return false;
-			}
-
-			if (topA < bottomB)
-			{
-				return false;
-			}
-
-			if (topB < bottomA)
-			{
-				return false;
-			}
-
-			return true;
-		}
-
-    /**************************************************************************/
-    /*!
-    @brief  This function determines if two 'GameObjects', one with a 
-            'BoxCollider' component and the other with a 'SphereCollider'
-            component are colliding.
-    @param  A pointer to the first object with the 'BoxCollider'.
-    @param  A pointer to the second object with the 'SphereCollider'.
-    @return True if a collision was detected, false otherwise.
-    */
-    /**************************************************************************/
-		bool Physics::CircletoBox(GameObject * obj1, GameObject * obj2)
-		{
-			return false;
-		}
-
-    /**************************************************************************/
-    /*!
-    @brief  This function determines if two 'GameObjects' with the 
-            'SphereCollider' component are colliding.
-    @param  A pointer to the first object.
-    @param  A pointer to the second object.
-    @return True if a collision was detected, false otherwise.
-    */
-    /**************************************************************************/
-		bool Physics::CircletoCircle(GameObject * obj1, GameObject * obj2)
-		{
-			return false;
-		}
 
 		/**************************************************************************/
 		/*!

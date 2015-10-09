@@ -312,6 +312,9 @@
     <ClCompile Include="Core\Components\SoundEmitter.cpp">
       <Filter>Core\Components\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Collision.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -586,6 +589,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\SoundEmitter.h">
       <Filter>Core\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Collision.h">
+      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
