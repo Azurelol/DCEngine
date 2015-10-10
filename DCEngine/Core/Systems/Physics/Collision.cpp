@@ -495,8 +495,8 @@ namespace DCEngine
 
     glm::vec3 temp = CircleCenter;
 
-    CircleCenter.x = cos(transform2->WorldRotation.z) * temp.x + -sin(transform2->WorldRotation.z) * temp.y;
-    CircleCenter.y = sin(transform2->WorldRotation.z) * temp.x + cos(transform2->WorldRotation.z) * temp.y;
+    CircleCenter.x = cos(-transform2->WorldRotation.z) * temp.x + -sin(-transform2->WorldRotation.z) * temp.y;
+    CircleCenter.y = sin(-transform2->WorldRotation.z) * temp.x + cos(-transform2->WorldRotation.z) * temp.y;
 
     CircleCenter += transform2->Translation;
 
