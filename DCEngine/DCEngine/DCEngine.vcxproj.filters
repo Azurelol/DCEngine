@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{579a6ab1-da3e-4309-be9e-c655152148c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine">
+      <UniqueIdentifier>{efb22701-0e1c-44c1-8fec-ff5808f06682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{5aeca2fa-ba93-4d9d-80e8-32096d8aae0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{d5fa81a9-01f4-4476-926b-40a95a31f554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems">
+      <UniqueIdentifier>{88dab47a-8167-486e-a062-356197ed9e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Window">
+      <UniqueIdentifier>{495158d8-2e33-4653-b3e2-1920b9ab0715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Input">
+      <UniqueIdentifier>{7e688f75-7c4f-4736-8939-8b7305f94194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Graphics">
+      <UniqueIdentifier>{f1d06d07-6ea6-4ecb-aa81-505f4a658ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object">
+      <UniqueIdentifier>{fd761f3f-379a-4577-a8be-09f0d98c8742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Resource">
+      <UniqueIdentifier>{81adafd5-c37b-4535-b57f-c5c8ab510acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Component">
+      <UniqueIdentifier>{4400ef6b-5bf1-4abc-945f-ce21896efdcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity">
+      <UniqueIdentifier>{6de51837-0d1f-4ca3-8536-922cf04782fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\Space">
+      <UniqueIdentifier>{64b178b0-9574-4671-87f5-456dad04787f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Window\GLFW">
+      <UniqueIdentifier>{94925210-7e25-42c6-a773-c78600509e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\GameSession">
+      <UniqueIdentifier>{c54cee38-c250-49a2-aa6e-880911e47d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects">
+      <UniqueIdentifier>{e4a088af-bf36-4199-8320-2aad748ba5b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Dollhouse">
+      <UniqueIdentifier>{e7afe250-fa5f-4cc5-b011-cfee266461c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Input\GLFW">
+      <UniqueIdentifier>{6b879444-ec36-4523-b225-1720817af1a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Window\SFML">
+      <UniqueIdentifier>{faf60919-f8c7-420d-8b0e-b746f624a70e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Input\SFML">
+      <UniqueIdentifier>{ed89e610-20ac-48b7-ba9d-0cd99271f078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\GameObject">
+      <UniqueIdentifier>{ada8a8de-fe9a-48b1-bfcc-05f80ab8769f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Audio">
+      <UniqueIdentifier>{73bd2eb4-d032-48f2-abe5-7d86283f64d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Audio\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Graphics\OpenGL">
+      <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Physics">
+      <UniqueIdentifier>{9f4bb25a-b39c-4bef-9db8-c50934f476fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\Keyboard">
+      <UniqueIdentifier>{2725547b-cd48-4ddf-be50-644be343acfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Entity\Mouse">
+      <UniqueIdentifier>{98251cfa-f9d3-45cd-a8bb-dd41d7852c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources">
+      <UniqueIdentifier>{85eebe1e-1b45-4eec-9013-ac9901d269ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Action">
+      <UniqueIdentifier>{1d11a521-8c77-4dc3-8e68-6d085cfd8d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components">
+      <UniqueIdentifier>{732458b4-efac-44b1-972f-d784e2be8d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Archetype">
+      <UniqueIdentifier>{8a2550c3-44d9-46fa-9050-1d0c03d9d8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics">
+      <UniqueIdentifier>{d8d3fdef-189c-4567-91e2-5937000bbeb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Physics">
+      <UniqueIdentifier>{d1f0b10f-a53f-437d-8e7d-bba879726018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events">
+      <UniqueIdentifier>{6a057c5d-e202-48e8-9f36-e77a9d6a762d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Input">
+      <UniqueIdentifier>{0e135a08-733d-462e-852d-f9425b35621b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Update">
+      <UniqueIdentifier>{e2879c01-feed-41a9-b6eb-c9c9e723cabb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Graphics">
+      <UniqueIdentifier>{6ce22829-b9e0-47b7-bfb0-4edfed619a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Event">
+      <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Debug">
+      <UniqueIdentifier>{0f04524d-b6b8-40cb-b81f-e43b8749bc46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Graphics">
+      <UniqueIdentifier>{2fa96746-5f46-460b-ba71-1adc6c8ffd7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Audio">
+      <UniqueIdentifier>{0247d43a-bb7a-41d9-b7b5-3e9b3dc5b186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Object">
+      <UniqueIdentifier>{9417a7ee-6c97-4289-9e06-8ffa37598ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Graphics\Shaders">
+      <UniqueIdentifier>{0d72dc57-2382-4dc6-a9ad-a2793adaaf75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Factory">
+      <UniqueIdentifier>{44226fb0-e7f8-4165-ad36-0cc7ee6483bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Content">
+      <UniqueIdentifier>{262f1be3-c6a6-48ef-b75b-49742011dde3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Debug">
+      <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\DebugDraw">
+      <UniqueIdentifier>{e40ca2d8-f034-46da-910e-857d9f0d09a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Audio">
+      <UniqueIdentifier>{ee0162fc-41cf-4616-b862-0ed608f14020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Physics">
+      <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Engine.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\System.cpp">
+      <Filter>Core\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Debug\Debug.cpp">
+      <Filter>Core\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\Window.cpp">
+      <Filter>Core\Systems\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp">
+      <Filter>Core\Systems\Window\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Input\Input.cpp">
+      <Filter>Core\Systems\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entity.cpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\GameSession.cpp">
+      <Filter>Core\Object\Entity\GameSession</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\Space.cpp">
+      <Filter>Core\Object\Entity\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Input\InputGLFW.cpp">
+      <Filter>Core\Systems\Input\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Window\WindowSFML.cpp">
+      <Filter>Core\Systems\Window\SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Input\InputSFML.cpp">
+      <Filter>Core\Systems\Input\SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\GameObject.cpp">
+      <Filter>Core\Object\Entity\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\Audio.cpp">
+      <Filter>Core\Systems\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Component.cpp">
+      <Filter>Core\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\Graphics.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Physics.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\Keyboard.cpp">
+      <Filter>Core\Object\Entity\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Entities\Mouse.cpp">
+      <Filter>Core\Object\Entity\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Sprite.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SoundSpace.cpp">
+      <Filter>Core\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Camera.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\PhysicsSpace.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\TimeSpace.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Transform.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Level.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Texture2D.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Shader.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Mesh.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\Factory.cpp">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\CameraViewport.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Content\Content.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Delegate.cpp">
+      <Filter>Core\Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugMoveController.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\RigidBody.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Manifold.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugReport.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\BoxCollider.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\Gallery.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\Laboratory.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugCamera.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugCollider.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Font.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SpriteText.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\SoundCue.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugAudio.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SoundEmitter.cpp">
+      <Filter>Core\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Collision.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\SpriteSource.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Engine\Engine.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Debug\Debug.h">
+      <Filter>Core\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\Timer.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\System.h">
+      <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\SystemsInclude.h">
+      <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Config.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Archetype.h">
+      <Filter>Core\Engine\Archetype</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Action.h">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ActionList.h">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\Window.h">
+      <Filter>Core\Systems\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowGLFW.h">
+      <Filter>Core\Systems\Window\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\Input.h">
+      <Filter>Core\Systems\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entity.h">
+      <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\GameSession.h">
+      <Filter>Core\Object\Entity\GameSession</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\Space.h">
+      <Filter>Core\Object\Entity\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\InputGLFW.h">
+      <Filter>Core\Systems\Input\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Window\WindowSFML.h">
+      <Filter>Core\Systems\Window\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Input\InputSFML.h">
+      <Filter>Core\Systems\Input\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\GameObject.h">
+      <Filter>Core\Object\Entity\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\Audio.h">
+      <Filter>Core\Systems\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Types.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Component.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\EntitiesInclude.h">
+      <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Graphics\Graphics.h">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Physics.h">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\ObjectsInclude.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\Keyboard.h">
+      <Filter>Core\Object\Entity\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entities\Mouse.h">
+      <Filter>Core\Object\Entity\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\KeyDownEvent.h">
+      <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\KeyUpEvent.h">
+      <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseDown.h">
+      <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Serializer.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Testing.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
+      <Filter>Core\Events\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ProjectSetup.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GraphicsSpace.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Sprite.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ComponentReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\EngineReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SoundSpace.h">
+      <Filter>Core\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\BoxCollider.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Camera.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\PhysicsSpace.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\RigidBody.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\TimeSpace.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Transform.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourcesInclude.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Level.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Resource.h">
+      <Filter>Core\Object\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Object.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SoundCue.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Texture2D.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Texture.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SpriteSource.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Shader.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Mesh.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Material.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourceReference.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\Factory.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\Serializer.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\CameraViewport.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\Content.h">
+      <Filter>Core\Systems\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Components\ZilchComponent.h">
+      <Filter>Core\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ZilchEvent.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\EventReference.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Event.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Delegate.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugMoveController.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ComponentsInclude.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Manifold.h">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugReport.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugCamera.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugDrawReference.h">
+      <Filter>Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawRectangle.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DebugDrawInclude.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawLine.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\DebugDraw\DrawCircle.h">
+      <Filter>Core\Object\DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SpriteText.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\CollisionEvents.h">
+      <Filter>Core\Events\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\UpdateEvents.h">
+      <Filter>Core\Events\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EventsInclude.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugCollider.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Font.h">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\FMODPtrs.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugAudio.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SoundEmitter.h">
+      <Filter>Core\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Collision.h">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ProjectData.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Documentation\Style Guide.txt">
+      <Filter>Documentation</Filter>
+    </Text>
+    <Text Include="Core\Systems\Physics\PhysicsNotes.txt">
+      <Filter>Core\Components\Physics</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Assets\Shaders\SpriteShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\SpriteShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\SpriteTextShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\SpriteTextShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
