@@ -120,10 +120,10 @@ namespace DCEngine {
 			{
 				Size = 1;
 			}
-			return glm::ortho(TransformComponent->Translation.x - (WindowsWidth / WindowsHeight) * (100 - Size),
-				TransformComponent->Translation.x + (WindowsWidth / WindowsHeight) * (100 - Size),
-				TransformComponent->Translation.y - (WindowsHeight / WindowsWidth) * (100 - Size),
-				TransformComponent->Translation.y + (WindowsHeight / WindowsWidth) * (100 - Size),
+			return glm::ortho(TransformComponent->Translation.x - (WindowWidth / WindowHeight) * (100 - Size),
+				TransformComponent->Translation.x + (WindowWidth / WindowHeight) * (100 - Size),
+				TransformComponent->Translation.y - (WindowHeight / WindowWidth) * (100 - Size),
+				TransformComponent->Translation.y + (WindowHeight / WindowWidth) * (100 - Size),
 				NearPlane,
 				FarPlane);
 		}
@@ -143,6 +143,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Camera::Serialize(Json::Value & root) {
+    // Serialize primitives
+    root["FieldOfView"] = FieldOfView;
+    root["Size"] = Size;
+    root["NearPlane"] = NearPlane;
+    root["FarPlane"] = FarPlane;
   }
 
   void Camera::Deserialize(Json::Value & root) {

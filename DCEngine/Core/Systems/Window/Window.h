@@ -62,6 +62,8 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
     };
 

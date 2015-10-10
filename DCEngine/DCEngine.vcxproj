@@ -117,7 +117,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -204,6 +204,7 @@
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
+    <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
@@ -244,6 +245,7 @@
     <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
+    <ClInclude Include="Core\Engine\ProjectData.h" />
     <ClInclude Include="Core\Engine\Serializer.h" />
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
@@ -295,6 +297,7 @@
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
+    <ClInclude Include="Core\Systems\Physics\Collision.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
     <ClInclude Include="Core\Systems\System.h" />
@@ -311,12 +314,10 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\Resources\Shaders\SimpleShader.frag" />
-    <None Include="Core\Resources\Shaders\SimpleShader.vs" />
-    <None Include="Core\Resources\Shaders\SpriteShader.frag" />
-    <None Include="Core\Resources\Shaders\SpriteShader.vs" />
-    <None Include="Core\Resources\Shaders\SpriteTextShader.frag" />
-    <None Include="Core\Resources\Shaders\SpriteTextShader.vs" />
+    <None Include="Core\Assets\Shaders\SpriteShader.frag" />
+    <None Include="Core\Assets\Shaders\SpriteShader.vs" />
+    <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
+    <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

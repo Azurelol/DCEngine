@@ -79,7 +79,7 @@ namespace DCEngine
 		PreviousPosition = Position;
 
 		// Integrate the position using Euler 
-		Position = Position + Velocity * dt; //acceleration term is small
+		Position = Position + Velocity * dt * 0.0f; //acceleration term is small
 
 											 //Determine the acceleration
 											 //Acceleration = PHYSICS->Gravity; put in check for gravity component or something

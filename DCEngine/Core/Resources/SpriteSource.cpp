@@ -1,4 +1,6 @@
 #include "SpriteSource.h"
+#include <SOIL2\SOIL2.h>
+#include <SFML\Graphics\Image.hpp>
 
 namespace DCEngine {
 
@@ -10,7 +12,8 @@ namespace DCEngine {
   /**************************************************************************/
   SpriteSource::SpriteSource(std::string spriteFile) : Resource("SpriteSource"), ImageFileName(spriteFile) {
     TextureObj.reset(new Texture2D(spriteFile));
-    LoadTexture();
+    // The textures shouldn't be loaded until OpenGL has been initialized
+    //LoadTexture();
   }
 
   /**************************************************************************/
@@ -30,11 +33,13 @@ namespace DCEngine {
     }
 
     // Load image
-    std::string spritePath;
-    spritePath.append("Core/Resources/Sprites/");
-    spritePath.append(ImageFileName);
     int width, height;
-    unsigned char* image = SOIL_load_image(spritePath.c_str(),
+    
+    //sf::Image imageFile;
+    //imageFile.loadFromFile(ImageFileName);
+    
+
+    unsigned char* image = SOIL_load_image(ImageFileName.c_str(),
       &width, &height,
       0, TextureObj->ImageFormat == GL_RGBA ? SOIL_LOAD_RGBA : SOIL_LOAD_RGB);
 

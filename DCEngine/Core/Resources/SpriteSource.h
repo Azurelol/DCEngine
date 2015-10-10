@@ -11,7 +11,6 @@
 #pragma once
 #include "ResourceReference.h"
 #include "Texture2D.h"
-#include <SOIL2\SOIL2.h>
 //#include <SFML\Graphics.hpp>
 
 namespace DCEngine {

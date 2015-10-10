@@ -89,11 +89,17 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Graphics));
 
     //trace << "\n";
-
+    std::string projectFilePath = "Projects/Sample/SampleProj.dcp";
+    
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
+    
+    // TEMPORARY FIX UNTIL I FIGURE SOMETHING OUT
+    getSystem<Systems::Content>()->LoadTextures();
+
+    // Initialize the project
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 
     // Loads the project file to start up the game

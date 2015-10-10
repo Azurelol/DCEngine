@@ -152,6 +152,14 @@ namespace DCEngine {
       GraphicsHandler->Terminate();
     }
 
+    void Graphics::Serialize(Json::Value & root)
+    {
+    }
+
+    void Graphics::Deserialize(Json::Value & root)
+    {
+    }
+
     void Graphics::StartFrame() {
       GraphicsHandler->StartFrame();
     }

@@ -45,9 +45,11 @@ namespace DCEngine {
     fragmentShaderFile.exceptions(std::ifstream::badbit);
 
     try {
-      std::string shaderLocation("Core/Resources/Shaders/");
-      vertexShaderFile.open(shaderLocation + VertexPath);
-      fragmentShaderFile.open(shaderLocation + FragmentPath);
+      //std::string shaderLocation("Core/Resources/Shaders/");
+      //vertexShaderFile.open(shaderLocation + VertexPath);
+      //fragmentShaderFile.open(shaderLocation + FragmentPath);
+      vertexShaderFile.open(VertexPath);
+      fragmentShaderFile.open(FragmentPath);
       // Use C++ filestreams to read the content from the file
       std::stringstream vertexShaderStream, fragmentShaderStream;
       vertexShaderStream << vertexShaderFile.rdbuf();

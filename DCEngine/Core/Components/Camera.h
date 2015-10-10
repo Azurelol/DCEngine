@@ -49,8 +49,8 @@ namespace DCEngine {
 		//Projection Mode
 		ProjectionMode Projection = ProjectionMode::Orthographic;
 		GLfloat FieldOfView = 45;
-		GLfloat WindowsWidth = 8;
-		GLfloat WindowsHeight = 6;
+		GLfloat WindowWidth = 8;
+		GLfloat WindowHeight = 6;
 		GLfloat Size = 90;//0 - 100 **need a if statement to control outranged value
 		//Clipping plane
 		GLfloat NearPlane = 0.1f;

@@ -25,10 +25,10 @@ namespace DCEngine {
     if (FT_Init_FreeType(&ft))
       trace << "Font::Load - Error! Could not initialize FreeType library! \n";
     // Load the font from file
-    std::string fontPath = "Core/Resources/Fonts/";
-    fontPath.append(FontFileName);
+    //std::string fontPath = "Core/Resources/Fonts/";
+    //fontPath.append(FontFileName);
     FT_Face face;
-    if (FT_New_Face(ft, fontPath.c_str(), 0, &face))
+    if (FT_New_Face(ft, FontFileName.c_str(), 0, &face))
       trace << "Font::Load - Error! Failed to load font \n";
     // Define the font size to extract from this face. This function sets
     // the font's width and height parameters. Setting the widh to 0

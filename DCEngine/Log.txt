@@ -5,12 +5,15 @@
 *Using FMOD for Audio 
 *Using OpenGL for Graphics 
 Content::Initialize 
+Content::LoadEngineData - Finished loading all engine data. 
+Content::LoadProjectData - Finished loading all project data. 
 
 [Content::LoadDefaultResources] - Loading default resources 
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
-SpriteSource::LoadTexture - Image was successfully loaded!
 Content::AddSpriteSource - Square was added.
+Content::AddSpriteSource - Angryeyes was added.
+Content::AddSpriteSource - Awesomeface was added.
 Font::Load - Font was successfully loaded! 
 Content::AddFont - Verdana was added.
 Content::AddSoundCue - SpaceJam was added.
@@ -32,11 +35,26 @@ SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled!
 SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
 [GraphicsGL::Initialize] - Finished compiling shaders 
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 [Engine::Initialize - All engine systems initialized]
 
 [Engine::LoadProject - Loading ]
-AudioFMOD::CreateSound: Core/Resources/Sounds/spacejam.mp3
+AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 Daisy Project::CreateSpace - Daisy World has been constructed. 
+Camera Serialized Output
+{
+   "FarPlane" : 100,
+   "FieldOfView" : 45,
+   "NearPlane" : 0.10000000149011612,
+   "Size" : 70
+}
+
+
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Chen to the space.
@@ -73,44 +91,6 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Mouse down!
-Reiner::Transform.Translation(17.57, 0.5, 0)
-Reiner::Transform.Translation(18.3202, 0.5, 0)
-Reiner::Transform.Translation(18.6135, 0, 0)
-Reiner::Transform.Translation(19.4032, 0, 0)
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::DebugCollider::OnCollisionStartedEvent - Colliding with  Myres
-Myres::DebugCollider::OnCollisionStartedEvent - Colliding with  Reiner
-Reiner::Transform.Translation(20.231, 0, 0)
-Reiner::Transform.Translation(20.5244, 0, 0)
-Reiner::Transform.Translation(21.3968, 0, 0)
 
 [Engine::Terminate] 
 Content::Terminate
