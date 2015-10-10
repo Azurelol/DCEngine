@@ -315,6 +315,9 @@
     <ClCompile Include="Core\Systems\Physics\Collision.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\CircleCollider.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -592,6 +595,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Collision.h">
       <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\CircleCollider.h">
+      <Filter>Core\Components\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

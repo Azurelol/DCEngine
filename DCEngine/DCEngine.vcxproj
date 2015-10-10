@@ -161,6 +161,7 @@
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
+    <ClCompile Include="Core\Components\CircleCollider.cpp" />
     <ClCompile Include="Core\Components\DebugAudio.cpp" />
     <ClCompile Include="Core\Components\DebugCamera.cpp" />
     <ClCompile Include="Core\Components\DebugCollider.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
+    <ClInclude Include="Core\Components\CircleCollider.h" />
     <ClInclude Include="Core\Components\DebugAudio.h" />
     <ClInclude Include="Core\Components\DebugCamera.h" />
     <ClInclude Include="Core\Components\DebugCollider.h" />

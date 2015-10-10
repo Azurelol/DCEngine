@@ -9,6 +9,7 @@ namespace DCEngine
 
 	bool BoxtoBox(GameObject *obj1, GameObject *obj2);
 	bool CircletoBox(GameObject *obj1, GameObject *obj2);
+  void ProjectOnTo(glm::vec3 vec, glm::vec3 Axis, glm::vec3 &result);
 	bool BoxtoCircle(GameObject *obj1, GameObject *obj2);
 	bool CircletoCircle(GameObject *obj1, GameObject *obj2);
 
