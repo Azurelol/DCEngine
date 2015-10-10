@@ -44,6 +44,14 @@ namespace DCEngine {
       InputHandler->Terminate();
     }
 
+    void Input::Serialize(Json::Value & root)
+    {
+    }
+
+    void Input::Deserialize(Json::Value & root)
+    {
+    }
+
   }
 
 

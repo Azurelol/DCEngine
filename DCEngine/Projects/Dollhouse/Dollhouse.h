@@ -40,7 +40,10 @@ namespace DCEngine {
       cameraObj->getComponent<Camera>()->Size = 70;
       cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Orthographic;
 
-
+      // Test to serialize the camera component settings:
+      std::string cameraData;
+      Serializer::Serialize(cameraObj->getComponent<Camera>(), cameraData);
+      trace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
 
 

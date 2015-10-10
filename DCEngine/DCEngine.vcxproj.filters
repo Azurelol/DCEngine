@@ -297,9 +297,6 @@
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Resources\SpriteSource.cpp">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\SpriteText.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
@@ -311,6 +308,12 @@
     </ClCompile>
     <ClCompile Include="Core\Components\SoundEmitter.cpp">
       <Filter>Core\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Collision.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\SpriteSource.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -587,6 +590,12 @@
     <ClInclude Include="Core\Components\SoundEmitter.h">
       <Filter>Core\Components\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Collision.h">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ProjectData.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -597,22 +606,16 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\Resources\Shaders\SpriteShader.vs">
+    <None Include="Core\Assets\Shaders\SpriteShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SpriteShader.frag">
+    <None Include="Core\Assets\Shaders\SpriteShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SimpleShader.frag">
+    <None Include="Core\Assets\Shaders\SpriteTextShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SimpleShader.vs">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Resources\Shaders\SpriteTextShader.frag">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Resources\Shaders\SpriteTextShader.vs">
+    <None Include="Core\Assets\Shaders\SpriteTextShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

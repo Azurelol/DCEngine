@@ -1,0 +1,7 @@
+1. Where is the main while loop
+2. What is the order each system be called
+3. Where is the objects' data stored. (I assume it is in sprite)
+
+
+In sprite_renderer.h need position, size, rotate, color
+

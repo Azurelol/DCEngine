@@ -65,6 +65,9 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
+
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
 

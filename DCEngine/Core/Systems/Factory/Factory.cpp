@@ -20,6 +20,14 @@ namespace DCEngine {
         trace << "Factory::Terminate \n";
     }
 
+    void Factory::Serialize(Json::Value & root)
+    {
+    }
+
+    void Factory::Deserialize(Json::Value & root)
+    {
+    }
+
     /**************************************************************************/
     /*!
     \brief  Creates a game object with default components.

@@ -9,6 +9,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Content::Content() : System(std::string("ContentSystem"), EnumeratedSystem::Content) {
+      ProjectInfo.reset(new ProjectData());
+      EngineInfo.reset(new EngineData());
     }
 
     /**************************************************************************/
@@ -21,8 +23,21 @@ namespace DCEngine {
       if (TRACE_INITIALIZE)
         trace << "Content::Initialize \n";
 
+      // Load the engine's default data
+      LoadEngineData();
+
+      // Load the loaded project's data
+      LoadProjectData();
+
+      // Construct the ProjectData object, which will store the
+      // currently loaded project's data
+      ProjectInfo.reset(new ProjectData());
+      
       // Load the default resources of the engine's
-      LoadDefaultResources();
+      LoadCoreAssets();
+
+      // Load the loaded project's assets
+      LoadProjectAssets();
     }
 
     /**************************************************************************/
@@ -42,6 +57,40 @@ namespace DCEngine {
 
     }
 
+    void Content::LoadEngineData()
+    {
+      // NOT REALLY LOADING, IS IT?
+      EngineInfo->SpritePath = "Core/Assets/Sprites/";
+      EngineInfo->ShaderPath = "Core/Assets/Shaders/";
+      EngineInfo->FontPath = "Core/Assets/Fonts/";
+      EngineInfo->SoundPath = "Core/Assets/Sounds/";
+      trace << "Content::LoadEngineData - Finished loading all engine data. \n";
+    }
+
+    void Content::LoadProjectData()
+    {
+      trace << "Content::LoadProjectData - Finished loading all project data. \n";
+    }
+
+    // LOAD ALL TEXTURES :D
+    void Content::LoadTextures()
+    {
+      for (auto texture : SpriteSourceMap) {
+        texture.second->LoadTexture();
+      }
+    }
+
+    void Content::DeserializeProjectData(Json::Value& root)
+    {
+      // Deserialize all of the project file's data into the
+      // project data struct.
+      ProjectInfo->ProjectName = root.get("ProjectName", "").asString();
+
+      ProjectInfo->AssetPath= root.get("AssetFolder", "").asString();
+      ProjectInfo->ArchetypePath = root.get("ArchetypeFolder", "").asString();
+      ProjectInfo->LevelPath = root.get("LevelFolder", "").asString();
+    }
+
     /**************************************************************************/
     /*!
     @brief Loads the default resources from the engine.
@@ -49,26 +98,42 @@ namespace DCEngine {
     character set.
     */
     /**************************************************************************/
-    void Content::LoadDefaultResources()
+    void Content::LoadCoreAssets()
     {
       trace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
-      // Deserialize the engine's internal resource list
+      // Deserialize the engine's core assets file
+
+      // Scan the specfied folder and recursively add each resource to its appropiate
+      // map.
 
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"), 
-                                                                  "SpriteShader.vs", "SpriteShader.frag")));
+        EngineInfo->ShaderPath + "SpriteShader.vs", 
+        EngineInfo->ShaderPath + "SpriteShader.frag")));
       AddShader(std::string("SpriteTextShader"), ShaderPtr(new Shader(std::string("SpriteTextShader"),
-                                                                  "SpriteTextShader.vs", "SpriteTextShader.frag")));
+        EngineInfo->ShaderPath + "SpriteTextShader.vs",
+        EngineInfo->ShaderPath + "SpriteTextShader.frag")));
 
       // Load default sprites
-      AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource("Square.png")));
+      AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
+      AddSpriteSource(std::string("Angryeyes"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "angryeyes.png")));
+      AddSpriteSource(std::string("Awesomeface"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "awesomeface.png")));
       // Load default fonts      
-      AddFont(std::string("Verdana"), FontPtr(new Font("Verdana.ttf")));
+      AddFont(std::string("Verdana"), FontPtr(new Font(EngineInfo->FontPath + "Verdana.ttf")));
       // Load default soundcues
-      AddSoundCue(std::string("SpaceJam"), SoundCuePtr(new SoundCue("spacejam.mp3")));
+      AddSoundCue(std::string("SpaceJam"), SoundCuePtr(new SoundCue(EngineInfo->SoundPath + "spacejam.mp3")));
 
 
       trace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+    }
+
+    void Content::LoadProjectAssets()
+    {
+    }
+
+    void Content::ScanFolder()
+    {
+
     }
 
     /**************************************************************************/
@@ -134,6 +199,14 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::Terminate() {
       trace << "Content::Terminate\n";
+    }
+
+    void Content::Serialize(Json::Value & root)
+    {
+    }
+
+    void Content::Deserialize(Json::Value & root)
+    {
     }
 
     /**************************************************************************/

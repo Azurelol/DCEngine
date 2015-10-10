@@ -48,6 +48,8 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
       void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
       void StopMusic(); //!< Stops the currently playing music file.

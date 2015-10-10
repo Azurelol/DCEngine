@@ -28,7 +28,10 @@ namespace DCEngine {
     void GraphicsGL::BufferCleaner()
     {
    	  glm::mat4 cleanup;
+      glm::vec4 colorclean;
 	    this->SpriteShader->SetMatrix4("model", cleanup);	
+      this->SpriteShader->SetVector4f("color", colorclean);
+      this->SpriteShader->SetInteger("image", 0);
 	}
 
     /**************************************************************************/
@@ -51,6 +54,8 @@ namespace DCEngine {
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.
       glewExperimental = GL_TRUE;
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
       // If OpenGL failed to initialize...
       if (glewInit() != GLEW_OK) {
@@ -269,16 +274,28 @@ namespace DCEngine {
       are correspond to the top-left corner of the elements.
       */
       GLuint VBO;
+
       GLfloat vertices[]{
         // Position,      Texture
-        -1.0f, 1.0f,     0.0f, 1.0f,
-        1.0f, 1.0f,      1.0f, 0.0f,
-        1.0f, -1.0f,     0.0f, 0.0f,
+        0.0f, 1.0f,      0.0f, 1.0f,
+        1.0f, 0.0f,      1.0f, 0.0f,
+        0.0f, 0.0f,      0.0f, 0.0f,
 
-        1.0f, -1.0f,      0.0f, 1.0f,
-        -1.0f, -1.0f,     1.0f, 1.0f,
-        -1.0f, 1.0f,      1.0f, 0.0f
+         0.0f, 1.0f,      0.0f, 1.0f,
+         1.0f, 1.0f,      1.0f, 1.0f,
+         1.0f, 0.0f,      1.0f, 0.0f
       };
+
+      //GLfloat vertices[]{
+      //  // Position,      Texture
+      //  -1.0f, 1.0f,     0.0f, 1.0f,
+      //  1.0f, 1.0f,      1.0f, 0.0f,
+      //  1.0f, -1.0f,     0.0f, 0.0f,
+
+      //  1.0f, -1.0f,      0.0f, 1.0f,
+      //  -1.0f, -1.0f,     1.0f, 1.0f,
+      //  -1.0f, 1.0f,      1.0f, 0.0f
+      //};
 
       /*
         Next, we simply send the vertices to the GPU and configure the vertex attributes,
@@ -333,7 +350,7 @@ namespace DCEngine {
       auto camTrans = camera.Owner()->getComponent<Transform>();
 
       // (???) Sets the "image" uniform to 0
-      //SpriteShader->SetInteger("image", 0);
+      shader->SetInteger("image", 0);
       // Set the projection matrix
       shader->SetMatrix4("projection", camera.GetProjectionMatrix());
       // Set the view matrix
@@ -343,6 +360,8 @@ namespace DCEngine {
     void GraphicsGL::SetSpriteShader(Camera& camera)
     {
       SetShaderProjViewUniforms(this->SpriteShader, camera);
+      // Enable alpha blending for opacity.
+
     }
 
     void GraphicsGL::SetSpriteTextShader(Camera& camera)
@@ -359,11 +378,11 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera) {
       //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      //glEnable(GL_CULL_FACE);
+      //glEnable(GL_BLEND);
+      //glEnable(GL_TEXTURE_2D);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
       this->SpriteShader->Use();
-
-      // Enable alpha blending for opacity.
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_SRC_ALPHA, GL_ONE);
       
       // Retrieve the 'SpriteSource' resource from the content system
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
@@ -372,27 +391,51 @@ namespace DCEngine {
       auto transform = sprite.TransformComponent;
 
       // Create the matrix of the transform
+      GLfloat verticesOffset = 0.5f;
       glm::mat4 modelMatrix;
+
+
+/*      modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+                                                          transform->Translation.y,
+                                                          0.0f));
+      modelMatrix = glm::translate(modelMatrix, glm::vec3(verticesOffset * sprite.TransformComponent->Scale.x,
+                                                          verticesOffset * sprite.TransformComponent->Scale.y,
+                                                          0.0f));
+      modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+      modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+      modelMatrix = glm::translate(modelMatrix, glm::vec3(-verticesOffset * sprite.TransformComponent->Scale.x,
+                                                          -verticesOffset * sprite.TransformComponent->Scale.y,
+                                                          0.0f));
+      modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x * 1.5, transform->Scale.y * 1.5, 0.0f))*/;
+
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
                                                           transform->Translation.y, 
                                                           0.0f));
-      //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
       modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
       
-      glm::mat4x4 idMat;
       
       // Update the uniforms in the shader to this particular sprite's data 
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
 
+      //if (&spriteSrc->getTexture() == NULL) {
+      //  this->SpriteShader->SetInteger("IsTexture", 0);
+      //}
+      //else {
+      //  this->SpriteShader->SetInteger("IsTexture", 1);
+      //  glActiveTexture(GL_TEXTURE0); // Used for 3D
+      //  spriteSrc->getTexture().Bind();
+      //}
+
       // Set the active texture
       glActiveTexture(GL_TEXTURE0); // Used for 3D
       spriteSrc->getTexture().Bind();
-      this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID);
+
+      //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
       // Bind the vertex array
       glBindVertexArray(this->SpriteVAO);
       // Draw the array

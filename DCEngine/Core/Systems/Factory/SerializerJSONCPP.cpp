@@ -1,5 +1,6 @@
 #include "SerializerJSONCPP.h"
 #include "../../Objects/ObjectsInclude.h"
+#include "../System.h"
 
 namespace DCEngine {
 
@@ -94,6 +95,36 @@ namespace DCEngine {
     // serialize method, which will set the data members based on the
     // 'Json::Value' object's values
     componentObj->Deserialize(deserializeRoot);
+    return true;
+  }
+
+  bool SerializerJSONCPP::Serialize(System * system, std::string & output)
+  {
+    // Create an instance of Json::Value to act as our root
+    Json::Value serializeRoot;
+    // Pass it to the Serialize method which will fill the 'Value' object
+    // with all the serialized data.
+    system->Serialize(serializeRoot);
+    // Create an instance of 'StyledWriter' to write the Json data to the 
+    // string that was passed in
+    Json::StyledWriter writer;
+    output = writer.write(serializeRoot);
+    return true;
+  }
+
+  bool SerializerJSONCPP::Deserialize(System * system, std::string & input)
+  {
+    // Create an instance of 'Json::Value' to act as our root
+    Json::Value deserializeRoot;
+    Json::Reader reader;
+
+    // Parse the input string and fill the 'Json::Value' object
+    if (!reader.parse(input, deserializeRoot))
+      return false;
+    // Use the 'Value' object and pass it to the component object's 
+    // serialize method, which will set the data members based on the
+    // 'Json::Value' object's values
+    system->Deserialize(deserializeRoot);
     return true;
   }
 
