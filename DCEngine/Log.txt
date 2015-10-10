@@ -91,6 +91,8 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
+Camera - Size: 80
+Camera - Size: 90
 
 [Engine::Terminate] 
 Content::Terminate
