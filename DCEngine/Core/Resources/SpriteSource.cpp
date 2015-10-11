@@ -1,6 +1,4 @@
 #include "SpriteSource.h"
-#include <SOIL2\SOIL2.h>
-#include <SFML\Graphics\Image.hpp>
 
 namespace DCEngine {
 
@@ -11,9 +9,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   SpriteSource::SpriteSource(std::string spriteFile) : Resource("SpriteSource"), ImageFileName(spriteFile) {
+    
+    #if (USE_SFML_TEXTURE)
+    TextureObj.reset(new sf::Texture());
+    #else
     TextureObj.reset(new Texture2D(spriteFile));
-    // The textures shouldn't be loaded until OpenGL has been initialized
-    //LoadTexture();
+    #endif
+    
   }
 
   /**************************************************************************/
@@ -25,26 +27,24 @@ namespace DCEngine {
   /**************************************************************************/
   void SpriteSource::LoadTexture() {
     
+    #if (USE_SFML_TEXTURE)
+    TextureObj->loadFromFile(ImageFileName);
+    trace << "SpriteSource::LoadTexture - " << ImageFileName <<  " was successfully loaded!\n";
+    #else if
     // (?) Change later?
-    bool alpha = true;    
+    bool alpha = true;
     if (alpha) {
       TextureObj->InternalFormat = GL_RGBA;
       TextureObj->ImageFormat = GL_RGBA;
     }
 
     // Load image
-    int width, height;
-    
-    //sf::Image imageFile;
-    //imageFile.loadFromFile(ImageFileName);
-    
-
-    unsigned char* image = SOIL_load_image(ImageFileName.c_str(),
-      &width, &height,
-      0, TextureObj->ImageFormat == GL_RGBA ? SOIL_LOAD_RGBA : SOIL_LOAD_RGB);
+    sf::Image image;
+    image.loadFromFile(ImageFileName);
+    image.flipVertically();
 
     // If the image file failed to load, throw an exception
-    if (image == NULL) {
+    if (image.getPixelsPtr() == NULL) {
       trace << "SpriteSource::LoadTexture - Failed to load image file!\n";
       // Exception here
     }
@@ -53,22 +53,32 @@ namespace DCEngine {
     }
 
     // Generate texture
-    TextureObj->Generate(width, height, image);
+    TextureObj->Generate(image.getSize().x, image.getSize().y, image);
     // Free image data
-    SOIL_free_image_data(image);
-
- 
+    //SOIL_free_image_data(image);
+    #endif
   }
 
   /**************************************************************************/
   /*!
-  @brief  Returns the underlying texture resource to be used by the graphics
-           system.
-  @return A reference to the Texture2D object.
+  @brief  Returns the texture resource to be used by the graphics system.
+  @return A reference to the texture object.
   */
   /**************************************************************************/
+  #if (USE_SFML_TEXTURE)
+  sf::Texture & SpriteSource::getTexture()
+  {
+    return *TextureObj.get();
+  }
+  #else
   Texture2D& SpriteSource::getTexture() {
     return *(TextureObj.get());
   }
+  #endif
+  
+
+
+
+
 
 }

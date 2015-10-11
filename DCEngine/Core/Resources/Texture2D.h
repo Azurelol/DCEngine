@@ -10,6 +10,7 @@
 /******************************************************************************/
 #pragma once
 #include "ResourceReference.h"
+#include <SFML\Graphics\Image.hpp>
 
 namespace DCEngine {
 
@@ -18,7 +19,8 @@ namespace DCEngine {
     // Constructor (sets default texture mode)
     Texture2D(std::string& imageFile);
     // Generates texture from image data
-    void Generate(GLuint width, GLuint height, unsigned char* data);
+    void Generate(GLuint width, GLuint height, sf::Image& data);
+    //void Generate(GLuint width, GLuint height, unsigned char* data);
     // Binds the texture as the current active GL_TEXTURE_2D texture object
     void Bind() const;
 

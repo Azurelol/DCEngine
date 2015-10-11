@@ -14,6 +14,7 @@ Content::AddShader - SpriteTextShader was added.
 Content::AddSpriteSource - Square was added.
 Content::AddSpriteSource - Angryeyes was added.
 Content::AddSpriteSource - Awesomeface was added.
+Content::AddSpriteSource - KnightAnim was added.
 Font::Load - Font was successfully loaded! 
 Content::AddFont - Verdana was added.
 Content::AddSoundCue - SpaceJam was added.
@@ -35,6 +36,8 @@ SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled!
 SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
 [GraphicsGL::Initialize] - Finished compiling shaders 
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
@@ -93,6 +96,7 @@ PhysicsSpace::AddCollider - Myres
 [Engine::Loop]
 Camera - Size: 80
 Camera - Size: 90
+Mouse down!
 
 [Engine::Terminate] 
 Content::Terminate

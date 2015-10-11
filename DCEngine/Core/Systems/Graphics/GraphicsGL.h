@@ -83,6 +83,9 @@ namespace DCEngine {
       GLuint screenheight_;
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
 
+      // Draw function
+      //void Draw(glm::mat4  glm::vec3 scale, glm::vec3 rotation, Camera& camera, GLenum drawMode);
+
       // Sprites
       ShaderPtr SpriteShader;
       GLuint SpriteVAO; 

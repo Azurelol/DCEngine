@@ -9,7 +9,6 @@
 /******************************************************************************/
 #include "GraphicsGL.h"
 
-
 // (!) Should these be included? Perhaps only the data needed should be passed in.
 
 #include "../../Components/EngineReference.h"
@@ -394,20 +393,7 @@ namespace DCEngine {
       GLfloat verticesOffset = 0.5f;
       glm::mat4 modelMatrix;
 
-
-/*      modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-                                                          transform->Translation.y,
-                                                          0.0f));
-      modelMatrix = glm::translate(modelMatrix, glm::vec3(verticesOffset * sprite.TransformComponent->Scale.x,
-                                                          verticesOffset * sprite.TransformComponent->Scale.y,
-                                                          0.0f));
-      modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-      modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-      modelMatrix = glm::translate(modelMatrix, glm::vec3(-verticesOffset * sprite.TransformComponent->Scale.x,
-                                                          -verticesOffset * sprite.TransformComponent->Scale.y,
-                                                          0.0f));
-      modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x * 1.5, transform->Scale.y * 1.5, 0.0f))*/;
-
+      // Matrices
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
                                                           transform->Translation.y, 
                                                           0.0f));
@@ -421,21 +407,12 @@ namespace DCEngine {
       // Update the uniforms in the shader to this particular sprite's data 
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
-
-      //if (&spriteSrc->getTexture() == NULL) {
-      //  this->SpriteShader->SetInteger("IsTexture", 0);
-      //}
-      //else {
-      //  this->SpriteShader->SetInteger("IsTexture", 1);
-      //  glActiveTexture(GL_TEXTURE0); // Used for 3D
-      //  spriteSrc->getTexture().Bind();
-      //}
-
       // Set the active texture
-      glActiveTexture(GL_TEXTURE0); // Used for 3D
+      glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
-
       //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
+      
+      
       // Bind the vertex array
       glBindVertexArray(this->SpriteVAO);
       // Draw the array

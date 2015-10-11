@@ -1,4 +1,5 @@
 #include "Texture2D.h"
+#include <SFML\Graphics\Image.hpp>
 
 namespace DCEngine {
 
@@ -10,13 +11,14 @@ namespace DCEngine {
    
   }
 
-  void Texture2D::Generate(GLuint width, GLuint height, unsigned char * data) {
+  void Texture2D::Generate(GLuint width, GLuint height, sf::Image& data) {
+  //void Texture2D::Generate(GLuint width, GLuint height, unsigned char * data) {
     this->Width = width;
     this->Height = height;
     GLenum error;
-
+   
     glGenTextures(1, &this->TextureID);
-    error = glGetError();
+    error = glGetError(); 
     if (error)
       trace << "Texture2D::Generate - Failed to generate texture ID!\n";
 
@@ -28,7 +30,7 @@ namespace DCEngine {
 
     // Generate texture
     glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, width, height, 0,
-                 this->ImageFormat, GL_UNSIGNED_BYTE, data);
+                 this->ImageFormat, GL_UNSIGNED_BYTE, data.getPixelsPtr());
     error = glGetError();
     if (error)
       trace << "Texture2D::Generate - Failed to generate texture!\n";
