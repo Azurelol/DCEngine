@@ -9,7 +9,6 @@
 /******************************************************************************/
 #include "GraphicsGL.h"
 
-
 // (!) Should these be included? Perhaps only the data needed should be passed in.
 
 #include "../../Components/EngineReference.h"
@@ -86,7 +85,7 @@ namespace DCEngine {
     void GraphicsGL::Update(float dt) {
 
       // Tells OpenGL the current size of the rendering window
-      glViewport(0, 0, screenwidth_, screenheight_);
+      glViewport(0, 0, ScreenWidth, ScreenHeight);
     }
 
     /**************************************************************************/
@@ -109,151 +108,42 @@ namespace DCEngine {
     void GraphicsGL::EndFrame() {
     }
 
-    /**************************************************************************/
-    /*!
-    \brief  Configures the DebugDraw Line VAO.
-    */
-    /**************************************************************************/
-    void GraphicsGL::ConfigureLineVAO()
-    {
-    }
+
 
     /**************************************************************************/
     /*!
-    \brief  Configures the DebugDraw Circle VAO.
+    \brief  Draws geometry using Arrays.
+    \param  The handle to the Vertex Array Object.
+    \param  The number of vertices.
+    \param  The mode with which to draw.
     */
     /**************************************************************************/
-    void GraphicsGL::ConfigureCircleVAO()
+    void GraphicsGL::DrawArrays(GLuint vao, GLuint numVertices, GLenum drawMode)
     {
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Configures the DebugDraw Rectangle VAO.
-    */
-    /**************************************************************************/
-    void GraphicsGL::ConfigureRectangleVAO()
-    {
+      // Bind the vertex array
+      glBindVertexArray(vao);
+      // Draw the array
+      glDrawArrays(drawMode, 0, numVertices);
+      // Unbind the vertex array
+      glBindVertexArray(0);
     }
 
     /**************************************************************************/
     /*!
-    \brief  Sets the DebugDraw projection and view uniforms from the camera
+    \brief  Draws geometry using Elements.
+    \param  The handle to the Vertex Array Object.
+    \param  The number of vertices.
+    \param  The mode with which to draw.
     */
     /**************************************************************************/
-    void GraphicsGL::SetDebugDrawShaderProjViewUniform(Camera & camera)
+    void GraphicsGL::DrawElements(GLuint vao, GLuint numVertices,  GLenum drawMode)
     {
-
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Takes a DrawDebug object and draws depending on.
-    \param  A reference to the drawdebug object.
-    \para   A reference to the space's camera.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Camera& cam)
-    {
-      // The received object is a DrawLine
-      //if (std::type_index(typeid(debugDrawObj)) == typeid(DrawLine)) {
-      //  
-      //}
-
-    }
-
-    void GraphicsGL::DrawCircle(DrawCircleObj & obj)
-    {
-    }
-
-    void GraphicsGL::DrawRectangle(DrawRectObj & obj)
-    {
-    }
-
-    void GraphicsGL::DrawLineSegment(DrawLineObj & obj)
-    {
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Draws a rectangle on screen.
-    \param  The position of the center of the rectangle.
-    \param  The length of the rectangle.
-    \param  The height of the rectangle.
-    \param  The color of the rectangle.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
-    {
-		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		BufferCleaner();
-		glBegin(GL_LINE_LOOP);
-
-		//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
-		auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-		auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
-		auto Position2 = PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position3 = PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position4 = PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
-
-		glVertex3f(Position1.x, Position1.y, Position1.z);
-		glVertex3f(Position2.x, Position2.y, Position2.z);
-		glVertex3f(Position3.x, Position3.y, Position3.z);
-		glVertex3f(Position4.x, Position4.y, Position4.z);
-
-		glEnd();
-    }
-    /**************************************************************************/
-    /*!
-    \brief Draws a circle on screen.
-    \param The position of the center of the circle.
-    \param The radius of the circle.
-    \param The color of the circle.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam)
-    {
-		// Do your magic here Chen
-		//trace << "Drawing a circle\n";
-		BufferCleaner();
-    this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		glBegin(GL_LINE_LOOP);
-
-		double M_PI = 3.1415926535;
-		static double PointsNumber = 128;
-		for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))
-		{
-			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0f);
-			//PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
-			glm::vec4 Position = glm::vec4(PositionOrigin.x + radius * cos(i), PositionOrigin.y + radius * sin(i), PositionOrigin.z, 0.0);
-			//trace << Position.x << " ," << Position.y << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][2] << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][3] << "\n";
-			glVertex3f(Position.x, Position.y, Position.z);
-		}
-
-		glEnd();
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Draws a line segment on screen.
-    \param  The starting position of the line segment.
-    \param  The ending position of the line segment.
-    \param  The length of the line segment.
-    \param  The color of the line segment.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
-    {
-		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		BufferCleaner();
-		glBegin(GL_LINE_LOOP);
-
-		auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);
-		auto Position2 = glm::vec4(endPos.x, endPos.y, endPos.z, 0.0);
-		glVertex3f(Position1.x, Position1.y, Position1.z);
-		glVertex3f(Position2.x, Position2.y, Position2.z);
-
-		glEnd();
+      // Bind the vertex array
+      glBindVertexArray(vao);
+      // Draw the elements
+      glDrawElements(drawMode, numVertices, GL_UNSIGNED_INT, 0);
+      // Unbind the vertex array
+      glBindVertexArray(0);
     }
 
     /**************************************************************************/
@@ -394,20 +284,7 @@ namespace DCEngine {
       GLfloat verticesOffset = 0.5f;
       glm::mat4 modelMatrix;
 
-
-/*      modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-                                                          transform->Translation.y,
-                                                          0.0f));
-      modelMatrix = glm::translate(modelMatrix, glm::vec3(verticesOffset * sprite.TransformComponent->Scale.x,
-                                                          verticesOffset * sprite.TransformComponent->Scale.y,
-                                                          0.0f));
-      modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-      modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-      modelMatrix = glm::translate(modelMatrix, glm::vec3(-verticesOffset * sprite.TransformComponent->Scale.x,
-                                                          -verticesOffset * sprite.TransformComponent->Scale.y,
-                                                          0.0f));
-      modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x * 1.5, transform->Scale.y * 1.5, 0.0f))*/;
-
+      // Matrices
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
                                                           transform->Translation.y, 
                                                           0.0f));
@@ -422,27 +299,12 @@ namespace DCEngine {
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
 
-      //if (&spriteSrc->getTexture() == NULL) {
-      //  this->SpriteShader->SetInteger("IsTexture", 0);
-      //}
-      //else {
-      //  this->SpriteShader->SetInteger("IsTexture", 1);
-      //  glActiveTexture(GL_TEXTURE0); // Used for 3D
-      //  spriteSrc->getTexture().Bind();
-      //}
-
       // Set the active texture
-      glActiveTexture(GL_TEXTURE0); // Used for 3D
+      glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
-
       //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
-      // Bind the vertex array
-      glBindVertexArray(this->SpriteVAO);
-      // Draw the array
-      glDrawArrays(GL_TRIANGLES, 0, 6);
-      // Unbind the vertex array
-      glBindVertexArray(0);
-
+      
+      DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
     }
 
     /**************************************************************************/

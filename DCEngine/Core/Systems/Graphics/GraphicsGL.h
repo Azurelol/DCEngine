@@ -79,27 +79,22 @@ namespace DCEngine {
       
     private:
       // TEMP: Change these two to const
-      GLuint screenwidth_;
-      GLuint screenheight_;
+      GLuint ScreenWidth;
+      GLuint ScreenHeight;
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
+      
+      // OpenGL Drawing functions
+      void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
+      void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);
 
       // Sprites
-      ShaderPtr SpriteShader;
-      GLuint SpriteVAO; 
-      // SpriteText
-      ShaderPtr SpriteTextShader;
-      GLuint SpriteTextVAO, SpriteTextVBO;
-      // DebugDraw
-      ShaderPtr DebugDrawShader;
+      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
+      GLuint SpriteVAO,SpriteTextVAO, SpriteTextVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
-
-      // Testing
-      ShaderPtr SimpleShader;
 
       // Temporary
 	    void BufferCleaner();
 
-    }; // GraphicsGL 
-
-  } // Systems
-} //DCEngine
+    };
+  }
+}

@@ -31,9 +31,9 @@ namespace DCEngine {
     connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
     // Transform properties
     connorObj->getComponent<Transform>()->Translation = Real3(-5, 5, 0.0f);
-    connorObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 2.0f);
+    connorObj->getComponent<Transform>()->Scale = Real3(5.0f, 5.0f, 2.0f);
     // Sprite properties
-    connorObj->getComponent<Sprite>()->SpriteSource = "Awesomeface";
+    connorObj->getComponent<Sprite>()->SpriteSource = "KnightAnim";
     connorObj->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1); // Color: Blue
     // DebugDraw properties
     connorObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Rectangle;

@@ -96,9 +96,6 @@ namespace DCEngine {
       sys->Initialize();
     }
     
-    // TEMPORARY FIX UNTIL I FIGURE SOMETHING OUT
-    getSystem<Systems::Content>()->LoadTextures();
-
     // Initialize the project
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 

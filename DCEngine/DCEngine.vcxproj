@@ -108,7 +108,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
     </ClCompile>
@@ -117,7 +117,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -178,7 +178,7 @@
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
-    <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
@@ -200,7 +200,7 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
-    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />

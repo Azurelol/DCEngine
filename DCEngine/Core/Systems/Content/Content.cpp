@@ -49,14 +49,22 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadAllResources()
     {
-      // Load every 'SoundCue'
+      // Load every SoundCue's sound
       for (auto soundCue : SoundCueMap) {
         soundCue.second->Load();
       }
 
-
+      // Load every SpriteSource's texture
+      for (auto texture : SpriteSourceMap) {
+        texture.second->LoadTexture();
+      }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Deserializes an EngineData file for engine data settings.
+    */
+    /**************************************************************************/
     void Content::LoadEngineData()
     {
       // NOT REALLY LOADING, IS IT?
@@ -67,17 +75,14 @@ namespace DCEngine {
       trace << "Content::LoadEngineData - Finished loading all engine data. \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Deserializes a ProjectData file for project data settings.
+    */
+    /**************************************************************************/
     void Content::LoadProjectData()
     {
       trace << "Content::LoadProjectData - Finished loading all project data. \n";
-    }
-
-    // LOAD ALL TEXTURES :D
-    void Content::LoadTextures()
-    {
-      for (auto texture : SpriteSourceMap) {
-        texture.second->LoadTexture();
-      }
     }
 
     void Content::DeserializeProjectData(Json::Value& root)
@@ -118,6 +123,7 @@ namespace DCEngine {
       AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
       AddSpriteSource(std::string("Angryeyes"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "angryeyes.png")));
       AddSpriteSource(std::string("Awesomeface"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "awesomeface.png")));
+      AddSpriteSource(std::string("KnightAnim"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "KnightAnimation.png")));
       // Load default fonts      
       AddFont(std::string("Verdana"), FontPtr(new Font(EngineInfo->FontPath + "Verdana.ttf")));
       // Load default soundcues
