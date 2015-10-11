@@ -158,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Components\BallController.cpp" />
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
@@ -217,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
+    <ClInclude Include="Core\Components\BallController.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\CircleCollider.h" />
@@ -256,6 +258,7 @@
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
+    <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Objects\Component.h" />

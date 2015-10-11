@@ -4,7 +4,7 @@
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   9/16/2015
-\brief  The keyboard input event for when the mouse button is pressed.
+\brief  The keyboard input event for when the mouse button is released.
 */
 /******************************************************************************/
 #pragma once
@@ -13,7 +13,7 @@
 namespace DCEngine {
 
   namespace Events {
-    class MouseDown : public Event {
+    class MouseUp : public Event {
     public:
 		int x;
 		int y;

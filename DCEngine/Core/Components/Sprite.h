@@ -42,6 +42,7 @@ namespace DCEngine {
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
+	void SetColorUsing255(Real3 newColor);
 	  void UpdateSprite();
 
   private:

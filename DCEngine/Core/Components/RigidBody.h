@@ -39,6 +39,7 @@ namespace DCEngine
 		void Integrate(float dt);
 		void SetPosition(Real3 pos);
 		void SetVelocity(Real3 vel);
+		Real3 GetVelocity(void);
 		void PublishResults(void);
 
 
@@ -48,7 +49,7 @@ namespace DCEngine
 
 									   /* Properties */
 		DynamicStateType DynamicState = DynamicStateType::Dynamic;
-		Real3 Velocity = Real3(5, 0, 0);
+		Real3 Velocity = Real3(0, 0, 0);
 		Real3 AngularVelocity = Real3(0, 0, 0);
 		Real3 Acceleration = Real3(0, 0, 0);
 		Real3 Position = Real3(0, 0, 0);

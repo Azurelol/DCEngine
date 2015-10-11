@@ -19,3 +19,5 @@
 #include "Components\DebugReport.h"
 #include "Components\DebugCamera.h"
 #include "Components\DebugCollider.h"
+
+#include "Components\BallController.h"

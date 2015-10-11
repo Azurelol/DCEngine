@@ -2,6 +2,7 @@
 
 #include "..\..\Engine\Engine.h"
 #include "..\Window\WindowSFML.h"
+#include <SFML\System\Vector2.hpp>
 
 namespace DCEngine {
 
@@ -68,6 +69,9 @@ namespace DCEngine {
       case sf::Event::MouseButtonPressed:
         PollMouseButtonPressed(_event);
         break;
+	  case sf::Event::MouseButtonReleased:
+		  PollMouseButtonReleased(_event);
+		  break;
       // Don't process other events
       default: 
         break;
@@ -224,11 +228,25 @@ namespace DCEngine {
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
-      //if (event.key.code == sf::Mouse::Left)
+	  //mouseDown->x = sf::Mouse::getPosition().x;
+	  //mouseDown->y = sf::Mouse::getPosition().y;
 
       // Dispatch the event to the mouse interface
       Daisy->getMouse()->Dispatch<Events::MouseDown>(mouseDown);
     }
+
+	void InputSFML::PollMouseButtonReleased(sf::Event & event) {
+
+		// Create a mouse button pressed event
+		auto mouseUp = new Events::MouseUp();
+		//mouseUp->x = sf::Mouse::getPosition().x;
+		mouseUp->x = 1;
+			mouseUp->y = 1;
+		//mouseUp->y = sf::Mouse::getPosition().y;
+
+		// Dispatch the event to the mouse interface
+		Daisy->getMouse()->Dispatch<Events::MouseUp>(mouseUp);
+	}
 
     /**************************************************************************/
     /*!

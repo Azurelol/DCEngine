@@ -49,6 +49,25 @@ namespace DCEngine {
     // BoxCollider properties
     john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);
     john->getComponent<BoxCollider>()->IsDrawingCollider = true;
+
+
+	// Simple entity #3
+	GameObjectPtr ball = ConstructGameObject("Basketball");
+	ball->AddComponent(ComponentPtr(new Sprite(*ball)));
+	ball->AddComponent(ComponentPtr(new Transform(*ball)));
+	ball->AddComponent(ComponentPtr(new RigidBody(*ball)));
+	ball->AddComponent(ComponentPtr(new BoxCollider(*ball)));
+	ball->AddComponent(ComponentPtr(new DebugCollider(*ball)));
+	ball->AddComponent(ComponentPtr(new DebugReport(*ball)));
+	ball->AddComponent(ComponentPtr(new BallController(*ball)));
+	// Change the properties of the components
+	ball->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, 1.0f);
+	ball->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+	// Sprite properties
+	ball->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f); 
+																		 // BoxCollider properties
+	ball->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+	ball->getComponent<BoxCollider>()->IsDrawingCollider = true;
   }
 
 

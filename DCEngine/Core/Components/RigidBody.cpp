@@ -79,7 +79,7 @@ namespace DCEngine
 		PreviousPosition = Position;
 
 		// Integrate the position using Euler 
-		Position = Position + Velocity * dt * 0.0f; //acceleration term is small
+		Position = Position + Velocity * dt * 1.0f; //acceleration term is small
 
 											 //Determine the acceleration
 											 //Acceleration = PHYSICS->Gravity; put in check for gravity component or something
@@ -122,6 +122,16 @@ namespace DCEngine
 	void RigidBody::SetVelocity(Real3 vel)
 	{
 		Velocity = vel;
+	}
+
+	/**************************************************************************/
+	/*!
+	\brief Returns this object's velocity
+	*/
+	/**************************************************************************/
+	Real3 RigidBody::GetVelocity(void)
+	{
+		return Real3(Velocity);
 	}
 
 	/**************************************************************************/

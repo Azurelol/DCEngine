@@ -148,6 +148,9 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\GameComponents">
+      <UniqueIdentifier>{cc27826f-0ab5-4bb2-b04d-5781f89dfab8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp">
@@ -317,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="Core\Components\CircleCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\BallController.cpp">
+      <Filter>Core\Components\GameComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -598,6 +604,12 @@
     </ClInclude>
     <ClInclude Include="Core\Components\CircleCollider.h">
       <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\BallController.h">
+      <Filter>Core\Components\GameComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseUp.h">
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
