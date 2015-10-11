@@ -178,7 +178,7 @@
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
-    <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
@@ -200,7 +200,7 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
-    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />

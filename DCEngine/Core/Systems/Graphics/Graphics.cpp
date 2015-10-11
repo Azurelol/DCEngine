@@ -13,8 +13,8 @@ namespace DCEngine {
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
       trace << "*Using OpenGL for Graphics \n";
       GraphicsHandler.reset(new GraphicsGL());
-      GraphicsHandler->screenwidth_ = screenwidth_;
-      GraphicsHandler->screenheight_ = screenheight_;
+      GraphicsHandler->ScreenWidth = screenwidth_;
+      GraphicsHandler->ScreenHeight = screenheight_;
       GraphicsHandler->ClearColor = ClearColor;
     }
 

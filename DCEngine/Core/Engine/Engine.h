@@ -39,7 +39,8 @@ namespace DCEngine {
     void Initialize();
     void Loop();
     void Terminate();
-    auto Stop() { _active = false; } // Signals the engine to stop running
+    auto Stop() { _active = false; }
+    void LoadProject(std::string& filename);
 
     Keyboard* getKeyboard() { return keyboard_.get(); }
     Mouse* getMouse() { return mouse_.get(); }
@@ -69,7 +70,7 @@ namespace DCEngine {
 
     void Update(float dt);
     void DispatchUpdateEvents(float dt);
-    void LoadProject(std::string& filename); //!< Load a project from a filename
+    
 
 
   }; // Engine. Template definitions are found below.

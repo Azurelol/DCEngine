@@ -150,9 +150,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Main.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Engine\Engine.cpp">
       <Filter>Core\Engine</Filter>
     </ClCompile>
@@ -288,9 +285,6 @@
     <ClCompile Include="Core\Components\DebugCamera.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp">
-      <Filter>Core\Systems\Graphics\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugCollider.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
@@ -314,6 +308,12 @@
     </ClCompile>
     <ClCompile Include="Core\Resources\SpriteSource.cpp">
       <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Daisy.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

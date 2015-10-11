@@ -69,16 +69,16 @@ namespace DCEngine {
       void LoadEngineData();
       void LoadProjectData(); //!< 
 
-      void LoadTextures(); //!< Load all textures into OpenGL.
-
       void DeserializeProjectData(Json::Value& root); //!< Deserializes the loaded project's data.
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.
       
       void LoadAllResources();
-      void ScanFolder();
-      void LoadFile();
+
       void LoadArchetypes(); //!< Load archetypes from a project.
       void LoadSpriteSources(); //!< Load spritesources from a project
+
+      void ScanFolder();
+      void LoadFile();
     };
   }
 
