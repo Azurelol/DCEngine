@@ -128,4 +128,14 @@ namespace DCEngine {
     return true;
   }
 
+  bool SerializerJSONCPP::Serialize(ProjectData * data, std::string & output)
+  {
+    return false;
+  }
+
+  bool SerializerJSONCPP::Deserialize(ProjectData * data, std::string & input)
+  {
+    return false;
+  }
+
 }

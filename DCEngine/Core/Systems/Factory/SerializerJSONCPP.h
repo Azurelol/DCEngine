@@ -9,6 +9,7 @@ namespace DCEngine {
   class Entity;
   class Component;
   class System;
+  struct ProjectData;
 
   class SerializerJSONCPP {
   public:
@@ -23,7 +24,8 @@ namespace DCEngine {
     static bool Serialize(System* system, std::string& output);
     static bool Deserialize(System* system, std::string& input);
     /* Project Data */
-
+    static bool Serialize(ProjectData* data, std::string& output);
+    static bool Deserialize(ProjectData* data, std::string& input);
     //static bool Serialize(Component* componentObj, std::string& output);
     //static bool Deserialize(Component* componentObj, std::string& input);
 

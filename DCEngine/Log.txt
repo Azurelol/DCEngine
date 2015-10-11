@@ -6,7 +6,6 @@
 *Using OpenGL for Graphics 
 Content::Initialize 
 Content::LoadEngineData - Finished loading all engine data. 
-Content::LoadProjectData - Finished loading all project data. 
 
 [Content::LoadDefaultResources] - Loading default resources 
 Content::AddShader - SpriteShader was added.
@@ -37,8 +36,9 @@ SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled!
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
 [GraphicsGL::Initialize] - Finished compiling shaders 
 [Engine::Initialize - All engine systems initialized]
+Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading ]
+[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -94,7 +94,6 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Mouse down!
 Camera - Size: 80
 Camera - Size: 90
 

@@ -1,4 +1,5 @@
 #include "Content.h" 
+#include <DIRENT\dirent.h>
 
 namespace DCEngine {
   namespace Systems {
@@ -10,7 +11,7 @@ namespace DCEngine {
     /**************************************************************************/
     Content::Content() : System(std::string("ContentSystem"), EnumeratedSystem::Content) {
       ProjectInfo.reset(new ProjectData());
-      EngineInfo.reset(new EngineData());
+      EngineInfo.reset(new ProjectData());
     }
 
     /**************************************************************************/
@@ -24,20 +25,10 @@ namespace DCEngine {
         trace << "Content::Initialize \n";
 
       // Load the engine's default data
-      LoadEngineData();
+      LoadEngineData(std::string("Core/Daisy.dcp"));
 
-      // Load the loaded project's data
-      LoadProjectData();
-
-      // Construct the ProjectData object, which will store the
-      // currently loaded project's data
-      ProjectInfo.reset(new ProjectData());
-      
       // Load the default resources of the engine's
       LoadCoreAssets();
-
-      // Load the loaded project's assets
-      LoadProjectAssets();
     }
 
     /**************************************************************************/
@@ -65,8 +56,11 @@ namespace DCEngine {
     @brief Deserializes an EngineData file for engine data settings.
     */
     /**************************************************************************/
-    void Content::LoadEngineData()
+    void Content::LoadEngineData(std::string& engineData)
     {
+      // Deserialize the file
+      
+
       // NOT REALLY LOADING, IS IT?
       EngineInfo->SpritePath = "Core/Assets/Sprites/";
       EngineInfo->ShaderPath = "Core/Assets/Shaders/";
@@ -80,8 +74,14 @@ namespace DCEngine {
     @brief Deserializes a ProjectData file for project data settings.
     */
     /**************************************************************************/
-    void Content::LoadProjectData()
+    void Content::LoadProjectData(std::string& projectData)
     {
+
+      //auto test = ScanFolder(std::string("Core/Assets"));
+
+      // Load the loaded project's assets
+      LoadProjectAssets();
+
       trace << "Content::LoadProjectData - Finished loading all project data. \n";
     }
 
@@ -135,11 +135,27 @@ namespace DCEngine {
 
     void Content::LoadProjectAssets()
     {
+
     }
 
-    void Content::ScanFolder()
+    /**************************************************************************/
+    /*!
+    @brief  Scan a folder and add all its files to a vector.
+    @return Returns a vector containing the filepaths.
+    */
+    /**************************************************************************/
+    std::vector<std::string> ScanFolder(std::string& folderPath)
     {
+      std::vector<std::string> filePaths;
+      struct dirent* folderEntry;
+      DIR* folderDir = NULL;
 
+      folderDir = opendir(folderPath.c_str());
+      while (folderEntry = readdir(folderDir)) {
+        filePaths.push_back(folderEntry->d_name);
+      }
+
+      return filePaths;
     }
 
     /**************************************************************************/

@@ -24,14 +24,16 @@ namespace DCEngine {
 @return If there's an error, 1, otherwise 0.
 */
 /**************************************************************************/
-int main(int argc, char* args[]) {
+int main(int argc, char* argv[]) {
 
   // Construct the engine object
   new Engine();
-  // Load the project into the engine
-  Daisy->LoadProject(std::string(args[0]));
   // Initialize the engine
   Daisy->Initialize();
+  // Load the project into the engine
+  Daisy->LoadProject(std::string(argv[0]));
+  // Start the engine now that project has been loaded
+  Daisy->StartProject();
   // Start the engine's main loop
   trace << "\n[Engine::Loop]\n";
   Daisy->Loop();

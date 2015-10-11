@@ -41,6 +41,7 @@ namespace DCEngine {
     void Terminate();
     auto Stop() { _active = false; }
     void LoadProject(std::string& filename);
+    void StartProject();
 
     Keyboard* getKeyboard() { return keyboard_.get(); }
     Mouse* getMouse() { return mouse_.get(); }
@@ -68,9 +69,7 @@ namespace DCEngine {
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
 
-    void Update(float dt);
-    void DispatchUpdateEvents(float dt);
-    
+    void Update(float dt);   
 
 
   }; // Engine. Template definitions are found below.

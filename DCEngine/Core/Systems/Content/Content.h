@@ -41,7 +41,7 @@ namespace DCEngine {
     private:
       
       /* Data */
-      EngineDataPtr EngineInfo;
+      ProjectDataPtr EngineInfo;
       ProjectDataPtr ProjectInfo;
 
       /* Resource maps */
@@ -49,7 +49,7 @@ namespace DCEngine {
       std::map<std::string, ShaderPtr> ShaderMap;
       std::map<std::string, FontPtr> FontMap;
       std::map<std::string, SpriteSourcePtr> SpriteSourceMap;
-
+      
       /* Map functions */
       void AddFont(std::string& fontName, FontPtr fontPtr);
       void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
@@ -66,8 +66,8 @@ namespace DCEngine {
 
       /* Loading functions */
       void LoadCoreAssets(); //!< Load default content files for the engine.        
-      void LoadEngineData();
-      void LoadProjectData(); //!< 
+      void LoadEngineData(std::string&);
+      void LoadProjectData(std::string&); //!< 
 
       void DeserializeProjectData(Json::Value& root); //!< Deserializes the loaded project's data.
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.
@@ -77,7 +77,7 @@ namespace DCEngine {
       void LoadArchetypes(); //!< Load archetypes from a project.
       void LoadSpriteSources(); //!< Load spritesources from a project
 
-      void ScanFolder();
+      std::vector<std::string> ScanFolder(std::string& folderPath);
       void LoadFile();
     };
   }
