@@ -14,20 +14,42 @@ namespace DCEngine {
   class SerializerJSONCPP {
   public:
     
+    template <typename ClassType>
+    static bool Serialize(ClassType* object, std::string& output) {
+      if (object == NULL)
+        return false;
+      Json::Value serializeRoot;
+      object->Serialize(serializeRoot);
+
+      Json::StyledWriter writer;
+      output = writer.write(serializeRoot);
+      return true;
+    }
+
+    template <typename ClassType>
+    static bool Deserialize(ClassType* object, const std::string& input) {
+      Json::Value deserializeRoot;
+      Json::Reader reader;
+
+      if (!reader.parse(input, deserializeRoot))
+        return false;
+
+      object->Deserialize(deserializeRoot);
+      return true;
+    }
+
+
     /* Entity */
-    static bool Serialize(Entity* entityObj, std::string& output);
-    static bool Deserialize(Entity* entityObj, std::string& input);
+    static bool Serialize(Entity* object, std::string& output);
+    static bool Deserialize(Entity* object, std::string& input);
     /* Component */
-    static bool Serialize(Component* componentObj, std::string& output);
-    static bool Deserialize(Component* componentObj, std::string& input);
+    static bool Serialize(Component* object, std::string& output);
+    static bool Deserialize(Component* object, std::string& input);
     /* System */
-    static bool Serialize(System* system, std::string& output);
-    static bool Deserialize(System* system, std::string& input);
-    /* Project Data */
-    static bool Serialize(ProjectData* data, std::string& output);
-    static bool Deserialize(ProjectData* data, std::string& input);
-    //static bool Serialize(Component* componentObj, std::string& output);
-    //static bool Deserialize(Component* componentObj, std::string& input);
+    static bool Serialize(System* object, std::string& output);
+    static bool Deserialize(System* object, std::string& input);
+
+
 
 
     /*

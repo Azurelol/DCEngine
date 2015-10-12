@@ -4,8 +4,6 @@
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> Daisy;
-  
   namespace Systems {
 
     /**************************************************************************/
@@ -36,7 +34,7 @@ namespace DCEngine {
       
       // Create the window      
       _window.reset(new sf::Window(sf::VideoMode(_width, _height), _caption, sf::Style::Default, settings));
-      //_window = new sf::Window(sf::VideoMode(_width, _height), _caption, sf::Style::Default, settings);
+     
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       _window->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync

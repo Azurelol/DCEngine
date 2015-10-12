@@ -50,10 +50,6 @@ namespace DCEngine {
 
       std::unique_ptr<sf::Window> _window;
       sf::Event _event;
-
-      //sf::Window* _window; //!< The window context.
-      //sf::Event _event; //!< Handles events.
-
       std::string _caption;
 
       // Settings for the underlying OpenGL context
