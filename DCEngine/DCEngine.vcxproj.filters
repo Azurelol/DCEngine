@@ -315,6 +315,9 @@
     <ClCompile Include="Core\Daisy.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\2DAnimation.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
