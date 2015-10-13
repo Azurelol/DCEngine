@@ -20,25 +20,6 @@ namespace DCEngine {
 		AnimationSpeedFPSCounter += dt;
 	}
 
-	int Sprite::IsNextFrame(void)
-	{
-		if (AnimationSpeedFPSCounter >= AnimationSpeedFPS)
-		{
-			AnimationSpeedFPSCounter = 0;
-			CurrentFrame++;
-			if (CurrentFrame >= TotalFrames)
-			{
-				CurrentFrame = 0;
-			}
-			//Current frame started from 0
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-
 	bool Sprite::CheckAnimationIntialized(void)
 	{
 		if (AnimationInitialized == false)
@@ -51,5 +32,19 @@ namespace DCEngine {
 		{
 			return true;
 		}
+	}
+
+	float Sprite::GetAnimationSpeedFPSCounter(void)
+	{
+		return AnimationSpeedFPSCounter;
+	}
+	float Sprite::GetAnimationSpeedFPS(void)
+	{
+		return AnimationSpeedFPS;
+	}
+
+	void Sprite::ResetSpeedCounter(void)
+	{
+		AnimationSpeedFPSCounter = 0;
 	}
 }

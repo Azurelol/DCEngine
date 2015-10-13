@@ -36,7 +36,6 @@ namespace DCEngine {
     connorObj->getComponent<Sprite>()->SpriteSource = "KnightAnim";
 	connorObj->getComponent<Sprite>()->AnimationActive = true;
 	connorObj->getComponent<Sprite>()->HaveAnimation = true;
-	connorObj->getComponent<Sprite>()->TotalFrames = 5;
 	connorObj->getComponent<Sprite>()->AnimationSpeed = 10;
 
     connorObj->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1); // Color: Blue

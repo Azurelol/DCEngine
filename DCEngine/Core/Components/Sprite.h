@@ -50,13 +50,14 @@ namespace DCEngine {
 		float AnimationSpeed = 1;
 		int StartFrame = 0;//the number of first frame is 0
 		int CurrentFrame = 0;
-		int TotalFrames = 0;
 		void IncreaseAnimationCounter(float dt);
 		//return 1, speed is not 0. return 0, speed is 0
 		int UpdateAnimationSpeed(void);
 		//reutrn 1 if it is the time to goto next frame, else 0
-		int IsNextFrame(void);
 		bool CheckAnimationIntialized(void);
+		float GetAnimationSpeedFPSCounter(void);
+		float GetAnimationSpeedFPS(void);
+		void ResetSpeedCounter(void);
 
 	private:
 

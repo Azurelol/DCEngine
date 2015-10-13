@@ -384,13 +384,16 @@ namespace DCEngine {
 
     }
 
+	//Animation
 	void GraphicsGL::AnimationUpdate(Sprite& sprite, float dt)
 	{
+		auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
+		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 5;
 		//Animation update
 		this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
 		if (sprite.HaveAnimation == true)//Check whether it has animation
 		{
-			if (sprite.TotalFrames == 0)//Check whether the number of frames if 0
+			if (spriteSrc->FrameCount == 0)//Check whether the number of frames if 0
 			{
 				trace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Frame is 0, but still enabled AnimationActive" << "\n";
 			}
@@ -401,7 +404,7 @@ namespace DCEngine {
 					if (sprite.CheckAnimationIntialized() == false)
 					{
 						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
-						this->SpriteShader->SetFloat("frameLength", (float)1 / sprite.TotalFrames);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
 						this->SpriteShader->SetInteger("currentFrame", sprite.StartFrame);
 					}
 					else
@@ -409,10 +412,10 @@ namespace DCEngine {
 						if (sprite.AnimationActive == true)
 						{
 							sprite.IncreaseAnimationCounter(dt);
-							sprite.IsNextFrame();
+							IsNextFrame(sprite);
 						}
 						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
-						this->SpriteShader->SetFloat("frameLength", (float)1 / sprite.TotalFrames);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
 						//trace << (float)1 / sprite.TotalFrames << "\n";
 						//trace << sprite.CurrentFrame << "\n";
 						this->SpriteShader->SetInteger("currentFrame", sprite.CurrentFrame);
@@ -422,7 +425,24 @@ namespace DCEngine {
 		}
 	}
 
-
+	int GraphicsGL::IsNextFrame(Sprite& sprite)
+	{
+		if (sprite.GetAnimationSpeedFPSCounter() >= sprite.GetAnimationSpeedFPS())
+		{
+			sprite.ResetSpeedCounter();
+			sprite.CurrentFrame++;
+			if (sprite.CurrentFrame >= Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount)
+			{
+				sprite.CurrentFrame = 0;
+			}
+			//Current frame started from 0
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 
   }
 
