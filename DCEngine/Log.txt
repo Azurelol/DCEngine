@@ -37,7 +37,11 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
+<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+=======
+[Engine::LoadProject - Loading C:\Users\Dell\Documents\GitHub\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+>>>>>>> 0d7bc51210cd59cf4ef0329b4480239be8de6364
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -110,6 +114,7 @@ GraphicsSpace::AddSprite - Pikapikano!
 [Engine::Loop]
 Mouse down!
 Camera - Size: 80
+<<<<<<< HEAD
 
 [Engine::Terminate] 
 Content::Terminate
@@ -118,3 +123,13 @@ Window::Terminate
 Input::Terminate 
 Audio::Terminate 
 Graphics::Terminate 
+=======
+Camera - Size: 90
+Camera - Size: 80
+Camera - Size: 70
+Camera - Size: 80
+Camera - Size: 90
+Camera - Size: 100
+Camera - Size: -9
+C
+>>>>>>> 0d7bc51210cd59cf4ef0329b4480239be8de6364
