@@ -148,6 +148,9 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Reflection">
+      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -326,6 +329,9 @@
     </ClCompile>
     <ClCompile Include="Core\Debug\DebugGraphics.cpp">
       <Filter>Core\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
+      <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -613,6 +619,12 @@
     </ClInclude>
     <ClInclude Include="Core\Debug\DebugGraphics.h">
       <Filter>Core\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\Reflection.h">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
+      <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
