@@ -471,7 +471,7 @@ namespace DCEngine
         if (xDiff < yDiff)
         {
           //X is smallest
-          glm::vec3 normal = positionDelta.x < 0 ? glm::vec3(-1, 0, 3) : glm::vec3(1, 0, 0);
+          glm::vec3 normal = positionDelta.x < 0 ? glm::vec3(-1, 0, 0) : glm::vec3(1, 0, 0);
           result.Object1 = obj1;
           result.Object2 = obj2;
           result.obj1 = Collider::Rectangle;
@@ -485,7 +485,7 @@ namespace DCEngine
         else
         {
           //Y is smallest
-          glm::vec3 normal = positionDelta.y < 0 ? glm::vec3(0, 1, 0) : glm::vec3(0, -1, 0);
+          glm::vec3 normal = positionDelta.y < 0 ? glm::vec3(0, -1, 0) : glm::vec3(0, 1, 0);
           result.Object1 = obj1;
           result.Object2 = obj2;
           result.obj1 = Collider::Rectangle;
