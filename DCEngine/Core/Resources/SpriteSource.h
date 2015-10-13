@@ -31,6 +31,7 @@ namespace DCEngine {
     bool Looping;
     bool Fill;
 
+
     SpriteSource(std::string spriteFile);
     void LoadTexture();
 

@@ -6,6 +6,7 @@
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 #include "Collision.h"
+#include "Resolution.h"
 
 namespace DCEngine {
 	namespace Systems {
@@ -62,15 +63,18 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Step(float dt)
 		{
-
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
+        std::vector<Manifold> contactlist;
+
 				auto pairs = BroadPhaseDetection(physpace);
 
-				NarrowPhaseDetection(pairs);
+				NarrowPhaseDetection(pairs, contactlist);
 
 				Integrate(dt, physpace);
+
+        DCEngine::Resolve(dt, contactlist);
 
 				//Contacts.Reset();
 
@@ -149,9 +153,11 @@ namespace DCEngine {
     @param A vector of GameObjects.
 		*/
 		/**************************************************************************/
-		Manifold Physics::NarrowPhaseDetection(GameObjectRawVec pairs)
+		void Physics::NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist)
 		{
 			GameObject * obj1, *obj2;
+
+      Manifold collision;
 
 			for (int i = 0; i < pairs.size(); ++i)
 			{
@@ -160,9 +166,10 @@ namespace DCEngine {
 				obj2 = pairs[++i];
 
 				// COLLISION DETECTED
-				if (BoxtoBox(obj1, obj2))
+				if (BoxtoBox(obj1, obj2, collision))
 				{
-					// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+          contactlist.push_back(collision);
+          // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 					CollisionData boxToBoxCollision;
 					boxToBoxCollision.Object = obj1;
 					boxToBoxCollision.OtherObject = obj2;
@@ -179,7 +186,7 @@ namespace DCEngine {
 
 
 			}
-			return Manifold();
+			return;
 		}
 
 

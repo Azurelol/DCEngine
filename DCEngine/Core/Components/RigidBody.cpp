@@ -79,7 +79,7 @@ namespace DCEngine
 		PreviousPosition = Position;
 
 		// Integrate the position using Euler 
-		Position = Position + Velocity * dt * 0.0f; //acceleration term is small
+		Position = Position + Velocity * dt; //acceleration term is small
 
 											 //Determine the acceleration
 											 //Acceleration = PHYSICS->Gravity; put in check for gravity component or something
@@ -108,9 +108,9 @@ namespace DCEngine
 	\brief Updates this object's translation with the calculated position.
 	*/
 	/**************************************************************************/
-	void RigidBody::SetPosition(Real3 pos)
+	void RigidBody::setPosition(Real3 pos)
 	{
-		TransformComponent->Translation = pos;
+		Position = pos;
 	}
 
 
@@ -119,10 +119,112 @@ namespace DCEngine
 	\brief Updates this object's velocity.
 	*/
 	/**************************************************************************/
-	void RigidBody::SetVelocity(Real3 vel)
+	void RigidBody::setVelocity(Real3 vel)
 	{
 		Velocity = vel;
 	}
+
+
+  /**************************************************************************/
+  /*!
+  \brief Updates this object's restitution.
+  */
+  /**************************************************************************/
+  void RigidBody::setRestitution(float rest)
+  {
+    Restitution = rest;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Updates this object's acceleration.
+  */
+  /**************************************************************************/
+  void RigidBody::setAcceleration(Real3 accel)
+  {
+    Acceleration = accel;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Updates this object's friction.
+  */
+  /**************************************************************************/
+  void RigidBody::setFriction(float friction)
+  {
+    Friction = friction;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Updates this object's mass.
+  */
+  /**************************************************************************/
+  void RigidBody::setMass(float mass)
+  {
+
+  }
+
+
+  /**************************************************************************/
+  /*!
+  \brief gets this object's Restitution.
+  */
+  /**************************************************************************/
+  float RigidBody::getRestitution(void)
+  {
+    return Restitution;
+  }
+
+  Real3 RigidBody::getPosition(void)
+  {
+    return Position;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief gets this object's Velocity.
+  */
+  /**************************************************************************/
+  Real3 RigidBody::getVelocity(void)
+  {
+    return Velocity;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief gets this object's Acceleration.
+  */
+  /**************************************************************************/
+  Real3 RigidBody::getAcceleration(void)
+  {
+    return Acceleration;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief gets this object's Friction.
+  */
+  /**************************************************************************/
+  float RigidBody::getFriction(void)
+  {
+    return Friction;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief gets this object's Mass.
+  */
+  /**************************************************************************/
+  float RigidBody::getMass(void)
+  {
+    return Mass;
+  }
+
+  float RigidBody::getInvMass(void)
+  {
+    return InverseMass;
+  }
 
 	/**************************************************************************/
 	/*!

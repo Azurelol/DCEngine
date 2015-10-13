@@ -21,10 +21,10 @@ namespace DCEngine
 		Collider obj1;
 		Collider obj2;
  
-        Real3 v1;
-		Real3 v2;
+    glm::vec3 v1;
+		glm::vec3 v2;
 
-		Real3 ContactNormal;
+		glm::vec3 ContactNormal;
 		float Penetration;
 		float Restitution;
 		float FrictionCof;

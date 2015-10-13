@@ -28,16 +28,23 @@ int main(int argc, char* argv[]) {
 
   // Construct the engine object
   new Engine();
-  // Initialize the engine
-  Daisy->Initialize();
-  // Load the project into the engine
-  Daisy->LoadProject(std::string(argv[0]));
-  // Start the engine now that project has been loaded
-  Daisy->StartProject();
-  // Start the engine's main loop
-  trace << "\n[Engine::Loop]\n";
-  Daisy->Loop();
-  // Close the engine and clean up
-  Daisy->Terminate();  
+
+  try {
+    // Initialize the engine
+    Daisy->Initialize();
+    // Load the project into the engine
+    Daisy->LoadProject(std::string(argv[0]));
+    // Start the engine now that project has been loaded
+    Daisy->StartProject();
+    // Start the engine's main loop
+    trace << "\n[Engine::Loop]\n";
+    Daisy->Loop();
+    // Close the engine and clean up
+    Daisy->Terminate();
+  }
+  catch (Debug::Exception exception) {
+    trace << exception << "\n";
+  }
+
 
 }

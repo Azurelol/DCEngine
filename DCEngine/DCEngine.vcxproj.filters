@@ -315,6 +315,12 @@
     <ClCompile Include="Core\Daisy.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\CircleCollider.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -595,6 +601,12 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\ProjectData.h">
       <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Resolution.h">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\CircleCollider.h">
+      <Filter>Core\Components\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

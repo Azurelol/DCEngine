@@ -276,7 +276,8 @@ namespace DCEngine {
       
       // Retrieve the 'SpriteSource' resource from the content system
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
-            
+      
+
       // We use transform data for drawing:
       auto transform = sprite.TransformComponent;
 
