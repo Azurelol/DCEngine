@@ -52,7 +52,9 @@ namespace DCEngine {
       /* Sprite */
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Camera& camera);
-      void DrawSprite(Sprite& sprite, Camera& camera);
+      void DrawSprite(Sprite& sprite, Camera& camera, float dt);
+	  void AnimationUpdate(Sprite& sprite, float dt);
+	  int IsNextFrame(Sprite& sprite);
       /* SpriteText */
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Camera& camera);

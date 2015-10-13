@@ -38,7 +38,11 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
+<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+=======
+[Engine::LoadProject - Loading C:\Users\ChenShu\Desktop\919\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+>>>>>>> 898cf08e090719a7d3160a013cc8007877eab36b
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -97,6 +101,10 @@ PhysicsSpace::AddCollider - Myres
 Mouse down!
 Camera - Size: 80
 Camera - Size: 90
+Camera::Transform.Translation(1, 4, 1)
+'Up' key was released!
+Camera::Transform.Translation(-2, 4, 1)
+'Left' key was released!
 
 [Engine::Terminate] 
 Content::Terminate

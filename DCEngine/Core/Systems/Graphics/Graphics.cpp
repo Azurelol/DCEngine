@@ -50,7 +50,7 @@ namespace DCEngine {
         // Render every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);
         for (auto gameObj : gfxSpace->getSprites()) {
-         DrawSprite(*gameObj, *camera);
+         DrawSprite(*gameObj, *camera, dt);
         }
 
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
@@ -92,10 +92,10 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSprite(Sprite & sprite, Camera& cam) {
+    void Graphics::DrawSprite(Sprite & sprite, Camera& cam, float dt) {
       if (TRACE_UPDATE)
         trace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
-      GraphicsHandler->DrawSprite(sprite, cam);
+      GraphicsHandler->DrawSprite(sprite, cam, dt);
     }
 
     /**************************************************************************/

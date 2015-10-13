@@ -266,8 +266,9 @@ namespace DCEngine {
     \note  
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera) {
-      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
+	  AnimationUpdate(sprite, dt);
+	  //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       //glEnable(GL_CULL_FACE);
       //glEnable(GL_BLEND);
       //glEnable(GL_TEXTURE_2D);
@@ -299,12 +300,12 @@ namespace DCEngine {
       // Update the uniforms in the shader to this particular sprite's data 
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
+	  
 
       // Set the active texture
       glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
       //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
-      
       DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
     }
 
@@ -384,7 +385,65 @@ namespace DCEngine {
 
     }
 
+	//Animation
+	void GraphicsGL::AnimationUpdate(Sprite& sprite, float dt)
+	{
+		auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
+		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 5;
+		//Animation update
+		this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
+		if (sprite.HaveAnimation == true)//Check whether it has animation
+		{
+			if (spriteSrc->FrameCount == 0)//Check whether the number of frames if 0
+			{
+				trace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Frame is 0, but still enabled AnimationActive" << "\n";
+			}
+			else
+			{
+				if (sprite.UpdateAnimationSpeed())//Check whether the animation speed is 0
+				{
+					if (sprite.CheckAnimationIntialized() == false)
+					{
+						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
+						this->SpriteShader->SetInteger("currentFrame", sprite.StartFrame);
+					}
+					else
+					{
+						if (sprite.AnimationActive == true)
+						{
+							sprite.IncreaseAnimationCounter(dt);
+							IsNextFrame(sprite);
+						}
+						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
+						//trace << (float)1 / sprite.TotalFrames << "\n";
+						//trace << sprite.CurrentFrame << "\n";
+						this->SpriteShader->SetInteger("currentFrame", sprite.CurrentFrame);
+					}
+				}
+			}
+		}
+	}
 
+	int GraphicsGL::IsNextFrame(Sprite& sprite)
+	{
+		if (sprite.GetAnimationSpeedFPSCounter() >= sprite.GetAnimationSpeedFPS())
+		{
+			sprite.ResetSpeedCounter();
+			sprite.CurrentFrame++;
+			if (sprite.CurrentFrame >= Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount)
+			{
+				sprite.CurrentFrame = 0;
+			}
+			//Current frame started from 0
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 
   }
 

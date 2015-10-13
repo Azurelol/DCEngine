@@ -315,11 +315,16 @@
     <ClCompile Include="Core\Daisy.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\CircleCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
+=======
+    <ClCompile Include="Core\Components\2DAnimation.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+>>>>>>> 898cf08e090719a7d3160a013cc8007877eab36b
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
