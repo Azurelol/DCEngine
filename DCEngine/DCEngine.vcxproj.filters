@@ -333,6 +333,9 @@
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
       <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\Orientation.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -625,6 +628,15 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\MetaData.h">
       <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Orientation.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GravityEffect.h">
+      <Filter>Core\Components\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
