@@ -1,4 +1,5 @@
 #include "Font.h"
+#include "../Debug/DebugGraphics.h"
 
 namespace DCEngine {
 
@@ -37,7 +38,6 @@ namespace DCEngine {
 
     // Generate the map of character textures
     GenerateCharacters(face);
-
     trace << "Font::Load - Font was successfully loaded! \n";
 
     // Clear FreeType's resources now that we are done processing glyphs
@@ -72,7 +72,11 @@ namespace DCEngine {
       // Generate texture
       GLuint texture;
       glGenTextures(1, &texture);
+      Debug::CheckOpenGLError("Font::GenerateCharacters - Failed to generate texture ID!");
+      
       glBindTexture(GL_TEXTURE_2D, texture);
+      Debug::CheckOpenGLError("Font::GenerateCharacters - Failed to bind texture");
+
       glTexImage2D(
         GL_TEXTURE_2D,
         0,
@@ -84,6 +88,7 @@ namespace DCEngine {
         GL_UNSIGNED_BYTE,
         face->glyph->bitmap.buffer
         );
+      Debug::CheckOpenGLError("Font::GenerateCharacters - Failed to generate 'TexImage2D'");
 
       // Set texture options
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -100,6 +105,8 @@ namespace DCEngine {
       };
       Characters.insert(std::pair<GLchar, Character>(c, character));
     }
+
+    trace << "Font::GenerateCharacters - Successfully generated character map\n";
 
   }
 

@@ -178,6 +178,7 @@
     <ClCompile Include="Core\Components\TimeSpace.cpp" />
     <ClCompile Include="Core\Components\Transform.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
+    <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Core\Components\Transform.h" />
     <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
+    <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
@@ -250,7 +252,6 @@
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\ProjectData.h" />
-    <ClInclude Include="Core\Engine\Serializer.h" />
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />

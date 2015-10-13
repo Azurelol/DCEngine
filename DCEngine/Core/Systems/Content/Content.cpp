@@ -49,6 +49,12 @@ namespace DCEngine {
       for (auto texture : SpriteSourceMap) {
         texture.second->LoadTexture();
       }
+
+      // Load every Font
+      for (auto font : FontMap) {
+        font.second->Load();
+      }
+
     }
 
     /**************************************************************************/
@@ -242,7 +248,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddFont(std::string & fontName, FontPtr fontPtr)
     {
-      fontPtr->Load();
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
       trace << "Content::AddFont - " << fontName << " was added.\n";
     }

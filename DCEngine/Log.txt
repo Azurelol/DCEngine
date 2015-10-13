@@ -14,7 +14,6 @@ Content::AddSpriteSource - Square was added.
 Content::AddSpriteSource - Angryeyes was added.
 Content::AddSpriteSource - Awesomeface was added.
 Content::AddSpriteSource - KnightAnim was added.
-Font::Load - Font was successfully loaded! 
 Content::AddFont - Verdana was added.
 Content::AddSoundCue - SpaceJam was added.
 [Content::LoadDefaultResources] - Finished loading default resources 
@@ -38,11 +37,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-<<<<<<< HEAD
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
-=======
-[Engine::LoadProject - Loading C:\Users\ChenShu\Desktop\919\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
->>>>>>> 898cf08e090719a7d3160a013cc8007877eab36b
+[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -52,6 +47,8 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
+Font::GenerateCharacters - Successfully generated character map
+Font::Load - Font was successfully loaded! 
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Camera Serialized Output
 {
@@ -62,6 +59,16 @@ Camera Serialized Output
 }
 
 
+Raw Json Input
+{ "Name" : "Pikapikano!"}
+
+
+GameObject Serialized Output
+{
+   "Name" : "Pikapikano!"
+}
+
+
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Chen to the space.
@@ -69,6 +76,7 @@ Daisy World::AddEntity - Added Connor to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
+Daisy World::AddEntity - Added Pikapikano! to the space.
 
 [Engine::LoadProject - Finished loading ]
 
@@ -96,15 +104,12 @@ Myres::Initialize
 GraphicsSpace::AddSprite - Myres
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
 
 [Engine::Loop]
-Mouse down!
 Camera - Size: 80
 Camera - Size: 90
-Camera::Transform.Translation(1, 4, 1)
-'Up' key was released!
-Camera::Transform.Translation(-2, 4, 1)
-'Left' key was released!
 
 [Engine::Terminate] 
 Content::Terminate

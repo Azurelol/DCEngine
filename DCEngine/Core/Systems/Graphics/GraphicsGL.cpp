@@ -9,6 +9,8 @@
 /******************************************************************************/
 #include "GraphicsGL.h"
 
+#include "../../Debug/DebugGraphics.h"
+
 // (!) Should these be included? Perhaps only the data needed should be passed in.
 
 #include "../../Components/EngineReference.h"
@@ -261,14 +263,14 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Draws a sprite on screen.
-    \param A reference to the GameObject with the sprite component.
-    \note  
+    @brief Draws a sprite on screen.
+    @param A reference to the GameObject with the sprite component.
+    @note  
     */
     /**************************************************************************/
     void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
-	  AnimationUpdate(sprite, dt);
-	  //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+	    AnimationUpdate(sprite, dt);
+	    //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       //glEnable(GL_CULL_FACE);
       //glEnable(GL_BLEND);
       //glEnable(GL_TEXTURE_2D);
@@ -328,8 +330,13 @@ namespace DCEngine {
       // Activate the SpriteText shader
       SpriteTextShader->Use();
       SpriteTextShader->SetVector4f("textColor", st.Color);
+
       glActiveTexture(GL_TEXTURE0);
+      if (auto a = Debug::CheckOpenGLError())
+        trace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       glBindVertexArray(SpriteTextVAO);
+      if (Debug::CheckOpenGLError())
+        trace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
       // Retrieve the Font resource from the content system
       auto font = Daisy->getSystem<Content>()->getFont(st.Font);
@@ -338,9 +345,10 @@ namespace DCEngine {
       GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
 
       // Iterate through all the characters
-      for (auto c : st.Text) {
+      std::string::const_iterator c;
+      for (c = st.Text.begin(); c != st.Text.end(); ++c) {
         // Access a character glyph from the characters map
-        Character ch = font->Characters[c];
+        Character ch = font->Characters[*c];
 
         // Calculate the origin position of the quad 
         GLfloat xPos = x + ch.Bearing.x * st.FontSize;
@@ -356,11 +364,14 @@ namespace DCEngine {
 
           { xPos    , yPos + h, 0.0, 0.0 },
           { xPos + w, yPos    , 1.0, 1.0 },
-          { xPos + w, yPos + h, 1.0, 1.0 },
+          { xPos + w, yPos + h, 1.0, 0.0 },
         };
 
         // Render glyph texture over quad
         glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
+        if (Debug::CheckOpenGLError())
+          trace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
+
         // Update content of VBO memory
         glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);

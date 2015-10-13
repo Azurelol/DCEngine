@@ -56,7 +56,7 @@ namespace DCEngine {
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
 
         // Render every 'SpriteText'
-        GraphicsHandler->SetSpriteTextShader(*camera);
+        //GraphicsHandler->SetSpriteTextShader(*camera);
         //for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
         //  DrawSpriteText(*spriteText, *camera);
         //}

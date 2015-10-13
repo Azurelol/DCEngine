@@ -312,19 +312,20 @@
     <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Daisy.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="Core\Components\CircleCollider.cpp">
+      <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-<<<<<<< HEAD
+    <ClCompile Include="Core\Components\2DAnimation.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\CircleCollider.cpp">
-      <Filter>Core\Components\Physics</Filter>
-=======
-    <ClCompile Include="Core\Components\2DAnimation.cpp">
-      <Filter>Core\Components\Graphics</Filter>
->>>>>>> 898cf08e090719a7d3160a013cc8007877eab36b
+    <ClCompile Include="Core\Daisy.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Debug\DebugGraphics.cpp">
+      <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -429,9 +430,6 @@
     </ClInclude>
     <ClInclude Include="Core\Events\MouseDown.h">
       <Filter>Core\Events\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Serializer.h">
-      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
@@ -607,11 +605,14 @@
     <ClInclude Include="Core\Engine\ProjectData.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Components\CircleCollider.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Resolution.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\CircleCollider.h">
-      <Filter>Core\Components\Physics</Filter>
+    <ClInclude Include="Core\Debug\DebugGraphics.h">
+      <Filter>Core\Engine\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

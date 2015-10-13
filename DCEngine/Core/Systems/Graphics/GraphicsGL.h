@@ -29,6 +29,7 @@
 namespace DCEngine {
   
   // Forward declarations
+  
   class GraphicsSpace;
   class Camera;
   class Sprite;
@@ -36,44 +37,34 @@ namespace DCEngine {
 
   namespace Systems {
 
+    class Graphics;
+
     class GraphicsGL {
       friend class Graphics;
           
     public:
-      GraphicsGL();      
-      void Initialize();
-      void Update(float dt);
-      void Terminate();
-      void StartFrame();
-      void EndFrame();      
-
       void SetShaderProjViewUniforms(ShaderPtr shader, Camera& camera);
 
       /* Sprite */
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Camera& camera);
       void DrawSprite(Sprite& sprite, Camera& camera, float dt);
-	  void AnimationUpdate(Sprite& sprite, float dt);
-	  int IsNextFrame(Sprite& sprite);
+	    void AnimationUpdate(Sprite& sprite, float dt);
+	    int IsNextFrame(Sprite& sprite);
       /* SpriteText */
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Camera& camera);
       void DrawSpriteText(SpriteText& st, Camera& camera);
-
       /* Model */
       void DrawModel(GameObject& gameObj);
-
       /* DebugDraw */
       void ConfigureLineVAO();
       void ConfigureCircleVAO();
       void ConfigureRectangleVAO();
-
       void SetDebugDrawShaderProjViewUniform(Camera& camera);
-
       void DrawDebug(DebugDrawObject& debugDrawObj, Camera& cam); 
       void DrawCircle(DrawCircleObj& obj);
-      void DrawRectangle(DrawRectObj& obj);
-      
+      void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
       void DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam);
       void DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam);
@@ -84,18 +75,23 @@ namespace DCEngine {
       GLuint ScreenWidth;
       GLuint ScreenHeight;
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
-      
+      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
+      GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO;
+      GLuint LineVAO, CircleVAO, RectVAO;
+
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
       void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);
-
-      // Sprites
-      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
-      GLuint SpriteVAO,SpriteTextVAO, SpriteTextVBO;
-      GLuint LineVAO, CircleVAO, RectVAO;
-
-      // Temporary
+      
+      // Temporary until we switch to DebugDraw objects with shaders
 	    void BufferCleaner();
+
+      GraphicsGL();
+      void Initialize();
+      void Update(float dt);
+      void Terminate();
+      void StartFrame();
+      void EndFrame();
 
     };
   }

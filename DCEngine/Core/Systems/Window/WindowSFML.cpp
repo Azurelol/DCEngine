@@ -33,15 +33,15 @@ namespace DCEngine {
       settings.minorVersion = _minorVersion;
       
       // Create the window      
-      _window.reset(new sf::Window(sf::VideoMode(_width, _height), _caption, sf::Style::Default, settings));
+      WindowContext.reset(new sf::Window(sf::VideoMode(_width, _height), CaptionText, sf::Style::Default, settings));
      
       // After this call, the application will run at the same frequency as the monitor's refresh rate
-      _window->setVerticalSyncEnabled(true);
+      WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      //_window->setFramerateLimit(60); 
+      //WindowContext->setFramerateLimit(60); 
 
       // Assert that the window was created
-      if (_window == nullptr) {
+      if (WindowContext == nullptr) {
         trace << "Failed to create SFNL window \n";
         // Terminate??
       }
@@ -56,7 +56,7 @@ namespace DCEngine {
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
-      if (_event.type == sf::Event::Closed)
+      if (EventObj.type == sf::Event::Closed)
         Terminate();
     }
 
@@ -76,7 +76,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::EndFrame() {    
-      _window->display();
+      WindowContext->display();
     }
 
     /**************************************************************************/
@@ -85,7 +85,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::Terminate() {
-      _window->close();
+      WindowContext->close();
       Daisy->Stop();
     }
   
@@ -108,7 +108,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::SetWindowCaption(std::string caption) {
-      _caption = caption;
+      CaptionText = caption;
     }
 
   }

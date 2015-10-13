@@ -52,8 +52,7 @@ namespace DCEngine {
       // Physics Testing: Blaine
       LaboratoryTesting();
       // Serialization Testing
-
-      //SerializeTest();
+      SerializeTest();
       
     }
     
@@ -80,6 +79,7 @@ namespace DCEngine {
       Serializer::Serialize(rango.get(), output);
       trace << "GameObject Serialized Output\n" << output << "\n\n";
     }
+
     void LaboratoryTesting();
     void GalleryTesting();
 
