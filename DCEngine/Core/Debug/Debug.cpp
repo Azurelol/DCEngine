@@ -42,7 +42,7 @@ namespace Debug {
   /**************************************************************************/
   Trace::~Trace() {
     _file.close();
-    std::cout << "Debug::~Trace - Closing" << std::endl;
+    //std::cout << "Debug::~Trace - Closing" << std::endl;
   }
 
   /**************************************************************************/
@@ -71,8 +71,13 @@ namespace Debug {
   /**************************************************************************/
   std::ostream & operator<<(std::ostream & os, const Exception exception)
   {
-    os << exception.ExceptionMessage;
-    os << exception.LineNumber;
+    os << "\n"
+       << "////////////////////////////////////////////////////// \n"
+       << " Daisy has encountered an exception! \n\n"
+       << " Message: " << exception.ExceptionMessage << "\n"
+       << " File: " << exception.FileName << "\n"
+       << " Line: " << exception.LineNumber << "\n"
+       << "////////////////////////////////////////////////////// \n";
     return os;
   }
 }

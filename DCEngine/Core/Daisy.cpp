@@ -39,16 +39,16 @@ int main(int argc, char* argv[]) {
     // Start the engine's main loop
     trace << "\n[Engine::Loop]\n";
     Daisy->Loop();
-    // Close the engine and clean up
-    Daisy->Terminate();
   }
   catch (Debug::Exception exception) 
   {
-    while(true)
-    {
-      trace << exception << "\n";
-    }
+    trace << exception << "\n";
+    // Poor Daisy cannot afford a nice GUI
+    std::cout << "Press any key to leave her... :(\n";
+    std::cin.get();
   }
 
+  // Close the engine and clean up
+  Daisy->Terminate();
 
 }
