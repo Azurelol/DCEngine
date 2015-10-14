@@ -68,8 +68,7 @@ namespace DCEngine {
     trace << "[Engine::Engine - Constructor] \n";
     trace << "\n[Engine::Initialize] \n";
 
-    //if (1)
-    //  throw DCException("Oh dear, something broke\n");
+    //throw DCException("Oh dear, something broke\n");
 
     // Autowolves, howl out!
     _active = true;

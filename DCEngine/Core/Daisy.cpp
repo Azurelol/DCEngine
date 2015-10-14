@@ -42,8 +42,12 @@ int main(int argc, char* argv[]) {
     // Close the engine and clean up
     Daisy->Terminate();
   }
-  catch (Debug::Exception exception) {
-    trace << exception << "\n";
+  catch (Debug::Exception exception) 
+  {
+    while(true)
+    {
+      trace << exception << "\n";
+    }
   }
 
 

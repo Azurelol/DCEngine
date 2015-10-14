@@ -56,7 +56,7 @@ namespace Debug {
   */
   /**************************************************************************/
   Exception::Exception(std::string file, int line, const std::string message) 
-    : FileName(file), LineNumber(line)
+    : FileName(file), LineNumber(line), ExceptionMessage(message)
   {
   }
 
