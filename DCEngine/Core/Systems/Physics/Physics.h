@@ -20,6 +20,11 @@ namespace DCEngine {
     GameObject* OtherObject; //!< The other object in the collision.
   };
 
+  namespace PHYSICS
+  {
+    const float Gravity = 10.0f;
+  }
+
 	namespace Systems 
 	{
 		class Physics : public System 

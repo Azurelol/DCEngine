@@ -6,17 +6,20 @@ namespace DCEngine {
   class GravityEffect : public Component {
   public:
 
-    Boolean Active;
+    Boolean Active = true;
     Boolean WakeUpOnChange;
     Boolean LocalSpaceDirection;
-    Real Strength;
-    Real3 Direction;
+    Real Strength = 1;
+    Real3 Direction = Real3(0, -1, 0);
 
     /* Initialize */
-    GravityEffect(GravityEffect& owner) : Component(std::string("GravityEffect"), owner) {}
+    GravityEffect(Entity& owner) : Component(std::string("GravityEffect"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
+
+
+    void Update(float dt);
 
   private:
   };
