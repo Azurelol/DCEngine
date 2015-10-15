@@ -38,7 +38,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading D:\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -94,13 +94,3 @@ PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
 
 [Engine::Loop]
-Camera - Size: 80
-Camera - Size: 90
-
-[Engine::Terminate] 
-Content::Terminate
-Factory::Terminate 
-Window::Terminate 
-Input::Terminate 
-Audio::Terminate 
-Graphics::Terminate 

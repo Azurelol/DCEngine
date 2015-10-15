@@ -148,6 +148,9 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\DirectoryWatcher">
+      <UniqueIdentifier>{abf90a66-e131-4ef6-8029-5b13f45fd79b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -314,6 +317,21 @@
     </ClCompile>
     <ClCompile Include="Core\Daisy.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\DirectoryWatcher\DirectoryWatcher.cpp">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\DirectoryWatcher\Logger.cpp">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\DirectoryWatcher\MD5.cpp">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\DirectoryWatcher\sha1.cpp">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\DirectoryWatcher\SYSTEM.cpp">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +613,21 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\ProjectData.h">
       <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DirectoryWatcher\DirectoryWatcher.h">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DirectoryWatcher\Logger.h">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DirectoryWatcher\MD5.h">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DirectoryWatcher\sha1.h">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DirectoryWatcher\SYSTEM.h">
+      <Filter>Core\Systems\DirectoryWatcher</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
