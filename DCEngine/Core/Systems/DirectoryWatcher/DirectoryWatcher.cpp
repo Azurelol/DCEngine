@@ -56,8 +56,7 @@ void GetAllFilesInDirectory(std::vector<FileInfo> & out, std::string const & dir
 			continue;
 
 		std::wstring filename = fileData.cFileName;
-		std::wstring ws(L"ABCD€FG");
-		std::string s((const char*)&ws[0], sizeof(wchar_t) / sizeof(char)*ws.size());
+		std::string s((const char*)&filename[0], sizeof(wchar_t) / sizeof(char)*filename.size());
 
 		if (filename[0] == '.')
 			continue;
