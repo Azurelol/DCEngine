@@ -19,9 +19,11 @@ namespace DCEngine
         // Integrate the velocity
         rigidbody->setVelocity(rigidbody->getVelocity() + Acceleration * dt);
       }
+      else
+      {
+        throw DCException("Gravity Component on object with no RigidBody");
+      }
 
-
-      
     }
 
   }

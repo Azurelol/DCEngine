@@ -76,12 +76,6 @@ namespace DCEngine {
 
         DCEngine::Resolve(dt, contactlist);
 
-				//Contacts.Reset();
-
-				//DetectContacts(dt);
-
-				//Contacts.ResolveContacts(dt);
-
 				PublishResults(physpace);
 			}
 
@@ -101,7 +95,14 @@ namespace DCEngine {
 
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
 			}
 		}
 
@@ -118,8 +119,15 @@ namespace DCEngine {
 
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->PublishResults();
-			}
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->PublishResults();
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
+      }
 		}
 
 		/**************************************************************************/
