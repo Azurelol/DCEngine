@@ -291,7 +291,7 @@ namespace DCEngine {
       // Matrices
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
                                                           transform->Translation.y, 
-                                                          0.0f));
+                                                          transform->Translation.z));
       modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
