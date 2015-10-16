@@ -9,6 +9,7 @@
 /******************************************************************************/
 #include "GraphicsGL.h"
 
+#include "../../Debug/DebugGraphics.h"
 
 // (!) Should these be included? Perhaps only the data needed should be passed in.
 
@@ -28,7 +29,10 @@ namespace DCEngine {
     void GraphicsGL::BufferCleaner()
     {
    	  glm::mat4 cleanup;
+      glm::vec4 colorclean;
 	    this->SpriteShader->SetMatrix4("model", cleanup);	
+      this->SpriteShader->SetVector4f("color", colorclean);
+      this->SpriteShader->SetInteger("image", 0);
 	}
 
     /**************************************************************************/
@@ -51,6 +55,8 @@ namespace DCEngine {
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.
       glewExperimental = GL_TRUE;
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
       // If OpenGL failed to initialize...
       if (glewInit() != GLEW_OK) {
@@ -81,7 +87,7 @@ namespace DCEngine {
     void GraphicsGL::Update(float dt) {
 
       // Tells OpenGL the current size of the rendering window
-      glViewport(0, 0, screenwidth_, screenheight_);
+      glViewport(0, 0, ScreenWidth, ScreenHeight);
     }
 
     /**************************************************************************/
@@ -104,151 +110,42 @@ namespace DCEngine {
     void GraphicsGL::EndFrame() {
     }
 
-    /**************************************************************************/
-    /*!
-    \brief  Configures the DebugDraw Line VAO.
-    */
-    /**************************************************************************/
-    void GraphicsGL::ConfigureLineVAO()
-    {
-    }
+
 
     /**************************************************************************/
     /*!
-    \brief  Configures the DebugDraw Circle VAO.
+    \brief  Draws geometry using Arrays.
+    \param  The handle to the Vertex Array Object.
+    \param  The number of vertices.
+    \param  The mode with which to draw.
     */
     /**************************************************************************/
-    void GraphicsGL::ConfigureCircleVAO()
+    void GraphicsGL::DrawArrays(GLuint vao, GLuint numVertices, GLenum drawMode)
     {
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Configures the DebugDraw Rectangle VAO.
-    */
-    /**************************************************************************/
-    void GraphicsGL::ConfigureRectangleVAO()
-    {
+      // Bind the vertex array
+      glBindVertexArray(vao);
+      // Draw the array
+      glDrawArrays(drawMode, 0, numVertices);
+      // Unbind the vertex array
+      glBindVertexArray(0);
     }
 
     /**************************************************************************/
     /*!
-    \brief  Sets the DebugDraw projection and view uniforms from the camera
+    \brief  Draws geometry using Elements.
+    \param  The handle to the Vertex Array Object.
+    \param  The number of vertices.
+    \param  The mode with which to draw.
     */
     /**************************************************************************/
-    void GraphicsGL::SetDebugDrawShaderProjViewUniform(Camera & camera)
+    void GraphicsGL::DrawElements(GLuint vao, GLuint numVertices,  GLenum drawMode)
     {
-
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Takes a DrawDebug object and draws depending on.
-    \param  A reference to the drawdebug object.
-    \para   A reference to the space's camera.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Camera& cam)
-    {
-      // The received object is a DrawLine
-      //if (std::type_index(typeid(debugDrawObj)) == typeid(DrawLine)) {
-      //  
-      //}
-
-    }
-
-    void GraphicsGL::DrawCircle(DrawCircleObj & obj)
-    {
-    }
-
-    void GraphicsGL::DrawRectangle(DrawRectObj & obj)
-    {
-    }
-
-    void GraphicsGL::DrawLineSegment(DrawLineObj & obj)
-    {
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Draws a rectangle on screen.
-    \param  The position of the center of the rectangle.
-    \param  The length of the rectangle.
-    \param  The height of the rectangle.
-    \param  The color of the rectangle.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
-    {
-		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		BufferCleaner();
-		glBegin(GL_LINE_LOOP);
-
-		//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
-		auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-		auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
-		auto Position2 = PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position3 = PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
-		auto Position4 = PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
-
-		glVertex3f(Position1.x, Position1.y, Position1.z);
-		glVertex3f(Position2.x, Position2.y, Position2.z);
-		glVertex3f(Position3.x, Position3.y, Position3.z);
-		glVertex3f(Position4.x, Position4.y, Position4.z);
-
-		glEnd();
-    }
-    /**************************************************************************/
-    /*!
-    \brief Draws a circle on screen.
-    \param The position of the center of the circle.
-    \param The radius of the circle.
-    \param The color of the circle.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam)
-    {
-		// Do your magic here Chen
-		//trace << "Drawing a circle\n";
-		BufferCleaner();
-    this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		glBegin(GL_LINE_LOOP);
-
-		double M_PI = 3.1415926535;
-		static double PointsNumber = 128;
-		for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))
-		{
-			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0f);
-			//PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
-			glm::vec4 Position = glm::vec4(PositionOrigin.x + radius * cos(i), PositionOrigin.y + radius * sin(i), PositionOrigin.z, 0.0);
-			//trace << Position.x << " ," << Position.y << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][2] << " ," << (camera.GetProjectionMatrix() * camera.GetViewMatrix())[3][3] << "\n";
-			glVertex3f(Position.x, Position.y, Position.z);
-		}
-
-		glEnd();
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Draws a line segment on screen.
-    \param  The starting position of the line segment.
-    \param  The ending position of the line segment.
-    \param  The length of the line segment.
-    \param  The color of the line segment.
-    */
-    /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
-    {
-		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
-		BufferCleaner();
-		glBegin(GL_LINE_LOOP);
-
-		auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);
-		auto Position2 = glm::vec4(endPos.x, endPos.y, endPos.z, 0.0);
-		glVertex3f(Position1.x, Position1.y, Position1.z);
-		glVertex3f(Position2.x, Position2.y, Position2.z);
-
-		glEnd();
+      // Bind the vertex array
+      glBindVertexArray(vao);
+      // Draw the elements
+      glDrawElements(drawMode, numVertices, GL_UNSIGNED_INT, 0);
+      // Unbind the vertex array
+      glBindVertexArray(0);
     }
 
     /**************************************************************************/
@@ -269,16 +166,28 @@ namespace DCEngine {
       are correspond to the top-left corner of the elements.
       */
       GLuint VBO;
+
       GLfloat vertices[]{
         // Position,      Texture
-        -1.0f, 1.0f,     0.0f, 1.0f,
-        1.0f, 1.0f,      1.0f, 0.0f,
-        1.0f, -1.0f,     0.0f, 0.0f,
+        0.0f, 1.0f,      0.0f, 1.0f,
+        1.0f, 0.0f,      1.0f, 0.0f,
+        0.0f, 0.0f,      0.0f, 0.0f,
 
-        1.0f, -1.0f,      0.0f, 1.0f,
-        -1.0f, -1.0f,     1.0f, 1.0f,
-        -1.0f, 1.0f,      1.0f, 0.0f
+         0.0f, 1.0f,      0.0f, 1.0f,
+         1.0f, 1.0f,      1.0f, 1.0f,
+         1.0f, 0.0f,      1.0f, 0.0f
       };
+
+      //GLfloat vertices[]{
+      //  // Position,      Texture
+      //  -1.0f, 1.0f,     0.0f, 1.0f,
+      //  1.0f, 1.0f,      1.0f, 0.0f,
+      //  1.0f, -1.0f,     0.0f, 0.0f,
+
+      //  1.0f, -1.0f,      0.0f, 1.0f,
+      //  -1.0f, -1.0f,     1.0f, 1.0f,
+      //  -1.0f, 1.0f,      1.0f, 0.0f
+      //};
 
       /*
         Next, we simply send the vertices to the GPU and configure the vertex attributes,
@@ -333,7 +242,7 @@ namespace DCEngine {
       auto camTrans = camera.Owner()->getComponent<Transform>();
 
       // (???) Sets the "image" uniform to 0
-      //SpriteShader->SetInteger("image", 0);
+      shader->SetInteger("image", 0);
       // Set the projection matrix
       shader->SetMatrix4("projection", camera.GetProjectionMatrix());
       // Set the view matrix
@@ -343,6 +252,8 @@ namespace DCEngine {
     void GraphicsGL::SetSpriteShader(Camera& camera)
     {
       SetShaderProjViewUniforms(this->SpriteShader, camera);
+      // Enable alpha blending for opacity.
+
     }
 
     void GraphicsGL::SetSpriteTextShader(Camera& camera)
@@ -352,54 +263,52 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Draws a sprite on screen.
-    \param A reference to the GameObject with the sprite component.
-    \note  
+    @brief Draws a sprite on screen.
+    @param A reference to the GameObject with the sprite component.
+    @note  
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera) {
-      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
+	    AnimationUpdate(sprite, dt);
+	    //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      //glEnable(GL_CULL_FACE);
+      //glEnable(GL_BLEND);
+      //glEnable(GL_TEXTURE_2D);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
       this->SpriteShader->Use();
-
-      // Enable alpha blending for opacity.
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_SRC_ALPHA, GL_ONE);
       
       // Retrieve the 'SpriteSource' resource from the content system
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
-            
+      
+
       // We use transform data for drawing:
       auto transform = sprite.TransformComponent;
 
       // Create the matrix of the transform
+      GLfloat verticesOffset = 0.5f;
       glm::mat4 modelMatrix;
+
+      // Matrices
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
                                                           transform->Translation.y, 
                                                           0.0f));
-      //modelMatrix = glm::rotate(modelMatrix, transform->Rotation.y * 3.141592f / 180.0f, transform->Rotation);
       modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
                                           transform->Scale.y,
                                           0.0f));
       
-      glm::mat4x4 idMat;
       
       // Update the uniforms in the shader to this particular sprite's data 
       this->SpriteShader->SetMatrix4("model", modelMatrix);
       this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
+	  
 
       // Set the active texture
-      glActiveTexture(GL_TEXTURE0); // Used for 3D
+      glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
-      this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID);
-      // Bind the vertex array
-      glBindVertexArray(this->SpriteVAO);
-      // Draw the array
-      glDrawArrays(GL_TRIANGLES, 0, 6);
-      // Unbind the vertex array
-      glBindVertexArray(0);
-
+      //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
+      DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
     }
 
     /**************************************************************************/
@@ -421,8 +330,13 @@ namespace DCEngine {
       // Activate the SpriteText shader
       SpriteTextShader->Use();
       SpriteTextShader->SetVector4f("textColor", st.Color);
+
       glActiveTexture(GL_TEXTURE0);
+      if (auto a = Debug::CheckOpenGLError())
+        trace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       glBindVertexArray(SpriteTextVAO);
+      if (Debug::CheckOpenGLError())
+        trace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
       // Retrieve the Font resource from the content system
       auto font = Daisy->getSystem<Content>()->getFont(st.Font);
@@ -431,9 +345,10 @@ namespace DCEngine {
       GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
 
       // Iterate through all the characters
-      for (auto c : st.Text) {
+      std::string::const_iterator c;
+      for (c = st.Text.begin(); c != st.Text.end(); ++c) {
         // Access a character glyph from the characters map
-        Character ch = font->Characters[c];
+        Character ch = font->Characters[*c];
 
         // Calculate the origin position of the quad 
         GLfloat xPos = x + ch.Bearing.x * st.FontSize;
@@ -449,11 +364,14 @@ namespace DCEngine {
 
           { xPos    , yPos + h, 0.0, 0.0 },
           { xPos + w, yPos    , 1.0, 1.0 },
-          { xPos + w, yPos + h, 1.0, 1.0 },
+          { xPos + w, yPos + h, 1.0, 0.0 },
         };
 
         // Render glyph texture over quad
         glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
+        if (Debug::CheckOpenGLError())
+          trace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
+
         // Update content of VBO memory
         glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
@@ -478,7 +396,65 @@ namespace DCEngine {
 
     }
 
+	//Animation
+	void GraphicsGL::AnimationUpdate(Sprite& sprite, float dt)
+	{
+		auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
+		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 5;
+		//Animation update
+		this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
+		if (sprite.HaveAnimation == true)//Check whether it has animation
+		{
+			if (spriteSrc->FrameCount == 0)//Check whether the number of frames if 0
+			{
+				trace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Frame is 0, but still enabled AnimationActive" << "\n";
+			}
+			else
+			{
+				if (sprite.UpdateAnimationSpeed())//Check whether the animation speed is 0
+				{
+					if (sprite.CheckAnimationIntialized() == false)
+					{
+						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
+						this->SpriteShader->SetInteger("currentFrame", sprite.StartFrame);
+					}
+					else
+					{
+						if (sprite.AnimationActive == true)
+						{
+							sprite.IncreaseAnimationCounter(dt);
+							IsNextFrame(sprite);
+						}
+						this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
+						this->SpriteShader->SetFloat("frameLength", (float)1 / spriteSrc->FrameCount);
+						//trace << (float)1 / sprite.TotalFrames << "\n";
+						//trace << sprite.CurrentFrame << "\n";
+						this->SpriteShader->SetInteger("currentFrame", sprite.CurrentFrame);
+					}
+				}
+			}
+		}
+	}
 
+	int GraphicsGL::IsNextFrame(Sprite& sprite)
+	{
+		if (sprite.GetAnimationSpeedFPSCounter() >= sprite.GetAnimationSpeedFPS())
+		{
+			sprite.ResetSpeedCounter();
+			sprite.CurrentFrame++;
+			if (sprite.CurrentFrame >= Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount)
+			{
+				sprite.CurrentFrame = 0;
+			}
+			//Current frame started from 0
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 
   }
 

@@ -13,8 +13,8 @@ namespace DCEngine {
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
       trace << "*Using OpenGL for Graphics \n";
       GraphicsHandler.reset(new GraphicsGL());
-      GraphicsHandler->screenwidth_ = screenwidth_;
-      GraphicsHandler->screenheight_ = screenheight_;
+      GraphicsHandler->ScreenWidth = screenwidth_;
+      GraphicsHandler->ScreenHeight = screenheight_;
       GraphicsHandler->ClearColor = ClearColor;
     }
 
@@ -50,13 +50,13 @@ namespace DCEngine {
         // Render every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);
         for (auto gameObj : gfxSpace->getSprites()) {
-         DrawSprite(*gameObj, *camera);
+         DrawSprite(*gameObj, *camera, dt);
         }
 
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
 
         // Render every 'SpriteText'
-        GraphicsHandler->SetSpriteTextShader(*camera);
+        //GraphicsHandler->SetSpriteTextShader(*camera);
         //for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
         //  DrawSpriteText(*spriteText, *camera);
         //}
@@ -92,10 +92,10 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSprite(Sprite & sprite, Camera& cam) {
+    void Graphics::DrawSprite(Sprite & sprite, Camera& cam, float dt) {
       if (TRACE_UPDATE)
         trace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
-      GraphicsHandler->DrawSprite(sprite, cam);
+      GraphicsHandler->DrawSprite(sprite, cam, dt);
     }
 
     /**************************************************************************/
@@ -150,6 +150,14 @@ namespace DCEngine {
     void Graphics::Terminate() {
       trace << "Graphics::Terminate \n";
       GraphicsHandler->Terminate();
+    }
+
+    void Graphics::Serialize(Json::Value & root)
+    {
+    }
+
+    void Graphics::Deserialize(Json::Value & root)
+    {
     }
 
     void Graphics::StartFrame() {

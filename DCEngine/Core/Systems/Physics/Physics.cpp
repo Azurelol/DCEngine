@@ -6,6 +6,7 @@
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 #include "Collision.h"
+#include "Resolution.h"
 
 namespace DCEngine {
 	namespace Systems {
@@ -62,21 +63,18 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Step(float dt)
 		{
-
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
+        std::vector<Manifold> contactlist;
+
 				auto pairs = BroadPhaseDetection(physpace);
 
-				NarrowPhaseDetection(pairs);
+				NarrowPhaseDetection(pairs, contactlist);
 
 				Integrate(dt, physpace);
 
-				//Contacts.Reset();
-
-				//DetectContacts(dt);
-
-				//Contacts.ResolveContacts(dt);
+        DCEngine::Resolve(dt, contactlist);
 
 				PublishResults(physpace);
 			}
@@ -97,7 +95,14 @@ namespace DCEngine {
 
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
 			}
 		}
 
@@ -114,8 +119,15 @@ namespace DCEngine {
 
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->PublishResults();
-			}
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->PublishResults();
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
+      }
 		}
 
 		/**************************************************************************/
@@ -149,9 +161,11 @@ namespace DCEngine {
     @param A vector of GameObjects.
 		*/
 		/**************************************************************************/
-		Manifold Physics::NarrowPhaseDetection(GameObjectRawVec pairs)
+		void Physics::NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist)
 		{
 			GameObject * obj1, *obj2;
+
+      Manifold collision;
 
 			for (int i = 0; i < pairs.size(); ++i)
 			{
@@ -160,9 +174,10 @@ namespace DCEngine {
 				obj2 = pairs[++i];
 
 				// COLLISION DETECTED
-				if (BoxtoBox(obj1, obj2))
+				if (BoxtoBox(obj1, obj2, collision))
 				{
-					// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+          contactlist.push_back(collision);
+          // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 					CollisionData boxToBoxCollision;
 					boxToBoxCollision.Object = obj1;
 					boxToBoxCollision.OtherObject = obj2;
@@ -179,7 +194,7 @@ namespace DCEngine {
 
 
 			}
-			return Manifold();
+			return;
 		}
 
 
@@ -242,6 +257,14 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Terminate() {
 		}
+
+    void Physics::Serialize(Json::Value & root)
+    {
+    }
+
+    void Physics::Deserialize(Json::Value & root)
+    {
+    }
 
 	}
 

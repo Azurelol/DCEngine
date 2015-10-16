@@ -108,16 +108,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\DCEngine\DCEngine\Libraries;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -158,7 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Components\BallController.cpp" />
+    <ClCompile Include="Core\Components\2DAnimation.cpp" />
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
@@ -169,6 +168,7 @@
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
+    <ClCompile Include="Core\Components\Orientation.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
     <ClCompile Include="Core\Components\SoundEmitter.cpp" />
@@ -178,9 +178,10 @@
     <ClCompile Include="Core\Components\TimeSpace.cpp" />
     <ClCompile Include="Core\Components\Transform.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
+    <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
-    <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
@@ -202,13 +203,15 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
-    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
     <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
+    <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
@@ -218,7 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
-    <ClInclude Include="Core\Components\BallController.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\CircleCollider.h" />
@@ -232,6 +234,9 @@
     <ClInclude Include="Core\Components\DebugReport.h" />
     <ClInclude Include="Core\Components\EngineReference.h" />
     <ClInclude Include="Core\Components\GraphicsSpace.h" />
+    <ClInclude Include="Core\Components\GravityEffect.h" />
+    <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
+    <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
     <ClInclude Include="Core\Components\ProjectSetup.h" />
     <ClInclude Include="Core\Components\RigidBody.h" />
@@ -243,13 +248,14 @@
     <ClInclude Include="Core\Components\Transform.h" />
     <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
+    <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Archetype.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
-    <ClInclude Include="Core\Engine\Serializer.h" />
+    <ClInclude Include="Core\Engine\ProjectData.h" />
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
@@ -258,7 +264,6 @@
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
-    <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Objects\Component.h" />
@@ -304,6 +309,10 @@
     <ClInclude Include="Core\Systems\Physics\Collision.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
+    <ClInclude Include="Core\Systems\Physics\Resolution.h" />
+    <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
+    <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -318,12 +327,10 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\Resources\Shaders\SimpleShader.frag" />
-    <None Include="Core\Resources\Shaders\SimpleShader.vs" />
-    <None Include="Core\Resources\Shaders\SpriteShader.frag" />
-    <None Include="Core\Resources\Shaders\SpriteShader.vs" />
-    <None Include="Core\Resources\Shaders\SpriteTextShader.frag" />
-    <None Include="Core\Resources\Shaders\SpriteTextShader.vs" />
+    <None Include="Core\Assets\Shaders\SpriteShader.frag" />
+    <None Include="Core\Assets\Shaders\SpriteShader.vs" />
+    <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
+    <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

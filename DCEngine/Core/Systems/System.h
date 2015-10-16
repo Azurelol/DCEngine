@@ -31,6 +31,7 @@ namespace DCEngine {
     Factory,
     Content,
     Serializer,
+    Reflection,
 
     // The amount of systems
     Capacity
@@ -46,6 +47,8 @@ namespace DCEngine {
       //trace << _name << "::Constructor \n";
     }
 
+    virtual void Serialize(Json::Value& root) = 0;
+    virtual void Deserialize(Json::Value& root) = 0;
     void ClearEntities();
 
     inline mask Mask() { return _mask; }

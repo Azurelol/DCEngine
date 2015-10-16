@@ -37,10 +37,22 @@ namespace DCEngine
 
 		void AddForce(Real3 force);
 		void Integrate(float dt);
-		void SetPosition(Real3 pos);
-		void SetVelocity(Real3 vel);
-		Real3 GetVelocity(void);
 		void PublishResults(void);
+
+    float getRestitution(void);
+    Real3 getVelocity(void);
+    Real3 getAcceleration(void);
+    float getFriction(void);
+    float getMass(void);
+    float getInvMass(void);
+    Real3 getPosition(void);
+
+    void setPosition(Real3 pos);
+    void setVelocity(Real3 vel);
+    void setRestitution(float rest);
+    void setAcceleration(Real3 accel);
+    void setFriction(float friction);
+    void setMass(float mass);
 
 
 	private:

@@ -13,12 +13,17 @@
 #include "Manifold.h"
 
 namespace DCEngine {
-	class Engine;
+  class Engine;
 
   struct CollisionData {
     GameObject* Object; //!< The object this event was sent to.
     GameObject* OtherObject; //!< The other object in the collision.
   };
+
+  namespace PHYSICS
+  {
+    const float Gravity = 10.0f;
+  }
 
 	namespace Systems 
 	{
@@ -37,11 +42,14 @@ namespace DCEngine {
 			void Update(float dt);
 			void Terminate();
 
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
+
 			void Integrate(float dt, PhysicsSpace* physpace);
 			void PublishResults(PhysicsSpace* physpace);
 			void Step(float dt);
 			GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
-			Manifold NarrowPhaseDetection(GameObjectRawVec pairs);
+			void NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist);
 			void Resolve(Manifold data);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);

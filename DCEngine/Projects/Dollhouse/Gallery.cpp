@@ -18,11 +18,12 @@ namespace DCEngine {
     chenObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 2.0f);
     chenObj->getComponent<Transform>()->Rotation = Real3(2.0f, 2.0f, 2.0f);
     // Sprite properties
-    chenObj->getComponent<Sprite>()->Color = Real4(0, 1, 1, 1); // Color: Blue
+    chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 1); // Color: Blue
+    chenObj->getComponent<Sprite>()->SpriteSource = "Angryeyes";
     // DebugDraw properties
     chenObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Circle; // Purple circle
     chenObj->getComponent<DebugReport>()->Radius = 15;
-    chenObj->getComponent<DebugReport>()->Color = Real4(1, 0, 1, 1); 
+    chenObj->getComponent<DebugReport>()->Color = Real4(1, 1, 1, 1); 
 
     GameObjectPtr connorObj = ConstructGameObject("Connor");
     connorObj->AddComponent(ComponentPtr(new Transform(*connorObj)));
@@ -30,9 +31,14 @@ namespace DCEngine {
     connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
     // Transform properties
     connorObj->getComponent<Transform>()->Translation = Real3(-5, 5, 0.0f);
-    connorObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 2.0f);
+    connorObj->getComponent<Transform>()->Scale = Real3(5.0f, 5.0f, 2.0f);
     // Sprite properties
-    connorObj->getComponent<Sprite>()->Color = Real4(0, 1, 0, 1); // Color: Blue
+    connorObj->getComponent<Sprite>()->SpriteSource = "KnightAnim";
+	connorObj->getComponent<Sprite>()->AnimationActive = true;
+	connorObj->getComponent<Sprite>()->HaveAnimation = true;
+	connorObj->getComponent<Sprite>()->AnimationSpeed = 10;
+
+    connorObj->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1); // Color: Blue
     // DebugDraw properties
     connorObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Rectangle;
     connorObj->getComponent<DebugReport>()->Radius = 5.0f;

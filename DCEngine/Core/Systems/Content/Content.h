@@ -13,6 +13,7 @@
 #pragma once
 #include "../System.h"
 #include "../../Resources/ResourcesInclude.h"
+#include "../../Engine/ProjectData.h"
 
 namespace DCEngine {
 
@@ -27,8 +28,7 @@ namespace DCEngine {
     class Content : public System {
       friend class Engine;
       friend class Factory;
-    public:      
-       
+    public:    
       void LoadProjectResources(); //!< Load resources from a project.
       
       /* Getters */
@@ -39,13 +39,17 @@ namespace DCEngine {
 
       //template <typename ResourceClass> getResource(); //!< Returns
     private:
+      
+      /* Data */
+      ProjectDataPtr EngineInfo;
+      ProjectDataPtr ProjectInfo;
 
       /* Resource maps */
       std::map<std::string, SoundCuePtr> SoundCueMap;
       std::map<std::string, ShaderPtr> ShaderMap;
       std::map<std::string, FontPtr> FontMap;
       std::map<std::string, SpriteSourcePtr> SpriteSourceMap;
-
+      
       /* Map functions */
       void AddFont(std::string& fontName, FontPtr fontPtr);
       void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
@@ -57,17 +61,24 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
       /* Loading functions */
-      void LoadAllResources(); 
-      void LoadDefaultResources(); //!< Load default content files for the engine.   
-      void ScanFolder();
-      void LoadFile();
+      void LoadCoreAssets(); //!< Load default content files for the engine.        
+      void LoadEngineData(std::string&);
+      void LoadProjectData(std::string&); //!< 
+
+      void DeserializeProjectData(Json::Value& root); //!< Deserializes the loaded project's data.
+      void LoadProjectAssets(); //!< Load the assets used by the loaded project.
+      
+      void LoadAllResources();
+
       void LoadArchetypes(); //!< Load archetypes from a project.
       void LoadSpriteSources(); //!< Load spritesources from a project
 
-
-
+      std::vector<std::string> ScanFolder(std::string& folderPath);
+      void LoadFile();
     };
   }
 

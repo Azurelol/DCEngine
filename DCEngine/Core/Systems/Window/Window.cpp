@@ -65,6 +65,14 @@ namespace DCEngine {
       WindowHandler->Terminate();
     }
 
+    void Window::Serialize(Json::Value & root)
+    {
+    }
+
+    void Window::Deserialize(Json::Value & root)
+    {
+    }
+
     void Window::StartFrame() {
       if (TRACE_ON && TRACE_UPDATE)
         trace << "Window::StartFrame \n";

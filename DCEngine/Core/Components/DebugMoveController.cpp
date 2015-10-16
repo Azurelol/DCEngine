@@ -99,9 +99,9 @@ namespace DCEngine {
 
   void DebugMoveController::PrintTranslation()
   {
-    trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-      << ", " << TransformRef->Translation.y
-      << ", " << TransformRef->Translation.z << ")\n";
+    //trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+    //  << ", " << TransformRef->Translation.y
+    //  << ", " << TransformRef->Translation.z << ")\n";
   }
 
 }

@@ -148,14 +148,11 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\GameComponents">
-      <UniqueIdentifier>{cc27826f-0ab5-4bb2-b04d-5781f89dfab8}</UniqueIdentifier>
+    <Filter Include="Core\Systems\Reflection">
+      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Main.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Engine\Engine.cpp">
       <Filter>Core\Engine</Filter>
     </ClCompile>
@@ -291,17 +288,11 @@
     <ClCompile Include="Core\Components\DebugCamera.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Graphics\GraphicsGLDebugDraw.cpp">
-      <Filter>Core\Systems\Graphics\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugCollider.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Resources\SpriteSource.cpp">
-      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SpriteText.cpp">
       <Filter>Core\Components\Graphics</Filter>
@@ -318,11 +309,32 @@
     <ClCompile Include="Core\Systems\Physics\Collision.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\SpriteSource.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Components\CircleCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\BallController.cpp">
-      <Filter>Core\Components\GameComponents</Filter>
+    <ClCompile Include="Core\Components\2DAnimation.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Daisy.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Debug\DebugGraphics.cpp">
+      <Filter>Core\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Orientation.cpp">
+      <Filter>Core\Components\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -427,9 +439,6 @@
     </ClInclude>
     <ClInclude Include="Core\Events\MouseDown.h">
       <Filter>Core\Events\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Serializer.h">
-      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
@@ -602,14 +611,35 @@
     <ClInclude Include="Core\Systems\Physics\Collision.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\ProjectData.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="Core\Components\CircleCollider.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\BallController.h">
-      <Filter>Core\Components\GameComponents</Filter>
+    <ClInclude Include="Core\Systems\Physics\Resolution.h">
+      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Events\MouseUp.h">
-      <Filter>Core\Events\Input</Filter>
+    <ClInclude Include="Core\Debug\DebugGraphics.h">
+      <Filter>Core\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\Reflection.h">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Orientation.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GravityEffect.h">
+      <Filter>Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
+      <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -621,22 +651,16 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\Resources\Shaders\SpriteShader.vs">
+    <None Include="Core\Assets\Shaders\SpriteShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SpriteShader.frag">
+    <None Include="Core\Assets\Shaders\SpriteShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SimpleShader.frag">
+    <None Include="Core\Assets\Shaders\SpriteTextShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Resources\Shaders\SimpleShader.vs">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Resources\Shaders\SpriteTextShader.frag">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Resources\Shaders\SpriteTextShader.vs">
+    <None Include="Core\Assets\Shaders\SpriteTextShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

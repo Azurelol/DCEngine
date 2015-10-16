@@ -24,37 +24,34 @@
 namespace DCEngine {
   namespace Systems {
 
+    class Window;
+
     class WindowSFML {
+    friend class Window;
     friend class InputSFML;
     public:
+
       WindowSFML();
       ~WindowSFML();
-
-      void Initialize();
-      void Update(float dt);
-      void Terminate();
-
-      void StartFrame();
-      void EndFrame();
 
       void SetWindowSize(int width, int height);
       void SetWindowCaption(std::string caption);
 
       // (!!!) Temporary public access to the sf::Window object
       sf::Window* GetWindow() {
-        return _window.get();
+        return WindowContext.get();
       }
 
     private:
-      void ViewportUpdate();
+      std::unique_ptr<sf::Window> WindowContext;
+      sf::Event EventObj;
+      std::string CaptionText;
 
-      std::unique_ptr<sf::Window> _window;
-      sf::Event _event;
-
-      //sf::Window* _window; //!< The window context.
-      //sf::Event _event; //!< Handles events.
-
-      std::string _caption;
+      void Initialize();
+      void Update(float dt);
+      void Terminate();
+      void StartFrame();
+      void EndFrame();
 
       // Settings for the underlying OpenGL context
       GLuint _width = 800;

@@ -10,6 +10,16 @@
 namespace DCEngine
 {
 
+  float DetermineRestitution(RigidBody  &a, RigidBody &b)
+  {
+    return 	std::min(a.getRestitution(), b.getRestitution());
+  }
+
+  float DetermineFriction(RigidBody &a, RigidBody &b)
+  {
+    return sqrt(a.getFriction() * b.getFriction());
+  }
+  
   // remember to come back and fill these out with manifold data
 
 	/**************************************************************************/
@@ -21,7 +31,7 @@ namespace DCEngine
 	@return True if a collision was detected, false otherwise.
 	*/
 	/**************************************************************************/
-	bool BoxtoBox(GameObject * obj1, GameObject * obj2)
+	bool BoxtoBox(GameObject * obj1, GameObject * obj2, Manifold &result)
 	{
 		/* christian if you are looking at this im sorry about the math in here */
 		
@@ -33,9 +43,19 @@ namespace DCEngine
 		auto boxcollider1 = obj1->getComponent<BoxCollider>();
 		auto boxcollider2 = obj2->getComponent<BoxCollider>();
 
+    if (boxcollider1 == NULL || boxcollider2 == NULL)
+    {
+      throw DCException("An object Missing a BoxCollider component got passed to BoxtoBox");
+    }
+
 		/* get the transforms */
 		auto transform1 = obj1->getComponent<Transform>();
 		auto transform2 = obj2->getComponent<Transform>();
+
+    if (transform1 == NULL ||  transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to BoxtoBox");
+    }
 
 
 		float Min1 = 0, Max1 = 0, Min2 = 0, Max2 = 0;
@@ -442,6 +462,52 @@ namespace DCEngine
     }
 
 
+    /* collision is true calculate collision data */
+
+    //Check X
+    glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
+    float xDiff = boxcollider1->getSize().x + boxcollider2->getSize().x - fabs(positionDelta.x);
+
+    //Boxes overlapping on x-axis?
+    if (0 < xDiff)
+    {
+      float yDiff = boxcollider1->getSize().y + boxcollider2->getSize().y - fabs(positionDelta.y);
+
+      //Boxes overlapping on y-axis?
+      if (0 < yDiff)
+      {
+        //Which axis is overlapping less? that is the axis we want
+        //to use for the collision.
+        if (xDiff < yDiff)
+        {
+          //X is smallest
+          glm::vec3 normal = positionDelta.x < 0 ? glm::vec3(-1, 0, 0) : glm::vec3(1, 0, 0);
+          result.Object1 = obj1;
+          result.Object2 = obj2;
+          result.obj1 = Collider::Rectangle;
+          result.obj2 = Collider::Rectangle;
+          result.ContactNormal = normal;
+          result.Penetration = xDiff;
+          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+          result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+          return true;
+        }
+        else
+        {
+          //Y is smallest
+          glm::vec3 normal = positionDelta.y < 0 ? glm::vec3(0, -1, 0) : glm::vec3(0, 1, 0);
+          result.Object1 = obj1;
+          result.Object2 = obj2;
+          result.obj1 = Collider::Rectangle;
+          result.obj2 = Collider::Rectangle;
+          result.ContactNormal = normal;
+          result.Penetration = yDiff;
+          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+          result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+          return true;
+        }
+      }
+    }
 
 
 		return true;
@@ -483,10 +549,25 @@ namespace DCEngine
     /* get the colliders */
     auto boxcollider = objrect->getComponent<BoxCollider>();
     auto circlecollider = objcircle->getComponent<CircleCollider>();
+    
+    if (boxcollider == NULL)
+    {
+      throw DCException("An object Missing a BoxCollider component got passed to BoxtoCircle");
+    }
+
+    if (circlecollider == NULL)
+    {
+      throw DCException("An object Missing a CircleCollider component got passed to BoxtoCircle");
+    }
 
     /* get the transforms */
     auto transform1 = objrect->getComponent<Transform>();
     auto transform2 = objcircle->getComponent<Transform>();
+
+    if (transform1 == NULL || transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to BoxtoCircle");
+    }
     
 
     glm::vec3 CircleCenter = transform1->Translation;
@@ -606,9 +687,19 @@ namespace DCEngine
     auto circlecollider1 = obj1->getComponent<CircleCollider>();
     auto circlecollider2 = obj2->getComponent<CircleCollider>();
 
+    if (circlecollider1 == NULL || circlecollider2 == NULL)
+    {
+      throw DCException("An object Missing a CircleCollider component got passed to CircletoCircle");
+    }
+
     /* get the transforms */
     auto transform1 = obj1->getComponent<Transform>();
     auto transform2 = obj2->getComponent<Transform>();
+
+    if (transform1 == NULL || transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to CircletoCircle");
+    }
 
     if (circlecollider1->getRadius() + circlecollider2->getRadius() > glm::distance(transform1->Translation, transform2->Translation))
     {

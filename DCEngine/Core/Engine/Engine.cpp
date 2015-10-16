@@ -20,16 +20,13 @@ Description here.
 #include "..\Systems\SystemsInclude.h"
 #include "..\..\Libraries\Timer.h"
 #include "..\Debug\Debug.h" // Trace
-
-#include "..\Config.h" // DefaultSpace
 #include "..\EventsInclude.h"
 
 // Testing
 #include "../Testing.h" // Dollhouse
 
 namespace DCEngine {
-
-
+  
   // A pointer to the 'ENGINE' object
   std::unique_ptr<Engine> Daisy = nullptr;
 
@@ -42,6 +39,9 @@ namespace DCEngine {
     // Assert makes sure there's only one instance of the engine 
     assert(Daisy == nullptr);
     Daisy.reset(this);
+    // Initialize the trace object
+    using namespace Debug;
+    traceObj.reset(new Trace("Log.txt"));
 
   }
 
@@ -64,13 +64,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Initialize() {
-
-    // Initialize the trace object
-    using namespace Debug;
-    traceObj.reset(new Trace("Log.txt"));
-
+    
     trace << "[Engine::Engine - Constructor] \n";
     trace << "\n[Engine::Initialize] \n";
+
+    //throw DCException("Oh dear, something broke");
 
     // Autowolves, howl out!
     _active = true;
@@ -81,6 +79,7 @@ namespace DCEngine {
 
     // Systems are added to to the engine's systems vector. 
     _systems.push_back(SystemPtr(new Systems::Content));
+    _systems.push_back(SystemPtr(new Systems::Reflection));
     _systems.push_back(SystemPtr(new Systems::Factory));
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
@@ -89,15 +88,18 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Graphics));
 
     //trace << "\n";
-
+    //std::string projectFilePath = "Projects/Sample/SampleProj.dcp";
+    
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
+
+    // Initialize the project
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 
     // Loads the project file to start up the game
-    LoadProject(std::string("Default")); // Temporarily default
+    //LoadProject(std::string("Default")); // Temporarily default
   }
 
   /**************************************************************************/
@@ -106,9 +108,11 @@ namespace DCEngine {
   \param The name of the project file.
   */
   /**************************************************************************/
-  void Engine::LoadProject(std::string & filename) {
+  void Engine::LoadProject(std::string & projectFile) {
 
-    trace << "\n[Engine::LoadProject - Loading " << "]\n";
+    getSystem<Systems::Content>()->LoadProjectData(projectFile);
+
+    trace << "\n[Engine::LoadProject - Loading " << projectFile << "]\n";
 
     // 1. Deserialize the input file for information about the project,
     // and store that in a struct owned by the engine.
@@ -133,14 +137,17 @@ namespace DCEngine {
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
 
+
+  }
+
+  void Engine::StartProject()
+  {
     // Create the gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
     // Deserialize from the file
 
     // Load the gamesession object from the archetype
     // Add components, change non-default values
-
-
 
     // Load the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
@@ -157,6 +164,7 @@ namespace DCEngine {
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     gamesession_->Initialize();
+
   }
 
   /**************************************************************************/

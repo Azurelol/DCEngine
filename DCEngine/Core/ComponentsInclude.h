@@ -11,6 +11,8 @@
 #include "Components\BoxCollider.h"
 #include "Components\Camera.h"
 #include "Components\CameraViewport.h"
+#include "Components\Orientation.h"
+#include "Components\IgnoreSpaceEffects.h"
 
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"

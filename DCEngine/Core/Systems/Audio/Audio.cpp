@@ -62,8 +62,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::CreateSound(std::string & soundFile, FMODSoundPtr& soundPtr)
     {
-      std::string resourceLocation("Core/Resources/Sounds/");
-      AudioHandler->CreateSound(resourceLocation + soundFile, soundPtr.SoundPtr);
+      //std::string resourceLocation("Core/Resources/Sounds/");
+      AudioHandler->CreateSound(soundFile, soundPtr.SoundPtr);
     }
 
     /**************************************************************************/
@@ -104,6 +104,14 @@ namespace DCEngine {
       if (TRACE_ON)
         trace << "Audio::Terminate \n";
       AudioHandler->Terminate();
+    }
+
+    void Audio::Serialize(Json::Value & root)
+    {
+    }
+
+    void Audio::Deserialize(Json::Value & root)
+    {
     }
 
 

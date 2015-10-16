@@ -27,8 +27,8 @@ namespace DCEngine {
 
   void DebugCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
   {
-    trace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "
-          << event->OtherObject->Name() << "\n";
+    //trace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "
+    //      << event->OtherObject->Name() << "\n";
 
     // Change color    
     SpriteComponent->Color = CollisionColor;

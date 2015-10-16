@@ -33,7 +33,7 @@ namespace DCEngine {
       void EndFrame();
       void Register(GraphicsSpace& graphicsSpace);
       
-      void DrawSprite(Sprite& sprite, Camera& camera);
+      void DrawSprite(Sprite& sprite, Camera& camera, float dt);
       void DrawSpriteText(SpriteText& st, Camera& cam);
       void DrawModel(GameObject& gameObj);
       void DrawDebug(DebugDrawObject& debugDraw);  
@@ -58,6 +58,8 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
     };
 
