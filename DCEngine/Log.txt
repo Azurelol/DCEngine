@@ -37,7 +37,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -59,6 +59,24 @@ Camera Serialized Output
 }
 
 
+-- Reflection Test -- 
+
+MetaData for int: 
+Name: int
+Size: 4
+
+MetaData for float: 
+Name: float
+Size: 4
+Type of word object: std::string
+The word object is not an int!
+
+MetaData for DerivedObject: 
+Name: DerivedObject
+Size: 24
+Members: 
+{
+}
 Raw Json Input
 { "Name" : "Pikapikano!"}
 
@@ -110,7 +128,6 @@ GraphicsSpace::AddSprite - Pikapikano!
 [Engine::Loop]
 Camera - Size: 80
 Camera - Size: 90
-Mouse down!
 
 [Engine::Terminate] 
 Content::Terminate

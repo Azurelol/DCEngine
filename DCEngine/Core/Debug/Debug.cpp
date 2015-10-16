@@ -62,7 +62,7 @@ namespace Debug {
 
   /**************************************************************************/
   /*!
-  @brief Friendly ostream oeprator prints the exception message.
+  @brief Friendly ostream operator prints the exception message.
   @param os A reference to the ostream object to insert the message into.
   @param The exception that is being printed out.
   @return A reference to the ostream, allowing for chaining the insertion

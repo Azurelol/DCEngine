@@ -16,11 +16,12 @@ namespace DCEngine {
   
   class Transform : public Component {
   public:
+    
     Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
-    
+
     // Properties
     Real3 Translation = Real3(0.0f, 0.0f, 0.0f);
     Real3 Rotation = Real3(0.0f, 0.0f, 0.0f);

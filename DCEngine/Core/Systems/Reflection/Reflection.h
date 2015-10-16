@@ -1,9 +1,9 @@
 /*****************************************************************************/
 /*!
 @file   Reflection.h
-@author Christian Sagel, Chen Shu
+@author Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   9/12/2015
+@date   10/16/2015
 @brief  The reflection system provides
 @note   The credit to my implementation of the Reflection system used in this 
         engine goes to Randy Gaul's C++ Reflection: Type-MetaData tutorial
@@ -33,12 +33,11 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
+
+      void RegisterTypes();
+
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
-
-      void ReflectionTest();
-
-
     };
 
 

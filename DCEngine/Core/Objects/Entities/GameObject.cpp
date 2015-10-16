@@ -4,13 +4,14 @@
 #include "GameSession.h"
 
 namespace DCEngine {
+  
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
-    : Entity(name), space_(&space), gamesession_(&gamesession) {
+    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession) {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
       trace << ObjName << "::GameObject - Constructor - "
-        << "', Space: '" << space_->Name()
-        << "', GameSession '" << gamesession_->Name()
+        << "', Space: '" << SpaceRef->Name()
+        << "', GameSession '" << GamesessionRef->Name()
         << "\n";
     }
 
@@ -30,11 +31,11 @@ namespace DCEngine {
   }
 
   Space* GameObject::GetSpace() {
-    return space_;
+    return SpaceRef;
   }
 
   GameSession * GameObject::GetGameSession() {
-    return gamesession_;
+    return GamesessionRef;
   }
 
 }

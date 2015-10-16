@@ -2,7 +2,15 @@
 #include "EngineReference.h"
 #include "Transform.h"
 
+
+
 namespace DCEngine {
+
+  META_DEFINE_CLASS(Camera) {
+    META_ADD_CLASS_MEMBER(Yaw);
+    META_ADD_CLASS_MEMBER(Size);
+    META_ADD_CLASS_MEMBER(lol);
+  }
 
 	Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
 	}

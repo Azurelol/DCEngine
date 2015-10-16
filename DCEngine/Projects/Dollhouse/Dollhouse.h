@@ -8,9 +8,10 @@
 #include "..\..\Core\ComponentsInclude.h"
 #include "..\..\Core\Systems\Factory\Serializer.h"
 #include "..\..\Core\Systems\Factory\Factory.h"
+#include "ReflectionTest.h"
 
 namespace DCEngine {
-
+  
   class Space;
   //class Entity;
   class GameSession;
@@ -26,6 +27,8 @@ namespace DCEngine {
       GalleryTesting();
       // Physics Testing: Blaine
       LaboratoryTesting();
+      // Reflection Testing:
+      ReflectionTest();
       // Serialization Testing
       SerializeTest();      
     }  
@@ -56,30 +59,6 @@ namespace DCEngine {
       Serializer::Serialize(cameraObj->getComponent<Camera>(), cameraData);
       trace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
-    }
-
-
-    /* Tests Reflection with Gaul's MetaData */
-    void ReflectionTest() {
-
-      //DEFINE_META(int);
-      //DEFINE_META(float);
-      //DEFINE_META(double);
-      //DEFINE_META(std::string);
-
-      //trace << "-- Reflection Test -- \n";
-      //trace << META_TYPE(int)->Name() << "\n"; // "int"
-      //trace << META_TYPE(float)->Size() << "\n"; // "4"
-
-      //std::string word = "This is a word.";
-      //trace << "Type of word object: " << META(word)->Name() << "\n"; 
-      //trace << "Size of double: " << META_STR("double")->Size() << "\n";
-      //
-      //if (META(word) != META_TYPE(int)) {
-      //  trace << "The word object is not an int!\n";
-      //}
-      
-
     }
 
     /* Tests Serialization with JSONCPP */

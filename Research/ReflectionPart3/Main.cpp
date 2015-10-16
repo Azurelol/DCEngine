@@ -19,6 +19,7 @@ void PrintMembers( const char *type )
   std::cout << META_TYPE( TYPE )->Size( ) << std::endl;
 
   std::cout << "{" << std::endl;
+  auto a = META_TYPE(TYPE)->members;
   for(auto i = META_TYPE( TYPE )->members.begin( ); i != META_TYPE( TYPE )->members.end( ); ++i)
   {
     std::cout << "  " << (*i)->Name( ) << std::endl;
@@ -42,7 +43,8 @@ void main( void )
   std::cout << META_TYPE( std::string )->Size( ) << std::endl;
   std::cout << std::endl;
 
-  PRINT_MEMBERS( Object );
+  PRINT_MEMBERS(Object);
+  PRINT_MEMBERS(DerivedObject);
 
   S string( "String within the S wrapper!" );
   std::cout << std::endl << string << std::endl;

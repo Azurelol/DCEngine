@@ -151,6 +151,9 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Reflection\MetaData">
+      <UniqueIdentifier>{4635b3c3-f710-4b3c-8976-fbb272ce52b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -335,6 +338,15 @@
     </ClCompile>
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
+      <Filter>Core\Systems\Reflection\MetaData</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
+      <Filter>Core\Systems\Reflection\MetaData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -626,9 +638,6 @@
     <ClInclude Include="Core\Systems\Reflection\Reflection.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
-      <Filter>Core\Systems\Reflection</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\Orientation.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
@@ -641,6 +650,18 @@
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
+    <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
+      <Filter>Core\Systems\Reflection\MetaData</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\StringWrapper.h">
+      <Filter>Core\Systems\Reflection\MetaData</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
+      <Filter>Core\Systems\Reflection\MetaData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -648,6 +669,9 @@
     </Text>
     <Text Include="Core\Systems\Physics\PhysicsNotes.txt">
       <Filter>Core\Components\Physics</Filter>
+    </Text>
+    <Text Include="Core\Debug\CallStackResearch.txt">
+      <Filter>Core\Engine\Debug</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

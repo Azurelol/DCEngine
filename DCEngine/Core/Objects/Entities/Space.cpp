@@ -47,7 +47,7 @@ namespace DCEngine {
     AddComponent(ComponentPtr(new GraphicsSpace(*this)));
 
     // Initialize Space-components
-    for (auto component : components_) {
+    for (auto component : ComponentsContainer) {
       component->Initialize();
     }        
 
@@ -58,8 +58,8 @@ namespace DCEngine {
       //            Should they not be set on the constructor?
       //            The problem is the Level object is constructing them,
       //            at the moment.
-      gameObject->space_ = this;
-      gameObject->gamesession_ = gamesession_;
+      gameObject->SpaceRef = this;
+      gameObject->GamesessionRef = gamesession_;
       gameObject->Initialize();
     }
   }
