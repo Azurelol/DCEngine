@@ -37,7 +37,11 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
+<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+=======
+[Engine::LoadProject - Loading C:\Users\ChenShu\Desktop\C\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+>>>>>>> 59075e50ca4d7fdfb76682a5fe118f8b4d5707ba
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -94,6 +98,7 @@ Daisy World::AddEntity - Added Connor to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
+Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
 
 [Engine::LoadProject - Finished loading ]
@@ -108,6 +113,7 @@ Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
+Camera::Initialize - Failed. No Transform component
 Chen::Initialize 
 GraphicsSpace::AddSprite - Chen
 Connor::Initialize 
@@ -122,12 +128,4035 @@ Myres::Initialize
 GraphicsSpace::AddSprite - Myres
 PhysicsSpace::AddRigidBody - Myres
 PhysicsSpace::AddCollider - Myres
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
 Pikapikano!::Initialize 
 GraphicsSpace::AddSprite - Pikapikano!
 
 [Engine::Loop]
+<<<<<<< HEAD
 Camera - Size: 80
 Camera - Size: 90
+=======
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+145
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+135
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+125
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+115
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+105
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+95
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+85
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+75
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+65
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+55
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+45
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+35
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+25
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 4, 1)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(-2, 4, 1)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+15
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(-2, 7, 1)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+5
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+1
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+11
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+21
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 7, 1)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+31
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+41
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(10, 7, 1)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+51
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+61
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(10, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(13, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(16, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(19, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(16, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(13, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(10, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(-2, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(-5, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(-2, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+71
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+81
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+91
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+101
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+111
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+121
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+131
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(10, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+141
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(1, 7, 1)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(7, 7, 1)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Right' key was released!
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Left' key was released!
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+151
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+161
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+171
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 4, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 10, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+155
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+165
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 4, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 1, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -2, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -5, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -8, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -11, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -14, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Down' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -11, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -8, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -5, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, -2, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 1, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 4, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 7, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 10, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 13, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera::Transform.Translation(4, 16, 1)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+'Up' key was released!
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+Camera - Size: 70
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+Basketball::RigidBody.Velocity(0, 0, 0)
+175
+>>>>>>> 59075e50ca4d7fdfb76682a5fe118f8b4d5707ba
 
 [Engine::Terminate] 
 Content::Terminate

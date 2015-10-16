@@ -151,8 +151,13 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="Core\Systems\Reflection\MetaData">
       <UniqueIdentifier>{4635b3c3-f710-4b3c-8976-fbb272ce52b9}</UniqueIdentifier>
+=======
+    <Filter Include="Core\Components\BallController">
+      <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
+>>>>>>> 59075e50ca4d7fdfb76682a5fe118f8b4d5707ba
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +344,7 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp">
       <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
@@ -347,6 +353,13 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
       <Filter>Core\Systems\Reflection\MetaData</Filter>
+=======
+    <ClCompile Include="Core\Components\GravityEffect.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\BallController.cpp">
+      <Filter>Core\Components\BallController</Filter>
+>>>>>>> 59075e50ca4d7fdfb76682a5fe118f8b4d5707ba
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -650,6 +663,7 @@
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
       <Filter>Projects\Dollhouse</Filter>
     </ClInclude>
@@ -661,6 +675,10 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
       <Filter>Core\Systems\Reflection\MetaData</Filter>
+=======
+    <ClInclude Include="Core\Components\BallController.h">
+      <Filter>Core\Components\BallController</Filter>
+>>>>>>> 59075e50ca4d7fdfb76682a5fe118f8b4d5707ba
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

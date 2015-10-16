@@ -43,9 +43,19 @@ namespace DCEngine
 		auto boxcollider1 = obj1->getComponent<BoxCollider>();
 		auto boxcollider2 = obj2->getComponent<BoxCollider>();
 
+    if (boxcollider1 == NULL || boxcollider2 == NULL)
+    {
+      throw DCException("An object Missing a BoxCollider component got passed to BoxtoBox");
+    }
+
 		/* get the transforms */
 		auto transform1 = obj1->getComponent<Transform>();
 		auto transform2 = obj2->getComponent<Transform>();
+
+    if (transform1 == NULL ||  transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to BoxtoBox");
+    }
 
 
 		float Min1 = 0, Max1 = 0, Min2 = 0, Max2 = 0;
@@ -539,10 +549,25 @@ namespace DCEngine
     /* get the colliders */
     auto boxcollider = objrect->getComponent<BoxCollider>();
     auto circlecollider = objcircle->getComponent<CircleCollider>();
+    
+    if (boxcollider == NULL)
+    {
+      throw DCException("An object Missing a BoxCollider component got passed to BoxtoCircle");
+    }
+
+    if (circlecollider == NULL)
+    {
+      throw DCException("An object Missing a CircleCollider component got passed to BoxtoCircle");
+    }
 
     /* get the transforms */
     auto transform1 = objrect->getComponent<Transform>();
     auto transform2 = objcircle->getComponent<Transform>();
+
+    if (transform1 == NULL || transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to BoxtoCircle");
+    }
     
 
     glm::vec3 CircleCenter = transform1->Translation;
@@ -662,9 +687,19 @@ namespace DCEngine
     auto circlecollider1 = obj1->getComponent<CircleCollider>();
     auto circlecollider2 = obj2->getComponent<CircleCollider>();
 
+    if (circlecollider1 == NULL || circlecollider2 == NULL)
+    {
+      throw DCException("An object Missing a CircleCollider component got passed to CircletoCircle");
+    }
+
     /* get the transforms */
     auto transform1 = obj1->getComponent<Transform>();
     auto transform2 = obj2->getComponent<Transform>();
+
+    if (transform1 == NULL || transform2 == NULL)
+    {
+      throw DCException("An object Missing a Transform component got passed to CircletoCircle");
+    }
 
     if (circlecollider1->getRadius() + circlecollider2->getRadius() > glm::distance(transform1->Translation, transform2->Translation))
     {
