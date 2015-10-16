@@ -638,6 +638,9 @@
     <ClInclude Include="Core\Components\GravityEffect.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

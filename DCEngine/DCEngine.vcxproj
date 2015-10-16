@@ -109,8 +109,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\DCEngine\DCEngine\Libraries;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -313,6 +312,7 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />

@@ -68,7 +68,7 @@ namespace DCEngine {
     trace << "[Engine::Engine - Constructor] \n";
     trace << "\n[Engine::Initialize] \n";
 
-    throw DCException("Oh dear, something broke");
+    //throw DCException("Oh dear, something broke");
 
     // Autowolves, howl out!
     _active = true;
@@ -79,6 +79,7 @@ namespace DCEngine {
 
     // Systems are added to to the engine's systems vector. 
     _systems.push_back(SystemPtr(new Systems::Content));
+    _systems.push_back(SystemPtr(new Systems::Reflection));
     _systems.push_back(SystemPtr(new Systems::Factory));
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
@@ -93,7 +94,7 @@ namespace DCEngine {
     for (auto sys : _systems) {
       sys->Initialize();
     }
-    
+
     // Initialize the project
     trace << "[Engine::Initialize - All engine systems initialized]\n";
 
