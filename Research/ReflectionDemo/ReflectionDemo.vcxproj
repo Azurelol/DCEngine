@@ -153,6 +153,11 @@
     <ClInclude Include="Classes.h" />
     <ClInclude Include="Meta.h" />
     <ClInclude Include="MetaData.h" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Reflection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Reflection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

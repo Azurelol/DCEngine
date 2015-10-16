@@ -18,11 +18,16 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Classes.cpp">
+=======
+    <ClCompile Include="Reflection.cpp">
+>>>>>>> 58b3654cd07f2170d0e6f50879a19c8cb03a1195
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="Classes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,6 +38,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Meta.h">
+=======
+    <ClInclude Include="Reflection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+>>>>>>> 58b3654cd07f2170d0e6f50879a19c8cb03a1195
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
