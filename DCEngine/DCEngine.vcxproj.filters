@@ -336,6 +336,9 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\GravityEffect.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

@@ -3,6 +3,7 @@
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
 #include "../../Components/BoxCollider.h"
+#include "../../Components/GravityEffect.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 #include "Collision.h"
@@ -93,8 +94,17 @@ namespace DCEngine {
 		{
 			auto bodies = physpace->getRigidbodies();
 
+      GravityEffect *gravity = NULL;
+
 			for (int i = 0; i < bodies.size(); ++i)
 			{
+        gravity = bodies[i]->getComponent<GravityEffect>();
+
+        if (gravity != NULL)
+        {
+          gravity->Update(dt);
+        }
+        
         if (bodies[i]->getComponent<RigidBody>() != NULL)
         {
           bodies[i]->getComponent<RigidBody>()->Integrate(dt);
