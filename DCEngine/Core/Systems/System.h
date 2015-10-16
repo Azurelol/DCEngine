@@ -31,6 +31,7 @@ namespace DCEngine {
     Factory,
     Content,
     Serializer,
+    Reflection,
 
     // The amount of systems
     Capacity

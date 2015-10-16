@@ -116,7 +116,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies);x64/libcurl.lib;ws2_32.lib;ole32.lib;rpcrt4.lib</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -199,11 +199,6 @@
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
-    <ClCompile Include="Core\Systems\DirectoryWatcher\DirectoryWatcher.cpp" />
-    <ClCompile Include="Core\Systems\DirectoryWatcher\Logger.cpp" />
-    <ClCompile Include="Core\Systems\DirectoryWatcher\MD5.cpp" />
-    <ClCompile Include="Core\Systems\DirectoryWatcher\sha1.cpp" />
-    <ClCompile Include="Core\Systems\DirectoryWatcher\SYSTEM.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
@@ -303,11 +298,6 @@
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
-    <ClInclude Include="Core\Systems\DirectoryWatcher\DirectoryWatcher.h" />
-    <ClInclude Include="Core\Systems\DirectoryWatcher\Logger.h" />
-    <ClInclude Include="Core\Systems\DirectoryWatcher\MD5.h" />
-    <ClInclude Include="Core\Systems\DirectoryWatcher\sha1.h" />
-    <ClInclude Include="Core\Systems\DirectoryWatcher\SYSTEM.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Factory\Serializer.h" />
     <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h" />
@@ -322,6 +312,7 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />

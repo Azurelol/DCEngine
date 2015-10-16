@@ -20,9 +20,20 @@ namespace DCEngine {
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {      
 
+      // Setup Camera to be used
+      SetupCamera();
+      // Graphics Testing: Chen
+      GalleryTesting();
+      // Physics Testing: Blaine
+      LaboratoryTesting();
+      // Serialization Testing
+      SerializeTest();      
+    }  
+
+    void SetupCamera() {
       auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
-      
-      auto cam = factory->CreateGameObject(String("FactoryTesty"),*space_, false);
+
+      auto cam = factory->CreateGameObject(String("FactoryTesty"), *space_, false);
       cam->AddComponent(factory->CreateComponent<Transform>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<Camera>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<DebugReport>(*cam, false));
@@ -45,25 +56,33 @@ namespace DCEngine {
       Serializer::Serialize(cameraObj->getComponent<Camera>(), cameraData);
       trace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
-
-
-      // Graphics Testing: Chen
-      GalleryTesting();
-      // Physics Testing: Blaine
-      LaboratoryTesting();
-      // Serialization Testing
-      SerializeTest();
-      
-    }
-    
-    // Constructs a GameObject and loads some components onto it
-    GameObjectPtr ConstructGameObject(std::string name) {
-      GameObjectPtr gameObj(new GameObject(name, *space_, *gamesession_));
-      AddGameObject(gameObj);
-      
-      return gameObj;
     }
 
+
+    /* Tests Reflection with Gaul's MetaData */
+    void ReflectionTest() {
+
+      //DEFINE_META(int);
+      //DEFINE_META(float);
+      //DEFINE_META(double);
+      //DEFINE_META(std::string);
+
+      //trace << "-- Reflection Test -- \n";
+      //trace << META_TYPE(int)->Name() << "\n"; // "int"
+      //trace << META_TYPE(float)->Size() << "\n"; // "4"
+
+      //std::string word = "This is a word.";
+      //trace << "Type of word object: " << META(word)->Name() << "\n"; 
+      //trace << "Size of double: " << META_STR("double")->Size() << "\n";
+      //
+      //if (META(word) != META_TYPE(int)) {
+      //  trace << "The word object is not an int!\n";
+      //}
+      
+
+    }
+
+    /* Tests Serialization with JSONCPP */
     void SerializeTest() {
       // Simple entity
       GameObjectPtr rango = ConstructGameObject("Rango");
@@ -80,6 +99,13 @@ namespace DCEngine {
       trace << "GameObject Serialized Output\n" << output << "\n\n";
     }
 
+    GameObjectPtr ConstructGameObject(std::string name) {
+      GameObjectPtr gameObj(new GameObject(name, *space_, *gamesession_));
+      AddGameObject(gameObj);
+
+      return gameObj;
+    }
+
     void LaboratoryTesting();
     void GalleryTesting();
 
@@ -90,6 +116,8 @@ namespace DCEngine {
     GameSession* gamesession_;
 
   };
+
+
 
 
 }

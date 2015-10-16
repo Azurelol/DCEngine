@@ -6,6 +6,7 @@
 #include <typeinfo>
 #include <algorithm>
 #include <cassert>
+#include <map>
 
 #include <GLM\glm.hpp>
 #include <GLM\matrix.hpp>

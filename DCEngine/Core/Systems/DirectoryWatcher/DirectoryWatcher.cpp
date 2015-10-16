@@ -5,11 +5,12 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include <dirent.h>
 #include <stdio.h>
 #include <string> 
 #include <vector>
 #include <iostream>
+
+#include <DIRENT\dirent.h>
 
 struct FileInfo
 {
