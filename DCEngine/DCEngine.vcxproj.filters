@@ -151,6 +151,9 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\BallController">
+      <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -338,6 +341,9 @@
     </ClCompile>
     <ClCompile Include="Core\Components\GravityEffect.cpp">
       <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\BallController.cpp">
+      <Filter>Core\Components\BallController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -643,6 +649,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\BallController.h">
+      <Filter>Core\Components\BallController</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

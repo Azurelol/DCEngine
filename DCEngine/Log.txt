@@ -1,0 +1,808 @@
+[Engine::Engine - Constructor] 
+
+[Engine::Initialize] 
+*Using SFML Context for Window and Input 
+*Using FMOD for Audio 
+*Using OpenGL for Graphics 
+Content::Initialize 
+Content::LoadEngineData - Finished loading all engine data. 
+
+[Content::LoadDefaultResources] - Loading default resources 
+Content::AddShader - SpriteShader was added.
+Content::AddShader - SpriteTextShader was added.
+Content::AddSpriteSource - Square was added.
+Content::AddSpriteSource - Angryeyes was added.
+Content::AddSpriteSource - Awesomeface was added.
+Content::AddSpriteSource - KnightAnim was added.
+Content::AddFont - Verdana was added.
+Content::AddSoundCue - SpaceJam was added.
+[Content::LoadDefaultResources] - Finished loading default resources 
+
+Factory::Initialize 
+Window::Initialize 
+Input::Initialize 
+Audio::Initialize 
+Graphics::Initialize 
+
+[GraphicsGL::Initialize] - Compiling shaders 
+SpriteShader::Compile 
+SpriteShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteShader::AssertShaderCompilation - Shader program linked! 
+SpriteTextShader::Compile 
+SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Shader program linked! 
+[GraphicsGL::Initialize] - Finished compiling shaders 
+[Engine::Initialize - All engine systems initialized]
+Content::LoadProjectData - Finished loading all project data. 
+
+[Engine::LoadProject - Loading D:\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+Font::GenerateCharacters - Successfully generated character map
+Font::Load - Font was successfully loaded! 
+Daisy Project::CreateSpace - Daisy World has been constructed. 
+Camera Serialized Output
+{
+   "FarPlane" : 100,
+   "FieldOfView" : 45,
+   "NearPlane" : 0.10000000149011612,
+   "Size" : 70
+}
+
+
+Raw Json Input
+{ "Name" : "Pikapikano!"}
+
+
+GameObject Serialized Output
+{
+   "Name" : "Pikapikano!"
+}
+
+
+Daisy World::LoadLevel - Loading Dollhouse level.
+Daisy World::AddEntity - Added Camera to the space.
+Daisy World::AddEntity - Added Chen to the space.
+Daisy World::AddEntity - Added Connor to the space.
+Daisy World::AddEntity - Added SpriteTextor to the space.
+Daisy World::AddEntity - Added Reiner to the space.
+Daisy World::AddEntity - Added Myres to the space.
+Daisy World::AddEntity - Added Basketball to the space.
+Daisy World::AddEntity - Added Pikapikano! to the space.
+
+[Engine::LoadProject - Finished loading ]
+
+[Daisy Project::Initialize - Initializing all spaces... ] 
+|Daisy World::Initialize| 
+Audio::PlayMusic - Playing: spacejam.mp3
+AudioFMOD::CreateStream 
+AudioFMOD::PlaySound 
+Audio::Register -  Daisy World has registered to the Audio system
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Chen::Initialize 
+GraphicsSpace::AddSprite - Chen
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+GraphicsSpace::AddSprite - Reiner
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+Myres::Initialize 
+GraphicsSpace::AddSprite - Myres
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+
+[Engine::Loop]
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Basketball::RigidBody.Velocity(0, 0, 0)
+Mouse down!
+1.01669
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01689
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01663
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01772
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01563
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01666
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01667
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01727
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01706
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01668
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01669
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01677
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01733
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01667
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01665
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01672
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.0171
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01658
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01741
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01678
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01699
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01665
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.01668
+Basketball::RigidBody.Velocity(0, 0, 0)
+1.0169
+Basketball::RigidBody.Velocity(0, 0, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(3.42903, 3.42903, 0)
+Basketball::RigidBody.Velocity(3.42902, 3.42902, 0)
+Basketball::RigidBody.Velocity(3.42902, 3.42902, 0)
+Basketball::RigidBody.Velocity(3.42901, 3.42901, 0)
+Basketball::RigidBody.Velocity(3.42901, 3.42901, 0)
+Basketball::RigidBody.Velocity(3.429, 3.429, 0)
+Basketball::RigidBody.Velocity(3.429, 3.429, 0)
+Basketball::RigidBody.Velocity(3.42899, 3.42899, 0)
+Basketball::RigidBody.Velocity(3.42898, 3.42898, 0)
+Basketball::RigidBody.Velocity(3.42898, 3.42898, 0)
+Basketball::RigidBody.Velocity(3.42897, 3.42897, 0)
+Basketball::RigidBody.Velocity(3.42897, 3.42897, 0)
+Basketball::RigidBody.Velocity(3.42896, 3.42896, 0)
+Basketball::RigidBody.Velocity(3.42895, 3.42895, 0)
+Basketball::RigidBody.Velocity(3.42895, 3.42895, 0)
+Basketball::RigidBody.Velocity(3.42894, 3.42894, 0)
+Basketball::RigidBody.Velocity(3.42894, 3.42894, 0)
+Basketball::RigidBody.Velocity(3.42893, 3.42893, 0)
+Basketball::RigidBody.Velocity(3.42893, 3.42893, 0)
+Basketball::RigidBody.Velocity(3.42892, 3.42892, 0)
+Basketball::RigidBody.Velocity(3.42891, 3.42891, 0)
+Basketball::RigidBody.Velocity(3.42891, 3.42891, 0)
+Basketball::RigidBody.Velocity(3.4289, 3.4289, 0)
+Basketball::RigidBody.Velocity(3.4289, 3.4289, 0)
+Basketball::RigidBody.Velocity(3.42889, 3.42889, 0)
+Basketball::RigidBody.Velocity(3.42888, 3.42888, 0)
+Basketball::RigidBody.Velocity(3.42888, 3.42888, 0)
+Basketball::RigidBody.Velocity(3.42887, 3.42887, 0)
+Basketball::RigidBody.Velocity(3.42887, 3.42887, 0)
+Basketball::RigidBody.Velocity(3.42886, 3.42886, 0)
+Basketball::RigidBody.Velocity(3.42886, 3.42886, 0)
+Basketball::RigidBody.Velocity(3.42885, 3.42885, 0)
+Basketball::RigidBody.Velocity(3.42884, 3.42884, 0)
+Basketball::RigidBody.Velocity(3.42884, 3.42884, 0)
+Basketball::RigidBody.Velocity(3.42883, 3.42883, 0)
+Basketball::RigidBody.Velocity(3.42883, 3.42883, 0)
+Mouse down!
+0.0166603
+Basketball::RigidBody.Velocity(3.42882, 3.42882, 0)
+0.0333229
+Basketball::RigidBody.Velocity(3.42882, 3.42882, 0)
+0.050181
+Basketball::RigidBody.Velocity(3.42881, 3.42881, 0)
+0.0675545
+Basketball::RigidBody.Velocity(3.4288, 3.4288, 0)
+0.0841007
+Basketball::RigidBody.Velocity(3.4288, 3.4288, 0)
+0.100746
+Basketball::RigidBody.Velocity(3.42879, 3.42879, 0)
+0.117398
+Basketball::RigidBody.Velocity(3.42879, 3.42879, 0)
+0.134372
+Basketball::RigidBody.Velocity(3.42878, 3.42878, 0)
+0.151544
+Basketball::RigidBody.Velocity(3.42878, 3.42878, 0)
+0.168358
+Basketball::RigidBody.Velocity(3.42877, 3.42877, 0)
+0.185366
+Basketball::RigidBody.Velocity(3.42876, 3.42876, 0)
+0.202052
+Basketball::RigidBody.Velocity(3.42876, 3.42876, 0)
+0.219121
+Basketball::RigidBody.Velocity(3.42875, 3.42875, 0)
+0.235366
+Basketball::RigidBody.Velocity(3.42875, 3.42875, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(7.25225, 7.25225, 0)
+Basketball::RigidBody.Velocity(7.25223, 7.25223, 0)
+Basketball::RigidBody.Velocity(7.25222, 7.25222, 0)
+Basketball::RigidBody.Velocity(7.25221, 7.25221, 0)
+Basketball::RigidBody.Velocity(7.2522, 7.2522, 0)
+Basketball::RigidBody.Velocity(7.25218, 7.25218, 0)
+Basketball::RigidBody.Velocity(7.25217, 7.25217, 0)
+Basketball::RigidBody.Velocity(7.25216, 7.25216, 0)
+Basketball::RigidBody.Velocity(7.25215, 7.25215, 0)
+Basketball::RigidBody.Velocity(7.25214, 7.25214, 0)
+Basketball::RigidBody.Velocity(7.25213, 7.25213, 0)
+Basketball::RigidBody.Velocity(7.25211, 7.25211, 0)
+Basketball::RigidBody.Velocity(7.2521, 7.2521, 0)
+Basketball::RigidBody.Velocity(7.25209, 7.25209, 0)
+Basketball::RigidBody.Velocity(7.25208, 7.25208, 0)
+Basketball::RigidBody.Velocity(7.25206, 7.25206, 0)
+Basketball::RigidBody.Velocity(7.25205, 7.25205, 0)
+Basketball::RigidBody.Velocity(7.25204, 7.25204, 0)
+Basketball::RigidBody.Velocity(7.25203, 7.25203, 0)
+Basketball::RigidBody.Velocity(7.25202, 7.25202, 0)
+Basketball::RigidBody.Velocity(7.252, 7.252, 0)
+Basketball::RigidBody.Velocity(7.25199, 7.25199, 0)
+Mouse down!
+0.017346
+Basketball::RigidBody.Velocity(7.25198, 7.25198, 0)
+0.0339707
+Basketball::RigidBody.Velocity(7.25197, 7.25197, 0)
+0.0508177
+Basketball::RigidBody.Velocity(7.25196, 7.25196, 0)
+0.0672924
+Basketball::RigidBody.Velocity(7.25194, 7.25194, 0)
+0.0839756
+Basketball::RigidBody.Velocity(7.25193, 7.25193, 0)
+0.101034
+Basketball::RigidBody.Velocity(7.25192, 7.25192, 0)
+0.117672
+Basketball::RigidBody.Velocity(7.25191, 7.25191, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(1.83874, 1.83874, 0)
+Basketball::RigidBody.Velocity(1.83874, 1.83874, 0)
+Basketball::RigidBody.Velocity(1.83874, 1.83874, 0)
+Basketball::RigidBody.Velocity(1.83873, 1.83873, 0)
+Basketball::RigidBody.Velocity(1.83873, 1.83873, 0)
+Basketball::RigidBody.Velocity(1.83873, 1.83873, 0)
+Basketball::RigidBody.Velocity(1.83872, 1.83872, 0)
+Basketball::RigidBody.Velocity(1.83872, 1.83872, 0)
+Basketball::RigidBody.Velocity(1.83872, 1.83872, 0)
+Basketball::RigidBody.Velocity(1.83872, 1.83872, 0)
+Basketball::RigidBody.Velocity(1.83871, 1.83871, 0)
+Basketball::RigidBody.Velocity(1.83871, 1.83871, 0)
+Basketball::RigidBody.Velocity(1.83871, 1.83871, 0)
+Basketball::RigidBody.Velocity(1.8387, 1.8387, 0)
+Basketball::RigidBody.Velocity(1.8387, 1.8387, 0)
+Basketball::RigidBody.Velocity(1.8387, 1.8387, 0)
+Basketball::RigidBody.Velocity(1.83869, 1.83869, 0)
+Basketball::RigidBody.Velocity(1.83869, 1.83869, 0)
+Basketball::RigidBody.Velocity(1.83869, 1.83869, 0)
+Basketball::RigidBody.Velocity(1.83868, 1.83868, 0)
+Basketball::RigidBody.Velocity(1.83868, 1.83868, 0)
+Basketball::RigidBody.Velocity(1.83868, 1.83868, 0)
+Basketball::RigidBody.Velocity(1.83867, 1.83867, 0)
+Basketball::RigidBody.Velocity(1.83867, 1.83867, 0)
+Basketball::RigidBody.Velocity(1.83867, 1.83867, 0)
+Mouse down!
+0.0167949
+Basketball::RigidBody.Velocity(1.83867, 1.83867, 0)
+0.0334137
+Basketball::RigidBody.Velocity(1.83866, 1.83866, 0)
+0.050376
+Basketball::RigidBody.Velocity(1.83866, 1.83866, 0)
+0.0670157
+Basketball::RigidBody.Velocity(1.83866, 1.83866, 0)
+0.0836949
+Basketball::RigidBody.Velocity(1.83865, 1.83865, 0)
+0.100826
+Basketball::RigidBody.Velocity(1.83865, 1.83865, 0)
+0.117803
+Basketball::RigidBody.Velocity(1.83865, 1.83865, 0)
+0.134914
+Basketball::RigidBody.Velocity(1.83864, 1.83864, 0)
+0.151563
+Basketball::RigidBody.Velocity(1.83864, 1.83864, 0)
+0.168229
+Basketball::RigidBody.Velocity(1.83864, 1.83864, 0)
+0.185053
+Basketball::RigidBody.Velocity(1.83863, 1.83863, 0)
+0.201917
+Basketball::RigidBody.Velocity(1.83863, 1.83863, 0)
+0.218917
+Basketball::RigidBody.Velocity(1.83863, 1.83863, 0)
+0.235918
+Basketball::RigidBody.Velocity(1.83862, 1.83862, 0)
+0.252578
+Basketball::RigidBody.Velocity(1.83862, 1.83862, 0)
+0.2692
+Basketball::RigidBody.Velocity(1.83862, 1.83862, 0)
+0.285931
+Basketball::RigidBody.Velocity(1.83862, 1.83862, 0)
+0.302883
+Basketball::RigidBody.Velocity(1.83861, 1.83861, 0)
+0.319511
+Basketball::RigidBody.Velocity(1.83861, 1.83861, 0)
+0.336482
+Basketball::RigidBody.Velocity(1.83861, 1.83861, 0)
+0.353499
+Basketball::RigidBody.Velocity(1.8386, 1.8386, 0)
+0.370159
+Basketball::RigidBody.Velocity(1.8386, 1.8386, 0)
+0.386828
+Basketball::RigidBody.Velocity(1.8386, 1.8386, 0)
+0.403545
+Basketball::RigidBody.Velocity(1.83859, 1.83859, 0)
+0.420206
+Basketball::RigidBody.Velocity(1.83859, 1.83859, 0)
+0.437617
+Basketball::RigidBody.Velocity(1.83859, 1.83859, 0)
+0.454563
+Basketball::RigidBody.Velocity(1.83858, 1.83858, 0)
+0.472114
+Basketball::RigidBody.Velocity(1.83858, 1.83858, 0)
+0.488768
+Basketball::RigidBody.Velocity(1.83858, 1.83858, 0)
+0.505984
+Basketball::RigidBody.Velocity(1.83857, 1.83857, 0)
+0.522753
+Basketball::RigidBody.Velocity(1.83857, 1.83857, 0)
+0.539585
+Basketball::RigidBody.Velocity(1.83857, 1.83857, 0)
+0.556703
+Basketball::RigidBody.Velocity(1.83857, 1.83857, 0)
+0.573343
+Basketball::RigidBody.Velocity(1.83856, 1.83856, 0)
+0.590036
+Basketball::RigidBody.Velocity(1.83856, 1.83856, 0)
+0.606809
+Basketball::RigidBody.Velocity(1.83856, 1.83856, 0)
+0.623451
+Basketball::RigidBody.Velocity(1.83855, 1.83855, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(2.43911, 2.43911, 0)
+Basketball::RigidBody.Velocity(2.4391, 2.4391, 0)
+Basketball::RigidBody.Velocity(2.4391, 2.4391, 0)
+Basketball::RigidBody.Velocity(2.4391, 2.4391, 0)
+Basketball::RigidBody.Velocity(2.43909, 2.43909, 0)
+Basketball::RigidBody.Velocity(2.43909, 2.43909, 0)
+Basketball::RigidBody.Velocity(2.43908, 2.43908, 0)
+Basketball::RigidBody.Velocity(2.43908, 2.43908, 0)
+Basketball::RigidBody.Velocity(2.43907, 2.43907, 0)
+Basketball::RigidBody.Velocity(2.43907, 2.43907, 0)
+Basketball::RigidBody.Velocity(2.43907, 2.43907, 0)
+Basketball::RigidBody.Velocity(2.43906, 2.43906, 0)
+Basketball::RigidBody.Velocity(2.43906, 2.43906, 0)
+Basketball::RigidBody.Velocity(2.43905, 2.43905, 0)
+Basketball::RigidBody.Velocity(2.43905, 2.43905, 0)
+Basketball::RigidBody.Velocity(2.43905, 2.43905, 0)
+Basketball::RigidBody.Velocity(2.43904, 2.43904, 0)
+Basketball::RigidBody.Velocity(2.43904, 2.43904, 0)
+Basketball::RigidBody.Velocity(2.43903, 2.43903, 0)
+Basketball::RigidBody.Velocity(2.43903, 2.43903, 0)
+Basketball::RigidBody.Velocity(2.43903, 2.43903, 0)
+Basketball::RigidBody.Velocity(2.43902, 2.43902, 0)
+Basketball::RigidBody.Velocity(2.43902, 2.43902, 0)
+Basketball::RigidBody.Velocity(2.43901, 2.43901, 0)
+Basketball::RigidBody.Velocity(2.43901, 2.43901, 0)
+Basketball::RigidBody.Velocity(2.43901, 2.43901, 0)
+Basketball::RigidBody.Velocity(2.439, 2.439, 0)
+Basketball::RigidBody.Velocity(2.439, 2.439, 0)
+Basketball::RigidBody.Velocity(2.43899, 2.43899, 0)
+Basketball::RigidBody.Velocity(2.43899, 2.43899, 0)
+Mouse down!
+0.0173681
+Basketball::RigidBody.Velocity(2.43898, 2.43898, 0)
+0.0340974
+Basketball::RigidBody.Velocity(2.43898, 2.43898, 0)
+0.0507849
+Basketball::RigidBody.Velocity(2.43898, 2.43898, 0)
+0.0679813
+Basketball::RigidBody.Velocity(2.43897, 2.43897, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(3.608, 3.608, 0)
+Basketball::RigidBody.Velocity(3.60799, 3.60799, 0)
+Basketball::RigidBody.Velocity(3.60798, 3.60798, 0)
+Basketball::RigidBody.Velocity(3.60798, 3.60798, 0)
+Basketball::RigidBody.Velocity(3.60797, 3.60797, 0)
+Basketball::RigidBody.Velocity(3.60797, 3.60797, 0)
+Basketball::RigidBody.Velocity(3.60796, 3.60796, 0)
+Basketball::RigidBody.Velocity(3.60795, 3.60795, 0)
+Basketball::RigidBody.Velocity(3.60795, 3.60795, 0)
+Basketball::RigidBody.Velocity(3.60794, 3.60794, 0)
+Basketball::RigidBody.Velocity(3.60794, 3.60794, 0)
+Basketball::RigidBody.Velocity(3.60793, 3.60793, 0)
+Basketball::RigidBody.Velocity(3.60792, 3.60792, 0)
+Basketball::RigidBody.Velocity(3.60792, 3.60792, 0)
+Basketball::RigidBody.Velocity(3.60791, 3.60791, 0)
+Basketball::RigidBody.Velocity(3.60791, 3.60791, 0)
+Basketball::RigidBody.Velocity(3.6079, 3.6079, 0)
+Basketball::RigidBody.Velocity(3.60789, 3.60789, 0)
+Basketball::RigidBody.Velocity(3.60789, 3.60789, 0)
+Basketball::RigidBody.Velocity(3.60788, 3.60788, 0)
+Basketball::RigidBody.Velocity(3.60788, 3.60788, 0)
+Basketball::RigidBody.Velocity(3.60787, 3.60787, 0)
+Mouse down!
+0.0168213
+Basketball::RigidBody.Velocity(3.60786, 3.60786, 0)
+0.0338657
+Basketball::RigidBody.Velocity(3.60786, 3.60786, 0)
+0.0505331
+Basketball::RigidBody.Velocity(3.60785, 3.60785, 0)
+0.0673832
+Basketball::RigidBody.Velocity(3.60785, 3.60785, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(4.74325, 4.74325, 0)
+Basketball::RigidBody.Velocity(4.74325, 4.74325, 0)
+Basketball::RigidBody.Velocity(4.74324, 4.74324, 0)
+Basketball::RigidBody.Velocity(4.74323, 4.74323, 0)
+Basketball::RigidBody.Velocity(4.74322, 4.74322, 0)
+Basketball::RigidBody.Velocity(4.74321, 4.74321, 0)
+Basketball::RigidBody.Velocity(4.74321, 4.74321, 0)
+Basketball::RigidBody.Velocity(4.7432, 4.7432, 0)
+Basketball::RigidBody.Velocity(4.74319, 4.74319, 0)
+Basketball::RigidBody.Velocity(4.74318, 4.74318, 0)
+Basketball::RigidBody.Velocity(4.74317, 4.74317, 0)
+Basketball::RigidBody.Velocity(4.74317, 4.74317, 0)
+Basketball::RigidBody.Velocity(4.74316, 4.74316, 0)
+Basketball::RigidBody.Velocity(4.74315, 4.74315, 0)
+Basketball::RigidBody.Velocity(4.74314, 4.74314, 0)
+Mouse down!
+0.0166342
+Basketball::RigidBody.Velocity(4.74313, 4.74313, 0)
+0.0333762
+Basketball::RigidBody.Velocity(4.74312, 4.74312, 0)
+0.0501588
+Basketball::RigidBody.Velocity(4.74312, 4.74312, 0)
+0.0668014
+Basketball::RigidBody.Velocity(4.74311, 4.74311, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(5.85484, 5.85484, 0)
+Basketball::RigidBody.Velocity(5.85483, 5.85483, 0)
+Basketball::RigidBody.Velocity(5.85482, 5.85482, 0)
+Basketball::RigidBody.Velocity(5.85481, 5.85481, 0)
+Basketball::RigidBody.Velocity(5.8548, 5.8548, 0)
+Basketball::RigidBody.Velocity(5.85479, 5.85479, 0)
+Basketball::RigidBody.Velocity(5.85478, 5.85478, 0)
+Basketball::RigidBody.Velocity(5.85477, 5.85477, 0)
+Basketball::RigidBody.Velocity(5.85476, 5.85476, 0)
+Basketball::RigidBody.Velocity(5.85475, 5.85475, 0)
+Mouse down!
+0.0168612
+Basketball::RigidBody.Velocity(5.85475, 5.85475, 0)
+0.0335412
+Basketball::RigidBody.Velocity(5.85474, 5.85474, 0)
+0.0501596
+Basketball::RigidBody.Velocity(5.85473, 5.85473, 0)
+0.0670615
+Basketball::RigidBody.Velocity(5.85472, 5.85472, 0)
+Mouse up! 
+Basketball::RigidBody.Velocity(6.98817, 6.98817, 0)
+Basketball::RigidBody.Velocity(6.98816, 6.98816, 0)
+Basketball::RigidBody.Velocity(6.98815, 6.98815, 0)
+Basketball::RigidBody.Velocity(6.98813, 6.98813, 0)
+Basketball::RigidBody.Velocity(6.98812, 6.98812, 0)
+Basketball::RigidBody.Velocity(6.98811, 6.98811, 0)
+Basketball::RigidBody.Velocity(6.9881, 6.9881, 0)
+Basketball::RigidBody.Velocity(6.98809, 6.98809, 0)
+Basketball::RigidBody.Velocity(6.98808, 6.98808, 0)
+Basketball::RigidBody.Velocity(6.98807, 6.98807, 0)
+Basketball::RigidBody.Velocity(6.98805, 6.98805, 0)
+Basketball::RigidBody.Velocity(6.98804, 6.98804, 0)
+Basketball::RigidBody.Velocity(6.98803, 6.98803, 0)
+Basketball::RigidBody.Velocity(6.98802, 6.98802, 0)
+Basketball::RigidBody.Velocity(6.98801, 6.98801, 0)
+Basketball::RigidBody.Velocity(6.988, 6.988, 0)
+Basketball::RigidBody.Velocity(6.98798, 6.98798, 0)
+Basketball::RigidBody.Velocity(6.98797, 6.98797, 0)
+Basketball::RigidBody.Velocity(6.98796, 6.98796, 0)
+Basketball::RigidBody.Velocity(6.98795, 6.98795, 0)
+Basketball::RigidBody.Velocity(6.98794, 6.98794, 0)
+Basketball::RigidBody.Velocity(6.98793, 6.98793, 0)
+Basketball::RigidBody.Velocity(6.98791, 6.98791, 0)
+Basketball::RigidBody.Velocity(6.9879, 6.9879, 0)
+Basketball::RigidBody.Velocity(6.98789, 6.98789, 0)
+Basketball::RigidBody.Velocity(6.98788, 6.98788, 0)
+Basketball::RigidBody.Velocity(6.98787, 6.98787, 0)
+Basketball::RigidBody.Velocity(6.98785, 6.98785, 0)
+Basketball::RigidBody.Velocity(6.98784, 6.98784, 0)
+Basketball::RigidBody.Velocity(6.98783, 6.98783, 0)
+Basketball::RigidBody.Velocity(6.98782, 6.98782, 0)
+Basketball::RigidBody.Velocity(6.98781, 6.98781, 0)
+Basketball::RigidBody.Velocity(6.9878, 6.9878, 0)
+Basketball::RigidBody.Velocity(6.98779, 6.98779, 0)
+Basketball::RigidBody.Velocity(6.98777, 6.98777, 0)
+Basketball::RigidBody.Velocity(6.98776, 6.98776, 0)
+Basketball::RigidBody.Velocity(6.98775, 6.98775, 0)
+Basketball::RigidBody.Velocity(6.98774, 6.98774, 0)
+Basketball::RigidBody.Velocity(6.98773, 6.98773, 0)
+Basketball::RigidBody.Velocity(6.98772, 6.98772, 0)
+Basketball::RigidBody.Velocity(6.9877, 6.9877, 0)
+Basketball::RigidBody.Velocity(6.98769, 6.98769, 0)
+Basketball::RigidBody.Velocity(6.98768, 6.98768, 0)
+Basketball::RigidBody.Velocity(6.98767, 6.98767, 0)
+Basketball::RigidBody.Velocity(6.98766, 6.98766, 0)
+Basketball::RigidBody.Velocity(6.98765, 6.98765, 0)
+Basketball::RigidBody.Velocity(6.98763, 6.98763, 0)
+Basketball::RigidBody.Velocity(6.98762, 6.98762, 0)
+Basketball::RigidBody.Velocity(6.98761, 6.98761, 0)
+Basketball::RigidBody.Velocity(6.9876, 6.9876, 0)
+Basketball::RigidBody.Velocity(6.98759, 6.98759, 0)
+Basketball::RigidBody.Velocity(6.98758, 6.98758, 0)
+Basketball::RigidBody.Velocity(6.98757, 6.98757, 0)
+Basketball::RigidBody.Velocity(6.98755, 6.98755, 0)
+Basketball::RigidBody.Velocity(6.98754, 6.98754, 0)
+Basketball::RigidBody.Velocity(6.98753, 6.98753, 0)
+Basketball::RigidBody.Velocity(6.98752, 6.98752, 0)
+Basketball::RigidBody.Velocity(6.98751, 6.98751, 0)
+Basketball::RigidBody.Velocity(6.9875, 6.9875, 0)
+Basketball::RigidBody.Velocity(6.98748, 6.98748, 0)
+Basketball::RigidBody.Velocity(6.98747, 6.98747, 0)
+Basketball::RigidBody.Velocity(6.98746, 6.98746, 0)
+Basketball::RigidBody.Velocity(6.98745, 6.98745, 0)
+Basketball::RigidBody.Velocity(6.98744, 6.98744, 0)
+Basketball::RigidBody.Velocity(6.98743, 6.98743, 0)
+Basketball::RigidBody.Velocity(6.98741, 6.98741, 0)
+Basketball::RigidBody.Velocity(6.98734, 6.98734, 0)
+Basketball::RigidBody.Velocity(6.98733, 6.98733, 0)
+Basketball::RigidBody.Velocity(6.98732, 6.98732, 0)
+Basketball::RigidBody.Velocity(6.98731, 6.98731, 0)
+Basketball::RigidBody.Velocity(6.9873, 6.9873, 0)
+Basketball::RigidBody.Velocity(6.98729, 6.98729, 0)
+Basketball::RigidBody.Velocity(6.98727, 6.98727, 0)
+Basketball::RigidBody.Velocity(6.98726, 6.98726, 0)
+Basketball::RigidBody.Velocity(6.98725, 6.98725, 0)
+Basketball::RigidBody.Velocity(6.98724, 6.98724, 0)
+Basketball::RigidBody.Velocity(6.98723, 6.98723, 0)
+Basketball::RigidBody.Velocity(6.98722, 6.98722, 0)
+Basketball::RigidBody.Velocity(6.9872, 6.9872, 0)
+Basketball::RigidBody.Velocity(6.98719, 6.98719, 0)
+Basketball::RigidBody.Velocity(6.98718, 6.98718, 0)
+Basketball::RigidBody.Velocity(6.98717, 6.98717, 0)
+Basketball::RigidBody.Velocity(6.98716, 6.98716, 0)
+Basketball::RigidBody.Velocity(6.98715, 6.98715, 0)
+Basketball::RigidBody.Velocity(6.98713, 6.98713, 0)
+Basketball::RigidBody.Velocity(6.98712, 6.98712, 0)
+Basketball::RigidBody.Velocity(6.98711, 6.98711, 0)
+Basketball::RigidBody.Velocity(6.9871, 6.9871, 0)
+Basketball::RigidBody.Velocity(6.98709, 6.98709, 0)
+Basketball::RigidBody.Velocity(6.98708, 6.98708, 0)
+Basketball::RigidBody.Velocity(6.98706, 6.98706, 0)
+Basketball::RigidBody.Velocity(6.98705, 6.98705, 0)
+Basketball::RigidBody.Velocity(6.98704, 6.98704, 0)
+Basketball::RigidBody.Velocity(6.98703, 6.98703, 0)
+Basketball::RigidBody.Velocity(6.98702, 6.98702, 0)
+Basketball::RigidBody.Velocity(6.98701, 6.98701, 0)
+Basketball::RigidBody.Velocity(6.98699, 6.98699, 0)
+Basketball::RigidBody.Velocity(6.98698, 6.98698, 0)
+Basketball::RigidBody.Velocity(6.98697, 6.98697, 0)
+Basketball::RigidBody.Velocity(6.98696, 6.98696, 0)
+Basketball::RigidBody.Velocity(6.98695, 6.98695, 0)
+Basketball::RigidBody.Velocity(6.98694, 6.98694, 0)
+Basketball::RigidBody.Velocity(6.98692, 6.98692, 0)
+Basketball::RigidBody.Velocity(6.98691, 6.98691, 0)
+Basketball::RigidBody.Velocity(6.9869, 6.9869, 0)
+Basketball::RigidBody.Velocity(6.98689, 6.98689, 0)
+Basketball::RigidBody.Velocity(6.98688, 6.98688, 0)
+Basketball::RigidBody.Velocity(6.98687, 6.98687, 0)
+Basketball::RigidBody.Velocity(6.98685, 6.98685, 0)
+Basketball::RigidBody.Velocity(6.98684, 6.98684, 0)
+Basketball::RigidBody.Velocity(6.98683, 6.98683, 0)
+Basketball::RigidBody.Velocity(6.98682, 6.98682, 0)
+Basketball::RigidBody.Velocity(6.98681, 6.98681, 0)
+Basketball::RigidBody.Velocity(6.9868, 6.9868, 0)
+Basketball::RigidBody.Velocity(6.98678, 6.98678, 0)
+Basketball::RigidBody.Velocity(6.98677, 6.98677, 0)
+Basketball::RigidBody.Velocity(6.98676, 6.98676, 0)
+Basketball::RigidBody.Velocity(6.98675, 6.98675, 0)
+Basketball::RigidBody.Velocity(6.98674, 6.98674, 0)
+Basketball::RigidBody.Velocity(6.98673, 6.98673, 0)
+Basketball::RigidBody.Velocity(6.98672, 6.98672, 0)
+Basketball::RigidBody.Velocity(6.9867, 6.9867, 0)
+Basketball::RigidBody.Velocity(6.98669, 6.98669, 0)
+Basketball::RigidBody.Velocity(6.98668, 6.98668, 0)
+Basketball::RigidBody.Velocity(6.98667, 6.98667, 0)
+Basketball::RigidBody.Velocity(6.98666, 6.98666, 0)
+Basketball::RigidBody.Velocity(6.98664, 6.98664, 0)
+Basketball::RigidBody.Velocity(6.98663, 6.98663, 0)
+Basketball::RigidBody.Velocity(6.98662, 6.98662, 0)
+Basketball::RigidBody.Velocity(6.98661, 6.98661, 0)
+Basketball::RigidBody.Velocity(6.9866, 6.9866, 0)
+Basketball::RigidBody.Velocity(6.98659, 6.98659, 0)
+Basketball::RigidBody.Velocity(6.98658, 6.98658, 0)
+Basketball::RigidBody.Velocity(6.98656, 6.98656, 0)
+Basketball::RigidBody.Velocity(6.98655, 6.98655, 0)
+Basketball::RigidBody.Velocity(6.98654, 6.98654, 0)
+Basketball::RigidBody.Velocity(6.98653, 6.98653, 0)
+Basketball::RigidBody.Velocity(6.98652, 6.98652, 0)
+Basketball::RigidBody.Velocity(6.98651, 6.98651, 0)
+Basketball::RigidBody.Velocity(6.9865, 6.9865, 0)
+Basketball::RigidBody.Velocity(6.98648, 6.98648, 0)
+Basketball::RigidBody.Velocity(6.98647, 6.98647, 0)
+Basketball::RigidBody.Velocity(6.98646, 6.98646, 0)
+Basketball::RigidBody.Velocity(6.98645, 6.98645, 0)
+Basketball::RigidBody.Velocity(6.98638, 6.98638, 0)
+Basketball::RigidBody.Velocity(6.98637, 6.98637, 0)
+Basketball::RigidBody.Velocity(6.98636, 6.98636, 0)
+Basketball::RigidBody.Velocity(6.98634, 6.98634, 0)
+Basketball::RigidBody.Velocity(6.98633, 6.98633, 0)
+Basketball::RigidBody.Velocity(6.98632, 6.98632, 0)
+Basketball::RigidBody.Velocity(6.98631, 6.98631, 0)
+Basketball::RigidBody.Velocity(6.9863, 6.9863, 0)
+Basketball::RigidBody.Velocity(6.98629, 6.98629, 0)
+Basketball::RigidBody.Velocity(6.98628, 6.98628, 0)
+Basketball::RigidBody.Velocity(6.98622, 6.98622, 0)
+Basketball::RigidBody.Velocity(6.98621, 6.98621, 0)
+Basketball::RigidBody.Velocity(6.98619, 6.98619, 0)
+Basketball::RigidBody.Velocity(6.98618, 6.98618, 0)
+Basketball::RigidBody.Velocity(6.98617, 6.98617, 0)
+Basketball::RigidBody.Velocity(6.98616, 6.98616, 0)
+Basketball::RigidBody.Velocity(6.98615, 6.98615, 0)
+Basketball::RigidBody.Velocity(6.98614, 6.98614, 0)
+Basketball::RigidBody.Velocity(6.98612, 6.98612, 0)
+Basketball::RigidBody.Velocity(6.98611, 6.98611, 0)
+Basketball::RigidBody.Velocity(6.9861, 6.9861, 0)
+Basketball::RigidBody.Velocity(6.98609, 6.98609, 0)
+Basketball::RigidBody.Velocity(6.98608, 6.98608, 0)
+Basketball::RigidBody.Velocity(6.98607, 6.98607, 0)
+Basketball::RigidBody.Velocity(6.98606, 6.98606, 0)
+Basketball::RigidBody.Velocity(6.98604, 6.98604, 0)
+Basketball::RigidBody.Velocity(6.98603, 6.98603, 0)
+Basketball::RigidBody.Velocity(6.98602, 6.98602, 0)
+Basketball::RigidBody.Velocity(6.98601, 6.98601, 0)
+Basketball::RigidBody.Velocity(6.986, 6.986, 0)
+Basketball::RigidBody.Velocity(6.98599, 6.98599, 0)
+Basketball::RigidBody.Velocity(6.98598, 6.98598, 0)
+Basketball::RigidBody.Velocity(6.98596, 6.98596, 0)
+Basketball::RigidBody.Velocity(6.98595, 6.98595, 0)
+Basketball::RigidBody.Velocity(6.98594, 6.98594, 0)
+Basketball::RigidBody.Velocity(6.98593, 6.98593, 0)
+Basketball::RigidBody.Velocity(6.98592, 6.98592, 0)
+Basketball::RigidBody.Velocity(6.98591, 6.98591, 0)
+Basketball::RigidBody.Velocity(6.98589, 6.98589, 0)
+Basketball::RigidBody.Velocity(6.98588, 6.98588, 0)
+Basketball::RigidBody.Velocity(6.98587, 6.98587, 0)
+Basketball::RigidBody.Velocity(6.98586, 6.98586, 0)
+Basketball::RigidBody.Velocity(6.98585, 6.98585, 0)
+Basketball::RigidBody.Velocity(6.98584, 6.98584, 0)
+Basketball::RigidBody.Velocity(6.98582, 6.98582, 0)
+Basketball::RigidBody.Velocity(6.98581, 6.98581, 0)
+Basketball::RigidBody.Velocity(6.9858, 6.9858, 0)
+Basketball::RigidBody.Velocity(6.98579, 6.98579, 0)
+Basketball::RigidBody.Velocity(6.98578, 6.98578, 0)
+Basketball::RigidBody.Velocity(6.98576, 6.98576, 0)
+Basketball::RigidBody.Velocity(6.98575, 6.98575, 0)
+Basketball::RigidBody.Velocity(6.98574, 6.98574, 0)
+Basketball::RigidBody.Velocity(6.98573, 6.98573, 0)
+Basketball::RigidBody.Velocity(6.98572, 6.98572, 0)
+Basketball::RigidBody.Velocity(6.98571, 6.98571, 0)
+Basketball::RigidBody.Velocity(6.9857, 6.9857, 0)
+Basketball::RigidBody.Velocity(6.98568, 6.98568, 0)
+Basketball::RigidBody.Velocity(6.98567, 6.98567, 0)
+Basketball::RigidBody.Velocity(6.98566, 6.98566, 0)
+Basketball::RigidBody.Velocity(6.98565, 6.98565, 0)
+Basketball::RigidBody.Velocity(6.98564, 6.98564, 0)
+Basketball::RigidBody.Velocity(6.98563, 6.98563, 0)
+Basketball::RigidBody.Velocity(6.98561, 6.98561, 0)
+Basketball::RigidBody.Velocity(6.9856, 6.9856, 0)
+Basketball::RigidBody.Velocity(6.98559, 6.98559, 0)
+Basketball::RigidBody.Velocity(6.98558, 6.98558, 0)
+Basketball::RigidBody.Velocity(6.98557, 6.98557, 0)
+Basketball::RigidBody.Velocity(6.98555, 6.98555, 0)
+Basketball::RigidBody.Velocity(6.98554, 6.98554, 0)
+Basketball::RigidBody.Velocity(6.98553, 6.98553, 0)
+Basketball::RigidBody.Velocity(6.98552, 6.98552, 0)
+Basketball::RigidBody.Velocity(6.98551, 6.98551, 0)
