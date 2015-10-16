@@ -128,6 +128,15 @@ namespace DCEngine {
 				FarPlane);
 		}
 		else if (Projection == ProjectionMode::Perspective) {
+			if (FieldOfView <= 1)
+			{
+				FieldOfView = 1;
+			}
+			if (FieldOfView >= 175)
+			{
+				FieldOfView = 175;
+			}
+			trace << FieldOfView << "\n";
 			return glm::perspective(FieldOfView, ((float)1024 / 728), NearPlane, FarPlane);
 		}
 
