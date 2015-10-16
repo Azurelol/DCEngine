@@ -144,7 +144,7 @@ namespace DCEngine {
 			{
 				FieldOfView = 175;
 			}
-			trace << FieldOfView << "\n";
+			//trace << FieldOfView << "\n";
 			return glm::perspective(FieldOfView, ((float)1024 / 728), NearPlane, FarPlane);
 		}
 

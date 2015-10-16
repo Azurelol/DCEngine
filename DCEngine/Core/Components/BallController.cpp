@@ -43,13 +43,13 @@ namespace DCEngine {
 		if (Charging)
 		{
 			CurrentCharge += event->Dt;
-			trace << CurrentCharge << "\n";
+			//trace << CurrentCharge << "\n";
 			if (CurrentCharge > MaxCharge)
 			{
 				CurrentCharge = MaxCharge;
 			}
 		}
-		PrintVelocity();
+		//PrintVelocity();
 
 	}
 
@@ -57,14 +57,14 @@ namespace DCEngine {
 
 	void BallController::PrintTranslation()
 	{
-		trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-			<< ", " << TransformRef->Translation.y
-			<< ", " << TransformRef->Translation.z << ")\n";
+		//trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+		//	<< ", " << TransformRef->Translation.y
+		//	<< ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void BallController::PrintVelocity()
 	{
 		Real3 vel = RigidBodyRef->getVelocity();
-		trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }
