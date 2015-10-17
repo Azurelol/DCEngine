@@ -26,23 +26,25 @@ namespace DCEngine {
     Real3 LocalForward;
     Real3 LocalUp;
     Real3 LocalRight;
-    Real3 WorldForward;
-    Real3 WorldUp;
-    Real3 WorldRight;
+    Real3 WorldForward = Real3(0, 1, 0);
+    Real3 WorldUp = Real3(0, 1, 0);
+    Real3 WorldRight = Real3(0, 0, 1);
     //Quaternion WorldRotation;
 
     /* Look At */
-    void LookAtPoint();
-    void LookAtPointWithUp();
-    void LookAtDirection();
-    void LookAtDirectionWithUp();
-    void LookAtUp();
+    void LookAtPoint(Real3 point);
+    void LookAtPointWithUp(Real3 point);
+    void LookAtDirection(Real3 direction);
+    void LookAtDirectionWithUp(Real3 direction);
+    void LookAtUp(void);
 
     /* Get LookAt */
-    Real3 GetLookAtPointRotation();
-    Real3 GetLookAtDirectionRotation();
-    Real3 GetLookAtPointWithUpRotation();
-    Real3 GetLookAtDirectionWithUpRotation();
+    Real3 GetLookAtPointRotation(void);
+    Real3 GetLookAtDirectionRotation(void);
+    Real3 GetLookAtPointWithUpRotation(void);
+    Real3 GetLookAtDirectionWithUpRotation(void);
+
+    float GetVectorAngle(Real3 vector);
 
     /* Initialize */
     Orientation(Entity& owner) : Component(std::string("Orientation"), owner) {}

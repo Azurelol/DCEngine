@@ -21,5 +21,6 @@ PHYSICS
 #include "Events\KeyDownEvent.h"
 #include "Events\KeyUpEvent.h"
 #include "Events\MouseDown.h"
+#include "Events\MouseUp.h"
 
 

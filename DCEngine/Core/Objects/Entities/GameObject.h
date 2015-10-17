@@ -14,7 +14,7 @@
 
 namespace DCEngine {
 
-  // FORWARD-DECLARATIONS //
+  /* Forward declarations*/
   class Space;
   class GameSession;
 
@@ -32,10 +32,11 @@ namespace DCEngine {
     Space* GetSpace();
     GameSession* GetGameSession();  
     
+    META_ADD_CLASS(GameObject); // Provides reflection for this object
 
   private:
-    Space* space_;
-    GameSession* gamesession_;
+    Space* SpaceRef;
+    GameSession* GamesessionRef;
 
   };
 

@@ -1,0 +1,35 @@
+4	#include <Windows.h>
+5	#include <DbgHelp.h>
+6	
+7	#pragma comment(lib, "DbgHelp")
+
+//the number of frames we captured
+22	                unsigned short numFrames;
+23	                //an array of captured stacks
+24	                void *stack[100];
+25	                //the handle of this process
+26	                HANDLE process;
+27	                //allocate some space for the symbol and its string name
+28	                SYMBOL_INFO *symbol = (SYMBOL_INFO *)calloc(sizeof(SYMBOL_INFO) + 256 * sizeof(char), 1);
+29	                symbol->MaxNameLen = 255;
+30	                symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
+31	
+32	                //get the process
+33	                process = GetCurrentProcess();
+34	                SymInitialize(process, NULL, true);
+35					//offset, count, stack pointer, ???	
+36	                numFrames = CaptureStackBackTrace(1, 100, stack, NULL);
+37	
+38	                //generate the stack trace
+39	                for (int i = 0; i < numFrames; i++)
+40	                {
+41	                        SymFromAddr(process, DWORD64(stack[i]), 0, symbol);
+42	
+43	                        Trace += "at: ";
+44	                        Trace += symbol->Name;
+45	                        Trace += "\n\r";
+46	
+47	                }
+48	
+49	                //free allocated memory
+50	                free(symbol);

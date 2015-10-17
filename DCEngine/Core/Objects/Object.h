@@ -13,7 +13,9 @@
 #include <cassert>
 // Headers
 #include "../Engine/Types.h"
+#include "../Systems/Reflection/ReflectionMeta.h" // Every object can be reflected
 #include "..\Debug\Debug.h" // Every object can access 'trace'
+#include "..\..\Projects\Dollhouse\ReflectionTest.h"
 
 namespace DCEngine {
 

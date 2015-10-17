@@ -38,7 +38,7 @@ namespace DCEngine {
   /**************************************************************************/
   bool Entity::AddComponent(std::shared_ptr<Component> component) {
     // If there is already a component of the same class, reject the operation
-    for (auto componentOwned : components_) {
+    for (auto componentOwned : ComponentsContainer) {
       if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(*component.get())))) {
         trace << ObjName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
         return false;
@@ -49,7 +49,7 @@ namespace DCEngine {
       trace << ObjName << "::AddComponent - Added " << component->Name() << "\n";
 
     // Adds the component to the entity
-    components_.push_back(component);
+    ComponentsContainer.push_back(component);
     return true;    
   }
 
@@ -60,7 +60,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::Initialize() {
     trace << ObjName << "::Initialize \n";
-    for (auto component : components_)
+    for (auto component : ComponentsContainer)
       component->Initialize();
   }
 
@@ -73,7 +73,7 @@ namespace DCEngine {
   /**************************************************************************/
   Component* Entity::getComponentByName(std::string name) {
 
-    for (auto component : components_) {
+    for (auto component : ComponentsContainer) {
       if (component->Name() == name)
         return component.get();
     }

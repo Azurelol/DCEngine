@@ -3,6 +3,7 @@
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
 #include "../../Components/BoxCollider.h"
+#include "../../Components/GravityEffect.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 #include "Collision.h"
@@ -76,12 +77,6 @@ namespace DCEngine {
 
         DCEngine::Resolve(dt, contactlist);
 
-				//Contacts.Reset();
-
-				//DetectContacts(dt);
-
-				//Contacts.ResolveContacts(dt);
-
 				PublishResults(physpace);
 			}
 
@@ -99,9 +94,25 @@ namespace DCEngine {
 		{
 			auto bodies = physpace->getRigidbodies();
 
+      GravityEffect *gravity = NULL;
+
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        gravity = bodies[i]->getComponent<GravityEffect>();
+
+        if (gravity != NULL)
+        {
+          gravity->Update(dt);
+        }
+        
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
 			}
 		}
 
@@ -118,8 +129,15 @@ namespace DCEngine {
 
 			for (int i = 0; i < bodies.size(); ++i)
 			{
-				bodies[i]->getComponent<RigidBody>()->PublishResults();
-			}
+        if (bodies[i]->getComponent<RigidBody>() != NULL)
+        {
+          bodies[i]->getComponent<RigidBody>()->PublishResults();
+        }
+        else
+        {
+          throw DCException("An object without a RigidBody got into the list of RigidBodies");
+        }
+      }
 		}
 
 		/**************************************************************************/

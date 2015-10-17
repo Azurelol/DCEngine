@@ -58,6 +58,7 @@ namespace DCEngine {
 		float GetAnimationSpeedFPSCounter(void);
 		float GetAnimationSpeedFPS(void);
 		void ResetSpeedCounter(void);
+		void SetColorUsing255(Real3 newColor);
 
 	private:
 

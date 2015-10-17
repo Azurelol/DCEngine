@@ -151,6 +151,12 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\BallController">
+      <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Reflection\Meta">
+      <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -335,6 +341,21 @@
     </ClCompile>
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\GravityEffect.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\BallController.cpp">
+      <Filter>Core\Components\BallController</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp">
+      <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -641,6 +662,18 @@
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Components\BallController.h">
+      <Filter>Core\Components\BallController</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\StringWrapper.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -648,6 +681,9 @@
     </Text>
     <Text Include="Core\Systems\Physics\PhysicsNotes.txt">
       <Filter>Core\Components\Physics</Filter>
+    </Text>
+    <Text Include="Core\Debug\CallStackResearch.txt">
+      <Filter>Core\Engine\Debug</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

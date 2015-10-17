@@ -15,7 +15,8 @@ namespace DCEngine {
   namespace Events {
     class MouseDown : public Event {
     public:
-
+		int x;
+		int y;
     private:
 
     };

@@ -2,29 +2,37 @@
 #include "EngineReference.h"
 #include "Transform.h"
 
+
+
 namespace DCEngine {
+
+  META_DEFINE_CLASS(Camera) {
+    META_ADD_CLASS_MEMBER(Yaw);
+    META_ADD_CLASS_MEMBER(Size);
+    META_ADD_CLASS_MEMBER(lol);
+  }
 
 	Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
 	}
 
 
-  /**************************************************************************/
-  /*!
-  \brief Initializes the camera component and its settings.
-  \note
-  */
-  /**************************************************************************/
+	/**************************************************************************/
+	/*!
+	\brief Initializes the camera component and its settings.
+	\note
+	*/
+	/**************************************************************************/
 	void Camera::Initialize() {
 		auto gameObjOwner = (GameObject*)Owner();
 		TransformComponent = gameObjOwner->getComponent<Transform>();
 
-		if (TransformComponent != gameObjOwner->getComponent<Transform>())
+		if (TransformComponent != NULL)
 		{
-			trace << "Camera::Initialize - Failed. No Transform component";
+			trace << "Camera::Initialize - Failed. No Transform component\n";
 			return;
 		}
 
-    Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
+		Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
 
 		//Yaw = -90.0f;
 		//Pitch = 0.0f;
@@ -35,24 +43,24 @@ namespace DCEngine {
 		//Right = glm::vec3(1.0f, 0.0f, 0.0f);
 	}
 
-  /**************************************************************************/
-  /*!
-  \brief The camera is updated on every LogicUpdate event.
-  \param The update event.
-  */
-  /**************************************************************************/
-  void Camera::OnLogicUpdate(Events::LogicUpdate* event)
-  {
-    //trace << "Updatelol";
-    Update();
-  }
+	/**************************************************************************/
+	/*!
+	\brief The camera is updated on every LogicUpdate event.
+	\param The update event.
+	*/
+	/**************************************************************************/
+	void Camera::OnLogicUpdate(Events::LogicUpdate* event)
+	{
+		trace << "Updatelol";
+		Update();
+	}
 
-  /**************************************************************************/
-  /*!
-  \brief Updates the camera. First...
-  \note 
-  */
-  /**************************************************************************/
+	/**************************************************************************/
+	/*!
+	\brief Updates the camera. First...
+	\note
+	*/
+	/**************************************************************************/
 	void Camera::Update()
 	{
 		Roll = BaseRollVal + TransformComponent->Rotation.z;
@@ -66,34 +74,34 @@ namespace DCEngine {
 
 
 
-  /**************************************************************************/
-  /*!
-  \brief  Computes the camera view matrix based on its translation and
-          Front and Up vectors.
-  \return A 4x4 matrix that is used for the shader uniform "view".
-  */
-  /**************************************************************************/
+	/**************************************************************************/
+	/*!
+	\brief  Computes the camera view matrix based on its translation and
+	Front and Up vectors.
+	\return A 4x4 matrix that is used for the shader uniform "view".
+	*/
+	/**************************************************************************/
 	glm::mat4 Camera::GetViewMatrix() {
 		return glm::lookAt(TransformComponent->Translation, TransformComponent->Translation + Front, Up);
 	}
 
-  /**************************************************************************/
-  /*!
-  \brief  Computes the current camera vectors. If the camera projection mode
-          is perspective, it calculates the front vector as well.
-  */
-  /**************************************************************************/
+	/**************************************************************************/
+	/*!
+	\brief  Computes the current camera vectors. If the camera projection mode
+	is perspective, it calculates the front vector as well.
+	*/
+	/**************************************************************************/
 	void Camera::UpdateCameraVectors() {
 		// Calculate the new front vector
 		glm::vec3 front;
 		glm::vec3 up;
 
-    if (Projection == ProjectionMode::Perspective) {
-      front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-      front.y = sin(glm::radians(Pitch));
-      front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-      Front = glm::normalize(front);
-    }
+		if (Projection == ProjectionMode::Perspective) {
+			front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+			front.y = sin(glm::radians(Pitch));
+			front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+			Front = glm::normalize(front);
+		}
 
 		up.x = cos(glm::radians(Roll));
 		up.y = sin(glm::radians(Roll));
@@ -103,13 +111,13 @@ namespace DCEngine {
 		Up = glm::normalize(up);
 	}
 
-  /**************************************************************************/
-  /*!
-  \brief  Computes the camera projection matrix based on its translation.
-  \return A 4x4 matrix that is used for the shader uniform "projection".
-  \note  
-  */
-  /**************************************************************************/
+	/**************************************************************************/
+	/*!
+	\brief  Computes the camera projection matrix based on its translation.
+	\return A 4x4 matrix that is used for the shader uniform "projection".
+	\note
+	*/
+	/**************************************************************************/
 	glm::mat4 Camera::GetProjectionMatrix() {
 		if (Projection == ProjectionMode::Orthographic) {
 
@@ -120,38 +128,47 @@ namespace DCEngine {
 			{
 				Size = 1;
 			}
-			return glm::ortho(TransformComponent->Translation.x - (WindowWidth / WindowHeight) * (100 - Size),
-				TransformComponent->Translation.x + (WindowWidth / WindowHeight) * (100 - Size),
-				TransformComponent->Translation.y - (WindowHeight / WindowWidth) * (100 - Size),
-				TransformComponent->Translation.y + (WindowHeight / WindowWidth) * (100 - Size),
+			return glm::ortho(TransformComponent->Translation.x - ((float)1024 / 728) * (100 - Size),
+				TransformComponent->Translation.x + ((float)1024 / 728) * (100 - Size),
+				TransformComponent->Translation.y - ((float)728 / 1024) * (100 - Size),
+				TransformComponent->Translation.y + ((float)728 / 1024) * (100 - Size),
 				NearPlane,
 				FarPlane);
 		}
 		else if (Projection == ProjectionMode::Perspective) {
-			return glm::perspective(FieldOfView, 1.0f, NearPlane, FarPlane);
+			if (FieldOfView <= 1)
+			{
+				FieldOfView = 1;
+			}
+			if (FieldOfView >= 175)
+			{
+				FieldOfView = 175;
+			}
+			//trace << FieldOfView << "\n";
+			return glm::perspective(FieldOfView, ((float)1024 / 728), NearPlane, FarPlane);
 		}
 
-    trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
-     // Throw exception here. return 0;
-    return glm::mat4();
-		
+		trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
+		// Throw exception here. return 0;
+		return glm::mat4();
+
 	}
 
-  /**************************************************************************/
-  /*!
-  \brief Serialization functions.
-  */
-  /**************************************************************************/
-  void Camera::Serialize(Json::Value & root) {
-    // Serialize primitives
-    root["FieldOfView"] = FieldOfView;
-    root["Size"] = Size;
-    root["NearPlane"] = NearPlane;
-    root["FarPlane"] = FarPlane;
-  }
+	/**************************************************************************/
+	/*!
+	\brief Serialization functions.
+	*/
+	/**************************************************************************/
+	void Camera::Serialize(Json::Value & root) {
+		// Serialize primitives
+		root["FieldOfView"] = FieldOfView;
+		root["Size"] = Size;
+		root["NearPlane"] = NearPlane;
+		root["FarPlane"] = FarPlane;
+	}
 
-  void Camera::Deserialize(Json::Value & root) {
-  }
+	void Camera::Deserialize(Json::Value & root) {
+	}
 
 
 }
