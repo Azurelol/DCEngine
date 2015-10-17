@@ -37,7 +37,6 @@ namespace DCEngine {
     ~Space();
     void Initialize();
     void Update(float dt);
-
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
     
@@ -55,26 +54,20 @@ namespace DCEngine {
     void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 
-    const GameSession* Owner() { return gamesession_; };
+    const GameSession* Owner() { return GameSessionRef; };
 
     // Allows read only access to the space's name
-    const std::string& GetName() const { return ObjName;  }
+    //const std::string& GetName() const { return ObjName;  }
 
   private:
+        
+    LevelPtr CurrentLevel; //!< The currently-loaded level.
+    SystemVec SystemsContainer; //!< A container of systems this space is running.
+    GameSession* GameSessionRef; //!< The gamesession in which this space resides
+    GameObjectVec GameObjectContainer; //!< A vector of GameObjects this space holds.
 
-    /*/ MEMBER [FUNCTIONS] /*/
     Space() = delete; //!< Spaces should never be default or copy constructed.
-    Space(Space& space) = delete;
-
-    //void OnUpdateEvent(Event& eventObj);
-
-    /*/ MEMBER [VARIABLES] /*/
-    LevelPtr _currentLevel; //!< The currently-loaded level.
-    //GameObjectPtr _camera;
-    SystemVec _systems; //!< A container of systems this space is running.
-    GameSession* gamesession_; //!< The gamesession in which this space resides
-    GameObjectVec gameobjects_; //!< A vector of GameObjects this space holds.
-    
+    Space(Space& space) = delete;  
   };
 
   /**************************************************************************/
@@ -89,7 +82,7 @@ namespace DCEngine {
   /**************************************************************************/
   template <typename T>
   std::shared_ptr<T> Space::getSystem(EnumeratedSystem sysType) {
-    for (auto &it : _systems) {
+    for (auto &it : SystemsContainer) {
       if (it->_type == sysType)
         return std::static_pointer_cast<T>(it);
     }

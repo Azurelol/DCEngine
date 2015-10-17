@@ -37,7 +37,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -103,7 +103,9 @@ Daisy World::AddEntity - Added Pikapikano! to the space.
 |Daisy World::Initialize| 
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
+AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
+AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
 Audio::Register -  Daisy World has registered to the Audio system
 Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
@@ -132,26 +134,6 @@ Pikapikano!::Initialize
 GraphicsSpace::AddSprite - Pikapikano!
 
 [Engine::Loop]
-<<<<<<< HEAD
-Camera - Size: 80
-Camera - Size: 90
-Camera - Size: 100
-Camera - Size: 11
-Camera - Size: 21
-Camera - Size: 31
-Camera - Size: 41
-Camera - Size: 51
-Camera
-=======
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
 Camera - Size: 70
 Camera - Size: 70
 Camera - Size: 70
@@ -166,11 +148,17 @@ Camera - Size: 70
 Camera - Size: 70
 Camera - Size: 70
 Mouse down!
-Mouse up! 
+BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 545
 Mouse down!
-Mouse up! 
+BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 720
 Mouse down!
-Mouse up! 
+BallController::OnMouseUpEvent - Left Button released at x: 135 y: 778
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 252 y: 587
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 479
+Mouse down!
+BallController::OnMouseUpEvent - Right Button released at x: 86 y: 488
 Camera - Size: 70
 Camera - Size: 70
 Camera - Size: 70
@@ -185,4 +173,3 @@ Window::Terminate
 Input::Terminate 
 Audio::Terminate 
 Graphics::Terminate 
->>>>>>> 7921a0c50041ca873e06e885fbe87d426a4a406c

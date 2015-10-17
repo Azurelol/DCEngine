@@ -157,6 +157,21 @@
     <Filter Include="Core\Systems\Reflection\Meta">
       <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Projects\Rebound">
+      <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Rebound\Components">
+      <UniqueIdentifier>{34c01598-d814-44d6-90b4-7cb8e3bec6b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Rebound\Events">
+      <UniqueIdentifier>{3d70d904-78ff-4f31-a943-9c7f81c04eca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Rebound\Assets">
+      <UniqueIdentifier>{63a897dd-7b3a-43aa-86ba-c801161cf0ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projects\Includes">
+      <UniqueIdentifier>{831223b7-ed89-4e8b-8ba5-2262767d0bd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -345,9 +360,6 @@
     <ClCompile Include="Core\Components\GravityEffect.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\BallController.cpp">
-      <Filter>Core\Components\BallController</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClCompile>
@@ -356,6 +368,9 @@
     </ClCompile>
     <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp">
       <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -662,9 +677,6 @@
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\BallController.h">
-      <Filter>Core\Components\BallController</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClInclude>
@@ -673,6 +685,39 @@
     </ClInclude>
     <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
       <Filter>Projects\Dollhouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseUp.h">
+      <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\ReboundEvents.h">
+      <Filter>Projects\Rebound</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\ReboundComponents.h">
+      <Filter>Projects\Rebound</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\ProjectComponent.h">
+      <Filter>Projects\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\CoreEvents.h">
+      <Filter>Projects\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\CoreComponents.h">
+      <Filter>Projects\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\ProjectComponents.h">
+      <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\ProjectEvents.h">
+      <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\BallController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Events\SampleEvent.h">
+      <Filter>Projects\Rebound\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\ProjectEvent.h">
+      <Filter>Projects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

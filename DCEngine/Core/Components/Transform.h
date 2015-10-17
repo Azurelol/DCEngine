@@ -14,14 +14,11 @@
 
 namespace DCEngine {
   
+  class GameObject;
   class Transform : public Component {
+    friend class GameObject;
   public:
     
-    Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-
     // Properties
     Real3 Translation = Real3(0.0f, 0.0f, 0.0f);
     Real3 Rotation = Real3(0.0f, 0.0f, 0.0f);
@@ -33,7 +30,24 @@ namespace DCEngine {
     // Relative to self
     Real3 LocalTranslation = Translation;
     Real3 LocalRotation = Rotation;
-    Real3 LocalScale = Scale;
+    Real3 LocalScale = Scale;   
+
+
+    Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
+    void Initialize();
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);
+
+  private:
+    
+    Real3 Origin = Real3(0, 0, 0);
+    void UpdateTranslation();
+    void UpdateRotation();
+    void UpdateScale();
+
+
+
+
 
   };
 

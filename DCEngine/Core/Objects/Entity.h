@@ -65,19 +65,20 @@ namespace DCEngine {
     bool CheckMask(mask m);
     EntityType Type() { return type_; }
 
-
-
   protected:
 
     //ComponentVec ObserversList; //!< A list of the current listeners to this object.
     ComponentVec ComponentsContainer; //!< The list of components attached to the entity.  
     EntityType type_;
 
+    std::vector<Entity*> ChildrenContainer;
+    Entity* Parent;
+
   private:
 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    Entity* ParentRef;
+
     std::string Archetype;
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
 

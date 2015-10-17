@@ -16,7 +16,7 @@ namespace DCEngine {
   \brief  Constructor for the Space class.
   */
   /**************************************************************************/
-  Space::Space(std::string& name, GameSession& gamesession) : Entity(name), gamesession_(&gamesession) {
+  Space::Space(std::string& name, GameSession& gamesession) : Entity(name), GameSessionRef(&gamesession) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       trace << ObjName << "::Space - Constructor \n";
     type_ = EntityType::Space;
@@ -28,7 +28,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Space::~Space() {
-    gameobjects_.clear();
+    GameObjectContainer.clear();
   }
 
   /**************************************************************************/
@@ -53,13 +53,13 @@ namespace DCEngine {
 
     trace << "[" << ObjName << "::Initialize - Initializing all GameObjects...] \n";
     // Initialize all entities (in effect, initializing all attached components)
-    for (auto gameObject : gameobjects_) {
+    for (auto gameObject : GameObjectContainer) {
       // TEMPORARY: Should space, gamesession be even set this way?
       //            Should they not be set on the constructor?
       //            The problem is the Level object is constructing them,
       //            at the moment.
       gameObject->SpaceRef = this;
-      gameObject->GamesessionRef = gamesession_;
+      gameObject->GamesessionRef = GameSessionRef;
       gameObject->Initialize();
     }
   }
@@ -88,19 +88,19 @@ namespace DCEngine {
   void Space::AddSystem(SystemPtr system) {
 
 
-    for (auto systems : _systems) {
+    for (auto systems : SystemsContainer) {
       if (systems == system)
         throw std::exception("Attempted to add two copies of the same system to one space!");
     }
 
-    _systems.push_back(system);
+    SystemsContainer.push_back(system);
     
     if (TRACE_ON)
       trace << ObjName << "::AddSystem " << "- Added " << system->SysName << "\n";
   }
 
   GameSession& Space::getGameSession() {
-    return *gamesession_;
+    return *GameSessionRef;
   }
 
   /**************************************************************************/
@@ -113,10 +113,10 @@ namespace DCEngine {
       trace << ObjName << "::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
-    _currentLevel = level;
+    CurrentLevel = level;
 
     // Load GameObjects into the space
-    for (auto gameObject : _currentLevel->GameObjects) {
+    for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
 
@@ -133,8 +133,8 @@ namespace DCEngine {
   GameObjectPtr Space::CreateObject() {
     // Calls the object factory to create the object from an archetype
 
-    gameobjects_.push_back(std::shared_ptr<GameObject>(new GameObject));
-    return gameobjects_.back();
+    GameObjectContainer.push_back(std::shared_ptr<GameObject>(new GameObject));
+    return GameObjectContainer.back();
   }
 
   /**************************************************************************/
@@ -146,7 +146,7 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject* Space::FindObjectByName(const std::string & name) {
     // Search through the space's gameobjects
-    for (auto gameObj : gameobjects_) {
+    for (auto gameObj : GameObjectContainer) {
       if (gameObj->Name() == name)
         return gameObj.get();
     }
@@ -160,7 +160,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::AddObject(GameObjectPtr gameObject) {
-    gameobjects_.push_back(gameObject);
+    GameObjectContainer.push_back(gameObject);
+    ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
 
     if (TRACE_GAMEOBJECT_ADD)
       trace << ObjName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
@@ -182,7 +183,7 @@ namespace DCEngine {
       
       // Add any entities living in this space that fit the system
       // to its cache.
-      for (auto &it : gameobjects_) {
+      for (auto &it : GameObjectContainer) {
         
         auto m = sys->Mask();
         if (it->CheckMask(m))
@@ -197,8 +198,8 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Clear() {
-    gameobjects_.clear();
-    _systems.clear();
+    GameObjectContainer.clear();
+    SystemsContainer.clear();
   }
 
 
