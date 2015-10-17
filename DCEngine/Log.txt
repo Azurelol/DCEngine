@@ -37,7 +37,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading D:\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -118,58 +118,4 @@ Connor::Initialize
 GraphicsSpace::AddSprite - Connor
 SpriteTextor::Initialize 
 GraphicsSpace::AddSpriteText - SpriteTextor
-Reiner::Initialize 
-GraphicsSpace::AddSprite - Reiner
-PhysicsSpace::AddRigidBody - Reiner
-PhysicsSpace::AddCollider - Reiner
-Myres::Initialize 
-GraphicsSpace::AddSprite - Myres
-PhysicsSpace::AddRigidBody - Myres
-PhysicsSpace::AddCollider - Myres
-Basketball::Initialize 
-GraphicsSpace::AddSprite - Basketball
-PhysicsSpace::AddRigidBody - Basketball
-PhysicsSpace::AddCollider - Basketball
-Pikapikano!::Initialize 
-GraphicsSpace::AddSprite - Pikapikano!
-
-[Engine::Loop]
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 545
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 720
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 135 y: 778
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 252 y: 587
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 4.29497e+09 y: 479
-Mouse down!
-BallController::OnMouseUpEvent - Right Button released at x: 86 y: 488
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-Camera - Size: 70
-
-[Engine::Terminate] 
-Content::Terminate
-Factory::Terminate 
-Window::Terminate 
-Input::Terminate 
-Audio::Terminate 
-Graphics::Terminate 
+Reiner

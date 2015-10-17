@@ -31,7 +31,7 @@ namespace DCEngine {
 	}
 	void PlayerController::OnMouseUpEvent(Events::MouseUp * event)
 	{
-		Real3 MouseVector = Real3(event->x, event->y, 0); //set to the actual mouse's normalized vector once we have that capability
+		Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
 		RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
 		Charging = false;
 		CurrentCharge = 0;
