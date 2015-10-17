@@ -47,7 +47,7 @@
   // META_STR
   // Purpose : Finds a MetaData instance by string name
   //
-#define META_STR( STRING ) (MetaManager::Get( STRING ))
+#define META_STR(STRING) (MetaManager::Get(STRING))
 
 class MetaData;
 

@@ -110,6 +110,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\DCEngine\DCEngine\Libraries;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,6 +147,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,7 +161,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Components\2DAnimation.cpp" />
-    <ClCompile Include="Core\Components\BallController.cpp" />
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
@@ -214,17 +216,20 @@
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\MetaData.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
     <ClCompile Include="Projects\Dollhouse\Gallery.cpp" />
     <ClCompile Include="Projects\Dollhouse\Laboratory.cpp" />
+    <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
-    <ClInclude Include="Core\Components\BallController.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\CircleCollider.h" />
@@ -269,6 +274,7 @@
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
+    <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Objects\Component.h" />
@@ -318,6 +324,8 @@
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
+    <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h" />
+    <ClInclude Include="Core\Systems\Reflection\StringWrapper.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -325,9 +333,21 @@
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
     <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
+    <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
+    <ClInclude Include="Projects\Dollhouse\ReflectionTest.h" />
+    <ClInclude Include="Projects\CoreComponents.h" />
+    <ClInclude Include="Projects\ProjectComponent.h" />
+    <ClInclude Include="Projects\ProjectComponents.h" />
+    <ClInclude Include="Projects\ProjectEvent.h" />
+    <ClInclude Include="Projects\ProjectEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\BallController.h" />
+    <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
+    <ClInclude Include="Projects\Rebound\ReboundComponents.h" />
+    <ClInclude Include="Projects\Rebound\ReboundEvents.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Core\Debug\CallStackResearch.txt" />
     <Text Include="Core\Systems\Physics\PhysicsNotes.txt" />
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>

@@ -97,7 +97,7 @@ namespace DCEngine {
     */
 
     // Set the space's gamesession
-    GetSpace(name)->gamesession_ = this;
+    GetSpace(name)->GameSessionRef = this;
     return GetSpace(name);
   }
 

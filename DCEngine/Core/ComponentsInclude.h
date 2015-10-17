@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Components\Transform.h"
-
+// Internal Components
 #include "Components\PhysicsSpace.h"
 #include "Components\GraphicsSpace.h"
 #include "Components\SoundSpace.h"
@@ -24,4 +23,6 @@
 #include "Components\DebugCamera.h"
 #include "Components\DebugCollider.h"
 
-#include "Components\BallController.h"
+// External Components
+#include "../Projects/ProjectComponents.h"
+

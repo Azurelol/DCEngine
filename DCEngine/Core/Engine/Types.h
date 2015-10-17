@@ -54,6 +54,12 @@ namespace DCEngine {
     F4,
   };
 
+  enum class MouseButton {
+    Left,
+    Middle,
+    Right
+  };
+
   // Built-in types
   using String = std::string;
   using Boolean = bool;

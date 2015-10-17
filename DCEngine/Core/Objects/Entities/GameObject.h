@@ -14,7 +14,7 @@
 
 namespace DCEngine {
 
-  // FORWARD-DECLARATIONS //
+  /* Forward declarations*/
   class Space;
   class GameSession;
 
@@ -23,19 +23,24 @@ namespace DCEngine {
 
   public:
     GameObject(std::string name, Space& space, GameSession& gamesession);
-    GameObject() {
-      ObjName = "GameObject";
-    }
-
+    GameObject() { ObjName = "GameObject"; }
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
+
     Space* GetSpace();
     GameSession* GetGameSession();  
-    
+
+    void AttachTo(GameObject* parent);
+    void AttachToRelative(GameObject* parent);
+    void Detach();
+    void DetachRelative();
+
+
+    META_ADD_CLASS(GameObject); // Provides reflection for this object
 
   private:
-    Space* space_;
-    GameSession* gamesession_;
+    Space* SpaceRef;
+    GameSession* GamesessionRef;
 
   };
 

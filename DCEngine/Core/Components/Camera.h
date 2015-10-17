@@ -36,8 +36,7 @@ namespace DCEngine {
 
 	class Camera : public Component {
 	public:
-
-		// Camera Attributes
+    // Camera Attributes
 		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
     glm::vec3 Right = glm::vec3(1.0f, 0.0f, 0.0f);
@@ -55,6 +54,8 @@ namespace DCEngine {
 		//Clipping plane
 		GLfloat NearPlane = 0.1f;
 		GLfloat FarPlane = 100.0f;
+    Transform *TransformComponent;
+    float lol = 5;
 
 		Camera(Entity& owner);
 		void Initialize();
@@ -63,7 +64,8 @@ namespace DCEngine {
 		glm::mat4 GetViewMatrix();
 		glm::mat4 GetProjectionMatrix();
 		void OnLogicUpdate(Events::LogicUpdate* event);
-		Transform *TransformComponent;
+		
+    META_ADD_CLASS(Camera);
 
 	private:
 

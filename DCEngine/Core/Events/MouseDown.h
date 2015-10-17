@@ -15,8 +15,8 @@ namespace DCEngine {
   namespace Events {
     class MouseDown : public Event {
     public:
-		int x;
-		int y;
+    Real2 Position;
+    MouseButton ButtonPressed;
     private:
 
     };

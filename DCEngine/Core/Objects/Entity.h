@@ -67,15 +67,18 @@ namespace DCEngine {
 
   protected:
 
-    ComponentVec observers_; //!< A list of the current listeners to this object.
-    ComponentVec components_; //!< The list of components attached to the entity.  
+    //ComponentVec ObserversList; //!< A list of the current listeners to this object.
+    ComponentVec ComponentsContainer; //!< The list of components attached to the entity.  
     EntityType type_;
+
+    std::vector<Entity*> ChildrenContainer;
+    Entity* Parent;
 
   private:
 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    Entity* ParentRef;
+
     std::string Archetype;
     mask _mask = static_cast<int>(BitfieldComponent::Alive);
 
@@ -95,7 +98,7 @@ namespace DCEngine {
   template<typename ComponentClass>
   ComponentClass* Entity::getComponent() { 
     // Iterate through the container of component pointers...
-    for (auto componentPtr : components_) {
+    for (auto componentPtr : ComponentsContainer) {
       auto component = componentPtr.get();
       // If the component was found
       if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))

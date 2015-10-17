@@ -58,7 +58,7 @@ namespace DCEngine {
       // Check all window's events that were triggered since the last iteration
       if (_window->pollEvent(_event) == false)
         return;
-      
+
       switch (_event.type) {
       case sf::Event::KeyPressed:
         PollKeyPressed(_event);
@@ -69,11 +69,11 @@ namespace DCEngine {
       case sf::Event::MouseButtonPressed:
         PollMouseButtonPressed(_event);
         break;
-	  case sf::Event::MouseButtonReleased:
-		  PollMouseButtonReleased(_event);
-		  break;
-      // Don't process other events
-      default: 
+      case sf::Event::MouseButtonReleased:
+        PollMouseButtonReleased(_event);
+        break;
+        // Don't process other events
+      default:
         break;
       }
 
@@ -183,11 +183,14 @@ namespace DCEngine {
         keyDown->Key = Keys::Num9;
         break;
 
+      default:
+        break;
 
 
       }
       // Dispatch the event to the keyboard interface
       Daisy->getKeyboard()->Dispatch<Events::KeyDown>(keyDown);
+      delete keyDown;
     }
 
     /**************************************************************************/
@@ -218,21 +221,41 @@ namespace DCEngine {
         keyUp->Key = Keys::Right;
         break;
 
+      default:
+        break;
       }
 
       // Dispatch the event to the keyboard interface
       Daisy->getKeyboard()->Dispatch<Events::KeyUp>(keyUp);
+      delete keyUp;
     }
 
     void InputSFML::PollMouseButtonPressed(sf::Event & event) {
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
-	  //mouseDown->x = sf::Mouse::getPosition().x;
-	  //mouseDown->y = sf::Mouse::getPosition().y;
+      mouseDown->Position.x = event.mouseButton.x + (_window->getSize().x / 2);
+      mouseDown->Position.y = event.mouseButton.y + -(_window->getSize().y / 2);
 
+      switch (event.mouseButton.button) {
+
+      case sf::Mouse::Button::Left:
+        mouseDown->ButtonPressed = MouseButton::Left;
+        break;
+      case sf::Mouse::Button::Right:
+        mouseDown->ButtonPressed = MouseButton::Right;
+        break;
+      case sf::Mouse::Button::Middle:
+        mouseDown->ButtonPressed = MouseButton::Middle;
+        break;
+
+      default:
+        break;
+      }
+      
       // Dispatch the event to the mouse interface
       Daisy->getMouse()->Dispatch<Events::MouseDown>(mouseDown);
+      delete mouseDown;
     }
 
 	void InputSFML::PollMouseButtonReleased(sf::Event & event) {
@@ -240,12 +263,28 @@ namespace DCEngine {
 		// Create a mouse button pressed event
 		auto mouseUp = new Events::MouseUp();
 		//mouseUp->x = sf::Mouse::getPosition().x;
-		mouseUp->x = 1;
-			mouseUp->y = 1;
-		//mouseUp->y = sf::Mouse::getPosition().y;
+    mouseUp->Position.x = event.mouseButton.x - (_window->getSize().x / 2);
+    mouseUp->Position.y = event.mouseButton.y + (_window->getSize().y / 2);
+
+    switch (event.mouseButton.button) {
+
+    case sf::Mouse::Button::Left:
+      mouseUp->ButtonReleased = MouseButton::Left;
+      break;
+    case sf::Mouse::Button::Right:
+      mouseUp->ButtonReleased = MouseButton::Right;
+      break;
+    case sf::Mouse::Button::Middle:
+      mouseUp->ButtonReleased = MouseButton::Middle;
+      break;
+
+    default:
+      break;
+    }
 
 		// Dispatch the event to the mouse interface
 		Daisy->getMouse()->Dispatch<Events::MouseUp>(mouseUp);
+    delete mouseUp;
 	}
 
     /**************************************************************************/

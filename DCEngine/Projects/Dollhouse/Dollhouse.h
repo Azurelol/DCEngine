@@ -8,11 +8,11 @@
 #include "..\..\Core\ComponentsInclude.h"
 #include "..\..\Core\Systems\Factory\Serializer.h"
 #include "..\..\Core\Systems\Factory\Factory.h"
+#include "ReflectionTest.h"
 
 namespace DCEngine {
-
+  
   class Space;
-  //class Entity;
   class GameSession;
 
   class DollHouse : public Level {
@@ -26,6 +26,8 @@ namespace DCEngine {
       GalleryTesting();
       // Physics Testing: Blaine
       LaboratoryTesting();
+      // Reflection Testing:
+      ReflectionTest();
       // Serialization Testing
       SerializeTest();      
     }  
@@ -49,37 +51,13 @@ namespace DCEngine {
       // Camera properties      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;
-      cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Orthographic;
+      cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
 
       // Test to serialize the camera component settings:
       std::string cameraData;
       Serializer::Serialize(cameraObj->getComponent<Camera>(), cameraData);
       trace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
-    }
-
-
-    /* Tests Reflection with Gaul's MetaData */
-    void ReflectionTest() {
-
-      //DEFINE_META(int);
-      //DEFINE_META(float);
-      //DEFINE_META(double);
-      //DEFINE_META(std::string);
-
-      //trace << "-- Reflection Test -- \n";
-      //trace << META_TYPE(int)->Name() << "\n"; // "int"
-      //trace << META_TYPE(float)->Size() << "\n"; // "4"
-
-      //std::string word = "This is a word.";
-      //trace << "Type of word object: " << META(word)->Name() << "\n"; 
-      //trace << "Size of double: " << META_STR("double")->Size() << "\n";
-      //
-      //if (META(word) != META_TYPE(int)) {
-      //  trace << "The word object is not an int!\n";
-      //}
-      
-
     }
 
     /* Tests Serialization with JSONCPP */
@@ -116,8 +94,4 @@ namespace DCEngine {
     GameSession* gamesession_;
 
   };
-
-
-
-
 }
