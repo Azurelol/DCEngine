@@ -32,7 +32,7 @@ namespace DCEngine {
       glm::vec4 colorclean;
 	    this->SpriteShader->SetMatrix4("model", cleanup);	
       this->SpriteShader->SetVector4f("color", colorclean);
-      this->SpriteShader->SetInteger("image", 0);
+	  this->SpriteShader->SetInteger("isTexture", 0);
 	}
 
     /**************************************************************************/
@@ -270,6 +270,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
 	    AnimationUpdate(sprite, dt);
+		this->SpriteShader->SetInteger("isTexture", 1);
 	    //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       //glEnable(GL_CULL_FACE);
       //glEnable(GL_BLEND);
