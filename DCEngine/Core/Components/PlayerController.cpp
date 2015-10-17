@@ -1,4 +1,4 @@
-#include "BallController.h"
+#include "PlayerController.h"
 #include "EngineReference.h"
 #include "Transform.h"
 #include "RigidBody.h"
@@ -8,28 +8,28 @@
 
 namespace DCEngine {
 
-	void BallController::Initialize()
+	void PlayerController::Initialize()
 	{
-		Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
-		Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
-		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
+		Connect(Daisy->getMouse(), Events::MouseDown, PlayerController::OnMouseDownEvent);
+		Connect(Daisy->getMouse(), Events::MouseUp, PlayerController::OnMouseUpEvent);
+		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
 	}
 
-	void BallController::Serialize(Json::Value & root)
+	void PlayerController::Serialize(Json::Value & root)
 	{
 	}
 
-	void BallController::Deserialize(Json::Value & root)
+	void PlayerController::Deserialize(Json::Value & root)
 	{
 	}
 
-	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
+	void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
 	{
 		Charging = true;
 	}
-	void BallController::OnMouseUpEvent(Events::MouseUp * event)
+	void PlayerController::OnMouseUpEvent(Events::MouseUp * event)
 	{
 		Real3 MouseVector = Real3(event->x, event->y, 0); //set to the actual mouse's normalized vector once we have that capability
 		RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
@@ -38,7 +38,7 @@ namespace DCEngine {
 		trace << "Mouse up! \n";
 	}
 
-	void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
+	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		if (Charging)
 		{
@@ -55,12 +55,12 @@ namespace DCEngine {
 
 
 
-	void BallController::PrintTranslation()
+	void PlayerController::PrintTranslation()
 	{
 		//trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
 	}
 
-	void BallController::PrintVelocity()
+	void PlayerController::PrintVelocity()
 	{
 		Real3 vel = RigidBodyRef->getVelocity();
 		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";

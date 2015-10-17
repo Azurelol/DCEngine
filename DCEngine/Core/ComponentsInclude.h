@@ -17,6 +17,8 @@
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
 
+#include "Components\GravityEffect.h"
+
 #include "Components\DebugMoveController.h"
 #include "Components\DebugReport.h"
 #include "Components\DebugCamera.h"

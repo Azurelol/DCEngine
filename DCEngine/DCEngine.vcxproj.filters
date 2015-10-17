@@ -154,6 +154,9 @@
     <Filter Include="Core\Components\BallController">
       <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\PlayerController">
+      <UniqueIdentifier>{34f2d60c-aacb-4d95-aaac-025aa0bd7f3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -344,6 +347,9 @@
     </ClCompile>
     <ClCompile Include="Core\Components\BallController.cpp">
       <Filter>Core\Components\BallController</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\PlayerController.cpp">
+      <Filter>Core\Components\PlayerController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -652,6 +658,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\BallController.h">
       <Filter>Core\Components\BallController</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\PlayerController.h">
+      <Filter>Core\Components\PlayerController</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

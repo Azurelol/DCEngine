@@ -172,6 +172,7 @@
     <ClCompile Include="Core\Components\GravityEffect.cpp" />
     <ClCompile Include="Core\Components\Orientation.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
+    <ClCompile Include="Core\Components\PlayerController.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
     <ClCompile Include="Core\Components\SoundEmitter.cpp" />
     <ClCompile Include="Core\Components\SoundSpace.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
+    <ClInclude Include="Core\Components\PlayerController.h" />
     <ClInclude Include="Core\Components\ProjectSetup.h" />
     <ClInclude Include="Core\Components\RigidBody.h" />
     <ClInclude Include="Core\Components\SoundEmitter.h" />
