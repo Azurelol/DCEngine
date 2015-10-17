@@ -95,6 +95,8 @@ Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Reiner to the space.
 Daisy World::AddEntity - Added Myres to the space.
 Daisy World::AddEntity - Added Basketball to the space.
+Daisy World::AddEntity - Added Basketmariah to the space.
+Daisy World::AddEntity - Added Basketfloor to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
 
 [Engine::LoadProject - Finished loading ]
@@ -114,8 +116,4 @@ Camera::Initialize
 Camera::Initialize - Failed. No Transform component
 Chen::Initialize 
 GraphicsSpace::AddSprite - Chen
-Connor::Initialize 
-GraphicsSpace::AddSprite - Connor
-SpriteTextor::Initialize 
-GraphicsSpace::AddSpriteText - SpriteTextor
-Reiner
+Connor::Initial

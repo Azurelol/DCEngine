@@ -26,8 +26,7 @@ namespace DCEngine {
 	}
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{
-		//Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
-		Real3 MouseVector = Real3(1, 1, 0); //set to the actual mouse's normalized vector once we have that capability
+		Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
 		RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
 		Charging = false;
 		CurrentCharge = 0;
@@ -62,14 +61,18 @@ namespace DCEngine {
 
 	void BallController::PrintTranslation()
 	{
+<<<<<<< HEAD:DCEngine/Core/Components/BallController.cpp
+		//trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+=======
 		//trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
 		//	<< ", " << TransformRef->Translation.y
 		//	<< ", " << TransformRef->Translation.z << ")\n";
+>>>>>>> 64aa6441c4ff38716466e4f521f0126fe96bdea2:DCEngine/Projects/Rebound/Components/BallController.cpp
 	}
 
 	void BallController::PrintVelocity()
 	{
 		Real3 vel = RigidBodyRef->getVelocity();
-		trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

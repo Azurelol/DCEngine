@@ -1,0 +1,9 @@
+diff a/DCEngine/DCEngine.vcxproj b/DCEngine/DCEngine.vcxproj	(rejected hunks)
+@@ -161,7 +161,6 @@
+   </ItemDefinitionGroup>
+   <ItemGroup>
+     <ClCompile Include="Core\Components\2DAnimation.cpp" />
+-    <ClCompile Include="Core\Components\BallController.cpp" />
+     <ClCompile Include="Core\Components\BoxCollider.cpp" />
+     <ClCompile Include="Core\Components\Camera.cpp" />
+     <ClCompile Include="Core\Components\CameraViewport.cpp" />

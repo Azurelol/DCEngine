@@ -151,9 +151,6 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\BallController">
-      <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Reflection\Meta">
       <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
     </Filter>
@@ -370,6 +367,9 @@
       <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\PlayerController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -718,6 +718,9 @@
     </ClInclude>
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\PlayerController.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

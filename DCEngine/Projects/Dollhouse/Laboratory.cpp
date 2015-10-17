@@ -61,13 +61,46 @@ namespace DCEngine {
 		ball->AddComponent(ComponentPtr(new DebugReport(*ball)));
 		ball->AddComponent(ComponentPtr(new BallController(*ball)));
 		// Change the properties of the components
-		ball->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, -3.0f);
+		ball->getComponent<Transform>()->Translation = Real3(-10.0f, 0.0f, -3.0f);
 		ball->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		ball->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f);
 		// BoxCollider properties
-		ball->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+		ball->getComponent<BoxCollider>()->Size = Real3(1, 1, 2);
 		ball->getComponent<BoxCollider>()->IsDrawingCollider = true;
+
+		// Simple entity #4
+		GameObjectPtr mariah = ConstructGameObject("Basketmariah");
+		mariah->AddComponent(ComponentPtr(new Sprite(*mariah)));
+		mariah->AddComponent(ComponentPtr(new Transform(*mariah)));
+		mariah->AddComponent(ComponentPtr(new RigidBody(*mariah)));
+		mariah->AddComponent(ComponentPtr(new BoxCollider(*mariah)));
+		mariah->AddComponent(ComponentPtr(new GravityEffect(*mariah)));
+		// Change the properties of the components
+		mariah->getComponent<Transform>()->Translation = Real3(10.0f, 10.0f, -3.0f);
+		mariah->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+		// Sprite properties
+		mariah->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f);
+		// BoxCollider properties
+		mariah->getComponent<BoxCollider>()->Size = Real3(1, 1, 2);
+		mariah->getComponent<BoxCollider>()->IsDrawingCollider = true;
+
+		// Simple entity #5
+		GameObjectPtr floor = ConstructGameObject("Basketfloor");
+		floor->AddComponent(ComponentPtr(new Sprite(*floor)));
+		floor->AddComponent(ComponentPtr(new Transform(*floor)));
+		floor->AddComponent(ComponentPtr(new RigidBody(*floor)));
+		floor->AddComponent(ComponentPtr(new BoxCollider(*floor)));
+		// Change the properties of the components
+		floor->getComponent<Transform>()->Translation = Real3(-10.0f, 0.0f, -3.0f);
+		floor->getComponent<Transform>()->Scale = Real3(100.0f, 1.0f, 1.0f);
+		// Sprite properties
+		floor->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f);
+		// BoxCollider properties
+		floor->getComponent<BoxCollider>()->Size = Real3(100, 1, 2);
+		floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		// rigidbody properties
+		floor->getComponent<RigidBody>()->setMass(0);
 	}
 
 
