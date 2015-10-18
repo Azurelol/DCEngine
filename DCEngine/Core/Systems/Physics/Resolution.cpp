@@ -87,13 +87,13 @@ namespace DCEngine
 
   void ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
   {
-    unsigned iterationsRun = 0;
-    unsigned maxIterations = contactlist.size() * 5;
+    unsigned int iterationsRun = 0;
+    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size() * 5);
     while (iterationsRun < maxIterations)
     {
       // Find the contact with the largest closing velocity;
       float maxVelocity = FLT_MAX;
-      unsigned contactIndex = contactlist.size();
+      unsigned int contactIndex = static_cast<unsigned int>(contactlist.size());
       for (unsigned i = 0; i < contactlist.size(); i++)
       {
         float sepVel = contactlist[i].CalculateSeparatingVelocity();
@@ -147,8 +147,8 @@ namespace DCEngine
     //just keeps poking the bodies until the penetrations are below the penetration slop epsilon. 
     //Better solutions involve building contact graphs, shock propagation and constraint based
     //solvers.
-    unsigned iterationsRun = 0;
-    unsigned maxIterations = contactlist.size() * 5;
+    unsigned int iterationsRun = 0;
+    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size() * 5);
     const float positionEpsilon = 0.0001f;
 
     while (iterationsRun < maxIterations)
@@ -156,7 +156,7 @@ namespace DCEngine
       // Find biggest penetration greater than
       //the correction epsilon
       float maxPenetration = positionEpsilon;
-      unsigned contactIndex = contactlist.size();
+      unsigned contactIndex = static_cast<unsigned int>(contactlist.size());
       for (unsigned j = 0; j < contactlist.size(); ++j)
       {
         if (contactlist[j].Penetration > maxPenetration)

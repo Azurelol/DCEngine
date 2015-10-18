@@ -1,35 +1,44 @@
 #include "Precompiled.h"
 #include "Object.h"
 
-DEFINE_META_POD( int );
-DEFINE_META_POD( int * );
-DEFINE_META_POD( char );
-DEFINE_META_POD( char * );
-DEFINE_META_POD( float );
-DEFINE_META_POD( std::string );
+
+namespace Engine {
+  DEFINE_META_POD(int);
+  DEFINE_META_POD(int *);
+  DEFINE_META_POD(char);
+  DEFINE_META_POD(char *);
+  DEFINE_META_POD(float);
+  DEFINE_META_POD(std::string);
 
 #define PRINT_MEMBERS( TYPE ) \
   PrintMembers<TYPE>( #TYPE )
 
-template <typename TYPE>
-void PrintMembers( const char *type )
-{
-  std::cout << std::endl << "MetaData for " << type << " wrapper:" << std::endl;
-  std::cout << META_TYPE( TYPE )->Name( ) << std::endl;
-  std::cout << META_TYPE( TYPE )->Size( ) << std::endl;
 
-  std::cout << "{" << std::endl;
-  auto a = META_TYPE(TYPE)->members;
-  for(auto i = META_TYPE( TYPE )->members.begin( ); i != META_TYPE( TYPE )->members.end( ); ++i)
+  template <typename TYPE>
+  void PrintMembers(const char *type)
   {
-    std::cout << "  " << (*i)->Name( ) << std::endl;
-    std::cout << "  " << (*i)->Offset( ) << std::endl;
+    std::cout << std::endl << "MetaData for " << type << " wrapper:" << std::endl;
+    std::cout << META_TYPE(TYPE)->Name() << std::endl;
+    std::cout << META_TYPE(TYPE)->Size() << std::endl;
+
+    std::cout << "{" << std::endl;
+    auto a = META_TYPE(TYPE)->members;
+    for (auto i = META_TYPE(TYPE)->members.begin(); i != META_TYPE(TYPE)->members.end(); ++i)
+    {
+      std::cout << "  " << (*i)->Name() << std::endl;
+      std::cout << "  " << (*i)->Offset() << std::endl;
+    }
+    std::cout << "}" << std::endl;
   }
-  std::cout << "}" << std::endl;
+
 }
+
+
 
 void main( void )
 {
+  using namespace Engine;
+
   std::cout << META_TYPE( int )->Name( ) << std::endl;
   std::cout << META_TYPE( int )->Size( ) << std::endl;
   std::cout << std::endl;

@@ -1,53 +1,56 @@
 #include "Precompiled.h"
 
-Member::Member( std::string string, unsigned val, MetaData *meta ) : name( string ), offset( val ), data( meta )
+namespace Engine
 {
-}
+  Member::Member(std::string string, unsigned val, MetaData *meta) : name(string), offset(val), data(meta)
+  {
+  }
 
-Member::~Member( )
-{
-}
+  Member::~Member()
+  {
+  }
 
-const std::string& Member::Name( void ) const
-{
-  return name;
-}
+  const std::string& Member::Name(void) const
+  {
+    return name;
+  }
 
-unsigned Member::Offset( void ) const
-{
-  return offset;
-}
+  unsigned Member::Offset(void) const
+  {
+    return offset;
+  }
 
-const MetaData *Member::Meta( void ) const
-{
-  return data;
-}
+  const MetaData *Member::Meta(void) const
+  {
+    return data;
+  }
 
-MetaData::MetaData( std::string string, unsigned val ) : name( string ), size( val )
-{
-}
+  MetaData::MetaData(std::string string, unsigned val) : name(string), size(val)
+  {
+  }
 
-MetaData::~MetaData( )
-{
-}
+  MetaData::~MetaData()
+  {
+  }
 
-void MetaData::Init( std::string string, unsigned val )
-{
-  name = string;
-  size = val;
-}
+  void MetaData::Init(std::string string, unsigned val)
+  {
+    name = string;
+    size = val;
+  }
 
-const std::string& MetaData::Name( void ) const
-{
-  return name;
-}
+  const std::string& MetaData::Name(void) const
+  {
+    return name;
+  }
 
-unsigned MetaData::Size( void ) const
-{
-  return size;
-}
+  unsigned MetaData::Size(void) const
+  {
+    return size;
+  }
 
-void MetaData::AddMember( const Member *member )
-{
-  members.push_back( member );
+  void MetaData::AddMember(const Member *member)
+  {
+    members.push_back(member);
+  }
 }

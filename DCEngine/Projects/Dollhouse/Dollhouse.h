@@ -32,6 +32,8 @@ namespace DCEngine {
       SerializeTest();      
     }  
 
+
+
     void SetupCamera() {
       auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
 

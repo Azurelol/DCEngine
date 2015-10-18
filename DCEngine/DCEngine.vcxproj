@@ -118,7 +118,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -209,9 +209,8 @@
     <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
-    <ClCompile Include="Core\Systems\Graphics\GGLDebugDraw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
-    <ClCompile Include="Core\Systems\Input\InputGLFW.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
     <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
@@ -220,9 +219,9 @@
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
-    <ClCompile Include="Core\Systems\Window\WindowGLFW.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
     <ClCompile Include="Projects\Dollhouse\Gallery.cpp" />
     <ClCompile Include="Projects\Dollhouse\Laboratory.cpp" />
@@ -317,7 +316,6 @@
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
     <ClInclude Include="Core\Systems\Input\Input.h" />
-    <ClInclude Include="Core\Systems\Input\InputGLFW.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
     <ClInclude Include="Core\Systems\Physics\Collision.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
@@ -328,10 +326,10 @@
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h" />
     <ClInclude Include="Core\Systems\Reflection\StringWrapper.h" />
+    <ClInclude Include="Core\Systems\Reflection\TypesMeta.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
-    <ClInclude Include="Core\Systems\Window\WindowGLFW.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
     <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />

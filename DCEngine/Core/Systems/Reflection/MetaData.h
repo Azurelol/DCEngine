@@ -134,6 +134,7 @@ namespace DCEngine {
 
     static void Initialize(std::string name, unsigned size) {
       Get()->Initialize(name, size);
+      RegisterMetaData();
     }
 
     static void AddMember(std::string memberName, unsigned memberOffset, MetaData* meta) {
@@ -144,7 +145,7 @@ namespace DCEngine {
       return reinterpret_cast<MetaType*>(NULL);
     }
 
-    static void RegisterMetaData();
+    static void RegisterMetaData(void);
 
     // Ensures a single instance can exist for this class type
     static MetaData* Get() {

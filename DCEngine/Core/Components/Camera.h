@@ -55,7 +55,6 @@ namespace DCEngine {
 		GLfloat NearPlane = 0.1f;
 		GLfloat FarPlane = 100.0f;
     Transform *TransformComponent;
-    float lol = 5;
 
 		Camera(Entity& owner);
 		void Initialize();

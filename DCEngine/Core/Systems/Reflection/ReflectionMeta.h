@@ -1,5 +1,24 @@
+/*****************************************************************************/
+/*!
+@file   ReflectionMeta.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/16/2015
+@brief  The reflection system provides a way to store data about class
+        and data types at runtime that the compiler usually discards.
+@note   The credit to this implementation of a Reflection system goes the 
+        following DigiPen alumni:
+        - Randy Gaul
+        - Sean Reilly
+        - Treb Connell
+      
+        Randy Gaul's C++ Reflection: Type-MetaData tutorial series:
+        http://www.randygaul.net/2012/10/01/c-reflection-type-metadata-introduction/
+*/
+/******************************************************************************/
 #pragma once
 #include "MetaData.h"
+#include "StringWrapper.h"
 #include "../../Engine/Types.h"
 #include "../../Debug/Debug.h"
 
@@ -21,7 +40,9 @@ namespace DCEngine {
     static void RegisterMeta(const MetaData* instance);
     //!< Retrieves a MetaData instance by string name from the map of MetaData
     //  objects.
-    static const MetaData* Get(std::string name);
+    static const MetaData* Get(std::string name) {
+      return GetMap().at(name);
+    }
 
     //!< Safe and easy singleton for a map of MetaData objects
     static MetaMap& GetMap() {

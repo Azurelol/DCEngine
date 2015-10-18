@@ -6,7 +6,9 @@ namespace DCEngine {
   /*!                           Member                                      */
   /**************************************************************************/
 
-  Member::Member(std::string string, unsigned val, MetaData * meta)
+  Member::Member(std::string string, unsigned val, MetaData * meta) : MemberName(string),
+                                                                      MemberOffset(val),
+                                                                      MemberData(meta)
   {
   }
 

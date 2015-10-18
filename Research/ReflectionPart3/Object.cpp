@@ -1,32 +1,35 @@
 #include "Precompiled.h"
 #include "Object.h"
 
-DEFINE_META( Object )
+namespace Engine
 {
-  ADD_MEMBER( ID );
-  ADD_MEMBER( active );
-  ADD_MEMBER( x );
-}
+  DEFINE_META(Object)
+  {
+    ADD_MEMBER(ID);
+    ADD_MEMBER(active);
+    ADD_MEMBER(x);
+  }
 
-Object::Object( int id ) : ID( 0 ), active( true )
-{
-}
+  Object::Object(int id) : ID(0), active(true)
+  {
+  }
 
-Object::~Object( )
-{
-}
+  Object::~Object()
+  {
+  }
 
-DEFINE_META(DerivedObject) {
-  ADD_MEMBER(Numbers);
-  ADD_MEMBER(IsCool);
-}
+  DEFINE_META(DerivedObject) {
+    ADD_MEMBER(Numbers);
+    ADD_MEMBER(IsCool);
+  }
 
-DerivedObject::DerivedObject(int id) : Object(id)
-{
+  DerivedObject::DerivedObject(int id) : Object(id)
+  {
 
-}
+  }
 
-DerivedObject::~DerivedObject()
-{
+  DerivedObject::~DerivedObject()
+  {
 
+  }
 }

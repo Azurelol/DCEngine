@@ -6,9 +6,8 @@
 @date   10/16/2015
 @brief  The reflection system provides
 @note   The credit to my implementation of the Reflection system used in this 
-        engine goes to Randy Gaul's C++ Reflection: Type-MetaData tutorial
-        series:
-        http://www.randygaul.net/2012/10/01/c-reflection-type-metadata-introduction/
+        engine goes to Randy Gaul. More information in the implementation
+        header.
         
 */
 /******************************************************************************/

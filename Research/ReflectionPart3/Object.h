@@ -1,27 +1,30 @@
 #pragma once
 
-class Object
-{
-public:
-  Object( int id );
-  ~Object( );
+namespace Engine {
+  class Object
+  {
+  public:
+    Object(int id);
+    ~Object();
 
-  META_DATA( Object );
+    META_DATA(Object);
 
-private:
-  int ID;
-  bool active;
-  double x;
-};
+  private:
+    int ID;
+    bool active;
+    double x;
+  };
 
-class DerivedObject : public Object {
-public:
-  DerivedObject(int id);
-  ~DerivedObject();
+  class DerivedObject : public Object {
+  public:
+    DerivedObject(int id);
+    ~DerivedObject();
 
-  META_DATA(DerivedObject);
+    META_DATA(DerivedObject);
 
-private:
-  int Numbers;
-  bool IsCool;
-};
+  private:
+    int Numbers;
+    bool IsCool;
+  };
+
+}
