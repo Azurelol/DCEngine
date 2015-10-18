@@ -372,6 +372,9 @@
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Content\FileSystem.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -718,6 +721,9 @@
     </ClInclude>
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\FileSystem.h">
+      <Filter>Core\Systems\Content</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

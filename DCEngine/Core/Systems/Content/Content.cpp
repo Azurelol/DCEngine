@@ -1,5 +1,5 @@
 #include "Content.h" 
-#include <DIRENT\dirent.h>
+#include "FileSystem.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -64,7 +64,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadEngineData(std::string& engineData)
     {
-      // Deserialize the file
       
 
       // NOT REALLY LOADING, IS IT?
@@ -72,7 +71,10 @@ namespace DCEngine {
       EngineInfo->ShaderPath = "Core/Assets/Shaders/";
       EngineInfo->FontPath = "Core/Assets/Fonts/";
       EngineInfo->SoundPath = "Core/Assets/Sounds/";
+      
       trace << "Content::LoadEngineData - Finished loading all engine data. \n";
+
+      
     }
 
     /**************************************************************************/
@@ -83,7 +85,7 @@ namespace DCEngine {
     void Content::LoadProjectData(std::string& projectData)
     {
 
-      //auto test = ScanFolder(std::string("Core/Assets"));
+      //auto test = DirectoryExtractFilePaths(std::string("Core/Assets"));
 
       // Load the loaded project's assets
       LoadProjectAssets();
@@ -114,8 +116,27 @@ namespace DCEngine {
       trace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
       // Deserialize the engine's core assets file
 
-      // Scan the specfied folder and recursively add each resource to its appropiate
+      // Scan the specified folder and recursively add each resource to its appropiate
       // map.
+
+      //auto a = FileSystem::FileFound(EngineInfo->SpritePath + "square2.png");
+      //auto b = FileSystem::FileFound(EngineInfo->SpritePath + "square3.png");
+      //std::vector<std::string> files;
+      //auto c = FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, files);
+      //std::string contentRead;
+      //auto d = FileSystem::FileReadToString(EngineInfo->ShaderPath + "SpriteShader.vs", contentRead);
+      //auto f = FileSystem::FileWriteString("hey2.txt", contentRead);
+
+
+      //std::string modifyData;
+      //auto e = FileSystem::FileLastModified("hey2.txt", modifyData);
+
+      //auto g = FileSystem::FileRename("hey2.txt", "lol3.txt");
+
+      //std::string filePathy;
+      //auto h = FileSystem::DirectoryFindFile("Debug.cpp", "Core", filePathy);
+
+      //FileSystem::Remove("lol3.txt");
 
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"), 
@@ -142,26 +163,6 @@ namespace DCEngine {
     void Content::LoadProjectAssets()
     {
 
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scan a folder and add all its files to a vector.
-    @return Returns a vector containing the filepaths.
-    */
-    /**************************************************************************/
-    std::vector<std::string> ScanFolder(std::string& folderPath)
-    {
-      std::vector<std::string> filePaths;
-      struct dirent* folderEntry;
-      DIR* folderDir = NULL;
-
-      folderDir = opendir(folderPath.c_str());
-      while (folderEntry = readdir(folderDir)) {
-        filePaths.push_back(folderEntry->d_name);
-      }
-
-      return filePaths;
     }
 
     /**************************************************************************/
