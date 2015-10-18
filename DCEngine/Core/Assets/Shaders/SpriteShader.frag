@@ -14,16 +14,15 @@ void main() {
 
   //color = vec4(spriteColor);
 
-  color = vec4(spriteColor) * texture(image, TexCoords);
+ // color = vec4(spriteColor) * texture(image, TexCoords);
 
-  /*
+
   if (isTexture == 1) {
     color = vec4(spriteColor) * texture(image, TexCoords);
   }
   else {
     color = vec4(spriteColor);
   }
-  */
 
   
 

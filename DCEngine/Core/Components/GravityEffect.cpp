@@ -5,6 +5,20 @@
 
 namespace DCEngine 
 {
+
+	void GravityEffect::Initialize()
+	{
+
+	}
+
+	void GravityEffect::Serialize(Json::Value & root)
+	{
+	}
+
+	void GravityEffect::Deserialize(Json::Value & root)
+	{
+	}
+
   void GravityEffect::Update(float dt)
   {
     if (Active)

@@ -51,7 +51,7 @@ namespace DCEngine {
 	/**************************************************************************/
 	void Camera::OnLogicUpdate(Events::LogicUpdate* event)
 	{
-		trace << "Updatelol";
+		trace << "Camera::OnLogicUpdate::Updatelol";
 		Update();
 	}
 
@@ -126,7 +126,7 @@ namespace DCEngine {
 
 			if (Size >= 99)
 			{
-				Size = 1;
+				Size = 99;
 			}
 			return glm::ortho(TransformComponent->Translation.x - ((float)1024 / 728) * (100 - Size),
 				TransformComponent->Translation.x + ((float)1024 / 728) * (100 - Size),
