@@ -19,7 +19,7 @@
 // Headers
 #include "../Engine/Event.h" //!< Components need to access events.
 #include "../EventsInclude.h" //!< A list of events that can be added.
-#include "../Systems/Factory/Serializer.h" 
+#include "../Systems/Serialization/Serialization.h"
 
 namespace DCEngine {
 

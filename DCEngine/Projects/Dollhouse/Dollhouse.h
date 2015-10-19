@@ -6,7 +6,7 @@
 #include "..\..\Core\Components\EngineReference.h"
 #include "..\..\Core\Objects\Entity.h"
 #include "..\..\Core\ComponentsInclude.h"
-#include "..\..\Core\Systems\Factory\Serializer.h"
+#include "..\..\Core\Systems\Serialization\Serialization.h"
 #include "..\..\Core\Systems\Factory\Factory.h"
 #include "ReflectionTest.h"
 
@@ -30,9 +30,7 @@ namespace DCEngine {
       ReflectionTest();
       // Serialization Testing
       SerializeTest();      
-    }  
-
-
+    } 
 
     void SetupCamera() {
       auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
@@ -57,7 +55,7 @@ namespace DCEngine {
 
       // Test to serialize the camera component settings:
       std::string cameraData;
-      Serializer::Serialize(cameraObj->getComponent<Camera>(), cameraData);
+      Serialization::Serialize(cameraObj->getComponent<Camera>(), cameraData);
       trace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
     }
@@ -70,12 +68,12 @@ namespace DCEngine {
       rango->AddComponent(ComponentPtr(new Transform(*rango)));
       rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
 
-      // Serializer test
+      // Serialization test
       std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
-      Serializer::Deserialize(rango.get(), input);
+      Serialization::Deserialize(rango.get(), input);
       trace << "Raw Json Input\n" << input << "\n\n";
       std::string output;
-      Serializer::Serialize(rango.get(), output);
+      Serialization::Serialize(rango.get(), output);
       trace << "GameObject Serialized Output\n" << output << "\n\n";
     }
 

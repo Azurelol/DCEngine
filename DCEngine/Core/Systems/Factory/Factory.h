@@ -14,7 +14,7 @@
 // Libraries
 #include <set>
 // Headers
-#include "Serializer.h"
+#include "../../Systems/Serialization/Serialization.h"
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../ComponentsInclude.h"

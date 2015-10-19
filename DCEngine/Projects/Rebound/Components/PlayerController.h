@@ -1,5 +1,5 @@
 #pragma once
-#include "ComponentReference.h"
+#include "../../ProjectComponent.h"
 
 namespace DCEngine {
 

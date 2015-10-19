@@ -18,10 +18,10 @@
 #include <map>
 #include <list>
 // Headers
-#include "..\Systems\Factory\Serializer.h"
 #include "Component.h"
 #include "../Engine/Event.h"
 #include "..\EventsInclude.h"
+#include "..\Systems\Serialization\Serialization.h"
 
 namespace DCEngine {
   

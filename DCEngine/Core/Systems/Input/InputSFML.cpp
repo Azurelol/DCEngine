@@ -234,8 +234,8 @@ namespace DCEngine {
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
-      mouseDown->Position.x = event.mouseButton.x + (_window->getSize().x / 2);
-      mouseDown->Position.y = event.mouseButton.y + -(_window->getSize().y / 2);
+      mouseDown->Position.x = static_cast<float>(event.mouseButton.x + (_window->getSize().x / 2));
+      mouseDown->Position.y = static_cast<float>(event.mouseButton.y -(_window->getSize().y / 2));
 
       switch (event.mouseButton.button) {
 

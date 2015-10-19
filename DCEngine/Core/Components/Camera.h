@@ -64,8 +64,6 @@ namespace DCEngine {
 		glm::mat4 GetProjectionMatrix();
 		void OnLogicUpdate(Events::LogicUpdate* event);
 		
-    META_ADD_CLASS(Camera);
-
 	private:
 
 

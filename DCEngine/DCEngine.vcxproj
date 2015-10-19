@@ -174,7 +174,6 @@
     <ClCompile Include="Core\Components\GravityEffect.cpp" />
     <ClCompile Include="Core\Components\Orientation.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
-    <ClCompile Include="Core\Components\PlayerController.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
     <ClCompile Include="Core\Components\SoundEmitter.cpp" />
     <ClCompile Include="Core\Components\SoundSpace.cpp" />
@@ -206,7 +205,6 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
-    <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
@@ -218,8 +216,13 @@
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp" />
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp" />
     <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\Variant.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\VariantBase.cpp" />
+    <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
+    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
@@ -227,6 +230,7 @@
     <ClCompile Include="Projects\Dollhouse\Laboratory.cpp" />
     <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
@@ -247,7 +251,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
-    <ClInclude Include="Core\Components\PlayerController.h" />
     <ClInclude Include="Core\Components\ProjectSetup.h" />
     <ClInclude Include="Core\Components\RigidBody.h" />
     <ClInclude Include="Core\Components\SoundEmitter.h" />
@@ -311,8 +314,6 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\Content\FileSystem.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
-    <ClInclude Include="Core\Systems\Factory\Serializer.h" />
-    <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
     <ClInclude Include="Core\Systems\Input\Input.h" />
@@ -324,9 +325,14 @@
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
+    <ClInclude Include="Core\Systems\Reflection\RefVariant.h" />
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h" />
     <ClInclude Include="Core\Systems\Reflection\StringWrapper.h" />
     <ClInclude Include="Core\Systems\Reflection\TypesMeta.h" />
+    <ClInclude Include="Core\Systems\Reflection\Variant.h" />
+    <ClInclude Include="Core\Systems\Reflection\VariantBase.h" />
+    <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
+    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -342,6 +348,7 @@
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
+    <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
     <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
     <ClInclude Include="Projects\Rebound\ReboundComponents.h" />
     <ClInclude Include="Projects\Rebound\ReboundEvents.h" />

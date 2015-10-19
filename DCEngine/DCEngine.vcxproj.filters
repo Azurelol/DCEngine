@@ -145,9 +145,6 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\BallController">
-      <UniqueIdentifier>{82ac00df-c95f-40d9-83e6-2647378c1da9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Reflection\Meta">
       <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
     </Filter>
@@ -165,6 +162,9 @@
     </Filter>
     <Filter Include="Projects\Includes">
       <UniqueIdentifier>{831223b7-ed89-4e8b-8ba5-2262767d0bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Serialization">
+      <UniqueIdentifier>{b2b0d7d5-7c05-4467-b4c7-6b7c2c3362bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -259,9 +259,6 @@
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Factory\Factory.cpp">
-      <Filter>Core\Systems\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Factory\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Factory</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\CameraViewport.cpp">
@@ -360,12 +357,29 @@
     <ClCompile Include="Core\Systems\Content\FileSystem.cpp">
       <Filter>Core\Systems\Content</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\PlayerController.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp">
       <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\Variant.cpp">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\VariantBase.cpp">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Serialization\Serialization.cpp">
+      <Filter>Core\Systems\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
+      <Filter>Core\Systems\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -546,12 +560,6 @@
     <ClInclude Include="Core\Systems\Factory\Factory.h">
       <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Factory\Serializer.h">
-      <Filter>Core\Systems\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Factory\SerializerJSONCPP.h">
-      <Filter>Core\Systems\Factory</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\CameraViewport.h">
       <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
@@ -651,9 +659,6 @@
     <ClInclude Include="Core\Systems\Reflection\Reflection.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
-      <Filter>Core\Systems\Reflection</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\Orientation.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
@@ -711,9 +716,29 @@
     <ClInclude Include="Core\Systems\Content\FileSystem.h">
       <Filter>Core\Systems\Content</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\PlayerController.h" />
     <ClInclude Include="Core\Systems\Reflection\TypesMeta.h">
       <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\Variant.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\VariantBase.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\RefVariant.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\Serialization.h">
+      <Filter>Core\Systems\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
+      <Filter>Core\Systems\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,10 @@
 /******************************************************************************/
 #pragma once
 #include "MetaData.h"
+#include "Variant.h"
+#include "RefVariant.h"
 #include "StringWrapper.h"
+
 #include "../../Engine/Types.h"
 #include "../../Debug/Debug.h"
 

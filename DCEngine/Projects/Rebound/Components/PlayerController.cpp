@@ -1,10 +1,5 @@
 #include "PlayerController.h"
-#include "EngineReference.h"
-#include "Transform.h"
-#include "RigidBody.h"
-
-// Access to the SoundSpace to play sounds
-#include "SoundSpace.h"
+#include "../../CoreComponents.h"
 
 namespace DCEngine {
 
