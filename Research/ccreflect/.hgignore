@@ -1,0 +1,27 @@
+syntax: glob
+*/lib*
+*/temp*
+*/sln*
+*.cd
+*.ilk
+*.pdb
+*.vcxproj*
+*.vcproj*.user
+*.log
+*.tlog
+*.obj
+*.idb
+*.manifest
+*/obj*
+*.exp
+*.sln
+*.*sdf
+*ipch*
+*.suo
+*.ncb
+*.bak
+*.orig
+*/Debug*
+*/Release*
+*~
+*.swp
