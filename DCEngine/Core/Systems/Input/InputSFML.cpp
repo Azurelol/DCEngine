@@ -234,8 +234,8 @@ namespace DCEngine {
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
-      mouseDown->Position.x = static_cast<float>(event.mouseButton.x + (_window->getSize().x / 2));
-      mouseDown->Position.y = static_cast<float>(event.mouseButton.y -(_window->getSize().y / 2));
+      mouseDown->Position.x = (float)event.mouseButton.x - (_window->getSize().x / 2);
+      mouseDown->Position.y = -1 * ((float)event.mouseButton.y - (_window->getSize().y / 2));
 
       switch (event.mouseButton.button) {
 
@@ -263,8 +263,8 @@ namespace DCEngine {
 		// Create a mouse button pressed event
 		auto mouseUp = new Events::MouseUp();
 		//mouseUp->x = sf::Mouse::getPosition().x;
-    mouseUp->Position.x = event.mouseButton.x - (_window->getSize().x / 2);
-    mouseUp->Position.y = event.mouseButton.y + (_window->getSize().y / 2);
+    mouseUp->Position.x = (float)event.mouseButton.x - (_window->getSize().x / 2);
+    mouseUp->Position.y = -1 * ((float)event.mouseButton.y - (_window->getSize().y / 2));
 
     switch (event.mouseButton.button) {
 
