@@ -166,6 +166,9 @@
     <Filter Include="Core\Systems\Serialization">
       <UniqueIdentifier>{b2b0d7d5-7c05-4467-b4c7-6b7c2c3362bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor">
+      <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -380,6 +383,9 @@
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Editor.cpp">
+      <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -739,6 +745,9 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Editor.h">
+      <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -86,6 +86,7 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
+    _systems.push_back(SystemPtr(new Systems::Editor));
 
     //trace << "\n";
     //std::string projectFilePath = "Projects/Sample/SampleProj.dcp";

@@ -29,8 +29,7 @@ namespace DCEngine {
     class Factory : public System {    
       friend class Engine;
 
-    public:            
-      
+    public:                  
       /* GameObjects*/
       GameObjectPtr CreateGameObject(std::string& name, Space& space, bool init); //!< Creates a default gameObj
       GameObjectPtr CreateGameObject(const std::string& gameObjName, const Space& space, bool init);

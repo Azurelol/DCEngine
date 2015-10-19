@@ -27,12 +27,12 @@ namespace DCEngine {
   }
 
   Entity* Component::Owner() {
-    return (Entity*)owner_;
+    return dynamic_cast<Entity*>(owner_);
   }
 
   void Component::SetReferences() {
     auto type = Owner()->Type();
-    auto entity = (Entity*)Owner();
+    auto entity = dynamic_cast<Entity*>(Owner());
 
     // If the owner is a 'GameObject' entity
     if (type == EntityType::GameObject) {

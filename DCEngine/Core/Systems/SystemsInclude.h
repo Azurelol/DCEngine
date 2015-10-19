@@ -8,3 +8,4 @@
 #include "Factory/Factory.h"
 #include "Content/Content.h"
 #include "Reflection\Reflection.h"
+#include "Editor\Editor.h"
