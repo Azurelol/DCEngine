@@ -31,8 +31,6 @@ namespace DCEngine {
   void MetaCreator<RemoveQualifier<TYPE>::type>::RegisterMetaData( void ) \
   { \
   }
-    //MetaCreator<RemoveQualifier<TYPE>::type>::SetSerializeFn( Serialization::SerializeTextPrimitive<RemoveQualifier<TYPE>::type> ); \
-  }
 
   /* META_ADD_CLASS_MEMBER: This macro takes the number zero, turns it into a pointer to a
   type of object (class or struct). After it is typecast it uses the -> operator to access

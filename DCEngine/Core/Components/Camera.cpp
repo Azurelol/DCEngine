@@ -18,21 +18,22 @@ namespace DCEngine {
 		auto gameObjOwner = (GameObject*)Owner();
 		TransformComponent = gameObjOwner->getComponent<Transform>();
 
-		if (TransformComponent != NULL)
+
+
+    // Camera needs a Transform component
+		if (!TransformComponent)
 		{
-			trace << "Camera::Initialize - Failed. No Transform component\n";
+      throw DCException("Camera::Initialize - Failed. No Transform component");			
 			return;
 		}
 
+    // Connect the camera to LogicUpdate events
 		Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
 
-		//Yaw = -90.0f;
-		//Pitch = 0.0f;
-		//Roll = 90.0f;
+    // Set the references to the Window system's screen width and height
+    //ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
+    //ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;    
 
-		//Front = glm::vec3(0.0f, 0.0f, -1.0f);
-		//Up =    glm::vec3(0.0f, 1.0f, 0.0f);
-		//Right = glm::vec3(1.0f, 0.0f, 0.0f);
 	}
 
 	/**************************************************************************/
@@ -43,8 +44,8 @@ namespace DCEngine {
 	/**************************************************************************/
 	void Camera::OnLogicUpdate(Events::LogicUpdate* event)
 	{
-		trace << "Camera::OnLogicUpdate::Updatelol";
-		Update();
+		//trace << "Camera::OnLogicUpdate::Updatelol";
+		//Update();
 	}
 
 	/**************************************************************************/

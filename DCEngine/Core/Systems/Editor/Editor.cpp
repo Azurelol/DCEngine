@@ -4,6 +4,11 @@
 namespace DCEngine {
   namespace Systems {
 
+    Editor::Editor() : System(std::string("EditorSystem"), EnumeratedSystem::Editor)
+    {
+
+    }
+
     void Editor::Initialize()
     {
     }

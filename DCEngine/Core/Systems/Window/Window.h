@@ -32,17 +32,20 @@ namespace DCEngine {
       friend class Engine;
       friend class GLCameraTutorial;
       friend class InputSFML;
+      friend class WindowSFML;
+      friend class Camera; 
+      // Wow, that's a lot of friends...
 
     public:
 
       void StartFrame();
       void EndFrame();
-      std::unique_ptr<WindowSFML> WindowHandler;
+      std::unique_ptr<WindowSFML> WindowHandler;      
       
     private:
       const std::string Caption = "Daisy Chain Engine v.lol";
-      const int Width = 1024;
-      const int Height = 600;
+      unsigned int Width = 1024;
+      unsigned int Height = 600;
       
       Window();
       void Initialize();

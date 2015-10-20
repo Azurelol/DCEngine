@@ -31,7 +31,7 @@ namespace DCEngine {
     friend class InputSFML;
     public:
 
-      WindowSFML();
+      WindowSFML(Window& windowInterface);
       ~WindowSFML();
 
       void SetWindowSize(int width, int height);
@@ -43,6 +43,7 @@ namespace DCEngine {
       }
 
     private:
+      Window& WindowInterface;
       std::unique_ptr<sf::Window> WindowContext;
       sf::Event EventObj;
       std::string CaptionText;
@@ -54,8 +55,6 @@ namespace DCEngine {
       void EndFrame();
 
       // Settings for the underlying OpenGL context
-      GLuint _width = 800;
-      GLuint _height = 600;
       const int _depthBits = 24; //!< Number of bits per pixel to use for the depth buffer.
       const int _stencilBits = 8; //!< Number of bits per pixel to use for the stencil buffer.
       const int _antiAliasingLevel = 4; //!< The multisampling level.

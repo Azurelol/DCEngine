@@ -65,7 +65,8 @@ namespace DCEngine {
 		void OnLogicUpdate(Events::LogicUpdate* event);
 		
 	private:
-
+    unsigned int* ScreenWidth;
+    unsigned int* ScreenHeight;
 
 		// Returns view matrix calculated using Euler Angles and LookAt Matrix;
 		void Update();

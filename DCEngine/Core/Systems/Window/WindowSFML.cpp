@@ -1,5 +1,5 @@
 #include "WindowSFML.h"
-
+#include "Window.h"
 #include "..\..\Engine\Engine.h"
 
 namespace DCEngine {
@@ -11,7 +11,7 @@ namespace DCEngine {
     \brief  Constructor for the WindowSFML class.
     */
     /**************************************************************************/
-    WindowSFML::WindowSFML() {
+    WindowSFML::WindowSFML(Window& windowInterface) : WindowInterface(windowInterface) {
     }
 
     WindowSFML::~WindowSFML() {
@@ -33,7 +33,8 @@ namespace DCEngine {
       settings.minorVersion = _minorVersion;
       
       // Create the window      
-      WindowContext.reset(new sf::Window(sf::VideoMode(_width, _height), CaptionText, sf::Style::Default, settings));
+      WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height), 
+                                                        CaptionText, sf::Style::Default, settings));
      
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       WindowContext->setVerticalSyncEnabled(true);
@@ -97,8 +98,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::SetWindowSize(int width, int height) {
-      _width = width;
-      _height = height;
+      WindowInterface.Width = width;
+      WindowInterface.Height = height;
     }
 
     /**************************************************************************/

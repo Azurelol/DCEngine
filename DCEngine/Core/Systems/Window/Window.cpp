@@ -32,7 +32,7 @@ namespace DCEngine {
     Window::Window() : System(std::string("WindowSystem"), EnumeratedSystem::Window) {
         #if(USE_SFML)
         trace << "*Using SFML Context for Window and Input \n";
-        WindowHandler.reset(new WindowSFML());
+        WindowHandler.reset(new WindowSFML(*this));
         #else
         trace << "Window::Window() - Using GLFW Context \n";
         WindowHandler.reset(new WindowGLFW());
