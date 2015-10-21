@@ -387,6 +387,9 @@
     <ClCompile Include="Core\Systems\Editor\Editor.cpp">
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp">
+      <Filter>Core\Systems\Reflection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -484,9 +487,6 @@
     </ClInclude>
     <ClInclude Include="Core\Events\MouseDown.h">
       <Filter>Core\Events\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Testing.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
@@ -748,6 +748,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\Editor.h">
       <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h">
+      <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
