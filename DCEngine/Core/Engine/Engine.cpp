@@ -42,6 +42,7 @@ namespace DCEngine {
     // Initialize the trace object
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
+    
 
   }
 
