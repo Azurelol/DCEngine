@@ -217,6 +217,7 @@
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp" />
     <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp" />
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp" />
     <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp" />
@@ -327,6 +328,7 @@
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
+    <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h" />
     <ClInclude Include="Core\Systems\Reflection\RefVariant.h" />
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h" />
     <ClInclude Include="Core\Systems\Reflection\StringWrapper.h" />
@@ -339,7 +341,6 @@
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
-    <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
