@@ -205,6 +205,7 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\GUIimgui.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
@@ -316,6 +317,7 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\Content\FileSystem.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
+    <ClInclude Include="Core\Systems\Editor\GUIimgui.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
@@ -341,6 +343,7 @@
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
+    <ClInclude Include="Core\Testing.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />

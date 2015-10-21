@@ -52,6 +52,7 @@ namespace DCEngine {
     void GraphicsGL::Initialize() {
 
       // GLEW manages function pointers for OpenGL, so we want to initialize
+
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.
       glewExperimental = GL_TRUE;
@@ -167,27 +168,27 @@ namespace DCEngine {
       */
       GLuint VBO;
 
-      GLfloat vertices[]{
-        // Position,      Texture
-        0.0f, 1.0f,      0.0f, 1.0f,
-        1.0f, 0.0f,      1.0f, 0.0f,
-        0.0f, 0.0f,      0.0f, 0.0f,
-
-         0.0f, 1.0f,      0.0f, 1.0f,
-         1.0f, 1.0f,      1.0f, 1.0f,
-         1.0f, 0.0f,      1.0f, 0.0f
-      };
-
       //GLfloat vertices[]{
       //  // Position,      Texture
-      //  -1.0f, 1.0f,     0.0f, 1.0f,
-      //  1.0f, 1.0f,      1.0f, 0.0f,
-      //  1.0f, -1.0f,     0.0f, 0.0f,
+      //  0.0f, 1.0f,      0.0f, 1.0f,
+      //  1.0f, 0.0f,      1.0f, 0.0f,
+      //  0.0f, 0.0f,      0.0f, 0.0f,
 
-      //  1.0f, -1.0f,      0.0f, 1.0f,
-      //  -1.0f, -1.0f,     1.0f, 1.0f,
-      //  -1.0f, 1.0f,      1.0f, 0.0f
+      //   0.0f, 1.0f,      0.0f, 1.0f,
+      //   1.0f, 1.0f,      1.0f, 1.0f,
+      //   1.0f, 0.0f,      1.0f, 0.0f
       //};
+
+      GLfloat vertices[]{
+        // Position,      Texture
+        -1.0f, 1.0f,     0.0f, 1.0f,
+        1.0f, -1.0f,      1.0f, 0.0f,
+        -1.0f, -1.0f,     0.0f, 0.0f,
+
+        -1.0f, 1.0f,      0.0f, 1.0f,
+        1.0f, 1.0f,     1.0f, 1.0f,
+        1.0f, -1.0f,      1.0f, 0.0f
+      };
 
       /*
         Next, we simply send the vertices to the GPU and configure the vertex attributes,

@@ -1,6 +1,8 @@
 #pragma once
 #include "../System.h"
 
+// Implementation
+#include "GUIimgui.h"
 
 namespace DCEngine {
   
@@ -21,6 +23,8 @@ namespace DCEngine {
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
+
+      std::unique_ptr<GUI> GUIHandler;
 
     };
 

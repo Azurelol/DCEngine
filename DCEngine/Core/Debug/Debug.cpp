@@ -12,73 +12,76 @@
 
 #undef DCException
 
-namespace Debug {   
+namespace DCEngine
+{
+  namespace Debug {
 
-  std::unique_ptr<Trace> traceObj = nullptr;  
+    std::unique_ptr<Trace> traceObj = nullptr;
 
-  /**************************************************************************/
-  /*!
-  \brief  Creates the trace object.
-  \param  sentence  
-  */
-  /**************************************************************************/
-  Trace::Trace(std::string fileName) {
-    _file.open(fileName.c_str(), std::ios::trunc);
+    /**************************************************************************/
+    /*!
+    \brief  Creates the trace object.
+    \param  sentence
+    */
+    /**************************************************************************/
+    Trace::Trace(std::string fileName) {
+      _file.open(fileName.c_str(), std::ios::trunc);
 
-    _file.exceptions(std::ofstream::badbit | std::ofstream::failbit);
+      _file.exceptions(std::ofstream::badbit | std::ofstream::failbit);
 
-    if (!_file) {
-      std::cerr << "Cannot open log file " << std::endl;
+      if (!_file) {
+        std::cerr << "Cannot open log file " << std::endl;
+      }
+
+      std::cout << "Debug::Trace - Log file: " << fileName << std::endl;
     }
 
-    std::cout << "Debug::Trace - Log file: " << fileName << std::endl;
-  }
+    /**************************************************************************/
+    /*!
+    \brief  Destructor. Closes the file.
+    \param  sentence
+    */
+    /**************************************************************************/
+    Trace::~Trace() {
+      _file.close();
+      //std::cout << "Debug::~Trace - Closing" << std::endl;
+    }
 
-  /**************************************************************************/
-  /*!
-  \brief  Destructor. Closes the file.
-  \param  sentence
-  */
-  /**************************************************************************/
-  Trace::~Trace() {
-    _file.close();
-    //std::cout << "Debug::~Trace - Closing" << std::endl;
-  }
+    /**************************************************************************/
+    /*!
+    @brief Specific constructor for the exception, where a 'string' message
+           is provided for the object to carry back it up as it unwinds
+           through the program.
+    @param file The filename.
+    @param line The line number at which the exception occurred.
+    @param message The specified message.
+    */
+    /**************************************************************************/
+    Exception::Exception(std::string file, int line, const std::string message)
+      : FileName(file), LineNumber(line), ExceptionMessage(message)
+    {
+    }
 
-  /**************************************************************************/
-  /*!
-  @brief Specific constructor for the exception, where a 'string' message
-         is provided for the object to carry back it up as it unwinds
-         through the program.
-  @param file The filename.
-  @param line The line number at which the exception occurred.
-  @param message The specified message.
-  */
-  /**************************************************************************/
-  Exception::Exception(std::string file, int line, const std::string message) 
-    : FileName(file), LineNumber(line), ExceptionMessage(message)
-  {
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Friendly ostream operator prints the exception message.
-  @param os A reference to the ostream object to insert the message into.
-  @param The exception that is being printed out.
-  @return A reference to the ostream, allowing for chaining the insertion
-          operator.
-  */
-  /**************************************************************************/
-  std::ostream & operator<<(std::ostream & os, const Exception exception)
-  {
-    os << "\n"
-       << "////////////////////////////////////////////////////// \n"
-       << " Daisy has encountered an exception! \n\n"
-       << " Message: " << exception.ExceptionMessage << "\n"
-       << " File: " << exception.FileName << "\n"
-       << " Line: " << exception.LineNumber << "\n"
-       << "////////////////////////////////////////////////////// \n";
-    return os;
+    /**************************************************************************/
+    /*!
+    @brief Friendly ostream operator prints the exception message.
+    @param os A reference to the ostream object to insert the message into.
+    @param The exception that is being printed out.
+    @return A reference to the ostream, allowing for chaining the insertion
+            operator.
+    */
+    /**************************************************************************/
+    std::ostream & operator<<(std::ostream & os, const Exception exception)
+    {
+      os << "\n"
+        << "////////////////////////////////////////////////////// \n"
+        << " Daisy has encountered an exception! \n\n"
+        << " Message: " << exception.ExceptionMessage << "\n"
+        << " File: " << exception.FileName << "\n"
+        << " Line: " << exception.LineNumber << "\n"
+        << "////////////////////////////////////////////////////// \n";
+      return os;
+    }
   }
 }
 

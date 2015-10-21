@@ -16,57 +16,60 @@
 
 #undef DCException
 
-namespace Debug {  
-  
-  #define TRACE_ON 1
-  #define TRACE_INITIALIZE 1
-  #define TRACE_UPDATE 0
-  #define TRACE_CONSTRUCTOR 0
-  #define TRACE_REGISTER 1
-  #define TRACE_CONNECT 0
-  #define TRACE_DISPATCH 0
+namespace DCEngine
+{
+  namespace Debug {
 
-  #define TRACE_GAMEOBJECT_ADD 1
-  #define TRACE_GAMEOBJECT_INITIALIZE 0
-  #define TRACE_COMPONENT_ADD 0
-  #define TRACE_COMPONENT_INITIALIZE 0
-  
-  #define TRACE_PHYSICS 0
-  #define TRACE_GRAPHICS 0  
-  #define TRACE_SHADER 0
-  #define TRACE_AUDIO 0
+#define TRACE_ON 1
+#define TRACE_INITIALIZE 1
+#define TRACE_UPDATE 0
+#define TRACE_CONSTRUCTOR 0
+#define TRACE_REGISTER 1
+#define TRACE_CONNECT 0
+#define TRACE_DISPATCH 0
 
-  class Trace {
-  public:    
+#define TRACE_GAMEOBJECT_ADD 1
+#define TRACE_GAMEOBJECT_INITIALIZE 0
+#define TRACE_COMPONENT_ADD 0
+#define TRACE_COMPONENT_INITIALIZE 0
 
-    Trace(std::string fileName);
-    ~Trace();    
+#define TRACE_PHYSICS 0
+#define TRACE_GRAPHICS 0  
+#define TRACE_SHADER 0
+#define TRACE_AUDIO 0
 
-    template<typename T> 
-    Trace& operator<<(const T& data) {
-      std::cout << data;
-      _file << data;
-      return *this;
-    } 
+    class Trace {
+    public:
 
-  private:
-    std::ofstream _file;
-  }; 
+      Trace(std::string fileName);
+      ~Trace();
 
-  class Exception {
-  public:
-    Exception(std::string file, int line, const std::string message);
-    friend std::ostream& operator<<(std::ostream &os, const Exception ex);
+      template<typename T>
+      Trace& operator<<(const T& data) {
+        std::cout << data;
+        _file << data;
+        return *this;
+      }
 
-  private:
-    std::string ExceptionMessage;
-    int LineNumber;
-    std::string FileName;
-  };
+    private:
+      std::ofstream _file;
+    };
 
-  extern std::unique_ptr<Trace> traceObj;
-  #define trace (*::Debug::traceObj) 
+    class Exception {
+    public:
+      Exception(std::string file, int line, const std::string message);
+      friend std::ostream& operator<<(std::ostream &os, const Exception ex);
 
+    private:
+      std::string ExceptionMessage;
+      int LineNumber;
+      std::string FileName;
+    };
+
+    extern std::unique_ptr<Trace> traceObj;
+#define trace (*::DCEngine::Debug::traceObj) 
+
+  }
 }
 
 #define DCException(string) Debug::Exception(__FILE__, __LINE__, string)

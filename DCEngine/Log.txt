@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 [Engine::Engine - Constructor] 
 
 [Engine::Initialize] 
 *Using SFML Context for Window and Input 
 *Using FMOD for Audio 
 *Using OpenGL for Graphics 
+*Using imgui for Editor GUI 
 Content::Initialize 
 Content::LoadEngineData - Finished loading all engine data. 
 
@@ -35,6 +35,8 @@ SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled!
 SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
 SpriteTextShader::AssertShaderCompilation - Shader program linked! 
 [GraphicsGL::Initialize] - Finished compiling shaders 
+Editor::Initialize 
+GUI::Initialize 
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
@@ -147,6 +149,131 @@ AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
 AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
 Audio::Register -  Daisy World has registered to the Audio system
-Physics::Register -  Daisy World has registered to the Physics syste
-=======
->>>>>>> 12f4aa630c9969757dd84c4c10120c0df7995280
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Chen::Initialize 
+GraphicsSpace::AddSprite - Chen
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+GraphicsSpace::AddSprite - Reiner
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+Myres::Initialize 
+GraphicsSpace::AddSprite - Myres
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+
+[Engine::Loop]
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Camera - Size: 70
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 109 y: 55
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -68 y: 155
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -143 y: -172
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -105 y: -144
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -105 y: -144
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -105 y: -144
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -105 y: -144
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -206 y: -23
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -56 y: -134
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 295 y: -117
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 31 y: 125
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: 319 y: 5
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -276 y: 38
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -365 y: -139
+Mouse down!
+BallController::OnMouseUpEvent - Right Button released at x: 219 y: 105
+Mouse down!
+BallController::OnMouseUpEvent - Right Button released at x: 275 y: 117
+Mouse down!
+BallController::OnMouseUpEvent - Right Button released at x: 334 y: 121
+
+[Engine::Terminate] 
+Content::Terminate
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
+Editor::Terminate 
