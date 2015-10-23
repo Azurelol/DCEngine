@@ -55,9 +55,10 @@ namespace DCEngine {
       return gameObj;
     }
 
-    ComponentPtr Factory::CreateComponent(const std::string & compName, bool init) {
-      return ComponentPtr();
-    }
+    //// ? We do not want to create components by name..
+    //ComponentPtr Factory::CreateComponent(const std::string & compName, bool init) {
+    //  return ComponentPtr(new Transform())
+    //}
 
     void Factory::DestroyGameObject(GameObject& gameObj) {
       gameObjsToBeDeleted.insert(&gameObj);

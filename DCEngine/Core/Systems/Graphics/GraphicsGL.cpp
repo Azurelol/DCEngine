@@ -32,7 +32,7 @@ namespace DCEngine {
       glm::vec4 colorclean;
 	    this->SpriteShader->SetMatrix4("model", cleanup);	
       this->SpriteShader->SetVector4f("color", colorclean);
-	  this->SpriteShader->SetInteger("isTexture", 0);
+	    this->SpriteShader->SetInteger("isTexture", 0);
 	}
 
     /**************************************************************************/
@@ -51,8 +51,9 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::Initialize() {
 
+      // Set a pointer to the Window system
+      
       // GLEW manages function pointers for OpenGL, so we want to initialize
-
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.
       glewExperimental = GL_TRUE;
@@ -82,13 +83,16 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Update function for the graphics system. Renders objects on screen.
+    @brief  Update function for the graphics system. Renders objects on screen.
+    @todo   OPTIMIZATION: Possibly do not need to call it twice?
     */
     /**************************************************************************/
-    void GraphicsGL::Update(float dt) {
+    void GraphicsGL::ViewportUpdate() {
+      
+      auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
 
       // Tells OpenGL the current size of the rendering window
-      glViewport(0, 0, ScreenWidth, ScreenHeight);
+      glViewport(0, 0, windowDim.x, windowDim.y);
     }
 
     /**************************************************************************/
@@ -399,9 +403,17 @@ namespace DCEngine {
     }
 
 	//Animation
+
+  /**************************************************************************/
+  /*!
+  @brief  Terminates the system.
+  @todo   Currently hard-coded the framecount.
+  */
+  /**************************************************************************/
 	void GraphicsGL::AnimationUpdate(Sprite& sprite, float dt)
 	{
 		auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
+    // CHANGE THIS
 		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 5;
 		//Animation update
 		this->SpriteShader->SetInteger("isAnimaitonActivated", 0);

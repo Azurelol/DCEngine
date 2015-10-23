@@ -44,6 +44,7 @@ namespace DCEngine {
 
   private:
     Transform* TransformComponent;
+    Real3 getColliderScale();
 
     /* Properties */
     // CollisionGroup = 

@@ -29,8 +29,7 @@ namespace DCEngine {
       friend class Engine;
     public:
 
-      void StartFrame();
-      void EndFrame();
+
       void Register(GraphicsSpace& graphicsSpace);
       
       void DrawSprite(Sprite& sprite, Camera& camera, float dt);
@@ -44,6 +43,9 @@ namespace DCEngine {
       void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam);
 
     private:
+
+      void StartFrame();
+      void EndFrame();
 
       std::unique_ptr<GraphicsGL> GraphicsHandler;
       const int screenwidth_ = 1024;

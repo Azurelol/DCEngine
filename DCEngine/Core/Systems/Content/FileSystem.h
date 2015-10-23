@@ -25,7 +25,8 @@ namespace DCEngine {
     static bool FileFound(std::string filePath);
     static unsigned int FileSize(std::string filePath);
     static bool FileLastModified(std::string filePath, std::string& modifyData);
-    static std::string FileExtractExtension(std::string& filePath);
+    static std::string FileExtractExtension(std::string& filePath); // Should have one to remove the extension
+    static std::string FileExtractWithoutExtension(std::string& filePath);
     static bool FileRename(std::string filePath, std::string newFileName);   
     static bool FileCreate(std::string filePath);
     static bool FileReadToString(std::string filePath, std::string& output);
@@ -39,7 +40,7 @@ namespace DCEngine {
 
     /* Path Operations*/
     static bool Remove(std::string path);
-    
+    // It would be good to restrict the 
   };
 
 }

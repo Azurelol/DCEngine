@@ -13,8 +13,6 @@ namespace DCEngine {
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
       trace << "*Using OpenGL for Graphics \n";
       GraphicsHandler.reset(new GraphicsGL());
-      GraphicsHandler->ScreenWidth = screenwidth_;
-      GraphicsHandler->ScreenHeight = screenheight_;
       GraphicsHandler->ClearColor = ClearColor;
     }
 
@@ -41,6 +39,9 @@ namespace DCEngine {
     void Graphics::Update(float dt) {
       if (TRACE_UPDATE)
       trace << "Graphics::Update \n";
+
+      // Update the graphics system
+      GraphicsHandler->ViewportUpdate();
 
       // For every Space with a 'GraphicsSpace' component...
       for (auto gfxSpace : graphicsSpaces_) {

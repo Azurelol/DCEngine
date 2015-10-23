@@ -23,13 +23,15 @@ namespace DCEngine {
       // Setup Camera to be used
       SetupCamera();
       // Graphics Testing: Chen
-      GalleryTesting();
+      SetupBackground();
       // Physics Testing: Blaine
-      LaboratoryTesting();
+      GameObjects();
       // Reflection Testing:
       ReflectionTest();
       // Serialization Testing
-      SerializeTest();      
+      SerializeTest();  
+      // Background objects
+      EnvironmentSetup();
     } 
 
     void SetupCamera() {
@@ -84,8 +86,9 @@ namespace DCEngine {
       return gameObj;
     }
 
-    void LaboratoryTesting();
-    void GalleryTesting();
+    void GameObjects();
+    void SetupBackground();
+    void EnvironmentSetup();
 
     GameObjectPtr doll;
 
