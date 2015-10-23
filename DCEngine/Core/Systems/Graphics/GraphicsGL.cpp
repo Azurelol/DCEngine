@@ -44,6 +44,8 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::Initialize() {
 
+      // Set a pointer to the Window system
+      
       // GLEW manages function pointers for OpenGL, so we want to initialize
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.
@@ -305,7 +307,7 @@ namespace DCEngine {
       glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
       //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
-      DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
+	  DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
     }
 
     /**************************************************************************/
