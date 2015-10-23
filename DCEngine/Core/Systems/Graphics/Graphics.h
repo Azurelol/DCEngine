@@ -63,6 +63,14 @@ namespace DCEngine {
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
 
+	  //2D draw list
+	  int TotalObjNumG = 0;
+	  int TotalObjTranspNumG = 0;
+	  
+	  std::vector<Sprite>  NonTextureObj;
+	  std::vector<Sprite>  NonTextureObjNontransp;
+	  std::vector<Sprite>  TextureObj;
+	  void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
     };
 
 
