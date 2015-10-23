@@ -47,7 +47,29 @@ namespace DCEngine
     if (AccelerationBuildUp)
     {
       // Check the velocity build-up due to acceleration only
-      glm::vec3 accCausedVelocity = c.Object1->getComponent<RigidBody>()->getAcceleration() - c.Object2->getComponent<RigidBody>()->getAcceleration();
+      glm::vec3 accCausedVelocity;
+
+      if (c.rigid1 == false && c.rigid2 == false)
+      {
+        accCausedVelocity = Real3(0, 0, 0);
+      }
+
+      if (c.rigid1 != false && c.rigid2 == false)
+      {
+        accCausedVelocity = c.Object1->getComponent<RigidBody>()->getAcceleration();
+      }
+
+      if (c.rigid1 == false && c.rigid2 != false)
+      {
+        accCausedVelocity = -c.Object2->getComponent<RigidBody>()->getAcceleration();
+      }
+
+      if (c.rigid1 != false && c.rigid2 != false)
+      {
+        accCausedVelocity = c.Object1->getComponent<RigidBody>()->getAcceleration() - c.Object2->getComponent<RigidBody>()->getAcceleration();
+      }
+
+
       float accCausedSepVelocity = glm::dot(accCausedVelocity, c.ContactNormal) * dt;
 
       // If we've got a closing velocity due to acceleration build-up,
@@ -68,7 +90,28 @@ namespace DCEngine
     //The delta velocity is applied to each object proportional to inverse
     //mass. So the more massive an object is the less of the change
     //in velocity it will receive.
-    float totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+    float totalInverseMass;
+
+    if (c.rigid1 == false && c.rigid2 == false)
+    {
+      totalInverseMass = 0.000000000000000001;
+    }
+
+    if (c.rigid1 != false && c.rigid2 == false)
+    {
+      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass();
+    }
+
+    if (c.rigid1 == false && c.rigid2 != false)
+    {
+      totalInverseMass = c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
+
+    if (c.rigid1 != false && c.rigid2 != false)
+    {
+      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
+
 
     // Calculate the impulse to apply
     float impulse = deltaVelocity / totalInverseMass;
@@ -80,9 +123,43 @@ namespace DCEngine
 
     // Apply impulses: they are applied in the direction of the contact,
     // and in proportion to inverse mass.
-    c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
-    // The other body goes in the opposite direction
-    c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object2->getComponent<RigidBody>()->getInvMass());
+
+    if (c.rigid1 == false && c.rigid2 == false)
+    {
+      return;
+    }
+
+    if (c.rigid1 != false && c.rigid2 == false)
+    {
+      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        // The other body goes in the opposite direction
+        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+      }
+    }
+
+    if (c.rigid1 == false && c.rigid2 != false)
+    {
+      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+      }
+    }
+
+    if (c.rigid1 != false && c.rigid2 != false)
+    {
+      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+      }
+
+      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        // The other body goes in the opposite direction
+        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+      }
+    }
+
   }
 
   void ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
@@ -94,7 +171,7 @@ namespace DCEngine
       // Find the contact with the largest closing velocity;
       float maxVelocity = FLT_MAX;
       unsigned int contactIndex = static_cast<unsigned int>(contactlist.size());
-      for (unsigned i = 0; i < contactlist.size(); i++)
+      for (unsigned i = 0; i < contactlist.size(); ++i)
       {
         float sepVel = contactlist[i].CalculateSeparatingVelocity();
         if (sepVel < 0 && sepVel < maxVelocity)
@@ -124,20 +201,53 @@ namespace DCEngine
     float totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
 
     // Find the amount of penetration resolution per unit of inverse mass
-    glm::vec3 movePerIMass = c.ContactNormal * (c.Penetration / totalInverseMass) * dt;
+    glm::vec3 movePerIMass = c.ContactNormal * (c.Penetration / totalInverseMass);
 
     //If stack stability can be increased by not resolving all the penetrations
     //in one step
-    movePerIMass *= 0.8f;//PHYSICS->PenetrationResolvePercentage;
+    movePerIMass *= 0.2f;
 
     // Calculate the the movement amounts
-    c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();// +c.v1;
-    c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();// +c.v2;
+    c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
+    c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
 
     // Apply the penetration resolution
 
-    c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
-    c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+    if (c.rigid1 == false && c.rigid2 == false)
+    {
+      return;
+    }
+
+    if (c.rigid1 != false && c.rigid2 == false)
+    {
+      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
+      }
+    }
+
+    if (c.rigid1 == false && c.rigid2 != false)
+    {
+      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+      }
+    }
+
+    if (c.rigid1 != false && c.rigid2 != false)
+    {
+      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
+      }
+
+      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+      }
+    }
+
+
   }
 
   void ResolvePositions(float dt, std::vector<Manifold> &contactlist)
@@ -165,7 +275,7 @@ namespace DCEngine
           contactIndex = j;
         }
       }
-     
+
       if (contactIndex >= contactlist.size())
       {
         break;
@@ -174,33 +284,6 @@ namespace DCEngine
       //Resolve the penetration
       ResolvePenetration(dt, contactlist[contactIndex]);
 
-      // Update the penetrations for all related contacts
-      glm::vec3 movement1 = contactlist[contactIndex].v1;
-      glm::vec3 movement2 = contactlist[contactIndex].v2;
-
-      for (unsigned i = 0; i < contactlist.size(); i++)
-      {
-        if (contactlist[i].Object1 == contactlist[contactIndex].Object1)
-        {
-          contactlist[i].Penetration -= glm::dot(movement1, contactlist[i].ContactNormal);
-        }
-        else if (contactlist[i].Object1 == contactlist[contactIndex].Object2)
-        {
-          contactlist[i].Penetration -= glm::dot(movement2, contactlist[i].ContactNormal);
-        }
-
-        if (contactlist[i].Object2)
-        {
-          if (contactlist[i].Object2 == contactlist[contactIndex].Object1)
-          {
-            contactlist[i].Penetration += glm::dot(movement1, contactlist[i].ContactNormal);
-          }
-          else if (contactlist[i].Object2 == contactlist[contactIndex].Object2)
-          {
-            contactlist[i].Penetration += glm::dot(movement2, contactlist[i].ContactNormal);
-          }
-        }
-      }
       ++iterationsRun;
     }
   }
