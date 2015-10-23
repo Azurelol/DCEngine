@@ -23,19 +23,22 @@ namespace DCEngine {
       return sf::Vector2i(windowSize.x, windowSize.y);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Switches back and forth between FullScreen and Windowed mode.
+    @param  The mode of the window. FullScreen or Windowed.
+    */
+    /**************************************************************************/
     void WindowSFML::setFullScreen()
     {      
-      if (!IsFullscreen)
+      if (Mode != WindowMode::Fullscreen) {
         setWindow(WindowMode::Fullscreen);
-      else
+        Mode = WindowMode::Fullscreen;
+      }        
+      else {
         setWindow(WindowMode::Default);
-
-
-     /*
-     To go back and forth between windowed and fullscreen, I just call 
-     
-     */
-      
+        Mode = WindowMode::Default;
+      }      
     }
 
     /**************************************************************************/
@@ -46,28 +49,19 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::setWindow(WindowMode style)
     {
-      // Create the window   
-
-      if (WindowContext != nullptr)
-        WindowContext->close();
-
-      // Tells SFML the settings for the underlying OpenGL context
-      sf::ContextSettings settings;
-      settings.depthBits = _depthBits;
-      settings.stencilBits = _stencilBits;
-      settings.antialiasingLevel = _antiAliasingLevel;
-      settings.majorVersion = _majorVersion;
-      settings.minorVersion = _minorVersion;
+      // Create the window
+      //if (WindowContext != nullptr)
+      //  WindowContext->close();
 
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
-        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-          CaptionText, sf::Style::Default , settings));
+        WindowContext->create(sf::VideoMode(WindowInterface.DefaultWidth, WindowInterface.DefaultHeight),
+                              CaptionText, sf::Style::Default, ContextSettings);
         break;
       case WindowMode::Fullscreen :
-        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-          CaptionText, sf::Style::Fullscreen, settings));
+        WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+          CaptionText, sf::Style::Fullscreen, ContextSettings);
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
@@ -85,11 +79,21 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Initialize() {    
       
+      // Stores the settings for the underlying SFML window context
+      ContextSettings.depthBits = _depthBits;
+      ContextSettings.stencilBits = _stencilBits;
+      ContextSettings.antialiasingLevel = _antiAliasingLevel;
+      ContextSettings.majorVersion = _majorVersion;
+      ContextSettings.minorVersion = _minorVersion;
+
+      WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+        CaptionText, sf::Style::Default, ContextSettings));
+
       // Configures the window context, then creates it
       setWindow(WindowMode::Default);
       // Assert that the window was created
       if (WindowContext == nullptr) {
-        trace << "Failed to create SFNL window \n";
+        trace << "Failed to create SFML window \n";
         // Terminate??
       }
     }

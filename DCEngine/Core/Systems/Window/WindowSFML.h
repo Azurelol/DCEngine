@@ -51,6 +51,7 @@ namespace DCEngine {
       std::unique_ptr<sf::Window> WindowContext;
       sf::Event EventObj;
       std::string CaptionText;
+      WindowMode Mode = WindowMode::Default;
       
       sf::Vector2i getWindowDimensions();
       void setFullScreen();
@@ -63,12 +64,13 @@ namespace DCEngine {
       void EndFrame();
       
       // Settings for the underlying OpenGL context
+      sf::ContextSettings ContextSettings;
       const int _depthBits = 24; //!< Number of bits per pixel to use for the depth buffer.
       const int _stencilBits = 8; //!< Number of bits per pixel to use for the stencil buffer.
       const int _antiAliasingLevel = 4; //!< The multisampling level.
       const int _majorVersion = 3;
-      const int _minorVersion = 0;
-      bool IsFullscreen = false;
+      const int _minorVersion = 3;
+      
     };
 
 

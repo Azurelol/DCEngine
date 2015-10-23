@@ -4,26 +4,28 @@
 // Library used:
 #include <IMGUI\imgui.h>
 #include <SFML\Window.hpp>
+#include <SFML\Graphics\Texture.hpp>
 
 #include "../../Engine/Types.h"
 //#include <SFML\Window.hpp> // Does thie need to be included?
 
 namespace DCEngine {
   namespace Systems {
-
+    
     class Editor;
     class GUI {
       friend class Editor;
     public:
 
-    private:
-      
-      /* Data */
+    private:      
+      /* Event Data */
       sf::Window* WindowContext; //!< A pointer to the window context.
       sf::Clock TimeElapsed; //!< The time elapsed
-      bool MousePressed[3] = { false, false, false };
-      float MouseWheel = 0.0f;
-      GLuint FontTexture = 0;
+      bool MousePressed[2] = { false, false };
+      float MouseWheel = 0.0f;      
+      /* Rendering Data */
+      sf::Texture FontTexture;
+
 
       /* System Functions */
       GUI();
@@ -36,17 +38,23 @@ namespace DCEngine {
       IMGUI_API void ImGuiSFMLTerminate();
       IMGUI_API void ImGuiSFMLNewFrame();      
 
+      /* Events*/
+      IMGUI_API void ImGuiSFMLEventsUpdate();
       IMGUI_API void ImGuiSFMLBindEvents();
       IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);
-      
-      IMGUI_API void ImGuiSFMLInitializeRendering();
-      
-      /* If we want to reset the rednering device without losing the ImGui state */
+            
+      /* Rendering */
+      IMGUI_API void ImGuiSFMLInitializeRendering();      
       IMGUI_API void ImGuiSFMLInvalidateDeviceObjects();
       IMGUI_API bool ImGuiSFMLCreateDeviceObjects();
-      //Callbacks? How would imgui work with SFML?
-      IMGUI_API void ImGuiSFMLInitializeEvents();
-      IMGUI_API void ImGuiSFMLRenderDrawLists(ImDrawList** const cmdLists, int cmdListsCount);
+
+      // The function we pass to ImGui for rendering must be marked static?
+      IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawData* draw_data);
+      IMGUI_API static GLint ImGuiSFMLRenderStateSetup();
+      IMGUI_API static void ImGuiSFMLRestoreState(GLint lastTexture);
+
+      IMGUI_API void ImGuiSFMLGenerateFontTexture();
+      //IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawList** const cmdLists, int cmdListsCount);
 
 
     };

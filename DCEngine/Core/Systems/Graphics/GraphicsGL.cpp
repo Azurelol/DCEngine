@@ -51,8 +51,6 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::Initialize() {
 
-      // Set a pointer to the Window system
-      
       // GLEW manages function pointers for OpenGL, so we want to initialize
       // it before calling any OpenGL functions. Setting glewExperimental to
       // true uses more modern techniques for managing OpenGL functionality.

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 [Engine::Engine - Constructor] 
 
 [Engine::Initialize] 
@@ -140,7 +138,7 @@ Daisy World::AddEntity - Added Myres to the space.
 Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
 Daisy World::AddEntity - Added Floor to the space.
-Daisy World::AddEntity - Added Floor to the space.
+Daisy World::AddEntity - Added BackgroundLayer1 to the space.
 
 [Engine::LoadProject - Finished loading ]
 
@@ -150,5 +148,4 @@ Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
-AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this func
->>>>>>> 2b61d22546d15032deb6a771926aa381c7e47b65
+AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed t
