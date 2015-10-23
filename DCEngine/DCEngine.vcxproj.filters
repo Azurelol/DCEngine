@@ -336,9 +336,6 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\GravityEffect.cpp">
-      <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClCompile>
@@ -686,9 +683,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\GravityEffect.h">
-      <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
@@ -772,6 +766,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\GUIimgui.h">
       <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h">
+      <Filter>Libraries</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

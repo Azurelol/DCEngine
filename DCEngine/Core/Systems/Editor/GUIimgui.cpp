@@ -86,7 +86,6 @@ namespace DCEngine {
       // Setup the frame buffer size
     }
 
-
     /**************************************************************************/
     /*!
     @brief  Generates a font Texture and binds it to ImGui.
@@ -243,8 +242,8 @@ namespace DCEngine {
       // Create an OpenGL texture
       GLint lastTexture;
       glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);  
-      GLint lastTexture;
-
+      
+      return true;
 
     }
 

@@ -171,7 +171,6 @@
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
-    <ClCompile Include="Core\Components\GravityEffect.cpp" />
     <ClCompile Include="Core\Components\Orientation.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
@@ -254,7 +253,6 @@
     <ClInclude Include="Core\Components\DebugReport.h" />
     <ClInclude Include="Core\Components\EngineReference.h" />
     <ClInclude Include="Core\Components\GraphicsSpace.h" />
-    <ClInclude Include="Core\Components\GravityEffect.h" />
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
@@ -348,6 +346,7 @@
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
     <ClInclude Include="Core\Testing.h" />
+    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />

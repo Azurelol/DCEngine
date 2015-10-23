@@ -1,10 +1,11 @@
 #pragma once
 
-// Internal Components
+/* Internal Components */
 #include "Components\PhysicsSpace.h"
 #include "Components\GraphicsSpace.h"
 #include "Components\SoundSpace.h"
 
+// Graphical
 #include "Components\Transform.h"
 #include "Components\RigidBody.h"
 #include "Components\BoxCollider.h"
@@ -16,7 +17,6 @@
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
 
-#include "Components\GravityEffect.h"
 
 #include "Components\DebugMoveController.h"
 #include "Components\DebugReport.h"
