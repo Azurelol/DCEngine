@@ -17,30 +17,64 @@ namespace DCEngine {
     WindowSFML::~WindowSFML() {
     }
 
+    sf::Vector2i WindowSFML::getWindowDimensions()
+    {
+      auto windowSize = WindowContext->getSize();
+      return sf::Vector2i(windowSize.x, windowSize.y);
+    }
+
+    void WindowSFML::setFullScreen()
+    {      
+      if (!IsFullscreen)
+        setWindow(WindowMode::Fullscreen);
+      else
+        setWindow(WindowMode::Default);
+      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Sets the window context.
+    @param  The mode of the window. FullScreen or Windowed.
+    */
+    /**************************************************************************/
+    void WindowSFML::setWindow(WindowMode style)
+    {
+      // Create the window      
+      // Tells SFML the settings for the underlying OpenGL context
+      sf::ContextSettings settings;
+      settings.depthBits = _depthBits;
+      settings.stencilBits = _stencilBits;
+      settings.antialiasingLevel = _antiAliasingLevel;
+      settings.majorVersion = _majorVersion;
+      settings.minorVersion = _minorVersion;
+
+      // This is stupid, but I can't pass in the sf::Style enum as a param :(
+      switch (style) {
+      case WindowMode::Default:
+        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+          CaptionText, sf::Style::Default , settings));
+        break;
+      case WindowMode::Fullscreen :
+        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+          CaptionText, sf::Style::Fullscreen, settings));
+        break;
+      }
+      // After this call, the application will run at the same frequency as the monitor's refresh rate
+      WindowContext->setVerticalSyncEnabled(true);
+      // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
+      //WindowContext->setFramerateLimit(60); 
+    }
+
     /**************************************************************************/
     /*!
     \brief  Initializes SFML, configuring the window before creating it.
     */
     /**************************************************************************/
-    void WindowSFML::Initialize() {
+    void WindowSFML::Initialize() {    
       
-      // Tells SFML the settings for the underlying OpenGL context
-      sf::ContextSettings settings;
-      settings.depthBits = _depthBits; 
-      settings.stencilBits = _stencilBits; 
-      settings.antialiasingLevel = _antiAliasingLevel; 
-      settings.majorVersion = _majorVersion;
-      settings.minorVersion = _minorVersion;
-      
-      // Create the window      
-      WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height), 
-                                                        CaptionText, sf::Style::Default, settings));
-     
-      // After this call, the application will run at the same frequency as the monitor's refresh rate
-      WindowContext->setVerticalSyncEnabled(true);
-      // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      //WindowContext->setFramerateLimit(60); 
-
+      // Configures the window context, then creates it
+      setWindow(WindowMode::Default);
       // Assert that the window was created
       if (WindowContext == nullptr) {
         trace << "Failed to create SFNL window \n";
@@ -55,6 +89,9 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
+
+
+
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
       if (EventObj.type == sf::Event::Closed)
@@ -67,6 +104,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::StartFrame() {
+      
     }
 
     /**************************************************************************/

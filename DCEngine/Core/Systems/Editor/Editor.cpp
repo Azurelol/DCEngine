@@ -14,20 +14,20 @@ namespace DCEngine {
     {
       if (TRACE_INITIALIZE)
         trace << "Editor::Initialize \n";
-      GUIHandler->Initialize();
+      //GUIHandler->Initialize();
     }
 
     void Editor::Update(float dt)
     {
       if (TRACE_UPDATE)
         trace << "Editor::Update \n";
-      GUIHandler->Update(dt);
+      //GUIHandler->Update(dt);
     }
 
     void Editor::Terminate()
     {
         trace << "Editor::Terminate \n";
-      GUIHandler->Terminate();
+      //GUIHandler->Terminate();
     }
 
     void Editor::Serialize(Json::Value & root)

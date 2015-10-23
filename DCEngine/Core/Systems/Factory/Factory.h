@@ -75,12 +75,24 @@ namespace DCEngine {
 
     }; 
 
-    /* Templates */
+    /**************************************************************************/
+    /*!
+                                      TEMPLATES
+    */
+    /**************************************************************************/
+    /**************************************************************************/
+    /*!
+    @brief  Creates a component and returns it.
+    */
+    /**************************************************************************/
     template<typename ComponentClass>
     inline ComponentPtr Factory::CreateComponent(Entity& owner, bool init)
     {      
+      // Create a component and set its owner
       ComponentPtr newComp = ComponentPtr(new ComponentClass(owner));
+      // Add the component to the factory's list of active components
       ComponentContainer.push_back(newComp);
+      // Return a reference to the component
       return newComp;
     }
   }

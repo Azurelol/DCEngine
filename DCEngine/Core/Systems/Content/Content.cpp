@@ -119,24 +119,24 @@ namespace DCEngine {
       // Scan the specified folder and recursively add each resource to its appropiate
       // map.
 
-      //auto a = FileSystem::FileFound(EngineInfo->SpritePath + "square2.png");
-      //auto b = FileSystem::FileFound(EngineInfo->SpritePath + "square3.png");
-      //std::vector<std::string> files;
-      //auto c = FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, files);
-      //std::string contentRead;
-      //auto d = FileSystem::FileReadToString(EngineInfo->ShaderPath + "SpriteShader.vs", contentRead);
-      //auto f = FileSystem::FileWriteString("hey2.txt", contentRead);
+      auto a = FileSystem::FileFound(EngineInfo->SpritePath + "square2.png");
+      auto b = FileSystem::FileFound(EngineInfo->SpritePath + "square3.png");
+      std::vector<std::string> files;
+      auto c = FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, files);
+      std::string contentRead;
+      auto d = FileSystem::FileReadToString(EngineInfo->ShaderPath + "SpriteShader.vs", contentRead);
+      auto f = FileSystem::FileWriteString("hey2.txt", contentRead);
 
 
-      //std::string modifyData;
-      //auto e = FileSystem::FileLastModified("hey2.txt", modifyData);
+      std::string modifyData;
+      auto e = FileSystem::FileLastModified("hey2.txt", modifyData);
 
-      //auto g = FileSystem::FileRename("hey2.txt", "lol3.txt");
+      auto g = FileSystem::FileRename("hey2.txt", "lol3.txt");
 
-      //std::string filePathy;
-      //auto h = FileSystem::DirectoryFindFile("Debug.cpp", "Core", filePathy);
+      std::string filePathy;
+      auto h = FileSystem::DirectoryFindFile("Debug.cpp", "Core", filePathy);
 
-      //FileSystem::Remove("lol3.txt");
+      FileSystem::Remove("lol3.txt");
 
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"), 

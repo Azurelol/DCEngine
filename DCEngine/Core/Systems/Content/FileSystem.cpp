@@ -104,7 +104,7 @@ namespace DCEngine {
       return count;
     }
 
-    return NULL;
+    return 0;
   }
   
 

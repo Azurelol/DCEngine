@@ -45,7 +45,7 @@ namespace DCEngine
 
     if (boxcollider1 == NULL || boxcollider2 == NULL)
     {
-      throw DCException("An object Missing a BoxCollider component got passed to BoxtoBox");
+      throw DCException("An object missing a BoxCollider component got passed to BoxtoBox");
     }
 
 		/* get the transforms */
@@ -54,7 +54,7 @@ namespace DCEngine
 
     if (transform1 == NULL ||  transform2 == NULL)
     {
-      throw DCException("An object Missing a Transform component got passed to BoxtoBox");
+      throw DCException("An object missing a Transform component got passed to BoxtoBox");
     }
 
 

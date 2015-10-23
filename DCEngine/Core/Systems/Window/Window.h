@@ -37,9 +37,8 @@ namespace DCEngine {
       // Wow, that's a lot of friends...
 
     public:
-
-      void StartFrame();
-      void EndFrame();
+      glm::vec2 getWindowDimensions();      
+      void setFullscreen();
       std::unique_ptr<WindowSFML> WindowHandler;      
       
     private:
@@ -53,6 +52,8 @@ namespace DCEngine {
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
+      void StartFrame();
+      void EndFrame();
 
     };
 

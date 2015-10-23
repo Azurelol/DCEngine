@@ -93,10 +93,9 @@ namespace DCEngine {
       auto keyDown = new Events::KeyDown();
       
       switch (event.key.code) {
-      case sf::Keyboard::Escape:
+      case sf::Keyboard::Escape: // RESERVED: Terminate engine
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         break;
-
       case sf::Keyboard::Up:
         keyDown->Key = Keys::Up;
         break;
@@ -146,6 +145,20 @@ namespace DCEngine {
         break;
       case sf::Keyboard::F4:
         keyDown->Key = Keys::F4;
+        break;
+
+      case sf::Keyboard::F5:
+        keyDown->Key = Keys::F5;
+        break;
+      case sf::Keyboard::F6:
+        keyDown->Key = Keys::F6;
+        break;
+      case sf::Keyboard::F7:
+        keyDown->Key = Keys::F7;
+        break;
+      case sf::Keyboard::F8: // RESERVED: Fullscreen
+        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
+        keyDown->Key = Keys::F8;
         break;
 
         /* Numpad */

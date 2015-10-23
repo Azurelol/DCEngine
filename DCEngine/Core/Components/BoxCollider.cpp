@@ -17,6 +17,8 @@ namespace DCEngine {
     // subscribe to LogicUpdate events so it can draw
     if (IsDrawingCollider)
       Connect(SpaceRef, Events::LogicUpdate, BoxCollider::OnLogicUpdateEvent);
+
+    // Make sure the collider scales with the transform's scale
     
   }
 
@@ -24,8 +26,8 @@ namespace DCEngine {
 
   void BoxCollider::DrawCollider()
   {
-    auto debugScale = Real2(TransformComponent->Scale.x * Size.x,
-                            TransformComponent->Scale.y * Size.y);
+    auto debugScale = Real2(getColliderScale().x,
+                            getColliderScale().x);
 
     SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset, 
                                                           debugScale.x, //TransformComponent->Scale.x * Size.x,
@@ -54,6 +56,19 @@ namespace DCEngine {
   void BoxCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
   {
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  The true scale of the collider is the size set times the scale
+          of the component. 
+  @note   So if an object's transform scale was set at 1 while the collider's
+          size was set at 2, the collider would be twice the size of the object.
+  */
+  /**************************************************************************/
+  Real3 BoxCollider::getColliderScale()
+  {
+    return (Size * TransformComponent->Scale);
   }
 
   void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)

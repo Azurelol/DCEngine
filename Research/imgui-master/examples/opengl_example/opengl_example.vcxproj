@@ -159,6 +159,10 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\imgui-backends-master\SFML\imconfig-events-SFML.h" />
+    <ClInclude Include="..\..\..\imgui-backends-master\SFML\imconfig-rendering-SFML.h" />
+    <ClInclude Include="..\..\..\imgui-backends-master\SFML\imgui-events-SFML.h" />
+    <ClInclude Include="..\..\..\imgui-backends-master\SFML\imgui-rendering-SFML.h" />
     <ClInclude Include="..\..\imconfig.h" />
     <ClInclude Include="..\..\imgui.h" />
     <ClInclude Include="..\..\imgui_internal.h" />

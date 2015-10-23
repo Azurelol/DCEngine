@@ -22,24 +22,26 @@ namespace DCEngine {
 		case Keys::Add:
 			if (CameraComponent->Projection == ProjectionMode::Perspective)
 			{
-				CameraComponent->FieldOfView += 10;
+				CameraComponent->FieldOfView -= 10;
+        trace << Owner()->Name() << " - FieldOfView: " << CameraComponent->FieldOfView << "\n";
 			}
 			else
 			{
 				CameraComponent->Size += 1;
-			}
-			trace << Owner()->Name() << " - Size: " << CameraComponent->Size << "\n";
+        trace << Owner()->Name() << " - Size: " << CameraComponent->FieldOfView << "\n";
+			}			
 			break;
 		case Keys::Subtract:
 			if (CameraComponent->Projection == ProjectionMode::Perspective)
 			{
-				CameraComponent->FieldOfView -= 10;
+				CameraComponent->FieldOfView += 10;
+        trace << Owner()->Name() << " - FieldOfView: " << CameraComponent->FieldOfView << "\n";
 			}
 			else
 			{
 				CameraComponent->Size -= 1;
+        trace << Owner()->Name() << " - Size: " << CameraComponent->FieldOfView << "\n";
 			}
-			trace << Owner()->Name() << " - Size: " << CameraComponent->Size << "\n";
 			break;
 
 			/* Movement */

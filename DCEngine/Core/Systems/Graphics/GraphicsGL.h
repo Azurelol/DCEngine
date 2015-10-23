@@ -30,6 +30,7 @@ namespace DCEngine {
   
   // Forward declarations
   
+  
   class GraphicsSpace;
   class Camera;
   class Sprite;
@@ -37,6 +38,7 @@ namespace DCEngine {
 
   namespace Systems {
 
+    class Window;
     class Graphics;
 
     class GraphicsGL {
@@ -72,8 +74,6 @@ namespace DCEngine {
       
     private:
       // TEMP: Change these two to const
-      GLuint ScreenWidth;
-      GLuint ScreenHeight;
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
       ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO;
@@ -88,7 +88,7 @@ namespace DCEngine {
 
       GraphicsGL();
       void Initialize();
-      void Update(float dt);
+      void ViewportUpdate();
       void Terminate();
       void StartFrame();
       void EndFrame();

@@ -4,7 +4,7 @@
 namespace DCEngine {
 
 	/* Blaine, write your tests here. */
-	void DollHouse::LaboratoryTesting() {
+	void DollHouse::GameObjects() {
 
 		// Simple entity #1
 		GameObjectPtr reiner = ConstructGameObject("Reiner");
@@ -19,7 +19,7 @@ namespace DCEngine {
 		reiner->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
 		reiner->getComponent<BoxCollider>()->IsDrawingCollider = true;
 		// Transform properties
-		reiner->getComponent<Transform>()->Translation = Real3(-2, 0.0f, 0.0f);
+		reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.0f);
 		reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
@@ -42,7 +42,7 @@ namespace DCEngine {
 		john->AddComponent(ComponentPtr(new DebugCollider(*john)));
 		john->AddComponent(ComponentPtr(new DebugReport(*john)));
 		// Change the properties of the components
-		john->getComponent<Transform>()->Translation = Real3(2.0f, 0.0f, 0.0f);
+		john->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 0.0f);
 		john->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue

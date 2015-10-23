@@ -288,12 +288,6 @@
     <ClCompile Include="Core\Components\BoxCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\Gallery.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\Laboratory.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugCamera.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
@@ -392,6 +386,24 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\GUIimgui.cpp">
       <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\Environment.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\GameObjects.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Dollhouse\Background.cpp">
+      <Filter>Projects\Dollhouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp">
+      <Filter>Libraries</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

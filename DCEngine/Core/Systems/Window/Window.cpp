@@ -28,7 +28,14 @@ GLFW implementation: "http://www.learnopengl.com/#!Getting-Started/Hello-Window"
 
 namespace DCEngine {
   namespace Systems {
-
+    glm::vec2 Window::getWindowDimensions()
+    {
+      return glm::vec2(Width, Height);
+    }
+    void Window::setFullscreen()
+    {
+      WindowHandler->setFullScreen();
+    }
     Window::Window() : System(std::string("WindowSystem"), EnumeratedSystem::Window) {
         #if(USE_SFML)
         trace << "*Using SFML Context for Window and Input \n";
@@ -54,7 +61,9 @@ namespace DCEngine {
     void Window::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
         trace << "Window::Update \n";
-
+      // Update the current width's, heig
+      Width = WindowHandler->getWindowDimensions().x;
+      Height = WindowHandler->getWindowDimensions().y;      
       WindowHandler->Update(dt);
     }
 

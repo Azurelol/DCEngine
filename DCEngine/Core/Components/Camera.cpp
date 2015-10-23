@@ -31,8 +31,8 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
 
     // Set the references to the Window system's screen width and height
-    //ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
-    //ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;    
+    ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
+    ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;    
 
 	}
 

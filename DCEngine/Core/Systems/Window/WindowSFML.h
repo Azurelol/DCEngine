@@ -24,8 +24,12 @@
 namespace DCEngine {
   namespace Systems {
 
-    class Window;
+    enum class WindowMode {
+      Default = sf::Style::Default,
+      Fullscreen = sf::Style::Fullscreen,
+    };
 
+    class Window;
     class WindowSFML {
     friend class Window;
     friend class InputSFML;
@@ -47,20 +51,24 @@ namespace DCEngine {
       std::unique_ptr<sf::Window> WindowContext;
       sf::Event EventObj;
       std::string CaptionText;
+      
+      sf::Vector2i getWindowDimensions();
+      void setFullScreen();
+      void setWindow(WindowMode style);
 
       void Initialize();
       void Update(float dt);
       void Terminate();
       void StartFrame();
       void EndFrame();
-
+      
       // Settings for the underlying OpenGL context
       const int _depthBits = 24; //!< Number of bits per pixel to use for the depth buffer.
       const int _stencilBits = 8; //!< Number of bits per pixel to use for the stencil buffer.
       const int _antiAliasingLevel = 4; //!< The multisampling level.
       const int _majorVersion = 3;
       const int _minorVersion = 0;
-
+      bool IsFullscreen = false;
     };
 
 

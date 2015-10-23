@@ -5,10 +5,13 @@
 \**************************************************************/
 
 // Includes
-#if defined (UNICODE)
-#undef UNICODE
-#define TEMP_DISABLE_UNICODE
+
+
+#if defined(UNICODE)
+  #undef UNICODE
+  #define TEMP_DISABLE_UNICODE
 #endif
+
 
 namespace Zilch
 {
@@ -71655,6 +71658,8 @@ u64 GenerateUniqueId64()
 
 #endif
 
+
+
 #if defined(TEMP_DISABLE_UNICODE)
-#define UNICODE
+  #define UNICODE
 #endif
