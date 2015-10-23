@@ -1,4 +1,4 @@
-#include "GUIimgui.h"
+#include "ImGuiSFML.h"
 
 // Access to the Window System
 #include "../../Engine/Engine.h"
@@ -11,7 +11,7 @@ namespace DCEngine {
     \brief  Constructor.
     */
     /**************************************************************************/
-    GUI::GUI()
+    ImGuiSFML::ImGuiSFML()
     {
     }
 
@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  Initializes the ImGui handler.
     */
     /**************************************************************************/
-    void GUI::Initialize()
+    void ImGuiSFML::Initialize()
     {      
       if (TRACE_INITIALIZE)
         trace << "GUI::Initialize \n";
@@ -31,18 +31,33 @@ namespace DCEngine {
       // Setup ImGui bindng
       ImGuiSFMLInitialize(WindowContext, true);
     }
+    
+    /**************************************************************************/
+    /*!
+    @brief  Updates ImGui.
+    @todo   If there's issues, move after the graphics update?
+    */
+    /**************************************************************************/
+    void ImGuiSFML::StartFrame()
+    {      
+      // 1. Poll for ImGui Events in SFML
+      sf::Event event;
+      while (WindowContext->pollEvent(event))
+        ImGuiSFMLProcessEvent(event);
+      // 2. Update ImGui after having polled for events
+      ImGuiSFMLEventsUpdate();
+      // 3. Have ImGui start a new frame.
+      ImGui::NewFrame();
+    }
 
     /**************************************************************************/
     /*!
-    \brief  Updates ImGui.
+    @brief  Update.
+    @todo   If there's issues, move after the graphics update?
     */
     /**************************************************************************/
-    void GUI::Update(float dt)
+    void ImGuiSFML::Render()
     {
-      // Called every events are polled by the window
-      ImGuiSFMLNewFrame();
-      
-      // ?? If there's issues, move after the graphics update?
       ImGui::Render();
     }
 
@@ -51,7 +66,7 @@ namespace DCEngine {
     \brief  Terminates ImGui.
     */
     /**************************************************************************/
-    void GUI::Terminate()
+    void ImGuiSFML::Terminate()
     {
       ImGuiSFMLTerminate();
     }
@@ -68,22 +83,15 @@ namespace DCEngine {
     @param  Whether to initialize callbacks?
     */
     /**************************************************************************/
-    IMGUI_API bool GUI::ImGuiSFMLInitialize(sf::Window * windowContext, bool installCallbacks)
+    IMGUI_API bool ImGuiSFML::ImGuiSFMLInitialize(sf::Window * windowContext, bool installCallbacks)
     {
       // Bind ImGui to SFML input events
       ImGuiSFMLBindEvents();
-      
+      // Generate the font textures used by ImGui
+      ImGuiSFMLGenerateFontTexture();
+      // Initialize the rendering functions
+      ImGuiSFMLInitializeRendering();
       return true;
-
-    }
-    /**************************************************************************/
-    /*!
-    \brief  Polls for all input events..
-    */
-    /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLNewFrame()
-    {
-      // Setup the frame buffer size
     }
 
     /**************************************************************************/
@@ -92,7 +100,7 @@ namespace DCEngine {
     @note   Currently done through sf::Texture.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLGenerateFontTexture()
+    IMGUI_API void ImGuiSFML::ImGuiSFMLGenerateFontTexture()
     {
       ImGuiIO& io = ImGui::GetIO();
       // Generate an OpenGL texture
@@ -111,15 +119,18 @@ namespace DCEngine {
     @brief  Initializes ImGui's rendering pipeline.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLInitializeRendering()
+    IMGUI_API void ImGuiSFML::ImGuiSFMLInitializeRendering()
     {
       // Grab a reference to the input output
       ImGuiIO& io = ImGui::GetIO();
       // Sets the initial display size
       io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+      //io.DisplayFramebufferScale = ImVec2(static_cast<float>(WindowContext->getSize().x),
+      //                               static_cast<float>(WindowContext->getSize().y));
+      //io.DisplayFramebufferScale = ImVec2(static_cast<float>())
+      
       // Bind our implemented 'RenderDrawLists' function
       io.RenderDrawListsFn = ImGuiSFMLRenderDrawLists;
-
       // Generates the font texture and binds it to ImGui
       ImGuiSFMLGenerateFontTexture();
     }
@@ -129,9 +140,10 @@ namespace DCEngine {
     \brief  Binds SFML input to ImGui.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLBindEvents()
+    IMGUI_API void ImGuiSFML::ImGuiSFMLBindEvents()
     {
       ImGuiIO& io = ImGui::GetIO();
+
       io.KeyMap[ImGuiKey_Tab] = sf::Keyboard::Tab;
       io.KeyMap[ImGuiKey_LeftArrow] = sf::Keyboard::Left;
       io.KeyMap[ImGuiKey_RightArrow] = sf::Keyboard::Right;
@@ -157,7 +169,7 @@ namespace DCEngine {
     \brief  Updates ImGui.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLEventsUpdate()
+    IMGUI_API void ImGuiSFML::ImGuiSFMLEventsUpdate()
     {
       ImGuiIO& io = ImGui::GetIO();
       static double time = 0.0f;
@@ -168,7 +180,7 @@ namespace DCEngine {
       io.MousePos = ImVec2(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
       io.MouseDown[0] = MousePressed[0] || sf::Mouse::isButtonPressed(sf::Mouse::Left);
       io.MouseDown[1] = MousePressed[1] || sf::Mouse::isButtonPressed(sf::Mouse::Right);
-      ImGui::NewFrame();
+
     }
 
     /**************************************************************************/
@@ -177,7 +189,7 @@ namespace DCEngine {
     @param  A reference to the event object.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLProcessEvent(sf::Event & event)
+    IMGUI_API void ImGuiSFML::ImGuiSFMLProcessEvent(sf::Event & event)
     {
       switch (event.type) {
       case sf::Event::MouseButtonPressed:
@@ -222,31 +234,7 @@ namespace DCEngine {
         break;
       }
     }
-
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Terminates ImGui.
-    */
-    /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLTerminate()
-    {
-      ImGuiSFMLInvalidateDeviceObjects();
-      ImGui::Shutdown();
-    }
-
-    IMGUI_API bool GUI::ImGuiSFMLCreateDeviceObjects()
-    {
-      ImGuiIO& io = ImGui::GetIO();
-      // Create an OpenGL texture
-      GLint lastTexture;
-      glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);  
-      
-      return true;
-
-    }
-
+    
     /**************************************************************************/
     /*!
     @brief  Setup the OpenGL render state for ImGui before it starts rendering.
@@ -255,8 +243,16 @@ namespace DCEngine {
     @todo   Update to use core profile.
     */
     /**************************************************************************/
-    IMGUI_API GLint GUI::ImGuiSFMLRenderStateSetup()
+    IMGUI_API GLint ImGuiSFML::ImGuiSFMLRenderStateSetup()
     {
+      // Clean the shader first? Lol
+      glm::mat4 cleanup;
+      glm::vec4 colorclean;
+      auto shader = Daisy->getSystem<Content>()->getShader("SpriteShader");
+      shader->SetMatrix4("model", cleanup);
+      shader->SetVector4f("color", colorclean);
+      shader->SetInteger("isTexture", 0);
+
       // Setup render state: alpha-blending enabled, no face culling, no depth testing, 
       // scissor enabled, vertex/texcoord/color pointers.
       GLint lastTexture;
@@ -294,7 +290,7 @@ namespace DCEngine {
             started rendering.
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLRestoreState(GLint lastTexture)
+    IMGUI_API void ImGuiSFML::ImGuiSFMLRestoreState(GLint lastTexture)
     {
       // Restore modified state
       glDisableClientState(GL_COLOR_ARRAY);
@@ -306,6 +302,12 @@ namespace DCEngine {
       glMatrixMode(GL_PROJECTION);
       glPopMatrix();
       glPopAttrib();
+
+      //glewExperimental = GL_TRUE;
+      //glEnable(GL_DEPTH_TEST);
+      //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+      //glEnable(GL_BLEND);
+      //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
     /**************************************************************************/
@@ -315,7 +317,7 @@ namespace DCEngine {
     @param  draw_data A struct containing all the render data
     */
     /**************************************************************************/
-    IMGUI_API void GUI::ImGuiSFMLRenderDrawLists(ImDrawData * draw_data)
+    IMGUI_API void ImGuiSFML::ImGuiSFMLRenderDrawLists(ImDrawData * draw_data)
     {
       // Set the OpenGL state and saves the handle to the last texture
       GLint lastTexture = ImGuiSFMLRenderStateSetup();
@@ -326,7 +328,7 @@ namespace DCEngine {
       float fbHeight = io.DisplaySize.y * io.DisplayFramebufferScale.y;
       draw_data->ScaleClipRects(io.DisplayFramebufferScale);
 
-      // Render command lists
+      // Update command lists
       #define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
       for (int n = 0; n < draw_data->CmdListsCount; n++)
       {
@@ -358,12 +360,18 @@ namespace DCEngine {
       // Restores the modified state and the last texture
       ImGuiSFMLRestoreState(lastTexture);
     }
-
-
-    IMGUI_API void GUI::ImGuiSFMLInvalidateDeviceObjects()
+    
+    /**************************************************************************/
+    /*!
+    @brief  Terminates ImGui.
+    */
+    /**************************************************************************/
+    IMGUI_API void ImGuiSFML::ImGuiSFMLTerminate()
     {
-      return IMGUI_API void();
+      //ImGuiSFMLInvalidateDeviceObjects();
+      ImGui::Shutdown();
     }
+
 
 
   }

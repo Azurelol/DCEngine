@@ -1,9 +1,6 @@
 #pragma once
 #include "../System.h"
 
-// Implementation
-#include "GUIimgui.h"
-
 namespace DCEngine {
   
   class Engine;
@@ -17,6 +14,10 @@ namespace DCEngine {
 
     private:
 
+      bool ShowTest = true;
+
+      void GUITest();
+
       Editor();
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
@@ -24,7 +25,7 @@ namespace DCEngine {
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
 
-      std::unique_ptr<GUI> GUIHandler;
+      
 
     };
 

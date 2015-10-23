@@ -7,5 +7,6 @@
 #include "Physics/Physics.h"
 #include "Factory/Factory.h"
 #include "Content/Content.h"
-#include "Reflection\Reflection.h"
-#include "Editor\Editor.h"
+#include "Reflection/Reflection.h"
+#include "GUI/GUI.h"
+#include "Editor/Editor.h"

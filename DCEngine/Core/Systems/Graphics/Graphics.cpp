@@ -48,7 +48,7 @@ namespace DCEngine {
         // Get the default camera from the 'CameraViewport' component
         auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
 
-        // Render every 'Sprite'
+        // Update every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);
         for (auto gameObj : gfxSpace->getSprites()) {
          DrawSprite(*gameObj, *camera, dt);
@@ -56,18 +56,18 @@ namespace DCEngine {
 
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
 
-        // Render every 'SpriteText'
+        // Update every 'SpriteText'
         //GraphicsHandler->SetSpriteTextShader(*camera);
         //for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
         //  DrawSpriteText(*spriteText, *camera);
         //}
 
-        // Render every 'DebugDrawObject'
+        // Update every 'DebugDrawObject'
 
         
-        // Render all models. Load the model shader.
+        // Update all models. Load the model shader.
 
-        // 3. Render al particles. Load different shader.
+        // 3. Update al particles. Load different shader.
       }
 
     }

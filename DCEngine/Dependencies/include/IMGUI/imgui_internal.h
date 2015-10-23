@@ -262,7 +262,7 @@ struct IMGUI_API ImGuiSimpleColumns
     float               Pos[8], NextWidths[8];
 
     ImGuiSimpleColumns();
-    void                Update(int count, float spacing, bool clear);
+    void                Render(int count, float spacing, bool clear);
     float               DeclColumns(float w0, float w1, float w2);
     float               CalcExtraSpace(float avail_w);
 };

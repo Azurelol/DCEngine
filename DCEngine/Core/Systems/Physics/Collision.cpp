@@ -499,8 +499,31 @@ namespace DCEngine
           result.obj2 = Collider::Rectangle;
           result.ContactNormal = normal;
           result.Penetration = xDiff;
-          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
-          result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+
+          if (result.rigid1 != false && result.rigid2 != false)
+          {
+            result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+            result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+          }
+
+          if (result.rigid1 == false && result.rigid2 != false)
+          {
+            result.FrictionCof = rigidbody2->getFriction();
+            result.Restitution = rigidbody2->getRestitution();
+          }
+
+          if (result.rigid1 != false && result.rigid2 == false)
+          {
+            result.FrictionCof = rigidbody1->getFriction();
+            result.Restitution = rigidbody1->getRestitution();
+          }
+
+          if (result.rigid1 == false && result.rigid2 == false)
+          {
+            result.FrictionCof = 0.0f;
+            result.Restitution = 0.0f;
+          }
+
           return true;
         }
         else
@@ -513,8 +536,12 @@ namespace DCEngine
           result.obj2 = Collider::Rectangle;
           result.ContactNormal = normal;
           result.Penetration = yDiff;
-          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
-          result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+
+          if (result.rigid1 != false && result.rigid2 != false)
+          {
+            result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+            result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+          }
           return true;
         }
       }

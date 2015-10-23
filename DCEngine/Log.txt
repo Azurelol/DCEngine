@@ -2,7 +2,6 @@
 
 [Engine::Initialize] 
 *Using SFML Context for Window and Input 
-*Using imgui for Editor GUI 
 *Using FMOD for Audio 
 *Using OpenGL for Graphics 
 Content::Initialize 
@@ -148,4 +147,61 @@ Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
-AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed t
+AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
+Audio::Register -  Daisy World has registered to the Audio system
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Chen::Initialize 
+GraphicsSpace::AddSprite - Chen
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+GraphicsSpace::AddSprite - Reiner
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+Myres::Initialize 
+GraphicsSpace::AddSprite - Myres
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+Floor::Initialize 
+GraphicsSpace::AddSprite - Floor
+PhysicsSpace::AddRigidBody - Floor
+PhysicsSpace::AddCollider - Floor
+BackgroundLayer1::Initialize 
+GraphicsSpace::AddSprite - BackgroundLayer1
+
+[Engine::Loop]
+Mouse down!
+BallController::OnMouseUpEvent - Left Button released at x: -37 y: 234
+Camera - FieldOfView: 55
+Camera - FieldOfView: 65
+Camera - FieldOfView: 75
+Camera - FieldOfView: 85
+Camera - FieldOfView: 95
+Camera - FieldOfView: 105
+Camera - FieldOfView: 115
+Camera - FieldOfView: 125
+Camera - FieldOfView: 135
+Camera - FieldOfView: 145
+Camera - FieldOfView: 155
+Camera - FieldOfView: 165
+Camera - FieldOfView: 175
+
+[Engine::Terminate] 
+Content::Terminate
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

@@ -32,7 +32,7 @@ namespace DCEngine {
       void LoadProjectResources(); //!< Load resources from a project.
       
       /* Getters */
-      ShaderPtr getShader(std::string& shaderName);
+      ShaderPtr getShader(std::string shaderName);
       FontPtr getFont(std::string& fontName);
       SpriteSourcePtr getSpriteSrc(std::string& spriteName);
       SoundCuePtr getSoundCue(std::string& soundCueName);

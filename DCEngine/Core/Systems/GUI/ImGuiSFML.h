@@ -1,3 +1,12 @@
+/******************************************************************************/
+/*!
+\file   ImGuiSFML.h
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   10/23/2015
+\brief  An SFML backend for ImGui.
+*/
+/******************************************************************************/
 #pragma once
 #include "../System.h"
 
@@ -12,9 +21,9 @@
 namespace DCEngine {
   namespace Systems {
     
-    class Editor;
-    class GUI {
-      friend class Editor;
+    class GUI;
+    class ImGuiSFML {
+      friend class GUI;
     public:
 
     private:      
@@ -25,28 +34,25 @@ namespace DCEngine {
       float MouseWheel = 0.0f;      
       /* Rendering Data */
       sf::Texture FontTexture;
-
-
+      
       /* System Functions */
-      GUI();
+      ImGuiSFML();
       void Initialize();
-      void Update(float dt);
+      void StartFrame();
+      void Render();
       void Terminate();
 
       /* imgui bindings */
       IMGUI_API bool ImGuiSFMLInitialize(sf::Window* windowContext, bool installCallbacks);
       IMGUI_API void ImGuiSFMLTerminate();
-      IMGUI_API void ImGuiSFMLNewFrame();      
-
+      
       /* Events*/
       IMGUI_API void ImGuiSFMLEventsUpdate();
       IMGUI_API void ImGuiSFMLBindEvents();
       IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);
             
       /* Rendering */
-      IMGUI_API void ImGuiSFMLInitializeRendering();      
-      IMGUI_API void ImGuiSFMLInvalidateDeviceObjects();
-      IMGUI_API bool ImGuiSFMLCreateDeviceObjects();
+      IMGUI_API void ImGuiSFMLInitializeRendering();  
 
       // The function we pass to ImGui for rendering must be marked static?
       IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawData* draw_data);

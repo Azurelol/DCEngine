@@ -12,6 +12,15 @@
 namespace DCEngine {
   namespace Systems {
 
+    void GraphicsGL::BufferCleaner()
+    {
+      glm::mat4 cleanup;
+      glm::vec4 colorclean;
+      this->SpriteShader->SetMatrix4("model", cleanup);
+      this->SpriteShader->SetVector4f("color", colorclean);
+      this->SpriteShader->SetInteger("isTexture", 0);
+    }
+
     /**************************************************************************/
     /*!
     \brief  Configures the DebugDraw Line VAO.
