@@ -50,9 +50,52 @@ namespace DCEngine {
 
         // Render every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);
-        for (auto gameObj : gfxSpace->getSprites()) {
-         DrawSprite(*gameObj, *camera, dt);
+
+		for (auto gameObj : gfxSpace->getSprites()) {
+			//draw list
+			++TotalObjNumG;
+			if (gameObj->SpriteSource == "Square")
+			{
+				if (gameObj->Color.a == 1)
+				{
+					NonTextureObj.push_back(*(gameObj));
+				}
+				else
+				{
+					NonTextureObjNontransp.push_back(*(gameObj));
+				}
+			}
+			else
+			{
+				TextureObj.push_back(*(gameObj));
+			}
+		}
+		//Nontexture object draw first
+		for (int i = 0; i < NonTextureObj.size(); ++i)
+		{
+			DrawSprite(NonTextureObj[i], *camera, dt);
         }
+
+		for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
+		{
+			DrawSprite(NonTextureObjNontransp[i], *camera, dt);
+		}
+
+		for (int i = 0; i < TextureObj.size(); ++i)
+		{
+			DrawSprite(TextureObj[i], *camera, dt);
+		}
+
+		NonTextureObj.clear();
+		NonTextureObjNontransp.clear();
+		TextureObj.clear();
+
+		SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
+
+		//Clean the counter
+		TotalObjNumG = 0;
+		TotalObjTranspNumG = 0;
+
 
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
 
@@ -168,6 +211,12 @@ namespace DCEngine {
     void Graphics::EndFrame() {
       GraphicsHandler->EndFrame();
     }
+
+	void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
+	{
+		GraphicsHandler->TotalObjNum = TotalObjNumG;
+		GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
+	}
 
 
   }

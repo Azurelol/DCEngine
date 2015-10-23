@@ -93,6 +93,9 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
 
+	  //Draw List
+	  int TotalObjNum = 0;
+	  int TotalTranspObjNum = 0; //including semi-transparent objects
     };
   }
 }
