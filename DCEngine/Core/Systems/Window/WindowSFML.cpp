@@ -29,6 +29,12 @@ namespace DCEngine {
         setWindow(WindowMode::Fullscreen);
       else
         setWindow(WindowMode::Default);
+
+
+     /*
+     To go back and forth between windowed and fullscreen, I just call 
+     
+     */
       
     }
 
@@ -40,7 +46,11 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::setWindow(WindowMode style)
     {
-      // Create the window      
+      // Create the window   
+
+      if (WindowContext != nullptr)
+        WindowContext->close();
+
       // Tells SFML the settings for the underlying OpenGL context
       sf::ContextSettings settings;
       settings.depthBits = _depthBits;
@@ -64,6 +74,8 @@ namespace DCEngine {
       WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
       //WindowContext->setFramerateLimit(60); 
+
+      // The window context needs to give the input system a reference to this pointer
     }
 
     /**************************************************************************/
