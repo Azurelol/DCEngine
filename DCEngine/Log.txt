@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 [Engine::Engine - Constructor] 
 
 [Engine::Initialize] 
@@ -149,3 +151,4 @@ AudioFMOD::CreateStream
 AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
 AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this func
+>>>>>>> 2b61d22546d15032deb6a771926aa381c7e47b65
