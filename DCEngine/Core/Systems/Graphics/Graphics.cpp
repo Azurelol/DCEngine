@@ -107,6 +107,7 @@ namespace DCEngine {
 		NonTextureObjNontransp.clear();
 		TextureObj.clear();
 		TextureObjNontransp.clear();
+		sorted.clear();
 
 		SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 
