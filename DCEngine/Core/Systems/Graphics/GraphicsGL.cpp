@@ -26,7 +26,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    void GraphicsGL::BufferCleaner()
+    void GraphicsGL::CleanBuffer()
     {
    	  glm::mat4 cleanup;
       glm::vec4 colorclean;

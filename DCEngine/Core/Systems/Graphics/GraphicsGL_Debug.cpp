@@ -88,7 +88,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
     {
-		BufferCleaner();
+		CleanBuffer();
 		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
 		glBegin(GL_LINE_LOOP);
 		//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
@@ -104,7 +104,6 @@ namespace DCEngine {
 		glVertex3f(Position4.x, Position4.y, Position4.z);
 
 		glEnd();
-
     }
     /**************************************************************************/
     /*!
@@ -118,7 +117,7 @@ namespace DCEngine {
     {
       // Do your magic here Chen
       //trace << "Drawing a circle\n";
-      BufferCleaner();
+      CleanBuffer();
       this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
       glBegin(GL_LINE_LOOP);
 
@@ -147,7 +146,7 @@ namespace DCEngine {
     void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
     {
 		
-		BufferCleaner();
+		CleanBuffer();
 		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
 		glBegin(GL_LINE_LOOP);
 		auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);

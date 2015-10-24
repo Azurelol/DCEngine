@@ -84,7 +84,7 @@ namespace DCEngine {
       void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);
       
       // Temporary until we switch to DebugDraw objects with shaders
-	    void BufferCleaner();
+	    void CleanBuffer();
 
       GraphicsGL();
       void Initialize();
