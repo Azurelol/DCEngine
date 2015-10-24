@@ -38,7 +38,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Users\ChenShu\Desktop\Delete\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -181,11 +181,8 @@ BackgroundLayer1::Initialize
 GraphicsSpace::AddSprite - BackgroundLayer1
 
 [Engine::Loop]
-<<<<<<< HEAD
 Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -37 y: 234
-=======
->>>>>>> 53e14e4796822b314e4898c50a89a07112de2dfa
+BallController::OnMouseUpEvent - Left Button released at x: 55 y: 108
 Camera - FieldOfView: 55
 Camera - FieldOfView: 65
 Camera - FieldOfView: 75
@@ -199,15 +196,7 @@ Camera - FieldOfView: 145
 Camera - FieldOfView: 155
 Camera - FieldOfView: 165
 Camera - FieldOfView: 175
-<<<<<<< HEAD
-=======
 Camera - FieldOfView: 165
-Camera - FieldOfView: 175
-Camera - FieldOfView: 165
-Camera - FieldOfView: 155
-Camera - FieldOfView: 165
-Camera - FieldOfView: 175
->>>>>>> 53e14e4796822b314e4898c50a89a07112de2dfa
 
 [Engine::Terminate] 
 Content::Terminate
