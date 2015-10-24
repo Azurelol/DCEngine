@@ -58,37 +58,55 @@ namespace DCEngine {
 			{
 				if (gameObj->Color.a == 1)
 				{
-					NonTextureObj.push_back(*(gameObj));
+					NonTextureObjNontransp.push_back(gameObj);
 				}
 				else
 				{
-					NonTextureObjNontransp.push_back(*(gameObj));
+					NonTextureObj.push_back(gameObj);
+					TransparentObj.push_back(gameObj);
 				}
 			}
 			else
 			{
-				TextureObj.push_back(*(gameObj));
+				if (gameObj->Color.a == 1)
+				{
+
+					TextureObjNontransp.push_back(gameObj);
+				}
+				else
+				{
+					TextureObj.push_back(gameObj);
+				}
+				TransparentObj.push_back(gameObj);
 			}
 		}
-		//Nontexture object draw first
-		for (int i = 0; i < NonTextureObj.size(); ++i)
+		//sort
+		std::map<float, Sprite*> sorted;
+		for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
 		{
-			DrawSprite(NonTextureObj[i], *camera, dt);
-        }
+			GLfloat distance = glm::length(camera->TransformComponent->Translation - TransparentObj[i]->TransformComponent->Translation);
+			sorted[distance] = TransparentObj[i];
+		}
 
+		//Nontexture object draw first
 		for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
 		{
-			DrawSprite(NonTextureObjNontransp[i], *camera, dt);
+			DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
 		}
 
-		for (int i = 0; i < TextureObj.size(); ++i)
+		for (int i = 0; i < TextureObjNontransp.size(); ++i)
 		{
-			DrawSprite(TextureObj[i], *camera, dt);
+			DrawSprite(*(TextureObjNontransp[i]), *camera, dt);
 		}
 
+		for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
+		{
+			DrawSprite(*(it->second), *camera, dt);
+		}
 		NonTextureObj.clear();
 		NonTextureObjNontransp.clear();
 		TextureObj.clear();
+		TextureObjNontransp.clear();
 
 		SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 
