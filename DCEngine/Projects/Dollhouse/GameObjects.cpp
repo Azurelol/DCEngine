@@ -28,6 +28,7 @@ namespace DCEngine {
 		reiner->getComponent<Sprite>()->AnimationActive = true;
 		reiner->getComponent<Sprite>()->HaveAnimation = true;
 		reiner->getComponent<Sprite>()->AnimationSpeed = 10;
+		reiner->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 0.0f, 0.5f);
 		reiner->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
 		// DebugDraw properties
 		reiner->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
