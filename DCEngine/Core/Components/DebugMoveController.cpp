@@ -12,9 +12,11 @@ namespace DCEngine {
     Connect(Daisy->getKeyboard(), Events::KeyDown, DebugMoveController::OnKeyDownEvent);
     Connect(Daisy->getKeyboard(), Events::KeyUp, DebugMoveController::OnKeyUpEvent);
     Connect(Daisy->getMouse(), Events::MouseDown, DebugMoveController::OnMouseDownEvent);
+    Connect(SpaceRef, Events::LogicUpdate, DebugMoveController::OnLogicUpdateEvent);
 
     TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
         
+    
   }
 
   void DebugMoveController::Serialize(Json::Value & root)
@@ -82,6 +84,23 @@ namespace DCEngine {
   void DebugMoveController::OnMouseDownEvent(Events::MouseDown * event) {
     trace << "Mouse down!\n";
 
+  }
+
+  void DebugMoveController::OnLogicUpdateEvent(Events::LogicUpdate * event)
+  {
+    //if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS DOWN!!!\n";
+    //else
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS UP!!!\nwa";
+    //if (Daisy->getMouse()->MouseDown(MouseButton::Left))
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS DOWN!!!\n";
+    //else
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS UP!!!\nwa";
+
+    //if (Daisy->getMouse()->MouseDown(MouseButton::Right))
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS DOWN!!!\n";
+    //else
+    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS UP!!!\nwa";
   }
 
   void DebugMoveController::SetFootstepSound(std::string & soundfileName) {

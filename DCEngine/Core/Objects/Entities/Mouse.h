@@ -12,8 +12,27 @@
 
 namespace DCEngine {
 
+  class Engine;
+
+  namespace Systems {
+    class InputSFML;
+  }
+  
   class Mouse : public Entity {
+    friend class Engine;
+    friend class Systems::InputSFML;
+
   public:
+    bool MouseDown(MouseButton button);
+    bool MouseUp(MouseButton button);
+
+  private:
+
+    bool MouseDown_Left = false;
+    bool MouseDown_Right = false;
+    bool MouseDown_Middle = false;
+
+
     Mouse::Mouse() : Entity(std::string("Mouse")) {
       if (TRACE_ON && TRACE_CONSTRUCTOR)
         trace << ObjName << " Interface - Constructor \n";      

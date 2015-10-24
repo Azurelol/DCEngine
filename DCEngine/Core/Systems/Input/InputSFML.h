@@ -19,6 +19,9 @@ class WindowSFML;
 
 namespace DCEngine {
   
+  class Keyboard;
+  class Mouse;
+
   namespace Systems {
 
     class InputSFML {
@@ -41,6 +44,8 @@ namespace DCEngine {
       // a pointed object alive. The simplest kind is a raw pointer.
       sf::Window* WindowContext; 
       sf::Event _event;
+      Keyboard* KeyboardRef;
+      Mouse* MouseRef;
       bool RepeatInput = true;
 
     };

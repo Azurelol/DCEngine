@@ -144,7 +144,7 @@ namespace DCEngine {
           was not found.
   */
   /**************************************************************************/
-  GameObject* Space::FindObjectByName(const std::string & name) {
+  GameObject* Space::FindObjectByName(const std::string name) {
     // Search through the space's gameobjects
     for (auto gameObj : GameObjectContainer) {
       if (gameObj->Name() == name)

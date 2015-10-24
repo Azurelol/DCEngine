@@ -10,6 +10,9 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
+
+    //auto playerPtr = SpaceRef->FindObjectByName("Reiner");
+    //int i = 2;
 	}
 
 	void BallController::Serialize(Json::Value & root)

@@ -21,6 +21,23 @@
 namespace DCEngine {
   namespace Systems {
     
+    struct OpenGLStateData {
+      GLint lastProgram;
+      GLint lastTexture;
+      GLint lastArrayBuffer; 
+      GLint lastElementArrayBuffer; 
+      GLint lastVertexArray;
+      GLint lastBlendSrc;
+      GLint lastBlendDst;
+      GLint lastBlendEquationRGB; 
+      GLint lastBlendEquationAlpha; 
+      GLboolean lastEnableBlend;
+      GLboolean lastEnableCullFace;
+      GLboolean lastEnableDepthTest;
+      GLboolean lastEnableScissorTest;
+
+    };
+
     class GUI;
     class ImGuiSFML {
       friend class GUI;
@@ -52,12 +69,13 @@ namespace DCEngine {
       IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);
             
       /* Rendering */
+      IMGUI_API bool ImGuiSFMLCreateDeviceObjects();
       IMGUI_API void ImGuiSFMLInitializeRendering();  
 
       // The function we pass to ImGui for rendering must be marked static?
       IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawData* draw_data);
-      IMGUI_API static GLint ImGuiSFMLRenderStateSetup();
-      IMGUI_API static void ImGuiSFMLRestoreState(GLint lastTexture);
+      IMGUI_API static OpenGLStateData ImGuiSFMLBackupGLState();
+      IMGUI_API static void ImGuiSFMLRestoreState(OpenGLStateData& currentState);
 
       IMGUI_API void ImGuiSFMLGenerateFontTexture();
       //IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawList** const cmdLists, int cmdListsCount);

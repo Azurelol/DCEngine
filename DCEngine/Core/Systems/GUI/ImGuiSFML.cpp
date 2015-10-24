@@ -6,6 +6,12 @@
 namespace DCEngine {
   namespace Systems {
 
+    // Shader handles
+    static int ShaderHandle = 0, VertexHandle = 0, FragHandle = 0;
+    static int AttribLocationTex = 0, AttribLocationProjecMtx = 0;
+    static int AttribLocationPosition = 0, AttribLocationUV = 0, AttribLocationColor = 0;
+    static unsigned int VBOHandle = 0, VAOHandle = 0, ElementsHandle = 0;
+
     /**************************************************************************/
     /*!
     \brief  Constructor.
@@ -87,8 +93,8 @@ namespace DCEngine {
     {
       // Bind ImGui to SFML input events
       ImGuiSFMLBindEvents();
-      // Generate the font textures used by ImGui
-      ImGuiSFMLGenerateFontTexture();
+      // Genereate the objects used by ImGui
+      ImGuiSFMLCreateDeviceObjects();
       // Initialize the rendering functions
       ImGuiSFMLInitializeRendering();
       return true;
@@ -100,6 +106,29 @@ namespace DCEngine {
     @note   Currently done through sf::Texture.
     */
     /**************************************************************************/
+    IMGUI_API bool ImGuiSFML::ImGuiSFMLCreateDeviceObjects()
+    {
+      // 1. Backup the current OpenGL state
+      GLint lastTexture, lastArrayBuffer, lastVertexArray;
+      glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);
+      glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &lastArrayBuffer);
+      glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &lastVertexArray);
+      
+      // 2. Store a handle to the shader program used by ImGui
+      ShaderHandle = Daisy->getSystem<Systems::Content>()->getShader("GUIShader")->Get();
+      
+      // Generate font textures
+      ImGuiSFMLGenerateFontTexture();
+
+      // Restores the modified OpenGL state
+      glBindTexture(GL_TEXTURE_2D, lastTexture);
+      glBindBuffer(GL_ARRAY_BUFFER, lastArrayBuffer);
+      glBindVertexArray(lastVertexArray);
+
+      return true;
+
+    }
+    
     IMGUI_API void ImGuiSFML::ImGuiSFMLGenerateFontTexture()
     {
       ImGuiIO& io = ImGui::GetIO();
@@ -113,6 +142,8 @@ namespace DCEngine {
       io.Fonts->ClearInputData();
       io.Fonts->ClearTexData();
     }
+
+
 
     /**************************************************************************/
     /*!
@@ -237,50 +268,29 @@ namespace DCEngine {
     
     /**************************************************************************/
     /*!
-    @brief  Setup the OpenGL render state for ImGui before it starts rendering.
+    @brief  Backs up the current OpenGL state.
     @note   This is currently being done through the OpenGL fixed pipeline
             to make the code simpler to read!
     @todo   Update to use core profile.
     */
     /**************************************************************************/
-    IMGUI_API GLint ImGuiSFML::ImGuiSFMLRenderStateSetup()
+    IMGUI_API OpenGLStateData ImGuiSFML::ImGuiSFMLBackupGLState()
     {
-      // Clean the shader first? Lol
-      glm::mat4 cleanup;
-      glm::vec4 colorclean;
-      auto shader = Daisy->getSystem<Content>()->getShader("SpriteShader");
-      shader->SetMatrix4("model", cleanup);
-      shader->SetVector4f("color", colorclean);
-      shader->SetInteger("isTexture", 0);
-
-      // Setup render state: alpha-blending enabled, no face culling, no depth testing, 
-      // scissor enabled, vertex/texcoord/color pointers.
-      GLint lastTexture;
-      glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);
-      glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT);
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-      glDisable(GL_CULL_FACE);
-      glDisable(GL_DEPTH_TEST);
-      glEnable(GL_SCISSOR_TEST);
-      glEnableClientState(GL_VERTEX_ARRAY);
-      glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-      glEnableClientState(GL_COLOR_ARRAY);
-      glEnable(GL_TEXTURE_2D);
-      glUseProgram(0); // You may want this if using this code in an OpenGL 3+ context
-            
-      // Setup orthographic projection Matrix
-      ImGuiIO& io = ImGui::GetIO();
-      glMatrixMode(GL_PROJECTION);
-      glPushMatrix();
-      glLoadIdentity();
-      glOrtho(0.0f, io.DisplaySize.x, io.DisplaySize.y, 0.0f, -1.0f, +1.0f);
-      glMatrixMode(GL_MODELVIEW);
-      glPushMatrix();
-      glLoadIdentity();
-
-      // Return the last texture
-      return lastTexture;
+      OpenGLStateData currentState;      
+      glGetIntegerv(GL_CURRENT_PROGRAM, &currentState.lastProgram);
+      glGetIntegerv(GL_TEXTURE_BINDING_2D, &currentState.lastTexture);
+      glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &currentState.lastArrayBuffer);
+      glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &currentState.lastElementArrayBuffer);
+      glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &currentState.lastVertexArray);
+      glGetIntegerv(GL_BLEND_SRC, &currentState.lastBlendSrc);
+      glGetIntegerv(GL_BLEND_DST, &currentState.lastBlendDst);
+      glGetIntegerv(GL_BLEND_EQUATION_RGB, &currentState.lastBlendEquationRGB);
+      glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &currentState.lastBlendEquationAlpha);
+      currentState.lastEnableBlend = glIsEnabled(GL_BLEND);
+      currentState.lastEnableCullFace = glIsEnabled(GL_CULL_FACE);
+      currentState.lastEnableDepthTest = glIsEnabled(GL_DEPTH_TEST);
+      currentState.lastEnableScissorTest = glIsEnabled(GL_SCISSOR_TEST);
+      return currentState;
     }
 
     /**************************************************************************/
@@ -290,24 +300,19 @@ namespace DCEngine {
             started rendering.
     */
     /**************************************************************************/
-    IMGUI_API void ImGuiSFML::ImGuiSFMLRestoreState(GLint lastTexture)
+    IMGUI_API void ImGuiSFML::ImGuiSFMLRestoreState(OpenGLStateData& currentState)
     {
-      // Restore modified state
-      glDisableClientState(GL_COLOR_ARRAY);
-      glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-      glDisableClientState(GL_VERTEX_ARRAY);
-      glBindTexture(GL_TEXTURE_2D, lastTexture);
-      glMatrixMode(GL_MODELVIEW);
-      glPopMatrix();
-      glMatrixMode(GL_PROJECTION);
-      glPopMatrix();
-      glPopAttrib();
-
-      //glewExperimental = GL_TRUE;
-      //glEnable(GL_DEPTH_TEST);
-      //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      //glEnable(GL_BLEND);
-      //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      glUseProgram(currentState.lastProgram);
+      glBindTexture(GL_TEXTURE_2D, currentState.lastTexture);
+      glBindBuffer(GL_ARRAY_BUFFER, currentState.lastArrayBuffer);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, currentState.lastElementArrayBuffer);
+      glBindVertexArray(currentState.lastVertexArray);
+      glBlendEquationSeparate(currentState.lastBlendEquationRGB, currentState.lastBlendEquationAlpha);
+      glBlendFunc(currentState.lastBlendSrc, currentState.lastBlendDst);
+      if (currentState.lastEnableBlend) glEnable(GL_BLEND); else glDisable(GL_BLEND);
+      if (currentState.lastEnableCullFace) glEnable(GL_CULL_FACE); else glDisable(GL_CULL_FACE);
+      if (currentState.lastEnableDepthTest) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
+      if (currentState.lastEnableScissorTest) glEnable(GL_SCISSOR_TEST); else glDisable(GL_SCISSOR_TEST);
     }
 
     /**************************************************************************/
@@ -319,46 +324,83 @@ namespace DCEngine {
     /**************************************************************************/
     IMGUI_API void ImGuiSFML::ImGuiSFMLRenderDrawLists(ImDrawData * draw_data)
     {
-      // Set the OpenGL state and saves the handle to the last texture
-      GLint lastTexture = ImGuiSFMLRenderStateSetup();
+      // 1. Backup the current OpenGL state
+      OpenGLStateData currentState = ImGuiSFMLBackupGLState();
 
-      // Handle cases of screen coordinates != from framebuffer coordinates
+      //GLint lastProgram; glGetIntegerv(GL_CURRENT_PROGRAM, &lastProgram);
+      //GLint lastTexture; glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);
+      //GLint lastArrayBuffer; glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &lastArrayBuffer);
+      //GLint lastElementArrayBuffer; glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &lastElementArrayBuffer);
+      //GLint lastVertexArray; glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &lastVertexArray);
+      //GLint lastBlendSrc; glGetIntegerv(GL_BLEND_SRC, &lastBlendSrc);
+      //GLint lastBlendDst; glGetIntegerv(GL_BLEND_DST, &lastBlendDst);
+      //GLint lastBlendEquationRGB; glGetIntegerv(GL_BLEND_EQUATION_RGB, &lastBlendEquationRGB);
+      //GLint lastBlendEquationAlpha; glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &lastBlendEquationAlpha);
+      //GLboolean lastEnableBlend = glIsEnabled(GL_BLEND);
+      //GLboolean lastEnableCullFace = glIsEnabled(GL_CULL_FACE);
+      //GLboolean lastEnableDepthTest = glIsEnabled(GL_DEPTH_TEST);
+      //GLboolean lastEnableScissorTest = glIsEnabled(GL_SCISSOR_TEST);
+
+      // 2. Setup the next render state: 
+      glEnable(GL_BLEND);
+      glBlendEquation(GL_FUNC_ADD);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      glDisable(GL_CULL_FACE);
+      glDisable(GL_DEPTH_TEST);
+      glEnable(GL_SCISSOR_TEST);
+      glActiveTexture(GL_TEXTURE0);
+
+      // 2.1 Handle cases of screen coordinates != from framebuffer coordinates
       // (e.g retina displays)
       ImGuiIO& io = ImGui::GetIO();
       float fbHeight = io.DisplaySize.y * io.DisplayFramebufferScale.y;
       draw_data->ScaleClipRects(io.DisplayFramebufferScale);
 
-      // Update command lists
-      #define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
-      for (int n = 0; n < draw_data->CmdListsCount; n++)
-      {
-        const ImDrawList* cmd_list = draw_data->CmdLists[n];
-        const unsigned char* vtx_buffer = (const unsigned char*)&cmd_list->VtxBuffer.front();
-        const ImDrawIdx* idx_buffer = &cmd_list->IdxBuffer.front();
-        glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, pos)));
-        glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, uv)));
-        glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, col)));
+      // 3. Setup the Orthographic projection matrix
+      const glm::mat4x4 orthoProjection = {
+        { 2.0f / io.DisplaySize.x, 0.0f,                   0.0f, 0.0f },
+        { 0.0f,                  2.0f / -io.DisplaySize.y, 0.0f, 0.0f },
+        { 0.0f,                  0.0f,                  -1.0f, 0.0f },
+        { -1.0f,                  1.0f,                   0.0f, 1.0f },
+      };
 
-        for (int cmd_i = 0; cmd_i < cmd_list->CmdBuffer.size(); cmd_i++)
-        {
-          const ImDrawCmd* pcmd = &cmd_list->CmdBuffer[cmd_i];
-          if (pcmd->UserCallback)
-          {
-            pcmd->UserCallback(cmd_list, pcmd);
-          }
-          else
-          {
-            glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
-            glScissor((int)pcmd->ClipRect.x, (int)(fbHeight - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-            glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, GL_UNSIGNED_SHORT, idx_buffer);
-          }
-          idx_buffer += pcmd->ElemCount;
-        }
-      }
-      #undef OFFSETOF
+      // 4. Active the shader program
+      
 
-      // Restores the modified state and the last texture
-      ImGuiSFMLRestoreState(lastTexture);
+
+      // 5. Update command lists
+      //#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
+      //for (int n = 0; n < draw_data->CmdListsCount; n++)
+      //{
+      //  const ImDrawList* cmd_list = draw_data->CmdLists[n];
+      //  const unsigned char* vtx_buffer = (const unsigned char*)&cmd_list->VtxBuffer.front();
+      //  const ImDrawIdx* idx_buffer = &cmd_list->IdxBuffer.front();
+      //  glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, pos)));
+      //  glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, uv)));
+      //  glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, col)));
+
+      //  for (int cmd_i = 0; cmd_i < cmd_list->CmdBuffer.size(); cmd_i++)
+      //  {
+      //    const ImDrawCmd* pcmd = &cmd_list->CmdBuffer[cmd_i];
+      //    if (pcmd->UserCallback)
+      //    {
+      //      pcmd->UserCallback(cmd_list, pcmd);
+      //    }
+      //    else
+      //    {
+      //      glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
+      //      glScissor((int)pcmd->ClipRect.x, (int)(fbHeight - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
+      //      glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, GL_UNSIGNED_SHORT, idx_buffer);
+      //    }
+      //    idx_buffer += pcmd->ElemCount;
+      //  }
+      //}
+      //#undef OFFSETOF
+
+      // 6. Restores the modified state
+      ImGuiSFMLRestoreState(currentState);
+
+
     }
     
     /**************************************************************************/

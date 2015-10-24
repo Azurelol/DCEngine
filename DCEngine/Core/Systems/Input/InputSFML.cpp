@@ -35,6 +35,11 @@ namespace DCEngine {
 
       // Should key presses repeat?
       WindowContext->setKeyRepeatEnabled(false);
+
+      // Store the reference to the mouse and keyboard interface objects
+      KeyboardRef = Daisy->getKeyboard();
+      MouseRef = Daisy->getMouse();
+
     }
 
     /**************************************************************************/
@@ -93,7 +98,14 @@ namespace DCEngine {
       switch (event.key.code) {
       case sf::Keyboard::Escape: // RESERVED: Terminate engine
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        KeyboardRef->KeyDown_Escape = true;
         break;
+      case sf::Keyboard::Space:
+        keyDown->Key = Keys::Space;
+        KeyboardRef->KeyDown_Space = true;
+        break;
+
+
       case sf::Keyboard::Up:
         keyDown->Key = Keys::Up;
         break;
@@ -109,15 +121,19 @@ namespace DCEngine {
 
       case sf::Keyboard::W:
         keyDown->Key = Keys::W;
+        KeyboardRef->KeyDown_W = true;
         break;
       case sf::Keyboard::S:
         keyDown->Key = Keys::S;
+        KeyboardRef->KeyDown_S = true;
         break;
       case sf::Keyboard::A:
         keyDown->Key = Keys::A;
+        KeyboardRef->KeyDown_A = true;
         break;
       case sf::Keyboard::D:
         keyDown->Key = Keys::D;
+        KeyboardRef->KeyDown_A = true;
         break;
       case sf::Keyboard::Q:
         keyDown->Key = Keys::Q;
@@ -218,7 +234,14 @@ namespace DCEngine {
       switch (event.key.code) {
       case sf::Keyboard::Escape:        
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        KeyboardRef->KeyDown_Escape = false;
         break;
+      case sf::Keyboard::Space:
+        keyUp->Key = Keys::Space;
+        KeyboardRef->KeyDown_Space = false;
+        break;
+
+
       case sf::Keyboard::Up:
         keyUp->Key = Keys::Up;
         break;
@@ -230,6 +253,23 @@ namespace DCEngine {
         break;
       case sf::Keyboard::Right:
         keyUp->Key = Keys::Right;
+        break;
+
+      case sf::Keyboard::W:
+        keyUp->Key = Keys::W;
+        KeyboardRef->KeyDown_W = false;
+        break;
+      case sf::Keyboard::S:
+        keyUp->Key = Keys::S;
+        KeyboardRef->KeyDown_S = false;
+        break;
+      case sf::Keyboard::A:
+        keyUp->Key = Keys::A;
+        KeyboardRef->KeyDown_A = false;
+        break;
+      case sf::Keyboard::D:
+        keyUp->Key = Keys::D;
+        KeyboardRef->KeyDown_D = false;
         break;
 
       default:
@@ -252,12 +292,15 @@ namespace DCEngine {
 
       case sf::Mouse::Button::Left:
         mouseDown->ButtonPressed = MouseButton::Left;
+        MouseRef->MouseDown_Left = true;
         break;
       case sf::Mouse::Button::Right:
         mouseDown->ButtonPressed = MouseButton::Right;
+        MouseRef->MouseDown_Right = true;
         break;
       case sf::Mouse::Button::Middle:
         mouseDown->ButtonPressed = MouseButton::Middle;
+        MouseRef->MouseDown_Middle = true;
         break;
 
       default:
@@ -281,12 +324,15 @@ namespace DCEngine {
 
     case sf::Mouse::Button::Left:
       mouseUp->ButtonReleased = MouseButton::Left;
+      MouseRef->MouseDown_Left = false;
       break;
     case sf::Mouse::Button::Right:
       mouseUp->ButtonReleased = MouseButton::Right;
+      MouseRef->MouseDown_Right = false;
       break;
     case sf::Mouse::Button::Middle:
       mouseUp->ButtonReleased = MouseButton::Middle;
+      MouseRef->MouseDown_Middle = false;
       break;
 
     default:

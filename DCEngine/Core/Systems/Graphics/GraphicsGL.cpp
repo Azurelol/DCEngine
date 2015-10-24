@@ -26,15 +26,6 @@
 namespace DCEngine {
   namespace Systems {
 
-    void GraphicsGL::CleanBuffer()
-    {
-   	  glm::mat4 cleanup;
-      glm::vec4 colorclean;
-	    this->SpriteShader->SetMatrix4("model", cleanup);	
-      this->SpriteShader->SetVector4f("color", colorclean);
-	    this->SpriteShader->SetInteger("isTexture", 0);
-	}
-
     /**************************************************************************/
     /*!
     \brief  The constructor for the Engine object.
@@ -67,7 +58,7 @@ namespace DCEngine {
 
       trace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
 
-      // Construct the Sprite shader
+      // Grab a reference to the Sprite shader
       SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
       SpriteShader->Compile();
       // Configure the Sprite shader VAO

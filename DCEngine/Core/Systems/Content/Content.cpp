@@ -145,6 +145,9 @@ namespace DCEngine {
       AddShader(std::string("SpriteTextShader"), ShaderPtr(new Shader(std::string("SpriteTextShader"),
         EngineInfo->ShaderPath + "SpriteTextShader.vs",
         EngineInfo->ShaderPath + "SpriteTextShader.frag")));
+      AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
+        EngineInfo->ShaderPath + "GUIShader.vs",
+        EngineInfo->ShaderPath + "GUIShader.frag")));
 
       // Load default sprites
       AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
