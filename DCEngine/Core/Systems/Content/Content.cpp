@@ -171,7 +171,7 @@ namespace DCEngine {
     @return Returns a pointer to the shader object.
     */
     /**************************************************************************/
-    ShaderPtr Content::getShader(std::string & shaderName)
+    ShaderPtr Content::getShader(std::string shaderName)
     {
       return ShaderMap.at(shaderName); 
     }

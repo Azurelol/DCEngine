@@ -40,7 +40,7 @@ namespace DCEngine {
     /* Functions */
     void Build(); //!< Sets up the mesh data to be used for rendering.
 
-    /* Render data*/
+    /* Update data*/
     GLuint VBO;
     GLuint VAO;
     GLuint EBO;

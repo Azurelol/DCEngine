@@ -30,13 +30,11 @@ namespace DCEngine {
     void InputSFML::Initialize() {
 
      #if(USE_SFML)      
-      _window = Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->WindowContext.get();
+      WindowContext = Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->WindowContext.get();
      #endif
 
       // Should key presses repeat?
-      _window->setKeyRepeatEnabled(false);
-     
-
+      WindowContext->setKeyRepeatEnabled(false);
     }
 
     /**************************************************************************/
@@ -56,7 +54,7 @@ namespace DCEngine {
     void InputSFML::PollEvents() {
       
       // Check all window's events that were triggered since the last iteration
-      if (_window->pollEvent(_event) == false)
+      if (WindowContext->pollEvent(_event) == false)
         return;
 
       switch (_event.type) {
@@ -247,8 +245,8 @@ namespace DCEngine {
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
-      mouseDown->Position.x = (float)event.mouseButton.x - (_window->getSize().x / 2);
-      mouseDown->Position.y = -1 * ((float)event.mouseButton.y - (_window->getSize().y / 2));
+      mouseDown->Position.x = (float)event.mouseButton.x - (WindowContext->getSize().x / 2);
+      mouseDown->Position.y = -1 * ((float)event.mouseButton.y - (WindowContext->getSize().y / 2));
 
       switch (event.mouseButton.button) {
 
@@ -276,8 +274,8 @@ namespace DCEngine {
 		// Create a mouse button pressed event
 		auto mouseUp = new Events::MouseUp();
 		//mouseUp->x = sf::Mouse::getPosition().x;
-    mouseUp->Position.x = (float)event.mouseButton.x - (_window->getSize().x / 2);
-    mouseUp->Position.y = -1 * ((float)event.mouseButton.y - (_window->getSize().y / 2));
+    mouseUp->Position.x = (float)event.mouseButton.x - (WindowContext->getSize().x / 2);
+    mouseUp->Position.y = -1 * ((float)event.mouseButton.y - (WindowContext->getSize().y / 2));
 
     switch (event.mouseButton.button) {
 

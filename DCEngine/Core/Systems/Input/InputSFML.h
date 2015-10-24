@@ -39,7 +39,7 @@ namespace DCEngine {
 
       // Observing pointers are pointers which do not keep 
       // a pointed object alive. The simplest kind is a raw pointer.
-      sf::Window* _window; 
+      sf::Window* WindowContext; 
       sf::Event _event;
       bool RepeatInput = true;
 

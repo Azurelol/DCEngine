@@ -68,7 +68,7 @@ namespace DCEngine {
       trace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
 
       // Construct the Sprite shader
-      SpriteShader = Daisy->getSystem<Content>()->getShader(std::string( "SpriteShader"));
+      SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
       SpriteShader->Compile();
       // Configure the Sprite shader VAO
       ConfigureSpriteVAO();
@@ -314,7 +314,7 @@ namespace DCEngine {
       glActiveTexture(GL_TEXTURE0); // Used for 3D???
       spriteSrc->getTexture().Bind();
       //this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
-      DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
+	  DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
     }
 
     /**************************************************************************/
@@ -373,7 +373,7 @@ namespace DCEngine {
           { xPos + w, yPos + h, 1.0, 0.0 },
         };
 
-        // Render glyph texture over quad
+        // Update glyph texture over quad
         glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
         if (Debug::CheckOpenGLError())
           trace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
@@ -382,7 +382,7 @@ namespace DCEngine {
         glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
-        // Render quad
+        // Update quad
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // Advance cursors for next glyph (Advance is number of 1/64 pixels)
         x += (ch.Advance >> 6) * st.FontSize;

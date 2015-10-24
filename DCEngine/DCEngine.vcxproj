@@ -5,6 +5,14 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Production|Win32">
+      <Configuration>Production</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Production|x64">
+      <Configuration>Production</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -31,6 +39,12 @@
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -74,7 +100,18 @@
     <IncludePath>$(ProjectDir)\Dependencies\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(ProjectDir)\Dependencies\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
     <LinkIncremental>true</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(ProjectDir)\Dependencies\include;$(IncludePath)</IncludePath>
@@ -102,13 +139,46 @@
       <AdditionalDependencies>opengl32.lib;x86\glew32s.lib;x86\glfw3.lib;x86\SOIL2.lib;x86\sfml-system-s-d.lib;x86\sfml-window-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;x86\glew32s.lib;x86\glfw3.lib;x86\SOIL2.lib;x86\sfml-system-s-d.lib;x86\sfml-window-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;_DISABLE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>x64\sfml-graphics-s-d.lib;x64\sfml-window-s-d.lib;x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;_DISABLE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/MP /bigobj %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
@@ -171,7 +241,6 @@
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
-    <ClCompile Include="Core\Components\GravityEffect.cpp" />
     <ClCompile Include="Core\Components\Orientation.cpp" />
     <ClCompile Include="Core\Components\PhysicsSpace.cpp" />
     <ClCompile Include="Core\Components\RigidBody.cpp" />
@@ -205,11 +274,12 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
-    <ClCompile Include="Core\Systems\Editor\GUIimgui.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
+    <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
+    <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
     <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
@@ -254,7 +324,6 @@
     <ClInclude Include="Core\Components\DebugReport.h" />
     <ClInclude Include="Core\Components\EngineReference.h" />
     <ClInclude Include="Core\Components\GraphicsSpace.h" />
-    <ClInclude Include="Core\Components\GravityEffect.h" />
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
@@ -321,10 +390,11 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\Content\FileSystem.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
-    <ClInclude Include="Core\Systems\Editor\GUIimgui.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
+    <ClInclude Include="Core\Systems\GUI\GUI.h" />
+    <ClInclude Include="Core\Systems\GUI\ImGuiSFML.h" />
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
     <ClInclude Include="Core\Systems\Physics\Collision.h" />
@@ -348,6 +418,7 @@
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
     <ClInclude Include="Core\Testing.h" />
+    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />

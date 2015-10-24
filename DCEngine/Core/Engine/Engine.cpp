@@ -85,6 +85,7 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Editor));
+    _systems.push_back(SystemPtr(new Systems::GUI));
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
@@ -187,11 +188,10 @@ namespace DCEngine {
     if (TRACE_UPDATE)
       trace << "\n[Engine::Update] \n";
 
-    using Systems::Window;
-    using Systems::Graphics;
     // Tell window management system to begin new frame
-    GETSYSTEM(Window)->StartFrame();
-    GETSYSTEM(Graphics)->StartFrame();
+    getSystem<Systems::Window>()->StartFrame();
+    getSystem<Systems::Graphics>()->StartFrame();
+    getSystem<Systems::GUI>()->StartFrame();
 
     // Construct the update event and assign it the engine's dt
     auto logicUpdateEvent = new Events::LogicUpdate();
@@ -210,8 +210,9 @@ namespace DCEngine {
       system->Update(dt);
 
     // Tell window management system to end the frame
-    GETSYSTEM(Graphics)->EndFrame();
-    GETSYSTEM(Window)->EndFrame();
+    getSystem<Systems::GUI>()->Render();
+    getSystem<Systems::Graphics>()->EndFrame();
+    getSystem<Systems::Window>()->EndFrame();
 
     if (TRACE_UPDATE)
       trace << "[Engine::Update - All systems updated.] \n";

@@ -43,6 +43,8 @@ namespace DCEngine {
       
     private:
       const std::string Caption = "Daisy Chain Engine v.lol";
+      const int DefaultWidth = 1024;
+      const int DefaultHeight = 768;
       unsigned int Width = 1024;
       unsigned int Height = 600;
       

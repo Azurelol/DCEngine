@@ -30,7 +30,7 @@ namespace DCEngine {
       void Terminate();
 
     private:
-      GLFWwindow* _window;
+      GLFWwindow* WindowContext;
 
       //  KEYBOARD INPUT //
       inline static auto KeyCallback(GLFWwindow* win,

@@ -169,6 +169,9 @@
     <Filter Include="Core\Systems\Editor">
       <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\GUI">
+      <UniqueIdentifier>{b6784a55-6995-4e1e-ac02-cbdc6f44e7e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -336,9 +339,6 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\GravityEffect.cpp">
-      <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClCompile>
@@ -384,9 +384,6 @@
     <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp">
       <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\GUIimgui.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Dollhouse\Environment.cpp">
       <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
@@ -404,6 +401,12 @@
     </ClCompile>
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp">
       <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\GUI\GUI.cpp">
+      <Filter>Core\Systems\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp">
+      <Filter>Core\Systems\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -686,9 +689,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\GravityEffect.h">
-      <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
@@ -770,8 +770,14 @@
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\GUIimgui.h">
-      <Filter>Core\Systems\Editor</Filter>
+    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\GUI\GUI.h">
+      <Filter>Core\Systems\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\GUI\ImGuiSFML.h">
+      <Filter>Core\Systems\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

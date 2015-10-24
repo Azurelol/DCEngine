@@ -1497,7 +1497,7 @@ struct failable
   typedef out Type;
 };
 
-/// TODO: Update type traits to use compiler intrinsics per compiler
+/// TODO: Render type traits to use compiler intrinsics per compiler
 /// TODO: Implement is_function, and exclude function types
 /// Provides a constant defined as true if T is an enum type, else defined as false
 template<typename T>
@@ -12171,7 +12171,7 @@ inline bool DestinationIsOlder(StringRef dest, StringRef source)
   return CheckFileTime(dest, source) <= 0;
 }
 
-/// Update file time to current time.
+/// Render file time to current time.
 int SetFileToCurrentTime(StringRef filename);
 
 /// Get the file last modified time.
@@ -29092,7 +29092,7 @@ namespace Zilch
     // Gets a handle manager by id
     HandleManager* GetHandleManager(HandleManagerId id) const;
 
-    // Update the virtual table of a native C++ object, or do nothing if it's not virtual or native
+    // Render the virtual table of a native C++ object, or do nothing if it's not virtual or native
     void UpdateCppVirtualTable(byte* objectWithBaseVTable, BoundType* cppBaseType, BoundType* derivedType);
 
     // Get the raw stack array
@@ -30150,7 +30150,7 @@ namespace Zilch
     // Attempts to read a token
     bool ReadToken(UserToken* outToken);
 
-    // Update what line and character we're on
+    // Render what line and character we're on
     void UpdateLineAndCharacterNumber(char character);
 
     // Skip to the end of the line via modifying the position
@@ -36568,7 +36568,7 @@ namespace Zilch
   // A threaded version of the blocking web-socket connection
   // This class can only be initialized from a ThreadedWebSocketListener
   // This class maintains a send and receive thread, and when updated we pull data
-  // Either the user or the ThreadedWebSocketServer must periodically call Update from the owning thread
+  // Either the user or the ThreadedWebSocketServer must periodically call Render from the owning thread
   // All send and update functions are safe to call from the owning thread (not multiple!)
   // Once this connection has been terminated, it may not be used again
   class ThreadedWebSocketConnection : public EventHandler
@@ -36597,7 +36597,7 @@ namespace Zilch
 
     // Pumps both recieved messages and events such as a disconnect
     // If a thread terminates early, or the socket becomes no longer writable, Close will be called and an event will be sent
-    void Update();
+    void Render();
     
     //******** Internal ********//
 
@@ -36676,7 +36676,7 @@ namespace Zilch
     bool IsValid();
     
     // Updates the web socket connection, which pumps both recieved messages and events such as a disconnect
-    void Update();
+    void Render();
     
     //******** Internal ********//
 
@@ -36712,7 +36712,7 @@ namespace Zilch
 
   // The web-socket server maintains threaded web-socket connections and invokes
   // callbacks for when connections are received and fully handshook, or closed
-  // The thread that owns the server is responsible for occasionally pumping events via Update
+  // The thread that owns the server is responsible for occasionally pumping events via Render
   class ThreadedWebSocketServer : public EventHandler
   {
   public:
@@ -36736,7 +36736,7 @@ namespace Zilch
 
     // Updates the web socket connection, which pumps accepted
     // connections and all sends/recieves on stored connections
-    void Update();
+    void Render();
     
     // Send a message to all connections
     void SendPacketToAll(StringParam message, WebSocketPacketType::Enum packetType);
@@ -36850,7 +36850,7 @@ namespace Zilch
     bool IsValid();
 
     // The debugger must be periodically updated to ensure that it receives remote messages
-    void Update();
+    void Render();
 
     // Adds a project whose files we track
     // We use the hashes of the code from each file to show code entries in the debugger (as well as file name)
@@ -41606,7 +41606,7 @@ public:
   /// Resets the time to zero
   void Reset();
   /// Updates the clock
-  void Update();
+  void Render();
   /// Gets the time in seconds since the last reset
   double Time() const;
   /// Gets the time in seconds between the last update and the update before it

@@ -33,6 +33,7 @@ namespace DCEngine {
     Serializer,
     Reflection,
     Editor,
+    GUI,
 
     // The amount of systems
     Capacity

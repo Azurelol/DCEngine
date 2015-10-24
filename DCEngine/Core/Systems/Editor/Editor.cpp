@@ -1,13 +1,11 @@
 #include "Editor.h"
-#include <IMGUI\imgui.h>
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
-
+    
     Editor::Editor() : System(std::string("EditorSystem"), EnumeratedSystem::Editor)
-    {
-      trace << "*Using imgui for Editor GUI \n";
-      GUIHandler.reset(new GUI());
+    {      
     }
 
     void Editor::Initialize()
@@ -19,15 +17,28 @@ namespace DCEngine {
 
     void Editor::Update(float dt)
     {
+      if (!GUI_ENABLED)
+        return;
+     
       if (TRACE_UPDATE)
         trace << "Editor::Update \n";
-      //GUIHandler->Update(dt);
+      GUITest();
     }
 
     void Editor::Terminate()
     {
         trace << "Editor::Terminate \n";
       //GUIHandler->Terminate();
+    }
+
+    void Editor::GUITest()
+    {
+      // TEMP IMGUI TEST
+      ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+      ImGui::Begin("Another Window", &ShowTest);
+      ImGui::BulletText("Hello, hello, hello");
+      ImGui::Text("Hello");
+      ImGui::End();
     }
 
     void Editor::Serialize(Json::Value & root)

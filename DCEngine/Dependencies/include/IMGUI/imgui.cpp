@@ -1460,7 +1460,7 @@ ImGuiSimpleColumns::ImGuiSimpleColumns()
     memset(NextWidths, 0, sizeof(NextWidths));
 }
 
-void ImGuiSimpleColumns::Update(int count, float spacing, bool clear)
+void ImGuiSimpleColumns::Render(int count, float spacing, bool clear)
 {
     IM_ASSERT(Count <= IM_ARRAYSIZE(Pos));
     Count = count;
@@ -1873,7 +1873,7 @@ void ImGui::NewFrame()
     g.RenderDrawData.CmdLists = NULL;
     g.RenderDrawData.CmdListsCount = g.RenderDrawData.TotalVtxCount = g.RenderDrawData.TotalIdxCount = 0;
 
-    // Update inputs state
+    // Render inputs state
     if (g.IO.MousePos.x < 0 && g.IO.MousePos.y < 0)
         g.IO.MousePos = ImVec2(-9999.0f, -9999.0f);
     if ((g.IO.MousePos.x < 0 && g.IO.MousePos.y < 0) || (g.IO.MousePosPrev.x < 0 && g.IO.MousePosPrev.y < 0))   // if mouse just appeared or disappeared (negative coordinate) we cancel out movement in MouseDelta
@@ -3571,7 +3571,7 @@ bool ImGui::Begin(const char* name, bool* p_opened, const ImVec2& size_on_first_
         g.SetNextWindowFocus = false;
     }
 
-    // Update known root window (if we are a child window, otherwise window == window->RootWindow)
+    // Render known root window (if we are a child window, otherwise window == window->RootWindow)
     int root_idx, root_non_popup_idx;
     for (root_idx = g.CurrentWindowStack.Size - 1; root_idx > 0; root_idx--)
         if (!(g.CurrentWindowStack[root_idx]->Flags & ImGuiWindowFlags_ChildWindow))
@@ -3964,7 +3964,7 @@ bool ImGui::Begin(const char* name, bool* p_opened, const ImVec2& size_on_first_
         window->DC.TreeDepth = 0;
         window->DC.StateStorage = &window->StateStorage;
         window->DC.GroupStack.resize(0);
-        window->MenuColumns.Update(3, style.ItemSpacing.x, !window_was_active);
+        window->MenuColumns.Render(3, style.ItemSpacing.x, !window_was_active);
 
         if (window->AutoFitFramesX > 0)
             window->AutoFitFramesX--;
@@ -4151,11 +4151,11 @@ static void Scrollbar(ImGuiWindow* window, bool horizontal)
         else
             window->Scroll.y = scroll_v;
 
-        // Update values for rendering
+        // Render values for rendering
         scroll_ratio = ImSaturate(scroll_v / scroll_max);
         grab_v_norm = scroll_ratio * (scrollbar_size_v - grab_h_pixels) / scrollbar_size_v;
 
-        // Update distance to grab now that we have seeked and saturated
+        // Render distance to grab now that we have seeked and saturated
         if (seek_absolute)
             *click_delta_to_grab_center_v = clicked_v_norm - grab_v_norm - grab_h_norm*0.5f;
     }

@@ -25,36 +25,36 @@ namespace DCEngine {
     const float Gravity = 10.0f;
   }
 
-	namespace Systems 
-	{
-		class Physics : public System 
-		{
-			friend class Engine;
-		public:
-			void RegisterSpace(PhysicsSpace& physicsSpace);
+  namespace Systems
+  {
+    class Physics : public System
+    {
+      friend class Engine;
+    public:
+      void RegisterSpace(PhysicsSpace& physicsSpace);
 
-		private:
+    private:
 
-			std::vector<PhysicsSpace*> physicsSpaces_;
+      std::vector<PhysicsSpace*> physicsSpaces_;
 
-			Physics();
-			void Initialize();
-			void Update(float dt);
-			void Terminate();
+      Physics();
+      void Initialize();
+      void Update(float dt);
+      void Terminate();
 
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
 
-			void Integrate(float dt, PhysicsSpace* physpace);
-			void PublishResults(PhysicsSpace* physpace);
-			void Step(float dt);
-			GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
-			void NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist);
-			void Resolve(Manifold data);
+      void Integrate(float dt, PhysicsSpace* physpace);
+      void PublishResults(PhysicsSpace* physpace);
+      void Step(float dt);
+      GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
+      void NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist);
+      void Resolve(Manifold data);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);
 
-		};
+    };
 
-	}
+  }
 }

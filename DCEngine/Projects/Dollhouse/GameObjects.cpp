@@ -23,7 +23,7 @@ namespace DCEngine {
 		reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-		reiner->getComponent<Sprite>()->Color = Real4(1, 0.5, 0, 1); // Color: Orange
+		reiner->getComponent<Sprite>()->Color = Real4(1, 0.5, 0, 0.7); // Color: Orange
 																	 // MoveController properties
 		reiner->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
 		// DebugDraw properties

@@ -14,11 +14,11 @@ namespace DCEngine {
 		chenObj->AddComponent(ComponentPtr(new Sprite(*chenObj)));
 		chenObj->AddComponent(ComponentPtr(new DebugReport(*chenObj)));
 		// Transform properties
-		chenObj->getComponent<Transform>()->Translation = Real3(5, 5, 0.0f);
+		chenObj->getComponent<Transform>()->Translation = Real3(5, 5, 0.1f);
 		chenObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
 		chenObj->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
 		// Sprite properties
-		chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 1); // Color: Blue
+		chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 0.5); // Color: Blue
 		chenObj->getComponent<Sprite>()->SpriteSource = "Angryeyes";
 		// DebugDraw properties
 		//chenObj->getComponent<DebugReport>()->DrawType = DebugDrawType::Circle; // Purple circle
