@@ -16,8 +16,9 @@ namespace DCEngine {
 		RigidBody* RigidBodyRef;
 		Real CurrentCharge = 1;
 		Real MaxCharge = 1;
-		Real ChargeFactor = 10000;
+		Real ChargeFactor = 10;
 		Boolean Charging = false;
+		GameObject* PlayerRef;
 
 		BallController(Entity& owner) : Component(std::string("BallController"), owner) {}
 		void Initialize();
@@ -30,8 +31,6 @@ namespace DCEngine {
 	private:
 		void PrintTranslation();
 		void PrintVelocity();
-		std::string FootstepSound;
-		Boolean FootstepSoundEnabled = false;
 	};
 
 
