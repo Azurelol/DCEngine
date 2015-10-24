@@ -55,6 +55,7 @@ namespace DCEngine
     void setGravityratio(Real ratio);
     void setGravity(bool state);
     void setVelocity(Real3 vel);
+	void addVelocity(Real3 vel);
     void setRestitution(float rest);
     void setAcceleration(Real3 accel);
     void setFriction(float friction);

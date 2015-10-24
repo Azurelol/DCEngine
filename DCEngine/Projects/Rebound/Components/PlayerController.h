@@ -10,14 +10,10 @@ namespace DCEngine {
 	public:
 
 		bool Translation = true;
-		Real MoveSpeed = 0.75;
-		Real RotSpeed = 15;
+		Real MoveSpeed = 1;
+		Real JumpPower = 60;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
-		Real CurrentCharge = 1;
-		Real MaxCharge = 1;
-		Real ChargeFactor = 10000;
-		Boolean Charging = false;
 
 		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
 		void Initialize();
@@ -25,7 +21,8 @@ namespace DCEngine {
 		virtual void Deserialize(Json::Value& root);
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
-		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event);
+		void OnKeyDownEvent(Events::KeyDown* event);
+		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 	private:
 		void PrintTranslation();

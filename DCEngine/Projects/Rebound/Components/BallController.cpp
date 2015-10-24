@@ -10,6 +10,14 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
+		if (PlayerRef = SpaceRef->FindObjectByName("Mariah"))
+		{
+			//trace << "Player foundnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn";
+		}
+		else
+		{
+			//trace << "Player not foundnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn";
+		}
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -23,6 +31,7 @@ namespace DCEngine {
 	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
 	{
 		Charging = true;
+		PlayerRef->getComponent<Sprite>()->Color = Real4(0.0f, 1.0f, 0.3f, 1.0f);
 	}
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{
@@ -39,7 +48,7 @@ namespace DCEngine {
     
 		trace << "released at x: " << event->Position.x  << " y: " << event->Position.y  <<"\n";
        
-
+		PlayerRef->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 0.3f, 1.0f);
 	}
 
 	void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
