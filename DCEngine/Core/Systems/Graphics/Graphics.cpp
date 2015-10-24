@@ -62,21 +62,11 @@ namespace DCEngine {
 				}
 				else
 				{
-					NonTextureObj.push_back(gameObj);
 					TransparentObj.push_back(gameObj);
 				}
 			}
 			else
 			{
-				if (gameObj->Color.a == 1)
-				{
-
-					TextureObjNontransp.push_back(gameObj);
-				}
-				else
-				{
-					TextureObj.push_back(gameObj);
-				}
 				TransparentObj.push_back(gameObj);
 			}
 		}
@@ -94,20 +84,13 @@ namespace DCEngine {
 			DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
 		}
 
-		for (int i = 0; i < TextureObjNontransp.size(); ++i)
-		{
-			DrawSprite(*(TextureObjNontransp[i]), *camera, dt);
-		}
-
 		for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
 		{
 			DrawSprite(*(it->second), *camera, dt);
 		}
-		NonTextureObj.clear();
 		NonTextureObjNontransp.clear();
-		TextureObj.clear();
-		TextureObjNontransp.clear();
 		sorted.clear();
+		TransparentObj.clear();
 
 		SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 
