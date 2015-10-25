@@ -48,6 +48,9 @@ namespace DCEngine {
     Systems::Factory& getFactory() {
       return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
     }
+    GameSession* getGameSession() { return gamesession_.get(); }
+
+
     template <typename EventClass, typename ComponentClass, typename MemberFunction>
     void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
     //void Disconnect(const Entity& entity, EventType);

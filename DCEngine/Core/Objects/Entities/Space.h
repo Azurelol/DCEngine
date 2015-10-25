@@ -49,6 +49,7 @@ namespace DCEngine {
     void LoadLevel(LevelPtr level);
     GameObjectPtr CreateObject();
     GameObject* FindObjectByName(const std::string name);
+    GameObjectVec* AllObjects();
     void AddObject(GameObjectPtr entity);
     void PopulateObjects(SystemPtr sys) const;
     void RemoveObject(GameObjectPtr);

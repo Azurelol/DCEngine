@@ -154,6 +154,11 @@ namespace DCEngine {
     return NULL;
   }
 
+  GameObjectVec* Space::AllObjects()
+  {
+    return &GameObjectContainer;
+  }
+
   /**************************************************************************/
   /*!
   \brief  Adds an entity directly to the space.

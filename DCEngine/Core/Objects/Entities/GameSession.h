@@ -28,35 +28,31 @@ namespace DCEngine {
   class Factory;
   
   class GameSession : public Entity {
+
     friend class Engine; //!< Engine has access to gamesession.
     friend class Factory;
 
   public:
+
     GameSession(std::string& name);
     ~GameSession();
+    virtual void Serialize(Json::Value& root);
+    virtual void Deserialize(Json::Value& root);    
+    SpacePtr CreateSpace(std::string name);
+    SpacePtr GetSpace(std::string name);
+    Space* getDefaultSpace();
+
+
+  private:
+
 
     void Initialize();
     void Update(float dt);
-
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-    
-    SpacePtr CreateSpace(std::string name);
-    SpacePtr GetSpace(std::string name);
-
-    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
-
-  private:
-        
-    /*/ MEMBER [FUNCTIONS] /*/
     void UpdateSpace(SpacePtr space, float dt);
     void OnUpdateEvent() {};
-    //void OnUpdateEvent(Event& eventObj);
 
-    /*/ MEMBER [VARIABLES] /*/
+    Space* DefaultSpace;
     std::string _defaultSpace = "Daisy Space";
-
-    // CONTAINERS //
     SystemVec _systems; //!< Container for the GameSession's systems. 
     SpaceMap _spaces; //!< A map of spaces created by the engine.
 

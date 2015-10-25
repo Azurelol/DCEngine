@@ -27,18 +27,17 @@ namespace DCEngine {
       void ToggleTest();
 
     private:
-      
-      /* Widgets */
+
       void DisplayEditor();
-      void DisplayCursor();
-      void DisplayProperties();
-      void DisplayLibrary();
-      void DisplayObjects();
+      /* Widgets */
+      void WidgetObjects();
+      void WidgetProperties();
+      void WidgetLibrary();
 
       /* Serialization functions*/
       void SaveLevel();
       void ReloadLevel();
-      
+            
       /* Test functions */
       void DisplayGUITest();
 
@@ -54,7 +53,8 @@ namespace DCEngine {
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
       Space* CurrentSpace;
-
+      GameObject* SelectedGameObject = nullptr;
+      
 
     };
 

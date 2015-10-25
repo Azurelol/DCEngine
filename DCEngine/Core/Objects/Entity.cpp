@@ -82,5 +82,10 @@ namespace DCEngine {
 
   }
 
+  ComponentVec * Entity::AllComponents()
+  {
+    return &ComponentsContainer;
+  }
+
 
 }

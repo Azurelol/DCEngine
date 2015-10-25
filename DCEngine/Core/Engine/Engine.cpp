@@ -154,6 +154,8 @@ namespace DCEngine {
 
     // Load the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
+    // Set a reference to it in the GameSession object
+    gamesession_->DefaultSpace = defaultSpace.get();
 
     // Load a level into the space
 

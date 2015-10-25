@@ -4,14 +4,19 @@
 namespace DCEngine {
 
   class Transform;
+  class RigidBody;
   class DebugMoveController : public Component {
 
   public:
         
-    bool Translation = true;
-    Real MoveSpeed = 0.75;
+    bool Translation = false;
+
+    Real MoveSpeed = 10;
     Real RotSpeed = 15;
+    Real JumpMultiplier = 5;
+
     Transform* TransformRef; 
+    RigidBody* RigidBodyRef;
 
     DebugMoveController(Entity& owner) : Component(std::string("DebugMoveController"), owner) {}
     void Initialize();
