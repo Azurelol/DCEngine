@@ -41,7 +41,7 @@ namespace DCEngine {
       trace << "Graphics::Update \n";
 
       // Update the graphics system
-      GraphicsHandler->ViewportUpdate();
+      //GraphicsHandler->ViewportUpdate();
 
       // For every Space with a 'GraphicsSpace' component...
       for (auto gfxSpace : graphicsSpaces_) {

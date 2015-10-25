@@ -79,11 +79,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::ViewportUpdate() {
-      
-      auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
-
       // Tells OpenGL the current size of the rendering window
-      glViewport(0, 0, windowDim.x, windowDim.y);
+      auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
+      glViewport(0, 0, static_cast<GLsizei>(windowDim.x), static_cast<GLsizei>(windowDim.y));
     }
 
     /**************************************************************************/
@@ -93,6 +91,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::StartFrame() {
       glEnable(GL_DEPTH_TEST);
+      ViewportUpdate();
       glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
       //glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -104,6 +103,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void GraphicsGL::EndFrame() {
+
+
     }
 
 

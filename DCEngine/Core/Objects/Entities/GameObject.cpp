@@ -15,18 +15,27 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
-    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession) {
+    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession) 
+   // , GameObjectID(GameObjectsCreated++) 
+  {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
       trace << ObjName << "::GameObject - Constructor - "
         << "', Space: '" << SpaceRef->Name()
         << "', GameSession '" << GamesessionRef->Name()
         << "\n";
+
     }
 
     type_ = EntityType::GameObject;
     // Every GameObject is parented to the space by default
     Parent = SpaceRef;
+  }
+
+  GameObject::GameObject() 
+    // : GameObjectID(GameObjectsCreated++)
+  {
+    ObjName = "GameObject";
   }
 
   void GameObject::Serialize(Json::Value & root) {

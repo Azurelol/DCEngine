@@ -84,11 +84,11 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Factory));
     _systems.push_back(SystemPtr(new Systems::Window));
     _systems.push_back(SystemPtr(new Systems::Input));
-    _systems.push_back(SystemPtr(new Systems::Editor));
-    _systems.push_back(SystemPtr(new Systems::GUI));
+    _systems.push_back(SystemPtr(new Systems::Editor));    
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
+    _systems.push_back(SystemPtr(new Systems::GUI));
 
     //trace << "\n";
     //std::string projectFilePath = "Projects/Sample/SampleProj.dcp";
@@ -210,8 +210,8 @@ namespace DCEngine {
       system->Update(dt);
 
     // Tell window management system to end the frame
-    getSystem<Systems::GUI>()->Render();
     getSystem<Systems::Graphics>()->EndFrame();
+    getSystem<Systems::GUI>()->Render();    
     getSystem<Systems::Window>()->EndFrame();
 
     if (TRACE_UPDATE)

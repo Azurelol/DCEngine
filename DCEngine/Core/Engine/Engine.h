@@ -60,6 +60,7 @@ namespace DCEngine {
     GameSessionPtr gamesession_; //!< The current GameSession object.
     KeyboardPtr keyboard_;
     MousePtr mouse_;
+    
     float dt; //!< Delta time. 
     float _framerate = 60.0f; //!< The target frame rate.
     float _runtime; //!< How long the engine has been running.

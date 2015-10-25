@@ -17,13 +17,16 @@ namespace DCEngine {
   /* Forward declarations*/
   class Space;
   class GameSession;
+  //class Factory;
 
   class GameObject : public Entity {
     friend class Space;
+    //friend class Factory;
 
   public:
+    
     GameObject(std::string name, Space& space, GameSession& gamesession);
-    GameObject() { ObjName = "GameObject"; }
+    GameObject();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
 
@@ -35,12 +38,15 @@ namespace DCEngine {
     void Detach();
     void DetachRelative();
 
-
     META_ADD_CLASS(GameObject); // Provides reflection for this object
 
   private:
     Space* SpaceRef;
     GameSession* GamesessionRef;
+
+    //static int GameObjectsCreated;
+    //const unsigned int GameObjectID;
+    
 
   };
 

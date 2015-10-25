@@ -15,8 +15,12 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics\Texture.hpp>
 
+#include "..\..\Resources\Shader.h"
+
 #include "../../Engine/Types.h"
 //#include <SFML\Window.hpp> // Does thie need to be included?
+
+
 
 namespace DCEngine {
   namespace Systems {
@@ -39,6 +43,7 @@ namespace DCEngine {
     };
 
     class GUI;
+    
     class ImGuiSFML {
       friend class GUI;
     public:
@@ -51,6 +56,7 @@ namespace DCEngine {
       float MouseWheel = 0.0f;      
       /* Rendering Data */
       sf::Texture FontTexture;
+      ShaderPtr GUIShader;
       
       /* System Functions */
       ImGuiSFML();
@@ -59,25 +65,21 @@ namespace DCEngine {
       void Render();
       void Terminate();
 
-      /* imgui bindings */
+      /* ImGui bindings */
       IMGUI_API bool ImGuiSFMLInitialize(sf::Window* windowContext, bool installCallbacks);
-      IMGUI_API void ImGuiSFMLTerminate();
-      
+      IMGUI_API void ImGuiSFMLTerminate();      
       /* Events*/
       IMGUI_API void ImGuiSFMLEventsUpdate();
       IMGUI_API void ImGuiSFMLBindEvents();
-      IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);
-            
+      IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);            
       /* Rendering */
       IMGUI_API bool ImGuiSFMLCreateDeviceObjects();
+      IMGUI_API void ImGuiSFMLGenerateFontTexture();
       IMGUI_API void ImGuiSFMLInitializeRendering();  
-
       // The function we pass to ImGui for rendering must be marked static?
       IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawData* draw_data);
       IMGUI_API static OpenGLStateData ImGuiSFMLBackupGLState();
       IMGUI_API static void ImGuiSFMLRestoreState(OpenGLStateData& currentState);
-
-      IMGUI_API void ImGuiSFMLGenerateFontTexture();
       //IMGUI_API static void ImGuiSFMLRenderDrawLists(ImDrawList** const cmdLists, int cmdListsCount);
 
 
