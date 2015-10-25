@@ -67,9 +67,8 @@ namespace DCEngine {
 	  int TotalObjNumG = 0;
 	  int TotalObjTranspNumG = 0;
 	  
-	  std::vector<Sprite>  NonTextureObj;
-	  std::vector<Sprite>  NonTextureObjNontransp;
-	  std::vector<Sprite>  TextureObj;
+	  std::vector<Sprite*>  NonTextureObjNontransp;
+	  std::vector<Sprite*>  TransparentObj;
 	  void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
     };
 

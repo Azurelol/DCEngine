@@ -19,12 +19,16 @@ namespace DCEngine {
 		reiner->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
 		reiner->getComponent<BoxCollider>()->IsDrawingCollider = true;
 		// Transform properties
-		reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.0f);
+		reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.f);
 		reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-		reiner->getComponent<Sprite>()->Color = Real4(1, 0.5, 0, 0.7); // Color: Orange
 																	 // MoveController properties
+		reiner->getComponent<Sprite>()->SpriteSource = "KnightAnim";
+		reiner->getComponent<Sprite>()->AnimationActive = true;
+		reiner->getComponent<Sprite>()->HaveAnimation = true;
+		reiner->getComponent<Sprite>()->AnimationSpeed = 10;
+		reiner->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 0.0f, 0.5f);
 		reiner->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
 		// DebugDraw properties
 		reiner->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;

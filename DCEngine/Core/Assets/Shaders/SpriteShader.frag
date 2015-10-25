@@ -16,15 +16,19 @@ void main() {
 
  // color = vec4(spriteColor) * texture(image, TexCoords);
 
+ vec4 Tmpcolor;
 
   if (isTexture == 1) {
-    color = vec4(spriteColor) * texture(image, TexCoords);
+    Tmpcolor = vec4(spriteColor) * texture(image, TexCoords);
   }
   else {
-    color = vec4(spriteColor);
+    Tmpcolor = vec4(spriteColor);
   }
 
-  
+  if(Tmpcolor.a < 0.1)
+        discard;
+
+  color = Tmpcolor;
 
   //Debug code
   /*
