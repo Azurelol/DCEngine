@@ -10,9 +10,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
-
-    //auto playerPtr = SpaceRef->FindObjectByName("Reiner");
-    //int i = 2;
+		PlayerRef = SpaceRef->FindObjectByName("Mariah");
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -26,6 +24,7 @@ namespace DCEngine {
 	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
 	{
 		Charging = true;
+		PlayerRef->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1);
 	}
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{
