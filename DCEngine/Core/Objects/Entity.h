@@ -54,6 +54,7 @@ namespace DCEngine {
     Component* getComponentByName(std::string name);
     void RemoveComponent(EnumeratedComponent ec);
     bool HasComponent(EnumeratedComponent ec);
+    ComponentVec* AllComponents();
 
     template <typename EventClass>
     void Dispatch(Event* eventObj); // Dispatches an event on object

@@ -1,6 +1,7 @@
 #include "DebugMoveController.h"
 #include "EngineReference.h"
 #include "Transform.h"
+#include "RigidBody.h"
 
 // Access to the SoundSpace to play sounds
 #include "SoundSpace.h"
@@ -15,6 +16,7 @@ namespace DCEngine {
     Connect(SpaceRef, Events::LogicUpdate, DebugMoveController::OnLogicUpdateEvent);
 
     TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
+    RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>(); // ew
         
     
   }
@@ -29,22 +31,48 @@ namespace DCEngine {
 
   void DebugMoveController::OnKeyDownEvent(Events::KeyDown* event) {
     switch (event->Key) {
+
+    /* Jump */
+    case Keys::Space:
+      if (Translation)
+        TransformRef->Translation.y += MoveSpeed * JumpMultiplier;
+      else
+        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed * JumpMultiplier, 0));
+      PrintTranslation();
     case Keys::W:
-      TransformRef->Translation.y += MoveSpeed;
+      if (Translation)
+        TransformRef->Translation.y += MoveSpeed * JumpMultiplier;
+      else
+        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed * JumpMultiplier, 0));
       PrintTranslation();
       break;    
+
+    /* Dive */
     case Keys::S:
-      TransformRef->Translation.y -= MoveSpeed;
+      if (Translation)
+        TransformRef->Translation.y -= MoveSpeed;
+      else
+        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed, 0));
       PrintTranslation();
       break;
+
+    /* Move Left*/
     case Keys::A:
-      TransformRef->Translation.x -= MoveSpeed;
+      if (Translation)
+        TransformRef->Translation.x -= MoveSpeed;
+      else
+        RigidBodyRef->ApplyLinearVelocity(Real3(-MoveSpeed, 0, 0));
       PrintTranslation();
       break;
+    /* Move Right */
     case Keys::D:
-      TransformRef->Translation.x += MoveSpeed;
+      if (Translation)
+        TransformRef->Translation.x += MoveSpeed;
+      else
+        RigidBodyRef->ApplyLinearVelocity(Real3(MoveSpeed, 0, 0));
       PrintTranslation();
       break;
+    /* Move along Z-Axis (lol) */
     case Keys::E:
       TransformRef->Translation.z -= MoveSpeed;
       PrintTranslation();
@@ -53,11 +81,13 @@ namespace DCEngine {
       TransformRef->Translation.z += MoveSpeed;
       PrintTranslation();
       break;
+    /* Rotate */
     case Keys::Z:
       TransformRef->Rotation.z -= RotSpeed;
       break;
     case Keys::X:
       TransformRef->Rotation.z += RotSpeed;
+
     }
 
     if (FootstepSoundEnabled)

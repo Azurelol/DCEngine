@@ -170,7 +170,7 @@ namespace DCEngine
   \brief Updates this object's velocity based on current velocity.
   */
   /**************************************************************************/
-  void RigidBody::addVelocity(Real3 vel)
+  void RigidBody::ApplyLinearVelocity(Real3 vel)
   {
 	  Velocity = vel + getVelocity();
   }

@@ -24,7 +24,10 @@ namespace DCEngine {
 
     //using SoundCueMap = std::map<std::string, SoundCuePtr>;
     using ResourceMap = std::map<std::string, std::string>;    
-
+    using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
+    using SoundCueMap = std::map<std::string, SoundCuePtr>;
+    using ShaderMap = std::map<std::string, ShaderPtr>;
+    
     class Content : public System {
       friend class Engine;
       friend class Factory;
@@ -36,6 +39,10 @@ namespace DCEngine {
       FontPtr getFont(std::string& fontName);
       SpriteSourcePtr getSpriteSrc(std::string& spriteName);
       SoundCuePtr getSoundCue(std::string& soundCueName);
+
+      SpriteSourceMap* AllSpriteSources();
+      SoundCueMap* AllSoundCues();
+      ShaderMap* AllShaders();
 
       //template <typename ResourceClass> getResource(); //!< Returns
     private:

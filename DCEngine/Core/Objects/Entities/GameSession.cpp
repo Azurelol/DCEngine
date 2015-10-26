@@ -126,6 +126,11 @@ namespace DCEngine {
     throw std::range_error("The specified space does not exist.");
   }
 
+  Space* GameSession::getDefaultSpace()
+  {
+    return DefaultSpace;
+  }
+
   /**************************************************************************/
   /*!
   \brief Updates the space, updating all its systems.

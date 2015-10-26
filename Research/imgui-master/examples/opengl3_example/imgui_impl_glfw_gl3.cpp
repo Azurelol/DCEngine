@@ -39,14 +39,14 @@ void ImGui_ImplGlfwGL3_RenderDrawLists(ImDrawData* draw_data)
     GLint last_array_buffer; glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &last_array_buffer);
     GLint last_element_array_buffer; glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &last_element_array_buffer);
     GLint last_vertex_array; glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &last_vertex_array);
-	GLint last_blend_src; glGetIntegerv(GL_BLEND_SRC, &last_blend_src);
-	GLint last_blend_dst; glGetIntegerv(GL_BLEND_DST, &last_blend_dst);
-	GLint last_blend_equation_rgb; glGetIntegerv(GL_BLEND_EQUATION_RGB, &last_blend_equation_rgb);
-	GLint last_blend_equation_alpha; glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &last_blend_equation_alpha);
-	GLboolean last_enable_blend = glIsEnabled(GL_BLEND);
-	GLboolean last_enable_cull_face = glIsEnabled(GL_CULL_FACE);
-	GLboolean last_enable_depth_test = glIsEnabled(GL_DEPTH_TEST);
-	GLboolean last_enable_scissor_test = glIsEnabled(GL_SCISSOR_TEST);
+	  GLint last_blend_src; glGetIntegerv(GL_BLEND_SRC, &last_blend_src);
+	  GLint last_blend_dst; glGetIntegerv(GL_BLEND_DST, &last_blend_dst);
+	  GLint last_blend_equation_rgb; glGetIntegerv(GL_BLEND_EQUATION_RGB, &last_blend_equation_rgb);
+	  GLint last_blend_equation_alpha; glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &last_blend_equation_alpha);
+	  GLboolean last_enable_blend = glIsEnabled(GL_BLEND);
+	  GLboolean last_enable_cull_face = glIsEnabled(GL_CULL_FACE);
+	  GLboolean last_enable_depth_test = glIsEnabled(GL_DEPTH_TEST);
+	  GLboolean last_enable_scissor_test = glIsEnabled(GL_SCISSOR_TEST);
 
     // Setup render state: alpha-blending enabled, no face culling, no depth testing, scissor enabled
     glEnable(GL_BLEND);
@@ -223,6 +223,7 @@ bool ImGui_ImplGlfwGL3_CreateDeviceObjects()
     glShaderSource(g_FragHandle, 1, &fragment_shader, 0);
     glCompileShader(g_VertHandle);
     glCompileShader(g_FragHandle);
+
     glAttachShader(g_ShaderHandle, g_VertHandle);
     glAttachShader(g_ShaderHandle, g_FragHandle);
     glLinkProgram(g_ShaderHandle);

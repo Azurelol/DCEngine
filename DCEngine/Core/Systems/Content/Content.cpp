@@ -215,6 +215,28 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Returns pointers to the content maps.
+    @return Returns a pointer to the SoundCue object.
+    */
+    /**************************************************************************/
+    SpriteSourceMap * Content::AllSpriteSources()
+    {
+      return &SpriteSourceMap;
+    }
+
+    SoundCueMap * Content::AllSoundCues()
+    {
+      return &SoundCueMap;
+    }
+
+    ShaderMap * Content::AllShaders()
+    {
+      return &ShaderMap;
+    }
+
+
+    /**************************************************************************/
+    /*!
     @brief Updates the Content system.
     @note 
     */

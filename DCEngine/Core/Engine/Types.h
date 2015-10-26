@@ -56,6 +56,10 @@ namespace DCEngine {
     F6,
     F7,
     F8,
+    F9,
+    F10,
+    F11,
+    F12,
   };
 
   enum class MouseButton {

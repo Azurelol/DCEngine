@@ -166,11 +166,17 @@
     <Filter Include="Core\Systems\Serialization">
       <UniqueIdentifier>{b2b0d7d5-7c05-4467-b4c7-6b7c2c3362bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor">
-      <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\GUI">
       <UniqueIdentifier>{b6784a55-6995-4e1e-ac02-cbdc6f44e7e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\ImGui">
+      <UniqueIdentifier>{a0ada755-df9a-4296-a243-714f3766bfe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\Zilch">
+      <UniqueIdentifier>{cf65ce2b-59c3-464d-954a-e7df14befe26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor">
+      <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -378,9 +384,6 @@
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Editor.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp">
       <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
@@ -393,20 +396,26 @@
     <ClCompile Include="Projects\Dollhouse\Background.cpp">
       <Filter>Projects\Dollhouse</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp">
-      <Filter>Libraries</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp">
-      <Filter>Libraries</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp">
-      <Filter>Libraries</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\GUI\GUI.cpp">
       <Filter>Core\Systems\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp">
       <Filter>Core\Systems\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp">
+      <Filter>Libraries\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp">
+      <Filter>Libraries\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp">
+      <Filter>Libraries\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp">
+      <Filter>Libraries\Zilch</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Editor.cpp">
+      <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -761,23 +770,26 @@
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\Editor.h">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h">
-      <Filter>Libraries</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\GUI\GUI.h">
       <Filter>Core\Systems\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\GUI\ImGuiSFML.h">
       <Filter>Core\Systems\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\IMGUI\imgui_internal.h">
+      <Filter>Libraries\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\IMGUI\imconfig.h">
+      <Filter>Libraries\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Editor.h">
+      <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

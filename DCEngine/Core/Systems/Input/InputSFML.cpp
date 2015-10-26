@@ -80,7 +80,6 @@ namespace DCEngine {
         break;
       }
 
-
     }
 
     /**************************************************************************/
@@ -88,6 +87,10 @@ namespace DCEngine {
     @brief  Polls for keyboard events. Everytime a key is pressed, sends an 
             event to the keyboard interface.
     @param  event A reference to the sf::Event that we pick up the data from.
+    @ntodo  Currently there's some hardcoded function calls in this function
+            for some systems. In the future, have those systems just listen
+            to the key. For that to happen, systems must be able to receive
+            events.
     */
     /**************************************************************************/
     void InputSFML::PollKeyPressed(sf::Event& event) {
@@ -100,10 +103,44 @@ namespace DCEngine {
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = true;
         break;
-      case sf::Keyboard::Space:
-        keyDown->Key = Keys::Space;
-        KeyboardRef->KeyDown_Space = true;
+
+      case sf::Keyboard::F1:
+        keyDown->Key = Keys::F1;
         break;
+      case sf::Keyboard::F2:
+        keyDown->Key = Keys::F2;
+        break;
+      case sf::Keyboard::F3:
+        keyDown->Key = Keys::F3;
+        break;
+      case sf::Keyboard::F4:
+        keyDown->Key = Keys::F4;
+        break;
+
+      case sf::Keyboard::F5:
+        keyDown->Key = Keys::F5;
+        break;
+      case sf::Keyboard::F6:
+        keyDown->Key = Keys::F6;
+        break;
+      case sf::Keyboard::F7: // RESERVED: Toggle Test
+        keyDown->Key = Keys::F7;
+        Daisy->getSystem<Systems::Editor>()->ToggleTest();
+        break;
+      case sf::Keyboard::F8: // RESERVED: Toggle Editor
+        Daisy->getSystem<Systems::Editor>()->ToggleEditor();
+        keyDown->Key = Keys::F8;
+        break;
+      case sf::Keyboard::F9:
+        keyDown->Key = Keys::F9;
+        break;
+      case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
+        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
+        keyDown->Key = Keys::F10;
+        break;
+
+
+
 
 
       case sf::Keyboard::Up:
@@ -118,6 +155,11 @@ namespace DCEngine {
       case sf::Keyboard::Right:
         keyDown->Key = Keys::Right;
         break;
+      case sf::Keyboard::Space:
+        keyDown->Key = Keys::Space;
+        KeyboardRef->KeyDown_Space = true;
+        break;
+
 
       case sf::Keyboard::W:
         keyDown->Key = Keys::W;
@@ -148,32 +190,6 @@ namespace DCEngine {
         keyDown->Key = Keys::X;
         break;
 
-      case sf::Keyboard::F1:
-        keyDown->Key = Keys::F1;
-        break;
-      case sf::Keyboard::F2:
-        keyDown->Key = Keys::F2;
-        break;
-      case sf::Keyboard::F3:
-        keyDown->Key = Keys::F3;
-        break;
-      case sf::Keyboard::F4:
-        keyDown->Key = Keys::F4;
-        break;
-
-      case sf::Keyboard::F5:
-        keyDown->Key = Keys::F5;
-        break;
-      case sf::Keyboard::F6:
-        keyDown->Key = Keys::F6;
-        break;
-      case sf::Keyboard::F7:
-        keyDown->Key = Keys::F7;
-        break;
-      case sf::Keyboard::F8: // RESERVED: Fullscreen
-        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
-        keyDown->Key = Keys::F8;
-        break;
 
         /* Numpad */
       case sf::Keyboard::Add :

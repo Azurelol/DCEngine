@@ -48,6 +48,9 @@ namespace DCEngine {
     Systems::Factory& getFactory() {
       return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
     }
+    GameSession* getGameSession() { return gamesession_.get(); }
+
+
     template <typename EventClass, typename ComponentClass, typename MemberFunction>
     void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
     //void Disconnect(const Entity& entity, EventType);
@@ -60,6 +63,7 @@ namespace DCEngine {
     GameSessionPtr gamesession_; //!< The current GameSession object.
     KeyboardPtr keyboard_;
     MousePtr mouse_;
+    
     float dt; //!< Delta time. 
     float _framerate = 60.0f; //!< The target frame rate.
     float _runtime; //!< How long the engine has been running.

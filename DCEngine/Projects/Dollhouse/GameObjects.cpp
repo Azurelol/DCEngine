@@ -21,6 +21,7 @@ namespace DCEngine {
 		// Transform properties
 		reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.f);
 		reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+    reiner->getComponent<RigidBody>()->setGravity(true);
 		// Sprite properties
 		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 																	 // MoveController properties
@@ -63,7 +64,7 @@ namespace DCEngine {
 		mariah->AddComponent(ComponentPtr(new BoxCollider(*mariah)));
 		mariah->AddComponent(ComponentPtr(new DebugCollider(*mariah)));
 		mariah->AddComponent(ComponentPtr(new DebugReport(*mariah)));
-		mariah->AddComponent(ComponentPtr(new PlayerController(*mariah)));
+		//mariah->AddComponent(ComponentPtr(new PlayerController(*mariah)));
 		// Change the properties of the components
 		mariah->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, 0.0f);
 		mariah->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
@@ -96,23 +97,7 @@ namespace DCEngine {
 		// Rigidbody properties
 		ball->getComponent<RigidBody>()->setGravity(true);
 
-		GameObjectPtr floor = ConstructGameObject("Basketfloor");
-		floor->AddComponent(ComponentPtr(new Sprite(*floor)));
-		floor->AddComponent(ComponentPtr(new Transform(*floor)));
-		floor->AddComponent(ComponentPtr(new RigidBody(*floor)));
-		floor->AddComponent(ComponentPtr(new BoxCollider(*floor)));
-		floor->AddComponent(ComponentPtr(new DebugCollider(*floor)));
-		floor->AddComponent(ComponentPtr(new DebugReport(*floor)));
-		// Change the properties of the components
-		floor->getComponent<Transform>()->Translation = Real3(0.0f, -5.0f, 0.0f);
-		floor->getComponent<Transform>()->Scale = Real3(100.0f, 1.0f, 1.0f);
-		// Sprite properties
-		floor->getComponent<Sprite>()->Color = Real4(1.0f, 0.4f, 0.1f, 1.0f);
-		// BoxCollider properties
-		floor->getComponent<BoxCollider>()->Size = Real3(100, 2, 2);
-		floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
-		// Rigidbody properties
-		floor->getComponent<RigidBody>()->DynamicState = DynamicStateType::Static;
+
 
 	}
 

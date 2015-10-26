@@ -2,16 +2,21 @@
 
 // Access to the Window System
 #include "../../Engine/Engine.h"
+#include "../../Debug/DebugGraphics.h"
+
+#define COMPILE_SHADER_MANUALLY 0
+#define GENERATE_FONT_TEXTURE_MANUALLY 1
 
 namespace DCEngine {
   namespace Systems {
 
-    // Shader handles
+    /* Statics used by ImGui */
+    static GLuint g_FontTexture = 0;
     static int ShaderHandle = 0, VertexHandle = 0, FragHandle = 0;
-    static int AttribLocationTex = 0, AttribLocationProjecMtx = 0;
+    static int AttribLocationTex = 0, AttribLocationProjMtx = 0;
     static int AttribLocationPosition = 0, AttribLocationUV = 0, AttribLocationColor = 0;
     static unsigned int VBOHandle = 0, VAOHandle = 0, ElementsHandle = 0;
-
+    
     /**************************************************************************/
     /*!
     \brief  Constructor.
@@ -91,10 +96,12 @@ namespace DCEngine {
     /**************************************************************************/
     IMGUI_API bool ImGuiSFML::ImGuiSFMLInitialize(sf::Window * windowContext, bool installCallbacks)
     {
-      // Bind ImGui to SFML input events
-      ImGuiSFMLBindEvents();
       // Genereate the objects used by ImGui
       ImGuiSFMLCreateDeviceObjects();
+
+      // Bind ImGui to SFML input events
+      ImGuiSFMLBindEvents();
+      
       // Initialize the rendering functions
       ImGuiSFMLInitializeRendering();
       return true;
@@ -115,30 +122,116 @@ namespace DCEngine {
       glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &lastVertexArray);
       
       // 2. Store a handle to the shader program used by ImGui
-      ShaderHandle = Daisy->getSystem<Systems::Content>()->getShader("GUIShader")->Get();
+            
+      if (COMPILE_SHADER_MANUALLY) {
+        // 2. Compile a shader
+        const GLchar *vertex_shader =
+          "#version 330\n"
+          "uniform mat4 ProjMtx;\n"
+          "in vec2 Position;\n"
+          "in vec2 UV;\n"
+          "in vec4 Color;\n"
+          "out vec2 Frag_UV;\n"
+          "out vec4 Frag_Color;\n"
+          "void main()\n"
+          "{\n"
+          "	Frag_UV = UV;\n"
+          "	Frag_Color = Color;\n"
+          "	gl_Position = ProjMtx * vec4(Position.xy,0,1);\n"
+          "}\n";
+
+        const GLchar* fragment_shader =
+          "#version 330\n"
+          "uniform sampler2D Texture;\n"
+          "in vec2 Frag_UV;\n"
+          "in vec4 Frag_Color;\n"
+          "out vec4 Out_Color;\n"
+          "void main()\n"
+          "{\n"
+          "	Out_Color = Frag_Color * texture( Texture, Frag_UV.st);\n"
+          "}\n";
+
+        ShaderHandle = glCreateProgram();
+        VertexHandle = glCreateShader(GL_VERTEX_SHADER);
+        FragHandle = glCreateShader(GL_FRAGMENT_SHADER);
+
+        glShaderSource(VertexHandle, 1, &vertex_shader, 0);
+        glShaderSource(FragHandle, 1, &fragment_shader, 0);
+
+        glCompileShader(VertexHandle);
+        glCompileShader(FragHandle);
+
+        glAttachShader(ShaderHandle, VertexHandle);
+        glAttachShader(ShaderHandle, FragHandle);
+        glLinkProgram(ShaderHandle);
+      }
+      else {
+        GUIShader = Daisy->getSystem<Content>()->getShader("GUIShader");
+        GUIShader->Compile();
+        ShaderHandle = GUIShader->Get();
+      }
+
+      // 3.  Save handles to the uniforms
+      AttribLocationTex = glGetUniformLocation(ShaderHandle, "Texture");
+      AttribLocationProjMtx = glGetUniformLocation(ShaderHandle, "ProjMtx");      
+      AttribLocationPosition = glGetAttribLocation(ShaderHandle, "Position");
+      AttribLocationUV = glGetAttribLocation(ShaderHandle, "UV");
+      AttribLocationColor = glGetAttribLocation(ShaderHandle, "Color");
+
+      glGenBuffers(1, &VBOHandle);
+      glGenBuffers(1, &ElementsHandle);
+
+      glGenVertexArrays(1, &VAOHandle);
+      glBindVertexArray(VAOHandle);
+      glBindBuffer(GL_ARRAY_BUFFER, VBOHandle);
+      glEnableVertexAttribArray(AttribLocationPosition);
+      glEnableVertexAttribArray(AttribLocationUV);
+      glEnableVertexAttribArray(AttribLocationColor);
+
+      #define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
+      glVertexAttribPointer(AttribLocationPosition, 2, GL_FLOAT, GL_FALSE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, pos));
+      glVertexAttribPointer(AttribLocationUV, 2, GL_FLOAT, GL_FALSE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, uv));
+      glVertexAttribPointer(AttribLocationColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, col));
+      #undef OFFSETOF
       
-      // Generate font textures
+      // 4. Generate font textures
       ImGuiSFMLGenerateFontTexture();
 
-      // Restores the modified OpenGL state
+      // 5. Restores the modified OpenGL state
       glBindTexture(GL_TEXTURE_2D, lastTexture);
       glBindBuffer(GL_ARRAY_BUFFER, lastArrayBuffer);
       glBindVertexArray(lastVertexArray);
 
       return true;
-
     }
     
     IMGUI_API void ImGuiSFML::ImGuiSFMLGenerateFontTexture()
     {
       ImGuiIO& io = ImGui::GetIO();
+
       // Generate an OpenGL texture
       unsigned char* pixels;
-      int width, height;
-      io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
-      FontTexture.create(width, height);
-      FontTexture.update(pixels);
-      io.Fonts->TexID = (void*)&FontTexture;
+      int width, height;      
+
+      // Roll our own
+      if (GENERATE_FONT_TEXTURE_MANUALLY) {
+        io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+        glGenTextures(1, &g_FontTexture);
+        glBindTexture(GL_TEXTURE_2D, g_FontTexture);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+      
+        io.Fonts->TexID = (void *)(intptr_t)g_FontTexture;
+      }
+      // sf::Texture
+      else {
+        io.Fonts->GetTexDataAsAlpha8(&pixels, &width, &height);
+        FontTexture.create(width, height);
+        FontTexture.update(pixels);
+        io.Fonts->TexID = (void*)&FontTexture;
+      }
+      
       io.Fonts->ClearInputData();
       io.Fonts->ClearTexData();
     }
@@ -162,8 +255,6 @@ namespace DCEngine {
       
       // Bind our implemented 'RenderDrawLists' function
       io.RenderDrawListsFn = ImGuiSFMLRenderDrawLists;
-      // Generates the font texture and binds it to ImGui
-      ImGuiSFMLGenerateFontTexture();
     }
 
     /**************************************************************************/
@@ -203,10 +294,17 @@ namespace DCEngine {
     IMGUI_API void ImGuiSFML::ImGuiSFMLEventsUpdate()
     {
       ImGuiIO& io = ImGui::GetIO();
+
+      // Update display size
+      //io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+      //io.DisplayFramebufferScale = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+
+      // Update time step
       static double time = 0.0f;
       const double currentTime = TimeElapsed.getElapsedTime().asSeconds();
       io.DeltaTime = static_cast<float>(currentTime - time);
       time = currentTime;
+      // Update inputs
       sf::Vector2i mousePos = sf::Mouse::getPosition(*WindowContext);
       io.MousePos = ImVec2(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
       io.MouseDown[0] = MousePressed[0] || sf::Mouse::isButtonPressed(sf::Mouse::Left);
@@ -327,20 +425,6 @@ namespace DCEngine {
       // 1. Backup the current OpenGL state
       OpenGLStateData currentState = ImGuiSFMLBackupGLState();
 
-      //GLint lastProgram; glGetIntegerv(GL_CURRENT_PROGRAM, &lastProgram);
-      //GLint lastTexture; glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);
-      //GLint lastArrayBuffer; glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &lastArrayBuffer);
-      //GLint lastElementArrayBuffer; glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &lastElementArrayBuffer);
-      //GLint lastVertexArray; glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &lastVertexArray);
-      //GLint lastBlendSrc; glGetIntegerv(GL_BLEND_SRC, &lastBlendSrc);
-      //GLint lastBlendDst; glGetIntegerv(GL_BLEND_DST, &lastBlendDst);
-      //GLint lastBlendEquationRGB; glGetIntegerv(GL_BLEND_EQUATION_RGB, &lastBlendEquationRGB);
-      //GLint lastBlendEquationAlpha; glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &lastBlendEquationAlpha);
-      //GLboolean lastEnableBlend = glIsEnabled(GL_BLEND);
-      //GLboolean lastEnableCullFace = glIsEnabled(GL_CULL_FACE);
-      //GLboolean lastEnableDepthTest = glIsEnabled(GL_DEPTH_TEST);
-      //GLboolean lastEnableScissorTest = glIsEnabled(GL_SCISSOR_TEST);
-
       // 2. Setup the next render state: 
       glEnable(GL_BLEND);
       glBlendEquation(GL_FUNC_ADD);
@@ -358,49 +442,52 @@ namespace DCEngine {
 
       // 3. Setup the Orthographic projection matrix
       const glm::mat4x4 orthoProjection = {
-        { 2.0f / io.DisplaySize.x, 0.0f,                   0.0f, 0.0f },
-        { 0.0f,                  2.0f / -io.DisplaySize.y, 0.0f, 0.0f },
-        { 0.0f,                  0.0f,                  -1.0f, 0.0f },
-        { -1.0f,                  1.0f,                   0.0f, 1.0f },
+        { 2.0f / io.DisplaySize.x, 0.0f,                        0.0f, 00.f },
+        { 0.0f,                    2.0f / -io.DisplaySize.y,    0.0f, 0.0f },
+        { 0.0f,                    0.0f,                       -1.0f, 0.0f },
+        { -1.0f,                   1.0f,                        0.0f, 1.0f },
       };
 
-      // 4. Active the shader program
-      
 
+
+
+      // 4. Active the shader program
+      glUseProgram(ShaderHandle);
+      glUniform1i(AttribLocationTex, 0);
+      glUniformMatrix4fv(AttribLocationProjMtx, 1, GL_FALSE, &orthoProjection[0][0]);
+      glBindVertexArray(VAOHandle);
 
       // 5. Update command lists
-      //#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
-      //for (int n = 0; n < draw_data->CmdListsCount; n++)
-      //{
-      //  const ImDrawList* cmd_list = draw_data->CmdLists[n];
-      //  const unsigned char* vtx_buffer = (const unsigned char*)&cmd_list->VtxBuffer.front();
-      //  const ImDrawIdx* idx_buffer = &cmd_list->IdxBuffer.front();
-      //  glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, pos)));
-      //  glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, uv)));
-      //  glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, col)));
 
-      //  for (int cmd_i = 0; cmd_i < cmd_list->CmdBuffer.size(); cmd_i++)
-      //  {
-      //    const ImDrawCmd* pcmd = &cmd_list->CmdBuffer[cmd_i];
-      //    if (pcmd->UserCallback)
-      //    {
-      //      pcmd->UserCallback(cmd_list, pcmd);
-      //    }
-      //    else
-      //    {
-      //      glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
-      //      glScissor((int)pcmd->ClipRect.x, (int)(fbHeight - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-      //      glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, GL_UNSIGNED_SHORT, idx_buffer);
-      //    }
-      //    idx_buffer += pcmd->ElemCount;
-      //  }
-      //}
-      //#undef OFFSETOF
+      for (int n = 0; n < draw_data->CmdListsCount; n++)
+      {
+        const ImDrawList* cmd_list = draw_data->CmdLists[n];
+        const ImDrawIdx* idx_buffer_offset = 0;
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBOHandle);
+        glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)cmd_list->VtxBuffer.size() * sizeof(ImDrawVert), (GLvoid*)&cmd_list->VtxBuffer.front(), GL_STREAM_DRAW);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ElementsHandle);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, (GLsizeiptr)cmd_list->IdxBuffer.size() * sizeof(ImDrawIdx), (GLvoid*)&cmd_list->IdxBuffer.front(), GL_STREAM_DRAW);
+
+        for (const ImDrawCmd* pcmd = cmd_list->CmdBuffer.begin(); pcmd != cmd_list->CmdBuffer.end(); pcmd++)
+        {
+          if (pcmd->UserCallback)
+          {
+            pcmd->UserCallback(cmd_list, pcmd);
+          }
+          else
+          {
+            glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
+            glScissor((int)pcmd->ClipRect.x, (int)(fbHeight - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
+            glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, GL_UNSIGNED_SHORT, idx_buffer_offset);
+          }
+          idx_buffer_offset += pcmd->ElemCount;
+        }
+      }
 
       // 6. Restores the modified state
       ImGuiSFMLRestoreState(currentState);
-
-
     }
     
     /**************************************************************************/
@@ -410,6 +497,32 @@ namespace DCEngine {
     /**************************************************************************/
     IMGUI_API void ImGuiSFML::ImGuiSFMLTerminate()
     {
+      if (VAOHandle) glDeleteVertexArrays(1, &VAOHandle);
+      if (VBOHandle) glDeleteBuffers(1, &VBOHandle);
+      if (ElementsHandle) glDeleteBuffers(1, &ElementsHandle);
+      VAOHandle = VBOHandle = ElementsHandle = 0;
+
+      // If we compiled the shader manually..
+      if (COMPILE_SHADER_MANUALLY) {
+        glDetachShader(ShaderHandle, VertexHandle);
+        glDeleteShader(VertexHandle);
+        VertexHandle = 0;
+
+        glDetachShader(ShaderHandle, FragHandle);
+        glDeleteShader(FragHandle);
+        FragHandle = 0;
+
+        glDeleteProgram(ShaderHandle);
+        ShaderHandle = 0;
+      }
+
+      if (g_FontTexture)
+      {
+        glDeleteTextures(1, &g_FontTexture);
+        ImGui::GetIO().Fonts->TexID = 0;
+        g_FontTexture = 0;
+      }
+
       //ImGuiSFMLInvalidateDeviceObjects();
       ImGui::Shutdown();
     }
