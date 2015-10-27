@@ -10,8 +10,10 @@ namespace DCEngine {
 	public:
 
 		bool Translation = true;
+		bool Grounded = true;
 		Real MoveSpeed = 1;
 		Real JumpPower = 60;
+		Real AirBrakeScalar = 0.8;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 
@@ -22,6 +24,8 @@ namespace DCEngine {
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
 		void OnKeyDownEvent(Events::KeyDown* event);
+		void OnCollisionStartedEvent(Events::CollisionStarted* event);
+		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 	private:

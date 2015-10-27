@@ -64,9 +64,9 @@ namespace DCEngine {
 		mariah->AddComponent(ComponentPtr(new BoxCollider(*mariah)));
 		mariah->AddComponent(ComponentPtr(new DebugCollider(*mariah)));
 		mariah->AddComponent(ComponentPtr(new DebugReport(*mariah)));
-		//mariah->AddComponent(ComponentPtr(new PlayerController(*mariah)));
+		mariah->AddComponent(ComponentPtr(new PlayerController(*mariah)));
 		// Change the properties of the components
-		mariah->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, 0.0f);
+		mariah->getComponent<Transform>()->Translation = Real3(4.0f, 10.0f, 0.0f);
 		mariah->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
 		// Sprite properties
 		mariah->getComponent<Sprite>()->Color = Real4(1.0f, 0.7f, 0.3f, 1.0f);
