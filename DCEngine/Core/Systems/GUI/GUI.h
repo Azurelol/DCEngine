@@ -17,7 +17,7 @@ namespace DCEngine {
   class Engine;
   namespace Systems {
         
-    static bool GUI_ENABLED = true;
+    static bool GUI_ENABLED = false;
 
     class GUI : public System {
       friend class Engine;
