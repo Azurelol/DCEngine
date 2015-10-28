@@ -49,8 +49,12 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
+<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
+=======
+[Engine::LoadProject - Loading C:\Users\Dell\Documents\GitHub\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+>>>>>>> d826befeaf7600d3c61e5c35832c27e8eb74c6fa
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam2.mp3
 AudioFMOD::CreateSound: Core/Assets/Sounds/train.mp3
@@ -205,7 +209,7 @@ Basketball::Initialize
 GraphicsSpace::AddSprite - Basketball
 PhysicsSpace::AddRigidBody - Basketball
 PhysicsSpace::AddCollider - Basketball
-Pikapikano!::Initialize 
+#################################################4Pikapikano!::Initialize 
 GraphicsSpace::AddSprite - Pikapikano!
 Floor::Initialize 
 PhysicsSpace::AddRigidBody - Floor
@@ -218,6 +222,7 @@ Foreground::Initialize
 GraphicsSpace::AddSprite - Foreground
 
 [Engine::Loop]
+<<<<<<< HEAD
 Camera::Transform.Translation(-2, 1, 1)
 'Left' key was released!
 Camera::Transform.Translation(-5, 1, 1)
@@ -255,3 +260,34 @@ Camera::Transform.Translation(-26, 1, 1)
 Camera::Transform.Translation(-23, 1, 1)
 'Right' key was released!
 Camera::Transform
+=======
+Mariah::Transform.Translation(4, 0.887721, 0)
+AAAAAAAAAMariah::Transform.Translation(3.77239, 0.996167, 0)
+AAAAAAAAAAAAAAAAAAMariah::Transform.Translation(3.05746, 0.996611, 0)
+AAAAAAAAAAAAAAAMariah::Transform.Translation(2.66047, 0.995563, 0)
+AAAAAAAAAMariah::Transform.Translation(2.44712, 0.97616, 0)
+AAAAAAAAAMariah::Transform.Translation(1.99824, 1.01205, 0)
+AAAAAAMariah::Transform.Translation(1.98714, 0.983918, 0)
+AAAAAAAAAAAAMariah::Transform.Translation(1.92226, 0.992488, 0)
+AAAAAAAAAAAAAAAAAAMariah::Transform.Translation(1.5676, 0.981113, 0)
+AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(1.18966, 0.981587, 0)
+AAAAAAAAAAAAAAAMariah::Transform.Translation(1.10103, 0.994473, 0)
+AAAAAAAAAAAAMariah::Transform.Translation(0.683144, 0.992067, 0)
+AAAAAAAAAMariah::Transform.Translation(0.485367, 1.07959, 0)
+AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-0.363481, 1.03406, 0)
+AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-1.03815, 0.992095, 0)
+AAAAAAAAAAAAAAAMariah::Transform.Translation(-1.52694, 0.985476, 0)
+AAAAAAAAAMariah::Transform.Translation(-1.80535, 0.999847, 0)
+AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-2.4751, 0.976076, 0)
+AAAAAAAAAAAAMariah::Transform.Translation(-2.86977, 0.976078, 0)
+AAAAAAAAAAAAAAAMariah::Transform.Translation(-3.39892, 0.723166, 0)
+AAAAAAAAAMariah::Transform.Translation(-6.28019, -3.00204, 0)
+AAAAAAAAAAAAMariah::Transform.Translation(-6.44685, -3.00555, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-6.83846, -2.99712, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-7.29392, -2.99712, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-10.2973, -3.00633, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-14.3324, -3.00237, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-18.447, -2.99436, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-20.6247, -3.00271, 0)
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah
+>>>>>>> d826befeaf7600d3c61e5c35832c27e8eb74c6fa

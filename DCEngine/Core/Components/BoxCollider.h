@@ -5,8 +5,8 @@
 @par    email: c.sagel\@digipen.edu
 @date   9/23/2015
 @brief  The BoxCollider component gives a physical representation of a bounding
-        box in world space so objects can experience collisions with one 
-        another. This component interacts directly with the physics system.
+box in world space so objects can experience collisions with one
+another. This component interacts directly with the physics system.
 */
 /******************************************************************************/
 #pragma once
@@ -15,9 +15,11 @@
 namespace DCEngine {
 
   class Transform;
+  class Physics;
   class BoxCollider : public Component {
   public:
-       
+    friend class Physics;
+
     Real3 Size = Real3(1, 1, 1);
     Real3 Offset = Real3(0, 0, 0);
     Boolean Ghost = false;
@@ -30,7 +32,7 @@ namespace DCEngine {
     bool getSendsEvents(void);
 
     void DrawCollider();
-    
+
     // These should be private!
     BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
     void Initialize();
@@ -41,10 +43,9 @@ namespace DCEngine {
     void OnCollisionStartedEvent(Events::CollisionStarted* event);
     void OnCollisionEndedEvent(Events::CollisionEnded* event);
 
-
+    Real3 getColliderScale();
   private:
     Transform* TransformComponent;
-    Real3 getColliderScale();
 
     /* Properties */
     // CollisionGroup = 

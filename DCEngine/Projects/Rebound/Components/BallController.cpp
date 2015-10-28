@@ -11,6 +11,8 @@ namespace DCEngine {
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+		trace << "#################################################";
+		trace << PlayerRef->getComponent<Transform>()->Translation.x;
 	}
 
 	void BallController::Serialize(Json::Value & root)

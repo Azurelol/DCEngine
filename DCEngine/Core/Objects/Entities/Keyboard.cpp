@@ -13,9 +13,37 @@ namespace DCEngine {
         return false;
       break;
 
+	case Keys::W:
+		if (KeyDown_W)
+			return true;
+		else
+			return false;
+		break;
+
+	case Keys::A:
+		if (KeyDown_A)
+			return true;
+		else
+			return false;
+		break;
+
+	case Keys::S:
+		if (KeyDown_S)
+			return true;
+		else
+			return false;
+		break;
+
+	case Keys::D:
+		if (KeyDown_D)
+			return true;
+		else
+			return false;
+		break;
 
 
-    default:
+
+    default: 
       break;
 
     }    

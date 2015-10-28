@@ -12,7 +12,7 @@ namespace DCEngine
 
   float DetermineRestitution(RigidBody  &a, RigidBody &b)
   {
-    return 	std::min(a.getRestitution(), b.getRestitution());
+    return 	std::max(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(RigidBody &a, RigidBody &b)
@@ -40,12 +40,20 @@ namespace DCEngine
     auto rigidbody2 = obj2->getComponent<RigidBody>();
 
 
-    if (rigidbody1)
+    if (rigidbody1 == NULL)
+    {
+      result.rigid1 = false;
+    }
+    else
     {
       result.rigid1 = true;
     }
 
-    if (rigidbody2)
+    if (rigidbody2 == NULL)
+    {
+      result.rigid2 = false;
+    }
+    else
     {
       result.rigid2 = true;
     }
@@ -99,11 +107,11 @@ namespace DCEngine
     glm::vec3 ProjvertexBL2;
     glm::vec3 ProjvertexBR2;
 
-    float Height0 = boxcollider1->getSize().y;
-    float Height1 = boxcollider2->getSize().y;
+    float Height0 = boxcollider1->getColliderScale().y;
+    float Height1 = boxcollider2->getColliderScale().y;
 
-    float Width0 = boxcollider1->getSize().x;
-    float Width1 = boxcollider2->getSize().x;
+    float Width0 = boxcollider1->getColliderScale().x;
+    float Width1 = boxcollider2->getColliderScale().x;
 
     float rot0 = transform1->WorldRotation.z;
     float rot1 = transform2->WorldRotation.z;
@@ -477,12 +485,12 @@ namespace DCEngine
 
     //Check X
     glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
-    float xDiff = boxcollider1->getSize().x / 2.0f + boxcollider2->getSize().x / 2.0f - fabs(positionDelta.x);
+    float xDiff = boxcollider1->getColliderScale().x / 2.0f + boxcollider2->getColliderScale().x / 2.0f - fabs(positionDelta.x);
 
     //Boxes overlapping on x-axis?
     if (0 < xDiff)
     {
-      float yDiff = boxcollider1->getSize().y / 2.0f + boxcollider2->getSize().y / 2.0f - fabs(positionDelta.y);
+      float yDiff = boxcollider1->getColliderScale().y / 2.0f + boxcollider2->getColliderScale().y / 2.0f - fabs(positionDelta.y);
 
       //Boxes overlapping on y-axis?
       if (0 < yDiff)
@@ -505,20 +513,17 @@ namespace DCEngine
             result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
             result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
           }
-
-          if (result.rigid1 == false && result.rigid2 != false)
+          else if (result.rigid1 == false && result.rigid2 != false)
           {
             result.FrictionCof = rigidbody2->getFriction();
             result.Restitution = rigidbody2->getRestitution();
           }
-
-          if (result.rigid1 != false && result.rigid2 == false)
+          else if (result.rigid1 != false && result.rigid2 == false)
           {
             result.FrictionCof = rigidbody1->getFriction();
             result.Restitution = rigidbody1->getRestitution();
           }
-
-          if (result.rigid1 == false && result.rigid2 == false)
+          else if (result.rigid1 == false && result.rigid2 == false)
           {
             result.FrictionCof = 0.0f;
             result.Restitution = 0.0f;
@@ -541,6 +546,21 @@ namespace DCEngine
           {
             result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
             result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+          }
+          else if (result.rigid1 == false && result.rigid2 != false)
+          {
+            result.FrictionCof = rigidbody2->getFriction();
+            result.Restitution = rigidbody2->getRestitution();
+          }
+          else if (result.rigid1 != false && result.rigid2 == false)
+          {
+            result.FrictionCof = rigidbody1->getFriction();
+            result.Restitution = rigidbody1->getRestitution();
+          }
+          else if (result.rigid1 == false && result.rigid2 == false)
+          {
+            result.FrictionCof = 0.0f;
+            result.Restitution = 0.0f;
           }
           return true;
         }
@@ -618,10 +638,10 @@ namespace DCEngine
 
     CircleCenter += transform2->Translation;
 
-    float left = transform2->Translation.x - (boxcollider->getSize().x / 2.0f);
-    float right = transform2->Translation.x + (boxcollider->getSize().x / 2.0f);
-    float top = transform2->Translation.y + (boxcollider->getSize().y / 2.0f);
-    float bottom = transform2->Translation.y - (boxcollider->getSize().y / 2.0f);
+    float left = transform2->Translation.x - (boxcollider->getColliderScale().x / 2.0f);
+    float right = transform2->Translation.x + (boxcollider->getColliderScale().x / 2.0f);
+    float top = transform2->Translation.y + (boxcollider->getColliderScale().y / 2.0f);
+    float bottom = transform2->Translation.y - (boxcollider->getColliderScale().y / 2.0f);
 
     glm::vec3 vecPoint;
 
