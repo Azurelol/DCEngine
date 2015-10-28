@@ -2,11 +2,14 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
-
+  
+  class Sprite;
   class DebugFade : public Component {
   public:
     
-    Real FadeOutDur = 1.0;
+    Sprite* SpriteComponent;
+    Real FadeOutDur = 10;
+    Real4 FadeColor = Real4(0, 0, 0, 0);
 
     /* Initialize */
     DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
@@ -15,9 +18,7 @@ namespace DCEngine {
     virtual void Deserialize(Json::Value& root);
 
     /* Events */
-    void OnKeyDownEvent(Events::KeyDown* event);
-    void OnKeyUpEvent(Events::KeyUp* event);
-    void ChangeTrack(std::string& track);
+    void OnLogicUpdateEvent(Events::LogicUpdate* event);
 
   private:
   };

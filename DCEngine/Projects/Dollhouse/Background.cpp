@@ -9,17 +9,17 @@ namespace DCEngine {
 		// Reference to the factory system
 		auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
 
-    /* Moonward Logo??? */
-		GameObjectPtr chenObj = ConstructGameObject("Chen");
-		chenObj->AddComponent(ComponentPtr(new Transform(*chenObj)));
-		chenObj->AddComponent(ComponentPtr(new Sprite(*chenObj)));
-		chenObj->AddComponent(ComponentPtr(new DebugReport(*chenObj)));
-		// Transform properties
-		chenObj->getComponent<Transform>()->Translation = Real3(15, 15, 0.0f);
-		chenObj->getComponent<Transform>()->Scale = Real3(3.0f, 2.0f, 1.0f);
-		chenObj->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
-		// Sprite properties
-		chenObj->getComponent<Sprite>()->SpriteSource = "logo";
+    /* Moonward Logo Small */
+		//GameObjectPtr chenObj = ConstructGameObject("Logo1");
+		//chenObj->AddComponent(ComponentPtr(new Transform(*chenObj)));
+		//chenObj->AddComponent(ComponentPtr(new Sprite(*chenObj)));
+		//chenObj->AddComponent(ComponentPtr(new DebugReport(*chenObj)));
+		//// Transform properties
+		//chenObj->getComponent<Transform>()->Translation = Real3(25, 20, 0.0f);
+		//chenObj->getComponent<Transform>()->Scale = Real3(1.50f, 1.0f, 1.0f);
+		//chenObj->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
+		//// Sprite properties
+		//chenObj->getComponent<Sprite>()->SpriteSource = "awesomeface";
 
     /* Moonward Logo */
 		GameObjectPtr connorObj = ConstructGameObject("Connor");
@@ -28,8 +28,20 @@ namespace DCEngine {
     connorObj->getComponent<Sprite>()->SpriteSource = "logo";
 		connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
 		// Transform properties
-		connorObj->getComponent<Transform>()->Translation = Real3(-60, 45, -2.0f);
+		connorObj->getComponent<Transform>()->Translation = Real3(-90, 50, -2.0f);
 		connorObj->getComponent<Transform>()->Scale = Real3(15.0f, 10.0f, 1.0f);
+
+    /* Faded Curtain Effect */
+    GameObjectPtr curtain = ConstructGameObject("Curtain");
+    curtain->AddComponent(ComponentPtr(new Transform(*curtain)));
+    curtain->AddComponent(ComponentPtr(new Sprite(*curtain)));
+    curtain->AddComponent(ComponentPtr(new DebugFade(*curtain)));
+    curtain->getComponent<Sprite>()->Color = Real4(0, 0, 0, 1);
+    curtain->getComponent<Transform>()->Scale = Real3(150, 150, 1.0f);
+    // Transform properties
+    curtain->getComponent<Transform>()->Translation = Real3(0, 0, 0.1);
+
+
     
     /* SpriteText! */
     GameObjectPtr boro = ConstructGameObject("SpriteTextor");

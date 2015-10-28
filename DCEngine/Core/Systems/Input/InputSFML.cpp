@@ -4,6 +4,9 @@
 #include "..\Window\WindowSFML.h"
 #include <SFML\System\Vector2.hpp>
 
+// GUI Handling
+#include "../GUI/ImGuiSFML.h"
+
 namespace DCEngine {
 
   // Need access to the engine to get a pointer to the GLFWwindow object
@@ -53,7 +56,8 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Polls for all input events..
+    @brief  Polls for all input events..
+    @todo   Currently intruded upon by ImGui input code.
     */
     /**************************************************************************/
     void InputSFML::PollEvents() {
@@ -61,7 +65,15 @@ namespace DCEngine {
       // Check all window's events that were triggered since the last iteration
       if (WindowContext->pollEvent(_event) == false)
         return;
+      //
+      //// Check for the input event
+      //if (_event.type == sf::Event::KeyPressed) {
+      //  if (_event.key.code == sf::Keyboard::A)
+      //    
+      //}
 
+
+      // Poll for events
       switch (_event.type) {
       case sf::Event::KeyPressed:
         PollKeyPressed(_event);
@@ -70,10 +82,15 @@ namespace DCEngine {
         PollKeyReleased(_event);
         break;
       case sf::Event::MouseButtonPressed:
+        Daisy->getSystem<GUI>()->GUIHandler->MousePressed[_event.mouseButton.button] = true;
         PollMouseButtonPressed(_event);
         break;
       case sf::Event::MouseButtonReleased:
+        Daisy->getSystem<GUI>()->GUIHandler->MousePressed[_event.mouseButton.button] = false;
         PollMouseButtonReleased(_event);
+        break;
+      case sf::Event::MouseWheelMoved:
+        
         break;
         // Don't process other events
       default:
@@ -87,13 +104,19 @@ namespace DCEngine {
     @brief  Polls for keyboard events. Everytime a key is pressed, sends an 
             event to the keyboard interface.
     @param  event A reference to the sf::Event that we pick up the data from.
-    @ntodo  Currently there's some hardcoded function calls in this function
+    @todo  Currently there's some hardcoded function calls in this function
             for some systems. In the future, have those systems just listen
             to the key. For that to happen, systems must be able to receive
             events.
     */
     /**************************************************************************/
     void InputSFML::PollKeyPressed(sf::Event& event) {
+
+      // Update ImGui
+      ImGuiIO& io = ImGui::GetIO();
+      io.KeysDown[event.key.code] = true;
+      io.KeyCtrl = event.key.control;
+      io.KeyShift = event.key.shift;
 
       // Create a keyboard pressed event
       auto keyDown = new Events::KeyDown();
@@ -138,9 +161,6 @@ namespace DCEngine {
         Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
         keyDown->Key = Keys::F10;
         break;
-
-
-
 
 
       case sf::Keyboard::Up:
@@ -244,6 +264,12 @@ namespace DCEngine {
     /**************************************************************************/
     void InputSFML::PollKeyReleased(sf::Event & event) {
 
+      // Update ImGui
+      ImGuiIO& io = ImGui::GetIO();
+      io.KeysDown[event.key.code] = false;
+      io.KeyCtrl = event.key.control;
+      io.KeyShift = event.key.shift;
+
       // Create a keyboard pressed event
       auto keyUp = new Events::KeyUp();
 
@@ -255,6 +281,41 @@ namespace DCEngine {
       case sf::Keyboard::Space:
         keyUp->Key = Keys::Space;
         KeyboardRef->KeyDown_Space = false;
+        break;
+
+      case sf::Keyboard::F1:
+        keyUp->Key = Keys::F1;
+        break;
+      case sf::Keyboard::F2:
+        keyUp->Key = Keys::F2;
+        break;
+      case sf::Keyboard::F3:
+        keyUp->Key = Keys::F3;
+        break;
+      case sf::Keyboard::F4:
+        keyUp->Key = Keys::F4;
+        break;
+
+      case sf::Keyboard::F5:
+        keyUp->Key = Keys::F5;
+        break;
+      case sf::Keyboard::F6:
+        keyUp->Key = Keys::F6;
+        break;
+      case sf::Keyboard::F7: // RESERVED: Toggle Test
+        keyUp->Key = Keys::F7;
+        Daisy->getSystem<Systems::Editor>()->ToggleTest();
+        break;
+      case sf::Keyboard::F8:
+        //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
+        keyUp->Key = Keys::F8;
+        break;
+      case sf::Keyboard::F9:
+        keyUp->Key = Keys::F9;
+        break;
+      case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
+        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
+        keyUp->Key = Keys::F10;
         break;
 
 
@@ -298,6 +359,9 @@ namespace DCEngine {
     }
 
     void InputSFML::PollMouseButtonPressed(sf::Event & event) {
+
+
+
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
@@ -359,6 +423,32 @@ namespace DCEngine {
 		Daisy->getMouse()->Dispatch<Events::MouseUp>(mouseUp);
     delete mouseUp;
 	}
+
+  /**************************************************************************/
+  /*!
+  \brief  Polls for mouse wheel events.
+  */
+  /**************************************************************************/
+  void InputSFML::PollMouseWheelMoved(sf::Event & event)
+  {
+    // Update ImGui
+    ImGuiIO& io = ImGui::GetIO();
+    io.MouseWheel += (float)event.mouseWheel.delta;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Polls for text events.
+  */
+  /**************************************************************************/
+  void InputSFML::PollTextEntered(sf::Event & event)
+  {
+    // Update ImGui
+    if (event.text.unicode > 0 && event.text.unicode < 0x10000)
+      ImGui::GetIO().AddInputCharacter(event.text.unicode);
+
+
+  }
 
     /**************************************************************************/
     /*!

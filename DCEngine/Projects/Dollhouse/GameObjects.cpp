@@ -52,6 +52,7 @@ namespace DCEngine {
 		// Sprite properties
     //john->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1); // Color: Blue
     john->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
+    john->getComponent<Sprite>()->FlipX = true;
 		//john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
 																			 // BoxCollider properties
 		john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);
@@ -59,17 +60,17 @@ namespace DCEngine {
 
 
     /* Moonward Logo??? */
-    GameObjectPtr boo = ConstructGameObject("Boo");
-    boo->AddComponent(ComponentPtr(new Transform(*boo)));
-    boo->AddComponent(ComponentPtr(new Sprite(*boo)));
-    boo->AddComponent(ComponentPtr(new DebugReport(*boo)));
-    // Transform properties
-    boo->getComponent<Transform>()->Translation = Real3(40, 5, 0.0f);
-    boo->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
-    boo->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
-    // Sprite properties
-    //chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 0.5); // Color: Blue
-    boo->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
+    //GameObjectPtr boo = ConstructGameObject("Background Monkey");
+    //boo->AddComponent(ComponentPtr(new Transform(*boo)));
+    //boo->AddComponent(ComponentPtr(new Sprite(*boo)));
+    //boo->AddComponent(ComponentPtr(new DebugReport(*boo)));
+    //// Transform properties
+    //boo->getComponent<Transform>()->Translation = Real3(20, 5, -1.0f);
+    //boo->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
+    //boo->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
+    //// Sprite properties
+    ////chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 0.5); // Color: Blue
+    //boo->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
 
 		// Player
 		//GameObjectPtr mariah = ConstructGameObject("Mariah");

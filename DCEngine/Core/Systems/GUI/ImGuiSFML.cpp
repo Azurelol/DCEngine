@@ -51,14 +51,24 @@ namespace DCEngine {
     /**************************************************************************/
     void ImGuiSFML::StartFrame()
     {      
-      // 1. Poll for ImGui Events in SFML
-      sf::Event& event = Daisy->getSystem<Input>()->InputHandler->_event;
-      while (WindowContext->pollEvent(event))
-        ImGuiSFMLProcessEvent(event);
-      // 2. Update ImGui after having polled for events
-      ImGuiSFMLEventsUpdate();
+      //PollEvents();
       // 3. Have ImGui start a new frame.
       ImGui::NewFrame();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Poll for input events in SFML for ImGui.
+    @todo   If there's issues, move after the graphics update?
+    */
+    /**************************************************************************/
+    void ImGuiSFML::PollEvents()
+    {
+      //sf::Event& event = Daisy->getSystem<Input>()->InputHandler->_event;
+      //while (WindowContext->pollEvent(event))
+      //  ImGuiSFMLProcessEvent(event);
+      // 2. Update ImGui after having polled for events
+      ImGuiSFMLEventsUpdate();
     }
 
     /**************************************************************************/
@@ -248,6 +258,7 @@ namespace DCEngine {
       // Grab a reference to the input output
       ImGuiIO& io = ImGui::GetIO();
       // Sets the initial display size
+      //io.DisplaySize = ImVec2(1440, 900);
       io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
       //io.DisplayFramebufferScale = ImVec2(static_cast<float>(WindowContext->getSize().x),
       //                               static_cast<float>(WindowContext->getSize().y));
@@ -304,6 +315,7 @@ namespace DCEngine {
       const double currentTime = TimeElapsed.getElapsedTime().asSeconds();
       io.DeltaTime = static_cast<float>(currentTime - time);
       time = currentTime;
+
       // Update inputs
       sf::Vector2i mousePos = sf::Mouse::getPosition(*WindowContext);
       io.MousePos = ImVec2(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
@@ -422,6 +434,10 @@ namespace DCEngine {
     /**************************************************************************/
     IMGUI_API void ImGuiSFML::ImGuiSFMLRenderDrawLists(ImDrawData * draw_data)
     {
+      //ImGuiIO& io = ImGui::GetIO();
+      
+      //io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+
       // 1. Backup the current OpenGL state
       OpenGLStateData currentState = ImGuiSFMLBackupGLState();
 
@@ -437,6 +453,7 @@ namespace DCEngine {
       // 2.1 Handle cases of screen coordinates != from framebuffer coordinates
       // (e.g retina displays)
       ImGuiIO& io = ImGui::GetIO();
+      //io.DisplaySize = ImVec2(1440, 900);
       float fbHeight = io.DisplaySize.y * io.DisplayFramebufferScale.y;
       draw_data->ScaleClipRects(io.DisplayFramebufferScale);
 

@@ -357,9 +357,6 @@
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Content\FileSystem.cpp">
-      <Filter>Core\Systems\Content</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
@@ -419,6 +416,10 @@
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
+    <ClCompile Include="Core\Components\DebugFade.cpp">
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -746,9 +747,6 @@
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Content\FileSystem.h">
-      <Filter>Core\Systems\Content</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\TypesMeta.h">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClInclude>
@@ -800,6 +798,7 @@
     <ClInclude Include="Core\Components\DebugFade.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Filesystem\FileSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

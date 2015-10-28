@@ -238,6 +238,7 @@
     <ClCompile Include="Core\Components\DebugAudio.cpp" />
     <ClCompile Include="Core\Components\DebugCamera.cpp" />
     <ClCompile Include="Core\Components\DebugCollider.cpp" />
+    <ClCompile Include="Core\Components\DebugFade.cpp" />
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />

@@ -25,9 +25,11 @@
 namespace DCEngine {
   namespace Systems {  
     class GUI;
-    
+    class InputSFML;
+
     class ImGuiSFML {
       friend class GUI;
+      friend class InputSFML;
     public:
 
     private:      
@@ -44,6 +46,7 @@ namespace DCEngine {
       ImGuiSFML();
       void Initialize();
       void StartFrame();
+      void PollEvents();
       void Render();
       void Terminate();
 

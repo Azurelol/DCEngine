@@ -51,7 +51,10 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ToggleEditor()
     {
+      // Toggle on the editor
       EditorEnabled = !EditorEnabled;
+      // Toggle on the GUI system
+      //Daisy->getSystem<GUI>()->Toggle();
       trace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
 

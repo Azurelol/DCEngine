@@ -37,8 +37,11 @@ namespace DCEngine{
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
+      void ToggleInput();
 
       std::unique_ptr<DCEngine::Systems::InputSFML> InputHandler;
+      bool InputEnabled = true;
+
 
     };
 

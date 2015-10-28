@@ -51,6 +51,11 @@ namespace DCEngine {
     {
     }
 
+    void Input::ToggleInput()
+    {
+      InputEnabled = !InputEnabled;
+    }
+
   }
 
 
