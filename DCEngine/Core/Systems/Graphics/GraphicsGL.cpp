@@ -107,6 +107,43 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Ends the current frame.
+    */
+    /**************************************************************************/
+    void GraphicsGL::BackupState()
+    {
+      glGetIntegerv(GL_CURRENT_PROGRAM, &GLState.lastProgram);
+      glGetIntegerv(GL_TEXTURE_BINDING_2D, &GLState.lastTexture);
+      glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &GLState.lastArrayBuffer);
+      glGetIntegerv(GL_ELEMENT_ARRAY_BUFFER_BINDING, &GLState.lastElementArrayBuffer);
+      glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &GLState.lastVertexArray);
+      glGetIntegerv(GL_BLEND_SRC, &GLState.lastBlendSrc);
+      glGetIntegerv(GL_BLEND_DST, &GLState.lastBlendDst);
+      glGetIntegerv(GL_BLEND_EQUATION_RGB, &GLState.lastBlendEquationRGB);
+      glGetIntegerv(GL_BLEND_EQUATION_ALPHA, &GLState.lastBlendEquationAlpha);
+      GLState.lastEnableBlend = glIsEnabled(GL_BLEND);
+      GLState.lastEnableCullFace = glIsEnabled(GL_CULL_FACE);
+      GLState.lastEnableDepthTest = glIsEnabled(GL_DEPTH_TEST);
+      GLState.lastEnableScissorTest = glIsEnabled(GL_SCISSOR_TEST);
+    }
+
+    void GraphicsGL::RestoreState()
+    {
+      glUseProgram(GLState.lastProgram);
+      glBindTexture(GL_TEXTURE_2D, GLState.lastTexture);
+      glBindBuffer(GL_ARRAY_BUFFER, GLState.lastArrayBuffer);
+      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GLState.lastElementArrayBuffer);
+      glBindVertexArray(GLState.lastVertexArray);
+      glBlendEquationSeparate(GLState.lastBlendEquationRGB, GLState.lastBlendEquationAlpha);
+      glBlendFunc(GLState.lastBlendSrc, GLState.lastBlendDst);
+      if (GLState.lastEnableBlend) glEnable(GL_BLEND); else glDisable(GL_BLEND);
+      if (GLState.lastEnableCullFace) glEnable(GL_CULL_FACE); else glDisable(GL_CULL_FACE);
+      if (GLState.lastEnableDepthTest) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
+      if (GLState.lastEnableScissorTest) glEnable(GL_SCISSOR_TEST); else glDisable(GL_SCISSOR_TEST);
+    }
+
 
 
     /**************************************************************************/

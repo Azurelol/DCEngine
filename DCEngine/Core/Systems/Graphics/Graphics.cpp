@@ -214,6 +214,16 @@ namespace DCEngine {
       GraphicsHandler->EndFrame();
     }
 
+    void Graphics::BackupState()
+    {
+      GraphicsHandler->BackupState();
+    }
+
+    void Graphics::RestoreState()
+    {
+      GraphicsHandler->RestoreState();
+    }
+
 	void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
 	{
 		GraphicsHandler->TotalObjNum = TotalObjNumG;
