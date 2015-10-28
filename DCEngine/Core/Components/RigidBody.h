@@ -55,7 +55,7 @@ namespace DCEngine
     void setGravityratio(Real ratio);
     void setGravity(bool state);
     void setVelocity(Real3 vel);
-	void ApplyLinearVelocity(Real3 vel);
+	  void ApplyLinearVelocity(Real3 vel);
     void setRestitution(float rest);
     void setAcceleration(Real3 accel);
     void setFriction(float friction);
@@ -67,7 +67,7 @@ namespace DCEngine
     Transform* TransformComponent; //!< Reference to the Transform component.
 
                                    /* Properties */
-    Real Gravityratio = 1;
+    Real Gravityratio = 1.0f;
     bool Gravity = false;
     Real3 Gravitydir = Real3(0, -1, 0);
     Real3 Velocity = Real3(0, 0, 0);
@@ -78,7 +78,7 @@ namespace DCEngine
     Real3 AccumulatedForce = Real3(0, 0, 0);
     Real Mass = 10.0f;
     Real InverseMass = 1.0f / 10.0f;
-    Real Restitution = 1.0f;
+    Real Restitution = 0.0f;
     Real Friction = 0.5;
     Boolean AllowSleep = true;
     Boolean RotationLocked = true;

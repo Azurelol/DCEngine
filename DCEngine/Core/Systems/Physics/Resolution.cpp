@@ -94,7 +94,7 @@ namespace DCEngine
 
     if (c.rigid1 == false && c.rigid2 == false)
     {
-      totalInverseMass = 0.000000000000000001;
+      totalInverseMass = 0.000000000000000001f;
     }
 
     if (c.rigid1 != false && c.rigid2 == false)
@@ -119,7 +119,7 @@ namespace DCEngine
     c.ContactImpulse = impulse;
 
     // Find the amount of impulse per unit of inverse mass
-    glm::vec3 impulsePerIMass = c.ContactNormal * impulse * dt;
+    glm::vec3 impulsePerIMass = c.ContactNormal * impulse;
 
     // Apply impulses: they are applied in the direction of the contact,
     // and in proportion to inverse mass.
@@ -134,7 +134,7 @@ namespace DCEngine
       if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<RigidBody>()->setVelocity(impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
       }
     }
 
@@ -142,7 +142,7 @@ namespace DCEngine
     {
       if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<RigidBody>()->setVelocity(impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
       }
     }
 
@@ -150,13 +150,13 @@ namespace DCEngine
     {
       if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<RigidBody>()->setVelocity(impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
       }
 
       if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<RigidBody>()->setVelocity(impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
       }
     }
 
@@ -165,7 +165,7 @@ namespace DCEngine
   void ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
   {
     unsigned int iterationsRun = 0;
-    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size() * 5);
+    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
     while (iterationsRun < maxIterations)
     {
       // Find the contact with the largest closing velocity;
@@ -198,7 +198,27 @@ namespace DCEngine
   {
     // The movement of each object is based on their inverse mass, so
     // total that.
-    float totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+    float totalInverseMass;
+
+    if (c.rigid1 == false && c.rigid2 == false)
+    {
+      totalInverseMass = 0.000000000000000001f;
+    }
+
+    if (c.rigid1 != false && c.rigid2 == false)
+    {
+      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass();
+    }
+
+    if (c.rigid1 == false && c.rigid2 != false)
+    {
+      totalInverseMass = c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
+
+    if (c.rigid1 != false && c.rigid2 != false)
+    {
+      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
 
     // Find the amount of penetration resolution per unit of inverse mass
     glm::vec3 movePerIMass = c.ContactNormal * (c.Penetration / totalInverseMass);
@@ -208,8 +228,30 @@ namespace DCEngine
     movePerIMass *= 0.2f;
 
     // Calculate the the movement amounts
-    c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
-    c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
+
+    if (c.rigid1 == false && c.rigid2 == false)
+    {
+      c.v1 = movePerIMass *  0.0f;
+      c.v2 = movePerIMass * -0.0f;
+    }
+
+    if (c.rigid1 != false && c.rigid2 == false)
+    {
+      c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
+      c.v2 = movePerIMass * -0.0f;
+    }
+
+    if (c.rigid1 == false && c.rigid2 != false)
+    {
+      c.v1 = movePerIMass *  0.0f;
+      c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
+
+    if (c.rigid1 != false && c.rigid2 != false)
+    {
+      c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
+      c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
+    }
 
     // Apply the penetration resolution
 
