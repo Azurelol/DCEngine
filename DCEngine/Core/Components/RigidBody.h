@@ -67,7 +67,7 @@ namespace DCEngine
     Transform* TransformComponent; //!< Reference to the Transform component.
 
                                    /* Properties */
-    Real Gravityratio = 1.0f;
+    Real Gravityratio = 0.25f;
     bool Gravity = false;
     Real3 Gravitydir = Real3(0, -1, 0);
     Real3 Velocity = Real3(0, 0, 0);
@@ -79,7 +79,7 @@ namespace DCEngine
     Real Mass = 10.0f;
     Real InverseMass = 1.0f / 10.0f;
     Real Restitution = 0.0f;
-    Real Friction = 0.5;
+    Real Friction = 1;
     Boolean AllowSleep = true;
     Boolean RotationLocked = true;
     Real Damping = 0.999f; //!< How much the object's velocity is reduced arbitratrily. 

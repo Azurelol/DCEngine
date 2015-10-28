@@ -13,7 +13,7 @@ namespace DCEngine {
 		bool Grounded = true;
 		Real MoveSpeed = 1;
 		Real JumpPower = 60;
-		Real AirBrakeScalar = 0.8;
+		Real AirBrakeScalar = 0.8f;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 

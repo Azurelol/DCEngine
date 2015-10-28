@@ -52,8 +52,8 @@ namespace DCEngine {
       //cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new DebugAudio(*cameraObj)));
-      cameraObj->getComponent<DebugAudio>()->SoundCue1 = "soulja";
-      cameraObj->getComponent<DebugAudio>()->SoundCue2 = "spacejam2";
+      cameraObj->getComponent<DebugAudio>()->Track1 = "soulja";
+      cameraObj->getComponent<DebugAudio>()->Track2 = "spacejam2";
       // Camera properties      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;

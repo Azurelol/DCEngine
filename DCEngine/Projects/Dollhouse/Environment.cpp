@@ -45,8 +45,8 @@ namespace DCEngine {
     foreground->AddComponent(ComponentPtr(new Sprite(*foreground)));
     foreground->getComponent<Sprite>()->SpriteSource = "Foreground";
     //foreground->getComponent<Sprite>()->Color = Real4(0.6, 0.6, 0.3, 1); // Color: Green
-    foreground->getComponent<Transform>()->Translation = Real3(0, 30, -1); //lol
-    foreground->getComponent<Transform>()->Scale = Real3(160, 90, 1);
+    foreground->getComponent<Transform>()->Translation = Real3(0, 15.5, 0); //lol
+    foreground->getComponent<Transform>()->Scale = Real3(160 * 0.5, 90 * 0.5, 1);
 
 
 

@@ -118,10 +118,12 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Plays a sound through FMOD.
+    @brief  Plays a sound through FMOD.
+    @param  soundPtr A pointer to the Sound data.
+    @param  channel  A pointer to the Channel handle.
     */
     /**************************************************************************/
-    void AudioFMOD::PlaySound(FMOD::Sound* soundPtr, bool loop) {
+    void AudioFMOD::PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool loop) {
       trace << "AudioFMOD::PlaySound \n";
       if (loop) {
         soundPtr->setMode(FMOD_LOOP_NORMAL);
@@ -131,12 +133,39 @@ namespace DCEngine {
         soundPtr->setMode(FMOD_LOOP_OFF);
       }
 
-      // Add the sound to a specific channel
-
-
       FMOD_RESULT result;
-      result = system_.ptr->playSound(soundPtr, NULL, 0, &CurrentChannel);
+      result = system_.ptr->playSound(soundPtr, NULL, 0, channel);
       ErrorCheck(result);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Resumes the playing of a sound through FMOD.
+    */
+    /**************************************************************************/
+    void AudioFMOD::ResumeSound(FMOD::Channel * channel)
+    {
+      channel->setPaused(false);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Stops a sound from playing through FMOD.
+    */
+    /**************************************************************************/
+    void AudioFMOD::PauseSound(FMOD::Channel* channel)
+    {
+      channel->setPaused(true);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Stops a sound from playing through FMOD.
+    */
+    /**************************************************************************/
+    void AudioFMOD::StopSound(FMOD::Channel* channel)
+    {
+      channel->stop();
     }
 
     /**************************************************************************/
@@ -145,15 +174,12 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::PlayMusic(std::string & filePath) {
-      std::string resourceLocation("Projects/Resources/Sounds/");
+      /*std::string resourceLocation("Projects/Resources/Sounds/");
       CreateStream(resourceLocation + filePath, &MusicPtr);
-      PlaySound(MusicPtr, true);
+      PlaySound(MusicPtr, true);*/
     }
 
-    void AudioFMOD::StopSound(FMOD::Sound * soundPtr)
-    {
 
-    }
 
     /**************************************************************************/
     /*!

@@ -319,6 +319,7 @@
     <ClInclude Include="Core\Components\DebugCamera.h" />
     <ClInclude Include="Core\Components\DebugCollider.h" />
     <ClInclude Include="Core\Components\DebugDrawReference.h" />
+    <ClInclude Include="Core\Components\DebugFade.h" />
     <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
     <ClInclude Include="Core\Components\ComponentReference.h" />

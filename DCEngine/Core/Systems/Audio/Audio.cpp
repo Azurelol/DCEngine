@@ -70,13 +70,49 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Plays a sound through FMOD.
+    @brief  Plays a sound cue.
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-      AudioHandler->PlaySound(soundCue->SoundPtr.SoundPtr, soundCue->Loop);
+      AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Resumes the playing of a sound.
+    @param  soundCueName The name (string) of the sound in the content system.
+    */
+    /**************************************************************************/
+    void Audio::ResumeSound(std::string & soundCueName)
+    {
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      AudioHandler->ResumeSound(soundCue->Data.Channel);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Pauses a sound cue.
+    @param  soundCueName The name (string) of the sound in the content system.
+    */
+    /**************************************************************************/
+    void Audio::PauseSound(std::string & soundCueName)
+    {
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      AudioHandler->PauseSound(soundCue->Data.Channel);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Stops a sound cue.
+    @param  soundCueName The name (string) of the sound in the content system.
+    */
+    /**************************************************************************/
+    void Audio::StopSound(std::string & soundCueName)
+    {
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      AudioHandler->StopSound(soundCue->Data.Channel);
     }
 
     /**************************************************************************/
@@ -85,10 +121,10 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::ReleaseSound(std::string& soundCueName) {
-      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-      AudioHandler->ReleaseSound(soundCue->SoundPtr.SoundPtr);
-    }
+    //void Audio::ReleaseSound(std::string& soundCueName) {
+    //  auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+    //  AudioHandler->ReleaseSound(soundCue->Data.SoundPtr);
+    //}
 
     /**************************************************************************/
     /*!

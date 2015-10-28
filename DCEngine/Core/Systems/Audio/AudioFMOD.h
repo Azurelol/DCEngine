@@ -12,6 +12,7 @@
 // Libraries
 #include <memory>
 #include <string>
+#include <map>
 #include <FMOD/fmod.hpp>
 #include <FMOD/fmod_errors.h>
 
@@ -44,14 +45,20 @@ namespace DCEngine {
         }
       }; // FMODSystemPtr
 
+      using FMODChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
+
     friend class Audio;
     public:
       AudioFMOD();
       ~AudioFMOD();
 
-      void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
+      void PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool bLoop = false);
+      void ResumeSound(FMOD::Channel* channel);
+      void PauseSound(FMOD::Channel* channel);
+      void StopSound(FMOD::Channel* channel);
+      //void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
+      //void StopSound(FMOD::Sound* channel);
       void PlayMusic(std::string& filePath);
-      void StopSound(FMOD::Sound* soundPtr);
       void StopMusic();
       void ReleaseSound(FMOD::Sound* soundPtr);
 
@@ -64,11 +71,9 @@ namespace DCEngine {
       void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
       void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
 
-      //FMOD::System* _system;
       FMODSystemPtr system_; // Wrapper for the C-style pointer
-      //FMOD::System* _system;
       FMOD::Sound* MusicPtr;
-      //std::map<FMOD::Sound*, FMOD::Channel*> Channels; //!< Every SoundPtr gets its own unique channel?
+      FMODChannelMap Channels; //!< Every SoundPtr gets its own unique channel?
       FMOD::Channel* CurrentChannel;
 
 

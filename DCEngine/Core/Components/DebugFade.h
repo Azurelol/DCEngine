@@ -3,20 +3,15 @@
 
 namespace DCEngine {
 
-  class DebugAudio : public Component {
+  class DebugFade : public Component {
   public:
     
-    String Track1;
-    String Track2;
-    String Track3;
-    String CurrentSoundCue;
-
     /* Initialize */
-    DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
+    DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
     virtual void Deserialize(Json::Value& root);
-    
+
     /* Events */
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);

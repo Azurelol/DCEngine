@@ -24,7 +24,7 @@ namespace DCEngine {
   public:
 
     bool Loop = false;
-    FMODSoundPtr SoundPtr;
+    FMODSoundPtr Data;
 
     SoundCue(std::string soundFile);
     void Load();

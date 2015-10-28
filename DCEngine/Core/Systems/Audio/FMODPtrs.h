@@ -18,6 +18,7 @@ namespace DCEngine {
   
   public:
 
+    FMOD::Channel* Channel;
     FMOD::Sound* SoundPtr;
 
     FMODSoundPtr() {}

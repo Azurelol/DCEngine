@@ -37,6 +37,7 @@ namespace DCEngine {
     static bool DirectoryExtractFilePaths(std::string dirPath, std::vector<std::string>& filePaths);
     static bool DirectoryFindFile(std::string fileName, std::string dirPath, std::string& filePath);
     static unsigned int DirectoryCountFiles(std::string dirPath);
+    static bool DirectoryFound(std::string dirPath);
     static bool DirectoryCreate(std::string dirPath);
 
     /* Path Operations*/

@@ -16,21 +16,20 @@ namespace DCEngine {
 		chenObj->AddComponent(ComponentPtr(new DebugReport(*chenObj)));
 		// Transform properties
 		chenObj->getComponent<Transform>()->Translation = Real3(15, 15, 0.0f);
-		chenObj->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
+		chenObj->getComponent<Transform>()->Scale = Real3(3.0f, 2.0f, 1.0f);
 		chenObj->getComponent<Transform>()->Rotation = Real3(0.0f, 0.0f, 2.0f);
 		// Sprite properties
-		//chenObj->getComponent<Sprite>()->Color = Real4(1, 1, 0, 0.5); // Color: Blue
-		chenObj->getComponent<Sprite>()->SpriteSource = "awesomeface";
+		chenObj->getComponent<Sprite>()->SpriteSource = "logo";
 
     /* Moonward Logo */
 		GameObjectPtr connorObj = ConstructGameObject("Connor");
 		connorObj->AddComponent(ComponentPtr(new Transform(*connorObj)));
 		connorObj->AddComponent(ComponentPtr(new Sprite(*connorObj)));
-    connorObj->getComponent<Sprite>()->SpriteSource = "awesomeface";
+    connorObj->getComponent<Sprite>()->SpriteSource = "logo";
 		connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
 		// Transform properties
-		connorObj->getComponent<Transform>()->Translation = Real3(-45, 35, -2.0f);
-		connorObj->getComponent<Transform>()->Scale = Real3(10.0f, 10.0f, 1.0f);
+		connorObj->getComponent<Transform>()->Translation = Real3(-60, 45, -2.0f);
+		connorObj->getComponent<Transform>()->Scale = Real3(15.0f, 10.0f, 1.0f);
     
     /* SpriteText! */
     GameObjectPtr boro = ConstructGameObject("SpriteTextor");
@@ -39,7 +38,6 @@ namespace DCEngine {
 		// SpriteText properties
 		boro->getComponent<SpriteText>()->Font = "Verdana";
 		boro->getComponent<SpriteText>()->Text = "This is our jam!";
-
 
 
 

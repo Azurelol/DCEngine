@@ -794,6 +794,9 @@
     <ClInclude Include="Core\Systems\Filesystem\FileSystem.h">
       <Filter>Core\Systems\Filesystem</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Components\DebugFade.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

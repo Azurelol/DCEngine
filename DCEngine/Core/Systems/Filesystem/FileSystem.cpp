@@ -126,6 +126,21 @@ namespace DCEngine {
 
     return 0;
   }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks if the directory exists in the specified file path.
+  @param  The directory path.
+  @return A boolean denoting whether the directory exists or not.
+  */
+  /**************************************************************************/
+  bool FileSystem::DirectoryFound(std::string dirPath)
+  {
+    if (boost::filesystem::exists(dirPath)) {
+      return true;
+    }
+    return false;
+  }
   
 
   /**************************************************************************/

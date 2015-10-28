@@ -9,6 +9,7 @@ namespace DCEngine{
   public:
 
     /* Properties */
+    Boolean ChangeColorOnCollide = false;
     Real4 CollisionColor = Real4(1, 0, 0, 1);
     Real4 SpriteColor;
     //SoundCue CollisionCue;
