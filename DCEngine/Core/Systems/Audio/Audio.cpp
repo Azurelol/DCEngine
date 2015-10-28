@@ -85,7 +85,7 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::StopSound(std::string& soundCueName) {
+    void Audio::ReleaseSound(std::string& soundCueName) {
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->ReleaseSound(soundCue->SoundPtr.SoundPtr);
     }

@@ -131,6 +131,9 @@ namespace DCEngine {
         soundPtr->setMode(FMOD_LOOP_OFF);
       }
 
+      // Add the sound to a specific channel
+
+
       FMOD_RESULT result;
       result = system_.ptr->playSound(soundPtr, NULL, 0, &CurrentChannel);
       ErrorCheck(result);
@@ -145,6 +148,11 @@ namespace DCEngine {
       std::string resourceLocation("Projects/Resources/Sounds/");
       CreateStream(resourceLocation + filePath, &MusicPtr);
       PlaySound(MusicPtr, true);
+    }
+
+    void AudioFMOD::StopSound(FMOD::Sound * soundPtr)
+    {
+
     }
 
     /**************************************************************************/
@@ -163,6 +171,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::ReleaseSound(FMOD::Sound* soundPtr) {
       FMOD_RESULT result;
+      
       result = soundPtr->release();
       ErrorCheck(result);
     }

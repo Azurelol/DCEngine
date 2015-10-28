@@ -36,7 +36,7 @@ namespace DCEngine {
 
       void CreateSound(std::string& soundFile, FMODSoundPtr& soundPtr);
       void PlaySound(std::string& soundCueName);
-      void StopSound(std::string& soundcueName);
+      void ReleaseSound(std::string& soundcueName);
       void Register(SoundSpace& soundSpace);
 
     private:

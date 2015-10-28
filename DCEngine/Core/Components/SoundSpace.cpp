@@ -45,7 +45,7 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundSpace::StopCue(std::string soundCueName)
   {
-    Daisy->getSystem<Systems::Audio>()->StopSound(soundCueName);
+    Daisy->getSystem<Systems::Audio>()->ReleaseSound(soundCueName);
   }
 
 

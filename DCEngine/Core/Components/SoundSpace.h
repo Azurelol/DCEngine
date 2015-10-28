@@ -29,6 +29,7 @@ namespace DCEngine {
 
     void PlayCue(std::string soundCueName);
     void PlayCueAt(std::string soundCueName);
+    void StopCue(std::string soundCueName);
     
     SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
     void Initialize();
@@ -38,7 +39,7 @@ namespace DCEngine {
   private:
      StringVec CuesCurrentlyPlaying;    
      
-     void StopCue(std::string soundCueName);
+     
      void OnLogicUpdate(Events::LogicUpdate* event);
      void Update() {}
 
