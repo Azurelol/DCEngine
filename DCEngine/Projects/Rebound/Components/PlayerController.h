@@ -11,9 +11,12 @@ namespace DCEngine {
 
 		bool Translation = true;
 		bool Grounded = true;
-		Real MoveSpeed = 1;
-		Real JumpPower = 60;
-		Real AirBrakeScalar = 0.8f;
+		bool Jumping = false;
+		Real MoveSpeed = 0.6;
+		Real JumpPower = 2;
+		Real JumpFrames = 15;
+		Real JumpFramesApplied = 0;
+		Real AirBrakeScalar = 0.8;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 
@@ -27,6 +30,7 @@ namespace DCEngine {
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+		void Jump();
 
 	private:
 		void PrintTranslation();

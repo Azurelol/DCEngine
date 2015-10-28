@@ -10,9 +10,10 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
+		//SpriteRef = dynamic_cast<GameObject*>(owner_)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
 		trace << "#################################################";
-		//trace << PlayerRef->getComponent<Transform>()->Translation;
+		trace << PlayerRef->getComponent<Transform>()->Translation.x;
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -25,32 +26,46 @@ namespace DCEngine {
 
 	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
 	{
-		Charging = true;
+		if (CurrentlyFired)
+		{
+
+		}
+		else
+		{
+			Charging = true;
+		}
 		PlayerRef->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1);
 	}
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
-	{
-		auto PlayerPosition = PlayerRef->getComponent<Transform>()->Translation;
-		auto EventPosition = Real3(event->Position.x, event->Position.y, 0);
-		Real3 DistanceVector = EventPosition - PlayerPosition; //set to the actual mouse's normalized vector once we have that capability
-		Real3 NormalizedVector = glm::normalize(DistanceVector);
-		RigidBodyRef->AddForce(NormalizedVector * ChargeFactor * CurrentCharge);
-		Charging = false;
-		CurrentCharge = 0;
+	{ 
+		if (!CurrentlyFired)
+		{
+			Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
+			RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
+			Charging = false;
+			CurrentCharge = 0;
+			CurrentlyFired = true;
+			trace << "BallController::OnMouseUpEvent - ";
+			if (event->ButtonReleased == MouseButton::Left)
+				trace << "Left Button ";
+			else if (event->ButtonReleased == MouseButton::Right)
+				trace << "Right Button ";
 
-    trace << "BallController::OnMouseUpEvent - ";
-    if (event->ButtonReleased == MouseButton::Left)
-      trace << "Left Button ";
-    else if (event->ButtonReleased == MouseButton::Right)
-      trace << "Right Button ";
-    
-		trace << "released at x: " << event->Position.x  << " y: " << event->Position.y  <<"\n";
+			trace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
+			
+		}
        
 
 	}
 
 	void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (CurrentlyFired && Daisy->getMouse()->MouseDown(MouseButton::Left))
+		{
+			Real3 CenteringVector = -glm::normalize(TransformRef->Translation);
+			RigidBodyRef->AddForce(CenteringVector * 500.0f);
+			//SpriteRef->Color = Real4(1, 1, 1, 1);
+		}
 		if (Charging)
 		{
 			CurrentCharge += event->Dt;
@@ -61,7 +76,14 @@ namespace DCEngine {
 			}
 		}
 		//PrintVelocity();
-
+		if (glm::distance(Real3(0, -4, 0), TransformRef->Translation) < 6)
+		{
+			CurrentlyFired = false;
+		}
+		else
+		{
+			CurrentlyFired = true;
+		}
 	}
 
 
