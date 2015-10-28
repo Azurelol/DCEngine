@@ -308,6 +308,7 @@
     <ClCompile Include="Projects\Dollhouse\GameObjects.cpp" />
     <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -431,6 +432,7 @@
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
+    <ClInclude Include="Projects\Rebound\Components\EnemyController.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
     <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
     <ClInclude Include="Projects\Rebound\ReboundComponents.h" />

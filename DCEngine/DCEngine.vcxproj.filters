@@ -417,6 +417,9 @@
     <ClCompile Include="Core\Systems\Editor\Editor.cpp">
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -790,6 +793,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\Editor.h">
       <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

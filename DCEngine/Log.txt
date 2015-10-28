@@ -39,7 +39,7 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading D:\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -139,6 +139,7 @@ Daisy World::AddEntity - Added Mariah to the space.
 Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
 Daisy World::AddEntity - Added Basketfloor to the space.
+Daisy World::AddEntity - Added Basketfloor2 to the space.
 Daisy World::AddEntity - Added BackgroundLayer1 to the space.
 
 [Engine::LoadProject - Finished loading ]
@@ -147,90 +148,4 @@ Daisy World::AddEntity - Added BackgroundLayer1 to the space.
 |Daisy World::Initialize| 
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
-AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
-AudioFMOD::PlaySound 
-AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
-Audio::Register -  Daisy World has registered to the Audio system
-Physics::Register -  Daisy World has registered to the Physics system
-Graphics::Register -  Daisy World has registered to the Graphics system
-[Daisy World::Initialize - Initializing all GameObjects...] 
-Camera::Initialize 
-Chen::Initialize 
-GraphicsSpace::AddSprite - Chen
-Connor::Initialize 
-GraphicsSpace::AddSprite - Connor
-SpriteTextor::Initialize 
-GraphicsSpace::AddSpriteText - SpriteTextor
-Reiner::Initialize 
-GraphicsSpace::AddSprite - Reiner
-PhysicsSpace::AddRigidBody - Reiner
-PhysicsSpace::AddCollider - Reiner
-Myres::Initialize 
-GraphicsSpace::AddSprite - Myres
-PhysicsSpace::AddRigidBody - Myres
-PhysicsSpace::AddCollider - Myres
-Mariah::Initialize 
-GraphicsSpace::AddSprite - Mariah
-PhysicsSpace::AddRigidBody - Mariah
-PhysicsSpace::AddCollider - Mariah
-Basketball::Initialize 
-GraphicsSpace::AddSprite - Basketball
-PhysicsSpace::AddRigidBody - Basketball
-PhysicsSpace::AddCollider - Basketball
-Pikapikano!::Initialize 
-GraphicsSpace::AddSprite - Pikapikano!
-Basketfloor::Initialize 
-GraphicsSpace::AddSprite - Basketfloor
-PhysicsSpace::AddRigidBody - Basketfloor
-PhysicsSpace::AddCollider - Basketfloor
-BackgroundLayer1::Initialize 
-GraphicsSpace::AddSprite - BackgroundLayer1
-
-[Engine::Loop]
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -254 y: 208
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -241 y: 211
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -409 y: 319
-Mouse down!
-BallController::OnMouseUpEvent - Right Button released at x: -229 y: 247
-Mouse down!
-BallController::OnMouseUpEvent - Right Button released at x: -232 y: 252
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -231 y: 255
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -234 y: 255
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -234 y: 255
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -234 y: 255
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -234 y: 253
-Mouse down!
-BallController::OnMouseUpEvent - Right Button released at x: -149 y: 182
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -150 y: 182
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -270 y: 111
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: -270 y: 118
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 79 y: 159
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 10 y: -22
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 48 y: -26
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 50 y: -30
-Mouse down!
-BallController::OnMouseUpEvent - Left Button released at x: 50 y: -33
-
-[Engine::Terminate] 
-Content::Terminate
-Factory::Terminate 
-Window::Terminate 
-Input::Terminate 
-Editor::Terminate 
-Audio::Terminate 
-Graphics::Terminate 
+AudioFMOD::ErrorCheck - FMOD erro

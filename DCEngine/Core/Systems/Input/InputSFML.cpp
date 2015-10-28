@@ -175,7 +175,7 @@ namespace DCEngine {
         break;
       case sf::Keyboard::D:
         keyDown->Key = Keys::D;
-        KeyboardRef->KeyDown_A = true;
+        KeyboardRef->KeyDown_D = true;
         break;
       case sf::Keyboard::Q:
         keyDown->Key = Keys::Q;

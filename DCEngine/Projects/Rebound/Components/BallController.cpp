@@ -12,7 +12,7 @@ namespace DCEngine {
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
 		trace << "#################################################";
-		trace << PlayerRef->getComponent<Transform>()->Translation.x;
+		//trace << PlayerRef->getComponent<Transform>()->Translation;
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -30,8 +30,11 @@ namespace DCEngine {
 	}
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{
-		Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
-		RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
+		auto PlayerPosition = PlayerRef->getComponent<Transform>()->Translation;
+		auto EventPosition = Real3(event->Position.x, event->Position.y, 0);
+		Real3 DistanceVector = EventPosition - PlayerPosition; //set to the actual mouse's normalized vector once we have that capability
+		Real3 NormalizedVector = glm::normalize(DistanceVector);
+		RigidBodyRef->AddForce(NormalizedVector * ChargeFactor * CurrentCharge);
 		Charging = false;
 		CurrentCharge = 0;
 

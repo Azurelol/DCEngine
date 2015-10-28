@@ -5,21 +5,21 @@ namespace DCEngine {
 
 	class Transform;
 	class RigidBody;
-	class PlayerController : public Component {
+	class EnemyController : public Component {
 
 	public:
 
 		bool Translation = true;
 		bool Grounded = true;
 		Real MoveSpeed = 0.6;
-		Real MaxSpeed = 10;
-		Real JumpPower = 10;
-		Real AirBrakeScalar = 0.8;
+		Real MaxSpeed = 3;
+		Real3 StartPosition;
+		Real PatrolRange;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 		//GameObjectPtr ball;
 
-		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
+		EnemyController(Entity& owner) : Component(std::string("EnemyController"), owner) {}
 		void Initialize();
 		virtual void Serialize(Json::Value& root);
 		virtual void Deserialize(Json::Value& root);

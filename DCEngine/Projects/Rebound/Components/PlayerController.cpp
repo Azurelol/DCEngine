@@ -50,6 +50,11 @@ namespace DCEngine {
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
 			PrintTranslation();
 			break;
+		case Keys::S:
+			break;
+		default:
+			break;
+
 		}
 	}
 
@@ -68,7 +73,7 @@ namespace DCEngine {
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
 		}
-		else if (!Grounded)
+		else if (!Grounded && RigidBodyRef->getVelocity().y <= 0)
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
 		}
@@ -82,6 +87,7 @@ namespace DCEngine {
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
+			trace << "DDD";
 		}
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		{
