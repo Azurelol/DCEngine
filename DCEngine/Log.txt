@@ -82,4 +82,164 @@ Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
-Texture2D::Generate - Successfully g
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+Font::GenerateCharacters - Successfully generated character map
+Font::Load - Font was successfully loaded! 
+Daisy Project::CreateSpace - Daisy World has been constructed. 
+Camera::AddComponent - Failure! Camera is already present!
+Camera Serialized Output
+{
+   "FarPlane" : 100,
+   "FieldOfView" : 175,
+   "NearPlane" : 0.10000000149011612,
+   "Size" : 70
+}
+
+
+-- Reflection Test -- 
+
+MetaData for int: 
+Name: int
+Size: 4
+
+MetaData for float: 
+Name: float
+Size: 4
+
+MetaData for double: 
+Name: double
+Size: 8
+
+MetaData for int*: 
+Name: int*
+Size: 8
+
+MetaData for ObjectTest: 
+Name: ObjectTest
+Size: 16
+Members: 
+{
+  ID
+  0
+  active
+  4
+}
+
+MetaData for DerivedObject: 
+Name: DerivedObject
+Size: 24
+Members: 
+{
+  Numbers
+  16
+  IsCool
+  20
+}
+Type of word object: std::string
+The word object is not an int!
+
+MetaData for StringWrapper: 
+Name: StringWrapper
+Size: 16
+Members: 
+{
+  Data
+  0
+  Length
+  8
+}
+v.GetValue = std::string!
+
+*v.GetValue = 5
+v.GetValue = char *!
+
+Raw Json Input
+{ "Name" : "Pikapikano!"}
+
+
+GameObject Serialized Output
+{
+   "Name" : "Pikapikano!"
+}
+
+
+Daisy World::LoadLevel - Loading Dollhouse level.
+Daisy World::AddEntity - Added Camera to the space.
+Daisy World::AddEntity - Added Chen to the space.
+Daisy World::AddEntity - Added Connor to the space.
+Daisy World::AddEntity - Added SpriteTextor to the space.
+Daisy World::AddEntity - Added Reiner to the space.
+Daisy World::AddEntity - Added Myres to the space.
+Daisy World::AddEntity - Added Boo to the space.
+Daisy World::AddEntity - Added Pikapikano! to the space.
+Daisy World::AddEntity - Added Floor to the space.
+Daisy World::AddEntity - Added Basketfloor2 to the space.
+Daisy World::AddEntity - Added Background to the space.
+Daisy World::AddEntity - Added Middleground to the space.
+Daisy World::AddEntity - Added Foreground to the space.
+
+[Engine::LoadProject - Finished loading ]
+
+[Daisy Project::Initialize - Initializing all spaces... ] 
+|Daisy World::Initialize| 
+Audio::Register -  Daisy World has registered to the Audio system
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Chen::Initialize 
+GraphicsSpace::AddSprite - Chen
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+GraphicsSpace::AddSprite - Reiner
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+Myres::Initialize 
+GraphicsSpace::AddSprite - Myres
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+Boo::Initialize 
+GraphicsSpace::AddSprite - Boo
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+Floor::Initialize 
+PhysicsSpace::AddRigidBody - Floor
+PhysicsSpace::AddCollider - Floor
+Basketfloor2::Initialize 
+GraphicsSpace::AddSprite - Basketfloor2
+PhysicsSpace::AddRigidBody - Basketfloor2
+PhysicsSpace::AddCollider - Basketfloor2
+Background::Initialize 
+GraphicsSpace::AddSprite - Background
+Middleground::Initialize 
+GraphicsSpace::AddSprite - Middleground
+Foreground::Initialize 
+GraphicsSpace::AddSprite - Foreground
+
+[Engine::Loop]
+AudioFMOD::PlaySound 
+AudioFMOD::PlaySound 
+
+[Engine::Terminate] 
+Content::Terminate
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 

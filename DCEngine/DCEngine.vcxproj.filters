@@ -178,9 +178,6 @@
     <Filter Include="Core\Systems\Editor">
       <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Filesystem">
-      <UniqueIdentifier>{e52dc1dc-e78a-4e92-bae1-4b0a18750c19}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -360,6 +357,9 @@
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Content\FileSystem.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
@@ -417,8 +417,8 @@
     <ClCompile Include="Core\Systems\Editor\Editor.cpp">
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
-      <Filter>Core\Systems\Filesystem</Filter>
+    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -746,6 +746,9 @@
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Content\FileSystem.h">
+      <Filter>Core\Systems\Content</Filter>
+    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\TypesMeta.h">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClInclude>
@@ -791,8 +794,8 @@
     <ClInclude Include="Core\Systems\Editor\Editor.h">
       <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Filesystem\FileSystem.h">
-      <Filter>Core\Systems\Filesystem</Filter>
+    <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugFade.h">
       <Filter>Core\Components\Debug</Filter>

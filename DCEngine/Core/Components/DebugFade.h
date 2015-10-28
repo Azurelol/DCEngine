@@ -6,6 +6,8 @@ namespace DCEngine {
   class DebugFade : public Component {
   public:
     
+    Real FadeOutDur = 1.0;
+
     /* Initialize */
     DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
     void Initialize();
