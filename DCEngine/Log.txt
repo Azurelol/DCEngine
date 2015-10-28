@@ -55,7 +55,7 @@ Daisy Project::CreateSpace - Daisy World has been constructed.
 Camera Serialized Output
 {
    "FarPlane" : 100,
-   "FieldOfView" : 175,
+   "FieldOfView" : 250,
    "NearPlane" : 0.10000000149011612,
    "Size" : 70
 }
@@ -133,13 +133,11 @@ Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Chen to the space.
 Daisy World::AddEntity - Added Connor to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
-Daisy World::AddEntity - Added Reiner to the space.
-Daisy World::AddEntity - Added Myres to the space.
 Daisy World::AddEntity - Added Mariah to the space.
+Daisy World::AddEntity - Added enemy to the space.
 Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
 Daisy World::AddEntity - Added Basketfloor to the space.
-Daisy World::AddEntity - Added Basketfloor2 to the space.
 Daisy World::AddEntity - Added BackgroundLayer1 to the space.
 
 [Engine::LoadProject - Finished loading ]
@@ -148,4 +146,6 @@ Daisy World::AddEntity - Added BackgroundLayer1 to the space.
 |Daisy World::Initialize| 
 Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
-AudioFMOD::ErrorCheck - FMOD erro
+AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
+AudioFMOD::PlaySound 
+AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was 

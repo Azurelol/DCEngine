@@ -381,9 +381,6 @@
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp">
       <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
@@ -416,6 +413,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Editor.cpp">
       <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
@@ -770,9 +770,6 @@
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
       <Filter>Core\Systems\Serialization</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h">
       <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
@@ -793,6 +790,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\Editor.h">
       <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
       <Filter>Projects\Rebound\Components</Filter>

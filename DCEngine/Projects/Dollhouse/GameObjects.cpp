@@ -6,54 +6,7 @@ namespace DCEngine {
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
 
-		// Simple entity #1
-		GameObjectPtr reiner = ConstructGameObject("Reiner");
-		reiner->AddComponent(ComponentPtr(new Sprite(*reiner)));
-		reiner->AddComponent(ComponentPtr(new Transform(*reiner)));
-		reiner->AddComponent(ComponentPtr(new RigidBody(*reiner)));
-		reiner->AddComponent(ComponentPtr(new BoxCollider(*reiner)));
-		reiner->AddComponent(ComponentPtr(new DebugCollider(*reiner)));
-		reiner->AddComponent(ComponentPtr(new DebugMoveController(*reiner)));
-		reiner->AddComponent(ComponentPtr(new DebugReport(*reiner)));
-		// BoxCollider properties
-		reiner->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
-		reiner->getComponent<BoxCollider>()->IsDrawingCollider = true;
-		// Transform properties
-		reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.f);
-		reiner->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
-    reiner->getComponent<RigidBody>()->setGravity(true);
-		// Sprite properties
-		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
-																	 // MoveController properties
-		reiner->getComponent<Sprite>()->SpriteSource = "KnightAnim";
-		reiner->getComponent<Sprite>()->AnimationActive = true;
-		reiner->getComponent<Sprite>()->HaveAnimation = true;
-		reiner->getComponent<Sprite>()->AnimationSpeed = 10;
-		reiner->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 0.0f, 0.5f);
-		reiner->getComponent<DebugMoveController>()->MoveSpeed = 0.5f;
-		// DebugDraw properties
-		reiner->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
-		reiner->getComponent<DebugReport>()->Radius = 8.0f;
-		reiner->getComponent<DebugReport>()->Offset = Real3(5.0f, 0.0f, 0.0f);
-		reiner->getComponent<DebugReport>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f); // Purple line
 
-
-																					// Simple entity #2
-		GameObjectPtr john = ConstructGameObject("Myres");
-		john->AddComponent(ComponentPtr(new Sprite(*john)));
-		john->AddComponent(ComponentPtr(new Transform(*john)));
-		john->AddComponent(ComponentPtr(new RigidBody(*john)));
-		john->AddComponent(ComponentPtr(new BoxCollider(*john)));
-		john->AddComponent(ComponentPtr(new DebugCollider(*john)));
-		john->AddComponent(ComponentPtr(new DebugReport(*john)));
-		// Change the properties of the components
-		john->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, 0.0f);
-		john->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
-		// Sprite properties
-		john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
-																			 // BoxCollider properties
-		john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);
-		john->getComponent<BoxCollider>()->IsDrawingCollider = true;
 
 
 		// Player
@@ -76,6 +29,26 @@ namespace DCEngine {
 		// Rigidbody properties
 		mariah->getComponent<RigidBody>()->setGravity(true);
 
+		// Enemy
+		GameObjectPtr enemy = ConstructGameObject("enemy");
+		enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
+		enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
+		enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
+		enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
+		enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
+		enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
+		enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
+		// Change the properties of the components
+		enemy->getComponent<Transform>()->Translation = Real3(14.0f, 0.0f, 0.0f);
+		enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+		// Sprite properties
+		enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+		// BoxCollider properties
+		enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+		enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		// Rigidbody properties
+		enemy->getComponent<RigidBody>()->setGravity(true);
+
 
 		// Ball
 		GameObjectPtr ball = ConstructGameObject("Basketball");
@@ -88,7 +61,7 @@ namespace DCEngine {
 		ball->AddComponent(ComponentPtr(new BallController(*ball)));
 		// Change the properties of the components
 		ball->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, 0.0f);
-		ball->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+		ball->getComponent<Transform>()->Scale = Real3(0.7f, 0.7f, 1.0f);
 		// Sprite properties
 		ball->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f);
 		// BoxCollider properties

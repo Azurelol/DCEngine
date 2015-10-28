@@ -39,7 +39,9 @@ namespace DCEngine {
 		{
 
 		case Keys::W:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+			Jumping = true;
+			Grounded = false;
+			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
 			PrintTranslation();
 			break;
 		case Keys::A:
@@ -50,33 +52,46 @@ namespace DCEngine {
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
 			PrintTranslation();
 			break;
-		case Keys::S:
-			break;
-		default:
-			break;
-
 		}
 	}
 
 	void PlayerController::OnCollisionStartedEvent(Events::CollisionStarted * event)
 	{
-		
+		Grounded = true;
 	}
 
 	void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
 	{
+		Grounded = false;
 	}
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (Jumping)
+		{
+			Jump();
+		}
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W))
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+
 		}
-		else if (!Grounded && RigidBodyRef->getVelocity().y <= 0)
+		else
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
+			Jumping = false;
+			if (RigidBodyRef->getVelocity().y > 0)
+			{
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
+			}
 		}
+		//if (Daisy->getKeyboard()->KeyIsDown(Keys::W) && Grounded)
+		//{
+			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+			//Grounded = false;
+		//}
+		//else if (!Grounded && RigidBodyRef->getVelocity().y > 0)
+		//{
+		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
+		//}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
@@ -87,13 +102,24 @@ namespace DCEngine {
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
-			trace << "DDD";
 		}
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
 			trace << "Space";
 		}
+	}
+
+	void PlayerController::Jump()
+	{
+		++JumpFramesApplied;
+		RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+		if (JumpFramesApplied >= JumpFrames)
+		{
+			Jumping = false;
+			JumpFramesApplied = 0;
+		}
+		
 	}
 
 

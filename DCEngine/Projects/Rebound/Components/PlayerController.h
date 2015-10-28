@@ -11,13 +11,14 @@ namespace DCEngine {
 
 		bool Translation = true;
 		bool Grounded = true;
+		bool Jumping = false;
 		Real MoveSpeed = 0.6;
-		Real MaxSpeed = 10;
-		Real JumpPower = 10;
+		Real JumpPower = 2;
+		Real JumpFrames = 15;
+		Real JumpFramesApplied = 0;
 		Real AirBrakeScalar = 0.8;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
-		//GameObjectPtr ball;
 
 		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
 		void Initialize();
@@ -29,6 +30,7 @@ namespace DCEngine {
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+		void Jump();
 
 	private:
 		void PrintTranslation();

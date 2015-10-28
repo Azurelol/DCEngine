@@ -10,14 +10,15 @@ namespace DCEngine {
 	public:
 
 		bool Translation = true;
-		bool ReadyToShoot = true;
+		bool CurrentlyFired = false;
 		Real MoveSpeed = 0.75;
 		Real RotSpeed = 15;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
+//		Sprite* SpriteRef;
 		Real CurrentCharge = 1;
 		Real MaxCharge = 2;
-		Real ChargeFactor = 40;
+		Real ChargeFactor = 80;
 		Boolean Charging = false;
 		GameObject* PlayerRef;
 

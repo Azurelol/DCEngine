@@ -5,8 +5,8 @@
 @par    email: c.sagel\@digipen.edu
 @date   9/23/2015
 @brief  The BoxCollider component gives a physical representation of a bounding
-        box in world space so objects can experience collisions with one 
-        another. This component interacts directly with the physics system.
+box in world space so objects can experience collisions with one
+another. This component interacts directly with the physics system.
 */
 /******************************************************************************/
 #pragma once
@@ -14,42 +14,43 @@
 
 namespace DCEngine {
 
-  class Transform;
-  class BoxCollider : public Component {
-  public:
-       
-    Real3 Size = Real3(1, 1, 1);
-    Real3 Offset = Real3(0, 0, 0);
-    Boolean Ghost = false;
-    Boolean SendsEvents = true;
-    Boolean IsDrawingCollider = false;
+	class Transform;
+	class Physics;
+	class BoxCollider : public Component {
+	public:
+		friend class Physics;
 
-    Real3 getSize(void);
-    Real3 getOffset(void);
-    bool getGhost(void);
-    bool getSendsEvents(void);
+		Real3 Size = Real3(1, 1, 1);
+		Real3 Offset = Real3(0, 0, 0);
+		Boolean Ghost = false;
+		Boolean SendsEvents = true;
+		Boolean IsDrawingCollider = false;
 
-    void DrawCollider();
-    
-    // These should be private!
-    BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+		Real3 getSize(void);
+		Real3 getOffset(void);
+		bool getGhost(void);
+		bool getSendsEvents(void);
 
-    void OnLogicUpdateEvent(Events::LogicUpdate* event);
-    void OnCollisionStartedEvent(Events::CollisionStarted* event);
-    void OnCollisionEndedEvent(Events::CollisionEnded* event);
+		void DrawCollider();
+
+		// These should be private!
+		BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
+		void Initialize();
+		virtual void Serialize(Json::Value& root);
+		virtual void Deserialize(Json::Value& root);
+
+		void OnLogicUpdateEvent(Events::LogicUpdate* event);
+		void OnCollisionStartedEvent(Events::CollisionStarted* event);
+		void OnCollisionEndedEvent(Events::CollisionEnded* event);
+
+		Real3 getColliderScale();
+	private:
+		Transform* TransformComponent;
+
+		/* Properties */
+		// CollisionGroup = 
 
 
-  private:
-    Transform* TransformComponent;
-    Real3 getColliderScale();
-
-    /* Properties */
-    // CollisionGroup = 
-
-
-  };
+	};
 
 }
