@@ -9,7 +9,7 @@ namespace DCEngine {
 		// Reference to the factory system
 		auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
 
-    /* Chen Logo??? */
+    /* Moonward Logo??? */
 		GameObjectPtr chenObj = ConstructGameObject("Chen");
 		chenObj->AddComponent(ComponentPtr(new Transform(*chenObj)));
 		chenObj->AddComponent(ComponentPtr(new Sprite(*chenObj)));
@@ -29,7 +29,7 @@ namespace DCEngine {
     connorObj->getComponent<Sprite>()->SpriteSource = "awesomeface";
 		connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
 		// Transform properties
-		connorObj->getComponent<Transform>()->Translation = Real3(-25, 25, -2.0f);
+		connorObj->getComponent<Transform>()->Translation = Real3(-45, 35, -2.0f);
 		connorObj->getComponent<Transform>()->Scale = Real3(10.0f, 10.0f, 1.0f);
     
     /* SpriteText! */
@@ -39,6 +39,8 @@ namespace DCEngine {
 		// SpriteText properties
 		boro->getComponent<SpriteText>()->Font = "Verdana";
 		boro->getComponent<SpriteText>()->Text = "This is our jam!";
+
+
 
 
 	}

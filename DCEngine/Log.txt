@@ -20,6 +20,8 @@ Content::AddSpriteSource - Foreground was added.
 Content::AddSpriteSource - KnightAni1mation was added.
 Content::AddSpriteSource - KnightAnimation was added.
 Content::AddSpriteSource - Middleground was added.
+Content::AddSpriteSource - MonkeyStand was added.
+Content::AddSpriteSource - MonkeyWalk was added.
 Content::AddSpriteSource - Square was added.
 Content::AddSpriteSource - Square3 was added.
 Content::AddSoundCue - soulja was added.
@@ -34,7 +36,15 @@ Window::Initialize
 Input::Initialize 
 Editor::Initialize 
 Audio::Initialize 
-Graphics::Initialize 
+Audio::LoadSoundCues - Loading every SoundCue into memory!AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
+AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam.mp3!
+AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam2.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam2.mp3!
+AudioFMOD::CreateSound: Core/Assets/Sounds/train.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/train.mp3!
+Audio::LoadSoundCues - Done loading!Graphics::Initialize 
 
 [GraphicsGL::Initialize] - Compiling shaders 
 SpriteShader::Compile 
@@ -49,15 +59,15 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
-=======
-[Engine::LoadProject - Loading C:\Users\Dell\Documents\GitHub\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
->>>>>>> d826befeaf7600d3c61e5c35832c27e8eb74c6fa
+SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam2.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam2.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/train.mp3
+SoundCue::Load - Finished loading Core/Assets/Sounds/train.mp3!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
@@ -72,222 +82,4 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
-SpriteSource::LoadTexture - Image was successfully loaded!
-Texture2D::Generate - Successfully generated texture!
-SpriteSource::LoadTexture - Image was successfully loaded!
-Texture2D::Generate - Successfully generated texture!
-SpriteSource::LoadTexture - Image was successfully loaded!
-Texture2D::Generate - Successfully generated texture!
-Font::GenerateCharacters - Successfully generated character map
-Font::Load - Font was successfully loaded! 
-Daisy Project::CreateSpace - Daisy World has been constructed. 
-Camera::AddComponent - Failure! Camera is already present!
-Camera Serialized Output
-{
-   "FarPlane" : 100,
-   "FieldOfView" : 175,
-   "NearPlane" : 0.10000000149011612,
-   "Size" : 70
-}
-
-
--- Reflection Test -- 
-
-MetaData for int: 
-Name: int
-Size: 4
-
-MetaData for float: 
-Name: float
-Size: 4
-
-MetaData for double: 
-Name: double
-Size: 8
-
-MetaData for int*: 
-Name: int*
-Size: 8
-
-MetaData for ObjectTest: 
-Name: ObjectTest
-Size: 16
-Members: 
-{
-  ID
-  0
-  active
-  4
-}
-
-MetaData for DerivedObject: 
-Name: DerivedObject
-Size: 24
-Members: 
-{
-  Numbers
-  16
-  IsCool
-  20
-}
-Type of word object: std::string
-The word object is not an int!
-
-MetaData for StringWrapper: 
-Name: StringWrapper
-Size: 16
-Members: 
-{
-  Data
-  0
-  Length
-  8
-}
-v.GetValue = std::string!
-
-*v.GetValue = 5
-v.GetValue = char *!
-
-Raw Json Input
-{ "Name" : "Pikapikano!"}
-
-
-GameObject Serialized Output
-{
-   "Name" : "Pikapikano!"
-}
-
-
-Daisy World::LoadLevel - Loading Dollhouse level.
-Daisy World::AddEntity - Added Camera to the space.
-Daisy World::AddEntity - Added Chen to the space.
-Daisy World::AddEntity - Added Connor to the space.
-Daisy World::AddEntity - Added SpriteTextor to the space.
-Daisy World::AddEntity - Added Reiner to the space.
-Daisy World::AddEntity - Added Myres to the space.
-Daisy World::AddEntity - Added Mariah to the space.
-Daisy World::AddEntity - Added Basketball to the space.
-Daisy World::AddEntity - Added Pikapikano! to the space.
-Daisy World::AddEntity - Added Floor to the space.
-Daisy World::AddEntity - Added Background to the space.
-Daisy World::AddEntity - Added Middleground to the space.
-Daisy World::AddEntity - Added Foreground to the space.
-
-[Engine::LoadProject - Finished loading ]
-
-[Daisy Project::Initialize - Initializing all spaces... ] 
-|Daisy World::Initialize| 
-Audio::PlayMusic - Playing: spacejam.mp3
-AudioFMOD::CreateStream 
-AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
-AudioFMOD::PlaySound 
-AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
-Audio::Register -  Daisy World has registered to the Audio system
-Physics::Register -  Daisy World has registered to the Physics system
-Graphics::Register -  Daisy World has registered to the Graphics system
-[Daisy World::Initialize - Initializing all GameObjects...] 
-Camera::Initialize 
-Chen::Initialize 
-GraphicsSpace::AddSprite - Chen
-Connor::Initialize 
-GraphicsSpace::AddSprite - Connor
-SpriteTextor::Initialize 
-GraphicsSpace::AddSpriteText - SpriteTextor
-Reiner::Initialize 
-GraphicsSpace::AddSprite - Reiner
-PhysicsSpace::AddRigidBody - Reiner
-PhysicsSpace::AddCollider - Reiner
-Myres::Initialize 
-GraphicsSpace::AddSprite - Myres
-PhysicsSpace::AddRigidBody - Myres
-PhysicsSpace::AddCollider - Myres
-Mariah::Initialize 
-GraphicsSpace::AddSprite - Mariah
-PhysicsSpace::AddRigidBody - Mariah
-PhysicsSpace::AddCollider - Mariah
-Basketball::Initialize 
-GraphicsSpace::AddSprite - Basketball
-PhysicsSpace::AddRigidBody - Basketball
-PhysicsSpace::AddCollider - Basketball
-#################################################4Pikapikano!::Initialize 
-GraphicsSpace::AddSprite - Pikapikano!
-Floor::Initialize 
-PhysicsSpace::AddRigidBody - Floor
-PhysicsSpace::AddCollider - Floor
-Background::Initialize 
-GraphicsSpace::AddSprite - Background
-Middleground::Initialize 
-GraphicsSpace::AddSprite - Middleground
-Foreground::Initialize 
-GraphicsSpace::AddSprite - Foreground
-
-[Engine::Loop]
-<<<<<<< HEAD
-Camera::Transform.Translation(-2, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-5, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-8, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-11, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-14, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-17, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-20, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-23, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-26, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-29, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-32, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-35, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-38, 1, 1)
-'Left' key was released!
-Camera::Transform.Translation(-35, 1, 1)
-'Right' key was released!
-Camera::Transform.Translation(-32, 1, 1)
-'Right' key was released!
-Camera::Transform.Translation(-29, 1, 1)
-'Right' key was released!
-Camera::Transform.Translation(-26, 1, 1)
-'Right' key was released!
-Camera::Transform.Translation(-23, 1, 1)
-'Right' key was released!
-Camera::Transform
-=======
-Mariah::Transform.Translation(4, 0.887721, 0)
-AAAAAAAAAMariah::Transform.Translation(3.77239, 0.996167, 0)
-AAAAAAAAAAAAAAAAAAMariah::Transform.Translation(3.05746, 0.996611, 0)
-AAAAAAAAAAAAAAAMariah::Transform.Translation(2.66047, 0.995563, 0)
-AAAAAAAAAMariah::Transform.Translation(2.44712, 0.97616, 0)
-AAAAAAAAAMariah::Transform.Translation(1.99824, 1.01205, 0)
-AAAAAAMariah::Transform.Translation(1.98714, 0.983918, 0)
-AAAAAAAAAAAAMariah::Transform.Translation(1.92226, 0.992488, 0)
-AAAAAAAAAAAAAAAAAAMariah::Transform.Translation(1.5676, 0.981113, 0)
-AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(1.18966, 0.981587, 0)
-AAAAAAAAAAAAAAAMariah::Transform.Translation(1.10103, 0.994473, 0)
-AAAAAAAAAAAAMariah::Transform.Translation(0.683144, 0.992067, 0)
-AAAAAAAAAMariah::Transform.Translation(0.485367, 1.07959, 0)
-AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-0.363481, 1.03406, 0)
-AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-1.03815, 0.992095, 0)
-AAAAAAAAAAAAAAAMariah::Transform.Translation(-1.52694, 0.985476, 0)
-AAAAAAAAAMariah::Transform.Translation(-1.80535, 0.999847, 0)
-AAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-2.4751, 0.976076, 0)
-AAAAAAAAAAAAMariah::Transform.Translation(-2.86977, 0.976078, 0)
-AAAAAAAAAAAAAAAMariah::Transform.Translation(-3.39892, 0.723166, 0)
-AAAAAAAAAMariah::Transform.Translation(-6.28019, -3.00204, 0)
-AAAAAAAAAAAAMariah::Transform.Translation(-6.44685, -3.00555, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-6.83846, -2.99712, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-7.29392, -2.99712, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-10.2973, -3.00633, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-14.3324, -3.00237, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-18.447, -2.99436, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah::Transform.Translation(-20.6247, -3.00271, 0)
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMariah
->>>>>>> d826befeaf7600d3c61e5c35832c27e8eb74c6fa
+SpriteSource::LoadTexture

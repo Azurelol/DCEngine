@@ -60,7 +60,7 @@ namespace DCEngine {
 
     private:
       void ErrorCheck(FMOD_RESULT result);
-      void CreateSound(std::string& soundFile, FMOD::Sound* soundPtr);
+      void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
       void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
 
       //FMOD::System* _system;

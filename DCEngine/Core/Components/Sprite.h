@@ -33,7 +33,7 @@ namespace DCEngine {
 		Transform* TransformComponent;
 		String SpriteSource = "Square";
 		bool Visible = true;
-		Real4 Color = Real4(1.0f, 1.0f, 1.0f, 1.0f); //!< Default color is red.
+		Real4 Color = Real4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
 		bool FlipX = false;
 		bool FlipY = false;

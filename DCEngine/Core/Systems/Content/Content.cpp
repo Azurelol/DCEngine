@@ -63,8 +63,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Content::LoadEngineData(std::string& engineData)
-    {
-      
+    {      
 
       // NOT REALLY LOADING, IS IT?
       EngineInfo->SpritePath = "Core/Assets/Sprites/";

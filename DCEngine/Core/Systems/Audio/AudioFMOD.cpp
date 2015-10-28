@@ -96,10 +96,10 @@ namespace DCEngine {
             necessary.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound* soundPtr) {
+    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
       trace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
       FMOD_RESULT result;
-      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, &soundPtr);
+      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
       ErrorCheck(result);
     }
 
