@@ -11,12 +11,22 @@ Content::LoadEngineData - Finished loading all engine data.
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - Square was added.
 Content::AddSpriteSource - Angryeyes was added.
-Content::AddSpriteSource - Awesomeface was added.
-Content::AddSpriteSource - KnightAnim was added.
+Content::AddSpriteSource - awesomeface was added.
+Content::AddSpriteSource - Background was added.
+Content::AddSpriteSource - bg1 was added.
+Content::AddSpriteSource - bg1 was added.
+Content::AddSpriteSource - Foreground was added.
+Content::AddSpriteSource - KnightAni1mation was added.
+Content::AddSpriteSource - KnightAnimation was added.
+Content::AddSpriteSource - Middleground was added.
+Content::AddSpriteSource - Square was added.
+Content::AddSpriteSource - Square3 was added.
+Content::AddSoundCue - soulja was added.
+Content::AddSoundCue - spacejam was added.
+Content::AddSoundCue - spacejam2 was added.
+Content::AddSoundCue - train was added.
 Content::AddFont - Verdana was added.
-Content::AddSoundCue - SpaceJam was added.
 [Content::LoadDefaultResources] - Finished loading default resources 
 
 Factory::Initialize 
@@ -40,7 +50,22 @@ SpriteTextShader::AssertShaderCompilation - Shader program linked!
 Content::LoadProjectData - Finished loading all project data. 
 
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
+AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam2.mp3
+AudioFMOD::CreateSound: Core/Assets/Sounds/train.mp3
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
@@ -52,6 +77,7 @@ Texture2D::Generate - Successfully generated texture!
 Font::GenerateCharacters - Successfully generated character map
 Font::Load - Font was successfully loaded! 
 Daisy Project::CreateSpace - Daisy World has been constructed. 
+Camera::AddComponent - Failure! Camera is already present!
 Camera Serialized Output
 {
    "FarPlane" : 100,
@@ -138,8 +164,10 @@ Daisy World::AddEntity - Added Myres to the space.
 Daisy World::AddEntity - Added Mariah to the space.
 Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Pikapikano! to the space.
-Daisy World::AddEntity - Added Basketfloor to the space.
-Daisy World::AddEntity - Added BackgroundLayer1 to the space.
+Daisy World::AddEntity - Added Floor to the space.
+Daisy World::AddEntity - Added Background to the space.
+Daisy World::AddEntity - Added Middleground to the space.
+Daisy World::AddEntity - Added Foreground to the space.
 
 [Engine::LoadProject - Finished loading ]
 
@@ -149,4 +177,81 @@ Audio::PlayMusic - Playing: spacejam.mp3
 AudioFMOD::CreateStream 
 AudioFMOD::ErrorCheck - FMOD error! (18)File not found.
 AudioFMOD::PlaySound 
-A
+AudioFMOD::ErrorCheck - FMOD error! (31)An invalid parameter was passed to this function.
+Audio::Register -  Daisy World has registered to the Audio system
+Physics::Register -  Daisy World has registered to the Physics system
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Camera::Initialize 
+Chen::Initialize 
+GraphicsSpace::AddSprite - Chen
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Reiner::Initialize 
+GraphicsSpace::AddSprite - Reiner
+PhysicsSpace::AddRigidBody - Reiner
+PhysicsSpace::AddCollider - Reiner
+Myres::Initialize 
+GraphicsSpace::AddSprite - Myres
+PhysicsSpace::AddRigidBody - Myres
+PhysicsSpace::AddCollider - Myres
+Mariah::Initialize 
+GraphicsSpace::AddSprite - Mariah
+PhysicsSpace::AddRigidBody - Mariah
+PhysicsSpace::AddCollider - Mariah
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+Floor::Initialize 
+PhysicsSpace::AddRigidBody - Floor
+PhysicsSpace::AddCollider - Floor
+Background::Initialize 
+GraphicsSpace::AddSprite - Background
+Middleground::Initialize 
+GraphicsSpace::AddSprite - Middleground
+Foreground::Initialize 
+GraphicsSpace::AddSprite - Foreground
+
+[Engine::Loop]
+Camera::Transform.Translation(-2, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-5, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-8, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-11, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-14, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-17, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-20, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-23, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-26, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-29, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-32, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-35, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-38, 1, 1)
+'Left' key was released!
+Camera::Transform.Translation(-35, 1, 1)
+'Right' key was released!
+Camera::Transform.Translation(-32, 1, 1)
+'Right' key was released!
+Camera::Transform.Translation(-29, 1, 1)
+'Right' key was released!
+Camera::Transform.Translation(-26, 1, 1)
+'Right' key was released!
+Camera::Transform.Translation(-23, 1, 1)
+'Right' key was released!
+Camera::Transform

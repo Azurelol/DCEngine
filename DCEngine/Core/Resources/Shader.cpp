@@ -117,6 +117,12 @@ namespace DCEngine {
     return *this;
   }
 
+  Shader & Shader::Unbind()
+  {
+    glUseProgram(0);
+    return *this;
+  }
+
   /**************************************************************************/
   /*!
   \brief  Checks if the shader was compiled successfully.

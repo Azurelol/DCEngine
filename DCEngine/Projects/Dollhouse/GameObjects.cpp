@@ -25,7 +25,7 @@ namespace DCEngine {
 		// Sprite properties
 		//reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
 																	 // MoveController properties
-		reiner->getComponent<Sprite>()->SpriteSource = "KnightAnim";
+		reiner->getComponent<Sprite>()->SpriteSource = "KnightAnimation";
 		reiner->getComponent<Sprite>()->AnimationActive = true;
 		reiner->getComponent<Sprite>()->HaveAnimation = true;
 		reiner->getComponent<Sprite>()->AnimationSpeed = 10;

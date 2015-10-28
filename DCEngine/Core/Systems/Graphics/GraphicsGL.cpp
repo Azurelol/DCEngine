@@ -358,13 +358,14 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::DrawSpriteText(SpriteText & st, Camera & camera)
     {
+      return;
       // Enable alpha blending for opacity.
       glEnable(GL_BLEND);
       glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+      
       // Activate the SpriteText shader
-      SpriteTextShader->Use();
-      SpriteTextShader->SetVector4f("textColor", st.Color);
+      this->SpriteTextShader->Use();
+      this->SpriteTextShader->SetVector4f("textColor", st.Color);
 
       glActiveTexture(GL_TEXTURE0);
       if (auto a = Debug::CheckOpenGLError())
@@ -376,9 +377,10 @@ namespace DCEngine {
       // Retrieve the Font resource from the content system
       auto font = Daisy->getSystem<Content>()->getFont(st.Font);
       
-      // (!) This is used to advance cursoes
+      // (!) This is used to advance cursors
       GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
 
+      
       // Iterate through all the characters
       std::string::const_iterator c;
       for (c = st.Text.begin(); c != st.Text.end(); ++c) {

@@ -1,5 +1,5 @@
 #include "Content.h" 
-#include "FileSystem.h"
+#include "../Filesystem/FileSystem.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -98,7 +98,6 @@ namespace DCEngine {
       // Deserialize all of the project file's data into the
       // project data struct.
       ProjectInfo->ProjectName = root.get("ProjectName", "").asString();
-
       ProjectInfo->AssetPath= root.get("AssetFolder", "").asString();
       ProjectInfo->ArchetypePath = root.get("ArchetypeFolder", "").asString();
       ProjectInfo->LevelPath = root.get("LevelFolder", "").asString();
@@ -109,38 +108,18 @@ namespace DCEngine {
     @brief Loads the default resources from the engine.
     @note  Currently only generating the first 128 characters of the ASCII
     character set.
+    @todo  Figure out how to load both shader vertex and frag shaders into
+           the one constructor dynamically.
     */
     /**************************************************************************/
     void Content::LoadCoreAssets()
     {
       trace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
       // Deserialize the engine's core assets file
-
-      // Scan the specified folder and recursively add each resource to its appropiate
-      // map.
-
-      auto a = FileSystem::FileFound(EngineInfo->SpritePath + "square2.png");
-      auto b = FileSystem::FileFound(EngineInfo->SpritePath + "square3.png");
-      std::vector<std::string> files;
-      auto c = FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, files);
-      std::string contentRead;
-      auto d = FileSystem::FileReadToString(EngineInfo->ShaderPath + "SpriteShader.vs", contentRead);
-      auto f = FileSystem::FileWriteString("hey2.txt", contentRead);
-
-
-      std::string modifyData;
-      auto e = FileSystem::FileLastModified("hey2.txt", modifyData);
-
-      auto g = FileSystem::FileRename("hey2.txt", "lol3.txt");
-
-      std::string filePathy;
-      auto h = FileSystem::DirectoryFindFile("Debug.cpp", "Core", filePathy);
-
-      FileSystem::Remove("lol3.txt");
-
+      
       // Load default shaders
-      AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"), 
-        EngineInfo->ShaderPath + "SpriteShader.vs", 
+      AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
+        EngineInfo->ShaderPath + "SpriteShader.vs",
         EngineInfo->ShaderPath + "SpriteShader.frag")));
       AddShader(std::string("SpriteTextShader"), ShaderPtr(new Shader(std::string("SpriteTextShader"),
         EngineInfo->ShaderPath + "SpriteTextShader.vs",
@@ -149,21 +128,49 @@ namespace DCEngine {
         EngineInfo->ShaderPath + "GUIShader.vs",
         EngineInfo->ShaderPath + "GUIShader.frag")));
 
+      // Load shaders
+      //std::vector<std::string> coreShaders;
+      //if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, coreShaders))
+      //  throw DCException("Content::LoadCoreAssets - Failed to load shader files!");
+      //for (auto shader : coreShaders) {
+      //  auto shaderName = FileSystem::FileExtractWithoutExtension(shader);
+      //  AddShader(shaderName, ShaderPtr(new Shader(shaderName,
+      //            EngineInfo->ShaderPath + "SpriteShader.vs", 
+      //            EngineInfo->ShaderPath + "SpriteShader.frag")));
+      //}
+      // Load sprites
+      std::vector<std::string> coreSprites;      
+      if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->SpritePath, coreSprites))
+        throw DCException("Content::LoadCoreAssets - Failed to load sprite files!");      
+      for (auto sprite : coreSprites) {
+        auto spriteName = FileSystem::FileExtractWithoutExtension(sprite);
+        AddSpriteSource(spriteName, SpriteSourcePtr(new SpriteSource(sprite)));
+      }
+      // Load sound files
+      std::vector<std::string> coreSounds;
+      if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->SoundPath, coreSounds))
+        throw DCException("Content::LoadCoreAssets - Failed to load sound files!");
+      for (auto sound : coreSounds) {
+        auto soundName = FileSystem::FileExtractWithoutExtension(sound);
+        AddSoundCue(soundName, SoundCuePtr(new SoundCue(sound)));
+      }
       // Load default sprites
-      AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
+   /*   AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
       AddSpriteSource(std::string("Angryeyes"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "angryeyes.png")));
       AddSpriteSource(std::string("Awesomeface"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "awesomeface.png")));
       AddSpriteSource(std::string("KnightAnim"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "KnightAnimation.png")));
+*/     
+
       // Load default fonts      
       AddFont(std::string("Verdana"), FontPtr(new Font(EngineInfo->FontPath + "Verdana.ttf")));
-      // Load default soundcues
-      AddSoundCue(std::string("SpaceJam"), SoundCuePtr(new SoundCue(EngineInfo->SoundPath + "spacejam.mp3")));
-
-
-
       trace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Load all of the project's assets.
+    */
+    /**************************************************************************/
     void Content::LoadProjectAssets()
     {
 
