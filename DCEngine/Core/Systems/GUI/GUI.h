@@ -37,6 +37,7 @@ namespace DCEngine {
       virtual void Deserialize(Json::Value& root);
       
       std::unique_ptr<ImGuiSFML> GUIHandler;
+      sf::Event* EventObj;
 
     };
 

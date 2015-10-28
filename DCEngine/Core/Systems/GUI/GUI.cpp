@@ -1,4 +1,5 @@
 #include "GUI.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {

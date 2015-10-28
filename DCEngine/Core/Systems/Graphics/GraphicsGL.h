@@ -78,6 +78,7 @@ namespace DCEngine {
       ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
+      OpenGLStateData GLState;
 
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
@@ -92,6 +93,9 @@ namespace DCEngine {
       void Terminate();
       void StartFrame();
       void EndFrame();
+      void BackupState();
+      void RestoreState();
+
 
 	  //Draw List
 	  int TotalObjNum = 0;

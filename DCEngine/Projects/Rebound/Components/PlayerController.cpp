@@ -96,7 +96,7 @@ namespace DCEngine {
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(-MoveSpeed, 0, 0));
-			trace << "AAA";
+			//trace << "AAA";
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -106,7 +106,7 @@ namespace DCEngine {
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
-			trace << "Space";
+			//trace << "Space";
 		}
 	}
 

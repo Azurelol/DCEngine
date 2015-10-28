@@ -27,21 +27,41 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Scans a folder, given a path and extracts all the filenames
+  @brief  Scans a folder, given a path and extracts all the file names
           into a string vector.
   @param  The folder path.
-  @return The string vector, containing all the files.
+  @return The string vector, containing all the file names.
   */
   /**************************************************************************/
-  bool FileSystem::DirectoryExtractFilePaths(std::string dirPath, 
-                                            std::vector<std::string>& fileNames) {
-    
-    if (boost::filesystem::exists(dirPath)) {      
+  bool FileSystem::DirectoryExtractFileNames(std::string dirPath, 
+                                             std::vector<std::string>& fileNames)
+  {
+    if (boost::filesystem::exists(dirPath)) {
       for (auto&& file : boost::filesystem::directory_iterator(dirPath))
         fileNames.push_back(file.path().filename().string());
       return true;
     }
+    return false;
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief  Scans a folder, given a path and extracts all the filePaths
+          into a string vector.
+  @param  The folder path.
+  @return The string vector, containing all the files paths.
+  */
+  /**************************************************************************/
+  bool FileSystem::DirectoryExtractFilePaths(std::string dirPath, 
+                                            std::vector<std::string>& filePaths) {
+    
+    if (boost::filesystem::exists(dirPath)) {      
+      for (auto&& file : boost::filesystem::directory_iterator(dirPath)) {
+        auto filePath = dirPath + file.path().filename().string();
+        filePaths.push_back(filePath);
+      }
+      return true;
+    }
     return false;
   }
 
@@ -106,6 +126,21 @@ namespace DCEngine {
 
     return 0;
   }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks if the directory exists in the specified file path.
+  @param  The directory path.
+  @return A boolean denoting whether the directory exists or not.
+  */
+  /**************************************************************************/
+  bool FileSystem::DirectoryFound(std::string dirPath)
+  {
+    if (boost::filesystem::exists(dirPath)) {
+      return true;
+    }
+    return false;
+  }
   
 
   /**************************************************************************/
@@ -162,6 +197,7 @@ namespace DCEngine {
   @brief  Extracts the extension from a string containing a file path.
   @param  The file path.
   @return A new string without the extension.
+  @todo   CURRENTLY NOT DOING AS ADVERTISED.
   */
   /**************************************************************************/
   std::string FileSystem::FileExtractExtension(std::string & filePath)
@@ -170,7 +206,23 @@ namespace DCEngine {
     if (boost::filesystem::exists(file)) {
       return file.stem().string();
     }
-    return NULL;
+    return std::string();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Extracts the extension from a string containing a file path.
+  @param  The file path.
+  @return A new string without the extension.
+  */
+  /**************************************************************************/
+  std::string FileSystem::FileExtractWithoutExtension(std::string & filePath)
+  {
+    boost::filesystem::path file(filePath);
+    if (boost::filesystem::exists(file)) {
+      return file.stem().string();
+    }
+    return std::string();
   }
 
   /**************************************************************************/

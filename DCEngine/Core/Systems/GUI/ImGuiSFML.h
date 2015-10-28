@@ -23,25 +23,7 @@
 
 
 namespace DCEngine {
-  namespace Systems {
-    
-    struct OpenGLStateData {
-      GLint lastProgram;
-      GLint lastTexture;
-      GLint lastArrayBuffer; 
-      GLint lastElementArrayBuffer; 
-      GLint lastVertexArray;
-      GLint lastBlendSrc;
-      GLint lastBlendDst;
-      GLint lastBlendEquationRGB; 
-      GLint lastBlendEquationAlpha; 
-      GLboolean lastEnableBlend;
-      GLboolean lastEnableCullFace;
-      GLboolean lastEnableDepthTest;
-      GLboolean lastEnableScissorTest;
-
-    };
-
+  namespace Systems {  
     class GUI;
     
     class ImGuiSFML {

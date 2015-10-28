@@ -797,6 +797,9 @@
     <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Components\DebugFade.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

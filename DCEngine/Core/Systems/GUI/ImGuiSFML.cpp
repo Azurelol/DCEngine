@@ -52,7 +52,7 @@ namespace DCEngine {
     void ImGuiSFML::StartFrame()
     {      
       // 1. Poll for ImGui Events in SFML
-      sf::Event event;
+      sf::Event& event = Daisy->getSystem<Input>()->InputHandler->_event;
       while (WindowContext->pollEvent(event))
         ImGuiSFMLProcessEvent(event);
       // 2. Update ImGui after having polled for events

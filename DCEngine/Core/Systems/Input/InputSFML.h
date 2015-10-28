@@ -23,8 +23,10 @@ namespace DCEngine {
   class Mouse;
 
   namespace Systems {
-
+    
+    class ImGuiSFML;
     class InputSFML {
+      friend class ImGuiSFML;
     public:
       InputSFML();
       ~InputSFML();
