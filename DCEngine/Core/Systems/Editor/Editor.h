@@ -53,7 +53,7 @@ namespace DCEngine {
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
       Space* CurrentSpace;
-      GameObject* SelectedGameObject = nullptr;
+      GameObject* SelectedObject = nullptr;
       
 
     };

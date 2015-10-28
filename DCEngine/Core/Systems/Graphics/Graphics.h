@@ -18,15 +18,18 @@
 
 namespace DCEngine {  
   class Engine;
+  
   class Camera;
   class Sprite;
   class SpriteText;
   class DebugDrawObject;
 
   namespace Systems {
+    class WindowSFML;
 
     class Graphics : public System {
       friend class Engine;
+      friend class WindowSFML;
     public:
 
 
@@ -46,6 +49,8 @@ namespace DCEngine {
 
       void StartFrame();
       void EndFrame();
+      void BackupState();
+      void RestoreState();
 
       std::unique_ptr<GraphicsGL> GraphicsHandler;
       const int screenwidth_ = 1024;

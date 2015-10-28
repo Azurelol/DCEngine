@@ -93,7 +93,7 @@ namespace DCEngine {
         auto objName = object->Name().c_str();
         // If the user has selected the GameObject.
         if (ImGui::Button(objName))
-          SelectedGameObject = object.get();
+          SelectedObject = object.get();
         //ImGui::Text(object->Name().c_str());
       }
       // Ends the window
@@ -108,7 +108,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WidgetProperties()
     { 
-      if (SelectedGameObject == nullptr)
+      if (SelectedObject == nullptr)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);      
@@ -116,16 +116,21 @@ namespace DCEngine {
 
       // 1. Display the object's name
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
-      ImGui::Text(SelectedGameObject->Name().c_str());
+      ImGui::Text(SelectedObject->Name().c_str());
       // 2. Display its components
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
-      for (auto component : *SelectedGameObject->AllComponents()) {
+      for (auto component : *SelectedObject->AllComponents()) {
         ImGui::Text(component->Name().c_str());
       }
 
       ImGui::End();
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the properties of the currently selected object.
+    */
+    /**************************************************************************/
     void Editor::WidgetLibrary()
     {
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);

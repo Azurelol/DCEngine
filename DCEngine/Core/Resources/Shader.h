@@ -23,7 +23,8 @@ namespace DCEngine {
     
     void Load();
     void Compile();    
-    Shader& Use();
+    Shader& Use(); 
+      Shader& Unbind();
     GLuint Get() { return ShaderProgramID; }
     
     /* Uniform testing */

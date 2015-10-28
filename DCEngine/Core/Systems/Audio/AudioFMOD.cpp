@@ -96,10 +96,10 @@ namespace DCEngine {
             necessary.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound* soundPtr) {
+    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
       trace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
       FMOD_RESULT result;
-      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, &soundPtr);
+      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
       ErrorCheck(result);
     }
 
@@ -131,6 +131,9 @@ namespace DCEngine {
         soundPtr->setMode(FMOD_LOOP_OFF);
       }
 
+      // Add the sound to a specific channel
+
+
       FMOD_RESULT result;
       result = system_.ptr->playSound(soundPtr, NULL, 0, &CurrentChannel);
       ErrorCheck(result);
@@ -145,6 +148,11 @@ namespace DCEngine {
       std::string resourceLocation("Projects/Resources/Sounds/");
       CreateStream(resourceLocation + filePath, &MusicPtr);
       PlaySound(MusicPtr, true);
+    }
+
+    void AudioFMOD::StopSound(FMOD::Sound * soundPtr)
+    {
+
     }
 
     /**************************************************************************/
@@ -163,6 +171,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::ReleaseSound(FMOD::Sound* soundPtr) {
       FMOD_RESULT result;
+      
       result = soundPtr->release();
       ErrorCheck(result);
     }

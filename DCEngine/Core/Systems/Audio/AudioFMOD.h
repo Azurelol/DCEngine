@@ -51,6 +51,7 @@ namespace DCEngine {
 
       void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
       void PlayMusic(std::string& filePath);
+      void StopSound(FMOD::Sound* soundPtr);
       void StopMusic();
       void ReleaseSound(FMOD::Sound* soundPtr);
 
@@ -60,13 +61,14 @@ namespace DCEngine {
 
     private:
       void ErrorCheck(FMOD_RESULT result);
-      void CreateSound(std::string& soundFile, FMOD::Sound* soundPtr);
+      void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
       void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
 
       //FMOD::System* _system;
       FMODSystemPtr system_; // Wrapper for the C-style pointer
       //FMOD::System* _system;
       FMOD::Sound* MusicPtr;
+      //std::map<FMOD::Sound*, FMOD::Channel*> Channels; //!< Every SoundPtr gets its own unique channel?
       FMOD::Channel* CurrentChannel;
 
 

@@ -45,7 +45,7 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundSpace::StopCue(std::string soundCueName)
   {
-    Daisy->getSystem<Systems::Audio>()->StopSound(soundCueName);
+    Daisy->getSystem<Systems::Audio>()->ReleaseSound(soundCueName);
   }
 
 
@@ -53,9 +53,9 @@ namespace DCEngine {
 
   void SoundSpace::TestMusic() {
     // THIS IS MY JAM
-    using namespace Systems;
-    std::string myJam = "spacejam.mp3";
-    Daisy->getSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
+    //using namespace Systems;
+    //std::string myJam = "spacejam.mp3";
+    //Daisy->getSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
   }
 
 }

@@ -38,7 +38,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::Update(float dt) {
       if (TRACE_UPDATE)
-      trace << "Graphics::Update \n";
+        trace << "Graphics::Update \n";
 
       // Update the graphics system
       //GraphicsHandler->ViewportUpdate();
@@ -51,68 +51,59 @@ namespace DCEngine {
         // Update every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);
 
-		for (auto gameObj : gfxSpace->getSprites()) {
-			//draw list
-			++TotalObjNumG;
-			if (gameObj->SpriteSource == "Square")
-			{
-				if (gameObj->Color.a == 1)
-				{
-					NonTextureObjNontransp.push_back(gameObj);
-				}
-				else
-				{
-					TransparentObj.push_back(gameObj);
-				}
-			}
-			else
-			{
-				TransparentObj.push_back(gameObj);
-			}
-		}
-		//sort
-		std::map<float, Sprite*> sorted;
-		for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
-		{
-			GLfloat distance = glm::length(camera->TransformComponent->Translation - TransparentObj[i]->TransformComponent->Translation);
-			sorted[distance] = TransparentObj[i];
-		}
+        for (auto gameObj : gfxSpace->getSprites()) {
+          //draw list
+          ++TotalObjNumG;
+          if (gameObj->SpriteSource == "Square")
+          {
+            if (gameObj->Color.a == 1)
+            {
+              NonTextureObjNontransp.push_back(gameObj);
+            }
+            else
+            {
+              TransparentObj.push_back(gameObj);
+            }
+          }
+          else
+          {
+            TransparentObj.push_back(gameObj);
+          }
+        }
+        //sort
+        std::map<float, Sprite*> sorted;
+        for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
+        {
+          GLfloat distance = glm::length(camera->TransformComponent->Translation - TransparentObj[i]->TransformComponent->Translation);
+          sorted[distance] = TransparentObj[i];
+        }
 
-		//Nontexture object draw first
-		for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
-		{
-			DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
-		}
+        //Nontexture object draw first
+        for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
+        {
+          DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
+        }
 
-		for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
-		{
-			DrawSprite(*(it->second), *camera, dt);
-		}
-		NonTextureObjNontransp.clear();
-		sorted.clear();
-		TransparentObj.clear();
+        for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
+        {
+          DrawSprite(*(it->second), *camera, dt);
+        }
+        NonTextureObjNontransp.clear();
+        sorted.clear();
+        TransparentObj.clear();
 
-		SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
+        SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 
-		//Clean the counter
-		TotalObjNumG = 0;
-		TotalObjTranspNumG = 0;
-
+        //Clean the counter
+        TotalObjNumG = 0;
+        TotalObjTranspNumG = 0;
 
         /* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
-
         // Update every 'SpriteText'
         //GraphicsHandler->SetSpriteTextShader(*camera);
         //for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
         //  DrawSpriteText(*spriteText, *camera);
         //}
-
-        // Update every 'DebugDrawObject'
-
-        
-        // Update all models. Load the model shader.
-
-        // 3. Update al particles. Load different shader.
       }
 
     }
@@ -212,6 +203,16 @@ namespace DCEngine {
 
     void Graphics::EndFrame() {
       GraphicsHandler->EndFrame();
+    }
+
+    void Graphics::BackupState()
+    {
+      GraphicsHandler->BackupState();
+    }
+
+    void Graphics::RestoreState()
+    {
+      GraphicsHandler->RestoreState();
     }
 
 	void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)

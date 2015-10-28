@@ -40,6 +40,8 @@ namespace DCEngine {
       if (TRACE_ON)
         trace << "Audio::Initialize \n";
       AudioHandler->Initialize();
+      // Load every SoundCue into FMOD
+      LoadSoundCues();
     }
 
     /**************************************************************************/
@@ -63,7 +65,7 @@ namespace DCEngine {
     void Audio::CreateSound(std::string & soundFile, FMODSoundPtr& soundPtr)
     {
       //std::string resourceLocation("Core/Resources/Sounds/");
-      AudioHandler->CreateSound(soundFile, soundPtr.SoundPtr);
+      AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
     }
 
     /**************************************************************************/
@@ -83,9 +85,25 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::StopSound(std::string& soundCueName) {
+    void Audio::ReleaseSound(std::string& soundCueName) {
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->ReleaseSound(soundCue->SoundPtr.SoundPtr);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads every SoundCue into memory.
+    */
+    /**************************************************************************/
+    void Audio::LoadSoundCues()
+    {
+      if (TRACE_INITIALIZE)
+        trace << "Audio::LoadSoundCues - Loading every SoundCue into memory!";
+
+      for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues() ) {
+        soundCue.second->Load();
+      }
+      trace << "Audio::LoadSoundCues - Done loading!";
     }
 
 
@@ -113,6 +131,8 @@ namespace DCEngine {
     void Audio::Deserialize(Json::Value & root)
     {
     }
+
+
 
 
   }

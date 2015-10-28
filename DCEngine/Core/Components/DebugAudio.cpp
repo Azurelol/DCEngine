@@ -16,9 +16,11 @@ namespace DCEngine {
     switch (event->Key) {
            
     case Keys::F1:
+      SoundSpaceRef->StopCue(SoundCue2);
       SoundSpaceRef->PlayCue(SoundCue1);
       break;
     case Keys::F2:
+      SoundSpaceRef->StopCue(SoundCue1);
       SoundSpaceRef->PlayCue(SoundCue2);
       break;
     case Keys::F3:

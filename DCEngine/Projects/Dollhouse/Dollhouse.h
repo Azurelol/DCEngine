@@ -48,8 +48,12 @@ namespace DCEngine {
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
+      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       //cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
+      cameraObj->AddComponent(ComponentPtr(new DebugAudio(*cameraObj)));
+      cameraObj->getComponent<DebugAudio>()->SoundCue1 = "soulja";
+      cameraObj->getComponent<DebugAudio>()->SoundCue2 = "spacejam2";
       // Camera properties      
       cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;

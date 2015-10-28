@@ -45,6 +45,8 @@ namespace DCEngine {
     /*!
     @brief  Sets the window context.
     @param  The mode of the window. FullScreen or Windowed.
+    @todo   Don't directly call the Graphics system by friending it. Instead
+            send an event to replace it.
     */
     /**************************************************************************/
     void WindowSFML::setWindow(WindowMode style)
@@ -52,6 +54,9 @@ namespace DCEngine {
       // Create the window
       //if (WindowContext != nullptr)
       //  WindowContext->close();
+
+      // Save the current OpenGL state
+      Daisy->getSystem<Graphics>()->BackupState();
 
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
@@ -61,13 +66,16 @@ namespace DCEngine {
         break;
       case WindowMode::Fullscreen :
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-          CaptionText, sf::Style::Fullscreen, ContextSettings);
+          CaptionText, sf::Style::Fullscreen, ContextSettings);        
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
       //WindowContext->setFramerateLimit(60); 
+
+      // Restore the previous OpenGL state
+      Daisy->getSystem<Graphics>()->RestoreState();
 
       // The window context needs to give the input system a reference to this pointer
     }
@@ -90,7 +98,8 @@ namespace DCEngine {
         CaptionText, sf::Style::Default, ContextSettings));
 
       // Configures the window context, then creates it
-      setWindow(WindowMode::Default);
+      //setWindow(WindowMode::Default);
+
       // Assert that the window was created
       if (WindowContext == nullptr) {
         trace << "Failed to create SFML window \n";

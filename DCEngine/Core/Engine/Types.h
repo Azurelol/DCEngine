@@ -83,6 +83,21 @@ namespace DCEngine {
   // Common Containers
   using StringVec = std::vector<std::string>;
 
+  struct OpenGLStateData {
+    GLint lastProgram;
+    GLint lastTexture;
+    GLint lastArrayBuffer;
+    GLint lastElementArrayBuffer;
+    GLint lastVertexArray;
+    GLint lastBlendSrc;
+    GLint lastBlendDst;
+    GLint lastBlendEquationRGB;
+    GLint lastBlendEquationAlpha;
+    GLboolean lastEnableBlend;
+    GLboolean lastEnableCullFace;
+    GLboolean lastEnableDepthTest;
+    GLboolean lastEnableScissorTest;
+  };
 
 
 }
