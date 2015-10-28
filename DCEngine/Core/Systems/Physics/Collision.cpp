@@ -12,7 +12,7 @@ namespace DCEngine
 
   float DetermineRestitution(RigidBody  &a, RigidBody &b)
   {
-    return 	std::min(a.getRestitution(), b.getRestitution());
+    return 	std::max(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(RigidBody &a, RigidBody &b)
