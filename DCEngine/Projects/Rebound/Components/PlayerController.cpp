@@ -1,6 +1,7 @@
 #include "PlayerController.h"
 #include "../../CoreComponents.h"
 
+
 namespace DCEngine {
 
 	void PlayerController::Initialize()
@@ -14,6 +15,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
+    SpriteComponent = dynamic_cast<GameObject*>(owner_)->getComponent<Sprite>();
 	}
 
 	void PlayerController::Serialize(Json::Value & root)
@@ -69,6 +71,9 @@ namespace DCEngine {
 	{
 		if (Jumping)
 		{
+      SpriteComponent->SpriteSource = "MonkeyJump1";
+      SpriteComponent->HaveAnimation = false;
+      SpriteComponent->AnimationActive = false;
 			Jump();
 		}
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W))
@@ -77,6 +82,9 @@ namespace DCEngine {
 		}
 		else
 		{
+      SpriteComponent->SpriteSource = "MonkeyWalk1";
+      SpriteComponent->HaveAnimation = true;
+      SpriteComponent->AnimationActive = true;
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{
@@ -103,11 +111,11 @@ namespace DCEngine {
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
 		}
-		if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
-		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
-			//trace << "Space";
-		}
+		//if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
+		//{
+		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
+		//	//trace << "Space";
+		//}
 	}
 
 	void PlayerController::Jump()

@@ -47,6 +47,7 @@ namespace DCEngine {
       const int DefaultHeight = 900;
       unsigned int Width = 1024;
       unsigned int Height = 600;
+
       
       Window();
       void Initialize();

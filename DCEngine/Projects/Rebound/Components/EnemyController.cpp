@@ -23,9 +23,10 @@ namespace DCEngine {
 
 	void EnemyController::OnCollisionStartedEvent(Events::CollisionStarted * event)
 	{
-		if (1)
+		if (event->OtherObject->getComponent<BallController>())
 		{
-			TransformRef->Translation.x = 100;
+			TransformRef->Translation.x = 1000;
+      TransformRef->Translation.y = 1000;
 		}
 	}
 

@@ -445,7 +445,7 @@ namespace DCEngine {
 	{
 		auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
     // CHANGE THIS
-		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 5;
+		Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->FrameCount = 8;
 		//Animation update
 		this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
 		if (sprite.HaveAnimation == true)//Check whether it has animation

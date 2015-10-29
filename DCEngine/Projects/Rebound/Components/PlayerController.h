@@ -3,6 +3,7 @@
 
 namespace DCEngine {
 
+  class Sprite;
 	class Transform;
 	class RigidBody;
 	class PlayerController : public Component {
@@ -12,7 +13,7 @@ namespace DCEngine {
 		bool Translation = true;
 		bool Grounded = true;
 		bool Jumping = false;
-		Real MoveSpeed = 0.6;
+		Real MoveSpeed = 0.2;
 		Real JumpPower = 2;
 		Real JumpFrames = 15;
 		Real JumpFramesApplied = 0;
@@ -33,6 +34,7 @@ namespace DCEngine {
 		void Jump();
 
 	private:
+    Sprite* SpriteComponent;
 		void PrintTranslation();
 		void PrintVelocity();
 		std::string FootstepSound;

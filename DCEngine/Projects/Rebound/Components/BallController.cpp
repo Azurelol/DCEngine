@@ -63,7 +63,7 @@ namespace DCEngine {
 		if (CurrentlyFired && Daisy->getMouse()->MouseDown(MouseButton::Left))
 		{
 			Real3 CenteringVector = -glm::normalize(TransformRef->Translation);
-			RigidBodyRef->AddForce(CenteringVector * 500.0f);
+			RigidBodyRef->AddForce(CenteringVector * 200.0f);
 			//SpriteRef->Color = Real4(1, 1, 1, 1);
 		}
 		if (Charging)
@@ -76,7 +76,7 @@ namespace DCEngine {
 			}
 		}
 		//PrintVelocity();
-		if (glm::distance(Real3(0, -4, 0), TransformRef->Translation) < 6)
+		if (glm::distance(Real3(0, -7, 0), TransformRef->Translation) < 6)
 		{
 			CurrentlyFired = false;
 		}

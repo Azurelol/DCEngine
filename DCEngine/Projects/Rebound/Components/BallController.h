@@ -18,7 +18,7 @@ namespace DCEngine {
 //		Sprite* SpriteRef;
 		Real CurrentCharge = 1;
 		Real MaxCharge = 2;
-		Real ChargeFactor = 80;
+		Real ChargeFactor = 200;
 		Boolean Charging = false;
 		GameObject* PlayerRef;
 

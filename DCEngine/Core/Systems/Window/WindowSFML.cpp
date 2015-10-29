@@ -3,7 +3,6 @@
 #include "..\..\Engine\Engine.h"
 
 namespace DCEngine {
-
   namespace Systems {
 
     /**************************************************************************/
@@ -70,9 +69,9 @@ namespace DCEngine {
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
-      WindowContext->setVerticalSyncEnabled(true);
+      //WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      //WindowContext->setFramerateLimit(60); 
+      WindowContext->setFramerateLimit(30); 
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
@@ -97,6 +96,8 @@ namespace DCEngine {
       WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
         CaptionText, sf::Style::Default, ContextSettings));
 
+      LastTime = 0;
+
       // Configures the window context, then creates it
       //setWindow(WindowMode::Default);
 
@@ -114,8 +115,10 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-
-
+      //auto currentTime = Clock.restart().asSeconds();
+      //float fps = 1.f / (currentTime - LastTime);
+      //LastTime = currentTime;
+      //trace << "WindowSFML::Update - FPS: " << fps << "\n";
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
