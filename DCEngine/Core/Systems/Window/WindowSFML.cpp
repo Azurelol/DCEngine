@@ -71,7 +71,7 @@ namespace DCEngine {
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       //WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      WindowContext->setFramerateLimit(30); 
+      WindowContext->setFramerateLimit(60);
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
@@ -95,8 +95,9 @@ namespace DCEngine {
 
       WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
         CaptionText, sf::Style::Default, ContextSettings));
+      WindowContext->setFramerateLimit(60);
 
-      LastTime = 0;
+      
 
       // Configures the window context, then creates it
       //setWindow(WindowMode::Default);

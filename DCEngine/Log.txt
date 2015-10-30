@@ -222,4 +222,94 @@ Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
-Conn
+Connor::Initialize 
+GraphicsSpace::AddSprite - Connor
+Curtain::Initialize 
+GraphicsSpace::AddSprite - Curtain
+SpriteTextor::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+Mariah::Initialize 
+GraphicsSpace::AddSprite - Mariah
+PhysicsSpace::AddRigidBody - Mariah
+PhysicsSpace::AddCollider - Mariah
+enemy::Initialize 
+GraphicsSpace::AddSprite - enemy
+PhysicsSpace::AddRigidBody - enemy
+PhysicsSpace::AddCollider - enemy
+enemy::Initialize 
+GraphicsSpace::AddSprite - enemy
+PhysicsSpace::AddRigidBody - enemy
+PhysicsSpace::AddCollider - enemy
+enemy::Initialize 
+GraphicsSpace::AddSprite - enemy
+PhysicsSpace::AddRigidBody - enemy
+PhysicsSpace::AddCollider - enemy
+enemy::Initialize 
+GraphicsSpace::AddSprite - enemy
+PhysicsSpace::AddRigidBody - enemy
+PhysicsSpace::AddCollider - enemy
+groundenemy::Initialize 
+GraphicsSpace::AddSprite - groundenemy
+PhysicsSpace::AddRigidBody - groundenemy
+PhysicsSpace::AddCollider - groundenemy
+groundenemy::Initialize 
+GraphicsSpace::AddSprite - groundenemy
+PhysicsSpace::AddRigidBody - groundenemy
+PhysicsSpace::AddCollider - groundenemy
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+#################################################4Pikapikano!::Initialize 
+GraphicsSpace::AddSprite - Pikapikano!
+Floor::Initialize 
+PhysicsSpace::AddRigidBody - Floor
+PhysicsSpace::AddCollider - Floor
+Basketfloor2::Initialize 
+PhysicsSpace::AddRigidBody - Basketfloor2
+PhysicsSpace::AddCollider - Basketfloor2
+Background::Initialize 
+GraphicsSpace::AddSprite - Background
+Middleground::Initialize 
+GraphicsSpace::AddSprite - Middleground
+Foreground::Initialize 
+GraphicsSpace::AddSprite - Foreground
+
+[Engine::Loop]
+BallController::OnMouseUpEvent - Left Button released at x: -203 y: 159
+Mariah::Transform.Translation(4, -1.9959, 0)
+Mariah::Transform.Translation(3.95387, -2.00177, 0)
+Mariah::Transform.Translation(-10.4773, 9.51171, 0)
+Mariah::Transform.Translation(-2.62575, -2.00058, 0)
+Mariah::Transform.Translation(4.40632, 13.8812, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -146 y: 221
+Mariah::Transform.Translation(7.51988, -2.00058, 0)
+Mariah::Transform.Translation(7.51988, -1.38431, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -149 y: 242
+Mariah::Transform.Translation(-6.25741, -2.00058, 0)
+Mariah::Transform.Translation(-2.87564, -2.00029, 0)
+Mariah::Transform.Translation(-2.19179, -2.00029, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -146 y: 243
+BallController::OnMouseUpEvent - Left Button released at x: -152 y: 252
+Mariah::Transform.Translation(1.44815, -2.00029, 0)
+Mariah::Transform.Translation(-0.241894, -2.00029, 0)
+Mariah::Transform.Translation(-10.1997, -2.00059, 0)
+BallController::OnMouseUpEvent - Left Button released at x: 121 y: 279
+Mariah::Transform.Translation(-14.487, -2.00059, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -143 y: 278
+Editor::ToggleEditor : 1
+Editor::ToggleEditor : 0
+BallController::OnMouseUpEvent - Left Button released at x: -141 y: 259
+BallController::OnMouseUpEvent - Left Button released at x: -162 y: 277
+Mariah::Transform.Translation(-15.8133, -2.00059, 0)
+Mariah::Transform.Translation(-15.2453, -2.00029, 0)
+
+[Engine::Terminate] 
+Content::Terminate
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
+GUI::Terminate 
