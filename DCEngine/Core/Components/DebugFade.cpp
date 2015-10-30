@@ -21,7 +21,7 @@ namespace DCEngine {
   void DebugFade::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
     // Decrement the alpha every update
-    auto decrement = 0.0001; // lol
+    auto decrement = 0.001; // lol
     auto fadedColor = SpriteComponent->Color.a - decrement;
     // lol 2
     if (fadedColor < 0)
