@@ -47,7 +47,7 @@ namespace DCEngine {
     GLfloat BaseRollVal = 90.0f;
 		//Projection Mode
 		ProjectionMode Projection = ProjectionMode::Orthographic;
-		GLfloat FieldOfView = 175;
+		GLfloat FieldOfView = 250;
 		GLfloat WindowWidth = 8;
 		GLfloat WindowHeight = 6;
 		GLfloat Size = 90;//0 - 100 **need a if statement to control outranged value

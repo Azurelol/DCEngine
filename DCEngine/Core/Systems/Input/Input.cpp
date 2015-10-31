@@ -4,8 +4,7 @@
 
 // SFML implementation
 #if(USE_SFML)
-#include "InputSFML.h"
-std::unique_ptr<DCEngine::Systems::InputSFML> InputHandler;
+
 // GLFW implementation
 #else
 #include "InputGLFW.h"
@@ -50,6 +49,11 @@ namespace DCEngine {
 
     void Input::Deserialize(Json::Value & root)
     {
+    }
+
+    void Input::ToggleInput()
+    {
+      InputEnabled = !InputEnabled;
     }
 
   }

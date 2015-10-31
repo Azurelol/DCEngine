@@ -70,6 +70,10 @@ namespace DCEngine {
       const int _antiAliasingLevel = 4; //!< The multisampling level.
       const int _majorVersion = 3;
       const int _minorVersion = 3;
+
+      // FPS
+      sf::Clock Clock;
+      float LastTime;
       
     };
 

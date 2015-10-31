@@ -42,11 +42,12 @@ namespace DCEngine {
       std::unique_ptr<WindowSFML> WindowHandler;      
       
     private:
-      const std::string Caption = "Daisy Chain Engine v.lol";
-      const int DefaultWidth = 1024;
-      const int DefaultHeight = 768;
+      const std::string Caption = "Daisy Chain Engine v.Segment Presentation";
+      const int DefaultWidth = 1440;
+      const int DefaultHeight = 900;
       unsigned int Width = 1024;
       unsigned int Height = 600;
+
       
       Window();
       void Initialize();

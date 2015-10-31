@@ -226,7 +226,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>x64\sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;x64\sfml-window-s-d.lib;glew32s.lib;glfw3.lib;SOIL2.lib;x64\fmod64_vc.lib;x64\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-1_59.lib;x64\libboost_system-vc140-mt1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -238,6 +238,7 @@
     <ClCompile Include="Core\Components\DebugAudio.cpp" />
     <ClCompile Include="Core\Components\DebugCamera.cpp" />
     <ClCompile Include="Core\Components\DebugCollider.cpp" />
+    <ClCompile Include="Core\Components\DebugFade.cpp" />
     <ClCompile Include="Core\Components\DebugMoveController.cpp" />
     <ClCompile Include="Core\Components\DebugReport.cpp" />
     <ClCompile Include="Core\Components\GraphicsSpace.cpp" />
@@ -272,9 +273,9 @@
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
-    <ClCompile Include="Core\Systems\Content\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
+    <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
@@ -308,6 +309,7 @@
     <ClCompile Include="Projects\Dollhouse\GameObjects.cpp" />
     <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +321,7 @@
     <ClInclude Include="Core\Components\DebugCamera.h" />
     <ClInclude Include="Core\Components\DebugCollider.h" />
     <ClInclude Include="Core\Components\DebugDrawReference.h" />
+    <ClInclude Include="Core\Components\DebugFade.h" />
     <ClInclude Include="Core\Components\DebugMoveController.h" />
     <ClInclude Include="Core\Components\CameraViewport.h" />
     <ClInclude Include="Core\Components\ComponentReference.h" />
@@ -389,9 +392,9 @@
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
-    <ClInclude Include="Core\Systems\Content\FileSystem.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
+    <ClInclude Include="Core\Systems\Filesystem\FileSystem.h" />
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
     <ClInclude Include="Core\Systems\GUI\GUI.h" />
@@ -431,6 +434,7 @@
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
+    <ClInclude Include="Projects\Rebound\Components\EnemyController.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
     <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
     <ClInclude Include="Projects\Rebound\ReboundComponents.h" />

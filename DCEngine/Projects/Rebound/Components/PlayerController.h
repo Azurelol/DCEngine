@@ -3,6 +3,7 @@
 
 namespace DCEngine {
 
+  class Sprite;
 	class Transform;
 	class RigidBody;
 	class PlayerController : public Component {
@@ -10,8 +11,13 @@ namespace DCEngine {
 	public:
 
 		bool Translation = true;
-		Real MoveSpeed = 1;
-		Real JumpPower = 60;
+		bool Grounded = true;
+		bool Jumping = false;
+		Real MoveSpeed = 0.2;
+		Real JumpPower = 2;
+		Real JumpFrames = 15;
+		Real JumpFramesApplied = 0;
+		Real AirBrakeScalar = 0.8;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 
@@ -22,9 +28,13 @@ namespace DCEngine {
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
 		void OnKeyDownEvent(Events::KeyDown* event);
+		void OnCollisionStartedEvent(Events::CollisionStarted* event);
+		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+		void Jump();
 
 	private:
+    Sprite* SpriteComponent;
 		void PrintTranslation();
 		void PrintVelocity();
 		std::string FootstepSound;

@@ -11,23 +11,38 @@ namespace DCEngine {
 
   void DebugAudio::OnKeyDownEvent(Events::KeyDown * event)
   {    
-    auto SoundSpaceRef = SpaceRef->getComponent<SoundSpace>();
+    
        
     switch (event->Key) {
            
     case Keys::F1:
-      SoundSpaceRef->PlayCue(SoundCue1);
+      ChangeTrack(Track1);
       break;
     case Keys::F2:
-      SoundSpaceRef->PlayCue(SoundCue2);
+      ChangeTrack(Track2);
       break;
     case Keys::F3:
       break;
     case Keys::F4:
       break;
     }
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief  Changes the currently playing track.
+  @note   The name of the track (sound file) to play.
+  */
+  /**************************************************************************/
+  void DebugAudio::ChangeTrack(std::string & track)
+  {
+    if (CurrentSoundCue == track)
+      return;
 
+    auto SoundSpaceRef = SpaceRef->getComponent<SoundSpace>();
+    SoundSpaceRef->StopCue(CurrentSoundCue);
+    CurrentSoundCue = track;
+    SoundSpaceRef->PlayCue(CurrentSoundCue);
   }
 
   void DebugAudio::OnKeyUpEvent(Events::KeyUp * event)

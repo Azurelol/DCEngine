@@ -31,7 +31,8 @@ namespace DCEngine {
     //      << event->OtherObject->Name() << "\n";
 
     // Change color    
-    SpriteComponent->Color = CollisionColor;
+    if (ChangeColorOnCollide)
+      SpriteComponent->Color = CollisionColor;
     // Play a collision 
     //SpaceRef->getComponent<SoundSpace>()->PlayCue();
   }
@@ -39,7 +40,8 @@ namespace DCEngine {
   void DebugCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
   {
     // Change the color back
-    SpriteComponent->Color = SpriteColor;
+    if (ChangeColorOnCollide)
+      SpriteComponent->Color = SpriteColor;
 
     // Stop playing a collision
   }

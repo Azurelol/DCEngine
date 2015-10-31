@@ -14,8 +14,8 @@
 */
 /******************************************************************************/
 #pragma once
-
 #include "Object.h"
+#include "../Systems/Filesystem/FileSystem.h"
 
 namespace DCEngine {
 

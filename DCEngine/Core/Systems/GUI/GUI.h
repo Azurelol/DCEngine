@@ -19,24 +19,29 @@ namespace DCEngine {
         
     static bool GUI_ENABLED = true;
 
+    class InputSFML;
+    class Editor;
     class GUI : public System {
       friend class Engine;
+      friend class Editor;
+      friend class InputSFML;
     public:
     
     private:
-
-      GUI();
-
+            
       void Initialize();
       void StartFrame();
       void Render();
+      void Toggle();
 
+      GUI();
       void Update(float dt);
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
       
       std::unique_ptr<ImGuiSFML> GUIHandler;
+      sf::Event* EventObj;
 
     };
 

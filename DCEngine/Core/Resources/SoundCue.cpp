@@ -8,7 +8,8 @@ namespace DCEngine {
   @brief  SoundCue constructor.
   */
   /**************************************************************************/
-  SoundCue::SoundCue(std::string soundFile) : Resource("SoundCue"), SoundFileName(soundFile) {
+  SoundCue::SoundCue(std::string soundFile) : Resource(FileSystem::FileExtractWithoutExtension(soundFile)), 
+                                              SoundFileName(soundFile) {
     //Load();
   }
 
@@ -19,7 +20,8 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundCue::Load()
   {
-    Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(SoundFileName), SoundPtr);
+    Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(SoundFileName), Data);
+    trace << "SoundCue::Load - Finished loading " << SoundFileName << "!\n";
   }
 
 }

@@ -121,10 +121,10 @@ namespace DCEngine {
 			{
 				Size = 99;
 			}
-			return glm::ortho(TransformComponent->Translation.x - ((float)1024 / 728) * (100 - Size),
-				TransformComponent->Translation.x + ((float)1024 / 728) * (100 - Size),
-				TransformComponent->Translation.y - ((float)728 / 1024) * (100 - Size),
-				TransformComponent->Translation.y + ((float)728 / 1024) * (100 - Size),
+			return glm::ortho(TransformComponent->Translation.x - ((float)(*ScreenWidth) / (*ScreenHeight)) * (100 - Size),
+				TransformComponent->Translation.x + ((float)(*ScreenWidth) / (*ScreenHeight)) * (100 - Size),
+				TransformComponent->Translation.y - ((float)(*ScreenHeight) / (*ScreenWidth)) * (100 - Size),
+				TransformComponent->Translation.y + ((float)(*ScreenHeight) / (*ScreenWidth)) * (100 - Size),
 				NearPlane,
 				FarPlane);
 		}
@@ -138,7 +138,7 @@ namespace DCEngine {
 				FieldOfView = 175;
 			}
 			//trace << FieldOfView << "\n";
-			return glm::perspective(FieldOfView, ((float)1024 / 728), NearPlane, FarPlane);
+			return glm::perspective(FieldOfView, ((float)(*ScreenWidth) / (*ScreenHeight)), NearPlane, FarPlane);
 		}
 
     

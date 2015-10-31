@@ -1,10 +1,11 @@
 /******************************************************************************/
 /*!
-\file   Input.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   8/17/2015
-\brief  The abstract interface for the Input class.
+@file   Input.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   8/17/2015
+@brief  The abstract interface for the Input class.
+@todo   Find another way to pass the event object to the GUI?
 
 */
 /******************************************************************************/
@@ -21,8 +22,12 @@ namespace DCEngine{
   class Engine;
 
   namespace Systems {
+    class GUI;
+    class ImGuiSFML; // 
     class Input : public System {
       friend class Engine;
+      friend class GUI;
+      friend class ImGuiSFML;
     public:
 
     private:
@@ -32,6 +37,10 @@ namespace DCEngine{
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
+      void ToggleInput();
+
+      std::unique_ptr<DCEngine::Systems::InputSFML> InputHandler;
+      bool InputEnabled = true;
 
 
     };

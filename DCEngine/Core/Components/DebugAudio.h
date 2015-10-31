@@ -6,8 +6,10 @@ namespace DCEngine {
   class DebugAudio : public Component {
   public:
     
-    String SoundCue1 = "spacejam";
-    String SoundCue2 = "spacejam1";
+    String Track1;
+    String Track2;
+    String Track3;
+    String CurrentSoundCue;
 
     /* Initialize */
     DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
@@ -18,6 +20,7 @@ namespace DCEngine {
     /* Events */
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyUp* event);
+    void ChangeTrack(std::string& track);
 
   private:
   };
