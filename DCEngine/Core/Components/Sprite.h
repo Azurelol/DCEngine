@@ -31,7 +31,7 @@ namespace DCEngine {
 	public:
 
 		Transform* TransformComponent;
-		String SpriteSource = "Square";
+		String SpriteSource = "square";
 		bool Visible = true;
 		Real4 Color = Real4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
