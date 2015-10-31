@@ -11,12 +11,13 @@ Content::LoadEngineData - Finished loading all engine data.
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - Angryeyes was added.
+Content::AddSpriteSource - angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
 Content::AddSpriteSource - bg1 was added.
 Content::AddSpriteSource - Circle was added.
+Content::AddSpriteSource - Concept was added.
 Content::AddSpriteSource - Foreground was added.
 Content::AddSpriteSource - KnightAni1mation was added.
 Content::AddSpriteSource - KnightAnimation was added.
@@ -70,7 +71,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
@@ -79,6 +80,8 @@ AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam2.mp3
 SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam2.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/train.mp3
 SoundCue::Load - Finished loading Core/Assets/Sounds/train.mp3!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
@@ -276,76 +279,20 @@ Foreground::Initialize
 GraphicsSpace::AddSprite - Foreground
 
 [Engine::Loop]
-Mariah::Transform.Translation(4, -1.9955, 0)
-Mariah::Transform.Translation(4, -1.58076, 0)
-Mariah::Transform.Translation(2.53367, 5.9715, 0)
-Mariah::Transform.Translation(-0.0166956, 16.8501, 0)
-Mariah::Transform.Translation(-0.918343, 15.7504, 0)
-Mariah::Transform.Translation(-1.21898, 16.9596, 0)
-Mariah::Transform.Translation(-1.30799, 16.9865, 0)
-Mariah::Transform.Translation(-1.41078, 16.9533, 0)
-Mariah::Transform.Translation(-1.48258, 16.9944, 0)
-Mariah::Transform.Translation(-1.54266, 17.0007, 0)
-Mariah::Transform.Translation(-1.57952, 16.9647, 0)
-Mariah::Transform.Translation(-1.62077, 17.0011, 0)
-Mariah::Transform.Translation(-1.64049, 17.0068, 0)
-Mariah::Transform.Translation(-1.65563, 17.0278, 0)
-BallController::OnMouseUpEvent - Left Button released at x: 45 y: 225
-BallController::OnMouseUpEvent - Left Button released at x: 33 y: 278
-BallController::OnMouseUpEvent - Left Button released at x: -151 y: 290
-Mariah::Transform.Translation(-5.4969, -2.00059, 0)
-Mariah::Transform.Translation(-5.13901, -2.00088, 0)
-Mariah::Transform.Translation(0.29324, -2.00088, 0)
-Mariah::Transform.Translation(0.283573, -2.00146, 0)
-Mariah::Transform.Translation(-18.3156, -1.99536, 0)
-BallController::OnMouseUpEvent - Left Button released at x: -1 y: 252
-BallController::OnMouseUpEvent - Left Button released at x: 13 y: 275
-Mariah::Transform.Translation(-18.8145, -2.01054, 0)
-Mariah::Transform.Translation(-18.3023, -2.00176, 0)
-BallController::OnMouseUpEvent - Left Button released at x: -34 y: 265
-Mariah::Transform.Translation(-17.8032, -2.00085, 0)
-Mariah::Transform.Translation(-14.3803, 2.2197, 0)
-Mariah::Transform.Translation(12.5937, 7.72678, 0)
-Mariah::Transform.Translation(19.9382, -1.92713, 0)
-Mariah::Transform.Translation(-2.97058, -1.88377, 0)
-Mariah::Transform.Translation(-22.1354, 6.05601, 0)
-Mariah::Transform.Translation(-42.7937, -2.00012, 0)
-Camera::Transform.Translation(-2, 1, 1)
-Camera::Transform.Translation(-5, 1, 1)
-Camera::Transform.Translation(-8, 1, 1)
-Camera::Transform.Translation(-11, 1, 1)
-Camera::Transform.Translation(-14, 1, 1)
-Camera::Transform.Translation(-17, 1, 1)
-Camera::Transform.Translation(-14, 1, 1)
-Camera::Transform.Translation(-11, 1, 1)
-Camera::Transform.Translation(-8, 1, 1)
-Mariah::Transform.Translation(-2.21219, -1.95621, 0)
-Camera::Transform.Translation(-11, 1, 1)
-Camera::Transform.Translation(-14, 1, 1)
-Camera::Transform.Translation(-11, 1, 1)
-Mariah::Transform.Translation(28.5261, -0.152294, 0)
-Camera::Transform.Translation(-8, 1, 1)
-Camera::Transform.Translation(-5, 1, 1)
-Camera::Transform.Translation(-2, 1, 1)
-Mariah::Transform.Translation(39.628, -1.86803, 0)
-Camera::Transform.Translation(1, 1, 1)
-Mariah::Transform.Translation(44.6885, 0.553515, 0)
-Mariah::Transform.Translation(47.7863, 0.435486, 0)
-Camera::Transform.Translation(4, 1, 1)
-Camera::Transform.Translation(7, 1, 1)
-Camera::Transform.Translation(10, 1, 1)
-Camera::Transform.Translation(13, 1, 1)
-Camera::Transform.Translation(16, 1, 1)
-Camera::Transform.Translation(19, 1, 1)
-Camera::Transform.Translation(22, 1, 1)
-Camera::Transform.Translation(25, 1, 1)
-Camera::Transform.Translation(28, 1, 1)
-Camera::Transform.Translation(31, 1, 1)
-Mariah::Transform.Translation(52.9327, -2.00146, 0)
-Camera::Transform.Translation(34, 1, 1)
-Mariah::Transform.Translation(52.7224, -2.00029, 0)
-Mariah::Transform.Translation(52.4663, -1.99686, 0)
-Mariah::Transform.Translation(52.1957, -2.01159, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -33 y: -91
+Mariah::Transform.Translation(4, -1.99561, 0)
+Mariah::Transform.Translation(4, -1.97736, 0)
+Mariah::Transform.Translation(-6.13282, 0.90992, 0)
+Mariah::Transform.Translation(-6.5788, -0.369723, 0)
+Mariah::Transform.Translation(-0.177033, -0.514351, 0)
+Mariah::Transform.Translation(14.4789, 1.2595, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -136 y: 222
+Mariah::Transform.Translation(17.9207, -2.00057, 0)
+BallController::OnMouseUpEvent - Left Button released at x: -134 y: 232
+BallController::OnMouseUpEvent - Left Button released at x: -159 y: 274
+Mariah::Transform.Translation(-0.0502886, -2.00058, 0)
+Mariah::Transform.Translation(3.36608, -2.00029, 0)
+Mariah::Transform.Translation(3.29066, -2.00089, 0)
 
 [Engine::Terminate] 
 Content::Terminate
