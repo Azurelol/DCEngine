@@ -26,7 +26,9 @@ namespace DCEngine {
 
     //std::string DefaultTexture = "Square.png";
     float PixelsPerUnit = 0.0f;
-    int FrameCount = 0;
+	//Animation
+	int ColumnCount;
+	int RowCount;
     bool Smoothing;
     bool Looping;
     bool Fill;
