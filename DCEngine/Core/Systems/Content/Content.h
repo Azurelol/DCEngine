@@ -13,7 +13,7 @@
 #pragma once
 #include "../System.h"
 #include "../../Resources/ResourcesInclude.h"
-#include "../../Engine/ProjectData.h"
+#include "../../Engine/Data.h"
 
 namespace DCEngine {
 
@@ -48,7 +48,7 @@ namespace DCEngine {
     private:
       
       /* Data */
-      ProjectDataPtr EngineInfo;
+      std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
 
       /* Resource maps */
@@ -64,28 +64,19 @@ namespace DCEngine {
       void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
 
       /* Core functions */
-      Content();
+      Content(std::string& coreAssetsPath);
       void Initialize();
-      void Update(float dt); //!< Delete all objects in the to-be-deleted list
+      void Update(float dt);
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
 
       /* Loading functions */
       void LoadCoreAssets(); //!< Load default content files for the engine.        
-      void LoadEngineData(std::string&);
-      void LoadProjectData(std::string&); //!< 
-
-      void DeserializeProjectData(Json::Value& root); //!< Deserializes the loaded project's data.
-      void LoadProjectAssets(); //!< Load the assets used by the loaded project.
-      
+      void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void LoadAllResources();
 
-      void LoadArchetypes(); //!< Load archetypes from a project.
-      void LoadSpriteSources(); //!< Load spritesources from a project
-
-      std::vector<std::string> ScanFolder(std::string& folderPath);
-      void LoadFile();
+      void LoadProjectData(std::string&); //!<             
     };
   }
 

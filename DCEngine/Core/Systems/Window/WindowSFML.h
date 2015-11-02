@@ -38,9 +38,6 @@ namespace DCEngine {
       WindowSFML(Window& windowInterface);
       ~WindowSFML();
 
-      void SetWindowSize(int width, int height);
-      void SetWindowCaption(std::string caption);
-
       // (!!!) Temporary public access to the sf::Window object
       sf::Window* GetWindow() {
         return WindowContext.get();
@@ -50,7 +47,6 @@ namespace DCEngine {
       Window& WindowInterface;
       std::unique_ptr<sf::Window> WindowContext;
       sf::Event EventObj;
-      std::string CaptionText;
       WindowMode Mode = WindowMode::Default;
       
       sf::Vector2i getWindowDimensions();

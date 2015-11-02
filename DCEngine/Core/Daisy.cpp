@@ -26,8 +26,11 @@ namespace DCEngine {
 /**************************************************************************/
 int main(int argc, char* argv[]) {
 
+  // Temporary:
+  std::string configFile = "Daisy.cfg";
+
   // Construct the engine object
-  new Engine();
+  new Engine(configFile);
 
   try {
     // Initialize the engine

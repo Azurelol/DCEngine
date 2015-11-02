@@ -182,7 +182,7 @@ namespace DCEngine {
       ball->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       ball->getComponent<RigidBody>()->setGravity(true);
-      ball->getComponent<RigidBody>()->setRestitution(0.6);
+      ball->getComponent<RigidBody>()->setRestitution(0.6f);
     }
 
 

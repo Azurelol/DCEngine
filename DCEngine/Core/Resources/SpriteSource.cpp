@@ -8,7 +8,7 @@ namespace DCEngine {
   @param The name of the image (texture) file.
   */
   /**************************************************************************/
-  SpriteSource::SpriteSource(std::string spriteFile) : Resource(FileSystem::FileExtractWithoutExtension(spriteFile)), 
+  SpriteSource::SpriteSource(std::string spriteFile) : Resource(FileSystem::FileNoExtension(spriteFile)), 
                                                        ImageFileName(spriteFile) {
     
     #if (USE_SFML_TEXTURE)

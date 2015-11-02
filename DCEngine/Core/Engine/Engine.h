@@ -34,6 +34,7 @@ namespace DCEngine {
   public:
 
     Engine();
+    Engine(std::string configFile);
     ~Engine();
 
     void Initialize();
@@ -60,10 +61,10 @@ namespace DCEngine {
 
   private:
 
+    EngineConfigPtr EngineConfiguration;
     GameSessionPtr gamesession_; //!< The current GameSession object.
     KeyboardPtr keyboard_;
     MousePtr mouse_;
-    
     float dt; //!< Delta time. 
     float _framerate = 60.0f; //!< The target frame rate.
     float _runtime; //!< How long the engine has been running.
@@ -73,6 +74,7 @@ namespace DCEngine {
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
 
+    bool LoadEngineConfig();
     void Update(float dt);   
 
 
