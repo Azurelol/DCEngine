@@ -45,16 +45,27 @@ namespace DCEngine {
         soundCue.second->Load();
       }
 
-      // Load every SpriteSource's texture
-      for (auto texture : SpriteSourceMap) {
-        texture.second->LoadTexture();
-      }
+      // Loads spritesources data
+      LoadTextures();
 
       // Load every Font
       for (auto font : FontMap) {
         font.second->Load();
       }
 
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Loads every SpriteSource's texture data.
+    */
+    /**************************************************************************/
+    void Content::LoadTextures()
+    {
+      // Load every SpriteSource's texture
+      for (auto texture : SpriteSourceMap) {
+        texture.second->LoadTexture();
+      }
     }
 
     /**************************************************************************/

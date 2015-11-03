@@ -1,13 +1,16 @@
 /*****************************************************************************/
 /*!
-\file   Content.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   9/20/2015
-\brief  The Content system handles the loading of all content data required
+@file   Content.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/20/2015
+@brief  The Content system handles the loading of all content data required
         for a project. It stores references to the names of these resources
         as well as their file locations. The deserialization of these files
         is handled by the factory system.
+@todo   WindowSFML shouldn't be a friend. Have it receive an event rather
+        than have to friend it in order to give it access to the
+        LoadTextures function.
 */
 /******************************************************************************/
 #pragma once
@@ -28,9 +31,12 @@ namespace DCEngine {
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
     
+    class WindowSFML;
     class Content : public System {
       friend class Engine;
       friend class Factory;
+      friend class WindowSFML;
+      
     public:    
       void LoadProjectResources(); //!< Load resources from a project.
       
@@ -80,9 +86,9 @@ namespace DCEngine {
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.
       
       void LoadAllResources();
+      void LoadTextures();
 
       void LoadArchetypes(); //!< Load archetypes from a project.
-      void LoadSpriteSources(); //!< Load spritesources from a project
 
       std::vector<std::string> ScanFolder(std::string& folderPath);
       void LoadFile();
