@@ -82,6 +82,17 @@ namespace DCEngine {
 
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Removes the component from the entity.
+  @param  component A pointer to the component.
+  */
+  /**************************************************************************/
+  void Entity::RemoveComponent(ComponentPtr component)
+  {
+
+  }
+
   ComponentVec * Entity::AllComponents()
   {
     return &ComponentsContainer;

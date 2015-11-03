@@ -13,7 +13,10 @@ namespace DCEngine {
       if (TRACE_UPDATE)
         trace << "Factory::Update \n";
 
-      // Destroy all objects on the to-be-deleted list
+      // Destroy all objects on the to-be-deleted listf
+      for (auto gameObj : gameObjsToBeDeleted) {
+        
+      }
 
     }
     void Factory::Terminate() {
@@ -73,6 +76,11 @@ namespace DCEngine {
       // Open the input file
       return gameObj;
 
+    }
+
+    void Factory::DeleteGameObject(GameObjectPtr gameObj)
+    {
+      //delete gameObj;
     }
   }
 }

@@ -181,6 +181,9 @@
     <Filter Include="Core\Engine\Config">
       <UniqueIdentifier>{a74a45f6-07a6-4d67-a037-aa9060cf90b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Widgets">
+      <UniqueIdentifier>{62928177-b8e1-4b72-b2d8-199b751f8ab3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -425,6 +428,18 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
       <Filter>Core\Systems\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
+      <Filter>Core\Systems\Editor\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Library.cpp">
+      <Filter>Core\Systems\Editor\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
+      <Filter>Core\Systems\Editor\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Objects.cpp">
+      <Filter>Core\Systems\Editor\Widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

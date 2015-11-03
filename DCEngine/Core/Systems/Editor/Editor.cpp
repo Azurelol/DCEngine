@@ -74,101 +74,39 @@ namespace DCEngine {
       if (!EditorEnabled)
         return;
 
+      // Display all known editor widgets
+      DisplayMainMenuBar();
+      WidgetLevel();
       WidgetObjects();
       WidgetLibrary();
       WidgetProperties();
     }
 
+
+
     /**************************************************************************/
     /*!
-    \brief  Displays a list of Objects in the default space.
+    \brief  Allows the user a variety of settings regarding levels, such as
+            reloading the current level, loading a new one, or saving the
+            current one.
     */
     /**************************************************************************/
-    void Editor::WidgetObjects()
+    void Editor::WidgetLevel()
     {
-      // Set the position of the window
-      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
-      // Title
-      ImGui::Begin("Objects", &EditorEnabled);            
-      // Print every name
-      auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();    
-      for (auto object : *objects ) {
-        auto objName = object->Name().c_str();
-        // If the user has selected the GameObject.
-        if (ImGui::Button(objName))
-          SelectedObject = object.get();
-        //ImGui::Text(object->Name().c_str());
-      }
-      // Ends the window
-      ImGui::End();
-
     }
 
     /**************************************************************************/
     /*!
-    \brief  Displays the properties of the currently selected object.
+    \brief  Allows the user to add a resource to the current project's library
+            of assets.
     */
     /**************************************************************************/
-    void Editor::WidgetProperties()
-    { 
-      if (SelectedObject == nullptr)
-        return;
-
-      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);      
-      ImGui::Begin("Properties", &EditorEnabled);
-
-      // 1. Display the object's name
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
-      ImGui::Text(SelectedObject->Name().c_str());
-      // 2. Display its components
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
-      for (auto component : *SelectedObject->AllComponents()) {
-        ImGui::Text(component->Name().c_str());
-      }
-
-      ImGui::End();
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Displays the properties of the currently selected object.
-    */
-    /**************************************************************************/
-    void Editor::WidgetLibrary()
+    void Editor::WidgetResourceAdd()
     {
-      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Library", &EditorEnabled);
-
-      // 1. Display every spritesource
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Sprites: ");
-      for (auto spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
-        ImGui::Text(spriteSrc.second->Name().c_str());
-      }
-      // 2. Display every soundcue
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
-      for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
-        ImGui::Text(soundCue.second->Name().c_str());
-      }
-      // 2. Display every shader
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-      for (auto shader : *Daisy->getSystem<Content>()->AllShaders()) {
-        ImGui::Text(shader.second->Name().c_str());
-      }
-
-      ImGui::End();
-
-
-      //ImGui::SetNextWindowSize(ImVec2(200, 500), ImGuiSetCond_FirstUseEver);
-      //// Title
-      //ImGui::Begin("Library", &EditorEnabled);
-      //// Print every name
-      //auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
-      //for (auto object : *objects) {
-      //  ImGui::Text(object->Name().c_str());
-      //}
-      //// Ends the window
-      //ImGui::End();
     }
+
+
+
 
     /**************************************************************************/
     /*!
