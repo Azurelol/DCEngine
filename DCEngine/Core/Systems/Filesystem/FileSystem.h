@@ -1,48 +1,58 @@
-/******************************************************************************/
-/*!
-@file   FileSystem.h
+/*!****************************************************************************\
+@file   FileSystem.cpp
 @author Christian Sagel
-@par    email: c.sagel\@digipen.edu
-@date   10/17/2015
+@author Johannes Peter
 @brief  A BOOST-powered interface static class that provides common and useful
-        filesystem operations (such as scanning folders, etc)
+filesystem operations (such as scanning folders, etc)
 @note   The Boost Filesystem library:
-        http://www.boost.org/doc/libs/1_39_0/libs/filesystem/doc/index.htm
-        Great reference for using the library:
-        http://www.technical-recipes.com/2014/using-boostfilesystem/
-*/
-/******************************************************************************/
+http://www.boost.org/doc/libs/1_39_0/libs/filesystem/doc/index.htm
+Great reference for using the library:
+http://www.technical-recipes.com/2014/using-boostfilesystem/
+\******************************************************************************/
+
 #pragma once
 #include <string>
 #include <vector>
+#include <ctime>
+#include <BOOST/filesystem.hpp>
 
-namespace DCEngine {
 
-  class FileSystem {
+namespace DCEngine
+{
+  using filepath = boost::filesystem::path;
+
+  class FileSystem
+  {
   public:
 
+    /* Path Operations*/
+    static bool         Exists(filepath path);
+    static std::time_t  LastModified(filepath path);
+    static bool         Delete(filepath path);
+
+
     /* File Operations */
-    static bool FileFound(std::string filePath);
-    static unsigned int FileSize(std::string filePath);
-    static bool FileLastModified(std::string filePath, std::string& modifyData);
-    static std::string FileExtractExtension(std::string& filePath); // Should have one to remove the extension
-    static std::string FileExtractWithoutExtension(std::string& filePath);
-    static bool FileRename(std::string filePath, std::string newFileName);   
-    static bool FileCreate(std::string filePath);
-    static bool FileReadToString(std::string filePath, std::string& output);
-    static bool FileWriteString(std::string filePath, std::string& input);
+    static bool         FileCreate(filepath filePath);
+    static int          FileSize(filepath filePath);
+    static bool         FileRename(filepath filePath, std::string newFileName);
+    static bool         FileReadToString(filepath filePath, std::string& output);
+    static bool         FileWriteString(filepath filePath, std::string& input);
+    static std::string  FileNoExtension(filepath filePath);
+    static std::string  FileNoPath(filepath filePath);
+
 
     /* Folder Operations */
-    static bool DirectoryExtractFileNames(std::string dirPath, std::vector<std::string>& fileNames);
-    static bool DirectoryExtractFilePaths(std::string dirPath, std::vector<std::string>& filePaths);
-    static bool DirectoryFindFile(std::string fileName, std::string dirPath, std::string& filePath);
-    static unsigned int DirectoryCountFiles(std::string dirPath);
-    static bool DirectoryFound(std::string dirPath);
-    static bool DirectoryCreate(std::string dirPath);
+    static bool         DirectoryCreate(filepath dirPath);
+    static bool         DirectoryListPaths(filepath dirPath, std::vector<filepath>& paths);
+    static bool         DirectoryListFiles(filepath dirPath, std::vector<filepath>& files);
+    static bool         DirectoryListFileNames(std::string dirPath, std::vector<std::string>& fileNames);
+    static bool         DirectoryListFilePaths(std::string dirPath, std::vector<std::string>& filePaths);
+    static bool         DirectoryListDirs(filepath dirPath, std::vector<filepath>& dirs);
+    static bool         DirectoryContainsFile(filepath dirPath, std::string fileName, std::string& foundPath);
+    static unsigned int DirectoryCountFiles(filepath dirPath);
+    static unsigned int DirectoryCountDirs(filepath dirPath);
 
-    /* Path Operations*/
-    static bool Remove(std::string path);
-    // It would be good to restrict the 
+
   };
 
 }

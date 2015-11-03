@@ -24,7 +24,8 @@ namespace DCEngine {
 	{
 		if (AnimationInitialized == false)
 		{
-			CurrentFrame = StartFrame;
+			CurrentColumn = StartColumn;
+			CurrentRow = StartRow;
 			AnimationInitialized = true;
 			return false;
 		}

@@ -13,11 +13,11 @@ namespace DCEngine {
 		bool Translation = true;
 		bool Grounded = true;
 		bool Jumping = false;
-		Real MoveSpeed = 0.2;
-		Real JumpPower = 2;
-		Real JumpFrames = 15;
-		Real JumpFramesApplied = 0;
-		Real AirBrakeScalar = 0.8;
+		Real MoveSpeed = 0.2f;
+		Real JumpPower = 2.0f;
+		Real JumpFrames = 15.0f;
+		Real JumpFramesApplied = 0.0f;
+		Real AirBrakeScalar = 0.8f;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 

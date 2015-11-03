@@ -24,9 +24,11 @@ namespace DCEngine {
   class SpriteSource : public Resource {
   public:
 
-    std::string DefaultTexture = "Square.png";
-    float PixelsPerUnit;
-    int FrameCount;
+    //std::string DefaultTexture = "Square.png";
+    float PixelsPerUnit = 0.0f;
+	//Animation
+	int ColumnCount;
+	int RowCount;
     bool Smoothing;
     bool Looping;
     bool Fill;

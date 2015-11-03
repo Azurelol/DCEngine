@@ -9,9 +9,10 @@ namespace DCEngine {
     @brief Constructor for the Content system.
     */
     /**************************************************************************/
-    Content::Content() : System(std::string("ContentSystem"), EnumeratedSystem::Content) {
+    Content::Content(std::string& coreAssetsPath) : 
+                     System(std::string("ContentSystem"), EnumeratedSystem::Content),
+                     CoreAssetsPath(coreAssetsPath) {
       ProjectInfo.reset(new ProjectData());
-      EngineInfo.reset(new ProjectData());
     }
 
     /**************************************************************************/
@@ -23,9 +24,6 @@ namespace DCEngine {
     void Content::Initialize() {
       if (TRACE_INITIALIZE)
         trace << "Content::Initialize \n";
-
-      // Load the engine's default data
-      LoadEngineData(std::string("Core/Daisy.dcp"));
 
       // Load the default resources of the engine's
       LoadCoreAssets();
@@ -45,8 +43,10 @@ namespace DCEngine {
         soundCue.second->Load();
       }
 
-      // Loads spritesources data
-      LoadTextures();
+      // Load every SpriteSource's texture
+      for (auto texture : SpriteSourceMap) {
+        texture.second->LoadTexture();
+      }
 
       // Load every Font
       for (auto font : FontMap) {
@@ -54,39 +54,7 @@ namespace DCEngine {
       }
 
     }
-
-    /**************************************************************************/
-    /*!
-    @brief Loads every SpriteSource's texture data.
-    */
-    /**************************************************************************/
-    void Content::LoadTextures()
-    {
-      // Load every SpriteSource's texture
-      for (auto texture : SpriteSourceMap) {
-        texture.second->LoadTexture();
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Deserializes an EngineData file for engine data settings.
-    */
-    /**************************************************************************/
-    void Content::LoadEngineData(std::string& engineData)
-    {      
-
-      // NOT REALLY LOADING, IS IT?
-      EngineInfo->SpritePath = "Core/Assets/Sprites/";
-      EngineInfo->ShaderPath = "Core/Assets/Shaders/";
-      EngineInfo->FontPath = "Core/Assets/Fonts/";
-      EngineInfo->SoundPath = "Core/Assets/Sounds/";
-      
-      trace << "Content::LoadEngineData - Finished loading all engine data. \n";
-
-      
-    }
-
+    
     /**************************************************************************/
     /*!
     @brief Deserializes a ProjectData file for project data settings.
@@ -102,17 +70,7 @@ namespace DCEngine {
 
       trace << "Content::LoadProjectData - Finished loading all project data. \n";
     }
-
-    void Content::DeserializeProjectData(Json::Value& root)
-    {
-      // Deserialize all of the project file's data into the
-      // project data struct.
-      ProjectInfo->ProjectName = root.get("ProjectName", "").asString();
-      ProjectInfo->AssetPath= root.get("AssetFolder", "").asString();
-      ProjectInfo->ArchetypePath = root.get("ArchetypeFolder", "").asString();
-      ProjectInfo->LevelPath = root.get("LevelFolder", "").asString();
-    }
-
+    
     /**************************************************************************/
     /*!
     @brief Loads the default resources from the engine.
@@ -120,23 +78,29 @@ namespace DCEngine {
     character set.
     @todo  Figure out how to load both shader vertex and frag shaders into
            the one constructor dynamically.
+           Figure out a way to find the folder paths dynamically.
     */
     /**************************************************************************/
     void Content::LoadCoreAssets()
     {
       trace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
-      // Deserialize the engine's core assets file
+      
+      // In the future, find a way to dynamically find the folder paths?
+      auto SpritePath = CoreAssetsPath + "Sprites/";
+      auto SoundPath = CoreAssetsPath + "Sounds/";
+      auto FontPath = CoreAssetsPath + "Fonts/";
+      auto ShaderPath = CoreAssetsPath + "Shaders/";
       
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
-        EngineInfo->ShaderPath + "SpriteShader.vs",
-        EngineInfo->ShaderPath + "SpriteShader.frag")));
+        ShaderPath + "SpriteShader.vs",
+        ShaderPath + "SpriteShader.frag")));
       AddShader(std::string("SpriteTextShader"), ShaderPtr(new Shader(std::string("SpriteTextShader"),
-        EngineInfo->ShaderPath + "SpriteTextShader.vs",
-        EngineInfo->ShaderPath + "SpriteTextShader.frag")));
+        ShaderPath + "SpriteTextShader.vs",
+        ShaderPath + "SpriteTextShader.frag")));
       AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
-        EngineInfo->ShaderPath + "GUIShader.vs",
-        EngineInfo->ShaderPath + "GUIShader.frag")));
+        ShaderPath + "GUIShader.vs",
+        ShaderPath + "GUIShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;
@@ -148,31 +112,26 @@ namespace DCEngine {
       //            EngineInfo->ShaderPath + "SpriteShader.vs", 
       //            EngineInfo->ShaderPath + "SpriteShader.frag")));
       //}
+
       // Load sprites
-      std::vector<std::string> coreSprites;      
-      if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->SpritePath, coreSprites))
-        throw DCException("Content::LoadCoreAssets - Failed to load sprite files!");      
+      std::vector<std::string> coreSprites;
+      if (!FileSystem::DirectoryListFilePaths(SpritePath, coreSprites))
+        throw DCException("Content::LoadCoreAssets - Failed to load sprite files!");
       for (auto sprite : coreSprites) {
-        auto spriteName = FileSystem::FileExtractWithoutExtension(sprite);
+        auto spriteName = FileSystem::FileNoExtension (sprite);
         AddSpriteSource(spriteName, SpriteSourcePtr(new SpriteSource(sprite)));
       }
       // Load sound files
       std::vector<std::string> coreSounds;
-      if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->SoundPath, coreSounds))
+      if (!FileSystem::DirectoryListFilePaths(SoundPath, coreSounds))
         throw DCException("Content::LoadCoreAssets - Failed to load sound files!");
       for (auto sound : coreSounds) {
-        auto soundName = FileSystem::FileExtractWithoutExtension(sound);
+        auto soundName = FileSystem::FileNoExtension(sound);
         AddSoundCue(soundName, SoundCuePtr(new SoundCue(sound)));
       }
-      // Load default sprites
-   /*   AddSpriteSource(std::string("Square"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "square2.png")));
-      AddSpriteSource(std::string("Angryeyes"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "angryeyes.png")));
-      AddSpriteSource(std::string("Awesomeface"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "awesomeface.png")));
-      AddSpriteSource(std::string("KnightAnim"), SpriteSourcePtr(new SpriteSource(EngineInfo->SpritePath + "KnightAnimation.png")));
-*/     
 
       // Load default fonts      
-      AddFont(std::string("Verdana"), FontPtr(new Font(EngineInfo->FontPath + "Verdana.ttf")));
+      AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
       trace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 

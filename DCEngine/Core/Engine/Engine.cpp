@@ -32,7 +32,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  The constructor for the Engine object.
+  \brief  Default constructor for the Engine object.
   */
   /**************************************************************************/
   Engine::Engine() {
@@ -42,8 +42,35 @@ namespace DCEngine {
     // Initialize the trace object
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
-    
+    // Load the engine's configuration from a file
+    EngineConfiguration.reset(new EngineConfig);
+    std::string configPath = "Daisy.cfg";
+    std::string configString; 
+    if (FileSystem::FileReadToString(configPath, configString))
+      Serialization::Deserialize(EngineConfiguration.get(), configString);
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief  Constructor for the Engine object.
+  @param  configFile The name of the engine's configuration file.
+  */
+  /**************************************************************************/
+  Engine::Engine(std::string configFile)
+  {
+    // Assert makes sure there's only one instance of the engine 
+    assert(Daisy == nullptr);
+    Daisy.reset(this);
+
+    // Initialize the trace object
+    using namespace Debug;
+    traceObj.reset(new Trace("Log.txt"));
+
+    // Load the engine's configuration from a file
+    EngineConfiguration.reset(new EngineConfig);
+    std::string configString;
+    if (FileSystem::FileReadToString(configFile, configString))
+      Serialization::Deserialize(EngineConfiguration.get(), configString);
   }
 
   /**************************************************************************/
@@ -79,10 +106,13 @@ namespace DCEngine {
     mouse_.reset(new Mouse());
 
     // Systems are added to to the engine's systems vector. 
-    _systems.push_back(SystemPtr(new Systems::Content));
+    _systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     _systems.push_back(SystemPtr(new Systems::Reflection));
     _systems.push_back(SystemPtr(new Systems::Factory));
-    _systems.push_back(SystemPtr(new Systems::Window));
+    _systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
+                                                     EngineConfiguration->Framerate,
+                                                     EngineConfiguration->ResolutionWidth,
+                                                     EngineConfiguration->ResolutionHeight)));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Editor));    
     _systems.push_back(SystemPtr(new Systems::Physics));
@@ -218,6 +248,18 @@ namespace DCEngine {
 
     if (TRACE_UPDATE)
       trace << "[Engine::Update - All systems updated.] \n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Loads the engine's configuration from a file.
+  @return Success of the operation.
+  @note   If this operation fails, the engine will stop its initialize.
+  */
+  /**************************************************************************/
+  bool Engine::LoadEngineConfig()
+  {
+    return false;
   }
 
   /**************************************************************************/

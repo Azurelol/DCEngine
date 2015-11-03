@@ -60,18 +60,18 @@ namespace DCEngine {
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
-        WindowContext->create(sf::VideoMode(WindowInterface.DefaultWidth, WindowInterface.DefaultHeight),
-                              CaptionText, sf::Style::Default, ContextSettings);
+        WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+                              WindowInterface.Caption, sf::Style::Default, ContextSettings);
         break;
       case WindowMode::Fullscreen :
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-          CaptionText, sf::Style::Fullscreen, ContextSettings);        
+                              WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       //WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      WindowContext->setFramerateLimit(60);
+      WindowContext->setFramerateLimit(WindowInterface.Framerate);
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
@@ -97,10 +97,8 @@ namespace DCEngine {
       ContextSettings.minorVersion = _minorVersion;
 
       WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-        CaptionText, sf::Style::Default, ContextSettings));
-      WindowContext->setFramerateLimit(60);
-
-      
+                          WindowInterface.Caption, sf::Style::Default, ContextSettings));
+      WindowContext->setFramerateLimit(WindowInterface.Framerate);
 
       // Configures the window context, then creates it
       //setWindow(WindowMode::Default);
@@ -160,28 +158,6 @@ namespace DCEngine {
       Daisy->Stop();
     }
   
-    /**************************************************************************/
-    /*!
-    \brief  Sets the window size.
-    \param  The width of the window.
-    \param  The height of the window.
-    */
-    /**************************************************************************/
-    void WindowSFML::SetWindowSize(int width, int height) {
-      WindowInterface.Width = width;
-      WindowInterface.Height = height;
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Sets the window's caption
-    \param  The caption, in a string.
-    */
-    /**************************************************************************/
-    void WindowSFML::SetWindowCaption(std::string caption) {
-      CaptionText = caption;
-    }
-
   }
 
 

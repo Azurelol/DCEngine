@@ -118,9 +118,6 @@
     <Filter Include="Core\Resources\Audio">
       <UniqueIdentifier>{0247d43a-bb7a-41d9-b7b5-3e9b3dc5b186}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Resources\Object">
-      <UniqueIdentifier>{9417a7ee-6c97-4289-9e06-8ffa37598ca4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Resources\Graphics\Shaders">
       <UniqueIdentifier>{0d72dc57-2382-4dc6-a9ad-a2793adaaf75}</UniqueIdentifier>
     </Filter>
@@ -177,6 +174,12 @@
     </Filter>
     <Filter Include="Core\Systems\Editor">
       <UniqueIdentifier>{6e500cc4-4544-46a3-a901-764dc6432a81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\FileSystem">
+      <UniqueIdentifier>{bd2f64d6-c789-4c97-9859-b0d21a17c62a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Config">
+      <UniqueIdentifier>{a74a45f6-07a6-4d67-a037-aa9060cf90b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -417,9 +420,11 @@
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Components\DebugFade.cpp">
       <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
+      <Filter>Core\Systems\FileSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -681,9 +686,6 @@
     <ClInclude Include="Core\Systems\Physics\Collision.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\ProjectData.h">
-      <Filter>Core\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\CircleCollider.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
@@ -798,7 +800,12 @@
     <ClInclude Include="Core\Components\DebugFade.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Filesystem\FileSystem.h" />
+    <ClInclude Include="Core\Systems\Filesystem\FileSystem.h">
+      <Filter>Core\Systems\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Data.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

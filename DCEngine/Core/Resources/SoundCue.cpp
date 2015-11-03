@@ -8,7 +8,7 @@ namespace DCEngine {
   @brief  SoundCue constructor.
   */
   /**************************************************************************/
-  SoundCue::SoundCue(std::string soundFile) : Resource(FileSystem::FileExtractWithoutExtension(soundFile)), 
+  SoundCue::SoundCue(std::string soundFile) : Resource(FileSystem::FileNoExtension(soundFile)), 
                                               SoundFileName(soundFile) {
     //Load();
   }

@@ -14,10 +14,14 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 //animation
-uniform int currentFrame;
+//Horizontal
+uniform int currentColumn;
+//Vertical
+uniform int currentRow;
 uniform int isAnimaitonActivated;
 uniform int haveAnimationButStop;
-uniform float frameLength;
+uniform float rowHeight;
+uniform float columnLength;
 
 void main() {
   TexCoords = vertex.zw;
@@ -27,13 +31,24 @@ void main() {
   {
 	if (TexCoords.x == 1)
 	{
-	  TexCoords.x = frameLength;
-	  TexCoords.x += frameLength * currentFrame;
+	  TexCoords.x = columnLength;
+	  TexCoords.x += columnLength * currentColumn;
 	}
 	if (TexCoords.x == 0)
 	{
 	  TexCoords.x = 0;
-	  TexCoords.x += frameLength * currentFrame;
+	  TexCoords.x += columnLength * currentColumn;
+	}
+
+	if (TexCoords.y == 1)
+	{
+	  TexCoords.y = rowHeight;
+	  TexCoords.y += rowHeight * currentRow;
+	}
+	if (TexCoords.y == 0)
+	{
+	  TexCoords.y = 0;
+	  TexCoords.y += rowHeight * currentRow;
 	}
   }
     

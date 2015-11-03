@@ -348,7 +348,7 @@
     <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
-    <ClInclude Include="Core\Engine\ProjectData.h" />
+    <ClInclude Include="Core\Engine\Data.h" />
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />

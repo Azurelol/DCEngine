@@ -31,7 +31,7 @@ namespace DCEngine {
 	public:
 
 		Transform* TransformComponent;
-		String SpriteSource = "Square";
+		String SpriteSource = "square";
 		bool Visible = true;
 		Real4 Color = Real4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
@@ -48,8 +48,10 @@ namespace DCEngine {
 		bool AnimationActive = false;
 		bool HaveAnimation = false;
 		float AnimationSpeed = 1;
-		int StartFrame = 0;//the number of first frame is 0
-		int CurrentFrame = 0;
+		int StartColumn = 0;//the number of first frame is 0
+		int StartRow = 0;//the number of first row is 0
+		int CurrentColumn = 0;
+		int CurrentRow = 0;
 		void IncreaseAnimationCounter(float dt);
 		//return 1, speed is not 0. return 0, speed is 0
 		int UpdateAnimationSpeed(void);
