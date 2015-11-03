@@ -76,6 +76,9 @@ namespace DCEngine {
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
 
+      // Reload textures
+      //Daisy->getSystem<Content>()->LoadTextures();
+
       // The window context needs to give the input system a reference to this pointer
     }
 
