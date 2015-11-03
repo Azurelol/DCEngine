@@ -29,14 +29,18 @@ namespace DCEngine {
     private:
 
       void DisplayEditor();
-      /* Widgets */
+
+      /* Widgets Functions */
+      void DisplayMainMenuBar();
+      void WidgetLevel();
+      void WidgetResourceAdd();
       void WidgetObjects();
       void WidgetProperties();
       void WidgetLibrary();
 
       /* Serialization functions*/
-      void SaveLevel();
-      void ReloadLevel();
+      //void SaveLevel();
+      //void ReloadLevel();
             
       /* Test functions */
       void DisplayGUITest();
@@ -49,9 +53,18 @@ namespace DCEngine {
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);      
       
-      /* Member Variables */
+      /* Widget Enable Booleans */
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
+      bool WidgetMenuBarEnabled = false;
+      bool WidgetLevelEnabled = false;
+      bool WidgetResourceAddEnabled = false;
+      bool WidgetObjectsEnabled = false;
+      bool WidgetPropertiesEnabled = false;
+      bool WidgetLibraryEnabled = false;
+      
+      
+      
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;
       

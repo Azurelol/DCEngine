@@ -105,6 +105,19 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief  Destroy all the objects in the space.
+  */
+  /**************************************************************************/
+  void Space::DestroyAll()
+  {
+    for (auto object : GameObjectContainer) {
+
+    }
+
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Loads a level, container for entities, into the space. 
   */
   /**************************************************************************/
@@ -120,6 +133,19 @@ namespace DCEngine {
       AddObject(gameObject);
     }      
 
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Reloads the current level.
+  */
+  /**************************************************************************/
+  void Space::ReloadLevel()
+  {
+    // First, destroy all current objects in the space
+    DestroyAll();
+    // Load the level again
+    LoadLevel(CurrentLevel);
   }
 
   /**************************************************************************/

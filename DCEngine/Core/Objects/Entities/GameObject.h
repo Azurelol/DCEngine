@@ -37,6 +37,8 @@ namespace DCEngine {
     void AttachToRelative(GameObject* parent);
     void Detach();
     void DetachRelative();
+    
+    void Destroy();
 
     META_ADD_CLASS(GameObject); // Provides reflection for this object
 

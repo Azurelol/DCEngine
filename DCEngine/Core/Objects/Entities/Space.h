@@ -42,11 +42,12 @@ namespace DCEngine {
     
     void AddSystem(SystemPtr system);
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
-    void RemoveSystem(std::string system);
     
-    GameSession& getGameSession();
 
+    void DestroyAll();
     void LoadLevel(LevelPtr level);
+    void ReloadLevel();
+
     GameObjectPtr CreateObject();
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
@@ -55,6 +56,7 @@ namespace DCEngine {
     void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 
+    GameSession& getGameSession();
     const GameSession* Owner() { return GameSessionRef; };
 
     // Allows read only access to the space's name

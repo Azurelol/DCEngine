@@ -15,7 +15,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
-    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession) 
+    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession)
    // , GameObjectID(GameObjectsCreated++) 
   {
 
@@ -29,7 +29,7 @@ namespace DCEngine {
 
     type_ = EntityType::GameObject;
     // Every GameObject is parented to the space by default
-    Parent = SpaceRef;
+    Parent = nullptr;
   }
 
   GameObject::GameObject() 
@@ -92,7 +92,7 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::Detach()
   {
-    Parent = SpaceRef;
+    Parent = nullptr;
   }
 
   /**************************************************************************/
@@ -109,6 +109,22 @@ namespace DCEngine {
     if (auto transform = getComponent<Transform>()) {
       transform->UpdateTranslation();
     }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Destroys the GameObject after it has removed all its components
+          in turn, unsubscribing them.
+  */
+  /**************************************************************************/
+  void GameObject::Destroy()
+  {
+    // 1. Remove all components from the GameObject
+    for (auto component : ComponentsContainer)
+      RemoveComponent(component);
+    // 2. Mark this GameObject for destruction. On the next frame,
+    // the factory will handle deleting it.
+
   }
 
 }

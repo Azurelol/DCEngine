@@ -69,6 +69,7 @@ namespace DCEngine {
 
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
+      void DeleteGameObject(GameObjectPtr gameObj);
 
       
 

@@ -274,6 +274,10 @@
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Library.cpp" />
+    <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
