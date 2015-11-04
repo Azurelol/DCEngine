@@ -184,8 +184,13 @@ namespace DCEngine {
 					// COLLISION DETECTED
 					if (BoxtoBox(obj1, obj2, collision))
 					{
-						contactlist.push_back(collision);
-						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
+            {
+              contactlist.push_back(collision);
+            }
+            
+            // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						CollisionData boxToBoxCollision;
 						boxToBoxCollision.Object = obj1;
 						boxToBoxCollision.OtherObject = obj2;
@@ -204,7 +209,10 @@ namespace DCEngine {
 				{
 					if (CircletoCircle(obj1, obj2, collision))
 					{
-						contactlist.push_back(collision);
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
+            {
+              contactlist.push_back(collision);
+            }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						CollisionData circleToCirlceCollision;
 						circleToCirlceCollision.Object = obj1;
@@ -225,7 +233,10 @@ namespace DCEngine {
 				{
 					if (CircletoBox(obj1, obj2, collision))
 					{
-						contactlist.push_back(collision);
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
+            {
+              contactlist.push_back(collision);
+            }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						CollisionData boxToCirlceCollision;
 						boxToCirlceCollision.Object = obj1;
@@ -246,7 +257,10 @@ namespace DCEngine {
 				{
 					if (CircletoBox(obj2, obj1, collision))
 					{
-						contactlist.push_back(collision);
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
+            {
+              contactlist.push_back(collision);
+            }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						CollisionData boxToCirlceCollision;
 						boxToCirlceCollision.Object = obj2;

@@ -167,11 +167,17 @@ namespace DCEngine
 			if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
 				// The other body goes in the opposite direction
-				Real3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+        Real3 friction1(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
-				friction1 *= c.FrictionCof;
+        friction1 = glm::normalize(friction1);
 
-				c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction1);
+        Real dot = glm::dot(friction1, c.Object1->getComponent<RigidBody>()->getVelocity());
+
+        friction1 *= dot;
+
+        friction1 *= c.FrictionCof;
+
+        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction1);
 			}
 		}
 
@@ -179,11 +185,17 @@ namespace DCEngine
 		{
 			if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
-				Real3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+        Real3 friction2(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
-				friction2 *= c.FrictionCof;
+        friction2 = glm::normalize(friction2);
 
-				c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction2);
+        Real dot = glm::dot(friction2, c.Object2->getComponent<RigidBody>()->getVelocity());
+
+        friction2 *= dot;
+
+        friction2 *= c.FrictionCof;
+
+        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction2);
 			}
 		}
 
@@ -191,7 +203,13 @@ namespace DCEngine
 		{
 			if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
-				Real3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+				Real3 friction1(-c.ContactNormal.y, c.ContactNormal.x, 0);
+
+        friction1 = glm::normalize(friction1);
+
+        Real dot = glm::dot(friction1, c.Object1->getComponent<RigidBody>()->getVelocity());
+
+        friction1 *= dot;
 
 				friction1 *= c.FrictionCof;
 
@@ -201,9 +219,15 @@ namespace DCEngine
 			if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
 				// The other body goes in the opposite direction
-				Real3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+        Real3 friction2(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
-				friction2 *= c.FrictionCof;
+        friction2 = glm::normalize(friction2);
+
+        Real dot = glm::dot(friction2, c.Object2->getComponent<RigidBody>()->getVelocity());
+
+        friction2 *= dot;
+
+        friction2 *= c.FrictionCof;
 
 				c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction2);
 			}
@@ -330,7 +354,7 @@ namespace DCEngine
 			if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
 				c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
-			}
+			} 
 
 			if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
