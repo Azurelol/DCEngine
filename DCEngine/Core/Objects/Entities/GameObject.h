@@ -14,6 +14,12 @@
 
 namespace DCEngine {
 
+  class GameObject;
+  using GameObjectPtr = std::shared_ptr<GameObject>;
+  using GameObjectVec = std::vector<GameObjectPtr>;
+  using GameObjectRawVec = std::vector<GameObject*>;
+
+
   /* Forward declarations*/
   class Space;
   class GameSession;
@@ -33,18 +39,25 @@ namespace DCEngine {
     Space* GetSpace();
     GameSession* GetGameSession();  
 
+    GameObjectPtr FindChildByName(std::string name);
+    GameObjectVec FindAllChildrenByName(std::string name);
+    GameObjectVec& Children();    
+
     void AttachTo(GameObject* parent);
     void AttachToRelative(GameObject* parent);
     void Detach();
     void DetachRelative();
     
     void Destroy();
-
     META_ADD_CLASS(GameObject); // Provides reflection for this object
 
   private:
     Space* SpaceRef;
     GameSession* GamesessionRef;
+    GameObjectVec ChildrenContainer;
+
+    void AddChild(GameObjectPtr child);
+    void RemoveChild(GameObjectPtr child);
 
     //static int GameObjectsCreated;
     //const unsigned int GameObjectID;
@@ -52,8 +65,8 @@ namespace DCEngine {
 
   };
 
-  using GameObjectPtr = std::shared_ptr<GameObject>;
-  using GameObjectVec = std::vector<GameObjectPtr>;
-  using GameObjectRawVec = std::vector<GameObject*>;
+  //using GameObjectPtr = std::shared_ptr<GameObject>;
+  //using GameObjectVec = std::vector<GameObjectPtr>;
+  //using GameObjectRawVec = std::vector<GameObject*>;
 
 }

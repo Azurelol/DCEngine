@@ -48,6 +48,7 @@ namespace DCEngine {
       // Sprite properties
       //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
+      enemy->getComponent<Sprite>()->Color = Vec4(1, 0, 0, 1);
       // BoxCollider properties
       enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;

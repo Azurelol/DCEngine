@@ -59,6 +59,52 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief   Grab a reference to a specific child of the GameObject.
+  @param   name The name of the child.
+  @return  A reference to the child.
+  */
+  /**************************************************************************/
+  GameObjectPtr GameObject::FindChildByName(std::string name)
+  {
+    for (auto child : ChildrenContainer) {
+      if (child->Name() == name)
+        return child;
+    }
+    return nullptr;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief   Grab a reference to the container of all of the GameObject's
+           children that have the specified name.
+  @param   The name of the children.
+  @return  A reference to the container.
+  */
+  /**************************************************************************/
+  GameObjectVec GameObject::FindAllChildrenByName(std::string name)
+  {
+    GameObjectVec childrenByName;
+    for (auto child : ChildrenContainer) {
+      if (child->Name() == name)
+        childrenByName.push_back(child);
+    }
+    return childrenByName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief   Grab a reference to the container of all of the GameObject's 
+           children.
+  @return  A reference to the container.
+  */
+  /**************************************************************************/
+  GameObjectVec & GameObject::Children()
+  {
+    return ChildrenContainer;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Attach a GameObject to a parent GameObject.
   @param  A pointer to a GameObject.
   */
@@ -125,6 +171,30 @@ namespace DCEngine {
     // 2. Mark this GameObject for destruction. On the next frame,
     // the factory will handle deleting it.
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Registers a child onto the GameObject.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  void GameObject::AddChild(GameObjectPtr child)
+  {
+    ChildrenContainer.push_back(child);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Deregisters a child onto the GameObject.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  void GameObject::RemoveChild(GameObjectPtr child)
+  {
+    ChildrenContainer.erase(std::remove(ChildrenContainer.begin(),
+      ChildrenContainer.end(), child),
+      ChildrenContainer.end());    
   }
 
 }
