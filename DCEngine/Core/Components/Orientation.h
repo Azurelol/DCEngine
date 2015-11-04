@@ -23,28 +23,28 @@ namespace DCEngine {
     Real AbsoluteAngle; //!< The angle of the object about the up vector.
     //Quaternion Rotation; //!< The rotation that this object defines. Useful to align the object's
                     // bases with the world bases (using the inverse rotation)
-    Real3 LocalForward;
-    Real3 LocalUp;
-    Real3 LocalRight;
-    Real3 WorldForward = Real3(0, 1, 0);
-    Real3 WorldUp = Real3(0, 1, 0);
-    Real3 WorldRight = Real3(0, 0, 1);
+    Vec3 LocalForward;
+    Vec3 LocalUp;
+    Vec3 LocalRight;
+    Vec3 WorldForward = Vec3(0, 1, 0);
+    Vec3 WorldUp = Vec3(0, 1, 0);
+    Vec3 WorldRight = Vec3(0, 0, 1);
     //Quaternion WorldRotation;
 
     /* Look At */
-    void LookAtPoint(Real3 point);
-    void LookAtPointWithUp(Real3 point);
-    void LookAtDirection(Real3 direction);
-    void LookAtDirectionWithUp(Real3 direction);
+    void LookAtPoint(Vec3 point);
+    void LookAtPointWithUp(Vec3 point);
+    void LookAtDirection(Vec3 direction);
+    void LookAtDirectionWithUp(Vec3 direction);
     void LookAtUp(void);
 
     /* Get LookAt */
-    Real3 GetLookAtPointRotation(void);
-    Real3 GetLookAtDirectionRotation(void);
-    Real3 GetLookAtPointWithUpRotation(void);
-    Real3 GetLookAtDirectionWithUpRotation(void);
+    Vec3 GetLookAtPointRotation(void);
+    Vec3 GetLookAtDirectionRotation(void);
+    Vec3 GetLookAtPointWithUpRotation(void);
+    Vec3 GetLookAtDirectionWithUpRotation(void);
 
-    float GetVectorAngle(Real3 vector);
+    float GetVectorAngle(Vec3 vector);
 
     /* Initialize */
     Orientation(Entity& owner) : Component(std::string("Orientation"), owner) {}

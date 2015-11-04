@@ -68,9 +68,9 @@ namespace DCEngine {
       void DrawCircle(DrawCircleObj& obj);
       void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
-      void DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam);
-      void DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam);
-      void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam);
+      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
+      void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
+      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam);
       
     private:
       // TEMP: Change these two to const

@@ -18,7 +18,7 @@ namespace DCEngine
     bool rigid1;
     bool rigid2;
 
-    Real3 CollisionCenter;
+    Vec3 CollisionCenter;
     GameObject* Object1;
     GameObject* Object2;
 

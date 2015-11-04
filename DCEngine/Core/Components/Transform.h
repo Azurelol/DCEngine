@@ -20,17 +20,17 @@ namespace DCEngine {
   public:
     
     // Properties
-    Real3 Translation = Real3(0.0f, 0.0f, 0.0f);
-    Real3 Rotation = Real3(0.0f, 0.0f, 0.0f);
-    Real3 Scale = Real3(1.0f, 1.0f, 1.0f);
+    Vec3 Translation = Vec3(0.0f, 0.0f, 0.0f);
+    Vec3 Rotation = Vec3(0.0f, 0.0f, 0.0f);
+    Vec3 Scale = Vec3(1.0f, 1.0f, 1.0f);
     // Relative to the world
-    Real3 WorldTranslation = Translation;
-    Real3 WorldRotation = Rotation;
-    Real3 WorldScale = Scale;
+    Vec3 WorldTranslation = Translation;
+    Vec3 WorldRotation = Rotation;
+    Vec3 WorldScale = Scale;
     // Relative to self
-    Real3 LocalTranslation = Translation;
-    Real3 LocalRotation = Rotation;
-    Real3 LocalScale = Scale;   
+    Vec3 LocalTranslation = Translation;
+    Vec3 LocalRotation = Rotation;
+    Vec3 LocalScale = Scale;   
 
 
     Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
@@ -40,7 +40,7 @@ namespace DCEngine {
 
   private:
     
-    Real3 Origin = Real3(0, 0, 0);
+    Vec3 Origin = Vec3(0, 0, 0);
     void UpdateTranslation();
     void UpdateRotation();
     void UpdateScale();

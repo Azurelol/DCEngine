@@ -95,7 +95,7 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color, Camera& cam)
+    void GraphicsGL::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam)
     {
 		CleanBuffer();
 		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
@@ -122,7 +122,7 @@ namespace DCEngine {
     \param The color of the circle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(Real3& pos, Real& radius, Real4& color, Camera& cam)
+    void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam)
     {
       // Do your magic here Chen
       //trace << "Drawing a circle\n";
@@ -152,7 +152,7 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color, Camera& cam)
+    void GraphicsGL::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam)
     {
 		
 		CleanBuffer();

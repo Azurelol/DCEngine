@@ -56,7 +56,7 @@ namespace DCEngine {
   void DebugReport::DebugDraw()
   {
     auto ownerName = Owner()->Name();
-    auto currPos = Real3(TransformComponent->Translation.x, 
+    auto currPos = Vec3(TransformComponent->Translation.x, 
                         TransformComponent->Translation.y, 
                         TransformComponent->Translation.z);
 

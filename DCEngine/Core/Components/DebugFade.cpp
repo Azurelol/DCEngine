@@ -27,7 +27,7 @@ namespace DCEngine {
     if (fadedColor < 0)
       return;
 
-    SpriteComponent->Color = Real4(SpriteComponent->Color.x,
+    SpriteComponent->Color = Vec4(SpriteComponent->Color.x,
                                    SpriteComponent->Color.y,
                                    SpriteComponent->Color.z,
                                    fadedColor);

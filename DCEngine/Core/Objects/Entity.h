@@ -142,9 +142,6 @@ namespace DCEngine {
             trace << Name() << "::Dispatch - No delegate with event type matched!\n";
         }
       }
-
-
-
     }
 
     /**************************************************************************/

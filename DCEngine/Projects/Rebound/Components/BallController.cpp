@@ -26,6 +26,14 @@ namespace DCEngine {
 
 	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
 	{
+    trace << "BallController::OnMouseDownEvent - Mouse Pos (Pixels): " 
+          << event->Position.x << " y: " << event->Position.y << "\n";
+
+    // Call the CameraViewport component of the space with this screen position.. ?
+    auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
+    trace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
+      << coords.x << " y: " << coords.y << "\n";
+
 		if (CurrentlyFired)
 		{
 
@@ -34,13 +42,14 @@ namespace DCEngine {
 		{
 			Charging = true;
 		}
-		PlayerRef->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1);
+		PlayerRef->getComponent<Sprite>()->Color = Vec4(1, 1, 1, 1);
 	}
+
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{ 
 		if (!CurrentlyFired)
 		{
-			Real3 MouseVector = Real3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
+			Vec3 MouseVector = Vec3(event->Position.x, event->Position.y, 0); //set to the actual mouse's normalized vector once we have that capability
 			RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
 			Charging = false;
 			CurrentCharge = 0;
@@ -62,9 +71,9 @@ namespace DCEngine {
 	{
 		if (CurrentlyFired && Daisy->getMouse()->MouseDown(MouseButton::Left))
 		{
-			Real3 CenteringVector = -glm::normalize(TransformRef->Translation);
+			Vec3 CenteringVector = -glm::normalize(TransformRef->Translation);
 			RigidBodyRef->AddForce(CenteringVector * 200.0f);
-			//SpriteRef->Color = Real4(1, 1, 1, 1);
+			//SpriteRef->Color = Vec4(1, 1, 1, 1);
 		}
 		if (Charging)
 		{
@@ -76,7 +85,7 @@ namespace DCEngine {
 			}
 		}
 		//PrintVelocity();
-		if (glm::distance(Real3(0, -7, 0), TransformRef->Translation) < 6)
+		if (glm::distance(Vec3(0, -7, 0), TransformRef->Translation) < 6)
 		{
 			CurrentlyFired = false;
 		}
@@ -97,7 +106,7 @@ namespace DCEngine {
 
 	void BallController::PrintVelocity()
 	{
-		Real3 vel = RigidBodyRef->getVelocity();
+		Vec3 vel = RigidBodyRef->getVelocity();
 		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

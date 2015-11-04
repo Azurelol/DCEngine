@@ -16,9 +16,9 @@ Resource: "http://learnopengl.com/#!Model-Loading/Mesh"
 namespace DCEngine {
 
   struct Vertex {
-    Real3 Position;
-    Real3 Normal;
-    Real2 TexCoords;
+    Vec3 Position;
+    Vec3 Normal;
+    Vec2 TexCoords;
   };
   using VertexVec = std::vector<Vertex>;
   using IndicesVec = std::vector<GLuint>;

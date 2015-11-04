@@ -107,10 +107,10 @@ namespace DCEngine {
   \brief Sets the color using 255 as the max instead of 1. Preserves opacity.
   */
   /**************************************************************************/
-  void Sprite::SetColorUsing255(Real3 newColor)
+  void Sprite::SetColorUsing255(Vec3 newColor)
   {
 	  trace << "Color passed into 255 function = " << newColor.x << " " << newColor.y << " " << newColor.z << ".\n";
-	  Color = Real4(newColor.x / 255.0f, newColor.y / 255.0f, newColor.z / 255.0f, Color.w);
+	  Color = Vec4(newColor.x / 255.0f, newColor.y / 255.0f, newColor.z / 255.0f, Color.w);
 	  trace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
   }
 

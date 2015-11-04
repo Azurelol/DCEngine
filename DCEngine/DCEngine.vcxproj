@@ -287,6 +287,8 @@
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
+    <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp" />
+    <ClCompile Include="Core\Systems\Input\InputSFML_Mouse.cpp" />
     <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
@@ -456,6 +458,7 @@
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
+    <None Include="Daisy.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,7 +12,7 @@ namespace DCEngine {
 
     Transform* TransformComponent;
     Boolean Visible = true;
-    Real4 Color = Real4(0, 0, 0, 1);
+    Vec4 Color = Vec4(0, 0, 0, 1);
     String Font = "Verdana";
     Integer FontSize = 12;
     String Text = "";

@@ -4,38 +4,38 @@
 namespace DCEngine 
 {
 
-  float Orientation::GetVectorAngle(Real3 vector)
+  float Orientation::GetVectorAngle(Vec3 vector)
   {
     return glm::atan(vector.y / vector.x);
   }
 
-  void Orientation::LookAtPoint(Real3 point)
+  void Orientation::LookAtPoint(Vec3 point)
   {
-    Real3 Translation = this->Owner()->getComponent<Transform>()->Translation;
+    Vec3 Translation = this->Owner()->getComponent<Transform>()->Translation;
 
-    Real3 temp = glm::normalize(point - Translation);
+    Vec3 temp = glm::normalize(point - Translation);
 
     this->Owner()->getComponent<Transform>()->Rotation.z = GetVectorAngle(temp);
 
     WorldForward.x = WorldForward.x;
   }
 
-  void Orientation::LookAtPointWithUp(Real3 point)
+  void Orientation::LookAtPointWithUp(Vec3 point)
   {
-    Real3 Translation = this->Owner()->getComponent<Transform>()->Translation;
+    Vec3 Translation = this->Owner()->getComponent<Transform>()->Translation;
 
-    Real3 temp = glm::normalize(point - Translation);
+    Vec3 temp = glm::normalize(point - Translation);
 
     this->Owner()->getComponent<Transform>()->Rotation.z = glm::acos(temp.x) + glm::half_pi<float>();
   }
 
-  void Orientation::LookAtDirection(Real3 direction)
+  void Orientation::LookAtDirection(Vec3 direction)
   {
 
 
   }
 
-  void Orientation::LookAtDirectionWithUp(Real3 direction)
+  void Orientation::LookAtDirectionWithUp(Vec3 direction)
   {
 
   }
@@ -47,23 +47,23 @@ namespace DCEngine
 
 
 
-  Real3 Orientation::GetLookAtPointRotation(void)
+  Vec3 Orientation::GetLookAtPointRotation(void)
   {
-    return Real3(0, 0, 0);
+    return Vec3(0, 0, 0);
   }
 
-  Real3 Orientation::GetLookAtDirectionRotation(void)
+  Vec3 Orientation::GetLookAtDirectionRotation(void)
   {
-    return Real3(0, 0, 0);
+    return Vec3(0, 0, 0);
   }
-  Real3 Orientation::GetLookAtPointWithUpRotation(void)
+  Vec3 Orientation::GetLookAtPointWithUpRotation(void)
   {
-    return Real3(0, 0, 0);
+    return Vec3(0, 0, 0);
   }
 
-  Real3 Orientation::GetLookAtDirectionWithUpRotation(void)
+  Vec3 Orientation::GetLookAtDirectionWithUpRotation(void)
   {
-    return Real3(0, 0, 0);
+    return Vec3(0, 0, 0);
   }
 
 

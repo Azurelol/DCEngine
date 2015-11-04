@@ -21,12 +21,12 @@ namespace DCEngine {
     mariah->getComponent<Sprite>()->HaveAnimation = true;
     mariah->getComponent<Sprite>()->AnimationSpeed = 10;
     // Change the properties of the components
-    mariah->getComponent<Transform>()->Translation = Real3(4.0f, 10.0f, 0.0f);
-    mariah->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
+    mariah->getComponent<Transform>()->Translation = Vec3(4.0f, 10.0f, 0.0f);
+    mariah->getComponent<Transform>()->Scale = Vec3(2.0f, 2.0f, 1.0f);
     // Sprite properties
-    //mariah->getComponent<Sprite>()->Color = Real4(1.0f, 0.7f, 0.3f, 1.0f);
+    //mariah->getComponent<Sprite>()->Color = Vec4(1.0f, 0.7f, 0.3f, 1.0f);
     // BoxCollider properties
-    mariah->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+    mariah->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
     mariah->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
     mariah->getComponent<RigidBody>()->setGravity(true);
@@ -43,13 +43,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(23.0f, 4.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(23.0f, 4.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(false);
@@ -65,13 +65,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(-23.0f, 4.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(-23.0f, 4.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(false);
@@ -86,13 +86,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(10.0f, 18.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(10.0f, 18.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(false);
@@ -107,13 +107,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(-10.0f, 18.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(-10.0f, 18.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(false);
@@ -128,13 +128,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(-25.0f, 1.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(-25.0f, 1.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(true);
@@ -149,13 +149,13 @@ namespace DCEngine {
       enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
       enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
       // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Real3(25.0f, 1.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Real3(1.0f, 1.0f, 1.0f);
+      enemy->getComponent<Transform>()->Translation = Vec3(25.0f, 1.0f, 0.0f);
+      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
       // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f);
+      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
       enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
       // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       enemy->getComponent<RigidBody>()->setGravity(true);
@@ -171,14 +171,14 @@ namespace DCEngine {
       ball->AddComponent(ComponentPtr(new DebugReport(*ball)));
       ball->AddComponent(ComponentPtr(new BallController(*ball)));
       // Change the properties of the components
-      ball->getComponent<Transform>()->Translation = Real3(0.0f, 10.0f, 0.0f);
-      ball->getComponent<Transform>()->Scale = Real3(0.7f, 0.7f, 1.0f);
+      ball->getComponent<Transform>()->Translation = Vec3(0.0f, 10.0f, 0.0f);
+      ball->getComponent<Transform>()->Scale = Vec3(0.7f, 0.7f, 1.0f);
       // Sprite properties
       ball->getComponent<Sprite>()->SpriteSource = "Circle";
-      ball->getComponent<Sprite>()->Color = Real4(0.0f, 0.7f, 0.3f, 1.0f);
+      ball->getComponent<Sprite>()->Color = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
 
       // BoxCollider properties
-      ball->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+      ball->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       ball->getComponent<BoxCollider>()->IsDrawingCollider = true;
       // Rigidbody properties
       ball->getComponent<RigidBody>()->setGravity(true);
@@ -196,11 +196,11 @@ namespace DCEngine {
 		//reiner->AddComponent(ComponentPtr(new DebugMoveController(*reiner)));
 		//reiner->AddComponent(ComponentPtr(new DebugReport(*reiner)));
 		//// BoxCollider properties
-		//reiner->getComponent<BoxCollider>()->Size = Real3(2, 2, 2);
+		//reiner->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
 		//reiner->getComponent<BoxCollider>()->IsDrawingCollider = true;
 		//// Transform properties
-		//reiner->getComponent<Transform>()->Translation = Real3(-2, 1.0f, 0.f);
-		//reiner->getComponent<Transform>()->Scale = Real3(2.0f, 2.0f, 1.0f);
+		//reiner->getComponent<Transform>()->Translation = Vec3(-2, 1.0f, 0.f);
+		//reiner->getComponent<Transform>()->Scale = Vec3(2.0f, 2.0f, 1.0f);
   //  reiner->getComponent<RigidBody>()->setGravity(true);
 		//// Sprite properties
 		////reiner->getComponent<Sprite>()->setSpriteSource("angryeyes.png");
@@ -213,8 +213,8 @@ namespace DCEngine {
 		//// DebugDraw properties
 		//reiner->getComponent<DebugReport>()->DrawType = DebugDrawType::Line;
 		//reiner->getComponent<DebugReport>()->Radius = 8.0f;
-		//reiner->getComponent<DebugReport>()->Offset = Real3(5.0f, 0.0f, 0.0f);
-		////reiner->getComponent<DebugReport>()->Color = Real4(1.0f, 0.0f, 1.0f, 1.0f); // Purple line
+		//reiner->getComponent<DebugReport>()->Offset = Vec3(5.0f, 0.0f, 0.0f);
+		////reiner->getComponent<DebugReport>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f); // Purple line
 
 
   // // Simple entity #2
@@ -227,15 +227,15 @@ namespace DCEngine {
 		//john->AddComponent(ComponentPtr(new DebugCollider(*john)));
 		////john->AddComponent(ComponentPtr(new DebugReport(*john)));
 		//// Change the properties of the components
-		//john->getComponent<Transform>()->Translation = Real3(5.0f, 1.0f, 0.0f);
-		//john->getComponent<Transform>()->Scale = Real3(4.0f, 4.0f, 1.0f);
+		//john->getComponent<Transform>()->Translation = Vec3(5.0f, 1.0f, 0.0f);
+		//john->getComponent<Transform>()->Scale = Vec3(4.0f, 4.0f, 1.0f);
 		//// Sprite properties
-  //  //john->getComponent<Sprite>()->Color = Real4(1, 1, 1, 1); // Color: Blue
+  //  //john->getComponent<Sprite>()->Color = Vec4(1, 1, 1, 1); // Color: Blue
   //  john->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
   //  john->getComponent<Sprite>()->FlipX = true;
-		////john->getComponent<Sprite>()->Color = Real4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
+		////john->getComponent<Sprite>()->Color = Vec4(0.0f, 0.0f, 1.0f, 1.0f); // Color: Blue
 		//																	 // BoxCollider properties
-		//john->getComponent<BoxCollider>()->Size = Real3(4, 4, 4);
+		//john->getComponent<BoxCollider>()->Size = Vec3(4, 4, 4);
 		//john->getComponent<BoxCollider>()->IsDrawingCollider = true;
 
 

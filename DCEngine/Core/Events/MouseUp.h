@@ -15,7 +15,7 @@ namespace DCEngine {
   namespace Events {
     class MouseUp : public Event {
     public:
-      Real2 Position;
+      Vec2 Position;
       MouseButton ButtonReleased;
     private:
 

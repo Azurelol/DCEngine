@@ -20,10 +20,10 @@ namespace DCEngine {
     DebugDrawType DrawType = DebugDrawType::None;
     Real Radius = 1;
     Real Height = 1;
-    Real3 Offset = Real3(0, 0, 0);
-    Real4 Color = Real4(0.5, 0.5, 0.5, 1);
-    //Real3 StartPos = Real3(0, 0, 0);
-    //Real3 EndPos = Real3(0, 0, 0);  
+    Vec3 Offset = Vec3(0, 0, 0);
+    Vec4 Color = Vec4(0.5, 0.5, 0.5, 1);
+    //Vec3 StartPos = Vec3(0, 0, 0);
+    //Vec3 EndPos = Vec3(0, 0, 0);  
 
     DebugReport(Entity& owner) : Component(std::string("DebugReport"), owner) {}
     void Initialize();

@@ -51,10 +51,15 @@ namespace DCEngine {
     }
     GameSession* getGameSession() { return gamesession_.get(); }
 
-
+    // Component Events
     template <typename EventClass, typename ComponentClass, typename MemberFunction>
     void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
     //void Disconnect(const Entity& entity, EventType);
+
+    // System Events
+    //template<typename EventClass, typename SystemClass, typename MemberFunction>
+    //void Engine::Connect(Engine* engine, MemberFunction fn, SystemClass* sys);
+
 
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     template<typename T> std::shared_ptr<T> getSystem();
@@ -73,6 +78,12 @@ namespace DCEngine {
     std::string _defaultSpace = "Daisy World";
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
+    
+    // Engine events
+    template <typename EventClass>
+    void Dispatch(Event* eventObj); // Dispatches an event on object
+    std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
+    //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
     bool LoadEngineConfig();
     void Update(float dt);   
@@ -94,19 +105,71 @@ namespace DCEngine {
   template<typename EventClass, typename ComponentClass, typename MemberFunction>
   void Engine::Connect(Entity* entity, MemberFunction fn, ComponentClass* comp) {
 
-    if (TRACE_CONNECT) {
-      trace << "[Engine::Connect] - " << comp->Name() << " has connected to "
-        << entity->Name() << "\n";
-    }
+    //if (TRACE_CONNECT) {
+    //  trace << "[Engine::Connect] - " << comp->Name() << " has connected to "
+    //    << entity->Name() << "\n";
+    //}
 
     // Construct the member function delegate
-    auto memDeg = new MemberFunctionDelegate<ComponentClass, EventClass>();
+    auto memDeg = new ComponentFunctionDelegate<ComponentClass, EventClass>();
     memDeg->FuncPtr = fn;
     memDeg->CompInst = comp;
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = (Delegate*)memDeg;
     // Store the base delegate to the <EventClass, std::list<Delegate*> > map
     entity->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Subscribes a system's member function to an engine event.
+  \param  A pointer to the engine instance.
+  \param  A member function from the component.
+  \param  A pointer to the component.
+  \return A shared pointer to the requested system.
+  */
+  /**************************************************************************/
+  //template<typename EventClass, typename SystemClass, typename MemberFunction>
+  //void Engine::Connect(Engine* engine, MemberFunction fn, SystemClass* sys) {
+
+  //  if (TRACE_CONNECT) {
+  //    trace << "[Engine::Connect] - " << sys->Name() << " has connected to "
+  //      << "the engine " << "\n";
+  //  }
+
+  //  // Construct the member function delegate
+  //  auto memDeg = new SystemFunctionDelegate<SystemClass, EventClass>();
+  //  memDeg->FuncPtr = fn;
+  //  memDeg->SystemInst = sys;
+  //  // Create a base delegate pointer to pass to the entity's container
+  //  auto degPtr = (Delegate*)memDeg;
+  //  // Store the base delegate to the <EventClass, std::list<Delegate*> > map
+  //  engine->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+  //}
+
+  /**************************************************************************/
+  /*!
+  \brief  Dispatches an event to the engine.
+  \param The event class.
+  \param The event object that is being passed.
+  */
+  /**************************************************************************/
+  template <typename EventClass>
+  void Engine::Dispatch(Event * eventObj) {
+
+    // For every delegate in the registry
+    auto eventTypeID = std::type_index(typeid(EventClass));
+    // Look for a matching event among the keys
+    for (auto& eventKey : ObserverRegistry) {
+      if (eventTypeID == eventKey.first) {
+        // For every delegate in the list for this specific event
+        for (auto deleg : eventKey.second) {
+          // Call the delegate's member function
+          deleg->Call(eventObj);
+          //deleg.Call<eventTypeID>(eventObj);
+        }
+      }
+    }
   }
 
   /**************************************************************************/
@@ -129,6 +192,13 @@ namespace DCEngine {
     throw std::range_error("The specified system does not exist.");
   }
 
+  /**************************************************************************/
+  /*!
+  \brief  Allows access to a system running in the engine via system type.
+  \para   SystemClass The class of the system.
+  \return A shared pointer to the requested system.
+  */
+  /**************************************************************************/
   template<typename SystemClass>
   inline std::shared_ptr<SystemClass> Engine::getSystem() {
     for (auto systemPtr : _systems) {
@@ -158,7 +228,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   //#define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), std::mem_fn(&Function), this)
-#define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), &Function, this)
+  #define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), &Function, this)
 
   /*
   The interface for launching Daisy Chain engine.

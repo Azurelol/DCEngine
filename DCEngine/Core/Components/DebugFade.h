@@ -9,7 +9,7 @@ namespace DCEngine {
     
     Sprite* SpriteComponent;
     Real FadeOutDur = 10;
-    Real4 FadeColor = Real4(0, 0, 0, 0);
+    Vec4 FadeColor = Vec4(0, 0, 0, 0);
 
     /* Initialize */
     DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}

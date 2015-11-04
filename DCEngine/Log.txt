@@ -70,11 +70,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-<<<<<<< HEAD
 [Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
-=======
-[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
->>>>>>> 63be41a074c002d96f3d6c239d9b81be90ad55fe
 AudioFMOD::CreateSound: Core/Assets/Sounds/soulja.mp3
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateSound: Core/Assets/Sounds/spacejam.mp3
@@ -225,9 +221,6 @@ Daisy World::AddEntity - Added Foreground to the space.
 |Daisy World::Initialize| 
 Audio::Register -  Daisy World has registered to the Audio system
 Physics::Register -  Daisy World has registered to the Physics system
-<<<<<<< HEAD
-Graphics::Register -  Daisy World has registered to the Gra
-=======
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
@@ -285,23 +278,103 @@ Foreground::Initialize
 GraphicsSpace::AddSprite - Foreground
 
 [Engine::Loop]
-Editor::ToggleEditor : 1
-BallController::OnMouseUpEvent - Left Button released at x: -462 y: 372
-Editor::ToggleEditor : 0
-Editor::ToggleEditor : 1
-Editor::ToggleEditor : 0
-Editor::ToggleEditor : 1
-Editor::ToggleEditor : 0
-Editor::ToggleEditor : 1
-Editor::ToggleEditor : 0
-
-[Engine::Terminate] 
-Content::Terminate
-Factory::Terminate 
-Window::Terminate 
-Input::Terminate 
-Editor::Terminate 
-Audio::Terminate 
-Graphics::Terminate 
-GUI::Terminate 
->>>>>>> 63be41a074c002d96f3d6c239d9b81be90ad55fe
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 494 y: 450
+BallController::OnMouseDownEvent - Mouse Pos (World): 0.410576 y: 3.88163
+BallController::OnMouseUpEvent - Left Button released at x: 494 y: 450
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 109 y: 505
+BallController::OnMouseDownEvent - Mouse Pos (World): -12.1965 y: 6.28298
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 85 y: 500
+BallController::OnMouseDownEvent - Mouse Pos (World): -12.9824 y: 6.06468
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 91 y: 465
+BallController::OnMouseDownEvent - Mouse Pos (World): -12.786 y: 4.53654
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 125 y: 312
+BallController::OnMouseDownEvent - Mouse Pos (World): -11.6726 y: -2.14359
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 113 y: 351
+BallController::OnMouseDownEvent - Mouse Pos (World): -12.0656 y: -0.440813
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 110 y: 369
+BallController::OnMouseDownEvent - Mouse Pos (World): -12.1638 y: 0.345085
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 532 y: 515
+BallController::OnMouseDownEvent - Mouse Pos (World): 1.65492 y: 6.71959
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 513 y: 381
+BallController::OnMouseDownEvent - Mouse Pos (World): 1.03275 y: 0.869017
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 513 y: 381
+BallController::OnMouseDownEvent - Mouse Pos (World): 1.03275 y: 0.869017
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 513 y: 381
+BallController::OnMouseDownEvent - Mouse Pos (World): 1.03275 y: 0.869017
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 513 y: 381
+BallController::OnMouseDownEvent - Mouse Pos (World): 1.03275 y: 0.869017
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 685 y: 276
+BallController::OnMouseDownEvent - Mouse Pos (World): 6.66502 y: -3.71539
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 499 y: 412
+BallController::OnMouseDownEvent - Mouse Pos (World): 0.574305 y: 2.22251
+Mariah::Transform.Translation(10.5641, -2.00146, 0)
+Mariah::Transform.Translation(9.94084, -2.00057, 0)
+Mariah::Transform.Translation(-7.97773, -0.257665, 0)
+Mariah::Transform.Translation(-9.87903, -2.00088, 0)
+Mariah::Transform.Translation(-9.87858, -0.615404, 0)
+Mariah::Transform.Translation(-9.87832, -0.0954783, 0)
+Mariah::Transform.Translation(-9.87816, -0.0475574, 0)
+Mariah::Transform.Translation(-9.87796, 0.792169, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 323 y: 428
+BallController::OnMouseDownEvent - Mouse Pos (World): -5.18895 y: 2.92108
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 552 y: 254
+BallController::OnMouseDownEvent - Mouse Pos (World): 2.30983 y: -4.67593
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 177 y: 198
+BallController::OnMouseDownEvent - Mouse Pos (World): -9.96983 y: -7.12095
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 173 y: 471
+BallController::OnMouseDownEvent - Mouse Pos (World): -10.1008 y: 4.79851
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 374 y: 526
+BallController::OnMouseDownEvent - Mouse Pos (World): -3.51891 y: 7.19986
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 546 y: 329
+BallController::OnMouseDownEvent - Mouse Pos (World): 2.11336 y: -1.40136
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 234 y: 250
+BallController::OnMouseDownEvent - Mouse Pos (World): -8.10332 y: -4.85058
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 327 y: 434
+BallController::OnMouseDownEvent - Mouse Pos (World): -5.05796 y: 3.18305
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 328 y: 435
+BallController::OnMouseDownEvent - Mouse Pos (World): -5.02522 y: 3.22671
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 328 y: 435
+BallController::OnMouseDownEvent - Mouse Pos (World): -5.02522 y: 3.22671
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 420 y: 434
+BallController::OnMouseDownEvent - Mouse Pos (World): -2.01261 y: 3.18305
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 451 y: 435
+BallController::OnMouseDownEvent - Mouse Pos (World): -0.997491 y: 3.22671
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 497 y: 438
+BallController::OnMouseDownEvent - Mouse Pos (World): 0.508814 y: 3.35769
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 506 y: 441
+BallController::OnMouseDownEvent - Mouse Pos (World): 0.803525 y: 3.48868
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 375 y: 434
+BallController::OnMouseDownEvent - Mouse Pos (World): -3.48617 y: 3.18305
+Mariah::Transform.Translation(-7.1476, -2.00029, 0)
+Mariah::Transform.Translation(-7.1476, -2.00117, 0)
+Mariah::Transform.Translation(-7.1476, -2.09716, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 371 y: 409
+BallController::OnMouseDownEvent - Mouse Pos (World): -3.61715 y: 2.09153
+Mariah::Transform.Translation(-7.1476, -0.356626, 0)
+Mariah::Transform.Translation(-7.1476, -0.253745, 0)
+Mariah::Transform.Translation(-16.2723, -2.00029, 0)
+Camera::Transform.Translation(-2, 1, 1)
+Camera::Transform.Translation(-5, 1, 1)
+Camera::Transform.Translation(-8, 1, 1)
+Camera::Transform.Translation(-11, 1, 1)
+Camera::Transform.Translation(-14, 1, 1)
+Camera::Transform.Translation(-17, 1, 1)
+Camera::Transform.Translation(-20, 1, 1)
+Camera::Transform.Translation(-23, 1, 1)
+Camera::Transform.Translation(-26, 1, 1)
+Camera::Transform.Translation(-29, 1, 1)
+Mariah::Transform.Translation(-24.2229, -2.00117, 0)
+Mariah::Transform.Translation(-24.3512, -2.00029, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 509 y: 433
+BallController::OnMouseDownEvent - Mouse Pos (World): -29.0982 y: 3.13939
+Mariah::Transform.Translation(-28.9798, -2.00088, 0)
+Mariah::Transform.Translation(-28.9798, -2.00146, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 509 y: 433
+BallController::OnMouseDownEvent - Mouse Pos (World): -29.0982 y: 3.13939
+BallController::OnMouseUpEvent - Left Button released at x: 509 y: 433
+Mariah::Transform.Translation(-28.9798, -2.00029, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 509 y: 433
+BallController::OnMouseDownEvent - Mouse Pos (World): -29.0982 y: 3.13939
+Mariah::Transform.Translation(-28.9798, -1.99589, 0)
+BallController::OnMouseDownEvent - Mouse Pos (Pixels): 509 y: 433
+BallController::OnMouseDownEvent - Mouse Pos (World): -29.0982

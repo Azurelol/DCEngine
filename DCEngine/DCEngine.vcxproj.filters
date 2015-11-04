@@ -441,6 +441,12 @@
     <ClCompile Include="Core\Systems\Editor\Objects.cpp">
       <Filter>Core\Systems\Editor\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Input\InputSFML_Mouse.cpp">
+      <Filter>Core\Systems\Input\SFML</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp">
+      <Filter>Core\Systems\Input\SFML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -852,5 +858,6 @@
     <None Include="Core\Assets\Shaders\GUIShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Daisy.cfg" />
   </ItemGroup>
 </Project>

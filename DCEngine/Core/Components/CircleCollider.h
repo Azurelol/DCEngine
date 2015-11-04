@@ -18,13 +18,13 @@ namespace DCEngine {
   public:
        
     float Radius = 5;
-    Real3 Offset = Real3(0, 0, 0);
+    Vec3 Offset = Vec3(0, 0, 0);
     Boolean Ghost = false;
     Boolean SendsEvents = true;
     Boolean IsDrawingCollider = false;
 
     float getRadius(void);
-    Real3 getOffset(void);
+    Vec3 getOffset(void);
     bool getGhost(void);
     bool getSendsEvents(void);
 

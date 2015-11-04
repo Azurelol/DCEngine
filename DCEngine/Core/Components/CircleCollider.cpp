@@ -24,13 +24,13 @@ namespace DCEngine {
 
   /*void CircleCollider::DrawCollider()
   {
-    auto debugScale = Real2(TransformComponent->Scale.x * Size.x,
+    auto debugScale = Vec2(TransformComponent->Scale.x * Size.x,
                             TransformComponent->Scale.y * Size.y);
 
     SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset, 
                                                           debugScale.x, //TransformComponent->Scale.x * Size.x,
                                                           debugScale.y, //TransformComponent->Scale.y * Size.y, 
-                                                          Real4(1, 0, 0, 1)); // Red
+                                                          Vec4(1, 0, 0, 1)); // Red
   }*/
 
   void CircleCollider::Serialize(Json::Value & root)
@@ -62,7 +62,7 @@ namespace DCEngine {
   }
   
   /* Getters */
-  Real3 CircleCollider::getOffset(void)
+  Vec3 CircleCollider::getOffset(void)
   {
     return this->Offset;
   }

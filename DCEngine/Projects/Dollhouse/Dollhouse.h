@@ -42,7 +42,7 @@ namespace DCEngine {
       //cam->AddComponent(factory->CreateComponent<Camera>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<DebugReport>(*cam, false));
       //cam->AddComponent(factory->CreateComponent<DebugCamera>(*cam, false));
-      //cam->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      //cam->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
       //cam->getComponent<Camera>()->Size = 50;
 
       GameObjectPtr cameraObj = ConstructGameObject("Camera");
@@ -55,7 +55,7 @@ namespace DCEngine {
       cameraObj->getComponent<DebugAudio>()->Track1 = "soulja";
       cameraObj->getComponent<DebugAudio>()->Track2 = "spacejam2";
       // Camera properties      
-      cameraObj->getComponent<Transform>()->Translation = Real3(1.0f, 1.0f, 1.0f);
+      cameraObj->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;
       cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
 
@@ -72,7 +72,7 @@ namespace DCEngine {
       GameObjectPtr rango = ConstructGameObject("Rango");
       rango->AddComponent(ComponentPtr(new Sprite(*rango)));
       rango->AddComponent(ComponentPtr(new Transform(*rango)));
-      rango->getComponent<Transform>()->Translation = Real3(2.0f, 1.0f, -3.0f);
+      rango->getComponent<Transform>()->Translation = Vec3(2.0f, 1.0f, -3.0f);
 
       // Serialization test
       std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";

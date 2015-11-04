@@ -23,24 +23,35 @@ namespace DCEngine {
       if (!WidgetLibraryEnabled)
         return;
 
+      
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);
 
       // 1. Display every spritesource
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Sprites: ");
-      for (auto spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
-        ImGui::Text(spriteSrc.second->Name().c_str());
+      if (ImGui::TreeNode("SpriteSource")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Sprites: ");
+        for (auto spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
+          ImGui::Text(spriteSrc.second->Name().c_str());
+        }
+        ImGui::TreePop();
       }
       // 2. Display every soundcue
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
-      for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
-        ImGui::Text(soundCue.second->Name().c_str());
+      if (ImGui::TreeNode("SoundCue")) {        
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
+        for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
+          ImGui::Text(soundCue.second->Name().c_str());
+        }
+        ImGui::TreePop();
       }
-      // 2. Display every shader
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-      for (auto shader : *Daisy->getSystem<Content>()->AllShaders()) {
-        ImGui::Text(shader.second->Name().c_str());
+      // 3. Display every shader
+      if (ImGui::TreeNode("Shader")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto shader : *Daisy->getSystem<Content>()->AllShaders()) {
+          ImGui::Text(shader.second->Name().c_str());
+        }
+        ImGui::TreePop();
       }
+      
 
       ImGui::End();
 

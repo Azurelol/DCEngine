@@ -47,7 +47,7 @@ namespace DCEngine {
 
 	void EnemyController::PrintVelocity()
 	{
-		Real3 vel = RigidBodyRef->getVelocity();
+		Vec3 vel = RigidBodyRef->getVelocity();
 		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

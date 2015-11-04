@@ -50,25 +50,28 @@ namespace DCEngine {
 		GLfloat FieldOfView = 250;
 		GLfloat WindowWidth = 8;
 		GLfloat WindowHeight = 6;
-		GLfloat Size = 90;//0 - 100 **need a if statement to control outranged value
+		GLfloat Size = 90; // Size of th orthographic projection. 
+                       // 0 - 100 **need a if statement to control outranged value
 		//Clipping plane
 		GLfloat NearPlane = 0.1f;
 		GLfloat FarPlane = 100.0f;
     Transform *TransformComponent;
 
+
+    glm::mat4 GetViewMatrix();
+    glm::mat4 GetProjectionMatrix();
+
 		Camera(Entity& owner);
 		void Initialize();
 		virtual void Serialize(Json::Value& root);
 		virtual void Deserialize(Json::Value& root);
-		glm::mat4 GetViewMatrix();
-		glm::mat4 GetProjectionMatrix();
 		void OnLogicUpdate(Events::LogicUpdate* event);
 		
 	private:
+    // References to the Window context's settings
     unsigned int* ScreenWidth;
     unsigned int* ScreenHeight;
-
-		// Returns view matrix calculated using Euler Angles and LookAt Matrix;
+    		
 		void Update();
 		// Calculates the front vector from the Camera's (updated) Euler angles
 		void UpdateCameraVectors();

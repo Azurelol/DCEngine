@@ -32,8 +32,11 @@ namespace DCEngine {
       for (auto object : *objects) {
         auto objName = object->Name().c_str();
         // If the user has selected the GameObject.
-        if (ImGui::Button(objName))
+        if (ImGui::Button(objName)) {
           SelectedObject = object.get();
+          WidgetPropertiesEnabled = true;
+        }
+          
         //ImGui::Text(object->Name().c_str());
       }
 

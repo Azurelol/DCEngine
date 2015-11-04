@@ -20,14 +20,14 @@ namespace DCEngine {
 	public:
 		friend class Physics;
 
-		Real3 Size = Real3(1, 1, 1);
-		Real3 Offset = Real3(0, 0, 0);
+		Vec3 Size = Vec3(1, 1, 1);
+		Vec3 Offset = Vec3(0, 0, 0);
 		Boolean Ghost = false;
 		Boolean SendsEvents = true;
 		Boolean IsDrawingCollider = false;
 
-		Real3 getSize(void);
-		Real3 getOffset(void);
+		Vec3 getSize(void);
+		Vec3 getOffset(void);
 		bool getGhost(void);
 		bool getSendsEvents(void);
 
@@ -43,7 +43,7 @@ namespace DCEngine {
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 
-		Real3 getColliderScale();
+		Vec3 getColliderScale();
 	private:
 		Transform* TransformComponent;
 

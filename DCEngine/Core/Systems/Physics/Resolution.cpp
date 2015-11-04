@@ -51,7 +51,7 @@ namespace DCEngine
 
 			if (c.rigid1 == false && c.rigid2 == false)
 			{
-				accCausedVelocity = Real3(0, 0, 0);
+				accCausedVelocity = Vec3(0, 0, 0);
 			}
 
 			if (c.rigid1 != false && c.rigid2 == false)
@@ -167,7 +167,7 @@ namespace DCEngine
 			if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
 				// The other body goes in the opposite direction
-				Real3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+				Vec3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
 
 				friction1 *= c.FrictionCof;
 
@@ -179,7 +179,7 @@ namespace DCEngine
 		{
 			if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
-				Real3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+				Vec3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
 
 				friction2 *= c.FrictionCof;
 
@@ -191,7 +191,7 @@ namespace DCEngine
 		{
 			if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
-				Real3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+				Vec3 friction1(-c.Object1->getComponent<RigidBody>()->getVelocity().x, 0, 0);
 
 				friction1 *= c.FrictionCof;
 
@@ -201,7 +201,7 @@ namespace DCEngine
 			if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
 			{
 				// The other body goes in the opposite direction
-				Real3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
+				Vec3 friction2(-c.Object2->getComponent<RigidBody>()->getVelocity().x, 0, 0);
 
 				friction2 *= c.FrictionCof;
 

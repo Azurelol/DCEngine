@@ -26,13 +26,13 @@ namespace DCEngine {
 
 	void BoxCollider::DrawCollider()
 	{
-		auto debugScale = Real2(getColliderScale().x,
+		auto debugScale = Vec2(getColliderScale().x,
 			getColliderScale().x);
 
 		SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset,
 			debugScale.x, //TransformComponent->Scale.x * Size.x,
 			debugScale.y, //TransformComponent->Scale.y * Size.y, 
-			Real4(1, 0, 0, 1)); // Red
+			Vec4(1, 0, 0, 1)); // Red
 	}
 
 	void BoxCollider::Serialize(Json::Value & root)
@@ -66,7 +66,7 @@ namespace DCEngine {
 	size was set at 2, the collider would be twice the size of the object.
 	*/
 	/**************************************************************************/
-	Real3 BoxCollider::getColliderScale()
+	Vec3 BoxCollider::getColliderScale()
 	{
 		return (Size * TransformComponent->Scale);
 	}
@@ -77,12 +77,12 @@ namespace DCEngine {
 	}
 
 	/* Getters */
-	Real3 BoxCollider::getSize(void)
+	Vec3 BoxCollider::getSize(void)
 	{
 		return this->Size;
 	}
 
-	Real3 BoxCollider::getOffset(void)
+	Vec3 BoxCollider::getOffset(void)
 	{
 		return this->Offset;
 	}

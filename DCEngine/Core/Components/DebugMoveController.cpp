@@ -37,13 +37,13 @@ namespace DCEngine {
       if (Translation)
         TransformRef->Translation.y += MoveSpeed * JumpMultiplier;
       else
-        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed * JumpMultiplier, 0));
+        RigidBodyRef->ApplyLinearVelocity(Vec3(0, MoveSpeed * JumpMultiplier, 0));
       PrintTranslation();
     case Keys::W:
       if (Translation)
         TransformRef->Translation.y += MoveSpeed * JumpMultiplier;
       else
-        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed * JumpMultiplier, 0));
+        RigidBodyRef->ApplyLinearVelocity(Vec3(0, MoveSpeed * JumpMultiplier, 0));
       PrintTranslation();
       break;    
 
@@ -52,7 +52,7 @@ namespace DCEngine {
       if (Translation)
         TransformRef->Translation.y -= MoveSpeed;
       else
-        RigidBodyRef->ApplyLinearVelocity(Real3(0, MoveSpeed, 0));
+        RigidBodyRef->ApplyLinearVelocity(Vec3(0, MoveSpeed, 0));
       PrintTranslation();
       break;
 
@@ -61,7 +61,7 @@ namespace DCEngine {
       if (Translation)
         TransformRef->Translation.x -= MoveSpeed;
       else
-        RigidBodyRef->ApplyLinearVelocity(Real3(-MoveSpeed, 0, 0));
+        RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
       PrintTranslation();
       break;
     /* Move Right */
@@ -69,7 +69,7 @@ namespace DCEngine {
       if (Translation)
         TransformRef->Translation.x += MoveSpeed;
       else
-        RigidBodyRef->ApplyLinearVelocity(Real3(MoveSpeed, 0, 0));
+        RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
       PrintTranslation();
       break;
     /* Move along Z-Axis (lol) */

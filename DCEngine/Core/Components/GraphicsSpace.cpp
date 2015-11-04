@@ -60,19 +60,19 @@ namespace DCEngine {
   \brief Passes a call requesting a DebugDraw call on to the Graphics System.
   */
   /**************************************************************************/
-  void GraphicsSpace::DrawCircle(Real3& pos, Real& radius, Real4& color)
+  void GraphicsSpace::DrawCircle(Vec3& pos, Real& radius, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
     Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawCircle(pos, radius, color, cam);
   }
 
-  void GraphicsSpace::DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color)
+  void GraphicsSpace::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
     Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawRectangle(pos, width, height, color, cam);
   }
 
-  void GraphicsSpace::DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color)
+  void GraphicsSpace::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
     Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawLineSegment(startPos, endPos, length, color, cam);

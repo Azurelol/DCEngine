@@ -63,10 +63,10 @@ namespace DCEngine {
       bool WidgetPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
       
-      
-      
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;
+
+      void OnMouseDownEvent(Event* event);
       
 
     };

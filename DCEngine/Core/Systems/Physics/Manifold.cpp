@@ -10,7 +10,7 @@ namespace DCEngine
 
 		if (this->rigid1 == false && this->rigid2 == false)
 		{
-			relativeVelocity = Real3(0, 0, 0);
+			relativeVelocity = Vec3(0, 0, 0);
 		}
 
 		if (this->rigid1 != false && this->rigid2 == false)

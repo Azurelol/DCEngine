@@ -49,8 +49,15 @@ namespace DCEngine {
     virtual void Call(Event* event) = 0;
   };
 
+
+  /**************************************************************************/
+  /*!
+  \brief  Templated class that allows component member functions to connect
+          to an entity's events.
+  */
+  /**************************************************************************/
   template <typename ComponentClass, typename EventClass>
-  class MemberFunctionDelegate : public Delegate {
+  class ComponentFunctionDelegate : public Delegate {
   public:
     typedef void(ComponentClass::*EventFn)(EventClass* event);
     EventFn FuncPtr;
@@ -68,6 +75,30 @@ namespace DCEngine {
     }
   };
 
+  /**************************************************************************/
+  /*!
+  \brief  Templated class that allows systems' member functions to connect
+          to an entity's events.
+  */
+  /**************************************************************************/
+  template <typename SystemClass, typename EventClass>
+  class SystemFunctionDelegate : public Delegate {
+  public:
+    typedef void(SystemClass::*EventFn)(EventClass* event);
+    EventFn FuncPtr;
+    SystemClass* SystemInst;
+
+    /**************************************************************************/
+    /*!
+    \brief  Calls the member function given an event.
+    \param  A pointer to the event object.
+    */
+    /**************************************************************************/
+    virtual void Call(Event* event) {
+      EventClass* eventObj = dynamic_cast<SystemClass*>(event);
+      (SystemInst->*FuncPtr)(eventObj);
+    }
+  };
 
 
 }

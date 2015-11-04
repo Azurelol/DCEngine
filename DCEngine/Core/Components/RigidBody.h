@@ -27,7 +27,7 @@ namespace DCEngine
 	{
 	public:
 
-		Real3 InitialVelocity = Real3(0, 0, 0);
+		Vec3 InitialVelocity = Vec3(0, 0, 0);
 
 		RigidBody(Entity& owner) : Component(std::string("RigidBody"), owner) {}
 
@@ -35,29 +35,29 @@ namespace DCEngine
 		virtual void Serialize(Json::Value& root);
 		virtual void Deserialize(Json::Value& root);
 
-		void AddForce(Real3 force);
+		void AddForce(Vec3 force);
 		void Integrate(float dt);
 		void PublishResults(void);
 
-		Real3 getGravitydir(void);
+		Vec3 getGravitydir(void);
 		Real  getGravityratio(void);
 		bool  getGravity(void);
 		float getRestitution(void);
-		Real3 getVelocity(void);
-		Real3 getAcceleration(void);
+		Vec3 getVelocity(void);
+		Vec3 getAcceleration(void);
 		float getFriction(void);
 		float getMass(void);
 		float getInvMass(void);
-		Real3 getPosition(void);
+		Vec3 getPosition(void);
 
-		void setPosition(Real3 pos);
-		void setGravitydir(Real3 dir);
+		void setPosition(Vec3 pos);
+		void setGravitydir(Vec3 dir);
 		void setGravityratio(Real ratio);
 		void setGravity(bool state);
-		void setVelocity(Real3 vel);
-		void ApplyLinearVelocity(Real3 vel);
+		void setVelocity(Vec3 vel);
+		void ApplyLinearVelocity(Vec3 vel);
 		void setRestitution(float rest);
-		void setAcceleration(Real3 accel);
+		void setAcceleration(Vec3 accel);
 		void setFriction(float friction);
 		void setMass(float mass);
 		DynamicStateType DynamicState = DynamicStateType::Dynamic;
@@ -69,13 +69,13 @@ namespace DCEngine
 									   /* Properties */
 		Real Gravityratio = 1.0f;
 		bool Gravity = true;
-		Real3 Gravitydir = Real3(0, -1, 0);
-		Real3 Velocity = Real3(0, 0, 0);
-		Real3 AngularVelocity = Real3(0, 0, 0);
-		Real3 Acceleration = Real3(0, 0, 0);
-		Real3 Position = Real3(0, 0, 0);
-		Real3 PreviousPosition = Real3(0, 0, 0);
-		Real3 AccumulatedForce = Real3(0, 0, 0);
+		Vec3 Gravitydir = Vec3(0, -1, 0);
+		Vec3 Velocity = Vec3(0, 0, 0);
+		Vec3 AngularVelocity = Vec3(0, 0, 0);
+		Vec3 Acceleration = Vec3(0, 0, 0);
+		Vec3 Position = Vec3(0, 0, 0);
+		Vec3 PreviousPosition = Vec3(0, 0, 0);
+		Vec3 AccumulatedForce = Vec3(0, 0, 0);
 		Real Mass = 10.0f;
 		Real InverseMass = 1.0f / 10.0f;
 		Real Restitution = 0.0f;

@@ -52,7 +52,7 @@ namespace DCEngine
 	@param A force vector.
 	*/
 	/**************************************************************************/
-	void RigidBody::AddForce(Real3 force)
+	void RigidBody::AddForce(Vec3 force)
 	{
 		AccumulatedForce += force;
 	}
@@ -82,7 +82,7 @@ namespace DCEngine
 		Position = Position + Velocity * dt; //acceleration term is small
 
 											 //Determine the acceleration
-		Real3 newAcceleration;
+		Vec3 newAcceleration;
 
 		if (Gravity)
 		{
@@ -107,7 +107,7 @@ namespace DCEngine
 		}
 
 		// Clear the force
-		AccumulatedForce = Real3(0, 0, 0);
+		AccumulatedForce = Vec3(0, 0, 0);
 	}
 
 	/**************************************************************************/
@@ -115,7 +115,7 @@ namespace DCEngine
 	\brief Updates this object's translation with the calculated position.
 	*/
 	/**************************************************************************/
-	void RigidBody::setPosition(Real3 pos)
+	void RigidBody::setPosition(Vec3 pos)
 	{
 		Position = pos;
 	}
@@ -126,7 +126,7 @@ namespace DCEngine
 	\brief Updates this object's direction of gravity.
 	*/
 	/**************************************************************************/
-	void RigidBody::setGravitydir(Real3 dir)
+	void RigidBody::setGravitydir(Vec3 dir)
 	{
 		Gravitydir = glm::normalize(dir);
 	}
@@ -158,7 +158,7 @@ namespace DCEngine
 	\brief Updates this object's velocity.
 	*/
 	/**************************************************************************/
-	void RigidBody::setVelocity(Real3 vel)
+	void RigidBody::setVelocity(Vec3 vel)
 	{
 		Velocity = vel;
 	}
@@ -169,7 +169,7 @@ namespace DCEngine
 	\brief Updates this object's velocity based on current velocity.
 	*/
 	/**************************************************************************/
-	void RigidBody::ApplyLinearVelocity(Real3 vel)
+	void RigidBody::ApplyLinearVelocity(Vec3 vel)
 	{
 		Velocity = vel + getVelocity();
 	}
@@ -190,7 +190,7 @@ namespace DCEngine
 	\brief Updates this object's acceleration.
 	*/
 	/**************************************************************************/
-	void RigidBody::setAcceleration(Real3 accel)
+	void RigidBody::setAcceleration(Vec3 accel)
 	{
 		Acceleration = accel;
 	}
@@ -226,7 +226,7 @@ namespace DCEngine
 		return Restitution;
 	}
 
-	Real3 RigidBody::getPosition(void)
+	Vec3 RigidBody::getPosition(void)
 	{
 		return Position;
 	}
@@ -236,7 +236,7 @@ namespace DCEngine
 	\brief gets this object's Velocity.
 	*/
 	/**************************************************************************/
-	Real3 RigidBody::getVelocity(void)
+	Vec3 RigidBody::getVelocity(void)
 	{
 		return Velocity;
 	}
@@ -246,7 +246,7 @@ namespace DCEngine
 	\brief gets this object's Acceleration.
 	*/
 	/**************************************************************************/
-	Real3 RigidBody::getAcceleration(void)
+	Vec3 RigidBody::getAcceleration(void)
 	{
 		if (Gravity)
 		{
@@ -291,7 +291,7 @@ namespace DCEngine
 	\brief gets this object's direction of gravity.
 	*/
 	/**************************************************************************/
-	Real3 RigidBody::getGravitydir(void)
+	Vec3 RigidBody::getGravitydir(void)
 	{
 		return Gravitydir;
 	}

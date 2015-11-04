@@ -43,15 +43,15 @@ namespace DCEngine {
 		case Keys::W:
 			Jumping = true;
 			Grounded = false;
-			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
 			PrintTranslation();
 			break;
 		case Keys::A:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(-MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
 			PrintTranslation();
 			break;
 		case Keys::D:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
 			PrintTranslation();
 			break;
 		}
@@ -88,32 +88,32 @@ namespace DCEngine {
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{
-				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 			}
 		}
 		//if (Daisy->getKeyboard()->KeyIsDown(Keys::W) && Grounded)
 		//{
-			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
 			//Grounded = false;
 		//}
 		//else if (!Grounded && RigidBodyRef->getVelocity().y > 0)
 		//{
-		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Real3(1, AirBrakeScalar, 1));
+		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 		//}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(-MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
 			//trace << "AAA";
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
 		}
 		//if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		//{
-		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(MoveSpeed, 0, 0));
+		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
 		//	//trace << "Space";
 		//}
 	}
@@ -121,7 +121,7 @@ namespace DCEngine {
 	void PlayerController::Jump()
 	{
 		++JumpFramesApplied;
-		RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Real3(0, JumpPower, 0));
+		RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
 		if (JumpFramesApplied >= JumpFrames)
 		{
 			Jumping = false;
@@ -139,7 +139,7 @@ namespace DCEngine {
 
 	void PlayerController::PrintVelocity()
 	{
-		Real3 vel = RigidBodyRef->getVelocity();
+		Vec3 vel = RigidBodyRef->getVelocity();
 		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

@@ -33,7 +33,7 @@ namespace DCEngine {
 		Transform* TransformComponent;
 		String SpriteSource = "Square";
 		bool Visible = true;
-		Real4 Color = Real4(1.0f, 1.0f, 1.0f, 1.0f);
+		Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
 		bool FlipX = false;
 		bool FlipY = false;
@@ -60,7 +60,7 @@ namespace DCEngine {
 		float GetAnimationSpeedFPSCounter(void);
 		float GetAnimationSpeedFPS(void);
 		void ResetSpeedCounter(void);
-		void SetColorUsing255(Real3 newColor);
+		void SetColorUsing255(Vec3 newColor);
 
 	private:
 

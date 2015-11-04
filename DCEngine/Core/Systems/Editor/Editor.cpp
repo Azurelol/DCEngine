@@ -20,6 +20,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Initialize()
     {
+      // Connect to mouse events
+      //Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+
       if (TRACE_INITIALIZE)
         trace << "Editor::Initialize \n";
       //GUIHandler->Initialize();
@@ -138,6 +141,11 @@ namespace DCEngine {
 
     void Editor::Deserialize(Json::Value & root)
     {
+    }
+
+    void Editor::OnMouseDownEvent(Event * event)
+    {
+      trace << "Editor::OnMouseDownEvent!!\n";
     }
 
   }

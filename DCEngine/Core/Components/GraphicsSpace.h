@@ -44,9 +44,9 @@ namespace DCEngine {
     void RemoveSpriteText(SpriteText& spriteText);
 
     /* Debug Drawing functions*/
-    void DrawCircle(Real3& pos, Real& radius, Real4& color);
-    void DrawRectangle(Real3& pos, Real& width, Real& height, Real4& color);
-    void DrawLineSegment(Real3& startPos, Real3& endPos, Real& length, Real4& color);
+    void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
+    void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
+    void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color);
 
     /* Getters */
     SpriteContainer getSprites(); // Return the vector of sprites to be drawn
