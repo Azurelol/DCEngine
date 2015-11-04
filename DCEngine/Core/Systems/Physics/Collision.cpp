@@ -77,8 +77,10 @@ namespace DCEngine
 		}
 
 
-		float Min1 = 0, Max1 = 0, Min2 = 0, Max2 = 0;
+		float Min1 = 0.0f, Max1 = 0.0f, Min2 = 0.0f, Max2 = 0.0f;
 
+
+    result.Penetration = 0;
 
 		glm::vec3 topL1;
 		glm::vec3 topR1;
@@ -235,6 +237,60 @@ namespace DCEngine
 		{
 			return 0;
 		}
+    else if (Min1 < Max2 && Min2 < Max1)
+    {
+      if ((Max1 - Min2) > result.Penetration)
+      {
+        result.Penetration = Max1 - Min2;
+        result.ContactNormal = glm::normalize(Axis1);
+      }
+    }
+    else if(Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Min1) > result.Penetration)
+      {
+        result.Penetration = Max2 - Min1;
+        result.ContactNormal = glm::normalize(Axis1);
+      }
+    }
+    else if (Min2 > Min1 && Max2 < Max1)
+    {
+      if ((Max1 - Max2) > (Min2 - Min1))
+      {
+        if ((Max1 - Max2) > result.Penetration)
+        {
+          result.Penetration = Max1 - Max2;
+          result.ContactNormal = glm::normalize(Axis1);
+        }
+      }
+      else
+      {
+        if ((Min2 - Min1) > result.Penetration)
+        {
+          result.Penetration = Min2 - Min1;
+          result.ContactNormal = glm::normalize(Axis1);
+        }
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Max1) > (Min1 - Min2))
+      {
+        if ((Max2 - Max1) > result.Penetration)
+        {
+          result.Penetration = Max2 - Max1;
+          result.ContactNormal = glm::normalize(Axis1);
+        }
+      }
+      else
+      {
+        if ((Min1 - Min2) > result.Penetration)
+        {
+          result.Penetration = Min1 - Min2;
+          result.ContactNormal = glm::normalize(Axis1);
+        }
+      }
+    }
 		/**********************************************************/
 		/**********************************************************/
 		/**********************************************************/
@@ -315,6 +371,60 @@ namespace DCEngine
 		{
 			return 0;
 		}
+    else if (Min1 < Max2 && Min2 < Max1)
+    {
+      if ((Max1 - Min2) > result.Penetration)
+      {
+        result.Penetration = Max1 - Min2;
+        result.ContactNormal = glm::normalize(Axis2);
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Min1) > result.Penetration)
+      {
+        result.Penetration = Max2 - Min1;
+        result.ContactNormal = glm::normalize(Axis2);
+      }
+    }
+    else if (Min2 > Min1 && Max2 < Max1)
+    {
+      if ((Max1 - Max2) >(Min2 - Min1))
+      {
+        if ((Max1 - Max2) > result.Penetration)
+        {
+          result.Penetration = Max1 - Max2;
+          result.ContactNormal = glm::normalize(Axis2);
+        }
+      }
+      else
+      {
+        if ((Min2 - Min1) > result.Penetration)
+        {
+          result.Penetration = Min2 - Min1;
+          result.ContactNormal = glm::normalize(Axis2);
+        }
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Max1) >(Min1 - Min2))
+      {
+        if ((Max2 - Max1) > result.Penetration)
+        {
+          result.Penetration = Max2 - Max1;
+          result.ContactNormal = glm::normalize(Axis2);
+        }
+      }
+      else
+      {
+        if ((Min1 - Min2) > result.Penetration)
+        {
+          result.Penetration = Min1 - Min2;
+          result.ContactNormal = glm::normalize(Axis2);
+        }
+      }
+    }
 		/**********************************************************/
 		/**********************************************************/
 		/**********************************************************/
@@ -397,6 +507,60 @@ namespace DCEngine
 		{
 			return false;
 		}
+    else if (Min1 < Max2 && Min2 < Max1)
+    {
+      if ((Max1 - Min2) > result.Penetration)
+      {
+        result.Penetration = Max1 - Min2;
+        result.ContactNormal = glm::normalize(Axis3);
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Min1) > result.Penetration)
+      {
+        result.Penetration = Max2 - Min1;
+        result.ContactNormal = glm::normalize(Axis3);
+      }
+    }
+    else if (Min2 > Min1 && Max2 < Max1)
+    {
+      if ((Max1 - Max2) >(Min2 - Min1))
+      {
+        if ((Max1 - Max2) > result.Penetration)
+        {
+          result.Penetration = Max1 - Max2;
+          result.ContactNormal = glm::normalize(Axis3);
+        }
+      }
+      else
+      {
+        if ((Min2 - Min1) > result.Penetration)
+        {
+          result.Penetration = Min2 - Min1;
+          result.ContactNormal = glm::normalize(Axis3);
+        }
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Max1) >(Min1 - Min2))
+      {
+        if ((Max2 - Max1) > result.Penetration)
+        {
+          result.Penetration = Max2 - Max1;
+          result.ContactNormal = glm::normalize(Axis3);
+        }
+      }
+      else
+      {
+        if ((Min1 - Min2) > result.Penetration)
+        {
+          result.Penetration = Min1 - Min2;
+          result.ContactNormal = glm::normalize(Axis3);
+        }
+      }
+    }
 		/**********************************************************/
 		/**********************************************************/
 		/**********************************************************/
@@ -479,95 +643,92 @@ namespace DCEngine
 		{
 			return false;
 		}
-
+    else if (Min1 < Max2 && Min2 < Max1)
+    {
+      if ((Max1 - Min2) > result.Penetration)
+      {
+        result.Penetration = Max1 - Min2;
+        result.ContactNormal = glm::normalize(Axis4);
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Min1) > result.Penetration)
+      {
+        result.Penetration = Max2 - Min1;
+        result.ContactNormal = glm::normalize(Axis4);
+      }
+    }
+    else if (Min2 > Min1 && Max2 < Max1)
+    {
+      if ((Max1 - Max2) >(Min2 - Min1))
+      {
+        if ((Max1 - Max2) > result.Penetration)
+        {
+          result.Penetration = Max1 - Max2;
+          result.ContactNormal = glm::normalize(Axis4);
+        }
+      }
+      else
+      {
+        if ((Min2 - Min1) > result.Penetration)
+        {
+          result.Penetration = Min2 - Min1;
+          result.ContactNormal = glm::normalize(Axis4);
+        }
+      }
+    }
+    else if (Min1 > Min2 && Max1 < Max2)
+    {
+      if ((Max2 - Max1) >(Min1 - Min2))
+      {
+        if ((Max2 - Max1) > result.Penetration)
+        {
+          result.Penetration = Max2 - Max1;
+          result.ContactNormal = glm::normalize(Axis4);
+        }
+      }
+      else
+      {
+        if ((Min1 - Min2) > result.Penetration)
+        {
+          result.Penetration = Min1 - Min2;
+          result.ContactNormal = glm::normalize(Axis4);
+        }
+      }
+    }
 
 		/* collision is true calculate collision data */
 
-		//Check X
-		glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
-		float xDiff = boxcollider1->getColliderScale().x / 2.0f + boxcollider2->getColliderScale().x / 2.0f - fabs(positionDelta.x);
+    result.Object1 = obj1;
+    result.Object2 = obj2;
+    result.obj1 = Collider::Rectangle;
+    result.obj2 = Collider::Rectangle;
 
-		//Boxes overlapping on x-axis?
-		if (0 < xDiff)
-		{
-			float yDiff = boxcollider1->getColliderScale().y / 2.0f + boxcollider2->getColliderScale().y / 2.0f - fabs(positionDelta.y);
 
-			//Boxes overlapping on y-axis?
-			if (0 < yDiff)
-			{
-				//Which axis is overlapping less? that is the axis we want
-				//to use for the collision.
-				if (xDiff < yDiff)
-				{
-					//X is smallest
-					glm::vec3 normal = positionDelta.x < 0 ? glm::vec3(-1, 0, 0) : glm::vec3(1, 0, 0);
-					result.Object1 = obj1;
-					result.Object2 = obj2;
-					result.obj1 = Collider::Rectangle;
-					result.obj2 = Collider::Rectangle;
-					result.ContactNormal = normal;
-					result.Penetration = xDiff;
+    if (result.rigid1 != false && result.rigid2 != false)
+    {
+      result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+      result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
+    }
+    else if (result.rigid1 == false && result.rigid2 != false)
+    {
+      result.FrictionCof = rigidbody2->getFriction();
+      result.Restitution = rigidbody2->getRestitution();
+    }
+    else if (result.rigid1 != false && result.rigid2 == false)
+    {
+      result.FrictionCof = rigidbody1->getFriction();
+      result.Restitution = rigidbody1->getRestitution();
+    }
+    else if (result.rigid1 == false && result.rigid2 == false)
+    {
+      result.FrictionCof = 0.0f;
+      result.Restitution = 0.0f;
+    }
 
-					if (result.rigid1 != false && result.rigid2 != false)
-					{
-						result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
-						result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
-					}
-					else if (result.rigid1 == false && result.rigid2 != false)
-					{
-						result.FrictionCof = rigidbody2->getFriction();
-						result.Restitution = rigidbody2->getRestitution();
-					}
-					else if (result.rigid1 != false && result.rigid2 == false)
-					{
-						result.FrictionCof = rigidbody1->getFriction();
-						result.Restitution = rigidbody1->getRestitution();
-					}
-					else if (result.rigid1 == false && result.rigid2 == false)
-					{
-						result.FrictionCof = 0.0f;
-						result.Restitution = 0.0f;
-					}
-
-					return true;
-				}
-				else
-				{
-					//Y is smallest
-					glm::vec3 normal = positionDelta.y < 0 ? glm::vec3(0, -1, 0) : glm::vec3(0, 1, 0);
-					result.Object1 = obj1;
-					result.Object2 = obj2;
-					result.obj1 = Collider::Rectangle;
-					result.obj2 = Collider::Rectangle;
-					result.ContactNormal = normal;
-					result.Penetration = yDiff;
-
-					if (result.rigid1 != false && result.rigid2 != false)
-					{
-						result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
-						result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
-					}
-					else if (result.rigid1 == false && result.rigid2 != false)
-					{
-						result.FrictionCof = rigidbody2->getFriction();
-						result.Restitution = rigidbody2->getRestitution();
-					}
-					else if (result.rigid1 != false && result.rigid2 == false)
-					{
-						result.FrictionCof = rigidbody1->getFriction();
-						result.Restitution = rigidbody1->getRestitution();
-					}
-					else if (result.rigid1 == false && result.rigid2 == false)
-					{
-						result.FrictionCof = 0.0f;
-						result.Restitution = 0.0f;
-					}
-					return true;
-				}
-			}
-		}
-
-		return false;
+    return true;
+	
 	}
 
 

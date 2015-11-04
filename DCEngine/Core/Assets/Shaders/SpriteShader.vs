@@ -22,6 +22,12 @@ uniform int isAnimaitonActivated;
 uniform int haveAnimationButStop;
 uniform float rowHeight;
 uniform float columnLength;
+//Cut
+uniform float CutMinX;
+uniform float CutMinY;
+uniform float CutMaxX;
+uniform float CutMaxY;
+
 
 void main() {
   TexCoords = vertex.zw;
@@ -49,6 +55,26 @@ void main() {
 	{
 	  TexCoords.y = 0;
 	  TexCoords.y += rowHeight * currentRow;
+	}
+  }
+  else
+  {
+    if (TexCoords.x == 1)
+	{
+	  TexCoords.x = CutMaxX;
+	}
+	if (TexCoords.x == 0)
+	{
+	  TexCoords.x = CutMinX;
+	}
+
+	if (TexCoords.y == 1)
+	{
+	  TexCoords.y = CutMaxY;
+	}
+	if (TexCoords.y == 0)
+	{
+	  TexCoords.y = CutMinY;
 	}
   }
     

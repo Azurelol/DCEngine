@@ -338,6 +338,10 @@ namespace DCEngine {
 			// Update the uniforms in the shader to this particular sprite's data 
 			this->SpriteShader->SetMatrix4("model", modelMatrix);
 			this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
+			this->SpriteShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
+			this->SpriteShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
+			this->SpriteShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
+			this->SpriteShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
 
 
 			// Set the active texture

@@ -55,6 +55,10 @@ namespace DCEngine {
 
     // Generate texture
     TextureObj->Generate(image.getSize().x, image.getSize().y, image);
+	MaxX = image.getSize().x;
+	MaxY = image.getSize().y;
+	PicHeight = image.getSize().y;
+	PicWidth = image.getSize().x;
     // Free image data
     //SOIL_free_image_data(image);
     #endif
