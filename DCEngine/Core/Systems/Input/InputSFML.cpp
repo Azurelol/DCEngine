@@ -34,7 +34,7 @@ namespace DCEngine {
     void InputSFML::Initialize() {
 
      #if(USE_SFML)      
-      WindowContext = Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->WindowContext.get();
+      WindowContext = Daisy->getSystem<Window>()->WindowHandler->WindowContext.get();
      #endif
 
       // Should key presses repeat?

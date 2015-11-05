@@ -23,10 +23,7 @@ namespace DCEngine {
       auto mouseDown = new Events::MouseDown();
       mouseDown->Position.x = static_cast<float>(event.mouseButton.x);
       mouseDown->Position.y = static_cast<float>(event.mouseButton.y);
-
-      //mouseDown->Position.x = (float)event.mouseButton.x - (WindowContext->getSize().x / 2);
-      //mouseDown->Position.y = -1 * ((float)event.mouseButton.y - (WindowContext->getSize().y / 2));
-
+      
       switch (event.mouseButton.button) {
 
       case sf::Mouse::Button::Left:
@@ -57,9 +54,6 @@ namespace DCEngine {
       auto mouseUp = new Events::MouseUp();
       mouseUp->Position.x = static_cast<float>(event.mouseButton.x);
       mouseUp->Position.y = static_cast<float>(event.mouseButton.y);
-      //mouseUp->x = sf::Mouse::getPosition().x;
-      //mouseUp->Position.x = (float)event.mouseButton.x - (WindowContext->getSize().x / 2);
-      //mouseUp->Position.y = -1 * ((float)event.mouseButton.y - (WindowContext->getSize().y / 2));
 
       switch (event.mouseButton.button) {
 

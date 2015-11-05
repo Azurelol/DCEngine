@@ -25,7 +25,7 @@ namespace DCEngine {
   /*!
   @brief  Converts the Windows screenPos coordinates to OpenGL coordinates.
   @param  screenPoint The mouse position on the screenPos, as pixels with (0,0)
-          
+  @return A 2D vector containing the coordinates in world space.
   */
   /**************************************************************************/
   Vec2 CameraViewport::ScreenToViewport(Vec2 screenPoint)
@@ -34,14 +34,23 @@ namespace DCEngine {
     // starting X and Y position of our GL viewport along with the width and
     // height.
     
-    auto screenCenter = Vec4(1024 / 2, 768 / 2, 0, 1);
-    auto vecCenter = Vec4(screenPoint, 0, 1) - screenCenter;
-    auto view = CameraObj->GetViewMatrix();
-    auto proj = CameraObj->GetProjectionMatrix();
-    vecCenter = proj * vecCenter;
-    // Translate by the camera's translation in the space
-    vecCenter.x += CameraObj->TransformComponent->Translation.x;
-    vecCenter.y += CameraObj->TransformComponent->Translation.y;
+    // We need to grab the current viewport. The information we need is the
+    // starting X and Y position of our GL viewport along with the width and
+    // height.
+
+    auto screenCenter = Vec3(*CameraObj->ScreenWidth / 2, *CameraObj->ScreenHeight / 2, 0);
+    auto vecCenter = Vec3(screenPoint, 0) - screenCenter;
+    auto angle = (float)(CameraObj->FieldOfView) / 2;
+    auto PI = 3.1415926535897f;
+
+    auto distBetweenCameraAndPlane = 1;
+    float height = tan(angle / 180 * PI) * distBetweenCameraAndPlane;
+    height *= 2;
+    float width = height * *CameraObj->ScreenWidth / *CameraObj->ScreenHeight;
+    float widthRatio = vecCenter.x / *CameraObj->ScreenWidth;
+    float heightRatio = vecCenter.y / *CameraObj->ScreenHeight;
+    vecCenter.x = widthRatio * width + CameraObj->TransformComponent->Translation.x;
+    vecCenter.y = CameraObj->TransformComponent->Translation.y - heightRatio * height;
 
     /**********************************************
       1. Viewport Origin and Extent

@@ -66,7 +66,10 @@ namespace DCEngine {
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;
 
-      void OnMouseDownEvent(Event* event);
+      // Mouse input onto the space
+      void OnMouseDownEvent(Events::MouseDown* event);
+      void OnMouseUpEvent(Events::MouseUp* event);
+      void SelectObjectFromSpace(Vec2 pos);
       
 
     };

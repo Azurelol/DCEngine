@@ -21,7 +21,7 @@ namespace DCEngine {
   /**************************************************************************/
   void PhysicsSpace::Initialize() {
     // Register this space to the physics system
-    Daisy->getSystem<Systems::Physics>(EnumeratedSystem::Physics)->RegisterSpace(*this);
+    Daisy->getSystem<Systems::Physics>()->RegisterSpace(*this);
 
   }
 

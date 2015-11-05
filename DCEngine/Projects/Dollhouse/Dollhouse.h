@@ -35,7 +35,7 @@ namespace DCEngine {
     } 
 
     void SetupCamera() {
-      auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
+      auto factory = Daisy->getSystem<Systems::Factory>();
 
       //auto cam = factory->CreateGameObject(String("FactoryTesty"), *space_, false);
       //cam->AddComponent(factory->CreateComponent<Transform>(*cam, false));

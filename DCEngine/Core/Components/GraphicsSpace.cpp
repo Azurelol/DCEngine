@@ -14,7 +14,7 @@ namespace DCEngine {
     // Store a reference to the space's 'CameraViewport' component
     CameraViewportComponent = Owner()->getComponent<CameraViewport>();
     // Register this space to the graphics system
-    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->Register(*this);
+    Daisy->getSystem<Systems::Graphics>()->Register(*this);
   }
 
   /**************************************************************************/
@@ -63,19 +63,19 @@ namespace DCEngine {
   void GraphicsSpace::DrawCircle(Vec3& pos, Real& radius, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawCircle(pos, radius, color, cam);
+    Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, cam);
   }
 
   void GraphicsSpace::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawRectangle(pos, width, height, color, cam);
+    Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, cam);
   }
 
   void GraphicsSpace::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>(EnumeratedSystem::Graphics)->DrawLineSegment(startPos, endPos, length, color, cam);
+    Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, length, color, cam);
   }
 
   /**************************************************************************/

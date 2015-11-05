@@ -35,7 +35,7 @@ namespace DCEngine {
 
       switch (event.key.code) {
       case sf::Keyboard::Escape: // RESERVED: Terminate engine
-        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = true;
         break;
 
@@ -70,7 +70,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
-        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
+        Daisy->getSystem<Window>()->WindowHandler->setFullScreen();
         keyDown->Key = Keys::F10;
         break;
 
@@ -187,7 +187,7 @@ namespace DCEngine {
 
       switch (event.key.code) {
       case sf::Keyboard::Escape:
-        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->Terminate();
+        Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = false;
         break;
       case sf::Keyboard::Space:
@@ -226,7 +226,7 @@ namespace DCEngine {
         keyUp->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
-        Daisy->getSystem<Window>(EnumeratedSystem::Window)->WindowHandler->setFullScreen();
+        Daisy->getSystem<Window>()->WindowHandler->setFullScreen();
         keyUp->Key = Keys::F10;
         break;
 

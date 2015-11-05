@@ -7,7 +7,7 @@ namespace DCEngine {
 	void DollHouse::SetupBackground()
 	{
 		// Reference to the factory system
-		auto factory = Daisy->getSystem<Systems::Factory>(EnumeratedSystem::Factory);
+		auto factory = Daisy->getSystem<Systems::Factory>();
 
     /* Moonward Logo Small */
 		//GameObjectPtr chenObj = ConstructGameObject("Logo1");

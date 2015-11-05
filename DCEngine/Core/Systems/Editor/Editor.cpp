@@ -21,7 +21,7 @@ namespace DCEngine {
     void Editor::Initialize()
     {
       // Connect to mouse events
-      //Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+      Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
 
       if (TRACE_INITIALIZE)
         trace << "Editor::Initialize \n";
@@ -42,7 +42,6 @@ namespace DCEngine {
       if (TRACE_UPDATE)
         trace << "Editor::Update \n";
       DisplayEditor();
-
       DisplayGUITest();
       
     }
@@ -108,9 +107,6 @@ namespace DCEngine {
     {
     }
 
-
-
-
     /**************************************************************************/
     /*!
     \brief  Displays the ImGui Test Window.
@@ -143,9 +139,22 @@ namespace DCEngine {
     {
     }
 
-    void Editor::OnMouseDownEvent(Event * event)
+    void Editor::OnMouseDownEvent(Events::MouseDown* event)
     {
-      trace << "Editor::OnMouseDownEvent!!\n";
+      if (!EditorEnabled)
+        return;
+
+      // Look for an object that matches the translation
+      
+
+      trace << "Editor::OnMouseDownEvent - \n";
+    }
+
+    void Editor::OnMouseUpEvent(Events::MouseUp* event)
+    {
+      if (!EditorEnabled)
+        return;
+      trace << "Editor::OnMouseUpEvent - \n";
     }
 
   }

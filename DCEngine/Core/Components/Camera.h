@@ -34,8 +34,10 @@ namespace DCEngine {
 		Perspective,
 	};
 
+  class CameraViewport;
 	class Camera : public Component {
-	public:
+    friend class CameraViewport;
+  public:
     // Camera Attributes
 		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);

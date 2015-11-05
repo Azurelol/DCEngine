@@ -171,27 +171,7 @@ namespace DCEngine {
       }
     }
   }
-
-  /**************************************************************************/
-  /*!
-  \brief  Allows access to a system running in the engine via system type.
-  \note   This function call can be made much easier using the GETSYSTEM
-  macro that takes a system typename and expands it to fill the
-  template parameters.
-  \para   An enumerated system.
-  \return A shared pointer to the requested system.
-  */
-  /**************************************************************************/
-  template <typename T>
-  std::shared_ptr<T> Engine::getSystem(EnumeratedSystem sysType) {
-    for (auto &it : _systems) {
-      if (it->_type == sysType)
-        return std::static_pointer_cast<T>(it);
-    }
-    // Throw an error if the system doesn't exist in the engine.
-    throw std::range_error("The specified system does not exist.");
-  }
-
+  
   /**************************************************************************/
   /*!
   \brief  Allows access to a system running in the engine via system type.
