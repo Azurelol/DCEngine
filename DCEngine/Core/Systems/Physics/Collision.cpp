@@ -1155,6 +1155,8 @@ namespace DCEngine
     {
       //Get not squared values
 
+
+
       glm::vec3 normal;
       float penetration;
       if (disSquared == 0.0f)
@@ -1209,7 +1211,8 @@ namespace DCEngine
     return true;
   }
 
-  bool PointtoCircle(GameObject * circle, glm::vec3 point)
+
+  bool PointToCircle(GameObject * circle, glm::vec3 point)
   {
     CircleCollider *collider = circle->getComponent<CircleCollider>();
     Transform *transform = circle->getComponent<Transform>();
@@ -1228,7 +1231,7 @@ namespace DCEngine
     return true;
   }
 
-  bool PointtoRect(GameObject * rect, glm::vec3 point)
+  bool PointToRectangle(GameObject * rect, glm::vec3 point)
   {
     BoxCollider *collider = rect->getComponent<BoxCollider>();
     Transform *transform = rect->getComponent<Transform>();

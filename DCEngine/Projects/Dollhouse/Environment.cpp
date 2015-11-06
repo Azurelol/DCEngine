@@ -68,6 +68,17 @@ namespace DCEngine {
     foreground->getComponent<Transform>()->Translation = Vec3(0, 15.5, 0); //lol
     foreground->getComponent<Transform>()->Scale = Vec3(160 * 0.5, 90 * 0.5, 1);
 
+    /* Particle Tester Layer */
+    GameObjectPtr particleTest = ConstructGameObject("particleTest");
+    particleTest->AddComponent(ComponentPtr(new Transform(*particleTest)));
+    particleTest->AddComponent(ComponentPtr(new SpriteParticleSystem(*particleTest)));
+    particleTest->AddComponent(ComponentPtr(new ParticleEmitter(*particleTest)));
+    particleTest->AddComponent(ComponentPtr(new LinearParticleAnimator(*particleTest)));
+    particleTest->AddComponent(ComponentPtr(new ParticleColorAnimator(*particleTest)));
+    // Settings 
+    particleTest->getComponent<SpriteParticleSystem>()->SpriteSource = "square";
+    particleTest->getComponent<ParticleEmitter>()->EmitCount = 6;
+
 
 
   }

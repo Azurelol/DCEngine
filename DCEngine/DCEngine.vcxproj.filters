@@ -193,6 +193,15 @@
     <Filter Include="Core\Events\Engine">
       <UniqueIdentifier>{69138360-3dd8-4bc9-94da-11be5f388851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\Graphics\Particles">
+      <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics\Sprite">
+      <UniqueIdentifier>{34ca4278-0871-4b4a-8def-d490dccd2886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics\Camera">
+      <UniqueIdentifier>{4a02aad3-07b2-4f58-a66b-03abfcc8512a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -255,14 +264,8 @@
     <ClCompile Include="Core\Components\GraphicsSpace.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\Sprite.cpp">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\SoundSpace.cpp">
       <Filter>Core\Components\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Components\Camera.cpp">
-      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\PhysicsSpace.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -287,9 +290,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Factory\Factory.cpp">
       <Filter>Core\Systems\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Components\CameraViewport.cpp">
-      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Content\Content.cpp">
       <Filter>Core\Systems\Content</Filter>
@@ -321,9 +321,6 @@
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\SpriteText.cpp">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SoundCue.cpp">
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
@@ -341,9 +338,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\CircleCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Components\2DAnimation.cpp">
-      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
       <Filter>Core\Systems\Physics</Filter>
@@ -456,6 +450,39 @@
     <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp">
       <Filter>Core\Systems\Input\SFML</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\Sprite.cpp">
+      <Filter>Core\Components\Graphics\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SpriteText.cpp">
+      <Filter>Core\Components\Graphics\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Camera.cpp">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\CameraViewport.cpp">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Sprite_Animation.cpp">
+      <Filter>Core\Components\Graphics\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SpriteParticleSystem.cpp">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\LinearParticleAnimator.cpp">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\ParticleEmitter.cpp">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Configure.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\ParticleColorAnimator.cpp">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -563,9 +590,6 @@
     <ClInclude Include="Core\Components\GraphicsSpace.h">
       <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\Sprite.h">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\ComponentReference.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
@@ -577,9 +601,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\BoxCollider.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\Camera.h">
-      <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\PhysicsSpace.h">
       <Filter>Core\Components\Physics</Filter>
@@ -632,9 +653,6 @@
     <ClInclude Include="Core\Systems\Factory\Factory.h">
       <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\CameraViewport.h">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Content\Content.h">
       <Filter>Core\Systems\Content</Filter>
     </ClInclude>
@@ -685,9 +703,6 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw\DrawCircle.h">
       <Filter>Core\Object\DebugDraw</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\SpriteText.h">
-      <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\CollisionEvents.h">
       <Filter>Core\Events\Physics</Filter>
@@ -844,6 +859,30 @@
     </ClInclude>
     <ClInclude Include="Core\Events\GraphicsEvents.h">
       <Filter>Core\Events\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Sprite.h">
+      <Filter>Core\Components\Graphics\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SpriteText.h">
+      <Filter>Core\Components\Graphics\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Camera.h">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\CameraViewport.h">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\SpriteParticleSystem.h">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\LinearParticleAnimator.h">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ParticleEmitter.h">
+      <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\ParticleColorAnimator.h">
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

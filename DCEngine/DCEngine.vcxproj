@@ -230,7 +230,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Components\2DAnimation.cpp" />
+    <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
+    <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
+    <ClCompile Include="Core\Components\LinearParticleAnimator.cpp" />
+    <ClCompile Include="Core\Components\SpriteParticleSystem.cpp" />
+    <ClCompile Include="Core\Components\Sprite_Animation.cpp" />
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
     <ClCompile Include="Core\Components\Camera.cpp" />
     <ClCompile Include="Core\Components\CameraViewport.cpp" />
@@ -282,7 +286,9 @@
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Configure.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
@@ -321,6 +327,8 @@
   <ItemGroup>
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
+    <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
+    <ClInclude Include="Core\Components\ParticleEmitter.h" />
     <ClInclude Include="Core\Components\Camera.h" />
     <ClInclude Include="Core\Components\CircleCollider.h" />
     <ClInclude Include="Core\Components\DebugAudio.h" />
@@ -335,6 +343,7 @@
     <ClInclude Include="Core\Components\EngineReference.h" />
     <ClInclude Include="Core\Components\GraphicsSpace.h" />
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h" />
+    <ClInclude Include="Core\Components\LinearParticleAnimator.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
     <ClInclude Include="Core\Components\ProjectSetup.h" />
@@ -342,6 +351,7 @@
     <ClInclude Include="Core\Components\SoundEmitter.h" />
     <ClInclude Include="Core\Components\SoundSpace.h" />
     <ClInclude Include="Core\Components\Sprite.h" />
+    <ClInclude Include="Core\Components\SpriteParticleSystem.h" />
     <ClInclude Include="Core\Components\SpriteText.h" />
     <ClInclude Include="Core\Components\TimeSpace.h" />
     <ClInclude Include="Core\Components\Transform.h" />

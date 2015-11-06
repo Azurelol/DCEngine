@@ -80,7 +80,7 @@ namespace DCEngine {
       // Check for objects in the space for a collision
       for (auto gameObj : *space.AllObjects()) {
         // If there's a match, add it to the container
-        if (PointToRectangle(pos, gameObj.get()))
+        if (PointToRectangle(gameObj.get(), pos))
           objsAtPos.push_back(gameObj);
       }      
 

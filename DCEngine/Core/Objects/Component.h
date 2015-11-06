@@ -76,7 +76,7 @@ namespace DCEngine {
     //const EnumeratedComponent _type;
     //const BitfieldComponent _mask;
 
-    Component(std::string& name, Entity& owner);
+    Component(std::string name, Entity& owner);
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.

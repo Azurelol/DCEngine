@@ -12,7 +12,7 @@ namespace DCEngine {
   // All components can access the engine.
   //extern std::unique_ptr<Engine> Daisy;
 
-  Component::Component(std::string& name, Entity& owner)
+  Component::Component(std::string name, Entity& owner)
                         : Object(name) {
     owner_ = (Object*)&owner;
 

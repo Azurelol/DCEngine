@@ -33,7 +33,7 @@ namespace DCEngine {
 
     // Enemy
     {
-      GameObjectPtr enemy = ConstructGameObject("enemy");
+      GameObjectPtr enemy = ConstructGameObject("enemy1");
       enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
       
       enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
@@ -57,7 +57,7 @@ namespace DCEngine {
     }
 
     {
-      GameObjectPtr enemy = ConstructGameObject("enemy");
+      GameObjectPtr enemy = ConstructGameObject("enemy2");
       enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
       enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
       enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
@@ -78,7 +78,7 @@ namespace DCEngine {
       enemy->getComponent<RigidBody>()->setGravity(false);
     }
     {
-      GameObjectPtr enemy = ConstructGameObject("enemy");
+      GameObjectPtr enemy = ConstructGameObject("enemy3");
       enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
       enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
       enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
@@ -99,7 +99,7 @@ namespace DCEngine {
       enemy->getComponent<RigidBody>()->setGravity(false);
     }
     {
-      GameObjectPtr enemy = ConstructGameObject("enemy");
+      GameObjectPtr enemy = ConstructGameObject("enemy4");
       enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
       enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
       enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));

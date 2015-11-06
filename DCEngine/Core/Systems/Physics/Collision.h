@@ -12,8 +12,8 @@ namespace DCEngine
   void ProjectOnTo(glm::vec3 vec, glm::vec3 Axis, glm::vec3 &result);
   bool BoxtoCircle(GameObject *obj1, GameObject *obj2, Manifold &result);
   bool CircletoCircle(GameObject *obj1, GameObject *obj2, Manifold &result);
-  bool PointtoCircle(GameObject *circle, glm::vec3 point);
-  bool PointtoRect(GameObject *rect, glm::vec3 point);
+  bool PointToCircle(GameObject *circle, glm::vec3 point);
+  bool PointToRectangle(GameObject *rect, glm::vec3 point);
 
 }
 
