@@ -1,5 +1,6 @@
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -25,7 +26,19 @@ namespace DCEngine {
       if (TRACE_ON && TRACE_INITIALIZE)
       trace << "Graphics::Initialize \n";
       GraphicsHandler->Initialize();
-      // Connect to graphics space registration events
+      // Subscribe to events
+      Subscribe();
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief Subscribe to events.
+    */
+    /**************************************************************************/
+    void Graphics::Subscribe()
+    {
+      Daisy->Connect<Events::ResizeViewportEvent>(&Graphics::OnResizeViewportEvent, this);
+      Daisy->Connect<Events::FullscreenEnabledEvent>(&Graphics::OnFullscreenEnabledEvent, this);
     }
 
     /**************************************************************************/
@@ -204,7 +217,7 @@ namespace DCEngine {
     void Graphics::EndFrame() {
       GraphicsHandler->EndFrame();
     }
-
+    
     void Graphics::BackupState()
     {
       GraphicsHandler->BackupState();
@@ -215,16 +228,26 @@ namespace DCEngine {
       GraphicsHandler->RestoreState();
     }
 
-	void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
-	{
-		GraphicsHandler->TotalObjNum = TotalObjNumG;
-		GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
-	}
+    void Graphics::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)
+    {
+
+    }
+
+    void Graphics::OnResizeViewportEvent(Events::ResizeViewportEvent * event)
+    {
+      ViewportScale = event->viewportScale;
+      trace << "Graphics::OnResizeViewportEvent - Width: " << ViewportScale.x
+        << " Height " << ViewportScale.y << "\n";
+    }
+
+    void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
+    {
+      GraphicsHandler->TotalObjNum = TotalObjNumG;
+      GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
+    }
 
 
   }
-
-
 }
 
 

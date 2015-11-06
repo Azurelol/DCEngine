@@ -33,7 +33,8 @@ namespace DCEngine {
 		*/
 		/**************************************************************************/
 		GraphicsGL::GraphicsGL() {
-
+      ViewportRatio.x = 1;
+      ViewportRatio.y = 1;
 		}
 
 		/**************************************************************************/
@@ -81,9 +82,22 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::ViewportUpdate() {
 			// Tells OpenGL the current size of the rendering window
-			auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
-			glViewport(0, 0, static_cast<GLsizei>(windowDim.x), static_cast<GLsizei>(windowDim.y));
+			auto& windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
+      auto& viewportScale = Daisy->getSystem<Graphics>()->ViewportScale;
+			glViewport(0, 0, static_cast<GLsizei>(windowDim.x * viewportScale.x),
+                       static_cast<GLsizei>(windowDim.y * viewportScale.y));
 		}
+
+    /**************************************************************************/
+    /*!
+    @brief  Scales the viewport down to a percentage of its max value.
+    @param  ratio The percentage to which to scale the viewport
+    */
+    /**************************************************************************/
+    void GraphicsGL::ResizeViewport(glm::vec2 ratio)
+    {
+      ViewportRatio = ratio;
+    }
 
 		/**************************************************************************/
 		/*!

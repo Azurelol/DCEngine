@@ -27,9 +27,23 @@ namespace DCEngine {
       void ToggleTest();
 
     private:
+      /* Widget Enable Booleans */
+      bool EditorEnabled = false;
+      bool ShowTestWindow = false;
+      bool WidgetMenuBarEnabled = false;
+      bool WidgetLevelEnabled = false;
+      bool WidgetResourceAddEnabled = false;
+      bool WidgetObjectsEnabled = false;
+      bool WidgetPropertiesEnabled = false;
+      bool WidgetLibraryEnabled = false;
+      /* Space */
+      Space* CurrentSpace;
+      GameObject* SelectedObject = nullptr;
+      /* Window Settings */
+      Vec2 ViewportResize = Vec2(0.75, 0.75);
+
 
       void DisplayEditor();
-
       /* Widgets Functions */
       void DisplayMainMenuBar();
       void WidgetLevel();
@@ -48,27 +62,19 @@ namespace DCEngine {
       /* Functions */
       Editor();
       void Initialize();
+      void Subscribe();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
       virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);      
-      
-      /* Widget Enable Booleans */
-      bool EditorEnabled = false;
-      bool ShowTestWindow = false;
-      bool WidgetMenuBarEnabled = false;
-      bool WidgetLevelEnabled = false;
-      bool WidgetResourceAddEnabled = false;
-      bool WidgetObjectsEnabled = false;
-      bool WidgetPropertiesEnabled = false;
-      bool WidgetLibraryEnabled = false;
-      
-      Space* CurrentSpace;
-      GameObject* SelectedObject = nullptr;
-
-      // Mouse input onto the space
+      virtual void Deserialize(Json::Value& root); 
+      /* Events */
+      void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
+
+      // Modification of the rendering window
+      void ApplyEditorWindowLayout();
+
       void SelectObjectFromSpace(Vec2 pos);
       void SelectObject(GameObject* obj);
       

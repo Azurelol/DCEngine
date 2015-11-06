@@ -359,7 +359,10 @@
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
     <ClInclude Include="Core\Events\CollisionEvents.h" />
+    <ClInclude Include="Core\Events\EditorEvents.h" />
+    <ClInclude Include="Core\Events\EngineEvents.h" />
     <ClInclude Include="Core\Events\EventReference.h" />
+    <ClInclude Include="Core\Events\GraphicsEvents.h" />
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />

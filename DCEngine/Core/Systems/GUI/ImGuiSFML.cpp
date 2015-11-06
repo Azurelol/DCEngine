@@ -258,8 +258,8 @@ namespace DCEngine {
       // Grab a reference to the input output
       ImGuiIO& io = ImGui::GetIO();
       // Sets the initial display size
-      //io.DisplaySize = ImVec2(1440, 900);
-      io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+      io.DisplaySize = ImVec2(static_cast<float>(WindowContext->getSize().x), 
+                              static_cast<float>(WindowContext->getSize().y));
       //io.DisplayFramebufferScale = ImVec2(static_cast<float>(WindowContext->getSize().x),
       //                               static_cast<float>(WindowContext->getSize().y));
       //io.DisplayFramebufferScale = ImVec2(static_cast<float>())

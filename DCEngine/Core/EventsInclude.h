@@ -8,6 +8,7 @@
 /*******
 GRAPHICS
 *******/
+#include "Events\GraphicsEvents.h"
 #include "Events\SpriteRegistrationEvent.h"
 
 /*******
@@ -23,4 +24,6 @@ PHYSICS
 #include "Events\MouseDown.h"
 #include "Events\MouseUp.h"
 
+#include "Events\EditorEvents.h"
+#include "Events\EngineEvents.h"
 

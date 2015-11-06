@@ -27,13 +27,35 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Initialize()
     {
-      // Connect to mouse events
-      Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
-
       if (TRACE_INITIALIZE)
         trace << "Editor::Initialize \n";
-      //GUIHandler->Initialize();
+      
+      // Subscribe to events
+      Subscribe();
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Subscribe to events.
+    */
+    /**************************************************************************/
+    void Editor::Subscribe()
+    {
+      Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+      Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Event received by Input.
+    */
+    /**************************************************************************/
+    void Editor::OnEditorEnabledEvent(Events::EditorEnabled * event)
+    {
+      trace << "Editor::OnEditorEnabledEvent \n";
+      ToggleEditor();
+    }
+
 
     /**************************************************************************/
     /*!
@@ -60,13 +82,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ToggleEditor()
     {
-      // Toggle on the editor
-      EditorEnabled = !EditorEnabled;
+      // Resize the viewport to accomodate the editor
+      //ApplyEditorWindowLayout();
+
       // Set it's current space to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
 
-      // Toggle on the GUI system
-      //Daisy->getSystem<GUI>()->Toggle();
+      // Toggle on the editor
+      EditorEnabled = !EditorEnabled;
+
       trace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
 
@@ -141,6 +165,27 @@ namespace DCEngine {
       //GUIHandler->Terminate();
     }
 
+
+    /**************************************************************************/
+    /*!
+    @brief Resizes the size of the rendering window while in editor mode.
+    */
+    /**************************************************************************/
+    void Editor::ApplyEditorWindowLayout()
+    {
+      auto viewportResize = new Events::ResizeViewportEvent();
+      if (EditorEnabled) {
+        viewportResize->viewportScale.x = 1;
+        viewportResize->viewportScale.y = 1;
+      }
+      else {
+        viewportResize->viewportScale.x = ViewportResize.x;
+        viewportResize->viewportScale.y = ViewportResize.y;
+      }
+      Daisy->Dispatch<Events::ResizeViewportEvent>(viewportResize);
+      delete viewportResize;
+    }
+
     /**************************************************************************/
     /*!
     @brief  Receives a MouseDown event.
@@ -212,6 +257,12 @@ namespace DCEngine {
       SelectObject(closestObj);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Sets the selected object.
+    @param  obj A reference to an object.
+    */
+    /**************************************************************************/
     void Editor::SelectObject(GameObject* obj)
     {
       trace << "Editor::SelectObject - " << obj->Name() << "\n";

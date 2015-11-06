@@ -285,7 +285,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Loop() {
-    dt = 1.0f / _framerate;
+    dt = 1.0f / EngineConfiguration->Framerate;
 
     while (_active) {
       ScopeTimer frameTimer(&dt);

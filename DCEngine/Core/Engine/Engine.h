@@ -52,14 +52,14 @@ namespace DCEngine {
     GameSession* getGameSession() { return gamesession_.get(); }
 
     // Component Events
-    template <typename EventClass, typename ComponentClass, typename MemberFunction>
-    void Connect(Entity* entity, MemberFunction fn, ComponentClass* comp);
+    template <typename EventClass, typename Class, typename MemberFunction>
+    void Connect(Entity* entity, MemberFunction fn, Class* inst);
     //void Disconnect(const Entity& entity, EventType);
 
     // System Events
-    //template<typename EventClass, typename SystemClass, typename MemberFunction>
-    //void Engine::Connect(Engine* engine, MemberFunction fn, SystemClass* sys);
-
+    template<typename EventClass, typename SystemClass, typename MemberFunction>
+    void Connect(MemberFunction fn, SystemClass* sys);
+    template <typename EventClass> void Dispatch(Event* eventObj);
 
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     template<typename T> std::shared_ptr<T> getSystem();
@@ -79,9 +79,6 @@ namespace DCEngine {
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
     
-    // Engine events
-    template <typename EventClass>
-    void Dispatch(Event* eventObj); // Dispatches an event on object
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
@@ -102,8 +99,8 @@ namespace DCEngine {
      \return A shared pointer to the requested system.
      */
      /**************************************************************************/
-  template<typename EventClass, typename ComponentClass, typename MemberFunction>
-  void Engine::Connect(Entity* entity, MemberFunction fn, ComponentClass* comp) {
+  template<typename EventClass, typename Class, typename MemberFunction>
+  void Engine::Connect(Entity* entity, MemberFunction fn, Class* inst) {
 
     //if (TRACE_CONNECT) {
     //  trace << "[Engine::Connect] - " << comp->Name() << " has connected to "
@@ -111,9 +108,9 @@ namespace DCEngine {
     //}
 
     // Construct the member function delegate
-    auto memDeg = new ComponentFunctionDelegate<ComponentClass, EventClass>();
+    auto memDeg = new MemberFunctionDelegate<Class, EventClass>();
     memDeg->FuncPtr = fn;
-    memDeg->CompInst = comp;
+    memDeg->Inst = inst;
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = (Delegate*)memDeg;
     // Store the base delegate to the <EventClass, std::list<Delegate*> > map
@@ -129,23 +126,18 @@ namespace DCEngine {
   \return A shared pointer to the requested system.
   */
   /**************************************************************************/
-  //template<typename EventClass, typename SystemClass, typename MemberFunction>
-  //void Engine::Connect(Engine* engine, MemberFunction fn, SystemClass* sys) {
+  template<typename EventClass, typename SystemClass, typename MemberFunction>
+  void Engine::Connect(MemberFunction fn, SystemClass* sys) {
 
-  //  if (TRACE_CONNECT) {
-  //    trace << "[Engine::Connect] - " << sys->Name() << " has connected to "
-  //      << "the engine " << "\n";
-  //  }
-
-  //  // Construct the member function delegate
-  //  auto memDeg = new SystemFunctionDelegate<SystemClass, EventClass>();
-  //  memDeg->FuncPtr = fn;
-  //  memDeg->SystemInst = sys;
-  //  // Create a base delegate pointer to pass to the entity's container
-  //  auto degPtr = (Delegate*)memDeg;
-  //  // Store the base delegate to the <EventClass, std::list<Delegate*> > map
-  //  engine->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
-  //}
+    // Construct the member function delegate
+    auto memDeg = new MemberFunctionDelegate<SystemClass, EventClass>();
+    memDeg->FuncPtr = fn;
+    memDeg->Inst = sys;
+    // Create a base delegate pointer to pass to the entity's container
+    auto degPtr = (Delegate*)memDeg;
+    // Store the base delegate to the <EventClass, std::list<Delegate*> > map
+    this->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+  }
 
   /**************************************************************************/
   /*!

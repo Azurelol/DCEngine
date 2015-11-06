@@ -67,6 +67,8 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         break;
+      default:
+        break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       //WindowContext->setVerticalSyncEnabled(true);

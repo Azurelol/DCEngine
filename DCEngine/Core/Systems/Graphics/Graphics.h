@@ -30,8 +30,8 @@ namespace DCEngine {
     class Graphics : public System {
       friend class Engine;
       friend class WindowSFML;
+      friend class GraphicsGL;
     public:
-
 
       void Register(GraphicsSpace& graphicsSpace);
       
@@ -46,35 +46,40 @@ namespace DCEngine {
       void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam);
 
     private:
-
-      void StartFrame();
-      void EndFrame();
-      void BackupState();
-      void RestoreState();
-
       std::unique_ptr<GraphicsGL> GraphicsHandler;
       const int screenwidth_ = 1024;
       const int screenheight_ = 768;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
+      Vec2 ViewportScale = Vec2(1, 1);
       Mat4 ProjMatrix;
       Mat4 ViewMatrix;
       Mat4 ViewProjMatrix;
-      std::vector<GraphicsSpace*> graphicsSpaces_; //!< Container of graphics spaces accessing this system
+      std::vector<GraphicsSpace*> graphicsSpaces_; 
+
+      /* Base methods */
+      void StartFrame();
+      void EndFrame();
+      void BackupState();
+      void RestoreState();
+      /* Events */
+      void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
+      void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
 
       Graphics();
       void Initialize();
+      void Subscribe();
       void Update(float dt);
       void Terminate();
       virtual void Serialize(Json::Value& root);
       virtual void Deserialize(Json::Value& root);
 
-	  //2D draw list
-	  int TotalObjNumG = 0;
-	  int TotalObjTranspNumG = 0;
-	  
-	  std::vector<Sprite*>  NonTextureObjNontransp;
-	  std::vector<Sprite*>  TransparentObj;
-	  void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
+      //2D draw list
+      int TotalObjNumG = 0;
+      int TotalObjTranspNumG = 0;
+
+      std::vector<Sprite*>  NonTextureObjNontransp;
+      std::vector<Sprite*>  TransparentObj;
+      void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
     };
 
 

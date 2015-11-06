@@ -19,17 +19,15 @@
 namespace DCEngine {
 
     class Event {
-
     public:
       virtual ~Event(void) {}
-
       unsigned int EventID;
 
     private:
-      
-
 
     };
+
+
 
   using EventPtr = std::shared_ptr<Event>;
   using EventVec = std::vector<EventPtr>;

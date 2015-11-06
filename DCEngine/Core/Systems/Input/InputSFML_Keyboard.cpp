@@ -11,6 +11,8 @@
 namespace DCEngine {
   namespace Systems {
 
+    void ToggleEditor();
+
     /**************************************************************************/
     /*!
     @brief  Polls for keyboard events. Everytime a key is pressed, sends an
@@ -63,7 +65,8 @@ namespace DCEngine {
         Daisy->getSystem<Systems::Editor>()->ToggleTest();
         break;
       case sf::Keyboard::F8: // RESERVED: Toggle Editor
-        Daisy->getSystem<Systems::Editor>()->ToggleEditor();
+        //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
+        ToggleEditor();
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
@@ -216,7 +219,7 @@ namespace DCEngine {
         break;
       case sf::Keyboard::F7: // RESERVED: Toggle Test
         keyUp->Key = Keys::F7;
-        Daisy->getSystem<Systems::Editor>()->ToggleTest();
+        Daisy->getSystem<Systems::Editor>()->ToggleTest();        
         break;
       case sf::Keyboard::F8:
         //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
@@ -269,10 +272,16 @@ namespace DCEngine {
       Daisy->getKeyboard()->Dispatch<Events::KeyUp>(keyUp);
       delete keyUp;
     }
-
-
-
-
-
+    
+    /**************************************************************************/
+    /*!
+    \brief  Toggles the Editor on.
+    */
+    /**************************************************************************/
+    void ToggleEditor() {
+      auto toggleEditor = new Events::EditorEnabled();
+      Daisy->Dispatch<Events::EditorEnabled>(toggleEditor);
+      delete toggleEditor;
+    }
   }
 }

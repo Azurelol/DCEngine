@@ -10,7 +10,7 @@ Content::Initialize
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - angryeyes was added.
+Content::AddSpriteSource - Angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
@@ -70,7 +70,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateStream 
@@ -275,30 +275,6 @@ Foreground::Initialize
 GraphicsSpace::AddSprite - Foreground
 
 [Engine::Loop]
-Editor::ToggleEditor : 1
-Editor::SelectObject - Foreground
-Editor::SelectObject - enemy
-Editor::SelectObject - Foreground
-Editor::SelectObject - Floor
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Mariah::Transform.Translation(-2.499e+07, -251.64, 0)
-Mariah::Transform.Translation(-2.499e+07, -258.305, 0)
-Mariah::Transform.Translation(-2.499e+07, -265.635, 0)
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Editor::SelectObject - Middleground
-Mariah::Transform.Translation(-2.499e+07, -318.279, 0)
-Mariah::Transform.Translation(-2.499e+07, -321.61, 0)
-Mariah::Transform.Translation(-2.499e+07, -326.273, 0)
-Editor::SelectObject - Middleground
-Editor::SelectObject - Foreground
-Editor::SelectObject - Foreground
 
 [Engine::Terminate] 
 Content::Terminate

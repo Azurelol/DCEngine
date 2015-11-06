@@ -184,6 +184,15 @@
     <Filter Include="Core\Systems\Editor\Widgets">
       <UniqueIdentifier>{62928177-b8e1-4b72-b2d8-199b751f8ab3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Entity\Mailbox">
+      <UniqueIdentifier>{6e71dbdd-0f56-42f0-8605-011aa0e2c03e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Editor">
+      <UniqueIdentifier>{516d951d-683e-410c-a30b-be9a32be30a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Engine">
+      <UniqueIdentifier>{69138360-3dd8-4bc9-94da-11be5f388851}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -686,9 +695,6 @@
     <ClInclude Include="Core\Events\UpdateEvents.h">
       <Filter>Core\Events\Update</Filter>
     </ClInclude>
-    <ClInclude Include="Core\EventsInclude.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\DebugCollider.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
@@ -826,6 +832,18 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Data.h">
       <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\EditorEvents.h">
+      <Filter>Core\Events\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\EngineEvents.h">
+      <Filter>Core\Events\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EventsInclude.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\GraphicsEvents.h">
+      <Filter>Core\Events\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

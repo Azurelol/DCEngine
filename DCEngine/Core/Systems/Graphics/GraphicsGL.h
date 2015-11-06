@@ -71,10 +71,12 @@ namespace DCEngine {
       void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
       void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
       void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam);
+      /* Viewport */
       
     private:
       // TEMP: Change these two to const
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
+      glm::ivec2 ViewportRatio;
       ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
@@ -90,6 +92,7 @@ namespace DCEngine {
       GraphicsGL();
       void Initialize();
       void ViewportUpdate();
+      void ResizeViewport(glm::vec2 ratio);
       void Terminate();
       void StartFrame();
       void EndFrame();
