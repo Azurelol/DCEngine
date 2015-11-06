@@ -32,14 +32,14 @@ namespace DCEngine {
 		connorObj->getComponent<Transform>()->Scale = Vec3(15.0f, 10.0f, 1.0f);
 
     /* Faded Curtain Effect */
-    GameObjectPtr curtain = ConstructGameObject("Curtain");
-    curtain->AddComponent(ComponentPtr(new Transform(*curtain)));
-    curtain->AddComponent(ComponentPtr(new Sprite(*curtain)));
-    curtain->AddComponent(ComponentPtr(new DebugFade(*curtain)));
-    curtain->getComponent<Sprite>()->Color = Vec4(0, 0, 0, 1);
-    curtain->getComponent<Transform>()->Scale = Vec3(150, 150, 1.0f);
-    // Transform properties
-    curtain->getComponent<Transform>()->Translation = Vec3(0, 0, 0.1);
+    //GameObjectPtr curtain = ConstructGameObject("Curtain");
+    //curtain->AddComponent(ComponentPtr(new Transform(*curtain)));
+    //curtain->AddComponent(ComponentPtr(new Sprite(*curtain)));
+    //curtain->AddComponent(ComponentPtr(new DebugFade(*curtain)));
+    //curtain->getComponent<Sprite>()->Color = Vec4(0, 0, 0, 1);
+    //curtain->getComponent<Transform>()->Scale = Vec3(150, 150, 1.0f);
+    //// Transform properties
+    //curtain->getComponent<Transform>()->Translation = Vec3(0, 0, 0.1);
 
 
     

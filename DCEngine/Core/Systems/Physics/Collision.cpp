@@ -20,6 +20,39 @@ namespace DCEngine
 		return sqrt(a.getFriction() * b.getFriction());
 	}
 
+  /**************************************************************************/
+  /*!
+  @brief  Checks if a point is inside a given rectangle.
+  @param  pos The position of the point in the Space.
+  @param  obj A reference to the GameObject.
+  @return True if a collision was detected, false otherwise.
+  */
+  /**************************************************************************/
+  bool PointToRectangle(glm::vec3 pos, GameObject * obj)
+  {
+    // If there's no transform component on the object, do nothing
+    if (obj->getComponent<Transform>() == nullptr)
+      return false;
+
+    auto objPos = obj->getComponent<Transform>()->Translation;
+    auto objDimensions = obj->getComponent<Transform>()->Scale;
+
+    auto bbTop = objPos.y + (objDimensions.y / 2);
+    if (pos.y > bbTop)
+      return false;
+    auto bbBot = objPos.y - (objDimensions.y / 2);
+    if (pos.y < bbBot)
+      return false;
+    auto bbLeft = objPos.x - (objDimensions.x / 2);
+    if (pos.x < bbLeft)
+      return false;
+    auto bbRight = objPos.x + (objDimensions.x / 2);
+    if (pos.x > bbRight)
+      return false;
+
+    return true;
+  }
+
 	// remember to come back and fill these out with manifold data
 
 	/**************************************************************************/
@@ -30,7 +63,7 @@ namespace DCEngine
 	@param  A pointer to the second object.
 	@return True if a collision was detected, false otherwise.
 	*/
-	/**************************************************************************/
+  /**************************************************************************/
 	bool BoxtoBox(GameObject * obj1, GameObject * obj2, Manifold &result)
 	{
 		/* christian if you are looking at this im sorry about the math in here */

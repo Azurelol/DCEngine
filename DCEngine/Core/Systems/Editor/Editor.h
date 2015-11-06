@@ -70,6 +70,7 @@ namespace DCEngine {
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
       void SelectObjectFromSpace(Vec2 pos);
+      void SelectObject(GameObject* obj);
       
 
     };

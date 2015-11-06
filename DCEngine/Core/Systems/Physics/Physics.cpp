@@ -34,7 +34,7 @@ namespace DCEngine {
 		/*!
 		\brief Registers a space to this system.
 		*/
-		/**************************************************************************/
+    /**************************************************************************/
 		void Physics::RegisterSpace(PhysicsSpace & physicsSpace)
 		{
 			physicsSpaces_.push_back(&physicsSpace);
@@ -50,11 +50,42 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
-
-
 			Step(1.0f / 60.0f);
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief Checks for collision between the target position and an object
+           within the space. It will return the first object hit.
+    @param The delta time.
+    */
+    /**************************************************************************/
+    GameObjectPtr Physics::FindObjectAtPosition(Vec3 pos, Space & space)
+    {
+      return GameObjectPtr();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Checks for any GameObjects within the target position in the space.
+    @param pos The position in the space.
+    @param space A reference to the space.
+    @return A container of all objects within the position. 
+    */
+    /**************************************************************************/
+    GameObjectVec Physics::FindAllObjectsAtPosition(Vec3 pos, Space & space)
+    {
+      GameObjectVec objsAtPos;
+
+      // Check for objects in the space for a collision
+      for (auto gameObj : *space.AllObjects()) {
+        // If there's a match, add it to the container
+        if (PointToRectangle(pos, gameObj.get()))
+          objsAtPos.push_back(gameObj);
+      }      
+
+      return objsAtPos;
+    }
 
 		/**************************************************************************/
 		/*!

@@ -12,7 +12,6 @@ namespace DCEngine {
 		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
 		//SpriteRef = dynamic_cast<GameObject*>(owner_)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
-		trace << "#################################################";
 		trace << PlayerRef->getComponent<Transform>()->Translation.x;
 	}
 
@@ -26,13 +25,14 @@ namespace DCEngine {
 
 	void BallController::OnMouseDownEvent(Events::MouseDown * event) 
 	{
-    trace << "BallController::OnMouseDownEvent - Mouse Pos (Pixels): " 
-          << event->Position.x << " y: " << event->Position.y << "\n";
 
     // Call the CameraViewport component of the space with this screen position.. ?
     auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
-    trace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
-      << coords.x << " y: " << coords.y << "\n";
+
+    //trace << "BallController::OnMouseDownEvent - Mouse Pos (Pixels): " 
+    //      << event->Position.x << " y: " << event->Position.y << "\n";
+    //trace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
+    //  << coords.x << " y: " << coords.y << "\n";
 
 		if (CurrentlyFired)
 		{
@@ -54,13 +54,14 @@ namespace DCEngine {
 			Charging = false;
 			CurrentCharge = 0;
 			CurrentlyFired = true;
-			trace << "BallController::OnMouseUpEvent - ";
-			if (event->ButtonReleased == MouseButton::Left)
-				trace << "Left Button ";
-			else if (event->ButtonReleased == MouseButton::Right)
-				trace << "Right Button ";
 
-			trace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
+			//trace << "BallController::OnMouseUpEvent - ";
+			//if (event->ButtonReleased == MouseButton::Left)
+			//	trace << "Left Button ";
+			//else if (event->ButtonReleased == MouseButton::Right)
+			//	trace << "Right Button ";
+
+			//trace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
 			
 		}
        

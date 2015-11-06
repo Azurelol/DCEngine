@@ -22,7 +22,6 @@ namespace DCEngine {
     {
       if (!WidgetLibraryEnabled)
         return;
-
       
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);

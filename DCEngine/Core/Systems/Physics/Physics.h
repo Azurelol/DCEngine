@@ -31,6 +31,8 @@ namespace DCEngine {
     {
       friend class Engine;
     public:
+      GameObjectPtr FindObjectAtPosition(Vec3 pos, Space& space);
+      GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
       void RegisterSpace(PhysicsSpace& physicsSpace);
 
     private:

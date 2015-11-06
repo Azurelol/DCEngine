@@ -59,13 +59,17 @@ namespace DCEngine {
     /*!
     @brief  Registers a SoundFile to be played through FMOD.
     @param  soundFile The name of the sound file.
-    @param  soundPtr  A pointer to the ..
+    @param  soundPtr  A pointer to the FMODSound pointer.
+    @todo   Use different functions to create (sound/stream) depending on the
+            file size.
     */
     /**************************************************************************/
     void Audio::CreateSound(std::string & soundFile, FMODSoundPtr& soundPtr)
     {
       //std::string resourceLocation("Core/Resources/Sounds/");
-      AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
+
+      //AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
+      AudioHandler->CreateStream(soundFile, &soundPtr.SoundPtr);
     }
 
     /**************************************************************************/

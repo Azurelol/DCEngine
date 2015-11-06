@@ -2,13 +2,37 @@
 
 namespace DCEngine {
   namespace Systems {
+
+    void Factory::Serialize(Json::Value & root)
+    {
+    }
+    void Factory::Deserialize(Json::Value & root)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Default constructor for the Factory system.
+    */
+    /**************************************************************************/
     Factory::Factory() : System(std::string("FactorySystem"), EnumeratedSystem::Factory) {
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Initializes the Factory system.
+    */
+    /**************************************************************************/
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
         trace << "Factory::Initialize \n";
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Updates the factory system.
+    */
+    /**************************************************************************/
     void Factory::Update(float dt) {
       if (TRACE_UPDATE)
         trace << "Factory::Update \n";
@@ -19,16 +43,14 @@ namespace DCEngine {
       }
 
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Terminates the Factory system.
+    */
+    /**************************************************************************/
     void Factory::Terminate() {
         trace << "Factory::Terminate \n";
-    }
-
-    void Factory::Serialize(Json::Value & root)
-    {
-    }
-
-    void Factory::Deserialize(Json::Value & root)
-    {
     }
 
     /**************************************************************************/
@@ -36,7 +58,7 @@ namespace DCEngine {
     \brief  Creates a game object with default components.
     \param  A reference to the space where the object will be constructed on.
     \param  Whether the GameObject should be initialized right away.
-    \return If a match was found, a pointer to the component. If not, NULL.
+    \return A GameObject created on the space.
     */
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(std::string& name, Space& space, bool init) {
