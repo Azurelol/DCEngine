@@ -77,9 +77,6 @@ namespace DCEngine
     }
 
 
-    float Min1 = 0.0f, Max1 = 0.0f, Min2 = 0.0f, Max2 = 0.0f;
-
-
     result.Penetration = 1000.0f;
 
     glm::vec3 topL1;
@@ -98,17 +95,6 @@ namespace DCEngine
     glm::vec3 Axis3;
     glm::vec3 Axis4;
 
-
-    glm::vec3 ProjvertexTL1;
-    glm::vec3 ProjvertexTR1;
-    glm::vec3 ProjvertexBL1;
-    glm::vec3 ProjvertexBR1;
-
-    glm::vec3 ProjvertexTL2;
-    glm::vec3 ProjvertexTR2;
-    glm::vec3 ProjvertexBL2;
-    glm::vec3 ProjvertexBR2;
-
     float Height0 = boxcollider1->getColliderScale().y;
     float Height1 = boxcollider2->getColliderScale().y;
 
@@ -118,594 +104,141 @@ namespace DCEngine
     float rot0 = transform1->WorldRotation.z;
     float rot1 = transform2->WorldRotation.z;
 
+    std::vector<glm::vec3> verts1;
+    std::vector<glm::vec3> verts2;
 
     topL1.x = transform1->Translation.x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
     topL1.y = transform1->Translation.y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
+    verts1.push_back(topL1);
+
     topR1.x = transform1->Translation.x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
     topR1.y = transform1->Translation.y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+
+    verts1.push_back(topR1);
 
     botL1.x = transform1->Translation.x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
     botL1.y = transform1->Translation.y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
+    verts1.push_back(botL1);
+
     botR1.x = transform1->Translation.x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
     botR1.y = transform1->Translation.y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+
+    verts1.push_back(botR1);
+
     /*
     */
     topL2.x = transform2->Translation.x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
     topL2.y = transform2->Translation.y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
+    verts2.push_back(topL2);
+
     topR2.x = transform2->Translation.x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
     topR2.y = transform2->Translation.y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+
+    verts2.push_back(topR2);
 
     botL2.x = transform2->Translation.x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
     botL2.y = transform2->Translation.y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
+    verts2.push_back(botL2);
+
     botR2.x = transform2->Translation.x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
     botR2.y = transform2->Translation.y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
 
+    verts2.push_back(botR2);
+
     /* this block of math above calculates the veracities of the rectangles */
+    std::vector<glm::vec3> Axes;
 
-    Axis1.x = topR1.x - topL1.x;
-    Axis1.y = topR1.y - topL1.y;
+    Axes.push_back(glm::normalize(topR1 - topL1));
+    Axes.push_back(glm::normalize(topR1 - botR1));
 
-    Axis2.x = topR1.x - botR1.x;
-    Axis2.y = topR1.y - botR1.y;
-
-    Axis3.x = topL2.x - botL2.x;
-    Axis3.y = topL2.y - botL2.y;
-
-    Axis4.x = topL2.x - topR2.x;
-    Axis4.y = topL2.y - topR2.y;
+    Axes.push_back(glm::normalize(botL2 - topL2));
+    Axes.push_back(glm::normalize(topL2 - topR2));
 
     /* this ^ calculates the 4 axis I will be using to determine collision */
 
-    ProjectOnTo(topL1, Axis1, ProjvertexTL1);
-    ProjectOnTo(topR1, Axis1, ProjvertexTR1);
-    ProjectOnTo(botL1, Axis1, ProjvertexBL1);
-    ProjectOnTo(botR1, Axis1, ProjvertexBR1);
-    /*
-    */
-    ProjectOnTo(topL2, Axis1, ProjvertexTL2);
-    ProjectOnTo(topR2, Axis1, ProjvertexTR2);
-    ProjectOnTo(botL2, Axis1, ProjvertexBL2);
-    ProjectOnTo(botR2, Axis1, ProjvertexBR2);
+    std::vector<std::vector<float>> MinMax;
 
-    Min1 = glm::dot(topL1, Axis1);
-    Max1 = Min1;
+    /* project onto each axis */
+    for (int i = 0; i < Axes.size(); ++i)
+    {
+      MinMax = ProjectOnTo(verts1, verts2, Axes[i]);
 
-    if (glm::dot(topR1, Axis1) > Max1)
-    {
-      Max1 = glm::dot(topR1, Axis1);
-    }
-    else if (glm::dot(topR1, Axis1) < Min1)
-    {
-      Min1 = glm::dot(topR1, Axis1);
-    }
-
-    if (glm::dot(botR1, Axis1) > Max1)
-    {
-      Max1 = glm::dot(botR1, Axis1);
-    }
-    else if (glm::dot(botR1, Axis1) < Min1)
-    {
-      Min1 = glm::dot(botR1, Axis1);
-    }
-
-    if (glm::dot(botL1, Axis1) > Max1)
-    {
-      Max1 = glm::dot(botL1, Axis1);
-    }
-    else if (glm::dot(botL1, Axis1) < Min1)
-    {
-      Min1 = glm::dot(botL1, Axis1);
-    }
-
-
-
-    Min2 = glm::dot(topL2, Axis1);
-    Max2 = Min2;
-
-    if (glm::dot(topR2, Axis1) > Max2)
-    {
-      Max2 = glm::dot(topR2, Axis1);
-    }
-    else if (glm::dot(topR2, Axis1) < Min2)
-    {
-      Min2 = glm::dot(topR2, Axis1);
-    }
-
-    if (glm::dot(botR2, Axis1) > Max2)
-    {
-      Max2 = glm::dot(botR2, Axis1);
-    }
-    else if (glm::dot(botR2, Axis1) < Min2)
-    {
-      Min2 = glm::dot(botR2, Axis1);
-    }
-
-    if (glm::dot(botL2, Axis1) > Max2)
-    {
-      Max2 = glm::dot(botL2, Axis1);
-    }
-    else if (glm::dot(botL2, Axis1) < Min2)
-    {
-      Min2 = glm::dot(botL2, Axis1);
-    }
-
-    if (Min1 > Max2 || Min2 > Max1)
-    {
-      return 0;
-    }
-    else if (Min1 < Max2 && Min2 < Max1)
-    {
-      if ((Max1 - Min2) < result.Penetration)
+      /* check the two non overlap results */
+      if (MinMax[0][0] > MinMax[1][1] || MinMax[0][1] < MinMax[1][0])
       {
-        result.Penetration = Max1 - Min2;
-        result.ContactNormal = glm::normalize(Axis1);
+        return false;
       }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Min1) < result.Penetration)
+      /* check the series of overlap results */
+      else if (MinMax[0][1] > MinMax[1][0] && MinMax[0][0] < MinMax[1][0])
       {
-        result.Penetration = Max2 - Min1;
-        result.ContactNormal = glm::normalize(Axis1);
-      }
-    }
-    else if (Min2 > Min1 && Max2 < Max1)
-    {
-      if ((Max1 - Max2) >(Min2 - Min1))
-      {
-        if ((Max1 - Max2) < result.Penetration)
+        if ((MinMax[0][1] - MinMax[1][0]) < result.Penetration)
         {
-          result.Penetration = Max1 - Max2;
-          result.ContactNormal = glm::normalize(Axis1);
+          result.Penetration = MinMax[0][1] - MinMax[1][0];
+          result.ContactNormal = Axes[i];
         }
       }
-      else
+      else if (MinMax[1][1] > MinMax[0][0] && MinMax[1][0] < MinMax[0][0])
       {
-        if ((Min2 - Min1) < result.Penetration)
+        if (MinMax[1][1] - MinMax[0][0] <= result.Penetration)
         {
-          result.Penetration = Min2 - Min1;
-          result.ContactNormal = glm::normalize(Axis1);
+          result.Penetration = MinMax[1][1] - MinMax[0][0];
+          result.ContactNormal = Axes[i];
         }
       }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Max1) >(Min1 - Min2))
+      else if (MinMax[1][0] > MinMax[0][0] && MinMax[1][1] < MinMax[0][1])
       {
-        if ((Max2 - Max1) < result.Penetration)
+        if (MinMax[1][0] - MinMax[0][1] > MinMax[0][1] - MinMax[1][1])
         {
-          result.Penetration = Max2 - Max1;
-          result.ContactNormal = glm::normalize(Axis1);
+          if (MinMax[0][1] - MinMax[1][0] < result.Penetration)
+          {
+            result.Penetration = MinMax[0][1] - MinMax[1][0];
+            result.ContactNormal = Axes[i];
+          }
+        }
+        else
+        {
+          if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
+          {
+            result.Penetration = MinMax[1][1] - MinMax[0][0];
+            result.ContactNormal = Axes[i];
+          }
         }
       }
-      else
+      else if (MinMax[0][0] > MinMax[1][0] && MinMax[0][1] < MinMax[1][1])
       {
-        if ((Min1 - Min2) < result.Penetration)
+        if (MinMax[1][1] - MinMax[0][1] > MinMax[0][0] - MinMax[1][0])
         {
-          result.Penetration = Min1 - Min2;
-          result.ContactNormal = glm::normalize(Axis1);
+          if (MinMax[0][1] - MinMax[1][0] < result.Penetration)
+          {
+            result.Penetration = MinMax[0][1] - MinMax[1][0];
+            result.ContactNormal = Axes[i];
+          }
+        }
+        else
+        {
+          if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
+          {
+            result.Penetration = MinMax[1][1] - MinMax[0][0];
+            result.ContactNormal = Axes[i];
+          }
         }
       }
-    }
-    /**********************************************************/
-    /**********************************************************/
-    /**********************************************************/
-    ProjectOnTo(topL1, Axis2, ProjvertexTL1);
-    ProjectOnTo(topR1, Axis2, ProjvertexTR1);
-    ProjectOnTo(botL1, Axis2, ProjvertexBL1);
-    ProjectOnTo(botR1, Axis2, ProjvertexBR1);
-    /*
-    */
-    ProjectOnTo(topL2, Axis2, ProjvertexTL2);
-    ProjectOnTo(topR2, Axis2, ProjvertexTR2);
-    ProjectOnTo(botL2, Axis2, ProjvertexBL2);
-    ProjectOnTo(botR2, Axis2, ProjvertexBR2);
 
-    Min1 = glm::dot(ProjvertexTL1, Axis2);
-    Max1 = Min1;
-
-    if (glm::dot(ProjvertexTR1, Axis2) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexTR1, Axis2);
-    }
-    else if (glm::dot(ProjvertexTR1, Axis2) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexTR1, Axis2);
-    }
-
-    if (glm::dot(ProjvertexBR1, Axis2) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBR1, Axis2);
-    }
-    else if (glm::dot(ProjvertexBR1, Axis2) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBR1, Axis2);
-    }
-
-    if (glm::dot(ProjvertexBL1, Axis2) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBL1, Axis2);
-    }
-    else if (glm::dot(ProjvertexBL1, Axis2) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBL1, Axis2);
-    }
-
-
-
-    Min2 = glm::dot(ProjvertexTL2, Axis2);
-    Max2 = Min2;
-
-    if (glm::dot(ProjvertexTR2, Axis2) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexTR2, Axis2);
-    }
-    else if (glm::dot(ProjvertexTR2, Axis2) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexTR2, Axis2);
-    }
-
-    if (glm::dot(ProjvertexBR2, Axis2) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBR2, Axis2);
-    }
-    else if (glm::dot(ProjvertexBR2, Axis2) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBR2, Axis2);
-    }
-
-    if (glm::dot(ProjvertexBL2, Axis2) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBL2, Axis2);
-    }
-    else if (glm::dot(ProjvertexBL2, Axis2) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBL2, Axis2);
-    }
-
-
-    if (Min1 > Max2 || Min2 > Max1)
-    {
-      return 0;
-    }
-    else if (Min1 < Max2 && Min2 < Max1)
-    {
-      if ((Max1 - Min2) < result.Penetration)
-      {
-        result.Penetration = Max1 - Min2;
-        result.ContactNormal = glm::normalize(Axis2);
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Min1) < result.Penetration)
-      {
-        result.Penetration = Max2 - Min1;
-        result.ContactNormal = glm::normalize(Axis2);
-      }
-    }
-    else if (Min2 > Min1 && Max2 < Max1)
-    {
-      if ((Max1 - Max2) >(Min2 - Min1))
-      {
-        if ((Max1 - Max2) < result.Penetration)
-        {
-          result.Penetration = Max1 - Max2;
-          result.ContactNormal = glm::normalize(Axis2);
-        }
-      }
-      else
-      {
-        if ((Min2 - Min1) < result.Penetration)
-        {
-          result.Penetration = Min2 - Min1;
-          result.ContactNormal = glm::normalize(Axis2);
-        }
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Max1) >(Min1 - Min2))
-      {
-        if ((Max2 - Max1) < result.Penetration)
-        {
-          result.Penetration = Max2 - Max1;
-          result.ContactNormal = glm::normalize(Axis2);
-        }
-      }
-      else
-      {
-        if ((Min1 - Min2) < result.Penetration)
-        {
-          result.Penetration = Min1 - Min2;
-          result.ContactNormal = glm::normalize(Axis2);
-        }
-      }
-    }
-    /**********************************************************/
-    /**********************************************************/
-    /**********************************************************/
-
-    ProjectOnTo(topL1, Axis3, ProjvertexTL1);
-    ProjectOnTo(topR1, Axis3, ProjvertexTR1);
-    ProjectOnTo(botL1, Axis3, ProjvertexBL1);
-    ProjectOnTo(botR1, Axis3, ProjvertexBR1);
-    /*
-    */
-    ProjectOnTo(topL2, Axis3, ProjvertexTL2);
-    ProjectOnTo(topR2, Axis3, ProjvertexTR2);
-    ProjectOnTo(botL2, Axis3, ProjvertexBL2);
-    ProjectOnTo(botR2, Axis3, ProjvertexBR2);
-
-
-    Min1 = glm::dot(ProjvertexTL1, Axis3);
-    Max1 = Min1;
-
-    if (glm::dot(ProjvertexTR1, Axis3) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexTR1, Axis3);
-    }
-    else if (glm::dot(ProjvertexTR1, Axis3) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexTR1, Axis3);
-    }
-
-    if (glm::dot(ProjvertexBR1, Axis3) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBR1, Axis3);
-    }
-    else if (glm::dot(ProjvertexBR1, Axis3) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBR1, Axis3);
-    }
-
-    if (glm::dot(ProjvertexBL1, Axis3) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBL1, Axis3);
-    }
-    else if (glm::dot(ProjvertexBL1, Axis3) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBL1, Axis3);
-    }
-
-
-
-    Min2 = glm::dot(ProjvertexTL2, Axis3);
-    Max2 = Min2;
-
-    if (glm::dot(ProjvertexTR2, Axis3) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexTR2, Axis3);
-    }
-    else if (glm::dot(ProjvertexTR2, Axis3) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexTR2, Axis3);
-    }
-
-    if (glm::dot(ProjvertexBR2, Axis3) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBR2, Axis3);
-    }
-    else if (glm::dot(ProjvertexBR2, Axis3) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBR2, Axis3);
-    }
-
-    if (glm::dot(ProjvertexBL2, Axis3) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBL2, Axis3);
-    }
-    else if (glm::dot(ProjvertexBL2, Axis3) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBL2, Axis3);
-    }
-
-    if (Min1 > Max2 || Min2 > Max1)
-    {
-      return false;
-    }
-    else if (Min1 < Max2 && Min2 < Max1)
-    {
-      if ((Max1 - Min2) < result.Penetration)
-      {
-        result.Penetration = Max1 - Min2;
-        result.ContactNormal = glm::normalize(Axis3);
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Min1) < result.Penetration)
-      {
-        result.Penetration = Max2 - Min1;
-        result.ContactNormal = glm::normalize(Axis3);
-      }
-    }
-    else if (Min2 > Min1 && Max2 < Max1)
-    {
-      if ((Max1 - Max2) >(Min2 - Min1))
-      {
-        if ((Max1 - Max2) < result.Penetration)
-        {
-          result.Penetration = Max1 - Max2;
-          result.ContactNormal = glm::normalize(Axis3);
-        }
-      }
-      else
-      {
-        if ((Min2 - Min1) < result.Penetration)
-        {
-          result.Penetration = Min2 - Min1;
-          result.ContactNormal = glm::normalize(Axis3);
-        }
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Max1)  >(Min1 - Min2))
-      {
-        if ((Max2 - Max1) < result.Penetration)
-        {
-          result.Penetration = Max2 - Max1;
-          result.ContactNormal = glm::normalize(Axis3);
-        }
-      }
-      else
-      {
-        if ((Min1 - Min2) < result.Penetration)
-        {
-          result.Penetration = Min1 - Min2;
-          result.ContactNormal = glm::normalize(Axis3);
-        }
-      }
-    }
-    /**********************************************************/
-    /**********************************************************/
-    /**********************************************************/
-
-    ProjectOnTo(topL1, Axis4, ProjvertexTL1);
-    ProjectOnTo(topR1, Axis4, ProjvertexTR1);
-    ProjectOnTo(botL1, Axis4, ProjvertexBL1);
-    ProjectOnTo(botR1, Axis4, ProjvertexBR1);
-    /*
-    */
-    ProjectOnTo(topL2, Axis4, ProjvertexTL2);
-    ProjectOnTo(topR2, Axis4, ProjvertexTR2);
-    ProjectOnTo(botL2, Axis4, ProjvertexBL2);
-    ProjectOnTo(botR2, Axis4, ProjvertexBR2);
-
-
-    Min1 = glm::dot(ProjvertexTL1, Axis4);
-    Max1 = Min1;
-
-    if (glm::dot(ProjvertexTR1, Axis4) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexTR1, Axis4);
-    }
-    else if (glm::dot(ProjvertexTR1, Axis4) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexTR1, Axis4);
-    }
-
-    if (glm::dot(ProjvertexBR1, Axis4) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBR1, Axis4);
-    }
-    else if (glm::dot(ProjvertexBR1, Axis4) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBR1, Axis4);
-    }
-
-    if (glm::dot(ProjvertexBL1, Axis4) > Max1)
-    {
-      Max1 = glm::dot(ProjvertexBL1, Axis4);
-    }
-    else if (glm::dot(ProjvertexBL1, Axis4) < Min1)
-    {
-      Min1 = glm::dot(ProjvertexBL1, Axis4);
-    }
-
-
-
-    Min2 = glm::dot(ProjvertexTL2, Axis4);
-    Max2 = Min2;
-
-    if (glm::dot(ProjvertexTR2, Axis4) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexTR2, Axis4);
-    }
-    else if (glm::dot(ProjvertexTR2, Axis4) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexTR2, Axis4);
-    }
-
-    if (glm::dot(ProjvertexBR2, Axis4) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBR2, Axis4);
-    }
-    else if (glm::dot(ProjvertexBR2, Axis4) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBR2, Axis4);
-    }
-
-    if (glm::dot(ProjvertexBL2, Axis4) > Max2)
-    {
-      Max2 = glm::dot(ProjvertexBL2, Axis4);
-    }
-    else if (glm::dot(ProjvertexBL2, Axis4) < Min2)
-    {
-      Min2 = glm::dot(ProjvertexBL2, Axis4);
-    }
-
-    if (Min1 > Max2 || Min2 > Max1)
-    {
-      return false;
-    }
-    else if (Min1 < Max2 && Min2 < Max1)
-    {
-      if ((Max1 - Min2) < result.Penetration)
-      {
-        result.Penetration = Max1 - Min2;
-        result.ContactNormal = glm::normalize(Axis4);
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Min1) < result.Penetration)
-      {
-        result.Penetration = Max2 - Min1;
-        result.ContactNormal = glm::normalize(Axis4);
-      }
-    }
-    else if (Min2 > Min1 && Max2 < Max1)
-    {
-      if ((Max1 - Max2) >(Min2 - Min1))
-      {
-        if ((Max1 - Max2) < result.Penetration)
-        {
-          result.Penetration = Max1 - Max2;
-          result.ContactNormal = glm::normalize(Axis4);
-        }
-      }
-      else
-      {
-        if ((Min2 - Min1) < result.Penetration)
-        {
-          result.Penetration = Min2 - Min1;
-          result.ContactNormal = glm::normalize(Axis4);
-        }
-      }
-    }
-    else if (Min1 > Min2 && Max1 < Max2)
-    {
-      if ((Max2 - Max1) >(Min1 - Min2))
-      {
-        if ((Max2 - Max1) < result.Penetration)
-        {
-          result.Penetration = Max2 - Max1;
-          result.ContactNormal = glm::normalize(Axis4);
-        }
-      }
-      else
-      {
-        if ((Min1 - Min2) < result.Penetration)
-        {
-          result.Penetration = Min1 - Min2;
-          result.ContactNormal = glm::normalize(Axis4);
-        }
-      }
     }
 
     /* collision is true calculate collision data */
 
+    if (result.Penetration > 200.0f)
+    {
+      result.Penetration = 1.0f / 60.0f;
+    }
+
     result.Object1 = obj1;
     result.Object2 = obj2;
-    result.obj1 = Collider::Rectangle;
-    result.obj2 = Collider::Rectangle;
-
 
     if (result.rigid1 != false && result.rigid2 != false)
     {
@@ -729,7 +262,6 @@ namespace DCEngine
     }
 
     return true;
-
     //Check X
     glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
     float xDiff = boxcollider1->getColliderScale().x / 2.0f + boxcollider2->getColliderScale().x / 2.0f - fabs(positionDelta.x);
@@ -822,16 +354,73 @@ namespace DCEngine
 
   /**************************************************************************/
   /*!
-  @brief  This function projects a vector on to another vector.
+  @brief  This function projects an objects verts on to a vector.
   @param vec- the vector we are projecting.
   @param Axis- the axis we are projecting on to.
   @param result- where to store the result.
   */
   /**************************************************************************/
-  void ProjectOnTo(glm::vec3 vec, glm::vec3 Axis, glm::vec3 &result)
+  std::vector<std::vector<float>> ProjectOnTo(std::vector<glm::vec3> &verts1, std::vector<glm::vec3> &verts2, glm::vec3 &Axis)
   {
-    result.x = ((vec.x * Axis.x + vec.y * Axis.y) / (glm::dot(Axis, Axis))) * Axis.x;
-    result.y = ((vec.x * Axis.x + vec.y * Axis.y) / (glm::dot(Axis, Axis))) * Axis.y;
+    std::vector<std::vector<float>> result;
+
+    std::vector<float> obj1;
+    std::vector<float> obj2;
+
+    obj1.push_back(0.0f);
+    obj1.push_back(0.0f);
+
+    obj2.push_back(0.0f);
+    obj2.push_back(0.0f);
+
+
+    for (int i = 0; i < verts1.size(); ++i)
+    {
+      if (i == 0)
+      {
+        obj1[0] = glm::dot(verts1[i], Axis);
+        obj1[1] = glm::dot(verts1[i], Axis);
+      }
+      else
+      {
+        if (glm::dot(verts1[i], Axis) < obj1[0])
+        {
+          obj1[0] = glm::dot(verts1[i], Axis);
+        }
+
+        if (glm::dot(verts1[i], Axis) > obj1[1])
+        {
+          obj1[1] = glm::dot(verts1[i], Axis);
+        }
+      }
+    }
+
+    for (int i = 0; i < verts2.size(); ++i)
+    {
+      if (i == 0)
+      {
+        obj2[0] = glm::dot(verts2[i], Axis);
+        obj2[1] = glm::dot(verts2[i], Axis);
+      }
+      else
+      {
+        if (glm::dot(verts2[i], Axis) < obj2[0])
+        {
+          obj2[0] = glm::dot(verts2[i], Axis);
+        }
+
+        if (glm::dot(verts2[i], Axis) > obj2[1])
+        {
+          obj2[1] = glm::dot(verts2[i], Axis);
+        }
+      }
+    }
+
+
+    result.push_back(obj1);
+    result.push_back(obj2);
+
+    return result;
   }
 
   /**************************************************************************/

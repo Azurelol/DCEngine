@@ -10,7 +10,7 @@ Content::Initialize
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - Angryeyes was added.
+Content::AddSpriteSource - angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
@@ -27,7 +27,7 @@ Content::AddSpriteSource - MonkeyJump1 was added.
 Content::AddSpriteSource - MonkeyStand was added.
 Content::AddSpriteSource - MonkeyWalk was added.
 Content::AddSpriteSource - MonkeyWalk1 was added.
-Content::AddSpriteSource - Square was added.
+Content::AddSpriteSource - square was added.
 Content::AddSpriteSource - Square3 was added.
 Content::AddSoundCue - soulja was added.
 Content::AddSoundCue - spacejam was added.
@@ -70,7 +70,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading C:\Users\Dell\Documents\GitHub\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateStream 
@@ -227,63 +227,4 @@ Camera::Initialize
 Connor::Initialize 
 GraphicsSpace::AddSprite - Connor
 SpriteTextor::Initialize 
-GraphicsSpace::AddSpriteText - SpriteTextor
-Mariah::Initialize 
-GraphicsSpace::AddSprite - Mariah
-PhysicsSpace::AddRigidBody - Mariah
-PhysicsSpace::AddCollider - Mariah
-enemy1::Initialize 
-GraphicsSpace::AddSprite - enemy1
-PhysicsSpace::AddRigidBody - enemy1
-PhysicsSpace::AddCollider - enemy1
-enemy2::Initialize 
-GraphicsSpace::AddSprite - enemy2
-PhysicsSpace::AddRigidBody - enemy2
-PhysicsSpace::AddCollider - enemy2
-enemy3::Initialize 
-GraphicsSpace::AddSprite - enemy3
-PhysicsSpace::AddRigidBody - enemy3
-PhysicsSpace::AddCollider - enemy3
-enemy4::Initialize 
-GraphicsSpace::AddSprite - enemy4
-PhysicsSpace::AddRigidBody - enemy4
-PhysicsSpace::AddCollider - enemy4
-groundenemy::Initialize 
-GraphicsSpace::AddSprite - groundenemy
-PhysicsSpace::AddRigidBody - groundenemy
-PhysicsSpace::AddCollider - groundenemy
-groundenemy::Initialize 
-GraphicsSpace::AddSprite - groundenemy
-PhysicsSpace::AddRigidBody - groundenemy
-PhysicsSpace::AddCollider - groundenemy
-Basketball::Initialize 
-GraphicsSpace::AddSprite - Basketball
-PhysicsSpace::AddRigidBody - Basketball
-PhysicsSpace::AddCollider - Basketball
-4Pikapikano!::Initialize 
-GraphicsSpace::AddSprite - Pikapikano!
-Floor::Initialize 
-PhysicsSpace::AddRigidBody - Floor
-PhysicsSpace::AddCollider - Floor
-Basketfloor2::Initialize 
-PhysicsSpace::AddRigidBody - Basketfloor2
-PhysicsSpace::AddCollider - Basketfloor2
-Background::Initialize 
-GraphicsSpace::AddSprite - Background
-Middleground::Initialize 
-GraphicsSpace::AddSprite - Middleground
-Foreground::Initialize 
-GraphicsSpace::AddSprite - Foreground
-particleTest::Initialize 
-
-[Engine::Loop]
-
-[Engine::Terminate] 
-Content::Terminate
-Factory::Terminate 
-Window::Terminate 
-Input::Terminate 
-Editor::Terminate 
-Audio::Terminate 
-Graphics::Terminate 
-GUI::Terminate 
+GraphicsSpace::AddSpriteText - SpriteText
