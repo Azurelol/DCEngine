@@ -277,6 +277,17 @@ GraphicsSpace::AddSprite - Foreground
 particleTest::Initialize 
 
 [Engine::Loop]
+Editor::OnEditorEnabledEvent 
+Editor::ToggleEditor : 1
+
+////////////////////////////////////////////////////// 
+ Daisy has encountered an exception! 
+
+ Message: An object Missing a BoxCollider component got passed to PointtoRect
+ File: c:\development\dcengine\dcengine\core\systems\physics\collision.cpp
+ Line: 1241
+////////////////////////////////////////////////////// 
+
 
 [Engine::Terminate] 
 Content::Terminate
