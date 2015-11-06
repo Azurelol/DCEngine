@@ -825,10 +825,19 @@ namespace DCEngine
     BoxCollider *collider = rect->getComponent<BoxCollider>();
     Transform *transform = rect->getComponent<Transform>();
 
+    float height, width;
+
     if (collider == NULL)
     {
-      throw DCException("An object Missing a BoxCollider component got passed to PointtoRect");
+      height = transform->Scale.y;
+      width = transform->Scale.x;
     }
+    else
+    {
+      height = collider->getColliderScale().y;
+      width = collider->getColliderScale().x;
+    }
+
 
 
     point -= transform->Translation;
@@ -840,10 +849,10 @@ namespace DCEngine
 
     point += transform->Translation;
 
-    float top = transform->Translation.y + 0.5 * collider->getColliderScale().y;
-    float left = transform->Translation.x - 0.5 * collider->getColliderScale().x;
-    float right = transform->Translation.x + 0.5 * collider->getColliderScale().x;
-    float bottom = transform->Translation.y - 0.5 * collider->getColliderScale().y;
+    float top = transform->Translation.y + 0.5 * height;
+    float left = transform->Translation.x - 0.5 * width;
+    float right = transform->Translation.x + 0.5 * width;
+    float bottom = transform->Translation.y - 0.5 * height;
 
     if (point.y > top)
     {
