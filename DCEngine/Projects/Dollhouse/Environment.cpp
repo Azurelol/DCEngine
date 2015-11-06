@@ -76,6 +76,7 @@ namespace DCEngine {
     particleTest->AddComponent(ComponentPtr(new LinearParticleAnimator(*particleTest)));
     particleTest->AddComponent(ComponentPtr(new ParticleColorAnimator(*particleTest)));
     // Settings 
+    particleTest->getComponent<Transform>()->Translation = Vec3(4, 4, 0);
     particleTest->getComponent<SpriteParticleSystem>()->SpriteSource = "square";
     particleTest->getComponent<ParticleEmitter>()->EmitCount = 6;
 
