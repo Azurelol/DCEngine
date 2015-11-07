@@ -41,8 +41,7 @@ namespace DCEngine {
     //// Transform properties
     //curtain->getComponent<Transform>()->Translation = Vec3(0, 0, 0.1);
 
-
-    
+      
     /* SpriteText! */
     GameObjectPtr boro = ConstructGameObject("SpriteTextor");
 		boro->AddComponent(ComponentPtr(new Transform(*boro)));

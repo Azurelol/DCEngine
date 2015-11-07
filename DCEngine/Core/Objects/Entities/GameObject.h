@@ -59,12 +59,13 @@ namespace DCEngine {
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);
 
-    //static int GameObjectsCreated;
-    //const unsigned int GameObjectID;
+    static int GameObjectsCreated;
+    const unsigned int GameObjectID;
     
 
   };
 
+  
   //using GameObjectPtr = std::shared_ptr<GameObject>;
   //using GameObjectVec = std::vector<GameObjectPtr>;
   //using GameObjectRawVec = std::vector<GameObject*>;

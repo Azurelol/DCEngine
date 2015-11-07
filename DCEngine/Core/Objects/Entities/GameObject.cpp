@@ -3,8 +3,9 @@
 #include "Space.h"
 #include "GameSession.h"
 
-namespace DCEngine {
-  
+namespace DCEngine {  
+
+  int GameObject::GameObjectsCreated = 0;
 
   /**************************************************************************/
   /*!
@@ -16,7 +17,7 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
     : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession)
-   // , GameObjectID(GameObjectsCreated++) 
+      ,GameObjectID(GameObjectsCreated++) 
   {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
@@ -33,7 +34,7 @@ namespace DCEngine {
   }
 
   GameObject::GameObject() 
-    // : GameObjectID(GameObjectsCreated++)
+  : GameObjectID(GameObjectsCreated++)
   {
     ObjName = "GameObject";
   }

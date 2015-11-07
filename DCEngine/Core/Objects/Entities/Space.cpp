@@ -127,11 +127,25 @@ namespace DCEngine {
 
     // Set it as the current level
     CurrentLevel = level;
-
     // Load GameObjects into the space
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
+
+    // Read the JSON string
+    
+    // For every object 
+
+    // For the level, load each object: Construct an empty object from the factory
+    // For each object, load the components: 
+    // Have a map that maps the name of the component on strings, and maps it to a function
+    // that creates the derived component and returns a base component class pointer.
+    // Have some switch statement that takes whatever info is needed to serialize, the name of the coponent
+    // perhaps the entity too. It can create the component, fil it with data and attach it to the entity.
+
+    // For each component, load the data. Read the values in from the serialized string.
+
+
 
   }
 
