@@ -34,10 +34,17 @@ namespace DCEngine {
 
   public:
 
-    GameSession(std::string& name);
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(GameSession, Entity);
+    #endif
+
+
+    GameSession(std::string name);
     ~GameSession();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);    
+
+    //virtual void Serialize(Json::Value& root);
+    //virtual void Deserialize(Json::Value& root);    
+
     SpacePtr CreateSpace(std::string name);
     SpacePtr GetSpace(std::string name);
     Space* getDefaultSpace();

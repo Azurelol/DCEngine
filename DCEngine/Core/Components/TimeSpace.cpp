@@ -19,7 +19,7 @@ namespace DCEngine {
 
   void TimeSpace::OnLogicUpdate(Events::LogicUpdate* updateEvent) {
     //Events::LogicUpdate* upcastedEvent = (Events::LogicUpdate*)updateEvent;
-    //trace << "TimeSpace::OnLogicUpdate - Dt: " << upcastedEvent->Dt << "\n";   
+    //DCTrace << "TimeSpace::OnLogicUpdate - Dt: " << upcastedEvent->Dt << "\n";   
 
   }
 

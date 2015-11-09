@@ -5,10 +5,13 @@
 \**************************************************************/
 
 // Includes
-#if defined (UNICODE)
-#undef UNICODE
-#define TEMP_DISABLE_UNICODE
+
+
+#if defined(UNICODE)
+  #undef UNICODE
+  #define TEMP_DISABLE_UNICODE
 #endif
+
 
 namespace Zilch
 {
@@ -3626,7 +3629,7 @@ namespace Zilch
       // Therefore, it always returns void (however, we definately do not want to generate anything for returns)
       returnValueAccess = nullptr;
 
-      // Render the debug origin to be a little more clear (we're in a constructor)
+      // Update the debug origin to be a little more clear (we're in a constructor)
       debugOrigin = DebugOrigin::FunctionCallConstructor;
 
       // Technically this constructor call comes above the actual new/local in the syntax tree
@@ -9164,14 +9167,14 @@ namespace Zilch
   }
   
   //***************************************************************************
-  void Debugger::Render()
+  void Debugger::Update()
   {
     // Early out if we're not hosting
     if (this->Server.IsValid() == false)
       return;
 
     // Make sure we pump incoming messages
-    this->Server.Render();
+    this->Server.Update();
 
     // Loop through all the projects using a total hash to see if any project has changed (including files)
     unsigned long long projectsHash = 0;
@@ -9193,7 +9196,7 @@ namespace Zilch
     // If the hash wasn't the same as the last time...
     if (projectsHash != this->AllProjectsHashCode)
     {
-      // Render the remote explorer view
+      // Update the remote explorer view
       this->UpdateExplorerView();
       this->AllProjectsHashCode = projectsHash;
     }
@@ -9556,7 +9559,7 @@ namespace Zilch
                       builder.End();
                     }
 
-                    // Render the value stored in the evaluated property map, so that next time we'll know if we've seen this
+                    // Update the value stored in the evaluated property map, so that next time we'll know if we've seen this
                     evaluatedProperties[property->Name] = propertyValue;
 
                     // TEMPORARY - Because we do not have the ExecutableState in bound C++ functions, we can only
@@ -9742,7 +9745,7 @@ END:
   void Debugger::OnEnterFunction(OpcodeEvent* e)
   {
     // Make sure we pump incoming messages
-    this->Server.Render();
+    this->Server.Update();
 
     if (e->Location == nullptr)
       return;
@@ -9754,7 +9757,7 @@ END:
   void Debugger::OnExitFunction(OpcodeEvent* e)
   {
     // Make sure we pump incoming messages
-    this->Server.Render();
+    this->Server.Update();
 
     if (e->Location == nullptr)
       return;
@@ -9775,7 +9778,7 @@ END:
   void Debugger::OnOpcodePreStep(OpcodeEvent* e)
   {
     // Make sure we pump incoming messages
-    this->Server.Render();
+    this->Server.Update();
 
     // Cache some variables as locals
     CodeLocation* location = e->Location;
@@ -10178,7 +10181,7 @@ END:
       EventSend(this, Events::DebuggerPauseUpdate, &toSend);
 
       // While we're paused just pump messages (could be a breakpoint, after a step, or a true pause)
-      this->Server.Render();
+      this->Server.Update();
     }
     
     // Since we're resuming, clear execution
@@ -10191,7 +10194,7 @@ END:
   //***************************************************************************
   void Debugger::OnAcceptedConnection(WebSocketEvent* event)
   {
-    // Render the explorer view for the newly connected client
+    // Update the explorer view for the newly connected client
     this->UpdateExplorerView();
   }
   
@@ -13612,7 +13615,7 @@ namespace Zilch
             if (oldHeapType->Name != newTypeOrNull->Name)
               continue;
 
-            // Render the type on the slot's header
+            // Update the type on the slot's header
             header.Type = newTypeOrNull;
 
             // Create a temporary buffer to copy all the values from the old heap type over
@@ -41284,7 +41287,7 @@ namespace Zilch
     // If we've actually moved forward
     if (this->ForwardPosition < this->Position)
     {
-      // Render the line and character number
+      // Update the line and character number
       UpdateLineAndCharacterNumber(result);
 
       // Move the forward position forward
@@ -48878,7 +48881,7 @@ namespace Zilch
   }
 
   //***************************************************************************
-  void ThreadedWebSocketConnection::Render()
+  void ThreadedWebSocketConnection::Update()
   {
     // Lock the recieve buffer and bring all messages to the owning recieve message array
     this->IncomingLock.Lock();
@@ -49136,7 +49139,7 @@ namespace Zilch
   }
   
   //***************************************************************************
-  void ThreadedWebSocketListener::Render()
+  void ThreadedWebSocketListener::Update()
   {
     // Lock the recieve buffer and bring all messages to the owning recieve message array
     this->IncomingLock.Lock();
@@ -49283,10 +49286,10 @@ namespace Zilch
   }
 
   //***************************************************************************
-  void ThreadedWebSocketServer::Render()
+  void ThreadedWebSocketServer::Update()
   {
-    // Render the listener, which will dispatch events
-    this->Listener.Render();
+    // Update the listener, which will dispatch events
+    this->Listener.Update();
 
     // Loop through all the connections we have and update them
     for (size_t i = 0; i < this->Connections.size();)
@@ -49294,8 +49297,8 @@ namespace Zilch
       // Grab the current connection
       ThreadedWebSocketConnection* connection = this->Connections[i];
 
-      // Render the connection, which could actually close the socket
-      connection->Render();
+      // Update the connection, which could actually close the socket
+      connection->Update();
 
       // If the connection is closed, we should remove it!
       if (connection->IsValid() == false)
@@ -63463,7 +63466,7 @@ void UpdateHostPortString(Status& status, IpAddress& ipAddress)
   builder.Append(":");
   builder.Append(port);
 
-  // Render IP address string
+  // Update IP address string
   ipAddress.mHostPortString = builder.ToString();
 }
 
@@ -63676,7 +63679,7 @@ Bits Serialize(SerializeDirection::Enum direction, BitStream& bitStream, IpAddre
   // Read operation?
   if(direction == SerializeDirection::Read)
   {
-    // Render internal host port string
+    // Update internal host port string
     if(ipAddress.IsValid())
     {
       Status status;
@@ -67694,7 +67697,7 @@ void Timer::Reset()
   self->mCurTime = 0;
 }
 
-void Timer::Render()
+void Timer::Update()
 {
   ZeroGetPrivateData(TimerPrivateData);
   TickType lastTickCount = self->mCurrentTickCount;
@@ -67723,7 +67726,7 @@ double Timer::TimeDelta() const
 
 double Timer::UpdateAndGetTime()
 {
-  Render();
+  Update();
   return Time();
 }
 
@@ -71655,6 +71658,9 @@ u64 GenerateUniqueId64()
 
 #endif
 
+
+
 #if defined(TEMP_DISABLE_UNICODE)
-#define UNICODE
+  #define UNICODE
+  #undef TEMP_DISABLE_UNICODE
 #endif

@@ -38,7 +38,7 @@ namespace DCEngine {
   void GraphicsSpace::AddSpriteText(SpriteText& spriteText)
   {
     SpriteTextContainer.push_back(&spriteText);
-    trace << "GraphicsSpace::AddSpriteText - "
+    DCTrace << "GraphicsSpace::AddSpriteText - "
       << spriteText.Owner()->Name() << "\n";
   }
 
@@ -51,7 +51,7 @@ namespace DCEngine {
   void GraphicsSpace::AddSprite(Sprite & sprite)
   {
     SpriteContainer.push_back(&sprite);
-    trace << "GraphicsSpace::AddSprite - "
+    DCTrace << "GraphicsSpace::AddSprite - "
       << sprite.Owner()->Name() << "\n";
   }
 

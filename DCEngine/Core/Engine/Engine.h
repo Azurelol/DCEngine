@@ -103,7 +103,7 @@ namespace DCEngine {
   void Engine::Connect(Entity* entity, MemberFunction fn, Class* inst) {
 
     //if (TRACE_CONNECT) {
-    //  trace << "[Engine::Connect] - " << comp->Name() << " has connected to "
+    //  DCTrace << "[Engine::Connect] - " << comp->Name() << " has connected to "
     //    << entity->Name() << "\n";
     //}
 

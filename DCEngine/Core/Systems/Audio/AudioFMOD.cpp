@@ -21,6 +21,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     AudioFMOD::AudioFMOD() {
+      MaxChannels = 36;
     }
     AudioFMOD::~AudioFMOD() {
       Terminate();      
@@ -34,19 +35,17 @@ namespace DCEngine {
     void AudioFMOD::Initialize() {
       FMOD_RESULT operationResult;
 
-      //operationResult = FMOD::System_Create(&_system.ptr);  
-      // Check FMOD interface object
-      //operationResult = FMOD::System_Create(&system_);
-      //ErrorCheck(operationResult);
       // Check if the version of the DLL is the same as the libraries compiled
       unsigned int version;
       operationResult = system_.ptr->getVersion(&version);
       ErrorCheck(operationResult);
       if (version < FMOD_VERSION)
-        trace << "AudioFMOD::Initialize - Error: Outdated version!\n";
+        DCTrace << "AudioFMOD::Initialize - Error: Outdated version!\n";
+
       // Check the number of sound cards
       int driverCount = 0;
       system_.ptr->getNumDrivers(&driverCount);
+
       // If there are no sound cards, disable output
       if (driverCount == 0) {
         operationResult = system_.ptr->setOutput(FMOD_OUTPUTTYPE_NOSOUND);
@@ -60,7 +59,7 @@ namespace DCEngine {
       }
 
       // Initialize the instnace with 36 channels
-      operationResult = system_.ptr->init(36, FMOD_INIT_NORMAL, NULL);
+      operationResult = system_.ptr->init(MaxChannels, FMOD_INIT_NORMAL, NULL);
       ErrorCheck(operationResult);
     }
 
@@ -85,7 +84,7 @@ namespace DCEngine {
 
     void AudioFMOD::ErrorCheck(FMOD_RESULT result) {
       if (result != FMOD_OK) {
-        trace << "AudioFMOD::ErrorCheck - FMOD error! (" << result << ")"
+        DCTrace << "AudioFMOD::ErrorCheck - FMOD error! (" << result << ")"
           << FMOD_ErrorString(result) << "\n";
       }
     }
@@ -97,10 +96,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
-      trace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
-      FMOD_RESULT result;
-      result = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
-      ErrorCheck(result);
+      DCTrace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
+      OperationResult = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
+      ErrorCheck(OperationResult);
     }
 
     /**************************************************************************/
@@ -110,10 +108,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
-      trace << "AudioFMOD::CreateStream \n";
-      FMOD_RESULT result;
-      result = system_.ptr->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr);
-      ErrorCheck(result);
+      DCTrace << "AudioFMOD::CreateStream \n";
+      OperationResult = system_.ptr->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr);
+      ErrorCheck(OperationResult);
     }
 
     /**************************************************************************/
@@ -121,10 +118,11 @@ namespace DCEngine {
     @brief  Plays a sound through FMOD.
     @param  soundPtr A pointer to the Sound data.
     @param  channel  A pointer to the Channel handle.
+    @param  loop Whether the sound should be played in a loop.
     */
     /**************************************************************************/
     void AudioFMOD::PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool loop) {
-      trace << "AudioFMOD::PlaySound \n";
+      DCTrace << "AudioFMOD::PlaySound \n";
       if (loop) {
         soundPtr->setMode(FMOD_LOOP_NORMAL);
         soundPtr->setLoopCount(-1);
@@ -133,9 +131,8 @@ namespace DCEngine {
         soundPtr->setMode(FMOD_LOOP_OFF);
       }
 
-      FMOD_RESULT result;
-      result = system_.ptr->playSound(soundPtr, NULL, 0, channel);
-      ErrorCheck(result);
+      OperationResult = system_.ptr->playSound(soundPtr, NULL, 0, channel);
+      ErrorCheck(OperationResult);
     }
 
     /**************************************************************************/
@@ -145,7 +142,8 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::ResumeSound(FMOD::Channel * channel)
     {
-      channel->setPaused(false);
+      OperationResult = channel->setPaused(false);
+      ErrorCheck(OperationResult);
     }
 
     /**************************************************************************/
@@ -155,7 +153,8 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::PauseSound(FMOD::Channel* channel)
     {
-      channel->setPaused(true);
+      OperationResult = channel->setPaused(true);
+      ErrorCheck(OperationResult);
     }
 
     /**************************************************************************/
@@ -165,41 +164,17 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::StopSound(FMOD::Channel* channel)
     {
-      channel->stop();
+      OperationResult = channel->stop();
+      ErrorCheck(OperationResult);
     }
-
     /**************************************************************************/
     /*!
-    \brief  Plays a music file through FMOD.
-    */
-    /**************************************************************************/
-    void AudioFMOD::PlayMusic(std::string & filePath) {
-      /*std::string resourceLocation("Projects/Resources/Sounds/");
-      CreateStream(resourceLocation + filePath, &MusicPtr);
-      PlaySound(MusicPtr, true);*/
-    }
-
-
-
-    /**************************************************************************/
-    /*!
-    \brief  Stops the currently playing music file through FMOD.
-    */
-    /**************************************************************************/
-    void AudioFMOD::StopMusic() {
-      ReleaseSound(MusicPtr);
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Releases a sound, stopping it from playing.
+    \brief  Releases a sound from FMOD.
     */
     /**************************************************************************/
     void AudioFMOD::ReleaseSound(FMOD::Sound* soundPtr) {
-      FMOD_RESULT result;
-      
-      result = soundPtr->release();
-      ErrorCheck(result);
+      OperationResult = soundPtr->release();
+      ErrorCheck(OperationResult);
     }
 
 

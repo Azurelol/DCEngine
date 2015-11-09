@@ -44,7 +44,7 @@ namespace DCEngine {
 	/**************************************************************************/
 	void Camera::OnLogicUpdate(Events::LogicUpdate* event)
 	{
-		//trace << "Camera::OnLogicUpdate::Updatelol";
+		//DCTrace << "Camera::OnLogicUpdate::Updatelol";
 		//Update();
 	}
 
@@ -57,7 +57,7 @@ namespace DCEngine {
 	void Camera::Update()
 	{
 		Roll = BaseRollVal + TransformComponent->Rotation.z;
-		//trace << FieldOfView << "\n";
+		//DCTrace << FieldOfView << "\n";
 		if (FieldOfView >= 90.0f)
 		{
 			FieldOfView = 89;
@@ -115,7 +115,7 @@ namespace DCEngine {
 		if (Projection == ProjectionMode::Orthographic) {
 
 			//First parameter: left coordinate second: right coordinate third: bottom coordinate fourth: top coordinate fifth: near plane sixthL far plane
-			//trace << Transform_->Translation.x << Transform_->Translation.y << "\n";
+			//DCTrace << Transform_->Translation.x << Transform_->Translation.y << "\n";
 
 			if (Size >= 99)
 			{
@@ -137,12 +137,12 @@ namespace DCEngine {
 			{
 				FieldOfView = 175;
 			}
-			//trace << FieldOfView << "\n";
+			//DCTrace << FieldOfView << "\n";
 			return glm::perspective(FieldOfView, ((float)(*ScreenWidth) / (*ScreenHeight)), NearPlane, FarPlane);
 		}
 
     
-		trace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
+		DCTrace << "Camera: Wrong settings in Camera Projection settings. It should be one of the following: Orthographic or Perspective\n";
 		// Throw exception here. return 0;
 		return glm::mat4();
 

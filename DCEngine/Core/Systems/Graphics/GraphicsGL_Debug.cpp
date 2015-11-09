@@ -125,7 +125,7 @@ namespace DCEngine {
     void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam)
     {
       // Do your magic here Chen
-      //trace << "Drawing a circle\n";
+      //DCTrace << "Drawing a circle\n";
       CleanBuffer();
       this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
       glBegin(GL_LINE_LOOP);

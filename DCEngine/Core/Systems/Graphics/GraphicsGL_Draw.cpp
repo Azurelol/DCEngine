@@ -59,7 +59,7 @@ namespace DCEngine {
     void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
       AnimationUpdate(sprite, dt);
       this->SpriteShader->SetInteger("isTexture", 1);
-      //trace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
+      //DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
       //glEnable(GL_CULL_FACE);
       //glEnable(GL_BLEND);
       //glEnable(GL_TEXTURE_2D);
@@ -127,10 +127,10 @@ namespace DCEngine {
 
       glActiveTexture(GL_TEXTURE0);
       if (auto a = Debug::CheckOpenGLError())
-        trace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+        DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       glBindVertexArray(SpriteTextVAO);
       if (Debug::CheckOpenGLError())
-        trace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
+        DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
       // Retrieve the Font resource from the content system
       auto font = Daisy->getSystem<Content>()->getFont(st.Font);
@@ -165,7 +165,7 @@ namespace DCEngine {
         // Update glyph texture over quad
         glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
         if (Debug::CheckOpenGLError())
-          trace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
+          DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
 
         // Update content of VBO memory
         glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
@@ -231,7 +231,7 @@ namespace DCEngine {
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
       // CHANGE THIS
       Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->ColumnCount = 8;
-      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->RowCount = 5;
+      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->RowCount = 1;
       //Animation update
       this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
       if (sprite.HaveAnimation == true)//Check whether it has animation
@@ -240,11 +240,11 @@ namespace DCEngine {
         {
           if (spriteSrc->ColumnCount == 0)
           {
-            trace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
+            DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
           }
           else
           {
-            trace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
+            DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
           }
         }
         else
@@ -269,10 +269,10 @@ namespace DCEngine {
               this->SpriteShader->SetInteger("isAnimaitonActivated", 1);
               this->SpriteShader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
               this->SpriteShader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
-              //trace << (float)1 / sprite.TotalFrames << "\n";
-              //trace << sprite.currentColumn << "\n";
+              //DCTrace << (float)1 / sprite.TotalFrames << "\n";
+              //DCTrace << sprite.currentColumn << "\n";
               this->SpriteShader->SetInteger("currentColumn", sprite.CurrentColumn);
-              //trace << sprite.CurrentColumn << sprite.CurrentRow << "\n";
+              //DCTrace << sprite.CurrentColumn << sprite.CurrentRow << "\n";
               this->SpriteShader->SetInteger("currentRow", sprite.CurrentRow);
             }
           }

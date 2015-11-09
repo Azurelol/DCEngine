@@ -38,6 +38,7 @@ namespace DCEngine
 #define TRACE_SHADER 0
 #define TRACE_AUDIO 0
 
+
     class Trace {
     public:
 
@@ -67,7 +68,7 @@ namespace DCEngine
     };
 
     extern std::unique_ptr<Trace> traceObj;
-#define trace (*::DCEngine::Debug::traceObj) 
+#define DCTrace (*::DCEngine::Debug::traceObj) 
 
   }
 }

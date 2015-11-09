@@ -27,13 +27,15 @@ namespace DCEngine {
     {
       if (!WidgetPropertiesEnabled)
         return;
-
+      
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Properties", &WidgetPropertiesEnabled);
 
       // If there's an object selected, display its properties.
       if (SelectedObject != nullptr) {
         // 1. Display the object's name
+        //auto objData = Daisy->getSystem<Reflection>()->getBoundType(SelectedObject)
+
         
         ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
         ImGui::Text(SelectedObject->Name().c_str());

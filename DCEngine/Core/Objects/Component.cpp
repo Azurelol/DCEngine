@@ -9,25 +9,23 @@
 
 namespace DCEngine {
 
-  // All components can access the engine.
-  //extern std::unique_ptr<Engine> Daisy;
 
   Component::Component(std::string name, Entity& owner)
                         : Object(name) {
-    owner_ = (Object*)&owner;
+    ObjectOwner = (Object*)&owner;
 
     // Set references
     SetReferences();
 
     if (TRACE_CONSTRUCTOR) {
-      trace << ObjName << "::Component - Constructor - "
-        << "Owner: '" << owner_->Name()
+      DCTrace << ObjectName << "::Component - Constructor - "
+        << "Owner: '" << ObjectOwner->Name()
         << "'\n";
     }
   }
 
   Entity* Component::Owner() {
-    return dynamic_cast<Entity*>(owner_);
+    return dynamic_cast<Entity*>(ObjectOwner);
   }
 
   void Component::SetReferences() {

@@ -4,33 +4,57 @@ namespace DCEngine {
   
   namespace Systems {
 
-    Reflection::Reflection() : System(std::string("ReflectionSystem"), EnumeratedSystem::Reflection) {
+    /**************************************************************************/
+    /*!
+    @brief  Reflection system constructor.
+    */
+    /**************************************************************************/
+   Reflection::Reflection() : System(std::string("ReflectionSystem"), EnumeratedSystem::Reflection) {
+     DCTrace << "*Using Zilch to bind Object classes and provide reflection \n";
+     ZilchHandler.reset(new ZilchInterface());
     }
 
+   /**************************************************************************/
+   /*!
+   @brief  Initializes the Reflection system.
+   */
+   /**************************************************************************/
     void Reflection::Initialize()
     {
-      RegisterTypes();
+      ZilchHandler->Initialize();
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Updates the Reflection system.
+    */
+    /**************************************************************************/
     void Reflection::Update(float dt)
     {
-
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Terminates the Reflection system.
+    */
+    /**************************************************************************/
     void Reflection::Terminate()
     {
+      ZilchHandler->Terminate();
     }
-    void Reflection::RegisterTypes()
-    {
 
-      //META_ADD_CLASS_MEMFN_CPP(double);
-      //META_ADD_CLASS_MEMFN_CPP(Real);
-      //META_ADD_CLASS_MEMFN_CPP(std::string);
-    }
-    void Reflection::Serialize(Json::Value & root)
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a pointer to a BoundType object, which contains information
+            about the object.
+    */
+    /**************************************************************************/
+    Zilch::BoundType* Reflection::getBoundType(std::string name, Zilch::LibraryRef library)
     {
+      return ZilchHandler->getBoundType(name, library);
     }
-    void Reflection::Deserialize(Json::Value & root)
-    {
-    }
+
+
   }
 
 

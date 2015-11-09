@@ -30,9 +30,9 @@ namespace DCEngine {
       // Print every name
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
       for (auto object : *objects) {
-        auto objName = object->Name().c_str();
+        auto ObjectName = object->Name().c_str();
         // If the user has selected the GameObject.
-        if (ImGui::Button(objName)) {
+        if (ImGui::Button(ObjectName)) {
           SelectedObject = object.get();
           WidgetPropertiesEnabled = true;
         }

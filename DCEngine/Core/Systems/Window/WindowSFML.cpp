@@ -107,7 +107,7 @@ namespace DCEngine {
 
       // Assert that the window was created
       if (WindowContext == nullptr) {
-        trace << "Failed to create SFML window \n";
+        DCTrace << "Failed to create SFML window \n";
         // Terminate??
       }
     }
@@ -122,7 +122,7 @@ namespace DCEngine {
       //auto currentTime = Clock.restart().asSeconds();
       //float fps = 1.f / (currentTime - LastTime);
       //LastTime = currentTime;
-      //trace << "WindowSFML::Update - FPS: " << fps << "\n";
+      //DCTrace << "WindowSFML::Update - FPS: " << fps << "\n";
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.

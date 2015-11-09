@@ -61,20 +61,21 @@ namespace DCEngine {
 
   };
   
-  // FORWARD-DECLARATIONS
+  /* Forward-declarations */
   class Entity;
   class GameObject;
   class Space;
   class GameSession;
 
   class Component : public Object {
-	  friend class Entity; // _owner
+	  friend class Entity;
     friend class GameObject; 
 
   public:   
 
-    //const EnumeratedComponent _type;
-    //const BitfieldComponent _mask;
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Component, Object);
+    #endif
 
     Component(std::string name, Entity& owner);
     
@@ -108,11 +109,11 @@ namespace DCEngine {
   template<typename EntityClass>
   inline EntityClass* Component::getOwner() {
     if (ownerType_ == EntityType::GameObject)
-      return dynamic_cast<GameObject*>(owner_);
+      return dynamic_cast<GameObject*>(ObjectOwner);
     else if (ownerType_ == EntityType::Space)
-      return dynamic_cast<Space*>(owner_);
+      return dynamic_cast<Space*>(ObjectOwner);
     else if (ownerType_ == EntityType::GameSession) 
-      return dynamic_cast<GameSession*>(owner_);
+      return dynamic_cast<GameSession*>(ObjectOwner);
    return NULL;
   }
 

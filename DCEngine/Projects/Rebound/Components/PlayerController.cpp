@@ -13,9 +13,9 @@ namespace DCEngine {
 		Connect(gameObj, Events::CollisionStarted, PlayerController::OnCollisionStartedEvent);
 		Connect(gameObj, Events::CollisionEnded, PlayerController::OnCollisionEndedEvent);
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
-		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
-		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
-    SpriteComponent = dynamic_cast<GameObject*>(owner_)->getComponent<Sprite>();
+		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
+		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
+    SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 	}
 
 	void PlayerController::Serialize(Json::Value & root)
@@ -104,7 +104,7 @@ namespace DCEngine {
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
 			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
-			//trace << "AAA";
+			//DCTrace << "AAA";
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -114,7 +114,7 @@ namespace DCEngine {
 		//if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		//{
 		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
-		//	//trace << "Space";
+		//	//DCTrace << "Space";
 		//}
 	}
 
@@ -134,12 +134,12 @@ namespace DCEngine {
 
 	void PlayerController::PrintTranslation()
 	{
-		trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void PlayerController::PrintVelocity()
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
-		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

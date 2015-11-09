@@ -5,11 +5,11 @@
 
 namespace DCEngine {
 
-  extern std::unique_ptr<Engine> Daisy;
 
-  GameSession::GameSession(std::string& name) : Entity(name) {
+
+  GameSession::GameSession(std::string name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
-      trace << ObjName << "::GameSession - Constructor\n";
+      DCTrace << ObjectName << "::GameSession - Constructor\n";
     type_ = EntityType::GameSession;
   }
 
@@ -26,7 +26,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameSession::Initialize() {
-    trace << "[" << ObjName << "::Initialize - Initializing all spaces... ] \n";
+    DCTrace << "[" << ObjectName << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
     for (auto space : _spaces)
@@ -46,7 +46,7 @@ namespace DCEngine {
   /**************************************************************************/
   void GameSession::Update(float dt) {
     if (TRACE_UPDATE)
-      trace << ObjName << "::Update \n";
+      DCTrace << ObjectName << "::Update \n";
 
     // DEPRECATED: Spaces are not updated by gamesession
     // Update all active spaces
@@ -54,13 +54,7 @@ namespace DCEngine {
     //  UpdateSpace(space.second, dt);
     
     if (TRACE_UPDATE)
-      trace << ObjName << "::Update - All spaces updated. \n";
-  }
-
-  void GameSession::Serialize(Json::Value & root) {
-  }
-
-  void GameSession::Deserialize(Json::Value & root) {
+      DCTrace << ObjectName << "::Update - All spaces updated. \n";
   }
 
   /**************************************************************************/
@@ -71,7 +65,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   SpacePtr GameSession::CreateSpace(std::string name) {
-    trace << ObjName << "::CreateSpace - " << name << " has been constructed. \n";
+    DCTrace << ObjectName << "::CreateSpace - " << name << " has been constructed. \n";
 
     // Check if the space already exists.
     auto space = _spaces.find(name);

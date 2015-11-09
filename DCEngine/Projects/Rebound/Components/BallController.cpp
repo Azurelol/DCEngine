@@ -8,11 +8,11 @@ namespace DCEngine {
 		Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
 		Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
 		Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
-		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
-		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
-		//SpriteRef = dynamic_cast<GameObject*>(owner_)->getComponent<Sprite>();
+		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
+		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
+		//SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
-		trace << PlayerRef->getComponent<Transform>()->Translation.x;
+		DCTrace << PlayerRef->getComponent<Transform>()->Translation.x;
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -29,9 +29,9 @@ namespace DCEngine {
     // Call the CameraViewport component of the space with this screen position.. ?
     auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
 
-    //trace << "BallController::OnMouseDownEvent - Mouse Pos (Pixels): " 
+    //DCTrace << "BallController::OnMouseDownEvent - Mouse Pos (Pixels): " 
     //      << event->Position.x << " y: " << event->Position.y << "\n";
-    //trace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
+    //DCTrace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
     //  << coords.x << " y: " << coords.y << "\n";
 
 		if (CurrentlyFired)
@@ -55,13 +55,13 @@ namespace DCEngine {
 			CurrentCharge = 0;
 			CurrentlyFired = true;
 
-			//trace << "BallController::OnMouseUpEvent - ";
+			//DCTrace << "BallController::OnMouseUpEvent - ";
 			//if (event->ButtonReleased == MouseButton::Left)
-			//	trace << "Left Button ";
+			//	DCTrace << "Left Button ";
 			//else if (event->ButtonReleased == MouseButton::Right)
-			//	trace << "Right Button ";
+			//	DCTrace << "Right Button ";
 
-			//trace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
+			//DCTrace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
 			
 		}
        
@@ -79,7 +79,7 @@ namespace DCEngine {
 		if (Charging)
 		{
 			CurrentCharge += event->Dt;
-			//trace << CurrentCharge << "\n";
+			//DCTrace << CurrentCharge << "\n";
 			if (CurrentCharge > MaxCharge)
 			{
 				CurrentCharge = MaxCharge;
@@ -100,7 +100,7 @@ namespace DCEngine {
 
 	void BallController::PrintTranslation()
 	{
-		//trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+		//DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
 		//	<< ", " << TransformRef->Translation.y
 		//	<< ", " << TransformRef->Translation.z << ")\n";
 	}
@@ -108,6 +108,6 @@ namespace DCEngine {
 	void BallController::PrintVelocity()
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
-		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

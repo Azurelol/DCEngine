@@ -4,13 +4,6 @@
 namespace DCEngine {
   namespace Systems {
     
-    void Editor::Serialize(Json::Value & root)
-    {
-    }
-    void Editor::Deserialize(Json::Value & root)
-    {
-    }
-
     /**************************************************************************/
     /*!
     \brief  Constructor.
@@ -28,7 +21,7 @@ namespace DCEngine {
     void Editor::Initialize()
     {
       if (TRACE_INITIALIZE)
-        trace << "Editor::Initialize \n";
+        DCTrace << "Editor::Initialize \n";
       
       // Subscribe to events
       Subscribe();
@@ -52,7 +45,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnEditorEnabledEvent(Events::EditorEnabled * event)
     {
-      trace << "Editor::OnEditorEnabledEvent \n";
+      DCTrace << "Editor::OnEditorEnabledEvent \n";
       ToggleEditor();
     }
 
@@ -69,7 +62,7 @@ namespace DCEngine {
         return;
      
       if (TRACE_UPDATE)
-        trace << "Editor::Update \n";
+        DCTrace << "Editor::Update \n";
       DisplayEditor();
       DisplayGUITest();
       
@@ -91,7 +84,7 @@ namespace DCEngine {
       // Toggle on the editor
       EditorEnabled = !EditorEnabled;
 
-      trace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
+      DCTrace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
 
     /**************************************************************************/
@@ -102,7 +95,7 @@ namespace DCEngine {
     void Editor::ToggleTest()
     {
       ShowTestWindow = !ShowTestWindow;
-      trace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
+      DCTrace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
     }
 
     void Editor::DisplayEditor()
@@ -161,7 +154,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Terminate()
     {
-      trace << "Editor::Terminate \n";
+      DCTrace << "Editor::Terminate \n";
       //GUIHandler->Terminate();
     }
 
@@ -201,7 +194,7 @@ namespace DCEngine {
       auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
       SelectObjectFromSpace(posOnSpace);
 
-      //trace << "Editor::OnMouseDownEvent - \n";
+      //DCTrace << "Editor::OnMouseDownEvent - \n";
     }
 
     /**************************************************************************/
@@ -214,7 +207,7 @@ namespace DCEngine {
     {
       if (!EditorEnabled)
         return;
-      //trace << "Editor::OnMouseUpEvent - \n";
+      //DCTrace << "Editor::OnMouseUpEvent - \n";
     }
 
     /**************************************************************************/
@@ -242,8 +235,8 @@ namespace DCEngine {
       GameObject* closestObj = objsAtPos.front().get();
       for (auto obj : objsAtPos) {
         // 3.1 Get the Z-pos of the current object in the container
-        auto objName = obj->Name();
-        auto closestObjName = closestObj->Name();
+        auto ObjectName = obj->Name();
+        auto closestObjectName = closestObj->Name();
 
         auto objZ = obj->getComponent<Transform>()->Translation.z;
         auto closestZ = closestObj->getComponent<Transform>()->Translation.z;
@@ -265,7 +258,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectObject(GameObject* obj)
     {
-      trace << "Editor::SelectObject - " << obj->Name() << "\n";
+      DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
       WidgetPropertiesEnabled = true;
       SelectedObject = obj;
     }

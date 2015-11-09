@@ -41,11 +41,16 @@ namespace DCEngine {
 
   public:
 
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Entity, Object);
+    #endif
+
     Entity(std::string name);
-    Entity() { ObjName = "Entity"; }
+    ~Entity();
     void Initialize(); //!< Initializes all of the entity's components
-    virtual void Serialize(Json::Value& root) = 0;
-    virtual void Deserialize(Json::Value& root) = 0;
+
+    //virtual void Serialize(Json::Value& root) = 0;
+    //virtual void Deserialize(Json::Value& root) = 0;
                     
     void AddComponentByName(std::string& componentName);
     void RemoveComponentByName(std::string& componentName);
@@ -119,7 +124,7 @@ namespace DCEngine {
     template <typename EventClass>
     void Entity::Dispatch(Event * eventObj) {
       if (TRACE_DISPATCH)
-        trace << Name() << "::Dispatch - Sending event\n";
+        DCTrace << Name() << "::Dispatch - Sending event\n";
 
       // For every delegate in the registry
       auto eventTypeID = std::type_index(typeid(EventClass));
@@ -127,19 +132,19 @@ namespace DCEngine {
       for (auto& eventKey : ObserverRegistry) {
         if (eventTypeID == eventKey.first) {
           if (TRACE_DISPATCH)
-            trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
+            DCTrace << Name() << "::Dispatch - Found delegates with matching event type!\n";
           // For every delegate in the list for this specific event
           for (auto deleg : eventKey.second) {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
-              trace << Name() << "::Dispatch - Calling member function on " << "\n";
+              DCTrace << Name() << "::Dispatch - Calling member function on " << "\n";
             deleg->Call(eventObj);
             //deleg.Call<eventTypeID>(eventObj);
           }
         }
         else {
           if (TRACE_DISPATCH)
-            trace << Name() << "::Dispatch - No delegate with event type matched!\n";
+            DCTrace << Name() << "::Dispatch - No delegate with event type matched!\n";
         }
       }
     }
@@ -154,28 +159,28 @@ namespace DCEngine {
     template <typename EventClass>
     void Entity::DispatchDown(Event * eventObj) {
       if (TRACE_DISPATCH)
-        trace << Name() << "::DispatchDown - Sending event\n";
+        DCTrace << Name() << "::DispatchDown - Sending event\n";
 
       // For every delegate in the registry
       auto eventTypeID = std::type_index(typeid(EventClass));
       // Look for a matching event among the keys
       for (auto& eventKey : ObserverRegistry) {
         if (TRACE_DISPATCH)
-          trace << Name() << "::Dispatch - Looking for the event" << " by typeid through the registry\n";
+          DCTrace << Name() << "::Dispatch - Looking for the event" << " by typeid through the registry\n";
         if (eventTypeID == eventKey.first) {
           if (TRACE_DISPATCH)
-            trace << Name() << "::Dispatch - Found delegates with matching event type!\n";
+            DCTrace << Name() << "::Dispatch - Found delegates with matching event type!\n";
           // For every delegate in the list for this specific event
           for (auto deleg : eventKey.second) {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
-              trace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
+              DCTrace << Name() << "::Dispatch - Calling member function on " << deleg.componentPtr->Name() << "\n";
             deleg.Call(eventObj);
           }
         }
         else {
           if (TRACE_DISPATCH)
-            trace << Name() << "::Dispatch - No delegate with event type matched!\n";
+            DCTrace << Name() << "::Dispatch - No delegate with event type matched!\n";
         }
       }
     }

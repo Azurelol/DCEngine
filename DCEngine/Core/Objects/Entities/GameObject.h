@@ -30,11 +30,16 @@ namespace DCEngine {
     //friend class Factory;
 
   public:
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(GameObject, Entity);
+    #endif
     
     GameObject(std::string name, Space& space, GameSession& gamesession);
     GameObject();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+
+    //virtual void Serialize(Json::Value& root);
+    //virtual void Deserialize(Json::Value& root);
 
     Space* GetSpace();
     GameSession* GetGameSession();  

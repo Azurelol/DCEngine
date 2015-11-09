@@ -23,7 +23,7 @@ namespace DCEngine {
   }
 
   void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {
-    //trace << "SoundSpace::OnLogicUpdate \n";
+    //DCTrace << "SoundSpace::OnLogicUpdate \n";
   }
 
   /**************************************************************************/

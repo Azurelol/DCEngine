@@ -38,7 +38,7 @@ namespace DCEngine {
 		void Physics::RegisterSpace(PhysicsSpace & physicsSpace)
 		{
 			physicsSpaces_.push_back(&physicsSpace);
-			trace << "Physics::Register -  " << physicsSpace.Owner()->Name()
+			DCTrace << "Physics::Register -  " << physicsSpace.Owner()->Name()
 				<< " has registered to the Physics system\n";
 		}
 
@@ -374,14 +374,6 @@ namespace DCEngine {
 		*/
 		/**************************************************************************/
 		void Physics::Terminate() {
-		}
-
-		void Physics::Serialize(Json::Value & root)
-		{
-		}
-
-		void Physics::Deserialize(Json::Value & root)
-		{
 		}
 
 	}

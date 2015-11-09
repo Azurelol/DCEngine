@@ -45,7 +45,7 @@ namespace DCEngine {
   void PhysicsSpace::AddRigidBody(GameObject* rigidbody)
   {
     rigidbodies_.push_back(rigidbody);
-    trace << "PhysicsSpace::AddRigidBody - " << rigidbody->Name() << "\n";
+    DCTrace << "PhysicsSpace::AddRigidBody - " << rigidbody->Name() << "\n";
   }
 
   /**************************************************************************/
@@ -57,7 +57,7 @@ namespace DCEngine {
   void PhysicsSpace::AddCollider(GameObject* collider)
   {
     colliders_.push_back(collider);
-    trace << "PhysicsSpace::AddCollider - " << collider->Name() << "\n";
+    DCTrace << "PhysicsSpace::AddCollider - " << collider->Name() << "\n";
   }
 
   /**************************************************************************/

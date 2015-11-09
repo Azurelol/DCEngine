@@ -14,7 +14,8 @@
 #pragma once
 #include "../System.h"
 
-#include "ReflectionMeta.h"
+// Reflection provided through Zilch
+#include "ZilchInterface.h"
 
 namespace DCEngine {
 
@@ -26,17 +27,16 @@ namespace DCEngine {
       friend class Engine;
     public:
 
+      Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
 
     private:
       Reflection();
       void Initialize();
       void Update(float dt);
-      void Terminate();
+      void Terminate();    
 
-      void RegisterTypes();
+      std::unique_ptr<ZilchInterface> ZilchHandler;
 
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
     };
 
 

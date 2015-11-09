@@ -19,7 +19,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Sprite::Initialize() {
     if (TRACE_COMPONENT_INITIALIZE)
-      trace << Owner()->Name() << "::" << ObjName << "::Initialize\n";
+      DCTrace << Owner()->Name() << "::" << ObjectName << "::Initialize\n";
     
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
@@ -109,9 +109,9 @@ namespace DCEngine {
   /**************************************************************************/
   void Sprite::SetColorUsing255(Vec3 newColor)
   {
-	  trace << "Color passed into 255 function = " << newColor.x << " " << newColor.y << " " << newColor.z << ".\n";
+	  DCTrace << "Color passed into 255 function = " << newColor.x << " " << newColor.y << " " << newColor.z << ".\n";
 	  Color = Vec4(newColor.x / 255.0f, newColor.y / 255.0f, newColor.z / 255.0f, Color.w);
-	  trace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
+	  DCTrace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
   }
 
   /**************************************************************************/

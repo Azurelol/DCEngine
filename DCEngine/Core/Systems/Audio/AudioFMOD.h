@@ -20,33 +20,13 @@
 #include <FMOD/fmod_errors.h>
 
 // Headers
+#include "FMODSystemPtr.h"
 #include "..\..\..\Core\Debug\Debug.h"
 
 namespace DCEngine {
   namespace Systems {
 
     class AudioFMOD {
-      // Reference: "http://stackoverflow.com/questions/27680981/using-c11-smart-pointers-as-c-function-arguments"
-      class FMODSystemPtr {
-      public:
-        FMOD::System* ptr;
-        FMODSystemPtr() {
-          auto result = FMOD::System_Create(&ptr);
-          if (result != FMOD_OK) {
-            ptr = nullptr;
-            //throw something;
-          }
-          //trace << "FMODSystemPtr - Constructor\n";
-        }
-        FMODSystemPtr(FMODSystemPtr&&) = default;
-        FMODSystemPtr& operator=(FMODSystemPtr&&) = default;
-        FMODSystemPtr(const FMODSystemPtr&) = delete;
-        FMODSystemPtr& operator=(const FMODSystemPtr&) = delete;
-        ~FMODSystemPtr() {
-          auto result = ptr->release();
-          //assert(result == FMOD_OK);  // destructors shouldn't throw: use your best judgment here
-        }
-      }; // FMODSystemPtr
 
       using FMODChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
 
@@ -61,8 +41,6 @@ namespace DCEngine {
       void StopSound(FMOD::Channel* channel);
       //void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
       //void StopSound(FMOD::Sound* channel);
-      void PlayMusic(std::string& filePath);
-      void StopMusic();
       void ReleaseSound(FMOD::Sound* soundPtr);
 
       void Initialize();
@@ -75,6 +53,8 @@ namespace DCEngine {
       void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
 
       FMODSystemPtr system_; // Wrapper for the C-style pointer
+      FMOD_RESULT OperationResult;
+      unsigned int MaxChannels;
       FMOD::Sound* MusicPtr;
       FMODChannelMap Channels; //!< Every SoundPtr gets its own unique channel?
       FMOD::Channel* CurrentChannel;

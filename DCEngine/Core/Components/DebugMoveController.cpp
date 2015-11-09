@@ -15,8 +15,8 @@ namespace DCEngine {
     Connect(Daisy->getMouse(), Events::MouseDown, DebugMoveController::OnMouseDownEvent);
     Connect(SpaceRef, Events::LogicUpdate, DebugMoveController::OnLogicUpdateEvent);
     
-    TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
-    RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>(); // ew
+    TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
+    RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>(); // ew
         
     
   }
@@ -98,39 +98,39 @@ namespace DCEngine {
   void DebugMoveController::OnKeyUpEvent(Events::KeyUp* event) {
     
     if (event->Key == Keys::Up) {
-      trace << "'Up' key was released!\n";
+      DCTrace << "'Up' key was released!\n";
     }
     else if (event->Key == Keys::Down) {
-      trace << "'Down' key was released!\n";
+      DCTrace << "'Down' key was released!\n";
     }
     else if (event->Key == Keys::Left) {
-      trace << "'Left' key was released!\n";
+      DCTrace << "'Left' key was released!\n";
     }
     else if (event->Key == Keys::Right) {
-      trace << "'Right' key was released!\n";
+      DCTrace << "'Right' key was released!\n";
     }
   }
 
   void DebugMoveController::OnMouseDownEvent(Events::MouseDown * event) {
-    trace << "Mouse down!\n";
+    DCTrace << "Mouse down!\n";
 
   }
 
   void DebugMoveController::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
     //if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS DOWN!!!\n";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS DOWN!!!\n";
     //else
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS UP!!!\nwa";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - SPACE IS UP!!!\nwa";
     //if (Daisy->getMouse()->MouseDown(MouseButton::Left))
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS DOWN!!!\n";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS DOWN!!!\n";
     //else
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS UP!!!\nwa";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - MOUSELEFT IS UP!!!\nwa";
 
     //if (Daisy->getMouse()->MouseDown(MouseButton::Right))
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS DOWN!!!\n";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS DOWN!!!\n";
     //else
-    //  trace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS UP!!!\nwa";
+    //  DCTrace << "DebugMoveController::OnLogicUpdateEvent - MOUSERIGHT IS UP!!!\nwa";
   }
 
   void DebugMoveController::SetFootstepSound(std::string & soundfileName) {
@@ -148,7 +148,7 @@ namespace DCEngine {
 
   void DebugMoveController::PrintTranslation()
   {
-    //trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+    //DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
     //  << ", " << TransformRef->Translation.y
     //  << ", " << TransformRef->Translation.z << ")\n";
   }

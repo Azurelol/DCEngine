@@ -23,7 +23,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::Initialize() {
       if (TRACE_INITIALIZE)
-        trace << "Content::Initialize \n";
+        DCTrace << "Content::Initialize \n";
 
       // Load the default resources of the engine's
       LoadCoreAssets();
@@ -68,7 +68,7 @@ namespace DCEngine {
       // Load the loaded project's assets
       LoadProjectAssets();
 
-      trace << "Content::LoadProjectData - Finished loading all project data. \n";
+      DCTrace << "Content::LoadProjectData - Finished loading all project data. \n";
     }
     
     /**************************************************************************/
@@ -83,7 +83,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadCoreAssets()
     {
-      trace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
+      DCTrace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
       
       // In the future, find a way to dynamically find the folder paths?
       auto SpritePath = CoreAssetsPath + "Sprites/";
@@ -132,7 +132,7 @@ namespace DCEngine {
 
       // Load default fonts      
       AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
-      trace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+      DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 
     /**************************************************************************/
@@ -232,16 +232,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Content::Terminate() {
-      trace << "Content::Terminate\n";
+      DCTrace << "Content::Terminate\n";
     }
 
-    void Content::Serialize(Json::Value & root)
-    {
-    }
-
-    void Content::Deserialize(Json::Value & root)
-    {
-    }
 
     /**************************************************************************/
     /*!
@@ -255,7 +248,7 @@ namespace DCEngine {
     void Content::AddFont(std::string & fontName, FontPtr fontPtr)
     {
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
-      trace << "Content::AddFont - " << fontName << " was added.\n";
+      DCTrace << "Content::AddFont - " << fontName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -268,7 +261,7 @@ namespace DCEngine {
     void Content::AddShader(std::string & shaderName, ShaderPtr shaderPtr)
     {
       ShaderMap.insert(std::pair<std::string, ShaderPtr>(shaderName, shaderPtr));
-      trace << "Content::AddShader - " << shaderName << " was added.\n";
+      DCTrace << "Content::AddShader - " << shaderName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -281,7 +274,7 @@ namespace DCEngine {
     void Content::AddSpriteSource(std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
     {
       SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
-      trace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
+      DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -294,7 +287,7 @@ namespace DCEngine {
     void Content::AddSoundCue(std::string & soundCueName, SoundCuePtr soundcuePtr)
     {
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
-      trace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
+      DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
     }
 
   }

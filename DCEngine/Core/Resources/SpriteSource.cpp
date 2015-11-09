@@ -30,7 +30,7 @@ namespace DCEngine {
     
     #if (USE_SFML_TEXTURE)
     TextureObj->loadFromFile(ImageFileName);
-    trace << "SpriteSource::LoadTexture - " << ImageFileName <<  " was successfully loaded!\n";
+    DCTrace << "SpriteSource::LoadTexture - " << ImageFileName <<  " was successfully loaded!\n";
     #else if
     // (?) Change later?
     bool alpha = true;
@@ -46,11 +46,11 @@ namespace DCEngine {
 
     // If the image file failed to load, throw an exception
     if (image.getPixelsPtr() == NULL) {
-      trace << "SpriteSource::LoadTexture - Failed to load image file!\n";
+      DCTrace << "SpriteSource::LoadTexture - Failed to load image file!\n";
       // Exception here
     }
     else {
-      trace << "SpriteSource::LoadTexture - Image was successfully loaded!\n";
+      DCTrace << "SpriteSource::LoadTexture - Image was successfully loaded!\n";
     }
 
     // Generate texture

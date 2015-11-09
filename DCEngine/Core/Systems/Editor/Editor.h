@@ -27,6 +27,7 @@ namespace DCEngine {
       void ToggleTest();
 
     private:
+
       /* Widget Enable Booleans */
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
@@ -65,8 +66,6 @@ namespace DCEngine {
       void Subscribe();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root); 
       /* Events */
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnMouseDownEvent(Events::MouseDown* event);

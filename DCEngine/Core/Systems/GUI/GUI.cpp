@@ -25,7 +25,7 @@ namespace DCEngine {
       //  return;
 
       if (TRACE_INITIALIZE)
-        trace << "GUI::Initialize \n";
+        DCTrace << "GUI::Initialize \n";
      GUIHandler->Initialize();
     }
 
@@ -39,7 +39,7 @@ namespace DCEngine {
       if (!GUI_ENABLED)
         return;
       if (TRACE_UPDATE)
-        trace << "GUI::StartFrame \n";
+        DCTrace << "GUI::StartFrame \n";
       GUIHandler->PollEvents();
       GUIHandler->StartFrame();
     }
@@ -87,24 +87,9 @@ namespace DCEngine {
       if (!GUI_ENABLED)
         return;
 
-      trace << "GUI::Terminate \n";
+      DCTrace << "GUI::Terminate \n";
       GUIHandler->Terminate();
     }
-
-    /**************************************************************************/
-    /*!
-    @brief  Serialize function.
-    */
-    /**************************************************************************/
-    void GUI::Serialize(Json::Value & root)
-    {
-    }
-
-    void GUI::Deserialize(Json::Value & root)
-    {
-    }
-
-
 
   }
 }

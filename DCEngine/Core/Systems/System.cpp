@@ -10,7 +10,3 @@
 /******************************************************************************/
 #include "System.h"
 
-
-void DCEngine::System::ClearEntities() {
-  _entities.clear();
-}

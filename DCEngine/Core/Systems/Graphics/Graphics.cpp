@@ -12,7 +12,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {    
-      trace << "*Using OpenGL for Graphics \n";
+      DCTrace << "*Using OpenGL for Graphics \n";
       GraphicsHandler.reset(new GraphicsGL());
       GraphicsHandler->ClearColor = ClearColor;
     }
@@ -24,7 +24,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
-      trace << "Graphics::Initialize \n";
+      DCTrace << "Graphics::Initialize \n";
       GraphicsHandler->Initialize();
       // Subscribe to events
       Subscribe();
@@ -51,7 +51,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::Update(float dt) {
       if (TRACE_UPDATE)
-        trace << "Graphics::Update \n";
+        DCTrace << "Graphics::Update \n";
 
       // Update the graphics system
       //GraphicsHandler->ViewportUpdate();
@@ -130,7 +130,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::Register(GraphicsSpace& graphicsSpace) {
       graphicsSpaces_.push_back(&graphicsSpace);
-      trace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
+      DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
         << " has registered to the Graphics system\n";
     }
 
@@ -144,7 +144,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::DrawSprite(Sprite & sprite, Camera& cam, float dt) {
       if (TRACE_UPDATE)
-        trace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
+        DCTrace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
       GraphicsHandler->DrawSprite(sprite, cam, dt);
     }
 
@@ -159,7 +159,7 @@ namespace DCEngine {
     void Graphics::DrawSpriteText(SpriteText & st, Camera & cam)
     {
       if (TRACE_UPDATE)
-        trace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+        DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
       GraphicsHandler->DrawSpriteText(st, cam);
     }
 
@@ -198,18 +198,10 @@ namespace DCEngine {
     /////////////////
 
     void Graphics::Terminate() {
-      trace << "Graphics::Terminate \n";
+      DCTrace << "Graphics::Terminate \n";
       GraphicsHandler->Terminate();
     }
-
-    void Graphics::Serialize(Json::Value & root)
-    {
-    }
-
-    void Graphics::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void Graphics::StartFrame() {
       GraphicsHandler->StartFrame();
     }
@@ -236,7 +228,7 @@ namespace DCEngine {
     void Graphics::OnResizeViewportEvent(Events::ResizeViewportEvent * event)
     {
       ViewportScale = event->viewportScale;
-      trace << "Graphics::OnResizeViewportEvent - Width: " << ViewportScale.x
+      DCTrace << "Graphics::OnResizeViewportEvent - Width: " << ViewportScale.x
         << " Height " << ViewportScale.y << "\n";
     }
 

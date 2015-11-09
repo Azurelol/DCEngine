@@ -11,7 +11,7 @@ namespace DCEngine {
     /**************************************************************************/
     Audio::Audio() : System(std::string("AudioSystem"), EnumeratedSystem::Audio) {
       #if(USE_FMOD)
-      trace << "*Using FMOD for Audio \n";
+      DCTrace << "*Using FMOD for Audio \n";
       AudioHandler.reset(new AudioFMOD());
       #else
       #endif
@@ -26,7 +26,7 @@ namespace DCEngine {
     void Audio::Register(SoundSpace & soundSpace)
     {
       SoundSpaceContainer.push_back(&soundSpace);
-      trace << "Audio::Register -  " << soundSpace.Owner()->Name()
+      DCTrace << "Audio::Register -  " << soundSpace.Owner()->Name()
         << " has registered to the Audio system\n";
     }
 
@@ -38,7 +38,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::Initialize() {
       if (TRACE_ON)
-        trace << "Audio::Initialize \n";
+        DCTrace << "Audio::Initialize \n";
       AudioHandler->Initialize();
       // Load every SoundCue into FMOD
       LoadSoundCues();
@@ -52,7 +52,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
-        trace << "Audio::Update \n";
+        DCTrace << "Audio::Update \n";
       AudioHandler->Update(dt);
     }
     /**************************************************************************/
@@ -69,7 +69,23 @@ namespace DCEngine {
       //std::string resourceLocation("Core/Resources/Sounds/");
 
       //AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
-      AudioHandler->CreateStream(soundFile, &soundPtr.SoundPtr);
+
+      // 1. Check the size of the file on disk
+      auto Kilo = 1000;
+      auto soundFileSize = FileSystem::FileSize(soundFile) / Kilo;
+
+      // 2.A If the file size was larger than 'x' (such as a music file)
+      //     we will create the sound from a stream.
+      if (soundFileSize > 1) {
+        AudioHandler->CreateStream(soundFile, &soundPtr.SoundPtr);
+      }
+      // 2.B If the file size was not that big, load the whole sound file
+      //     at once.
+      else {
+        AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
+      }
+      
+
     }
 
     /**************************************************************************/
@@ -79,6 +95,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
+      DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
     }
@@ -91,6 +108,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::ResumeSound(std::string & soundCueName)
     {
+      DCTrace << "Audio::ResumeSound - Resuming SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->ResumeSound(soundCue->Data.Channel);
     }
@@ -103,6 +121,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::PauseSound(std::string & soundCueName)
     {
+      DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       AudioHandler->PauseSound(soundCue->Data.Channel);
     }
@@ -138,39 +157,20 @@ namespace DCEngine {
     void Audio::LoadSoundCues()
     {
       if (TRACE_INITIALIZE)
-        trace << "Audio::LoadSoundCues - Loading every SoundCue into memory!";
+        DCTrace << "Audio::LoadSoundCues - Loading every SoundCue into memory!";
 
       for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues() ) {
         soundCue.second->Load();
       }
-      trace << "Audio::LoadSoundCues - Done loading!";
+      DCTrace << "Audio::LoadSoundCues - Done loading!";
     }
-
-
-    /* Music Testing */
-    void Audio::PlayMusic(std::string & filePath) {
-      if (TRACE_ON)
-        trace << "Audio::PlayMusic - Playing: " << filePath.c_str() << "\n";
-      AudioHandler->PlayMusic(filePath);
-    }
-
-    void Audio::StopMusic() {
-      AudioHandler->StopMusic();
-    }
-
+    
     void Audio::Terminate() {
       if (TRACE_ON)
-        trace << "Audio::Terminate \n";
+        DCTrace << "Audio::Terminate \n";
       AudioHandler->Terminate();
     }
 
-    void Audio::Serialize(Json::Value & root)
-    {
-    }
-
-    void Audio::Deserialize(Json::Value & root)
-    {
-    }
 
 
 

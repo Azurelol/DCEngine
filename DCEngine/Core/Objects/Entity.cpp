@@ -23,7 +23,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Entity::Entity(std::string name) : Object("Entity") {
-    ObjName = name;
+    ObjectName = name;
+  }
+
+  Entity::~Entity()
+  {
   }
 
   bool Entity::CheckMask(mask m) {
@@ -40,13 +44,13 @@ namespace DCEngine {
     // If there is already a component of the same class, reject the operation
     for (auto componentOwned : ComponentsContainer) {
       if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(*component.get())))) {
-        trace << ObjName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
+        DCTrace << ObjectName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
         return false;
       }        
     }
 
     if (TRACE_COMPONENT_ADD)
-      trace << ObjName << "::AddComponent - Added " << component->Name() << "\n";
+      DCTrace << ObjectName << "::AddComponent - Added " << component->Name() << "\n";
 
     // Adds the component to the entity
     ComponentsContainer.push_back(component);
@@ -59,7 +63,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Entity::Initialize() {
-    trace << ObjName << "::Initialize \n";
+    DCTrace << ObjectName << "::Initialize \n";
     for (auto component : ComponentsContainer)
       component->Initialize();
   }
@@ -98,5 +102,11 @@ namespace DCEngine {
     return &ComponentsContainer;
   }
 
+  #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)
+  ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
+    ZilchBindConstructor(builder, type, Entity, "name", std::string);
+    ZilchBindDestructor(builder, type, Entity);
+  }
+  #endif
 
 }

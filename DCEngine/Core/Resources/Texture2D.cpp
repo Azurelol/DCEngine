@@ -20,20 +20,20 @@ namespace DCEngine {
     glGenTextures(1, &this->TextureID);
     error = glGetError(); 
     if (error)
-      trace << "Texture2D::Generate - Failed to generate texture ID!\n";
+      DCTrace << "Texture2D::Generate - Failed to generate texture ID!\n";
 
     // Bind texture
     glBindTexture(GL_TEXTURE_2D, this->TextureID);
     error = glGetError();
     if (error)
-      trace << "Texture2D::Generate - Failed to bind the texture!\n";
+      DCTrace << "Texture2D::Generate - Failed to bind the texture!\n";
 
     // Generate texture
     glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, width, height, 0,
                  this->ImageFormat, GL_UNSIGNED_BYTE, data.getPixelsPtr());
     error = glGetError();
     if (error)
-      trace << "Texture2D::Generate - Failed to generate texture!\n";
+      DCTrace << "Texture2D::Generate - Failed to generate texture!\n";
 
     // Set texture wrap and filter modes
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, this->Wrap_S);
@@ -43,7 +43,7 @@ namespace DCEngine {
     // Unbind texture
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    trace << "Texture2D::Generate - Successfully generated texture!\n";
+    DCTrace << "Texture2D::Generate - Successfully generated texture!\n";
   }
 
   void Texture2D::Bind() const {
