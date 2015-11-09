@@ -12,40 +12,51 @@
 // Libraries
 #include <cassert>
 // Headers
-#include "../Engine/Types.h"
-#include "../Systems/Reflection/ReflectionMeta.h" // Every object can be reflected
+#include "../Engine/Types.h" // Every object has access to the base types
 #include "..\Debug\Debug.h" // Every object can access 'trace'
-#include "..\..\Projects\Dollhouse\ReflectionTest.h"
+
+#include "../Binding/CoreBinding.h"
+#include "../Binding/CoreBindingTypes.h"
+#include "../Binding/CoreBindingObjects.h"
 
 namespace DCEngine {
 
-  //using ObjectPtr = std::shared_ptr<Object>;
-
-  // Foward-declarations
   class Space;
   class GameSession;
 
-  class Object {
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  //ZilchDeclareRedirectType(std::string, Zilch::String);
+  class Object : public Zilch::IZilchObject {
+  #else
+  class Object  {
+  #endif
+
+  //class Object : public Zilch::IZilchObject {
     friend class GameSession;
     friend class Space;
 
     public:
-      Object(std::string name) { ObjName = name; }
-      Object() { ObjName = "Object"; }
-      virtual ~Object() {}; // Let's not leak memory
-	    
-      //virtual void Owner() = 0; // Every class needs to implement its owner pointer.
 
-      const std::string& Name() const { return ObjName; }
+      Object(std::string name);
+      Object();
+      virtual ~Object();
+      const std::string& Name() const;
+
+      #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+      /* Using internal binding we'll declare that this class should be registered wit ZIlch.
+      This macro is only a decalration and somewhere in a single cpp file we must use
+      the 'ZilchDefineBaseType' macro.
+      ReferenceType means it will be allocated on the heap and alwayts referenced by handle. */
+      ZilchDeclareBaseType(Object, Zilch::TypeCopyMode::ReferenceType);
+      #endif
 
     protected:
-      std::string ObjName;
-      int RuntimeId;
-      Object* owner_; //!< Should this be a smart pointer?
-      //std::shared_ptr<Object> _owner;
+      std::string ObjectName;
+      static unsigned int ObjectsCreated;
+      const unsigned int ObjectID;
+      Object* ObjectOwner; //!< Should this be a smart pointer?      
 
   private:
-    //Object() = delete; // No default construction
 
   };
 

@@ -184,9 +184,6 @@
     <Filter Include="Core\Systems\Editor\Widgets">
       <UniqueIdentifier>{62928177-b8e1-4b72-b2d8-199b751f8ab3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\Entity\Mailbox">
-      <UniqueIdentifier>{6e71dbdd-0f56-42f0-8605-011aa0e2c03e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Events\Editor">
       <UniqueIdentifier>{516d951d-683e-410c-a30b-be9a32be30a0}</UniqueIdentifier>
     </Filter>
@@ -201,6 +198,12 @@
     </Filter>
     <Filter Include="Core\Components\Graphics\Camera">
       <UniqueIdentifier>{4a02aad3-07b2-4f58-a66b-03abfcc8512a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Reflection\Zilch">
+      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Binding">
+      <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -360,9 +363,6 @@
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
@@ -386,9 +386,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Serialization</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp">
-      <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Dollhouse\Environment.cpp">
       <Filter>Projects\Dollhouse</Filter>
@@ -483,6 +480,27 @@
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp">
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp">
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Object.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBinding.cpp">
+      <Filter>Core\Binding</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBindingTypes.cpp">
+      <Filter>Core\Binding</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Resource.cpp">
+      <Filter>Core\Object\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBindingObjects.cpp">
+      <Filter>Core\Binding</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -499,9 +517,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Config.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Archetype.h">
       <Filter>Core\Engine\Archetype</Filter>
@@ -746,9 +761,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
-      <Filter>Core\Systems\Reflection</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
       <Filter>Core\Systems\Reflection\Meta</Filter>
     </ClInclude>
@@ -811,9 +823,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
       <Filter>Core\Systems\Serialization</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h">
-      <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
       <Filter>Core</Filter>
@@ -883,6 +892,27 @@
     </ClInclude>
     <ClInclude Include="Core\Components\ParticleColorAnimator.h">
       <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
+      <Filter>Core\Systems\Reflection\Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBinding.h">
+      <Filter>Core\Binding</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingTypes.h">
+      <Filter>Core\Binding</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding.h">
+      <Filter>Core\Binding</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingObjects.h">
+      <Filter>Core\Binding</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

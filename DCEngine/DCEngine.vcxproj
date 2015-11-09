@@ -230,6 +230,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Binding\CoreBinding.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp" />
@@ -267,6 +270,8 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Objects\Object.cpp" />
+    <ClCompile Include="Core\Objects\Resource.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
@@ -301,12 +306,13 @@
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\MetaData.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
-    <ClCompile Include="Core\Systems\Reflection\ReflectionZilch.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
     <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp" />
     <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp" />
     <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Variant.cpp" />
     <ClCompile Include="Core\Systems\Reflection\VariantBase.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp" />
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
@@ -319,12 +325,15 @@
     <ClCompile Include="Projects\Dollhouse\Environment.cpp" />
     <ClCompile Include="Projects\Dollhouse\Background.cpp" />
     <ClCompile Include="Projects\Dollhouse\GameObjects.cpp" />
-    <ClCompile Include="Projects\Dollhouse\ReflectionTest.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Binding.h" />
+    <ClInclude Include="Core\Binding\CoreBinding.h" />
+    <ClInclude Include="Core\Binding\CoreBindingObjects.h" />
+    <ClInclude Include="Core\Binding\CoreBindingTypes.h" />
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
@@ -355,7 +364,6 @@
     <ClInclude Include="Core\Components\SpriteText.h" />
     <ClInclude Include="Core\Components\TimeSpace.h" />
     <ClInclude Include="Core\Components\Transform.h" />
-    <ClInclude Include="Core\Config.h" />
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
@@ -410,6 +418,7 @@
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
+    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
@@ -427,7 +436,7 @@
     <ClInclude Include="Core\Systems\Reflection\MetaData.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h" />
-    <ClInclude Include="Core\Systems\Reflection\ReflectionZilch.h" />
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />
     <ClInclude Include="Core\Systems\Reflection\RefVariant.h" />
     <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h" />
     <ClInclude Include="Core\Systems\Reflection\StringWrapper.h" />

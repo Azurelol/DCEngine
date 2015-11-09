@@ -81,7 +81,7 @@ namespace DCEngine {
 //    void Invoke(DCEngine::Event* eventObj) {
 //
 //      if (componentPtr == NULL) {
-//        trace << "Delegate::Invoke - Fatal: No component provided \n";
+//        DCTrace << "Delegate::Invoke - Fatal: No component provided \n";
 //      }
 //
 //      GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);

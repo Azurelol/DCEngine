@@ -56,7 +56,7 @@ namespace DCEngine {
 
     Keyboard::Keyboard() : Entity(std::string("Keyboard")) {
       if (TRACE_ON && TRACE_CONSTRUCTOR)
-        trace << ObjName << " Interface - Constructor \n";
+        DCTrace << ObjectName << " Interface - Constructor \n";
     }
 
     void Initialize();

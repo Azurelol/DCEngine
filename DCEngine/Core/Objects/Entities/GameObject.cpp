@@ -3,9 +3,11 @@
 #include "Space.h"
 #include "GameSession.h"
 
-namespace DCEngine {  
+namespace DCEngine {
+  
 
-  int GameObject::GameObjectsCreated = 0;
+
+
 
   /**************************************************************************/
   /*!
@@ -17,11 +19,11 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
     : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession)
-      ,GameObjectID(GameObjectsCreated++) 
+   // , GameObjectID(GameObjectsCreated++) 
   {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
-      trace << ObjName << "::GameObject - Constructor - "
+      DCTrace << ObjectName << "::GameObject - Constructor - "
         << "', Space: '" << SpaceRef->Name()
         << "', GameSession '" << GamesessionRef->Name()
         << "\n";
@@ -33,21 +35,20 @@ namespace DCEngine {
     Parent = nullptr;
   }
 
-  GameObject::GameObject() 
-  : GameObjectID(GameObjectsCreated++)
+  GameObject::GameObject() : Entity("GameObject")
+    // : GameObjectID(GameObjectsCreated++)
   {
-    ObjName = "GameObject";
   }
 
-  void GameObject::Serialize(Json::Value & root) {
-    // Serialize primitives
-    root["Name"] = ObjName;
-  }
+  //void GameObject::Serialize(Json::Value & root) {
+  //  // Serialize primitives
+  //  root["Name"] = ObjectName;
+  //}
 
-  void GameObject::Deserialize(Json::Value & root) {
-    // Deserialize primitives
-    ObjName = root.get("Name", "").asString();
-  }
+  //void GameObject::Deserialize(Json::Value & root) {
+  //  // Deserialize primitives
+  //  ObjectName = root.get("Name", "").asString();
+  //}
 
   Space* GameObject::GetSpace() {
     return SpaceRef;

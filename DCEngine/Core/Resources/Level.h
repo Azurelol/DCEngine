@@ -19,7 +19,7 @@ namespace DCEngine {
   public:
     Level(std::string name) : Resource(name) {
       if (TRACE_CONSTRUCTOR)
-        trace << ObjName << "::Level - Constructor \n";
+        DCTrace << ObjectName << "::Level - Constructor \n";
     }
     ~Level();
 

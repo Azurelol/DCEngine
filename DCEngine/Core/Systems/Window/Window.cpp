@@ -27,14 +27,6 @@ GLFW implementation: "http://www.learnopengl.com/#!Getting-Started/Hello-Window"
 namespace DCEngine {
   namespace Systems {
     
-    void Window::Serialize(Json::Value & root)
-    {
-    }
-
-    void Window::Deserialize(Json::Value & root)
-    {
-    }
-
     /**************************************************************************/
     /*!
     @brief Constructor for the Window system.
@@ -44,7 +36,7 @@ namespace DCEngine {
                       System(std::string("WindowSystem"), EnumeratedSystem::Window),
                       Caption(caption), Framerate(framerate), Width(width), Height(height) {
 
-      trace << "*Using SFML Context for Window and Input \n";
+      DCTrace << "*Using SFML Context for Window and Input \n";
       WindowHandler.reset(new WindowSFML(*this));
     }
 
@@ -55,7 +47,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Window::Initialize() {
       if (TRACE_ON)
-        trace << "Window::Initialize \n";
+        DCTrace << "Window::Initialize \n";
 
       // Grab the Window's settings from the Engine's configuration file:
       //WindowHandler->SetWindowSize(Width, Height);
@@ -74,7 +66,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Window::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
-        trace << "Window::Update \n";
+        DCTrace << "Window::Update \n";
       // Update the current width's, heig
       Width = WindowHandler->getWindowDimensions().x;
       Height = WindowHandler->getWindowDimensions().y;      
@@ -88,7 +80,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Window::Terminate() {
       if (TRACE_ON)
-        trace << "Window::Terminate \n";
+        DCTrace << "Window::Terminate \n";
 
       WindowHandler->Terminate();
     }
@@ -100,7 +92,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Window::StartFrame() {
       if (TRACE_ON && TRACE_UPDATE)
-        trace << "Window::StartFrame \n";
+        DCTrace << "Window::StartFrame \n";
 
       WindowHandler->StartFrame();
     }
@@ -112,7 +104,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Window::EndFrame() {
       if (TRACE_ON && TRACE_UPDATE)
-        trace << "Window::EndFrame \n";
+        DCTrace << "Window::EndFrame \n";
 
       WindowHandler->EndFrame();
     }

@@ -62,9 +62,9 @@ namespace DCEngine {
   template <typename TYPE>
   void PrintType(const char *type)
   {
-    trace << "\nMetaData for " << type << ": \n";
-    trace << "Name: " << META_TYPE(TYPE)->Name() << "\n";
-    trace << "Size: " << META_TYPE(TYPE)->Size() << "\n";
+    DCTrace << "\nMetaData for " << type << ": \n";
+    DCTrace << "Name: " << META_TYPE(TYPE)->Name() << "\n";
+    DCTrace << "Size: " << META_TYPE(TYPE)->Size() << "\n";
   }
 
   /**************************************************************************/
@@ -75,18 +75,18 @@ namespace DCEngine {
   template <typename TYPE>
   void PrintMembers(const char *type)
   {
-    trace << "\nMetaData for " << type << ": \n";
-    trace << "Name: " << META_TYPE(TYPE)->Name() << "\n";
-    trace << "Size: " << META_TYPE(TYPE)->Size() << "\n";
-    trace << "Members: \n";
-    trace << "{\n";
+    DCTrace << "\nMetaData for " << type << ": \n";
+    DCTrace << "Name: " << META_TYPE(TYPE)->Name() << "\n";
+    DCTrace << "Size: " << META_TYPE(TYPE)->Size() << "\n";
+    DCTrace << "Members: \n";
+    DCTrace << "{\n";
     auto cont = META_TYPE(TYPE)->MemberContainer;
     for (auto i = META_TYPE(TYPE)->MemberContainer.begin(); i != META_TYPE(TYPE)->MemberContainer.end(); ++i)
     {
-      trace << "  " << (*i)->Name() << "\n";
-      trace << "  " << (*i)->Offset() << "\n";
+      DCTrace << "  " << (*i)->Name() << "\n";
+      DCTrace << "  " << (*i)->Offset() << "\n";
     }
-    trace << "}\n";
+    DCTrace << "}\n";
   }
 
 }

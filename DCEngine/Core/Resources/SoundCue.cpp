@@ -21,7 +21,7 @@ namespace DCEngine {
   void SoundCue::Load()
   {
     Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(SoundFileName), Data);
-    trace << "SoundCue::Load - Finished loading " << SoundFileName << "!\n";
+    DCTrace << "SoundCue::Load - Finished loading " << SoundFileName << "!\n";
   }
 
 }

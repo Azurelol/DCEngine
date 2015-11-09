@@ -44,9 +44,6 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
-
       void Integrate(float dt, PhysicsSpace* physpace);
       void PublishResults(PhysicsSpace* physpace);
       void Step(float dt);

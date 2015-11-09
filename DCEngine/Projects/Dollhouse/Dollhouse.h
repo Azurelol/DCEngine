@@ -27,7 +27,7 @@ namespace DCEngine {
       // Physics Testing: Blaine
       GameObjects();
       // Reflection Testing:
-      ReflectionTest();
+      //ReflectionTest();
       // Serialization Testing
       SerializeTest();  
       // Background objects
@@ -62,25 +62,25 @@ namespace DCEngine {
       // Test to serialize the camera component settings:
       std::string cameraData;
       Serialization::Serialize(cameraObj->getComponent<Camera>(), cameraData);
-      trace << "Camera Serialized Output\n" << cameraData << "\n\n";
+      DCTrace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
     }
 
     /* Tests Serialization with JSONCPP */
     void SerializeTest() {
-      // Simple entity
-      GameObjectPtr rango = ConstructGameObject("Rango");
-      rango->AddComponent(ComponentPtr(new Sprite(*rango)));
-      rango->AddComponent(ComponentPtr(new Transform(*rango)));
-      rango->getComponent<Transform>()->Translation = Vec3(2.0f, 1.0f, -3.0f);
+      //// Simple entity
+      //GameObjectPtr rango = ConstructGameObject("Rango");
+      //rango->AddComponent(ComponentPtr(new Sprite(*rango)));
+      //rango->AddComponent(ComponentPtr(new Transform(*rango)));
+      //rango->getComponent<Transform>()->Translation = Vec3(2.0f, 1.0f, -3.0f);
 
-      // Serialization test
-      std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
-      Serialization::Deserialize(rango.get(), input);
-      trace << "Raw Json Input\n" << input << "\n\n";
-      std::string output;
-      Serialization::Serialize(rango.get(), output);
-      trace << "GameObject Serialized Output\n" << output << "\n\n";
+      //// Serialization test
+      //std::string input = "{ \"Name\" : \"Pikapikano!\"}\n";
+      //Serialization::Deserialize(rango.get(), input);
+      //DCTrace << "Raw Json Input\n" << input << "\n\n";
+      //std::string output;
+      //Serialization::Serialize(rango.get(), output);
+      //DCTrace << "GameObject Serialized Output\n" << output << "\n\n";
     }
 
     GameObjectPtr ConstructGameObject(std::string name) {

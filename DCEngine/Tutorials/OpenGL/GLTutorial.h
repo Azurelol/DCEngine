@@ -36,7 +36,7 @@ namespace DCEngine {
     public:
       GLTutorial(Entity& owner) : Component(std::string("GLTutorial"), owner) {
         //_name = "GLTutorial";
-        trace << "GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- \n";
+        DCTrace << "GLTutorial::GLTutorial - Constructor - An OpenGL tutorial is now being used!- \n";
       }
       ~GLTutorial() {};
 
@@ -76,7 +76,7 @@ namespace DCEngine {
         }
         // FAILURE
         else {
-          trace << "Failed to load the shader file: " << fileName << "\n";
+          DCTrace << "Failed to load the shader file: " << fileName << "\n";
           exit(1);
           //return "";
         }
@@ -98,11 +98,11 @@ namespace DCEngine {
         glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
         if (success) {
-          trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " compiled! \n";
+          DCTrace << "GLTutorial::AssertShaderCompilation - " << shaderName << " compiled! \n";
         }
         else {
           glGetShaderInfoLog(shader, 512, NULL, infoLog);
-          trace << "GLTutorial::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
+          DCTrace << "GLTutorial::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
             << infoLog << "\n";
         }
       }
@@ -122,11 +122,11 @@ namespace DCEngine {
         glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
         if (success) {
-          trace << "GLTutorial::AssertShaderCompilation - " << programName << " linked! \n";
+          DCTrace << "GLTutorial::AssertShaderCompilation - " << programName << " linked! \n";
         }
         else {
           glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-          trace << "GLTutorial::AssertShaderCompilation - " << programName << " failed to link! \n"
+          DCTrace << "GLTutorial::AssertShaderCompilation - " << programName << " failed to link! \n"
             << infoLog << "\n";
         }
       }

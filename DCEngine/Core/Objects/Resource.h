@@ -21,13 +21,12 @@ namespace DCEngine {
 
   class Resource : public Object {
   public:
-    Resource(std::string name) : Object(name) {}
 
-  protected:
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Resource, Object);
+    #endif
 
-  private:
-
-
+    Resource(std::string name);
   };
 
   using ResourcePtr = std::shared_ptr<Resource>;

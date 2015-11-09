@@ -49,10 +49,10 @@ namespace DCEngine {
 
 			// If OpenGL failed to initialize...
 			if (glewInit() != GLEW_OK) {
-				trace << "Failed to initialize GLEW \n";
+				DCTrace << "Failed to initialize GLEW \n";
 			}
 
-			trace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
+			DCTrace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
 
 			// Grab a reference to the Sprite shader
 			SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
@@ -65,7 +65,7 @@ namespace DCEngine {
 			// Configure the SpriteText shader VAO
 			ConfigureSpriteTextVAO();
 
-			trace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
+			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
 		}
 
 		/**************************************************************************/

@@ -34,7 +34,7 @@ namespace DCEngine {
     void ImGuiSFML::Initialize()
     {      
       if (TRACE_INITIALIZE)
-        trace << "GUI::Initialize \n";
+        DCTrace << "GUI::Initialize \n";
       
       // Save a pointer to the engine's window context
       WindowContext = Daisy->getSystem<Systems::Window>()->WindowHandler->GetWindow();

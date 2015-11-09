@@ -33,12 +33,18 @@ namespace DCEngine {
   
   public:
 
-    Space(std::string& name, GameSession& gamesession);
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Space, Entity);
+    #endif
+
+
+    Space(std::string name, GameSession& gamesession);
     ~Space();
     void Initialize();
     void Update(float dt);
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+
+    //virtual void Serialize(Json::Value& root);
+    //virtual void Deserialize(Json::Value& root);
     
     void AddSystem(SystemPtr system);
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
@@ -60,7 +66,7 @@ namespace DCEngine {
     const GameSession* Owner() { return GameSessionRef; };
 
     // Allows read only access to the space's name
-    //const std::string& GetName() const { return ObjName;  }
+    //const std::string& GetName() const { return ObjectName;  }
 
   private:
         

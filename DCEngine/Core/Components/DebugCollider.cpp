@@ -27,7 +27,7 @@ namespace DCEngine {
 
   void DebugCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
   {
-    //trace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "
+    //DCTrace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "
     //      << event->OtherObject->Name() << "\n";
 
     // Change color    

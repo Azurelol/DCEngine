@@ -7,18 +7,21 @@
 #include "../../Components/SoundSpace.h"
 #include "../../Components/CameraViewport.h"
 
+// Binding needs to know what a GameSession is for the Space CTOR.
+#include "GameSession.h"
+
 namespace DCEngine {
     
-  extern std::unique_ptr<Engine> Daisy;
+
   
   /**************************************************************************/
   /*!
   \brief  Constructor for the Space class.
   */
   /**************************************************************************/
-  Space::Space(std::string& name, GameSession& gamesession) : Entity(name), GameSessionRef(&gamesession) {
+  Space::Space(std::string name, GameSession& gamesession) : Entity(name), GameSessionRef(&gamesession) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
-      trace << ObjName << "::Space - Constructor \n";
+      DCTrace << ObjectName << "::Space - Constructor \n";
     type_ = EntityType::Space;
   }
   
@@ -37,7 +40,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::Initialize() {
-    trace << "|" << ObjName << "::Initialize| \n";
+    DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
     AddComponent(ComponentPtr(new SoundSpace(*this)));
@@ -51,7 +54,7 @@ namespace DCEngine {
       component->Initialize();
     }        
 
-    trace << "[" << ObjName << "::Initialize - Initializing all GameObjects...] \n";
+    DCTrace << "[" << ObjectName << "::Initialize - Initializing all GameObjects...] \n";
     // Initialize all entities (in effect, initializing all attached components)
     for (auto gameObject : GameObjectContainer) {
       // TEMPORARY: Should space, gamesession be even set this way?
@@ -71,13 +74,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Update(float dt) {
     if (TRACE_ON && TRACE_UPDATE)
-      trace << ObjName << "::Update \n";
-  }
-
-  void Space::Serialize(Json::Value & root) {
-  }
-
-  void Space::Deserialize(Json::Value & root) {
+      DCTrace << ObjectName << "::Update \n";
   }
 
   /**************************************************************************/
@@ -96,7 +93,7 @@ namespace DCEngine {
     SystemsContainer.push_back(system);
     
     if (TRACE_ON)
-      trace << ObjName << "::AddSystem " << "- Added " << system->SysName << "\n";
+      DCTrace << ObjectName << "::AddSystem " << "- Added " << system->SysName << "\n";
   }
 
   GameSession& Space::getGameSession() {
@@ -123,7 +120,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
-      trace << ObjName << "::LoadLevel - Loading " << level->Name() << " level.\n";
+      DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
     CurrentLevel = level;
@@ -209,7 +206,7 @@ namespace DCEngine {
     ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
 
     if (TRACE_GAMEOBJECT_ADD)
-      trace << ObjName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
+      DCTrace << ObjectName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
   }
 
   /**************************************************************************/
@@ -220,10 +217,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::PopulateObjects(SystemPtr sys) const {
-    
-    // Clear out old entities
-    sys->ClearEntities();
-    
+        
     if (sys->Mask() != static_cast<int>(BitfieldComponent::NoObjects)) {
       
       // Add any entities living in this space that fit the system

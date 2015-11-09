@@ -15,7 +15,7 @@ namespace DCEngine
       GLenum error;
       error = glGetError();
       if (error) {
-        trace << message << "\n";
+        DCTrace << message << "\n";
       }
       return error;
     }

@@ -39,7 +39,6 @@ namespace DCEngine {
       void ResumeSound(std::string& soundCueName);
       void PauseSound(std::string& soundCueName);
       void StopSound(std::string& soundCueName);
-      //void ReleaseSound(std::string& soundcueName);
       void Register(SoundSpace& soundSpace);
 
     private:
@@ -50,12 +49,8 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt);
       void Terminate();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
       void LoadSoundCues();
 
-      void PlayMusic(std::string& filePath); //!< Starts playing from a music file.
-      void StopMusic(); //!< Stops the currently playing music file.
 
       #if(USE_FMOD)
       std::unique_ptr<AudioFMOD> AudioHandler;

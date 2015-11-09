@@ -2,14 +2,7 @@
 
 namespace DCEngine {
   namespace Systems {
-
-    void Factory::Serialize(Json::Value & root)
-    {
-    }
-    void Factory::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     /**************************************************************************/
     /*!
     \brief  Default constructor for the Factory system.
@@ -25,7 +18,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
-        trace << "Factory::Initialize \n";
+        DCTrace << "Factory::Initialize \n";
     }
 
     /**************************************************************************/
@@ -35,7 +28,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::Update(float dt) {
       if (TRACE_UPDATE)
-        trace << "Factory::Update \n";
+        DCTrace << "Factory::Update \n";
 
       // Destroy all objects on the to-be-deleted listf
       for (auto gameObj : gameObjsToBeDeleted) {
@@ -50,7 +43,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Factory::Terminate() {
-        trace << "Factory::Terminate \n";
+        DCTrace << "Factory::Terminate \n";
     }
 
     /**************************************************************************/

@@ -27,30 +27,22 @@ namespace DCEngine {
 
     void Input::Initialize() {
       if (TRACE_ON)
-        trace << "Input::Initialize \n";
+        DCTrace << "Input::Initialize \n";
       InputHandler->Initialize();
     }
 
     void Input::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
-        trace << "Input::Update \n";
+        DCTrace << "Input::Update \n";
       InputHandler->Update(dt);
     }
 
     void Input::Terminate() {
       if (TRACE_ON)
-        trace << "Input::Terminate \n";
+        DCTrace << "Input::Terminate \n";
       InputHandler->Terminate();
     }
-
-    void Input::Serialize(Json::Value & root)
-    {
-    }
-
-    void Input::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void Input::ToggleInput()
     {
       InputEnabled = !InputEnabled;

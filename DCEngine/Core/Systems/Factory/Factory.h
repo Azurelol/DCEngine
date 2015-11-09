@@ -32,7 +32,7 @@ namespace DCEngine {
     public:                  
       /* GameObjects*/
       GameObjectPtr CreateGameObject(std::string& name, Space& space, bool init); //!< Creates a default gameObj
-      GameObjectPtr CreateGameObject(const std::string& gameObjName, const Space& space, bool init);
+      GameObjectPtr CreateGameObject(const std::string& gameObjectName, const Space& space, bool init);
       
       /* Components */
       ComponentPtr CreateComponent(const std::string& compName, bool init);
@@ -64,8 +64,6 @@ namespace DCEngine {
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map

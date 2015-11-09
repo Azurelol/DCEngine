@@ -40,12 +40,12 @@ int main(int argc, char* argv[]) {
     // Start the engine now that project has been loaded
     Daisy->StartProject();
     // Start the engine's main loop
-    trace << "\n[Engine::Loop]\n";
+    DCTrace << "\n[Engine::Loop]\n";
     Daisy->Loop();
   }
   catch (Debug::Exception exception) 
   {
-    trace << exception << "\n";
+    DCTrace << exception << "\n";
     // Poor Daisy cannot afford a nice GUI
     std::cout << "Press any key to leave her... :(\n";
     std::cin.get();

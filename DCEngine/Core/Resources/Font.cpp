@@ -24,13 +24,13 @@ namespace DCEngine {
 
     // Initialize the FreeType library
     if (FT_Init_FreeType(&ft))
-      trace << "Font::Load - Error! Could not initialize FreeType library! \n";
+      DCTrace << "Font::Load - Error! Could not initialize FreeType library! \n";
     // Load the font from file
     //std::string fontPath = "Core/Resources/Fonts/";
     //fontPath.append(FontFileName);
     FT_Face face;
     if (FT_New_Face(ft, FontFileName.c_str(), 0, &face))
-      trace << "Font::Load - Error! Failed to load font \n";
+      DCTrace << "Font::Load - Error! Failed to load font \n";
     // Define the font size to extract from this face. This function sets
     // the font's width and height parameters. Setting the widh to 0
     // lets the face dynamically calculate the width based on a given height.
@@ -38,7 +38,7 @@ namespace DCEngine {
 
     // Generate the map of character textures
     GenerateCharacters(face);
-    trace << "Font::Load - Font was successfully loaded! \n";
+    DCTrace << "Font::Load - Font was successfully loaded! \n";
 
     // Clear FreeType's resources now that we are done processing glyphs
     FT_Done_Face(face);
@@ -65,7 +65,7 @@ namespace DCEngine {
 
       // Load character glyph
       if (FT_Load_Char(face, c, FT_LOAD_RENDER)) {
-        trace << "Font::GenerateCharacters  - Error! Failed to load glyph! \n";
+        DCTrace << "Font::GenerateCharacters  - Error! Failed to load glyph! \n";
         continue;
       }
 
@@ -106,7 +106,7 @@ namespace DCEngine {
       Characters.insert(std::pair<GLchar, Character>(c, character));
     }
 
-    trace << "Font::GenerateCharacters - Successfully generated character map\n";
+    DCTrace << "Font::GenerateCharacters - Successfully generated character map\n";
 
   }
 

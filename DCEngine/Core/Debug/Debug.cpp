@@ -20,7 +20,7 @@ namespace DCEngine
 
     /**************************************************************************/
     /*!
-    \brief  Creates the trace object.
+    \brief  Creates the DCTrace object.
     \param  sentence
     */
     /**************************************************************************/

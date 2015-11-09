@@ -6,7 +6,7 @@ namespace DCEngine {
     
   void DebugReport::Initialize() {   
     
-    TransformComponent = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>();
+    TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>();
     Connect(SpaceRef, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
   }
 
@@ -21,7 +21,7 @@ namespace DCEngine {
   void DebugReport::OnKeyDownEvent(Events::KeyDown * event)
   {
     if (ReportTranslation) {
-      trace << Owner()->Name() << " is now at (" << TransformComponent->Translation.x << ", "
+      DCTrace << Owner()->Name() << " is now at (" << TransformComponent->Translation.x << ", "
         << TransformComponent->Translation.y << ", "
         << TransformComponent->Translation.z << ")\n";
     }

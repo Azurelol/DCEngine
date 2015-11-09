@@ -70,8 +70,6 @@ namespace DCEngine {
       void Subscribe();
       void Update(float dt);
       void Terminate();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
       //2D draw list
       int TotalObjNumG = 0;

@@ -39,7 +39,7 @@ namespace DCEngine {
     // Assert makes sure there's only one instance of the engine 
     assert(Daisy == nullptr);
     Daisy.reset(this);
-    // Initialize the trace object
+    // Initialize the DCTrace object
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
     // Load the engine's configuration from a file
@@ -62,7 +62,7 @@ namespace DCEngine {
     assert(Daisy == nullptr);
     Daisy.reset(this);
 
-    // Initialize the trace object
+    // Initialize the DCTrace object
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
 
@@ -93,8 +93,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::Initialize() {
     
-    trace << "[Engine::Engine - Constructor] \n";
-    trace << "\n[Engine::Initialize] \n";
+    DCTrace << "[Engine::Engine - Constructor] \n";
+    DCTrace << "\n[Engine::Initialize] \n";
 
     //throw DCException("Oh dear, something broke");
 
@@ -120,7 +120,7 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Graphics));
     _systems.push_back(SystemPtr(new Systems::GUI));
 
-    //trace << "\n";
+    //DCTrace << "\n";
     //std::string projectFilePath = "Projects/Sample/SampleProj.dcp";
     
     // Initialize all internal engine systems
@@ -129,7 +129,7 @@ namespace DCEngine {
     }
 
     // Initialize the project
-    trace << "[Engine::Initialize - All engine systems initialized]\n";
+    DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
 
     // Loads the project file to start up the game
     //LoadProject(std::string("Default")); // Temporarily default
@@ -145,7 +145,7 @@ namespace DCEngine {
 
     getSystem<Systems::Content>()->LoadProjectData(projectFile);
 
-    trace << "\n[Engine::LoadProject - Loading " << projectFile << "]\n";
+    DCTrace << "\n[Engine::LoadProject - Loading " << projectFile << "]\n";
 
     // 1. Deserialize the input file for information about the project,
     // and store that in a struct owned by the engine.
@@ -194,7 +194,7 @@ namespace DCEngine {
     defaultSpace->LoadLevel(dollhouse);
 
 
-    trace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
+    DCTrace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
@@ -218,7 +218,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::Update(float dt) {
     if (TRACE_UPDATE)
-      trace << "\n[Engine::Update] \n";
+      DCTrace << "\n[Engine::Update] \n";
 
     // Tell window management system to begin new frame
     getSystem<Systems::Window>()->StartFrame();
@@ -247,7 +247,7 @@ namespace DCEngine {
     getSystem<Systems::Window>()->EndFrame();
 
     if (TRACE_UPDATE)
-      trace << "[Engine::Update - All systems updated.] \n";
+      DCTrace << "[Engine::Update - All systems updated.] \n";
   }
 
   /**************************************************************************/
@@ -269,7 +269,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Terminate() {
-    trace << "\n[Engine::Terminate] \n";
+    DCTrace << "\n[Engine::Terminate] \n";
 
     for (auto sys : _systems)
       sys->Terminate();

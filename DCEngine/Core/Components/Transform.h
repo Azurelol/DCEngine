@@ -19,7 +19,20 @@ namespace DCEngine {
     friend class GameObject;
   public:
     
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(Transform, Component);
+    #endif
+
     // Properties
+
+    /* Properties*/
+    Vec3 getTranslation();
+    void setTranslation(Vec3);
+    Vec3 getRotation();
+    void setRotation(Vec3);
+    Vec3 getScale();
+    void setScale(Vec3);
+
     Vec3 Translation = Vec3(0.0f, 0.0f, 0.0f);
     Vec3 Rotation = Vec3(0.0f, 0.0f, 0.0f);
     Vec3 Scale = Vec3(1.0f, 1.0f, 1.0f);
@@ -31,7 +44,6 @@ namespace DCEngine {
     Vec3 LocalTranslation = Translation;
     Vec3 LocalRotation = Rotation;
     Vec3 LocalScale = Scale;   
-
 
     Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
     void Initialize();

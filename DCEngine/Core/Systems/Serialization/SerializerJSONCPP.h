@@ -39,19 +39,6 @@ namespace DCEngine {
     }
 
 
-    /* Entity */
-    static bool Serialize(Entity* object, std::string& output);
-    static bool Deserialize(Entity* object, std::string& input);
-    /* Component */
-    static bool Serialize(Component* object, std::string& output);
-    static bool Deserialize(Component* object, std::string& input);
-    /* System */
-    static bool Serialize(System* object, std::string& output);
-    static bool Deserialize(System* object, std::string& input);
-
-
-
-
     /*
     
     #define SERIALIZER(TYPE) \

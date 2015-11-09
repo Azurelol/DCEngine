@@ -9,8 +9,8 @@ namespace DCEngine {
 		Connect(gameObj, Events::CollisionStarted, EnemyController::OnCollisionStartedEvent);
 		Connect(gameObj, Events::CollisionEnded, EnemyController::OnCollisionEndedEvent);
 		Connect(SpaceRef, Events::LogicUpdate, EnemyController::OnLogicUpdateEvent);
-		TransformRef = dynamic_cast<GameObject*>(owner_)->getComponent<Transform>(); // ew
-		RigidBodyRef = dynamic_cast<GameObject*>(owner_)->getComponent<RigidBody>();
+		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
+		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 	}
 
 	void EnemyController::Serialize(Json::Value & root)
@@ -42,12 +42,12 @@ namespace DCEngine {
 
 	void EnemyController::PrintTranslation()
 	{
-		trace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void EnemyController::PrintVelocity()
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
-		//trace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

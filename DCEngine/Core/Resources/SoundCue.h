@@ -9,13 +9,8 @@
 /******************************************************************************/
 #pragma once
 #include "ResourceReference.h"
-
 // Headers
 #include "../Systems/Audio/FMODPtrs.h"
-//#include <FMOD\fmod.hpp>
-//#include <FMOD\fmod_errors.h>
-
-//using FMODSoundPtr = std::unique_ptr<FMOD::Sound*>;
 
 namespace DCEngine {
 
