@@ -126,15 +126,6 @@ Font::GenerateCharacters - Successfully generated character map
 Font::Load - Font was successfully loaded! 
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Camera::AddComponent - Failure! Camera is already present!
-Camera Serialized Output
-{
-   "FarPlane" : 100,
-   "FieldOfView" : 250,
-   "NearPlane" : 0.10000000149011612,
-   "Size" : 70
-}
-
-
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added Connor to the space.
@@ -214,9 +205,47 @@ GraphicsSpace::AddSprite - Foreground
 particleTest::Initialize 
 
 [Engine::Loop]
-Mariah::Transform.Translation(4, -1.99118, 0)
-Mariah::Transform.Translation(4, -1.99677, 0)
-Mariah::Transform.Translation(-7.3618, 14.416, 0)
+Editor::OnEditorEnabledEvent 
+Editor::ToggleEditor : 1
+Editor::SelectObject - enemy2
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - enemy2
+Editor::SelectObject - Mariah
+Editor::SelectObject - groundenemy
+Editor::SelectObject - enemy1
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Floor
+Editor::SelectObject - Foreground
+Editor::SelectObject - Floor
+Editor::SelectObject - Middleground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Basketfloor2
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Foreground
+Editor::SelectObject - Mariah
+Editor::SelectObject - Foreground
 
 [Engine::Terminate] 
 Content::Terminate

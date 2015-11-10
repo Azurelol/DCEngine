@@ -45,14 +45,15 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Grabs a pointer to a BoundType object, which contains information
-            about the object.
+    @brief  Returns a pointer to the Zilch Interface instance.
     */
     /**************************************************************************/
-    Zilch::BoundType* Reflection::getBoundType(std::string name, Zilch::LibraryRef library)
+    ZilchInterface* Reflection::Handler()
     {
-      return ZilchHandler->getBoundType(name, library);
+      return ZilchHandler.get();
     }
+
+
 
 
   }

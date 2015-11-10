@@ -26,6 +26,7 @@ namespace DCEngine {
     class Reflection;
     class ZilchInterface {
       friend class Reflection;
+
     public:
 
       ~ZilchInterface();
@@ -37,8 +38,10 @@ namespace DCEngine {
       void CompileScripts(std::string libraryName);
       void Build();
       void Clean();
+     
 
       /* Getters */
+      Zilch::ExecutableState* getState();
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
       Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);

@@ -30,18 +30,22 @@ namespace DCEngine {
     by globals/pre-main initializations. This method ensures that all classes will be properly bound.
     */
 
+
+    // Objects
     ZilchInitializeType(Object);
-    
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
     ZilchInitializeType(Component);
-
     ZilchInitializeType(GameSession);
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
 
+    // Components
     ZilchInitializeType(Transform);
-   
+    ZilchInitializeType(Sprite);
+    ZilchInitializeType(Camera);
+    ZilchInitializeType(RigidBody);
+    ZilchInitializeType(BoxCollider);  
 
 
   }

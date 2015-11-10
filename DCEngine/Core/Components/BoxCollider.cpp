@@ -25,7 +25,11 @@ namespace DCEngine {
   }
   #endif
 
-
+  /**************************************************************************/
+  /*!
+  @brief Initializes the BoxCollider component.
+  */
+  /**************************************************************************/
 	void BoxCollider::Initialize()
 	{
 		auto owner = dynamic_cast<GameObject*>(Owner());
@@ -43,6 +47,21 @@ namespace DCEngine {
 
 	}
 
+  /**************************************************************************/
+  /*!
+  @brief Event received every update.
+  */
+  /**************************************************************************/
+  void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
+  {
+    DrawCollider();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Draws a Collider using DebugDraw.
+  */
+  /**************************************************************************/
 	void BoxCollider::DrawCollider()
 	{
 		auto debugScale = Vec2(getColliderScale().x,
@@ -82,10 +101,7 @@ namespace DCEngine {
 		return (Size * TransformComponent->Scale);
 	}
 
-	void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
-	{
-		DrawCollider();
-	}
+
 
   /**************************************************************************/
   /**************************************************************************!

@@ -43,7 +43,6 @@ namespace DCEngine {
       /* Window Settings */
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
-
       void DisplayEditor();
       /* Widgets Functions */
       void DisplayMainMenuBar();
@@ -51,6 +50,7 @@ namespace DCEngine {
       void WidgetResourceAdd();
       void WidgetObjects();
       void WidgetProperties();
+      void Editor::DisplayProperties(ComponentPtr component);
       void WidgetLibrary();
 
       /* Serialization functions*/

@@ -31,7 +31,6 @@ namespace DCEngine {
   class Object  {
   #endif
 
-  //class Object : public Zilch::IZilchObject {
     friend class GameSession;
     friend class Space;
 

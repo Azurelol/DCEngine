@@ -38,6 +38,21 @@ namespace DCEngine {
 	class Camera : public Component {
     friend class CameraViewport;
   public:
+
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(Camera, Component);
+    #endif
+
+    /* Property-methods */
+    Real getFieldOfView() const;
+    void setFieldOfView(Real);
+    Real getNearPlane() const;
+    void setNearPlane(Real);
+    Real getFarPlane() const;
+    void setFarPlane(Real);
+    Real getSize() const;
+    void setSize(Real);
+
     // Camera Attributes
 		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -62,11 +77,8 @@ namespace DCEngine {
 
     glm::mat4 GetViewMatrix();
     glm::mat4 GetProjectionMatrix();
-
 		Camera(Entity& owner);
 		void Initialize();
-		virtual void Serialize(Json::Value& root);
-		virtual void Deserialize(Json::Value& root);
 		void OnLogicUpdate(Events::LogicUpdate* event);
 		
 	private:
