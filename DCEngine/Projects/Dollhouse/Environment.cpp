@@ -19,7 +19,7 @@ namespace DCEngine {
     floor->getComponent<BoxCollider>()->Size = Vec3(100, 2, 2);
     floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
-    floor->getComponent<RigidBody>()->DynamicState = DynamicStateType::Static;
+    floor->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 
 
     GameObjectPtr floor2 = ConstructGameObject("Basketfloor2");
@@ -39,7 +39,7 @@ namespace DCEngine {
     floor2->getComponent<BoxCollider>()->Size = Vec3(100, 2, 2);
     floor2->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
-    floor2->getComponent<RigidBody>()->DynamicState = DynamicStateType::Static;
+    floor2->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 
     /* Background Layer */
     GameObjectPtr background = ConstructGameObject("Background");

@@ -47,8 +47,6 @@ namespace DCEngine {
 
     Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
 
   private:
     

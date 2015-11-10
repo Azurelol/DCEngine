@@ -9,7 +9,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include <ZILCH\Zilch.hpp>
+//#include <ZILCH\Zilch.hpp>
 
 #define DCE_USE_ZILCH_INTERNAL_BINDING 1
 #define DCE_BINDING_OBJECT_CLASSES_INTERNALLY 0

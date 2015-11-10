@@ -3,12 +3,6 @@
 
 namespace DCEngine {
 
-  void Transform::Serialize(Json::Value & root) {
-  }
-
-  void Transform::Deserialize(Json::Value & root) {
-  }
-
   /**************************************************************************/
   /*!
   @brief Provides the definition of this class to Zilch.

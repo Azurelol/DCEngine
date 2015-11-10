@@ -1,11 +1,13 @@
 #include "Physics.h"
 
+// Components 
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
 #include "../../Components/BoxCollider.h"
 #include "../../Components/CircleCollider.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
+// Custom physics libraries
 #include "Collision.h"
 #include "Resolution.h"
 
@@ -80,7 +82,7 @@ namespace DCEngine {
       // Check for objects in the space for a collision
       for (auto gameObj : *space.AllObjects()) {
         // If there's a match, add it to the container
-        if (PointToRectangle(gameObj.get(), pos))
+        if (Collision::PointToRectangle(gameObj.get(), pos))
           objsAtPos.push_back(gameObj);
       }      
 
@@ -108,7 +110,7 @@ namespace DCEngine {
 
 				Integrate(dt, physpace);
 
-				DCEngine::Resolve(dt, contactlist);
+				Resolution::Resolve(dt, contactlist);
 
 				PublishResults(physpace);
 			}
@@ -213,7 +215,7 @@ namespace DCEngine {
 				if (obj1->getComponent<BoxCollider>() && obj2->getComponent<BoxCollider>())
 				{
 					// COLLISION DETECTED
-					if (BoxtoBox(obj1, obj2, collision))
+					if (Collision::BoxtoBox(obj1, obj2, collision))
 					{
 
             if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
@@ -238,7 +240,7 @@ namespace DCEngine {
 				}
 				else if (obj1->getComponent<CircleCollider>() && obj2->getComponent<CircleCollider>())
 				{
-					if (CircletoCircle(obj1, obj2, collision))
+					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
             if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
             {
@@ -262,7 +264,7 @@ namespace DCEngine {
 				}
 				else if ((obj1->getComponent<BoxCollider>() && obj2->getComponent<CircleCollider>()))
 				{
-					if (CircletoBox(obj1, obj2, collision))
+					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
             if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
             {
@@ -286,7 +288,7 @@ namespace DCEngine {
 				}
 				else if ((obj1->getComponent<CircleCollider>() && obj2->getComponent<BoxCollider>()))
 				{
-					if (CircletoBox(obj2, obj1, collision))
+					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
             if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
             {
@@ -308,14 +310,10 @@ namespace DCEngine {
 						DispatchCollisionEnded(boxToCirlceCollision);
 					}
 				}
-
-
 			}
 			return;
 		}
-
-
-
+    
 		/**************************************************************************/
 		/*!
 		@brief Resolve all collisions

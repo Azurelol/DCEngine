@@ -12,7 +12,7 @@ Content::Initialize
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - Angryeyes was added.
+Content::AddSpriteSource - angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
@@ -77,7 +77,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Development\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading G:\Repositories\Daisy Chain Engine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateStream 
@@ -214,52 +214,9 @@ GraphicsSpace::AddSprite - Foreground
 particleTest::Initialize 
 
 [Engine::Loop]
-Mariah::Transform.Translation(4, -2.01586, 0)
-Mariah::Transform.Translation(4, -1.95889, 0)
-Mariah::Transform.Translation(-6.38029, -2.00146, 0)
-Mariah::Transform.Translation(-6.38029, -1.96652, 0)
-Mariah::Transform.Translation(-4.93052, 7.07323, 0)
-Mariah::Transform.Translation(-4.72724, 7.76678, 0)
-Mariah::Transform.Translation(-4.50396, 8.57143, 0)
-Mariah::Transform.Translation(-4.26736, 9.48715, 0)
-Mariah::Transform.Translation(-4.01076, 10.514, 0)
-Mariah::Transform.Translation(-3.74085, 11.6518, 0)
-Mariah::Transform.Translation(-3.45094, 12.9008, 0)
-Mariah::Transform.Translation(-3.15007, 14.2504, 0)
-Mariah::Transform.Translation(-2.8499, 15.6184, 0)
-Mariah::Transform.Translation(-2.55454, 16.9486, 0)
-Mariah::Transform.Translation(-2.2554, 17.3677, 0)
-Mariah::Transform.Translation(-2.0269, 16.7021, 0)
-Mariah::Transform.Translation(-1.79026, 16.855, 0)
-Mariah::Transform.Translation(-1.54029, 17.1191, 0)
-Mariah::Transform.Translation(-1.29565, 16.9767, 0)
-Mariah::Transform.Translation(-1.08529, 17.0568, 0)
-Mariah::Transform.Translation(-0.886582, 17.0142, 0)
-Mariah::Transform.Translation(-0.694752, 17.0234, 0)
-Mariah::Transform.Translation(-0.520376, 17.0233, 0)
-Mariah::Transform.Translation(-0.366469, 17.0232, 0)
-Mariah::Transform.Translation(-0.222809, 17.0232, 0)
-Mariah::Transform.Translation(-0.0937813, 17.0464, 0)
-Mariah::Transform.Translation(0.0189764, 17.0296, 0)
-Mariah::Transform.Translation(0.122974, 17.0248, 0)
-Mariah::Transform.Translation(0.226209, 17.0236, 0)
-Mariah::Transform.Translation(0.327385, 17.0189, 0)
-Mariah::Transform.Translation(0.442665, 16.9884, 0)
-Mariah::Transform.Translation(0.554112, 17.051, 0)
-Mariah::Transform.Translation(0.668245, 17.0295, 0)
-Mariah::Transform.Translation(0.773357, 17.0248, 0)
-Mariah::Transform.Translation(0.877494, 17.0236, 0)
-Mariah::Transform.Translation(0.974509, 17.0233, 0)
-Mariah::Transform.Translation(1.07209, 17.0463, 0)
-Mariah::Transform.Translation(1.15981, 17.0048, 0)
-Mariah::Transform.Translation(1.2623, 17.0092, 0)
-Mariah::Transform.Translation(1.35799, 17.0197, 0)
-Mariah::Transform.Translation(1.45449, 17.0223, 0)
-Mariah::Transform.Translation(1.54532, 17.0112, 0)
-Mariah::Transform.Translation(1.63367, 17.0104, 0)
-Mariah::Transform.Translation(1.71409, 17.02, 0)
-Mariah::Transform.Translation(1.79822, 17.0224, 0)
-Mariah::Transform.Translation(1.88312, 17.0195, 0)
+Mariah::Transform.Translation(4, -1.99118, 0)
+Mariah::Transform.Translation(4, -1.99677, 0)
+Mariah::Transform.Translation(-7.3618, 14.416, 0)
 
 [Engine::Terminate] 
 Content::Terminate

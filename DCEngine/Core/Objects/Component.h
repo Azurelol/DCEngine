@@ -81,8 +81,8 @@ namespace DCEngine {
     
 	  virtual ~Component() {} // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
-    virtual void Serialize(Json::Value& root) = 0;
-    virtual void Deserialize(Json::Value& root) = 0;
+    //virtual void Serialize(Json::Value& root) = 0;
+    //virtual void Deserialize(Json::Value& root) = 0;
    
     template <typename EntityClass> EntityClass* getOwner();
 

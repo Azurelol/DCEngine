@@ -1,5 +1,8 @@
 #pragma once
 #include "Manifold.h"
+// Components
+#include "../../Components/RigidBody.h"
+#include "../../Objects/Entities/GameObject.h"
 
 namespace DCEngine
 {
