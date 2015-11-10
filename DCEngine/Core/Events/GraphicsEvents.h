@@ -14,7 +14,6 @@ namespace DCEngine {
   namespace Events {
 
     class FullscreenEnabledEvent : public Event {
-
     };
 
     class ResizeViewportEvent : public Event {

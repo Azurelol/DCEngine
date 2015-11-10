@@ -35,7 +35,7 @@ namespace DCEngine {
       if (SelectedObject != nullptr) {
         // 1. Display the object's name
         //auto objData = Daisy->getSystem<Reflection>()->getBoundType(SelectedObject)
-
+        //SelectedObject->
         
         ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
         ImGui::Text(SelectedObject->Name().c_str());
@@ -43,11 +43,20 @@ namespace DCEngine {
         ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
         for (auto component : *SelectedObject->AllComponents()) {
           if (ImGui::TreeNode(component->Name().c_str())) {
+            
+            auto boundTypePtr = component->ZilchGetDerivedType();
+            auto properties = boundTypePtr->AllProperties;
+            DCTrace << "Properties \n";
+            for (auto property : properties) {
+              DCTrace << property->Name.c_str() << "\n";
+            }
 
             // Hardcoded currently for the transform component!
             if (std::type_index(typeid(*component)) == std::type_index(typeid(Transform))) {
               auto transform = SelectedObject->getComponent<Transform>(); // or d.cast instead lol      
               
+
+
               ImGui::Text("Translation");
               float trans[3] = { transform->Translation.x, 
                                  transform->Translation.y, 

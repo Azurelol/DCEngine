@@ -17,19 +17,13 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Transform, "Transform", DCEngineCore, builder, type) {
-
-    // CTOR/DTOR
-    //ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
-    //ZilchBindConstructor(builder, type, Transform, "owner", );
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
     ZilchBindDestructor(builder, type, Transform);
-    // Fields
-    ZilchBindField(builder, type, &Transform::ObjectName, "ObjectName", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &Transform::ObjectID, "ObjectID", Zilch::PropertyBinding::GetSet);
     // Properties
     ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
     ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
     ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
-
   }
   #endif
 

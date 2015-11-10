@@ -23,6 +23,16 @@ namespace DCEngine {
     friend class Systems::InputSFML;
 
   public:
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Mouse, Entity);
+    #endif
+    
+    Mouse::Mouse() : Entity(std::string("Mouse")) {
+      if (TRACE_ON && TRACE_CONSTRUCTOR)
+        DCTrace << ObjectName << " Interface - Constructor \n";
+    }
+
     bool MouseDown(MouseButton button);
     bool MouseUp(MouseButton button);
 
@@ -33,10 +43,6 @@ namespace DCEngine {
     bool MouseDown_Middle = false;
 
 
-    Mouse::Mouse() : Entity(std::string("Mouse")) {
-      if (TRACE_ON && TRACE_CONSTRUCTOR)
-        DCTrace << ObjectName << " Interface - Constructor \n";      
-    }
 
     void Initialize();
     virtual void Serialize(Json::Value& root);

@@ -209,27 +209,6 @@ namespace DCEngine {
       DCTrace << ObjectName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
   }
 
-  /**************************************************************************/
-  /*!
-  \brief  Checks if the entity has all of a set of components by OR-ing
-          together multiple MaskComponente values.
-  \return True if the component has every specified component.
-  */
-  /**************************************************************************/
-  void Space::PopulateObjects(SystemPtr sys) const {
-        
-    if (sys->Mask() != static_cast<int>(BitfieldComponent::NoObjects)) {
-      
-      // Add any entities living in this space that fit the system
-      // to its cache.
-      for (auto &it : GameObjectContainer) {
-        
-        auto m = sys->Mask();
-        if (it->CheckMask(m))
-          sys->_entities.push_back(it);
-      }
-    }
-  }
 
   /**************************************************************************/
   /*!

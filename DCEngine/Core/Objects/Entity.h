@@ -49,9 +49,10 @@ namespace DCEngine {
     ~Entity();
     void Initialize(); //!< Initializes all of the entity's components
 
-    //virtual void Serialize(Json::Value& root) = 0;
-    //virtual void Deserialize(Json::Value& root) = 0;
-                    
+    /* Properties */
+    void setArchetype(std::string);
+    std::string getArchetype() const; 
+    /* Components */
     void AddComponentByName(std::string& componentName);
     void RemoveComponentByName(std::string& componentName);
     bool AddComponent(ComponentPtr component);
@@ -60,15 +61,14 @@ namespace DCEngine {
     void RemoveComponent(ComponentPtr component);
     bool HasComponent(EnumeratedComponent ec);
     ComponentVec* AllComponents();
-
+    /* Events */
     template <typename EventClass>
     void Dispatch(Event* eventObj); // Dispatches an event on object
     template <typename EventClass>
     void DispatchUp(Event* eventObj); //!< Dispatches an event to the object itself and up the tree to each parent    
     template <typename EventClass>
     void DispatchDown(Event* eventObj); //!< Dispatches an event to the object itself and down to each children recursively
-    
-    bool CheckMask(mask m);
+
     EntityType Type() { return type_; }
 
   protected:
@@ -76,7 +76,6 @@ namespace DCEngine {
     //ComponentVec ObserversList; //!< A list of the current listeners to this object.
     ComponentVec ComponentsContainer; //!< The list of components attached to the entity.  
     EntityType type_;
-
     std::vector<Entity*> ChildrenContainer;
     Entity* Parent;
 
@@ -84,9 +83,7 @@ namespace DCEngine {
 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-
     std::string Archetype;
-    mask _mask = static_cast<int>(BitfieldComponent::Alive);
 
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));

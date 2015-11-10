@@ -9,8 +9,11 @@
 @note   We include all the headers of the classes we are defining to Zilch
         here since we have decided to defne them all in a single, unified file
         rather than individually in each of their definition files.
+        Perhaps I do not need to bind CTOR/DTORs for my classes if I don't plan
+        on constructing them through Zilch.
 */
 /******************************************************************************/
+#include "Precompiled.h"
 #include "CoreBindingObjects.h"
 #include "CoreBinding.h"
 #include "CoreBindingTypes.h"
@@ -37,8 +40,7 @@ namespace DCEngine {
   @brief  Object Definition
   \**************************************************************************/
   ZilchDefineType(Object, "Object", DCEngineCore, builder, type) {
-
-    // CTOR/DTOR
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, Object, "name", std::string);
     ZilchBindConstructor(builder, type, Object, ZilchNoNames);
     ZilchBindDestructor(builder, type, Object);
@@ -54,18 +56,42 @@ namespace DCEngine {
   @brief  Entity Definition
   \**************************************************************************/
   ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, Entity, "name", std::string);
     ZilchBindDestructor(builder, type, Entity);
+    // Properties
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
   }
 
   /*!************************************************************************\
-  @brief  Resource Definition
+  @brief  Resource Definition 
   \**************************************************************************/
   ZilchDefineType(Resource, "Resource", DCEngineCore, builder, type) {
-
-    // CTOR/DTOR
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, Resource, "name", std::string);
     ZilchBindDestructor(builder, type, Resource);
+    // Fields
+  }
+
+  /*!************************************************************************\
+  @brief  Keyboard Definition
+  \**************************************************************************/
+  ZilchDefineType(Keyboard, "Keyboard", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Keyboard, ZilchNoNames);
+    ZilchBindDestructor(builder, type, Keyboard);
+    // Methods
+    //ZilchBindMethod(builder, type, &Keyboard::KeyIsDown, ZilchNoOverload, "KeyIsDown", Keys);
+    //ZilchBindMethod(builder, type, &Keyboard::KeyIsUp, ZilchNoOverload, "KeyIsUp", Keys);
+  }
+
+  /*!************************************************************************\
+  @brief  Mouse Definition
+  \**************************************************************************/
+  ZilchDefineType(Mouse, "Mouse", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Mouse, ZilchNoNames);
+    ZilchBindDestructor(builder, type, Mouse);
     // Fields
   }
 
@@ -73,6 +99,7 @@ namespace DCEngine {
   @brief  GameSession Definition
   \**************************************************************************/
   ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameSession, "name", std::string);
     ZilchBindDestructor(builder, type, GameSession);
   }
@@ -81,20 +108,20 @@ namespace DCEngine {
   @brief  Space Definition
   \**************************************************************************/
   ZilchDefineType(Space, "Space", DCEngineCore, builder, type) {
-    // Constructor / Destructors
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, Space, "name, gamesession", std::string, GameSession&);
     ZilchBindDestructor(builder, type, Space);
     // Fields
 
     // Properties
+
   }
 
   /*!************************************************************************\
   @brief  GameObject Definition
   \**************************************************************************/
   ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
-
-    // CTOR/DTOR
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
     ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
     ZilchBindDestructor(builder, type, GameObject);
@@ -105,8 +132,7 @@ namespace DCEngine {
   @brief  Component Definition
   \**************************************************************************/
   ZilchDefineType(Component, "Component", DCEngineCore, builder, type) {
-
-    // CTOR/DTOR
+    // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
     ZilchBindDestructor(builder, type, Component);
     // Fields

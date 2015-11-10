@@ -126,7 +126,7 @@ namespace DCEngine
 	\brief Updates this object's direction of gravity.
 	*/
 	/**************************************************************************/
-	void RigidBody::setGravitydir(Vec3 dir)
+	void RigidBody::setGravityDir(Vec3 dir)
 	{
 		Gravitydir = glm::normalize(dir);
 	}
@@ -136,7 +136,7 @@ namespace DCEngine
 	\brief Updates this object's ratio of gravity.
 	*/
 	/**************************************************************************/
-	void RigidBody::setGravityratio(Real ratio)
+	void RigidBody::setGravityRatio(Real ratio)
 	{
 		Gravityratio = ratio;
 	}
@@ -291,7 +291,7 @@ namespace DCEngine
 	\brief gets this object's direction of gravity.
 	*/
 	/**************************************************************************/
-	Vec3 RigidBody::getGravitydir(void)
+	Vec3 RigidBody::getGravityDir(void)
 	{
 		return Gravitydir;
 	}
@@ -301,7 +301,7 @@ namespace DCEngine
 	\brief gets this object's ratio of gravity.
 	*/
 	/**************************************************************************/
-	Real RigidBody::getGravityratio(void)
+	Real RigidBody::getGravityRatio(void)
 	{
 		return Gravityratio;
 	}

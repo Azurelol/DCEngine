@@ -58,7 +58,6 @@ namespace DCEngine {
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
     void AddObject(GameObjectPtr entity);
-    void PopulateObjects(SystemPtr sys) const;
     void RemoveObject(GameObjectPtr);
     void Clear(); // Remves all entities and systems
 

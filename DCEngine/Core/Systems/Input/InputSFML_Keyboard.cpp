@@ -229,7 +229,6 @@ namespace DCEngine {
         keyUp->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
-        Daisy->getSystem<Window>()->WindowHandler->setFullScreen();
         keyUp->Key = Keys::F10;
         break;
 

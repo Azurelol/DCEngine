@@ -501,6 +501,7 @@
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
+    <ClCompile Include="Dependencies\include\Precompiled.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -914,6 +915,7 @@
     <ClInclude Include="Core\Binding\CoreBindingObjects.h">
       <Filter>Core\Binding</Filter>
     </ClInclude>
+    <ClInclude Include="Dependencies\include\Precompiled.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

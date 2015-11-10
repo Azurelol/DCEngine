@@ -30,9 +30,6 @@ namespace DCEngine {
   {
   }
 
-  bool Entity::CheckMask(mask m) {
-    return ((_mask & m) == m);
-  }
 
   /**************************************************************************/
   /*!
@@ -66,6 +63,26 @@ namespace DCEngine {
     DCTrace << ObjectName << "::Initialize \n";
     for (auto component : ComponentsContainer)
       component->Initialize();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Archetype setter.
+  */
+  /**************************************************************************/
+  void Entity::setArchetype(std::string archetype)
+  {
+    Archetype = archetype;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Archetype getter.
+  */
+  /**************************************************************************/
+  std::string Entity::getArchetype() const
+  {
+    return Archetype;
   }
 
   /**************************************************************************/

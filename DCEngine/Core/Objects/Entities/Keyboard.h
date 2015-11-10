@@ -18,12 +18,20 @@ namespace DCEngine {
   namespace Systems {
     class InputSFML;
   }
- 
 
   class Keyboard : public Entity {
     friend class Engine;
     friend class Systems::InputSFML;
   public:
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Keyboard, Entity);
+    #endif
+
+    Keyboard::Keyboard() : Entity(std::string("Keyboard")) {
+      if (TRACE_ON && TRACE_CONSTRUCTOR)
+        DCTrace << ObjectName << " Interface - Constructor \n";
+    }
 
     bool KeyIsDown(Keys key);
     bool KeyIsUp(Keys key);
@@ -54,10 +62,7 @@ namespace DCEngine {
     bool KeyDown_F4 = false;
 
 
-    Keyboard::Keyboard() : Entity(std::string("Keyboard")) {
-      if (TRACE_ON && TRACE_CONSTRUCTOR)
-        DCTrace << ObjectName << " Interface - Constructor \n";
-    }
+
 
     void Initialize();
     virtual void Serialize(Json::Value& root);

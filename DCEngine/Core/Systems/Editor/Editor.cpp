@@ -76,7 +76,7 @@ namespace DCEngine {
     void Editor::ToggleEditor()
     {
       // Resize the viewport to accomodate the editor
-      ApplyEditorWindowLayout();
+      //ApplyEditorWindowLayout();
 
       // Set it's current space to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();

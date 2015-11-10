@@ -218,6 +218,7 @@ namespace DCEngine {
     void Graphics::RestoreState()
     {
       GraphicsHandler->RestoreState();
+      GraphicsHandler->ConfigureSpriteVAO();
     }
 
     void Graphics::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)

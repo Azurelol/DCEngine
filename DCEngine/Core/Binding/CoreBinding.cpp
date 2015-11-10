@@ -9,6 +9,7 @@
         It will also initialize them.
 */
 /******************************************************************************/
+#include "Precompiled.h"
 #include "CoreBinding.h"
 
 // Core Objects
@@ -39,8 +40,9 @@ namespace DCEngine {
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
 
+    ZilchInitializeType(Transform);
+   
+
 
   }
-
 }
-

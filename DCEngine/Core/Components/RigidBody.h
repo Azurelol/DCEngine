@@ -39,8 +39,8 @@ namespace DCEngine
 		void Integrate(float dt);
 		void PublishResults(void);
 
-		Vec3 getGravitydir(void);
-		Real  getGravityratio(void);
+		Vec3 getGravityDir(void);
+		Real  getGravityRatio(void);
 		bool  getGravity(void);
 		float getRestitution(void);
 		Vec3 getVelocity(void);
@@ -51,16 +51,17 @@ namespace DCEngine
 		Vec3 getPosition(void);
 
 		void setPosition(Vec3 pos);
-		void setGravitydir(Vec3 dir);
-		void setGravityratio(Real ratio);
+		void setGravityDir(Vec3 dir);
+		void setGravityRatio(Real ratio);
 		void setGravity(bool state);
 		void setVelocity(Vec3 vel);
-		void ApplyLinearVelocity(Vec3 vel);
 		void setRestitution(float rest);
 		void setAcceleration(Vec3 accel);
 		void setFriction(float friction);
 		void setMass(float mass);
 		DynamicStateType DynamicState = DynamicStateType::Dynamic;
+    
+    void ApplyLinearVelocity(Vec3 vel);
 
 	private:
 
