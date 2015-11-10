@@ -205,6 +205,9 @@
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Precompiled">
+      <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -501,7 +504,9 @@
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\include\Precompiled.cpp" />
+    <ClCompile Include="Core\Precompiled\Precompiled.cpp">
+      <Filter>Core\Precompiled</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -915,7 +920,9 @@
     <ClInclude Include="Core\Binding\CoreBindingObjects.h">
       <Filter>Core\Binding</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\include\Precompiled.h" />
+    <ClInclude Include="Core\Precompiled\Precompiled.h">
+      <Filter>Core\Precompiled</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
