@@ -27,7 +27,7 @@ namespace DCEngine {
       friend class Engine;
     public:
 
-      Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
+      ZilchInterface* Handler();
 
     private:
       Reflection();

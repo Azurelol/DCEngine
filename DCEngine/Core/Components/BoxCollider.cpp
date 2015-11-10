@@ -5,6 +5,31 @@
 
 namespace DCEngine {
 
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(BoxCollider, "BoxCollider", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
+    ZilchBindDestructor(builder, type, BoxCollider);
+    // Properties
+    ZilchBindProperty(builder, type, &BoxCollider::getSize, &BoxCollider::setSize, "Size");
+    ZilchBindProperty(builder, type, &BoxCollider::getOffset, &BoxCollider::setOffset, "Offset");
+    ZilchBindProperty(builder, type, &BoxCollider::getGhost, &BoxCollider::setGhost, "Ghost");
+    ZilchBindProperty(builder, type, &BoxCollider::getSendsEvents, &BoxCollider::setSendsEvents, "SendsEvents");
+    ZilchBindProperty(builder, type, &BoxCollider::getIsDrawingCollider, &BoxCollider::setIsDrawingCollider, "IsDrawingCollider");
+  }
+  #endif
+
+  /**************************************************************************/
+  /*!
+  @brief Initializes the BoxCollider component.
+  */
+  /**************************************************************************/
 	void BoxCollider::Initialize()
 	{
 		auto owner = dynamic_cast<GameObject*>(Owner());
@@ -22,8 +47,21 @@ namespace DCEngine {
 
 	}
 
+  /**************************************************************************/
+  /*!
+  @brief Event received every update.
+  */
+  /**************************************************************************/
+  void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
+  {
+    DrawCollider();
+  }
 
-
+  /**************************************************************************/
+  /*!
+  @brief Draws a Collider using DebugDraw.
+  */
+  /**************************************************************************/
 	void BoxCollider::DrawCollider()
 	{
 		auto debugScale = Vec2(getColliderScale().x,
@@ -34,15 +72,7 @@ namespace DCEngine {
 			debugScale.y, //TransformComponent->Scale.y * Size.y, 
 			Vec4(1, 0, 0, 1)); // Red
 	}
-
-	void BoxCollider::Serialize(Json::Value & root)
-	{
-	}
-
-	void BoxCollider::Deserialize(Json::Value & root)
-	{
-	}
-
+  
 	/**************************************************************************/
 	/*!
 	\brief  CollisionEvents
@@ -71,30 +101,61 @@ namespace DCEngine {
 		return (Size * TransformComponent->Scale);
 	}
 
-	void BoxCollider::OnLogicUpdateEvent(Events::LogicUpdate* event)
-	{
-		DrawCollider();
-	}
 
-	/* Getters */
+
+  /**************************************************************************/
+  /**************************************************************************!
+                                  PROPERTIES
+
+  /**************************************************************************/
 	Vec3 BoxCollider::getSize(void)
 	{
 		return this->Size;
 	}
+
+  void BoxCollider::setSize(Vec3 size)
+  {
+    Size = size;
+  }
 
 	Vec3 BoxCollider::getOffset(void)
 	{
 		return this->Offset;
 	}
 
+  void BoxCollider::setOffset(Vec3 offset)
+  {
+    this->Offset = offset;
+  }
+
 	bool BoxCollider::getGhost(void)
 	{
 		return this->Ghost;
 	}
 
+  void BoxCollider::setGhost(bool ghost)
+  {
+    this->Ghost = ghost;
+  }
+
 	bool BoxCollider::getSendsEvents(void)
 	{
 		return this->SendsEvents;
 	}
+
+  void BoxCollider::setSendsEvents(bool sends)
+  {
+    this->SendsEvents = sends;
+  }
+
+  bool BoxCollider::getIsDrawingCollider(void)
+  {
+    return this->IsDrawingCollider;
+  }
+
+  void BoxCollider::setIsDrawingCollider(bool isDrawing)
+  {
+    this->IsDrawingCollider = isDrawing;
+  }
 
 }

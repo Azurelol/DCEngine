@@ -1,16 +1,16 @@
 #include "InputSFML.h"
-
 // Engine
 #include "..\..\Engine\Engine.h"
 // Libraries
 #include "..\Window\WindowSFML.h"
-#include <SFML\System\Vector2.hpp>
 // GUI Handling
 #include "../GUI/ImGuiSFML.h"
 
 namespace DCEngine {
   namespace Systems {
 
+    /* These functions will dispatch engine-events */
+    void ToggleFullscreen();
     void ToggleEditor();
 
     /**************************************************************************/
@@ -73,7 +73,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
-        Daisy->getSystem<Window>()->WindowHandler->setFullScreen();
+        ToggleFullscreen();
         keyDown->Key = Keys::F10;
         break;
 
@@ -271,7 +271,20 @@ namespace DCEngine {
       Daisy->getKeyboard()->Dispatch<Events::KeyUp>(keyUp);
       delete keyUp;
     }
-    
+
+    /**************************************************************************/
+    /*!
+    \brief  Toggles fullscreen on and off.
+    */
+    /**************************************************************************/
+    void ToggleFullscreen()
+    {
+      auto fsevent = new Events::FullscreenEnabledEvent();
+      Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
+      delete fsevent;
+
+    }
+
     /**************************************************************************/
     /*!
     \brief  Toggles the Editor on.

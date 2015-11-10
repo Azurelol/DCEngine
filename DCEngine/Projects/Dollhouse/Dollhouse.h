@@ -60,9 +60,9 @@ namespace DCEngine {
       cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
 
       // Test to serialize the camera component settings:
-      std::string cameraData;
-      Serialization::Serialize(cameraObj->getComponent<Camera>(), cameraData);
-      DCTrace << "Camera Serialized Output\n" << cameraData << "\n\n";
+      //std::string cameraData;
+      //Serialization::Serialize(cameraObj->getComponent<Camera>(), cameraData);
+      //DCTrace << "Camera Serialized Output\n" << cameraData << "\n\n";
       // Let's try having a background sprite, should be drawn behind others.
     }
 

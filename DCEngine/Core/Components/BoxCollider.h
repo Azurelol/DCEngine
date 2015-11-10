@@ -20,35 +20,46 @@ namespace DCEngine {
 	public:
 		friend class Physics;
 
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(BoxCollider, Component);
+    #endif
+
+    /* Variables */
 		Vec3 Size = Vec3(1, 1, 1);
 		Vec3 Offset = Vec3(0, 0, 0);
 		Boolean Ghost = false;
 		Boolean SendsEvents = true;
 		Boolean IsDrawingCollider = false;
-
+    
+    /* Properties */
 		Vec3 getSize(void);
+    void setSize(Vec3);
 		Vec3 getOffset(void);
+    void setOffset(Vec3);
 		bool getGhost(void);
+    void setGhost(bool);
 		bool getSendsEvents(void);
-
-		void DrawCollider();
+    void setSendsEvents(bool);
+    bool getIsDrawingCollider(void);
+    void setIsDrawingCollider(bool);
 
 		// These should be private!
 		BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
 		void Initialize();
-		virtual void Serialize(Json::Value& root);
-		virtual void Deserialize(Json::Value& root);
+    Vec3 getColliderScale();
 
-		void OnLogicUpdateEvent(Events::LogicUpdate* event);
-		void OnCollisionStartedEvent(Events::CollisionStarted* event);
-		void OnCollisionEndedEvent(Events::CollisionEnded* event);
-
-		Vec3 getColliderScale();
 	private:
-		Transform* TransformComponent;
 
-		/* Properties */
-		// CollisionGroup = 
+    Transform* TransformComponent;
+
+    /* Events */
+    void OnLogicUpdateEvent(Events::LogicUpdate* event);
+    void OnCollisionStartedEvent(Events::CollisionStarted* event);
+    void OnCollisionEndedEvent(Events::CollisionEnded* event);
+    /* Methods */
+    void DrawCollider();
+
+		/* Variables */
 
 
 	};

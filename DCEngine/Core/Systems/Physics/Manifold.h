@@ -1,6 +1,16 @@
+/*****************************************************************************/
+/*!
+\file   Manifold.h
+\author Blaine Reiner
+\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
+\date   9/23/2015
+\brief  The Manifold class...
+*/
+/******************************************************************************/
 #pragma once
-#include "../../ComponentsInclude.h"
-#include "../../Objects/Object.h"
+//#include "../../ComponentsInclude.h"
+//include "../../Objects/Object.h"
+#include "../../Engine/Types.h"
 
 namespace DCEngine
 {
@@ -10,7 +20,7 @@ namespace DCEngine
     Rectangle
   };
 
-
+  class GameObject;
   class Manifold
   {
   public:

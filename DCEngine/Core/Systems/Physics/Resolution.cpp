@@ -10,7 +10,7 @@
 
 namespace DCEngine
 {
-  void Resolve(float dt, std::vector<Manifold> &contactlist)
+  void Resolution::Resolve(float dt, std::vector<Manifold> &contactlist)
   {
 
     ResolvePositions(dt, contactlist);
@@ -18,7 +18,7 @@ namespace DCEngine
 
   }
 
-  void ResolveContactVelocity(float dt, Manifold &c)
+  void Resolution::ResolveContactVelocity(float dt, Manifold &c)
   {
     //Find the velocity of the two object along the contact normal
     float separatingVelocity = c.CalculateSeparatingVelocity();
@@ -131,7 +131,7 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
@@ -140,7 +140,7 @@ namespace DCEngine
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
       }
@@ -148,12 +148,12 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
@@ -164,7 +164,7 @@ namespace DCEngine
     // this is the code that handles friction
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         Vec3 friction1(-c.ContactNormal.y, c.ContactNormal.x, 0);
@@ -183,7 +183,7 @@ namespace DCEngine
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         Vec3 friction2(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
@@ -201,7 +201,7 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         Vec3 friction1(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
@@ -216,7 +216,7 @@ namespace DCEngine
         c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction1);
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         Vec3 friction2(-c.ContactNormal.y, c.ContactNormal.x, 0);
@@ -235,7 +235,7 @@ namespace DCEngine
 
   }
 
-  void ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
+  void Resolution::ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
   {
     unsigned int iterationsRun = 0;
     unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
@@ -335,7 +335,7 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
       }
@@ -343,7 +343,7 @@ namespace DCEngine
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
       }
@@ -351,12 +351,12 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
       }
@@ -365,7 +365,7 @@ namespace DCEngine
 
   }
 
-  void ResolvePositions(float dt, std::vector<Manifold> &contactlist)
+  void Resolution::ResolvePositions(float dt, std::vector<Manifold> &contactlist)
   {
     //Resolving penetrations is a tricky problem with large stacks. The only real way to get 
     //good results is by considering all contacts at once at solving them together. This method basically 

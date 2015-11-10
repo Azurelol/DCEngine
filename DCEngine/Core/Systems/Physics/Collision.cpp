@@ -1,5 +1,6 @@
 #pragma once
 #include "Collision.h"
+
 #include "../../Components/PhysicsSpace.h"
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
@@ -31,7 +32,7 @@ namespace DCEngine
   @return True if a collision was detected, false otherwise.
   */
   /**************************************************************************/
-  bool BoxtoBox(GameObject * obj1, GameObject * obj2, Manifold &result)
+  bool Collision::BoxtoBox(GameObject * obj1, GameObject * obj2, Manifold &result)
   {
     /* christian if you are looking at this im sorry about the math in here */
 
@@ -360,7 +361,7 @@ namespace DCEngine
   @param result- where to store the result.
   */
   /**************************************************************************/
-  std::vector<std::vector<float>> ProjectOnTo(std::vector<glm::vec3> &verts1, std::vector<glm::vec3> &verts2, glm::vec3 &Axis)
+  std::vector<std::vector<float>> Collision::ProjectOnTo(std::vector<glm::vec3> &verts1, std::vector<glm::vec3> &verts2, glm::vec3 &Axis)
   {
     std::vector<std::vector<float>> result;
 
@@ -433,7 +434,7 @@ namespace DCEngine
   @return True if a collision was detected, false otherwise.
   */
   /**************************************************************************/
-  bool CircletoBox(GameObject * objrect, GameObject * objcircle, Manifold &result)
+  bool Collision::CircletoBox(GameObject * objrect, GameObject * objcircle, Manifold &result)
   {
 
     /* get the rigidbodies */
@@ -692,7 +693,7 @@ namespace DCEngine
   @return True if a collision was detected, false otherwise.
   */
   /**************************************************************************/
-  bool CircletoCircle(GameObject * obj1, GameObject * obj2, Manifold &result)
+  bool Collision::CircletoCircle(GameObject * obj1, GameObject * obj2, Manifold &result)
   {
     /* get the rigidbodies */
     auto rigidbody1 = obj1->getComponent<RigidBody>();
@@ -801,7 +802,7 @@ namespace DCEngine
   }
 
 
-  bool PointToCircle(GameObject * circle, glm::vec3 point)
+  bool Collision::PointToCircle(GameObject * circle, glm::vec3 point)
   {
     CircleCollider *collider = circle->getComponent<CircleCollider>();
     Transform *transform = circle->getComponent<Transform>();
@@ -820,7 +821,7 @@ namespace DCEngine
     return true;
   }
 
-  bool PointToRectangle(GameObject * rect, glm::vec3 point)
+  bool Collision::PointToRectangle(GameObject * rect, glm::vec3 point)
   {
     BoxCollider *collider = rect->getComponent<BoxCollider>();
     Transform *transform = rect->getComponent<Transform>();

@@ -1,10 +1,10 @@
 /*****************************************************************************/
 /*!
 \file   Resolution.h
-\author Blaine Reiner, Christian Sagel
+\author Blaine Reiner
 \par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
 \date   9/23/2015
-\brief  The physics system...
+\brief  A static class containing resolution functions.
 */
 /******************************************************************************/
 #pragma once
@@ -14,8 +14,14 @@
 
 namespace DCEngine 
 {
-  void Resolve(float dt, std::vector<Manifold> &contactlist);
-  void ResolveVelocities(float dt, std::vector<Manifold> &contactlist);
-  void ResolvePositions(float dt, std::vector<Manifold> &contactlist);
+  class Resolution {
+  public:
+    static void Resolve(float dt, std::vector<Manifold> &contactlist);
+    static void ResolveContactVelocity(float dt, Manifold &c);
+    static void ResolveVelocities(float dt, std::vector<Manifold> &contactlist);
+    static void ResolvePositions(float dt, std::vector<Manifold> &contactlist);
+  };
+
+  
   
 }

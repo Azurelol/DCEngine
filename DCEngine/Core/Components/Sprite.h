@@ -26,25 +26,44 @@ namespace DCEngine {
 		None,
 	};
 
+  namespace Systems {
+    class Graphics;
+  }
+
 	class Transform;
 	class Sprite : public Component {
 	public:
+    friend class Graphics;
 
-		Transform* TransformComponent;
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(Sprite, Component);
+    #endif
+
+    /* Property methods */
+    bool getVisible() const;
+    void setVisible(bool);
+    Vec4 getColor() const;
+    void setColor(Vec4);
+    String getSpriteSource() const;
+    void setSpriteSource(String);
+    bool getFlipX() const;
+    void setFlipX(bool);
+    bool getFlipY() const;
+    void setFlipY(bool);
+    bool getAnimationActive() const;
+    void setAnimationActive(bool);
+    Real getAnimationSpeed() const;
+    void setAnimationSpeed(Real);
+    
+
+    /* Variables */
 		String SpriteSource = "Square";
 		bool Visible = true;
 		Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
 		bool FlipX = false;
 		bool FlipY = false;
-
-		Sprite(Entity& owner);
-		void Initialize();
-		virtual void Serialize(Json::Value& root);
-		virtual void Deserialize(Json::Value& root);
-		void UpdateSprite();
-
-		//Animation subsystem
+    //Animation subsystem
 		bool AnimationActive = false;
 		bool HaveAnimation = false;
 		float AnimationSpeed = 1;
@@ -61,6 +80,11 @@ namespace DCEngine {
 		float GetAnimationSpeedFPS(void);
 		void ResetSpeedCounter(void);
 		void SetColorUsing255(Vec3 newColor);
+
+    Sprite(Entity& owner);
+    void Initialize();
+    void UpdateSprite();
+    Transform* TransformComponent;
 
 	private:
 

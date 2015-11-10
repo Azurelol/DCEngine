@@ -14,15 +14,6 @@ GLFW implementation: "http://www.learnopengl.com/#!Getting-Started/Hello-Window"
 /******************************************************************************/
 #include "Window.h"
 #include "../../Engine/Engine.h"
-//#include "..\..\Debug\Debug.h"
-
-
-// SFML implementation
-#if(USE_SFML)
-//#include "WindowSFML.h"
-//std::unique_ptr<DCEngine::Systems::WindowSFML> WindowHandler;
-// GLFW implementation
-#endif
 
 namespace DCEngine {
   namespace Systems {
@@ -49,13 +40,29 @@ namespace DCEngine {
       if (TRACE_ON)
         DCTrace << "Window::Initialize \n";
 
-      // Grab the Window's settings from the Engine's configuration file:
-      //WindowHandler->SetWindowSize(Width, Height);
-      //WindowHandler->SetWindowCaption(Caption);
+      // Connect to events
+      Subscribe();
       WindowHandler->Initialize();
-      // Store a pointer to the window object. This will be used by the 'Input' system.
-      //WindowObj.reset(WindowHandler->GetWindow());
-      //WindowObj = WindowHandler->GetWindow();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Subscribes to engine events.
+    */
+    /**************************************************************************/
+    void Window::Subscribe()
+    {
+      Daisy->Connect<Events::FullscreenEnabledEvent>(&Window::OnFullscreenEnabledEvent, this);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Toggles fullscreen on.
+    */
+    /**************************************************************************/
+    void Window::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)
+    {
+      setFullscreen();
     }
 
     /**************************************************************************/
@@ -108,6 +115,7 @@ namespace DCEngine {
 
       WindowHandler->EndFrame();
     }
+
 
     /**************************************************************************/
     /*!

@@ -5,6 +5,28 @@
 namespace DCEngine
 {
 
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(RigidBody, "RigidBody", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, RigidBody, "owner", Entity&);
+    ZilchBindDestructor(builder, type, RigidBody);
+    // Fields
+    ZilchBindField(builder, type, &RigidBody::Mass, "Mass", Zilch::PropertyBinding::Get);
+    // Properties
+    ZilchBindProperty(builder, type, &RigidBody::getVelocity, &RigidBody::setVelocity, "Velocity");
+    ZilchBindProperty(builder, type, &RigidBody::getAngularVelocity, &RigidBody::setAngularVelocity, "Angular Velocity");
+    ZilchBindProperty(builder, type, &RigidBody::getRotationLocked, &RigidBody::setRotationLocked, "Rotation Locked");
+    //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
+  }
+  #endif
+
+
 	/**************************************************************************/
 	/*!
 	@brief Initializes this component.
@@ -21,31 +43,7 @@ namespace DCEngine
 		// Stores the initial position
 		Position = TransformComponent->Translation;
 	}
-
-	/**************************************************************************/
-	/*!
-	@brief Serializes this component.
-	@param
-	@note
-	*/
-	/**************************************************************************/
-	void RigidBody::Serialize(Json::Value & root)
-	{
-
-	}
-
-	/**************************************************************************/
-	/*!
-	@brief Deserializes this component.
-	@param
-	@note
-	*/
-	/**************************************************************************/
-	void RigidBody::Deserialize(Json::Value & root)
-	{
-
-	}
-
+  
 	/**************************************************************************/
 	/*!
 	@brief Adds a force on to this rigidbody.
@@ -110,6 +108,23 @@ namespace DCEngine
 		AccumulatedForce = Vec3(0, 0, 0);
 	}
 
+  /**************************************************************************/
+  /*!
+  \brief actually push the position to what it should be.
+  */
+  /**************************************************************************/
+  void RigidBody::PublishResults(void)
+  {
+    TransformComponent->Translation = Position;
+  }
+
+
+  /**************************************************************************/
+  /**************************************************************************!
+                                   PROPERTIES
+
+  /**************************************************************************/
+
 	/**************************************************************************/
 	/*!
 	\brief Updates this object's translation with the calculated position.
@@ -163,6 +178,11 @@ namespace DCEngine
 		Velocity = vel;
 	}
 
+  void RigidBody::setAngularVelocity(Vec3 aVel)
+  {
+    this->AngularVelocity = aVel;
+  }
+
 
 	/**************************************************************************/
 	/*!
@@ -212,8 +232,18 @@ namespace DCEngine
 	/**************************************************************************/
 	void RigidBody::setMass(float mass)
 	{
-
+    this->Mass = mass;
 	}
+
+  void RigidBody::setDynamicState(DynamicStateType type)
+  {
+    DynamicState = type;
+  }
+
+  void RigidBody::setRotationLocked(bool locked)
+  {
+    RotationLocked = locked;
+  }
 
 
 	/**************************************************************************/
@@ -223,12 +253,12 @@ namespace DCEngine
 	/**************************************************************************/
 	float RigidBody::getRestitution(void)
 	{
-		return Restitution;
+		return this->Restitution;
 	}
 
 	Vec3 RigidBody::getPosition(void)
 	{
-		return Position;
+		return this->Position;
 	}
 
 	/**************************************************************************/
@@ -238,8 +268,13 @@ namespace DCEngine
 	/**************************************************************************/
 	Vec3 RigidBody::getVelocity(void)
 	{
-		return Velocity;
+		return this->Velocity;
 	}
+
+  Vec3 RigidBody::getAngularVelocity() const
+  {
+    return this->AngularVelocity;
+  }
 
 	/**************************************************************************/
 	/*!
@@ -275,6 +310,16 @@ namespace DCEngine
 	{
 		return Mass;
 	}
+
+  DynamicStateType RigidBody::getDynamicState() const
+  {
+    return DynamicState;
+  }
+
+  bool RigidBody::getRotationLocked() const
+  {
+    return this->RotationLocked;
+  }
 
 	/**************************************************************************/
 	/*!
@@ -316,13 +361,5 @@ namespace DCEngine
 		return Gravity;
 	}
 
-	/**************************************************************************/
-	/*!
-	\brief actually push the position to what it should be.
-	*/
-	/**************************************************************************/
-	void RigidBody::PublishResults(void)
-	{
-		TransformComponent->Translation = Position;
-	}
+
 }

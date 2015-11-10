@@ -71,6 +71,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Grabs a reference to the executable state.
+    @return The exclusive executable state for the interface.
+    */
+    /**************************************************************************/
+    Zilch::ExecutableState * ZilchInterface::getState()
+    {
+      return State;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Grabs a reference to the Boundtype of the specified object 
             from the specified Zilch library.
     @param  typeName The name of the type.

@@ -5,6 +5,29 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
+    ZilchBindDestructor(builder, type, Sprite);
+    // Properties
+    ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
+    ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
+    ZilchBindProperty(builder, type, &Sprite::getSpriteSource, &Sprite::setSpriteSource, "SpriteSource");
+    ZilchBindProperty(builder, type, &Sprite::getFlipX, &Sprite::setFlipX, "FlipX");
+    ZilchBindProperty(builder, type, &Sprite::getFlipY, &Sprite::setFlipY, "FlipY");
+    ZilchBindProperty(builder, type, &Sprite::getAnimationActive, &Sprite::setAnimationActive, "AnimationActive");
+    ZilchBindProperty(builder, type, &Sprite::getAnimationSpeed, &Sprite::setAnimationSpeed, "AnimationSpeed");
+  }
+  #endif
+
+
+  /**************************************************************************/
+  /*!
   \brief Default constructor for the Sprite component.
   */
   /**************************************************************************/
@@ -30,18 +53,7 @@ namespace DCEngine {
     SpaceRef->getComponent<GraphicsSpace>()->AddSprite(*this);
 
   }
-
-  /**************************************************************************/
-  /*!
-  \brief Serialize/Deserialize functions.
-  */
-  /**************************************************************************/
-  void Sprite::Serialize(Json::Value & root) {
-  }
-
-  void Sprite::Deserialize(Json::Value & root) {
-  }
-  
+    
   /**************************************************************************/
   /*!
   \brief Updates the flip??
@@ -119,9 +131,76 @@ namespace DCEngine {
   \brief Updates the sprite on every update.
   */
   /**************************************************************************/
-
   void Sprite::UpdateSprite()
   {
 	  UpdateFlip();
+  }
+
+  /**************************************************************************/
+  /**************************************************************************!
+                                     PROPERTIES
+
+  /**************************************************************************/
+  bool Sprite::getVisible() const
+  {
+    return this->Visible;
+  }
+  void Sprite::setVisible(bool visible)
+  {
+    this->Visible = visible;
+  }
+
+  Vec4 Sprite::getColor() const
+  {
+    return this->Color;
+  }
+  void Sprite::setColor(Vec4 color)
+  {
+    this->Color = color;
+  }
+
+  String Sprite::getSpriteSource() const
+  {
+    return this->SpriteSource;
+  }
+  void Sprite::setSpriteSource(String spriteSource)
+  {
+    this->SpriteSource = spriteSource;
+  }
+
+  bool Sprite::getFlipX() const
+  {
+    return this->FlipX;
+  }
+  void Sprite::setFlipX(bool flip)
+  {
+    this->FlipX = this;
+  }
+
+  bool Sprite::getFlipY() const
+  {
+    return this->FlipY;
+  }
+  void Sprite::setFlipY(bool flip)
+  {
+    this->FlipY = flip;
+  }
+
+  bool Sprite::getAnimationActive() const
+  {
+    return this->AnimationActive;
+  }
+  void Sprite::setAnimationActive(bool active)
+  {
+    this->AnimationActive = active;
+  }
+
+  Real Sprite::getAnimationSpeed() const
+  {
+    return this->AnimationSpeed;
+  }
+  void Sprite::setAnimationSpeed(Real speed)
+  {
+    this->AnimationSpeed = speed;
   }
 }
