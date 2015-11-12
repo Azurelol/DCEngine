@@ -20,7 +20,7 @@
 #include "../../Engine/Types.h"
 //#include <SFML\Window.hpp> // Does thie need to be included?
 
-
+#define IM_ARRAYSIZE(_ARR)  ((int)(sizeof(_ARR)/sizeof(*_ARR)))
 
 namespace DCEngine {
   namespace Systems {  
