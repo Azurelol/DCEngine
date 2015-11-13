@@ -41,32 +41,36 @@ namespace DCEngine {
     // Rigidbody properties
     floor2->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 
-    /* Background Layer */
-    GameObjectPtr background = ConstructGameObject("Background");
-    background->AddComponent(ComponentPtr(new Transform(*background)));
-    background->AddComponent(ComponentPtr(new Sprite(*background)));
-    background->getComponent<Sprite>()->SpriteSource = "Background";
-    //background->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
-    background->getComponent<Transform>()->Translation = Vec3(0, 5, -4);
-    background->getComponent<Transform>()->Scale = Vec3(160 * 2, 90 * 2, 1);
+    
+    {
+      /* Background Layer */
+      GameObjectPtr background = ConstructGameObject("Background");
+      background->AddComponent(ComponentPtr(new Transform(*background)));
+      background->AddComponent(ComponentPtr(new Sprite(*background)));
+      background->getComponent<Sprite>()->SpriteSource = "Background";
+      //background->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
+      background->getComponent<Transform>()->Translation = Vec3(0, 5, -4);
+      background->getComponent<Transform>()->Scale = Vec3(160 * 2, 90 * 2, 1);
 
-    /* Middleground Layer */
-    GameObjectPtr middleground = ConstructGameObject("Middleground");
-    middleground->AddComponent(ComponentPtr(new Transform(*middleground)));
-    middleground->AddComponent(ComponentPtr(new Sprite(*middleground)));
-    middleground->getComponent<Sprite>()->SpriteSource = "Middleground";
-    //middleground->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
-    middleground->getComponent<Transform>()->Translation = Vec3(0, 0, -3);
-    middleground->getComponent<Transform>()->Scale = Vec3(160, 90, 1);
+      /* Middleground Layer */
+      GameObjectPtr middleground = ConstructGameObject("Middleground");
+      middleground->AddComponent(ComponentPtr(new Transform(*middleground)));
+      middleground->AddComponent(ComponentPtr(new Sprite(*middleground)));
+      middleground->getComponent<Sprite>()->SpriteSource = "Middleground";
+      //middleground->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
+      middleground->getComponent<Transform>()->Translation = Vec3(0, 0, -3);
+      middleground->getComponent<Transform>()->Scale = Vec3(160, 90, 1);
 
-    /* Foreground Layer */
-    GameObjectPtr foreground = ConstructGameObject("Foreground");
-    foreground->AddComponent(ComponentPtr(new Transform(*foreground)));
-    foreground->AddComponent(ComponentPtr(new Sprite(*foreground)));
-    foreground->getComponent<Sprite>()->SpriteSource = "Foreground";
-    //foreground->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
-    foreground->getComponent<Transform>()->Translation = Vec3(0, 15.5, 0); //lol
-    foreground->getComponent<Transform>()->Scale = Vec3(160 * 0.5, 90 * 0.5, 1);
+      /* Foreground Layer */
+      GameObjectPtr foreground = ConstructGameObject("Foreground");
+      foreground->AddComponent(ComponentPtr(new Transform(*foreground)));
+      foreground->AddComponent(ComponentPtr(new Sprite(*foreground)));
+      foreground->getComponent<Sprite>()->SpriteSource = "Foreground";
+      //foreground->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
+      foreground->getComponent<Transform>()->Translation = Vec3(0, 15.5, 0); //lol
+      foreground->getComponent<Transform>()->Scale = Vec3(160 * 0.5, 90 * 0.5, 1);
+    }
+
 
     /* Particle Tester Layer */
     GameObjectPtr particleTest = ConstructGameObject("particleTest");

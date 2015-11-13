@@ -11,6 +11,8 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Transform, "Transform", DCEngineCore, builder, type) {
+    // This sets the Handle Manager to take raw pointers to this type
+    type->HandleManager = ZilchManagerId(Zilch::PointerManager);
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
     ZilchBindDestructor(builder, type, Transform);

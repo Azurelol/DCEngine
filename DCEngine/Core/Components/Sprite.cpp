@@ -11,6 +11,8 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
+    //
+    type->HandleManager = ZilchManagerId(Zilch::PointerManager);
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
     ZilchBindDestructor(builder, type, Sprite);

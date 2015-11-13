@@ -22,14 +22,14 @@ namespace DCEngine {
 		//chenObj->getComponent<Sprite>()->SpriteSource = "awesomeface";
 
     /* Moonward Logo */
-		GameObjectPtr connorObj = ConstructGameObject("Connor");
-		connorObj->AddComponent(ComponentPtr(new Transform(*connorObj)));
-		connorObj->AddComponent(ComponentPtr(new Sprite(*connorObj)));
-    connorObj->getComponent<Sprite>()->SpriteSource = "logo";
-		connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
-		// Transform properties
-		connorObj->getComponent<Transform>()->Translation = Vec3(-90, 50, -2.0f);
-		connorObj->getComponent<Transform>()->Scale = Vec3(15.0f, 10.0f, 1.0f);
+		//GameObjectPtr connorObj = ConstructGameObject("Connor");
+		//connorObj->AddComponent(ComponentPtr(new Transform(*connorObj)));
+		//connorObj->AddComponent(ComponentPtr(new Sprite(*connorObj)));
+  //  connorObj->getComponent<Sprite>()->SpriteSource = "logo";
+		//connorObj->AddComponent(ComponentPtr(new DebugReport(*connorObj)));
+		//// Transform properties
+		//connorObj->getComponent<Transform>()->Translation = Vec3(-90, 50, -2.0f);
+		//connorObj->getComponent<Transform>()->Scale = Vec3(15.0f, 10.0f, 1.0f);
 
     /* Faded Curtain Effect */
     //GameObjectPtr curtain = ConstructGameObject("Curtain");

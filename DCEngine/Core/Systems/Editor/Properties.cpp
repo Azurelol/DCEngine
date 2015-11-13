@@ -116,16 +116,21 @@ namespace DCEngine {
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
         Component *aPointer = component.get();
         getCall.SetHandle(Zilch::Call::This, aPointer);
+        Zilch::ExceptionReport report;
+        getCall.Invoke(report);
+
         // Property-setter
-        Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-        setCall.SetHandle(Zilch::Call::This, aPointer);
-              
+        //Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        //setCall.SetHandleVirtual(Zilch::Call::This, aPointer);
+        //setCall.Invoke(report);
 
         // Property: Boolean
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
-          ImGui::Checkbox(property->Name.c_str(), &boolean);
-          //setCall.Set(0, boolean);
+          // If the user modifies it
+/*          if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
+            setCall.Set(0, boolean);
+          }   */      
         }
         // Property: String
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {

@@ -29417,6 +29417,17 @@ namespace Zilch
       InternalWriteRef<T>(value, stack, this->Data->State);
     }
 
+    // Set either a parameter, return, or this handle for the call (reference types only)
+    template <typename T>
+    void SetHandleVirtual(size_t index, const T& value)
+    {
+      // Get the stack location and perform checks
+      byte* stack = this->GetChecked(index, sizeof(Handle), ZilchVirtualTypeId(value), CheckPrimitive::Handle, Direction::Set);
+
+      // Finally, copy the input into the stack position
+      InternalWriteRef<T>(value, stack, this->Data->State);
+    }
+
     // Set either a parameter, return, or this handle for the call
     // This method auto determines whether it's reference or value type
     template <typename T>

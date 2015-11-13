@@ -17,6 +17,7 @@ Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
 Content::AddSpriteSource - bg1 was added.
+Content::AddSpriteSource - canvas was added.
 Content::AddSpriteSource - Circle was added.
 Content::AddSpriteSource - Concept was added.
 Content::AddSpriteSource - Foreground was added.
@@ -29,6 +30,7 @@ Content::AddSpriteSource - MonkeyJump1 was added.
 Content::AddSpriteSource - MonkeyStand was added.
 Content::AddSpriteSource - MonkeyWalk was added.
 Content::AddSpriteSource - MonkeyWalk1 was added.
+Content::AddSpriteSource - Old World was added.
 Content::AddSpriteSource - Square was added.
 Content::AddSpriteSource - Square3 was added.
 Content::AddSoundCue - soulja was added.
@@ -112,6 +114,10 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Failed to load image file!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
@@ -128,7 +134,6 @@ Daisy Project::CreateSpace - Daisy World has been constructed.
 Camera::AddComponent - Failure! Camera is already present!
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
-Daisy World::AddEntity - Added Connor to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Mariah to the space.
 Daisy World::AddEntity - Added enemy1 to the space.
@@ -154,8 +159,6 @@ Physics::Register -  Daisy World has registered to the Physics system
 Graphics::Register -  Daisy World has registered to the Graphics system
 [Daisy World::Initialize - Initializing all GameObjects...] 
 Camera::Initialize 
-Connor::Initialize 
-GraphicsSpace::AddSprite - Connor
 SpriteTextor::Initialize 
 GraphicsSpace::AddSpriteText - SpriteTextor
 Mariah::Initialize 
@@ -168,10 +171,4 @@ PhysicsSpace::AddRigidBody - enemy1
 PhysicsSpace::AddCollider - enemy1
 enemy2::Initialize 
 GraphicsSpace::AddSprite - enemy2
-PhysicsSpace::AddRigidBody - enemy2
-PhysicsSpace::AddCollider - enemy2
-enemy3::Initialize 
-GraphicsSpace::AddSprite - enemy3
-PhysicsSpace::AddRigidBody - enemy3
-PhysicsSpace::AddCollider - enemy3
-enemy4::Initialize 
+Physics
