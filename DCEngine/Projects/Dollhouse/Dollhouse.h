@@ -55,7 +55,7 @@ namespace DCEngine {
       cameraObj->getComponent<DebugAudio>()->Track1 = "soulja";
       cameraObj->getComponent<DebugAudio>()->Track2 = "spacejam2";
       // Camera properties      
-      cameraObj->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
+      cameraObj->getComponent<Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;
       cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
 

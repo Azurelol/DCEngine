@@ -31,115 +31,6 @@ namespace DCEngine {
     // Rigidbody properties
     mariah->getComponent<RigidBody>()->setGravity(true);
 
-    // Enemy
-    {
-      GameObjectPtr enemy = ConstructGameObject("enemy1");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
-      // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Vec3(23.0f, 4.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
-      // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
-      enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
-      enemy->getComponent<Sprite>()->Color = Vec4(1, 0, 0, 1);
-      // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
-      enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
-      // Rigidbody properties
-      enemy->getComponent<RigidBody>()->setGravity(false);
-    }
-
-    {
-      GameObjectPtr enemy = ConstructGameObject("enemy2");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
-      // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Vec3(-23.0f, 4.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
-      // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
-      enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
-      // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
-      enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
-      // Rigidbody properties
-      enemy->getComponent<RigidBody>()->setGravity(false);
-    }
-    {
-      GameObjectPtr enemy = ConstructGameObject("enemy3");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
-      // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Vec3(10.0f, 18.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
-      // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
-      enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
-      // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
-      enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
-      // Rigidbody properties
-      enemy->getComponent<RigidBody>()->setGravity(false);
-    }
-    {
-      GameObjectPtr enemy = ConstructGameObject("enemy4");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
-      // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Vec3(-10.0f, 18.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
-      // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
-      enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
-      // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
-      enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
-      // Rigidbody properties
-      enemy->getComponent<RigidBody>()->setGravity(false);
-    }
-    {
-      GameObjectPtr enemy = ConstructGameObject("groundenemy");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
-      // Change the properties of the components
-      enemy->getComponent<Transform>()->Translation = Vec3(-25.0f, 1.0f, 0.0f);
-      enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
-      // Sprite properties
-      //enemy->getComponent<Sprite>()->Color = Vec4(1.0f, 0.0f, 1.0f, 1.0f);
-      enemy->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
-      // BoxCollider properties
-      enemy->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
-      enemy->getComponent<BoxCollider>()->IsDrawingCollider = true;
-      // Rigidbody properties
-      enemy->getComponent<RigidBody>()->setGravity(true);
-    }
     {
       GameObjectPtr enemy = ConstructGameObject("groundenemy");
       enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
@@ -184,8 +75,18 @@ namespace DCEngine {
       // Rigidbody properties
       ball->getComponent<RigidBody>()->setGravity(true);
       ball->getComponent<RigidBody>()->setRestitution(0.6f);
+      
+      // Attach the ball to mariah??
+      ball->AttachTo(mariah);
+      DCTrace << "Ball is attached to: " << ball->Parent()->Name() << "\n";
+
     }
 
+    
+    DCTrace << "Mariah has the following children: \n";
+    for (auto child : mariah->Children()) {
+      DCTrace << "- " << child->Name() << "\n";
+    }
 
 		//// Simple entity #1
 		//GameObjectPtr reiner = ConstructGameObject("Reiner");

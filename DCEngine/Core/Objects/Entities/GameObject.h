@@ -45,28 +45,27 @@ namespace DCEngine {
     GameObjectVec FindAllChildrenByName(std::string name);
     GameObjectVec& Children();    
 
-    void AttachTo(GameObject* parent);
-    void AttachToRelative(GameObject* parent);
+    void AttachTo(GameObjectPtr parent);
+    void AttachToRelative(GameObjectPtr parent);
     void Detach();
     void DetachRelative();
+    GameObjectPtr Parent() { return ParentRef; }
     
     void Destroy();
 
   private:
+    GameObjectPtr ParentRef;
+    GameObjectVec ChildrenContainer;
     Space* SpaceRef;
     GameSession* GamesessionRef;
-    GameObjectVec ChildrenContainer;
 
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);
 
     static unsigned int GameObjectsCreated;
-    const unsigned int GameObjectID;
-    
+    const unsigned int GameObjectID;    
 
-  };
-
-  
+  };  
   
   //using GameObjectPtr = std::shared_ptr<GameObject>;
   //using GameObjectVec = std::vector<GameObjectPtr>;
