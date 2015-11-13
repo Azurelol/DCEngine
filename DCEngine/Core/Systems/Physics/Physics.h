@@ -46,6 +46,7 @@ namespace DCEngine {
 
       void Integrate(float dt, PhysicsSpace* physpace);
       void PublishResults(PhysicsSpace* physpace);
+      void UpdateTransforms(PhysicsSpace *physpace);
       void Step(float dt);
       GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
       void NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist);
