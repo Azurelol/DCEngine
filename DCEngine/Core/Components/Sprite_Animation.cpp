@@ -17,6 +17,7 @@ namespace DCEngine {
 
 	void Sprite::IncreaseAnimationCounter(float dt)
 	{
+		//DCTrace << std::round(1 / dt) << "\n";
 		AnimationSpeedFPSCounter += dt;
 	}
 

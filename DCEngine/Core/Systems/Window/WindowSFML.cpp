@@ -1,10 +1,14 @@
 #include "WindowSFML.h"
 #include "Window.h"
 #include "..\..\Engine\Engine.h"
+#include <sstream>
 
 namespace DCEngine {
   namespace Systems {
 
+
+	  float localCounter = 0;
+	  int frameCounter = 0;
     /**************************************************************************/
     /*!
     \brief  Constructor for the WindowSFML class.
@@ -66,6 +70,9 @@ namespace DCEngine {
       case WindowMode::Fullscreen :
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+		Daisy->getSystem<Systems::Window>()->Width = 1980;
+		Daisy->getSystem<Systems::Window>()->Height = 1080;
+		DCTrace << Daisy->getSystem<Systems::Window>()->Width << ", " << Daisy->getSystem<Systems::Window>()->Height << "\n";
         break;
       default:
         break;
@@ -77,6 +84,7 @@ namespace DCEngine {
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
+	  DCTrace << Daisy->getSystem<Systems::Window>()->Width << ", " << Daisy->getSystem<Systems::Window>()->Height << "\n";
 
       // Reload textures
       //Daisy->getSystem<Content>()->LoadTextures();
@@ -122,7 +130,17 @@ namespace DCEngine {
       //auto currentTime = Clock.restart().asSeconds();
       //float fps = 1.f / (currentTime - LastTime);
       //LastTime = currentTime;
-      //DCTrace << "WindowSFML::Update - FPS: " << fps << "\n";
+		localCounter += dt;
+		++frameCounter;
+		if (localCounter > 0.5)
+		{
+			std::stringstream ss;
+			ss << WindowInterface.Caption << "              [fps=" << int(frameCounter / localCounter) << "]";
+			WindowContext->setTitle(ss.str());
+			localCounter = 0;
+			frameCounter = 0;
+		}
+      //DCTrace << "WindowSFML::Update - FPS: " << dt << "\n";
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
