@@ -267,7 +267,7 @@ namespace DCEngine
     }
   }
 
-  void ResolvePenetration(float dt, Manifold& c)
+  void Resolution::ResolvePenetration(float dt, Manifold& c)
   {
     // The movement of each object is based on their inverse mass, so
     // total that.

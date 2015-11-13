@@ -20,6 +20,7 @@ namespace DCEngine
     static void ResolveContactVelocity(float dt, Manifold &c);
     static void ResolveVelocities(float dt, std::vector<Manifold> &contactlist);
     static void ResolvePositions(float dt, std::vector<Manifold> &contactlist);
+    static void ResolvePenetration(float dt, Manifold& c);
   };
 
   
