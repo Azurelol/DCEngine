@@ -78,9 +78,6 @@ namespace DCEngine
     void setRestitution(float rest);
     float getFriction(void);
     void setFriction(float friction);
-    /* @todo Not sure what these do. */
-    void setPosition(Vec3 pos);
-    Vec3 getPosition(void);
     /* @todo Gravity-specific settings should be moved to a different 
              component specifically for gravity. */
     Vec3 getGravityDir(void);
@@ -94,6 +91,9 @@ namespace DCEngine
     void ApplyLinearVelocity(Vec3 vel);
 
 	private:
+
+    void setPosition(Vec3 pos);
+    Vec3 getPosition(void);
 
 		Transform* TransformComponent; //!< Reference to the Transform component.
 

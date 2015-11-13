@@ -113,6 +113,8 @@ namespace DCEngine {
 				Resolution::Resolve(dt, contactlist);
 
 				PublishResults(physpace);
+
+        UpdateTransforms(physpace);
 			}
 
 
@@ -167,6 +169,24 @@ namespace DCEngine {
 				}
 			}
 		}
+
+    /**************************************************************************/
+    /*!
+    @brief Iterate through all the objects with a 'Transform' component and
+    update transforms based on parenting.
+    @param A pointer to the 'PhysicsSpace' component.
+    */
+    /**************************************************************************/
+    void Physics::UpdateTransforms(PhysicsSpace *physpace)
+    {
+      auto objects = dynamic_cast<Space*>(physpace->Owner())->AllObjects();
+
+      for (auto current : *objects)
+      {
+        current->getComponent<Transform>()->UpdateTranslation();
+        current->getComponent<Transform>()->UpdateRotation();
+      }
+    }
 
 		/**************************************************************************/
 		/*!

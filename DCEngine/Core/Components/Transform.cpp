@@ -46,6 +46,28 @@ namespace DCEngine {
   void Transform::UpdateTranslation()
   {
 
+    if (firstloop)
+    {
+      PrevRotation = Rotation;
+      return;
+    }
+
+    if (dynamic_cast<GameObject*>(this->Owner()))
+    {
+      GameObjectVec &children = (dynamic_cast<GameObject*>(this->Owner())->Children());
+
+
+      if (Translation != PrevTranslation)
+      {
+        for (auto child : children)
+        {
+          child->getComponent<Transform>()->Translation += (Translation - PrevTranslation);
+          child->getComponent<Transform>()->UpdateTranslation();
+        }
+      }
+
+      PrevTranslation = Translation;
+    }
   }
 
   /**************************************************************************/
@@ -55,7 +77,30 @@ namespace DCEngine {
   /**************************************************************************/
   void Transform::UpdateRotation()
   {
+    if (firstloop)
+    {
+      PrevRotation = Rotation;
+      firstloop = false;
+      return;
+    }
+    
+    if (dynamic_cast<GameObject*>(this->Owner()))
+    {
+      GameObjectVec &children = (dynamic_cast<GameObject*>(this->Owner())->Children());
 
+      if (Rotation != PrevRotation)
+      {
+        for (auto child : children)
+        {
+          Vec3 temp = RotatePoint(child->getComponent<Transform>()->Translation, Translation, (Rotation.z - PrevRotation.z));
+          child->getComponent<Transform>()->Translation = temp;
+          child->getComponent<Transform>()->Rotation.z += (Rotation.z - PrevRotation.z);
+          child->getComponent<Transform>()->UpdateTranslation();
+          child->getComponent<Transform>()->UpdateRotation();
+        }
+      }
+
+    }
   }
 
   /**************************************************************************/
@@ -99,6 +144,19 @@ namespace DCEngine {
   void Transform::setScale(Vec3 scale)
   {
     Scale = scale;
+  }
+
+  Vec3 Transform::RotatePoint(Vec3 point, Vec3 rotation, float angle)
+  {
+    point -= rotation;
+    Vec3 temp = point;
+
+    point.x = cos(temp.x) + -sin(temp.y);
+    point.y = sin(temp.x) + cos(temp.y);
+
+    point += rotation;
+
+    return point;
   }
 
 }

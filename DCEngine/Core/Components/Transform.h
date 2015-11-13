@@ -47,12 +47,16 @@ namespace DCEngine {
 
     Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
     void Initialize();
+    void UpdateTranslation();
+    void UpdateRotation();
+    Vec3 RotatePoint(Vec3 point, Vec3 rotation, float angle);
 
   private:
     
     Vec3 Origin = Vec3(0, 0, 0);
-    void UpdateTranslation();
-    void UpdateRotation();
+    Vec3 PrevTranslation = Translation;
+    Vec3 PrevRotation = Rotation;
+    bool firstloop = true;
     void UpdateScale();
 
 
