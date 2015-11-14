@@ -58,12 +58,7 @@ namespace DCEngine
     float getMass(void);
     /* It's possible that we want to use a mass-override component instead */
     void setMass(float mass);
-
-
-
-
-
-    
+       
 
     /* @todo This should be private as the end-user will never ask for it. */
     float getInvMass(void);

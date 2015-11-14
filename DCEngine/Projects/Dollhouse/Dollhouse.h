@@ -45,7 +45,7 @@ namespace DCEngine {
       //cam->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
       //cam->getComponent<Camera>()->Size = 50;
 
-      GameObjectPtr cameraObj = ConstructGameObject("Camera");
+      cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
@@ -95,6 +95,7 @@ namespace DCEngine {
     void EnvironmentSetup();
 
     GameObjectPtr doll;
+    GameObjectPtr cameraObj;
 
     // (TEMP) Resources should not contain data of their owners
     Space* space_;

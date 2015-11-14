@@ -30,6 +30,9 @@ namespace DCEngine {
     mariah->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
     mariah->getComponent<RigidBody>()->setGravity(true);
+    
+    // Attach the the camera to the player character.
+    //cameraObj->AttachTo(mariah);
 
     {
       GameObjectPtr enemy = ConstructGameObject("groundenemy");
@@ -77,8 +80,8 @@ namespace DCEngine {
       ball->getComponent<RigidBody>()->setRestitution(0.6f);
       
       // Attach the ball to mariah??
-      ball->AttachTo(mariah);
-      DCTrace << "Ball is attached to: " << ball->Parent()->Name() << "\n";
+      //ball->AttachTo(mariah);
+      //DCTrace << "Ball is attached to: " << ball->Parent()->Name() << "\n";
 
     }
 
