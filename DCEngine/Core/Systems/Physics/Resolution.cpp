@@ -175,7 +175,7 @@ namespace DCEngine
 
         friction1 *= dot;
 
-        friction1 *= -c.FrictionCof;
+        friction1 *= -c.FrictionCof / 15.0f;
 
         c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction1);
       }
@@ -193,7 +193,7 @@ namespace DCEngine
 
         friction2 *= dot;
 
-        friction2 *= -c.FrictionCof;
+        friction2 *= -c.FrictionCof / 15.0f;
 
         c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction2);
       }
@@ -211,7 +211,7 @@ namespace DCEngine
 
         friction1 *= dot;
 
-        friction1 *= -c.FrictionCof;
+        friction1 *= -c.FrictionCof / 15.0f;
 
         c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction1);
       }
@@ -227,7 +227,7 @@ namespace DCEngine
 
         friction2 *= dot;
 
-        friction2 *= -c.FrictionCof;
+        friction2 *= -c.FrictionCof / 15.0f;
 
         c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction2);
       }

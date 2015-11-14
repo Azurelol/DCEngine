@@ -32,7 +32,11 @@ Content::AddSpriteSource - MonkeyWalk1 was added.
 Content::AddSpriteSource - Old World was added.
 Content::AddSpriteSource - owBackground was added.
 Content::AddSpriteSource - owSky was added.
+<<<<<<< HEAD
 Content::AddSpriteSource - Square was added.
+=======
+Content::AddSpriteSource - square was added.
+>>>>>>> f2b7b8625182ff2893e60f1dcec87708ebdb5ea9
 Content::AddSpriteSource - Square3 was added.
 Content::AddSoundCue - soulja was added.
 Content::AddSoundCue - spacejam was added.
@@ -90,8 +94,11 @@ SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam2.mp3!
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/train.mp3!
 SpriteSource::LoadTexture - Image was successfully loaded!
+<<<<<<< HEAD
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
+=======
+>>>>>>> f2b7b8625182ff2893e60f1dcec87708ebdb5ea9
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -131,12 +138,17 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 Font::GenerateCharacters - Successfully generated character map
 Font::Load - Font was successfully loaded! 
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Camera::AddComponent - Failure! Camera is already present!
 Mariah has the following children: 
+<<<<<<< HEAD
 - Camera
+=======
+>>>>>>> f2b7b8625182ff2893e60f1dcec87708ebdb5ea9
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
@@ -172,6 +184,7 @@ Basketball::Initialize
 GraphicsSpace::AddSprite - Basketball
 PhysicsSpace::AddRigidBody - Basketball
 PhysicsSpace::AddCollider - Basketball
+<<<<<<< HEAD
 4Floor::Initialize 
 PhysicsSpace::AddRigidBody - Floor
 PhysicsSpace::AddCollider - Floor
@@ -213,3 +226,6 @@ Editor::Terminate
 Audio::Terminate 
 Graphics::Terminate 
 GUI::Terminate 
+=======
+4Floor::Initial
+>>>>>>> f2b7b8625182ff2893e60f1dcec87708ebdb5ea9
