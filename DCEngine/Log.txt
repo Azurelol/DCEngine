@@ -79,7 +79,7 @@ GUIShader::AssertShaderCompilation - Shader program linked!
 [Engine::Initialize - All engine systems initialized]
 Content::LoadProjectData - Finished loading all project data. 
 
-[Engine::LoadProject - Loading C:\Users\Dell\Documents\GitHub\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
+[Engine::LoadProject - Loading D:\DCEngine\DCEngine\x64\Debug\DCEngine.exe]
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
 AudioFMOD::CreateStream 
@@ -170,4 +170,5 @@ GraphicsSpace::AddSprite - enemy1
 PhysicsSpace::AddRigidBody - enemy1
 PhysicsSpace::AddCollider - enemy1
 enemy2::Initialize 
-GraphicsSpace::AddSprite 
+GraphicsSpace::AddSprite - enemy2
+PhysicsSpace::AddRi

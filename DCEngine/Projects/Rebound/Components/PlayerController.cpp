@@ -47,12 +47,10 @@ namespace DCEngine {
 			PrintTranslation();
 			break;
 		case Keys::A:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
-			PrintTranslation();
+			MoveLeft();
 			break;
 		case Keys::D:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
-			PrintTranslation();
+			MoveRight();
 			break;
 		}
 	}
@@ -71,9 +69,9 @@ namespace DCEngine {
 	{
 		if (Jumping)
 		{
-      SpriteComponent->SpriteSource = "MonkeyJump1";
-      SpriteComponent->HaveAnimation = false;
-      SpriteComponent->AnimationActive = false;
+		  SpriteComponent->SpriteSource = "MonkeyJump1";
+		  SpriteComponent->HaveAnimation = false;
+		  SpriteComponent->AnimationActive = false;
 			Jump();
 		}
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W))
@@ -82,9 +80,9 @@ namespace DCEngine {
 		}
 		else
 		{
-      SpriteComponent->SpriteSource = "MonkeyWalk1";
-      SpriteComponent->HaveAnimation = true;
-      SpriteComponent->AnimationActive = true;
+		  SpriteComponent->SpriteSource = "MonkeyWalk1";
+		  SpriteComponent->HaveAnimation = true;
+		  SpriteComponent->AnimationActive = true;
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{
@@ -141,5 +139,47 @@ namespace DCEngine {
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
 		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+	}
+
+	void PlayerController::AutoPlay(Events::LogicUpdate * event)
+	{
+		switch (rand() % 3)
+		{
+		
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		}
+	}
+	void PlayerController::MoveLeft()
+	{
+		if (RigidBodyRef->getVelocity().x > 0)
+		{
+			auto scalar = TurnSpeedScalar;
+		}
+		else
+		{
+			auto scalar = 1;
+		}
+			RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
+
+
+		PrintTranslation();
+	}
+	void PlayerController::MoveRight()
+	{
+		if (RigidBodyRef->getVelocity().x < 0)
+		{
+			auto scalar = TurnSpeedScalar;
+		}
+		else
+		{
+			auto scalar = 1;
+		}
+		RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
+		PrintTranslation();
 	}
 }

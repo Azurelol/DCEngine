@@ -22,7 +22,7 @@ namespace DCEngine {
 
   namespace PHYSICS
   {
-    const float Gravity = 20.0f;
+    const float Gravity = 40.0f;
   }
 
   namespace Systems

@@ -160,6 +160,10 @@ namespace DCEngine {
   {
     this->Color = color;
   }
+  void Sprite::addColor(Vec4 color)
+  {
+	 this->Color += color;
+  }
 
   String Sprite::getSpriteSource() const
   {

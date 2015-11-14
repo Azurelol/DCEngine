@@ -44,6 +44,7 @@ namespace DCEngine {
     void setVisible(bool);
     Vec4 getColor() const;
     void setColor(Vec4);
+	void addColor(Vec4 color);
     String getSpriteSource() const;
     void setSpriteSource(String);
     bool getFlipX() const;
