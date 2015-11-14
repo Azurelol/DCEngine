@@ -158,4 +158,14 @@ namespace DCEngine {
     this->IsDrawingCollider = isDrawing;
   }
 
+  String BoxCollider::getCollisionGroup() const
+  {
+    return CollisionGroup;
+  }
+
+  void BoxCollider::setCollisionGroup(String group)
+  {
+    CollisionGroup = group;
+  }
+
 }

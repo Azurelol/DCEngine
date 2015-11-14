@@ -47,6 +47,10 @@ namespace DCEngine {
       the 'ZilchDefineBaseType' macro.
       ReferenceType means it will be allocated on the heap and alwayts referenced by handle. */
       ZilchDeclareBaseType(Object, Zilch::TypeCopyMode::ReferenceType);
+      // MetaBoundType can be either an Object base pointer or a Zilch Handle
+      template <typename MetaBoundType>
+      void Serialize(Zilch::JsonValue* properties, MetaBoundType objPtrSelf, Zilch::BoundType* boundType);
+
       #endif
 
     protected:
@@ -60,5 +64,16 @@ namespace DCEngine {
   };
 
   using ObjectPtr = std::shared_ptr<Object>;
+
+  template<typename MetaBoundType>
+  inline void Object::Serialize(Zilch::JsonValue * properties, MetaBoundType objPtrSelf, Zilch::BoundType * boundType)
+  {
+    // For every property in the object
+    for (auto property : properties->OrderedMembers.all()) {
+
+
+
+    }
+  }
 
 }

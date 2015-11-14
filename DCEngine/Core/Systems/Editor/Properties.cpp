@@ -115,7 +115,7 @@ namespace DCEngine {
         // Property-getter
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
         Component *aPointer = component.get();
-        getCall.SetHandle(Zilch::Call::This, aPointer);
+        getCall.SetHandleVirtual(Zilch::Call::This, aPointer);
         Zilch::ExceptionReport report;
         getCall.Invoke(report);
 
@@ -128,16 +128,23 @@ namespace DCEngine {
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
           // If the user modifies it
-/*          if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
+          if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
+
+            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
             setCall.Set(0, boolean);
-          }   */      
+            setCall.Invoke(report);
+          }
         }
+
         // Property: String
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[32];
           strcpy(buf, string.c_str());
           ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf));
+
+
           //setCall.Set(0, buf);
         }
         // Property: Int
@@ -170,8 +177,15 @@ namespace DCEngine {
         // Property: Real (float)
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
-          ImGui::InputFloat(property->Name.c_str(), &real, 0.1f);
-          //setCall.Set(0, real);
+          if (ImGui::InputFloat(property->Name.c_str(), &real, 0.1f)) {
+
+            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            getCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.Set(0, real);
+            setCall.Invoke(report);
+
+            //setCall.Set(0, real);
+          }
         }
         // Property: Real2 (Vec2)
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {

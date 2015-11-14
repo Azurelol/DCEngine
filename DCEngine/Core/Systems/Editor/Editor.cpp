@@ -221,6 +221,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectObjectFromSpace(Vec2 pos)
     {   
+      if (WidgetPropertiesEnabled)
+        return;
+
       // 1. Find all objects on the current mouse position
       auto objsAtPos = Daisy->getSystem<Physics>()->FindAllObjectsAtPosition(Vec3(pos, 0), *CurrentSpace);  
       if (objsAtPos.empty())

@@ -16,7 +16,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
-    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession)
+    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession), ParentRef(nullptr)
    , GameObjectID(GameObjectsCreated++) 
   {
 
@@ -29,12 +29,10 @@ namespace DCEngine {
     }
 
     type_ = EntityType::GameObject;
-    // Every GameObject is parented to the space by default
-    Parent = nullptr;
   }
 
-  GameObject::GameObject() : Entity("GameObject")
-     , GameObjectID(GameObjectsCreated++)
+  GameObject::GameObject() : Entity("GameObject"), ParentRef(nullptr),
+                             GameObjectID(GameObjectsCreated++)
   {
   }
 
@@ -99,9 +97,9 @@ namespace DCEngine {
   @param  A pointer to a GameObject.
   */
   /**************************************************************************/
-  void GameObject::AttachTo(GameObject* parent)
+  void GameObject::AttachTo(GameObjectPtr parent)
   {
-    Parent = parent;
+    parent->AddChild(GameObjectPtr(this));
   }
 
   /**************************************************************************/
@@ -111,9 +109,9 @@ namespace DCEngine {
   @param  A pointer to a GameObject.
   */
   /**************************************************************************/
-  void GameObject::AttachToRelative(GameObject* parent)
+  void GameObject::AttachToRelative(GameObjectPtr parent)
   {
-    Parent = parent;
+    parent->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Transform>()) {
       transform->UpdateTranslation();
@@ -128,7 +126,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::Detach()
   {
-    Parent = nullptr;
+    ParentRef->RemoveChild(GameObjectPtr(this));
+    ParentRef = nullptr;
   }
 
   /**************************************************************************/
@@ -140,7 +139,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::DetachRelative()
   {
-    Parent = SpaceRef;
+    ParentRef->RemoveChild(GameObjectPtr(this));
+    ParentRef = nullptr;
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Transform>()) {
       transform->UpdateTranslation();
@@ -172,6 +172,7 @@ namespace DCEngine {
   void GameObject::AddChild(GameObjectPtr child)
   {
     ChildrenContainer.push_back(child);
+    child->ParentRef = GameObjectPtr(this);
   }
 
   /**************************************************************************/

@@ -45,7 +45,7 @@ namespace DCEngine {
       //cam->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
       //cam->getComponent<Camera>()->Size = 50;
 
-      GameObjectPtr cameraObj = ConstructGameObject("Camera");
+      cameraObj = ConstructGameObject("Camera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
@@ -55,7 +55,7 @@ namespace DCEngine {
       cameraObj->getComponent<DebugAudio>()->Track1 = "soulja";
       cameraObj->getComponent<DebugAudio>()->Track2 = "spacejam2";
       // Camera properties      
-      cameraObj->getComponent<Transform>()->Translation = Vec3(1.0f, 1.0f, 1.0f);
+      cameraObj->getComponent<Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
       cameraObj->getComponent<Camera>()->Size = 70;
       cameraObj->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
 
@@ -95,6 +95,7 @@ namespace DCEngine {
     void EnvironmentSetup();
 
     GameObjectPtr doll;
+    GameObjectPtr cameraObj;
 
     // (TEMP) Resources should not contain data of their owners
     Space* space_;

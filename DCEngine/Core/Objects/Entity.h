@@ -76,8 +76,6 @@ namespace DCEngine {
     //ComponentVec ObserversList; //!< A list of the current listeners to this object.
     ComponentVec ComponentsContainer; //!< The list of components attached to the entity.  
     EntityType type_;
-    std::vector<Entity*> ChildrenContainer;
-    Entity* Parent;
 
   private:
 

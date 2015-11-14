@@ -203,7 +203,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::AddObject(GameObjectPtr gameObject) {
     GameObjectContainer.push_back(gameObject);
-    ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
+    //ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
 
     if (TRACE_GAMEOBJECT_ADD)
       DCTrace << ObjectName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";

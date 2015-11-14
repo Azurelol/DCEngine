@@ -58,12 +58,7 @@ namespace DCEngine
     float getMass(void);
     /* It's possible that we want to use a mass-override component instead */
     void setMass(float mass);
-
-
-
-
-
-    
+       
 
     /* @todo This should be private as the end-user will never ask for it. */
     float getInvMass(void);
@@ -112,7 +107,7 @@ namespace DCEngine
 		Real Mass = 10.0f;
 		Real InverseMass = 1.0f / 10.0f;
 		Real Restitution = 0.0f;
-		Real Friction = 0.1f;
+		Real Friction = 0.4f;
 		Boolean AllowSleep = true;
 		Boolean RotationLocked = true;
 		Real Damping = 0.999f; //!< How much the object's velocity is reduced arbitratrily. 

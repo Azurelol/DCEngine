@@ -43,6 +43,10 @@ namespace DCEngine {
     bool getIsDrawingCollider(void);
     void setIsDrawingCollider(bool);
 
+    // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
+    String getCollisionGroup() const;
+    void setCollisionGroup(String);
+
 		// These should be private!
 		BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
 		void Initialize();
@@ -51,6 +55,7 @@ namespace DCEngine {
 	private:
 
     Transform* TransformComponent;
+    String CollisionGroup;
 
     /* Events */
     void OnLogicUpdateEvent(Events::LogicUpdate* event);
