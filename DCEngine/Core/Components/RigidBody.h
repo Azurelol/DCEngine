@@ -112,7 +112,7 @@ namespace DCEngine
 		Real Mass = 10.0f;
 		Real InverseMass = 1.0f / 10.0f;
 		Real Restitution = 0.0f;
-		Real Friction = 0.1f;
+		Real Friction = 0.4f;
 		Boolean AllowSleep = true;
 		Boolean RotationLocked = true;
 		Real Damping = 0.999f; //!< How much the object's velocity is reduced arbitratrily. 

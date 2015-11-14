@@ -30,13 +30,9 @@ Content::AddSpriteSource - MonkeyStand was added.
 Content::AddSpriteSource - MonkeyWalk was added.
 Content::AddSpriteSource - MonkeyWalk1 was added.
 Content::AddSpriteSource - Old World was added.
-<<<<<<< HEAD
 Content::AddSpriteSource - owBackground was added.
 Content::AddSpriteSource - owSky was added.
-Content::AddSpriteSource - Square was added.
-=======
 Content::AddSpriteSource - square was added.
->>>>>>> 78eb2341be980ebdf429649063525f1e610a480f
 Content::AddSpriteSource - Square3 was added.
 Content::AddSoundCue - soulja was added.
 Content::AddSoundCue - spacejam was added.
@@ -94,9 +90,6 @@ SoundCue::Load - Finished loading Core/Assets/Sounds/spacejam2.mp3!
 AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/train.mp3!
 SpriteSource::LoadTexture - Image was successfully loaded!
-<<<<<<< HEAD
-Texture2D
-=======
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -136,26 +129,23 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
 Font::GenerateCharacters - Successfully generated character map
 Font::Load - Font was successfully loaded! 
 Daisy Project::CreateSpace - Daisy World has been constructed. 
 Camera::AddComponent - Failure! Camera is already present!
+Mariah has the following children: 
 Daisy World::LoadLevel - Loading Dollhouse level.
 Daisy World::AddEntity - Added Camera to the space.
 Daisy World::AddEntity - Added SpriteTextor to the space.
 Daisy World::AddEntity - Added Mariah to the space.
-Daisy World::AddEntity - Added enemy1 to the space.
-Daisy World::AddEntity - Added enemy2 to the space.
-Daisy World::AddEntity - Added enemy3 to the space.
-Daisy World::AddEntity - Added enemy4 to the space.
-Daisy World::AddEntity - Added groundenemy to the space.
 Daisy World::AddEntity - Added groundenemy to the space.
 Daisy World::AddEntity - Added Basketball to the space.
 Daisy World::AddEntity - Added Floor to the space.
 Daisy World::AddEntity - Added Basketfloor2 to the space.
+Daisy World::AddEntity - Added Sky to the space.
 Daisy World::AddEntity - Added Background to the space.
-Daisy World::AddEntity - Added Middleground to the space.
-Daisy World::AddEntity - Added Foreground to the space.
 Daisy World::AddEntity - Added particleTest to the space.
 
 [Engine::LoadProject - Finished loading ]
@@ -173,10 +163,12 @@ Mariah::Initialize
 GraphicsSpace::AddSprite - Mariah
 PhysicsSpace::AddRigidBody - Mariah
 PhysicsSpace::AddCollider - Mariah
-enemy1::Initialize 
-GraphicsSpace::AddSprite - enemy1
-PhysicsSpace::AddRigidBody - enemy1
-PhysicsSpace::AddCollider - enemy1
-enemy2::Initialize 
-GraphicsSpace::AddSprite 
->>>>>>> 78eb2341be980ebdf429649063525f1e610a480f
+groundenemy::Initialize 
+GraphicsSpace::AddSprite - groundenemy
+PhysicsSpace::AddRigidBody - groundenemy
+PhysicsSpace::AddCollider - groundenemy
+Basketball::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+4Floor::Initial
