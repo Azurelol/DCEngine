@@ -17,10 +17,10 @@ namespace DCEngine {
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 		Sprite* SpriteRef;
-		Real CurrentCharge = 1;
+		Real CurrentCharge = 0;
 		Real MaxCharge = 2;
 		Real MinCharge = 0.5f;
-		Real ChargeFactor = 60000;
+		Real ChargeFactor = 100 * 1000;
 		Boolean Charging = false;
 		GameObject* PlayerRef;
 

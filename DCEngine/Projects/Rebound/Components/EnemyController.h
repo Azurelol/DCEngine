@@ -5,17 +5,20 @@ namespace DCEngine {
 
 	class Transform;
 	class RigidBody;
+	class Sprite;
 	class EnemyController : public Component {
 
 	public:
 
-		bool Translation = true;
 		bool Grounded = true;
-		Real MoveSpeed = 0.6f;
-		Real JumpPower = 1.0f;
-		Real AirBrakeScalar = 0.8f;
+		Real MoveSpeed = 3.0f;
+		Real JumpPower = 20.0f;
+		Real JumpInterval = 2.0f;
+		Real Timer = 0;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
+		Sprite* SpriteRef;
+		GameObject* PlayerRef;
 
 		EnemyController(Entity& owner) : Component(std::string("EnemyController"), owner) {}
 		void Initialize();

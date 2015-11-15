@@ -11,6 +11,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, EnemyController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
+		PlayerRef = SpaceRef->FindObjectByName("Mariah");
 	}
 
 	void EnemyController::Serialize(Json::Value & root)
@@ -25,8 +26,8 @@ namespace DCEngine {
 	{
 		if (event->OtherObject->getComponent<BallController>())
 		{
-			TransformRef->Translation.x = 1000;
-      TransformRef->Translation.y = 1000;
+			//TransformRef->Translation.x = 1000;
+			//TransformRef->Translation.y = 1000;
 		}
 	}
 
@@ -36,6 +37,13 @@ namespace DCEngine {
 
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		Timer += event->Dt;
+		if (Timer > JumpInterval)
+		{
+			Timer = 0;
+			auto direction = rand() % 11 - 5; //-5 to 5
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * MoveSpeed, JumpPower, 0));
+		}
 	}
 
 
