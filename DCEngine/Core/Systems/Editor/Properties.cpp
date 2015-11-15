@@ -103,14 +103,7 @@ namespace DCEngine {
         // If the bound field/property does not have the Property Attribute, do
         // nothing.
         //if (!property->HasAttribute("Property"))
-        //  continue;
-
-        auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
-        
-        //auto componentHdl = Zilch::Handle(state, component->ZilchGetDerivedType(),
-        //                                         component->ZilchGetDerivedType()->);
-          
-        
+        //  continue;              
 
         // Property-getter
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
@@ -129,7 +122,6 @@ namespace DCEngine {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
           // If the user modifies it
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
-
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component.get());
             setCall.Set(0, boolean);
@@ -142,7 +134,9 @@ namespace DCEngine {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[32];
           strcpy(buf, string.c_str());
-          ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf));
+          if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf))) {
+
+          }
 
 
           //setCall.Set(0, buf);
@@ -177,14 +171,12 @@ namespace DCEngine {
         // Property: Real (float)
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
-          if (ImGui::InputFloat(property->Name.c_str(), &real, 0.1f)) {
-
+          // If the user modifies it
+          if (ImGui::InputFloat(property->Name.c_str(), &real, 0.01f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            getCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
             setCall.Set(0, real);
             setCall.Invoke(report);
-
-            //setCall.Set(0, real);
           }
         }
         // Property: Real2 (Vec2)
@@ -198,8 +190,13 @@ namespace DCEngine {
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real3))) {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
-          ImGui::InputFloat2(property->Name.c_str(), vec3f);
-          //setCall.Set(0, vec3f);
+
+          if (ImGui::InputFloat2(property->Name.c_str(), vec3f)) {
+            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.Set(0, Zilch::Real3(vec3f));
+            setCall.Invoke(report);
+          }
         }
         // Property: Real4 (Vec4)
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4))) {

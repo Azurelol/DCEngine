@@ -37,9 +37,12 @@ namespace DCEngine {
       bool WidgetObjectsEnabled = false;
       bool WidgetPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
+      /* Reflection System */
+      SystemPtr ReflectionSystem;
       /* Space */
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;
+      
       /* Window Settings */
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 

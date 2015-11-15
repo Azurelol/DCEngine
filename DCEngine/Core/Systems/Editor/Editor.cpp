@@ -22,7 +22,8 @@ namespace DCEngine {
     {
       if (TRACE_INITIALIZE)
         DCTrace << "Editor::Initialize \n";
-      
+      // Store a reference to the Reflection System
+      ReflectionSystem = Daisy->getSystem<Reflection>();
       // Subscribe to events
       Subscribe();
     }
