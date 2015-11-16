@@ -89,6 +89,7 @@ namespace DCEngine {
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
+    bool IsInitialized = false;
 
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));

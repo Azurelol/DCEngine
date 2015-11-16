@@ -10,6 +10,10 @@ namespace DCEngine {
   // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
   unsigned int GameObject::GameObjectsDestroyed = 0;
+  std::string GameObject::GameObjectLastCreated;
+  std::string GameObject::GameObjectLastDestroyed;
+  // Enable diagnostics
+  bool GameObject::DiagnosticsEnabled = true;
 
   /**************************************************************************/
   /*!
@@ -33,6 +37,11 @@ namespace DCEngine {
     }
 
     type_ = EntityType::GameObject;
+
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastCreated = ObjectName;
+
   }
 
   /**************************************************************************/
@@ -45,6 +54,9 @@ namespace DCEngine {
   GameObject::GameObject() : Entity("GameObject"), ParentRef(nullptr),
                              GameObjectID(GameObjectsCreated++)
   {
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastCreated = ObjectName;
   }
 
   /**************************************************************************/
@@ -57,6 +69,9 @@ namespace DCEngine {
     // If the GameObject is attached to a Parent, detach
     if (ParentRef)
       Detach();
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastDestroyed = ObjectName;
   }
 
   /**************************************************************************/

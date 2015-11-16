@@ -1,5 +1,6 @@
 #include "Component.h"
 
+
 #include "Entity.h" // EntityPtr
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
@@ -9,9 +10,13 @@
 
 namespace DCEngine {
 
-  // Initialize static member variables
+  // Static member variables
   unsigned int Component::ComponentsCreated = 0;
-  unsigned int Component::ComponentsDestroyed = 0;
+  unsigned int Component::ComponentsDestroyed = 0;  
+  std::string Component::ComponentLastCreated;
+  std::string Component::ComponentLastDestroyed;
+  // Enable diagnostics
+  bool Component::DiagnosticsEnabled = true;
 
   /**************************************************************************/
   /*!
@@ -32,6 +37,10 @@ namespace DCEngine {
         << "Owner: '" << ObjectOwner->Name()
         << "'\n";
     }
+
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      ComponentLastCreated = ObjectName;
   }
 
   /**************************************************************************/
@@ -45,6 +54,9 @@ namespace DCEngine {
       DCTrace << ObjectOwner->Name() << "::" << Name() 
               << "::~Component - Destructor called! \n";
     ComponentsDestroyed++;
+
+    if (DiagnosticsEnabled)
+      ComponentLastDestroyed = ObjectName;
   }
 
   /**************************************************************************/

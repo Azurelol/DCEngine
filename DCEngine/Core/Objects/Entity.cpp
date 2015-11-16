@@ -72,9 +72,17 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Entity::Initialize() {
-    DCTrace << ObjectName << "::Initialize \n";
+    // If the entity has already been initialized, do naught
+    if (IsInitialized) {
+      DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
+      return;
+    }      
+        
     for (auto component : ComponentsContainer)
       component->Initialize();
+    // Flag this entity as already being initialized
+    IsInitialized = true;
+    DCTrace << ObjectName << "::Initialize \n";
   }
 
   /**************************************************************************/

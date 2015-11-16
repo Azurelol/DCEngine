@@ -35,10 +35,7 @@ namespace DCEngine {
     friend class Factory;
 
   public:
-
-    static unsigned int GameObjectsCreated;
-    static unsigned int GameObjectsDestroyed;
-
+    
     #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(GameObject, Entity);
     #endif
@@ -47,20 +44,23 @@ namespace DCEngine {
     GameObject();
     ~GameObject();
     void Destroy();
-
     Space* GetSpace();
     GameSession* GetGameSession();  
-
     GameObjectPtr FindChildByName(std::string name);
     GameObjectVec FindAllChildrenByName(std::string name);
     GameObjectVec& Children();    
-
     void AttachTo(GameObjectPtr parent);
     void AttachToRelative(GameObjectPtr parent);
     void Detach();
     void DetachRelative();
     GameObjectPtr Parent() { return ParentRef; }    
 
+    // Static member variables
+    static unsigned int GameObjectsCreated;
+    static unsigned int GameObjectsDestroyed;
+    static std::string GameObjectLastCreated;
+    static std::string GameObjectLastDestroyed;
+    static bool DiagnosticsEnabled;
 
   private:
     GameObjectPtr ParentRef;

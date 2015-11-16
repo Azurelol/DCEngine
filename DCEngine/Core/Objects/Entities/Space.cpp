@@ -114,7 +114,7 @@ namespace DCEngine {
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
       DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
-
+    
     // Clear the current objects from the space
     //DestroyAll();
     // Set it as the current level

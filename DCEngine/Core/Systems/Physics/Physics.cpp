@@ -380,6 +380,7 @@ namespace DCEngine {
 			collisionStartedEvent->Object = collisionData.OtherObject;
 			collisionStartedEvent->OtherObject = collisionData.Object;
 			collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      delete collisionStartedEvent;
 		}
 
 		/**************************************************************************/
@@ -400,6 +401,7 @@ namespace DCEngine {
 			collisionEndedEvent->Object = collisionData.OtherObject;
 			collisionEndedEvent->OtherObject = collisionData.Object;
 			collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      delete collisionEndedEvent;
 		}
 
 
