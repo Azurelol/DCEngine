@@ -15,7 +15,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
-	    SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
+		SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 	}
 
 	void PlayerController::Serialize(Json::Value & root)
@@ -35,7 +35,7 @@ namespace DCEngine {
 
 	}
 
-	void PlayerController::OnKeyDownEvent(Events::KeyDown* event) 
+	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
 
 	}
@@ -71,9 +71,9 @@ namespace DCEngine {
 		}
 		else
 		{
-		  SpriteComponent->SpriteSource = "MonkeyWalk1";
-		  SpriteComponent->HaveAnimation = true;
-		  SpriteComponent->AnimationActive = true;
+			SpriteComponent->SpriteSource = "MonkeyWalk1";
+			SpriteComponent->HaveAnimation = true;
+			SpriteComponent->AnimationActive = true;
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{
@@ -83,11 +83,14 @@ namespace DCEngine {
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
+			SpriteComponent->FlipX = true;
 			MoveLeft();
+
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
+			SpriteComponent->FlipX = false;
 			MoveRight();
 		}
 	}
@@ -101,14 +104,14 @@ namespace DCEngine {
 			Jumping = false;
 			JumpFramesApplied = 0;
 		}
-		
+
 	}
 
 
 
 	void PlayerController::PrintTranslation()
 	{
-		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void PlayerController::PrintVelocity()
@@ -121,7 +124,7 @@ namespace DCEngine {
 	{
 		switch (rand() % 3)
 		{
-		
+
 		case 0:
 			break;
 		case 1:
@@ -140,7 +143,7 @@ namespace DCEngine {
 		{
 			auto scalar = 1;
 		}
-			RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
+		RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
 
 
 		PrintTranslation();

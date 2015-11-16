@@ -87,12 +87,13 @@ namespace DCEngine {
     void Initialize();
     void UpdateSprite();
     Transform* TransformComponent;
+	glm::mat4 FlipMatrix;
+	bool XFlipped = false;
+	bool YFlipped = false;
 
 	private:
 
-		bool XFlipped;
-		bool YFlipped;
-		glm::mat4 FlipMatrix;
+		
 
 		//Update
 		void UpdateFlip();

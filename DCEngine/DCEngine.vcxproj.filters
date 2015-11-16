@@ -537,6 +537,9 @@
     <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
+      <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -961,6 +964,9 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\ChargeBar.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Interpolation.h">
+      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,8 @@
 
 namespace DCEngine
 {
-  float Interpolate(float start, float end, float ratio)
-  {
-    return start + (end - start) * ratio;
-  }
-  
-  Vec3 Interpolate(Vec3 start, Vec3 end, float ratio)
+  template <typename T>
+  T Interpolate(const T &start, const T &end, float ratio)
   {
     return start + (end - start) * ratio;
   }

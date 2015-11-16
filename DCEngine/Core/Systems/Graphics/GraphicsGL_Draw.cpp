@@ -81,6 +81,23 @@ namespace DCEngine {
       modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
         transform->Translation.y,
         transform->Translation.z));
+	  if (sprite.FlipX == true)
+	  {
+		  this->SpriteShader->SetInteger("flipx", 1);
+	  }
+	  else
+	  {
+		  this->SpriteShader->SetInteger("flipx", 0);
+	  }
+
+	  if (sprite.FlipY == true)
+	  {
+		  this->SpriteShader->SetInteger("flipy", 1);
+	  }
+	  else
+	  {
+		  this->SpriteShader->SetInteger("flipy", 0);
+	  }
       modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
       modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
