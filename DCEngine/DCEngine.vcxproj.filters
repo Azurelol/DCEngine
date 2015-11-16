@@ -531,6 +531,12 @@
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\CameraController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -952,6 +958,12 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\CameraController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ChargeBar.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

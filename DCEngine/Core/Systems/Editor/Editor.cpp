@@ -215,9 +215,11 @@ namespace DCEngine {
       if (!EditorEnabled)
         return;
 
-      // Look for an object that matches the translation
-      auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
-      SelectObjectFromSpace(posOnSpace);
+      if (event->ButtonPressed == MouseButton::Left) {
+        // Look for an object that matches the translation
+        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+        SelectObjectFromSpace(posOnSpace);
+      }
 
       //DCTrace << "Editor::OnMouseDownEvent - \n";
     }

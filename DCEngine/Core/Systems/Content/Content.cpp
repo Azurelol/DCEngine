@@ -188,7 +188,7 @@ namespace DCEngine {
     {
       SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
       if (spriteSource == nullptr)
-        throw DCException("Oi! The SpriteSource " + spriteName + " was not found!");
+        throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
       return SpriteSourceMap.at(spriteName);
     }
 
