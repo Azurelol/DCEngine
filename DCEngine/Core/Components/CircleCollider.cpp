@@ -5,6 +5,12 @@
 
 namespace DCEngine {
 
+  /**************************************************************************/
+  /*!
+  @brief Initializes the CircleCollider component.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
   void CircleCollider::Initialize()
   {
     auto owner = dynamic_cast<GameObject*>(Owner());

@@ -47,27 +47,34 @@ namespace DCEngine {
 
     Entity(std::string name);
     ~Entity();
-    void Initialize(); //!< Initializes all of the entity's components
+    void Initialize(); 
+    void Terminate();
 
-    /* Properties */
+    // Properties
     void setArchetype(std::string);
     std::string getArchetype() const; 
-    /* Components */
-    void AddComponentByName(std::string& componentName);
+
+    // Components    
     void RemoveComponentByName(std::string& componentName);
     bool AddComponent(ComponentPtr component);
+    template <typename ComponentClass> void AddComponentByName();
     template <typename ComponentClass> ComponentClass* getComponent();    
-    Component* getComponentByName(std::string name);
-    void RemoveComponent(ComponentPtr component);
-    bool HasComponent(EnumeratedComponent ec);
+    template <typename ComponentClass> bool HasComponent();
+
+    template <typename ComponentClass> void RemoveComponentByName();
+    void RemoveComponent(ComponentPtr component);    
     ComponentVec* AllComponents();
-    /* Events */
+
+    // Events
+    // Dispatches an event on object
     template <typename EventClass>
-    void Dispatch(Event* eventObj); // Dispatches an event on object
+    void Dispatch(Event* eventObj); 
+    //!< Dispatches an event to the object itself and up the tree to each parent    
     template <typename EventClass>
-    void DispatchUp(Event* eventObj); //!< Dispatches an event to the object itself and up the tree to each parent    
+    void DispatchUp(Event* eventObj); 
+    //!< Dispatches an event to the object itself and down to each children recursively
     template <typename EventClass>
-    void DispatchDown(Event* eventObj); //!< Dispatches an event to the object itself and down to each children recursively
+    void DispatchDown(Event* eventObj); 
 
     EntityType Type() { return type_; }
 
@@ -81,7 +88,7 @@ namespace DCEngine {
 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    std::string Archetype;
+    std::string ArchetypeName;
 
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
@@ -89,6 +96,26 @@ namespace DCEngine {
 
   }; // class Entity
   
+  /**************************************************************************/
+  /*!
+  @brief  Adds a given component to the Entity.
+  @param  ComponentClass The component class.
+  @note   The component gets initialized after being added, since this
+          method is called at runtime.
+  @todo   Have the Factory construct the component
+  */
+  /**************************************************************************/
+  template<typename ComponentClass>
+  inline void Entity::AddComponentByName()
+  {
+    // Construct the component
+    auto component = ComponentPtr(new ComponentClass(*this));
+    // Add the component to the entity
+    AddComponent(component);
+    // Initialize the component
+    component->Initialize();
+  }
+
   /**************************************************************************/
   /*!
   \brief  Finds a component belonging to the entity.
@@ -107,6 +134,48 @@ namespace DCEngine {
     }
     // No matching component was found
     return NULL;
+  }
+
+
+  /**************************************************************************/
+  /*!
+  @brief  Finds a component belonging to the entity and removes it.
+  @param  The component class.  
+  */
+  /**************************************************************************/
+  template<typename ComponentClass>
+  inline void Entity::RemoveComponentByName()
+  {
+    // Iterate through the container of component pointers...
+    for (auto componentPtr : ComponentsContainer) {
+      auto component = componentPtr.get();
+      // If the component was found
+      if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass))) {
+        // Removes the component
+        RemoveComponent(componentPtr);
+      }        
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Finds a component belonging to the entity.
+  \param  The component class.
+  \return If a match was found, true. Otherwise, false.
+  */
+  /**************************************************************************/
+  template<typename ComponentClass>
+  inline bool Entity::HasComponent()
+  {
+    // Iterate through the container of component pointers...
+    for (auto componentPtr : ComponentsContainer) {
+      auto component = componentPtr.get();
+      // If the component was found
+      if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))
+        return true;
+    }
+    // No matching component was found
+    return false;
   }
 
      /**************************************************************************/

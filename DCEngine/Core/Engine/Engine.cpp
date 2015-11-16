@@ -22,9 +22,6 @@ Description here.
 #include "..\Debug\Debug.h" // Trace
 #include "..\EventsInclude.h"
 
-// Testing
-#include "../Testing.h" // Dollhouse
-
 namespace DCEngine {
   
   // A pointer to the 'ENGINE' object
@@ -105,7 +102,7 @@ namespace DCEngine {
     keyboard_.reset(new Keyboard());
     mouse_.reset(new Mouse());
 
-    // Systems are added to to the engine's systems vector. 
+    // Systems are added to to the engine's systems vector, and configurations passed on.
     _systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     _systems.push_back(SystemPtr(new Systems::Reflection));
     _systems.push_back(SystemPtr(new Systems::Factory));
@@ -114,25 +111,32 @@ namespace DCEngine {
                                                      EngineConfiguration->ResolutionWidth,
                                                      EngineConfiguration->ResolutionHeight)));
     _systems.push_back(SystemPtr(new Systems::Input));
-    _systems.push_back(SystemPtr(new Systems::Editor));    
+    _systems.push_back(SystemPtr(new Systems::Editor(EngineConfiguration->EditorEnabled)));    
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
-    _systems.push_back(SystemPtr(new Systems::GUI));
+    _systems.push_back(SystemPtr(new Systems::GUI));        
 
-    //DCTrace << "\n";
-    //std::string projectFilePath = "Projects/Sample/SampleProj.dcp";
-    
+    // Create the default gamesession object, the "game" itself,  which contains all spaces.
+    gamesession_.reset(new GameSession(_projectName));
+    // Load the default space to start with
+    LoadDefaultSpace();
+
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
     }
 
+    // Load all resources, both defaults and project-specific
+    getSystem<Systems::Content>()->LoadAllResources();
+
     // Initialize the project
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
 
-    // Loads the project file to start up the game
-    //LoadProject(std::string("Default")); // Temporarily default
+
+    // Initialize the gamesession. (This will initialize its spaces,
+    // and later, its gameobjects)
+    gamesession_->Initialize();
   }
 
   /**************************************************************************/
@@ -169,29 +173,18 @@ namespace DCEngine {
 
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
-
-
   }
 
   void Engine::StartProject()
   {
-    // Create the gamesession object, the "game" itself,  which contains all spaces.
+    // Create the default gamesession object, the "game" itself,  which contains all spaces.
     gamesession_.reset(new GameSession(_projectName));
-    // Deserialize from the file
-
-    // Load the gamesession object from the archetype
-    // Add components, change non-default values
-
-    // Load the default space
+    // Create the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
     // Set a reference to it in the GameSession object
     gamesession_->DefaultSpace = defaultSpace.get();
 
-    // Load a level into the space
 
-    // !!! TESTING: Level loading
-    LevelPtr dollhouse = LevelPtr(new DollHouse(*defaultSpace.get(), *gamesession_));
-    defaultSpace->LoadLevel(dollhouse);
 
 
     DCTrace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
@@ -264,13 +257,46 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Loads the GameSession's default space
+  */
+  /**************************************************************************/
+  void Engine::LoadDefaultSpace()
+  {
+    // Create the default space
+    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
+    // Set a reference to it in the GameSession object
+    gamesession_->DefaultSpace = defaultSpace.get();
+    // Construct a camera object
+    auto camera = getSystem<Systems::Factory>()->CreateGameObject("Camera", *defaultSpace, false);
+    camera->AddComponent(ComponentPtr(new Camera(*camera)));
+    camera->AddComponent(ComponentPtr(new DebugCamera(*camera)));
+    camera->AddComponent(ComponentPtr(new DebugAudio(*camera)));
+    // Camera properties      
+    camera->getComponent<DebugAudio>()->Track1 = "soulja";
+    camera->getComponent<DebugAudio>()->Track2 = "spacejam2";
+    camera->getComponent<Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
+    camera->getComponent<Camera>()->Size = 70;
+    camera->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
+    // Add the camera to the space
+    defaultSpace->AddObject(camera);
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Terminates all the systems, clears out the spaces, and shuts down
   and pops all the game states.
   */
   /**************************************************************************/
   void Engine::Terminate() {
     DCTrace << "\n[Engine::Terminate] \n";
+    // Clear every Space
+    for (auto space : gamesession_->_spaces) {
+      space.second->DestroyAll();
+    }
+    // Clear the GameSession
 
+
+    // Terminates all systems.
     for (auto sys : _systems)
       sys->Terminate();
 

@@ -28,7 +28,10 @@ namespace DCEngine {
 
     private:
 
-      /* Widget Enable Booleans */
+      /////////////////
+      //  Settings 
+      ////////////////
+      // Widgets
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
@@ -37,49 +40,71 @@ namespace DCEngine {
       bool WidgetObjectsEnabled = false;
       bool WidgetPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
-      /* Reflection System */
+      bool WidgetDiagnosticsEnabled = false;
       SystemPtr ReflectionSystem;
-      /* Space */
       Space* CurrentSpace;
-      GameObject* SelectedObject = nullptr;
-      
-      /* Window Settings */
+      GameObject* SelectedObject = nullptr;      
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
+      /////////////////
+      //  Methods 
+      ////////////////
       void DisplayEditor();
-      /* Widgets Functions */
+      // Widgets
       void DisplayMainMenuBar();
       void WidgetLevel();
       void WidgetResourceAdd();
       void WidgetObjects();
       void WidgetProperties();
-      void Editor::DisplayProperties(ComponentPtr component);
+      void DisplayProperties(ComponentPtr);
       void WidgetLibrary();
-
+      void WidgetDiagnostics();
+      // Project
+      void NewProject();
+      void ArchiveProject();
+      void OpenProject();
+      void SaveProject();
+      void ShowProjectFolder();
+      void PlayGame();
+      void ExportGame();
+      void Exit();
+      // Resources
+      void AddResource();
+      void LoadLevel();
+      void SaveLevel();
+      void ReloadLevel();
+      void LoadDollhouse();
+      // Object Selection
+      void SelectObjectFromSpace(Vec2 pos);
+      void SelectObject(GameObject* obj);
+      void DeleteObject();
+      void DuplicateObject();
+      // Window
+      void ApplyEditorWindowLayout();
       /* Serialization functions*/
       //void SaveLevel();
-      //void ReloadLevel();
-            
-      /* Test functions */
-      void DisplayGUITest();
+      //void ReloadLevel(); 
+
+
+      //////////////////
+      // CREATE
+      /////////////////
+      void CreateTransform();
+      void CreateSprite();
 
       /* Functions */
-      Editor();
+      Editor(bool enabled);
       void Initialize();
       void Subscribe();
-      void Update(float dt); //!< Delete all objects in the to-be-deleted list
+      void Update(float dt);
       void Terminate();
       /* Events */
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
-
-      // Modification of the rendering window
-      void ApplyEditorWindowLayout();
-
-      void SelectObjectFromSpace(Vec2 pos);
-      void SelectObject(GameObject* obj);
-      
+      /* Test functions */
+      void DisplayGUITest();
+      void LoadSampleLevel();
 
     };
 

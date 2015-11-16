@@ -9,6 +9,7 @@
 
 // Binding needs to know what a GameSession is for the Space CTOR.
 #include "GameSession.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
     
@@ -30,8 +31,8 @@ namespace DCEngine {
   \brief  Destructor. Clears the entities vector.
   */
   /**************************************************************************/
-  Space::~Space() {
-    GameObjectContainer.clear();
+  Space::~Space() {        
+    
   }
 
   /**************************************************************************/
@@ -69,6 +70,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief  Terminates the Space.
+  */
+  /**************************************************************************/
+  void Space::Terminate()
+  {
+    DestroyAll();
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Updates every system in the space.
   */
   /**************************************************************************/
@@ -77,58 +88,45 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Update \n";
   }
 
-  /**************************************************************************/
-  /*!
-  \brief  Adds an engine's system to the space.
-  */
-  /**************************************************************************/
-  void Space::AddSystem(SystemPtr system) {
-
-
-    for (auto systems : SystemsContainer) {
-      if (systems == system)
-        throw std::exception("Attempted to add two copies of the same system to one space!");
-    }
-
-    SystemsContainer.push_back(system);
-    
-    if (TRACE_ON)
-      DCTrace << ObjectName << "::AddSystem " << "- Added " << system->SysName << "\n";
-  }
-
   GameSession& Space::getGameSession() {
     return *GameSessionRef;
   }
 
   /**************************************************************************/
   /*!
-  \brief  Destroy all the objects in the space.
+  @brief  Destroy all the objects in the space.
+  @note   
   */
   /**************************************************************************/
   void Space::DestroyAll()
   {
     for (auto object : GameObjectContainer) {
-
+      RemoveObject(*object);
     }
 
   }
 
   /**************************************************************************/
   /*!
-  \brief  Loads a level, container for entities, into the space. 
+  @brief  Loads a level, a container for entities, into the space. 
   */
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
       DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
 
+    // Clear the current objects from the space
+    //DestroyAll();
     // Set it as the current level
     CurrentLevel = level;
     // Load GameObjects into the space
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
-
+    // Initialize every GameObject
+    for (auto gameObject : GameObjectContainer) {
+      gameObject->Initialize();
+    }
     // Read the JSON string
     
     // For every object 
@@ -161,17 +159,32 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Creates a GameObject, adds it to the space.
-  \return A pointer to the entity that was added.
-  \note   This function requests the entity to be created through
+  @brief  Creates a GameObject, adds it to the space.
+  @return A pointer to the GameObject that was added.
+  @note   This function requests the GameObject to be created through
           the object factory.
   */
   /**************************************************************************/
   GameObjectPtr Space::CreateObject() {
     // Calls the object factory to create the object from an archetype
+    auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject("Transform", *this, true);
+    GameObjectContainer.push_back(gameObject);
+    return gameObject;
+  }
 
-    GameObjectContainer.push_back(std::shared_ptr<GameObject>(new GameObject));
-    return GameObjectContainer.back();
+  /**************************************************************************/
+  /*!
+  @brief  Creates a GameObject from an Archetype and adds it to the space.
+  @return A pointer to the GameObject that was added.
+  \note   This function requests the entity to be created through
+  the object factory.
+  */
+  /**************************************************************************/
+  GameObjectPtr Space::CreateObject(std::shared_ptr<Archetype> archetype)
+  {
+    // Creates the GameObject from an Archetype
+
+    return GameObjectPtr();
   }
 
   /**************************************************************************/
@@ -185,7 +198,7 @@ namespace DCEngine {
     // Search through the space's gameobjects
     for (auto gameObj : GameObjectContainer) {
       if (gameObj->Name() == name)
-        return gameObj.get();
+        return gameObj;
     }
     // No match was found.
     return NULL;
@@ -206,7 +219,29 @@ namespace DCEngine {
     //ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
 
     if (TRACE_GAMEOBJECT_ADD)
-      DCTrace << ObjectName << "::AddEntity - Added " << gameObject->Name() << " to the space.\n";
+      DCTrace << ObjectName << "::AddObject - Added " << gameObject->Name() << " to the space.\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Removes the GameObject from the Space.
+  @param  A reference to the GameObject.
+  */
+  /**************************************************************************/
+  void Space::RemoveObject(GameObject & gameObj)
+  {
+    // Remove the GameObject from the space's list of GameObjects
+    for (auto gameObjPtr : GameObjectContainer) {
+      if (gameObjPtr == &gameObj) {
+        gameObjPtr = nullptr;
+      }
+    }
+
+    // Mark the object for destruction on next frmae
+    Daisy->getSystem<Systems::Factory>()->MarkGameObject(gameObj);
+    if (TRACE_GAMEOBJECT_ADD)
+      DCTrace << ObjectName << "::AddObject - Removed " << gameObj.Name() << " from the space.\n";
+
   }
 
 
@@ -217,7 +252,6 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Clear() {
     GameObjectContainer.clear();
-    SystemsContainer.clear();
   }
 
 

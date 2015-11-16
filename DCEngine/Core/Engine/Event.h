@@ -20,7 +20,15 @@ namespace DCEngine {
 
     class Event {
     public:
-      virtual ~Event(void) {}
+      static unsigned int EventsCreated;
+      static unsigned int EventsDestroyed;
+
+      Event() {
+        EventsCreated++;
+      }
+      virtual ~Event(void) {
+        EventsDestroyed++;
+      }
       unsigned int EventID;
 
     private:

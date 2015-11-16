@@ -74,8 +74,16 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  Sets the viewport's default camera.
+  @todo   Currently looking for the first Camera in the space.
   /**************************************************************************/
   void CameraViewport::setCamera() {
-    CameraObj = SpaceRef->FindObjectByName("Camera")->getComponent<Camera>();
+    // Look for a GameObject with the 'Camera' component in the space
+    for (auto gameObj : *SpaceRef->AllObjects()) {
+      auto camera = gameObj->getComponent<Camera>();
+      if (camera != nullptr)
+        CameraObj = camera;
+    }
+
+    //CameraObj = SpaceRef->FindObjectByName("Camera")->getComponent<Camera>();
   }
 }

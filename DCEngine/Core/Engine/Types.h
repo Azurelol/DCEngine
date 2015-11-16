@@ -1,3 +1,12 @@
+/*****************************************************************************/
+/*!
+@file   Types.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/02/2015
+@brief  Saves the types used in the Daisy Chain engine.
+*/
+/******************************************************************************/
 #pragma once
 
 #include <string>

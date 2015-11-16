@@ -15,21 +15,29 @@
 namespace DCEngine {
 
   class GameObject;
-  using GameObjectPtr = std::shared_ptr<GameObject>;
+  using GameObjectPtr = GameObject*;
   using GameObjectVec = std::vector<GameObjectPtr>;
-  using GameObjectRawVec = std::vector<GameObject*>;
-
+  using GameObjectStrongPtr = std::shared_ptr<GameObject>;
+  using GameObjectStrongVec = std::vector<GameObjectStrongPtr>;  
+  using GameObjectRawVec = std::vector<GameObject*>;  
 
   /* Forward declarations*/
   class Space;
   class GameSession;
   //class Factory;
 
+  namespace Systems {
+    class Factory;
+  }
+
   class GameObject : public Entity {
     friend class Space;
-    //friend class Factory;
+    friend class Factory;
 
   public:
+
+    static unsigned int GameObjectsCreated;
+    static unsigned int GameObjectsDestroyed;
 
     #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(GameObject, Entity);
@@ -37,6 +45,8 @@ namespace DCEngine {
     
     GameObject(std::string name, Space& space, GameSession& gamesession);
     GameObject();
+    ~GameObject();
+    void Destroy();
 
     Space* GetSpace();
     GameSession* GetGameSession();  
@@ -49,9 +59,8 @@ namespace DCEngine {
     void AttachToRelative(GameObjectPtr parent);
     void Detach();
     void DetachRelative();
-    GameObjectPtr Parent() { return ParentRef; }
-    
-    void Destroy();
+    GameObjectPtr Parent() { return ParentRef; }    
+
 
   private:
     GameObjectPtr ParentRef;
@@ -62,13 +71,8 @@ namespace DCEngine {
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);
 
-    static unsigned int GameObjectsCreated;
     const unsigned int GameObjectID;    
 
   };  
   
-  //using GameObjectPtr = std::shared_ptr<GameObject>;
-  //using GameObjectVec = std::vector<GameObjectPtr>;
-  //using GameObjectRawVec = std::vector<GameObject*>;
-
 }

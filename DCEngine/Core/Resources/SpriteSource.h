@@ -26,21 +26,20 @@ namespace DCEngine {
 
     //std::string DefaultTexture = "Square.png";
     float PixelsPerUnit = 0.0f;
-	//Animation
-	int ColumnCount;
-	int RowCount;
-	//Texture cut
-	int MinX = 0;
-	int MaxX = 0;
-	int MinY = 0;
-	int MaxY = 0;
-	//PicWidth and PicHeight already initialized. Do not change it.
-	int PicWidth;
-	int PicHeight;
+    //Animation
+    int ColumnCount;
+    int RowCount;
+    //Texture cut
+    int MinX = 0;
+    int MaxX = 0;
+    int MinY = 0;
+    int MaxY = 0;
+    //PicWidth and PicHeight already initialized. Do not change it.
+    int PicWidth;
+    int PicHeight;
     bool Smoothing;
     bool Looping;
     bool Fill;
-
 
     SpriteSource(std::string spriteFile);
     void LoadTexture();
@@ -49,8 +48,7 @@ namespace DCEngine {
     sf::Texture& getTexture();
     #else
     Texture2D& getTexture();
-    #endif
-    
+    #endif   
     
 
   private:

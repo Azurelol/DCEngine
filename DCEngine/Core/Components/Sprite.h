@@ -83,6 +83,7 @@ namespace DCEngine {
 		void SetColorUsing255(Vec3 newColor);
 
     Sprite(Entity& owner);
+    ~Sprite();
     void Initialize();
     void UpdateSprite();
     Transform* TransformComponent;

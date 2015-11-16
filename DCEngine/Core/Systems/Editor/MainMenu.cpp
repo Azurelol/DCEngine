@@ -25,24 +25,31 @@ namespace DCEngine {
 
         // Project
         if (ImGui::BeginMenu("Project")) {
-          if (ImGui::MenuItem("New Project")) {}
-          if (ImGui::MenuItem("Archive Project")) {}
-          if (ImGui::MenuItem("Open Project")) {}
-          if (ImGui::MenuItem("Save Project")) {}
-          if (ImGui::MenuItem("Show Project Folder")) {}
+          if (ImGui::MenuItem("New Project"))
+            NewProject();          
+          if (ImGui::MenuItem("Archive Project"))
+            ArchiveProject();
+          if (ImGui::MenuItem("Open Project"))
+            OpenProject();
+          if (ImGui::MenuItem("Save Project"))
+            SaveProject();
+          if (ImGui::MenuItem("Show Project Folder"))
+            ShowProjectFolder();
           ImGui::Separator();
-          if (ImGui::MenuItem("Load Level")) {}
-          if (ImGui::MenuItem("Save Level")) {}
-          if (ImGui::MenuItem("Reload Level")) {}
-            //ReloadLevel();
+          if (ImGui::MenuItem("Play Game"))
+            PlayGame();
           ImGui::EndMenu();
         }
 
         // Create
         if (ImGui::BeginMenu("Create")) {
-          if (ImGui::MenuItem("Create Transform")) {}
+          if (ImGui::MenuItem("Create Transform")) {
+            CreateTransform();
+          }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Sprite")) {}
+          if (ImGui::MenuItem("Create Sprite")) {
+            CreateSprite();
+          }
           if (ImGui::MenuItem("Create SpriteText")) {}
           ImGui::Separator();
           if (ImGui::MenuItem("Create Particle System")) {}
@@ -57,6 +64,29 @@ namespace DCEngine {
           if (ImGui::MenuItem("Cut", "CTRL+X")) {}
           if (ImGui::MenuItem("Copy", "CTRL+C")) {}
           if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+          ImGui::Separator();
+          if (ImGui::MenuItem("Duplicate", "CTRL+D")) {
+            DuplicateObject();
+          }
+          if (ImGui::MenuItem("Delete", "Del")) {
+            DeleteObject();
+          }
+          ImGui::EndMenu();
+        }
+
+        // Resources
+        if (ImGui::BeginMenu("Resources")) {
+          if (ImGui::MenuItem("Add")) {
+            AddResource();
+          }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Load Level")) {}
+          if (ImGui::MenuItem("Save Level")) {}
+          if (ImGui::MenuItem("Reload Level")) {}
+          ImGui::Separator();
+          if (ImGui::MenuItem("Load Dollhouse"))
+            LoadDollhouse();
+          //ReloadLevel();
           ImGui::EndMenu();
         }
 
@@ -68,6 +98,8 @@ namespace DCEngine {
             WidgetLibraryEnabled = !WidgetLibraryEnabled;
           if (ImGui::MenuItem("Objects"))
             WidgetObjectsEnabled = !WidgetObjectsEnabled;
+          if (ImGui::MenuItem("Diagnostics"))
+            WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
           ImGui::EndMenu();
         }
 
@@ -85,6 +117,11 @@ namespace DCEngine {
 
         ImGui::EndMainMenuBar();
 
+      }
+
+      if (ImGui::BeginMainMenuBar()) {
+
+        ImGui::EndMainMenuBar();
       }
     }
 

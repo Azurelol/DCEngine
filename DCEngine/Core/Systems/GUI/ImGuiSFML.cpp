@@ -119,7 +119,7 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Generates a font Texture and binds it to ImGui.
+    @brief  Compiles stuff for ImGui.
     @note   Currently done through sf::Texture.
     */
     /**************************************************************************/
@@ -214,7 +214,13 @@ namespace DCEngine {
 
       return true;
     }
-    
+
+    /**************************************************************************/
+    /*!
+    @brief  Generates a font Texture and binds it to ImGui.
+    @note   Currently done through sf::Texture.
+    */
+    /**************************************************************************/
     IMGUI_API void ImGuiSFML::ImGuiSFMLGenerateFontTexture()
     {
       ImGuiIO& io = ImGui::GetIO();
@@ -226,6 +232,7 @@ namespace DCEngine {
       // Roll our own
       if (GENERATE_FONT_TEXTURE_MANUALLY) {
         io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+        //io.Fonts->AddFontFromFileTTF("DroidSand.ttf", FileSystem::FileSize("DroidSand.ttf"));
         glGenTextures(1, &g_FontTexture);
         glBindTexture(GL_TEXTURE_2D, g_FontTexture);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -241,6 +248,9 @@ namespace DCEngine {
         FontTexture.update(pixels);
         io.Fonts->TexID = (void*)&FontTexture;
       }
+
+      // Load TTF FILE?
+      //io.Fonts->AddFontFromFileTTF("DroidSand.ttf");
       
       io.Fonts->ClearInputData();
       io.Fonts->ClearTexData();

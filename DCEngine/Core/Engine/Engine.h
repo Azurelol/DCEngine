@@ -83,6 +83,7 @@ namespace DCEngine {
     //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
     bool LoadEngineConfig();
+    void LoadDefaultSpace();
     void Update(float dt);   
 
 
@@ -157,7 +158,14 @@ namespace DCEngine {
         // For every delegate in the list for this specific event
         for (auto deleg : eventKey.second) {
           // Call the delegate's member function
-          deleg->Call(eventObj);
+          if (!deleg->Call(eventObj)) {
+            DCTrace << "Engine::Dispatch - Event failed!\n";
+            // If the call failed because the object instance is
+            // no longer available, remove this delegate
+            // Erase by iterator!
+            //ObserverRegistry.find(deleg);
+            //ObserverRegistry.erase(it);
+          }
           //deleg.Call<eventTypeID>(eventObj);
         }
       }
@@ -190,13 +198,13 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  A macro to simplify the Connect function. It subscribes to an entity's
-  events, receiving them when they are called on the function provided.
-  \param  EntityObj A pointer to an Entity-derived object which gets casted to
-  a base Entity pointer
-  \param  Event A specifier for a specific event (via enum)
-  \param  Function A member function belonging to the component, gets passed
-  into the function by the std::mem_fn wrapper for member functions.
+  @brief  A macro to simplify the Connect function. It subscribes to an entity's
+          events, receiving them when they are called on the function provided.
+  @param  EntityObj A pointer to an Entity-derived object which gets casted to
+          a base Entity pointer
+  @param  Event A specifier for a specific event (via enum)
+  @param  Function A member function belonging to the component, gets passed
+          into the function by the std::mem_fn wrapper for member functions.
   */
   /**************************************************************************/
   //#define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), std::mem_fn(&Function), this)

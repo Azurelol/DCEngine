@@ -34,6 +34,18 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
+
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Sprite Destructor.
+  */
+  /**************************************************************************/
+  Sprite::~Sprite()
+  {
+    // Deregister this component from the GraphicsSpace
+    SpaceRef->getComponent<GraphicsSpace>()->RemoveSprite(*this);
   }
 
   /**************************************************************************/
@@ -51,7 +63,6 @@ namespace DCEngine {
 
     // Register this component to the GraphicsSpace so that it can be drawn
     // by the graphics system.
-    // Subscribe this component to the graphics space
     SpaceRef->getComponent<GraphicsSpace>()->AddSprite(*this);
 
   }

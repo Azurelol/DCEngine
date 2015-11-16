@@ -90,6 +90,7 @@ namespace DCEngine {
       auto SoundPath = CoreAssetsPath + "Sounds/";
       auto FontPath = CoreAssetsPath + "Fonts/";
       auto ShaderPath = CoreAssetsPath + "Shaders/";
+      auto ArchetypePath = CoreAssetsPath + "Archetypes/";
       
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
@@ -133,6 +134,16 @@ namespace DCEngine {
       // Load default fonts      
       AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
       DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+
+      // Load archetypes
+      std::vector<std::string> coreArchetypes;
+      if (!FileSystem::DirectoryListFilePaths(ArchetypePath, coreArchetypes))
+        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
+      for (auto archetype : coreArchetypes) {
+        auto archetypeName = FileSystem::FileNoExtension(archetype);
+        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
+      }
+
     }
 
     /**************************************************************************/
@@ -192,6 +203,17 @@ namespace DCEngine {
       return SoundCueMap.at(soundCueName);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Grabs an Archetype resource.
+    @return Returns a pointer to the Archetype object.
+    */
+    /**************************************************************************/
+    ArchetypePtr Content::getArchetype(std::string & archetypeName)
+    {
+      return ArchetypeMap.at(archetypeName);
+    }
+
 
     /**************************************************************************/
     /*!
@@ -212,6 +234,11 @@ namespace DCEngine {
     ShaderMap * Content::AllShaders()
     {
       return &ShaderMap;
+    }
+
+    ArchetypeMap * Content::AllArchetypes()
+    {
+      return &ArchetypeMap;
     }
 
 
@@ -249,6 +276,20 @@ namespace DCEngine {
     {
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
       DCTrace << "Content::AddFont - " << fontName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds an archetype to the Archetype resource map.
+    @param The name of the archetype.
+    @param The pointer to the archetype.
+    @note  We load the archetype immediately so its ready for use.
+    */
+    /**************************************************************************/
+    void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
+    {
+      ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
     }
 
     /**************************************************************************/

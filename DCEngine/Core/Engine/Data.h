@@ -30,6 +30,7 @@ namespace DCEngine {
     unsigned int ResolutionHeight;
     bool IsFullScreen;  
     std::string AssetPath;
+    bool EditorEnabled;
 
     void Serialize(Json::Value& root) {
     }
@@ -43,6 +44,7 @@ namespace DCEngine {
       ResolutionHeight = root.get("ResolutionHeight", "").asInt();
       IsFullScreen = root.get("IsFullScreen", "").asBool(); 
       AssetPath = root.get("AssetPath", "").asString();
+      EditorEnabled = root.get("EditorEnabled", "").asBool();
       
       /*SpritePath = root.get("SpritePath", "").asString();
       SoundPath = root.get("SoundPath", "").asString();

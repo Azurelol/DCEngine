@@ -78,9 +78,10 @@ namespace DCEngine {
     #endif
 
     Component(std::string name, Entity& owner);
-    
-	  virtual ~Component() {} // Derived component types need to be deallocated properly
+    // Derived component types need to be deallocated properly
+    virtual ~Component();
     virtual void Initialize() = 0; // Every component needs to be initialized.
+    //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.
     //virtual void Serialize(Json::Value& root) = 0;
     //virtual void Deserialize(Json::Value& root) = 0;
    
@@ -89,6 +90,9 @@ namespace DCEngine {
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
     const GameSession& ThisGameSession()  const { return *GameSessionRef; } 
+    static unsigned int ComponentsCreated;
+    static unsigned int ComponentsDestroyed;
+    const unsigned int ComponentID;
     
   protected:
 

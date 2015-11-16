@@ -34,6 +34,7 @@ namespace DCEngine {
       GameObjectPtr FindObjectAtPosition(Vec3 pos, Space& space);
       GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
       void RegisterSpace(PhysicsSpace& physicsSpace);
+      void DeregisterSpace(PhysicsSpace& physicsSpace);
 
     private:
 

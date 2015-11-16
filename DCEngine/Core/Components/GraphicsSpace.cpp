@@ -7,6 +7,25 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Default GraphicsSpace constructor.
+  */
+  /**************************************************************************/
+  GraphicsSpace::GraphicsSpace(Entity & owner) : Component(std::string("GraphicsSpace"), owner)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Default GraphicsSpace destructor.
+  */
+  /**************************************************************************/
+  GraphicsSpace::~GraphicsSpace() {
+    // Deregister from the Graphics System
+
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Initializes the GraphicsSpace component.
   */
   /**************************************************************************/
@@ -15,19 +34,6 @@ namespace DCEngine {
     CameraViewportComponent = Owner()->getComponent<CameraViewport>();
     // Register this space to the graphics system
     Daisy->getSystem<Systems::Graphics>()->Register(*this);
-  }
-
-  /**************************************************************************/
-  /*!
-  \brief Serialize/Deserialize.
-  */
-  /**************************************************************************/
-  void GraphicsSpace::Serialize(Json::Value & root) {
-
-  }
-
-  void GraphicsSpace::Deserialize(Json::Value & root) {
-
   }
 
   /**************************************************************************/
@@ -44,7 +50,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Registers a SpriteText into the GraphicsSpace
+  @brief  Registers a Sprite into the GraphicsSpace
   @param  A reference to an instance of the 'Sprite' component.
   */
   /**************************************************************************/
@@ -52,7 +58,23 @@ namespace DCEngine {
   {
     SpriteContainer.push_back(&sprite);
     DCTrace << "GraphicsSpace::AddSprite - "
-      << sprite.Owner()->Name() << "\n";
+            << sprite.Owner()->Name() << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Deregisters a Sprite from the GraphicsSpace
+  @param  A reference to an instance of the 'Sprite' component.
+  */
+  /**************************************************************************/
+  void GraphicsSpace::RemoveSprite(Sprite & sprite)
+  {
+    DCTrace << "GraphicsSpace::RemoveSprite - "
+            << sprite.Owner()->Name() << "\n";
+    Sprite* spritePtr = &sprite;
+    SpriteContainer.erase(std::remove(SpriteContainer.begin(),
+      SpriteContainer.end(), spritePtr),
+      SpriteContainer.end());
   }
 
   /**************************************************************************/

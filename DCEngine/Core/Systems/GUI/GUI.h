@@ -40,6 +40,7 @@ namespace DCEngine {
       
       std::unique_ptr<ImGuiSFML> GUIHandler;
       sf::Event* EventObj;
+      std::string DefaultFont;
 
     };
 

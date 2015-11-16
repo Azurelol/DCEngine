@@ -18,6 +18,7 @@
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../ComponentsInclude.h"
+#include "../../Resources/Archetype.h"
 
 namespace DCEngine {
 
@@ -30,34 +31,29 @@ namespace DCEngine {
       friend class Engine;
 
     public:                  
-      /* GameObjects*/
-      GameObjectPtr CreateGameObject(std::string& name, Space& space, bool init); //!< Creates a default gameObj
-      GameObjectPtr CreateGameObject(const std::string& gameObjectName, const Space& space, bool init);
-      
-      /* Components */
+      // GameObjects
+      GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
+      GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);     
+      void MarkGameObject(GameObject& gameObj);
+      void DestroyGameObjects();
+
+      // Components
       ComponentPtr CreateComponent(const std::string& compName, bool init);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
-
-      /* Resources*/
+      // Resources
       ResourcePtr CreateResource(const std::string& resourceName, bool init);
-
-      void DestroyGameObject(GameObject& gameObj);
-      void DestroyAllObjects(); //!< Destroys all objects
-
-      void LoadResources(); //!< Load project resources into different maps
-      void LoadLevel(std::string& levelName);
-
+      
       // !< When components are constructed they register themselves to the map.
       template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
 
 
     private:
 
-      unsigned LastGameObjectId; //!< Incrementally generate unique IDs
-      std::map<std::string, std::type_index> ComponentClassMap; 
-      GameObjectVec gameObjVec; //!< Container of active GameObjects
-      ComponentVec ComponentContainer; //!< Container of active Components
-      std::set<GameObject*> gameObjsToBeDeleted; 
+      unsigned LastGameObjectId; //!< Incrementally generate unique IDs      
+      GameObjectStrongVec ActiveGameObjects; //!< Container of active GameObjects
+      ComponentVec ActiveComponents; //!< Container of active Components
+      std::map<std::string, std::type_index> ComponentClassMap;
+      std::set<GameObjectPtr> GameObjectsToBeDeleted; 
 
       /* Functions */
       Factory();
@@ -67,11 +63,6 @@ namespace DCEngine {
 
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
-      void DeleteGameObject(GameObjectPtr gameObj);
-
-      
-
-
     }; 
 
     /**************************************************************************/
@@ -90,7 +81,7 @@ namespace DCEngine {
       // Create a component and set its owner
       ComponentPtr newComp = ComponentPtr(new ComponentClass(owner));
       // Add the component to the factory's list of active components
-      ComponentContainer.push_back(newComp);
+      ActiveComponents.push_back(newComp);
       // Return a reference to the component
       return newComp;
     }

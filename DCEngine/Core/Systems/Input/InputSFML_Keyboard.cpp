@@ -12,6 +12,7 @@ namespace DCEngine {
     /* These functions will dispatch engine-events */
     void ToggleFullscreen();
     void ToggleEditor();
+    void DispatchEngineExitEvent();
 
     /**************************************************************************/
     /*!
@@ -38,6 +39,7 @@ namespace DCEngine {
       switch (event.key.code) {
       case sf::Keyboard::Escape: // RESERVED: Terminate engine
         Daisy->getSystem<Window>()->WindowHandler->Terminate();
+        DispatchEngineExitEvent();        
         KeyboardRef->KeyDown_Escape = true;
         break;
 
@@ -294,6 +296,18 @@ namespace DCEngine {
       auto toggleEditor = new Events::EditorEnabled();
       Daisy->Dispatch<Events::EditorEnabled>(toggleEditor);
       delete toggleEditor;
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Dispatches the event signaling the Engine exit.
+    */
+    /**************************************************************************/
+    void DispatchEngineExitEvent()
+    {
+      auto exitEvent = new Events::EngineExit();
+      Daisy->Dispatch<Events::EngineExit>(exitEvent);
+      delete exitEvent;      
     }
   }
 }

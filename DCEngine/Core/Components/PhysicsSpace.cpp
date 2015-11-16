@@ -6,11 +6,21 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief Constructor for the 'PhysisSpace' component.
+  \brief PhysicsSpace constructor.
   */
   /**************************************************************************/
   PhysicsSpace::PhysicsSpace(Entity& owner) : Component(std::string("PhysicsSpace"), owner) {
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief PhysicsSpace destructor.
+  */
+  /**************************************************************************/
+  PhysicsSpace::~PhysicsSpace()
+  {
+    // Deregister from the Physics System
   }
 
   /**************************************************************************/
@@ -22,18 +32,6 @@ namespace DCEngine {
   void PhysicsSpace::Initialize() {
     // Register this space to the physics system
     Daisy->getSystem<Systems::Physics>()->RegisterSpace(*this);
-
-  }
-
-
-  void PhysicsSpace::Serialize(Json::Value & root)
-  {
-
-  }
-
-  void PhysicsSpace::Deserialize(Json::Value & root)
-  {
-
   }
 
   /**************************************************************************/
@@ -44,8 +42,21 @@ namespace DCEngine {
   /**************************************************************************/
   void PhysicsSpace::AddRigidBody(GameObject* rigidbody)
   {
-    rigidbodies_.push_back(rigidbody);
+    RigidBodiesContainer.push_back(rigidbody);
     DCTrace << "PhysicsSpace::AddRigidBody - " << rigidbody->Name() << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Remvoes a GameObject with a 'RigidBody' component.
+  \param A pointer to the 'GameObject'
+  */
+  /**************************************************************************/
+  void PhysicsSpace::RemoveRigidBody(GameObject * rigidbody)
+  {
+    RigidBodiesContainer.erase(std::remove(RigidBodiesContainer.begin(),
+                                           RigidBodiesContainer.end(), rigidbody),
+                                           RigidBodiesContainer.end());
   }
 
   /**************************************************************************/
@@ -56,8 +67,21 @@ namespace DCEngine {
   /**************************************************************************/
   void PhysicsSpace::AddCollider(GameObject* collider)
   {
-    colliders_.push_back(collider);
+    CollidersContainer.push_back(collider);
     DCTrace << "PhysicsSpace::AddCollider - " << collider->Name() << "\n";
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Remvoes a GameObject with a 'RigidBody' component.
+  \param A pointer to the 'GameObject'
+  */
+  /**************************************************************************/
+  void PhysicsSpace::RemoveCollider(GameObject * collider)
+  {
+    CollidersContainer.erase(std::remove(CollidersContainer.begin(),
+                                         CollidersContainer.end(), collider),
+                                         CollidersContainer.end());
   }
 
   /**************************************************************************/
@@ -68,7 +92,7 @@ namespace DCEngine {
   /**************************************************************************/
   GameObjectRawVec PhysicsSpace::getRigidbodies()
   {
-    return rigidbodies_;
+    return RigidBodiesContainer;
   }
   /**************************************************************************/
   /*!
@@ -78,6 +102,6 @@ namespace DCEngine {
   /**************************************************************************/
   GameObjectRawVec PhysicsSpace::getColliders()
   {
-    return colliders_;
+    return CollidersContainer;
   }
 }

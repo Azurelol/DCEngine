@@ -3,13 +3,14 @@
 
 namespace DCEngine {
   namespace Systems {
-    
+
     /**************************************************************************/
     /*!
     \brief  Constructor.
     */
     /**************************************************************************/
-    Editor::Editor() : System(std::string("EditorSystem"), EnumeratedSystem::Editor)
+    Editor::Editor(bool enabled) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
+                                   EditorEnabled(enabled)
     {      
     }
 
@@ -26,6 +27,17 @@ namespace DCEngine {
       ReflectionSystem = Daisy->getSystem<Reflection>();
       // Subscribe to events
       Subscribe();
+      // Set the default space for the editor to work on
+      CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
+
+      // If the Editor was enabled from the start,
+      // toggle the widgets
+      if (EditorEnabled) {
+        WidgetLibraryEnabled = true;
+        WidgetObjectsEnabled = true;
+      }
+      
+
     }
 
     /**************************************************************************/
@@ -80,10 +92,13 @@ namespace DCEngine {
       //ApplyEditorWindowLayout();
 
       // Set it's current space to work on
-      CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
+      //CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
 
       // Toggle on the editor
       EditorEnabled = !EditorEnabled;
+      // Toggle the widgets
+      WidgetLibraryEnabled = true;
+      WidgetObjectsEnabled = true;
 
       DCTrace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
@@ -110,9 +125,8 @@ namespace DCEngine {
       WidgetObjects();
       WidgetLibrary();
       WidgetProperties();
+      WidgetDiagnostics();
     }
-
-
 
     /**************************************************************************/
     /*!
@@ -146,6 +160,16 @@ namespace DCEngine {
         ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
         ImGui::ShowTestWindow(&ShowTestWindow);
       }
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Loads a sample level onto the space.
+    */
+    /**************************************************************************/
+    void Editor::LoadSampleLevel()
+    {
+
     }
 
     /**************************************************************************/
@@ -236,7 +260,7 @@ namespace DCEngine {
       auto camDir = Vec3(0, 0, -1);
 
       // 3. Sort them in the order of the ones closest to the front of the camera.
-      GameObject* closestObj = objsAtPos.front().get();
+      GameObjectPtr closestObj = objsAtPos.front();
       for (auto obj : objsAtPos) {
         // 3.1 Get the Z-pos of the current object in the container
         auto ObjectName = obj->Name();
@@ -246,7 +270,7 @@ namespace DCEngine {
         auto closestZ = closestObj->getComponent<Transform>()->Translation.z;
 
         if (objZ < camPos.z && objZ > closestZ) {
-          closestObj = obj.get();
+          closestObj = obj;
         }          
       }
 
@@ -266,6 +290,8 @@ namespace DCEngine {
       WidgetPropertiesEnabled = true;
       SelectedObject = obj;
     }
+
+
 
   }
 }

@@ -33,10 +33,9 @@ namespace DCEngine {
 
   public:
 
-    GraphicsSpace(Entity& owner) : Component(std::string("GraphicsSpace"), owner) {}
+    GraphicsSpace(Entity& owner);
+    ~GraphicsSpace();
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
 
     void AddSprite(Sprite& sprite);
     void RemoveSprite(Sprite& sprite);

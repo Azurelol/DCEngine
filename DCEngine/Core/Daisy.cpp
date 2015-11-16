@@ -36,9 +36,9 @@ int main(int argc, char* argv[]) {
     // Initialize the engine
     Daisy->Initialize();
     // Load the project into the engine
-    Daisy->LoadProject(std::string(argv[0]));
+    //Daisy->LoadProject(std::string(argv[0]));
     // Start the engine now that project has been loaded
-    Daisy->StartProject();
+    // Daisy->StartProject();
     // Start the engine's main loop
     DCTrace << "\n[Engine::Loop]\n";
     Daisy->Loop();
