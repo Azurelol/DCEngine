@@ -27,10 +27,21 @@ uniform float CutMinX;
 uniform float CutMinY;
 uniform float CutMaxX;
 uniform float CutMaxY;
+//Flip
+uniform int flipx;
+uniform int flipy;
 
 
 void main() {
   TexCoords = vertex.zw;
+  if (flipx == 1)
+  {
+    TexCoords.x = (1 - TexCoords.x);
+  }
+  if (flipy == 1)
+  {
+    TexCoords.y = (1 - TexCoords.y);
+  }
   
   //Animation
   if (isAnimaitonActivated == 1)
