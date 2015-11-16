@@ -65,18 +65,23 @@ namespace DCEngine {
   /**************************************************************************/
   struct ProjectData {
     std::string ProjectName;
-    unsigned int ResolutionWidth;
-    unsigned int ResolutionHeight;
-    std::string DefaultSpaceName;
-    std::string DefaultLevelName;
+    std::string DefaultSpace;
+    std::string DefaultLevel;
     std::string AssetPath;
+    std::string ScriptPath;
 
-    std::string SpritePath;
-    std::string SoundPath;
-    std::string ShaderPath;
-    std::string FontPath;
-    std::string ArchetypePath;
-    std::string LevelPath;
+    void Serialize(Json::Value& root) {
+    }
+
+    void Deserialize(Json::Value& root) {
+
+      ProjectName = root.get("Project Name", "").asString();
+      DefaultLevel = root.get("Default Level", "").asString();
+      DefaultSpace = root.get("Default Space", "").asString();
+      AssetPath = root.get("Assets Path", "").asString();
+      ScriptPath = root.get("Script Path", "").asString();
+    }
+
   };
   using ProjectDataPtr = std::unique_ptr<ProjectData>;
 

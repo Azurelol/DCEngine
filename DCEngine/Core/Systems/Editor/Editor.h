@@ -66,6 +66,7 @@ namespace DCEngine {
       void SaveProject();
       void ShowProjectFolder();
       void PlayGame();
+      void StopGame();
       void ExportGame();
       void Exit();
       // Resources

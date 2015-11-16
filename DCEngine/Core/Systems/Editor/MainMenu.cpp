@@ -38,6 +38,10 @@ namespace DCEngine {
           ImGui::Separator();
           if (ImGui::MenuItem("Play Game"))
             PlayGame();
+          if (ImGui::MenuItem("Stop Game"))
+            StopGame();
+          if (ImGui::MenuItem("Exit"))
+            Exit();
           ImGui::EndMenu();
         }
 
@@ -119,10 +123,6 @@ namespace DCEngine {
 
       }
 
-      if (ImGui::BeginMainMenuBar()) {
-
-        ImGui::EndMainMenuBar();
-      }
     }
 
 

@@ -143,7 +143,19 @@ namespace DCEngine {
         auto archetypeName = FileSystem::FileNoExtension(archetype);
         AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
       }
+    }
 
+    /**************************************************************************/
+    /*!
+    @brief  Loads a project from file.
+    @param  A string containing the path of the project data file.
+    */
+    /**************************************************************************/
+    void Content::LoadProject(std::string projectDataPath)
+    {
+      std::string projectDataString;
+      if (FileSystem::FileReadToString(projectDataPath, projectDataString))
+        Serialization::Deserialize(ProjectInfo.get(), projectDataString);
     }
 
     /**************************************************************************/
@@ -153,7 +165,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProjectAssets()
     {
-
+      auto LevelPath = CoreAssetsPath + "Levels/";
+      // Load levels
+      std::vector<std::string> levels;
+      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
+        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
+      for (auto level : levels) {
+        auto archetypeName = FileSystem::FileNoExtension(level);
+        AddLevel(archetypeName, LevelPtr(new Level(level)));
+      }
     }
 
     /**************************************************************************/
@@ -214,6 +234,16 @@ namespace DCEngine {
       return ArchetypeMap.at(archetypeName);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a Level resource.
+    @return Returns a pointer to the Level object.
+    */
+    /**************************************************************************/
+    LevelPtr Content::getLevel(std::string & levelName)
+    {
+      return LevelMap.at(levelName);
+    }
 
     /**************************************************************************/
     /*!
@@ -239,6 +269,11 @@ namespace DCEngine {
     ArchetypeMap * Content::AllArchetypes()
     {
       return &ArchetypeMap;
+    }
+
+    LevelMap * Content::AllLevels()
+    {
+      return &LevelMap;
     }
 
 
@@ -329,6 +364,19 @@ namespace DCEngine {
     {
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
       DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a level resource to the Level resource map.
+    @param The name of the level.
+    @param The pointer to the level resource.
+    */
+    /**************************************************************************/
+    void Content::AddLevel(std::string & levelName, LevelPtr levelPtr)
+    {
+      LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
+      DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
 
   }
