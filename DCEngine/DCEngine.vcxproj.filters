@@ -635,9 +635,6 @@
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\ProjectSetup.h">
-      <Filter>Core\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\GraphicsSpace.h">
       <Filter>Core\Components\Graphics</Filter>
     </ClInclude>

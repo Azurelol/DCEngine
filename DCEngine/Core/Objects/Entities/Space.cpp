@@ -114,15 +114,19 @@ namespace DCEngine {
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
       DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
-    
+        
     // Clear the current objects from the space
     //DestroyAll();
+
     // Set it as the current level
     CurrentLevel = level;
+
     // Load GameObjects into the space
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
+
+
     // Initialize every GameObject
     for (auto gameObject : GameObjectContainer) {
       gameObject->Initialize();

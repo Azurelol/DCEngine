@@ -375,7 +375,6 @@
     <ClInclude Include="Core\Components\LinearParticleAnimator.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
-    <ClInclude Include="Core\Components\ProjectSetup.h" />
     <ClInclude Include="Core\Components\RigidBody.h" />
     <ClInclude Include="Core\Components\SoundEmitter.h" />
     <ClInclude Include="Core\Components\SoundSpace.h" />

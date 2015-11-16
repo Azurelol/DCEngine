@@ -82,13 +82,6 @@ namespace DCEngine {
 	{
 	}
 
-	void DebugCamera::Serialize(Json::Value & root)
-	{
-	}
-
-	void DebugCamera::Deserialize(Json::Value & root)
-	{
-	}
 
 
 }

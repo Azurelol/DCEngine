@@ -33,6 +33,15 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Camera destructor.
+  */
+  /**************************************************************************/
+  Camera::~Camera()
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Initializes the camera component and its settings.
   \note
   */
@@ -54,7 +63,6 @@ namespace DCEngine {
     // Set the references to the Window system's screen width and height
     ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
     ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;
-
   }
 
   /**************************************************************************/

@@ -320,6 +320,15 @@ namespace DCEngine {
       //io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
       //io.DisplayFramebufferScale = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
 
+      // Setup display size (every frame to accomodate for window resizing)
+      //int width, height;
+      //int displayWidth, displayHeight;
+      io.DisplaySize = ImVec2(static_cast<float>(WindowContext->getSize().x),
+                              static_cast<float>(WindowContext->getSize().y));
+
+      
+
+
       // Update time step
       static double time = 0.0f;
       const double currentTime = TimeElapsed.getElapsedTime().asSeconds();
