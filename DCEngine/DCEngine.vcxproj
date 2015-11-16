@@ -319,6 +319,7 @@
     <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML_Mouse.cpp" />
     <ClCompile Include="Core\Systems\Physics\Collision.cpp" />
+    <ClCompile Include="Core\Systems\Physics\Interpolation.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
@@ -453,6 +454,7 @@
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
     <ClInclude Include="Core\Systems\Physics\Collision.h" />
+    <ClInclude Include="Core\Systems\Physics\Interpolation.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
