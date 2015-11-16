@@ -10,15 +10,14 @@ namespace DCEngine {
 
 	public:
 
-		bool Translation = true;
 		bool Grounded = true;
 		bool Jumping = false;
 		bool DoAutoPlay = true;
-		Real MoveSpeed = 0.2f;
-		Real JumpPower = 30.0f;
+		Real MoveSpeed = 0.4f;
+		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;
 		Real JumpFramesApplied = 0;
-		Real AirBrakeScalar = 0.9f; //multiplies your current y velocity by this when you release jump while jumping upwards
+		Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;

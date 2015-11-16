@@ -48,7 +48,10 @@ namespace DCEngine {
       cameraObj = ConstructGameObject("DollHouseCamera");
       cameraObj->AddComponent(ComponentPtr(new Transform(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
-      cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
+<<<<<<< HEAD
+=======
+      //cameraObj->AddComponent(ComponentPtr(new Camera(*cameraObj)));
+>>>>>>> 9be4a631c98e0274b6ef69d27b6049c29890250e
       //cameraObj->AddComponent(ComponentPtr(new DebugReport(*cameraObj)));      
       cameraObj->AddComponent(ComponentPtr(new DebugCamera(*cameraObj)));
       cameraObj->AddComponent(ComponentPtr(new DebugAudio(*cameraObj)));
