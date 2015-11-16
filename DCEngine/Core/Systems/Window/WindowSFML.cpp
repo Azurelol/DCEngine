@@ -64,17 +64,17 @@ namespace DCEngine {
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
+		  WindowInterface.Width = 1024;
+		  WindowInterface.Height = 768;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Default, ContextSettings);
         break;
       case WindowMode::Fullscreen :
+		  static const std::vector<sf::VideoMode> tmp = sf::VideoMode::getFullscreenModes();
+		  WindowInterface.Width = tmp.front().width;
+		  WindowInterface.Height = tmp.front().height;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
-		Daisy->getSystem<Systems::Window>()->Width = 1980;
-		Daisy->getSystem<Systems::Window>()->Height = 1080;
-		DCTrace << Daisy->getSystem<Systems::Window>()->Width << ", " << Daisy->getSystem<Systems::Window>()->Height << "\n";
-        break;
-      default:
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
@@ -84,7 +84,6 @@ namespace DCEngine {
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
-	  DCTrace << Daisy->getSystem<Systems::Window>()->Width << ", " << Daisy->getSystem<Systems::Window>()->Height << "\n";
 
       // Reload textures
       //Daisy->getSystem<Content>()->LoadTextures();
