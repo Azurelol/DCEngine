@@ -186,9 +186,10 @@ particleTest::Initialize
 [Engine::Loop]
 Editor::OnEditorEnabledEvent 
 Editor::ToggleEditor : 1
-Editor::SelectObject - Background
-Mariah::Transform.Translation(25.3395, -2.00117, 0)
-Mariah::Transform.Translation(25.2987, -2.00058, 0)
+Editor::OnEditorEnabledEvent 
+Editor::ToggleEditor : 0
+Editor::OnEditorEnabledEvent 
+Editor::ToggleEditor : 1
 
 [Engine::Terminate] 
 Content::Terminate
