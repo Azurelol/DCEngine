@@ -34,6 +34,7 @@ namespace DCEngine {
     public:
 
       void Register(GraphicsSpace& graphicsSpace);
+      void Deregister(GraphicsSpace& graphicsSpace);
       
       void DrawSprite(Sprite& sprite, Camera& camera, float dt);
       void DrawSpriteText(SpriteText& st, Camera& cam);

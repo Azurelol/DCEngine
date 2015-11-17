@@ -46,3 +46,5 @@
       ENGINE FILES
 */
 /**************************************************************************/
+#include "../Engine/Types.h"
+#include "../Engine/Macros.h"

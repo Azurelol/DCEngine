@@ -1,5 +1,6 @@
 #include "Component.h"
 
+
 #include "Entity.h" // EntityPtr
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
@@ -9,9 +10,23 @@
 
 namespace DCEngine {
 
+  // Static member variables
+  unsigned int Component::ComponentsCreated = 0;
+  unsigned int Component::ComponentsDestroyed = 0;  
+  std::string Component::ComponentLastCreated;
+  std::string Component::ComponentLastDestroyed;
+  // Enable diagnostics
+  bool Component::DiagnosticsEnabled = true;
 
+  /**************************************************************************/
+  /*!
+  @brief Component constructor.
+  @param name The name of the Component class.
+  @param owner A reference to the Entity that owns this component.
+  */
+  /**************************************************************************/
   Component::Component(std::string name, Entity& owner)
-                        : Object(name) {
+                        : Object(name), ComponentID(ComponentsCreated++) {
     ObjectOwner = (Object*)&owner;
 
     // Set references
@@ -22,12 +37,43 @@ namespace DCEngine {
         << "Owner: '" << ObjectOwner->Name()
         << "'\n";
     }
+
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      ComponentLastCreated = ObjectName;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Component destructor.
+  */
+  /**************************************************************************/
+  Component::~Component()
+  {
+    if (DCE_TRACE_COMPONENT_DESTRUCTOR)
+      DCTrace << ObjectOwner->Name() << "::" << Name() 
+              << "::~Component - Destructor called! \n";
+    ComponentsDestroyed++;
+
+    if (DiagnosticsEnabled)
+      ComponentLastDestroyed = ObjectName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a pointer to the Entity that owns this component.
+  @return An entity pointer.
+  */
+  /**************************************************************************/
   Entity* Component::Owner() {
     return dynamic_cast<Entity*>(ObjectOwner);
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Sets the Owner reference for this component.
+  */
+  /**************************************************************************/
   void Component::SetReferences() {
     auto type = Owner()->Type();
     auto entity = dynamic_cast<Entity*>(Owner());

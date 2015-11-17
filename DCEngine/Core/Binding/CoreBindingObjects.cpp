@@ -132,7 +132,8 @@ namespace DCEngine {
   @brief  Component Definition
   \**************************************************************************/
   ZilchDefineType(Component, "Component", DCEngineCore, builder, type) {
-    type->HandleManager = ZilchManagerId(Zilch::PointerManager);
+    // This sets Zilch's Handle manager setting
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
     ZilchBindDestructor(builder, type, Component);

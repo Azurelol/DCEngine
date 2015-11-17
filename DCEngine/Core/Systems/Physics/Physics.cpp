@@ -34,7 +34,8 @@ namespace DCEngine {
 
 		/**************************************************************************/
 		/*!
-		\brief Registers a space to this system.
+		@brief Registers a space to this system.
+    @param physicsSpace A reference to the PhysicsSpace.
 		*/
     /**************************************************************************/
 		void Physics::RegisterSpace(PhysicsSpace & physicsSpace)
@@ -43,6 +44,22 @@ namespace DCEngine {
 			DCTrace << "Physics::Register -  " << physicsSpace.Owner()->Name()
 				<< " has registered to the Physics system\n";
 		}
+
+    /**************************************************************************/
+    /*!
+    @brief Deregisters a space to this system.
+    @param physicsSpace A reference to the PhysicsSpace.
+    */
+    /**************************************************************************/
+    void Physics::DeregisterSpace(PhysicsSpace & physicsSpace)
+    {
+      DCTrace << "Physics::Deregister -  " << physicsSpace.Owner()->Name()
+              << " has deregistered from the Physics system\n";
+      auto physicsSpacePtr = &physicsSpace;
+      physicsSpaces_.erase(std::remove(physicsSpaces_.begin(),
+                                       physicsSpaces_.end(), physicsSpacePtr),
+                                       physicsSpaces_.end());
+    }
 
 		/**************************************************************************/
 		/*!
@@ -82,7 +99,7 @@ namespace DCEngine {
       // Check for objects in the space for a collision
       for (auto gameObj : *space.AllObjects()) {
         // If there's a match, add it to the container
-        if (Collision::PointToRectangle(gameObj.get(), pos))
+        if (Collision::PointToRectangle(gameObj, pos))
           objsAtPos.push_back(gameObj);
       }      
 
@@ -363,6 +380,7 @@ namespace DCEngine {
 			collisionStartedEvent->Object = collisionData.OtherObject;
 			collisionStartedEvent->OtherObject = collisionData.Object;
 			collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      delete collisionStartedEvent;
 		}
 
 		/**************************************************************************/
@@ -383,6 +401,7 @@ namespace DCEngine {
 			collisionEndedEvent->Object = collisionData.OtherObject;
 			collisionEndedEvent->OtherObject = collisionData.Object;
 			collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      delete collisionEndedEvent;
 		}
 
 

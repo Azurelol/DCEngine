@@ -16,7 +16,7 @@ namespace DCEngine {
   class Transform;
   class CircleCollider : public Component {
   public:
-       
+
     float Radius = 5;
     Vec3 Offset = Vec3(0, 0, 0);
     Boolean Ghost = false;

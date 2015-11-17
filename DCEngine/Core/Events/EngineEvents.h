@@ -13,6 +13,9 @@
 namespace DCEngine {
   namespace Events {
 
+    class EngineExit : public Event {
+    public:
+    };
 
   }
 }

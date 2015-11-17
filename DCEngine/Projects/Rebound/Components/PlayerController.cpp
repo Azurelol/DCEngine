@@ -15,7 +15,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
-    SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
+		SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 	}
 
 	void PlayerController::Serialize(Json::Value & root)
@@ -35,26 +35,9 @@ namespace DCEngine {
 
 	}
 
-	void PlayerController::OnKeyDownEvent(Events::KeyDown* event) 
+	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
-		switch (event->Key) 
-		{
 
-		case Keys::W:
-			Jumping = true;
-			Grounded = false;
-			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
-			PrintTranslation();
-			break;
-		case Keys::A:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
-			PrintTranslation();
-			break;
-		case Keys::D:
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
-			PrintTranslation();
-			break;
-		}
 	}
 
 	void PlayerController::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -64,58 +47,52 @@ namespace DCEngine {
 
 	void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
 	{
-		Grounded = false;
+		//Grounded = false;
 	}
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
-		if (Jumping)
+		//DCTrace << "Grounded =" << Grounded << "\n";
+		if (!Grounded)
 		{
-      SpriteComponent->SpriteSource = "MonkeyJump1";
-      SpriteComponent->HaveAnimation = false;
-      SpriteComponent->AnimationActive = false;
-			Jump();
+			SpriteComponent->SpriteSource = "MonkeyJump1";
+			SpriteComponent->HaveAnimation = false;
+			SpriteComponent->AnimationActive = false;
 		}
-		if (Daisy->getKeyboard()->KeyIsDown(Keys::W))
-		{
 
+		if (Daisy->getKeyboard()->KeyIsDown(Keys::W) || Daisy->getKeyboard()->KeyIsDown(Keys::Space))
+		{
+			if (Grounded)
+			{
+				Jump();
+				Jumping = true;
+				Grounded = false;
+			}
 		}
 		else
 		{
-      SpriteComponent->SpriteSource = "MonkeyWalk1";
-      SpriteComponent->HaveAnimation = true;
-      SpriteComponent->AnimationActive = true;
+			SpriteComponent->SpriteSource = "MonkeyWalk1";
+			SpriteComponent->HaveAnimation = true;
+			SpriteComponent->AnimationActive = true;
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{
 				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 			}
 		}
-		//if (Daisy->getKeyboard()->KeyIsDown(Keys::W) && Grounded)
-		//{
-			//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
-			//Grounded = false;
-		//}
-		//else if (!Grounded && RigidBodyRef->getVelocity().y > 0)
-		//{
-		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
-		//}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-MoveSpeed, 0, 0));
-			//DCTrace << "AAA";
+			SpriteComponent->FlipX = true;
+			MoveLeft();
+
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
+			SpriteComponent->FlipX = false;
+			MoveRight();
 		}
-		//if (Daisy->getKeyboard()->KeyIsDown(Keys::Space))
-		//{
-		//	RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(MoveSpeed, 0, 0));
-		//	//DCTrace << "Space";
-		//}
 	}
 
 	void PlayerController::Jump()
@@ -127,19 +104,61 @@ namespace DCEngine {
 			Jumping = false;
 			JumpFramesApplied = 0;
 		}
-		
+
 	}
 
 
 
 	void PlayerController::PrintTranslation()
 	{
-		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x	<< ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void PlayerController::PrintVelocity()
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
 		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+	}
+
+	void PlayerController::AutoPlay(Events::LogicUpdate * event)
+	{
+		switch (rand() % 3)
+		{
+
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		}
+	}
+	void PlayerController::MoveLeft()
+	{
+		if (RigidBodyRef->getVelocity().x > 0)
+		{
+			auto scalar = TurnSpeedScalar;
+		}
+		else
+		{
+			auto scalar = 1;
+		}
+		RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
+
+
+		PrintTranslation();
+	}
+	void PlayerController::MoveRight()
+	{
+		if (RigidBodyRef->getVelocity().x < 0)
+		{
+			auto scalar = TurnSpeedScalar;
+		}
+		else
+		{
+			auto scalar = 1;
+		}
+		RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
+		PrintTranslation();
 	}
 }

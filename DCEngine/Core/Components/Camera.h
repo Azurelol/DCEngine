@@ -78,6 +78,8 @@ namespace DCEngine {
     glm::mat4 GetViewMatrix();
     glm::mat4 GetProjectionMatrix();
 		Camera(Entity& owner);
+    //Camera(const Camera& rhs) { DCTrace << "Camera::COPY??/n"; }
+    ~Camera();
 		void Initialize();
 		void OnLogicUpdate(Events::LogicUpdate* event);
 		

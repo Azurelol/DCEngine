@@ -27,20 +27,21 @@ namespace DCEngine {
     bool Deterministic;
     
     PhysicsSpace(Entity& owner);
+    ~PhysicsSpace();
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-    
+
     void AddRigidBody(GameObject* rigidbody);
+    void RemoveRigidBody(GameObject* rigidbody);
     void AddCollider(GameObject* collider);
+    void RemoveCollider(GameObject* collider);
     GameObjectRawVec getRigidbodies();
     GameObjectRawVec getColliders();
 
 
   private:
 
-    GameObjectRawVec rigidbodies_;
-    GameObjectRawVec colliders_;
+    GameObjectRawVec RigidBodiesContainer;
+    GameObjectRawVec CollidersContainer;
 
   };
 

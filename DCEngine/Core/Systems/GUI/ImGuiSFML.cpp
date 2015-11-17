@@ -119,7 +119,7 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Generates a font Texture and binds it to ImGui.
+    @brief  Compiles stuff for ImGui.
     @note   Currently done through sf::Texture.
     */
     /**************************************************************************/
@@ -214,7 +214,13 @@ namespace DCEngine {
 
       return true;
     }
-    
+
+    /**************************************************************************/
+    /*!
+    @brief  Generates a font Texture and binds it to ImGui.
+    @note   Currently done through sf::Texture.
+    */
+    /**************************************************************************/
     IMGUI_API void ImGuiSFML::ImGuiSFMLGenerateFontTexture()
     {
       ImGuiIO& io = ImGui::GetIO();
@@ -226,6 +232,7 @@ namespace DCEngine {
       // Roll our own
       if (GENERATE_FONT_TEXTURE_MANUALLY) {
         io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+        //io.Fonts->AddFontFromFileTTF("DroidSand.ttf", FileSystem::FileSize("DroidSand.ttf"));
         glGenTextures(1, &g_FontTexture);
         glBindTexture(GL_TEXTURE_2D, g_FontTexture);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -241,6 +248,9 @@ namespace DCEngine {
         FontTexture.update(pixels);
         io.Fonts->TexID = (void*)&FontTexture;
       }
+
+      // Load TTF FILE?
+      //io.Fonts->AddFontFromFileTTF("DroidSand.ttf");
       
       io.Fonts->ClearInputData();
       io.Fonts->ClearTexData();
@@ -309,6 +319,15 @@ namespace DCEngine {
       // Update display size
       //io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
       //io.DisplayFramebufferScale = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
+
+      // Setup display size (every frame to accomodate for window resizing)
+      //int width, height;
+      //int displayWidth, displayHeight;
+      io.DisplaySize = ImVec2(static_cast<float>(WindowContext->getSize().x),
+                              static_cast<float>(WindowContext->getSize().y));
+
+      
+
 
       // Update time step
       static double time = 0.0f;

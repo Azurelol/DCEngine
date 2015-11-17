@@ -123,15 +123,30 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Registers a space to this graphics system.
-    \param A reference to the 'GraphicsSpace' component in the Space.
-    \note  
+    @brief Registers a space to this graphics system.
+    @param A reference to the 'GraphicsSpace' component in the Space.
     */
     /**************************************************************************/
     void Graphics::Register(GraphicsSpace& graphicsSpace) {
       graphicsSpaces_.push_back(&graphicsSpace);
       DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
         << " has registered to the Graphics system\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Deregisters a space to this graphics system.
+    @param A reference to the 'GraphicsSpace' component in the Space.
+    */
+    /**************************************************************************/
+    void Graphics::Deregister(GraphicsSpace & graphicsSpace)
+    {
+      DCTrace << "Graphics::Deregister -  " << graphicsSpace.Owner()->Name()
+               << " has deregistered from the Graphics system\n";
+      auto graphicsSpacePtr = &graphicsSpace;
+      graphicsSpaces_.erase(std::remove(graphicsSpaces_.begin(),
+                                        graphicsSpaces_.end(), graphicsSpacePtr),
+                                        graphicsSpaces_.end());
     }
 
     /**************************************************************************/

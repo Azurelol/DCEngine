@@ -90,6 +90,7 @@ namespace DCEngine {
       auto SoundPath = CoreAssetsPath + "Sounds/";
       auto FontPath = CoreAssetsPath + "Fonts/";
       auto ShaderPath = CoreAssetsPath + "Shaders/";
+      auto ArchetypePath = CoreAssetsPath + "Archetypes/";
       
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
@@ -133,6 +134,28 @@ namespace DCEngine {
       // Load default fonts      
       AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
       DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+
+      // Load archetypes
+      std::vector<std::string> coreArchetypes;
+      if (!FileSystem::DirectoryListFilePaths(ArchetypePath, coreArchetypes))
+        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
+      for (auto archetype : coreArchetypes) {
+        auto archetypeName = FileSystem::FileNoExtension(archetype);
+        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads a project from file.
+    @param  A string containing the path of the project data file.
+    */
+    /**************************************************************************/
+    void Content::LoadProject(std::string projectDataPath)
+    {
+      std::string projectDataString;
+      if (FileSystem::FileReadToString(projectDataPath, projectDataString))
+        Serialization::Deserialize(ProjectInfo.get(), projectDataString);
     }
 
     /**************************************************************************/
@@ -142,7 +165,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProjectAssets()
     {
-
+      auto LevelPath = CoreAssetsPath + "Levels/";
+      // Load levels
+      std::vector<std::string> levels;
+      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
+        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
+      for (auto level : levels) {
+        auto archetypeName = FileSystem::FileNoExtension(level);
+        AddLevel(archetypeName, LevelPtr(new Level(level)));
+      }
     }
 
     /**************************************************************************/
@@ -177,7 +208,7 @@ namespace DCEngine {
     {
       SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
       if (spriteSource == nullptr)
-        throw DCException("Oi! The SpriteSource " + spriteName + " was not found!");
+        throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
       return SpriteSourceMap.at(spriteName);
     }
 
@@ -192,6 +223,27 @@ namespace DCEngine {
       return SoundCueMap.at(soundCueName);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Grabs an Archetype resource.
+    @return Returns a pointer to the Archetype object.
+    */
+    /**************************************************************************/
+    ArchetypePtr Content::getArchetype(std::string & archetypeName)
+    {
+      return ArchetypeMap.at(archetypeName);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a Level resource.
+    @return Returns a pointer to the Level object.
+    */
+    /**************************************************************************/
+    LevelPtr Content::getLevel(std::string & levelName)
+    {
+      return LevelMap.at(levelName);
+    }
 
     /**************************************************************************/
     /*!
@@ -212,6 +264,16 @@ namespace DCEngine {
     ShaderMap * Content::AllShaders()
     {
       return &ShaderMap;
+    }
+
+    ArchetypeMap * Content::AllArchetypes()
+    {
+      return &ArchetypeMap;
+    }
+
+    LevelMap * Content::AllLevels()
+    {
+      return &LevelMap;
     }
 
 
@@ -253,6 +315,20 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Adds an archetype to the Archetype resource map.
+    @param The name of the archetype.
+    @param The pointer to the archetype.
+    @note  We load the archetype immediately so its ready for use.
+    */
+    /**************************************************************************/
+    void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
+    {
+      ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Adds a shader to the shader resource map.
     @param The name of the shader.
     @param The pointer to the shader resource.
@@ -288,6 +364,19 @@ namespace DCEngine {
     {
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
       DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a level resource to the Level resource map.
+    @param The name of the level.
+    @param The pointer to the level resource.
+    */
+    /**************************************************************************/
+    void Content::AddLevel(std::string & levelName, LevelPtr levelPtr)
+    {
+      LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
+      DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
 
   }

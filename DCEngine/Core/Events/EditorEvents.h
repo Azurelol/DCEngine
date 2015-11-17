@@ -15,8 +15,6 @@ namespace DCEngine {
 
     class EditorEnabled : public Event {
     public:
-
-
     };
 
   }

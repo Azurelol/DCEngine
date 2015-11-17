@@ -8,3 +8,4 @@
 #include "Mesh.h"
 #include "Texture.h"
 #include "Material.h"
+#include "Archetype.h"

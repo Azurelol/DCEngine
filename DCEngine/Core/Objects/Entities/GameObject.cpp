@@ -2,17 +2,25 @@
 
 #include "Space.h"
 #include "GameSession.h"
+// ENGINE ADDED :<
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
     
+  // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
+  unsigned int GameObject::GameObjectsDestroyed = 0;
+  std::string GameObject::GameObjectLastCreated;
+  std::string GameObject::GameObjectLastDestroyed;
+  // Enable diagnostics
+  bool GameObject::DiagnosticsEnabled = true;
 
   /**************************************************************************/
   /*!
   @brief  GameObject constructor.
   @param  The name of the GameObject.
   @param  A reference to the Space.
-  @param  A reference to teh GameSession.
+  @param  A reference to the GameSession.
   */
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
@@ -29,17 +37,57 @@ namespace DCEngine {
     }
 
     type_ = EntityType::GameObject;
+
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastCreated = ObjectName;
+
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Default GameObject constructor.
+  @param  A reference to the Space.
+  @param  A reference to the GameSession.
+  */
+  /**************************************************************************/
   GameObject::GameObject() : Entity("GameObject"), ParentRef(nullptr),
                              GameObjectID(GameObjectsCreated++)
   {
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastCreated = ObjectName;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  GameObject destructor.
+  */
+  /**************************************************************************/
+  GameObject::~GameObject()
+  {
+    // If the GameObject is attached to a Parent, detach
+    if (ParentRef)
+      Detach();
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      GameObjectLastDestroyed = ObjectName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Grabs a pointer to the Space this GameObject resides on.
+  */
+  /**************************************************************************/
   Space* GameObject::GetSpace() {
     return SpaceRef;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Grabs a pointer to the GameSession this GameObject resides on.
+  */
+  /**************************************************************************/
   GameSession * GameObject::GetGameSession() {
     return GamesessionRef;
   }
@@ -149,18 +197,13 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Destroys the GameObject after it has removed all its components
-          in turn, unsubscribing them.
+  @brief  Marks the GameObject to be destroyed.
   */
   /**************************************************************************/
   void GameObject::Destroy()
   {
-    // 1. Remove all components from the GameObject
-    for (auto component : ComponentsContainer)
-      RemoveComponent(component);
-    // 2. Mark this GameObject for destruction. On the next frame,
-    // the factory will handle deleting it.
-
+    // Tell the space to remove this object
+    SpaceRef->RemoveObject(*this);
   }
 
   /**************************************************************************/

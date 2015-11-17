@@ -59,6 +59,7 @@ namespace DCEngine {
 
       /* Events */
       void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
+      void OnEngineExitEvent(Events::EngineExit* event);
 
     };
 

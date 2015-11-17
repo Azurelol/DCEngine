@@ -46,7 +46,7 @@ namespace DCEngine {
   public:
     Delegate() {}
     virtual ~Delegate() {};
-    virtual void Call(Event* event) = 0;
+    virtual bool Call(Event* event) = 0;
   };
 
 
@@ -65,13 +65,21 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Calls the member function given an event.
-    \param  A pointer to the event object.
+    @brief  Calls the member function given an event.
+    @param  A pointer to the event object.
+    @note   If the Object instance is no longer valid (such as if the object
+            was destroyed, this will return false)
     */
     /**************************************************************************/
-    virtual void Call(Event* event) {
+    virtual bool Call(Event* event) {
       EventClass* eventObj = dynamic_cast<EventClass*>(event);
+      // If the object instance has been rendered null, do nothing
+      if (Inst == nullptr) {
+        return false;
+      }
+      // Else, if it is active, dispatch the event object
       (Inst->*FuncPtr)(eventObj);
+      return true;
     }
   };
   

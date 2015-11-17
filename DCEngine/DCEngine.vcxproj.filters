@@ -208,6 +208,9 @@
     <Filter Include="Core\Precompiled">
       <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Menus">
+      <UniqueIdentifier>{27b0b96e-1522-46e8-81aa-a7d0e8a1c246}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -432,9 +435,6 @@
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
       <Filter>Core\Systems\FileSystem</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
-      <Filter>Core\Systems\Editor\Widgets</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Library.cpp">
       <Filter>Core\Systems\Editor\Widgets</Filter>
     </ClCompile>
@@ -506,6 +506,39 @@
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
       <Filter>Core\Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Archetype.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuEdit.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuResources.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
+      <Filter>Core\Systems\Editor\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Event.cpp">
+      <Filter>Core\Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\CameraController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
+      <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -604,9 +637,6 @@
     </ClInclude>
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\ProjectSetup.h">
-      <Filter>Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\GraphicsSpace.h">
       <Filter>Core\Components\Graphics</Filter>
@@ -922,6 +952,21 @@
     </ClInclude>
     <ClInclude Include="Core\Precompiled\Precompiled.h">
       <Filter>Core\Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Archetype.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Macros.h">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\CameraController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ChargeBar.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Interpolation.h">
+      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

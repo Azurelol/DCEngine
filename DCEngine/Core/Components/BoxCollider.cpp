@@ -27,6 +27,26 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief BoxCollider constructor.
+  @param owner A reference to this component's owner.
+  */
+  /**************************************************************************/
+  BoxCollider::BoxCollider(Entity & owner) : Component(std::string("BoxCollider"), owner)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief BoxCollider destructor.
+  */
+  /**************************************************************************/
+  BoxCollider::~BoxCollider()
+  {
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Initializes the BoxCollider component.
   */
   /**************************************************************************/

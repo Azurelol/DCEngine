@@ -48,7 +48,8 @@ namespace DCEngine {
     void setCollisionGroup(String);
 
 		// These should be private!
-		BoxCollider(Entity& owner) : Component(std::string("BoxCollider"), owner) {}
+    BoxCollider(Entity& owner);
+    ~BoxCollider();
 		void Initialize();
     Vec3 getColliderScale();
 

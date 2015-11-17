@@ -3,20 +3,63 @@
 
 namespace DCEngine {
 
+  //DCE_DEFINE_PROPERTY(TimeSpace, bool, Paused);
+
+  bool TimeSpace::getPaused() const
+  {
+    return this->Paused;
+  }
+
+  void TimeSpace::setPaused(bool pause)
+  {
+    this->Paused = pause;
+  }
+
+  float TimeSpace::getTimeScale() const
+  {
+    return this->TimeScale;
+  }
+
+  void TimeSpace::setTimeScale(float timeScale)
+  {
+    this->TimeScale = timeScale;
+  }
+
+  int TimeSpace::getStepCount() const
+  {
+    return this->StepCount;
+  }
+
+  void TimeSpace::setStepCount(int count)
+  {
+    this->StepCount = count;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Default TimeSpace constructor.
+  @param owner The name of the entity.
+  */
+  /**************************************************************************/
+  TimeSpace::TimeSpace(Entity & owner) : Component(std::string("TimeSpace"), owner)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Initializes the TimeSpace.
+  */
+  /**************************************************************************/
   void TimeSpace::Initialize() {
     //Connect(SpaceRef, Events::LogicUpdate, TimeSpace::OnLogicUpdate);
 
-
-
   }
 
-  void TimeSpace::Serialize(Json::Value & root) {
-  }
-
-  void TimeSpace::Deserialize(Json::Value & root) {
-  }
-
-
+  /**************************************************************************/
+  /*!
+  @brief Updates the TimeSpace
+  */
+  /**************************************************************************/
   void TimeSpace::OnLogicUpdate(Events::LogicUpdate* updateEvent) {
     //Events::LogicUpdate* upcastedEvent = (Events::LogicUpdate*)updateEvent;
     //DCTrace << "TimeSpace::OnLogicUpdate - Dt: " << upcastedEvent->Dt << "\n";   

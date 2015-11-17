@@ -26,6 +26,7 @@ namespace DCEngine {
   // Forward declarations
   class GameSession;
   class Factory;
+  class Archetype;
 
   class Space : public Entity {
     friend class GameSession;
@@ -41,62 +42,33 @@ namespace DCEngine {
     Space(std::string name, GameSession& gamesession);
     ~Space();
     void Initialize();
+    void Terminate();
     void Update(float dt);
-
-    //virtual void Serialize(Json::Value& root);
-    //virtual void Deserialize(Json::Value& root);
-    
-    void AddSystem(SystemPtr system);
-    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
-    
 
     void DestroyAll();
     void LoadLevel(LevelPtr level);
     void ReloadLevel();
 
-    GameObjectPtr CreateObject();
+    GameObjectPtr CreateObject(); 
+    GameObjectPtr CreateObject(std::shared_ptr<Archetype> archetype);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
     void AddObject(GameObjectPtr entity);
-    void RemoveObject(GameObjectPtr);
+    void RemoveObject(GameObject&);
     void Clear(); // Remves all entities and systems
 
     GameSession& getGameSession();
     const GameSession* Owner() { return GameSessionRef; };
 
-    // Allows read only access to the space's name
-    //const std::string& GetName() const { return ObjectName;  }
-
   private:
         
     LevelPtr CurrentLevel; //!< The currently-loaded level.
-    SystemVec SystemsContainer; //!< A container of systems this space is running.
     GameSession* GameSessionRef; //!< The gamesession in which this space resides
     GameObjectVec GameObjectContainer; //!< A vector of GameObjects this space holds.
 
     Space() = delete; //!< Spaces should never be default or copy constructed.
     Space(Space& space) = delete;  
   };
-
-  /**************************************************************************/
-  /*!
-  \brief  Allows access to a system running in the engine via system type.
-  \note   This function call can be made much easier using the GETSYSTEM
-  macro that takes a system typename and expands it to fill the
-  template parameters.
-  \para   An enumerated system.
-  \return A shared pointer to the requested system.
-  */
-  /**************************************************************************/
-  template <typename T>
-  std::shared_ptr<T> Space::getSystem(EnumeratedSystem sysType) {
-    for (auto &it : SystemsContainer) {
-      if (it->_type == sysType)
-        return std::static_pointer_cast<T>(it);
-    }
-    // Throw an error if the system doesn't exist in the engine.
-    throw std::range_error("The specified system does not exist.");
-  }
 
   using SpacePtr = std::shared_ptr<Space>;
   using SpaceMap = std::unordered_map<std::string, SpacePtr>;

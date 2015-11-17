@@ -85,6 +85,26 @@ namespace DCEngine {
 
     }
 
+	GameObjectPtr chargeBar = ConstructGameObject("ChargeBar");
+	chargeBar->AddComponent(ComponentPtr(new Sprite(*chargeBar)));
+	chargeBar->AddComponent(ComponentPtr(new Transform(*chargeBar)));
+	chargeBar->AddComponent(ComponentPtr(new DebugCollider(*chargeBar)));
+	chargeBar->AddComponent(ComponentPtr(new DebugReport(*chargeBar)));
+	chargeBar->AddComponent(ComponentPtr(new ChargeBar(*chargeBar)));
+	//Parenting to the player
+	chargeBar->AttachTo(mariah);
+	// Change the properties of the components
+	chargeBar->getComponent<Transform>()->Translation = Vec3(0.0f, 3.5f, 0.0f);
+	chargeBar->getComponent<Transform>()->Scale = Vec3(0, 0.3f, 1.0f);
+	// Sprite properties
+
+	// BoxCollider properties
+
+	// Rigidbody properties
+
+
+
+
     
     DCTrace << "Mariah has the following children: \n";
     for (auto child : mariah->Children()) {

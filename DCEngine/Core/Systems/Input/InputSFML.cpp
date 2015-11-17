@@ -83,6 +83,10 @@ namespace DCEngine {
         Daisy->getSystem<GUI>()->GUIHandler->MousePressed[_event.mouseButton.button] = false;
         PollMouseButtonReleased(_event);
         break;
+      case sf::Event::TextEntered:
+        PollTextEntered(_event);
+        break;
+
       case sf::Event::MouseWheelMoved:
         //ImGuiIO& io = ImGui::GetIO();
         //io.MouseWheel += (float)_event.mouseWheel.delta;
@@ -102,7 +106,8 @@ namespace DCEngine {
   {
     // Update ImGui
     if (event.text.unicode > 0 && event.text.unicode < 0x10000)
-      ImGui::GetIO().AddInputCharacter(event.text.unicode);  }
+      ImGui::GetIO().AddInputCharacter(event.text.unicode);  
+  }
 
     /**************************************************************************/
     /*!

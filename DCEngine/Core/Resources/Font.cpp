@@ -7,7 +7,6 @@ namespace DCEngine {
   /*!
   @brief Constructor for the SpriteSource resource.
   @param The name of the font file.
-  @note  Font files are stored in Core\Resources\Fonts
   */
   /**************************************************************************/
   Font::Font(std::string fontFile) : Resource("Font"), FontFileName(fontFile) {

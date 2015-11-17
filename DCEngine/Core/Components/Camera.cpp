@@ -10,7 +10,7 @@ namespace DCEngine {
   @note This can only go in the translational unit (.cpp)
   */
   /**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Camera, "Camera", DCEngineCore, builder, type) {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Camera, "owner", Entity&);
@@ -21,9 +21,7 @@ namespace DCEngine {
     ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
     ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
   }
-#endif
-
-
+  #endif
 
   /**************************************************************************/
   /*!
@@ -35,6 +33,15 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Camera destructor.
+  */
+  /**************************************************************************/
+  Camera::~Camera()
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Initializes the camera component and its settings.
   \note
   */
@@ -42,8 +49,6 @@ namespace DCEngine {
   void Camera::Initialize() {
     auto gameObjOwner = (GameObject*)Owner();
     TransformComponent = gameObjOwner->getComponent<Transform>();
-
-
 
     // Camera needs a Transform component
     if (!TransformComponent)
@@ -58,7 +63,6 @@ namespace DCEngine {
     // Set the references to the Window system's screen width and height
     ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
     ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;
-
   }
 
   /**************************************************************************/

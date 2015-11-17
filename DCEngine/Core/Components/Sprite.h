@@ -44,6 +44,7 @@ namespace DCEngine {
     void setVisible(bool);
     Vec4 getColor() const;
     void setColor(Vec4);
+	void addColor(Vec4 color);
     String getSpriteSource() const;
     void setSpriteSource(String);
     bool getFlipX() const;
@@ -82,15 +83,17 @@ namespace DCEngine {
 		void SetColorUsing255(Vec3 newColor);
 
     Sprite(Entity& owner);
+    ~Sprite();
     void Initialize();
     void UpdateSprite();
     Transform* TransformComponent;
+	glm::mat4 FlipMatrix;
+	bool XFlipped = false;
+	bool YFlipped = false;
 
 	private:
 
-		bool XFlipped;
-		bool YFlipped;
-		glm::mat4 FlipMatrix;
+		
 
 		//Update
 		void UpdateFlip();

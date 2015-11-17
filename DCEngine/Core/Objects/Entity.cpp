@@ -15,19 +15,32 @@
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
 
+#include "../Engine/Engine.h" // noooo!
+
 namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Constructor.
+  \brief  Entity constructor.
   */
   /**************************************************************************/
-  Entity::Entity(std::string name) : Object("Entity") {
+  Entity::Entity(std::string name) : Object("Entity"), ArchetypeName("") {
     ObjectName = name;
   }
 
+  /**************************************************************************/
+  /*!
+  \brief  Entity destructor.
+  */
+  /**************************************************************************/
   Entity::~Entity()
   {
+    if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
+      DCTrace << Name() << "::~Entity - Destructor called! \n";
+    // 1. Remove all components from the entity
+    ComponentsContainer.clear();
+    /*for (auto component : ComponentsContainer)
+      RemoveComponent(component);*/
   }
 
 
@@ -48,7 +61,6 @@ namespace DCEngine {
 
     if (TRACE_COMPONENT_ADD)
       DCTrace << ObjectName << "::AddComponent - Added " << component->Name() << "\n";
-
     // Adds the component to the entity
     ComponentsContainer.push_back(component);
     return true;    
@@ -60,9 +72,27 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Entity::Initialize() {
-    DCTrace << ObjectName << "::Initialize \n";
+    // If the entity has already been initialized, do naught
+    if (IsInitialized) {
+      DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
+      return;
+    }      
+        
     for (auto component : ComponentsContainer)
       component->Initialize();
+    // Flag this entity as already being initialized
+    IsInitialized = true;
+    DCTrace << ObjectName << "::Initialize \n";
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Terminates the Entity.
+  */
+  /**************************************************************************/
+  void Entity::Terminate()
+  {
+
   }
 
   /**************************************************************************/
@@ -70,9 +100,9 @@ namespace DCEngine {
   @brief  Archetype setter.
   */
   /**************************************************************************/
-  void Entity::setArchetype(std::string archetype)
+  void Entity::setArchetype(std::string archetypeName)
   {
-    Archetype = archetype;
+    ArchetypeName = archetypeName;
   }
 
   /**************************************************************************/
@@ -82,25 +112,7 @@ namespace DCEngine {
   /**************************************************************************/
   std::string Entity::getArchetype() const
   {
-    return Archetype;
-  }
-
-  /**************************************************************************/
-  /*!
-  \brief  Returns a pointer to the given component.
-  \param  The name, in a string, of the component.
-  \return A pointer to the component.
-  */
-  /**************************************************************************/
-  Component* Entity::getComponentByName(std::string name) {
-
-    for (auto component : ComponentsContainer) {
-      if (component->Name() == name)
-        return component.get();
-    }
-
-    return NULL;
-
+    return ArchetypeName;
   }
 
   /**************************************************************************/
@@ -111,9 +123,18 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::RemoveComponent(ComponentPtr component)
   {
-
+    ComponentsContainer.erase(std::remove(ComponentsContainer.begin(),
+                              ComponentsContainer.end(), component),
+                              ComponentsContainer.end());
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Returns a reference to the container of all the components this
+          Entity has.
+  @return A reference to the container of all components.
+  */
+  /**************************************************************************/
   ComponentVec * Entity::AllComponents()
   {
     return &ComponentsContainer;

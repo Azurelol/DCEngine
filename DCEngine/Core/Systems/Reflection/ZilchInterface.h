@@ -39,6 +39,11 @@ namespace DCEngine {
       void Build();
       void Clean();
      
+      /* Zilch::Call operations */
+      template <typename ObjectPtr>
+      Zilch::Call ConstructGetCaller(Zilch::Property* property, ObjectPtr object);
+      template <typename Value, typename ObjectPtr>
+      bool SetProperty(Value val, Zilch::Property* property, ObjectPtr object);
 
       /* Getters */
       Zilch::ExecutableState* getState();
@@ -75,6 +80,27 @@ namespace DCEngine {
     };
 
 
+
+    template<typename ObjectPtr>
+    inline Zilch::Call ZilchInterface::ConstructGetCaller(Zilch::Property * property, ObjectPtr object)
+    {
+      Zilch::Call getCaller(property->Get, State);
+      getCall.SetHandleVirtual(Zilch::Call::This, object);
+      return getCaller;
+    }
+
+    template<typename Value, typename ObjectPtr>
+    inline bool ZilchInterface::SetProperty(Value val, Zilch::Property * property, ObjectPtr object)
+    {     
+      // Construct the Call object
+      Zilch::Call setCall(property->Set, State);
+      setCall.SetHandleVirtual(Zilch::Call::This, object);
+      setCall.Set(0, val);
+      // Create an exception report object to check for errors
+      Zilch::ExceptionReport report;
+      setCall.Invoke(report);
+      return true;
+    }
 
   }
 }

@@ -22,7 +22,7 @@ namespace DCEngine {
 
   namespace PHYSICS
   {
-    const float Gravity = 20.0f;
+    const float Gravity = 60.0f;
   }
 
   namespace Systems
@@ -34,6 +34,7 @@ namespace DCEngine {
       GameObjectPtr FindObjectAtPosition(Vec3 pos, Space& space);
       GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
       void RegisterSpace(PhysicsSpace& physicsSpace);
+      void DeregisterSpace(PhysicsSpace& physicsSpace);
 
     private:
 
