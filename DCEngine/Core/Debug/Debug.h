@@ -40,6 +40,8 @@ namespace DCEngine
 #define TRACE_SHADER 0
 #define TRACE_AUDIO 0
 
+#define DCE_EDITOR_TRACE_TOOLS 1
+
 
     class Trace {
     public:

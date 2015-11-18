@@ -211,6 +211,9 @@
     <Filter Include="Core\Systems\Editor\Menus">
       <UniqueIdentifier>{27b0b96e-1522-46e8-81aa-a7d0e8a1c246}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Tools">
+      <UniqueIdentifier>{791f4ba6-7d45-4146-b4cc-9a4b4c256fd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -539,6 +542,12 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
       <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

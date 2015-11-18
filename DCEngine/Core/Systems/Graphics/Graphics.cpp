@@ -203,9 +203,9 @@ namespace DCEngine {
       GraphicsHandler->DrawRectangle(pos, width, height, color, cam);
     }
 
-    void Graphics::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam)
+    void Graphics::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam)
     {
-      GraphicsHandler->DrawLineSegment(startPos, endPos, length, color, cam);
+      GraphicsHandler->DrawLineSegment(startPos, endPos, color, cam);
     }
 
     /////////////////

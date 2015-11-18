@@ -297,6 +297,8 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp" />
     <ClCompile Include="Core\Systems\Editor\Library.cpp" />
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />

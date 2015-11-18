@@ -61,7 +61,7 @@ namespace DCEngine {
                         TransformComponent->Translation.z);
 
     if (DrawType == DebugDrawType::Line) {
-      SpaceRef->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Radius, Color);
+      SpaceRef->getComponent<GraphicsSpace>()->DrawLineSegment(currPos, currPos + Offset, Color);
     }
     else if (DrawType == DebugDrawType::Circle) {
       SpaceRef->getComponent<GraphicsSpace>()->DrawCircle(currPos, Radius, Color);

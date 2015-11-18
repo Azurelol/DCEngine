@@ -94,10 +94,10 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, cam);
   }
 
-  void GraphicsSpace::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color)
+  void GraphicsSpace::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color)
   {
     auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, length, color, cam);
+    Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, cam);
   }
 
   /**************************************************************************/

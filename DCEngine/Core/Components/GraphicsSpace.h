@@ -45,7 +45,7 @@ namespace DCEngine {
     /* Debug Drawing functions*/
     void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
     void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
-    void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color);
+    void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color);
 
     /* Getters */
     SpriteContainer getSprites(); // Return the vector of sprites to be drawn

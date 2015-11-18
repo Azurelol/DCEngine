@@ -32,6 +32,8 @@ namespace DCEngine {
     Escape,
     Space ,
     Return,
+    Backspace,
+    Delete,
     Up,
     Down,
     Left,

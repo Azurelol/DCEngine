@@ -42,7 +42,15 @@ namespace DCEngine {
         DispatchEngineExitEvent();        
         KeyboardRef->KeyDown_Escape = true;
         break;
-
+      case sf::Keyboard::Delete:
+        keyDown->Key = Keys::Delete;
+        break;
+      case sf::Keyboard::BackSpace:
+        keyDown->Key = Keys::Backspace;
+        break;
+      case sf::Keyboard::Return:
+        keyDown->Key = Keys::Return;
+        break;
       case sf::Keyboard::F1:
         keyDown->Key = Keys::F1;
         break;

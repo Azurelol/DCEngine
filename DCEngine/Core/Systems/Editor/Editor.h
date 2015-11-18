@@ -23,6 +23,16 @@ namespace DCEngine {
       friend class Engine;
 
     public:
+
+      enum class EditorTool {
+        None,
+        Select,
+        Translate,
+        Rotate,
+        Scale,
+        
+      };
+
       void ToggleEditor();
       void ToggleTest();
 
@@ -44,6 +54,7 @@ namespace DCEngine {
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;      
+      EditorTool ActiveTool;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
       /////////////////
@@ -80,8 +91,15 @@ namespace DCEngine {
       void SelectObject(GameObject* obj);
       void DeleteObject();
       void DuplicateObject();
-      // Window
+      // Tools
+      void UseTool();
+      void SelectTool();
+      void TranslateTool();
+      void RotateTool();
+      void ScaleTool();
+      // Window, Input
       void ApplyEditorWindowLayout();
+      void Hotkeys(Events::KeyDown* event);
       /* Serialization functions*/
       //void SaveLevel();
       //void ReloadLevel(); 
@@ -101,6 +119,7 @@ namespace DCEngine {
       void Terminate();
       /* Events */
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
+      void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
       /* Test functions */

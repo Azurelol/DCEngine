@@ -48,6 +48,7 @@ namespace DCEngine {
     void Editor::Subscribe()
     {
       Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+      Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
     }
 
@@ -77,6 +78,7 @@ namespace DCEngine {
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
       DisplayEditor();
+      UseTool();
       DisplayGUITest();
       
     }
@@ -203,6 +205,8 @@ namespace DCEngine {
       Daisy->Dispatch<Events::ResizeViewportEvent>(viewportResize);
       delete viewportResize;
     }
+
+
 
     /**************************************************************************/
     /*!

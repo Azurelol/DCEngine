@@ -70,7 +70,7 @@ namespace DCEngine {
       void DrawLineSegment(DrawLineObj& obj);
       void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
       void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
-      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam);
+      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam);
       /* Viewport */
       
     private:
