@@ -14,7 +14,7 @@ Content::Initialize
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - angryeyes was added.
+Content::AddSpriteSource - Angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
@@ -112,9 +112,9 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
-SpriteSource::LoadTexture - Failed to load image file!
-Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Failed to load image file!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -142,6 +142,7 @@ Graphics::Register -  Daisy World has registered to the Graphics system
 DefaultCamera::Initialize 
 
 [Engine::Loop]
+<<<<<<< HEAD
 Mariah has the following children: 
 - ChargeBar
 Daisy World::LoadLevel - Loading Dollhouse level.
@@ -9195,21 +9196,12 @@ DefaultCamera::Camera::~Component - Destructor called!
 DefaultCamera::Camera::~Component - Destructor called! 
 DefaultCamera::Camera::~Component - Destructor called! 
 DefaultCamera::Camera::~Component - Destructor called! 
+=======
+>>>>>>> 791ef2b7d4bac5c620776869b79678818bbfe003
 Window::OnEngineExitEvent - 
 
 [Engine::Terminate] 
-Daisy World::AddObject - Removed DefaultCamera from the space.
-Daisy World::AddObject - Removed DollHouseCamera from the space.
-Daisy World::AddObject - Removed SpriteTextor from the space.
-Daisy World::AddObject - Removed Mariah from the space.
-Daisy World::AddObject - Removed groundenemy from the space.
-Daisy World::AddObject - Removed Basketball from the space.
-Daisy World::AddObject - Removed ChargeBar from the space.
-Daisy World::AddObject - Removed Floor from the space.
-Daisy World::AddObject - Removed Basketfloor2 from the space.
-Daisy World::AddObject - Removed Sky from the space.
-Daisy World::AddObject - Removed Background from the space.
-Daisy World::AddObject - Removed particleTest from the space.
+Daisy World::DestroyAll - Removing all objects from the space.
 Content::Terminate
 ZilchInterface::TerminateZilchInterface::Clean - Freeing the state, report, dependencies... 
 Factory::Terminate 

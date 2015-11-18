@@ -15,6 +15,7 @@ namespace DCEngine {
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+
 		DCTrace << PlayerRef->getComponent<Transform>()->Translation.x;
 	}
 

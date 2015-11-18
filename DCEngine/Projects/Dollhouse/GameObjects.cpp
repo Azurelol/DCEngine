@@ -9,13 +9,13 @@ namespace DCEngine {
 
     // Player
     GameObjectPtr mariah = ConstructGameObject("Mariah");
-    mariah->AddComponent(ComponentPtr(new Sprite(*mariah)));
-    mariah->AddComponent(ComponentPtr(new Transform(*mariah)));
-    mariah->AddComponent(ComponentPtr(new RigidBody(*mariah)));
-    mariah->AddComponent(ComponentPtr(new BoxCollider(*mariah)));
-    mariah->AddComponent(ComponentPtr(new DebugCollider(*mariah)));
-    mariah->AddComponent(ComponentPtr(new DebugReport(*mariah)));
-    mariah->AddComponent(ComponentPtr(new PlayerController(*mariah)));
+    mariah->AddComponent<Transform>();
+    mariah->AddComponent<Sprite>();
+    mariah->AddComponent<RigidBody>();
+    mariah->AddComponent<BoxCollider>();
+    mariah->AddComponent<DebugCollider>();
+    mariah->AddComponent<DebugReport>();
+    mariah->AddComponent<PlayerController>();
     mariah->getComponent<Sprite>()->SpriteSource = "MonkeyWalk1";
     mariah->getComponent<Sprite>()->AnimationActive = true;
     mariah->getComponent<Sprite>()->HaveAnimation = true;
@@ -36,13 +36,13 @@ namespace DCEngine {
 
     {
       GameObjectPtr enemy = ConstructGameObject("groundenemy");
-      enemy->AddComponent(ComponentPtr(new Sprite(*enemy)));
-      enemy->AddComponent(ComponentPtr(new Transform(*enemy)));
-      enemy->AddComponent(ComponentPtr(new RigidBody(*enemy)));
-      enemy->AddComponent(ComponentPtr(new BoxCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugCollider(*enemy)));
-      enemy->AddComponent(ComponentPtr(new DebugReport(*enemy)));
-      enemy->AddComponent(ComponentPtr(new EnemyController(*enemy)));
+      enemy->AddComponent<Transform>();
+      enemy->AddComponent<Sprite>();
+      enemy->AddComponent<RigidBody>();
+      enemy->AddComponent<BoxCollider>();
+      enemy->AddComponent<DebugCollider>();
+      enemy->AddComponent<DebugReport>();
+      enemy->AddComponent<EnemyController>();
       // Change the properties of the components
       enemy->getComponent<Transform>()->Translation = Vec3(25.0f, 1.0f, 0.0f);
       enemy->getComponent<Transform>()->Scale = Vec3(1.0f, 1.0f, 1.0f);
@@ -58,13 +58,13 @@ namespace DCEngine {
     {
       // Ball
       GameObjectPtr ball = ConstructGameObject("Basketball");
-      ball->AddComponent(ComponentPtr(new Sprite(*ball)));
-      ball->AddComponent(ComponentPtr(new Transform(*ball)));
-      ball->AddComponent(ComponentPtr(new RigidBody(*ball)));
-      ball->AddComponent(ComponentPtr(new BoxCollider(*ball)));
-      ball->AddComponent(ComponentPtr(new DebugCollider(*ball)));
-      ball->AddComponent(ComponentPtr(new DebugReport(*ball)));
-      ball->AddComponent(ComponentPtr(new BallController(*ball)));
+      ball->AddComponent<Transform>();
+      ball->AddComponent<Sprite>();
+      ball->AddComponent<RigidBody>();
+      ball->AddComponent<BoxCollider>();
+      ball->AddComponent<DebugCollider>();
+      ball->AddComponent<DebugReport>();
+      ball->AddComponent<BallController>();
       // Change the properties of the components
       ball->getComponent<Transform>()->Translation = Vec3(0.0f, 10.0f, 0.0f);
       ball->getComponent<Transform>()->Scale = Vec3(0.7f, 0.7f, 1.0f);
@@ -86,11 +86,11 @@ namespace DCEngine {
     }
 
 	GameObjectPtr chargeBar = ConstructGameObject("ChargeBar");
-	chargeBar->AddComponent(ComponentPtr(new Sprite(*chargeBar)));
-	chargeBar->AddComponent(ComponentPtr(new Transform(*chargeBar)));
-	chargeBar->AddComponent(ComponentPtr(new DebugCollider(*chargeBar)));
-	chargeBar->AddComponent(ComponentPtr(new DebugReport(*chargeBar)));
-	chargeBar->AddComponent(ComponentPtr(new ChargeBar(*chargeBar)));
+  chargeBar->AddComponent<Transform>();
+  chargeBar->AddComponent<Sprite>();
+  chargeBar->AddComponent<DebugCollider>();
+  chargeBar->AddComponent<DebugReport>();
+  chargeBar->AddComponent<ChargeBar>();
 	//Parenting to the player
 	chargeBar->AttachTo(mariah);
 	// Change the properties of the components

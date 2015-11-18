@@ -27,6 +27,7 @@ namespace DCEngine {
       DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
       // Destroy the currently selected GameObject
       SelectedObject->Destroy();
+      SelectedObject = nullptr;
     }
 
 
