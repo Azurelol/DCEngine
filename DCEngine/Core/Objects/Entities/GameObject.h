@@ -17,7 +17,7 @@ namespace DCEngine {
   class GameObject;
   using GameObjectPtr = GameObject*;
   using GameObjectVec = std::vector<GameObjectPtr>;
-  using GameObjectStrongPtr = std::shared_ptr<GameObject>;
+  using GameObjectStrongPtr = std::unique_ptr<GameObject>;
   using GameObjectStrongVec = std::vector<GameObjectStrongPtr>;  
   using GameObjectRawVec = std::vector<GameObject*>;  
 

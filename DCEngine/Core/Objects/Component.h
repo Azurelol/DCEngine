@@ -108,8 +108,10 @@ namespace DCEngine {
 
   };
 
-  using ComponentPtr = std::shared_ptr<Component>;
+  using ComponentPtr = Component*;
   using ComponentVec = std::vector<ComponentPtr>;
+  using ComponentStrongPtr = std::unique_ptr<Component>;
+  using ComponentStrongVec = std::vector<ComponentStrongPtr>;
 
   template<typename EntityClass>
   inline EntityClass* Component::getOwner() {

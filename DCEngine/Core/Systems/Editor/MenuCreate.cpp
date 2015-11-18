@@ -42,7 +42,7 @@ namespace DCEngine {
       auto sprite = CurrentSpace->CreateObject();
       sprite->setName("Sprite");
       // Add the Sprite component
-      sprite->AddComponentByName<Sprite>();
+      sprite->AddComponent<Sprite>();
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
     }
 

@@ -77,11 +77,11 @@ namespace DCEngine {
 
         // 3. Display its components
         ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
-        for (auto component : *SelectedObject->AllComponents()) {
+        for (auto &component : *SelectedObject->AllComponents()) {
           if (ImGui::TreeNode(component->Name().c_str())) {
             // 3. If the user clicks on a tree-node, display the commponent's properties
             //    through reflection
-            DisplayProperties(component);
+            DisplayProperties(component.get());
             ImGui::TreePop();
           }                  
         }
@@ -123,7 +123,7 @@ namespace DCEngine {
         Zilch::ExceptionReport report;
         // Grab the current property
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
-        getCall.SetHandleVirtual(Zilch::Call::This, component.get());        
+        getCall.SetHandleVirtual(Zilch::Call::This, component);        
         getCall.Invoke(report);
 
         // Property: Boolean
@@ -132,7 +132,7 @@ namespace DCEngine {
           // If the user modifies it
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, boolean);
             setCall.Invoke(report);
           }
@@ -146,7 +146,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf)), ImGuiInputTextFlags_EnterReturnsTrue) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::String(buf));
             setCall.Invoke(report);
           }
@@ -158,7 +158,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, integer);
             setCall.Invoke(report);
           }
@@ -171,7 +171,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt2(property->Name.c_str(), int2)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Integer2(int2[0], int2[1]));
             setCall.Invoke(report);
           }
@@ -184,7 +184,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt3(property->Name.c_str(), int3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Integer3(int3[0], int3[1], int3[2]));
             setCall.Invoke(report);
           }
@@ -197,7 +197,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt4(property->Name.c_str(), int4)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
             setCall.Invoke(report);
           }
@@ -209,7 +209,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputFloat(property->Name.c_str(), &real, 0.01f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, real);
             setCall.Invoke(report);
           }
@@ -222,7 +222,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputFloat2(property->Name.c_str(), vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec2f));
             setCall.Invoke(report);
           }
@@ -235,7 +235,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputFloat3(property->Name.c_str(), vec3f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec3f));
             setCall.Invoke(report);
           }
@@ -248,8 +248,8 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputFloat4(property->Name.c_str(), vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component.get());
-            setCall.Set(0, Zilch::Real3(vec4f));
+            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
           }
         }

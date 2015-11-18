@@ -44,14 +44,19 @@ namespace DCEngine {
     DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
-    AddComponent(ComponentPtr(new SoundSpace(*this)));
-    AddComponent(ComponentPtr(new TimeSpace(*this)));
-    AddComponent(ComponentPtr(new PhysicsSpace(*this)));
-    AddComponent(ComponentPtr(new CameraViewport(*this)));
-    AddComponent(ComponentPtr(new GraphicsSpace(*this)));
+    AddComponent<SoundSpace>();
+    AddComponent<TimeSpace>();
+    AddComponent<PhysicsSpace>();
+    AddComponent<CameraViewport>();
+    AddComponent<GraphicsSpace>();
+    //AddComponent(ComponentPtr(new SoundSpace(*this)));
+    //AddComponent(ComponentPtr(new TimeSpace(*this)));
+    //AddComponent(ComponentPtr(new PhysicsSpace(*this)));
+    //AddComponent(ComponentPtr(new CameraViewport(*this)));
+    //AddComponent(ComponentPtr(new GraphicsSpace(*this)));
 
     // Initialize Space-components
-    for (auto component : ComponentsContainer) {
+    for (auto &component : ComponentsContainer) {
       component->Initialize();
     }        
 
@@ -100,9 +105,15 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::DestroyAll()
   {
+    if (TRACE_GAMEOBJECT_ADD)
+      DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
+    // For every GameObject in the space
     for (auto object : GameObjectContainer) {
-      RemoveObject(*object);
+      // Mark the object for destruction on next frame
+      Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
+      //RemoveObject(*object);
     }
+    GameObjectContainer.clear();
 
   }
 
@@ -237,7 +248,9 @@ namespace DCEngine {
     // Remove the GameObject from the space's list of GameObjects
     for (auto gameObjPtr : GameObjectContainer) {
       if (gameObjPtr == &gameObj) {
-        gameObjPtr = nullptr;
+        std::swap(gameObjPtr, GameObjectContainer.back());
+        GameObjectContainer.pop_back();
+        break;
       }
     }
 
