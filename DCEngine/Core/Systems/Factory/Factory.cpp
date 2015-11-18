@@ -58,9 +58,10 @@ namespace DCEngine {
 
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
-      ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObjPtr)));
-      ActiveComponents.push_back(transform);
       gameObjPtr->AddComponent<Transform>();
+      //ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObjPtr)));
+      //ActiveComponents.push_back(transform);
+      //gameObjPtr->AddComponent<Transform>();
       // If the object needs to be initialized right away
       if (init)
         gameObjPtr->Initialize();

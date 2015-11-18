@@ -19,6 +19,7 @@
 #include <list>
 // Headers
 #include "Component.h"
+//#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "../Engine/Event.h"
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
@@ -56,8 +57,11 @@ namespace DCEngine {
 
     // Components    
     void RemoveComponentByName(std::string& componentName);
+
+    template<typename ComponentClass>
+    bool AddComponent(bool initialize);
     //bool AddComponent(ComponentPtr component);
-    template <typename ComponentClass> bool AddComponent(bool initialize);
+    //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
 

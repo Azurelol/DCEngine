@@ -9,6 +9,7 @@
 /******************************************************************************/
 #include "Editor.h"
 #include "../../Engine/Engine.h"
+#include "../../ComponentsInclude.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -42,8 +43,9 @@ namespace DCEngine {
       auto sprite = CurrentSpace->CreateObject();
       sprite->setName("Sprite");
       // Add the Sprite component
-      sprite->AddComponent<Sprite>();
-      DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
+      sprite->AddComponent<Sprite>(true);
+      //sprite->AddComponent<Sprite>();
+      DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
     }
 
 

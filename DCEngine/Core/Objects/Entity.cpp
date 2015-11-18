@@ -11,7 +11,7 @@
 #include "Entity.h"
 
 // Headers
-#include "..\ComponentsInclude.h" // Entities need to know of componnets
+//#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
 
