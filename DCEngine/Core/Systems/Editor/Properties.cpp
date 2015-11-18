@@ -56,7 +56,7 @@ namespace DCEngine {
         return;
       
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Properties", &WidgetPropertiesEnabled);
+      ImGui::Begin("Properties", &WidgetPropertiesEnabled, ImGuiWindowFlags_AlwaysAutoResize);
 
       // If there's an object selected, display its properties.
       if (SelectedObject != nullptr) {
@@ -233,7 +233,7 @@ namespace DCEngine {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
           // If the user has given input, set the property
-          if (ImGui::InputFloat3(property->Name.c_str(), vec3f)) {
+          if (ImGui::InputFloat3(property->Name.c_str(), vec3f), 3) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component.get());
             setCall.Set(0, Zilch::Real3(vec3f));
@@ -249,7 +249,7 @@ namespace DCEngine {
           if (ImGui::InputFloat4(property->Name.c_str(), vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component.get());
-            setCall.Set(0, Zilch::Real3(vec4f));
+            setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
           }
         }
