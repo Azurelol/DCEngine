@@ -49,6 +49,8 @@ namespace DCEngine {
       ShaderMap* AllShaders();
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
+      
+      void ScanForLevels();
 
     private:
       

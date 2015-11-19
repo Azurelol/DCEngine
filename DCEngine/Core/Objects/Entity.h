@@ -23,6 +23,7 @@
 #include "../Engine/Event.h"
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
+#include "../Engine/Types.h"
 
 namespace DCEngine {
   

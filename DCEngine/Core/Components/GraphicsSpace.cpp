@@ -84,20 +84,20 @@ namespace DCEngine {
   /**************************************************************************/
   void GraphicsSpace::DrawCircle(Vec3& pos, Real& radius, Vec4& color)
   {
-    auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, cam);
+    auto cam = CameraViewportComponent->getCamera();
+    Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam);
   }
 
   void GraphicsSpace::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color)
   {
-    auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, cam);
+    auto cam = CameraViewportComponent->getCamera();
+    Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam);
   }
 
   void GraphicsSpace::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color)
   {
-    auto cam = *CameraViewportComponent->getCamera();
-    Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, cam);
+    auto cam = CameraViewportComponent->getCamera();
+    Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
   }
 
   /**************************************************************************/

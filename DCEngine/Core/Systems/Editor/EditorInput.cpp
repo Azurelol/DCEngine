@@ -12,9 +12,27 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    @brief  Receives a KeyDown event.
+    @param  event A pointer to the event.
+    */
+    /**************************************************************************/
     void Editor::OnKeyDownEvent(Events::KeyDown * event)
     {
       switch (event->Key) {
+
+      case Keys::Tilde:
+        WindowConsoleEnabled = !WindowConsoleEnabled;
+        break;
+
+      case Keys::F5:        
+        PlayGame();
+        break;
+
+      case Keys::F8:
+        StopGame();
+        break;
 
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
@@ -42,6 +60,22 @@ namespace DCEngine {
 
       case Keys::Delete:
         DeleteObject();
+        break;
+
+      case Keys::W:
+        MoveObject(Vec3(0, SnapDistance, 0));
+        break;
+
+      case Keys::S:
+        MoveObject(Vec3(0, -SnapDistance, 0));
+        break;
+
+      case Keys::A:
+        MoveObject(Vec3(-SnapDistance, 0,0));
+        break;
+
+      case Keys::D:
+        MoveObject(Vec3(SnapDistance, 0, 0));
         break;
 
       default:

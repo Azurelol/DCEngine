@@ -157,11 +157,15 @@ namespace DCEngine
   @param  The new file, in its path.
   @return A boolean determining the success of the operation.
   \**************************************************************************/
-  bool FileSystem::FileWriteString(filepath filePath, std::string& input)
+  bool FileSystem::FileWriteString(filepath filePath, std::string& input, bool append)
   {
     std::ofstream file(filePath.string());
+    
     if (file)
     {
+      if (!append)
+        file.clear();
+
       file << input;
       file.close();
       return true;

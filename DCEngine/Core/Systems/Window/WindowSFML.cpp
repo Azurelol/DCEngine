@@ -1,7 +1,10 @@
+#include <Windows.h>
+
 #include "WindowSFML.h"
 #include "Window.h"
 #include "..\..\Engine\Engine.h"
 #include <sstream>
+
 
 namespace DCEngine {
   namespace Systems {

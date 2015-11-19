@@ -12,6 +12,8 @@
 #pragma once
 #include "ComponentReference.h"
 #include "../Objects/Entities/GameObject.h"
+#include "../Resources/CollisionGroup.h"
+#include "../Resources/CollisionTable.h"
 
 namespace DCEngine {
 
@@ -22,14 +24,11 @@ namespace DCEngine {
     friend class Physics;
   public:
 
-    bool AllowSleep;
-    bool Mode2D;
-    bool Deterministic;
-    
-    PhysicsSpace(Entity& owner);
-    ~PhysicsSpace();
-    void Initialize();
+    // Properties
+    void setCollisionTable(CollisionTableHandle);
+    CollisionTableHandle getCollisionTable();
 
+    // Methods
     void AddRigidBody(GameObject* rigidbody);
     void RemoveRigidBody(GameObject* rigidbody);
     void AddCollider(GameObject* collider);
@@ -37,8 +36,17 @@ namespace DCEngine {
     GameObjectRawVec getRigidbodies();
     GameObjectRawVec getColliders();
 
+    PhysicsSpace(Entity& owner);
+    ~PhysicsSpace();
+    void Initialize();
+
 
   private:
+
+    bool AllowSleep;
+    bool Mode2D;
+    bool Deterministic;
+    CollisionTableHandle CollisionTable;
 
     GameObjectRawVec RigidBodiesContainer;
     GameObjectRawVec CollidersContainer;

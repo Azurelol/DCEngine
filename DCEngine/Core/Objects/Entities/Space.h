@@ -45,8 +45,9 @@ namespace DCEngine {
     void Terminate();
     void Update(float dt);
 
-    void DestroyAll();
+    void SaveLevel(const std::string& level);
     void LoadLevel(LevelPtr level);
+    void LoadLevel(std::string& level);
     void ReloadLevel();
 
     GameObjectPtr CreateObject(); 
@@ -56,6 +57,7 @@ namespace DCEngine {
     void AddObject(GameObjectPtr entity);
     void RemoveObject(GameObject&);
     void Clear(); // Remves all entities and systems
+    void DestroyAll();
 
     GameSession& getGameSession();
     const GameSession* Owner() { return GameSessionRef; };

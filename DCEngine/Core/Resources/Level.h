@@ -17,16 +17,18 @@ namespace DCEngine {
   
   class Level : public Resource {
   public:
-    Level(std::string name) : Resource(name) {
-      if (TRACE_CONSTRUCTOR)
-        DCTrace << ObjectName << "::Level - Constructor \n";
-    }
+    Level(std::string name);
     ~Level();
+    void Save(std::string& serializedData);
+    bool Load();
+    std::string& Get();
 
     void AddGameObject(GameObjectPtr gameObject);
     GameObjectVec GameObjects; //!< Container for entities in the level.   
 
   private:
+    std::string SerializedData;
+    std::string SourceFile;
 
   };
   

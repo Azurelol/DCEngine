@@ -307,6 +307,8 @@
     <ClCompile Include="Core\Systems\Editor\MenuResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
     <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
+    <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
@@ -429,6 +431,8 @@
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
+    <ClInclude Include="Core\Resources\CollisionGroup.h" />
+    <ClInclude Include="Core\Resources\CollisionTable.h" />
     <ClInclude Include="Core\Resources\Font.h" />
     <ClInclude Include="Core\Resources\Level.h" />
     <ClInclude Include="Core\Resources\Material.h" />

@@ -199,6 +199,9 @@ namespace DCEngine {
       auto keyUp = new Events::KeyUp();
 
       switch (event.key.code) {
+      case sf::Keyboard::Tilde:
+        keyUp->Key = Keys::Tilde;
+        break;
       case sf::Keyboard::Escape:
         Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = false;

@@ -10,7 +10,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Editor::Editor(bool enabled) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                   EditorEnabled(enabled)
+                                   EditorStart(enabled)
     {      
     }
 
@@ -32,10 +32,8 @@ namespace DCEngine {
 
       // If the Editor was enabled from the start,
       // toggle the widgets
-      if (EditorEnabled) {
-        WidgetLibraryEnabled = true;
-        WidgetObjectsEnabled = true;
-      }
+      if (EditorStart)
+        ToggleEditor();
       
 
     }
@@ -102,12 +100,26 @@ namespace DCEngine {
       WidgetLibraryEnabled = true;
       WidgetObjectsEnabled = true;
 
+      if (EditorEnabled) {
+        // Pause the engine (Physics, Input, Events)
+        auto pause = new Events::EnginePaused();
+        Daisy->Dispatch<Events::EnginePaused>(pause);
+        delete pause;
+      }
+      else {
+        // Unpause the engine (Physics, Input, Events)
+        auto resume = new Events::EngineResume();
+        Daisy->Dispatch<Events::EngineResume>(resume);
+        delete resume;
+      }
+
       DCTrace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
 
     /**************************************************************************/
     /*!
-    \brief  Toggles the ImGui Test Window on and off.
+    @brief  Toggles the ImGui Test Window on and off.
+    @todo   Switch to using a stack of active windows rather than this hackery.
     */
     /**************************************************************************/
     void Editor::ToggleTest()
@@ -121,13 +133,16 @@ namespace DCEngine {
       if (!EditorEnabled)
         return;
 
-      // Display all known editor widgets
+      // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();
       WidgetObjects();
       WidgetLibrary();
       WidgetProperties();
       WidgetDiagnostics();
+      WindowSaveLevel();
+      WindowLoadLevel();    
+      WindowConsole();
     }
 
     /**************************************************************************/

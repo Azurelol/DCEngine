@@ -14,11 +14,11 @@ Content::Initialize
 Content::AddShader - SpriteShader was added.
 Content::AddShader - SpriteTextShader was added.
 Content::AddShader - GUIShader was added.
-Content::AddSpriteSource - angryeyes was added.
+Content::AddSpriteSource - Angryeyes was added.
 Content::AddSpriteSource - awesomeface was added.
 Content::AddSpriteSource - Background was added.
 Content::AddSpriteSource - bg1 was added.
-Content::AddSpriteSource - bg1 was added.
+Content::AddSpriteSource - bg1 is already present in the map.
 Content::AddSpriteSource - Circle was added.
 Content::AddSpriteSource - Concept was added.
 Content::AddSpriteSource - Foreground was added.
@@ -53,6 +53,7 @@ Factory::Initialize
 Window::Initialize 
 Input::Initialize 
 Editor::Initialize 
+Editor::ToggleEditor : 1
 Audio::Initialize 
 Audio::LoadSoundCues - Loading every SoundCue into memory!AudioFMOD::CreateStream 
 SoundCue::Load - Finished loading Core/Assets/Sounds/soulja.mp3!
@@ -112,9 +113,9 @@ SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
-SpriteSource::LoadTexture - Failed to load image file!
-Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Failed to load image file!
 Texture2D::Generate - Successfully generated texture!
 SpriteSource::LoadTexture - Image was successfully loaded!
 Texture2D::Generate - Successfully generated texture!
@@ -142,692 +143,590 @@ Graphics::Register -  Daisy World has registered to the Graphics system
 DefaultCamera::Initialize 
 
 [Engine::Loop]
-Editor::SelectTool 
+Mariah has the following children: 
+- ChargeBar
+Daisy World Space::LoadLevel - Loading Dollhouse level.
+Daisy World::AddObject - Added DollHouseCamera to the space.
+Daisy World::AddObject - Added SpriteTextor to the space.
+Daisy World::AddObject - Added Mariah to the space.
+Daisy World::AddObject - Added groundenemy to the space.
+Daisy World::AddObject - Added Basketball to the space.
+Daisy World::AddObject - Added ChargeBar to the space.
+Daisy World::AddObject - Added Floor to the space.
+Daisy World::AddObject - Added Basketfloor2 to the space.
+Daisy World::AddObject - Added Sky to the space.
+Daisy World::AddObject - Added Background to the space.
+Daisy World::AddObject - Added particleTest to the space.
+DefaultCamera::Initialize - Failed! Already initialized!
+DollHouseCamera::Initialize 
+GraphicsSpace::AddSpriteText - SpriteTextor
+SpriteTextor::Initialize 
+GraphicsSpace::AddSprite - Mariah
+PhysicsSpace::AddRigidBody - Mariah
+PhysicsSpace::AddCollider - Mariah
+Mariah::Initialize 
+GraphicsSpace::AddSprite - groundenemy
+PhysicsSpace::AddRigidBody - groundenemy
+PhysicsSpace::AddCollider - groundenemy
+groundenemy::Initialize 
+GraphicsSpace::AddSprite - Basketball
+PhysicsSpace::AddRigidBody - Basketball
+PhysicsSpace::AddCollider - Basketball
+4Basketball::Initialize 
+GraphicsSpace::AddSprite - ChargeBar
+ChargeBar::Initialize 
+PhysicsSpace::AddRigidBody - Floor
+PhysicsSpace::AddCollider - Floor
+Floor::Initialize 
+PhysicsSpace::AddRigidBody - Basketfloor2
+PhysicsSpace::AddCollider - Basketfloor2
+Basketfloor2::Initialize 
+GraphicsSpace::AddSprite - Sky
+Sky::Initialize 
+GraphicsSpace::AddSprite - Background
+Background::Initialize 
+particleTest::Initialize 
+Editor::SelectObject - Background
+Coords =-14.4481, 27.3428).
+PlayerPos =4, 9.83334).
+Vector of ball shot = (-0.725318, 0.688414, 0).
+released at x: 253 y: 110
+Mariah::Transform.Translation(4, -2.00088, 0)
+Mariah::Transform.Translation(3.99333, -2.00175, 0)
+Mariah::Transform.Translation(3.98018, -2.00263, 0)
+Mariah::Transform.Translation(3.96071, -2.00351, 0)
+Mariah::Transform.Translation(3.93559, -2.00004, 0)
+Mariah::Transform.Translation(3.90448, -1.00088, 0)
+Mariah::Transform.Translation(3.87672, 0.665455, 0)
+Mariah::Transform.Translation(3.85883, 1.33203, 0)
+Mariah::Transform.Translation(3.83428, 1.98192, 0)
+Mariah::Transform.Translation(3.80306, 2.61514, 0)
+Mariah::Transform.Translation(3.76518, 3.23168, 0)
+Mariah::Transform.Translation(3.72063, 3.83154, 0)
+Mariah::Transform.Translation(3.66941, 4.41473, 0)
+Mariah::Transform.Translation(3.61153, 4.98124, 0)
+Mariah::Transform.Translation(3.54698, 5.53108, 0)
+Mariah::Transform.Translation(3.47577, 6.06424, 0)
+Mariah::Transform.Translation(3.39789, 6.58072, 0)
+Mariah::Transform.Translation(3.31335, 7.08053, 0)
+Mariah::Transform.Translation(3.22214, 7.56367, 0)
+Mariah::Transform.Translation(3.12426, 8.03013, 0)
+Mariah::Transform.Translation(3.01972, 8.47991, 0)
+Mariah::Transform.Translation(2.90852, 8.91302, 0)
+Mariah::Transform.Translation(2.79065, 9.32946, 0)
+Mariah::Transform.Translation(2.66611, 9.72923, 0)
+Mariah::Transform.Translation(2.53491, 10.1123, 0)
+Mariah::Transform.Translation(2.39705, 10.4787, 0)
+Mariah::Transform.Translation(2.25252, 10.8285, 0)
+Mariah::Transform.Translation(2.10133, 11.1616, 0)
+Mariah::Transform.Translation(1.94348, 11.478, 0)
+Mariah::Transform.Translation(1.77896, 11.7777, 0)
+Mariah::Transform.Translation(1.60777, 12.0608, 0)
+Mariah::Transform.Translation(1.42993, 12.3271, 0)
+Mariah::Transform.Translation(1.24541, 12.5769, 0)
+Mariah::Transform.Translation(1.05424, 12.8099, 0)
+Mariah::Transform.Translation(0.856401, 13.0263, 0)
+Mariah::Transform.Translation(0.651899, 13.226, 0)
+Mariah::Transform.Translation(0.440734, 13.409, 0)
+Mariah::Transform.Translation(0.222906, 13.5754, 0)
+Mariah::Transform.Translation(-0.00158542, 13.7251, 0)
+Mariah::Transform.Translation(-0.232739, 13.8581, 0)
+Mariah::Transform.Translation(-0.470556, 13.9687, 0)
+Mariah::Transform.Translation(-10.9795, 2.40218, 0)
+Mariah::Transform.Translation(-11.2119, 1.77986, 0)
+Mariah::Transform.Translation(-11.4331, 1.15335, 0)
+Mariah::Transform.Translation(-11.6433, 0.52293, 0)
+Mariah::Transform.Translation(-11.8426, -0.111133, 0)
+Mariah::Transform.Translation(-12.0311, -0.748583, 0)
+Mariah::Transform.Translation(-12.2091, -1.38917, 0)
+Mariah::Transform.Translation(-12.3766, -2.03267, 0)
+Mariah::Transform.Translation(-12.534, -2.64617, 0)
+Mariah::Transform.Translation(-12.6732, -1.00162, 0)
+Mariah::Transform.Translation(-12.7601, 0.658441, 0)
+Mariah::Transform.Translation(-12.7887, 1.32418, 0)
+Mariah::Transform.Translation(-12.8106, 1.97324, 0)
+Mariah::Transform.Translation(-12.8258, 2.60562, 0)
+Mariah::Transform.Translation(-12.8343, 3.22132, 0)
+Mariah::Transform.Translation(-12.8362, 3.82035, 0)
+Mariah::Transform.Translation(-12.8314, 4.4027, 0)
+Mariah::Transform.Translation(-12.82, 4.96837, 0)
+Mariah::Transform.Translation(-12.8019, 5.51737, 0)
+Mariah::Transform.Translation(-12.7771, 6.0497, 0)
+Mariah::Transform.Translation(-12.7456, 6.56535, 0)
+Mariah::Transform.Translation(-12.7075, 7.06432, 0)
+Mariah::Transform.Translation(-12.6627, 7.54662, 0)
+Mariah::Transform.Translation(-12.6113, 8.01224, 0)
+Mariah::Transform.Translation(-12.5532, 8.46119, 0)
+Mariah::Transform.Translation(-12.4884, 8.89347, 0)
+Mariah::Transform.Translation(-12.417, 9.30907, 0)
+Mariah::Transform.Translation(-12.3389, 9.708, 0)
+Mariah::Transform.Translation(-12.2541, 10.0903, 0)
+Mariah::Transform.Translation(-12.1626, 10.4558, 0)
+Mariah::Transform.Translation(-12.0645, 10.8048, 0)
+Mariah::Transform.Translation(-11.9598, 11.137, 0)
+Mariah::Transform.Translation(-11.8483, 11.4526, 0)
+Mariah::Transform.Translation(-11.7302, 11.7515, 0)
+Mariah::Transform.Translation(-11.6055, 12.0337, 0)
+Mariah::Transform.Translation(-11.474, 12.2992, 0)
+Mariah::Transform.Translation(-11.3359, 12.5481, 0)
+Mariah::Transform.Translation(-11.1912, 12.7803, 0)
+Mariah::Transform.Translation(-11.0398, 12.9959, 0)
+Mariah::Transform.Translation(-10.8817, 13.1947, 0)
+Mariah::Transform.Translation(-10.7169, 13.3769, 0)
+Mariah::Transform.Translation(-10.5455, 13.5342, 0)
+Mariah::Transform.Translation(1.83116, 13.4774, 0)
+Mariah::Transform.Translation(1.8596, 13.4513, 0)
+Mariah::Transform.Translation(1.8947, 13.4086, 0)
+Mariah::Transform.Translation(1.93648, 13.3491, 0)
+Mariah::Transform.Translation(1.98492, 13.273, 0)
+Mariah::Transform.Translation(2.04002, 13.1803, 0)
+Mariah::Transform.Translation(2.10179, 13.0709, 0)
+Mariah::Transform.Translation(2.17023, 12.9448, 0)
+Mariah::Transform.Translation(2.24533, 12.8021, 0)
+Mariah::Transform.Translation(2.3271, 12.6426, 0)
+Mariah::Transform.Translation(2.41553, 12.4666, 0)
+Mariah::Transform.Translation(2.51063, 12.2738, 0)
+Mariah::Transform.Translation(2.61239, 12.0644, 0)
+Mariah::Transform.Translation(2.72082, 11.8384, 0)
+Mariah::Transform.Translation(2.83591, 11.5957, 0)
+Mariah::Transform.Translation(2.95767, 11.3363, 0)
+Mariah::Transform.Translation(3.08609, 11.0602, 0)
+Mariah::Transform.Translation(3.22117, 10.7675, 0)
+Mariah::Transform.Translation(3.36293, 10.4581, 0)
+Mariah::Transform.Translation(3.51134, 10.1321, 0)
+Mariah::Transform.Translation(3.66642, 9.78941, 0)
+Mariah::Transform.Translation(3.82816, 9.43005, 0)
+Mariah::Transform.Translation(3.99657, 9.05404, 0)
+Mariah::Transform.Translation(4.17164, 8.66136, 0)
+Mariah::Transform.Translation(4.35338, 8.25203, 0)
+Mariah::Transform.Translation(4.54177, 7.82603, 0)
+Mariah::Transform.Translation(4.73684, 7.38338, 0)
+Mariah::Transform.Translation(4.93856, 6.92406, 0)
+Mariah::Transform.Translation(5.14695, 6.44809, 0)
+Mariah::Transform.Translation(5.362, 5.95546, 0)
+Mariah::Transform.Translation(5.58372, 5.44617, 0)
+Mariah::Transform.Translation(5.8121, 4.92023, 0)
+Mariah::Transform.Translation(6.04714, 4.37762, 0)
+Mariah::Transform.Translation(6.28884, 3.81836, 0)
+Mariah::Transform.Translation(6.53721, 3.24244, 0)
+Mariah::Transform.Translation(6.79223, 2.64987, 0)
+Mariah::Transform.Translation(7.05393, 2.04064, 0)
+Mariah::Transform.Translation(7.31776, 1.42557, 0)
+Mariah::Transform.Translation(7.58134, 0.81039, 0)
+Mariah::Transform.Translation(7.84467, 0.195114, 0)
+Mariah::Transform.Translation(8.10777, -0.420261, 0)
+Mariah::Transform.Translation(8.37064, -1.03573, 0)
+Mariah::Transform.Translation(8.63328, -1.6513, 0)
+Mariah::Transform.Translation(8.89571, -2.26695, 0)
+Mariah::Transform.Translation(9.15792, -2.48227, 0)
+Mariah::Transform.Translation(9.40648, -0.760406, 0)
+Mariah::Transform.Translation(9.57677, 0.88587, 0)
+Mariah::Transform.Translation(9.65272, 1.54893, 0)
+Mariah::Transform.Translation(9.73534, 2.19531, 0)
+Mariah::Transform.Translation(9.82463, 2.82501, 0)
+Mariah::Transform.Translation(9.92058, 3.43803, 0)
+Mariah::Transform.Translation(10.0232, 4.03438, 0)
+Mariah::Transform.Translation(10.1325, 4.61405, 0)
+Mariah::Transform.Translation(10.2484, 5.17705, 0)
+Mariah::Transform.Translation(10.371, 5.72337, 0)
+Mariah::Transform.Translation(10.5003, 6.25301, 0)
+Mariah::Transform.Translation(10.6362, 6.76598, 0)
+Mariah::Transform.Translation(10.7788, 7.26228, 0)
+Mariah::Transform.Translation(10.9281, 7.7419, 0)
+Mariah::Transform.Translation(11.084, 8.20484, 0)
+Mariah::Transform.Translation(11.2466, 8.65111, 0)
+Mariah::Transform.Translation(11.4159, 9.08071, 0)
+Mariah::Transform.Translation(11.5918, 9.49363, 0)
+Mariah::Transform.Translation(11.7744, 9.88988, 0)
+Mariah::Transform.Translation(11.9636, 10.2695, 0)
+Mariah::Transform.Translation(12.1596, 10.6324, 0)
+Mariah::Transform.Translation(12.3621, 10.9786, 0)
+Mariah::Transform.Translation(12.5714, 11.3082, 0)
+Mariah::Transform.Translation(12.7873, 11.621, 0)
+Mariah::Transform.Translation(13.0098, 11.9025, 0)
+Mariah::Transform.Translation(13.2391, 12.1539, 0)
+Mariah::Transform.Translation(13.475, 12.377, 0)
+Mariah::Transform.Translation(13.7175, 12.5731, 0)
+Mariah::Transform.Translation(13.9667, 12.7436, 0)
+Mariah::Transform.Translation(14.2226, 12.8897, 0)
+Mariah::Transform.Translation(14.4852, 13.0126, 0)
+Mariah::Transform.Translation(14.7544, 13.1136, 0)
+Mariah::Transform.Translation(15.0302, 13.1937, 0)
+Mariah::Transform.Translation(15.3128, 13.2539, 0)
+Mariah::Transform.Translation(15.602, 13.2954, 0)
+Mariah::Transform.Translation(15.8978, 13.3189, 0)
+Mariah::Transform.Translation(16.2003, 13.3253, 0)
+Mariah::Transform.Translation(18.9827, 12.6338, 0)
+Mariah::Transform.Translation(19.2852, 12.4736, 0)
+Mariah::Transform.Translation(19.581, 12.2968, 0)
+Mariah::Transform.Translation(19.8701, 12.1033, 0)
+Mariah::Transform.Translation(20.1525, 11.8932, 0)
+Mariah::Transform.Translation(20.4283, 11.6664, 0)
+Mariah::Transform.Translation(20.6974, 11.4229, 0)
+Mariah::Transform.Translation(20.9599, 11.1628, 0)
+Mariah::Transform.Translation(21.2156, 10.886, 0)
+Mariah::Transform.Translation(21.4647, 10.5925, 0)
+Mariah::Transform.Translation(21.7071, 10.2824, 0)
+Mariah::Transform.Translation(21.9429, 9.95558, 0)
+Mariah::Transform.Translation(22.172, 9.61214, 0)
+Mariah::Transform.Translation(22.3944, 9.25203, 0)
+Mariah::Transform.Translation(22.6101, 8.87526, 0)
+Mariah::Transform.Translation(22.8192, 8.48183, 0)
+Mariah::Transform.Translation(23.0216, 8.07175, 0)
+Mariah::Transform.Translation(23.2173, 7.645, 0)
+Mariah::Transform.Translation(23.4064, 7.20159, 0)
+Mariah::Transform.Translation(23.5888, 6.74153, 0)
+Mariah::Transform.Translation(23.7645, 6.2648, 0)
+Mariah::Transform.Translation(23.9335, 5.77142, 0)
+Mariah::Transform.Translation(24.0959, 5.26138, 0)
+Mariah::Transform.Translation(24.2516, 4.73468, 0)
+Mariah::Transform.Translation(24.4007, 4.19133, 0)
+Mariah::Transform.Translation(24.543, 3.63131, 0)
+Mariah::Transform.Translation(24.6787, 3.05464, 0)
+Mariah::Transform.Translation(24.8078, 2.46132, 0)
+Mariah::Transform.Translation(24.9301, 1.85133, 0)
+Mariah::Transform.Translation(25.0458, 1.22469, 0)
+Mariah::Transform.Translation(25.1549, 0.581398, 0)
+Mariah::Transform.Translation(25.2569, -0.0763537, 0)
+Mariah::Transform.Translation(25.3499, -0.735525, 0)
+Mariah::Transform.Translation(25.4341, -1.39596, 0)
+Mariah::Transform.Translation(25.5098, -2.05753, 0)
+Mariah::Transform.Translation(25.577, -2.66256, 0)
+Mariah::Transform.Translation(25.6325, -1.67038, 0)
+Mariah::Transform.Translation(25.6799, -1.67129, 0)
+Mariah::Transform.Translation(25.7206, -1.68888, 0)
+Mariah::Transform.Translation(25.7547, -1.72313, 0)
+Mariah::Transform.Translation(25.7821, -1.77404, 0)
+Mariah::Transform.Translation(25.8028, -1.84162, 0)
+Mariah::Transform.Translation(25.8169, -1.92587, 0)
+Mariah::Transform.Translation(25.8242, -2.02678, 0)
+Mariah::Transform.Translation(25.825, -2.14435, 0)
+Mariah::Transform.Translation(25.819, -2.00034, 0)
+Mariah::Transform.Translation(25.8065, -2.00119, 0)
+Mariah::Transform.Translation(25.7877, -2.00087, 0)
+Mariah::Transform.Translation(25.7627, -2.00175, 0)
+Mariah::Transform.Translation(25.7317, -2.00088, 0)
+Mariah::Transform.Translation(24.917, -2.00172, 0)
+Mariah::Transform.Translation(24.8982, -2.00174, 0)
+Mariah::Transform.Translation(24.8732, -2.00262, 0)
+Mariah::Transform.Translation(24.8422, -2.00349, 0)
+Mariah::Transform.Translation(24.8062, -2.00179, 0)
+Mariah::Transform.Translation(24.7645, -2.00173, 0)
+Mariah::Transform.Translation(24.7172, -2.00174, 0)
+Mariah::Transform.Translation(24.6645, -2.00175, 0)
+Mariah::Transform.Translation(24.6066, -2.00175, 0)
+Mariah::Transform.Translation(24.5435, -2.00175, 0)
+Mariah::Transform.Translation(24.4755, -2.00175, 0)
+Mariah::Transform.Translation(24.4026, -2.00263, 0)
+Mariah::Transform.Translation(24.325, -2.00351, 0)
+Mariah::Transform.Translation(24.2448, -2.0018, 0)
+Mariah::Transform.Translation(24.16, -2.00173, 0)
+Mariah::Transform.Translation(24.0709, -2.00174, 0)
+Mariah::Transform.Translation(23.9775, -2.00175, 0)
+Mariah::Transform.Translation(23.8799, -2.00175, 0)
+Mariah::Transform.Translation(23.7782, -2.00175, 0)
+Mariah::Transform.Translation(23.6726, -2.00175, 0)
+Mariah::Transform.Translation(23.5631, -2.00263, 0)
+Mariah::Transform.Translation(23.4499, -2.00351, 0)
+Mariah::Transform.Translation(23.336, -2.0018, 0)
+Mariah::Transform.Translation(23.2185, -2.00173, 0)
+Mariah::Transform.Translation(23.0974, -2.00174, 0)
+Mariah::Transform.Translation(22.9729, -2.00175, 0)
+Mariah::Transform.Translation(22.845, -2.00175, 0)
+Mariah::Transform.Translation(22.7139, -2.00175, 0)
+Mariah::Transform.Translation(22.5797, -2.00175, 0)
+Mariah::Transform.Translation(22.4423, -2.00263, 0)
+Mariah::Transform.Translation(22.3019, -2.00351, 0)
+Mariah::Transform.Translation(22.1623, -2.0018, 0)
+Mariah::Transform.Translation(22.0197, -2.00173, 0)
+Mariah::Transform.Translation(21.8743, -2.00261, 0)
+Mariah::Transform.Translation(21.7222, -2.02015, 0)
+Mariah::Transform.Translation(21.5675, -2.00171, 0)
+Mariah::Transform.Translation(21.4102, -2.00263, 0)
+Mariah::Transform.Translation(21.2505, -2.00088, 0)
+Mariah::Transform.Translation(21.0883, -2.00176, 0)
+Mariah::Transform.Translation(20.9239, -1.00263, 0)
+Mariah::Transform.Translation(20.8071, 0.654884, 0)
+Mariah::Transform.Translation(20.7532, 1.31987, 0)
+Mariah::Transform.Translation(20.6925, 1.96818, 0)
+Mariah::Transform.Translation(20.6252, 2.59981, 0)
+Mariah::Transform.Translation(20.5512, 3.21476, 0)
+Mariah::Transform.Translation(20.4706, 3.81304, 0)
+Mariah::Transform.Translation(20.3833, 4.39464, 0)
+Mariah::Transform.Translation(20.2893, 4.95957, 0)
+Mariah::Transform.Translation(20.1887, 5.50782, 0)
+Mariah::Transform.Translation(20.0814, 6.03939, 0)
+Mariah::Transform.Translation(19.9674, 6.55429, 0)
+Mariah::Transform.Translation(19.8468, 7.05251, 0)
+Mariah::Transform.Translation(19.7195, 7.53406, 0)
+Mariah::Transform.Translation(19.5855, 7.99894, 0)
+Mariah::Transform.Translation(19.4449, 8.44714, 0)
+Mariah::Transform.Translation(19.2976, 8.87866, 0)
+Mariah::Transform.Translation(19.1437, 9.29352, 0)
+Mariah::Transform.Translation(18.9831, 9.69169, 0)
+Mariah::Transform.Translation(18.8158, 10.0732, 0)
+Mariah::Transform.Translation(18.6418, 10.438, 0)
+Mariah::Transform.Translation(18.4612, 10.7862, 0)
+Mariah::Transform.Translation(18.2739, 11.1177, 0)
+Mariah::Transform.Translation(18.08, 11.4325, 0)
+Mariah::Transform.Translation(17.8794, 11.7306, 0)
+Mariah::Transform.Translation(17.6722, 12.0121, 0)
+Mariah::Transform.Translation(17.4582, 12.2769, 0)
+Mariah::Transform.Translation(17.2376, 12.5251, 0)
+Mariah::Transform.Translation(17.0104, 12.7565, 0)
+Mariah::Transform.Translation(16.7765, 12.9713, 0)
+Mariah::Transform.Translation(16.5359, 13.1694, 0)
+Mariah::Transform.Translation(16.2887, 13.3509, 0)
+Mariah::Transform.Translation(16.0348, 13.5157, 0)
+Mariah::Transform.Translation(15.7742, 13.6638, 0)
+Mariah::Transform.Translation(15.507, 13.7952, 0)
+Mariah::Transform.Translation(15.2331, 13.91, 0)
+Mariah::Transform.Translation(14.9525, 14.0081, 0)
+Mariah::Transform.Translation(14.6653, 14.0895, 0)
+Mariah::Transform.Translation(14.3714, 14.1543, 0)
+Mariah::Transform.Translation(14.0709, 14.2024, 0)
+Mariah::Transform.Translation(13.7637, 14.2339, 0)
+Mariah::Transform.Translation(13.4498, 14.2486, 0)
+Mariah::Transform.Translation(13.1293, 14.2467, 0)
+Mariah::Transform.Translation(12.8021, 14.2282, 0)
+Mariah::Transform.Translation(12.4683, 14.1929, 0)
+Mariah::Transform.Translation(12.1278, 14.141, 0)
+Mariah::Transform.Translation(11.7806, 14.0725, 0)
+Mariah::Transform.Translation(11.4268, 13.9873, 0)
+Mariah::Transform.Translation(11.0663, 13.8854, 0)
+Mariah::Transform.Translation(10.6992, 13.7668, 0)
+Mariah::Transform.Translation(10.3254, 13.6316, 0)
+Mariah::Transform.Translation(9.94488, 13.4797, 0)
+Mariah::Transform.Translation(9.55775, 13.3112, 0)
+Mariah::Transform.Translation(9.16396, 13.1259, 0)
+Mariah::Transform.Translation(8.76351, 12.9241, 0)
+Mariah::Transform.Translation(8.3564, 12.7055, 0)
+Mariah::Transform.Translation(7.94264, 12.4703, 0)
+Mariah::Transform.Translation(-9.91753, 13.7939, 0)
+Mariah::Transform.Translation(-9.95854, 13.9086, 0)
+Mariah::Transform.Translation(-9.99289, 14.0067, 0)
+Mariah::Transform.Translation(-10.0206, 14.0881, 0)
+Mariah::Transform.Translation(-10.0416, 14.1529, 0)
+Mariah::Transform.Translation(-10.0559, 14.1985, 0)
+Mariah::Transform.Translation(-10.0636, 14.2261, 0)
+Mariah::Transform.Translation(-10.0646, 14.2364, 0)
+Mariah::Transform.Translation(-10.059, 14.2301, 0)
+Mariah::Transform.Translation(-10.0466, 14.2071, 0)
+Mariah::Transform.Translation(-10.0276, 14.1675, 0)
+Mariah::Transform.Translation(-10.002, 14.1111, 0)
+Mariah::Transform.Translation(-9.96966, 14.0382, 0)
+Mariah::Transform.Translation(-9.93067, 13.9485, 0)
+Mariah::Transform.Translation(-9.88502, 13.8422, 0)
+Mariah::Transform.Translation(-9.8327, 13.7192, 0)
+Mariah::Transform.Translation(-9.77372, 13.5796, 0)
+Mariah::Transform.Translation(-9.70807, 13.4233, 0)
+Mariah::Transform.Translation(-9.63575, 13.2503, 0)
+Mariah::Transform.Translation(-9.55677, 13.0606, 0)
+Mariah::Transform.Translation(-9.47112, 12.8543, 0)
+Mariah::Transform.Translation(-9.37881, 12.6314, 0)
+Mariah::Transform.Translation(-9.27983, 12.3918, 0)
+Mariah::Transform.Translation(-9.17418, 12.1355, 0)
+Mariah::Transform.Translation(-9.06188, 11.8625, 0)
+Mariah::Transform.Translation(-8.9429, 11.5729, 0)
+Mariah::Transform.Translation(-8.81727, 11.2666, 0)
+Mariah::Transform.Translation(-8.68497, 10.9437, 0)
+Mariah::Transform.Translation(-8.546, 10.6041, 0)
+Mariah::Transform.Translation(-8.40037, 10.2478, 0)
+Mariah::Transform.Translation(-8.24807, 9.87492, 0)
+Mariah::Transform.Translation(-8.08911, 9.48534, 0)
+Mariah::Transform.Translation(-7.92349, 9.07911, 0)
+Mariah::Transform.Translation(-7.7512, 8.65621, 0)
+Mariah::Transform.Translation(-7.57225, 8.21665, 0)
+Mariah::Transform.Translation(-7.38664, 7.76044, 0)
+Mariah::Transform.Translation(-7.19436, 7.28757, 0)
+Mariah::Transform.Translation(-6.99542, 6.79803, 0)
+Mariah::Transform.Translation(-6.78981, 6.29184, 0)
+Mariah::Transform.Translation(-6.57755, 5.76899, 0)
+Mariah::Transform.Translation(-6.35862, 5.22949, 0)
+Mariah::Transform.Translation(-6.13302, 4.67332, 0)
+Mariah::Transform.Translation(-5.90076, 4.1005, 0)
+Mariah::Transform.Translation(-5.66184, 3.51103, 0)
+Mariah::Transform.Translation(-5.41626, 2.90489, 0)
+Mariah::Transform.Translation(-5.16504, 2.2847, 0)
+Mariah::Transform.Translation(-4.91374, 1.66454, 0)
+Mariah::Transform.Translation(-4.66236, 1.04441, 0)
+Mariah::Transform.Translation(-4.41091, 0.42431, 0)
+Mariah::Transform.Translation(-4.15938, -0.19576, 0)
+Mariah::Transform.Translation(-3.90779, -0.815803, 0)
+Mariah::Transform.Translation(-3.65612, -1.43582, 0)
+Mariah::Transform.Translation(-3.40438, -2.05581, 0)
+Mariah::Transform.Translation(-3.15258, -2.67577, 0)
+Mariah::Transform.Translation(-2.91361, -2.00155, 0)
+Mariah::Transform.Translation(-2.67436, -1.00246, 0)
+Mariah::Transform.Translation(-2.50995, 0.645275, 0)
+Mariah::Transform.Translation(-2.43642, 1.30858, 0)
+Mariah::Transform.Translation(-2.35622, 1.95521, 0)
+Mariah::Transform.Translation(-2.26936, 2.58516, 0)
+Mariah::Transform.Translation(-2.17584, 3.19843, 0)
+Mariah::Transform.Translation(-2.07565, 3.79503, 0)
+Mariah::Transform.Translation(-1.9688, 4.37495, 0)
+Mariah::Transform.Translation(-1.85528, 4.9382, 0)
+Mariah::Transform.Translation(-1.73509, 5.48476, 0)
+Mariah::Transform.Translation(-1.60824, 6.01466, 0)
+Mariah::Transform.Translation(-1.47473, 6.52788, 0)
+Mariah::Transform.Translation(-1.33455, 7.02442, 0)
+Mariah::Transform.Translation(-1.18771, 7.50429, 0)
+Mariah::Transform.Translation(-1.0342, 7.94432, 0)
+DefaultCamera::Transform.Translation(1, 14, 1)
+DollHouseCamera::Transform.Translation(-1.43726, 16.1857, 1)
+DefaultCamera::Transform.Translation(1, 17, 1)
+DollHouseCamera::Transform.Translation(0.241139, 18.7203, 1)
+DefaultCamera::Transform.Translation(1, 20, 1)
+DollHouseCamera::Transform.Translation(1.77638, 19.5813, 1)
+DefaultCamera::Transform.Translation(1, 23, 1)
+DollHouseCamera::Transform.Translation(2.76716, 20.2129, 1)
+DefaultCamera::Transform.Translation(1, 26, 1)
+DollHouseCamera::Transform.Translation(4.1785, 18.5545, 1)
+DefaultCamera::Transform.Translation(1, 29, 1)
+DollHouseCamera::Transform.Translation(5.26825, 17.7661, 1)
+DefaultCamera::Transform.Translation(4, 29, 1)
+DollHouseCamera::Transform.Translation(10.0954, 11.8414, 1)
+DefaultCamera::Transform.Translation(7, 29, 1)
+DollHouseCamera::Transform.Translation(13.3914, 8.52603, 1)
+DefaultCamera::Transform.Translation(10, 29, 1)
+DollHouseCamera::Transform.Translation(15.9259, 7.19572, 1)
+DefaultCamera::Transform.Translation(13, 29, 1)
+DollHouseCamera::Transform.Translation(17.7262, 5.96381, 1)
+DefaultCamera::Transform.Translation(16, 29, 1)
+DollHouseCamera::Transform.Translation(19.0705, 5.08052, 1)
+DefaultCamera::Transform.Translation(19, 29, 1)
+DollHouseCamera::Transform.Translation(20.1113, 4.46739, 1)
+DefaultCamera::Transform.Translation(22, 29, 1)
+DollHouseCamera::Transform.Translation(21.0962, 4.07358, 1)
+DefaultCamera::Transform.Translation(22, 26, 1)
+DollHouseCamera::Transform.Translation(17.2052, 0.570079, 1)
+DefaultCamera::Transform.Translation(25, 26, 1)
+DollHouseCamera::Transform.Translation(17.9715, 1.84535, 1)
+DefaultCamera::Transform.Translation(28, 26, 1)
+DollHouseCamera::Transform.Translation(19.482, 2.19349, 1)
+DefaultCamera::Transform.Translation(28, 23, 1)
+DollHouseCamera::Transform.Translation(19.2434, -0.776616, 1)
+DefaultCamera::Transform.Translation(31, 23, 1)
+DollHouseCamera::Transform.Translation(19.9426, 0.635782, 1)
+DefaultCamera::Transform.Translation(31, 20, 1)
+DollHouseCamera::Transform.Translation(19.646, -2.2616, 1)
+DefaultCamera::Transform.Translation(31, 17, 1)
+DollHouseCamera::Transform.Translation(18.2884, -4.16662, 1)
+DefaultCamera::Transform.Translation(34, 17, 1)
+DollHouseCamera::Transform.Translation(21.0905, -3.89143, 1)
+DefaultCamera::Transform.Translation(37, 17, 1)
+DollHouseCamera::Transform.Translation(21.738, -1.85123, 1)
+DefaultCamera::Transform.Translation(37, 14, 1)
+DollHouseCamera::Transform.Translation(21.4187, -4.67078, 1)
+Mariah::Transform.Translation(13.1686, -2.00004, 0)
+Mariah::Transform.Translation(13.1633, -2.00088, 0)
+Mariah::Transform.Translation(13.1516, -2.00087, 0)
+Mariah::Transform.Translation(13.1334, -2.00175, 0)
+DefaultCamera::Transform.Translation(40, 14, 1)
+DollHouseCamera::Transform.Translation(21.4629, -1.92643, 1)
+Mariah::Transform.Translation(13.1091, -2.00088, 0)
+Mariah::Transform.Translation(13.0788, -2.00175, 0)
+Mariah::Transform.Translation(13.0426, -2.00088, 0)
+Mariah::Transform.Translation(13.0007, -2.00175, 0)
+Mariah::Transform.Translation(12.9533, -2.00263, 0)
+DefaultCamera::Transform.Translation(37, 14, 1)
+DollHouseCamera::Transform.Translation(12.856, 1.16885, 1)
+DefaultCamera::Transform.Translation(34, 14, 1)
+DollHouseCamera::Transform.Translation(9.58942, 1.77986, 1)
+DefaultCamera::Transform.Translation(31, 14, 1)
+DollHouseCamera::Transform.Translation(7.42155, 2.23384, 1)
+DefaultCamera::Transform.Translation(28, 14, 1)
+DollHouseCamera::Transform.Translation(5.94256, 2.50908, 1)
+DefaultCamera::Transform.Translation(25, 14, 1)
+DollHouseCamera::Transform.Translation(4.95721, 2.68464, 1)
+DefaultCamera::Transform.Translation(25, 17, 1)
+DollHouseCamera::Transform.Translation(6.54056, 5.76102, 1)
+DefaultCamera::Transform.Translation(22, 17, 1)
+DollHouseCamera::Transform.Translation(5.79217, 4.47678, 1)
+Mariah::Transform.Translation(11.3428, -2.00088, 0)
+Mariah::Transform.Translation(11.3322, -2.00175, 0)
+Mariah::Transform.Translation(11.3152, -2.00088, 0)
+Mariah::Transform.Translation(11.292, -1.00175, 0)
+DefaultCamera::Transform.Translation(22, 20, 1)
+DollHouseCamera::Transform.Translation(6.78157, 7.25081, 1)
+Mariah::Transform.Translation(11.2696, 0.664728, 0)
+Mariah::Transform.Translation(11.2539, 1.33133, 0)
+Mariah::Transform.Translation(11.2315, 1.98126, 0)
+Mariah::Transform.Translation(11.2024, 2.61451, 0)
+Mariah::Transform.Translation(11.1667, 3.23108, 0)
+Mariah::Transform.Translation(11.1243, 3.83098, 0)
+Mariah::Transform.Translation(11.0753, 4.4142, 0)
+DefaultCamera::Transform.Translation(19, 20, 1)
+DollHouseCamera::Transform.Translation(4.8287, 7.35039, 1)
+Mariah::Transform.Translation(11.0195, 4.98075, 0)
+Mariah::Transform.Translation(10.9571, 5.53061, 0)
+Mariah::Transform.Translation(10.8881, 6.06381, 0)
+Mariah::Transform.Translation(10.8124, 6.58033, 0)
+DefaultCamera::Transform.Translation(19, 23, 1)
+DollHouseCamera::Transform.Translation(5.71129, 10.8543, 1)
+Mariah::Transform.Translation(10.73, 7.05518, 0)
+Mariah::Transform.Translation(9.48345, 10.3393, 0)
+Mariah::Transform.Translation(9.38776, 10.4003, 0)
+Mariah::Transform.Translation(9.2854, 10.4446, 0)
+Mariah::Transform.Translation(9.17637, 10.4723, 0)
+Mariah::Transform.Translation(9.06068, 10.4833, 0)
+Mariah::Transform.Translation(8.93833, 10.4776, 0)
+Mariah::Transform.Translation(8.80931, 10.4553, 0)
+Mariah::Transform.Translation(8.67363, 10.4163, 0)
+Mariah::Transform.Translation(4.40424, 1.49783, 0)
+Mariah::Transform.Translation(4.26863, 0.942313, 0)
+Mariah::Transform.Translation(4.13969, 0.370143, 0)
+Mariah::Transform.Translation(4.01742, -0.218683, 0)
+Mariah::Transform.Translation(3.90182, -0.824166, 0)
+Mariah::Transform.Translation(3.79288, -1.4463, 0)
+Mariah::Transform.Translation(3.69062, -2.0851, 0)
+Mariah::Transform.Translation(3.59502, -2.65545, 0)
+Mariah::Transform.Translation(3.51275, -1.00165, 0)
+Mariah::Transform.Translation(3.46374, 0.662688, 0)
+Mariah::Transform.Translation(3.45058, 1.32906, 0)
+Mariah::Transform.Translation(3.4441, 1.97875, 0)
+Mariah::Transform.Translation(3.44428, 2.61177, 0)
+Mariah::Transform.Translation(3.45112, 3.22811, 0)
+Mariah::Transform.Translation(3.46464, 3.82778, 0)
+Mariah::Transform.Translation(3.48481, 4.38161, 0)
+Mariah::Transform.Translation(3.51166, 4.89192, 0)
+Mariah::Transform.Translation(6.419, -0.0616773, 0)
+Mariah::Transform.Translation(6.42566, -0.643676, 0)
+Mariah::Transform.Translation(6.439, -1.24233, 0)
+Mariah::Transform.Translation(6.45899, -1.85764, 0)
+Mariah::Transform.Translation(6.48566, -2.48961, 0)
+Mariah::Transform.Translation(6.51899, -2.64862, 0)
+Mariah::Transform.Translation(6.55724, -2.00166, 0)
+Mariah::Transform.Translation(6.60113, -2.00258, 0)
+Mariah::Transform.Translation(6.65051, -2.00088, 0)
+Mariah::Transform.Translation(6.70525, -2.00176, 0)
+Mariah::Transform.Translation(6.76519, -2.00263, 0)
 Editor::TranslateTool 
-Editor::SelectTool 
-Editor::TranslateTool 
-Editor::SelectTool 
-Transform::Initialize 
-GraphicsSpace::AddSprite - Sprite
-Editor::CreateTransform - Created 'Sprite' 
-Editor::TranslateTool 
-Editor::SelectTool 
-Editor::TranslateTool 
-Editor::SelectTool 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-Editor::SelectTool 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Component - Destructor called! 
-DefaultCamera::Camera::~Com
+Editor::ScaleTool 
+Window::OnEngineExitEvent - 
+
+[Engine::Terminate] 
+Daisy World::DestroyAll - Removing all objects from the space.
+Content::Terminate
+ZilchInterface::TerminateZilchInterface::Clean - Freeing the state, report, dependencies... 
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
+GUI::Terminate 
+DefaultCamera::~Entity - Destructor called! 
+DefaultCamera::Transform::~Component - Destructor called! 
+DefaultCamera::Camera::~Component - Destructor called! 
+DefaultCamera::DebugCamera::~Component - Destructor called! 
+DefaultCamera::DebugAudio::~Component - Destructor called! 
+Mouse::~Entity - Destructor called! 
+Keyboard::~Entity - Destructor called! 
+Daisy World::~Entity - Destructor called! 
+Daisy World::SoundSpace::~Component - Destructor called! 
+Daisy World::TimeSpace::~Component - Destructor called! 
+Daisy World::PhysicsSpace::~Component - Destructor called! 
+Daisy World::CameraViewport::~Component - Destructor called! 
+Daisy World::GraphicsSpace::~Component - Destructor called! 
+Daisy Project::~Entity - Destructor called! 

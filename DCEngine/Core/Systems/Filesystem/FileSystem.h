@@ -36,7 +36,7 @@ namespace DCEngine
     static int          FileSize(filepath filePath);
     static bool         FileRename(filepath filePath, std::string newFileName);
     static bool         FileReadToString(filepath filePath, std::string& output);
-    static bool         FileWriteString(filepath filePath, std::string& input);
+    static bool         FileWriteString(filepath filePath, std::string& input, bool append = false);
     static std::string  FileNoExtension(filepath filePath);
     static std::string  FileNoPath(filepath filePath);
 

@@ -42,6 +42,7 @@ namespace DCEngine {
       //  Settings 
       ////////////////
       // Widgets
+      bool EditorStart = false;
       bool EditorEnabled = false;
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
@@ -51,17 +52,22 @@ namespace DCEngine {
       bool WidgetPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
       bool WidgetDiagnosticsEnabled = false;
+      bool WindowSaveLevelEnabled = false;
+      bool WindowLoadLevelEnabled = false;
+      bool WindowConsoleEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;      
       EditorTool ActiveTool;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
+      float SnapDistance = 1.0;
+      float SnapAngle = 15; 
 
       /////////////////
       //  Methods 
       ////////////////
       void DisplayEditor();
-      // Widgets
+      // Windows
       void DisplayMainMenuBar();
       void WidgetLevel();
       void WidgetResourceAdd();
@@ -70,6 +76,9 @@ namespace DCEngine {
       void DisplayProperties(ComponentPtr);
       void WidgetLibrary();
       void WidgetDiagnostics();
+      void WindowSaveLevel();
+      void WindowLoadLevel();
+      void WindowConsole();
       // Project
       void NewProject();
       void ArchiveProject();
@@ -82,8 +91,8 @@ namespace DCEngine {
       void Exit();
       // Resources
       void AddResource();
-      void LoadLevel();
-      void SaveLevel();
+      void LoadLevel(std::string level);
+      void SaveLevel(std::string level);
       void ReloadLevel();
       void LoadDollhouse();
       // Object Selection
@@ -97,17 +106,12 @@ namespace DCEngine {
       void TranslateTool();
       void RotateTool();
       void ScaleTool();
+      // Actions
+      void MoveObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
       void Hotkeys(Events::KeyDown* event);
-      /* Serialization functions*/
-      //void SaveLevel();
-      //void ReloadLevel(); 
-
-
-      //////////////////
-      // CREATE
-      /////////////////
+      // Create
       void CreateTransform();
       void CreateSprite();
 

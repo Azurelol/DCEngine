@@ -119,12 +119,38 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Saves a level, creating a Level resource.
+  */
+  /**************************************************************************/
+  void Space::SaveLevel(const std::string & level)
+  {
+    Zilch::JsonBuilder levelBuilder;
+    levelBuilder.Key("Space");
+    //
+    //// Serialize the space and its components
+
+    //// Serialize all the GameObjects in the space
+    //levelBuilder.Key("GameObjects");
+    //levelBuilder.Begin(Zilch::JsonType::Object);
+    //for (auto &gameObj : GameObjectContainer) {
+    //  // Get its name
+    //  levelBuilder.Key(gameObj->Name().c_str());
+    //  // Ask it to deserialize itself
+    //  levelBuilder.Begin(Zilch::JsonType::Object);
+    //  gameObj->Serialize(levelBuilder);
+    //  levelBuilder.End();
+    //}
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Loads a level, a container for entities, into the space. 
   */
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
-      DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
+      DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
         
     // Clear the current objects from the space
     //DestroyAll();
@@ -136,7 +162,6 @@ namespace DCEngine {
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
-
 
     // Initialize every GameObject
     for (auto gameObject : GameObjectContainer) {
@@ -157,6 +182,22 @@ namespace DCEngine {
 
 
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Loads a level, a container for entities, into the space.
+  @param  level A handle to the level resource.
+  */
+  /**************************************************************************/
+  void Space::LoadLevel(std::string & level)
+  {
+    DCTrace << ObjectName << " Space::LoadLevel - Loading " << level << "\n";
+    return;
+
+    // Request the Content system for a pointer to the specified level resource
+    auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
+    LoadLevel(levelPtr);
   }
 
   /**************************************************************************/
