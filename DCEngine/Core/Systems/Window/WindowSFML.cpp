@@ -64,15 +64,16 @@ namespace DCEngine {
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
-		  WindowInterface.Width = 1024;
-		  WindowInterface.Height = 768;
+		  WindowInterface.Width = widthRecord;
+		  WindowInterface.Height = heightRecord;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Default, ContextSettings);
         break;
       case WindowMode::Fullscreen :
-		  static const std::vector<sf::VideoMode> tmp = sf::VideoMode::getFullscreenModes();
-		  WindowInterface.Width = tmp.front().width;
-		  WindowInterface.Height = tmp.front().height;
+		  widthRecord = WindowInterface.Width;
+		  heightRecord = WindowInterface.Height;
+		  WindowInterface.Width = sf::VideoMode::getDesktopMode().width;
+		  WindowInterface.Height = sf::VideoMode::getDesktopMode().height;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
                               WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         break;
@@ -136,15 +137,19 @@ namespace DCEngine {
 			std::stringstream ss;
 			ss << WindowInterface.Caption << "              [fps=" << int(frameCounter / localCounter) << "]";
 			WindowContext->setTitle(ss.str());
+			windowsTitle = ss.str();
 			localCounter = 0;
 			frameCounter = 0;
 		}
+
       //DCTrace << "WindowSFML::Update - FPS: " << dt << "\n";
 
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
-      if (EventObj.type == sf::Event::Closed)
-        Terminate();
+		if (EventObj.type == sf::Event::Closed)
+		{
+			Terminate();
+		}
     }
 
     /**************************************************************************/
