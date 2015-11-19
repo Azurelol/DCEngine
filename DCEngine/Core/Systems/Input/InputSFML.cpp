@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "InputSFML.h"
 
 // Engine
@@ -86,6 +87,17 @@ namespace DCEngine {
       case sf::Event::TextEntered:
         PollTextEntered(_event);
         break;
+		//alt+tab ctrl+alt+delete
+	  case sf::Event::LostFocus:
+		  DCTrace << (((unsigned short)GetKeyState(VK_MENU)) >> 15) << "\n";
+		  if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
+		  {
+			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+		  }
+		  break;
+	  case sf::Event::GainedFocus:
+		  ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
+		  break;
 
       case sf::Event::MouseWheelMoved:
         //ImGuiIO& io = ImGui::GetIO();
@@ -93,6 +105,10 @@ namespace DCEngine {
         break;
         // Don't process other events
       default:
+		  if ((((unsigned short)GetKeyState(VK_CONTROL)) >> 15) && (((unsigned short)GetKeyState(VK_MENU) >> 15)) && (((unsigned short)GetKeyState(VK_MENU) >> 15)))
+		  {
+			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+		  }
         break;
       }
     }
