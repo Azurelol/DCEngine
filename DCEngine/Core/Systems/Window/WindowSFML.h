@@ -37,6 +37,10 @@ namespace DCEngine {
       WindowSFML(Window& windowInterface);
       ~WindowSFML();
 
+	  std::string windowsTitle;
+	  int widthRecord = 1024;
+	  int heightRecord = 768;
+
       // (!!!) Temporary public access to the sf::Window object
       sf::Window* GetWindow() {
         return WindowContext.get();
