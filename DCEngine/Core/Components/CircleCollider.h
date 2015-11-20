@@ -47,7 +47,7 @@ namespace DCEngine {
     Transform* TransformComponent;
 
     /* Properties */
-    // CollisionGroup = 
+    // CollisionGroup = String("Default");
 
 
   };

@@ -1,8 +1,8 @@
 /*****************************************************************************/
 /*!
-@file   CollisionGroup.h
+@file   CollisionTable.h
 @author Blaine Reiner, Christian Sagel
-@par    email: c.sagel\@digipen.edu
+@par    email: c.sagel\@digipen.edu, blaine.reiner\@digipen.edu
 @date   11/19/2015
 @brief  Collision Tables are used to specify what kinds of objects can/can’t 
         collide with each other. Tables can also be used to send specific events
@@ -14,6 +14,7 @@
 /******************************************************************************/
 #pragma once
 #include "ResourceReference.h"
+#include "CollisionGroup.h"
 
 namespace DCEngine {
 
@@ -35,23 +36,25 @@ namespace DCEngine {
     struct CollisionBlock {
       //!< Whether or not to send events to the object of TypeA in a collision 
       //   of TypeA and TypeB
-      bool SendEventsToA;
-      //!< Whether or not to send events to the object of TypeB in a collision 
+      bool SendEventsToA = true;
+      //!< Whether or not to send events to the object of TypeB in a collision
       //   of TypeA and TypeB
-      bool SendEventsToB;
+      bool SendEventsToB = true;
       //!< Wheter or not to send events to the space in a collision of TypeA and
       //   and TypeB.
-      bool SendEventsToSpace;
+      bool SendEventsToSpace = true;
       //!< What event name to send out. If left empty the event name will be
       //   'Events.GroupCollision(Started/Ended/Persisted)'
                       
     };
 
     struct CollisionFilter {
-      //std::pair<GameObject*, GameObject*>;
-      CollisionFlag CollisionFlag;
+      // the pair of groups
+      std::pair<std::string, std::string> Pairing;
+      // Controls the resolution of collision
+      CollisionFlag CollisionFlag = CollisionFlag::Resolve;
       // Controls what events to send when a collision starts between TypeA and TypeB
-      CollisionBlock CollisionStartBlock; 
+      CollisionBlock CollisionStartBlock;
       // Controls what events to send when a collision ends between TypeA and TypeB
       CollisionBlock CollisionEndBlock;
       // Sent before collision is resolved between TypeA and TypeB
@@ -59,10 +62,27 @@ namespace DCEngine {
     };
 
   public:
-    CollisionTable(std::string name) : Resource(name) {}
+    CollisionTable(std::string name);
     ~CollisionTable() {}
 
+    bool AddGroup(CollisionGroup group);
+    bool AddGroup(std::string group);
+    std::vector<CollisionGroup> const &GetGroups(void) const;
+    std::vector<CollisionFilter> const &GetPairs(void) const;
+    bool SetResolve(std::string const &group1, std::string const &group2, CollisionFlag state);
+    CollisionFlag &GetResolve(std::string const &group1, std::string const &group2);
+    bool SetStartBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
+    CollisionBlock &GetStartBlock(std::string const &group1, std::string const &group2);
+    bool SetEndBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
+    CollisionBlock &GetEndBlock(std::string const &group1, std::string const &group2);
+    bool SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
+    CollisionBlock &GetPreSolveBlock(std::string const &group1, std::string const &group2);
+
   private:
+
+    std::vector<CollisionGroup> Groups;
+
+    std::vector<CollisionFilter> Pairs;
 
   };
 

@@ -561,6 +561,9 @@
     <ClCompile Include="Core\Resources\Level.cpp">
       <Filter>Core\Resources\Serialization</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionTable.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

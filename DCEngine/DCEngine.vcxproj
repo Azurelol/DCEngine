@@ -285,6 +285,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\Resources\Archetype.cpp" />
+    <ClCompile Include="Core\Resources\CollisionTable.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
