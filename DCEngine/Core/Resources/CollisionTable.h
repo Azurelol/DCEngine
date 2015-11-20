@@ -21,45 +21,45 @@ namespace DCEngine {
   // Forward class declaration
   class GameObject;
 
+  enum class CollisionFlag {
+    // Don't detect collision between this pair 
+    // (no collision events will be set.) Used as an optimization flag
+    SkipDetecting,
+    // Don't resolve collision (physics) but still send events
+    SkipResolution,
+    // Resolve collisions as normal and send events
+    Resolve,
+  };
+
+  struct CollisionBlock {
+    //!< Whether or not to send events to the object of TypeA in a collision 
+    //   of TypeA and TypeB
+    bool SendEventsToA = true;
+    //!< Whether or not to send events to the object of TypeB in a collision
+    //   of TypeA and TypeB
+    bool SendEventsToB = true;
+    //!< Wheter or not to send events to the space in a collision of TypeA and
+    //   and TypeB.
+    bool SendEventsToSpace = true;
+    //!< What event name to send out. If left empty the event name will be
+    //   'Events.GroupCollision(Started/Ended/Persisted)'
+
+  };
+
+  struct CollisionFilter {
+    // the pair of groups
+    std::pair<std::string, std::string> Pairing;
+    // Controls the resolution of collision
+    CollisionFlag CollisionFlag = CollisionFlag::Resolve;
+    // Controls what events to send when a collision starts between TypeA and TypeB
+    CollisionBlock CollisionStartBlock;
+    // Controls what events to send when a collision ends between TypeA and TypeB
+    CollisionBlock CollisionEndBlock;
+    // Sent before collision is resolved between TypeA and TypeB
+    CollisionBlock PreSolveBlock;
+  };
+
   class CollisionTable : public Resource {
-
-    enum class CollisionFlag {
-      // Don't detect collision between this pair 
-      // (no collision events will be set.) Used as an optimization flag
-      SkipDetecting, 
-      // Don't resolve collision (physics) but still send events
-      SkipResolution,
-      // Resolve collisions as normal and send events
-      Resolve,
-    };
-
-    struct CollisionBlock {
-      //!< Whether or not to send events to the object of TypeA in a collision 
-      //   of TypeA and TypeB
-      bool SendEventsToA = true;
-      //!< Whether or not to send events to the object of TypeB in a collision
-      //   of TypeA and TypeB
-      bool SendEventsToB = true;
-      //!< Wheter or not to send events to the space in a collision of TypeA and
-      //   and TypeB.
-      bool SendEventsToSpace = true;
-      //!< What event name to send out. If left empty the event name will be
-      //   'Events.GroupCollision(Started/Ended/Persisted)'
-                      
-    };
-
-    struct CollisionFilter {
-      // the pair of groups
-      std::pair<std::string, std::string> Pairing;
-      // Controls the resolution of collision
-      CollisionFlag CollisionFlag = CollisionFlag::Resolve;
-      // Controls what events to send when a collision starts between TypeA and TypeB
-      CollisionBlock CollisionStartBlock;
-      // Controls what events to send when a collision ends between TypeA and TypeB
-      CollisionBlock CollisionEndBlock;
-      // Sent before collision is resolved between TypeA and TypeB
-      CollisionBlock PreSolveBlock;
-    };
 
   public:
     CollisionTable(std::string name);
@@ -69,6 +69,7 @@ namespace DCEngine {
     bool AddGroup(std::string group);
     std::vector<CollisionGroup> const &GetGroups(void) const;
     std::vector<CollisionFilter> const &GetPairs(void) const;
+    CollisionFilter &GetFilter(std::string const &group1, std::string const &group2);
     bool SetResolve(std::string const &group1, std::string const &group2, CollisionFlag state);
     CollisionFlag &GetResolve(std::string const &group1, std::string const &group2);
     bool SetStartBlock(std::string const &group1, std::string const &group2, CollisionBlock state);

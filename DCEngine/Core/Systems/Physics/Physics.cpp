@@ -69,7 +69,10 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
-			Step(1.0f / 60.0f);
+      //if (pause)
+      //{
+        Step(dt);
+      //}
 		}
 
     /**************************************************************************/
@@ -211,19 +214,56 @@ namespace DCEngine {
 		@param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-		GameObjectRawVec Physics::BroadPhaseDetection(PhysicsSpace* physpace)
+    std::vector<DetectionPairing> Physics::BroadPhaseDetection(PhysicsSpace* physpace)
 		{
-			// For all gameobjects with a 'RigidBody' component
+			// For all gameobjects with a 'Collider' component
 			auto list = physpace->getColliders();
 
-			GameObjectRawVec result;
+      std::vector<DetectionPairing> result;
+
+      DetectionPairing Fill;
 
 			for (int i = 0; i < list.size(); ++i)
 			{
 				for (int j = i + 1; j < list.size(); ++j)
 				{
-					result.push_back(list[i]);
-					result.push_back(list[j]);
+         auto box1 = list[i]->getComponent<BoxCollider>();
+         auto box2 = list[j]->getComponent<BoxCollider>();
+         auto cir1 = list[i]->getComponent<CircleCollider>();
+         auto cir2 = list[j]->getComponent<CircleCollider>();
+         std::string str1, str2;
+
+
+         Fill.obj1 = list[i];
+         Fill.obj2 = list[j];
+
+         if (box1)
+         {
+           str1 = box1->getCollisionGroup();
+         }
+         else
+         {
+           str1 = cir1->getCollisionGroup();
+         }
+
+         if (box2)
+         {
+           str2 = box2->getCollisionGroup();
+         }
+         else
+         {
+           str2 = cir2->getCollisionGroup();
+         }
+
+         if (str1 == str2)
+         {
+           Fill.filter = CollisionFilter();
+         }
+
+         // need to access the collision table and get info from it
+         // Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
+
+         result.push_back(Fill);
 				}
 			}
 
@@ -236,18 +276,23 @@ namespace DCEngine {
 		@param A vector of GameObjects.
 		*/
 		/**************************************************************************/
-		void Physics::NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist)
+		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> pairs, std::vector<Manifold> &contactlist)
 		{
 			GameObject * obj1, *obj2;
 
 			Manifold collision;
+      CollisionData Collision;
 
-			for (int i = 0; i < pairs.size(); ++i)
+			for (auto Pair : pairs)
 			{
-				/* set pointers to the objects we are checking collision with */
-				obj1 = pairs[i];
-				obj2 = pairs[++i];
+        obj1 = Pair.obj1;
+        obj2 = Pair.obj2;
+        Collision.filter = Pair.filter;
 
+        if (Pair.filter.CollisionFlag == CollisionFlag::SkipDetecting)
+        {
+          continue;
+        }
 
 				if (obj1->getComponent<BoxCollider>() && obj2->getComponent<BoxCollider>())
 				{
@@ -255,96 +300,89 @@ namespace DCEngine {
 					if (Collision::BoxtoBox(obj1, obj2, collision))
 					{
 
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
             
             // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						CollisionData boxToBoxCollision;
-						boxToBoxCollision.Object = obj1;
-						boxToBoxCollision.OtherObject = obj2;
-						DispatchCollisionStarted(boxToBoxCollision);
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionStarted(Collision);
 
 					}
 					// NO COLLISION DETECTED
-					else {
-						CollisionData boxToBoxCollision;
-						boxToBoxCollision.Object = obj1;
-						boxToBoxCollision.OtherObject = obj2;
-						DispatchCollisionEnded(boxToBoxCollision);
+					else 
+          {
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionEnded(Collision);
 					}
 				}
 				else if (obj1->getComponent<CircleCollider>() && obj2->getComponent<CircleCollider>())
 				{
 					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						CollisionData circleToCirlceCollision;
-						circleToCirlceCollision.Object = obj1;
-						circleToCirlceCollision.OtherObject = obj2;
-						DispatchCollisionStarted(circleToCirlceCollision);
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionStarted(Collision);
 
 					}
 					// NO COLLISION DETECTED
 					else
-					{
-						CollisionData circleToCirlceCollision;
-						circleToCirlceCollision.Object = obj1;
-						circleToCirlceCollision.OtherObject = obj2;
-						DispatchCollisionEnded(circleToCirlceCollision);
+          {
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionEnded(Collision);
 					}
 				}
 				else if ((obj1->getComponent<BoxCollider>() && obj2->getComponent<CircleCollider>()))
 				{
 					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false)
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						CollisionData boxToCirlceCollision;
-						boxToCirlceCollision.Object = obj1;
-						boxToCirlceCollision.OtherObject = obj2;
-						DispatchCollisionStarted(boxToCirlceCollision);
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionStarted(Collision);
 
 					}
 					// NO COLLISION DETECTED
 					else
 					{
-						CollisionData boxToCirlceCollision;
-						boxToCirlceCollision.Object = obj1;
-						boxToCirlceCollision.OtherObject = obj2;
-						DispatchCollisionEnded(boxToCirlceCollision);
+						Collision.Object = obj1;
+						Collision.OtherObject = obj2;
+						DispatchCollisionEnded(Collision);
 					}
 				}
 				else if ((obj1->getComponent<CircleCollider>() && obj2->getComponent<BoxCollider>()))
 				{
 					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false)
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						CollisionData boxToCirlceCollision;
-						boxToCirlceCollision.Object = obj2;
-						boxToCirlceCollision.OtherObject = obj1;
-						DispatchCollisionStarted(boxToCirlceCollision);
+						Collision.Object = obj2;
+						Collision.OtherObject = obj1;
+						DispatchCollisionStarted(Collision);
 
 					}
 					// NO COLLISION DETECTED
 					else
 					{
-						CollisionData boxToCirlceCollision;
-						boxToCirlceCollision.Object = obj2;
-						boxToCirlceCollision.OtherObject = obj1;
-						DispatchCollisionEnded(boxToCirlceCollision);
+						Collision.Object = obj2;
+						Collision.OtherObject = obj1;
+						DispatchCollisionEnded(Collision);
 					}
 				}
 			}
@@ -375,11 +413,18 @@ namespace DCEngine {
 			// Dispatch collision event to the first object
 			collisionStartedEvent->Object = collisionData.Object;
 			collisionStartedEvent->OtherObject = collisionData.OtherObject;
-			collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
-			// Dispatch collision event to the second object
+      if (collisionData.filter.CollisionStartBlock.SendEventsToA)
+      {
+        collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      }
+      // Dispatch collision event to the second object
 			collisionStartedEvent->Object = collisionData.OtherObject;
 			collisionStartedEvent->OtherObject = collisionData.Object;
-			collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      if (collisionData.filter.CollisionStartBlock.SendEventsToB)
+      {
+        collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
+      }
+
       delete collisionStartedEvent;
 		}
 
@@ -396,11 +441,17 @@ namespace DCEngine {
 			// Dispatch collision event to the first object
 			collisionEndedEvent->Object = collisionData.Object;
 			collisionEndedEvent->OtherObject = collisionData.OtherObject;
-			collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
-			// Dispatch collision event to the second object
+      if (collisionData.filter.CollisionStartBlock.SendEventsToA)
+      {
+        collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      }
+      // Dispatch collision event to the second object
 			collisionEndedEvent->Object = collisionData.OtherObject;
 			collisionEndedEvent->OtherObject = collisionData.Object;
-			collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      if (collisionData.filter.CollisionStartBlock.SendEventsToB)
+      {
+        collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
+      }
       delete collisionEndedEvent;
 		}
 

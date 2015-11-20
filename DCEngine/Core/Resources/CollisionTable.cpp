@@ -27,9 +27,25 @@ namespace DCEngine
     return Groups;
   }
 
-  std::vector<CollisionTable::CollisionFilter> const & CollisionTable::GetPairs(void) const
+  std::vector<CollisionFilter> const & CollisionTable::GetPairs(void) const
   {
     return Pairs;
+  }
+
+  CollisionFilter &CollisionTable::GetFilter(std::string const &group1, std::string const &group2)
+  {
+    for (auto Pair : Pairs)
+    {
+      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+      {
+        return Pair;
+      }
+    }
+
+    CollisionFilter temp;
+
+    DCTrace << "CollisionTable::GetFilter - Tried to get filter of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
+    return temp;
   }
 
   bool CollisionTable::AddGroup(CollisionGroup group)
@@ -38,7 +54,7 @@ namespace DCEngine
     {
       if (Group.Name() == group.Name())
       {
-        DCTrace << "CollisionTable::AddGroup - Tried to add a group that exists" << group.Name() << "\n";
+        DCTrace << "CollisionTable::AddGroup - Tried to add a group that already exists" << group.Name() << "\n";
         return false;
       }
     }
@@ -96,7 +112,7 @@ namespace DCEngine
     return false;
   }
 
-  CollisionTable::CollisionFlag &CollisionTable::GetResolve(std::string const &group1, std::string const &group2)
+  CollisionFlag &CollisionTable::GetResolve(std::string const &group1, std::string const &group2)
   {
     for (auto Pair : Pairs)
     {
@@ -128,7 +144,7 @@ namespace DCEngine
     return false;
   }
 
-  CollisionTable::CollisionBlock &CollisionTable::GetStartBlock(std::string const &group1, std::string const &group2)
+  CollisionBlock &CollisionTable::GetStartBlock(std::string const &group1, std::string const &group2)
   {
     for (auto Pair : Pairs)
     {
@@ -160,7 +176,7 @@ namespace DCEngine
     return false;
   }
 
-  CollisionTable::CollisionBlock &CollisionTable::GetEndBlock(std::string const &group1, std::string const &group2)
+  CollisionBlock &CollisionTable::GetEndBlock(std::string const &group1, std::string const &group2)
   {
     for (auto Pair : Pairs)
     {
@@ -192,7 +208,7 @@ namespace DCEngine
     return false;
   }
 
-  CollisionTable::CollisionBlock &CollisionTable::GetPreSolveBlock(std::string const &group1, std::string const &group2)
+  CollisionBlock &CollisionTable::GetPreSolveBlock(std::string const &group1, std::string const &group2)
   {
     for (auto Pair : Pairs)
     {
