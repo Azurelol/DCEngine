@@ -20,6 +20,30 @@ namespace DCEngine {
     floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
     floor->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+    {
+      GameObjectPtr wall = ConstructGameObject("RightWall");
+      wall->AddComponent<Transform>();
+      wall->AddComponent<BoxCollider>();
+      //wall->AddComponent<Sprite>();
+      // Change the properties of the components
+      wall->getComponent<Transform>()->Translation = Vec3(30.0f, 1.0f, 0.0f);
+      wall->getComponent<Transform>()->Scale = Vec3(2.0f, 50.0f, 1.0f);
+      // BoxCollider properties
+      wall->getComponent<BoxCollider>()->Size = Vec3(1, 1, 2);
+      wall->getComponent<BoxCollider>()->IsDrawingCollider = false;
+    }
+    floor->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+    {
+      GameObjectPtr wall = ConstructGameObject("LeftWall");
+      wall->AddComponent<Transform>();
+      wall->AddComponent<BoxCollider>();
+      //wall->AddComponent<Sprite>();
+      // Change the properties of the components
+      wall->getComponent<Transform>()->Translation = Vec3(-30.0f, 1.0f, 0.0f);
+      wall->getComponent<Transform>()->Scale = Vec3(2.0f, 50.0f, 1.0f);
+      // BoxCollider properties
+      wall->getComponent<BoxCollider>()->Size = Vec3(1, 1, 2);
+    }
 
 
     GameObjectPtr floor2 = ConstructGameObject("Basketfloor2");
@@ -37,7 +61,6 @@ namespace DCEngine {
     // Sprite properties
     // BoxCollider properties
     floor2->getComponent<BoxCollider>()->Size = Vec3(100, 2, 2);
-    floor2->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
     floor2->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 

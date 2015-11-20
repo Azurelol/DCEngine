@@ -92,6 +92,7 @@ namespace DCEngine {
     void GameObjects();
     void SetupBackground();
     void EnvironmentSetup();
+    void GenerateMonkeyLOL(Vec3 translation, Vec3 scale, Vec4 color);
 
     GameObjectPtr doll;
     GameObjectPtr cameraObj;
