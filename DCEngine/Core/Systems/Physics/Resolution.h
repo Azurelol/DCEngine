@@ -1,10 +1,11 @@
-/*****************************************************************************/
+/******************************************************************************/
 /*!
 \file   Resolution.h
 \author Blaine Reiner
-\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
-\date   9/23/2015
-\brief  A static class containing resolution functions.
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Resolves the collisions betwen objects
 */
 /******************************************************************************/
 #pragma once

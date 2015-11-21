@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Manifold.cpp
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Implementation of the Manifold class
+*/
+/******************************************************************************/
 #pragma once
 #include "Manifold.h"
 // Components

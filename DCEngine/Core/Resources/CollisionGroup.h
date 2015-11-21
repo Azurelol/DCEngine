@@ -2,7 +2,7 @@
 /*!
 \file   CollisionGroup.h
 \author Blaine, Christian Sagel
-\par    email: c.sagel\@digipen.edu
+\par    email: c.sagel\@digipen.edu, blaine.reiner\@digipen.edu
 \date   11/19/2015
 \brief  Collision groups are used as a tag to identify an object in the table.
 
