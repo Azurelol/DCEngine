@@ -31,8 +31,8 @@ namespace DCEngine {
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
       DCTrace << "Hey you loaded me man here you go: " << levelPtr->Get() << " \n";
-
-      //CurrentSpace->LoadLevel(level);
+      // Load the level
+      CurrentSpace->LoadLevel(level);
 
       //std::string levelData = 
     }

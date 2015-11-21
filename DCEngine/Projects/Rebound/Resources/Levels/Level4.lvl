@@ -20,50 +20,106 @@
       {
       }
     }, 
-    "DefaultCamera": 
+    "GameObjects": 
     {
-      "Transform": 
+      "DefaultCamera": 
       {
-        "Translation": 
+        "Transform": 
         {
-          "Vec3": 
+          "Translation": 
           {
-            "x": 1.000000, 
-            "y": 11.000000, 
-            "z": 1.000000
+            "Vec3": 
+            {
+              "x": 1.000000, 
+              "y": 11.000000, 
+              "z": 1.000000
+            }
+          }, 
+          "Rotation": 
+          {
+            "Vec3": 
+            {
+              "x": 0.000000, 
+              "y": 0.000000, 
+              "z": 0.000000
+            }
+          }, 
+          "Scale": 
+          {
+            "Vec3": 
+            {
+              "x": 1.000000, 
+              "y": 1.000000, 
+              "z": 1.000000
+            }
           }
         }, 
-        "Rotation": 
+        "Camera": 
         {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
+          "FieldOfView": 175.000000, 
+          "NearPlane": 0.100000, 
+          "FarPlane": 100.000000, 
+          "Size": 70.000000
         }, 
-        "Scale": 
+        "DebugCamera": 
         {
-          "Vec3": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000
-          }
+        }, 
+        "DebugAudio": 
+        {
         }
       }, 
-      "Camera": 
+      "Sprite": 
       {
-        "FieldOfView": 175.000000, 
-        "NearPlane": 0.100000, 
-        "FarPlane": 100.000000, 
-        "Size": 70.000000
-      }, 
-      "DebugCamera": 
-      {
-      }, 
-      "DebugAudio": 
-      {
+        "Transform": 
+        {
+          "Translation": 
+          {
+            "Vec3": 
+            {
+              "x": 0.000000, 
+              "y": 0.000000, 
+              "z": 0.000000
+            }
+          }, 
+          "Rotation": 
+          {
+            "Vec3": 
+            {
+              "x": 0.000000, 
+              "y": 0.000000, 
+              "z": 0.000000
+            }
+          }, 
+          "Scale": 
+          {
+            "Vec3": 
+            {
+              "x": 1.000000, 
+              "y": 1.000000, 
+              "z": 1.000000
+            }
+          }
+        }, 
+        "Sprite": 
+        {
+          "Visible": true, 
+          "Color": 
+          {
+            "Vec4": 
+            {
+              "x": 1.000000, 
+              "y": 1.000000, 
+              "z": 1.000000, 
+              "w": 1.000000
+            }
+          }, 
+          "SpriteSource": "Square", 
+          "FlipX": false, 
+          "FlipY": false, 
+          "AnimationActive": false, 
+          "AnimationSpeed": 1.000000
+        }
       }
     }
   }
+}

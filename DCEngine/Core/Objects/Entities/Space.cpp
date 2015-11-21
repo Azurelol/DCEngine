@@ -152,45 +152,28 @@ namespace DCEngine {
     // Create a builder object to build JSON
     Zilch::JsonBuilder levelBuilder;
 
-    levelBuilder.Begin(Zilch::JsonType::Object);
-    levelBuilder.Key(level.c_str());
-    //levelBuilder.Key("Level");
-    //levelBuilder.Value(level.c_str());
-    levelBuilder.Begin(Zilch::JsonType::Object);
-    // Serialize the space and its components
-    this->Serialize(levelBuilder);
-    // Serialize all the GameObjects in the space
-    
-    levelBuilder.Key("GameObjects");    
-    levelBuilder.Begin(Zilch::JsonType::Object);
-    for (auto &gameObj : GameObjectContainer) {
-      gameObj->Serialize(levelBuilder);
-    }
+    levelBuilder.Begin(Zilch::JsonType::Object); 
+    {
+      levelBuilder.Key(level.c_str());
+      //levelBuilder.Key("Level");
+      //levelBuilder.Value(level.c_str());
+      levelBuilder.Begin(Zilch::JsonType::Object); 
+      {
+        // Serialize the space and its components
+        this->Serialize(levelBuilder);
+        // Serialize all the GameObjects in the space
+        {
+          levelBuilder.Key("GameObjects");
+          levelBuilder.Begin(Zilch::JsonType::Object);
+          for (auto &gameObj : GameObjectContainer) {
+            gameObj->Serialize(levelBuilder);
+          }
+          levelBuilder.End();
+        }
+      }
+      levelBuilder.End();
+    }    
     levelBuilder.End();
-
-    //levelBuilder.Key("Space");  
-    //levelBuilder.Begin(Zilch::JsonType::Object);
-    //{
-    //  this->Serialize(levelBuilder);
-    //}
-    //levelBuilder.End();
-
-
-    // Serialize all the GameObjects in the space
-    //levelBuilder.Key("GameObjects");
-    //levelBuilder.Begin(Zilch::JsonType::Object);
-    //for (auto &gameObj : GameObjectContainer) {
-    //  // Get its name
-    //  levelBuilder.Key(gameObj->Name().c_str());
-    //  // Ask it to deserialize itself
-    //  levelBuilder.Begin(Zilch::JsonType::Object);
-    //  gameObj->Serialize(levelBuilder);
-    //  levelBuilder.End();
-    //}
-
-    levelBuilder.End();
-    levelBuilder.End();
-    //levelBuilder.End();
     return std::string(levelBuilder.ToString().c_str());
   }
 
@@ -207,15 +190,14 @@ namespace DCEngine {
     if (!level) {
       DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
     }
-
+    return;
     // Clear the current objects from the space
     DestroyAll();
-
     // Set it as the current level
     CurrentLevel = level;
     // Turn the string from file into JSON data
     Zilch::JsonValue levelData;
-    //levelData.
+    levelData.AsString() = Zilch::String(level->Get().c_str());
 
     // Deserialize the space
 
@@ -271,7 +253,6 @@ namespace DCEngine {
   void Space::LoadLevel(std::string & level)
   {
     DCTrace << ObjectName << " Space::LoadLevel - Loading " << level << "\n";
-    return;
 
     // Request the Content system for a pointer to the specified level resource
     auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);

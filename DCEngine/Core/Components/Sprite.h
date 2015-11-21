@@ -58,7 +58,7 @@ namespace DCEngine {
     
 
     /* Variables */
-		String SpriteSource = "square";
+		String SpriteSource = "Square";
 		bool Visible = true;
 		Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;
