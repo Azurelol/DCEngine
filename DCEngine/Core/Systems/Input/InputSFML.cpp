@@ -89,7 +89,6 @@ namespace DCEngine {
         break;
 		//alt+tab ctrl+alt+delete
 	  case sf::Event::LostFocus:
-		  DCTrace << (((unsigned short)GetKeyState(VK_MENU)) >> 15) << "\n";
 		  if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
 		  {
 			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
