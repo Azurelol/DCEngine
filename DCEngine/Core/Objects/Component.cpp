@@ -6,7 +6,7 @@
 #include "Entities\GameSession.h"
 
 // Access to the engine for key_callback
-//#include "..\..\Core\Engine\Engine.h"
+#include "..\..\Core\Engine\Engine.h"
 
 namespace DCEngine {
 
@@ -57,6 +57,36 @@ namespace DCEngine {
 
     if (DiagnosticsEnabled)
       ComponentLastDestroyed = ObjectName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Serializes a Component.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the component and all its properties.
+  */
+  /**************************************************************************/
+  void Component::Serialize(Zilch::JsonBuilder & builder)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();    
+        
+    builder.Key(this->Name().c_str());
+    builder.Begin(Zilch::JsonType::Object);
+    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes a Component.
+  @param builder A pointer to the object containing the properties.
+  @note  This will deserialize the Component's properties.
+  */
+  /**************************************************************************/
+  void Component::Deserialize(Zilch::JsonValue * properties)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

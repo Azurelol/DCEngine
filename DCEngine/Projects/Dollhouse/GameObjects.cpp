@@ -1,5 +1,11 @@
 //#include "Laboratory.h"
 #include "Dollhouse.h"
+#include <random> // random monkeys
+
+float frand(float a = 0, float b = 1) {
+  return a + (b - a)*float(rand()) / float(RAND_MAX);
+}
+
 
 namespace DCEngine {
 
@@ -26,11 +32,15 @@ namespace DCEngine {
     monkey->getComponent<BoxCollider>()->IsDrawingCollider = false;
     // Rigidbody properties
     monkey->getComponent<RigidBody>()->setGravity(true);
+    //std::uniform_real_distribution<float> dist(0, 5);
+    //std::mt
+    monkey->getComponent<EnemyController>()->JumpInterval = frand(1, 6);
+    monkey->getComponent<EnemyController>()->MoveSpeed = frand(2, 10);
   }
 
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
-
+    srand(unsigned(time(0)));
 
     // Player
     GameObjectPtr mariah = ConstructGameObject("Mariah");
@@ -61,9 +71,11 @@ namespace DCEngine {
     GenerateMonkeyLOL(Vec3(5, 1, 0), Vec3(1, 1, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(15, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(25, 1, 0), Vec3(3, 3, 1), Vec4(1, 1, 1.0, 1));
+    GenerateMonkeyLOL(Vec3(20, 1, 0), Vec3(2.5, 2.5, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-5, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-15, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-25, 1, 0), Vec3(1, 1, 1), Vec4(1, 1, 1.0, 1));
+    GenerateMonkeyLOL(Vec3(-20, 1, 0), Vec3(4, 4, 1), Vec4(1, 1, 1.0, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");

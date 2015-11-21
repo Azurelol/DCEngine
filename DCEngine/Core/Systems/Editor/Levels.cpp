@@ -14,7 +14,7 @@ namespace DCEngine {
       if (!WindowSaveLevelEnabled)
         return;
 
-      ImGui::SetNextWindowSize(ImVec2(150, 150));
+      ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Save Level", &WindowSaveLevelEnabled);
 
       // Query the Content system for the current list of levels

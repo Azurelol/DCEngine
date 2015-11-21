@@ -109,9 +109,7 @@ namespace DCEngine {
         return;
       // 2. Get a list of all properties on the object
       for (auto property : componentBoundType->AllProperties) {
-        // Display the name of the property
-        ImGui::Text(property->Name.c_str());
-
+        
         // If the bound field/property does not have the Property Attribute, do
         // nothing.
         //if (!property->HasAttribute("Property"))
@@ -219,8 +217,9 @@ namespace DCEngine {
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {
           auto vec2 = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
           float vec2f[2] = { vec2.x, vec2.y };
+          ImGui::Text(property->Name.c_str());
           // If the user has given input, set the property
-          if (ImGui::InputFloat2(property->Name.c_str(), vec2f)) {
+          if (ImGui::InputFloat2("", vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec2f));
@@ -233,7 +232,8 @@ namespace DCEngine {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
           // If the user has given input, set the property
-          if (ImGui::InputFloat3(property->Name.c_str(), vec3f)) {
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::InputFloat3("", vec3f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec3f));
@@ -246,7 +246,8 @@ namespace DCEngine {
           auto vec4 = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
           float vec4f[4] = { vec4.x, vec4.y, vec4.z, vec4.w};
           // If the user has given input, set the property
-          if (ImGui::InputFloat4(property->Name.c_str(), vec4f)) {
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::InputFloat4("", vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));

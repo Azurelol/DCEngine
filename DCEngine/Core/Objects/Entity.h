@@ -51,6 +51,8 @@ namespace DCEngine {
     ~Entity();
     void Initialize(); 
     void Terminate();
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
 
     // Properties
     void setArchetype(std::string);

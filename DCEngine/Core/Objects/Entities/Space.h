@@ -44,8 +44,10 @@ namespace DCEngine {
     void Initialize();
     void Terminate();
     void Update(float dt);
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
 
-    void SaveLevel(const std::string& level);
+    std::string SaveLevel(const std::string& levelName);
     void LoadLevel(LevelPtr level);
     void LoadLevel(std::string& level);
     void ReloadLevel();
