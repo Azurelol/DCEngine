@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+\file   Physics.cpp
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Implementaion of the physics system
+*/
+/******************************************************************************/
+
 #include "Physics.h"
 
 // Components 

@@ -1,10 +1,11 @@
-/*****************************************************************************/
+/******************************************************************************/
 /*!
 \file   Manifold.h
 \author Blaine Reiner
-\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
-\date   9/23/2015
-\brief  The Manifold class...
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Interface file of the physics Manifold.
 */
 /******************************************************************************/
 #pragma once

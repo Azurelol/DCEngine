@@ -283,9 +283,14 @@ namespace DCEngine
 	/**************************************************************************/
 	Vec3 RigidBody::getAcceleration(void)
 	{
-		if (Gravity)
+    if (DynamicState == DynamicStateType::Static)
+    {
+      return Vec3(0, 0, 0);
+    }
+    
+    if (Gravity)
 		{
-			return Acceleration + (Gravitydir * (Gravityratio * PHYSICS::Gravity));
+			return (Acceleration + (Gravitydir * (Gravityratio * PHYSICS::Gravity)));
 		}
 
 		return Acceleration;

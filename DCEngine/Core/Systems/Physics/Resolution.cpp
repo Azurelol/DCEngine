@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Resolution.cpp
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Resolves the collisions betwen objects
+*/
+/******************************************************************************/
 #include "Physics.h"
 
 #include "../../Components/Transform.h"
@@ -10,6 +20,13 @@
 
 namespace DCEngine
 {
+  /**************************************************************************/
+  /*!
+  @brief send the data to other resolution functions.
+  @param dt The length of the last frame.
+  @param contactlist an array of the manifolds.
+  */
+  /**************************************************************************/
   void Resolution::Resolve(float dt, std::vector<Manifold> &contactlist)
   {
 
@@ -18,6 +35,14 @@ namespace DCEngine
 
   }
 
+  /**************************************************************************/
+  /*!
+  @brief resolve the velocity of this contact.
+  @param dt The length of the last frame.
+  @param c a specific manifold.
+  @return void.
+  */
+  /**************************************************************************/
   void Resolution::ResolveContactVelocity(float dt, Manifold &c)
   {
     //Find the velocity of the two object along the contact normal
@@ -114,7 +139,7 @@ namespace DCEngine
 
 
     // Calculate the impulse to apply
-    float impulse = deltaVelocity / totalInverseMass * 1.9f;
+    float impulse = deltaVelocity;// / totalInverseMass;
 
     c.ContactImpulse = impulse;
 
@@ -134,7 +159,7 @@ namespace DCEngine
       if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass);
       }
     }
 
@@ -142,7 +167,7 @@ namespace DCEngine
     {
       if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() - impulsePerIMass);
       }
     }
 
@@ -150,13 +175,13 @@ namespace DCEngine
     {
       if (c.Object1->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass);
       }
 
       if (c.Object2->getComponent<RigidBody>()->getDynamicState() != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() - impulsePerIMass);
       }
     }
 

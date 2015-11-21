@@ -1,10 +1,11 @@
-/*****************************************************************************/
+/******************************************************************************/
 /*!
 \file   Physics.h
-\author Blaine Reiner, Christian Sagel
-\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
-\date   9/23/2015
-\brief  The physics system...
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Interface file of the physics system
 */
 /******************************************************************************/
 #pragma once
