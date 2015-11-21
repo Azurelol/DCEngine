@@ -33,7 +33,7 @@ namespace DCEngine {
     // Register this space to the physics system
     Daisy->getSystem<Systems::Physics>()->RegisterSpace(*this);
   }
-
+  
   /**************************************************************************/
   /*!
   \brief Adds a GameObject with a 'RigidBody' component.
@@ -104,4 +104,15 @@ namespace DCEngine {
   {
     return CollidersContainer;
   }
+
+  void PhysicsSpace::setCollisionTable(CollisionTableHandle table)
+  {
+    this->CollisionTable = table;
+  }
+
+  CollisionTableHandle PhysicsSpace::getCollisionTable()
+  {
+    return this->CollisionTable;
+  }
+
 }

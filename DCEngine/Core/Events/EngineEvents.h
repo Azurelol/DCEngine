@@ -17,5 +17,13 @@ namespace DCEngine {
     public:
     };
 
+    class EnginePaused : public Event {
+    public:
+    };
+
+    class EngineResume : public Event {
+    public:
+    };
+
   }
 }

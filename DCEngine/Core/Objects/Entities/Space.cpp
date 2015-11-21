@@ -44,14 +44,19 @@ namespace DCEngine {
     DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
-    AddComponent(ComponentPtr(new SoundSpace(*this)));
-    AddComponent(ComponentPtr(new TimeSpace(*this)));
-    AddComponent(ComponentPtr(new PhysicsSpace(*this)));
-    AddComponent(ComponentPtr(new CameraViewport(*this)));
-    AddComponent(ComponentPtr(new GraphicsSpace(*this)));
+    AddComponent<SoundSpace>();
+    AddComponent<TimeSpace>();
+    AddComponent<PhysicsSpace>();
+    AddComponent<CameraViewport>();
+    AddComponent<GraphicsSpace>();
+    //AddComponent(ComponentPtr(new SoundSpace(*this)));
+    //AddComponent(ComponentPtr(new TimeSpace(*this)));
+    //AddComponent(ComponentPtr(new PhysicsSpace(*this)));
+    //AddComponent(ComponentPtr(new CameraViewport(*this)));
+    //AddComponent(ComponentPtr(new GraphicsSpace(*this)));
 
     // Initialize Space-components
-    for (auto component : ComponentsContainer) {
+    for (auto &component : ComponentsContainer) {
       component->Initialize();
     }        
 
@@ -100,9 +105,41 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::DestroyAll()
   {
+    if (TRACE_GAMEOBJECT_ADD)
+      DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
+    // For every GameObject in the space
     for (auto object : GameObjectContainer) {
-      RemoveObject(*object);
+      // Mark the object for destruction on next frame
+      Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
+      //RemoveObject(*object);
     }
+    GameObjectContainer.clear();
+
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Saves a level, creating a Level resource.
+  */
+  /**************************************************************************/
+  void Space::SaveLevel(const std::string & level)
+  {
+    Zilch::JsonBuilder levelBuilder;
+    levelBuilder.Key("Space");
+    //
+    //// Serialize the space and its components
+
+    //// Serialize all the GameObjects in the space
+    //levelBuilder.Key("GameObjects");
+    //levelBuilder.Begin(Zilch::JsonType::Object);
+    //for (auto &gameObj : GameObjectContainer) {
+    //  // Get its name
+    //  levelBuilder.Key(gameObj->Name().c_str());
+    //  // Ask it to deserialize itself
+    //  levelBuilder.Begin(Zilch::JsonType::Object);
+    //  gameObj->Serialize(levelBuilder);
+    //  levelBuilder.End();
+    //}
 
   }
 
@@ -113,7 +150,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
     if (TRACE_ON)
-      DCTrace << ObjectName << "::LoadLevel - Loading " << level->Name() << " level.\n";
+      DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
         
     // Clear the current objects from the space
     //DestroyAll();
@@ -125,7 +162,6 @@ namespace DCEngine {
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
     }      
-
 
     // Initialize every GameObject
     for (auto gameObject : GameObjectContainer) {
@@ -146,6 +182,22 @@ namespace DCEngine {
 
 
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Loads a level, a container for entities, into the space.
+  @param  level A handle to the level resource.
+  */
+  /**************************************************************************/
+  void Space::LoadLevel(std::string & level)
+  {
+    DCTrace << ObjectName << " Space::LoadLevel - Loading " << level << "\n";
+    return;
+
+    // Request the Content system for a pointer to the specified level resource
+    auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
+    LoadLevel(levelPtr);
   }
 
   /**************************************************************************/
@@ -237,7 +289,9 @@ namespace DCEngine {
     // Remove the GameObject from the space's list of GameObjects
     for (auto gameObjPtr : GameObjectContainer) {
       if (gameObjPtr == &gameObj) {
-        gameObjPtr = nullptr;
+        std::swap(gameObjPtr, GameObjectContainer.back());
+        GameObjectContainer.pop_back();
+        break;
       }
     }
 

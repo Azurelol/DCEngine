@@ -19,9 +19,11 @@
 #include <list>
 // Headers
 #include "Component.h"
+//#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "../Engine/Event.h"
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
+#include "../Engine/Types.h"
 
 namespace DCEngine {
   
@@ -56,14 +58,17 @@ namespace DCEngine {
 
     // Components    
     void RemoveComponentByName(std::string& componentName);
-    bool AddComponent(ComponentPtr component);
-    template <typename ComponentClass> void AddComponentByName();
+
+    template<typename ComponentClass>
+    bool AddComponent(bool initialize);
+    //bool AddComponent(ComponentPtr component);
+    //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
 
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveComponent(ComponentPtr component);    
-    ComponentVec* AllComponents();
+    ComponentStrongVec* AllComponents();
 
     // Events
     // Dispatches an event on object
@@ -81,11 +86,12 @@ namespace DCEngine {
   protected:
 
     //ComponentVec ObserversList; //!< A list of the current listeners to this object.
-    ComponentVec ComponentsContainer; //!< The list of components attached to the entity.  
+    ComponentStrongVec ComponentsContainer; //!< The list of components attached to the entity.  
     EntityType type_;
 
   private:
 
+    // Use a vector here instead, because vector 
     std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
@@ -107,14 +113,22 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template<typename ComponentClass>
-  inline void Entity::AddComponentByName()
+  inline bool Entity::AddComponent(bool initialize  = false)
   {
+    // If there is already a component of the same class, reject the operation
+    for (auto &componentOwned : ComponentsContainer) {
+      if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(ComponentClass)))) {
+        DCTrace << ObjectName << "::AddComponent - Failure! " << componentOwned->Name() << " is already present!\n";
+        return false;
+      }
+    }
     // Construct the component
-    auto component = ComponentPtr(new ComponentClass(*this));
-    // Add the component to the entity
-    AddComponent(component);
+    ComponentsContainer.emplace_back(ComponentStrongPtr(new ComponentClass(*this)));
+
     // Initialize the component
-    component->Initialize();
+    if (initialize)
+      ComponentsContainer.back().get()->Initialize();
+    return true;
   }
 
   /**************************************************************************/
@@ -127,11 +141,11 @@ namespace DCEngine {
   template<typename ComponentClass>
   ComponentClass* Entity::getComponent() { 
     // Iterate through the container of component pointers...
-    for (auto componentPtr : ComponentsContainer) {
+    for (auto &componentPtr : ComponentsContainer) {
       auto component = componentPtr.get();
       // If the component was found
       if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))
-        return (dynamic_cast<ComponentClass*>(component));
+        return (reinterpret_cast<ComponentClass*>(component));
     }
     // No matching component was found
     return NULL;

@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Collision.cpp
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Implements the collision detection Algorithms
+*/
+/******************************************************************************/
 #pragma once
 #include "Collision.h"
 
@@ -108,45 +118,45 @@ namespace DCEngine
     std::vector<glm::vec3> verts1;
     std::vector<glm::vec3> verts2;
 
-    topL1.x = transform1->Translation.x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
-    topL1.y = transform1->Translation.y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+    topL1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    topL1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
     verts1.push_back(topL1);
 
-    topR1.x = transform1->Translation.x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
-    topR1.y = transform1->Translation.y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+    topR1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    topR1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
 
     verts1.push_back(topR1);
 
-    botL1.x = transform1->Translation.x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
-    botL1.y = transform1->Translation.y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+    botL1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    botL1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
     verts1.push_back(botL1);
 
-    botR1.x = transform1->Translation.x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
-    botR1.y = transform1->Translation.y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+    botR1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    botR1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
 
     verts1.push_back(botR1);
 
     /*
     */
-    topL2.x = transform2->Translation.x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
-    topL2.y = transform2->Translation.y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+    topL2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    topL2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
     verts2.push_back(topL2);
 
-    topR2.x = transform2->Translation.x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
-    topR2.y = transform2->Translation.y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+    topR2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    topR2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
 
     verts2.push_back(topR2);
 
-    botL2.x = transform2->Translation.x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
-    botL2.y = transform2->Translation.y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+    botL2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    botL2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
     verts2.push_back(botL2);
 
-    botR2.x = transform2->Translation.x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
-    botR2.y = transform2->Translation.y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+    botR2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    botR2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
 
     verts2.push_back(botR2);
 
@@ -483,21 +493,21 @@ namespace DCEngine
     }
 
 
-    glm::vec3 CircleCenter = transform1->Translation;
+    glm::vec3 CircleCenter = transform1->Translation + circlecollider->getOffset();
 
-    CircleCenter -= transform2->Translation;
+    CircleCenter -= transform2->Translation + boxcollider->getOffset();
 
     glm::vec3 temp = CircleCenter;
 
     CircleCenter.x = cos(-transform2->WorldRotation.z) * temp.x + -sin(-transform2->WorldRotation.z) * temp.y;
     CircleCenter.y = sin(-transform2->WorldRotation.z) * temp.x + cos(-transform2->WorldRotation.z) * temp.y;
 
-    CircleCenter += transform2->Translation;
+    CircleCenter += transform2->Translation + boxcollider->getOffset().x;
 
-    float left = transform2->Translation.x - (boxcollider->getColliderScale().x / 2.0f);
-    float right = transform2->Translation.x + (boxcollider->getColliderScale().x / 2.0f);
-    float top = transform2->Translation.y + (boxcollider->getColliderScale().y / 2.0f);
-    float bottom = transform2->Translation.y - (boxcollider->getColliderScale().y / 2.0f);
+    float left = transform2->Translation.x + boxcollider->getOffset().x - (boxcollider->getColliderScale().x / 2.0f);
+    float right = transform2->Translation.x + boxcollider->getOffset().x + (boxcollider->getColliderScale().x / 2.0f);
+    float top = transform2->Translation.y + boxcollider->getOffset().y + (boxcollider->getColliderScale().y / 2.0f);
+    float bottom = transform2->Translation.y + boxcollider->getOffset().y - (boxcollider->getColliderScale().y / 2.0f);
 
     glm::vec3 vecPoint;
 

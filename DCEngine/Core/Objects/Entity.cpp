@@ -11,7 +11,7 @@
 #include "Entity.h"
 
 // Headers
-#include "..\ComponentsInclude.h" // Entities need to know of componnets
+//#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
 
@@ -50,21 +50,21 @@ namespace DCEngine {
   \param  A component pointer to the component being added to the entity.
   */
   /**************************************************************************/
-  bool Entity::AddComponent(std::shared_ptr<Component> component) {
-    // If there is already a component of the same class, reject the operation
-    for (auto componentOwned : ComponentsContainer) {
-      if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(*component.get())))) {
-        DCTrace << ObjectName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
-        return false;
-      }        
-    }
+  //bool Entity::AddComponent(std::shared_ptr<Component> component) {
+  //  //// If there is already a component of the same class, reject the operation
+  //  //for (auto componentOwned : ComponentsContainer) {
+  //  //  if (std::type_index(typeid(*componentOwned.get())) == (std::type_index(typeid(*component.get())))) {
+  //  //    DCTrace << ObjectName << "::AddComponent - Failure! " << component->Name() << " is already present!\n";
+  //  //    return false;
+  //  //  }        
+  //  //}
 
-    if (TRACE_COMPONENT_ADD)
-      DCTrace << ObjectName << "::AddComponent - Added " << component->Name() << "\n";
-    // Adds the component to the entity
-    ComponentsContainer.push_back(component);
-    return true;    
-  }
+  //  //if (TRACE_COMPONENT_ADD)
+  //  //  DCTrace << ObjectName << "::AddComponent - Added " << component->Name() << "\n";
+  //  //// Adds the component to the entity
+  //  //ComponentsContainer.push_back(component);
+  //  //return true;    
+  //}
 
   /**************************************************************************/
   /*!
@@ -77,9 +77,11 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
       return;
     }      
-        
-    for (auto component : ComponentsContainer)
-      component->Initialize();
+
+    // Auto will never deduce to a reference because by default. Because
+    // unique_ptrs do not allow copying, this wouldn't work otherwise.
+    for (auto &component : ComponentsContainer)
+      component.get()->Initialize();
     // Flag this entity as already being initialized
     IsInitialized = true;
     DCTrace << ObjectName << "::Initialize \n";
@@ -123,9 +125,12 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::RemoveComponent(ComponentPtr component)
   {
-    ComponentsContainer.erase(std::remove(ComponentsContainer.begin(),
-                              ComponentsContainer.end(), component),
-                              ComponentsContainer.end());
+    //ComponentsContainer.erase(std::remove(ComponentsContainer.begin(),
+    //                          ComponentsContainer.end(), 
+    //  [&](std::unique_ptr<Component> const& p) {
+    //  return p.get() == component;
+    //}),
+    //                          ComponentsContainer.end());
   }
 
   /**************************************************************************/
@@ -135,8 +140,13 @@ namespace DCEngine {
   @return A reference to the container of all components.
   */
   /**************************************************************************/
-  ComponentVec * Entity::AllComponents()
+  ComponentStrongVec * Entity::AllComponents()
   {
+    //ComponentVec componentsContainer;
+    //// Makes a copy of the container
+    //for (auto &component : ComponentsContainer) {
+    //  componentsContainer.push_back(component);
+    //}
     return &ComponentsContainer;
   }
 

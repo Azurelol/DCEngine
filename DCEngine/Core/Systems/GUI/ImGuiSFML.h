@@ -31,6 +31,7 @@ namespace DCEngine {
       friend class GUI;
       friend class InputSFML;
     public:
+		void ReloadVAO() { ImGuiSFMLCreateDeviceObjects(); }
 
     private:      
       /* Event Data */

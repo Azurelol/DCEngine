@@ -54,18 +54,31 @@ namespace DCEngine {
     */
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(std::string name, Space& space, bool init) {
-      // Create the GameObject and own it by shared_ptr
-      GameObjectStrongPtr gameObj(new GameObject(name, space, space.getGameSession()));      
-      ActiveGameObjects.push_back(gameObj);
-      // Create a default Transform component, and add it to the GameObject
-      ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObj)));
-      ActiveComponents.push_back(transform);
-      gameObj->AddComponent(transform);
+
+
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, space.getGameSession())));
+      auto gameObjPtr = ActiveGameObjects.back().get();
+      gameObjPtr->AddComponent<Transform>();
+      //ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObjPtr)));
+      //ActiveComponents.push_back(transform);
+      //gameObjPtr->AddComponent<Transform>();
       // If the object needs to be initialized right away
       if (init)
-        gameObj->Initialize();
-      // Return the GameObject by shared_ptr.
-      return gameObj.get();
+        gameObjPtr->Initialize();
+      return gameObjPtr;
+
+      // Create the GameObject and own it by shared_ptr
+      //GameObjectStrongPtr gameObj(new GameObject(name, space, space.getGameSession()));      
+      //ActiveGameObjects.push_back(gameObj);
+      //// Create a default Transform component, and add it to the GameObject
+      //ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObj)));
+      //ActiveComponents.push_back(transform);
+      //gameObj->AddComponent(transform);
+      //// If the object needs to be initialized right away
+      //if (init)
+      //  gameObj->Initialize();
+      //// Return the GameObject by shared_ptr.
+      //return gameObj.get();
       //return nullptr;
     }
 
@@ -103,7 +116,7 @@ namespace DCEngine {
         std::remove_if( // Selectively remove elements in the second vector...
           ActiveGameObjects.begin(),
           ActiveGameObjects.end(),
-          [&](std::shared_ptr<GameObject> const& p)
+          [&](std::unique_ptr<GameObject> const& p)
       {   // This predicate checks whether the element is contained
           // in the second vector of pointers to be removed...
         return std::find(

@@ -61,6 +61,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::PlayGame()
     {
+      DCTrace << "Editor::PlayGame \n";
       // Reload the level
 
       // Unpause it
@@ -73,6 +74,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::StopGame()
     {
+      DCTrace << "Editor::StopGame \n";
       // Reload the level
 
       // Pause it

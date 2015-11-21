@@ -29,9 +29,12 @@ namespace DCEngine {
   // Reference: http://codereview.stackexchange.com/questions/48344/yet-another-any-class-implementation-named-some
   
   enum class Keys {
+    Tilde,
     Escape,
     Space ,
     Return,
+    Backspace,
+    Delete,
     Up,
     Down,
     Left,
@@ -112,6 +115,9 @@ namespace DCEngine {
 
   // Common Containers
   using StringVec = std::vector<std::string>;
+  
+  // Handles
+  using CollisionGroupHandle = std::string;
 
   struct OpenGLStateData {
     GLint lastProgram;

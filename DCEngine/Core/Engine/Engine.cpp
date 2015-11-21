@@ -268,9 +268,10 @@ namespace DCEngine {
     gamesession_->DefaultSpace = defaultSpace.get();
     // Construct a camera object
     auto camera = getSystem<Systems::Factory>()->CreateGameObject("DefaultCamera", *defaultSpace, false);
-    camera->AddComponent(ComponentPtr(new Camera(*camera)));
-    camera->AddComponent(ComponentPtr(new DebugCamera(*camera)));
-    camera->AddComponent(ComponentPtr(new DebugAudio(*camera)));
+    
+    camera->AddComponent<Camera>();
+    camera->AddComponent<DebugCamera>();
+    camera->AddComponent<DebugAudio>();
     // Camera properties      
     camera->getComponent<DebugAudio>()->Track1 = "soulja";
     camera->getComponent<DebugAudio>()->Track2 = "spacejam2";

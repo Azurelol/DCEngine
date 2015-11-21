@@ -61,9 +61,6 @@
     <Filter Include="Core\Systems\Audio">
       <UniqueIdentifier>{73bd2eb4-d032-48f2-abe5-7d86283f64d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Audio\FMOD">
-      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Graphics\OpenGL">
       <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
     </Filter>
@@ -181,9 +178,6 @@
     <Filter Include="Core\Engine\Config">
       <UniqueIdentifier>{a74a45f6-07a6-4d67-a037-aa9060cf90b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Widgets">
-      <UniqueIdentifier>{62928177-b8e1-4b72-b2d8-199b751f8ab3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Events\Editor">
       <UniqueIdentifier>{516d951d-683e-410c-a30b-be9a32be30a0}</UniqueIdentifier>
     </Filter>
@@ -210,6 +204,21 @@
     </Filter>
     <Filter Include="Core\Systems\Editor\Menus">
       <UniqueIdentifier>{27b0b96e-1522-46e8-81aa-a7d0e8a1c246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Tools">
+      <UniqueIdentifier>{791f4ba6-7d45-4146-b4cc-9a4b4c256fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Resources">
+      <UniqueIdentifier>{f3fed146-a828-4403-aee6-0118f053a072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Windows">
+      <UniqueIdentifier>{62928177-b8e1-4b72-b2d8-199b751f8ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Serialization">
+      <UniqueIdentifier>{f26a3eba-ea7e-49fc-b352-40b491e53e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +259,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
@@ -284,9 +293,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\Transform.cpp">
       <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Resources\Level.cpp">
-      <Filter>Core\Resources</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Texture2D.cpp">
       <Filter>Core\Resources\Graphics</Filter>
@@ -436,13 +442,13 @@
       <Filter>Core\Systems\FileSystem</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Library.cpp">
-      <Filter>Core\Systems\Editor\Widgets</Filter>
+      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Properties.cpp">
-      <Filter>Core\Systems\Editor\Widgets</Filter>
+      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Objects.cpp">
-      <Filter>Core\Systems\Editor\Widgets</Filter>
+      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Input\InputSFML_Mouse.cpp">
       <Filter>Core\Systems\Input\SFML</Filter>
@@ -513,9 +519,6 @@
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Resources\Archetype.cpp">
-      <Filter>Core\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuEdit.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
@@ -526,7 +529,7 @@
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
-      <Filter>Core\Systems\Editor\Widgets</Filter>
+      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
@@ -539,6 +542,27 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
       <Filter>Core\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Levels.cpp">
+      <Filter>Core\Systems\Editor\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
+      <Filter>Core\Systems\Editor\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Archetype.cpp">
+      <Filter>Core\Resources\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Level.cpp">
+      <Filter>Core\Resources\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionTable.cpp">
+      <Filter>Core\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -597,7 +621,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
@@ -666,9 +690,6 @@
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\ResourcesInclude.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Resources\Level.h">
       <Filter>Core\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Resource.h">
@@ -936,7 +957,7 @@
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -953,9 +974,6 @@
     <ClInclude Include="Core\Precompiled\Precompiled.h">
       <Filter>Core\Precompiled</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Resources\Archetype.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
@@ -967,6 +985,18 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Interpolation.h">
       <Filter>Core\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Archetype.h">
+      <Filter>Core\Resources\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Level.h">
+      <Filter>Core\Resources\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\CollisionGroup.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\CollisionTable.h">
+      <Filter>Core\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

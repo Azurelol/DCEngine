@@ -147,6 +147,28 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Scans the Level Path for level files.
+    @param  A string containing the path of the project data file.
+    @todo   Currently hardcoded the level path.
+    */
+    /**************************************************************************/
+    void Content::ScanForLevels()
+    {
+      DCTrace << "Content::ScanForLevels - Scanning for levels on the current project \n";
+      std::string LevelPath("Projects/Rebound/Resources/Levels/");
+
+      // Load sound files
+      std::vector<std::string> levels;
+      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
+        throw DCException("Content::ScanForLevels - Failed to load level files!");
+      for (auto level : levels) {
+        auto soundName = FileSystem::FileNoExtension(level);
+        AddLevel(soundName, LevelPtr(new Level(level)));
+      }
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Loads a project from file.
     @param  A string containing the path of the project data file.
     */
@@ -242,6 +264,14 @@ namespace DCEngine {
     /**************************************************************************/
     LevelPtr Content::getLevel(std::string & levelName)
     {
+      // Check if the resource is present in the map
+      if (!LevelMap.count(levelName)) {
+        DCTrace << "Content::getLevel - " << levelName << " was not found!\n";
+        return nullptr;
+      }
+      // If it does, first load it
+      LevelMap.at(levelName)->Load();
+      // Then return it
       return LevelMap.at(levelName);
     }
 
@@ -275,6 +305,8 @@ namespace DCEngine {
     {
       return &LevelMap;
     }
+
+
 
 
     /**************************************************************************/
@@ -349,6 +381,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddSpriteSource(std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
     {
+      // Prevent duplicates
+      if (SpriteSourceMap.count(spriteSourceName)) {
+        DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
+        return;
+      }
+
       SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
       DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
     }
@@ -362,6 +400,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddSoundCue(std::string & soundCueName, SoundCuePtr soundcuePtr)
     {
+      // Prevent duplicates
+      if (SoundCueMap.count(soundCueName)) {
+        DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
+        return;
+      }
+
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
       DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
     }
@@ -375,6 +419,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddLevel(std::string & levelName, LevelPtr levelPtr)
     {
+      // Prevent duplicates
+      if (LevelMap.count(levelName)) {
+        DCTrace << "Content::AddLevel - " << levelName << " is already present in the map.\n";
+        return;
+      }
+      
       LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
       DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }

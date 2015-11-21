@@ -84,8 +84,10 @@ namespace DCEngine {
             AddResource();
           }
           ImGui::Separator();
-          if (ImGui::MenuItem("Load Level")) {}
-          if (ImGui::MenuItem("Save Level")) {}
+          if (ImGui::MenuItem("Load Level"))
+            WindowLoadLevelEnabled = !WindowLoadLevelEnabled;
+          if (ImGui::MenuItem("Save Level"))
+            WindowSaveLevelEnabled = !WindowSaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level")) {}
           ImGui::Separator();
           if (ImGui::MenuItem("Load Dollhouse"))
@@ -104,6 +106,8 @@ namespace DCEngine {
             WidgetObjectsEnabled = !WidgetObjectsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
             WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
+          if (ImGui::MenuItem("Console"))
+            WindowConsoleEnabled = !WindowConsoleEnabled;
           ImGui::EndMenu();
         }
 
@@ -117,6 +121,11 @@ namespace DCEngine {
           if (ImGui::MenuItem("About")) {}
 
           ImGui::EndMenu();
+        }
+
+        
+        if (ImGui::Button("Hey")) {
+
         }
 
         ImGui::EndMainMenuBar();

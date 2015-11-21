@@ -152,7 +152,7 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam)
+    void GraphicsGL::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam)
     {
 		
 		CleanBuffer();

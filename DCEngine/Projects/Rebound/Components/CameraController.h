@@ -11,7 +11,7 @@ namespace DCEngine {
 		Transform* TransformRef;
 		Sprite* SpriteRef;
 		GameObject* PlayerRef;
-		Real InterpolationSpeed = 0.04; //percent of the way to interpolate per frame from 0-1
+		Real InterpolationSpeed = 0.04f; //percent of the way to interpolate per frame from 0-1
 
 		CameraController(Entity& owner) : Component(std::string("CameraController"), owner) {}
 		void Initialize();

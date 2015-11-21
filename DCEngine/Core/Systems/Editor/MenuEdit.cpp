@@ -21,12 +21,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DeleteObject()
     {
-      if (!SelectedObject)
+      if (!SelectedObject) {
+        DCTrace << "Editor::DeleteObject - No object selected! \n";
         return;
+      }
+        
 
       DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
       // Destroy the currently selected GameObject
       SelectedObject->Destroy();
+      SelectedObject = nullptr;
     }
 
 
@@ -39,6 +43,8 @@ namespace DCEngine {
     {
       DCTrace << "Editor::DuplicateObject - " << SelectedObject->Name() << "\n";
     }
+
+
 
 
   }

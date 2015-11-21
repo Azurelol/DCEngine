@@ -1,16 +1,18 @@
-/*****************************************************************************/
+/******************************************************************************/
 /*!
 \file   Physics.h
-\author Blaine Reiner, Christian Sagel
-\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
-\date   9/23/2015
-\brief  The physics system...
+\author Blaine Reiner
+\par    email: blaine.reiner\@digipen.edu
+\par    DigiPen login: blaine.reiner
+\date   11/20/2015
+\brief  Interface file of the physics system
 */
 /******************************************************************************/
 #pragma once
 #include "../System.h"
 #include "../../Components/PhysicsSpace.h"
 #include "Manifold.h"
+#include "../../Resources/CollisionTable.h"
 
 namespace DCEngine {
   class Engine;
@@ -18,6 +20,7 @@ namespace DCEngine {
   struct CollisionData {
     GameObject* Object; //!< The object this event was sent to.
     GameObject* OtherObject; //!< The other object in the collision.
+    CollisionFilter filter; //!< info on what events to send
   };
 
   namespace PHYSICS
@@ -27,6 +30,13 @@ namespace DCEngine {
 
   namespace Systems
   {
+    struct DetectionPairing
+    {
+      GameObjectPtr obj1;
+      GameObjectPtr obj2;
+      CollisionFilter filter;
+    };
+
     class Physics : public System
     {
       friend class Engine;
@@ -49,8 +59,8 @@ namespace DCEngine {
       void PublishResults(PhysicsSpace* physpace);
       void UpdateTransforms(PhysicsSpace *physpace);
       void Step(float dt);
-      GameObjectRawVec BroadPhaseDetection(PhysicsSpace* physpace);
-      void NarrowPhaseDetection(GameObjectRawVec pairs, std::vector<Manifold> &contactlist);
+      std::vector<DetectionPairing> BroadPhaseDetection(PhysicsSpace* physpace);
+      void NarrowPhaseDetection(std::vector<DetectionPairing> pairs, std::vector<Manifold> &contactlist);
       void Resolve(Manifold data);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);

@@ -44,8 +44,8 @@ namespace DCEngine {
       
     /* SpriteText! */
     GameObjectPtr boro = ConstructGameObject("SpriteTextor");
-		boro->AddComponent(ComponentPtr(new Transform(*boro)));
-		boro->AddComponent(ComponentPtr(new SpriteText(*boro)));
+		boro->AddComponent<Transform>();
+    boro->AddComponent<SpriteText>();
 		// SpriteText properties
 		boro->getComponent<SpriteText>()->Font = "Verdana";
 		boro->getComponent<SpriteText>()->Text = "This is our jam!";

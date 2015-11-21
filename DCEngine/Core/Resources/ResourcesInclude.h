@@ -9,3 +9,5 @@
 #include "Texture.h"
 #include "Material.h"
 #include "Archetype.h"
+#include "CollisionGroup.h"
+#include "CollisionTable.h"

@@ -285,6 +285,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\Resources\Archetype.cpp" />
+    <ClCompile Include="Core\Resources\CollisionTable.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
@@ -297,6 +298,8 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp" />
     <ClCompile Include="Core\Systems\Editor\Library.cpp" />
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
@@ -305,6 +308,8 @@
     <ClCompile Include="Core\Systems\Editor\MenuResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
     <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
+    <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
@@ -427,6 +432,8 @@
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
+    <ClInclude Include="Core\Resources\CollisionGroup.h" />
+    <ClInclude Include="Core\Resources\CollisionTable.h" />
     <ClInclude Include="Core\Resources\Font.h" />
     <ClInclude Include="Core\Resources\Level.h" />
     <ClInclude Include="Core\Resources\Material.h" />

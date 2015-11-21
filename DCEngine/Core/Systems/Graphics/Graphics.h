@@ -44,7 +44,7 @@ namespace DCEngine {
       /* Debug Drawing functions*/
       void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
       void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
-      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Real& length, Vec4& color, Camera& cam);
+      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam);
 
     private:
       std::unique_ptr<GraphicsGL> GraphicsHandler;
