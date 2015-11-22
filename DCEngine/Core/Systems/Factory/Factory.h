@@ -19,6 +19,7 @@
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../ComponentsInclude.h"
 #include "../../Resources/Archetype.h"
+#include "ComponentFactory.h"
 
 namespace DCEngine {
 
@@ -41,8 +42,7 @@ namespace DCEngine {
       ComponentPtr CreateComponent(const std::string& compName, bool init);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
-      ResourcePtr CreateResource(const std::string& resourceName, bool init);
-      
+      ResourcePtr CreateResource(const std::string& resourceName, bool init);      
       // !< When components are constructed they register themselves to the map.
       template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
 
@@ -54,15 +54,16 @@ namespace DCEngine {
       ComponentVec ActiveComponents; //!< Container of active Components
       std::map<std::string, std::type_index> ComponentClassMap;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
+      ComponentMap ComponentFactories;
 
       /* Functions */
       Factory();
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
-
+      void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
-      void DeserializeLevel(const std::string& levelName);  //!< Loads a level, from a level map
+      void DeserializeLevel(const std::string& levelName);
     }; 
 
     /**************************************************************************/

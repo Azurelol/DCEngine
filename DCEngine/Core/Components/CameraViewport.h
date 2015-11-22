@@ -36,8 +36,9 @@ namespace DCEngine {
     void MouseToWorldRay(); // Get the world ray starting from the mouse
 
     Camera* getCamera() { return CameraObj; }
-    void setCamera();
-
+    void setCamera(Camera*);
+    Camera* FindDefaultCamera();
+    
     CameraViewport(Entity& owner) : Component(std::string("CameraViewport"), owner) {}
     void Initialize();
     virtual void Serialize(Json::Value& root);
@@ -48,6 +49,7 @@ namespace DCEngine {
     glm::mat4 OrthographicProjection; // Orthographic projection for the camera
     glm::mat4 ViewMatrix;             // View matrix for the camera
     Camera* CameraObj;
+    Camera* DefaultCameraObj;
     
 
 

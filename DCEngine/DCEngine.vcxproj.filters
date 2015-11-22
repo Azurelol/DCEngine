@@ -61,6 +61,9 @@
     <Filter Include="Core\Systems\Audio">
       <UniqueIdentifier>{73bd2eb4-d032-48f2-abe5-7d86283f64d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Audio\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Systems\Graphics\OpenGL">
       <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
     </Filter>
@@ -217,9 +220,6 @@
     <Filter Include="Core\Resources\Serialization">
       <UniqueIdentifier>{f26a3eba-ea7e-49fc-b352-40b491e53e75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\FMOD">
-      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -259,7 +259,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
-      <Filter>Core\Systems\FMOD</Filter>
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
@@ -564,6 +564,9 @@
     <ClCompile Include="Core\Resources\CollisionTable.cpp">
       <Filter>Core\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -621,7 +624,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
-      <Filter>Core\Systems\FMOD</Filter>
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
@@ -957,7 +960,7 @@
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\FMOD</Filter>
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -997,6 +1000,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\CollisionTable.h">
       <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Factory\ComponentFactory.h">
+      <Filter>Core\Systems\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

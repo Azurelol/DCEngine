@@ -58,7 +58,7 @@ namespace DCEngine {
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObject* SelectedObject = nullptr;      
-      EditorTool ActiveTool;
+      EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
       float SnapDistance = 1.0;
       float SnapAngle = 15; 
@@ -111,6 +111,7 @@ namespace DCEngine {
       void MoveObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
+      void SetEditorCamera();
       void Hotkeys(Events::KeyDown* event);
       // Create
       void CreateTransform();

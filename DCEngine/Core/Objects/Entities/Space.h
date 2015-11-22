@@ -51,6 +51,8 @@ namespace DCEngine {
     void LoadLevel(LevelPtr level);
     void LoadLevel(std::string& level);
     void ReloadLevel();
+    // TEMPORARY
+    void LoadSampleLevel(LevelPtr level);
 
     GameObjectPtr CreateObject(); 
     GameObjectPtr CreateObject(std::shared_ptr<Archetype> archetype);

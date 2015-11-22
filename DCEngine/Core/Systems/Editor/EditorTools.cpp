@@ -25,6 +25,8 @@ namespace DCEngine {
       case EditorTool::Scale:
         ScaleTool();
         break;
+      default:
+        break;
 
       }
     }
@@ -117,8 +119,14 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::MoveObject(Vec3 direction)
     {
-      if (!SelectedObject && ActiveTool != EditorTool::Translate)
+      if (!SelectedObject)
         return;
+
+      if (ActiveTool != EditorTool::Translate)
+        return;
+
+      auto a = ActiveTool;
+      DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
 
       // Get the object's transform data
       auto transform = SelectedObject->getComponent<Transform>();
