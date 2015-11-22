@@ -371,14 +371,15 @@ namespace DCEngine {
       if (gameObjPtr == &gameObj) {
         std::swap(gameObjPtr, GameObjectContainer.back());
         GameObjectContainer.pop_back();
+        if (TRACE_GAMEOBJECT_ADD)
+          DCTrace << ObjectName << "::RemoveObject - Removed " << gameObj.Name() << " from the space.\n";
         break;
       }
     }
 
     // Mark the object for destruction on next frmae
     Daisy->getSystem<Systems::Factory>()->MarkGameObject(gameObj);
-    if (TRACE_GAMEOBJECT_ADD)
-      DCTrace << ObjectName << "::AddObject - Removed " << gameObj.Name() << " from the space.\n";
+
 
   }
 

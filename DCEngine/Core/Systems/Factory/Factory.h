@@ -62,6 +62,7 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
+      void ConstructComponentFactoryMap();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);
     }; 

@@ -311,6 +311,7 @@
     <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
+    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />

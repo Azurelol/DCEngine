@@ -223,6 +223,9 @@
     <Filter Include="Core\Systems\Editor\Configuration">
       <UniqueIdentifier>{eca0de98-1c71-44eb-a046-0618deb60def}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\References">
+      <UniqueIdentifier>{06675bb3-46c1-48af-b286-1e2fa438b0b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -573,6 +576,9 @@
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
+      <Filter>Core\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -677,9 +683,6 @@
     <ClInclude Include="Core\Components\ComponentReference.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\EngineReference.h">
-      <Filter>Core\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\SoundSpace.h">
       <Filter>Core\Components\Audio</Filter>
     </ClInclude>
@@ -766,9 +769,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCamera.h">
       <Filter>Core\Components\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\DebugDrawReference.h">
-      <Filter>Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw.h">
       <Filter>Core\Object\DebugDraw</Filter>
@@ -1012,6 +1012,12 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugDrawReference.h">
+      <Filter>Core\Components\References</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\EngineReference.h">
+      <Filter>Core\Components\References</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
