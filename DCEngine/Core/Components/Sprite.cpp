@@ -358,6 +358,17 @@ namespace DCEngine {
     this->FlipX = this;
   }
 
+  /**************************************************************************/
+  /*!
+  \fn bool DCEngine::Sprite::getFlipY() const
+
+  \brief
+    Set the flipY value of owner.
+
+  \return
+    Whether owner is flipped on local Y axis..
+  */
+  /**************************************************************************/
   bool Sprite::getFlipY() const
   {
     return this->FlipY;
@@ -365,16 +376,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \fn void DCEngine::Sprite::setFlipX(bool flip)
+  \fn void DCEngine::Sprite::setFlipY(bool flip)
 
   \brief
-  Set the flip value of owwner.
+    Set the flipY value of owner.
 
   \param flip
-  The input value.
+    The input value.
 
   \return
-  None.
+    None.
   */
   /**************************************************************************/
   void Sprite::setFlipY(bool flip)
@@ -382,6 +393,17 @@ namespace DCEngine {
     this->FlipY = flip;
   }
 
+  /**************************************************************************/
+  /*!
+  \fn bool DCEngine::Sprite::getAnimationActive() const
+
+  \brief
+    Get the aniamtion active variable in sprite.
+
+  \return
+    Whether the animation is active now.
+  */
+  /**************************************************************************/
   bool Sprite::getAnimationActive() const
   {
     return this->AnimationActive;
@@ -389,16 +411,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \fn void DCEngine::Sprite::setFlipX(bool flip)
+  \fn void DCEngine::Sprite::setAnimationActive(bool active)
 
   \brief
-  Set the flip value of owwner.
+    Set the aniamtion active variable in sprite.
 
-  \param flip
-  The input value.
+  \param active
+    The input value.
 
   \return
-  None.
+    None.
   */
   /**************************************************************************/
   void Sprite::setAnimationActive(bool active)
@@ -406,6 +428,17 @@ namespace DCEngine {
     this->AnimationActive = active;
   }
 
+  /**************************************************************************/
+  /*!
+  \fn Real DCEngine::Sprite::getAnimationSpeed() const
+
+  \brief
+    Get the animation speed of owwner.
+
+  \return
+    The speed of animation.
+  */
+  /**************************************************************************/
   Real Sprite::getAnimationSpeed() const
   {
     return this->AnimationSpeed;
