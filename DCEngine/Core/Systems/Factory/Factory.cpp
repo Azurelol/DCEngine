@@ -19,6 +19,11 @@ namespace DCEngine {
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
         DCTrace << "Factory::Initialize \n";
+
+
+      AddComponentFactory(Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Transform>>());
+
+
     }
 
     /**************************************************************************/
@@ -41,6 +46,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::Terminate() {
         DCTrace << "Factory::Terminate \n";
+    }
+
+    void Factory::AddComponentFactory(Zilch::BoundType * type, std::unique_ptr<AbstractComponentFactory> factory)
+    {
+      ComponentFactories.emplace(type, std::move(factory));
     }
 
     /**************************************************************************/

@@ -79,6 +79,7 @@ namespace DCEngine {
         break;
 
       default:
+        ActiveTool = EditorTool::None;
         break;
 
       }

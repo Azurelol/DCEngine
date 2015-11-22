@@ -16,6 +16,7 @@ namespace DCEngine {
     ZilchInterface::ZilchInterface() : Setup(Zilch::StartupFlags::None)
     {
       DCTrace << "ZilchInterface::ZilchInterface - Constructor\n";
+      
     }
     /**************************************************************************/
     /*!
@@ -34,6 +35,16 @@ namespace DCEngine {
     void ZilchInterface::Initialize()
     {
       DCTrace << "ZilchInterface::Initialize\n";
+      SetupZilch();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Starts the Zilch environment.
+    */
+    /**************************************************************************/
+    void ZilchInterface::SetupZilch()
+    {
       // Set up the console
       SetupConsole();
       // Add our custom static library for binding our classes
@@ -42,7 +53,7 @@ namespace DCEngine {
       CompileScripts("DCScripts");
       AddLibrary(ScriptLibrary);
       // Compile and build the exclusive 'ExecutableState' object
-      Build();      
+      Build();
     }
 
     /**************************************************************************/

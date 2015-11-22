@@ -179,6 +179,30 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Loads a sample, hard-to-the-coded level.
+  */
+  /**************************************************************************/
+  void Space::LoadSampleLevel(LevelPtr level)
+  {
+    if (TRACE_ON)
+      DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
+
+    // Set it as the current level
+    CurrentLevel = level;
+
+    // Load GameObjects into the space
+    for (auto gameObject : CurrentLevel->GameObjects) {
+      AddObject(gameObject);
+    }
+
+    // Initialize every GameObject
+    for (auto gameObject : GameObjectContainer) {
+      gameObject->Initialize();
+    }
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Loads a level, a container for entities, into the space. 
   */
   /**************************************************************************/
@@ -191,19 +215,13 @@ namespace DCEngine {
       DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
     }
 
-    // Grab a container of all bound components.. 
-    auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
-    DCTrace << "The following components have been bound to Zilch: \n";
-    for (auto component : components) {
-      auto name = component->Name.c_str();
-      DCTrace << " - " << name << "\n";
-    }
+    //return;
 
-    return;
     // Clear the current objects from the space
-    //DestroyAll();
+    DestroyAll();
     // Set it as the current level
     CurrentLevel = level;
+
     // Turn the string from file into JSON data
     Zilch::JsonValue levelData;
     levelData.AsString() = Zilch::String(level->Get().c_str());
@@ -227,15 +245,7 @@ namespace DCEngine {
       AddObject(gameObj);
     }
 
-    // Load GameObjects into the space
-/*    for (auto gameObject : CurrentLevel->GameObjects) {
-      AddObject(gameObject);
-    }   */   
 
-    // Initialize every GameObject
-    for (auto gameObject : GameObjectContainer) {
-      gameObject->Initialize();
-    }
     // Read the JSON string
     
     // For every object 
@@ -280,6 +290,8 @@ namespace DCEngine {
     // Load the level again
     LoadLevel(CurrentLevel);
   }
+
+
 
   /**************************************************************************/
   /*!

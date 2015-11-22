@@ -68,7 +68,7 @@ namespace DCEngine {
     {
       // !!! TESTING: Level loading
       LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, CurrentSpace->getGameSession()));
-      CurrentSpace->LoadLevel(dollhouse);
+      CurrentSpace->LoadSampleLevel(dollhouse);
     }
 
   }

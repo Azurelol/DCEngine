@@ -18,7 +18,7 @@ namespace DCEngine {
     // Temporary: Look for the default camera object by searching
     // through the space's gameobjects and looking for one with the
     // camera component
-    setCamera();
+    FindDefaultCamera();
   }
 
   /**************************************************************************/
@@ -74,16 +74,32 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  Sets the viewport's default camera.
+  @param  camera A pointer to the new camera to be used.
+  /**************************************************************************/
+  void CameraViewport::setCamera(Camera * camera)
+  {
+    CameraObj = camera;
+    DCTrace << "CameraViewport::setCamera - Setting " << camera->Owner()->Name() << " as the active camera \n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Finds this space's default camera.
   @todo   Currently looking for the first Camera in the space.
   /**************************************************************************/
-  void CameraViewport::setCamera() {
+  Camera* CameraViewport::FindDefaultCamera() {
     // Look for a GameObject with the 'Camera' component in the space
     for (auto gameObj : *SpaceRef->AllObjects()) {
       auto camera = gameObj->getComponent<Camera>();
-      if (camera != nullptr)
-        CameraObj = camera;
-    }
-
+      // Do not set the EditorCamera as the space's default camera.
+      if (camera != nullptr && camera->Owner()->Name() != std::string("EditorCamera")) {
+        DCTrace << "CameraViewport::FindDefaultCamera - Setting " << camera->Owner()->Name() << " as the default camera \n";
+        DefaultCameraObj = camera;
+        return DefaultCameraObj;
+      }        
+    }    
+    DCTrace << "CameraViewport::FindDefaultCamera - No camera was found on the space \n";
+    return nullptr;
     //CameraObj = SpaceRef->FindObjectByName("Camera")->getComponent<Camera>();
   }
 }

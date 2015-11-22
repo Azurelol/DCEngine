@@ -75,6 +75,7 @@ namespace DCEngine {
       void SetupConsole();
       ZilchInterface();
       void Initialize();
+      void SetupZilch();
       void Update(float dt);
       void Terminate();
 

@@ -32,8 +32,8 @@ namespace DCEngine {
 
       // If the Editor was enabled from the start,
       // toggle the widgets
-      if (EditorStart)
-        ToggleEditor();
+      //if (EditorStart)
+      //  ToggleEditor();
       
 
     }
@@ -99,6 +99,8 @@ namespace DCEngine {
       // Toggle the widgets
       WidgetLibraryEnabled = true;
       WidgetObjectsEnabled = true;
+      // Set the editor camera
+      SetEditorCamera();
 
       if (EditorEnabled) {
         // Pause the engine (Physics, Input, Events)
@@ -198,27 +200,6 @@ namespace DCEngine {
     {
       DCTrace << "Editor::Terminate \n";
       //GUIHandler->Terminate();
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief Resizes the size of the rendering window while in editor mode.
-    */
-    /**************************************************************************/
-    void Editor::ApplyEditorWindowLayout()
-    {
-      auto viewportResize = new Events::ResizeViewportEvent();
-      if (EditorEnabled) {
-        viewportResize->viewportScale.x = 1;
-        viewportResize->viewportScale.y = 1;
-      }
-      else {
-        viewportResize->viewportScale.x = ViewportResize.x;
-        viewportResize->viewportScale.y = ViewportResize.y;
-      }
-      Daisy->Dispatch<Events::ResizeViewportEvent>(viewportResize);
-      delete viewportResize;
     }
 
 

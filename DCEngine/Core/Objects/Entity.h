@@ -61,6 +61,7 @@ namespace DCEngine {
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize);
     bool AddComponentByName(std::string& name, bool initialize = false);
+    bool AddComponent(Zilch::BoundType* boundType);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
