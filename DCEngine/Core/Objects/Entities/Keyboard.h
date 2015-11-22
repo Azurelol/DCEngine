@@ -47,14 +47,37 @@ namespace DCEngine {
     bool KeyDown_Left = false;
     bool KeyDown_Right = false;
     
+	bool KeyDown_Q = false;
     bool KeyDown_W = false;
+	bool KeyDown_E = false;
+	bool KeyDown_R = false;
+	bool KeyDown_T = false;
+	bool KeyDown_Y = false;
+	bool KeyDown_U = false;
+	bool KeyDown_I = false;
+	bool KeyDown_O = false;
+	bool KeyDown_P = false;
+
+
+	bool KeyDown_A = false;
     bool KeyDown_S = false;
-    bool KeyDown_A = false;
-    bool KeyDown_D = false;
-    bool KeyDown_Q = false;
-    bool KeyDown_E = false;
+	bool KeyDown_D = false;
+	bool KeyDown_F = false;
+	bool KeyDown_G = false;
+	bool KeyDown_H = false;
+	bool KeyDown_J = false;
+	bool KeyDown_K = false;
+	bool KeyDown_L = false;
+
+
     bool KeyDown_Z = false;
     bool KeyDown_X = false;
+	bool KeyDown_C = false;
+	bool KeyDown_V = false;
+	bool KeyDown_B = false;
+	bool KeyDown_N = false;
+	bool KeyDown_M = false;
+
 
     bool KeyDown_F1 = false;
     bool KeyDown_F2 = false;

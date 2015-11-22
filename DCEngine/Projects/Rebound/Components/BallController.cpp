@@ -1,5 +1,6 @@
 #include "BallController.h"
 #include "../../CoreComponents.h"
+#include "../../../Core/Systems/Physics/Interpolation.h"
 
 namespace DCEngine {
 
@@ -15,8 +16,10 @@ namespace DCEngine {
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
-
-		DCTrace << PlayerRef->getComponent<Transform>()->Translation.x;
+		if (BallControllerTraceOn)
+		{
+			DCTrace << PlayerRef->getComponent<Transform>()->Translation.x;
+		}
 	}
 
 	void BallController::Serialize(Json::Value & root)
@@ -37,47 +40,69 @@ namespace DCEngine {
     //      << event->Position.x << " y: " << event->Position.y << "\n";
     //DCTrace << "BallController::OnMouseDownEvent - Mouse Pos (World): "
     //  << coords.x << " y: " << coords.y << "\n";
-
-		if (CurrentlyFired)
+		if(event->ButtonPressed == MouseButton::Right)
 		{
-
+			if (Frozen)
+			{
+				return;
+			}
+			Frozen = true;
+			if (CurrentlyFired)
+			{
+				RigidBodyRef->setVelocity(Vec3());
+				RigidBodyRef->setDynamicState(DynamicStateType::Static);
+			}
+			else
+			{
+				auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
+				//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
+			}
 		}
-		else
+		if(event->ButtonPressed == MouseButton::Left)
 		{
-			Charging = true;
+			Frozen = false;
+			RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			if (CurrentlyFired)
+			{
+
+			}
+			else
+			{
+				Charging = true;
+			}
 		}
-		PlayerRef->getComponent<Sprite>()->Color = Vec4(1, 1, 1, 1);
 	}
 
 	void BallController::OnMouseUpEvent(Events::MouseUp * event)
 	{ 
-		if (!CurrentlyFired)
+		if(event->ButtonReleased == MouseButton::Left)
 		{
-			auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
-			DCTrace << "Coords =" << coords.x << ", " << coords.y << ").\n";
-			DCTrace << "PlayerPos =" << PlayerRef->getComponent<Transform>()->Translation.x << ", " << PlayerRef->getComponent<Transform>()->Translation.y << ").\n";
-			auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Transform>()->Translation.y, 0));
-			if (CurrentCharge < MinCharge)
+			if (!CurrentlyFired)
 			{
-				CurrentCharge = MinCharge;
+				auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
+				auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Transform>()->Translation.y, 0));
+				if (CurrentCharge < MinCharge)
+				{
+					CurrentCharge = MinCharge;
+				}
+			
+				RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
+
+				Charging = false;
+				CurrentCharge = 0;
+				CurrentlyFired = true;
+				SpriteRef->Color = Vec4(1, 0, 0, 1);
+				RigidBodyRef->setGravityRatio(0.1);
+
+				if (BallControllerTraceOn)
+				{
+					DCTrace << "BallController::OnMouseUpEvent - WorldCoords =" << coords.x << ", " << coords.y << ").\n";
+					DCTrace << "BallController::OnMouseUpEvent - PlayerPos =" << PlayerRef->getComponent<Transform>()->Translation.x << ", " << PlayerRef->getComponent<Transform>()->Translation.y << ").\n";
+					DCTrace << "BallController::OnMouseUpEvent - Vector of ball shot = (" << MouseVector.x << ", " << MouseVector.y << ", " << MouseVector.z << ").\n";
+					DCTrace << "BallController::OnMouseUpEvent - released at screen position: " << event->Position.x << " y: " << event->Position.y << "\n";
+				}
+			
 			}
-			
-			RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
-			DCTrace << "Vector of ball shot = (" << MouseVector.x << ", " << MouseVector.y << ", " << MouseVector.z << ").\n";
-			Charging = false;
-			CurrentCharge = 0;
-			CurrentlyFired = true;
-			SpriteRef->Color = Vec4(1, 0, 0, 1);
-			RigidBodyRef->setGravityRatio(0.1);
-
-			//DCTrace << "BallController::OnMouseUpEvent - ";
-			//if (event->ButtonReleased == MouseButton::Left)
-			//	DCTrace << "Left Button ";
-			//else if (event->ButtonReleased == MouseButton::Right)
-			//	DCTrace << "Right Button ";
-
-			DCTrace << "released at x: " << event->Position.x << " y: " << event->Position.y << "\n";
-			
 		}
        
 
@@ -99,7 +124,6 @@ namespace DCEngine {
 
 	void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
-		SpriteRef->Color = SpriteRef->getColor() + Vec4(0, 0, CurrentCharge / MaxCharge, 0);
 		if (CurrentlyFired && Daisy->getMouse()->MouseDown(MouseButton::Left))
 		{
 			Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation);
@@ -118,18 +142,33 @@ namespace DCEngine {
 		//PrintVelocity();
 	}
 
+	void BallController::ChangeColor()
+	{
+		if(Frozen)
+		{
+			SpriteRef->Color = FrozenColor;
+		}
+		else
+		{
+			auto amountCharged = CurrentCharge / MaxCharge;
+			auto newColor = NormalColor * (1 - amountCharged);
+			newColor += ChargedColor * amountCharged;
+			SpriteRef->Color = newColor;
+		}
+	}
+
 
 
 	void BallController::PrintTranslation()
 	{
-		//DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-		//	<< ", " << TransformRef->Translation.y
-		//	<< ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+			<< ", " << TransformRef->Translation.y
+			<< ", " << TransformRef->Translation.z << ")\n";
 	}
 
 	void BallController::PrintVelocity()
 	{
 		Vec3 vel = RigidBodyRef->getVelocity();
-		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
+		DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 }

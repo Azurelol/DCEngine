@@ -53,6 +53,7 @@ namespace DCEngine {
     @param  The mode of the window. FullScreen or Windowed.
     @todo   Don't directly call the Graphics system by friending it. Instead
             send an event to replace it.
+			2) Line 92, 93 reload VAO after creating a new window(fullscreen->window, window->fullscreen) 
     */
     /**************************************************************************/
     void WindowSFML::setWindow(WindowMode style)
@@ -88,6 +89,7 @@ namespace DCEngine {
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
+	  Daisy->getSystem<GUI>()->ReloadVAO();
 
       // Reload textures
       //Daisy->getSystem<Content>()->LoadTextures();

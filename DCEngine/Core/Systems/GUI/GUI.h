@@ -26,6 +26,7 @@ namespace DCEngine {
       friend class Editor;
       friend class InputSFML;
     public:
+		void ReloadVAO() { GUIHandler->ReloadVAO(); }
     
     private:
             

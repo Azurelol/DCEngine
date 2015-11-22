@@ -6,6 +6,7 @@ namespace DCEngine {
 	void CameraController::Initialize()
 	{
 		auto gameObj = dynamic_cast<GameObject*>(Owner());
+		Connect(Daisy->getKeyboard(), Events::KeyDown, CameraController::OnKeyDownEvent);
 		Connect(Daisy->getMouse(), Events::MouseDown, CameraController::OnMouseDownEvent);
 		Connect(Daisy->getMouse(), Events::MouseUp, CameraController::OnMouseUpEvent);
 		Connect(SpaceRef, Events::LogicUpdate, CameraController::OnLogicUpdateEvent);
@@ -22,6 +23,15 @@ namespace DCEngine {
 	{
 	}
 
+	void CameraController::OnKeyDownEvent(Events::KeyDown * event)
+	{
+		if (event->Key == Keys::A)
+		{
+			PlayerRef = SpaceRef->FindObjectByName("Mariah");
+			DCTrace << "A key pressed";
+		}
+	}
+	
 	void CameraController::OnMouseDownEvent(Events::MouseDown * event)
 	{
 

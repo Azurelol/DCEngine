@@ -17,6 +17,7 @@ namespace DCEngine {
 		void Initialize();
 		virtual void Serialize(Json::Value& root);
 		virtual void Deserialize(Json::Value& root);
+		void OnKeyDownEvent(Events::KeyDown* event);
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
 		void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event);
