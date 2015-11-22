@@ -31,7 +31,7 @@ namespace DCEngine {
 
       ~ZilchInterface();
 
-      /* Code */
+      // Code
       bool AddCodeFromFile(std::string fileName, Zilch::Project& project);
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
@@ -39,13 +39,14 @@ namespace DCEngine {
       void Build();
       void Clean();
      
-      /* Zilch::Call operations */
+      // JSON
+      Zilch::JsonValue ParseJSON(std::string& string);
+      // Zilch::Call
       template <typename ObjectPtr>
       Zilch::Call ConstructGetCaller(Zilch::Property* property, ObjectPtr object);
       template <typename Value, typename ObjectPtr>
       bool SetProperty(Value val, Zilch::Property* property, ObjectPtr object);
-
-      /* Getters */
+      // Getters
       Zilch::ExecutableState* getState();
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
       Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);

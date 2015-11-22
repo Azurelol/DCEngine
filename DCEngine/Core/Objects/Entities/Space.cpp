@@ -154,7 +154,7 @@ namespace DCEngine {
 
     levelBuilder.Begin(Zilch::JsonType::Object); 
     {
-      levelBuilder.Key(level.c_str());
+      levelBuilder.Key("Level");
       //levelBuilder.Key("Level");
       //levelBuilder.Value(level.c_str());
       levelBuilder.Begin(Zilch::JsonType::Object); 
@@ -215,30 +215,45 @@ namespace DCEngine {
       DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
     }
 
-    //return;
-
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level
     CurrentLevel = level;
 
     // Turn the string from file into JSON data
-    Zilch::JsonValue levelData;
-    levelData.AsString() = Zilch::String(level->Get().c_str());
+    Zilch::CompilationErrors errors;
+    Zilch::JsonReader levelReader;
+    const Zilch::String levelAsJson;
+    Zilch::JsonValue* levelData = levelReader.ReadIntoTreeFromString(errors, level->Get().c_str(), levelAsJson, nullptr);
+    
+    if (levelData == nullptr)
+      DCTrace << "Space::LoadLevel - Failed to load level data from file! \n";
+    
+    //auto string = levelData->
+    //DCTrace << "level what: " << string.c_str();
 
+    //return;
     // Deserialize the space
 
     // Clear its current components
     // Load new ones
 
     // Deserialize all GameObjects    
-    auto gameObjects = levelData.GetMember("GameObjects");
+    //auto levelMember = levelData->GetMember("Level");
+    //auto a = levelData->GetMember("Level3")->GetMember("GameOb")
+
+    auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");
     // For every GameObject
     for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
       // Get the name of the GameObject
       Zilch::String gameObjectName = gameObjectValue->Key;
       // Construct it
       auto gameObj = Daisy->getSystem<Systems::Factory>()->CreateGameObject(std::string(gameObjectName.c_str()), *this, true);
+      auto components = gameObjectValue->Value->OrderedMembers.all();
+      for (auto component : components) {
+        //gameObj->a
+      }
+      
       // Deserialize it
      // gameObj->Deserialize(gameObjectValue);
       // Add it to the space's container of active gameobjects

@@ -39,12 +39,13 @@ namespace DCEngine {
       void DestroyGameObjects();
 
       // Components
-      ComponentPtr CreateComponent(const std::string& compName, bool init);
+      ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
       ResourcePtr CreateResource(const std::string& resourceName, bool init);      
       // !< When components are constructed they register themselves to the map.
       template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
+      
 
 
     private:

@@ -139,9 +139,6 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Reflection\Meta">
-      <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Rebound">
       <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
     </Filter>
@@ -225,6 +222,12 @@
     </Filter>
     <Filter Include="Core\Components\References">
       <UniqueIdentifier>{06675bb3-46c1-48af-b286-1e2fa438b0b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Serialization\JSONCPP">
+      <UniqueIdentifier>{33f31b94-6df1-4a29-b212-2bcc0a4e3309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Serialization\ZilchJSON">
+      <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -375,34 +378,13 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\Variant.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\VariantBase.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp">
-      <Filter>Core\Systems\Serialization</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Serialization</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Dollhouse\Environment.cpp">
@@ -552,9 +534,6 @@
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Levels.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -578,6 +557,12 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
       <Filter>Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Levels.cpp">
+      <Filter>Core\Systems\Editor\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
+      <Filter>Core\Systems\Serialization\JSONCPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -827,12 +812,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\StringWrapper.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
       <Filter>Projects\Dollhouse</Filter>
     </ClInclude>
@@ -869,25 +848,7 @@
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\TypesMeta.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\Variant.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\VariantBase.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\RefVariant.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Serialization\Serialization.h">
-      <Filter>Core\Systems\Serialization</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
       <Filter>Core\Systems\Serialization</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
@@ -959,9 +920,6 @@
     <ClInclude Include="Core\Components\ParticleColorAnimator.h">
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
@@ -1018,6 +976,12 @@
     </ClInclude>
     <ClInclude Include="Core\Components\EngineReference.h">
       <Filter>Core\Components\References</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
+      <Filter>Core\Systems\Serialization\JSONCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\ZilchJSON.h">
+      <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
