@@ -139,6 +139,27 @@ namespace DCEngine {
     }
 
     /*!************************************************************************\
+    @brief  Gets all the currently bound types.
+    @return A vector containing all the bound types.
+    \**************************************************************************/
+    std::vector<Zilch::BoundType*> ZilchInterface::GetTypes()
+    {
+      std::vector<Zilch::BoundType*> allTypes;
+
+      // Loop through every library
+      for (auto library : this->Dependencies.all()) {
+         // Grab a container of all the bound types in the library
+        auto types = library->BoundTypes.all();
+        // For every type in the library
+        ZilchForEach(auto type, types) {
+         
+        }
+      }
+
+      return std::vector<Zilch::BoundType*>();
+    }
+
+    /*!************************************************************************\
     @brief  Invokes the function.
     @param  A pointer to the function.
     @return An ExceptionError object which contains data regarding the script.

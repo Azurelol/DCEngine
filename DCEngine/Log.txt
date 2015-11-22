@@ -143,59 +143,37 @@ Graphics::Register -  Daisy World has registered to the Graphics system
 DefaultCamera::Initialize 
 
 [Engine::Loop]
-Content::ScanForLevels - Scanning for levels on the current project 
-Content::AddLevel - Level1 was added.
-Content::AddLevel - Level2 was added.
-Content::AddLevel - Level3 was added.
-Content::AddLevel - Level4 was added.
-Content::AddLevel - Level4 is already present in the map.
-Content::AddLevel - Level5 was added.
-Content::AddLevel - Test was added.
-Editor::LoadLevel - Loading Level3
-Level3::Level::Load - Loading from Projects/Rebound/Resources/Levels/Level3.lvl succeeded 
-Hey you loaded me man here you go: 
-{
-  "Level3": 
-  {
-    "Daisy World": 
-    {
-      "SoundSpace": 
-      {
-      }, 
-      "TimeSpace": 
-      {
-      }, 
-      "PhysicsSpace": 
-      {
-      }, 
-      "CameraViewport": 
-      {
-      }, 
-      "GraphicsSpace": 
-      {
-      }
-    }, 
-    "GameObjects": 
-    {
-      "DefaultCamera": 
-      {
-        "Transform": 
-        {
-          "Translation": 
-          {
-            "Vec3": 
-            {
-              "x": 1.000000, 
-              "y": 11.000000, 
-              "z": 1.000000
-            }
-          }, 
-          "Rotation": 
-          {
-            "Vec3": 
-            {
-              "x": 0.000000, 
-              "y": 0.000000, 
-              "z": 0.000000
-            }
-          
+Transform::Initialize 
+Editor::CreateTransform - Created 'Transform' 
+Editor::AddComponent - Adding BoxCollider to Transform
+Transform::AddComponentByName - BoxCollider has been added!
+Window::OnEngineExitEvent - 
+
+[Engine::Terminate] 
+Daisy World::DestroyAll - Removing all objects from the space.
+Content::Terminate
+ZilchInterface::TerminateZilchInterface::Clean - Freeing the state, report, dependencies... 
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
+GUI::Terminate 
+DefaultCamera::~Entity - Destructor called! 
+DefaultCamera::Transform::~Component - Destructor called! 
+DefaultCamera::Camera::~Component - Destructor called! 
+DefaultCamera::DebugCamera::~Component - Destructor called! 
+DefaultCamera::DebugAudio::~Component - Destructor called! 
+Transform::~Entity - Destructor called! 
+Transform::Transform::~Component - Destructor called! 
+Transform::BoxCollider::~Component - Destructor called! 
+Mouse::~Entity - Destructor called! 
+Keyboard::~Entity - Destructor called! 
+Daisy World::~Entity - Destructor called! 
+Daisy World::SoundSpace::~Component - Destructor called! 
+Daisy World::TimeSpace::~Component - Destructor called! 
+Daisy World::PhysicsSpace::~Component - Destructor called! 
+Daisy World::CameraViewport::~Component - Destructor called! 
+Daisy World::GraphicsSpace::~Component - Destructor called! 
+Daisy Project::~Entity - Destructor called! 

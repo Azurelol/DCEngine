@@ -127,6 +127,23 @@ namespace DCEngine {
       GameSessionRef = (GameSession*)Owner();
   }
 
+  std::vector<Zilch::BoundType*> Component::AllComponents()
+  {
+    //std::vector<Zilch::BoundType*> allTypes;
+    //auto module = Daisy->getSystem<Systems::Reflection>()->
+
+    //// Loop through every library
+    //for (auto library : this->Dependencies.all()) {
+    //  // Grab a container of all the bound types in the library
+    //  auto types = library->BoundTypes.all();
+    //  // For every type in the library
+    //  ZilchForEach(auto type, types) {
+
+    //  }
+    //}
+    return std::vector<Zilch::BoundType*>();
+  }
+
 }
 
 

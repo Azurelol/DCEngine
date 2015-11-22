@@ -15,36 +15,6 @@
 namespace DCEngine {
   namespace Systems {
 
-
-    /**************************************************************************/
-    /*!
-    @brief  Displays the transform component's properties on ImGui
-    @todo   Soon-to-be deprecated!
-    */
-    /**************************************************************************/
-    void DisplayTransform(Transform* transform) {
-
-        ImGui::Text("Translation");
-        float trans[3] = { transform->Translation.x,
-          transform->Translation.y,
-          transform->Translation.z };
-        ImGui::InputFloat3("", trans);
-
-        ImGui::Text("");
-        float rot[3] = { transform->Rotation.x,
-          transform->Rotation.y,
-          transform->Rotation.z };
-        ImGui::InputFloat3("", rot);
-
-        ImGui::Text("Scale");
-        float scale[3] = { transform->Scale.x,
-          transform->Scale.y,
-          transform->Scale.z };
-        ImGui::InputFloat3("", scale);
-
-      }
-
-
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.
@@ -85,12 +55,16 @@ namespace DCEngine {
             ImGui::TreePop();
           }                  
         }
+
+        // 4. Allow the user to add new components
+        AddComponent();
+
       }
 
       ImGui::End();
     }
 
-
+    
 
     /**************************************************************************/
     /*!
@@ -255,6 +229,36 @@ namespace DCEngine {
           }
         }
       }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Allows the user to add a component to the entity.
+    @todo   Refactor the property-setting so I DONT COPY PASTE THE SAME
+    3 LINES.
+    */
+    /**************************************************************************/
+    void Editor::AddComponent()
+    {
+      // Grab a container of all bound components.. 
+      auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
+      //DCTrace << "The following components have been bound to Zilch: \n";
+      if (ImGui::TreeNode("Add Component")) {
+        for (auto component : components) {
+          auto name = std::string(component->Name.c_str());
+          if (ImGui::Selectable(name.c_str())) {
+            DCTrace << "Editor::AddComponent - Adding " << name << " to " << SelectedObject->Name() << "\n";
+            // Add the component on the entity and initialize it
+            SelectedObject->AddComponentByName(name, false);
+            //auto rtti = std::type_index(typeid(component->));
+            //SelectedObject->AddComponent<rtti>();
+          }          
+        }
+        ImGui::TreePop();
+      }
+
+
+
     }
 
 

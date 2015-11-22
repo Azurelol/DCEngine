@@ -190,9 +190,18 @@ namespace DCEngine {
     if (!level) {
       DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
     }
+
+    // Grab a container of all bound components.. 
+    auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
+    DCTrace << "The following components have been bound to Zilch: \n";
+    for (auto component : components) {
+      auto name = component->Name.c_str();
+      DCTrace << " - " << name << "\n";
+    }
+
     return;
     // Clear the current objects from the space
-    DestroyAll();
+    //DestroyAll();
     // Set it as the current level
     CurrentLevel = level;
     // Turn the string from file into JSON data

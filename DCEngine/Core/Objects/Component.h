@@ -88,7 +88,7 @@ namespace DCEngine {
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
-    const GameSession& ThisGameSession()  const { return *GameSessionRef; } 
+    const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
 
     // Static member variables
     static unsigned int ComponentsCreated;
@@ -108,6 +108,7 @@ namespace DCEngine {
     EntityType OwnerClass;
     Component() = delete; // No default construction
     void SetReferences();
+    static std::vector<Zilch::BoundType*> AllComponents();
 
   };
 

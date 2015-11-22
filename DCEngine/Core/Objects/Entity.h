@@ -59,27 +59,21 @@ namespace DCEngine {
     std::string getArchetype() const; 
 
     // Components    
-    void RemoveComponentByName(std::string& componentName);
-
-    template<typename ComponentClass>
-    bool AddComponent(bool initialize);
-    //bool AddComponent(ComponentPtr component);
+    template<typename ComponentClass> bool AddComponent(bool initialize);
+    bool AddComponentByName(std::string& name, bool initialize = false);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
-
     template <typename ComponentClass> void RemoveComponentByName();
+    void RemoveComponentByName(std::string& componentName);
     void RemoveComponent(ComponentPtr component);    
     ComponentStrongVec* AllComponents();
 
     // Events
-    // Dispatches an event on object
     template <typename EventClass>
     void Dispatch(Event* eventObj); 
-    //!< Dispatches an event to the object itself and up the tree to each parent    
     template <typename EventClass>
     void DispatchUp(Event* eventObj); 
-    //!< Dispatches an event to the object itself and down to each children recursively
     template <typename EventClass>
     void DispatchDown(Event* eventObj); 
 

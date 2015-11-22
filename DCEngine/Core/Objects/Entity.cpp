@@ -157,6 +157,22 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Adds a component onto the entity by name.
+  @param  name The name of the component.
+  @bool   Whether to initialize the component.
+  @todo   Do this dynamically rather than using string->class mapping.
+  */
+  /**************************************************************************/
+  bool Entity::AddComponentByName(std::string & name, bool initialize)
+  {
+    DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
+    //this->AddComponent<BoxCollider>(initialize);
+    
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Removes the component from the entity.
   @param  component A pointer to the component.
   */

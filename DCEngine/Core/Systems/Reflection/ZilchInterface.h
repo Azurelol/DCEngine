@@ -50,6 +50,7 @@ namespace DCEngine {
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
       Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);
+      std::vector<Zilch::BoundType*> GetTypes();
 
       /* Type constructors */
       Zilch::Handle AllocateDefaultConstructedHeapObject(Zilch::BoundType* type, Zilch::HeapFlags::Enum);

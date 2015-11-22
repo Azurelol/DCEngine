@@ -27,6 +27,7 @@ namespace DCEngine {
       friend class Engine;
     public:
 
+      std::vector<Zilch::BoundType*> AllComponents();
       ZilchInterface* Handler();
 
     private:
