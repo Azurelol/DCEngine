@@ -54,6 +54,8 @@ namespace DCEngine {
     void Detach();
     void DetachRelative();
     GameObjectPtr Parent() { return ParentRef; }    
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
 
     // Static member variables
     static unsigned int GameObjectsCreated;

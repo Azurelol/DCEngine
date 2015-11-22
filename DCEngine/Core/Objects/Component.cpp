@@ -6,7 +6,7 @@
 #include "Entities\GameSession.h"
 
 // Access to the engine for key_callback
-//#include "..\..\Core\Engine\Engine.h"
+#include "..\..\Core\Engine\Engine.h"
 
 namespace DCEngine {
 
@@ -61,6 +61,36 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Serializes a Component.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the component and all its properties.
+  */
+  /**************************************************************************/
+  void Component::Serialize(Zilch::JsonBuilder & builder)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();    
+        
+    builder.Key(this->Name().c_str());
+    builder.Begin(Zilch::JsonType::Object);
+    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes a Component.
+  @param builder A pointer to the object containing the properties.
+  @note  This will deserialize the Component's properties.
+  */
+  /**************************************************************************/
+  void Component::Deserialize(Zilch::JsonValue * properties)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a pointer to the Entity that owns this component.
   @return An entity pointer.
   */
@@ -95,6 +125,23 @@ namespace DCEngine {
     if (type == EntityType::GameSession)
       SpaceRef = NULL;
       GameSessionRef = (GameSession*)Owner();
+  }
+
+  std::vector<Zilch::BoundType*> Component::AllComponents()
+  {
+    //std::vector<Zilch::BoundType*> allTypes;
+    //auto module = Daisy->getSystem<Systems::Reflection>()->
+
+    //// Loop through every library
+    //for (auto library : this->Dependencies.all()) {
+    //  // Grab a container of all the bound types in the library
+    //  auto types = library->BoundTypes.all();
+    //  // For every type in the library
+    //  ZilchForEach(auto type, types) {
+
+    //  }
+    //}
+    return std::vector<Zilch::BoundType*>();
   }
 
 }

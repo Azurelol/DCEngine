@@ -15,36 +15,6 @@
 namespace DCEngine {
   namespace Systems {
 
-
-    /**************************************************************************/
-    /*!
-    @brief  Displays the transform component's properties on ImGui
-    @todo   Soon-to-be deprecated!
-    */
-    /**************************************************************************/
-    void DisplayTransform(Transform* transform) {
-
-        ImGui::Text("Translation");
-        float trans[3] = { transform->Translation.x,
-          transform->Translation.y,
-          transform->Translation.z };
-        ImGui::InputFloat3("", trans);
-
-        ImGui::Text("");
-        float rot[3] = { transform->Rotation.x,
-          transform->Rotation.y,
-          transform->Rotation.z };
-        ImGui::InputFloat3("", rot);
-
-        ImGui::Text("Scale");
-        float scale[3] = { transform->Scale.x,
-          transform->Scale.y,
-          transform->Scale.z };
-        ImGui::InputFloat3("", scale);
-
-      }
-
-
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.
@@ -85,12 +55,16 @@ namespace DCEngine {
             ImGui::TreePop();
           }                  
         }
+
+        // 4. Allow the user to add new components
+        AddComponent();
+
       }
 
       ImGui::End();
     }
 
-
+    
 
     /**************************************************************************/
     /*!
@@ -109,9 +83,7 @@ namespace DCEngine {
         return;
       // 2. Get a list of all properties on the object
       for (auto property : componentBoundType->AllProperties) {
-        // Display the name of the property
-        ImGui::Text(property->Name.c_str());
-
+        
         // If the bound field/property does not have the Property Attribute, do
         // nothing.
         //if (!property->HasAttribute("Property"))
@@ -219,8 +191,9 @@ namespace DCEngine {
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {
           auto vec2 = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
           float vec2f[2] = { vec2.x, vec2.y };
+          ImGui::Text(property->Name.c_str());
           // If the user has given input, set the property
-          if (ImGui::InputFloat2(property->Name.c_str(), vec2f)) {
+          if (ImGui::InputFloat2("", vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec2f));
@@ -233,7 +206,8 @@ namespace DCEngine {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
           // If the user has given input, set the property
-          if (ImGui::InputFloat3(property->Name.c_str(), vec3f)) {
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::InputFloat3("", vec3f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec3f));
@@ -246,7 +220,8 @@ namespace DCEngine {
           auto vec4 = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
           float vec4f[4] = { vec4.x, vec4.y, vec4.z, vec4.w};
           // If the user has given input, set the property
-          if (ImGui::InputFloat4(property->Name.c_str(), vec4f)) {
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::InputFloat4("", vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
@@ -254,6 +229,36 @@ namespace DCEngine {
           }
         }
       }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Allows the user to add a component to the entity.
+    @todo   Refactor the property-setting so I DONT COPY PASTE THE SAME
+    3 LINES.
+    */
+    /**************************************************************************/
+    void Editor::AddComponent()
+    {
+      // Grab a container of all bound components.. 
+      auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
+      //DCTrace << "The following components have been bound to Zilch: \n";
+      if (ImGui::TreeNode("Add Component")) {
+        for (auto component : components) {
+          auto name = std::string(component->Name.c_str());
+          if (ImGui::Selectable(name.c_str())) {
+            DCTrace << "Editor::AddComponent - Adding " << name << " to " << SelectedObject->Name() << "\n";
+            // Add the component on the entity and initialize it
+            SelectedObject->AddComponentByName(name, false);
+            //auto rtti = std::type_index(typeid(component->));
+            //SelectedObject->AddComponent<rtti>();
+          }          
+        }
+        ImGui::TreePop();
+      }
+
+
+
     }
 
 

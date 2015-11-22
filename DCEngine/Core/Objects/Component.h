@@ -81,11 +81,14 @@ namespace DCEngine {
     // Derived component types need to be deallocated properly
     virtual ~Component();
     virtual void Initialize() = 0; // Every component needs to be initialized.
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
+
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
-    const GameSession& ThisGameSession()  const { return *GameSessionRef; } 
+    const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
 
     // Static member variables
     static unsigned int ComponentsCreated;
@@ -105,6 +108,7 @@ namespace DCEngine {
     EntityType OwnerClass;
     Component() = delete; // No default construction
     void SetReferences();
+    static std::vector<Zilch::BoundType*> AllComponents();
 
   };
 

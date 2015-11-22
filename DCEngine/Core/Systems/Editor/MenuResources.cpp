@@ -31,8 +31,8 @@ namespace DCEngine {
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
       DCTrace << "Hey you loaded me man here you go: " << levelPtr->Get() << " \n";
-
-      //CurrentSpace->LoadLevel(level);
+      // Load the level
+      CurrentSpace->LoadLevel(level);
 
       //std::string levelData = 
     }
@@ -48,10 +48,11 @@ namespace DCEngine {
     {
       DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
       // Request the space to serialize the current level and return that string.
-      CurrentSpace->SaveLevel(level);
+      //CurrentSpace->SaveLevel(level);
       
       //Zilch::JsonBuilder builder;
-      std::string levelData = "Haha I am totally serialized now dude my name is " + level;      
+      std::string levelData = CurrentSpace->SaveLevel(level);
+      //std::string levelData = "Haha I am totally serialized now dude my name is " + level;      
 
       // Get the current project's path
       std::string LevelPath("Projects/Rebound/Resources/Levels/");

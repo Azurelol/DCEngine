@@ -48,13 +48,17 @@ namespace DCEngine {
       the 'ZilchDefineBaseType' macro.
       ReferenceType means it will be allocated on the heap and alwayts referenced by handle. */
       ZilchDeclareBaseType(Object, Zilch::TypeCopyMode::ReferenceType);
+
       //!< Deserializes the Object from JSON through Zilch.
       template <typename ObjectHandle>
-      void Deserialize(Zilch::JsonValue* properties, Zilch::ExecutableState* state, 
+      void DeserializeByType(Zilch::JsonValue* properties, Zilch::ExecutableState* state, 
                      ObjectHandle objectHandle, Zilch::BoundType* boundType);
-      //!< Serializes the Object to JSON through Zilch.
-      std::string Serialize();
-      template <typename ObjectHandle>
+      //!< Serializes the Object to JSON through Zilch.      
+      void Deserialize(Zilch::JsonValue* properties);
+
+      //std::string Serialize();
+      void Serialize(Zilch::JsonBuilder& builder);
+        template <typename ObjectHandle>
       void SerializeByType(Zilch::JsonBuilder& builder, Zilch::ExecutableState* state, 
                              ObjectHandle objectHandle, Zilch::BoundType* boundType);
 
@@ -83,11 +87,12 @@ namespace DCEngine {
   @param  state A pointer to the singleton Zilch's executable state.
   @param  objectHandle A handle (Pointer/Zilch Handle) to the Object.
   @param  boundType A pointer to the Object's derived type.
-  @note   
+  @note   This function is called by derived classes.
+  @todo   Factor out the code to convert from Values!
   */
   /**************************************************************************/
   template<typename ObjectHandle>
-  inline void Object::Deserialize(Zilch::JsonValue * properties, Zilch::ExecutableState * state, 
+  inline void Object::DeserializeByType(Zilch::JsonValue * properties, Zilch::ExecutableState * state,
                                 ObjectHandle objectHandle, Zilch::BoundType * boundType)
   {
     // If there's no properties, there's nothing to do!
@@ -142,17 +147,29 @@ namespace DCEngine {
       // Type is a Real2.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Real2)))
       {
-        call.Set(0, ValueAsReal2(value));
+        auto real2 = value->GetMember("Vec2");
+        auto x = real2->GetMember("x")->AsFloat();
+        auto y = real2->GetMember("y")->AsFloat();
+        call.Set(0, Zilch::Real2(x,y));
       }
       // Type is a Real3.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Real3)))
       {
-        call.Set(0, ValueAsReal3(value));
+        auto real3 = value->GetMember("Vec3");
+        auto x = real3->GetMember("x")->AsFloat();
+        auto y = real3->GetMember("y")->AsFloat();
+        auto z = real3->GetMember("z")->AsFloat();
+        call.Set(0, Zilch::Real3(x, y, z));        
       }
       // Type is a Real4.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Real4)))
       {
-        call.Set(0, ValueAsReal4(value));
+        auto real4 = value->GetMember("Vec4");
+        auto x = real4->GetMember("x")->AsFloat();
+        auto y = real4->GetMember("y")->AsFloat();
+        auto z = real4->GetMember("z")->AsFloat();
+        auto w = real4->GetMember("w")->AsFloat();
+        call.Set(0, Zilch::Real4(x, y, z, w));        
       }
       // Type is invalid 
       else {
@@ -190,7 +207,7 @@ namespace DCEngine {
                                       ObjectHandle objectHandle, Zilch::BoundType * boundType)
   {
 
-    Zilch::PropertyArray& properties = boundType->AllProperties();
+    Zilch::PropertyArray& properties = boundType->AllProperties;
     Zilch::ExceptionReport report;
 
     for (auto property : properties) {
@@ -200,8 +217,11 @@ namespace DCEngine {
       //if (!property->HasAttribute("Property")
       //  continue;
 
-      // Create a key for the builkder
+      // Create a key for the builder
+      auto pname = property->Name;
       builder.Key(property->Name);
+      //builder.Begin(Zilch::JsonType::Object);      
+      
 
       // Set up the 'getter' method so that we can serialize the value
       Zilch::Call call(property->Get, state);
@@ -215,78 +235,91 @@ namespace DCEngine {
       // Property: Real (float)
       if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real)))
       {
-        builder.Value(getCall.Get<Zilch::Real>(Zilch::Call::Return));
+        builder.Value(call.Get<Zilch::Real>(Zilch::Call::Return));
       }
       // Property: Integer
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer)))
       {
-        builder.Value(getCall.Get<Zilch::Integer>(Zilch::Call::Return));
+        builder.Value(call.Get<Zilch::Integer>(Zilch::Call::Return));
       }
       // Property: String
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String)))
       {
-        builder.Value(getCall.Get<Zilch::String>(Zilch::Call::Return));
+        builder.Value(call.Get<Zilch::String>(Zilch::Call::Return));
       }
       // Property: Boolean
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean)))
       {
-        builder.Value(getCall.Get<Zilch::Boolean>(Zilch::Call::Return));
+        builder.Value(call.Get<Zilch::Boolean>(Zilch::Call::Return));
       }
       // Property: Real2
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2)))
       {
-        auto value = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
+        auto value = call.Get<Zilch::Real2>(Zilch::Call::Return);
         //Real2AsValue(builder, value);
         // Serialize a Vec2 Object
-        builder.Key("Vec2");
         builder.Begin(Zilch::JsonType::Object);
         {
-          builder.Key("x");
-          builder.Value(value.x);
-          builder.Key("y");
-          builder.Value(value.y);
+          builder.Key("Vec2");
+          builder.Begin(Zilch::JsonType::Object);
+          {
+            builder.Key("x");
+            builder.Value(value.x);
+            builder.Key("y");
+            builder.Value(value.y);
+          }
+          builder.End();
         }
         builder.End();
       }
       // Property: Real3
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real3)))
       {
-        auto value = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
+        auto value = call.Get<Zilch::Real3>(Zilch::Call::Return);
         //Real3AsValue(builder, value);
         // Serialize a Vec3 Object
-        builder.Key("Vec3");
         builder.Begin(Zilch::JsonType::Object);
-        {
-          builder.Key("x");
-          builder.Value(value.x);
-          builder.Key("y");
-          builder.Value(value.y);
-          builder.Key("z");
-          builder.Value(value.z);
+        {       
+          builder.Key("Vec3");
+          builder.Begin(Zilch::JsonType::Object);
+          {
+            builder.Key("x");
+            builder.Value(value.x);
+            builder.Key("y");
+            builder.Value(value.y);
+            builder.Key("z");
+            builder.Value(value.z);
+          }
+          builder.End();
         }
         builder.End();
       }
       // Property: Real4
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4)))
       {
-        auto value = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
+        auto value = call.Get<Zilch::Real4>(Zilch::Call::Return);
         //Real4AsValue(builder, value);
-        builder.Key("Vec4");
         builder.Begin(Zilch::JsonType::Object);
         {
-          builder.Key("x");
-          builder.Value(value.x);
-          builder.Key("y");
-          builder.Value(value.y);
-          builder.Key("z");
-          builder.Value(value.z);
-          builder.Key("w");
-          builder.Value(value.w);
+          builder.Key("Vec4");
+          builder.Begin(Zilch::JsonType::Object);
+          {
+            builder.Key("x");
+            builder.Value(value.x);
+            builder.Key("y");
+            builder.Value(value.y);
+            builder.Key("z");
+            builder.Value(value.z);
+            builder.Key("w");
+            builder.Value(value.w);
+          }
+          builder.End();
         }
         builder.End();
         
       }
-    }
+    }    
+
   }
 
 }

@@ -74,6 +74,7 @@ namespace DCEngine {
       void WidgetObjects();
       void WidgetProperties();
       void DisplayProperties(ComponentPtr);
+      void AddComponent();
       void WidgetLibrary();
       void WidgetDiagnostics();
       void WindowSaveLevel();

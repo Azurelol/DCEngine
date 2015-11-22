@@ -122,52 +122,12 @@ namespace DCEngine {
 
           ImGui::EndMenu();
         }
-
         
-        if (ImGui::Button("Hey")) {
-
-        }
-
         ImGui::EndMainMenuBar();
 
       }
 
     }
-
-
-    /**************************************************************************/
-    /*!
-    \brief  Loads a level from the currently tracked levels in the library.
-    */
-    /**************************************************************************/
-    void LoadLevel() {
-
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Loads a level from the currently tracked levels in the library.
-    */
-    /**************************************************************************/
-    void SaveLevel() {
-
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Reloads the currently loaded level.
-    */
-    /**************************************************************************/
-    void ReloadLevel() {
-      
-    }
-
-
-    void ShowWindowsMenu() {
-
-    }
-
-
 
   }
 }

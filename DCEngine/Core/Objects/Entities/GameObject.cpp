@@ -197,6 +197,34 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Serializes a GameObject.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the GameObject.
+  */
+  /**************************************************************************/
+  void GameObject::Serialize(Zilch::JsonBuilder & builder)
+  {
+    // Serialize the underlying Entity object, which includes its components.
+    Entity::Serialize(builder);
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Serialize the containers
+
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes a GameObject.
+  @param builder A pointer to the object containing the properties.
+  @note  This will deserialize the GameObject's properties, then its components.
+  */
+  /**************************************************************************/
+  void GameObject::Deserialize(Zilch::JsonValue * properties)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Marks the GameObject to be destroyed.
   */
   /**************************************************************************/

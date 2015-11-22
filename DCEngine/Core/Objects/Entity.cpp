@@ -99,6 +99,44 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Serializes an entity
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the entity's properties, then its components.
+  */
+  /**************************************************************************/
+  void Entity::Serialize(Zilch::JsonBuilder & builder)
+  {
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Serialize this entity's name    
+    
+    builder.Key(this->Name().c_str());
+    builder.Begin(Zilch::JsonType::Object);        
+    // Serialize this entity's properties
+    Object::SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    
+    // Serialize all of its components
+    for (auto& component : ComponentsContainer) {
+      component->Serialize(builder);
+    }
+
+    builder.End();
+
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes an entity
+  @param properties A pointer to the object containing the properties.
+  @note  This will deserialize the entity's properties, then its components.
+  */
+  /**************************************************************************/
+  void Entity::Deserialize(Zilch::JsonValue * properties)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Archetype setter.
   */
   /**************************************************************************/
@@ -115,6 +153,22 @@ namespace DCEngine {
   std::string Entity::getArchetype() const
   {
     return ArchetypeName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Adds a component onto the entity by name.
+  @param  name The name of the component.
+  @bool   Whether to initialize the component.
+  @todo   Do this dynamically rather than using string->class mapping.
+  */
+  /**************************************************************************/
+  bool Entity::AddComponentByName(std::string & name, bool initialize)
+  {
+    DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
+    //this->AddComponent<BoxCollider>(initialize);
+    
+    return true;
   }
 
   /**************************************************************************/
