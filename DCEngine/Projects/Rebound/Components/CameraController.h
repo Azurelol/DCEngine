@@ -1,5 +1,6 @@
 #pragma once
 #include "../../ProjectComponent.h"
+#define CameraControllerTraceOn 0
 
 namespace DCEngine {
 

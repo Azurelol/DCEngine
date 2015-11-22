@@ -17,6 +17,7 @@ namespace DCEngine {
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;
 		Real JumpFramesApplied = 0;
+		Real Health = 10;
 		Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
 		Transform* TransformRef;
@@ -33,6 +34,8 @@ namespace DCEngine {
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 		void Jump();
+		void TakeDamage(int damage);
+		void Die();
 
 	private:
     Sprite* SpriteComponent;

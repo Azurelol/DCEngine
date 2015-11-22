@@ -134,6 +134,10 @@ namespace DCEngine {
       case sf::Keyboard::X:
         keyDown->Key = Keys::X;
         break;
+	  case sf::Keyboard::F:
+		  keyDown->Key = Keys::F;
+		  KeyboardRef->KeyDown_F = true;
+		  break;
 
 
         /* Numpad */
@@ -263,18 +267,23 @@ namespace DCEngine {
         keyUp->Key = Keys::W;
         KeyboardRef->KeyDown_W = false;
         break;
-      case sf::Keyboard::S:
-        keyUp->Key = Keys::S;
-        KeyboardRef->KeyDown_S = false;
-        break;
+
       case sf::Keyboard::A:
         keyUp->Key = Keys::A;
         KeyboardRef->KeyDown_A = false;
         break;
+	  case sf::Keyboard::S:
+		  keyUp->Key = Keys::S;
+		  KeyboardRef->KeyDown_S = false;
+		  break;
       case sf::Keyboard::D:
         keyUp->Key = Keys::D;
         KeyboardRef->KeyDown_D = false;
         break;
+	  case sf::Keyboard::F:
+		  keyUp->Key = Keys::F;
+		  KeyboardRef->KeyDown_F = false;
+		  break;
 
       default:
         break;

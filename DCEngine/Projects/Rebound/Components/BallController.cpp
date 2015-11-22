@@ -42,26 +42,20 @@ namespace DCEngine {
     //  << coords.x << " y: " << coords.y << "\n";
 		if(event->ButtonPressed == MouseButton::Right)
 		{
-			if (Frozen)
+			if (ControlScheme == ControlScheme::Connor)
 			{
-				return;
-			}
-			Frozen = true;
-			if (CurrentlyFired)
-			{
-				RigidBodyRef->setVelocity(Vec3());
-				RigidBodyRef->setDynamicState(DynamicStateType::Static);
-			}
-			else
-			{
-				auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(event->Position));
-				//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
+				FreezeBall(event->Position);
 			}
 		}
 		if(event->ButtonPressed == MouseButton::Left)
 		{
-			Frozen = false;
-			RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			//if (ControlScheme == ControlScheme::Connor)
+			//{
+			//	Frozen = false;
+			//	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+		//	}
+			
+
 			if (CurrentlyFired)
 			{
 
@@ -124,11 +118,24 @@ namespace DCEngine {
 
 	void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
-		if (CurrentlyFired && Daisy->getMouse()->MouseDown(MouseButton::Left))
+		if (Daisy->getKeyboard()->KeyIsDown(Keys::F))
 		{
-			Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation);
-			RigidBodyRef->AddForce(CenteringVector * 200.0f);
-
+			if (BallControllerTraceOn)
+			{
+				DCTrace << "BallController::OnLogicUpdate :: F key pressed";
+			}
+			FreezeBall(Vec2(0, 0));
+		}
+		if (CurrentlyFired)
+		{
+			if(ControlScheme == ControlScheme::Connor && Daisy->getMouse()->MouseDown(MouseButton::Left))
+			{
+				AttractBall();
+			}
+			if (ControlScheme == ControlScheme::John && Daisy->getMouse()->MouseDown(MouseButton::Right))
+			{
+				AttractBall();
+			}
 		}
 		if (Charging)
 		{
@@ -171,4 +178,40 @@ namespace DCEngine {
 		Vec3 vel = RigidBodyRef->getVelocity();
 		DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
+
+	void BallController::AttractBall()
+	{
+		if (Frozen)
+		{
+			Frozen = false;
+			RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+		}
+		Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation);
+		if (CenteringVector.y > 0)
+		{
+			CenteringVector.y *= 5;
+		}
+		RigidBodyRef->AddForce(CenteringVector * 200.0f);
+	}
+
+	void BallController::FreezeBall(Vec2 mousePosition = Vec2(0,0))
+	{
+		if (Frozen)
+		{
+			return;
+		}
+
+		Frozen = true;
+		if (CurrentlyFired)
+		{
+			RigidBodyRef->setVelocity(Vec3());
+			RigidBodyRef->setDynamicState(DynamicStateType::Static);
+		}
+		else
+		{
+			//auto coords = SpaceRef->getComponent<CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
+			//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
+		}
+	}
+
 }

@@ -17,6 +17,8 @@ namespace DCEngine {
 
   class DollHouse : public Level {
   public:
+	  int TerrainPiecesCreated = 0;
+
     DollHouse(Space& space, GameSession& gamesession) : Level("Dollhouse"), 
                             space_(&space), gamesession_(&gamesession) {      
 
@@ -93,6 +95,7 @@ namespace DCEngine {
     void SetupBackground();
     void EnvironmentSetup();
     void GenerateMonkeyLOL(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color);
 
     GameObjectPtr doll;
     GameObjectPtr cameraObj;

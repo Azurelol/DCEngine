@@ -564,8 +564,13 @@
     <ClCompile Include="Core\Resources\CollisionTable.cpp">
       <Filter>Core\Resources</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp">
       <Filter>Core\Systems\Editor</Filter>
+=======
+    <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+>>>>>>> ce447e13c5cc9d2fac44caafd349306e578cd0da
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1001,8 +1006,13 @@
     <ClInclude Include="Core\Resources\CollisionTable.h">
       <Filter>Core\Resources</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h">
       <Filter>Core\Systems\Factory</Filter>
+=======
+    <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
+      <Filter>Projects\Rebound\Components</Filter>
+>>>>>>> ce447e13c5cc9d2fac44caafd349306e578cd0da
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

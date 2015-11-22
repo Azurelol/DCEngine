@@ -28,7 +28,7 @@ namespace DCEngine {
 		if (event->Key == Keys::A)
 		{
 			PlayerRef = SpaceRef->FindObjectByName("Mariah");
-			DCTrace << "A key pressed";
+			//DCTrace << "A key pressed";
 		}
 	}
 	
@@ -45,7 +45,10 @@ namespace DCEngine {
 	void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		Real FrameRateCompensation = event->Dt * 60;
-		//DCTrace << "FRC =" << FrameRateCompensation << "\n";
+		if (CameraControllerTraceOn)
+		{
+			DCTrace << "FRC =" << FrameRateCompensation << "\n";
+		}
 		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;
 		TargetPos.z = 0; // do not want the camera moving on the Z axis
 		TargetPos.y += 5;
@@ -56,8 +59,8 @@ namespace DCEngine {
 
 	void CameraController::PrintTranslation()
 	{
-		//DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-		//	<< ", " << TransformRef->Translation.y
-		//	<< ", " << TransformRef->Translation.z << ")\n";
+		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+			<< ", " << TransformRef->Translation.y
+			<< ", " << TransformRef->Translation.z << ")\n";
 	}
 }
