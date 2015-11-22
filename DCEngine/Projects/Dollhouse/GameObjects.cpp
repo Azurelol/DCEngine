@@ -65,6 +65,37 @@ namespace DCEngine {
 		ground->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 	}
 
+	void DollHouse::GenerateHazardArea(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		//char* name = "Hazard";
+		//char* buffer = "100000000000";
+		//itoa(TerrainPiecesCreated, buffer, 10);
+		//strcat(name, buffer);
+		//GameObjectPtr ground = ConstructGameObject(name);
+
+		/*
+		GameObjectPtr obj = ConstructGameObject("HazardArea");
+		obj->AddComponent<Transform>();
+		obj->AddComponent<Sprite>();
+		obj->AddComponent<RigidBody>();
+		obj->AddComponent<BoxCollider>();
+		obj->AddComponent<DebugCollider>();
+		obj->AddComponent<HazardArea>();
+		// Change the properties of the components
+		obj->getComponent<Transform>()->Translation = translation;
+		obj->getComponent<Transform>()->Scale = scale;
+		// Sprite properties
+		obj->getComponent<Sprite>()->setColor(color);
+		// BoxCollider properties
+		obj->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+		obj->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		obj->getComponent<BoxCollider>()->setGhost(true);
+		// Rigidbody properties
+		obj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+
+		*/
+	}
+
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
     srand(unsigned(time(0)));
@@ -108,6 +139,7 @@ namespace DCEngine {
 
 	*/
 	GenerateTerrain(Vec3(0, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	//GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");
@@ -211,10 +243,10 @@ namespace DCEngine {
     }
 
 	GameObjectPtr chargeBar = ConstructGameObject("ChargeBar");
-  chargeBar->AddComponent<Transform>();
-  chargeBar->AddComponent<Sprite>();
-  chargeBar->AddComponent<DebugCollider>();
-  chargeBar->AddComponent<DebugReport>();
+	  chargeBar->AddComponent<Transform>();
+	  chargeBar->AddComponent<Sprite>();
+	  chargeBar->AddComponent<DebugCollider>();
+	  chargeBar->AddComponent<DebugReport>();
   chargeBar->AddComponent<ChargeBar>();
 	//Parenting to the player
 	chargeBar->AttachTo(mariah);

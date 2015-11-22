@@ -1,5 +1,6 @@
 #pragma once
 #include "../../ProjectComponent.h"
+#define PlayerControllerTraceOn 1
 
 namespace DCEngine {
 

@@ -110,6 +110,10 @@ namespace DCEngine {
 	void PlayerController::TakeDamage(int damage)
 	{
 		Health -= damage;
+		if (PlayerControllerTraceOn)
+		{
+			DCTrace << "PlayerController::TakeDamage:: Health = " << Health << ".\n";
+		}
 		//dispatch damage taken event
 		if (Health <= 0)
 		{
