@@ -20,13 +20,40 @@ namespace DCEngine {
     monkey->getComponent<Sprite>()->AnimationActive = true;
     monkey->getComponent<Sprite>()->HaveAnimation = true;
     monkey->getComponent<Sprite>()->AnimationSpeed = 10;
-    //monkey->getComponent<Sprite>()->setColor(Vec4(0.5, 0.25, 0, 1));
+    monkey->getComponent<Sprite>()->setColor(Vec4(color));
     // BoxCollider properties
     monkey->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
     monkey->getComponent<BoxCollider>()->IsDrawingCollider = false;
     // Rigidbody properties
     monkey->getComponent<RigidBody>()->setGravity(true);
   }
+
+	void DollHouse::GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		//char* name = "Ground";
+		//char* buffer = "100000000000";
+		//itoa(TerrainPiecesCreated, buffer, 10);
+		//strcat(name, buffer);
+		//GameObjectPtr ground = ConstructGameObject(name);
+
+
+		GameObjectPtr ground = ConstructGameObject("Ground");
+		ground->AddComponent<Transform>();
+		ground->AddComponent<Sprite>();
+		ground->AddComponent<RigidBody>();
+		ground->AddComponent<BoxCollider>();
+		ground->AddComponent<DebugCollider>();
+		// Change the properties of the components
+		ground->getComponent<Transform>()->Translation = translation;
+		ground->getComponent<Transform>()->Scale = scale;
+		// Sprite properties
+		ground->getComponent<Sprite>()->setColor(color);
+		// BoxCollider properties
+		ground->getComponent<BoxCollider>()->Size =  Vec3(scale.x * 2, scale.y * 2, scale.z * 2);
+		ground->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		// Rigidbody properties
+		ground->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+	}
 
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
@@ -58,12 +85,17 @@ namespace DCEngine {
     
     // Attach the the camera to the player character.
     //cameraObj->AttachTo(mariah);
-    GenerateMonkeyLOL(Vec3(5, 1, 0), Vec3(1, 1, 1), Vec4(1, 1, 1.0, 1));
+    /*
+	
+	GenerateMonkeyLOL(Vec3(5, 1, 0), Vec3(1, 1, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(15, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(25, 1, 0), Vec3(3, 3, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-5, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-15, 1, 0), Vec3(2, 2, 1), Vec4(1, 1, 1.0, 1));
     GenerateMonkeyLOL(Vec3(-25, 1, 0), Vec3(1, 1, 1), Vec4(1, 1, 1.0, 1));
+
+	*/
+	GenerateTerrain(Vec3(0, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");
@@ -247,8 +279,6 @@ namespace DCEngine {
 
 
 	}
-
-
 }
 
 

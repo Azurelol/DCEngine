@@ -5,3 +5,4 @@
 #include "Components\EnemyController.h"
 #include "Components\ChargeBar.h"
 #include "Components\CameraController.h"
+#include "Components\HazardArea.h"

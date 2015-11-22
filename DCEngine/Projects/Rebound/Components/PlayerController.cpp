@@ -107,6 +107,21 @@ namespace DCEngine {
 
 	}
 
+	void PlayerController::TakeDamage(int damage)
+	{
+		Health -= damage;
+		//dispatch damage taken event
+		if (Health <= 0)
+		{
+			Die();
+		}
+
+	}
+
+	void PlayerController::Die()
+	{
+	}
+
 
 
 	void PlayerController::PrintTranslation()
@@ -146,7 +161,7 @@ namespace DCEngine {
 		RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
 
 
-		PrintTranslation();
+		//PrintTranslation();
 	}
 	void PlayerController::MoveRight()
 	{
@@ -159,6 +174,6 @@ namespace DCEngine {
 			auto scalar = 1;
 		}
 		RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
-		PrintTranslation();
+		//PrintTranslation();
 	}
 }

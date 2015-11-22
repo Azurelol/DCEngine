@@ -564,6 +564,9 @@
     <ClCompile Include="Core\Resources\CollisionTable.cpp">
       <Filter>Core\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -997,6 +1000,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\CollisionTable.h">
       <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

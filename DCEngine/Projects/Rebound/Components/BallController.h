@@ -6,6 +6,7 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
+	enum class ControlScheme { John, Connor };
 	class BallController : public Component {
 
 	public:
@@ -14,6 +15,7 @@ namespace DCEngine {
 		bool Frozen = false;
 		bool CurrentlyFired = false;
 		Real MoveSpeed = 0.75;
+		ControlScheme ControlScheme = ControlScheme::John;
 		Real RotSpeed = 15;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
@@ -42,7 +44,8 @@ namespace DCEngine {
 	private:
 		void PrintTranslation();
 		void PrintVelocity();
+		void AttractBall();
+		void FreezeBall(Vec2 MousePosition);
 	};
-
 
 }
