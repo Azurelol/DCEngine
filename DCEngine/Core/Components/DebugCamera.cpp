@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   Camera.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/12/2015
+@brief  Debug Camera component implementation.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "DebugCamera.h"
 #include "EngineReference.h"
 #include "Camera.h"

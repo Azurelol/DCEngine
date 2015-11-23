@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+\file   Camera.h
+\author Chen Shu, Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   9/15/2015
+\brief  The debugcamera class.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #pragma once
 #include "ComponentReference.h"
 

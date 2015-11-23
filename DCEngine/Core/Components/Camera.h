@@ -7,6 +7,7 @@
 \brief  The camera class.
 \note   Resource: "http://learnopengl.com/#!Getting-started/Camera"
 
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 

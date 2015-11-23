@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   Camera.cpp
+@author Chen Shu, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/12/2015
+@brief  Camera component implementation.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "Camera.h"
 #include "EngineReference.h"
 #include "Transform.h"
