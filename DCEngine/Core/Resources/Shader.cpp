@@ -1,13 +1,15 @@
 /******************************************************************************/
 /*!
-\file   GLShader.cpp
+\file   Shader.cpp
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/13/2015
 \brief  An encapsulated object that reads shaders from disk, compiles, links them,
 checks for errors and other useful functions.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
+
 #include "Shader.h"
 
 #include <fstream>

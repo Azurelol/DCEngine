@@ -5,6 +5,8 @@
 @par    email: c.sagel\@digipen.edu
 @date   11/15/2015
 @brief  This file includes the implementation for the Editor's project menu.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #include "Editor.h"

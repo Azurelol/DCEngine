@@ -6,7 +6,7 @@
 \date   11/21/2015
 \brief  This file contains the functions which set up the Editor when it's
         toggled
-*/
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 /******************************************************************************/
 #include "Editor.h"
 // Engine
