@@ -7,6 +7,8 @@
 \brief  This component receives drawing requests from entities with Sprite,
 SpriteText and Model components, and passes the requests to the
 engine's underlying graphics system.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

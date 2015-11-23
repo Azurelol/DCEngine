@@ -7,6 +7,8 @@
 \brief  The graphics system is the bridge between the rendering calls from the 
         entity components and the underlying low-level OpenGL renderer. It
         receives rendering requests and draws on the window.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

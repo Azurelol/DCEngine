@@ -1,3 +1,17 @@
+/*****************************************************************************/
+/*!
+\file   GraphicsSpace.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   9/16/2015
+\brief  This component receives drawing requests from entities with Sprite,
+SpriteText and Model components, and passes the requests to the
+engine's underlying graphics system.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "GraphicsSpace.h"
 #include "EngineReference.h"
 #include "../Systems/Graphics/Graphics.h" // Access to the graphics system

@@ -1,3 +1,15 @@
+/*****************************************************************************/
+/*!
+\file   GraphicsSpace.cpp
+\author Chen Shu, Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   9/16/2015
+\brief  Graphics system of DCEngine.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
 #include "../../Engine/Engine.h"
