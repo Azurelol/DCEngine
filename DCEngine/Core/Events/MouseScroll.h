@@ -1,13 +1,15 @@
-#pragma once
 /******************************************************************************/
 /*!
-@file   MouseDown.h
+@file   MouseScroll.h
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/22/2015
 @brief  The mouse scroll event.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
+
 #pragma once
 #include "EventReference.h"
 

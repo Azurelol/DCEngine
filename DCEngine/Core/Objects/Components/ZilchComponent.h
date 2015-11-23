@@ -1,11 +1,13 @@
 /*****************************************************************************/
 /*!
 \file   ZilchComponent.h
-\author Christian Sagel, Connir Tilley
+\author Christian Sagel, Connor Tilley
 \par    email: c.sagel\@digipen.edu
 \date   9/22/2015
 \brief  Zilch components are used by game programmers to write game logic into.
         These components, alongside events, drive the logic of a game project.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once
