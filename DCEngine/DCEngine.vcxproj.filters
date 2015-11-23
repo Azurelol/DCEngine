@@ -564,8 +564,8 @@
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Serialization\JSONCPP</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
+    <ClCompile Include="Core\Systems\Serialization\JSONObject.cpp">
+      <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -983,11 +983,8 @@
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
       <Filter>Core\Systems\Serialization\JSONCPP</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Serialization\ZilchJSON.h">
+    <ClInclude Include="Core\Systems\Serialization\JSONObject.h">
       <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

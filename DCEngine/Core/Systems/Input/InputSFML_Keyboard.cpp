@@ -14,6 +14,21 @@ namespace DCEngine {
     void ToggleEditor();
     void DispatchEngineExitEvent();
 
+
+    /**************************************************************************/
+    /*!
+    \brief  Polls for keyboard events for ImGui.
+    */
+    /**************************************************************************/
+    void InputSFML::ImGuiPollKeyPressed(sf::Event & event)
+    {
+      // Update ImGui
+      ImGuiIO& io = ImGui::GetIO();
+      io.KeysDown[event.key.code] = true;
+      io.KeyCtrl = event.key.control;
+      io.KeyShift = event.key.shift;
+    }
+
     /**************************************************************************/
     /*!
     @brief  Polls for keyboard events. Everytime a key is pressed, sends an
@@ -32,7 +47,7 @@ namespace DCEngine {
       io.KeysDown[event.key.code] = true;
       io.KeyCtrl = event.key.control;
       io.KeyShift = event.key.shift;
-
+            
       // Create a keyboard pressed event
       auto keyDown = new Events::KeyDown();
 
@@ -253,9 +268,27 @@ namespace DCEngine {
 
 
       }
+      
+      // If not paused, dispatch the events
+      //if (!Paused)
+
       // Dispatch the event to the keyboard interface
       Daisy->getKeyboard()->Dispatch<Events::KeyDown>(keyDown);
       delete keyDown;
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Polls for keyboard events for ImGui.
+    */
+    /**************************************************************************/
+    void InputSFML::ImGuiPollKeyReleased(sf::Event & event)
+    {
+      // Update ImGui
+      ImGuiIO& io = ImGui::GetIO();
+      io.KeysDown[event.key.code] = false;
+      io.KeyCtrl = event.key.control;
+      io.KeyShift = event.key.shift;
     }
 
     /**************************************************************************/
@@ -271,6 +304,9 @@ namespace DCEngine {
       io.KeysDown[event.key.code] = false;
       io.KeyCtrl = event.key.control;
       io.KeyShift = event.key.shift;
+
+      //if (Paused)
+      //  return;
 
       // Create a keyboard pressed event
       auto keyUp = new Events::KeyUp();

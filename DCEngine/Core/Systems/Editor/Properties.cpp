@@ -40,7 +40,7 @@ namespace DCEngine {
         // 2. Display the object's archetype
         char archetypeName[32]; 
         strcpy(archetypeName, SelectedObject->getArchetype().c_str());
-        // If the user has given input, change the name
+        // If the user has given input, change the archetype
         if (ImGui::InputText("Archetype", archetypeName, IM_ARRAYSIZE(archetypeName))) {
           SelectedObject->setArchetype(archetypeName);
         }
@@ -49,6 +49,7 @@ namespace DCEngine {
         ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
         for (auto &component : *SelectedObject->AllComponents()) {
           if (ImGui::TreeNode(component->Name().c_str())) {
+            ImGui::SetWindowFocus();
             // 3. If the user clicks on a tree-node, display the commponent's properties
             //    through reflection
             DisplayProperties(component.get());
@@ -249,7 +250,8 @@ namespace DCEngine {
           if (ImGui::Selectable(name.c_str())) {
             DCTrace << "Editor::AddComponent - Adding " << name << " to " << SelectedObject->Name() << "\n";
             // Add the component on the entity and initialize it
-            SelectedObject->AddComponentByType(component);
+            //SelectedObject->AddComponentByType(component);
+            SelectedObject->AddComponentByName(name, true);
             //SelectedObject->AddComponentByName(name, false);
             //auto rtti = std::type_index(typeid(component->));
             //SelectedObject->AddComponent<rtti>();

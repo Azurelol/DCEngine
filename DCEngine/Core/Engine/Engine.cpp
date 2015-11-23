@@ -72,7 +72,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  The destructor for the Engine object.
+  @brief  The destructor for the Engine object.
   */
   /**************************************************************************/
   Engine::~Engine() {
@@ -81,19 +81,17 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief Initializes the engine.
-  1. Systems are added to a container in the engine.
-  2. Creates the default local space, sets it as the active space.
-  3. Specify which systems should be updated.
-  4. All systems in the container are initialized.
+  @brief Initializes the engine.
+  @notes 1. Systems are added to a container in the engine.
+         2. Creates the default local space, sets it as the active space.
+         3. Specify which systems should be updated.
+         4. All systems in the container are initialized.
   */
   /**************************************************************************/
   void Engine::Initialize() {
     
     DCTrace << "[Engine::Engine - Constructor] \n";
     DCTrace << "\n[Engine::Initialize] \n";
-
-    //throw DCException("Oh dear, something broke");
 
     // Autowolves, howl out!
     _active = true;
@@ -126,21 +124,131 @@ namespace DCEngine {
     for (auto sys : _systems) {
       sys->Initialize();
     }
-
+    
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
+
+    // Subscribe to events
+    Subscribe();
 
     // Initialize the project
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
 
-
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
-    gamesession_->Initialize();
+    gamesession_->Initialize();  
 
     // Toggle the editor
     if (EngineConfiguration->EditorEnabled)
       getSystem<Systems::Editor>()->ToggleEditor();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Subscribes to engine-specific events.
+  */
+  /**************************************************************************/
+  void Engine::Subscribe()
+  {
+    Connect<Events::EnginePause>(&Engine::OnEnginePauseEvent, this);
+    Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
+    Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Pauses the engine.
+  */
+  /**************************************************************************/
+  void Engine::OnEnginePauseEvent(Events::EnginePause * event)
+  {
+    DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
+    this->Paused = true;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Resumes the engine.
+  */
+  /**************************************************************************/
+  void Engine::OnEngineResumeEvent(Events::EngineResume * event)
+  {
+    DCTrace << "Engine::OnEngineResumeEvent - Resumed \n";
+    this->Paused = false;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Exits the engine.
+  */
+  /**************************************************************************/
+  void Engine::OnEngineExitEvent(Events::EngineExit * event)
+  {
+    DCTrace << "Engine::OnEngineExitEvent - Exit \n";
+  }
+  
+  /**************************************************************************/
+  /*!
+  \brief Updates the engine, at multiple levels.
+  1. The window handler is updated, sending events about window changes
+  and input events.
+  2. The gamestate's every space that the engine decides is updated.
+  When a space is updated, it provides each of the systems added to it
+  with a vector of entities that meet the system's registration
+  requirements.
+  The space then tells each system to update.
+  \param The time that elapsed during the last frame update.
+
+  */
+  /**************************************************************************/
+  void Engine::Update(float dt) {
+    if (TRACE_UPDATE)
+      DCTrace << "\n[Engine::Update] \n";
+
+    // Tell window management system to begin new frame
+    getSystem<Systems::Window>()->StartFrame();
+    getSystem<Systems::Graphics>()->StartFrame();
+    getSystem<Systems::GUI>()->StartFrame();
+
+    // Dispatch the 'LogicUpdate' event
+    DispatchLogicUpdateEvent(dt);
+
+    // Update all the sytems at the end of the frame, based on the order
+    // they were added to the engine. (Or split it and do it individually?)
+    for (auto system : _systems)
+      system->Update(dt);
+
+    // Tell window management system to end the frame
+    getSystem<Systems::Graphics>()->EndFrame();
+    getSystem<Systems::GUI>()->Render();    
+    getSystem<Systems::Window>()->EndFrame();
+
+    if (TRACE_UPDATE)
+      DCTrace << "[Engine::Update - All systems updated.] \n";
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Dispatches the 'LogicUpdate' event to the gamesession and all 
+          its spaces.
+  */
+  /**************************************************************************/
+  void Engine::DispatchLogicUpdateEvent(float dt)
+  {
+    if (Paused)
+      return;
+
+    // Construct the update event and assign it the engine's dt
+    auto logicUpdateEvent = new Events::LogicUpdate();
+    logicUpdateEvent->Dt = dt;
+    // Dispatch the logic update event to the gamesession
+    gamesession_->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    // Dispatch the logic update event to all active spaces
+    for (auto space : gamesession_->_spaces)
+      space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    // Delete the event
+    delete logicUpdateEvent;
+
   }
 
   /**************************************************************************/
@@ -195,53 +303,6 @@ namespace DCEngine {
 
   }
 
-  /**************************************************************************/
-  /*!
-  \brief Updates the engine, at multiple levels.
-  1. The window handler is updated, sending events about window changes
-  and input events.
-  2. The gamestate's every space that the engine decides is updated.
-  When a space is updated, it provides each of the systems added to it
-  with a vector of entities that meet the system's registration
-  requirements.
-  The space then tells each system to update.
-  \param The time that elapsed during the last frame update.
-
-  */
-  /**************************************************************************/
-  void Engine::Update(float dt) {
-    if (TRACE_UPDATE)
-      DCTrace << "\n[Engine::Update] \n";
-
-    // Tell window management system to begin new frame
-    getSystem<Systems::Window>()->StartFrame();
-    getSystem<Systems::Graphics>()->StartFrame();
-    getSystem<Systems::GUI>()->StartFrame();
-
-    // Construct the update event and assign it the engine's dt
-    auto logicUpdateEvent = new Events::LogicUpdate();
-    logicUpdateEvent->Dt = dt;
-    // Dispatch the logic update event to the gamesession
-    gamesession_->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
-    // Dispatch the logic update event to all active spaces
-    for (auto space : gamesession_->_spaces)
-      space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
-    // Delete the event
-    delete logicUpdateEvent;
-
-    // Update all the sytems at the end of the frame, based on the order
-    // they were added to the engine. (Or split it and do it individually?)
-    for (auto system : _systems)
-      system->Update(dt);
-
-    // Tell window management system to end the frame
-    getSystem<Systems::Graphics>()->EndFrame();
-    getSystem<Systems::GUI>()->Render();    
-    getSystem<Systems::Window>()->EndFrame();
-
-    if (TRACE_UPDATE)
-      DCTrace << "[Engine::Update - All systems updated.] \n";
-  }
 
   /**************************************************************************/
   /*!

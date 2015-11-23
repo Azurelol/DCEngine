@@ -1,11 +1,12 @@
 /*****************************************************************************/
 /*!
-\file   Factory.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   9/20/2015
-\brief  The Factory system handles the creation of all game objects and 
+@file   Factory.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/20/2015
+@brief  The Factory system handles the creation of all game objects and 
         components, from serialized data. 
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
@@ -35,17 +36,17 @@ namespace DCEngine {
       // GameObjects
       GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
       GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);     
+      GameObjectPtr BuildGameObject(SerializedMember* objectData, Space& space);
+      bool BuildLevel(LevelPtr level, Space&);
       void MarkGameObject(GameObject& gameObj);
-      void DestroyGameObjects();
+      void DestroyGameObjects();      
 
       // Components
+      ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
-      ResourcePtr CreateResource(const std::string& resourceName, bool init);      
-      // !< When components are constructed they register themselves to the map.
-      template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
-      
+      ResourcePtr CreateResource(const std::string& resourceName, bool init);       
 
 
     private:
@@ -65,7 +66,6 @@ namespace DCEngine {
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
       void ConstructComponentFactoryMap();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
-      void DeserializeLevel(const std::string& levelName);
     }; 
 
     /**************************************************************************/

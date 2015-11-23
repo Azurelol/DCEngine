@@ -1,10 +1,11 @@
 /******************************************************************************/
 /*!
-\file   Entity.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   8/18/2015
-\brief  The base object composition class.
+@file   Entity.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   8/18/2015
+@brief  The base object composition class.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/
@@ -60,8 +61,8 @@ namespace DCEngine {
 
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize);
-    bool AddComponentByName(std::string& name, bool initialize = false);
-    bool AddComponentByType(Zilch::BoundType* boundType);
+    ComponentPtr AddComponentByName(std::string& name, bool initialize = false);
+    bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();

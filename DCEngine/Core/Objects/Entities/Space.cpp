@@ -203,7 +203,8 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Loads a level, a container for entities, into the space. 
+  @brief Loads a level, a container for entities, into the space. 
+  @todo  Clean up comments.
   */
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
@@ -219,63 +220,13 @@ namespace DCEngine {
     DestroyAll();
     // Set it as the current level
     CurrentLevel = level;
-
-    // Turn the string from file into JSON data
-    Zilch::CompilationErrors errors;
-    Zilch::JsonReader levelReader;
-    const Zilch::String levelAsJson;
-    Zilch::JsonValue* levelData = levelReader.ReadIntoTreeFromString(errors, level->Get().c_str(), levelAsJson, nullptr);
-    
-    if (levelData == nullptr)
-      DCTrace << "Space::LoadLevel - Failed to load level data from file! \n";
-    
-    //auto string = levelData->
-    //DCTrace << "level what: " << string.c_str();
+    // Build all the GameObjects from the level
+    Daisy->getSystem<Systems::Factory>()->BuildLevel(level, *this);
 
     //return;
     // Deserialize the space
-
     // Clear its current components
-    // Load new ones
-
-    // Deserialize all GameObjects    
-    //auto levelMember = levelData->GetMember("Level");
-    //auto a = levelData->GetMember("Level3")->GetMember("GameOb")
-
-    auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");
-    // For every GameObject
-    for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
-      // Get the name of the GameObject
-      Zilch::String gameObjectName = gameObjectValue->Key;
-      // Construct it
-      auto gameObj = Daisy->getSystem<Systems::Factory>()->CreateGameObject(std::string(gameObjectName.c_str()), *this, true);
-      auto components = gameObjectValue->Value->OrderedMembers.all();
-      for (auto component : components) {
-        //gameObj->a
-      }
-      
-      // Deserialize it
-     // gameObj->Deserialize(gameObjectValue);
-      // Add it to the space's container of active gameobjects
-      AddObject(gameObj);
-    }
-
-
-    // Read the JSON string
-    
-    // For every object 
-
-    // For the level, load each object: Construct an empty object from the factory
-    // For each object, load the components: 
-    // Have a map that maps the name of the component on strings, and maps it to a function
-    // that creates the derived component and returns a base component class pointer.
-    // Have some switch statement that takes whatever info is needed to serialize, the name of the coponent
-    // perhaps the entity too. It can create the component, fil it with data and attach it to the entity.
-
-    // For each component, load the data. Read the values in from the serialized string.
-
-
-
+    // Load new ones from the archetype
   }
 
   /**************************************************************************/
