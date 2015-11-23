@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   HazardArea.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Makes an area a hazard, which will damage the player on contact.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "HazardArea.h"
 #include "../../CoreComponents.h"
 

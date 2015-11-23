@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   EnemyController.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Controller for all the different types of enemies.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "EnemyController.h"
 #include "../../CoreComponents.h"
 
