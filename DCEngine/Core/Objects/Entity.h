@@ -215,7 +215,10 @@ namespace DCEngine {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
               DCTrace << Name() << "::Dispatch - Calling member function on " << "\n";
-            deleg->Call(eventObj);
+            if (!deleg->Call(eventObj)) {
+              DCTrace << Name() << "::Dispatch - Unable to call member function " << "\n";
+              //ObserverRegistry.erase(deleg);
+            }
             //deleg.Call<eventTypeID>(eventObj);
           }
         }

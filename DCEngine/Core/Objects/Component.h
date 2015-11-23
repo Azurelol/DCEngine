@@ -75,6 +75,7 @@ namespace DCEngine {
 	  friend class Entity;
     friend class GameObject; 
     friend class Systems::Factory;
+    friend class Engine; // @todo Is this the best way?
 
   public:   
 
@@ -114,6 +115,7 @@ namespace DCEngine {
     Component() = delete; // No default construction
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
+    std::vector<Delegate*> ActiveDelegates;
 
   };
 

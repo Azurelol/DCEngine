@@ -239,6 +239,7 @@
     <ClCompile Include="Core\Binding\CoreBinding.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
+    <ClCompile Include="Core\Components\EditorCameraController.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp" />
@@ -360,6 +361,7 @@
     <ClInclude Include="Core\Binding\CoreBindingTypes.h" />
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
+    <ClInclude Include="Core\Components\EditorCameraController.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
     <ClInclude Include="Core\Components\ParticleEmitter.h" />
     <ClInclude Include="Core\Components\Camera.h" />
@@ -408,6 +410,7 @@
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
+    <ClInclude Include="Core\Events\MouseScroll.h" />
     <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />

@@ -23,14 +23,16 @@ namespace DCEngine {
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
     //
-    type->HandleManager = ZilchManagerId(Zilch::PointerManager);
+    DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE;
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    //type->HandleManager = ZilchManagerId(Zilch::PointerManager);
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
     ZilchBindDestructor(builder, type, Sprite);
     // Properties
     ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
     ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
-    ZilchBindProperty(builder, type, &Sprite::getSpriteSource, &Sprite::setSpriteSource, "SpriteSource");
+    ZilchBindProperty(builder, type, &Sprite::getSpriteSource, &Sprite::setSpriteSource, "SpriteSource")->Attributes.push_back(resourceAttribute);
     ZilchBindProperty(builder, type, &Sprite::getFlipX, &Sprite::setFlipX, "FlipX");
     ZilchBindProperty(builder, type, &Sprite::getFlipY, &Sprite::setFlipY, "FlipY");
     ZilchBindProperty(builder, type, &Sprite::getAnimationActive, &Sprite::setAnimationActive, "AnimationActive");
@@ -52,7 +54,7 @@ namespace DCEngine {
     None.
   */
   /**************************************************************************/
-  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
+  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), SpriteSource("Square") {
 
   }
 

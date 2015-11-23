@@ -101,7 +101,7 @@ namespace DCEngine {
 		void GraphicsGL::StartFrame() {
 			glEnable(GL_DEPTH_TEST);
 			ViewportUpdate();
-			glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
+			glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 			//glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}

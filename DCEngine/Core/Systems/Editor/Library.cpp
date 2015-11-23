@@ -50,7 +50,26 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
-      
+      // 4. Display every level
+      if (ImGui::TreeNode("Level")) {
+        // Query the Content system for the current list of levels
+        static bool ScannedForLevels;
+        if (!ScannedForLevels) {
+          Daisy->getSystem<Content>()->ScanForLevels();
+          ScannedForLevels = true;
+        }
+        
+        for (auto level : *Daisy->getSystem<Content>()->AllLevels()) {
+          // If the user double-clicks on.. @todo not working yet
+          if (ImGui::Selectable(level.second->Name().c_str())) {
+
+          }
+          
+        }
+
+        //ScannedForLevels = false;
+        ImGui::TreePop();
+      }
 
       ImGui::End();
 

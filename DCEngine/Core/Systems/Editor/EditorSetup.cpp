@@ -61,7 +61,7 @@ namespace DCEngine {
       DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
       auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
       editorCamera->AddComponent<DCEngine::Camera>(true);
-      editorCamera->AddComponent<DCEngine::DebugCamera>(true);
+      editorCamera->AddComponent<DCEngine::EditorCameraController>(true);
       editorCamera->AddComponent<DCEngine::DebugAudio>(true);
       // Camera properties      
       editorCamera->getComponent<DCEngine::DebugAudio>()->Track1 = "soulja";

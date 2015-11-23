@@ -23,6 +23,7 @@ PHYSICS
 #include "Events\KeyUpEvent.h"
 #include "Events\MouseDown.h"
 #include "Events\MouseUp.h"
+#include "Events\MouseScroll.h"
 
 #include "Events\EditorEvents.h"
 #include "Events\EngineEvents.h"

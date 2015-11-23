@@ -140,7 +140,7 @@ namespace DCEngine {
       WidgetLevel();
       WidgetObjects();
       WidgetLibrary();
-      WidgetProperties();
+      WindowProperties();
       WidgetDiagnostics();
       WindowSaveLevel();
       WindowLoadLevel();    

@@ -30,7 +30,7 @@ namespace DCEngine {
       
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
-      //DCTrace << "Hey you loaded me man here you go: " << levelPtr->Get() << " \n";
+      SelectedObject = nullptr;
       // Load the level
       CurrentSpace->LoadLevel(level);
       // Load the editor camera

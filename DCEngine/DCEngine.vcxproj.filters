@@ -567,6 +567,9 @@
     <ClCompile Include="Core\Systems\Serialization\JSONObject.cpp">
       <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\EditorCameraController.cpp">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -985,6 +988,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h">
       <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\EditorCameraController.h">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseScroll.h">
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

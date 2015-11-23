@@ -86,6 +86,11 @@ namespace DCEngine {
         Daisy->getSystem<GUI>()->GUIHandler->MousePressed[_event.mouseButton.button] = false;
         PollMouseButtonReleased(_event);
         break;
+      case sf::Event::MouseWheelMoved:
+        PollMouseWheelMoved(_event);
+        //ImGuiIO& io = ImGui::GetIO();
+        //io.MouseWheel += (float)_event.mouseWheel.delta;
+        break;
       case sf::Event::TextEntered:
         PollTextEntered(_event);
         break;
@@ -101,10 +106,7 @@ namespace DCEngine {
 		  ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
 		  break;
 
-      case sf::Event::MouseWheelMoved:
-        //ImGuiIO& io = ImGui::GetIO();
-        //io.MouseWheel += (float)_event.mouseWheel.delta;
-        break;
+
         // Don't process other events
       default:
       // @todo WHAT??

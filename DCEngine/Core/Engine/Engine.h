@@ -122,6 +122,9 @@ namespace DCEngine {
     auto degPtr = (Delegate*)memDeg;
     // Store the base delegate to the <EventClass, std::list<Delegate*> > map
     entity->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    // Add a pointer to this delegate to the object that connected to it,
+    // so that when its destroyed, it cleans up the delegate as well
+    inst->ActiveDelegates.push_back(degPtr);
   }
 
   /**************************************************************************/

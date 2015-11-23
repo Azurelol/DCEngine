@@ -42,11 +42,7 @@ namespace DCEngine {
     bool MouseDown_Right = false;
     bool MouseDown_Middle = false;
 
-
-
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
   };
 
   using MousePtr = std::unique_ptr<Mouse>;

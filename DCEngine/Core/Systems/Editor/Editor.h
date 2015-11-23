@@ -1,11 +1,12 @@
 /******************************************************************************/
 /*!
-\file   Editor.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   10/24/2015
-\brief  The editor allows the real-time editing of gameobjects in levels ,
+@file   Editor.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/24/2015
+@brief  The editor allows the real-time editing of gameobjects in levels ,
         then doing serialization of the levels.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
@@ -72,9 +73,12 @@ namespace DCEngine {
       void WidgetLevel();
       void WidgetResourceAdd();
       void WidgetObjects();
-      void WidgetProperties();
+      // Properties
+      void WindowProperties();
       void DisplayProperties(ComponentPtr);
       void AddComponent();
+      void SelectResource(Zilch::Property*, ComponentPtr);
+
       void WidgetLibrary();
       void WidgetDiagnostics();
       void WindowSaveLevel();

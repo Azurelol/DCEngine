@@ -62,21 +62,25 @@ namespace DCEngine {
         DeleteObject();
         break;
 
-      case Keys::W:
+      case Keys::Up:
         MoveObject(Vec3(0, SnapDistance, 0));
         break;
 
-      case Keys::S:
+      case Keys::Down:
         MoveObject(Vec3(0, -SnapDistance, 0));
         break;
 
-      case Keys::A:
+      case Keys::Left:
         MoveObject(Vec3(-SnapDistance, 0,0));
         break;
 
-      case Keys::D:
+      case Keys::Right:
         MoveObject(Vec3(SnapDistance, 0, 0));
         break;
+
+      //case Keys::Escape:
+      //  ActiveTool = EditorTool::None;
+      //  break;
 
       default:
         ActiveTool = EditorTool::None;

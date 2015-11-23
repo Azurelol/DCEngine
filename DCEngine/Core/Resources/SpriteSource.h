@@ -6,6 +6,7 @@
 @date   10/04/2015
 @brief  The SpriteSource resource encapsulates an image file amd the texture
         data generated from it.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
@@ -42,7 +43,7 @@ namespace DCEngine {
     bool Fill;
 
     SpriteSource(std::string spriteFile);
-    void LoadTexture();
+    void LoadTexture();    
 
     #if (USE_SFML_TEXTURE)
     sf::Texture& getTexture();

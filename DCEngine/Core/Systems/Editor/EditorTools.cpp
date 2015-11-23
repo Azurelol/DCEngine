@@ -65,7 +65,7 @@ namespace DCEngine {
 
       if (!SelectedObject)
         return;
-
+      
       // Get the object's transform data
       auto transform = SelectedObject->getComponent<Transform>();
       Vec3 pos = transform->getTranslation();

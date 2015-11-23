@@ -19,6 +19,7 @@
 #include "Components\CameraViewport.h"
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
+#include "Components\EditorCameraController.h"
 // Particles
 #include "Components\SpriteParticleSystem.h"
 #include "Components\ParticleEmitter.h"

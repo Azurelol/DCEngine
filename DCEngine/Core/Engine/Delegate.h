@@ -74,7 +74,7 @@ namespace DCEngine {
     virtual bool Call(Event* event) {
       EventClass* eventObj = dynamic_cast<EventClass*>(event);
       // If the object instance has been rendered null, do nothing
-      if (Inst == nullptr) {
+      if (Inst == nullptr || FuncPtr == nullptr) {
         return false;
       }
       // Else, if it is active, dispatch the event object

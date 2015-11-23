@@ -97,8 +97,18 @@ namespace DCEngine {
     void InputSFML::PollMouseWheelMoved(sf::Event & event)
     {
       // Update ImGui
-      //ImGuiIO& io = ImGui::GetIO();
-      //io.MouseWheel += (float)event.mouseWheel.delta;
+      ImGuiIO& io = ImGui::GetIO();
+      io.MouseWheel += (float)event.mouseWheel.delta;
+
+      auto delta = io.MouseWheel;
+
+      // Dispatch the event
+      auto mouseScrolled = new Events::MouseScroll();
+      mouseScrolled->Delta += static_cast<float>(event.mouseWheel.delta);
+      mouseScrolled->Direction = Vec2(event.mouseWheelScroll.x, event.mouseWheelScroll.y);
+      Daisy->getMouse()->Dispatch<Events::MouseScroll>(mouseScrolled);
+      delete mouseScrolled;
+
     }
   }
 }

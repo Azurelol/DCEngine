@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  Displays the properties of the currently selected object.
     */
     /**************************************************************************/
-    void Editor::WidgetProperties()
+    void Editor::WindowProperties()
     {
       if (!WidgetPropertiesEnabled)
         return;
@@ -85,6 +85,12 @@ namespace DCEngine {
       // 2. Get a list of all properties on the object
       for (auto property : componentBoundType->AllProperties) {
         
+        // If it is a resource property..
+        if (property->HasAttribute("Resource")) {
+          SelectResource(property, component);
+          continue;
+        }
+
         // If the bound field/property does not have the Property Attribute, do
         // nothing.
         //if (!property->HasAttribute("Property"))
@@ -209,9 +215,10 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputFloat3("", vec3f)) {
+            DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
-            setCall.Set(0, Zilch::Real3(vec3f));
+            setCall.Set(0, Zilch::Real3(vec3f[0], vec3f[1], vec3f[2]));
             setCall.Invoke(report);
           }
         }        
@@ -235,8 +242,6 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Allows the user to add a component to the entity.
-    @todo   Refactor the property-setting so I DONT COPY PASTE THE SAME
-    3 LINES.
     */
     /**************************************************************************/
     void Editor::AddComponent()
@@ -252,18 +257,92 @@ namespace DCEngine {
             // Add the component on the entity and initialize it
             //SelectedObject->AddComponentByType(component);
             SelectedObject->AddComponentByName(name, true);
-            //SelectedObject->AddComponentByName(name, false);
-            //auto rtti = std::type_index(typeid(component->));
-            //SelectedObject->AddComponent<rtti>();
           }          
         }
         ImGui::TreePop();
       }
-
-
-
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Allows the user to select the resource for the property.
+    @note   omfg this code
+    */
+    /**************************************************************************/
+    void Editor::SelectResource(Zilch::Property * resource, ComponentPtr component)
+    {
+      // Create an exception report object
+      Zilch::ExceptionReport report;
+      // Grab the current property
+      Zilch::Call getCall(resource->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      getCall.SetHandleVirtual(Zilch::Call::This, component);
+      getCall.Invoke(report);
+      // Get the name of the resource
+      auto resourceName = std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
+      char buf[32];
+      strcpy(buf, resourceName.c_str());
+      // Get the type of the resource
+      auto resourceType = std::string(resource->Name.c_str());
+      if (resourceType == std::string("SpriteSource")) {
+        // Display the resource type
+        
+
+        if (ImGui::TreeNode(resourceType.c_str())) {
+          auto spriteSources = Daisy->getSystem<Content>()->AllSpriteSources();
+          for (auto spriteSource : *spriteSources) {
+            auto spriteSourceName = spriteSource.second->Name();
+            if (ImGui::Selectable(spriteSourceName.c_str())) {
+              DCTrace << "Editor::SelectResource - Switching resource to: " << spriteSourceName << "\n";
+              // Set the new SpriteSource
+              Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+              setCall.SetHandleVirtual(Zilch::Call::This, component);
+              setCall.Set(0, Zilch::String(spriteSourceName.c_str()));
+              setCall.Invoke(report);
+            }
+          }
+          ImGui::TreePop();
+        }
+
+        //ImGui::Text(resourceType.c_str());
+        // COMBO BOX C-STYLE BULLSHIT BELOW
+
+        /*
+        
+               // Get a container of all active spritesources        
+        auto container = Daisy->getSystem<Content>()->AllSpriteSources();
+        std::vector<std::string> spritesrcNames;
+        for (auto spriteSource : *container) {
+          // Push the name of it into the vector of strings
+          spritesrcNames.push_back(spriteSource.second->Name());
+          // spritesrcNames.push_back(const_cast<char*>(spriteSource.second->Name().c_str()));
+        }
+
+       
+        // Get the size of the container
+        auto numberOfResources = container->size();
+        const char** items = (const char**)malloc(numberOfResources * sizeof(char*));
+        for (int i = 0; i < numberOfResources; ++i) {
+          // Allocate space for each string
+          items[i] = (char*)malloc(spritesrcNames[i].size());
+          items[i] = spritesrcNames[i].c_str();
+          // Copy the string over
+          //strcpy(items[i], spritesrcNames[i].c_str());
+        }
+        
+        auto const& itemsConst = items;
+        // Find the position of the current item
+        static int currentItem = -1;
+        ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items)); 
+        
+        
+        */
+
+
+
+
+
+      }
+    }
 
   }
 }

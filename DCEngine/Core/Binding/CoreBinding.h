@@ -17,11 +17,15 @@
 #define DCE_USE_ZILCH_INTERNAL_BINDING 1
 #define DCE_BINDING_OBJECT_CLASSES_INTERNALLY 0
 
+
+#define DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE \
+Zilch::Attribute resourceAttribute; \
+resourceAttribute.Name = "Resource"
+
 // What type of handle manager to use for components. For now we will be 
 // constructing components internally so we use pointers.
 #define DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE \
 type->HandleManager = ZilchManagerId(Zilch::PointerManager)
-
 
 
 namespace DCEngine {

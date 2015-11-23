@@ -1,11 +1,11 @@
 /******************************************************************************/
 /*!
-\file   InputSFML.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   8/22/2015
-\brief  The Input implementation through SFML.
-
+@file   InputSFML.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   8/22/2015
+@brief  The Input implementation through SFML.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
@@ -43,6 +43,8 @@ namespace DCEngine {
       void PollKeyReleased(sf::Event& event);
       void PollMouseButtonPressed(sf::Event& event);
 	    void PollMouseButtonReleased(sf::Event& event);
+      void PollMouseWheelMoved(sf::Event& event);
+      void PollTextEntered(sf::Event& event);
 
       void ImGuiPollKeyPressed(sf::Event& event);
       void ImGuiPollKeyReleased(sf::Event& event);
@@ -50,8 +52,7 @@ namespace DCEngine {
       void ImGuiPollMouseButtonReleased(sf::Event& event);
 
 
-      void PollMouseWheelMoved(sf::Event& event);
-      void PollTextEntered(sf::Event& event);
+      
 
       // Observing pointers are pointers which do not keep 
       // a pointed object alive. The simplest kind is a raw pointer.

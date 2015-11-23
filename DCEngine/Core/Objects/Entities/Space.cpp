@@ -133,6 +133,7 @@ namespace DCEngine {
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
       // Mark the object for destruction on next frame
+      DCTrace << " - " << object->Name() << "\n";
       Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
       //RemoveObject(*object);
     }
@@ -166,6 +167,9 @@ namespace DCEngine {
           levelBuilder.Key("GameObjects");
           levelBuilder.Begin(Zilch::JsonType::Object);
           for (auto &gameObj : GameObjectContainer) {
+            // Do not serialize the editor's camera
+            if (gameObj->Name() == "EditorCamera")
+              continue;
             gameObj->Serialize(levelBuilder);
           }
           levelBuilder.End();
