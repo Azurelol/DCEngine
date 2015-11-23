@@ -268,7 +268,12 @@ namespace DCEngine
 	/**************************************************************************/
 	Vec3 RigidBody::getVelocity(void)
 	{
-		return this->Velocity;
+    if (DynamicState == DynamicStateType::Static)
+    {
+      return Vec3(0, 0, 0);
+    }
+
+    return this->Velocity;
 	}
 
   Vec3 RigidBody::getAngularVelocity() const
