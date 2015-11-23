@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+\file   GraphicsGL_Draw.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   7/30/2015
+\brief  The implementation of the Sprite drawing functions.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "GraphicsGL.h"
 
 #include "../../Debug/DebugGraphics.h"

@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+\file   GraphicsGL_Configure.cpp
+\author Christian Sagel, Chen Shu
+\par    email: c.sagel\@digipen.edu
+\date   7/30/2015
+\brief  Configuration of VAOs.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "GraphicsGL.h"
 
 namespace DCEngine {

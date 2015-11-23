@@ -8,6 +8,8 @@
         interface by GLEW, using the GLM library for arithmetic operations.
         It receives drawing requests directly from the Graphics system, 
         its interface.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
