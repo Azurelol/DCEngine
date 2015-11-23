@@ -1,3 +1,15 @@
+/*****************************************************************************/
+/*!
+\file   PhysicSpaces.cpp
+\author Blaine Reiner, Christian Sagel
+\par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
+\date   9/23/2015
+\brief  The physics space hold the settings for all physical interactions within
+a space. It also holds several containers of objects that require
+physics integration and resolution, for collisions, velocity, etc...
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "PhysicsSpace.h"
 #include "EngineReference.h"
 #include "../../Core/Systems/Physics/Physics.h"

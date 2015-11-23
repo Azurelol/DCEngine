@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   Transform.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/05/2015
+@brief  The transform component allows the representation of this object in
+world space, allowing it to be drawn, take part in collisions and
+force-based movement through the addition of other components.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Transform.h"
 #include "EngineReference.h"
 

@@ -10,6 +10,7 @@ to one of the objects when a collision happens between a pair. Collision
 groups are used as a tag to identify an object in the table.
 @note   Reference and inspiration:
 http://zero.digipen.edu/ZeroManual/Physics/Collision/CollisionTables.html?highlight=collision%20table
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 

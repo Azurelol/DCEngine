@@ -6,6 +6,7 @@
 \par    DigiPen login: blaine.reiner
 \date   11/20/2015
 \brief  Resolves the collisions betwen objects
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #include "Physics.h"

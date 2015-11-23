@@ -1,3 +1,13 @@
+/*****************************************************************************/
+/*!
+\file   TimeSpace.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   11/14/2015
+\brief  This component controls time for a Space.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "TimeSpace.h"
 #include "EngineReference.h"
 
