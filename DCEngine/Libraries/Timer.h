@@ -10,7 +10,7 @@ The timer handles ??
 Functions include:
 - ScopeTimer
 Description here.
-
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 

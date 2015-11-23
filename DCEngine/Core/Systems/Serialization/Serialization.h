@@ -8,7 +8,7 @@
 @todo   May need to use different implementation for serialization so we don't
         have to write our own serialization functions for every individual
         component.
-
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
