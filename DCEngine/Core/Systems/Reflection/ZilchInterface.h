@@ -6,6 +6,8 @@
 @date   8/17/2015
 @brief  An interface for accessing the Zilch library the Daisy Chain engine
         uses.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

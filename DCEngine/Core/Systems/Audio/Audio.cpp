@@ -3,9 +3,10 @@
 @file   Audio.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   11/23/2015
-@brief
+@date   9/9/2015
+@brief  The abstract interface for the Audio class.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 

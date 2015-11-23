@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   MainMenu.cpp
+@file   Library.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/02/2015

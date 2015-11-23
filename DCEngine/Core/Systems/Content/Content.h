@@ -8,6 +8,8 @@
         for a project. It stores references to the names of these resources
         as well as their file locations. The deserialization of these files
         is handled by the factory system.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

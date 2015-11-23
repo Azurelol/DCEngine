@@ -1,10 +1,15 @@
 /******************************************************************************/
 /*!
-\file   AudioFMOD.cpp
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   9/16/2015
-\brief  The implementation for FMOD.
+@file   AudioFMOD.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/16/2015
+@brief  The interface for FMOD.
+@note   References:
+https://katyscode.wordpress.com/2012/10/05/cutting-your-teeth-on-fmod-
+part-1-build-environment-initialization-and-playing-sounds/
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #include "AudioFMOD.h"

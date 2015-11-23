@@ -5,6 +5,7 @@
 @par    email: c.sagel\@digipen.edu
 @date   9/9/2015
 @brief  The abstract interface for the Audio class.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/

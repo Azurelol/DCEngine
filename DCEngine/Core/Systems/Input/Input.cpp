@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   Input.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   8/17/2015
+@brief  The abstract interface for the Input class.
+@todo   Find another way to pass the event object to the GUI?
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Input.h"
 
 #include "..\..\Engine\Engine.h" 

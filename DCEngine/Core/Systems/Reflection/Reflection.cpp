@@ -1,3 +1,18 @@
+/*****************************************************************************/
+/*!
+@file   Reflection.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/16/2015
+@brief  The reflection system provides
+@note   The credit to my implementation of the Reflection system used in this
+engine goes to Randy Gaul. More information in the implementation
+header.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Reflection.h"
 
 namespace DCEngine {

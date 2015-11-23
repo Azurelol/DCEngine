@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/*!
+@file   Factory.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/20/2015
+@brief  The Factory system handles the creation of all game objects and
+components, from serialized data.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Factory.h"
 
 namespace DCEngine {
