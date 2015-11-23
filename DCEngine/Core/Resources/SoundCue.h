@@ -5,6 +5,8 @@
 @par    email: c.sagel\@digipen.edu
 @date   10/04/2015
 @brief  The SoundCue resource encapsulates a sound file.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

@@ -1,3 +1,21 @@
+/*****************************************************************************/
+/*!
+@file   Font.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/30/2015
+@brief  The Font resource handles the loading and processing of a TrueType font
+from file. It uses the 'Freetype' library to do so. Freetype loads
+these fonts and for each glyph generates a bitmap image and caculates
+several metrics. We can extract these bitmap images for generating
+textures and position each character glyph appropiately using
+the loading metrics.
+@note   "http://learnopengl.com/#!In-Practice/Text-Rendering"
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Font.h"
 #include "../Debug/DebugGraphics.h"
 

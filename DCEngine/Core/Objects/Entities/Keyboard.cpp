@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+\file   Keyboard.h
+\author Connor Tilley, Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   8/22/2015
+\brief  The keyboard input inteface for the engine.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Keyboard.h"
 
 namespace DCEngine {

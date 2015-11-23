@@ -1,3 +1,16 @@
+/*****************************************************************************/
+/*!
+\file   Level.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   8/5/2015
+\brief  A level is a resource that stores a set of GameObjects that can be loaded
+into a space.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Level.h"
 
 namespace DCEngine {

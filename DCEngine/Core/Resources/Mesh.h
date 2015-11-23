@@ -6,6 +6,8 @@
 \date   8/13/2015
 \brief  Mesh resource class. Contains hardware vertex buffer and index buffer.
 Resource: "http://learnopengl.com/#!Model-Loading/Mesh"
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

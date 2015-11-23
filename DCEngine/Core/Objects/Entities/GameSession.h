@@ -5,6 +5,7 @@
 \par    email: c.sagel\@digipen.edu
 \date   8/18/2015
 \brief  The container object for the spaces in the game, at the highest hierarchy.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/

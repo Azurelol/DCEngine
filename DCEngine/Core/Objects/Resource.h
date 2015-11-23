@@ -10,6 +10,8 @@
         Each resource is assigned an unique id when created, allowing objects
         and archetypes to refer to resources and not break their connection
         even if the name of the resource is changed.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 
 */
 /******************************************************************************/

@@ -1,12 +1,12 @@
 /******************************************************************************/
 /*!
-\file   Entity.h
+\file   GameObject.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   8/18/2015
 \brief  The Game Object composition class. Spaces are comprised of GameObject
         entities.
-
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

@@ -1,3 +1,17 @@
+/******************************************************************************/
+/*!
+\file   Space.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   7/30/2015
+\brief  Spaces are containers for game objects. When a level is loaded into
+a space, all the game objects from that level are put into the space.
+Each space has its own instances of the core systems of the engine.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Space.h"
 
 // Space-level components
