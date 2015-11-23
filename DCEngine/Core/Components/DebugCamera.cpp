@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   Camera.cpp
+@file   DebugCamera.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/12/2015

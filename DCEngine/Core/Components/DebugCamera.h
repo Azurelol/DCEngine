@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   Camera.h
+\file   DebugCamera.h
 \author Chen Shu, Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   9/15/2015

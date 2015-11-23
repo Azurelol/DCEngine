@@ -1,3 +1,15 @@
+/*****************************************************************************/
+/*!
+\file   InputSFML.cpp
+\author Christian Sagel, Chen Shu
+\par    email: c.sagel\@digipen.edu
+\date   9/12/2015
+\brief  Handling the keyboard and system input.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include <Windows.h>
 #include "InputSFML.h"
 

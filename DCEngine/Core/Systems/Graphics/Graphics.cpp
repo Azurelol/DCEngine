@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-\file   GraphicsSpace.cpp
+\file   Graphics.cpp
 \author Chen Shu, Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   9/16/2015
