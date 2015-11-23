@@ -59,7 +59,7 @@ namespace DCEngine {
 		// Sprite properties
 		ground->getComponent<Sprite>()->setColor(color);
 		// BoxCollider properties
-		ground->getComponent<BoxCollider>()->Size =  Vec3(scale.x * 2, scale.y * 2, scale.z * 2);
+		ground->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
 		ground->getComponent<BoxCollider>()->IsDrawingCollider = true;
 		// Rigidbody properties
 		ground->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
@@ -73,7 +73,7 @@ namespace DCEngine {
 		//strcat(name, buffer);
 		//GameObjectPtr ground = ConstructGameObject(name);
 
-		/*
+		
 		GameObjectPtr obj = ConstructGameObject("HazardArea");
 		obj->AddComponent<Transform>();
 		obj->AddComponent<Sprite>();
@@ -93,7 +93,7 @@ namespace DCEngine {
 		// Rigidbody properties
 		obj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 
-		*/
+		
 	}
 
 	/* Blaine, write your tests here. */
@@ -138,8 +138,8 @@ namespace DCEngine {
     GenerateMonkeyLOL(Vec3(-20, 1, 0), Vec3(4, 4, 1), Vec4(1, 1, 1.0, 1));
 
 	*/
-	GenerateTerrain(Vec3(0, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
-	//GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
+	GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");
