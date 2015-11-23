@@ -24,6 +24,9 @@
         9/11/2015: I finally finished the delegate implementation, in no small measure
         thanks to Gab and Arend.
 
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+
 */
 /******************************************************************************/
 #pragma once

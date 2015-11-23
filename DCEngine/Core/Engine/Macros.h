@@ -6,6 +6,8 @@
 @date   11/14/2015
 @brief  A collection of macros to alleviate rote code writing!
 @note   MACROS.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

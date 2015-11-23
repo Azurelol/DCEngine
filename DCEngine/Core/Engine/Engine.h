@@ -5,6 +5,7 @@
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
 \brief  The main driver for the Daisy Chain engine, and its engine class,
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/

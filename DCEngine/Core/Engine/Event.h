@@ -9,6 +9,7 @@
         easiest way is to package the information into an Event, then broadcast
         it. Then any component that wants to have that information can listen
         to it by 'Connecting' a member function to the event.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/
