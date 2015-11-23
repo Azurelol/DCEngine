@@ -48,6 +48,10 @@ namespace DCEngine {
 	void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
 	{
 		//Grounded = false;
+		if (PlayerControllerTraceOn)
+		{
+			DCTrace << "PlayerController::OnCollisionEndedEvent \n";
+		}
 	}
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
