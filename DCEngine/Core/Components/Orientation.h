@@ -10,6 +10,7 @@
         orientation component, the object can then be easily manipulated
         relatively to the object's forward instead of being restricted to the 
         world axis.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

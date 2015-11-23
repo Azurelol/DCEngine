@@ -7,6 +7,7 @@
 @brief  A component that signals to the physics system that this gameobject
         will be ignoring certain effects on the space. Used to special case 
         objects to ignore things such as drag or gravity.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

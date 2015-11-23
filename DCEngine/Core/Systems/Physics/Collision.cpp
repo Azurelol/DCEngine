@@ -6,6 +6,7 @@
 \par    DigiPen login: blaine.reiner
 \date   11/20/2015
 \brief  Implements the collision detection Algorithms
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

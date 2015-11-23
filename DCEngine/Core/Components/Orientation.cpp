@@ -1,3 +1,18 @@
+/*****************************************************************************/
+/*!
+@file   Orientation.cpp
+@author Blaine Reiner, Christian Sagel
+@par    email: blaine.reiner@digipen.edu, c.sagel\@digipen.edu
+@date   10/13/2015
+@brief  The orientation component is an utility component that helps make the
+manipulation of the transform of an object easier. It can be particularly
+useful when the object has its own sense of forward. By using the
+orientation component, the object can then be easily manipulated
+relatively to the object's forward instead of being restricted to the
+world axis.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Orientation.h"
 #include "EngineReference.h"
 

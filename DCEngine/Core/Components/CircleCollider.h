@@ -1,8 +1,7 @@
 /******************************************************************************/
 /*!
-@file   Circle.h
-@author Blaine Reiner
-@par    email: c.sagel\@digipen.edu
+@file   CircleCollider.h
+@author Blaine Reiner@par    email: c.sagel\@digipen.edu
 @date   9/23/2015
 @brief  The CircleCollider component gives a physical representation of a Circle
         in world space so objects can experience collisions with one 

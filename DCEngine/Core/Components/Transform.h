@@ -7,6 +7,7 @@
 @brief  The transform component allows the representation of this object in
         world space, allowing it to be drawn, take part in collisions and
         force-based movement through the addition of other components.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once
