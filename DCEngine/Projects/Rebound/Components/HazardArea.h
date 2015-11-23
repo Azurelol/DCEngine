@@ -27,6 +27,10 @@ namespace DCEngine {
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
+		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+				ZilchDeclareDerivedType(HazardArea, Component);
+		#endif
+
 	private:
 		void PrintTranslation();
 		void PrintVelocity();

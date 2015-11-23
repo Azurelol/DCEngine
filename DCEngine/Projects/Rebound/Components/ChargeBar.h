@@ -22,6 +22,10 @@ namespace DCEngine {
 		void OnMouseUpEvent(Events::MouseUp* event);
 		void ChargeBar::OnLogicUpdateEvent(Events::LogicUpdate * event);
 
+		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+				ZilchDeclareDerivedType(ChargeBar, Component);
+		#endif
+
 	private:
 		void PrintTranslation();
 	};

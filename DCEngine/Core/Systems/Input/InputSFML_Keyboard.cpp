@@ -63,7 +63,6 @@ namespace DCEngine {
       case sf::Keyboard::F4:
         keyDown->Key = Keys::F4;
         break;
-
       case sf::Keyboard::F5:
         keyDown->Key = Keys::F5;
         break;
@@ -106,39 +105,113 @@ namespace DCEngine {
         break;
 
 
+	  case sf::Keyboard::Q:
+		  keyDown->Key = Keys::Q;
+		  KeyboardRef->KeyDown_Q = true;
+		  break;
       case sf::Keyboard::W:
-        keyDown->Key = Keys::W;
-        KeyboardRef->KeyDown_W = true;
-        break;
+		  keyDown->Key = Keys::W;
+	      KeyboardRef->KeyDown_W = true;
+		  break;
+	  case sf::Keyboard::E:
+		  keyDown->Key = Keys::E;
+		  KeyboardRef->KeyDown_E = true;
+		  break;
+	  case sf::Keyboard::R:
+		  keyDown->Key = Keys::R;
+		  KeyboardRef->KeyDown_R = true;
+		  break;
+	  case sf::Keyboard::T:
+		  keyDown->Key = Keys::T;
+		  KeyboardRef->KeyDown_T = true;
+		  break;
+	  case sf::Keyboard::Y:
+		  keyDown->Key = Keys::Y;
+		  KeyboardRef->KeyDown_Y = true;
+		  break;
+	  case sf::Keyboard::U:
+		  keyDown->Key = Keys::U;
+		  KeyboardRef->KeyDown_U = true;
+		  break;
+	  case sf::Keyboard::I:
+		  keyDown->Key = Keys::I;
+		  KeyboardRef->KeyDown_I = true;
+		  break;
+	  case sf::Keyboard::O:
+		  keyDown->Key = Keys::O;
+		  KeyboardRef->KeyDown_O = true;
+		  break;
+	  case sf::Keyboard::P:
+		  keyDown->Key = Keys::P;
+		  KeyboardRef->KeyDown_P = true;
+		  break;
+
+
+	  case sf::Keyboard::A:
+		keyDown->Key = Keys::A;
+		KeyboardRef->KeyDown_A = true;
+		break;
       case sf::Keyboard::S:
         keyDown->Key = Keys::S;
         KeyboardRef->KeyDown_S = true;
-        break;
-      case sf::Keyboard::A:
-        keyDown->Key = Keys::A;
-        KeyboardRef->KeyDown_A = true;
         break;
       case sf::Keyboard::D:
         keyDown->Key = Keys::D;
         KeyboardRef->KeyDown_D = true;
         break;
-      case sf::Keyboard::Q:
-        keyDown->Key = Keys::Q;
-        break;
-      case sf::Keyboard::E:
-        keyDown->Key = Keys::E;
-        break;
-      case sf::Keyboard::Z:
-        keyDown->Key = Keys::Z;
-        break;
-      case sf::Keyboard::X:
-        keyDown->Key = Keys::X;
-        break;
 	  case sf::Keyboard::F:
-		  keyDown->Key = Keys::F;
-		  KeyboardRef->KeyDown_F = true;
+		keyDown->Key = Keys::F;
+		KeyboardRef->KeyDown_F = true;
+		break;
+	  case sf::Keyboard::G:
+		  keyDown->Key = Keys::G;
+		  KeyboardRef->KeyDown_G = true;
+		  break;
+	  case sf::Keyboard::H:
+		  keyDown->Key = Keys::H;
+		  KeyboardRef->KeyDown_H = true;
+		  break;
+	  case sf::Keyboard::J:
+		  keyDown->Key = Keys::J;
+		  KeyboardRef->KeyDown_J = true;
+		  break;
+	  case sf::Keyboard::K:
+		  keyDown->Key = Keys::K;
+		  KeyboardRef->KeyDown_K = true;
+		  break;
+	  case sf::Keyboard::L:
+		  keyDown->Key = Keys::L;
+		  KeyboardRef->KeyDown_L = true;
 		  break;
 
+	  case sf::Keyboard::Z:
+		  keyDown->Key = Keys::Z;
+		  KeyboardRef->KeyDown_Z = true;
+		  break;
+	  case sf::Keyboard::X:
+		  keyDown->Key = Keys::X;
+		  KeyboardRef->KeyDown_X = true;
+		  break;
+	  case sf::Keyboard::C:
+		  keyDown->Key = Keys::C;
+		  KeyboardRef->KeyDown_C = true;
+		  break;
+	  case sf::Keyboard::V:
+		  keyDown->Key = Keys::V;
+		  KeyboardRef->KeyDown_V = true;
+		  break;
+	  case sf::Keyboard::B:
+		  keyDown->Key = Keys::B;
+		  KeyboardRef->KeyDown_B = true;
+		  break;
+	  case sf::Keyboard::N:
+		  keyDown->Key = Keys::N;
+		  KeyboardRef->KeyDown_N = true;
+		  break;
+	  case sf::Keyboard::M:
+		  keyDown->Key = Keys::M;
+		  KeyboardRef->KeyDown_M = true;
+		  break;
 
         /* Numpad */
       case sf::Keyboard::Add:
@@ -263,10 +336,47 @@ namespace DCEngine {
         keyUp->Key = Keys::Right;
         break;
 
-      case sf::Keyboard::W:
-        keyUp->Key = Keys::W;
-        KeyboardRef->KeyDown_W = false;
+      case sf::Keyboard::Q:
+        keyUp->Key = Keys::Q;
+        KeyboardRef->KeyDown_Q = false;
         break;
+	  case sf::Keyboard::W:
+		  keyUp->Key = Keys::W;
+		  KeyboardRef->KeyDown_W = false;
+		  break;
+	  case sf::Keyboard::E:
+		  keyUp->Key = Keys::E;
+		  KeyboardRef->KeyDown_E = false;
+		  break;
+	  case sf::Keyboard::R:
+		  keyUp->Key = Keys::R;
+		  KeyboardRef->KeyDown_R = false;
+		  break;
+	  case sf::Keyboard::T:
+		  keyUp->Key = Keys::T;
+		  KeyboardRef->KeyDown_T = false;
+		  break;
+	  case sf::Keyboard::Y:
+		  keyUp->Key = Keys::Y;
+		  KeyboardRef->KeyDown_Y = false;
+		  break;
+	  case sf::Keyboard::U:
+		  keyUp->Key = Keys::U;
+		  KeyboardRef->KeyDown_U = false;
+		  break;
+	  case sf::Keyboard::I:
+		  keyUp->Key = Keys::I;
+		  KeyboardRef->KeyDown_I = false;
+		  break;
+	  case sf::Keyboard::O:
+		  keyUp->Key = Keys::O;
+		  KeyboardRef->KeyDown_O = false;
+		  break;
+	  case sf::Keyboard::P:
+		  keyUp->Key = Keys::P;
+		  KeyboardRef->KeyDown_P = false;
+		  break;
+
 
       case sf::Keyboard::A:
         keyUp->Key = Keys::A;
@@ -283,6 +393,55 @@ namespace DCEngine {
 	  case sf::Keyboard::F:
 		  keyUp->Key = Keys::F;
 		  KeyboardRef->KeyDown_F = false;
+		  break;
+	  case sf::Keyboard::G:
+		  keyUp->Key = Keys::G;
+		  KeyboardRef->KeyDown_G = false;
+		  break;
+	  case sf::Keyboard::H:
+		  keyUp->Key = Keys::H;
+		  KeyboardRef->KeyDown_H = false;
+		  break;
+	  case sf::Keyboard::J:
+		  keyUp->Key = Keys::J;
+		  KeyboardRef->KeyDown_J = false;
+		  break;
+	  case sf::Keyboard::K:
+		  keyUp->Key = Keys::K;
+		  KeyboardRef->KeyDown_K = false;
+		  break;
+	  case sf::Keyboard::L:
+		  keyUp->Key = Keys::L;
+		  KeyboardRef->KeyDown_L = false;
+		  break;
+
+	  case sf::Keyboard::Z:
+		  keyUp->Key = Keys::Z;
+		  KeyboardRef->KeyDown_Z = false;
+		  break;
+	  case sf::Keyboard::X:
+		  keyUp->Key = Keys::X;
+		  KeyboardRef->KeyDown_X = false;
+		  break;
+	  case sf::Keyboard::C:
+		  keyUp->Key = Keys::C;
+		  KeyboardRef->KeyDown_C = false;
+		  break;
+	  case sf::Keyboard::V:
+		  keyUp->Key = Keys::V;
+		  KeyboardRef->KeyDown_V = false;
+		  break;
+	  case sf::Keyboard::B:
+		  keyUp->Key = Keys::B;
+		  KeyboardRef->KeyDown_B = false;
+		  break;
+	  case sf::Keyboard::N:
+		  keyUp->Key = Keys::N;
+		  KeyboardRef->KeyDown_N = false;
+		  break;
+	  case sf::Keyboard::M:
+		  keyUp->Key = Keys::M;
+		  KeyboardRef->KeyDown_M = false;
 		  break;
 
       default:

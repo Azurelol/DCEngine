@@ -348,6 +348,7 @@
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
@@ -486,6 +487,7 @@
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
     <ClInclude Include="Projects\Rebound\Components\ChargeBar.h" />
+    <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />
     <ClInclude Include="Projects\Rebound\Components\EnemyController.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />

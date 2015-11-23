@@ -23,6 +23,10 @@ namespace DCEngine {
 		void OnMouseUpEvent(Events::MouseUp* event);
 		void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event);
 
+		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+				ZilchDeclareDerivedType(CameraController, Component);
+		#endif
+
 	private:
 		void PrintTranslation();
 	};

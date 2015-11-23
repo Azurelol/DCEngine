@@ -96,6 +96,62 @@ namespace DCEngine {
 		
 	}
 
+	void DollHouse::GeneratePlayer(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		GameObjectPtr mariah = ConstructGameObject("Mariah");
+		mariah->AddComponent<Transform>();
+		mariah->AddComponent<Sprite>();
+		mariah->AddComponent<RigidBody>();
+		mariah->AddComponent<BoxCollider>();
+		mariah->AddComponent<DebugCollider>();
+		mariah->AddComponent<DebugReport>();
+		mariah->AddComponent<PlayerController>();
+		mariah->getComponent<Sprite>()->SpriteSource = "MonkeyWalk1";
+		mariah->getComponent<Sprite>()->AnimationActive = true;
+		mariah->getComponent<Sprite>()->HaveAnimation = true;
+		mariah->getComponent<Sprite>()->AnimationSpeed = 10;
+		// Change the properties of the components
+		mariah->getComponent<Transform>()->Translation = Vec3(4.0f, 10.0f, 0.0f);
+		mariah->getComponent<Transform>()->Scale = Vec3(2.0f, 2.0f, 1.0f);
+		// Sprite properties
+		mariah->getComponent<Sprite>()->Color = color;
+		// BoxCollider properties
+		mariah->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+		mariah->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		// Rigidbody properties
+		mariah->getComponent<RigidBody>()->setGravity(true);
+	}
+
+
+	void DollHouse::GenerateBall(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		GameObjectPtr ball = ConstructGameObject("Basketball");
+		ball->AddComponent<Transform>();
+		ball->AddComponent<Sprite>();
+		ball->AddComponent<RigidBody>();
+		ball->AddComponent<BoxCollider>();
+		ball->AddComponent<DebugCollider>();
+		ball->AddComponent<DebugReport>();
+		ball->AddComponent<BallController>();
+		// Change the properties of the components
+		ball->getComponent<Transform>()->Translation = translation;
+		ball->getComponent<Transform>()->Scale = scale;
+		// Sprite properties
+		ball->getComponent<Sprite>()->SpriteSource = "Circle";
+		ball->getComponent<Sprite>()->Color = color;
+
+		// BoxCollider properties
+		ball->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+		ball->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		// Rigidbody properties
+		ball->getComponent<RigidBody>()->setGravity(true);
+		ball->getComponent<RigidBody>()->setRestitution(0.6f);
+	}
+
+	void DollHouse::GenerateCamera(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+	}
+
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
     srand(unsigned(time(0)));

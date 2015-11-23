@@ -184,4 +184,22 @@ namespace DCEngine {
 		RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
 		//PrintTranslation();
 	}
+
+	/**************************************************************************/
+	/*!
+	@brief Provides the definition of this class to Zilch.
+	@note This can only go in the translational unit (.cpp)
+	*/
+	/**************************************************************************/
+	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+		ZilchDefineType(PlayerController, "PlayerController", DCEngineCore, builder, type) {
+			// Constructor / Destructor
+			ZilchBindConstructor(builder, type, PlayerController, "owner", Entity&);
+			ZilchBindDestructor(builder, type, PlayerController);
+			// Properties
+			ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
+			ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
+			ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+		}
+	#endif
 }

@@ -49,4 +49,22 @@ namespace DCEngine {
 		//	<< ", " << TransformRef->Translation.y
 		//	<< ", " << TransformRef->Translation.z << ")\n";
 	}
+
+	/**************************************************************************/
+	/*!
+	@brief Provides the definition of this class to Zilch.
+	@note This can only go in the translational unit (.cpp)
+	*/
+	/**************************************************************************/
+	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+	ZilchDefineType(ChargeBar, "ChargeBar", DCEngineCore, builder, type) {
+		// Constructor / Destructor
+		ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
+		ZilchBindDestructor(builder, type, Transform);
+		// Properties
+		ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
+		ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
+		ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+	}
+	#endif
 }
