@@ -6,6 +6,8 @@
 @date   9/19/2015
 @brief  The Sprite component allows the graphical representation of this object
 in the world space through the drawing of sprites.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

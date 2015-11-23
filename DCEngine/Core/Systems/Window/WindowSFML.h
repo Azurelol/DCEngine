@@ -8,6 +8,7 @@
 \note   References:
         "http://www.sfml-dev.org/tutorials/2.3/window-window.php"
 
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

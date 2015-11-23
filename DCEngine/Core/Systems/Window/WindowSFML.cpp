@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   WindowsSFML.cpp
+@author Chen Shu, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/12/2015
+@brief  Handling the window created by SFML functions.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include <Windows.h>
 
 #include "WindowSFML.h"

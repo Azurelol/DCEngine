@@ -3,9 +3,11 @@
 @file   Sprite.cpp
 @author Chen Shu, Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   11/121/2015
+@date   11/11/2015
 @brief  The Sprite component allows the graphical representation of this object
 in the world space through the drawing of sprites.
+
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 
