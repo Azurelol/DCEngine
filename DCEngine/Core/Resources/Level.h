@@ -21,7 +21,7 @@ namespace DCEngine {
     ~Level();
     void Save(std::string& serializedData);
     bool Load();
-    std::string& Get();
+    const std::string& Get();
 
     void AddGameObject(GameObjectPtr gameObject);
     GameObjectVec GameObjects; //!< Container for entities in the level.   

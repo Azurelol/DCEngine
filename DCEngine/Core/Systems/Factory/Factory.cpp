@@ -19,11 +19,9 @@ namespace DCEngine {
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
         DCTrace << "Factory::Initialize \n";
-
-
-      AddComponentFactory(Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Transform>>());
-
-
+      
+      // Construct the component factories for each component type
+      ConstructComponentFactoryMap();
     }
 
     /**************************************************************************/
@@ -50,8 +48,15 @@ namespace DCEngine {
 
     void Factory::AddComponentFactory(Zilch::BoundType * type, std::unique_ptr<AbstractComponentFactory> factory)
     {
+      if (DCE_TRACE_FACTORY_COMPONENT_MAP) {
+        DCTrace << "Factory::AddComponentFactory - Added: '" << type->Name.c_str() << "' \n";
+      }      
       ComponentFactories.emplace(type, std::move(factory));
     }
+
+    /*=====================*
+    *  Object Construction *
+    *=====================*/
 
     /**************************************************************************/
     /*!
@@ -65,7 +70,6 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(std::string name, Space& space, bool init) {
 
-
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
       gameObjPtr->AddComponent<Transform>();
@@ -76,20 +80,6 @@ namespace DCEngine {
       if (init)
         gameObjPtr->Initialize();
       return gameObjPtr;
-
-      // Create the GameObject and own it by shared_ptr
-      //GameObjectStrongPtr gameObj(new GameObject(name, space, space.getGameSession()));      
-      //ActiveGameObjects.push_back(gameObj);
-      //// Create a default Transform component, and add it to the GameObject
-      //ComponentPtr transform = ComponentPtr(new Transform(dynamic_cast<Entity&>(*gameObj)));
-      //ActiveComponents.push_back(transform);
-      //gameObj->AddComponent(transform);
-      //// If the object needs to be initialized right away
-      //if (init)
-      //  gameObj->Initialize();
-      //// Return the GameObject by shared_ptr.
-      //return gameObj.get();
-      //return nullptr;
     }
 
     /**************************************************************************/
@@ -107,6 +97,27 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Creates a Component from a BoundType through the use of an instance
+    of that component's factory.
+    @param  boundType A pointer to the component's BoundType.
+    @param  entity A reference to the entity.
+    @return Returns a component by strong pointer.
+    */
+    /**************************************************************************/
+    ComponentStrongPtr Factory::CreateComponentByType(Zilch::BoundType * boundType, Entity & entity)
+    {
+      if (ComponentFactories[boundType].get() == nullptr)
+        throw DCException("Factory::CreateComponentByType - Tried to construct a component that's not bound yet!");
+
+      return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /*===================*
+    *  Object Management *
+    *===================*/
+
+    /**************************************************************************/
+    /*!
     @brief  Marks the GameObject to be destroyed.
     @param  gameObj A reference to the GameObject.
     */
@@ -114,6 +125,7 @@ namespace DCEngine {
     void Factory::MarkGameObject(GameObject& gameObj) {
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
+
     /**************************************************************************/
     /*!
     @brief  Destroys all ActiveGameObjects in the GameObjectsToBeDeleted list.
@@ -122,6 +134,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::DestroyGameObjects()
     {      
+      if (GameObjectsToBeDeleted.size() < 1)
+        return;
+
+      if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR) {
+        DCTrace << "Factory::DestroyGameObjects - Removing: \n";
+        for (auto& gameObject : GameObjectsToBeDeleted) {
+          DCTrace << " - " << gameObject->Name() << "\n";
+        }
+      }      
+
       ActiveGameObjects.erase(
         std::remove_if( // Selectively remove elements in the second vector...
           ActiveGameObjects.begin(),
@@ -141,6 +163,8 @@ namespace DCEngine {
       GameObjectsToBeDeleted.clear();
 
     }
+
+
 
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {
       // Construct the object with defaults

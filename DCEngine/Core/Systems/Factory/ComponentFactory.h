@@ -21,6 +21,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     class AbstractComponentFactory {
+    public:
       virtual std::unique_ptr<Component> ConstructComponent(Entity& owner) = 0;
     };
 
@@ -32,6 +33,7 @@ namespace DCEngine {
     /**************************************************************************/
     template <typename ComponentClass>
     class ComponentFactory : public AbstractComponentFactory {
+    public:
       std::unique_ptr<Component> ConstructComponent(Entity& owner) {
         return std::make_unique<ComponentClass>(owner);        
       }

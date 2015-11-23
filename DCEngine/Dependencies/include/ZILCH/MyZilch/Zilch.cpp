@@ -19549,16 +19549,6 @@ namespace Zilch
     IntegralValue(0)
   {
   }
-
-  //! @todo ADDED BY JOHANNES PETER
-  //***************************************************************************
-  String JsonValue::ToString()
-  {
-    JsonBuilder builder;
-    builder.WriteTree(this);
-    return builder.ToString();
-  }
-
     
   //***************************************************************************
   JsonValue* JsonValue::GetMember(StringParam name, JsonErrorMode::Enum errorMode)
@@ -19822,7 +19812,7 @@ namespace Zilch
         case Grammar::False:
         {
           createdValue = new JsonValue();
-          createdValue->Type = JsonValueType::False;
+          createdValue->Type = JsonValueType::True;
         }
         break;
 

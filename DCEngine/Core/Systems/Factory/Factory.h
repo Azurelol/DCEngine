@@ -39,12 +39,13 @@ namespace DCEngine {
       void DestroyGameObjects();
 
       // Components
-      ComponentPtr CreateComponent(const std::string& compName, bool init);
+      ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
       ResourcePtr CreateResource(const std::string& resourceName, bool init);      
       // !< When components are constructed they register themselves to the map.
       template <typename ComponentClass> void RegisterComponent(std::string& componentName); 
+      
 
 
     private:
@@ -62,6 +63,7 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
+      void ConstructComponentFactoryMap();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
       void DeserializeLevel(const std::string& levelName);
     }; 

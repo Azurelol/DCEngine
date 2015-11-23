@@ -61,9 +61,6 @@
     <Filter Include="Core\Systems\Audio">
       <UniqueIdentifier>{73bd2eb4-d032-48f2-abe5-7d86283f64d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Audio\FMOD">
-      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Graphics\OpenGL">
       <UniqueIdentifier>{bfeeb523-4dc0-4f2e-b3da-1df29428fc6b}</UniqueIdentifier>
     </Filter>
@@ -142,9 +139,6 @@
     <Filter Include="Core\Systems\Reflection">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Reflection\Meta">
-      <UniqueIdentifier>{9e1e79c1-78db-41ad-b42f-fec1c5fc7159}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Rebound">
       <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
     </Filter>
@@ -220,6 +214,21 @@
     <Filter Include="Core\Resources\Serialization">
       <UniqueIdentifier>{f26a3eba-ea7e-49fc-b352-40b491e53e75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Configuration">
+      <UniqueIdentifier>{eca0de98-1c71-44eb-a046-0618deb60def}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\References">
+      <UniqueIdentifier>{06675bb3-46c1-48af-b286-1e2fa438b0b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Serialization\JSONCPP">
+      <UniqueIdentifier>{33f31b94-6df1-4a29-b212-2bcc0a4e3309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Serialization\ZilchJSON">
+      <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -259,7 +268,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
@@ -369,34 +378,13 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\MetaData.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\StringWrapper.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\TypesMeta.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\Variant.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\VariantBase.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Reflection\RefVariant.cpp">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp">
-      <Filter>Core\Systems\Serialization</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
       <Filter>Core\Systems\Serialization</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Dollhouse\Environment.cpp">
@@ -543,14 +531,8 @@
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Levels.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
@@ -564,13 +546,23 @@
     <ClCompile Include="Core\Resources\CollisionTable.cpp">
       <Filter>Core\Resources</Filter>
     </ClCompile>
-<<<<<<< HEAD
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor\Configuration</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-=======
+      <Filter>Core\Systems\Editor\Configuration</Filter>
+    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
       <Filter>Projects\Rebound\Components</Filter>
->>>>>>> ce447e13c5cc9d2fac44caafd349306e578cd0da
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
+      <Filter>Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Levels.cpp">
+      <Filter>Core\Systems\Editor\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp">
+      <Filter>Core\Systems\Serialization\JSONCPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -629,7 +621,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
@@ -674,9 +666,6 @@
       <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ComponentReference.h">
-      <Filter>Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\EngineReference.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SoundSpace.h">
@@ -766,9 +755,6 @@
     <ClInclude Include="Core\Components\DebugCamera.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\DebugDrawReference.h">
-      <Filter>Core\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw.h">
       <Filter>Core\Object\DebugDraw</Filter>
     </ClInclude>
@@ -826,12 +812,6 @@
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\RemoveQualifier.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\StringWrapper.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
       <Filter>Projects\Dollhouse</Filter>
     </ClInclude>
@@ -868,25 +848,7 @@
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\TypesMeta.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\Variant.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\MetaData.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\VariantBase.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\RefVariant.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Serialization\Serialization.h">
-      <Filter>Core\Systems\Serialization</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
       <Filter>Core\Systems\Serialization</Filter>
     </ClInclude>
     <ClInclude Include="Core\Testing.h">
@@ -958,14 +920,11 @@
     <ClInclude Include="Core\Components\ParticleColorAnimator.h">
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\ReflectionMeta.h">
-      <Filter>Core\Systems\Reflection\Meta</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -1006,13 +965,23 @@
     <ClInclude Include="Core\Resources\CollisionTable.h">
       <Filter>Core\Resources</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h">
       <Filter>Core\Systems\Factory</Filter>
-=======
+    </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
       <Filter>Projects\Rebound\Components</Filter>
->>>>>>> ce447e13c5cc9d2fac44caafd349306e578cd0da
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugDrawReference.h">
+      <Filter>Core\Components\References</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\EngineReference.h">
+      <Filter>Core\Components\References</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h">
+      <Filter>Core\Systems\Serialization\JSONCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Serialization\ZilchJSON.h">
+      <Filter>Core\Systems\Serialization\ZilchJSON</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

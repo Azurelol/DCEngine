@@ -173,6 +173,21 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Adds a component onto the entity by Zilch::BoundType. This is a
+          pointer data about the bound component.
+  @param  boundType A pointer to the component's BoundType.
+  */
+  /**************************************************************************/
+  bool Entity::AddComponentByType(Zilch::BoundType * boundType)
+  {
+    DCTrace << "Entity::AddComponentByType - " << std::string(boundType->Name.c_str()) << "\n";
+    auto Factory = Daisy->getSystem<Systems::Factory>();
+    ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByType(boundType, *this)));
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Removes the component from the entity.
   @param  component A pointer to the component.
   */

@@ -249,7 +249,8 @@ namespace DCEngine {
           if (ImGui::Selectable(name.c_str())) {
             DCTrace << "Editor::AddComponent - Adding " << name << " to " << SelectedObject->Name() << "\n";
             // Add the component on the entity and initialize it
-            SelectedObject->AddComponentByName(name, false);
+            SelectedObject->AddComponentByType(component);
+            //SelectedObject->AddComponentByName(name, false);
             //auto rtti = std::type_index(typeid(component->));
             //SelectedObject->AddComponent<rtti>();
           }          

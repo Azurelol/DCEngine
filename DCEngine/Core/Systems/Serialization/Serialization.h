@@ -13,9 +13,7 @@
 /******************************************************************************/
 #pragma once
 #include "SerializerJSONCPP.h"
-//#include "../Reflection/ReflectionMeta.h"
-//#include "../Reflection/MetaData.h"
-#include "../Reflection/RefVariant.h"
+#include "ZilchJson.h"
 
 namespace DCEngine {
 
@@ -32,17 +30,9 @@ namespace DCEngine {
       return SerializerJSONCPP::Deserialize(object, input);
     }
 
-    static void Padding(std::ostream& os);
-    static void SerializeText(std::ostream& os, RefVariant var);    
-    template <typename T> static void SerializeTextPrimitive(std::ostream& os, RefVariant prim);
+
 
   };
 
-  template<typename T>
-  inline void Serialization::SerializeTextPrimitive(std::ostream & os, RefVariant prim)
-  {
-    Padding(os);
-    os << prim.GetValue<RemoveQualifier<T>::type>() << std::endl;
-  }
 
 }

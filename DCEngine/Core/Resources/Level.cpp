@@ -48,7 +48,7 @@ namespace DCEngine {
     return false;
   }
 
-  std::string & Level::Get()
+  const std::string & Level::Get()
   {
     return SerializedData;
   }

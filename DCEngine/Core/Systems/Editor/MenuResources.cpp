@@ -33,6 +33,8 @@ namespace DCEngine {
       DCTrace << "Hey you loaded me man here you go: " << levelPtr->Get() << " \n";
       // Load the level
       CurrentSpace->LoadLevel(level);
+      // Load the editor camera
+      SetEditorCamera();
 
       //std::string levelData = 
     }

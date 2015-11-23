@@ -40,6 +40,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief Constructs and sets the space's default camera to be the Editor's
+    @todo  L57: Currently not deleting the editor camera when switching. It breaks!
     */
     /**************************************************************************/
     void Editor::SetEditorCamera()
@@ -52,6 +53,7 @@ namespace DCEngine {
         CurrentSpace->getComponent<CameraViewport>()->setCamera(defaultcam);
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
+        editorCamera->Destroy();
         //CurrentSpace->RemoveObject(*editorCamera);
         return;
       }
