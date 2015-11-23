@@ -70,4 +70,22 @@ namespace DCEngine {
 		Vec3 vel = RigidBodyRef->getVelocity();
 		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
+
+	/**************************************************************************/
+	/*!
+	@brief Provides the definition of this class to Zilch.
+	@note This can only go in the translational unit (.cpp)
+	*/
+	/**************************************************************************/
+	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+		ZilchDefineType(HazardArea, "HazardArea", DCEngineCore, builder, type) {
+			// Constructor / Destructor
+			ZilchBindConstructor(builder, type, HazardArea, "owner", Entity&);
+			ZilchBindDestructor(builder, type, HazardArea);
+			// Properties
+			ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
+			ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
+			ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+		}
+	#endif
 }

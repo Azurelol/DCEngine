@@ -41,11 +41,17 @@ namespace DCEngine {
 		void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event);
 		void ChangeColor();
 
+		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+				ZilchDeclareDerivedType(BallController, Component);
+		#endif
+
 	private:
 		void PrintTranslation();
 		void PrintVelocity();
 		void AttractBall();
 		void FreezeBall(Vec2 MousePosition);
-	};
 
+
+	};
 }
+

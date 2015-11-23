@@ -97,6 +97,9 @@ namespace DCEngine {
     void GenerateMonkeyLOL(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateHazardArea(Vec3 translation, Vec3 scale, Vec4 color);
+	void GeneratePlayer(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateBall(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateCamera(Vec3 translation, Vec3 scale, Vec4 color);
 
     GameObjectPtr doll;
     GameObjectPtr cameraObj;

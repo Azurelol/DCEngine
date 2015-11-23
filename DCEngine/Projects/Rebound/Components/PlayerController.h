@@ -10,7 +10,6 @@ namespace DCEngine {
 	class PlayerController : public Component {
 
 	public:
-
 		bool Grounded = true;
 		bool Jumping = false;
 		bool DoAutoPlay = true;
@@ -37,6 +36,9 @@ namespace DCEngine {
 		void Jump();
 		void TakeDamage(int damage);
 		void Die();
+		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+				ZilchDeclareDerivedType(PlayerController, Component);
+		#endif
 
 	private:
     Sprite* SpriteComponent;
