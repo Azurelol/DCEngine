@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file  SoundEmitter.cpp
+@file   SoundEmitter.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/23/2015

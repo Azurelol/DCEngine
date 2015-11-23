@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file  LinearParticleAnimator.cpp
+@file   SpriteText.h
 @author Chen Shu, Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/23/2015
