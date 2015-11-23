@@ -6,6 +6,8 @@
 @date   11/15/2015
 @brief  This file includes the implementation for the Editor's edit menu
         operations.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #include "Editor.h"

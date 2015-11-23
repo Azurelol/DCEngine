@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   ChargeBar.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Responsible for making the charge bar above the player connect to the
+		ball and change size/color.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "ChargeBar.h"
 #include "../../CoreComponents.h"
 
