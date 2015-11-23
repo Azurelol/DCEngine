@@ -9,7 +9,7 @@
 References:
 GLFW implementation: "http://www.learnopengl.com/#!Getting-Started/Hello-Window"
 
-
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #include "Window.h"
