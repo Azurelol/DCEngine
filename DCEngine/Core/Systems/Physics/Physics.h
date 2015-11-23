@@ -48,10 +48,14 @@ namespace DCEngine {
 
     private:
 
+      bool Paused;
       std::vector<PhysicsSpace*> physicsSpaces_;
 
       Physics();
       void Initialize();
+      void Subscribe();
+      void OnEnginePauseEvent(Events::EnginePause* event);
+      void OnEngineResumeEvent(Events::EngineResume* event);
       void Update(float dt);
       void Terminate();
 

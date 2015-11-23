@@ -24,9 +24,11 @@ namespace DCEngine {
 
   namespace Systems {
     
+    class Input;
     class ImGuiSFML;
     class InputSFML {
       friend class ImGuiSFML;
+      friend class Input;
     public:
       InputSFML();
       ~InputSFML();
@@ -41,11 +43,19 @@ namespace DCEngine {
       void PollKeyReleased(sf::Event& event);
       void PollMouseButtonPressed(sf::Event& event);
 	    void PollMouseButtonReleased(sf::Event& event);
+
+      void ImGuiPollKeyPressed(sf::Event& event);
+      void ImGuiPollKeyReleased(sf::Event& event);
+      void ImGuiPollMouseButtonPressed(sf::Event& event);
+      void ImGuiPollMouseButtonReleased(sf::Event& event);
+
+
       void PollMouseWheelMoved(sf::Event& event);
       void PollTextEntered(sf::Event& event);
 
       // Observing pointers are pointers which do not keep 
       // a pointed object alive. The simplest kind is a raw pointer.
+      bool Paused;
       sf::Window* WindowContext; 
       sf::Event _event;
       Keyboard* KeyboardRef;

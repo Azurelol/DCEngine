@@ -71,9 +71,11 @@ namespace DCEngine {
       // Poll for events
       switch (_event.type) {
       case sf::Event::KeyPressed:
+        //ImGuiPollKeyPressed(_event);
         PollKeyPressed(_event);
         break;
       case sf::Event::KeyReleased:
+        //ImGuiPollKeyReleased(_event);
         PollKeyReleased(_event);
         break;
       case sf::Event::MouseButtonPressed:
@@ -87,7 +89,8 @@ namespace DCEngine {
       case sf::Event::TextEntered:
         PollTextEntered(_event);
         break;
-		//alt+tab ctrl+alt+delete
+		
+    // KEYS: alt+tab, ctrl+alt+delete
 	  case sf::Event::LostFocus:
 		  if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
 		  {
@@ -104,6 +107,7 @@ namespace DCEngine {
         break;
         // Don't process other events
       default:
+      // @todo WHAT??
 		  if ((((unsigned short)GetKeyState(VK_CONTROL)) >> 15) && (((unsigned short)GetKeyState(VK_MENU) >> 15)) && (((unsigned short)GetKeyState(VK_MENU) >> 15)))
 		  {
 			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);

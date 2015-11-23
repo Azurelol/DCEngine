@@ -8,9 +8,10 @@
 \brief  Implementaion of the physics system
 */
 /******************************************************************************/
-
 #include "Physics.h"
 
+// Engine
+#include "../../Engine/Engine.h"
 // Components 
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
@@ -40,8 +41,44 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Initialize()
 		{
-
+      // Subscribe to events
+      Subscribe();
 		}
+
+    /**************************************************************************/
+    /*!
+    \brief Subscribs the Physics system to events.
+    */
+    /**************************************************************************/
+    void Physics::Subscribe()
+    {
+      Daisy->Connect<Events::EnginePause>(&Physics::OnEnginePauseEvent, this);
+      Daisy->Connect<Events::EngineResume>(&Physics::OnEngineResumeEvent, this);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Pauses the physics updates.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Physics::OnEnginePauseEvent(Events::EnginePause * event)
+    {
+      DCTrace << "Physics::OnEnginePausedEvent - Pause \n";
+      this->Paused = true;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Resumes the physics updates.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Physics::OnEngineResumeEvent(Events::EngineResume * event)
+    {
+      DCTrace << "Physics::OnEngineResumeEvent - Resume \n";
+      this->Paused = false;
+    }
 
 		/**************************************************************************/
 		/*!
@@ -80,10 +117,12 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
-      //if (pause)
-      //{
+      // Do not update physics while the engine is paused.
+      if (Paused)
+        return;
+
         Step(dt);
-      //}
+      
 		}
 
     /**************************************************************************/

@@ -160,15 +160,27 @@ namespace DCEngine {
   @brief  Adds a component onto the entity by name.
   @param  name The name of the component.
   @bool   Whether to initialize the component.
+  @return A pointer to the component.
   @todo   Do this dynamically rather than using string->class mapping.
   */
   /**************************************************************************/
-  bool Entity::AddComponentByName(std::string & name, bool initialize)
-  {
+  ComponentPtr Entity::AddComponentByName(std::string & name, bool initialize)
+  {    
+    auto Factory = Daisy->getSystem<Systems::Factory>();
+    auto component = Factory->CreateComponentByName(name, *this);
+    // If the component could not be constructed... 
+    if (component == nullptr) {
+      DCTrace << ObjectName << "::AddComponentByName - " << name << " could not be added!\n";
+      return nullptr;
+    }    
+    ComponentsContainer.emplace_back(std::move(component));
+    //ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByName(name, *this)));
     DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
-    //this->AddComponent<BoxCollider>(initialize);
-    
-    return true;
+    // Initialize the component if need be
+    if (initialize)
+      ComponentsContainer.back().get()->Initialize();
+   // Returns a pointer to the just-added component
+    return ComponentsContainer.back().get();
   }
 
   /**************************************************************************/
@@ -178,11 +190,14 @@ namespace DCEngine {
   @param  boundType A pointer to the component's BoundType.
   */
   /**************************************************************************/
-  bool Entity::AddComponentByType(Zilch::BoundType * boundType)
-  {
-    DCTrace << "Entity::AddComponentByType - " << std::string(boundType->Name.c_str()) << "\n";
+  bool Entity::AddComponentByType(Zilch::BoundType * boundType, bool initialize)
+  {    
     auto Factory = Daisy->getSystem<Systems::Factory>();
     ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByType(boundType, *this)));
+    DCTrace << "Entity::AddComponentByType - " << std::string(boundType->Name.c_str()) << "\n";
+    // Initialize the component if need be
+    if (initialize)
+      ComponentsContainer.back().get()->Initialize();
     return true;
   }
 

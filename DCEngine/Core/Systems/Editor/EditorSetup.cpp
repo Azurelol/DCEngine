@@ -53,7 +53,7 @@ namespace DCEngine {
         CurrentSpace->getComponent<CameraViewport>()->setCamera(defaultcam);
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
-        editorCamera->Destroy();
+        //editorCamera->Destroy();
         //CurrentSpace->RemoveObject(*editorCamera);
         return;
       }

@@ -85,6 +85,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Component::Deserialize(Zilch::JsonValue * properties)
   {
+    if (TRACE_COMPONENT_INITIALIZE)
+      DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
   }
@@ -127,23 +129,16 @@ namespace DCEngine {
       GameSessionRef = (GameSession*)Owner();
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Returns a container containing all the currently bound components.
+  @return A container of all bound components.
+  */
+  /**************************************************************************/
   std::vector<Zilch::BoundType*> Component::AllComponents()
   {
-    //std::vector<Zilch::BoundType*> allTypes;
-    //auto module = Daisy->getSystem<Systems::Reflection>()->
-
-    //// Loop through every library
-    //for (auto library : this->Dependencies.all()) {
-    //  // Grab a container of all the bound types in the library
-    //  auto types = library->BoundTypes.all();
-    //  // For every type in the library
-    //  ZilchForEach(auto type, types) {
-
-    //  }
-    //}
-    return std::vector<Zilch::BoundType*>();
+    return Daisy->getSystem<Systems::Reflection>()->AllComponents();
   }
-
 }
 
 

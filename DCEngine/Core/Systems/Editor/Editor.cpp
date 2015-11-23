@@ -45,7 +45,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Subscribe()
     {
-      Daisy->Connect<DCEngine::Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+      Daisy->Connect<Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
       Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
     }
@@ -104,18 +104,18 @@ namespace DCEngine {
 
       if (EditorEnabled) {
         // Pause the engine (Physics, Input, Events)
-        auto pause = new Events::EnginePaused();
-        Daisy->Dispatch<Events::EnginePaused>(pause);
+        auto pause = new Events::EnginePause();
+        Daisy->Dispatch<Events::EnginePause>(pause);
         delete pause;
+        DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
       }
       else {
         // Unpause the engine (Physics, Input, Events)
         auto resume = new Events::EngineResume();
         Daisy->Dispatch<Events::EngineResume>(resume);
         delete resume;
+        DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
       }
-
-      DCTrace << "Editor::ToggleEditor : " << EditorEnabled << "\n";
     }
 
     /**************************************************************************/

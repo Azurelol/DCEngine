@@ -333,6 +333,7 @@
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp" />
+    <ClCompile Include="Core\Systems\Serialization\JSONObject.cpp" />
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
@@ -466,7 +467,7 @@
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
-    <ClInclude Include="Core\Systems\Serialization\ZilchJSON.h" />
+    <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />

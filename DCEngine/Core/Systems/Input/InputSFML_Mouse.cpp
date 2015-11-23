@@ -79,6 +79,16 @@ namespace DCEngine {
       delete mouseUp;
     }
 
+
+
+    void InputSFML::ImGuiPollMouseButtonPressed(sf::Event & event)
+    {
+    }
+
+    void InputSFML::ImGuiPollMouseButtonReleased(sf::Event & event)
+    {
+    }
+
     /**************************************************************************/
     /*!
     \brief  Polls for mouse wheel events.

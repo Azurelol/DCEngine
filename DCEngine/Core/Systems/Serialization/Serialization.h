@@ -13,9 +13,25 @@
 /******************************************************************************/
 #pragma once
 #include "SerializerJSONCPP.h"
-#include "ZilchJson.h"
+#include "JSONObject.h"
 
 namespace DCEngine {
+
+  //class SerializedData {
+  //public:
+  //  SerializedData(std::string& data) {
+
+  //  }
+  //  ~SerializedData() {
+
+  //  }
+
+  //private:
+  //  JSONObject JSONObject;
+  //};
+
+  using SerializedData = JSONObject;
+  using SerializedMember = Zilch::JsonMember;
 
   class Serialization {
   public:
@@ -24,11 +40,12 @@ namespace DCEngine {
     static bool Serialize(ClassType* object, std::string& output) {
       return SerializerJSONCPP::Serialize(object, output);
     }
-
     template <typename ClassType>
     static bool Deserialize(ClassType* object, const std::string& input) {
       return SerializerJSONCPP::Deserialize(object, input);
     }
+
+
 
 
 

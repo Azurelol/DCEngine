@@ -96,7 +96,7 @@ namespace DCEngine {
                                 ObjectHandle objectHandle, Zilch::BoundType * boundType)
   {
     // If there's no properties, there's nothing to do!
-    if (properties == nullptr)
+    if (properties == nullptr || boundType == nullptr)
       return;
     
     // For every 'bound' property in the object
@@ -113,6 +113,10 @@ namespace DCEngine {
       // do nothing!
       //if (namedProperty != nullptr && !namedProperty->HasAttribute("Property")
       //  continue;
+
+      // If there is no set method
+      if (namedProperty->Set == nullptr)
+        continue;
 
       // Construct a Zilch::Call object for invoking the set method!
       Zilch::ExceptionReport report;

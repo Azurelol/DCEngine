@@ -66,10 +66,15 @@ namespace DCEngine {
   class GameObject;
   class Space;
   class GameSession;
+  namespace Systems {
+    class Factory;
+  }
+  
 
   class Component : public Object {
 	  friend class Entity;
     friend class GameObject; 
+    friend class Systems::Factory;
 
   public:   
 

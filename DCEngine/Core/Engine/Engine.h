@@ -66,6 +66,7 @@ namespace DCEngine {
 
   private:
 
+    bool Paused;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr gamesession_; //!< The current GameSession object.
     KeyboardPtr keyboard_;
@@ -85,6 +86,11 @@ namespace DCEngine {
     bool LoadEngineConfig();
     void LoadDefaultSpace();
     void Update(float dt);   
+    void Subscribe();
+    void OnEnginePauseEvent(Events::EnginePause* event);
+    void OnEngineResumeEvent(Events::EngineResume* event);
+    void OnEngineExitEvent(Events::EngineExit* event);
+    void DispatchLogicUpdateEvent(float dt);
 
 
   }; // Engine. Template definitions are found below.
