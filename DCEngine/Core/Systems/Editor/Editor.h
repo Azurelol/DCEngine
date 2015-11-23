@@ -58,7 +58,7 @@ namespace DCEngine {
       bool WindowConsoleEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
-      GameObject* SelectedObject = nullptr;      
+      Entity* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
       float SnapDistance = 1.0;
@@ -78,7 +78,6 @@ namespace DCEngine {
       void DisplayProperties(ComponentPtr);
       void AddComponent();
       void SelectResource(Zilch::Property*, ComponentPtr);
-
       void WidgetLibrary();
       void WidgetDiagnostics();
       void WindowSaveLevel();
@@ -94,6 +93,8 @@ namespace DCEngine {
       void StopGame();
       void ExportGame();
       void Exit();
+      // Select
+      void SelectSpace();
       // Resources
       void AddResource();
       void LoadLevel(std::string level);

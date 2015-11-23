@@ -115,7 +115,7 @@ namespace DCEngine {
     Component() = delete; // No default construction
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
-    std::vector<Delegate*> ActiveDelegates;
+    //std::vector<Delegate*> ActiveDelegates;
 
   };
 

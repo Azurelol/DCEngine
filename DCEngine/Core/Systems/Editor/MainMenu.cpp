@@ -45,21 +45,6 @@ namespace DCEngine {
           ImGui::EndMenu();
         }
 
-        // Create
-        if (ImGui::BeginMenu("Create")) {
-          if (ImGui::MenuItem("Create Transform")) {
-            CreateTransform();
-          }
-          ImGui::Separator();
-          if (ImGui::MenuItem("Create Sprite")) {
-            CreateSprite();
-          }
-          if (ImGui::MenuItem("Create SpriteText")) {}
-          ImGui::Separator();
-          if (ImGui::MenuItem("Create Particle System")) {}
-          ImGui::EndMenu();
-        }
-
         // Edit
         if (ImGui::BeginMenu("Edit")) {
           if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
@@ -77,6 +62,41 @@ namespace DCEngine {
           }
           ImGui::EndMenu();
         }
+
+        // Create
+        if (ImGui::BeginMenu("Create")) {
+          if (ImGui::MenuItem("Create Transform")) {
+            CreateTransform();
+          }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Create Sprite")) {
+            CreateSprite();
+          }
+          if (ImGui::MenuItem("Create SpriteText")) {}
+          ImGui::Separator();
+          if (ImGui::MenuItem("Create Particle System")) {}
+          ImGui::EndMenu();
+        }
+
+        // Select
+        if (ImGui::BeginMenu("Select")) {
+          if (ImGui::MenuItem("Previous Selection")) {}
+          if (ImGui::MenuItem("Next Selection")) {}
+          ImGui::Separator();
+          if (ImGui::MenuItem("Select None")) {};
+          if (ImGui::MenuItem("Select All")) {};
+          ImGui::Separator();
+          if (ImGui::MenuItem("Center Selected")) {};
+          if (ImGui::MenuItem("Frame Selected")) {};
+          ImGui::Separator();
+          if (ImGui::MenuItem("Group Selected")) {};
+          ImGui::Separator();
+          if (ImGui::MenuItem("Select Space"))
+            SelectSpace();
+          if (ImGui::MenuItem("Select Game")) {};
+          ImGui::EndMenu();
+        }
+
 
         // Resources
         if (ImGui::BeginMenu("Resources")) {

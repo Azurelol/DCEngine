@@ -124,7 +124,7 @@ namespace DCEngine {
     entity->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
     // Add a pointer to this delegate to the object that connected to it,
     // so that when its destroyed, it cleans up the delegate as well
-    inst->ActiveDelegates.push_back(degPtr);
+    //inst->ActiveDelegates.push_back(degPtr);
   }
 
   /**************************************************************************/

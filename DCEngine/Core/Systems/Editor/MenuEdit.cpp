@@ -25,12 +25,13 @@ namespace DCEngine {
         DCTrace << "Editor::DeleteObject - No object selected! \n";
         return;
       }
-        
-
-      DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
+      
       // Destroy the currently selected GameObject
-      SelectedObject->Destroy();
-      SelectedObject = nullptr;
+      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+        gameObject->Destroy();
+        SelectedObject = nullptr;
+        DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
+      }
     }
 
 
