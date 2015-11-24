@@ -289,37 +289,38 @@ namespace DCEngine {
         // Display the resource type
         
 
-        if (ImGui::TreeNode(resourceType.c_str())) {
-          auto spriteSources = Daisy->getSystem<Content>()->AllSpriteSources();
-          for (auto spriteSource : *spriteSources) {
-            auto spriteSourceName = spriteSource.second->Name();
-            if (ImGui::Selectable(spriteSourceName.c_str())) {
-              DCTrace << "Editor::SelectResource - Switching resource to: " << spriteSourceName << "\n";
-              // Set the new SpriteSource
-              Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-              setCall.SetHandleVirtual(Zilch::Call::This, component);
-              setCall.Set(0, Zilch::String(spriteSourceName.c_str()));
-              setCall.Invoke(report);
-            }
-          }
-          ImGui::TreePop();
-        }
+        //if (ImGui::TreeNode(resourceType.c_str())) {
+        //  auto spriteSources = Daisy->getSystem<Content>()->AllSpriteSources();
+        //  for (auto spriteSource : *spriteSources) {
+        //    auto spriteSourceName = spriteSource.second->Name();
+        //    if (ImGui::Selectable(spriteSourceName.c_str())) {
+        //      DCTrace << "Editor::SelectResource - Switching resource to: " << spriteSourceName << "\n";
+        //      // Set the new SpriteSource
+        //      Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        //      setCall.SetHandleVirtual(Zilch::Call::This, component);
+        //      setCall.Set(0, Zilch::String(spriteSourceName.c_str()));
+        //      setCall.Invoke(report);
+        //    }
+        //  }
+        //  ImGui::TreePop();
+        //}
 
         //ImGui::Text(resourceType.c_str());
         // COMBO BOX C-STYLE BULLSHIT BELOW
 
-        /*
+        
         
                // Get a container of all active spritesources        
         auto container = Daisy->getSystem<Content>()->AllSpriteSources();
-        std::vector<std::string> spritesrcNames;
+        std::vector<const char *> spritesrcNames;
         for (auto spriteSource : *container) {
           // Push the name of it into the vector of strings
-          spritesrcNames.push_back(spriteSource.second->Name());
+          spritesrcNames.push_back(spriteSource.second->Name().c_str());
           // spritesrcNames.push_back(const_cast<char*>(spriteSource.second->Name().c_str()));
         }
+         
 
-       
+       /*
         // Get the size of the container
         auto numberOfResources = container->size();
         const char** items = (const char**)malloc(numberOfResources * sizeof(char*));
@@ -328,16 +329,20 @@ namespace DCEngine {
           items[i] = (char*)malloc(spritesrcNames[i].size());
           items[i] = spritesrcNames[i].c_str();
           // Copy the string over
-          //strcpy(items[i], spritesrcNames[i].c_str());
+          strcpy(items[i], spritesrcNames[i].c_str());
         }
         
         auto const& itemsConst = items;
         // Find the position of the current item
         static int currentItem = -1;
-        ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items)); 
-        
-        
+        ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items));
         */
+        static int currentItem = 0;
+        ImGui::Combo("##spritenames", &currentItem, spritesrcNames.data(), spritesrcNames.size());
+
+        
+
+        
 
 
 
