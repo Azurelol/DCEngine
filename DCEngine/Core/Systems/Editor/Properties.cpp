@@ -310,7 +310,7 @@ namespace DCEngine {
 
         
         
-               // Get a container of all active spritesources        
+        // Get a container of all active spritesources        
         auto container = Daisy->getSystem<Content>()->AllSpriteSources();
         std::vector<const char *> spritesrcNames;
         for (auto spriteSource : *container) {
@@ -320,23 +320,23 @@ namespace DCEngine {
         }
          
 
-       /*
-        // Get the size of the container
-        auto numberOfResources = container->size();
-        const char** items = (const char**)malloc(numberOfResources * sizeof(char*));
-        for (int i = 0; i < numberOfResources; ++i) {
-          // Allocate space for each string
-          items[i] = (char*)malloc(spritesrcNames[i].size());
-          items[i] = spritesrcNames[i].c_str();
-          // Copy the string over
-          strcpy(items[i], spritesrcNames[i].c_str());
-        }
-        
-        auto const& itemsConst = items;
-        // Find the position of the current item
-        static int currentItem = -1;
-        ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items));
-        */
+       
+        //// Get the size of the container
+        //auto numberOfResources = container->size();
+        //const char** items = (const char**)malloc(numberOfResources * sizeof(char*));
+        //for (int i = 0; i < numberOfResources; ++i) {
+        //  // Allocate space for each string
+        //  items[i] = (char*)malloc(spritesrcNames[i].size());
+        //  items[i] = spritesrcNames[i].c_str();
+        //  // Copy the string over
+        //  strcpy(items[i], spritesrcNames[i].c_str());
+        //}
+        //
+        //auto const& itemsConst = items;
+        //// Find the position of the current item
+        //static int currentItem = -1;
+        //ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items));
+        //
         static int currentItem = 0;
         ImGui::Combo("##spritenames", &currentItem, spritesrcNames.data(), spritesrcNames.size());
 

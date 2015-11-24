@@ -18,6 +18,7 @@ namespace DCEngine {
     Connect(Daisy->getKeyboard(), Events::KeyDown, EditorCameraController::OnKeyDownEvent);
     Connect(Daisy->getKeyboard(), Events::KeyUp, EditorCameraController::OnKeyUpEvent);
     Connect(Daisy->getMouse(), Events::MouseScroll, EditorCameraController::OnMouseScrollEvent);
+
   }
 
   void EditorCameraController::OnKeyDownEvent(Events::KeyDown * event)
