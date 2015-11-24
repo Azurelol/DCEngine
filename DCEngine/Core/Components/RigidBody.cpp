@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*!
+@file   RigidBody.cpp
+@author Blaine Reiner, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/24/2015
+@brief  The RigidBody component handles calls the update of forces for the
+object, such as acceleration, velocity, etc. This component interacts
+directly with the physics system.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "RigidBody.h"
 #include "PhysicsSpace.h"
 #include "EngineReference.h"
@@ -268,7 +280,12 @@ namespace DCEngine
 	/**************************************************************************/
 	Vec3 RigidBody::getVelocity(void)
 	{
-		return this->Velocity;
+    if (DynamicState == DynamicStateType::Static)
+    {
+      return Vec3(0, 0, 0);
+    }
+
+    return this->Velocity;
 	}
 
   Vec3 RigidBody::getAngularVelocity() const

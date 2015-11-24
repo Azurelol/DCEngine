@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   Editor.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/24/2015
+@brief  The editor allows the real-time editing of gameobjects in levels ,
+then doing serialization of the levels.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Editor.h"
 #include "../../Engine/Engine.h"
 

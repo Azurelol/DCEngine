@@ -7,6 +7,7 @@
 \brief  The physics space hold the settings for all physical interactions within
         a space. It also holds several containers of objects that require
         physics integration and resolution, for collisions, velocity, etc...
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

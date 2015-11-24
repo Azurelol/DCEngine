@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   ChargeBar.h
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Header for ChargeBar
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #pragma once
 #include "../../ProjectComponent.h"
 #define ChargeBarTraceOn 0

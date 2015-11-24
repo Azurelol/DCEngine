@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file  CameraController .cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief Controller for the camera object, handles following the player.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "CameraController.h"
 #include "../../CoreComponents.h"
 
@@ -76,9 +87,7 @@ namespace DCEngine {
 		ZilchBindConstructor(builder, type, CameraController, "owner", Entity&);
 		ZilchBindDestructor(builder, type, CameraController);
 		// Properties
-		ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-		ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-		ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+
 	}
 	#endif
 }

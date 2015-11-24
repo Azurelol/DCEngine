@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   CoreBindingTypes.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/7/2015
+@brief  Binds types used in the engine so that Zilch can convert to them and
+back.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "CoreBindingTypes.h"
 
 /*******************************************************************************

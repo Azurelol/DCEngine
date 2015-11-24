@@ -6,6 +6,8 @@
 @date   11/1/2015
 @brief  This file contains the data structures used in the engine
         and project configuration.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

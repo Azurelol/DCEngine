@@ -8,6 +8,8 @@
 @brief  Constructs a component factory for every bound component class in
         the engine. This allows them to be created at runtime through
         reflection.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #include "Factory.h"

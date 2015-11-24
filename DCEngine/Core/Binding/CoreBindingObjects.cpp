@@ -11,6 +11,7 @@
         rather than individually in each of their definition files.
         Perhaps I do not need to bind CTOR/DTORs for my classes if I don't plan
         on constructing them through Zilch.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #include "Precompiled.h"

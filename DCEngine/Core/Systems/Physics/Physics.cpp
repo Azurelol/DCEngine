@@ -6,6 +6,7 @@
 \par    DigiPen login: blaine.reiner
 \date   11/20/2015
 \brief  Implementaion of the physics system
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #include "Physics.h"
@@ -350,7 +351,7 @@ namespace DCEngine {
 					if (Collision::BoxtoBox(obj1, obj2, collision))
 					{
 
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -373,7 +374,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -395,7 +396,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -417,7 +418,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
             {
               contactlist.push_back(collision);
             }

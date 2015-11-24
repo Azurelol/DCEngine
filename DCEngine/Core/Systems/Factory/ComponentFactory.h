@@ -6,6 +6,8 @@
 @date   11/21/2015
 @brief  The Component Factory interacts with BoundTypes to construct a component
         from a BoundType* and returns it via unique_ptr.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

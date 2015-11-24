@@ -7,6 +7,7 @@
 @brief  This file includes the definition of the static library for all the
         Core engine classes (Object, Entities, Components).
         It will also initialize them.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #include "Precompiled.h"

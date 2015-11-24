@@ -7,7 +7,7 @@
 \brief  An archetype is a resource that contains the serialized data definition
         of an object. It stores a binary cache of serialization data and
         source file for debugging and for archetype updating.
-
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

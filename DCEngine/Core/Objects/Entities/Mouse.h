@@ -5,6 +5,8 @@
 \par    email: c.sagel\@digipen.edu
 \date   8/22/2015
 \brief  The mouse input inteface for the engine.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

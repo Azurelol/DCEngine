@@ -4,6 +4,12 @@
 @author Johannes Peter
 @brief  A BOOST-powered interface static class that provides common and useful
 filesystem operations (such as scanning folders, etc)
+@note   The Boost Filesystem library:
+http://www.boost.org/doc/libs/1_39_0/libs/filesystem/doc/index.htm
+Great reference for using the library:
+http://www.technical-recipes.com/2014/using-boostfilesystem/
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 \******************************************************************************/
 
 #include "FileSystem.h"

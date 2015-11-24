@@ -1,10 +1,12 @@
 /******************************************************************************/
 /*!
 \file   Keyboard.h
-\author Christian Sagel
+\author Christian Sagel, Connor Tilley
 \par    email: c.sagel\@digipen.edu
 \date   8/22/2015
 \brief  The keyboard input inteface for the engine.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

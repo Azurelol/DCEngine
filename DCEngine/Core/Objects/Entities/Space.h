@@ -7,6 +7,8 @@
 \brief  Spaces are containers for game objects. When a level is loaded into
         a space, all the game objects from that level are put into the space.
         Each space has its own instances of the core systems of the engine.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

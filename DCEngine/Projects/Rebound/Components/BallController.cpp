@@ -1,4 +1,13 @@
-
+/******************************************************************************/
+/*!
+@file   BallController.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Controller logic for the ball.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 
 #include "BallController.h"
 #include "../../CoreComponents.h"
@@ -228,9 +237,6 @@ namespace DCEngine {
 		ZilchBindConstructor(builder, type, BallController, "owner", Entity&);
 		ZilchBindDestructor(builder, type, BallController);
 		// Properties
-		ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-		ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-		ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
 	}
 #endif
 

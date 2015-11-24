@@ -6,6 +6,7 @@
 @date   11/07/2015
 @brief  This file includes the Zilch binding header. This header is included
         by all the classes that want to be added to the library.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

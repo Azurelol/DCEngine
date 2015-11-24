@@ -124,9 +124,6 @@
     <Filter Include="Core\Systems\Content">
       <UniqueIdentifier>{262f1be3-c6a6-48ef-b75b-49742011dde3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\Debug">
-      <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\DebugDraw">
       <UniqueIdentifier>{e40ca2d8-f034-46da-910e-857d9f0d09a9}</UniqueIdentifier>
     </Filter>
@@ -232,6 +229,9 @@
     <Filter Include="Core\Systems\Editor\Select">
       <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\Audio\Debug">
+      <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -325,7 +325,7 @@
       <Filter>Core\Engine\Event</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugMoveController.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\RigidBody.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -334,16 +334,16 @@
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugReport.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\BoxCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugCamera.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugCollider.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
@@ -352,7 +352,7 @@
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugAudio.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SoundEmitter.cpp">
       <Filter>Core\Components\Audio</Filter>
@@ -427,7 +427,7 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugFade.cpp">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
       <Filter>Core\Systems\FileSystem</Filter>
@@ -756,7 +756,7 @@
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugMoveController.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\ComponentsInclude.h">
       <Filter>Core\Components</Filter>
@@ -765,10 +765,10 @@
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugReport.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCamera.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw.h">
       <Filter>Core\Object\DebugDraw</Filter>
@@ -792,7 +792,7 @@
       <Filter>Core\Events\Update</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCollider.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\Font.h">
       <Filter>Core\Resources\Graphics</Filter>
@@ -801,7 +801,7 @@
       <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugAudio.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SoundEmitter.h">
       <Filter>Core\Components\Audio</Filter>
@@ -891,7 +891,7 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugFade.h">
-      <Filter>Core\Components\Debug</Filter>
+      <Filter>Core\Components\Audio\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Filesystem\FileSystem.h">
       <Filter>Core\Systems\FileSystem</Filter>

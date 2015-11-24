@@ -1,3 +1,15 @@
+/*****************************************************************************/
+/*!
+\file   Object.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   8/5/2015
+\brief  The base object class, from which everything else is derived ??
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+
 #include "Object.h"
 
 namespace DCEngine {

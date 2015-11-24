@@ -1,3 +1,12 @@
+/*****************************************************************************/
+/*!
+@file   Skeleton.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/19/2015
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Skeleton.h"
 #include "../../CoreComponents.h"
 

@@ -6,6 +6,8 @@
 \date   9/16/2015
 \brief  The texture class stores and configures a texture in OpenGL.
 \note   "http://learnopengl.com/#!Getting-started/Textures"
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

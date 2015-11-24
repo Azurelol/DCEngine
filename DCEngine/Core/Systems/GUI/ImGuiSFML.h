@@ -5,6 +5,8 @@
 \par    email: c.sagel\@digipen.edu
 \date   10/23/2015
 \brief  An SFML backend for ImGui.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

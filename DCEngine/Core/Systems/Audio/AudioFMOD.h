@@ -8,6 +8,8 @@
 @note   References:
         https://katyscode.wordpress.com/2012/10/05/cutting-your-teeth-on-fmod-
         part-1-build-environment-initialization-and-playing-sounds/
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

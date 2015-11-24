@@ -1,10 +1,12 @@
 /******************************************************************************/
 /*!
-@file   MainMenu.cpp
+@file   Library.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/02/2015
 @brief  This file includes the implementation for the Editor's library widget.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #include "Editor.h"

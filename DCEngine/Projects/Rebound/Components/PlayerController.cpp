@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   PlayerController.cpp
+@author Connor Tilley
+@par    email: connor.tilley\@digipen.edu
+@date   11/23/2015
+@brief  Controller for the main player! Handles everything the player does.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+
 #include "PlayerController.h"
 #include "../../CoreComponents.h"
 

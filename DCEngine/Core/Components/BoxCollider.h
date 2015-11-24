@@ -7,6 +7,7 @@
 @brief  The BoxCollider component gives a physical representation of a bounding
 box in world space so objects can experience collisions with one
 another. This component interacts directly with the physics system.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
 #pragma once

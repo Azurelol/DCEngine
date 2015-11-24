@@ -8,7 +8,8 @@
 @note   The credit to my implementation of the Reflection system used in this 
         engine goes to Randy Gaul. More information in the implementation
         header.
-        
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

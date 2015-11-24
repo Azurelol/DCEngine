@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-@file   Content.h
+@file   Font.h
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   9/30/2015
@@ -11,6 +11,8 @@
         textures and position each character glyph appropiately using
         the loading metrics.
 @note   "http://learnopengl.com/#!In-Practice/Text-Rendering"
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

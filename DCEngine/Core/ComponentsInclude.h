@@ -5,6 +5,8 @@
 @par    email: c.sagel\@digipen.edu
 @date   9/6/2015
 @brief  A header containing all of the core engine components.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

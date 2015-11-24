@@ -6,6 +6,8 @@
 \date   9/16/2015
 \brief  Encapsulates a raw FMOD pointer to behave like a smart pointer,
         releasing its resource when destroyed.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once

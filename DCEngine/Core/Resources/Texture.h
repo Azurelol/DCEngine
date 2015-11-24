@@ -6,6 +6,8 @@
 \date   8/1/2015
 \brief  The texture class organizes texture data.
 \note   "http://learnopengl.com/#!Getting-started/Textures"
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
 */
 /******************************************************************************/
 #pragma once
