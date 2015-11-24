@@ -107,7 +107,8 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
                                                      EngineConfiguration->Framerate,
                                                      EngineConfiguration->ResolutionWidth,
-                                                     EngineConfiguration->ResolutionHeight)));
+                                                     EngineConfiguration->ResolutionHeight,
+                                                     EngineConfiguration->IsFullScreen)));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Editor(EngineConfiguration->EditorEnabled)));    
     _systems.push_back(SystemPtr(new Systems::Physics));
@@ -125,6 +126,8 @@ namespace DCEngine {
       sys->Initialize();
     }
     
+
+
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
 
@@ -153,6 +156,7 @@ namespace DCEngine {
     Connect<Events::EnginePause>(&Engine::OnEnginePauseEvent, this);
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
+    Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
   }
 
   /**************************************************************************/
@@ -165,6 +169,8 @@ namespace DCEngine {
     DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
     this->Paused = true;
   }
+
+
 
   /**************************************************************************/
   /*!
@@ -185,6 +191,53 @@ namespace DCEngine {
   void Engine::OnEngineExitEvent(Events::EngineExit * event)
   {
     DCTrace << "Engine::OnEngineExitEvent - Exit \n";
+  }
+
+  void Engine::OnEnginePauseMenuEvent(Events::EnginePauseMenu * event)
+  {
+    PauseMenuEnabled = true;    
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Displays a Pause Menu.
+  @todo   Implement the pause menu in a different way.
+  */
+  /**************************************************************************/
+  void Engine::PauseMenu()
+  {
+    // Pause the engine (Physics, Input, Events)
+    auto pause = new Events::EnginePause();
+    Daisy->Dispatch<Events::EnginePause>(pause);
+    delete pause;
+
+    ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiSetCond_FirstUseEver);
+    ImGui::Begin("Pause Menu", &PauseMenuEnabled);
+    if (ImGui::Button("Pause")) {
+
+    }
+    if (ImGui::Button("Resume Game")) {
+      // Unpause the engine (Physics, Input, Events)
+      auto resume = new Events::EngineResume();
+      Daisy->Dispatch<Events::EngineResume>(resume);
+      delete resume;
+      PauseMenuEnabled = false;
+    }
+    
+    if (ImGui::Button("How to Play")) {
+
+    }
+
+    
+    if (ImGui::Button("Quit Game")) {
+      // Destructive confirmation
+      auto exitEvent = new Events::EngineExit();
+      Daisy->Dispatch<Events::EngineExit>(exitEvent);
+      delete exitEvent;
+    }
+
+    ImGui::End();
+
   }
   
   /**************************************************************************/
@@ -218,6 +271,9 @@ namespace DCEngine {
     for (auto system : _systems)
       system->Update(dt);
 
+    if (PauseMenuEnabled)
+      PauseMenu();
+
     // Tell window management system to end the frame
     getSystem<Systems::Graphics>()->EndFrame();
     getSystem<Systems::GUI>()->Render();    
@@ -250,6 +306,8 @@ namespace DCEngine {
     delete logicUpdateEvent;
 
   }
+
+
 
   /**************************************************************************/
   /*!

@@ -25,5 +25,9 @@ namespace DCEngine {
     public:
     };
 
+    class EnginePauseMenu : public Event {
+    public:
+    };
+
   }
 }

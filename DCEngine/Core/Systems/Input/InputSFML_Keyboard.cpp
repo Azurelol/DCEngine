@@ -13,6 +13,7 @@ namespace DCEngine {
     void ToggleFullscreen();
     void ToggleEditor();
     void DispatchEngineExitEvent();
+    void DispatchEnginePauseEvent();
 
 
     /**************************************************************************/
@@ -53,8 +54,10 @@ namespace DCEngine {
 
       switch (event.key.code) {
       case sf::Keyboard::Escape: // RESERVED: Terminate engine
-        Daisy->getSystem<Window>()->WindowHandler->Terminate();
-        DispatchEngineExitEvent();        
+        //Daisy->getSystem<Window>()->WindowHandler->Terminate();
+        //DispatchEngineExitEvent(); 
+        DispatchEnginePauseEvent();
+        keyDown->Key = Keys::Escape;
         KeyboardRef->KeyDown_Escape = true;
         break;
       case sf::Keyboard::Delete:
@@ -316,7 +319,7 @@ namespace DCEngine {
         keyUp->Key = Keys::Tilde;
         break;
       case sf::Keyboard::Escape:
-        Daisy->getSystem<Window>()->WindowHandler->Terminate();
+        //Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = false;
         break;
       case sf::Keyboard::Space:
@@ -523,6 +526,14 @@ namespace DCEngine {
       auto exitEvent = new Events::EngineExit();
       Daisy->Dispatch<Events::EngineExit>(exitEvent);
       delete exitEvent;      
+    }
+    void DispatchEnginePauseEvent()
+    {
+      // Pause the engine (Physics, Input, Events)
+      auto pause = new Events::EnginePauseMenu();
+      Daisy->Dispatch<Events::EnginePauseMenu>(pause);
+      delete pause;
+      DCTrace << "InputSFML::DispatchEnginePauseEvent - Dispatching 'EnginePauseMenu' event \n";
     }
   }
 }

@@ -66,6 +66,7 @@ namespace DCEngine {
 
   private:
 
+    bool PauseMenuEnabled = false; // @todo temp pause menu
     bool Paused;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr gamesession_; //!< The current GameSession object.
@@ -90,7 +91,9 @@ namespace DCEngine {
     void OnEnginePauseEvent(Events::EnginePause* event);
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
+    void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
     void DispatchLogicUpdateEvent(float dt);
+    void PauseMenu();
 
 
   }; // Engine. Template definitions are found below.

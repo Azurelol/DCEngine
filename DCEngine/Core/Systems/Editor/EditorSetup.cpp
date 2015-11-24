@@ -65,7 +65,7 @@ namespace DCEngine {
       editorCamera->AddComponent<DCEngine::DebugAudio>(true);
       // Camera properties      
       editorCamera->getComponent<DCEngine::DebugAudio>()->Track1 = "soulja";
-      editorCamera->getComponent<DCEngine::DebugAudio>()->Track2 = "spacejam2";
+      editorCamera->getComponent<DCEngine::DebugAudio>()->Track2 = "Halloween 1";
       editorCamera->getComponent<DCEngine::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
       editorCamera->getComponent<DCEngine::Camera>()->Size = 70;
       editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
