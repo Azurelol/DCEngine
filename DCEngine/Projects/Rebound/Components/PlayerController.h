@@ -8,10 +8,10 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #pragma once
-#include "../../ProjectComponent.h"
-#define PlayerControllerTraceOn 1
+#include "ReboundComponent.h"
+
+#define PlayerControllerTraceOn 1 // Use a static bool inside the class
 
 namespace DCEngine {
 

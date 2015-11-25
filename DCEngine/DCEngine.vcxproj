@@ -357,6 +357,7 @@
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
+    <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Binding.h" />
@@ -494,12 +495,14 @@
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
     <ClInclude Include="Projects\Rebound\Components\ChargeBar.h" />
+    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />
     <ClInclude Include="Projects\Rebound\Components\EnemyController.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
     <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
-    <ClInclude Include="Projects\Rebound\ReboundComponents.h" />
+    <ClInclude Include="Projects\Rebound\ReboundBinding.h" />
+    <ClInclude Include="Projects\Rebound\ReboundComponentsInclude.h" />
     <ClInclude Include="Projects\Rebound\ReboundEvents.h" />
   </ItemGroup>
   <ItemGroup>

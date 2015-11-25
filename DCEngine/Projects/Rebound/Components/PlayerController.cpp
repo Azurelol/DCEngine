@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "PlayerController.h"
 #include "../../CoreComponents.h"
 
@@ -203,14 +202,11 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDefineType(PlayerController, "PlayerController", DCEngineCore, builder, type) {
+		ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
+      REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
 			// Constructor / Destructor
 			ZilchBindConstructor(builder, type, PlayerController, "owner", Entity&);
 			ZilchBindDestructor(builder, type, PlayerController);
-			// Properties
-			ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-			ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-			ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
 		}
 	#endif
 }

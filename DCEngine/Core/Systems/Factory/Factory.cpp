@@ -24,15 +24,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Initializes the Factory system.
+    @brief  Initializes the Factory system.
+    @todo   Find another way to add the rebound components.
     */
     /**************************************************************************/
     void Factory::Initialize() {
       if (TRACE_ON && TRACE_INITIALIZE)
         DCTrace << "Factory::Initialize \n";
       
-      // Construct the component factories for each component type
+      // Construct the component factories for each core component type
       ConstructComponentFactoryMap();
+      // Construct the component factories for 'Rebound' components
+      ReboundComponentsAddToFactory();
     }
 
     /**************************************************************************/

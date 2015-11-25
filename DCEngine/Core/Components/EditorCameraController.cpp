@@ -8,6 +8,26 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(EditorCameraController, "EditorCameraController", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, EditorCameraController, "owner", Entity&);
+    ZilchBindDestructor(builder, type, EditorCameraController);
+    // Properties
+    //ZilchBindProperty(builder, type, &EditorCameraController::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");
+    //ZilchBindProperty(builder, type, &EditorCameraController::getNearPlane, &Camera::setNearPlane, "NearPlane");
+    //ZilchBindProperty(builder, type, &EditorCameraController::getFarPlane, &Camera::setFarPlane, "FarPlane");
+    //ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
+  }
+#endif
+
+
+  /**************************************************************************/
+  /*!
   @brief Initializes the EditorCameraController.
   */
   /**************************************************************************/

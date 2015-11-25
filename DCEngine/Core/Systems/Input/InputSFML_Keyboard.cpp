@@ -279,9 +279,8 @@ namespace DCEngine {
 
       default:
         break;
-
-
       }
+
       
       // If not paused, dispatch the events
       //if (!Paused)

@@ -78,13 +78,13 @@ namespace DCEngine {
 	/**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
 	ZilchDefineType(Skeleton, "Skeleton", DCEngineCore, builder, type) {
-		// Constructor / Destructor
-		ZilchBindConstructor(builder, type, Skeleton, "owner", Entity&);
-		ZilchBindDestructor(builder, type, Skeleton);
-		// Properties
-		ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-		ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-		ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+		//// Constructor / Destructor
+		//ZilchBindConstructor(builder, type, Skeleton, "owner", Entity&);
+		//ZilchBindDestructor(builder, type, Skeleton);
+		//// Properties
+		//ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
+		//ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
+		//ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
 	}
 #endif
 }

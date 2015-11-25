@@ -8,10 +8,10 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #pragma once
-#include "../../ProjectComponent.h"
-#define ChargeBarTraceOn 0
+#include "ReboundComponent.h"
+
+#define ChargeBarTraceOn 0 // @todo Use a static bool instead
 
 namespace DCEngine {
 
