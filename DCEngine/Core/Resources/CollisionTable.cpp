@@ -13,8 +13,10 @@ http://zero.digipen.edu/ZeroManual/Physics/Collision/CollisionTables.html?highli
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "CollisionTable.h"
+
+// Engine
+#include "../../Core/Engine/Engine.h"
 
 namespace DCEngine
 {
@@ -223,6 +225,17 @@ namespace DCEngine
 
     DCTrace << "CollisionTable::GetPreSolveBlock - Tried to get end block of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return temp;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns the texture resource to be used by the graphics system.
+  @return A reference to the texture object.
+  */
+  /**************************************************************************/
+  CollisionTablePtr CollisionTable::Find(std::string name)
+  {
+    return Daisy->getSystem<Systems::Content>()->getCollisionTable(name);
   }
 
 }

@@ -21,6 +21,9 @@ namespace DCEngine {
 
   // Forward class declaration
   class GameObject;
+  class CollisionTable;
+  using CollisionTablePtr = std::shared_ptr<CollisionTable>;
+  using CollisionTableHandle = std::string;
 
   enum class CollisionFlag {
     // Don't detect collision between this pair 
@@ -80,6 +83,9 @@ namespace DCEngine {
     bool SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
     CollisionBlock &GetPreSolveBlock(std::string const &group1, std::string const &group2);
 
+    static CollisionTablePtr Find(std::string);
+
+
   private:
 
     std::vector<CollisionGroup> Groups;
@@ -88,6 +94,6 @@ namespace DCEngine {
 
   };
 
-  using CollisionTableHandle = std::string;
+
 
 }

@@ -304,7 +304,7 @@ namespace DCEngine {
           Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
           setCall.SetHandleVirtual(Zilch::Call::This, component);
           setCall.Set(0, Zilch::String(selectedSpriteSource));
-          setCall.Invoke(report);        
+          setCall.Invoke(report);                  
         }
       }
         //if (ImGui::TreeNode(resourceType.c_str())) {

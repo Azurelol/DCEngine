@@ -29,8 +29,10 @@ namespace DCEngine {
     #endif
 
     Resource(std::string name);
+    //virtual Resource* Find(std::string) = 0;
   };
 
-  using ResourcePtr = std::shared_ptr<Resource>;
+  using ResourcePtr = Resource*;
+  using ResourceStrongPtr = std::shared_ptr<Resource>;
 
 }

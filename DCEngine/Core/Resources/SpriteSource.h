@@ -22,6 +22,9 @@
 
 namespace DCEngine {
 
+  class SpriteSource;
+  using SpriteSourcePtr = std::shared_ptr<SpriteSource>;
+
   class SpriteSource : public Resource {
   public:
 
@@ -42,6 +45,9 @@ namespace DCEngine {
     bool Looping;
     bool Fill;
 
+    //static SpriteSourcePtr
+
+    static SpriteSourcePtr Find(std::string);
     SpriteSource(std::string spriteFile);
     void LoadTexture();    
 
@@ -67,7 +73,8 @@ namespace DCEngine {
 
   };
 
-  using SpriteSourcePtr = std::shared_ptr<SpriteSource>;
+  //using SpriteSourcePtr = SpriteSource*;
+
 
 
 }

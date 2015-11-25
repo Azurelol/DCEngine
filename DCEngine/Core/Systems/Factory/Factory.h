@@ -46,7 +46,7 @@ namespace DCEngine {
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
-      ResourcePtr CreateResource(const std::string& resourceName, bool init);       
+      ResourceStrongPtr CreateResource(const std::string& resourceName, bool init);       
 
 
     private:

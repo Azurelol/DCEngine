@@ -232,6 +232,9 @@
     <Filter Include="Core\Components\Audio\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Properties">
+      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -435,9 +438,6 @@
     <ClCompile Include="Core\Systems\Editor\Library.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Objects.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -578,6 +578,12 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp">
       <Filter>Core\Systems\Editor\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionGroup.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
+      <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

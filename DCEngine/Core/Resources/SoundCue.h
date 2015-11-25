@@ -16,6 +16,9 @@
 
 namespace DCEngine {
 
+  class SoundCue;
+  using SoundCuePtr = std::shared_ptr<SoundCue>;
+
   class SoundCue : public Resource {
 
   public:
@@ -25,6 +28,7 @@ namespace DCEngine {
 
     SoundCue(std::string soundFile);
     void Load();
+    static SoundCuePtr Find(std::string);
 
   private:
     const std::string SoundFileName;
@@ -33,5 +37,5 @@ namespace DCEngine {
   };
 
 
-  using SoundCuePtr = std::shared_ptr<SoundCue>;
+ 
 }
