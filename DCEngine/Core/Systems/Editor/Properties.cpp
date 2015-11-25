@@ -120,7 +120,7 @@ namespace DCEngine {
         }
 
         // Property: String
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[32];
           strcpy(buf, string.c_str());
@@ -134,7 +134,7 @@ namespace DCEngine {
         }
 
         // Property: Integer
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
           // If the user has given input, set the property
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
@@ -146,7 +146,7 @@ namespace DCEngine {
         }
 
         // Property: Integer2
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer2))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer2))) {
           auto integer2 = getCall.Get<Zilch::Integer2>(Zilch::Call::Return);
           int int2[2] = { integer2.x, integer2.y };
           // If the user has given input, set the property
@@ -159,7 +159,7 @@ namespace DCEngine {
         }
 
         // Property: Integer3
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer3))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer3))) {
           auto integer3 = getCall.Get<Zilch::Integer3>(Zilch::Call::Return);
           int int3[3] = { integer3.x, integer3.y, integer3.z };
           // If the user has given input, set the property
@@ -172,7 +172,7 @@ namespace DCEngine {
         }
 
         // Property: Integer4
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer4))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer4))) {
           auto integer4 = getCall.Get<Zilch::Integer4>(Zilch::Call::Return);
           int int4[4] = { integer4.x, integer4.y, integer4.z, integer4.w};
           // If the user has given input, set the property
@@ -185,7 +185,7 @@ namespace DCEngine {
         }
 
         // Property: Real (float)
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
           // If the user has given input, set the property
           if (ImGui::InputFloat(property->Name.c_str(), &real, 0.01f)) {
@@ -197,7 +197,7 @@ namespace DCEngine {
         }
 
         // Property: Real2 (Vec2)
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {
           auto vec2 = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
           float vec2f[2] = { vec2.x, vec2.y };
           ImGui::Text(property->Name.c_str());
@@ -211,7 +211,7 @@ namespace DCEngine {
         }
 
         // Property: Real3 (Vec3)
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real3))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real3))) {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
           // If the user has given input, set the property
@@ -226,7 +226,7 @@ namespace DCEngine {
         }        
 
         // Property: Real4 (Vec4)
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4))) {
           auto vec4 = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
           float vec4f[4] = { vec4.x, vec4.y, vec4.z, vec4.w};
           // If the user has given input, set the property
@@ -284,11 +284,29 @@ namespace DCEngine {
       char buf[32];
       strcpy(buf, resourceName.c_str());
       // Get the type of the resource
+
+      /* SpriteSource */
       auto resourceType = std::string(resource->Name.c_str());
       if (resourceType == std::string("SpriteSource")) {
-        // Display the resource type
-        
-
+        // Get a container of all active spritesources        
+        auto container = Daisy->getSystem<Content>()->AllSpriteSources();
+        std::vector<const char *> spriteSourceNames;
+        for (auto spriteSource : *container) {
+          // Push the name of it into the vector of strings
+          spriteSourceNames.push_back(spriteSource.second->Name().c_str());
+        }
+        // Start at the current item
+        static int currentItem = 0;
+        // If the user selects an item... 
+        if (ImGui::Combo("##spritenames", &currentItem, spriteSourceNames.data(), spriteSourceNames.size())) {
+          // Set the selected item as the current resource
+          auto selectedSpriteSource = spriteSourceNames.at(currentItem);
+          Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+          setCall.SetHandleVirtual(Zilch::Call::This, component);
+          setCall.Set(0, Zilch::String(selectedSpriteSource));
+          setCall.Invoke(report);        
+        }
+      }
         //if (ImGui::TreeNode(resourceType.c_str())) {
         //  auto spriteSources = Daisy->getSystem<Content>()->AllSpriteSources();
         //  for (auto spriteSource : *spriteSources) {
@@ -303,52 +321,9 @@ namespace DCEngine {
         //    }
         //  }
         //  ImGui::TreePop();
-        //}
-
-        //ImGui::Text(resourceType.c_str());
-        // COMBO BOX C-STYLE BULLSHIT BELOW
-
+        //}  
         
-        
-        // Get a container of all active spritesources        
-        auto container = Daisy->getSystem<Content>()->AllSpriteSources();
-        std::vector<const char *> spritesrcNames;
-        for (auto spriteSource : *container) {
-          // Push the name of it into the vector of strings
-          spritesrcNames.push_back(spriteSource.second->Name().c_str());
-          // spritesrcNames.push_back(const_cast<char*>(spriteSource.second->Name().c_str()));
-        }
-         
-
-       
-        //// Get the size of the container
-        //auto numberOfResources = container->size();
-        //const char** items = (const char**)malloc(numberOfResources * sizeof(char*));
-        //for (int i = 0; i < numberOfResources; ++i) {
-        //  // Allocate space for each string
-        //  items[i] = (char*)malloc(spritesrcNames[i].size());
-        //  items[i] = spritesrcNames[i].c_str();
-        //  // Copy the string over
-        //  strcpy(items[i], spritesrcNames[i].c_str());
-        //}
-        //
-        //auto const& itemsConst = items;
-        //// Find the position of the current item
-        //static int currentItem = -1;
-        //ImGui::Combo("", &currentItem, items, IM_ARRAYSIZE(items));
-        //
-        static int currentItem = 0;
-        ImGui::Combo("##spritenames", &currentItem, spritesrcNames.data(), spritesrcNames.size());
-
-        
-
-        
-
-
-
-
-
-      }
+      
     }
 
   }
