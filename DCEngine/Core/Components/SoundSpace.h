@@ -26,6 +26,8 @@ namespace DCEngine {
       Real Pitch; // Pitch scale for all sounds in the space
       bool Pause; // Pause all sounds in the space
 
+      //DCE_DEFINE_PROPERTY(Real, Volume);
+
       void PlayCue(std::string soundCueName);
       void PlayCueAt(std::string soundCueName);
       void StopCue(std::string soundCueName);

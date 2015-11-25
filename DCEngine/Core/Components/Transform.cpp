@@ -23,6 +23,7 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Transform, "Transform", DCEngineCore, builder, type) {
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
     ZilchBindDestructor(builder, type, Transform);
