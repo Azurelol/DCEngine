@@ -30,26 +30,26 @@
           {
             "Vec3": 
             {
-              "x": 3.000000, 
-              "y": 3.000000, 
-              "z": 1.000000
+              "x": 0.000000, 
+              "y": 0.000000, 
+              "z": 0.000000
             }
           }, 
           "Rotation": 
           {
             "Vec3": 
             {
-              "x": 3.000000, 
-              "y": 3.000000, 
-              "z": 1.000000
+              "x": 0.000000, 
+              "y": 0.000000, 
+              "z": 0.000000
             }
           }, 
           "Scale": 
           {
             "Vec3": 
             {
-              "x": 3.000000, 
-              "y": 3.000000, 
+              "x": 1.000000, 
+              "y": 1.000000, 
               "z": 1.000000
             }
           }
@@ -67,57 +67,7 @@
               "w": 1.000000
             }
           }, 
-          "SpriteSource": "Circle", 
-          "FlipX": false, 
-          "FlipY": false, 
-          "AnimationActive": false, 
-          "AnimationSpeed": 1.000000
-        }, 
-        "BoxCollider": 
-        {
-          "Size": 
-          {
-            "Vec3": 
-            {
-              "x": 1.000000, 
-              "y": 1.000000, 
-              "z": 1.000000
-            }
-          }, 
-          "Offset": 
-          {
-            "Vec3": 
-            {
-              "x": 0.000000, 
-              "y": 0.000000, 
-              "z": 0.000000
-            }
-          }, 
-          "Ghost": false, 
-          "SendsEvents": true, 
-          "IsDrawingCollider": false
-        }, 
-        "Camera": 
-        {
-          "FieldOfView": 250.000000, 
-          "NearPlane": 0.100000, 
-          "FarPlane": 100.000000, 
-          "Size": 90.000000
-        }, 
-        "Sprite": 
-        {
-          "Visible": true, 
-          "Color": 
-          {
-            "Vec4": 
-            {
-              "x": 1.000000, 
-              "y": 1.000000, 
-              "z": 1.000000, 
-              "w": 1.000000
-            }
-          }, 
-          "SpriteSource": "square", 
+          "SpriteSource": "Concept", 
           "FlipX": false, 
           "FlipY": false, 
           "AnimationActive": false, 

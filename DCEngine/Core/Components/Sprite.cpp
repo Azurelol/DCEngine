@@ -56,7 +56,7 @@ namespace DCEngine {
     None.
   */
   /**************************************************************************/
-  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), SpriteSource("square") {
+  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
 
   }
 
