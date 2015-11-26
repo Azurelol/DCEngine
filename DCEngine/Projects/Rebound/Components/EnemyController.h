@@ -8,9 +8,8 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #pragma once
-#include "../../ProjectComponent.h"
+#include "ReboundComponent.h"
 
 namespace DCEngine {
 

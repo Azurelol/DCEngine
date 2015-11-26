@@ -48,9 +48,11 @@ namespace DCEngine {
       unsigned int Width = 1024;
       unsigned int Height = 600;
       unsigned int Framerate = 60;
+      bool Fullscreen = false;
 
       
-      Window(std::string& caption, unsigned int framerate, unsigned int width, unsigned int height);
+      Window(std::string& caption, unsigned int framerate, unsigned int width, 
+             unsigned int height, bool fullscreen);
       void Initialize();
       void Update(float dt);
       void Terminate();

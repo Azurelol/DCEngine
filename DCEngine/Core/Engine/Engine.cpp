@@ -108,7 +108,8 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
                                                      EngineConfiguration->Framerate,
                                                      EngineConfiguration->ResolutionWidth,
-                                                     EngineConfiguration->ResolutionHeight)));
+                                                     EngineConfiguration->ResolutionHeight,
+                                                     EngineConfiguration->IsFullScreen)));
     _systems.push_back(SystemPtr(new Systems::Input));
     _systems.push_back(SystemPtr(new Systems::Editor(EngineConfiguration->EditorEnabled)));    
     _systems.push_back(SystemPtr(new Systems::Physics));
@@ -126,6 +127,8 @@ namespace DCEngine {
       sys->Initialize();
     }
     
+
+
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
 
@@ -154,6 +157,7 @@ namespace DCEngine {
     Connect<Events::EnginePause>(&Engine::OnEnginePauseEvent, this);
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
+    Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
   }
 
   /**************************************************************************/
@@ -166,6 +170,8 @@ namespace DCEngine {
     DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
     this->Paused = true;
   }
+
+
 
   /**************************************************************************/
   /*!
@@ -187,6 +193,14 @@ namespace DCEngine {
   {
     DCTrace << "Engine::OnEngineExitEvent - Exit \n";
   }
+
+  // Deprecate me!!
+  void Engine::OnEnginePauseMenuEvent(Events::EnginePauseMenu * event)
+  {
+    //PauseMenuEnabled = true;    
+  }
+
+  
   
   /**************************************************************************/
   /*!
@@ -218,6 +232,9 @@ namespace DCEngine {
     // they were added to the engine. (Or split it and do it individually?)
     for (auto system : _systems)
       system->Update(dt);
+
+    //if (PauseMenuEnabled)
+    //  PauseMenu();
 
     // Tell window management system to end the frame
     getSystem<Systems::Graphics>()->EndFrame();
@@ -251,6 +268,8 @@ namespace DCEngine {
     delete logicUpdateEvent;
 
   }
+
+
 
   /**************************************************************************/
   /*!
@@ -304,7 +323,7 @@ namespace DCEngine {
 
   }
 
-
+  
   /**************************************************************************/
   /*!
   @brief  Loads the engine's configuration from a file.

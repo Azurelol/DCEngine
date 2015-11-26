@@ -145,9 +145,6 @@
     <Filter Include="Projects\Rebound\Events">
       <UniqueIdentifier>{3d70d904-78ff-4f31-a943-9c7f81c04eca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\Rebound\Assets">
-      <UniqueIdentifier>{63a897dd-7b3a-43aa-86ba-c801161cf0ee}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Includes">
       <UniqueIdentifier>{831223b7-ed89-4e8b-8ba5-2262767d0bd3}</UniqueIdentifier>
     </Filter>
@@ -231,6 +228,9 @@
     </Filter>
     <Filter Include="Core\Components\Audio\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Properties">
+      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -435,9 +435,6 @@
     <ClCompile Include="Core\Systems\Editor\Library.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Objects.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -578,6 +575,18 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp">
       <Filter>Core\Systems\Editor\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionGroup.cpp">
+      <Filter>Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
+      <Filter>Core\Systems\Editor\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\ReboundBinding.cpp">
+      <Filter>Projects\Rebound</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -836,9 +845,6 @@
     <ClInclude Include="Projects\Rebound\ReboundEvents.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\ReboundComponents.h">
-      <Filter>Projects\Rebound</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\ProjectComponent.h">
       <Filter>Projects\Includes</Filter>
     </ClInclude>
@@ -1006,6 +1012,18 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
       <Filter>Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\ReboundBinding.h">
+      <Filter>Projects\Rebound</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h">
+      <Filter>Projects\Rebound</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\ReboundComponentsInclude.h">
+      <Filter>Projects\Rebound</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PauseManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

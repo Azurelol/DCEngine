@@ -1,12 +1,13 @@
 /******************************************************************************/
 /*!
-\file   Texture2D.h
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   9/16/2015
-\brief  The texture class stores and configures a texture in OpenGL.
-\note   "http://learnopengl.com/#!Getting-started/Textures"
+@file   Texture2D.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   9/16/2015
+@brief  The texture class stores and configures a texture in OpenGL.
+@note   "http://learnopengl.com/#!Getting-started/Textures"
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+@todo   Remove the Find method. Texture2D shoudln't derive from Resource?
 
 */
 /******************************************************************************/
@@ -25,6 +26,8 @@ namespace DCEngine {
     //void Generate(GLuint width, GLuint height, unsigned char* data);
     // Binds the texture as the current active GL_TEXTURE_2D texture object
     void Bind() const;
+
+    static Texture2D* Find();
 
     // Holds the ID of the texture object, used for all texture operations
     // to reference to this particular texture.

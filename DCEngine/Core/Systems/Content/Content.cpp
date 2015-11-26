@@ -288,6 +288,28 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Grabs a CollisionGroup resource.
+    @return Returns a pointer to the CollisionGroup object.
+    */
+    /**************************************************************************/
+    CollisionGroupPtr Content::getCollisionGroup(std::string & groupName)
+    {
+      return CollisionGroupPtr();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a CollisionTable resource.
+    @return Returns a pointer to the CollisionTable object.
+    */
+    /**************************************************************************/
+    CollisionTablePtr Content::getCollisionTable(std::string & groupName)
+    {
+      return CollisionTablePtr();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Returns pointers to the content maps.
     @return Returns a pointer to the SoundCue object.
     */

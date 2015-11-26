@@ -8,16 +8,17 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "SpriteSource.h"
+#include "../../Core/Engine/Engine.h"
 
 namespace DCEngine {
-
+  
   /**************************************************************************/
   /*!
   @brief Constructor for the SpriteSource resource.
   @param The name of the image (texture) file.
   */
+
   /**************************************************************************/
   SpriteSource::SpriteSource(std::string spriteFile) : Resource(FileSystem::FileNoExtension(spriteFile)), 
                                                        ImageFileName(spriteFile) {
@@ -91,7 +92,17 @@ namespace DCEngine {
     return *(TextureObj.get());
   }
   #endif
-  
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns the SpriteSource resource to be used by the graphics system.
+  @return A reference to the SpriteSource object.
+  */
+  /**************************************************************************/
+  SpriteSourcePtr SpriteSource::Find(std::string name)
+  {
+    return Daisy->getSystem<Systems::Content>()->getSpriteSrc(name);
+  }
 
 
 

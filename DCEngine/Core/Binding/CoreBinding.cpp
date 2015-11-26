@@ -20,9 +20,7 @@
 // Core Components
 #include "..\ComponentsInclude.h"
 
-namespace DCEngine {
-
-  
+namespace DCEngine {  
 
   ZilchDefineStaticLibrary(DCEngineCore) {
 
@@ -33,7 +31,6 @@ namespace DCEngine {
     by globals/pre-main initializations. This method ensures that all classes will be properly bound.
     */
 
-
     // Objects
     ZilchInitializeType(Object);
     ZilchInitializeType(Entity);
@@ -43,13 +40,19 @@ namespace DCEngine {
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
 
-    // Components
-    ZilchInitializeType(Transform);
+    // Core Components
+
+    // Graphics
     ZilchInitializeType(Sprite);
     ZilchInitializeType(Camera);
+    ZilchInitializeType(EditorCameraController);
+
+    // Physics
+    ZilchInitializeType(Transform);
     ZilchInitializeType(RigidBody);
     ZilchInitializeType(BoxCollider);  
-
+    // Space
+    
 
   }
 }

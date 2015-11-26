@@ -42,8 +42,11 @@ namespace DCEngine {
     #endif
 
     /* Property methods */
-    bool getVisible() const;
-    void setVisible(bool);
+    DCE_DEFINE_PROPERTY(bool, Visible);
+    
+    //bool getVisible() const;
+    //void setVisible(bool);
+
     Vec4 getColor() const;
     void setColor(Vec4);
 	void addColor(Vec4 color);
@@ -60,7 +63,7 @@ namespace DCEngine {
     
 
     /* Variables */
-		String SpriteSource = "square";
+		String SpriteSource = "Square";
 		bool Visible = true;
 		Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
 		BlendModeType BlendMode = BlendModeType::Alpha;

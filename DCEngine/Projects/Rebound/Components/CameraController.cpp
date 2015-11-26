@@ -82,7 +82,8 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(CameraController, "CameraController", DCEngineCore, builder, type) {
+	ZilchDefineType(CameraController, "CameraController", Rebound, builder, type) {
+    REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
 		// Constructor / Destructor
 		ZilchBindConstructor(builder, type, CameraController, "owner", Entity&);
 		ZilchBindDestructor(builder, type, CameraController);

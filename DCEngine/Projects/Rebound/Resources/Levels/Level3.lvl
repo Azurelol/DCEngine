@@ -113,7 +113,7 @@
               "w": 1.000000
             }
           }, 
-          "SpriteSource": "Square", 
+          "SpriteSource": "Doge", 
           "FlipX": false, 
           "FlipY": false, 
           "AnimationActive": false, 

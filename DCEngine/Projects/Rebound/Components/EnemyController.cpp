@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "EnemyController.h"
 #include "../../CoreComponents.h"
 
@@ -76,11 +75,11 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDefineType(EnemyController, "EnemyController", DCEngineCore, builder, type) {
+		ZilchDefineType(EnemyController, "EnemyController", Rebound, builder, type) {
+      REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
 			// Constructor / Destructor
 			ZilchBindConstructor(builder, type, EnemyController, "owner", Entity&);
 			ZilchBindDestructor(builder, type, EnemyController);
-			// Properties
 		}
 	#endif
 }

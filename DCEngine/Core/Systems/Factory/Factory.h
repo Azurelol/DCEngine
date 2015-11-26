@@ -46,8 +46,8 @@ namespace DCEngine {
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       // Resources
-      ResourcePtr CreateResource(const std::string& resourceName, bool init);       
-
+      ResourceStrongPtr CreateResource(const std::string& resourceName, bool init);       
+      void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
 
     private:
 
@@ -62,8 +62,7 @@ namespace DCEngine {
       Factory();
       void Initialize();
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
-      void Terminate();
-      void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
+      void Terminate();      
       void ConstructComponentFactoryMap();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
     }; 

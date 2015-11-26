@@ -8,7 +8,8 @@
 */
 /******************************************************************************/
 #pragma once
-#include "../../ProjectComponent.h"
+#include "ReboundComponent.h"
+
 #define SkeletonTraceOn 0
 
 namespace DCEngine {

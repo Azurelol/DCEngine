@@ -123,8 +123,20 @@ namespace DCEngine {
       ContextSettings.majorVersion = _majorVersion;
       ContextSettings.minorVersion = _minorVersion;
 
-      WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-                          WindowInterface.Caption, sf::Style::Default, ContextSettings));
+      // If it starts as fullscreen
+      if (WindowInterface.Fullscreen) {
+        WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, 
+                                                         sf::VideoMode::getDesktopMode().height),
+          WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
+        Mode = WindowMode::Fullscreen;
+      }
+      // Or if it starts as windowed
+      else {
+        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+          WindowInterface.Caption, sf::Style::Default, ContextSettings));
+        Mode = WindowMode::Default;
+      }
+
       WindowContext->setFramerateLimit(WindowInterface.Framerate);
 
       // Configures the window context, then creates it

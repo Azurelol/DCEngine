@@ -324,6 +324,14 @@ namespace DCEngine {
     return NULL;
   }
 
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a container containing pointers to all the GameObjects
+          in the space.
+  @return A reference to the container of active GameObject.
+  */
+  /**************************************************************************/
   GameObjectVec* Space::AllObjects()
   {
     return &GameObjectContainer;
@@ -331,7 +339,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Adds an entity directly to the space.
+  @brief  Adds an entity directly to the space.
   */
   /**************************************************************************/
   void Space::AddObject(GameObjectPtr gameObject) {

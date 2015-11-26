@@ -41,20 +41,19 @@ namespace DCEngine {
   // Alias for the enum
   using ESys = EnumeratedSystem;
 
-  class System {
+  class System : public Object {
 
   public:
     System(std::string& name, ESys type) : SysName(name), _type(type) {
       //trace << _name << "::Constructor \n";
     }
-
-    inline mask Mask() { return _mask; }
-
+    
     // Sharing is caring
     friend class Space;
     friend class Engine; 
 
   private:
+    EntityVec ActiveDelegateHolders; //!< @todo Remove me soon
     System() = delete;
     virtual void Initialize() = 0;
     virtual void Update(float dt) = 0;
@@ -64,8 +63,6 @@ namespace DCEngine {
   protected:
     std::string SysName;
     const ESys _type;
-    EntityVec _entities;
-    mask _mask;
     
   };
 

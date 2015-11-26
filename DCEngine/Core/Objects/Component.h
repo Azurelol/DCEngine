@@ -64,6 +64,8 @@ namespace DCEngine {
   
   /* Forward-declarations */
   class Entity;
+  //using EntityPtr = Entity*;
+
   class GameObject;
   class Space;
   class GameSession;
@@ -109,10 +111,12 @@ namespace DCEngine {
 
     Space* SpaceRef;
     GameSession* GameSessionRef;
+    std::vector<Entity*> ActiveDelegateHolders;
     
   private:
 
     EntityType OwnerClass;
+    
     Component() = delete; // No default construction
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();

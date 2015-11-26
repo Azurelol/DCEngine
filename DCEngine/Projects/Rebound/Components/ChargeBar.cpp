@@ -69,11 +69,11 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(ChargeBar, "ChargeBar", DCEngineCore, builder, type) {
+	ZilchDefineType(ChargeBar, "ChargeBar", Rebound, builder, type) {
+    REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
 		// Constructor / Destructor
-		ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
-		ZilchBindDestructor(builder, type, Transform);
-		// Properties
+		ZilchBindConstructor(builder, type, ChargeBar, "owner", Entity&);
+		ZilchBindDestructor(builder, type, ChargeBar);
 	}
 	#endif
 }

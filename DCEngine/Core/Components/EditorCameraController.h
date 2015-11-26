@@ -18,6 +18,10 @@ namespace DCEngine {
   class EditorCameraController : public Component {
   public:
 
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(EditorCameraController, Component);
+    #endif
+
     /* Properties */
     Real MoveSpeed = 3;
     Real RotSpeed = 15;

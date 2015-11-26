@@ -61,4 +61,9 @@ namespace DCEngine {
     glBindTexture(GL_TEXTURE_2D, this->TextureID);
   }
 
+  Texture2D * Texture2D::Find()
+  {
+    return nullptr;
+  }
+
 }

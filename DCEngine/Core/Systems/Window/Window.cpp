@@ -23,9 +23,11 @@ namespace DCEngine {
     @brief Constructor for the Window system.
     */
     /**************************************************************************/
-    Window::Window(std::string& caption, unsigned int framerate, unsigned int width, unsigned int height) :
+    Window::Window(std::string& caption, unsigned int framerate, unsigned int width, 
+                   unsigned int height, bool fullScreen) :
                       System(std::string("WindowSystem"), EnumeratedSystem::Window),
-                      Caption(caption), Framerate(framerate), Width(width), Height(height) {
+                      Caption(caption), Framerate(framerate), Width(width), Height(height),
+                      Fullscreen(fullScreen) {
 
       DCTrace << "*Using SFML Context for Window and Input \n";
       WindowHandler.reset(new WindowSFML(*this));
