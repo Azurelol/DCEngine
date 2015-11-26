@@ -56,7 +56,7 @@ namespace DCEngine {
     None.
   */
   /**************************************************************************/
-  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), SpriteSource("Square") {
+  Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), SpriteSource("square") {
 
   }
 
@@ -217,10 +217,10 @@ namespace DCEngine {
     Whether this object is visible.
   */
   /**************************************************************************/
-  bool Sprite::getVisible() const
-  {
-    return this->Visible;
-  }
+  //bool Sprite::getVisible() const
+  //{
+  //  return this->Visible;
+  //}
 
   /**************************************************************************/
   /*!
@@ -235,10 +235,10 @@ namespace DCEngine {
     None.
   */
   /**************************************************************************/
-  void Sprite::setVisible(bool visible)
-  {
-    this->Visible = visible;
-  }
+  //void Sprite::setVisible(bool visible)
+  //{
+  //  this->Visible = visible;
+  //}
 
   /**************************************************************************/
   /*!

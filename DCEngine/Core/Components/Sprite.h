@@ -42,8 +42,11 @@ namespace DCEngine {
     #endif
 
     /* Property methods */
-    bool getVisible() const;
-    void setVisible(bool);
+    DCE_DEFINE_PROPERTY(bool, Visible);
+    
+    //bool getVisible() const;
+    //void setVisible(bool);
+
     Vec4 getColor() const;
     void setColor(Vec4);
 	void addColor(Vec4 color);
