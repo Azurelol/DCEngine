@@ -216,11 +216,13 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::Serialize(Zilch::JsonBuilder & builder)
   {
-    // Serialize the underlying Entity object, which includes its components.
-    Entity::Serialize(builder);
-    // Grab a reference to the Zilch Interface
-    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    // Serialize the containers
+    // Serialize the type as the key
+    builder.Key("GameObject");
+    builder.Begin(Zilch::JsonType::Object); {
+      // Serialize the underlying Entity object, which includes its components.
+      Entity::Serialize(builder);
+    }
+    builder.End();
 
   }
 
@@ -232,7 +234,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void GameObject::Deserialize(Zilch::JsonValue * properties)
-  {
+  {    
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Deserialize the underlying Entity
+    Entity::Deserialize(properties);
+    // Deserialize the GameObject properties
+    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

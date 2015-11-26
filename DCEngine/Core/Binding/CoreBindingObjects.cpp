@@ -40,23 +40,28 @@ namespace DCEngine {
   /*!************************************************************************\
   @brief  Object Definition
   \**************************************************************************/
-  ZilchDefineType(Object, "Object", DCEngineCore, builder, type) {
+  ZilchDefineType(Object, "Object", DCEngineCore, builder, type) {    
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Object, "name", std::string);
     ZilchBindConstructor(builder, type, Object, ZilchNoNames);
     ZilchBindDestructor(builder, type, Object);
     // Methods
-    ZilchBindMethod(builder, type, &Object::Name, ZilchNoOverload, "Name", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &Object::Name, ZilchNoOverload, "Name", ZilchNoNames);
     // Fields
     ZilchBindField(builder, type, &Object::ObjectName, "ObjectName", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Object::ObjectID, "ObjectID", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Object::ObjectOwner, "ObjectOwner", Zilch::PropertyBinding::GetSet);
+    // Properties
+    ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");
+
   }
 
   /*!************************************************************************\
   @brief  Entity Definition
   \**************************************************************************/
   ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Entity, "name", std::string);
     ZilchBindDestructor(builder, type, Entity);
@@ -127,6 +132,8 @@ namespace DCEngine {
     ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
     ZilchBindDestructor(builder, type, GameObject);
     // Fields
+    // Properties
+
   }
 
   /*!************************************************************************\

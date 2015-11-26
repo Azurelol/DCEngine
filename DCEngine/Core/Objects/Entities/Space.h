@@ -27,13 +27,17 @@ namespace DCEngine {
 
   // Forward declarations
   class GameSession;
-  class Factory;
   class Archetype;
-  
+  namespace Systems {
+    class Editor;
+    class Factory;
+  }
 
   class Space : public Entity {
     friend class GameSession;
-    friend class Factory;
+    friend class Systems::Factory;
+    friend class Systems::Editor;
+    
   
   public:
 
@@ -50,12 +54,9 @@ namespace DCEngine {
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
 
-    std::string SaveLevel(const std::string& levelName);
-    void LoadLevel(LevelPtr level);
+
     void LoadLevel(std::string& level);
     void ReloadLevel();
-    // TEMPORARY
-    void LoadSampleLevel(LevelPtr level);
 
     GameObjectPtr CreateObject(); 
     GameObjectPtr CreateObject(std::shared_ptr<Archetype> archetype);
@@ -76,6 +77,13 @@ namespace DCEngine {
 
     Space() = delete; //!< Spaces should never be default or copy constructed.
     Space(Space& space) = delete;  
+
+    // TEMPORARY
+    void LoadSampleLevel(LevelPtr level);
+    LevelPtr SaveLevel(const std::string& levelName);
+    //std::string SaveLevel(const std::string& levelName);
+    void LoadLevel(LevelPtr level);
+
   };
 
   using SpacePtr = std::shared_ptr<Space>;

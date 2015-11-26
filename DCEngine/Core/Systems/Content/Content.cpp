@@ -346,9 +346,6 @@ namespace DCEngine {
       return &LevelMap;
     }
 
-
-
-
     /**************************************************************************/
     /*!
     @brief Updates the Content system.
@@ -362,7 +359,6 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief Terminates the Content system.
-    @note
     */
     /**************************************************************************/
     void Content::Terminate() {

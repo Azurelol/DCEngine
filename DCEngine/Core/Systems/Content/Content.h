@@ -37,6 +37,7 @@ namespace DCEngine {
     class Content : public System {
       friend class Engine;
       friend class Factory;
+      friend class Editor;
     public:    
       void LoadProjectResources(); //!< Load resources from a project.
       

@@ -36,10 +36,13 @@ namespace DCEngine {
       // GameObjects
       GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
       GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);     
-      GameObjectPtr BuildGameObject(SerializedMember* objectData, Space& space);
-      bool BuildLevel(LevelPtr level, Space&);
+      GameObjectPtr BuildGameObject(SerializedMember* objectData, Space& space);      
       void MarkGameObject(GameObject& gameObj);
       void DestroyGameObjects();      
+
+      // Levels
+      bool BuildFromLevel(LevelPtr level, Space&);
+      LevelPtr BuildLevel(std::string name, Space&);
 
       // Components
       ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);

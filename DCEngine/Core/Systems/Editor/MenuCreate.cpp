@@ -26,7 +26,7 @@ namespace DCEngine {
     {      
       // Create the empty transform
       auto transform = CurrentSpace->CreateObject();
-      transform->setName("Transform");
+      transform->setObjectName("Transform");
       //transform->setArchetype = "Transform";
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
     }
@@ -43,7 +43,7 @@ namespace DCEngine {
     {
       // Create the Sprite GameObject
       auto sprite = CurrentSpace->CreateObject();
-      sprite->setName("Sprite");
+      sprite->setObjectName("Sprite");
       // Add the Sprite component
       sprite->AddComponent<Sprite>(true);
       //sprite->AddComponent<Sprite>();

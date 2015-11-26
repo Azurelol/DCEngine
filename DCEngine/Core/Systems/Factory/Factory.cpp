@@ -106,36 +106,47 @@ namespace DCEngine {
     @param  serializedData A pointer to the serialized data for the GameObject.
     @param  space A referene to the Space the GameObject will be created on/
     @return A pointer to the GameObject created on the space.
+    @todo   Refactor how it's done..
     */
     /**************************************************************************/
     GameObjectPtr Factory::BuildGameObject(SerializedMember* objectData, Space & space)
-    {
-      // 1. Get the name of the GameObject      
-      auto name = std::string(objectData->Key.c_str());
-      if (DCE_TRACE_FACTORY_GAMEOBJECT_CONSTRUCTION)
-        DCTrace << "Factory::BuildGameObject - Building: '" << name << "' \n";
-      // 2. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, space.getGameSession())));
-      auto gameObj = ActiveGameObjects.back().get();
-      //auto gameObj = CreateGameObject(name, space, true);
+    {      
+      // 1. Construct the GameObject
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, space.getGameSession())));
+      auto gameObjPtr = ActiveGameObjects.back().get();
+      
+
+      // 2. For every property !!! CURRENTLY HARDCODED !!!
+      auto name = objectData->Value->GetMember("Name")->AsString().c_str();
+      gameObjPtr->setObjectName(name);
+      auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
+      gameObjPtr->setArchetype(archetype);
+
+      auto gameObject = objectData->Value;
+      for (auto property : gameObject->OrderedMembers.all()) {
+        // Deserialize it
+        //gameObjPtr->Deserialize(property->Value);
+      }
+
+
       // 3. For each of its components..
-      auto components = objectData->Value->OrderedMembers.all();
+      auto components = objectData->Value->GetMember("Components")->OrderedMembers.all();
       for (auto component : components) {
         // Construct the Component
-        auto componentName = std::string(component->Key.c_str());        
-        auto componentPtr = gameObj->AddComponentByName(componentName, true);
+        auto componentName = std::string(component->Key.c_str());
+        auto componentPtr = gameObjPtr->AddComponentByName(componentName, true);
         // If the component was successfully constructed..
         if (componentPtr) {
           // Deserialize it
           auto properties = component->Value;
           componentPtr->Deserialize(properties);
-        }        
+        }
 
       }
-      // 5. Add it to the space's container of active gameobjects
-      space.AddObject(gameObj);
-      // 6. Return a pointer to it
-      return gameObj;
+
+      // 4. Add it to the space's container of active gameobjects
+      space.AddObject(gameObjPtr);
+      return gameObjPtr;
     }
 
     /**************************************************************************/
@@ -146,7 +157,7 @@ namespace DCEngine {
     @return A pointer to the GameObject created on the space.
     */
     /**************************************************************************/
-    bool Factory::BuildLevel(LevelPtr level, Space & space)
+    bool Factory::BuildFromLevel(LevelPtr level, Space & space)
     {
       // Turn the string from file into JSON data
       Zilch::CompilationErrors errors;
@@ -156,40 +167,70 @@ namespace DCEngine {
 
       // If the data failed to load... 
       if (levelData == nullptr) {
-        DCTrace << "Factory::BuildLevel - Failed to load level data from file! \n";
+        DCTrace << "Factory::BuildFromLevel - Failed to load level data from file! \n";
         return false;
       }
       
-      DCTrace << "Factory::BuildLevel - Building GameObjects from Level: '" << level->Name() << "' \n";
+      DCTrace << "Factory::BuildFromLevel - Building GameObjects from Level: '" << level->Name() << "' \n";
 
       // 1. For every GameObject...
       auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");      
       for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
         // Build the GameObject
         BuildGameObject(gameObjectValue, space);
-        //// Get the name of the GameObject
-        //Zilch::String gameObjectName = gameObjectValue->Key;
-        //// Build the GameObject: Construct, Deserialize it
-        //auto gameObj = CreateGameObject(std::string(gameObjectName.c_str()), space, true);
-        //auto components = gameObjectValue->Value->OrderedMembers.all();
-        //for (auto component : components) {
-        //  // Build its components: Construct, Deserialize each
-        //  auto componentName = std::string(component->Key.c_str());
-        //  gameObj->AddComponentByName(componentName, true);
-        //  // Deserialize it
-        //  //gameObj->a
-        //}
-
-        //// Deserialize it
-        //// gameObj->Deserialize(gameObjectValue);
-        //// Add it to the space's container of active gameobjects
-        //space.AddObject(gameObj);
-
       }
 
+      return true;
+    }
 
+    /**************************************************************************/
+    /*!
+    @brief  Builds a level from a Space.
+    @param  name The name for the level resource.
+    @param  space A referene to the Space the Level will take objects from.
+    @return A pointer to the created Level resource.
+    */
+    /**************************************************************************/
+    LevelPtr Factory::BuildLevel(std::string level, Space & space)
+    {
+      // Create a builder object to build JSON
+      Zilch::JsonBuilder levelBuilder;
+      
+      levelBuilder.Begin(Zilch::JsonType::Object); {
+        // I. Level
+        levelBuilder.Key("Level");
+        levelBuilder.Begin(Zilch::JsonType::Object); {
 
-        return true;
+          // 1. Name
+          {
+            levelBuilder.Key("Name");            
+            Zilch::String levelName = FileSystem::FileNoExtension(level).c_str();            
+            levelBuilder.Value(levelName);            
+          }
+
+          // 2. Space
+          {
+            //space.Serialize(levelBuilder);
+          }        
+
+          // 2. GameObjects
+          {
+            levelBuilder.Key("GameObjects");
+            levelBuilder.Begin(Zilch::JsonType::Object);
+            for (auto &gameObj : space.GameObjectContainer) {
+              // Do not serialize the editor's camera
+              if (gameObj->Name() == "EditorCamera")
+                continue;
+              gameObj->Serialize(levelBuilder);
+            }
+            levelBuilder.End();
+          }
+        } levelBuilder.End();
+
+      } levelBuilder.End();   
+
+      DCTrace << "Factory::BuildLevel - Saved level: " << level << " to file: data from file! \n";
+      return LevelPtr(new Level(level, std::string(levelBuilder.ToString().c_str())) );
     }
 
     /**************************************************************************/

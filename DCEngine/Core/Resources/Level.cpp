@@ -17,7 +17,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Level constructor.
+  @brief  Level default constructor.
   */
   /**************************************************************************/
   Level::Level(std::string levelFile) : Resource(FileSystem::FileNoExtension(levelFile)),
@@ -25,13 +25,32 @@ namespace DCEngine {
     if (TRACE_CONSTRUCTOR)
       DCTrace << ObjectName << "::Level - Constructor \n";  
   }
+
+  /**************************************************************************/
+  /*!
+  @brief  Level constructort that takes the data.
+  */
+  /**************************************************************************/
+  Level::Level(std::string levelFile, std::string serializedData) : 
+               Resource(FileSystem::FileNoExtension(levelFile)),
+               SourceFile(levelFile) {
+  
+    // Saves the level data right away
+    Save(serializedData);
+
+    if (TRACE_CONSTRUCTOR)
+      DCTrace << ObjectName << "::Level - Constructor \n";
+  }
+
   /**************************************************************************/
   /*!
   @brief  Level destructor.
   */
   /**************************************************************************/
   Level::~Level() {
+
   }
+  
 
   /**************************************************************************/
   /*!

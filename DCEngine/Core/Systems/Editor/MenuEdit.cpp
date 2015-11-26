@@ -19,6 +19,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Deletes the currently selected GameObject.
+    @todo   
     */
     /**************************************************************************/
     void Editor::DeleteObject()
@@ -28,11 +29,29 @@ namespace DCEngine {
         return;
       }
       
+      if (SelectedObject->Name() == "EditorCamera") {        
+        DCTrace << "Editor::DeleteObject - Cannot delete the editor camera! Y-y-you trying to crash or sumthin?? \n";
+        return;        
+      }
+
+      //ImGui::OpenPopup("#ProtectTheEditorCamera");
+      //if (ImGui::BeginPopupModal("#ProtectTheEditorCamera")) {
+      //  ImGui::Text("Cannot delete the editor camera! Y-y-you trying to crash or sumthin??");
+
+      //  if (ImGui::Button("I am sorry")) {
+      //    ImGui::CloseCurrentPopup();
+      //  }
+
+      //  ImGui::EndPopup();
+      //  
+      //}
+
+
       // Destroy the currently selected GameObject
       if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
         gameObject->Destroy();
-        SelectedObject = nullptr;
         DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
+        SelectedObject = nullptr;        
       }
     }
 

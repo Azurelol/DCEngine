@@ -52,21 +52,25 @@ namespace DCEngine {
     void Editor::SaveLevel(std::string level)
     {
       DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
-      // Request the space to serialize the current level and return that string.
-      //CurrentSpace->SaveLevel(level);
       
-      //Zilch::JsonBuilder builder;
-      std::string levelData = CurrentSpace->SaveLevel(level);
-      //std::string levelData = "Haha I am totally serialized now dude my name is " + level;      
-
       // Get the current project's path
       std::string LevelPath("Projects/Rebound/Resources/Levels/");
-      FileSystem::FileWriteString(LevelPath + level + std::string(".lvl"), levelData);
+      auto levelResource = CurrentSpace->SaveLevel(LevelPath + level + std::string(".lvl"));
+      //Daisy->getSystem<Systems::Content>()->AddLevel(levelResource->Name(), levelResource);
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Reloads the currently loaded level.
+    */
+    /**************************************************************************/
     void Editor::ReloadLevel()
     {
+      // Reload the current level
+      CurrentSpace->ReloadLevel();
+      // Reload the editor camera
+      SetEditorCamera();
     }
 
     void Editor::LoadDollhouse()

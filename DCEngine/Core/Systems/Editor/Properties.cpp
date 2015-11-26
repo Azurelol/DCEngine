@@ -71,7 +71,7 @@ namespace DCEngine {
         char name[32]; strcpy(name, SelectedObject->Name().c_str());
         // If the user has given input, change the name
         if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
-          SelectedObject->setName(name);
+          SelectedObject->setObjectName(name);
         }
                 
         // 2. Display the object's archetype

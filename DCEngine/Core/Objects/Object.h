@@ -42,7 +42,9 @@ namespace DCEngine {
       Object();
       virtual ~Object();
       const std::string& Name() const;
-      void setName(std::string);
+      
+      // Properties
+      DCE_DEFINE_PROPERTY(std::string, ObjectName);
 
       #if(DCE_USE_ZILCH_INTERNAL_BINDING)
       /* Using internal binding we'll declare that this class should be registered wit ZIlch.
@@ -51,19 +53,17 @@ namespace DCEngine {
       ReferenceType means it will be allocated on the heap and alwayts referenced by handle. */
       ZilchDeclareBaseType(Object, Zilch::TypeCopyMode::ReferenceType);
 
-      //!< Deserializes the Object from JSON through Zilch.
+      //!< Serializes the Object to JSON through Zilch.      
+      template <typename ObjectHandle>
+      void SerializeByType(Zilch::JsonBuilder& builder, Zilch::ExecutableState* state,
+        ObjectHandle objectHandle, Zilch::BoundType* boundType);
       template <typename ObjectHandle>
       void DeserializeByType(Zilch::JsonValue* properties, Zilch::ExecutableState* state, 
                      ObjectHandle objectHandle, Zilch::BoundType* boundType);
-      //!< Serializes the Object to JSON through Zilch.      
-      void Deserialize(Zilch::JsonValue* properties);
 
-      //std::string Serialize();
+      // Serialize the base object
       void Serialize(Zilch::JsonBuilder& builder);
-        template <typename ObjectHandle>
-      void SerializeByType(Zilch::JsonBuilder& builder, Zilch::ExecutableState* state, 
-                             ObjectHandle objectHandle, Zilch::BoundType* boundType);
-
+      void Deserialize(Zilch::JsonValue* properties);   
       #endif
 
     protected:

@@ -9,8 +9,8 @@
 
 */
 /******************************************************************************/
-
 #include "Object.h"
+#include "../../Core/Engine/Engine.h"
 
 namespace DCEngine {
 
@@ -62,14 +62,32 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief Sets the name of the object.
-  @param name The new name for the Object.
+  @brief Serializes the base object.
+  @todo  Serialize by type for Object is currently not working.
   */
   /**************************************************************************/
-  void Object::setName(std::string name)
+  void Object::Serialize(Zilch::JsonBuilder & builder)
   {
-    ObjectName = name;
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Name
+    {
+      builder.Key("Name");
+      builder.Value(this->Name().c_str());
+    }
+    // Not working atm
+    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType->ZilchGetDerivedType()->BaseType );
   }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes the base object.
+  */
+  /**************************************************************************/
+  void Object::Deserialize(Zilch::JsonValue * properties)
+  {
+
+  }
+
 
 #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)
   ZilchDefineType(Object, "Object", DCEngineCore, builder, type) {

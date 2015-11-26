@@ -19,6 +19,7 @@ namespace DCEngine {
   class Level : public Resource {
   public:
     Level(std::string name);
+    Level(std::string name, std::string serializedData);
     ~Level();
     void Save(std::string& serializedData);
     bool Load();

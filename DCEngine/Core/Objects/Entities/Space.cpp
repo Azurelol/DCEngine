@@ -162,37 +162,9 @@ namespace DCEngine {
   @return A string containing the serialized level data as JSON.
   */
   /**************************************************************************/
-  std::string Space::SaveLevel(const std::string & level)
+ LevelPtr Space::SaveLevel(const std::string & level)
   {
-    // Create a builder object to build JSON
-    Zilch::JsonBuilder levelBuilder;
-
-    levelBuilder.Begin(Zilch::JsonType::Object); 
-    {
-      levelBuilder.Key("Level");
-      //levelBuilder.Key("Level");
-      //levelBuilder.Value(level.c_str());
-      levelBuilder.Begin(Zilch::JsonType::Object); 
-      {
-        // Serialize the space and its components
-        this->Serialize(levelBuilder);
-        // Serialize all the GameObjects in the space
-        {
-          levelBuilder.Key("GameObjects");
-          levelBuilder.Begin(Zilch::JsonType::Object);
-          for (auto &gameObj : GameObjectContainer) {
-            // Do not serialize the editor's camera
-            if (gameObj->Name() == "EditorCamera")
-              continue;
-            gameObj->Serialize(levelBuilder);
-          }
-          levelBuilder.End();
-        }
-      }
-      levelBuilder.End();
-    }    
-    levelBuilder.End();
-    return std::string(levelBuilder.ToString().c_str());
+    return Daisy->getSystem<Systems::Factory>()->BuildLevel(level, *this);
   }
 
   /**************************************************************************/
@@ -241,7 +213,7 @@ namespace DCEngine {
     // Set it as the current level
     CurrentLevel = level;
     // Build all the GameObjects from the level
-    Daisy->getSystem<Systems::Factory>()->BuildLevel(level, *this);
+    Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
 
     //return;
     // Deserialize the space

@@ -110,7 +110,8 @@ namespace DCEngine {
             WindowLoadLevelEnabled = !WindowLoadLevelEnabled;
           if (ImGui::MenuItem("Save Level"))
             WindowSaveLevelEnabled = !WindowSaveLevelEnabled;
-          if (ImGui::MenuItem("Reload Level")) {}
+          if (ImGui::MenuItem("Reload Level"))
+            ReloadLevel();
           ImGui::Separator();
           if (ImGui::MenuItem("Load Dollhouse"))
             LoadDollhouse();
@@ -145,6 +146,10 @@ namespace DCEngine {
           ImGui::EndMenu();
         }
         
+        //ImGui::PushID(1);
+        ImGui::BeginChild("Project2", ImVec2(30, 30));
+        ImGui::EndChild();
+
         ImGui::EndMainMenuBar();
 
       }

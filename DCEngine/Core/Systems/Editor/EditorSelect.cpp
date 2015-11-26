@@ -16,9 +16,16 @@
 namespace DCEngine {
   namespace Systems {
 
+
+    /**************************************************************************/
+    /*!
+    @brief  Selects the Space object for property inspection.
+    */
+    /**************************************************************************/
     void Editor::SelectSpace()
     {
       SelectedObject = CurrentSpace;
+      WidgetPropertiesEnabled = true;
     }
 
   }
