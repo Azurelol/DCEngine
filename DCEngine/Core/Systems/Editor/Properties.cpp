@@ -27,10 +27,44 @@ namespace DCEngine {
       if (!WidgetPropertiesEnabled)
         return;
 
+
+
+
+
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Properties", &WidgetPropertiesEnabled);
 
-      
+      //int inputID = 0;
+      //{
+      //  float vec1f[3] = { 1, 2, 3 };
+      //  ImGui::Text("Testy");
+      //  ImGui::PushID(inputID++);   
+
+      //  if (ImGui::InputFloat3("##inputID", vec1f)) {
+      //    DCTrace << "boo \n";
+      //  }
+      //  ImGui::PopID();
+      //}
+      //{
+      //  float vec2f[3] = { 1, 2, 3 };
+      //  ImGui::Text("Testy");
+      //  ImGui::PushID(inputID++);
+      //  if (ImGui::InputFloat3("##inputID", vec2f)) {
+      //    DCTrace << "boo \n";
+      //  }
+      //  ImGui::PopID();
+      //}
+      //{
+      //  float vec3f[3] = { 1, 2, 3 };
+      //  ImGui::Text("Testy");
+      //  ImGui::PushID(inputID++);        
+      //  if (ImGui::InputFloat3("##inputID", vec3f)) {
+      //    DCTrace << "boo \n";
+      //  }
+      //  ImGui::PopID();
+      //}
+
+
       // If there's an object selected, display its properties.
       if (SelectedObject != nullptr) {
         // 1. Display the object's name
@@ -49,6 +83,10 @@ namespace DCEngine {
         }
         if (ImGui::Button("Upload to Archetype")) {
           DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Revert to Archetype")) {
+          DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
         }
 
         // 3. Display its components
@@ -86,12 +124,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayProperties(ComponentPtr component) {
       
-
       // 1. Get the component's BoundType, which has a wealth of reflected data
       auto componentBoundType = component->ZilchGetDerivedType();
       if (componentBoundType == nullptr)
         return;
-      // 2. Get a list of all properties on the object
+
+      // ImGui uses an unique handle for each Input Widget. We will use a
+      // a counter to have generate unique IDs for each of them.
+      unsigned int inputID = 0;
+
+      // 2. Get a list of all properties on the object      
       for (auto property : componentBoundType->AllProperties) {
         
         // If it is a resource property..
@@ -105,7 +147,6 @@ namespace DCEngine {
         //if (!property->HasAttribute("Property"))
         //  continue;              
 
-        //auto reflection = Daisy->getSystem<Reflection>()->Handler();
         
         // Create an exception report object
         Zilch::ExceptionReport report;
@@ -195,8 +236,9 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
           // If the user has given input, set the property
-          ImGui::Text(property->Name.c_str());
-          if (ImGui::InputFloat("", &real, 1.0f)) {
+          //ImGui::Text(property->Name.c_str());
+          //ImGui::PushID(inputID++);
+          if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
           //if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
@@ -210,13 +252,15 @@ namespace DCEngine {
           auto vec2 = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
           float vec2f[2] = { vec2.x, vec2.y };
           ImGui::Text(property->Name.c_str());
+          ImGui::PushID(inputID++);
           // If the user has given input, set the property
-          if (ImGui::InputFloat2("", vec2f)) {
+          if (ImGui::InputFloat2("##inputID", vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec2f));
             setCall.Invoke(report);
           }
+          ImGui::PopID();
         }
 
         // Property: Real3 (Vec3)
@@ -225,28 +269,32 @@ namespace DCEngine {
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
-          if (ImGui::InputFloat3("", vec3f)) {
-            DCTrace << "Setting " << property->Name.c_str() << "\n";
+          ImGui::PushID(inputID++); 
+          if (ImGui::InputFloat3("##inputID", vec3f)) {
+            //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real3(vec3f));
             //setCall.Set(0, Zilch::Real3(vec3f[0], vec3f[1], vec3f[2]));
             setCall.Invoke(report);
           }
+          ImGui::PopID(); 
         }        
 
         // Property: Real4 (Vec4)
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4))) {
           auto vec4 = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
           float vec4f[4] = { vec4.x, vec4.y, vec4.z, vec4.w};
-          // If the user has given input, set the property
+          // If the user has given input, set the property          
           ImGui::Text(property->Name.c_str());
-          if (ImGui::InputFloat4("", vec4f)) {
+          ImGui::PushID(inputID++);
+          if (ImGui::InputFloat4("##inputID", vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, component);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
           }
+          ImGui::PopID();
         }
       }
     }
@@ -258,13 +306,20 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::AddComponent()
     {
+      static bool Scanned = false;
+
       // Grab a container of all bound components.. 
-      auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
-      // Add the name of every component to a container of C-strings
-      std::vector<const char*> componentNames;     
-      for (auto component : components) {
-        componentNames.push_back(component->Name.c_str());
+      static std::vector<Zilch::BoundType*> components;
+      static std::vector<const char*> componentNames;
+      // Scan for components only when need be
+      if (!Scanned) {
+        components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
+        for (auto component : components) {
+          componentNames.push_back(component->Name.c_str());
+        }
+        Scanned = true;
       }
+
       int currentComponent = 0;
       // If the user selects the combo box...
       //if (ImGui::Button("Add Component"), ImGuiAlign_Center) {
@@ -275,6 +330,7 @@ namespace DCEngine {
         if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
           auto componentName = std::string(componentNames.at(currentComponent));
           SelectedObject->AddComponentByName(componentName, true);
+          Scanned = false;
         }
       //}
         
@@ -316,6 +372,7 @@ namespace DCEngine {
     void SelectSpriteSource(Zilch::Property * resource, ComponentPtr component) {
       // Get a container of all active spritesources        
       auto container = Daisy->getSystem<Content>()->AllSpriteSources();
+      
       std::vector<const char *> spriteSourceNames;
       for (auto spriteSource : *container) {
         // Push the name of it into the vector of strings

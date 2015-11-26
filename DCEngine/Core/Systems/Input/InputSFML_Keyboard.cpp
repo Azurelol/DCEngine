@@ -67,7 +67,7 @@ namespace DCEngine {
       case sf::Keyboard::Escape: // RESERVED: Terminate engine
         //Daisy->getSystem<Window>()->WindowHandler->Terminate();
         //DispatchEngineExitEvent(); 
-        DispatchEnginePauseEvent();
+        //DispatchEnginePauseEvent();
         keyDown->Key = Keys::Escape;
         KeyboardRef->KeyDown_Escape = true;
         break;

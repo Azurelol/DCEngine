@@ -166,7 +166,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   ComponentPtr Entity::AddComponentByName(std::string & name, bool initialize)
-  {    
+  { 
+    //if (this->HasComponent)
+
+
+
     auto Factory = Daisy->getSystem<Systems::Factory>();
     auto component = Factory->CreateComponentByName(name, *this);
     // If the component could not be constructed... 
