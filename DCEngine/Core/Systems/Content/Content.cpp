@@ -239,9 +239,16 @@ namespace DCEngine {
     /**************************************************************************/
     SpriteSourcePtr Content::getSpriteSrc(std::string & spriteName)
     {
-      SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
-      if (spriteSource == nullptr)
-        throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
+      // Check if the resource is present in the map
+      if (!SpriteSourceMap.count(spriteName)) {
+        //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
+        // Return a default '404 image not found.
+        return SpriteSourceMap.at(DefaultImage);
+      }
+
+      //SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
+      //if (spriteSource == nullptr)
+      //  throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
       return SpriteSourceMap.at(spriteName);
     }
 

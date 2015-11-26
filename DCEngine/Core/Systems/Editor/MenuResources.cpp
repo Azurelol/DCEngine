@@ -18,6 +18,7 @@ namespace DCEngine {
 
     void Editor::AddResource()
     {
+
     }
 
     /**************************************************************************/
@@ -70,9 +71,12 @@ namespace DCEngine {
 
     void Editor::LoadDollhouse()
     {
+      SelectedObject = nullptr;
       // !!! TESTING: Level loading
       LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, CurrentSpace->getGameSession()));
-      CurrentSpace->LoadSampleLevel(dollhouse);
+      CurrentSpace->LoadSampleLevel(dollhouse);      
+      // Load the editor camera
+      SetEditorCamera();
     }
 
   }

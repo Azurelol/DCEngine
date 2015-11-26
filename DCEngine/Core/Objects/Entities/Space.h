@@ -29,6 +29,7 @@ namespace DCEngine {
   class GameSession;
   class Factory;
   class Archetype;
+  
 
   class Space : public Entity {
     friend class GameSession;
@@ -62,7 +63,6 @@ namespace DCEngine {
     GameObjectVec* AllObjects();
     void AddObject(GameObjectPtr entity);
     void RemoveObject(GameObject&);
-    void Clear(); // Remves all entities and systems
     void DestroyAll();
 
     GameSession& getGameSession();

@@ -208,6 +208,8 @@ namespace DCEngine {
     // Set it as the current level
     CurrentLevel = level;
 
+    DestroyAll();
+
     // Load GameObjects into the space
     for (auto gameObject : CurrentLevel->GameObjects) {
       AddObject(gameObject);
@@ -375,17 +377,7 @@ namespace DCEngine {
 
   }
 
-
-  /**************************************************************************/
-  /*!
-  \brief  Removes all systems and entities from the space.
-  */
-  /**************************************************************************/
-  void Space::Clear() {
-    GameObjectContainer.clear();
-  }
-
-
+  
   GameSession& Space::getGameSession() {
     return *GameSessionRef;
   }
