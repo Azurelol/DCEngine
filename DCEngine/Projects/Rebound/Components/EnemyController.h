@@ -16,15 +16,22 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
+	enum class EnemyType { RandomJumper, BasicChaser };
 	class EnemyController : public Component {
 
 	public:
 
 		bool Grounded = true;
-		Real MoveSpeed = 3.0f;
-		Real JumpPower = 20.0f;
+		bool LockedOnPlayer = false;
+		bool HitEndOfPatrol = false;
+		Real MoveSpeed = 15.0f;
+		Real JumpPowerY = 20.0f;
+		Real JumpPowerX = 3.0f;
 		Real JumpInterval = 2.0f;
 		Real Timer = 0;
+		Real PatrolRange = 15;
+		Vec3 InitialPosition;
+		EnemyType EnemyType = EnemyType::BasicChaser;
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 		Sprite* SpriteRef;
@@ -37,6 +44,18 @@ namespace DCEngine {
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+		void Patrol();
+		Real GetJumpInterval();
+		void SetJumpInterval(Real val);
+		Real GetJumpPowerY();
+		void SetJumpPowerY(Real val);		
+		Real GetJumpPowerX();
+		void SetJumpPowerX(Real val);
+		Real GetMoveSpeed();
+		void SetMoveSpeed(Real val);
+		//EnemyType GetEnemyType();
+		//void SetEnemyType(EnemyType type);
+
 
 		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
 			ZilchDeclareDerivedType(EnemyController, Component);

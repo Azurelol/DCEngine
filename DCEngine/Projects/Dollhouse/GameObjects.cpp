@@ -17,7 +17,7 @@ float frand(float a = 0, float b = 1) {
 
 namespace DCEngine {
 
-  void DollHouse::GenerateMonkeyLOL(Vec3 translation, Vec3 scale, Vec4 color) {
+  void DollHouse::GenerateRandomJumperEnemy(Vec3 translation, Vec3 scale, Vec4 color) {
     GameObjectPtr monkey = ConstructGameObject("Monkey");
     monkey->AddComponent<Transform>();
     monkey->AddComponent<Sprite>();
@@ -44,6 +44,35 @@ namespace DCEngine {
     //std::mt
     monkey->getComponent<EnemyController>()->JumpInterval = frand(1, 6);
     monkey->getComponent<EnemyController>()->MoveSpeed = frand(2, 10);
+	monkey->getComponent<EnemyController>()->EnemyType = EnemyType::RandomJumper;
+  }
+
+  void DollHouse::GenerateBasicChaserEnemy(Vec3 translation, Vec3 scale, Vec4 color)
+  {
+	  GameObjectPtr monkey = ConstructGameObject("Monkey");
+	  monkey->AddComponent<Transform>();
+	  monkey->AddComponent<Sprite>();
+	  monkey->AddComponent<RigidBody>();
+	  monkey->AddComponent<BoxCollider>();
+	  monkey->AddComponent<DebugCollider>();
+	  monkey->AddComponent<EnemyController>();
+	  // Change the properties of the components
+	  monkey->getComponent<Transform>()->Translation = translation;
+	  monkey->getComponent<Transform>()->Scale = scale;
+	  // Sprite properties
+	  //monkey->getComponent<Sprite>()->SpriteSource = "MonkeyStand";
+	  monkey->getComponent<Sprite>()->SpriteSource = "MonkeyWalk1";
+	  monkey->getComponent<Sprite>()->AnimationActive = true;
+	  monkey->getComponent<Sprite>()->HaveAnimation = true;
+	  monkey->getComponent<Sprite>()->AnimationSpeed = 10;
+	  monkey->getComponent<Sprite>()->setColor(Vec4(color));
+	  // BoxCollider properties
+	  monkey->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+	  monkey->getComponent<BoxCollider>()->IsDrawingCollider = false;
+	  // Rigidbody properties
+	  monkey->getComponent<RigidBody>()->setGravity(true);
+	  //std::uniform_real_distribution<float> dist(0, 5);
+	  monkey->getComponent<EnemyController>()->EnemyType = EnemyType::BasicChaser;
   }
 
 	void DollHouse::GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color)
@@ -204,6 +233,7 @@ namespace DCEngine {
 	*/
 	GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
 	GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	GenerateBasicChaserEnemy(Vec3(-30, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");

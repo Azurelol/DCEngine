@@ -21,7 +21,9 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, EnemyController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
+		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+		InitialPosition = TransformRef->getTranslation();
 	}
 
 	void EnemyController::Serialize(Json::Value & root)
@@ -36,8 +38,8 @@ namespace DCEngine {
 	{
 		if (event->OtherObject->getComponent<BallController>())
 		{
-			//TransformRef->Translation.x = 1000;
-			//TransformRef->Translation.y = 1000;
+			//TransformRef->Translation.x = -1000;
+			//TransformRef->Translation.y = -1000;
 		}
 	}
 
@@ -48,12 +50,105 @@ namespace DCEngine {
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		Timer += event->Dt;
-		if (Timer > JumpInterval)
+		auto XDistanceFromPlayer = TransformRef->Translation.x - PlayerRef->getComponent<Transform>()->Translation.x;
+		if (EnemyType == EnemyType::BasicChaser)
 		{
-			Timer = 0;
-			auto direction = rand() % 11 - 5; //-5 to 5
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * MoveSpeed, JumpPower, 0));
+			if (glm::abs(XDistanceFromPlayer) < 10)
+			{
+				auto direction = glm::sign(XDistanceFromPlayer); //-5 to 5
+				if (direction < 0)
+				{
+					HitEndOfPatrol = false;
+				}
+				if (direction > 0)
+				{
+					HitEndOfPatrol = true;
+				}
+				//LockedOnPlayer = true;
+				if (Timer > JumpInterval)
+				{
+					//Timer = 0;
+					//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * JumpPowerX, JumpPowerY, 0));
+				}
+				SpriteRef->Color = Vec4(1, 0, 1, 1);
+			}
+			else
+			{
+				SpriteRef->Color = Vec4(0, 0, 1, 1);
+			}
+			Patrol();
 		}
+		if (EnemyType == EnemyType::RandomJumper)
+		{
+			if (Timer > JumpInterval)
+			{
+				Timer = 0;
+				auto direction = rand() % 11 - 5; //-5 to 5
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * JumpPowerX, JumpPowerY, 0));
+			}
+		}
+	}
+
+	void EnemyController::Patrol()
+	{
+		if (HitEndOfPatrol)
+		{
+			RigidBodyRef->setVelocity(Vec3(-MoveSpeed,0,0));
+			if (TransformRef->getTranslation().x < InitialPosition.x)
+			{
+				HitEndOfPatrol = false;
+				SpriteRef->FlipX = false;
+			}
+		}
+		else
+		{
+			RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
+			if (TransformRef->getTranslation().x > InitialPosition.x + PatrolRange)
+			{
+				HitEndOfPatrol = true;
+				SpriteRef->FlipX = true;
+			}
+		}
+		
+	}
+
+	Real EnemyController::GetJumpInterval()
+	{
+		return JumpInterval;
+	}
+
+	void EnemyController::SetJumpInterval(Real val)
+	{
+		JumpInterval = val;
+	}
+
+	Real EnemyController::GetJumpPowerY()
+	{
+		return JumpPowerY;
+	}
+
+	void EnemyController::SetJumpPowerY(Real val)
+	{
+		JumpPowerY = val;
+	}
+
+	Real EnemyController::GetJumpPowerX()
+	{
+		return Real();
+	}
+
+	void EnemyController::SetJumpPowerX(Real val)
+	{
+	}
+
+	Real EnemyController::GetMoveSpeed()
+	{
+		return MoveSpeed;
+	}
+
+	void EnemyController::SetMoveSpeed(Real val)
+	{
+		MoveSpeed = val;
 	}
 
 
@@ -80,6 +175,11 @@ namespace DCEngine {
 			// Constructor / Destructor
 			ZilchBindConstructor(builder, type, EnemyController, "owner", Entity&);
 			ZilchBindDestructor(builder, type, EnemyController);
+			// Properties
+			ZilchBindProperty(builder, type, &EnemyController::GetMoveSpeed, &EnemyController::SetMoveSpeed, "MoveSpeed");
+			ZilchBindProperty(builder, type, &EnemyController::GetJumpInterval, &EnemyController::SetJumpInterval, "JumpInterval");
+			ZilchBindProperty(builder, type, &EnemyController::GetJumpPowerY, &EnemyController::SetJumpPowerY, "JumpPowerY");
+			ZilchBindProperty(builder, type, &EnemyController::GetJumpPowerX, &EnemyController::SetJumpPowerX, "JumpPowerX");
 		}
 	#endif
 }

@@ -103,7 +103,8 @@ namespace DCEngine {
     void GameObjects();
     void SetupBackground();
     void EnvironmentSetup();
-    void GenerateMonkeyLOL(Vec3 translation, Vec3 scale, Vec4 color);
+    void GenerateRandomJumperEnemy(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateBasicChaserEnemy(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateHazardArea(Vec3 translation, Vec3 scale, Vec4 color);
 	void GeneratePlayer(Vec3 translation, Vec3 scale, Vec4 color);
