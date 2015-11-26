@@ -90,14 +90,16 @@ namespace DCEngine {
   private:
 
     // Use a vector here instead, because vector 
-    std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
+    std::map<std::type_index, std::list<std::unique_ptr<Delegate>>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
     bool IsInitialized = false;
 
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
-    
+    template <typename Class>
+    void DeregisterObserver(Class* observer);
+
 
   }; // class Entity
   
@@ -211,7 +213,7 @@ namespace DCEngine {
           if (TRACE_DISPATCH)
             DCTrace << Name() << "::Dispatch - Found delegates with matching event type!\n";
           // For every delegate in the list for this specific event
-          for (auto deleg : eventKey.second) {
+          for (auto& deleg : eventKey.second) {
             // Call the delegate's member function
             if (TRACE_DISPATCH)
               DCTrace << Name() << "::Dispatch - Calling member function on " << "\n";
@@ -265,7 +267,29 @@ namespace DCEngine {
       }
     }
 
-  using EntityPtr = std::shared_ptr<Entity>;
+    template<typename Class>
+    inline void Entity::DeregisterObserver(Class * observer)
+    {
+      // For every event in the map
+      for (auto& event : ObserverRegistry) {        
+        // For every delegate in the list of delegates
+        for (auto it = event.second.begin(); it != event.second.end(); ++it) {
+          // If the observer the delegate is pointing to matches..
+          if ( (*it)->GetObserver() == observer) {
+            // Remove it
+            //(*it).reset();
+            event.second.erase(it);
+            break;
+            //delete (*it);
+            //*it = event.second.back();
+            //event.second.pop_back();
+          }
+        }
+      }
+    }
+
+
+  using EntityPtr = Entity*;
   using EntityVec = std::vector<EntityPtr>;
 
 } // DCEngine

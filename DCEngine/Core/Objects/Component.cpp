@@ -66,6 +66,13 @@ namespace DCEngine {
       DCTrace << ObjectOwner->Name() << "::" << Name() 
               << "::~Component - Destructor called! \n";
     ComponentsDestroyed++;
+    
+    // Deregister from all publishers
+    for (auto publisher : ActiveDelegateHolders) {
+      //publisher->Dis
+      Daisy->Disconnect<Entity>(publisher, this);
+    }
+
 
     if (DiagnosticsEnabled)
       ComponentLastDestroyed = ObjectName;
@@ -148,7 +155,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   std::vector<Zilch::BoundType*> Component::AllComponents()
-  {
+  {    
     return Daisy->getSystem<Systems::Reflection>()->AllComponents();
   }
 }
