@@ -30,7 +30,7 @@ namespace DCEngine {
   extern std::unique_ptr<Engine> Daisy;
 
   // Temporary, perhaps an entity that receives events for the engine.  
-  class Engine {
+  class Engine : public Object {
     friend class EngineLauncher;
   public:
 
@@ -54,8 +54,10 @@ namespace DCEngine {
 
     // Component Events
     template <typename EventClass, typename Class, typename MemberFunction>
-    void Connect(Entity* entity, MemberFunction fn, Class* inst);
-    //void Disconnect(const Entity& entity, EventType);
+    void Connect(Entity* publisher, MemberFunction fn, Class* inst);
+
+    template <typename Publisher, typename Observer>
+    void Disconnect(Publisher* publisher, Observer* observer);
 
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
@@ -99,36 +101,43 @@ namespace DCEngine {
 
   }; // Engine. Template definitions are found below.
 
-     /**************************************************************************/
-     /*!
-     \brief  Subscribes a component to an entity, registering it to its listeners'
-     registry for the specific event.
-     \note   A very helpful 'Connect' macro has been provided to simplify the call.
-     \param  A pointer to the entity.
-     \param  A member function from the component.
-     \param  A pointer to the component.
-     \return A shared pointer to the requested system.
-     */
-     /**************************************************************************/
+  /**************************************************************************/
+  /*!
+  \brief  Subscribes a component to an entity, registering it to its listeners'
+  registry for the specific event.
+  \note   A very helpful 'Connect' macro has been provided to simplify the call.
+  \param  A pointer to the entity.
+  \param  A member function from the component.
+  \param  A pointer to the component.
+  \return A shared pointer to the requested system.
+  */
+  /**************************************************************************/
   template<typename EventClass, typename Class, typename MemberFunction>
-  void Engine::Connect(Entity* entity, MemberFunction fn, Class* inst) {
+  void Engine::Connect(Entity* publisher, MemberFunction fn, Class* inst) {
 
     //if (TRACE_CONNECT) {
     //  DCTrace << "[Engine::Connect] - " << comp->Name() << " has connected to "
     //    << entity->Name() << "\n";
     //}
-
+    
     // Construct the member function delegate
     auto memDeg = new MemberFunctionDelegate<Class, EventClass>();
     memDeg->FuncPtr = fn;
     memDeg->Inst = inst;
     // Create a base delegate pointer to pass to the entity's container
-    auto degPtr = (Delegate*)memDeg;
+    auto degPtr = dynamic_cast<Delegate*>(memDeg);
     // Store the base delegate to the <EventClass, std::list<Delegate*> > map
-    entity->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
-    // Add a pointer to this delegate to the object that connected to it,
-    // so that when its destroyed, it cleans up the delegate as well
-    //inst->ActiveDelegates.push_back(degPtr);
+    publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
+    //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    // Add a pointer to entiyy
+    inst->ActiveDelegateHolders.push_back(publisher);
+  }
+
+
+  template<typename Publisher, typename Observer>
+  inline void Engine::Disconnect(Publisher * publisher, Observer * observer)
+  {
+    publisher->DeregisterObserver(observer);
   }
 
   /**************************************************************************/

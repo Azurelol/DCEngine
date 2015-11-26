@@ -41,6 +41,7 @@
 namespace DCEngine {
 
   // Forward declarations
+  class Object;
   class Component;
   class Event;
   class Delegate;
@@ -50,6 +51,7 @@ namespace DCEngine {
     Delegate() {}
     virtual ~Delegate() {};
     virtual bool Call(Event* event) = 0;
+    virtual Object* GetObserver() = 0;
   };
 
 
@@ -77,12 +79,16 @@ namespace DCEngine {
     virtual bool Call(Event* event) {
       EventClass* eventObj = dynamic_cast<EventClass*>(event);
       // If the object instance has been rendered null, do nothing
-      if (Inst == nullptr || FuncPtr == nullptr) {
+      if (Inst ==  nullptr || FuncPtr == nullptr) {
         return false;
       }
       // Else, if it is active, dispatch the event object
       (Inst->*FuncPtr)(eventObj);
       return true;
+    }
+
+    virtual Object* GetObserver() {
+      return Inst;
     }
   };
   

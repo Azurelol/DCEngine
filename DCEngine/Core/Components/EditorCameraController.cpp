@@ -38,7 +38,7 @@ namespace DCEngine {
     Connect(Daisy->getKeyboard(), Events::KeyDown, EditorCameraController::OnKeyDownEvent);
     Connect(Daisy->getKeyboard(), Events::KeyUp, EditorCameraController::OnKeyUpEvent);
     Connect(Daisy->getMouse(), Events::MouseScroll, EditorCameraController::OnMouseScrollEvent);
-
+    DCTrace << "I have subcribed to " << this->ActiveDelegateHolders.size() << "\n";
   }
 
   void EditorCameraController::OnKeyDownEvent(Events::KeyDown * event)
