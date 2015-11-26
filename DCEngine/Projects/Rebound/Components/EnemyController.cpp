@@ -81,9 +81,6 @@ namespace DCEngine {
 			ZilchBindConstructor(builder, type, EnemyController, "owner", Entity&);
 			ZilchBindDestructor(builder, type, EnemyController);
 			// Properties
-			ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-			ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-			ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
 		}
 	#endif
 }

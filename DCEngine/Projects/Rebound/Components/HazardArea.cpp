@@ -94,9 +94,6 @@ namespace DCEngine {
 			ZilchBindConstructor(builder, type, HazardArea, "owner", Entity&);
 			ZilchBindDestructor(builder, type, HazardArea);
 			// Properties
-			ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-			ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-			ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
 		}
 	#endif
 }
