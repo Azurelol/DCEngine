@@ -175,23 +175,27 @@ namespace DCEngine {
   /**************************************************************************/
   ComponentPtr Entity::AddComponentByName(std::string & name, bool initialize)
   { 
-    //if (this->HasComponent)
-
-
+    // If the entity already has the component, do nothing.
+    if (auto a = this->HasComponent(name)) {
+      return nullptr;
+    }
 
     auto Factory = Daisy->getSystem<Systems::Factory>();
     auto component = Factory->CreateComponentByName(name, *this);
+
     // If the component could not be constructed... 
     if (component == nullptr) {
       DCTrace << ObjectName << "::AddComponentByName - " << name << " could not be added!\n";
       return nullptr;
     }    
+
     ComponentsContainer.emplace_back(std::move(component));
-    //ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByName(name, *this)));
     DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
+
     // Initialize the component if need be
     if (initialize)
       ComponentsContainer.back().get()->Initialize();
+
    // Returns a pointer to the just-added component
     return ComponentsContainer.back().get();
   }
@@ -212,6 +216,27 @@ namespace DCEngine {
     if (initialize)
       ComponentsContainer.back().get()->Initialize();
     return true;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks whether the entity has the component already.
+  @param  name The name of the component.
+  @return Whether it has the component attached to it already.
+  */
+  /**************************************************************************/
+  bool Entity::HasComponent(std::string & name)
+  {
+    for (auto& component : ComponentsContainer) {
+      if (component->getObjectName() == name) {
+        DCTrace << ObjectName << "::HasComponent - '" << name
+          << "' is already attached! \n";
+        return true;
+      }        
+    }
+    DCTrace << ObjectName << "::HasComponent - '" << name
+      << "' is not present. \n";
+    return false;
   }
 
   /**************************************************************************/

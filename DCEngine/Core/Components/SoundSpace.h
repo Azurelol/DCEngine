@@ -22,7 +22,13 @@ namespace DCEngine {
 
     public:
       
+      #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(SoundSpace, Component);
+      #endif
+
       DCE_DEFINE_PROPERTY(Real, Volume);
+      DCE_DEFINE_PROPERTY(Real, Pitch);
+      DCE_DEFINE_PROPERTY(Boolean, Pause);
 
       void PlayCue(std::string soundCueName);
       void PlayCueAt(std::string soundCueName);

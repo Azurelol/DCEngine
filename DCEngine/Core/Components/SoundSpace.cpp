@@ -14,6 +14,25 @@
 
 namespace DCEngine {
 
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(SoundSpace, "SoundSpace", DCEngineCore, builder, type) {
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
+    ZilchBindDestructor(builder, type, SoundSpace);
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
+    DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);
+    DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pause);
+  }
+  #endif
+
     /**************************************************************************/
     /*!
     @brief  Initializes the 'SoundSpace' component.

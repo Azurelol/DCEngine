@@ -58,6 +58,7 @@ namespace DCEngine {
       LevelMap* AllLevels();
       
       void ScanForLevels();
+      void ScanForArchetypes();
 
     private:
       

@@ -274,11 +274,12 @@ namespace DCEngine {
   the object factory.
   */
   /**************************************************************************/
-  GameObjectPtr Space::CreateObject(std::shared_ptr<Archetype> archetype)
+  GameObjectPtr Space::CreateObject(ArchetypePtr archetype)
   {
     // Creates the GameObject from an Archetype
-
-    return GameObjectPtr();
+    auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    //GameObjectContainer.push_back(gameObject);
+    return gameObject;
   }
 
   /**************************************************************************/

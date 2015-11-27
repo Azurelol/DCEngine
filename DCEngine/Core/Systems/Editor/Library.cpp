@@ -15,6 +15,8 @@
 namespace DCEngine {
   namespace Systems {
 
+
+
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.
@@ -28,27 +30,59 @@ namespace DCEngine {
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);
 
-      // 1. Display every spritesource
+      // Archetype Tree
+      if (ImGui::TreeNode("Archetype")) {
+        // Query the Content system for the current list of archetypes
+        static bool ScannedForArchetypes;
+        if (!ScannedForArchetypes) {
+          Daisy->getSystem<Content>()->ScanForArchetypes();
+          ScannedForArchetypes = true;
+        }
+        
+        // Display all archetypes.
+        for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
+          if (ImGui::Selectable(archetype.second->Name().c_str())) {
+            SelectedObject = archetype.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
+      // SpriteSource
       if (ImGui::TreeNode("SpriteSource")) {
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Sprites: ");
-        for (auto spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
-          ImGui::Text(spriteSrc.second->Name().c_str());
+        // Display every SpriteSource
+        for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
+          if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {    
+            //ImGui::IsMouseDown()
+            //if (ImGui::IsMouseDoubleClicked(ImGui::GetIO().MouseDoubleClicked())) {
+            //  DCTrace << "hey ";
+            //}
+            SelectedObject = spriteSrc.second.get();
+            WindowPropertiesEnabled = true;
+          }
         }
         ImGui::TreePop();
       }
       // 2. Display every soundcue
       if (ImGui::TreeNode("SoundCue")) {        
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
-        for (auto soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
-          ImGui::Text(soundCue.second->Name().c_str());
+        for (auto& soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
+          if (ImGui::Selectable(soundCue.second->Name().c_str())) {
+            SelectedObject = soundCue.second.get();
+            WindowPropertiesEnabled = true;
+          }
         }
         ImGui::TreePop();
       }
       // 3. Display every shader
       if (ImGui::TreeNode("Shader")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto shader : *Daisy->getSystem<Content>()->AllShaders()) {
-          ImGui::Text(shader.second->Name().c_str());
+        for (auto& shader : *Daisy->getSystem<Content>()->AllShaders()) {
+          if (ImGui::Selectable(shader.second->Name().c_str())) {
+            SelectedObject = shader.second.get();
+            WindowPropertiesEnabled = true;
+          }
         }
         ImGui::TreePop();
       }
@@ -61,15 +95,14 @@ namespace DCEngine {
           ScannedForLevels = true;
         }
         
-        for (auto level : *Daisy->getSystem<Content>()->AllLevels()) {
+        for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           // If the user double-clicks on.. @todo not working yet
           if (ImGui::Selectable(level.second->Name().c_str())) {
-
           }
           
         }
-
-        //ScannedForLevels = false;
+        
+        ScannedForLevels = false;
         ImGui::TreePop();
       }
 

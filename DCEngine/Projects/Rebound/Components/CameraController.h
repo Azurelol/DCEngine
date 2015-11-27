@@ -35,7 +35,7 @@ namespace DCEngine {
 		void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-				ZilchDeclareDerivedType(CameraController, Component);
+	  ZilchDeclareDerivedType(CameraController, Component);
 		#endif
 
 	private:

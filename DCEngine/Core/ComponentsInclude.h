@@ -11,10 +11,11 @@
 /******************************************************************************/
 #pragma once
 
-/* Space-specific components */
+// Space-specific components
 #include "Components\PhysicsSpace.h"
 #include "Components\GraphicsSpace.h"
 #include "Components\SoundSpace.h"
+#include "Components\TimeSpace.h"
 
 /* Graphics */
 #include "Components\Camera.h"
@@ -22,6 +23,8 @@
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
 #include "Components\EditorCameraController.h"
+// Audio
+#include "Components\SoundEmitter.h"
 // Particles
 #include "Components\SpriteParticleSystem.h"
 #include "Components\ParticleEmitter.h"

@@ -20,9 +20,11 @@ namespace DCEngine {
   class Archetype : public Resource {
   public:
     Archetype(std::string archetypeFile);
+    Archetype(std::string archetypeFile, std::string serializedData);
     ~Archetype();
     void Save(std::string& serializedData);
     void Load();
+    const std::string& Get();
 
   private:
 

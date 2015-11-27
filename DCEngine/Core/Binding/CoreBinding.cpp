@@ -40,17 +40,29 @@ namespace DCEngine {
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
 
-    // Core Components
+    // Resources
+    ZilchInitializeType(SpriteSource);
+    ZilchInitializeType(SoundCue);
 
+    // Components
+
+    // Spaces
+    ZilchInitializeType(PhysicsSpace);
+    ZilchInitializeType(GraphicsSpace);
+    ZilchInitializeType(SoundSpace);
+    ZilchInitializeType(TimeSpace);
+    // Physics
+    ZilchInitializeType(Transform);
+    ZilchInitializeType(RigidBody);
+    ZilchInitializeType(BoxCollider);
     // Graphics
     ZilchInitializeType(Sprite);
     ZilchInitializeType(Camera);
     ZilchInitializeType(EditorCameraController);
-
-    // Physics
-    ZilchInitializeType(Transform);
-    ZilchInitializeType(RigidBody);
-    ZilchInitializeType(BoxCollider);  
+    // Audio
+    ZilchInitializeType(SoundSpace);
+    ZilchInitializeType(SoundEmitter);
+    
     // Space
     
 

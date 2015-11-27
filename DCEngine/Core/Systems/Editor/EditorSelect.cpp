@@ -25,7 +25,7 @@ namespace DCEngine {
     void Editor::SelectSpace()
     {
       SelectedObject = CurrentSpace;
-      WidgetPropertiesEnabled = true;
+      WindowPropertiesEnabled = true;
     }
 
   }

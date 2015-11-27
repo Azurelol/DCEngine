@@ -48,22 +48,25 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Editor::SelectTool()
-    {
-      
+    {      
       if (!SelectedObject)
         return;
 
-      // Get the object's position
-      auto transform = SelectedObject->getComponent<Transform>();      
+      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+        // Get the object's position
+        auto transform = gameObject->getComponent<Transform>();
 
-      // Draw a selected 'box' around the object
-      Vec3 pos = transform->getTranslation();
-      Real width = transform->getScale().x * 2;
-      Real height = transform->getScale().y * 2;
-      Vec4 color(1.0, 0, 0, 1.0);
-      
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(pos,
-                                                                 width, height, color);
+        // Draw a selected 'box' around the object
+        Vec3 pos = transform->getTranslation();
+        Real width = transform->getScale().x * 2;
+        Real height = transform->getScale().y * 2;
+        Vec4 color(1.0, 0, 0, 1.0);
+
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(pos,
+          width, height, color);
+      }
+
+
     }
 
     /**************************************************************************/
@@ -73,25 +76,28 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::TranslateTool()
     {
-
       if (!SelectedObject)
         return;
+
+      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+
+        // Get the object's transform data
+        auto transform = gameObject->getComponent<Transform>();
+        Vec3 pos = transform->getTranslation();
+        Real radius = 8;
+        Real arrowTip = 1;
+        Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
+        Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
+                                         // X-axis
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor);
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, -arrowTip, 0), xColor);
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, arrowTip, 0), xColor);
+        // Y-axis
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-arrowTip, -arrowTip, 0), yColor);
+        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(arrowTip, -arrowTip, 0), yColor);
+      }
       
-      // Get the object's transform data
-      auto transform = SelectedObject->getComponent<Transform>();
-      Vec3 pos = transform->getTranslation();
-      Real radius = 8;
-      Real arrowTip = 1;
-      Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
-      Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
-      // X-axis
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor); 
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, -arrowTip, 0), xColor);
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, arrowTip, 0), xColor);
-      // Y-axis
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-arrowTip, -arrowTip, 0), yColor);
-      CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(arrowTip, -arrowTip, 0), yColor);
       // Create thin box-colliders on every line
 
     }
@@ -103,7 +109,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::RotateTool()
     {
-
       if (!SelectedObject)
         return;
 
@@ -136,15 +141,14 @@ namespace DCEngine {
       if (ActiveTool != EditorTool::Translate)
         return;
 
-      auto a = ActiveTool;
-      DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
-
-      // Get the object's transform data
-      auto transform = SelectedObject->getComponent<Transform>();
-      Vec3 pos = transform->getTranslation();
-      // Translate the object
-      SelectedObject->getComponent<Transform>()->setTranslation(pos + direction);
-
+      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+        DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
+        // Get the object's transform data
+        auto transform = gameObject->getComponent<Transform>();
+        Vec3 pos = transform->getTranslation();
+        // Translate the object
+        gameObject->getComponent<Transform>()->setTranslation(pos + direction);
+      }
     }
 
 

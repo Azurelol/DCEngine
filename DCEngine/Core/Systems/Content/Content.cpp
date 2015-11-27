@@ -159,8 +159,6 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Scans the Level Path for level files.
-    @param  A string containing the path of the project data file.
-    @todo   Currently hardcoded the level path.
     */
     /**************************************************************************/
     void Content::ScanForLevels()
@@ -175,6 +173,26 @@ namespace DCEngine {
       for (auto level : levels) {
         auto soundName = FileSystem::FileNoExtension(level);
         AddLevel(soundName, LevelPtr(new Level(level)));
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Scans the Archetype path for archetype files.
+    */
+    /**************************************************************************/
+    void Content::ScanForArchetypes()
+    {
+      DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
+      std::string ArchetypePath("Projects/Rebound/Resources/Archetypes/");
+
+      // Load sound files
+      std::vector<std::string> archetypes;
+      if (!FileSystem::DirectoryListFilePaths(ArchetypePath, archetypes))
+        throw DCException("Content::ScanForArchetypes - Failed to load archetype files!");
+      for (auto archetype : archetypes) {
+        auto archetypeName = FileSystem::FileNoExtension(archetype);
+        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
       }
     }
 

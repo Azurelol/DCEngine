@@ -27,6 +27,11 @@ namespace DCEngine {
   }                                                            
 
 
+  // This macro defines a property to Zilch
+#define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
+ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
+  // ZilchBindProperty(builder, type, &SoundEmitter::getTranslation, &SoundEmitter::setTranslation, "Translation");
+
   //// This macro creates the definitions of getter and setter method for a Property.
   //#define DCE_DEFINE_PROPERTY(propertyClass, propertyType, propertyName)        \
   //propertyType propertyClass::get#propertyName() const                          \

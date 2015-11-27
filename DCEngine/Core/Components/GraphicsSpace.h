@@ -32,8 +32,17 @@ namespace DCEngine {
 
   class GraphicsSpace : public Component {
     friend class Graphics;
-
+    
   public:
+
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(GraphicsSpace, Component);
+    #endif
+
+    bool Active; // Prevent visibility, particle system and render updates
+    
+    // Properties
+    DCE_DEFINE_PROPERTY(bool, Active);
 
     GraphicsSpace(Entity& owner);
     ~GraphicsSpace();
@@ -43,8 +52,7 @@ namespace DCEngine {
     void RemoveSprite(Sprite& sprite);
     void AddSpriteText(SpriteText& spriteText);
     void RemoveSpriteText(SpriteText& spriteText);
-
-    /* Debug Drawing functions*/
+    // Debug Drawing functions 
     void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
     void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
     void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color);

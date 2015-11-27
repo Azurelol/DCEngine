@@ -8,11 +8,34 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "SoundEmitter.h"
 #include "EngineReference.h"
 
 namespace DCEngine {
+
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(SoundEmitter, "SoundEmitter", DCEngineCore, builder, type) {
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, SoundEmitter, "owner", Entity&);
+    ZilchBindDestructor(builder, type, SoundEmitter);
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Volume);
+    DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Pitch);
+    DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, IsPlaying);
+    //ZilchBindProperty(builder, type, &SoundEmitter::getVolume, &SoundEmitter::setVolume, "Volume");
+    //ZilchBindProperty(builder, type, &SoundEmitter::getRotation, &SoundEmitter::setRotation, "Rotation");
+    //ZilchBindProperty(builder, type, &SoundEmitter::getScale, &SoundEmitter::setScale, "Scale");
+  }
+#endif
+
+
     void SoundEmitter::Initialize()
     {
 
@@ -40,13 +63,6 @@ namespace DCEngine {
       SpaceRef->getComponent<SoundSpace>()->StopCue(CurrentSoundCue);
     }
 
-    void SoundEmitter::setVolume()
-    {
-    }
-
-    void SoundEmitter::getVolume()
-    {
-    }
 
   
 }

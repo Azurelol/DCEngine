@@ -50,15 +50,16 @@ namespace DCEngine {
       bool WidgetLevelEnabled = false;
       bool WidgetResourceAddEnabled = false;
       bool WidgetObjectsEnabled = false;
-      bool WidgetPropertiesEnabled = false;
+      bool WindowPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
       bool WidgetDiagnosticsEnabled = false;
       bool WindowSaveLevelEnabled = false;
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
+      bool WindowCreateFromArchetypeEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
-      Entity* SelectedObject = nullptr;      
+      Object* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
       float SnapDistance = 1.0;
@@ -75,14 +76,23 @@ namespace DCEngine {
       void WidgetObjects();
       // Properties
       void WindowProperties();
-      void DisplayProperties(ComponentPtr);
-      void AddComponent();
-      void SelectResource(Zilch::Property*, ComponentPtr);
+      void DisplayProperties(ObjectPtr);
+      void DisplayEntityProperties();
+      void DisplayResourceProperties();
+      void AddComponent(EntityPtr);
+      void SelectResource(Zilch::Property*, ObjectPtr);
+
+      // Library
       void WidgetLibrary();
       void WidgetDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
+      void WindowCreateFromArchetype();
+      // Archetypes
+      void SaveArchetype(std::string&);
+      void RevertToArchetype();
+      
       // Project
       void NewProject();
       void ArchiveProject();
@@ -121,6 +131,7 @@ namespace DCEngine {
       // Create
       void CreateTransform();
       void CreateSprite();
+      void CreateFromArchetype(std::string&);
 
       /* Functions */
       Editor(bool enabled);

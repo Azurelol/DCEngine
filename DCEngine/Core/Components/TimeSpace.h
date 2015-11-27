@@ -16,15 +16,14 @@ namespace DCEngine {
   class TimeSpace : public Component {
   public:
 
-    //DCE_DECLARE_PROPERTY(bool, Paused);
-    
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(TimeSpace, Component);
+    #endif
+
     // Property Methods
-    bool getPaused() const;
-    void setPaused(bool);
-    float getTimeScale() const;
-    void setTimeScale(float);
-    int getStepCount() const;
-    void setStepCount(int);   
+    DCE_DEFINE_PROPERTY(bool, Paused);
+    DCE_DEFINE_PROPERTY(float, TimeScale);
+    DCE_DEFINE_PROPERTY(int, StepCount);
 
     TimeSpace(Entity& owner);
     void Initialize();
@@ -34,6 +33,7 @@ namespace DCEngine {
     bool Paused = false; // If the time space is paused then we cease sending out LogicUpdate events.
     float TimeScale = 1; // Scale the speed of time for interesting effects like bullet time..
     int StepCount = 1; // Causes the engine to update this space 'n' times
+
     void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
   };

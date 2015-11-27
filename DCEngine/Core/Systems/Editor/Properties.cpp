@@ -16,7 +16,7 @@
 
 namespace DCEngine {
   namespace Systems {
-
+    
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.
@@ -24,108 +24,102 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowProperties()
     {
-      if (!WidgetPropertiesEnabled)
+      if (!WindowPropertiesEnabled)
         return;
 
-
-
-
-
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Properties", &WidgetPropertiesEnabled);
-
-      //int inputID = 0;
-      //{
-      //  float vec1f[3] = { 1, 2, 3 };
-      //  ImGui::Text("Testy");
-      //  ImGui::PushID(inputID++);   
-
-      //  if (ImGui::InputFloat3("##inputID", vec1f)) {
-      //    DCTrace << "boo \n";
-      //  }
-      //  ImGui::PopID();
-      //}
-      //{
-      //  float vec2f[3] = { 1, 2, 3 };
-      //  ImGui::Text("Testy");
-      //  ImGui::PushID(inputID++);
-      //  if (ImGui::InputFloat3("##inputID", vec2f)) {
-      //    DCTrace << "boo \n";
-      //  }
-      //  ImGui::PopID();
-      //}
-      //{
-      //  float vec3f[3] = { 1, 2, 3 };
-      //  ImGui::Text("Testy");
-      //  ImGui::PushID(inputID++);        
-      //  if (ImGui::InputFloat3("##inputID", vec3f)) {
-      //    DCTrace << "boo \n";
-      //  }
-      //  ImGui::PopID();
-      //}
-
+      ImGui::Begin("Properties", &WindowPropertiesEnabled);
 
       // If there's an object selected, display its properties.
       if (SelectedObject != nullptr) {
-        // 1. Display the object's name
-        char name[32]; strcpy(name, SelectedObject->Name().c_str());
-        // If the user has given input, change the name
-        if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
-          SelectedObject->setObjectName(name);
-        }
-                
-        // 2. Display the object's archetype
-        char archetypeName[32]; 
-        strcpy(archetypeName, SelectedObject->getArchetype().c_str());
-        // If the user has given input, change the archetype
-        if (ImGui::InputText("Archetype", archetypeName, IM_ARRAYSIZE(archetypeName))) {
-          SelectedObject->setArchetype(archetypeName);
-        }
-        if (ImGui::Button("Upload to Archetype")) {
-          DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
-        }
-        ImGui::SameLine();
-        if (ImGui::Button("Revert to Archetype")) {
-          DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
-        }
 
-        // 3. Display its components
-        ImGui::Separator();
-        ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
-        for (auto &component : *SelectedObject->AllComponents()) {
-          if (ImGui::TreeNode(component->Name().c_str())) {
-            //ImGui::SetWindowFocus();
-            // 3. If the user clicks on a tree-node, display the commponent's properties
-            //    through reflection
-            DisplayProperties(component.get());
-            ImGui::TreePop();
-          }                  
+        // If the object is an entity
+        if (dynamic_cast<EntityPtr>(SelectedObject)) {
+          DisplayEntityProperties();
         }
-
-        // 4. Allow the user to add new components
-        AddComponent();
-
+        // If the object is a resource
+        else if (dynamic_cast<ResourcePtr>(SelectedObject)) {
+          DisplayResourceProperties();
+        }
       }
 
       ImGui::End();
     }
 
-    
 
     /**************************************************************************/
     /*!
-    @brief  Displays the component's properties, allowing them to be
-            seen and edited.
-    @param  component A pointer to the Component.
+    @brief  Displays an entity's properties
+    */
+    /**************************************************************************/
+    void Editor::DisplayEntityProperties()
+    {
+      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject);
+
+      ////////////////////////////////
+      // 1. Display the object's name
+      ////////////////////////////////
+      char name[32]; strcpy(name, SelectedObject->Name().c_str());
+      // If the user has given input, change the name
+      if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
+        SelectedObject->setObjectName(name);
+      }
+
+      /////////////////////////////////////
+      // 2. Display the entity's archetype
+      /////////////////////////////////////
+      char archetypeName[32];
+      strcpy(archetypeName, selectedEntity->getArchetype().c_str());
+      // If the user has given input, change the archetype
+      if (ImGui::InputText("Archetype", archetypeName, IM_ARRAYSIZE(archetypeName))) {
+        selectedEntity->setArchetype(archetypeName);
+      }
+      // Upload to Archetype
+      if (ImGui::Button("Upload to Archetype")) {
+        DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
+        SaveArchetype(selectedEntity->getArchetype());
+      }
+      ImGui::SameLine();
+      // Revert to Archetype
+      if (ImGui::Button("Revert to Archetype")) {
+        DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
+        RevertToArchetype();
+      }
+
+      /////////////////////////////
+      // 3. Display its components
+      /////////////////////////////
+      ImGui::Separator();
+      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
+      for (auto &component : *selectedEntity->AllComponents()) {
+        if (ImGui::TreeNode(component->Name().c_str())) {
+          //ImGui::SetWindowFocus();
+          // 3. If the user clicks on a tree-node, display the commponent's properties
+          //    through reflection
+          DisplayProperties(component.get());
+          ImGui::TreePop();
+        }
+      }
+
+      ///////////////////////////////////////////
+      // 4. Allow the user to add new components
+      ///////////////////////////////////////////
+      AddComponent(selectedEntity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays properties for an object.
+    @param  object A pointer to the Component.
     @note   Properties are listed from the order they were defined.
     @todo   Refactor the property-setting so I DONT COPY PASTE THE SAME
             3 LINES.
     */
     /**************************************************************************/
-    void Editor::DisplayProperties(ComponentPtr component) {
+    void Editor::DisplayProperties(ObjectPtr object) {
       
-      // 1. Get the component's BoundType, which has a wealth of reflected data
-      auto componentBoundType = component->ZilchGetDerivedType();
+      // 1. Get the object's BoundType, which has a wealth of reflected data
+      auto componentBoundType = object->ZilchGetDerivedType();
       if (componentBoundType == nullptr)
         return;
 
@@ -138,7 +132,7 @@ namespace DCEngine {
         
         // If it is a resource property..
         if (property->HasAttribute("Resource")) {
-          SelectResource(property, component);
+          SelectResource(property, object);
           continue;
         }
 
@@ -152,7 +146,7 @@ namespace DCEngine {
         Zilch::ExceptionReport report;
         // Grab the current property
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
-        getCall.SetHandleVirtual(Zilch::Call::This, component);        
+        getCall.SetHandleVirtual(Zilch::Call::This, object);        
         getCall.Invoke(report);
 
         // Property: Boolean
@@ -161,7 +155,7 @@ namespace DCEngine {
           // If the user modifies it
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, boolean);
             setCall.Invoke(report);
           }
@@ -175,7 +169,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf)), ImGuiInputTextFlags_EnterReturnsTrue) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::String(buf));
             setCall.Invoke(report);
           }
@@ -187,7 +181,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, integer);
             setCall.Invoke(report);
           }
@@ -200,7 +194,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt2(property->Name.c_str(), int2)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer2(int2[0], int2[1]));
             setCall.Invoke(report);
           }
@@ -213,7 +207,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt3(property->Name.c_str(), int3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer3(int3[0], int3[1], int3[2]));
             setCall.Invoke(report);
           }
@@ -226,7 +220,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputInt4(property->Name.c_str(), int4)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
             setCall.Invoke(report);
           }
@@ -241,7 +235,7 @@ namespace DCEngine {
           if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
           //if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, real);
             setCall.Invoke(report);
           }
@@ -256,7 +250,7 @@ namespace DCEngine {
           // If the user has given input, set the property
           if (ImGui::InputFloat2("##inputID", vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec2f));
             setCall.Invoke(report);
           }
@@ -273,7 +267,7 @@ namespace DCEngine {
           if (ImGui::InputFloat3("##inputID", vec3f)) {
             //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec3f));
             //setCall.Set(0, Zilch::Real3(vec3f[0], vec3f[1], vec3f[2]));
             setCall.Invoke(report);
@@ -290,7 +284,7 @@ namespace DCEngine {
           ImGui::PushID(inputID++);
           if (ImGui::InputFloat4("##inputID", vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, component);
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
           }
@@ -299,12 +293,31 @@ namespace DCEngine {
       }
     }
 
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays a resource's properties
+    */
+    /**************************************************************************/
+    void Editor::DisplayResourceProperties()
+    {
+      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject);
+
+      // 1. Display the Resource's name
+      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
+      ImGui::Text(selectedResource->getObjectName().c_str());      
+      // 2. Display all its properties
+      ImGui::Separator();
+      DisplayProperties(selectedResource);
+
+    }
+
     /**************************************************************************/
     /*!
     @brief  Allows the user to add a component to the entity.
     */
     /**************************************************************************/
-    void Editor::AddComponent()
+    void Editor::AddComponent(EntityPtr selectedEntity)
     {
       static bool Scanned = false;
 
@@ -321,107 +334,46 @@ namespace DCEngine {
       }
 
       int currentComponent = 0;
-      // If the user selects the combo box...
-      //if (ImGui::Button("Add Component"), ImGuiAlign_Center) {
       ImGui::Separator();
       //ImGui::TextColored(ImVec4(0.5, 0, 0, 1), "Add Component");
       ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
-      //ImGui::Text("Add Component..");
         if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
+          
           auto componentName = std::string(componentNames.at(currentComponent));
-          SelectedObject->AddComponentByName(componentName, true);
+          DCTrace << "Editor::AddComponent - " << componentName << "\n";
+          selectedEntity->AddComponentByName(componentName, true);
           Scanned = false;
         }
       //}
         
     }
 
-    void SelectSpriteSource(Zilch::Property * resource, ComponentPtr component);
-    void SelectSoundCue(Zilch::Property * resource, ComponentPtr component);
 
     /**************************************************************************/
     /*!
-    @brief  Allows the user to select the resource for the property.
-    @param  resource A pointer to the BoundType of the resource.
-    @param  component A pointer to the component that holds the resource.
+    @brief  Saves a GameObject's configuration into an Archetype to file.
+    @todo   Refactor how the path is pulled.
     */
     /**************************************************************************/
-    void Editor::SelectResource(Zilch::Property * resource, ComponentPtr component)
+    void Editor::SaveArchetype(std::string& archetype)
     {
-      // Get the type of the resource      
-      auto resourceType = std::string(resource->Name.c_str());
-      ImGui::Text(resourceType.c_str());
-      // SpriteSource 
-      if (resourceType == std::string("SpriteSource")) {
-        SelectSpriteSource(resource, component);
-      }
-      // SoundCue
-      else if (resourceType == std::string("SoundCue")) {
-
-      }
-
+      // Get the current project's archetype path
+      std::string archeTypePath("Projects/Rebound/Resources/Archetypes/");
+      Daisy->getSystem<Factory>()->BuildArchetype(archeTypePath + archetype + ".arch", 
+                                                  dynamic_cast<GameObjectPtr>(SelectedObject));
     }
 
     /**************************************************************************/
     /*!
-    @brief  Allows the user to select the SpriteSource for the component.
-    @param  resource A pointer to the BoundType of the resource.
-    @param  component A pointer to the component that holds the resource.
+    @brief  Reverts a GameObject to its Archetype from file.
     */
     /**************************************************************************/
-    void SelectSpriteSource(Zilch::Property * resource, ComponentPtr component) {
-      // Get a container of all active spritesources        
-      auto container = Daisy->getSystem<Content>()->AllSpriteSources();
-      
-      std::vector<const char *> spriteSourceNames;
-      for (auto spriteSource : *container) {
-        // Push the name of it into the vector of strings
-        spriteSourceNames.push_back(spriteSource.second->Name().c_str());
-      }
-      // Start at the current item
-      static int currentItem = 0;
-      // If the user selects an item... 
-      if (ImGui::Combo("##spritenames", &currentItem, spriteSourceNames.data(), spriteSourceNames.size())) {
-        // Set the selected item as the current resource
-        auto selectedSpriteSource = spriteSourceNames.at(currentItem);
-        Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-        setCall.SetHandleVirtual(Zilch::Call::This, component);
-        setCall.Set(0, Zilch::String(selectedSpriteSource));
-        setCall.Invoke(report);
-      }
-    }
-    
-    /**************************************************************************/
-    /*!
-    @brief  Allows the user to select the SoundCue for the component.
-    @param  resource A pointer to the BoundType of the resource.
-    @param  component A pointer to the component that holds the resource.
-    */
-    /**************************************************************************/
-    void SelectSoundCue(Zilch::Property * resource, ComponentPtr component)
+    void Editor::RevertToArchetype()
     {
-      // Get a container of all active spritesources        
-      auto container = Daisy->getSystem<Content>()->AllSoundCues();
-      std::vector<const char *> soundCueNames;
-      for (auto soundCue : *container) {
-        // Push the name of it into the vector of strings
-        soundCueNames.push_back(soundCue.second->Name().c_str());
-      }
-      // Start at the current item
-      static int currentItem = 0;
-      // If the user selects an item... 
-      if (ImGui::Combo("##soundCueNames", &currentItem, soundCueNames.data(), soundCueNames.size())) {
-        // Set the selected item as the current resource
-        auto selectedSoundCue = soundCueNames.at(currentItem);
-        Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-        setCall.SetHandleVirtual(Zilch::Call::This, component);
-        setCall.Set(0, Zilch::String(selectedSoundCue));
-        setCall.Invoke(report);
-      }
+
     }
 
 
-  }
+
+}
 }

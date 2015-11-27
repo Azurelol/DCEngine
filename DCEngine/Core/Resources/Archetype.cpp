@@ -29,6 +29,14 @@ namespace DCEngine {
     Load();
   }
 
+  Archetype::Archetype(std::string archetypeFile, std::string serializedData) 
+      : Resource(FileSystem::FileNoExtension(archetypeFile)),
+                 SourceFile(archetypeFile)
+  {
+    // Save the serialized data
+    Save(serializedData);
+  }
+
   /**************************************************************************/
   /*!
   @brief  Archetype destructor.
@@ -61,5 +69,11 @@ namespace DCEngine {
   {
     FileSystem::FileReadToString(SourceFile, SerializedData);
   }
+
+  const std::string & Archetype::Get()
+  {
+    return SerializedData;
+  }
+
 
 }

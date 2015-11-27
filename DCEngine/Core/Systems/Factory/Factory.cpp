@@ -89,15 +89,28 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Creates a game object from an Archetype.
-    \param  A reference to the space where the object will be constructed on.
-    \param  Whether the GameObject should be initialized right away.
-    \return A GameObject created on the space.
+    @brief  Creates a game object from an Archetype.
+    @param  archetype The archetype from which to construct this object from.
+    @param  space A reference to the space where the object will be constructed on.
+    @param  init Whether the GameObject should be initialized right away.
+    @return A GameObject created on the space.
+    @todo   Refactor this so it uses some JSON interface class rather than
+            .. this.
     */
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(ArchetypePtr archetype, Space & space, bool init)
     {
-      return GameObjectPtr();
+      // Turn the string from file into JSON data
+      Zilch::CompilationErrors errors;
+      Zilch::JsonReader reader;
+      const Zilch::String what;
+      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
+                                    archetype->Get().c_str(), what, nullptr);
+      
+      auto data = *archetypeData->OrderedMembers.data();
+      //for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
+
+      return BuildGameObject(data, space);
     }
 
     /**************************************************************************/
@@ -113,8 +126,7 @@ namespace DCEngine {
     {      
       // 1. Construct the GameObject
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, space.getGameSession())));
-      auto gameObjPtr = ActiveGameObjects.back().get();
-      
+      auto gameObjPtr = ActiveGameObjects.back().get();      
 
       // 2. For every property !!! CURRENTLY HARDCODED !!!
       auto name = objectData->Value->GetMember("Name")->AsString().c_str();
@@ -230,7 +242,35 @@ namespace DCEngine {
       } levelBuilder.End();   
 
       DCTrace << "Factory::BuildLevel - Saved level: " << level << " to file: data from file! \n";
-      return LevelPtr(new Level(level, std::string(levelBuilder.ToString().c_str())) );
+      return LevelPtr(new Level(level, 
+                                std::string(levelBuilder.ToString().c_str())) );
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Builds an Archetype.
+    @param  gameObj A pointer to the GameObject.
+    @return A pointer to the Archetype resource.
+    */
+    /**************************************************************************/
+    ArchetypePtr Factory::BuildArchetype(std::string archetype ,GameObjectPtr gameObj)
+    {
+      // Create a builder object to build JSON
+      Zilch::JsonBuilder archetypeBuilder;     
+      archetypeBuilder.Begin(Zilch::JsonType::Object);
+      {
+        //archetypeBuilder.Key("GameObject");
+        //archetypeBuilder.Begin(Zilch::JsonType::Object);
+        //{
+          gameObj->Serialize(archetypeBuilder);
+        //}
+        //archetypeBuilder.End();
+      }      
+      archetypeBuilder.End();
+      
+      //return std::string(archetypeBuilder.ToString().c_str());
+      return ArchetypePtr( new Archetype(archetype,
+                                         std::string(archetypeBuilder.ToString().c_str()) ));
     }
 
     /**************************************************************************/

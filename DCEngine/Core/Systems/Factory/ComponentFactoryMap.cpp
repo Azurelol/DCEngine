@@ -17,8 +17,11 @@
 #include "../../ComponentsInclude.h"
 
 // MACRO: Adds a component factory
+//#define DCE_FACTORY_CREATECOMPONENTFACTORY(componentName) \
+//AddComponentFactory(::DCEngine::##componentName::ZilchGetStaticType(), std::make_unique<DCEngine::Systems::Factory::ComponentFactory<::DCEngine::##componentName> >())
+
 #define DCE_FACTORY_CREATECOMPONENTFACTORY(componentName) \
-AddComponentFactory(::DCEngine::##componentName::ZilchGetStaticType(), std::make_unique<DCEngine::Systems::Factory::ComponentFactory<::DCEngine::##componentName> >())
+AddComponentFactory(componentName::ZilchGetStaticType(), std::make_unique<ComponentFactory<componentName>>()) 
 
 namespace DCEngine {
   namespace Systems {
@@ -39,11 +42,30 @@ namespace DCEngine {
       }
       
       DCTrace << "Factory::ConstructComponentFactoryMap - Constructing all component factories \n";
+      // Space-specific
+      AddComponentFactory(SoundSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundSpace>>());
+      AddComponentFactory(GraphicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<GraphicsSpace>>());
+      AddComponentFactory(PhysicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<PhysicsSpace>>());
+      AddComponentFactory(TimeSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<TimeSpace>>());
+
+      // Physics
       AddComponentFactory(Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Transform>>());
-      AddComponentFactory(Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Sprite>>());
       AddComponentFactory(BoxCollider::ZilchGetStaticType(), std::make_unique<ComponentFactory<BoxCollider>>());
       AddComponentFactory(RigidBody::ZilchGetStaticType(), std::make_unique<ComponentFactory<RigidBody>>());
+      
+      // Graphics
       AddComponentFactory(DCEngine::Camera::ZilchGetStaticType(), std::make_unique<ComponentFactory<DCEngine::Camera>>());
+      AddComponentFactory(Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Sprite>>());
+      //DCE_FACTORY_CREATECOMPONENTFACTORY(Sprite);
+
+      // Audio
+      AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
+      
+      
+      //AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
+      
+      
+
 
 
 

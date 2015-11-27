@@ -76,7 +76,7 @@ namespace DCEngine {
 
   };
 
-  using ObjectPtr = std::shared_ptr<Object>;
+  using ObjectPtr = Object*;
 
   /*===================*
   *     Templates      *

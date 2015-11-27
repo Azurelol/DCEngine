@@ -156,6 +156,7 @@ namespace DCEngine {
       WindowSaveLevel();
       WindowLoadLevel();    
       WindowConsole();
+      WindowCreateFromArchetype();
     }
 
     /**************************************************************************/
@@ -259,7 +260,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectObjectFromSpace(Vec2 pos)
     {   
-      if (WidgetPropertiesEnabled)
+      if (WindowPropertiesEnabled)
         return;
 
       // 1. Find all objects on the current mouse position
@@ -300,7 +301,7 @@ namespace DCEngine {
     void Editor::SelectObject(GameObject* obj)
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
-      WidgetPropertiesEnabled = true;
+      WindowPropertiesEnabled = true;
       SelectedObject = obj;
     }
 

@@ -13,37 +13,25 @@
 
 namespace DCEngine {
 
-  //DCE_DEFINE_PROPERTY(TimeSpace, bool, Paused);
-
-  bool TimeSpace::getPaused() const
-  {
-    return this->Paused;
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(TimeSpace, "TimeSpace", DCEngineCore, builder, type) {
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, TimeSpace, "owner", Entity&);
+    ZilchBindDestructor(builder, type, TimeSpace);
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(TimeSpace, Paused);
+    DCE_BINDING_DEFINE_PROPERTY(TimeSpace, TimeScale);
+    DCE_BINDING_DEFINE_PROPERTY(TimeSpace, StepCount);
+   
   }
-
-  void TimeSpace::setPaused(bool pause)
-  {
-    this->Paused = pause;
-  }
-
-  float TimeSpace::getTimeScale() const
-  {
-    return this->TimeScale;
-  }
-
-  void TimeSpace::setTimeScale(float timeScale)
-  {
-    this->TimeScale = timeScale;
-  }
-
-  int TimeSpace::getStepCount() const
-  {
-    return this->StepCount;
-  }
-
-  void TimeSpace::setStepCount(int count)
-  {
-    this->StepCount = count;
-  }
+#endif
 
   /**************************************************************************/
   /*!

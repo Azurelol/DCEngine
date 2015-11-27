@@ -77,6 +77,9 @@ namespace DCEngine {
           if (ImGui::MenuItem("Create SpriteText")) {}
           ImGui::Separator();
           if (ImGui::MenuItem("Create Particle System")) {}
+          ImGui::Separator();
+          if (ImGui::MenuItem("Create from Archetype"))
+            WindowCreateFromArchetypeEnabled = true;
           ImGui::EndMenu();
         }
 
@@ -122,7 +125,7 @@ namespace DCEngine {
         // Windows
         if (ImGui::BeginMenu("Windows")) {
           if (ImGui::MenuItem("Properties"))
-            WidgetPropertiesEnabled = !WidgetPropertiesEnabled;
+            WindowPropertiesEnabled = !WindowPropertiesEnabled;
           if (ImGui::MenuItem("Library"))
             WidgetLibraryEnabled = !WidgetLibraryEnabled;
           if (ImGui::MenuItem("Objects"))

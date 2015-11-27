@@ -22,6 +22,7 @@
 #include "..\..\Systems\System.h"
 #include "..\..\Resources\Level.h"
 #include "GameObject.h"
+#include "..\..\Resources\Archetype.h"
 
 namespace DCEngine {
 
@@ -59,7 +60,7 @@ namespace DCEngine {
     void ReloadLevel();
 
     GameObjectPtr CreateObject(); 
-    GameObjectPtr CreateObject(std::shared_ptr<Archetype> archetype);
+    GameObjectPtr CreateObject(ArchetypePtr archetype);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
     void AddObject(GameObjectPtr entity);

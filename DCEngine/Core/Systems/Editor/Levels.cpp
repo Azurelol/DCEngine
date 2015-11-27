@@ -37,7 +37,7 @@ namespace DCEngine {
 
       // Query the Content system for the current list of levels
       static char filename[32];      
-      for (auto level : *Daisy->getSystem<Content>()->AllLevels()) {
+      for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
         auto levelName = FileSystem::FileNoExtension(level.second->Name());
         if (ImGui::Selectable(levelName.c_str())) {
           strcpy(filename, levelName.c_str());

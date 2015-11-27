@@ -28,11 +28,15 @@ namespace DCEngine {
   class SpriteSource : public Resource {
   public:
 
-    //std::string DefaultTexture = "Square.png";
-    float PixelsPerUnit = 0.0f;
-    //Animation
-    int ColumnCount;
-    int RowCount;
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(SpriteSource, Resource);
+    #endif
+
+    float FrameRate = 0.0f;
+    float PixelsPerUnit = 0.0f;    
+    //Animation    
+    int ColumnCount = 0;
+    int RowCount = 0;
     //Texture cut
     int MinX = 0;
     int MaxX = 0;
@@ -43,7 +47,16 @@ namespace DCEngine {
     int PicHeight;
     bool Smoothing;
     bool Looping;
-    bool Fill;
+    bool Fill; // Should be enum
+
+    // Properties
+    DCE_DEFINE_PROPERTY(float, FrameRate);
+    DCE_DEFINE_PROPERTY(float, PixelsPerUnit);
+    DCE_DEFINE_PROPERTY(int, ColumnCount);
+    DCE_DEFINE_PROPERTY(int, RowCount);
+    DCE_DEFINE_PROPERTY(bool, Smoothing);
+    DCE_DEFINE_PROPERTY(bool, Looping);
+    DCE_DEFINE_PROPERTY(bool, Fill);
 
     //static SpriteSourcePtr
 

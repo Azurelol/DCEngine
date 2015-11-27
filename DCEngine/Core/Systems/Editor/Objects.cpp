@@ -36,7 +36,7 @@ namespace DCEngine {
         // If the user has selected the GameObject.
         if (ImGui::Button(ObjectName)) {
           SelectedObject = object;
-          WidgetPropertiesEnabled = true;
+          WindowPropertiesEnabled = true;
         }
           
         //ImGui::Text(object->Name().c_str());

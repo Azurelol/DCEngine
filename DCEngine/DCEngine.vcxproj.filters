@@ -585,8 +585,14 @@
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuResources.cpp">
+    <ClCompile Include="Core\Systems\Editor\Resources.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp">
+      <Filter>Core\Systems\Editor\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp">
+      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

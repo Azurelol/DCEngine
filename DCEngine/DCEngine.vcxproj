@@ -310,11 +310,13 @@
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuEdit.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
-    <ClCompile Include="Core\Systems\Editor\MenuResources.cpp" />
+    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
     <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
+    <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp" />
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />

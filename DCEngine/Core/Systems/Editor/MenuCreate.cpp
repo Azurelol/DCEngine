@@ -50,6 +50,19 @@ namespace DCEngine {
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Creates a GameObject from an Archetype into the current space.
+    @todo   Create the GameObject from a "Sprite' archetype rather than
+    hard-coded here.
+    */
+    /**************************************************************************/
+    void Editor::CreateFromArchetype(std::string & archetype)
+    {
+      CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
+    }
+
+
 
   }
 }
