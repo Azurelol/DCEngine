@@ -85,33 +85,33 @@ namespace DCEngine {
 		{
 			if (direction < 0)
 			{
-				RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
+				RigidBodyRef->setVelocity(Vec3(MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
 			if (direction > 0)
 			{
-				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
 		}
 
 		if (TransformRef->getTranslation().x < InitialPosition.x)
 		{
-			RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(Vec3(MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			HitEndOfPatrol = false;
 		}
 		else if (TransformRef->getTranslation().x > InitialPosition.x + PatrolRange)
 		{
-			RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+			RigidBodyRef->setVelocity(Vec3(-MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			HitEndOfPatrol = true;
 		}
 		else
 		{
 			if (HitEndOfPatrol && !LockedOnPlayer)
 			{
-				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
 			if (!HitEndOfPatrol && !LockedOnPlayer)
 			{
-				RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
+				RigidBodyRef->setVelocity(Vec3(MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
 		}
 		

@@ -10,6 +10,7 @@
 /******************************************************************************/
 #pragma once
 #include "ReboundComponent.h"
+#define HazardAreaTraceOn 0
 
 namespace DCEngine {
 

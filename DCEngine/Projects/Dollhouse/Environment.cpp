@@ -17,6 +17,7 @@ namespace DCEngine {
     //floor->AddComponent(ComponentPtr(new Sprite(*floor)));
     //floor->getComponent<Sprite>()->Color = Vec4(1.0f, 0.4f, 0.1f, 1.0f);
     floor->AddComponent<Transform>();
+	floor->AddComponent<Sprite>();
     floor->AddComponent<RigidBody>();
     floor->AddComponent<BoxCollider>();
     //floor->AddComponent(ComponentPtr(new DebugCollider(*floor)));
@@ -25,36 +26,48 @@ namespace DCEngine {
     floor->getComponent<Transform>()->Translation = Vec3(0.0f, -5.0f, 0.0f);
     floor->getComponent<Transform>()->Scale = Vec3(100.0f, 1.0f, 1.0f);
     // BoxCollider properties
-    floor->getComponent<BoxCollider>()->Size = Vec3(100, 2, 2);
+    floor->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
     floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
     // Rigidbody properties
     floor->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+	// Sprite properies
+	floor->getComponent<Sprite>()->setVisible(true);
+	floor->getComponent<Sprite>()->Color = Vec4(0, 0, 0, 1);
+
+
     {
       GameObjectPtr wall = ConstructGameObject("RightWall");
       wall->AddComponent<Transform>();
       wall->AddComponent<BoxCollider>();
-      //wall->AddComponent<Sprite>();
+      wall->AddComponent<Sprite>();
       // Change the properties of the components
       wall->getComponent<Transform>()->Translation = Vec3(30.0f, 1.0f, 0.0f);
       wall->getComponent<Transform>()->Scale = Vec3(2.0f, 50.0f, 1.0f);
       // BoxCollider properties
-      wall->getComponent<BoxCollider>()->Size = Vec3(1, 1, 2);
+      wall->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
       wall->getComponent<BoxCollider>()->IsDrawingCollider = false;
+	  // Sprite properies
+	  wall->getComponent<Sprite>()->setVisible(true);
+	  wall->getComponent<Sprite>()->Color = Vec4(0, 0, 0, 1);
+
     }
-    floor->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+
     {
       GameObjectPtr wall = ConstructGameObject("LeftWall");
       wall->AddComponent<Transform>();
       wall->AddComponent<BoxCollider>();
-      //wall->AddComponent<Sprite>();
+      wall->AddComponent<Sprite>();
       // Change the properties of the components
       wall->getComponent<Transform>()->Translation = Vec3(-30.0f, 1.0f, 0.0f);
       wall->getComponent<Transform>()->Scale = Vec3(2.0f, 50.0f, 1.0f);
       // BoxCollider properties
-      wall->getComponent<BoxCollider>()->Size = Vec3(1, 1, 2);
+      wall->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+	  wall->getComponent<Sprite>()->setVisible(true);
+	  wall->getComponent<Sprite>()->Color = Vec4(0, 0, 0, 1);
     }
 
 
+	/*
     GameObjectPtr floor2 = ConstructGameObject("Basketfloor2");
     //floor2->AddComponent(ComponentPtr(new Sprite(*floor2)));
    // floor2->getComponent<Sprite>()->Color = Vec4(1.0f, 0.4f, 0.1f, 1.0f);
@@ -73,6 +86,7 @@ namespace DCEngine {
     // Rigidbody properties
     floor2->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
 
+	*/
     
     {
       // What
@@ -87,6 +101,7 @@ namespace DCEngine {
       //sky->getComponent<Sprite>()->Color = Vec4(0.6, 0.6, 0.3, 1); // Color: Green
       sky->getComponent<Transform>()->Translation = Vec3(0, bgY, -4.01); // lol
       sky->getComponent<Transform>()->Scale = Vec3(160 * bgScale, 90 * bgScale, 1);
+
 
       /* Background Layer */
       GameObjectPtr background = ConstructGameObject("Background");
