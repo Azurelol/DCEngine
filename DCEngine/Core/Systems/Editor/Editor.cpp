@@ -98,7 +98,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ToggleEditor()
     {
-      // Resize the viewport to accomodate the editor
+      DCTrace << "*!* Editor::ToggleEditor \n";
+;      // Resize the viewport to accomodate the editor
       //ApplyEditorWindowLayout();
 
       // Set it's current space to work on

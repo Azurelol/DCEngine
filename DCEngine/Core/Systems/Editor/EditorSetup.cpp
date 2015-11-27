@@ -45,6 +45,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SetEditorCamera()
     {
+      // If the editor has been enabled, create a new camera
       if (!EditorEnabled) {
         DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
         // Look for a camera on the space to be default
@@ -57,23 +58,26 @@ namespace DCEngine {
         //CurrentSpace->RemoveObject(*editorCamera);
         return;
       }
+      // Create a new camera
+      else {
+        DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
+        auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
+        editorCamera->AddComponent<DCEngine::Camera>(true);
+        editorCamera->AddComponent<DCEngine::EditorCameraController>(true);
+        editorCamera->AddComponent<DCEngine::DebugAudio>(true);
+        // Camera properties      
+        editorCamera->getComponent<DCEngine::DebugAudio>()->Track1 = "soulja";
+        editorCamera->getComponent<DCEngine::DebugAudio>()->Track2 = "Halloween 1";
+        editorCamera->getComponent<DCEngine::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
+        editorCamera->getComponent<DCEngine::Camera>()->Size = 70;
+        editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
+        // Add the camera to the current space
+        CurrentSpace->AddObject(editorCamera);
+        // Set it as the default camera on the space
+        auto cameraComp = editorCamera->getComponent<DCEngine::Camera>();
+        CurrentSpace->getComponent<CameraViewport>()->setCamera(cameraComp);
+      }
 
-      DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
-      auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
-      editorCamera->AddComponent<DCEngine::Camera>(true);
-      editorCamera->AddComponent<DCEngine::EditorCameraController>(true);
-      editorCamera->AddComponent<DCEngine::DebugAudio>(true);
-      // Camera properties      
-      editorCamera->getComponent<DCEngine::DebugAudio>()->Track1 = "soulja";
-      editorCamera->getComponent<DCEngine::DebugAudio>()->Track2 = "Halloween 1";
-      editorCamera->getComponent<DCEngine::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
-      editorCamera->getComponent<DCEngine::Camera>()->Size = 70;
-      editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
-      // Add the camera to the current space
-      CurrentSpace->AddObject(editorCamera);
-      // Set it as the default camera on the space
-      auto cameraComp = editorCamera->getComponent<DCEngine::Camera>();
-      CurrentSpace->getComponent<CameraViewport>()->setCamera(cameraComp);
       
     }
 

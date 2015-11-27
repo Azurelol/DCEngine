@@ -95,11 +95,14 @@ namespace DCEngine {
     CameraObj = camera;
     // If the camera pointer was invalid... 
     if (camera == nullptr) {
+      DCTrace << "\n";
       DCTrace << "CameraViewport::setCamera - No active camera has been set. \n";
+      DCTrace << "\n";
       return;
     }
-
+    DCTrace << "\n";
     DCTrace << "CameraViewport::setCamera - Setting " << camera->Owner()->Name() << " as the active camera \n";
+    DCTrace << "\n";
   }
 
   /**************************************************************************/
