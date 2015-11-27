@@ -24,7 +24,7 @@ namespace DCEngine {
 		bool Grounded = true;
 		bool LockedOnPlayer = false;
 		bool HitEndOfPatrol = false;
-		Real MoveSpeed = 15.0f;
+		Real MoveSpeed = 8.0f;
 		Real JumpPowerY = 20.0f;
 		Real JumpPowerX = 3.0f;
 		Real JumpInterval = 2.0f;
@@ -45,6 +45,7 @@ namespace DCEngine {
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 		void Patrol();
+		void DoBasicChaser();
 		Real GetJumpInterval();
 		void SetJumpInterval(Real val);
 		Real GetJumpPowerY();
