@@ -24,7 +24,7 @@ namespace DCEngine {
 		bool Grounded = true;
 		bool LockedOnPlayer = false;
 		bool HitEndOfPatrol = false;
-		Real MoveSpeed = 8.0f;
+		Real MoveSpeed = 5.0f;
 		Real JumpPowerY = 20.0f;
 		Real JumpPowerX = 3.0f;
 		Real JumpInterval = 2.0f;

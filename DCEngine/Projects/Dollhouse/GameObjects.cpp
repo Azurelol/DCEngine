@@ -85,7 +85,7 @@ namespace DCEngine {
 		//GameObjectPtr ground = ConstructGameObject(name);
 
 
-		GameObjectPtr ground = ConstructGameObject("Ground");
+		GameObjectPtr ground = ConstructGameObject("Platform");
 		ground->AddComponent<Transform>();
 		ground->AddComponent<Sprite>();
 		ground->AddComponent<RigidBody>();
@@ -284,7 +284,10 @@ namespace DCEngine {
 	GenerateTerrain(Vec3(24, 13, 0), Vec3(4, 1, 1), Vec4(0, 0, 0, 1));
 	GenerateTerrain(Vec3(40, 17, 0), Vec3(6, 1, 1), Vec4(0, 0, 0, 1));
 	GenerateBasicChaserEnemy(Vec3(-2, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 20);
-	GenerateBasicChaserEnemy(Vec3(19, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 20);
+	GenerateBasicChaserEnemy(Vec3(19, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 17);
+	GenerateTerrain(Vec3(200, -2, 0), Vec3(1, 2, 1), Vec4(0, 0, 0, 1));
+	//GenerateBasicChaserEnemy(Vec3(43, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 30);
+	//GenerateBasicChaserEnemy(Vec3(71, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 30);
 	//GenerateFreezeEnabler(Vec3(10, 5, 0), Vec3(2, 2, 1), Vec4(0.4, 1, 1, 1));
 	//GenerateButton(Vec3(10, 15, 0), Vec3(2, 2, 1), Vec4(1, 1, 1, 1));
 
