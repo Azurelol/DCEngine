@@ -567,9 +567,6 @@
     <ClCompile Include="Core\Components\EditorCameraController.cpp">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp">
-      <Filter>Projects</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp">
       <Filter>Core\Systems\Editor\Select</Filter>
     </ClCompile>
@@ -598,6 +595,15 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Button.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1016,9 +1022,6 @@
     <ClInclude Include="Core\Events\MouseScroll.h">
       <Filter>Core\Events\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
-      <Filter>Projects</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Rebound\ReboundBinding.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
@@ -1041,6 +1044,15 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Button.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>

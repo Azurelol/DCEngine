@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-@file   Skeleton.h
+@file   FreezeEnabler.h
 @author Connor Tilley
 @par    email: connor.tilley\@digipen.edu
 @date   11/19/2015
@@ -15,18 +15,16 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
-	class Skeleton : public Component {
+	class FreezeEnabler : public Component {
 
 	public:
 		Transform* TransformRef;
-		RigidBody* RigidBodyRef;
 		Sprite* SpriteRef;
 
-    // Properties
-    DCE_DEFINE_PROPERTY(Real, Number);
+		// Properties
 
-    // Methods
-		Skeleton(Entity& owner) : Component(std::string("Skeleton"), owner) {}
+		// Methods
+		FreezeEnabler(Entity& owner) : Component(std::string("FreezeEnabler"), owner) {}
 		void Initialize();
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
@@ -36,13 +34,12 @@ namespace DCEngine {
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
-		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-				ZilchDeclareDerivedType(Skeleton, Component);
-		#endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+		ZilchDeclareDerivedType(FreezeEnabler, Component);
+#endif
 
 	private:
-    // Member variables
-    Real Number;
+		// Member variables
 	};
 
 }

@@ -20,3 +20,6 @@
 #include "Components\LevelManager.h"
 #include "Components\PauseManager.h"
 #include "Components\MusicManager.h"
+#include "Components\Skeleton.h"
+#include "Components\FreezeEnabler.h"
+#include "Components\Button.h"

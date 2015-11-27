@@ -110,6 +110,8 @@ namespace DCEngine {
 	void GeneratePlayer(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateBall(Vec3 translation, Vec3 scale, Vec4 color);
 	void GenerateCamera(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateFreezeEnabler(Vec3 translation, Vec3 scale, Vec4 color);
+	void GenerateButton(Vec3 translation, Vec3 scale, Vec4 color);
 
     GameObjectPtr doll;
     GameObjectPtr cameraObj;

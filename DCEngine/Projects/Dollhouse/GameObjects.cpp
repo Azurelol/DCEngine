@@ -189,6 +189,50 @@ namespace DCEngine {
 	{
 	}
 
+	void DollHouse::GenerateFreezeEnabler(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		GameObjectPtr obj = ConstructGameObject("FreezeEnabler");
+		obj->AddComponent<Transform>();
+		obj->AddComponent<Sprite>();
+		//obj->AddComponent<RigidBody>();
+		obj->AddComponent<BoxCollider>();
+		obj->AddComponent<DebugCollider>();
+		obj->AddComponent<FreezeEnabler>();
+		// Change the properties of the components
+		obj->getComponent<Transform>()->Translation = translation;
+		obj->getComponent<Transform>()->Scale = scale;
+		// Sprite properties
+		obj->getComponent<Sprite>()->setColor(color);
+		// BoxCollider properties
+		obj->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+		obj->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		obj->getComponent<BoxCollider>()->setGhost(true);
+		// Rigidbody properties
+		//obj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+	}
+
+	void DollHouse::GenerateButton(Vec3 translation, Vec3 scale, Vec4 color)
+	{
+		GameObjectPtr obj = ConstructGameObject("Button");
+		obj->AddComponent<Transform>();
+		obj->AddComponent<Sprite>();
+		//obj->AddComponent<RigidBody>();
+		obj->AddComponent<BoxCollider>();
+		obj->AddComponent<DebugCollider>();
+		obj->AddComponent<Button>();
+		// Change the properties of the components
+		obj->getComponent<Transform>()->Translation = translation;
+		obj->getComponent<Transform>()->Scale = scale;
+		// Sprite properties
+		obj->getComponent<Sprite>()->setColor(color);
+		// BoxCollider properties
+		obj->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
+		obj->getComponent<BoxCollider>()->IsDrawingCollider = true;
+		obj->getComponent<BoxCollider>()->setGhost(false);
+		// Rigidbody properties
+		//obj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+	}
+
 	/* Blaine, write your tests here. */
 	void DollHouse::GameObjects() {
     srand(unsigned(time(0)));
@@ -234,6 +278,8 @@ namespace DCEngine {
 	GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
 	GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 	GenerateBasicChaserEnemy(Vec3(-30, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	GenerateFreezeEnabler(Vec3(10, 5, 0), Vec3(2, 2, 1), Vec4(0.4, 1, 1, 1));
+	GenerateButton(Vec3(10, 15, 0), Vec3(2, 2, 1), Vec4(1, 1, 1, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");

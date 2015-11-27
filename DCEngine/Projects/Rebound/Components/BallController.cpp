@@ -23,7 +23,8 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(BallController, MaxCharge);
     DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
     DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
-    DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);	
+	DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
   }
   #endif
 
@@ -219,7 +220,7 @@ namespace DCEngine {
 
 	void BallController::FreezeBall(Vec2 mousePosition = Vec2(0,0))
 	{
-		if (Frozen)
+		if (Frozen || !FreezeEnabled)
 		{
 			return;
 		}

@@ -36,6 +36,7 @@ namespace DCEngine {
 		Real MinCharge = 0.5f;
 		Real ChargeFactor = 100 * 1000;
 		Boolean Charging = false;
+		Boolean FreezeEnabled = false;
 		Vec4 FrozenColor = Vec4(1, 0, 1, 1);
 		Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
 		Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
@@ -52,6 +53,7 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(Vec4, FrozenColor);
     DCE_DEFINE_PROPERTY(Vec4, NormalColor);
     DCE_DEFINE_PROPERTY(Vec4, ChargedColor);
+	DCE_DEFINE_PROPERTY(Boolean, FreezeEnabled);
     
 
 		BallController(Entity& owner) : Component(std::string("BallController"), owner) {}
