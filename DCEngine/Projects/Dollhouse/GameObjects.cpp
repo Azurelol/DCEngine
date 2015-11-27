@@ -278,8 +278,8 @@ namespace DCEngine {
 	GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
 	GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
 	GenerateBasicChaserEnemy(Vec3(-30, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
-	GenerateFreezeEnabler(Vec3(10, 5, 0), Vec3(2, 2, 1), Vec4(0.4, 1, 1, 1));
-	GenerateButton(Vec3(10, 15, 0), Vec3(2, 2, 1), Vec4(1, 1, 1, 1));
+	//GenerateFreezeEnabler(Vec3(10, 5, 0), Vec3(2, 2, 1), Vec4(0.4, 1, 1, 1));
+	//GenerateButton(Vec3(10, 15, 0), Vec3(2, 2, 1), Vec4(1, 1, 1, 1));
 
     //{
     //  GameObjectPtr enemy = ConstructGameObject("Chen");

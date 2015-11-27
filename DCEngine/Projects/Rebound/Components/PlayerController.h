@@ -11,7 +11,7 @@
 #pragma once
 #include "ReboundComponent.h"
 
-#define PlayerControllerTraceOn 0 // Use a static bool inside the class
+#define PlayerControllerTraceOn 1 // Use a static bool inside the class
 
 namespace DCEngine {
 

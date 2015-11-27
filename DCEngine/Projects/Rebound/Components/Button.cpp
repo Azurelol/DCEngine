@@ -54,7 +54,7 @@ namespace DCEngine {
 			auto ball = SpaceRef->FindObjectByName("Basketball");
 			if (ball)
 			{
-				auto wall = SpaceRef->FindObjectByName("RightWall");
+				auto wall = SpaceRef->FindObjectByName("Door");
 				if (wall)
 				{
 					wall->getComponent<Transform>()->setTranslation(Vec3(0, -100, 0));
