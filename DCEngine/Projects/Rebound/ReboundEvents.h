@@ -8,3 +8,25 @@
 */
 /******************************************************************************/
 #pragma once
+#include "../ProjectEvent.h"
+
+namespace DCEngine {
+  namespace Events {
+
+    class ChangeMusic : public Event {
+    public:
+      String NextTrack;
+    };
+
+    class ChangeLevel : public Event {
+    public:
+      String NextLevel;
+    };
+
+
+  }
+
+
+
+}
+

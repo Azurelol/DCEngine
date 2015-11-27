@@ -355,6 +355,8 @@
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp" />
@@ -498,13 +500,15 @@
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
     <ClInclude Include="Projects\Rebound\Components\ChargeBar.h" />
+    <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
+    <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
+    <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />
     <ClInclude Include="Projects\Rebound\Components\EnemyController.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
-    <ClInclude Include="Projects\Rebound\Events\SampleEvent.h" />
     <ClInclude Include="Projects\Rebound\ReboundBinding.h" />
     <ClInclude Include="Projects\Rebound\ReboundComponentsInclude.h" />
     <ClInclude Include="Projects\Rebound\ReboundEvents.h" />

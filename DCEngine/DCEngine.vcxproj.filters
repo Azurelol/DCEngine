@@ -594,6 +594,12 @@
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -848,9 +854,6 @@
     <ClInclude Include="Core\Events\MouseUp.h">
       <Filter>Core\Events\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\ReboundEvents.h">
-      <Filter>Projects\Rebound</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\ProjectComponent.h">
       <Filter>Projects\Includes</Filter>
     </ClInclude>
@@ -868,9 +871,6 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\BallController.h">
       <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Events\SampleEvent.h">
-      <Filter>Projects\Rebound\Events</Filter>
     </ClInclude>
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
@@ -1022,13 +1022,25 @@
     <ClInclude Include="Projects\Rebound\ReboundBinding.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h">
-      <Filter>Projects\Rebound</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Rebound\ReboundComponentsInclude.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\LevelManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\MusicManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\ReboundEvents.h">
+      <Filter>Projects\Rebound\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>

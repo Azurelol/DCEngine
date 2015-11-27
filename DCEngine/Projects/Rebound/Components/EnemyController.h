@@ -32,11 +32,16 @@ namespace DCEngine {
 		Real PatrolRange = 15;
 		Vec3 InitialPosition;
 		EnemyType EnemyType = EnemyType::BasicChaser;
-		Transform* TransformRef;
-		RigidBody* RigidBodyRef;
-		Sprite* SpriteRef;
-		GameObject* PlayerRef;
-
+		
+    // Properties
+    DCE_DEFINE_PROPERTY(Real, MoveSpeed);
+    DCE_DEFINE_PROPERTY(Real, JumpPowerY);
+    DCE_DEFINE_PROPERTY(Real, JumpPowerX);
+    DCE_DEFINE_PROPERTY(Real, JumpInterval);
+    DCE_DEFINE_PROPERTY(Real, PatrolRange);    
+    DCE_DEFINE_PROPERTY(Real, Timer);    
+    
+    // Methods
 		EnemyController(Entity& owner) : Component(std::string("EnemyController"), owner) {}
 		void Initialize();
 		virtual void Serialize(Json::Value& root);
@@ -46,23 +51,17 @@ namespace DCEngine {
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 		void Patrol();
 		void DoBasicChaser();
-		Real GetJumpInterval();
-		void SetJumpInterval(Real val);
-		Real GetJumpPowerY();
-		void SetJumpPowerY(Real val);		
-		Real GetJumpPowerX();
-		void SetJumpPowerX(Real val);
-		Real GetMoveSpeed();
-		void SetMoveSpeed(Real val);
-		//EnemyType GetEnemyType();
-		//void SetEnemyType(EnemyType type);
-
 
 		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-			ZilchDeclareDerivedType(EnemyController, Component);
+	  ZilchDeclareDerivedType(EnemyController, Component);
 		#endif
 
 	private:
+    Transform* TransformRef;
+    RigidBody* RigidBodyRef;
+    Sprite* SpriteRef;
+    GameObject* PlayerRef;
+
 		void PrintTranslation();
 		void PrintVelocity();
 		std::string FootstepSound;

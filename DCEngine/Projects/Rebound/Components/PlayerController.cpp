@@ -11,8 +11,19 @@
 #include "PlayerController.h"
 #include "../../CoreComponents.h"
 
-
 namespace DCEngine {
+
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {    
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, Health);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, AirBrakeScalar);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, TurnSpeedScalar);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
+  }
+  #endif
 
 	void PlayerController::Initialize()
 	{
@@ -195,18 +206,4 @@ namespace DCEngine {
 		//PrintTranslation();
 	}
 
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
-	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
-      REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-			// Constructor / Destructor
-			ZilchBindConstructor(builder, type, PlayerController, "owner", Entity&);
-			ZilchBindDestructor(builder, type, PlayerController);
-		}
-	#endif
 }

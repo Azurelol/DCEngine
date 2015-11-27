@@ -25,6 +25,8 @@ namespace DCEngine {
 		GameObject* BallRef;
 		Real ScaleX = 2.5;
 
+    DCE_DEFINE_PROPERTY(Real, ScaleX);
+
 		ChargeBar(Entity& owner) : Component(std::string("ChargeBar"), owner) {}
 		void Initialize();
 		virtual void Serialize(Json::Value& root);

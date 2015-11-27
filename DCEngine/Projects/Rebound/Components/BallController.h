@@ -39,7 +39,20 @@ namespace DCEngine {
 		Vec4 FrozenColor = Vec4(1, 0, 1, 1);
 		Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
 		Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
-		GameObject* PlayerRef;
+		GameObject* PlayerRef; // Use a pointer inside, better to use a handle for serialization
+    String PlayerName;
+
+    DCE_DEFINE_PROPERTY(String, PlayerName);
+    //DCE_DEFINE_PROPERTY(Boolean, Translation);
+    DCE_DEFINE_PROPERTY(Real, MoveSpeed);
+    DCE_DEFINE_PROPERTY(Real, RotSpeed);
+    DCE_DEFINE_PROPERTY(Real, CurrentCharge);
+    DCE_DEFINE_PROPERTY(Real, MaxCharge);
+    DCE_DEFINE_PROPERTY(Real, MinCharge);
+    DCE_DEFINE_PROPERTY(Vec4, FrozenColor);
+    DCE_DEFINE_PROPERTY(Vec4, NormalColor);
+    DCE_DEFINE_PROPERTY(Vec4, ChargedColor);
+    
 
 		BallController(Entity& owner) : Component(std::string("BallController"), owner) {}
 		void Initialize();

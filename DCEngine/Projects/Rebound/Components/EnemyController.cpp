@@ -13,6 +13,17 @@
 
 namespace DCEngine {
 
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(EnemyController, "EnemyController", Rebound, builder, type) {
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, MoveSpeed);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpPowerY);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpPowerX);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpInterval);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, PatrolRange);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, Timer);
+  }
+  #endif
+
 	void EnemyController::Initialize()
 	{
 		auto gameObj = dynamic_cast<GameObject*>(Owner());
@@ -136,48 +147,7 @@ namespace DCEngine {
 			LockedOnPlayer = false;
 		}
 	}
-
-	Real EnemyController::GetJumpInterval()
-	{
-		return JumpInterval;
-	}
-
-	void EnemyController::SetJumpInterval(Real val)
-	{
-		JumpInterval = val;
-	}
-
-	Real EnemyController::GetJumpPowerY()
-	{
-		return JumpPowerY;
-	}
-
-	void EnemyController::SetJumpPowerY(Real val)
-	{
-		JumpPowerY = val;
-	}
-
-	Real EnemyController::GetJumpPowerX()
-	{
-		return Real();
-	}
-
-	void EnemyController::SetJumpPowerX(Real val)
-	{
-	}
-
-	Real EnemyController::GetMoveSpeed()
-	{
-		return MoveSpeed;
-	}
-
-	void EnemyController::SetMoveSpeed(Real val)
-	{
-		MoveSpeed = val;
-	}
-
-
-
+  
 	void EnemyController::PrintTranslation()
 	{
 		DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
@@ -188,23 +158,5 @@ namespace DCEngine {
 		Vec3 vel = RigidBodyRef->getVelocity();
 		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
-	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDefineType(EnemyController, "EnemyController", Rebound, builder, type) {
-      REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-			// Constructor / Destructor
-			ZilchBindConstructor(builder, type, EnemyController, "owner", Entity&);
-			ZilchBindDestructor(builder, type, EnemyController);
-			// Properties
-			ZilchBindProperty(builder, type, &EnemyController::GetMoveSpeed, &EnemyController::SetMoveSpeed, "MoveSpeed");
-			ZilchBindProperty(builder, type, &EnemyController::GetJumpInterval, &EnemyController::SetJumpInterval, "JumpInterval");
-			ZilchBindProperty(builder, type, &EnemyController::GetJumpPowerY, &EnemyController::SetJumpPowerY, "JumpPowerY");
-			ZilchBindProperty(builder, type, &EnemyController::GetJumpPowerX, &EnemyController::SetJumpPowerX, "JumpPowerX");
-		}
-	#endif
+
 }

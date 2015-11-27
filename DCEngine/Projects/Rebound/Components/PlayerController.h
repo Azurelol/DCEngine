@@ -33,6 +33,14 @@ namespace DCEngine {
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
+    
+    DCE_DEFINE_PROPERTY(Real, MoveSpeed);
+    DCE_DEFINE_PROPERTY(Real, JumpPower);
+    DCE_DEFINE_PROPERTY(Real, JumpFrames);
+    DCE_DEFINE_PROPERTY(Real, Health);
+    DCE_DEFINE_PROPERTY(Real, AirBrakeScalar);
+    DCE_DEFINE_PROPERTY(Real, TurnSpeedScalar);
+    DCE_DEFINE_PROPERTY(Boolean, DoAutoPlay);
 
 		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
 		void Initialize();

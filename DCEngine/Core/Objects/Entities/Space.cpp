@@ -244,9 +244,10 @@ namespace DCEngine {
   void Space::ReloadLevel()
   {
     // First, destroy all current objects in the space
-    DestroyAll();
+    // DestroyAll();
     // Load the level again
-    LoadLevel(CurrentLevel);
+    if (CurrentLevel != nullptr)
+      LoadLevel(CurrentLevel);
   }
 
 

@@ -14,6 +14,13 @@
 
 namespace DCEngine {
 
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(CameraController, "CameraController", Rebound, builder, type) {
+    DCE_BINDING_DEFINE_PROPERTY(CameraController, TargetName);
+    DCE_BINDING_DEFINE_PROPERTY(CameraController, InterpolationSpeed);
+  }
+  #endif
+
 	void CameraController::Initialize()
 	{
 		auto gameObj = dynamic_cast<GameObject*>(Owner());
@@ -75,20 +82,4 @@ namespace DCEngine {
 			<< ", " << TransformRef->Translation.z << ")\n";
 	}
 
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
-	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(CameraController, "CameraController", Rebound, builder, type) {
-    REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-		// Constructor / Destructor
-		ZilchBindConstructor(builder, type, CameraController, "owner", Entity&);
-		ZilchBindDestructor(builder, type, CameraController);
-		// Properties
-
-	}
-	#endif
 }

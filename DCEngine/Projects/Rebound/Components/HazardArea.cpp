@@ -14,6 +14,13 @@
 
 namespace DCEngine {
 
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(HazardArea, "HazardArea", Rebound, builder, type) {
+    DCE_BINDING_DEFINE_PROPERTY(HazardArea, Damage);
+    DCE_BINDING_DEFINE_PROPERTY(HazardArea, DamageInterval);
+  }
+  #endif
+
 	void HazardArea::Initialize()
 	{
 		auto gameObj = dynamic_cast<GameObject*>(Owner());
@@ -82,18 +89,4 @@ namespace DCEngine {
 		//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y<< ", " << vel.z << ")\n";
 	}
 
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
-	#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDefineType(HazardArea, "HazardArea", Rebound, builder, type) {
-      REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-			// Constructor / Destructor
-			ZilchBindConstructor(builder, type, HazardArea, "owner", Entity&);
-			ZilchBindDestructor(builder, type, HazardArea);
-		}
-	#endif
 }

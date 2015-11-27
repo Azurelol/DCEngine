@@ -24,10 +24,9 @@ namespace DCEngine {
 		Real DamageInterval = .0f;
 		Real Timer = DamageInterval; //will always damage the player on first tick of contact
 		bool TouchingPlayer = true;
-		Transform* TransformRef;
-		RigidBody* RigidBodyRef;
-		Sprite* SpriteRef;
-		GameObject* PlayerRef;
+
+    DCE_DEFINE_PROPERTY(Real, Damage);
+    DCE_DEFINE_PROPERTY(Real, DamageInterval);
 
 		HazardArea(Entity& owner) : Component(std::string("HazardArea"), owner) {}
 		void Initialize();
@@ -42,6 +41,11 @@ namespace DCEngine {
 		#endif
 
 	private:
+    Transform* TransformRef;
+    RigidBody* RigidBodyRef;
+    Sprite* SpriteRef;
+    GameObject* PlayerRef;
+
 		void PrintTranslation();
 		void PrintVelocity();
 		std::string FootstepSound;

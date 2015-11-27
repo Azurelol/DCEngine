@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Sprite", 
-    "Archetype": "Doge", 
+    "Name": "Doge", 
+    "Archetype": "MuyDoge", 
     "Components": 
     {
       "Transform": 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 5.000000, 
-            "y": 5.000000, 
+            "x": 10.000000, 
+            "y": 10.000000, 
             "z": 1.000000
           }
         }
@@ -57,9 +57,9 @@
       }, 
       "SoundEmitter": 
       {
-        "PropertyName": 1.000000, 
-        "PropertyName": 1.000000, 
-        "PropertyName": false
+        "Volume": 1.000000, 
+        "Pitch": 1.000000, 
+        "IsPlaying": false
       }
     }
   }

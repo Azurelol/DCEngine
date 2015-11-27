@@ -17,3 +17,6 @@
 #include "Components\ChargeBar.h"
 #include "Components\CameraController.h"
 #include "Components\HazardArea.h"
+#include "Components\LevelManager.h"
+#include "Components\PauseManager.h"
+#include "Components\MusicManager.h"

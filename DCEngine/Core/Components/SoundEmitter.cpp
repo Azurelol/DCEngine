@@ -30,8 +30,8 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Pitch);
     DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, IsPlaying);
     //ZilchBindProperty(builder, type, &SoundEmitter::getVolume, &SoundEmitter::setVolume, "Volume");
-    //ZilchBindProperty(builder, type, &SoundEmitter::getRotation, &SoundEmitter::setRotation, "Rotation");
-    //ZilchBindProperty(builder, type, &SoundEmitter::getScale, &SoundEmitter::setScale, "Scale");
+    //ZilchBindProperty(builder, type, &SoundEmitter::getPitch, &SoundEmitter::setPitch, "Pitch");
+    //ZilchBindProperty(builder, type, &SoundEmitter::getIsPlaying, &SoundEmitter::setIsPlaying, "IsPlaying");
   }
 #endif
 

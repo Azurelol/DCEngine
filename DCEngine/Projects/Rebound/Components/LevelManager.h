@@ -1,8 +1,8 @@
 /*****************************************************************************/
 /*!
-@file   PauseManager.h
+@file   LevelManager.h
 @author Christian Sagel
-@par    email: connor.tilley\@digipen.edu
+@par    email: c.sagel\@digipen.edu
 @date   11/26/2015
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
@@ -12,25 +12,29 @@
 
 namespace DCEngine {
 
-  class PauseManager : public Component {
+  class LevelManager : public Component {
 
   public:
-    // Properties    
-    
+    // Properties
+    DCE_DEFINE_PROPERTY(String, NextLevel);
+    DCE_DEFINE_PROPERTY(Real, LoadingTime);
     // Methods
-    PauseManager(Entity& owner) : Component(std::string("PauseManager"), owner) {}
-    void Initialize();    
+    LevelManager(Entity& owner) : Component(std::string("LevelManager"), owner) {}
+    void Initialize();
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
+    void OnCollisionStartedEvent(Events::CollisionStarted* event);
+    void OnCollisionEndedEvent(Events::CollisionEnded* event);
     void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(PauseManager, Component);
+    ZilchDeclareDerivedType(LevelManager, Component);
     #endif
 
   private:
-    Keys PauseKey;
-    Boolean Paused;
+    String NextLevel;
+    Real LoadingTime;
+
 
   };
 

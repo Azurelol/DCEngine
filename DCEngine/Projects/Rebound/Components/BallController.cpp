@@ -13,6 +13,19 @@
 #include "../../../Core/Systems/Physics/Interpolation.h"
 
 namespace DCEngine {
+  
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(BallController, "BallController", Rebound, builder, type) {
+    DCE_BINDING_DEFINE_PROPERTY(BallController, PlayerName);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, MoveSpeed);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, RotSpeed);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, MinCharge);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, MaxCharge);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
+    DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
+  }
+  #endif
 
 	void BallController::Initialize()
 	{
@@ -223,22 +236,6 @@ namespace DCEngine {
 			//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
 		}
 	}
-
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(BallController, "BallController", Rebound, builder, type) {
-    REBOUND_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-		// Constructor / Destructor
-		ZilchBindConstructor(builder, type, BallController, "owner", Entity&);
-		ZilchBindDestructor(builder, type, BallController);
-		// Properties
-	}
-#endif
-
+  
 }
 

@@ -119,6 +119,8 @@ namespace DCEngine {
         Daisy->Dispatch<Events::EnginePause>(pause);
         delete pause;
         DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
+        // Reload the level
+        CurrentSpace->ReloadLevel();
       }
       else {
         // Unpause the engine (Physics, Input, Events)

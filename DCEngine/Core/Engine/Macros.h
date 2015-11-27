@@ -15,21 +15,38 @@
 namespace DCEngine {
 
   /*===================*
+  *     Components     *
+  *===================*/
+  // This macro declares a component..
+
+  /*===================*
   *     Properties     *
   *===================*/
   // This macro creates the definitions of getter and setter method for a Property.
-#define DCE_DEFINE_PROPERTY(propertyType, propertyName)                         \
-  const propertyType& get##propertyName() const {                                      \
+  #define DCE_DEFINE_PROPERTY(propertyType, propertyName)                         \
+  const propertyType& get##propertyName() const {                                 \
     return propertyName;                                                          \
-  }                                                                             \
+  }                                                                               \
   void set##propertyName(propertyType const& value) {                             \
     propertyName = value;                                                         \
-  }                                                            
+  }
 
+  /*
+  #define DCE_BINDING_DECLARE_COMPONENT(componentClass)   \
+  class componentClass : public Component  {              \
+    public:                                               \  
+  ZilchDeclareDerivedType(component, Component)             
+  */
+  
+
+
+  // This macro declares a derived type to Zilch
+  #define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
+    ZilchDeclareDerivedType(derivedClass, baseClass)  
 
   // This macro defines a property to Zilch
-#define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
-ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
+  #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
+  ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
   // ZilchBindProperty(builder, type, &SoundEmitter::getTranslation, &SoundEmitter::setTranslation, "Translation");
 
   //// This macro creates the definitions of getter and setter method for a Property.
