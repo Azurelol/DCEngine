@@ -367,7 +367,7 @@ namespace DCEngine {
 					if (Collision::BoxtoBox(obj1, obj2, collision))
 					{
 
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 && collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -390,7 +390,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 && collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -412,7 +412,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 && collision.rigid2))
             {
               contactlist.push_back(collision);
             }
@@ -434,7 +434,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 || collision.rigid2))
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve && (collision.rigid1 && collision.rigid2))
             {
               contactlist.push_back(collision);
             }

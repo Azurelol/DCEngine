@@ -329,7 +329,7 @@ namespace DCEngine
 
     //If stack stability can be increased by not resolving all the penetrations
     //in one step
-    movePerIMass *= 0.2f;
+    movePerIMass *= 1.0f;
 
     // Calculate the the movement amounts
 
@@ -393,7 +393,7 @@ namespace DCEngine
       }
     }
 
-
+    c.Penetration = 0.0f;
   }
 
   void Resolution::ResolvePositions(float dt, std::vector<Manifold> &contactlist)
@@ -404,7 +404,7 @@ namespace DCEngine
     //Better solutions involve building contact graphs, shock propagation and constraint based
     //solvers.
     unsigned int iterationsRun = 0;
-    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size() * 5);
+    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
     const float positionEpsilon = 0.0000001f;
 
     while (iterationsRun < maxIterations)
@@ -415,7 +415,7 @@ namespace DCEngine
       unsigned contactIndex = static_cast<unsigned int>(contactlist.size());
       for (unsigned j = 0; j < contactlist.size(); ++j)
       {
-        if (contactlist[j].Penetration > maxPenetration && contactlist[j].rigid1 && contactlist[j].rigid2)
+        if (contactlist[j].Penetration > maxPenetration)
         {
           maxPenetration = contactlist[j].Penetration;
           contactIndex = j;
