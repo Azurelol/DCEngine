@@ -335,7 +335,7 @@ namespace DCEngine {
   void Space::RemoveObject(GameObject & gameObj)
   {
     // Remove the GameObject from the space's list of GameObjects
-    for (auto gameObjPtr : GameObjectContainer) {
+    for (auto& gameObjPtr : GameObjectContainer) {
       if (gameObjPtr == &gameObj) {
         std::swap(gameObjPtr, GameObjectContainer.back());
         GameObjectContainer.pop_back();
@@ -344,6 +344,11 @@ namespace DCEngine {
         break;
       }
     }
+
+    bool printObjects = true;
+    if (printObjects)
+      DCTrace << *this;
+
 
     // Mark the object for destruction on next frmae
     Daisy->getSystem<Systems::Factory>()->MarkGameObject(gameObj);
@@ -354,6 +359,25 @@ namespace DCEngine {
   
   GameSession& Space::getGameSession() {
     return *GameSessionRef;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Friendly ostream operator, prints the contents of the space
+          into stdout.
+  @param  out A reference to the ostream operator.
+  @param  space A reference to the array.
+  @return A reference to the ostream operator.
+  */
+  /**************************************************************************/
+  std::ostream & operator<<(std::ostream & out, Space const & space)
+  {
+    out << "Space: '" << space.Name() << "' \n";
+    out << "GameObjects: \n";
+    for (auto& gameObject : space.GameObjectContainer) {
+      out << " - '" << gameObject->Name() << "' \n";
+    }
+    return out;
   }
 
 } // DCEngine

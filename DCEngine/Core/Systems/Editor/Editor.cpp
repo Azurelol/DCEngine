@@ -88,7 +88,6 @@ namespace DCEngine {
         DCTrace << "Editor::Update \n";
       DisplayEditor();
       UseTool();
-      DisplayGUITest();
       
     }
 
@@ -180,29 +179,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WidgetResourceAdd()
     {
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Displays the ImGui Test Window.
-    */
-    /**************************************************************************/
-    void Editor::DisplayGUITest()
-    {
-      if (ShowTestWindow) {
-        ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-        ImGui::ShowTestWindow(&ShowTestWindow);
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    \brief  Loads a sample level onto the space.
-    */
-    /**************************************************************************/
-    void Editor::LoadSampleLevel()
-    {
-
     }
 
     /**************************************************************************/

@@ -34,6 +34,7 @@
 /* Physics */
 #include "Components\Transform.h"
 #include "Components\RigidBody.h"
+#include "Components\Collider.h"
 #include "Components\BoxCollider.h"
 #include "Components\Orientation.h"
 #include "Components\IgnoreSpaceEffects.h"

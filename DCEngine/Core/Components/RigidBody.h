@@ -37,8 +37,8 @@ namespace DCEngine
     #endif
 
 		RigidBody(Entity& owner) : Component(std::string("RigidBody"), owner) {}
+    ~RigidBody();
 		void Initialize();
-
 		void AddForce(Vec3 force);
 		void Integrate(float dt);
 		void PublishResults(void);
@@ -46,16 +46,12 @@ namespace DCEngine
     /* Properties */
 		Vec3 getVelocity(void);
     void setVelocity(Vec3 vel);
-
     Vec3 getAngularVelocity() const;
     void setAngularVelocity(Vec3);
-
     DynamicStateType getDynamicState() const;
     void setDynamicState(DynamicStateType);
-
     bool getRotationLocked() const;
-    void setRotationLocked(bool);
-    
+    void setRotationLocked(bool);    
     float getMass(void);
     /* It's possible that we want to use a mass-override component instead */
     void setMass(float mass);

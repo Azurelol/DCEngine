@@ -11,11 +11,12 @@
 /******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
+#include "Collider.h"
 
 namespace DCEngine {
 
   class Transform;
-  class CircleCollider : public Component {
+  class CircleCollider : public Collider {
   public:
 
     float Radius = 5;
@@ -34,10 +35,9 @@ namespace DCEngine {
     //void DrawCollider();
     String getCollisionGroup() const;
     // These should be private!
-    CircleCollider(Entity& owner) : Component(std::string("CircleCollider"), owner) {}
+    CircleCollider(Entity& owner) : Collider(owner, "CircleCollider") {}
+    ~CircleCollider();
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
 
     void OnLogicUpdateEvent(Events::LogicUpdate* event);
     void OnCollisionStartedEvent(Events::CollisionStarted* event);

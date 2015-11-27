@@ -144,9 +144,6 @@ namespace DCEngine {
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
-      /* Test functions */
-      void DisplayGUITest();
-      void LoadSampleLevel();
 
     };
 

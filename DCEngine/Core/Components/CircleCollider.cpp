@@ -18,17 +18,27 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief CircleCollider destructor.
+  @todo  This could be done in the base collider class instead.
+  */
+  /**************************************************************************/
+  CircleCollider::~CircleCollider()
+  {
+    SpaceRef->getComponent<PhysicsSpace>()->RemoveCollider(this);
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Initializes the CircleCollider component.
   @note This can only go in the translational unit (.cpp)
   */
   /**************************************************************************/
   void CircleCollider::Initialize()
-  {
-    auto owner = dynamic_cast<GameObject*>(Owner());
+  {    
     // Store a reference to the Transform Component
-    TransformComponent = owner->getComponent<Transform>();
+    TransformComponent = Owner()->getComponent<Transform>();
     // Subscribe this physics component to the physics space
-    SpaceRef->getComponent<PhysicsSpace>()->AddCollider(owner);
+    SpaceRef->getComponent<PhysicsSpace>()->AddCollider(this);
    
     // If this component needs to draw the collider with debug draw,
     // subscribe to LogicUpdate events so it can draw
@@ -50,13 +60,6 @@ namespace DCEngine {
                                                           Vec4(1, 0, 0, 1)); // Red
   }*/
 
-  void CircleCollider::Serialize(Json::Value & root)
-  {
-  }
-
-  void CircleCollider::Deserialize(Json::Value & root)
-  {
-  }
 
   /**************************************************************************/
   /*!

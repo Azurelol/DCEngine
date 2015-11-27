@@ -12,17 +12,18 @@ another. This component interacts directly with the physics system.
 /******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
+#include "Collider.h"
 
 namespace DCEngine {
 
 	class Transform;
 	class Physics;
-	class BoxCollider : public Component {
+	class BoxCollider : public Collider {
 	public:
 		friend class Physics;
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(BoxCollider, Component);
+    ZilchDeclareDerivedType(BoxCollider, Collider);
     #endif
 
     /* Variables */

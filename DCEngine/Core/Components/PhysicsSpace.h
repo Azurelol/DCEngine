@@ -12,13 +12,17 @@
 /******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
-#include "../Objects/Entities/GameObject.h"
+
+#include "../Components/BoxCollider.h"
+#include "../Components/RigidBody.h"
+//#include "../Objects/Entities/GameObject.h"
 #include "../Resources/CollisionGroup.h"
 #include "../Resources/CollisionTable.h"
 
 namespace DCEngine {
 
-  class GameObject;
+  using RigidBodyContainer = std::vector<RigidBody*>;
+  using ColliderContainer = std::vector<Collider*>;
 
   class Physics;
   class PhysicsSpace : public Component {
@@ -30,27 +34,27 @@ namespace DCEngine {
     CollisionTableHandle getCollisionTable();
 
     // Methods
-    void AddRigidBody(GameObject* rigidbody);
-    void RemoveRigidBody(GameObject* rigidbody);
-    void AddCollider(GameObject* collider);
-    void RemoveCollider(GameObject* collider);
-    GameObjectRawVec getRigidbodies();
-    GameObjectRawVec getColliders();
+    void AddRigidBody(RigidBody& rigidbody);
+    void RemoveRigidBody(RigidBody& rigidbody);
+    void AddCollider(Collider* collider);
+    void RemoveCollider(Collider* collider);
+
+    RigidBodyContainer& AllRigidBodies();
+    ColliderContainer& AllColliders();
 
     PhysicsSpace(Entity& owner);
     ~PhysicsSpace();
     void Initialize();
-
 
   private:
 
     bool AllowSleep;
     bool Mode2D;
     bool Deterministic;
-    CollisionTableHandle CollisionTable;
 
-    GameObjectRawVec RigidBodiesContainer;
-    GameObjectRawVec CollidersContainer;
+    CollisionTableHandle CollisionTable;
+    RigidBodyContainer RigidBodiesContainer;
+    ColliderContainer CollidersContainer;
 
   };
 

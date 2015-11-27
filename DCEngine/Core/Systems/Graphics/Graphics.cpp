@@ -70,8 +70,13 @@ namespace DCEngine {
 
       // For every Space with a 'GraphicsSpace' component...
       for (auto gfxSpace : graphicsSpaces_) {
+
         // Get the default camera from the 'CameraViewport' component
         auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
+
+        // Do not update the space if no camera has been set
+        if (camera == nullptr)
+          continue;
 
         // Update every 'Sprite'
         GraphicsHandler->SetSpriteShader(*camera);

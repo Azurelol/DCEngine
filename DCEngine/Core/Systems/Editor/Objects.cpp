@@ -31,7 +31,7 @@ namespace DCEngine {
       ImGui::Begin("Objects", &WidgetObjectsEnabled);
       // Print every name
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
-      for (auto object : *objects) {
+      for (auto& object : *objects) {
         auto ObjectName = object->Name().c_str();
         // If the user has selected the GameObject.
         if (ImGui::Button(ObjectName)) {

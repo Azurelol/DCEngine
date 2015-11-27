@@ -52,10 +52,11 @@ namespace DCEngine {
   \param A pointer to the 'GameObject'
   */
   /**************************************************************************/
-  void PhysicsSpace::AddRigidBody(GameObject* rigidbody)
+  void PhysicsSpace::AddRigidBody(RigidBody& rigidbody)
   {
-    RigidBodiesContainer.push_back(rigidbody);
-    DCTrace << "PhysicsSpace::AddRigidBody - " << rigidbody->Name() << "\n";
+    RigidBodiesContainer.push_back(&rigidbody);
+    DCTrace << Owner()->getObjectName()
+            << "::PhysicsSpace::AddRigidBody - " << rigidbody.Owner()->Name() << "\n";
   }
 
   /**************************************************************************/
@@ -64,10 +65,13 @@ namespace DCEngine {
   \param A pointer to the 'GameObject'
   */
   /**************************************************************************/
-  void PhysicsSpace::RemoveRigidBody(GameObject * rigidbody)
+  void PhysicsSpace::RemoveRigidBody(RigidBody& rigidbody)
   {
+    DCTrace << Owner()->getObjectName()
+      << "::PhysicsSpace::RemoveRigidBody - " << rigidbody.Owner()->Name() << "\n";
+    RigidBody* ptr = &rigidbody;
     RigidBodiesContainer.erase(std::remove(RigidBodiesContainer.begin(),
-                                           RigidBodiesContainer.end(), rigidbody),
+                                           RigidBodiesContainer.end(), ptr),
                                            RigidBodiesContainer.end());
   }
 
@@ -77,20 +81,24 @@ namespace DCEngine {
   \param A pointer to the 'GameObject'
   */
   /**************************************************************************/
-  void PhysicsSpace::AddCollider(GameObject* collider)
+  void PhysicsSpace::AddCollider(Collider* collider)
   {
     CollidersContainer.push_back(collider);
-    DCTrace << "PhysicsSpace::AddCollider - " << collider->Name() << "\n";
+    DCTrace << Owner()->Name() << "::PhysicsSpace::AddCollider - " 
+            << collider->Owner()->Name() << "\n";
   }
 
   /**************************************************************************/
   /*!
-  \brief Remvoes a GameObject with a 'RigidBody' component.
+  \brief Removes a GameObject with a 'RigidBody' component.
   \param A pointer to the 'GameObject'
   */
   /**************************************************************************/
-  void PhysicsSpace::RemoveCollider(GameObject * collider)
+  void PhysicsSpace::RemoveCollider(Collider* collider)
   {
+    DCTrace << Owner()->Name() << "::PhysicsSpace::RemoveCollider - " 
+            << collider->Owner()->Name() << "\n";
+    //BoxCollider* ptr = collider;
     CollidersContainer.erase(std::remove(CollidersContainer.begin(),
                                          CollidersContainer.end(), collider),
                                          CollidersContainer.end());
@@ -98,30 +106,40 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief Returns the container of 'GameObjects' with 'Rigidbody' component.
-  \return A container of GameObjects.
+  @brief Returns the container of active RigidBodies.
+  @return A container of GameObjects.
   */
   /**************************************************************************/
-  GameObjectRawVec PhysicsSpace::getRigidbodies()
+  RigidBodyContainer& PhysicsSpace::AllRigidBodies()
   {
     return RigidBodiesContainer;
   }
   /**************************************************************************/
   /*!
-  \brief Returns the container of 'GameObjects' with 'Collider' component.
-  \return A container of GameObjects.
+  @brief Returns the container of active Colliders.
+  @return A container of GameObjects.
   */
   /**************************************************************************/
-  GameObjectRawVec PhysicsSpace::getColliders()
+  ColliderContainer& PhysicsSpace::AllColliders()
   {
     return CollidersContainer;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Sets the collision table.
+  */
+  /**************************************************************************/
   void PhysicsSpace::setCollisionTable(CollisionTableHandle table)
   {
     this->CollisionTable = table;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Gets the collision table.
+  */
+  /**************************************************************************/
   CollisionTableHandle PhysicsSpace::getCollisionTable()
   {
     return this->CollisionTable;

@@ -14,6 +14,7 @@
 #include "../../Components/PhysicsSpace.h"
 #include "Manifold.h"
 #include "../../Resources/CollisionTable.h"
+#include "../../Objects/Entities/GameObject.h"
 
 namespace DCEngine {
   class Engine;

@@ -606,6 +606,9 @@
     <ClCompile Include="Projects\Rebound\Components\Button.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\Collider.cpp">
+      <Filter>Core\Components\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1054,6 +1057,9 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\Button.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Collider.h">
+      <Filter>Core\Components\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

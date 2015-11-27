@@ -16,7 +16,7 @@
 
 namespace DCEngine
 {
-  enum Collider
+  enum ColliderType
   {
     Circle = 0,
     Rectangle
@@ -34,8 +34,8 @@ namespace DCEngine
     GameObject* Object1;
     GameObject* Object2;
 
-    Collider obj1;
-    Collider obj2;
+    ColliderType obj1;
+    ColliderType obj2;
 
     glm::vec3 v1;
     glm::vec3 v2;

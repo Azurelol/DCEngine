@@ -240,6 +240,7 @@
     <ClCompile Include="Core\Binding\CoreBinding.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
+    <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
@@ -373,6 +374,7 @@
     <ClInclude Include="Core\Binding\CoreBindingTypes.h" />
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
+    <ClInclude Include="Core\Components\Collider.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
     <ClInclude Include="Core\Components\ParticleEmitter.h" />

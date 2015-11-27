@@ -43,7 +43,7 @@ namespace DCEngine {
   @param owner A reference to this component's owner.
   */
   /**************************************************************************/
-  BoxCollider::BoxCollider(Entity & owner) : Component(std::string("BoxCollider"), owner)
+  BoxCollider::BoxCollider(Entity & owner) : Collider(owner, "BoxCollider")//: Component(std::string("BoxCollider"), owner)
   {
   }
 
@@ -54,7 +54,7 @@ namespace DCEngine {
   /**************************************************************************/
   BoxCollider::~BoxCollider()
   {
-
+    SpaceRef->getComponent<PhysicsSpace>()->RemoveCollider(this);
   }
 
   /**************************************************************************/
@@ -64,11 +64,10 @@ namespace DCEngine {
   /**************************************************************************/
 	void BoxCollider::Initialize()
 	{
-		auto owner = dynamic_cast<GameObject*>(Owner());
 		// Store a reference to the Transform Component
-		TransformComponent = owner->getComponent<Transform>();
+		TransformComponent = Owner()->getComponent<Transform>();
 		// Subscribe this physics component to the physics space
-		SpaceRef->getComponent<PhysicsSpace>()->AddCollider(owner);
+		SpaceRef->getComponent<PhysicsSpace>()->AddCollider(this);
 
 		// If this component needs to draw the collider with debug draw,
 		// subscribe to LogicUpdate events so it can draw

@@ -200,21 +200,26 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Integrate(float dt, PhysicsSpace* physpace)
 		{
-			auto bodies = physpace->getRigidbodies();
+			auto& bodies = physpace->AllRigidBodies();
 
 
-			for (int i = 0; i < bodies.size(); ++i)
-			{
+      for (auto rigidbody : bodies) {
+        if (rigidbody != nullptr)
+          rigidbody->Integrate(dt);
+      }
 
-				if (bodies[i]->getComponent<RigidBody>() != NULL)
-				{
-					bodies[i]->getComponent<RigidBody>()->Integrate(dt);
-				}
-				else
-				{
-					throw DCException("An object without a RigidBody got into the list of RigidBodies");
-				}
-			}
+			//for (int i = 0; i < bodies.size(); ++i)
+			//{
+
+			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
+			//	{
+			//		bodies[i]->getComponent<RigidBody>()->Integrate(dt);
+			//	}
+			//	else
+			//	{
+			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
+			//	}
+			//}
 		}
 
 		/**************************************************************************/
@@ -226,19 +231,24 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::PublishResults(PhysicsSpace* physpace)
 		{
-			auto bodies = physpace->getRigidbodies();
+			auto& bodies = physpace->AllRigidBodies();
 
-			for (int i = 0; i < bodies.size(); ++i)
-			{
-				if (bodies[i]->getComponent<RigidBody>() != NULL)
-				{
-					bodies[i]->getComponent<RigidBody>()->PublishResults();
-				}
-				else
-				{
-					throw DCException("An object without a RigidBody got into the list of RigidBodies");
-				}
-			}
+      for (auto rigidbody : bodies) {
+        if (rigidbody != nullptr)
+          rigidbody->PublishResults();
+      }
+
+			//for (int i = 0; i < bodies.size(); ++i)
+			//{
+			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
+			//	{
+			//		bodies[i]->getComponent<RigidBody>()->PublishResults();
+			//	}
+			//	else
+			//	{
+			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
+			//	}
+			//}
 		}
 
     /**************************************************************************/
@@ -268,7 +278,7 @@ namespace DCEngine {
     std::vector<DetectionPairing> Physics::BroadPhaseDetection(PhysicsSpace* physpace)
 		{
 			// For all gameobjects with a 'Collider' component
-			auto list = physpace->getColliders();
+			auto& list = physpace->AllColliders();
 
       std::vector<DetectionPairing> result;
 
@@ -278,15 +288,21 @@ namespace DCEngine {
 			{
 				for (int j = i + 1; j < list.size(); ++j)
 				{
-         auto box1 = list[i]->getComponent<BoxCollider>();
-         auto box2 = list[j]->getComponent<BoxCollider>();
-         auto cir1 = list[i]->getComponent<CircleCollider>();
-         auto cir2 = list[j]->getComponent<CircleCollider>();
+          auto box1 = dynamic_cast<BoxCollider*>(list[i]);
+          auto box2 = dynamic_cast<BoxCollider*>(list[j]);
+          auto cir1 = dynamic_cast<CircleCollider*>(list[i]);
+          auto cir2 = dynamic_cast<CircleCollider*>(list[j]);
+
+         //auto box1 = list[i]->getComponent<BoxCollider>();
+         //auto box2 = list[j]->getComponent<BoxCollider>();
+         //auto cir1 = list[i]->getComponent<CircleCollider>();
+         //auto cir2 = list[j]->getComponent<CircleCollider>();
          std::string str1, str2;
 
+         
 
-         Fill.obj1 = list[i];
-         Fill.obj2 = list[j];
+         Fill.obj1 = dynamic_cast<GameObjectPtr>(list[i]->Owner());
+         Fill.obj2 = dynamic_cast<GameObjectPtr>(list[j]->Owner());
 
          if (box1)
          {

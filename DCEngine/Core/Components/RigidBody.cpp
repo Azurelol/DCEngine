@@ -38,11 +38,19 @@ namespace DCEngine
   }
   #endif
 
+  /**************************************************************************/
+  /*!
+  @brief RigidBody destructor.
+  */
+  /**************************************************************************/
+  RigidBody::~RigidBody()
+  {
+    SpaceRef->getComponent<PhysicsSpace>()->RemoveRigidBody(*this);
+  }
 
-	/**************************************************************************/
+  /**************************************************************************/
 	/*!
 	@brief Initializes this component.
-	@note
 	*/
 	/**************************************************************************/
 	void RigidBody::Initialize()
@@ -51,7 +59,7 @@ namespace DCEngine
 		// Store a reference to the Transform Component
 		TransformComponent = owner->getComponent<Transform>();
 		// Subscribe this physics component to the physics space
-		SpaceRef->getComponent<PhysicsSpace>()->AddRigidBody(owner);
+		SpaceRef->getComponent<PhysicsSpace>()->AddRigidBody(*this);
 		// Stores the initial position
 		Position = TransformComponent->Translation;
 	}
