@@ -50,32 +50,9 @@ namespace DCEngine {
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		Timer += event->Dt;
-		auto XDistanceFromPlayer = TransformRef->Translation.x - PlayerRef->getComponent<Transform>()->Translation.x;
 		if (EnemyType == EnemyType::BasicChaser)
 		{
-			if (glm::abs(XDistanceFromPlayer) < 10)
-			{
-				auto direction = glm::sign(XDistanceFromPlayer); //-5 to 5
-				if (direction < 0)
-				{
-					HitEndOfPatrol = false;
-				}
-				if (direction > 0)
-				{
-					HitEndOfPatrol = true;
-				}
-				//LockedOnPlayer = true;
-				if (Timer > JumpInterval)
-				{
-					//Timer = 0;
-					//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * JumpPowerX, JumpPowerY, 0));
-				}
-				SpriteRef->Color = Vec4(1, 0, 1, 1);
-			}
-			else
-			{
-				SpriteRef->Color = Vec4(0, 0, 1, 1);
-			}
+			DoBasicChaser();
 			Patrol();
 		}
 		if (EnemyType == EnemyType::RandomJumper)
@@ -91,25 +68,73 @@ namespace DCEngine {
 
 	void EnemyController::Patrol()
 	{
-		if (HitEndOfPatrol)
+		auto XDistanceFromPlayer = TransformRef->Translation.x - PlayerRef->getComponent<Transform>()->Translation.x;
+		auto direction = glm::sign(XDistanceFromPlayer); //-5 to 5
+		if(LockedOnPlayer)
 		{
-			RigidBodyRef->setVelocity(Vec3(-MoveSpeed,0,0));
-			if (TransformRef->getTranslation().x < InitialPosition.x)
+			if (direction < 0)
 			{
-				HitEndOfPatrol = false;
-				SpriteRef->FlipX = false;
+				RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
 			}
+			if (direction > 0)
+			{
+				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+			}
+		}
+
+		if (TransformRef->getTranslation().x < InitialPosition.x)
+		{
+			RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
+			HitEndOfPatrol = false;
+		}
+		else if (TransformRef->getTranslation().x > InitialPosition.x + PatrolRange)
+		{
+			RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+			HitEndOfPatrol = true;
 		}
 		else
 		{
-			RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
-			if (TransformRef->getTranslation().x > InitialPosition.x + PatrolRange)
+			if (HitEndOfPatrol && !LockedOnPlayer)
 			{
-				HitEndOfPatrol = true;
-				SpriteRef->FlipX = true;
+				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, 0, 0));
+			}
+			if (!HitEndOfPatrol && !LockedOnPlayer)
+			{
+				RigidBodyRef->setVelocity(Vec3(MoveSpeed, 0, 0));
 			}
 		}
 		
+	
+
+		if (RigidBodyRef->getVelocity().x < 0)
+		{
+			SpriteRef->FlipX = true;
+		}
+		else
+		{
+			SpriteRef->FlipX = false;
+		}
+		
+	}
+
+	void EnemyController::DoBasicChaser()
+	{
+		auto PlayerPosX = PlayerRef->getComponent<Transform>()->Translation.x;
+		if (PlayerPosX > InitialPosition.x && PlayerPosX < InitialPosition.x + PatrolRange)
+		{
+			LockedOnPlayer = true;
+			if (Timer > JumpInterval)
+			{
+				//Timer = 0;
+				//RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * JumpPowerX, JumpPowerY, 0));
+			}
+			SpriteRef->Color = Vec4(1, 0, 1, 1);
+		}
+		else
+		{
+			SpriteRef->Color = Vec4(0, 0, 1, 1);
+			LockedOnPlayer = false;
+		}
 	}
 
 	Real EnemyController::GetJumpInterval()
