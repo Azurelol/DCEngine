@@ -126,7 +126,7 @@ namespace DCEngine {
       void MoveObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
-      void SetEditorCamera();
+      void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       // Create
       void CreateTransform();

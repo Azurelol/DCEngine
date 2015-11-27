@@ -43,23 +43,10 @@ namespace DCEngine {
     @todo  L57: Currently not deleting the editor camera when switching. It breaks!
     */
     /**************************************************************************/
-    void Editor::SetEditorCamera()
+    void Editor::SetEditorCamera(bool set)
     {
-      // If the editor has been enabled, create a new camera
-      if (!EditorEnabled) {
-        DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
-        // Look for a camera on the space to be default
-        auto defaultcam = CurrentSpace->getComponent<CameraViewport>()->FindDefaultCamera();
-        // Set it as the default camera
-        CurrentSpace->getComponent<CameraViewport>()->setCamera(defaultcam);
-        // Remove the editor camera from the space
-        auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
-        editorCamera->Destroy();
-        //CurrentSpace->RemoveObject(*editorCamera);
-        return;
-      }
-      // Create a new camera
-      else {
+      // If the editor camera needs to be set
+      if (set) {
         DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
         editorCamera->AddComponent<DCEngine::Camera>(true);
@@ -73,14 +60,23 @@ namespace DCEngine {
         editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
         // Add the camera to the current space
         CurrentSpace->AddObject(editorCamera);
+
         // Set it as the default camera on the space
         auto cameraComp = editorCamera->getComponent<DCEngine::Camera>();
         CurrentSpace->getComponent<CameraViewport>()->setCamera(cameraComp);
       }
-
-      
+      // If the editor camera needs to be removed
+      else {
+        DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
+        // Look for a camera on the space to be default
+        auto defaultcam = CurrentSpace->getComponent<CameraViewport>()->FindDefaultCamera();
+        // Set it as the default camera
+        CurrentSpace->getComponent<CameraViewport>()->setCamera(defaultcam);
+        // Remove the editor camera from the space
+        auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
+        editorCamera->Destroy();
+      }      
     }
-
 
   }
 }

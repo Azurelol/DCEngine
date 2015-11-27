@@ -39,7 +39,7 @@ namespace DCEngine {
       // Load the level
       CurrentSpace->LoadLevel(level);
       // Load the editor camera
-      SetEditorCamera();
+      SetEditorCamera(true);
 
       //std::string levelData = 
     }
@@ -72,9 +72,16 @@ namespace DCEngine {
       // Reload the current level
       CurrentSpace->ReloadLevel();
       // Reload the editor camera
-      SetEditorCamera();
+      SetEditorCamera(true);
+      // Clear the currently selected object
+      SelectedObject = nullptr;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Loads the hard-coded level, Dollhouse.
+    */
+    /**************************************************************************/
     void Editor::LoadDollhouse()
     {
       SelectedObject = nullptr;
@@ -82,7 +89,7 @@ namespace DCEngine {
       LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, CurrentSpace->getGameSession()));
       CurrentSpace->LoadSampleLevel(dollhouse);      
       // Load the editor camera
-      SetEditorCamera();
+      SetEditorCamera(true);
     }
 
   }

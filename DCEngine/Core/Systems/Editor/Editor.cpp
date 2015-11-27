@@ -110,8 +110,6 @@ namespace DCEngine {
       // Toggle the widgets
       WidgetLibraryEnabled = true;
       WidgetObjectsEnabled = true;
-      // Set the editor camera
-      SetEditorCamera();
 
       if (EditorEnabled) {
         // Pause the engine (Physics, Input, Events)
@@ -120,7 +118,11 @@ namespace DCEngine {
         delete pause;
         DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
         // Reload the level
-        CurrentSpace->ReloadLevel();
+        ReloadLevel();
+
+        //CurrentSpace->ReloadLevel();
+        //// Set the editor camera
+        //SetEditorCamera(true);
       }
       else {
         // Unpause the engine (Physics, Input, Events)
@@ -128,6 +130,8 @@ namespace DCEngine {
         Daisy->Dispatch<Events::EngineResume>(resume);
         delete resume;
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
+        // Set the editor camera
+        SetEditorCamera(false);
       }
     }
 
