@@ -47,7 +47,7 @@ namespace DCEngine {
 	monkey->getComponent<EnemyController>()->EnemyType = EnemyType::RandomJumper;
   }
 
-  void DollHouse::GenerateBasicChaserEnemy(Vec3 translation, Vec3 scale, Vec4 color)
+  void DollHouse::GenerateBasicChaserEnemy(Vec3 translation, Vec3 scale, Vec4 color, Real patrolRange)
   {
 	  GameObjectPtr monkey = ConstructGameObject("Monkey");
 	  monkey->AddComponent<Transform>();
@@ -73,6 +73,7 @@ namespace DCEngine {
 	  monkey->getComponent<RigidBody>()->setGravity(true);
 	  //std::uniform_real_distribution<float> dist(0, 5);
 	  monkey->getComponent<EnemyController>()->EnemyType = EnemyType::BasicChaser;
+	  monkey->getComponent<EnemyController>()->PatrolRange = patrolRange;
   }
 
 	void DollHouse::GenerateTerrain(Vec3 translation, Vec3 scale, Vec4 color)
@@ -251,7 +252,7 @@ namespace DCEngine {
     mariah->getComponent<Sprite>()->HaveAnimation = true;
     mariah->getComponent<Sprite>()->AnimationSpeed = 10;
     // Change the properties of the components
-    mariah->getComponent<Transform>()->Translation = Vec3(4.0f, 10.0f, 0.0f);
+    mariah->getComponent<Transform>()->Translation = Vec3(-40.0f, 10.0f, 0.0f);
     mariah->getComponent<Transform>()->Scale = Vec3(2.0f, 2.0f, 1.0f);
     // Sprite properties
     //mariah->getComponent<Sprite>()->Color = Vec4(1.0f, 0.7f, 0.3f, 1.0f);
@@ -275,9 +276,15 @@ namespace DCEngine {
     GenerateMonkeyLOL(Vec3(-20, 1, 0), Vec3(4, 4, 1), Vec4(1, 1, 1.0, 1));
 
 	*/
-	GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
-	GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
-	GenerateBasicChaserEnemy(Vec3(-30, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	//GenerateTerrain(Vec3(0, 0, 0), Vec3(1, 1, 1), Vec4(0, 1, 0, 1));
+	//GenerateHazardArea(Vec3(5, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1));
+	//GenerateBasicChaserEnemy(Vec3(-30, 0, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 10);
+
+	GenerateTerrain(Vec3(8, 8, 0), Vec3(4, 1, 1), Vec4(0, 0, 0, 1));
+	GenerateTerrain(Vec3(24, 13, 0), Vec3(4, 1, 1), Vec4(0, 0, 0, 1));
+	GenerateTerrain(Vec3(40, 17, 0), Vec3(6, 1, 1), Vec4(0, 0, 0, 1));
+	GenerateBasicChaserEnemy(Vec3(-2, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 20);
+	GenerateBasicChaserEnemy(Vec3(19, -1, 0), Vec3(2, 2, 1), Vec4(0, 1, 0, 1), 20);
 	//GenerateFreezeEnabler(Vec3(10, 5, 0), Vec3(2, 2, 1), Vec4(0.4, 1, 1, 1));
 	//GenerateButton(Vec3(10, 15, 0), Vec3(2, 2, 1), Vec4(1, 1, 1, 1));
 

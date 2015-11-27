@@ -24,7 +24,7 @@ namespace DCEngine {
     floor->AddComponent<DebugReport>();
     // Change the properties of the components
     floor->getComponent<Transform>()->Translation = Vec3(0.0f, -5.0f, 0.0f);
-    floor->getComponent<Transform>()->Scale = Vec3(150.0f, 1.0f, 1.0f);
+    floor->getComponent<Transform>()->Scale = Vec3(100.0f, 1.0f, 1.0f);
     // BoxCollider properties
     floor->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
     floor->getComponent<BoxCollider>()->IsDrawingCollider = true;
@@ -58,7 +58,7 @@ namespace DCEngine {
       wall->AddComponent<BoxCollider>();
       wall->AddComponent<Sprite>();
       // Change the properties of the components
-      wall->getComponent<Transform>()->Translation = Vec3(-150.0f, 33.0f, 0.0f);
+      wall->getComponent<Transform>()->Translation = Vec3(-100.0f, 33.0f, 0.0f);
       wall->getComponent<Transform>()->Scale = Vec3(2.0f, 40.0f, 1.0f);
       // BoxCollider properties
       wall->getComponent<BoxCollider>()->Size = Vec3(2, 2, 2);
