@@ -96,11 +96,11 @@ namespace DCEngine {
 	void BoxCollider::DrawCollider()
 	{
 		auto debugScale = Vec2(getColliderScale().x,
-			getColliderScale().x);
+			getColliderScale().y);
 
 		SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(TransformComponent->Translation + Offset,
 			debugScale.x, //TransformComponent->Scale.x * Size.x,
-			debugScale.y, //TransformComponent->Scale.y * Size.y, 
+			debugScale.y, //TransformComponent->Scale.y * Size.y,
 			Vec4(1, 0, 0, 1)); // Red
 	}
   
