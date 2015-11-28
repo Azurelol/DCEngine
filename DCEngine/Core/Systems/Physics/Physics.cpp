@@ -346,7 +346,7 @@ namespace DCEngine {
 		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> pairs, std::vector<Manifold> &contactlist)
 		{
 			GameObject * obj1, *obj2;
-
+      std::pair<GameObjectPtr, GameObjectPtr> pair;
 			Manifold collision;
       CollisionData Collision;
 
@@ -355,6 +355,9 @@ namespace DCEngine {
         obj1 = Pair.obj1;
         obj2 = Pair.obj2;
         Collision.filter = Pair.filter;
+
+        pair.first = obj1;
+        pair.second = obj2;
 
         if (Pair.filter.CollisionFlag == CollisionFlag::SkipDetecting)
         {
@@ -375,16 +378,27 @@ namespace DCEngine {
             // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionStarted(Collision);
-
+            if (!Persisted(pair))
+            {
+              DispatchCollisionStarted(Collision);
+              PersistedPairs.push_back(pair);
+            }
+            else
+            {
+              
+            }
 					}
 					// NO COLLISION DETECTED
 					else 
           {
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionEnded(Collision);
-					}
+            if (Persisted(pair))
+            {
+              DispatchCollisionEnded(Collision);
+              RemovePair(pair);
+            }
+          }
 				}
 				else if (obj1->getComponent<CircleCollider>() && obj2->getComponent<CircleCollider>())
 				{
@@ -397,7 +411,15 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionStarted(Collision);
+            if (!Persisted(pair))
+            {
+              DispatchCollisionStarted(Collision);
+              PersistedPairs.push_back(pair);
+            }
+            else
+            {
+
+            }
 
 					}
 					// NO COLLISION DETECTED
@@ -405,7 +427,11 @@ namespace DCEngine {
           {
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionEnded(Collision);
+            if (Persisted(pair))
+            {
+              DispatchCollisionEnded(Collision);
+              RemovePair(pair);
+            }
 					}
 				}
 				else if ((obj1->getComponent<BoxCollider>() && obj2->getComponent<CircleCollider>()))
@@ -419,7 +445,15 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionStarted(Collision);
+            if (!Persisted(pair))
+            {
+              DispatchCollisionStarted(Collision);
+              PersistedPairs.push_back(pair);
+            }
+            else
+            {
+              
+            }
 
 					}
 					// NO COLLISION DETECTED
@@ -427,7 +461,11 @@ namespace DCEngine {
 					{
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
-						DispatchCollisionEnded(Collision);
+            if (Persisted(pair))
+            {
+              DispatchCollisionEnded(Collision);
+              RemovePair(pair);
+            }
 					}
 				}
 				else if ((obj1->getComponent<CircleCollider>() && obj2->getComponent<BoxCollider>()))
@@ -441,7 +479,15 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj2;
 						Collision.OtherObject = obj1;
-						DispatchCollisionStarted(Collision);
+            if (!Persisted(pair))
+            {
+              DispatchCollisionStarted(Collision);
+              PersistedPairs.push_back(pair);
+            }
+            else
+            {
+              
+            }
 
 					}
 					// NO COLLISION DETECTED
@@ -449,7 +495,11 @@ namespace DCEngine {
 					{
 						Collision.Object = obj2;
 						Collision.OtherObject = obj1;
-						DispatchCollisionEnded(Collision);
+            if (Persisted(pair))
+            {
+              DispatchCollisionEnded(Collision);
+              RemovePair(pair);
+            }
 					}
 				}
 			}
@@ -531,6 +581,34 @@ namespace DCEngine {
 		void Physics::Terminate() {
 		}
 
-	}
+    /**************************************************************************/
+    /*!
+    @brief determine if an object pairing was colliding last frame.
+    @param A std::pair of pointers.
+    */
+    /**************************************************************************/
+    bool Physics::Persisted(std::pair<GameObjectPtr, GameObjectPtr> &pair)
+    {
+      for (auto Pair : PersistedPairs)
+      {
+        if ((Pair.first == pair.first && Pair.second == pair.second) || (Pair.first == pair.second && Pair.second == pair.first))
+        {
+          return true;
+        }
+      }
+      return false;
+    }
 
+    void Physics::RemovePair(std::pair<GameObjectPtr, GameObjectPtr> &pair)
+    {
+      for (auto i = PersistedPairs.begin(); i != PersistedPairs.end(); ++i)
+      {
+        if ((i._Ptr->first == pair.first && i._Ptr->second == pair.second) || (i._Ptr->first == pair.second && i._Ptr->second == pair.first))
+        {
+          PersistedPairs.erase(i);
+          return;
+        }
+      }
+    }
+	}
 }

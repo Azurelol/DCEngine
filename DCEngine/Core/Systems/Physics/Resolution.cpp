@@ -405,7 +405,7 @@ namespace DCEngine
     //solvers.
     unsigned int iterationsRun = 0;
     unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
-    const float positionEpsilon = 0.0000001f;
+    const float positionEpsilon = 0.00000001f;
 
     while (iterationsRun < maxIterations)
     {

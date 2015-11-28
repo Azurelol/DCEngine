@@ -52,6 +52,7 @@ namespace DCEngine {
 
       bool Paused;
       std::vector<PhysicsSpace*> physicsSpaces_;
+      std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
 
       Physics();
       void Initialize();
@@ -61,6 +62,8 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
+      bool Persisted(std::pair<GameObjectPtr, GameObjectPtr> &pair);
+      void RemovePair(std::pair<GameObjectPtr, GameObjectPtr> &pair);
       void Integrate(float dt, PhysicsSpace* physpace);
       void PublishResults(PhysicsSpace* physpace);
       void UpdateTransforms(PhysicsSpace *physpace);
