@@ -75,7 +75,7 @@ namespace DCEngine {
       // Data
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
-      std::string DefaultImage = "square";
+      std::string DefaultImage = "Square";
 
       // Resource maps
       std::map<std::string, SoundCuePtr> SoundCueMap;

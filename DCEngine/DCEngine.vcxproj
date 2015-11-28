@@ -233,7 +233,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>x64\Release\sfml-graphics-s.lib;x64\Release\sfml-window-s.lib;x64\Release\sfml-system-s.lib;opengl32.lib;winmm.lib;gdi32.lib;glew32s.lib;glfw3.lib;x64\fmod64_vc.lib;x64\freetype26d.lib;x64\Release\jsoncpp-mt-d.lib;x64\libboost_filesystem-vc140-mt-s-1_59.lib;x64\libboost_system-vc140-mt-s-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -273,6 +273,7 @@
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
+    <ClCompile Include="Core\Engine\Math.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
@@ -415,6 +416,7 @@
     <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\Data.h" />
     <ClInclude Include="Core\Engine\Macros.h" />
+    <ClInclude Include="Core\Engine\Math.h" />
     <ClInclude Include="Core\Engine\Types.h" />
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />

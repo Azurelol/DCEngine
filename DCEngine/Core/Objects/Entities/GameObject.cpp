@@ -81,6 +81,11 @@ namespace DCEngine {
     // If the GameObject is attached to a Parent, detach
     if (ParentRef)
       Detach();
+    // If there are children attached to this GameObject, dettach them
+    for (auto child : ChildrenContainer) {
+      RemoveChild(child);
+    }
+
     // Diagnostics
     if (DiagnosticsEnabled)
       GameObjectLastDestroyed = ObjectName;
@@ -186,6 +191,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::Detach()
   {
+    if (!ParentRef)
+      return;
     ParentRef->RemoveChild(GameObjectPtr(this));
     ParentRef = nullptr;
   }
@@ -272,11 +279,21 @@ namespace DCEngine {
   @param  A pointer to a child.
   */
   /**************************************************************************/
-  void GameObject::RemoveChild(GameObjectPtr child)
+  void GameObject::RemoveChild(GameObjectPtr childToRemove)
   {
-    ChildrenContainer.erase(std::remove(ChildrenContainer.begin(),
-      ChildrenContainer.end(), child),
-      ChildrenContainer.end());    
+    for (auto& child : ChildrenContainer) {
+      if (child == childToRemove) {
+        child->ParentRef = nullptr;
+        std::swap(child, ChildrenContainer.back());
+        ChildrenContainer.pop_back();
+      }
+
+    }
+    //
+
+    //ChildrenContainer.erase(std::remove(ChildrenContainer.begin(),
+    //  ChildrenContainer.end(), child),
+    //  ChildrenContainer.end());    
   }
 
 }

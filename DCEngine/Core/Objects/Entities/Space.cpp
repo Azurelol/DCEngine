@@ -253,9 +253,7 @@ namespace DCEngine {
     if (CurrentLevel != nullptr)
       LoadLevel(CurrentLevel);
   }
-
-
-
+  
   /**************************************************************************/
   /*!
   @brief  Creates a GameObject, adds it to the space.
@@ -273,6 +271,27 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Creates a GameObject, adds it to the space.
+  @return archetypeName The name of the archetype.
+  @note   This function requests the GameObject to be created through
+          the object factory.  
+  @return A pointer to the GameObject.
+  */
+  /**************************************************************************/
+  GameObjectPtr Space::CreateObject(std::string archetypeName)
+  {
+    auto archetype = Daisy->getSystem<Systems::Content>()->getArchetype(archetypeName);
+    // ERROR: If the archetype name could not be found... 
+    if (!archetype) {
+      DCTrace << ObjectName << "::Space::CreateObject - Could not find archetype: '" << archetypeName << "' \n";
+      return nullptr;
+    }
+    auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    return GameObjectPtr();
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Creates a GameObject from an Archetype and adds it to the space.
   @return A pointer to the GameObject that was added.
   \note   This function requests the entity to be created through
@@ -283,6 +302,11 @@ namespace DCEngine {
   {
     // Creates the GameObject from an Archetype
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    // ERROR: If the GameObject could not be created... 
+    if (!gameObject) {
+      DCTrace << ObjectName << "::Space::CreateObject - Could not create the GameObject! \n";
+      return nullptr;
+    }
     //GameObjectContainer.push_back(gameObject);
     return gameObject;
   }
