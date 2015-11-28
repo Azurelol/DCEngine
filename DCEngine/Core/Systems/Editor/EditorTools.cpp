@@ -151,6 +151,25 @@ namespace DCEngine {
       }
     }
 
+    void Editor::ScaleObject(Vec3 scaleChange)
+    {
+      if (!SelectedObject)
+        return;
+
+      if (ActiveTool != EditorTool::Scale)
+        return;
+
+      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+        DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
+        // Get the object's transform data
+        auto transform = gameObject->getComponent<Transform>();
+        Vec3 scale = transform->getScale();
+        // Translate the object
+        gameObject->getComponent<Transform>()->setScale(scale + scaleChange);
+      }
+
+    }
+
 
   }
 }

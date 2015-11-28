@@ -30,7 +30,9 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, CameraController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+    PlayerRef = SpaceRef->FindObjectByName("Player");
+    //PlayerRef = SpaceRef->FindObjectByName(TargetName);
+    //gameObj->AttachTo(PlayerRef);
 	}
 
 	void CameraController::Serialize(Json::Value & root)
@@ -45,9 +47,10 @@ namespace DCEngine {
 	{
 		if (event->Key == Keys::A)
 		{
-			PlayerRef = SpaceRef->FindObjectByName("Mariah");
+			PlayerRef = SpaceRef->FindObjectByName("Player");
 			//DCTrace << "A key pressed";
 		}
+    
 	}
 	
 	void CameraController::OnMouseDownEvent(Events::MouseDown * event)
@@ -62,6 +65,7 @@ namespace DCEngine {
 
 	void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+    return;
 		Real FrameRateCompensation = event->Dt * 60;
 		if (CameraControllerTraceOn)
 		{

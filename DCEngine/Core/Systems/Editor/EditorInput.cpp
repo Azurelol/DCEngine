@@ -64,18 +64,22 @@ namespace DCEngine {
 
       case Keys::Up:
         MoveObject(Vec3(0, SnapDistance, 0));
+        ScaleObject(Vec3(0, SnapDistance, 0));
         break;
 
       case Keys::Down:
         MoveObject(Vec3(0, -SnapDistance, 0));
+        ScaleObject(Vec3(0, -SnapDistance, 0));
         break;
 
       case Keys::Left:
         MoveObject(Vec3(-SnapDistance, 0,0));
+        ScaleObject(Vec3(-SnapDistance, 0, 0));
         break;
 
       case Keys::Right:
         MoveObject(Vec3(SnapDistance, 0, 0));
+        ScaleObject(Vec3(SnapDistance, 0, 0));
         break;
 
       //case Keys::Escape:
