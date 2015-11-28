@@ -203,23 +203,13 @@ namespace DCEngine {
 			auto& bodies = physpace->AllRigidBodies();
 
 
-      for (auto rigidbody : bodies) {
+      for (auto rigidbody : bodies) 
+      {
         if (rigidbody != nullptr)
+        {
           rigidbody->Integrate(dt);
+        }
       }
-
-			//for (int i = 0; i < bodies.size(); ++i)
-			//{
-
-			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
-			//	{
-			//		bodies[i]->getComponent<RigidBody>()->Integrate(dt);
-			//	}
-			//	else
-			//	{
-			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
-			//	}
-			//}
 		}
 
 		/**************************************************************************/

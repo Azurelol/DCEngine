@@ -368,7 +368,7 @@ namespace DCEngine
     {
       if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
+        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1 * 2.0f);
       }
     }
 
@@ -376,7 +376,7 @@ namespace DCEngine
     {
       if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2 * 2.0f);
       }
     }
 
@@ -386,10 +386,18 @@ namespace DCEngine
       {
         c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
       }
+      else if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+      }
 
       if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+      }
+      else if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      {
+        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
       }
     }
 
