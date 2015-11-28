@@ -33,6 +33,48 @@ namespace DCEngine {
     {
       // Scan the Projects folder for DCE files
       //auto projects = FileSystem::
+      DCTrace << "Editor::OpenProject - Opening project \n";
+      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Opens the last known recent project... if there is one.
+    */
+    /**************************************************************************/
+    void Editor::OpenRecentProject()
+    {
+      // If there is a recent project, load it! 
+      if (!Settings.RecentProject.empty()) {
+        LoadProject(Settings.ProjectsPath + Settings.RecentProject + ".dceproj");
+      }
+      // If there is not, enable the editor right away!
+      else {
+        if (Settings.EditorEnabled)
+          ToggleEditor();
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads the selected project into the engine.
+    @param  path The path of the project.
+    */
+    /**************************************************************************/
+    void Editor::LoadProject(std::string& path)
+    {
+      // Load the project's data into the Content system. This will
+      // automatically load its resources/assets for use.
+      Daisy->getSystem<Content>()->LoadProject(path);
+      // Load its default level      
+      if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
+        // If the project is set to 'Play', start playing right away.
+        if (Daisy->getSystem<Content>()->ProjectInfo->Play)
+          PlayGame();
+      }      
+      // No default level set, turn on the editor!
+      else
+        ToggleEditor();
     }
 
     /**************************************************************************/
@@ -63,9 +105,10 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::PlayGame()
     {
-      DCTrace << "Editor::PlayGame \n";
-      // Reload the level
-
+      DCTrace << "Editor::PlayGame - Playing: /"
+              << Daisy->getSystem<Content>()->ProjectInfo->ProjectName << "'\n";
+      // Toggle the editor off
+      ToggleEditor(false);
       // Unpause it
     }
 

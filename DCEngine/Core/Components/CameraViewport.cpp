@@ -17,10 +17,16 @@ projection matrix.
 
 namespace DCEngine {
 
-  void CameraViewport::Serialize(Json::Value & root) {
+  /**************************************************************************/
+  /*!
+  @brief  CameraViewport constructor.
+  */
+  /**************************************************************************/
+  CameraViewport::CameraViewport(Entity & owner) : Component(std::string("CameraViewport"), owner),
+                                                   CameraObj(nullptr), DefaultCameraObj(nullptr)
+  {
   }
-  void CameraViewport::Deserialize(Json::Value & root) {
-  }
+    
 
   /**************************************************************************/
   /*!

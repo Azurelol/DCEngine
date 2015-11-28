@@ -56,16 +56,26 @@ namespace DCEngine {
       ShaderMap* AllShaders();
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
-      
+      // Remove resource
+      void RemoveResource(ResourcePtr);      
+      // Scanners
       void ScanForLevels();
       void ScanForArchetypes();
+      void ScanForSpriteSources();
+      void ScanForSoundCues();
+      void ScanForLevels(std::string& levelPath);
+      void ScanForArchetypes(std::string& archetypePath);
+      void ScanForSpriteSources(std::string& spriteSourcePath);
+      void ScanForSoundCues(std::string& soundCuePath);
+      // Get the current project's settings
+      ProjectDataPtr& ProjectSettings();
 
     private:
       
       // Data
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
-      std::string DefaultImage = "index";
+      std::string DefaultImage = "Square";
 
       // Resource maps
       std::map<std::string, SoundCuePtr> SoundCueMap;

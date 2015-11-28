@@ -39,12 +39,9 @@ namespace DCEngine {
 
     Camera* getCamera() { return CameraObj; }
     void setCamera(Camera*);
-    Camera* FindDefaultCamera();
-    
-    CameraViewport(Entity& owner) : Component(std::string("CameraViewport"), owner) {}
+    Camera* FindDefaultCamera();    
+    CameraViewport(Entity& owner);
     void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);    
 
   private:       
 

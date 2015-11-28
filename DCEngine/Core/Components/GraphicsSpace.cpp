@@ -41,6 +41,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GraphicsSpace::GraphicsSpace(Entity & owner) : Component(std::string("GraphicsSpace"), owner)
+                                                 
   {
   }
 

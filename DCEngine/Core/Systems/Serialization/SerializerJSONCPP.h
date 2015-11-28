@@ -40,8 +40,14 @@ namespace DCEngine {
       Json::Value deserializeRoot;
       Json::Reader reader;
 
-      if (!reader.parse(input, deserializeRoot))
+      if (!reader.parse(input, deserializeRoot)) {
+        DCTrace << "SerializerJSONCPP::Deserialize - Failed due to: \n";
+        //for (auto error : reader.parse.errors_) {
+        //  DCTrace << error;
+        //}
         return false;
+      }
+        
 
       object->Deserialize(deserializeRoot);
       return true;

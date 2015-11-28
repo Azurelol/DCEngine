@@ -33,6 +33,8 @@ namespace DCEngine {
     bool IsFullScreen;  
     std::string AssetPath;
     bool EditorEnabled;
+    std::string ProjectsPath;
+    std::string RecentProject;
 
     void Serialize(Json::Value& root) {
     }
@@ -47,6 +49,8 @@ namespace DCEngine {
       IsFullScreen = root.get("IsFullScreen", "").asBool(); 
       AssetPath = root.get("AssetPath", "").asString();
       EditorEnabled = root.get("EditorEnabled", "").asBool();
+      ProjectsPath = root.get("ProjectsPath", "").asString();
+      RecentProject = root.get("RecentProject", "").asString();
       
       /*SpritePath = root.get("SpritePath", "").asString();
       SoundPath = root.get("SoundPath", "").asString();
@@ -58,6 +62,17 @@ namespace DCEngine {
   };
   using EngineConfigPtr = std::unique_ptr<EngineConfig>;
 
+  /**************************************************************************/
+  /*!
+  @struct Configuration data for the Editor system.
+  */
+  /**************************************************************************/
+  struct EditorConfig {
+    bool EditorStart = false;
+    bool EditorEnabled = false;
+    std::string ProjectsPath;
+    std::string RecentProject;
+  };
 
   /**************************************************************************/
   /*!
@@ -69,8 +84,11 @@ namespace DCEngine {
     std::string ProjectName;
     std::string DefaultSpace;
     std::string DefaultLevel;
+    std::string ProjectPath;
+    std::string ResourcePath;
     std::string AssetPath;
     std::string ScriptPath;
+    bool Play;
 
     void Serialize(Json::Value& root) {
     }
@@ -80,8 +98,11 @@ namespace DCEngine {
       ProjectName = root.get("Project Name", "").asString();
       DefaultLevel = root.get("Default Level", "").asString();
       DefaultSpace = root.get("Default Space", "").asString();
-      AssetPath = root.get("Assets Path", "").asString();
+      ProjectPath = root.get("Project Path", "").asString();
+      ResourcePath = root.get("Resource Path", "").asString();
+      AssetPath = root.get("Asset Path", "").asString();
       ScriptPath = root.get("Script Path", "").asString();
+      Play = root.get("Play", "").asBool();
     }
 
   };

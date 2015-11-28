@@ -16,11 +16,15 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    @brief  Adds a resource to the project.
+    */
+    /**************************************************************************/
     void Editor::AddResource()
     {
 
     }
-
 
 
     /**************************************************************************/
@@ -29,7 +33,7 @@ namespace DCEngine {
             constructing gameobjects along with their components.
     */
     /**************************************************************************/
-    void Editor::LoadLevel(std::string level)
+    bool Editor::LoadLevel(std::string level)
     {
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
       
@@ -42,29 +46,40 @@ namespace DCEngine {
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
       SelectedObject = nullptr;
+
+      if (levelPtr == nullptr) {
+        DCTrace << "Editor::LoadLevel - Could not find " << level << "\n";
+        return false;
+      }
+        
       // Load the level
       CurrentSpace->LoadLevel(level);
       // Load the editor camera
       SetEditorCamera(true);
-
-      //std::string levelData = 
+      return true;
     }
 
     /**************************************************************************/
     /*!
     @brief  Saves the current level, serializing all of the active gameobjects
             along with their components in the space.
+    @param  level The name of the level.
     @todo   The level path is currently hardcoded. Change that.
     */
     /**************************************************************************/
-    void Editor::SaveLevel(std::string level)
+    bool Editor::SaveLevel(std::string level)
     {
       DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
       
       // Get the current project's path
       std::string LevelPath("Projects/Rebound/Resources/Levels/");
       auto levelResource = CurrentSpace->SaveLevel(LevelPath + level + std::string(".lvl"));
-      //Daisy->getSystem<Systems::Content>()->AddLevel(levelResource->Name(), levelResource);
+      
+      // If the level was saved successfully
+      if (levelResource)
+        return true;
+      else
+        return false;      
 
     }
 
@@ -73,7 +88,7 @@ namespace DCEngine {
     @brief Reloads the currently loaded level.
     */
     /**************************************************************************/
-    void Editor::ReloadLevel()
+    bool Editor::ReloadLevel()
     {
       // Reload the current level
       CurrentSpace->ReloadLevel();
@@ -81,6 +96,8 @@ namespace DCEngine {
       SetEditorCamera(true);
       // Clear the currently selected object
       SelectedObject = nullptr;
+      // Eh?
+      return true;
     }
 
     /**************************************************************************/

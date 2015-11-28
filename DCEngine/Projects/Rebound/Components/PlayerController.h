@@ -31,7 +31,11 @@ namespace DCEngine {
 		Real Health = 10;
 		Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
-		Transform* TransformRef;
+    String StandAnimation = "PlayerStand";
+    String JumpAnimation = "PlayerFall";
+    
+    
+    Transform* TransformRef;
 		RigidBody* RigidBodyRef;
     
     DCE_DEFINE_PROPERTY(Real, MoveSpeed);
@@ -41,6 +45,8 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(Real, AirBrakeScalar);
     DCE_DEFINE_PROPERTY(Real, TurnSpeedScalar);
     DCE_DEFINE_PROPERTY(Boolean, DoAutoPlay);
+    DCE_DEFINE_PROPERTY(String, StandAnimation);
+    DCE_DEFINE_PROPERTY(String, JumpAnimation);
 
 		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
 		void Initialize();

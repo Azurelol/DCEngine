@@ -58,6 +58,9 @@ namespace DCEngine {
       if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {
         
         DCTrace << "Editor::DeleteObject - Deleting resource: " << SelectedObject->Name() << "\n";
+        //if (dynamic_cast<SpriteSource*>(resource)) {
+        //  
+        //}
         SelectedObject = nullptr;
       }
     }

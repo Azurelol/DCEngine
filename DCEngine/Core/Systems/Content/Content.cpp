@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "Content.h" 
 #include "../Filesystem/FileSystem.h"
 
@@ -35,6 +34,10 @@ namespace DCEngine {
     void Content::Initialize() {
       if (TRACE_INITIALIZE)
         DCTrace << "Content::Initialize \n";
+
+      // Hardcode the path momentarily
+      ProjectInfo->ResourcePath = "Projects/Rebound/Resources/";
+      ProjectInfo->AssetPath = "Projects/Rebound/Assets/";
 
       // Load the default resources of the engine's
       LoadCoreAssets();
@@ -82,119 +85,7 @@ namespace DCEngine {
       DCTrace << "Content::LoadProjectData - Finished loading all project data. \n";
     }
     
-    /**************************************************************************/
-    /*!
-    @brief Loads the default resources from the engine.
-    @note  Currently only generating the first 128 characters of the ASCII
-    character set.
-    @todo  Figure out how to load both shader vertex and frag shaders into
-           the one constructor dynamically.
-           Figure out a way to find the folder paths dynamically.
-    */
-    /**************************************************************************/
-    void Content::LoadCoreAssets()
-    {
-      DCTrace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
-      
-      // In the future, find a way to dynamically find the folder paths?
-      auto SpritePath = CoreAssetsPath + "Sprites/";
-      auto SoundPath = CoreAssetsPath + "Sounds/";
-      auto FontPath = CoreAssetsPath + "Fonts/";
-      auto ShaderPath = CoreAssetsPath + "Shaders/";
-      auto ArchetypePath = CoreAssetsPath + "Archetypes/";
-      
-      // Load default shaders
-      AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
-        ShaderPath + "SpriteShader.vs",
-        ShaderPath + "SpriteShader.frag")));
-      AddShader(std::string("SpriteTextShader"), ShaderPtr(new Shader(std::string("SpriteTextShader"),
-        ShaderPath + "SpriteTextShader.vs",
-        ShaderPath + "SpriteTextShader.frag")));
-      AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
-        ShaderPath + "GUIShader.vs",
-        ShaderPath + "GUIShader.frag")));
-
-      // Load shaders
-      //std::vector<std::string> coreShaders;
-      //if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, coreShaders))
-      //  throw DCException("Content::LoadCoreAssets - Failed to load shader files!");
-      //for (auto shader : coreShaders) {
-      //  auto shaderName = FileSystem::FileExtractWithoutExtension(shader);
-      //  AddShader(shaderName, ShaderPtr(new Shader(shaderName,
-      //            EngineInfo->ShaderPath + "SpriteShader.vs", 
-      //            EngineInfo->ShaderPath + "SpriteShader.frag")));
-      //}
-
-      // Load sprites
-      std::vector<std::string> coreSprites;
-      if (!FileSystem::DirectoryListFilePaths(SpritePath, coreSprites))
-        throw DCException("Content::LoadCoreAssets - Failed to load sprite files!");
-      for (auto sprite : coreSprites) {
-        auto spriteName = FileSystem::FileNoExtension (sprite);
-        AddSpriteSource(spriteName, SpriteSourcePtr(new SpriteSource(sprite)));
-      }
-      // Load sound files
-      std::vector<std::string> coreSounds;
-      if (!FileSystem::DirectoryListFilePaths(SoundPath, coreSounds))
-        throw DCException("Content::LoadCoreAssets - Failed to load sound files!");
-      for (auto sound : coreSounds) {
-        auto soundName = FileSystem::FileNoExtension(sound);
-        AddSoundCue(soundName, SoundCuePtr(new SoundCue(sound)));
-      }
-
-      // Load default fonts      
-      AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
-      DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
-
-      // Load archetypes
-      std::vector<std::string> coreArchetypes;
-      if (!FileSystem::DirectoryListFilePaths(ArchetypePath, coreArchetypes))
-        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
-      for (auto archetype : coreArchetypes) {
-        auto archetypeName = FileSystem::FileNoExtension(archetype);
-        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the Level Path for level files.
-    */
-    /**************************************************************************/
-    void Content::ScanForLevels()
-    {
-      DCTrace << "Content::ScanForLevels - Scanning for levels on the current project \n";
-      std::string LevelPath("Projects/Rebound/Resources/Levels/");
-
-      // Load sound files
-      std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
-        throw DCException("Content::ScanForLevels - Failed to load level files!");
-      for (auto level : levels) {
-        auto soundName = FileSystem::FileNoExtension(level);
-        AddLevel(soundName, LevelPtr(new Level(level)));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the Archetype path for archetype files.
-    */
-    /**************************************************************************/
-    void Content::ScanForArchetypes()
-    {
-      DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
-      std::string ArchetypePath("Projects/Rebound/Resources/Archetypes/");
-
-      // Load sound files
-      std::vector<std::string> archetypes;
-      if (!FileSystem::DirectoryListFilePaths(ArchetypePath, archetypes))
-        throw DCException("Content::ScanForArchetypes - Failed to load archetype files!");
-      for (auto archetype : archetypes) {
-        auto archetypeName = FileSystem::FileNoExtension(archetype);
-        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
-      }
-    }
+   
 
     /**************************************************************************/
     /*!
@@ -204,9 +95,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProject(std::string projectDataPath)
     {
+      // Deserialize the project data
+      ProjectInfo.reset(new ProjectData);
       std::string projectDataString;
+      bool worked;
       if (FileSystem::FileReadToString(projectDataPath, projectDataString))
-        Serialization::Deserialize(ProjectInfo.get(), projectDataString);
+        worked = Serialization::Deserialize(ProjectInfo.get(), projectDataString);
+      // Load it
+      LoadProjectResources();
+
     }
 
     /**************************************************************************/
@@ -227,142 +124,24 @@ namespace DCEngine {
       }
     }
 
-    /**************************************************************************/
-    /*!
-    @brief Grabs a shader resource.
-    @return Returns a pointer to the shader object.
-    */
-    /**************************************************************************/
-    ShaderPtr Content::getShader(std::string shaderName)
+    void Content::LoadProjectResources()
     {
-      return ShaderMap.at(shaderName); 
+      //std::string resourcePath("Projects/Rebound/Resources/");
+      //std::string levelPath(resourcePath + "Levels/");
+      //std::string archetypePath(resourcePath + "Archetypes/");
+      DCTrace << "Content::LoadProjectResources - \n";
+
+      // Scan for the resources... 
+      ScanForLevels();
+      ScanForArchetypes();
+      ScanForSoundCues();
+      ScanForSpriteSources();
+      // Load the resources
+      LoadAllResources();
+
     }
 
-    /**************************************************************************/
-    /*!
-    @brief Grabs a font resource.
-    @return Returns a pointer to the font object.
-    */
-    /**************************************************************************/
-    FontPtr Content::getFont(std::string & fontName)
-    {
-      return FontMap.at(fontName);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Grabs a SpriteSource resource.
-    @return Returns a pointer to the spritesource object.
-    */
-    /**************************************************************************/
-    SpriteSourcePtr Content::getSpriteSrc(std::string & spriteName)
-    {
-      // Check if the resource is present in the map
-      if (!SpriteSourceMap.count(spriteName)) {
-        //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
-        // Return a default '404 image not found.
-        return SpriteSourceMap.at(DefaultImage);
-      }
-
-      //SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
-      //if (spriteSource == nullptr)
-      //  throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
-      return SpriteSourceMap.at(spriteName);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Grabs a SoundCue resource.
-    @return Returns a pointer to the SoundCue object.
-    */
-    /**************************************************************************/
-    SoundCuePtr Content::getSoundCue(std::string & soundCueName)
-    {
-      return SoundCueMap.at(soundCueName);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Grabs an Archetype resource.
-    @return Returns a pointer to the Archetype object.
-    */
-    /**************************************************************************/
-    ArchetypePtr Content::getArchetype(std::string & archetypeName)
-    {
-      return ArchetypeMap.at(archetypeName);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Grabs a Level resource.
-    @return Returns a pointer to the Level object.
-    */
-    /**************************************************************************/
-    LevelPtr Content::getLevel(std::string & levelName)
-    {
-      // Check if the resource is present in the map
-      if (!LevelMap.count(levelName)) {
-        DCTrace << "Content::getLevel - " << levelName << " was not found!\n";
-        return nullptr;
-      }
-      // If it does, first load it
-      LevelMap.at(levelName)->Load();
-      // Then return it
-      return LevelMap.at(levelName);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Grabs a CollisionGroup resource.
-    @return Returns a pointer to the CollisionGroup object.
-    */
-    /**************************************************************************/
-    CollisionGroupPtr Content::getCollisionGroup(std::string & groupName)
-    {
-      return CollisionGroupPtr();
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Grabs a CollisionTable resource.
-    @return Returns a pointer to the CollisionTable object.
-    */
-    /**************************************************************************/
-    CollisionTablePtr Content::getCollisionTable(std::string & groupName)
-    {
-      return CollisionTablePtr();
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Returns pointers to the content maps.
-    @return Returns a pointer to the SoundCue object.
-    */
-    /**************************************************************************/
-    SpriteSourceMap * Content::AllSpriteSources()
-    {
-      return &SpriteSourceMap;
-    }
-
-    SoundCueMap * Content::AllSoundCues()
-    {
-      return &SoundCueMap;
-    }
-
-    ShaderMap * Content::AllShaders()
-    {
-      return &ShaderMap;
-    }
-
-    ArchetypeMap * Content::AllArchetypes()
-    {
-      return &ArchetypeMap;
-    }
-
-    LevelMap * Content::AllLevels()
-    {
-      return &LevelMap;
-    }
+   
 
     /**************************************************************************/
     /*!
@@ -404,11 +183,18 @@ namespace DCEngine {
     @brief Adds an archetype to the Archetype resource map.
     @param The name of the archetype.
     @param The pointer to the archetype.
-    @note  We load the archetype immediately so its ready for use.
+    @note  Perhaps it's okay to overwrite previous archetypes, unlike
+           other resources.    
     */
     /**************************************************************************/
     void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
     {
+      // Prevent duplicates
+      //if (ArchetypeMap.count(archetypeName)) {
+      //  DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map.\n";
+      //  return;
+      //}
+
       ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
       DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
     }

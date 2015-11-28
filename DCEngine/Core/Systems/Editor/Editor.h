@@ -11,6 +11,7 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+#include "../../Engine/Data.h"
 
 namespace DCEngine {
   
@@ -35,6 +36,7 @@ namespace DCEngine {
       };
 
       void ToggleEditor();
+      void ToggleEditor(bool);
       void ToggleTest();
 
     private:
@@ -43,8 +45,10 @@ namespace DCEngine {
       //  Settings 
       ////////////////
       // Widgets
-      bool EditorStart = false;
+      //bool EditorStart = false;
       bool EditorEnabled = false;
+      std::string RecentProject;
+      EditorConfig Settings;
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
       bool WidgetLevelEnabled = false;
@@ -97,6 +101,8 @@ namespace DCEngine {
       void NewProject();
       void ArchiveProject();
       void OpenProject();
+      void OpenRecentProject();
+      void LoadProject(std::string& path);
       void SaveProject();
       void ShowProjectFolder();
       void PlayGame();
@@ -107,9 +113,9 @@ namespace DCEngine {
       void SelectSpace();
       // Resources
       void AddResource();
-      void LoadLevel(std::string level);
-      void SaveLevel(std::string level);
-      void ReloadLevel();
+      bool LoadLevel(std::string level);
+      bool SaveLevel(std::string level);
+      bool ReloadLevel();
       void LoadDollhouse();
       // Object Selection
       void SelectObjectFromSpace(Vec2 pos);
@@ -118,7 +124,7 @@ namespace DCEngine {
       void DuplicateObject();
       // Tools
       void UseTool();
-      void SelectTool();
+      void ShowSelection();
       void TranslateTool();
       void RotateTool();
       void ScaleTool();
@@ -134,7 +140,7 @@ namespace DCEngine {
       void CreateFromArchetype(std::string&);
 
       /* Functions */
-      Editor(bool enabled);
+      Editor(EditorConfig settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);

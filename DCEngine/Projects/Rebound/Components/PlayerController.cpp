@@ -22,6 +22,8 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, AirBrakeScalar);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, TurnSpeedScalar);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
+    DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
   }
   #endif
 
@@ -80,9 +82,9 @@ namespace DCEngine {
 		//DCTrace << "Grounded =" << Grounded << "\n";
 		if (!Grounded)
 		{
-			SpriteComponent->SpriteSource = "MonkeyJump1";
-			SpriteComponent->HaveAnimation = false;
-			SpriteComponent->AnimationActive = false;
+      SpriteComponent->SpriteSource = StandAnimation;
+			//SpriteComponent->HaveAnimation = false;
+			//SpriteComponent->AnimationActive = false;
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W) || Daisy->getKeyboard()->KeyIsDown(Keys::Space))
@@ -96,9 +98,9 @@ namespace DCEngine {
 		}
 		else
 		{
-			SpriteComponent->SpriteSource = "MonkeyWalk1";
-			SpriteComponent->HaveAnimation = true;
-			SpriteComponent->AnimationActive = true;
+      SpriteComponent->SpriteSource = JumpAnimation;
+			//SpriteComponent->HaveAnimation = true;
+			//SpriteComponent->AnimationActive = true;
 			Jumping = false;
 			if (RigidBodyRef->getVelocity().y > 0)
 			{

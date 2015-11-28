@@ -111,7 +111,14 @@ namespace DCEngine {
                                                      EngineConfiguration->ResolutionHeight,
                                                      EngineConfiguration->IsFullScreen)));
     _systems.push_back(SystemPtr(new Systems::Input));
-    _systems.push_back(SystemPtr(new Systems::Editor(EngineConfiguration->EditorEnabled)));    
+
+    // Editor configuration
+    EditorConfig editorConfig;
+    editorConfig.EditorStart = EngineConfiguration->EditorEnabled;
+    editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
+    editorConfig.RecentProject = EngineConfiguration->RecentProject;
+
+    _systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
     _systems.push_back(SystemPtr(new Systems::Graphics));
@@ -125,9 +132,7 @@ namespace DCEngine {
     // Initialize all internal engine systems
     for (auto sys : _systems) {
       sys->Initialize();
-    }
-    
-
+    }  
 
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
@@ -141,10 +146,14 @@ namespace DCEngine {
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     gamesession_->Initialize();  
+    
+    // Open the last known recent project
+    getSystem<Systems::Editor>()->OpenRecentProject();
+    
 
     // Toggle the editor
-    if (EngineConfiguration->EditorEnabled)
-      getSystem<Systems::Editor>()->ToggleEditor();
+    //if (EngineConfiguration->EditorEnabled)
+    //  getSystem<Systems::Editor>()->ToggleEditor();
   }
 
   /**************************************************************************/

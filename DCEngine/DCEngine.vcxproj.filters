@@ -609,6 +609,12 @@
     <ClCompile Include="Core\Components\Collider.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Content\ContentGet.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Content\ContentAdd.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1093,5 +1099,8 @@
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Daisy.cfg" />
+    <None Include="Projects\Rebound.dceproj">
+      <Filter>Projects\Rebound</Filter>
+    </None>
   </ItemGroup>
 </Project>

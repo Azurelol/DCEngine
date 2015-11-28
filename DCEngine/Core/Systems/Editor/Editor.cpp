@@ -20,8 +20,8 @@ namespace DCEngine {
     \brief  Constructor.
     */
     /**************************************************************************/
-    Editor::Editor(bool enabled) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                   EditorStart(enabled)
+    Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
+                                                          Settings(settings)
     {      
     }
 
@@ -47,6 +47,7 @@ namespace DCEngine {
       //  ToggleEditor();
       
 
+        
     }
 
     /**************************************************************************/
@@ -86,6 +87,7 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
+      ShowSelection();
       DisplayEditor();
       UseTool();
       
@@ -99,7 +101,7 @@ namespace DCEngine {
     void Editor::ToggleEditor()
     {
       DCTrace << "*!* Editor::ToggleEditor \n";
-;      // Resize the viewport to accomodate the editor
+      // Resize the viewport to accomodate the editor
       //ApplyEditorWindowLayout();
 
       // Set it's current space to work on
@@ -125,6 +127,37 @@ namespace DCEngine {
         //SetEditorCamera(true);
       }
       else {
+        // Unpause the engine (Physics, Input, Events)
+        auto resume = new Events::EngineResume();
+        Daisy->Dispatch<Events::EngineResume>(resume);
+        delete resume;
+        DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
+        // Set the editor camera
+        SetEditorCamera(false);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Toggles the editor on and off.
+    */
+    /**************************************************************************/
+    void Editor::ToggleEditor(bool toggle)
+    {
+      // Editor ON
+      if (toggle) {
+        EditorEnabled = true;
+        // Pause the engine (Physics, Input, Events)
+        auto pause = new Events::EnginePause();
+        Daisy->Dispatch<Events::EnginePause>(pause);
+        delete pause;
+        DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
+        // Reload the level
+        ReloadLevel();
+      }
+      // Editor OFF
+      else {
+        EditorEnabled = false;
         // Unpause the engine (Physics, Input, Events)
         auto resume = new Events::EngineResume();
         Daisy->Dispatch<Events::EngineResume>(resume);

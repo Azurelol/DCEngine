@@ -300,6 +300,8 @@
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
+    <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
+    <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
@@ -532,6 +534,7 @@
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
     <None Include="Daisy.cfg" />
+    <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,7 +25,7 @@ namespace DCEngine {
       switch (ActiveTool) {
 
       case EditorTool::Select:
-        SelectTool();
+        //ShowSelection();
         break;
       case EditorTool::Translate:
         TranslateTool();
@@ -47,7 +47,7 @@ namespace DCEngine {
     @brief  The select tool allows the user to select an object on screen.
     */
     /**************************************************************************/
-    void Editor::SelectTool()
+    void Editor::ShowSelection()
     {      
       if (!SelectedObject)
         return;

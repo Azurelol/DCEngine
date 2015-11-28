@@ -200,13 +200,17 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Space::LoadLevel(LevelPtr level) {
+
+    if (!level) {
+      DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
+      return;
+    }
+
     if (TRACE_ON)
       DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
       
     // If a NULL ptr was passed
-    if (!level) {
-      DCTrace << ObjectName << " Space::LoadLevel - Invalid level pointer \n";
-    }
+
 
     // Clear the current objects from the space
     DestroyAll();

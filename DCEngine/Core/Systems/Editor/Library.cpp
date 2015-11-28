@@ -98,11 +98,13 @@ namespace DCEngine {
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           // If the user double-clicks on.. @todo not working yet
           if (ImGui::Selectable(level.second->Name().c_str())) {
+            SelectedObject = level.second.get();
+            WindowPropertiesEnabled = true;
           }
           
         }
         
-        ScannedForLevels = false;
+        //ScannedForLevels = false;
         ImGui::TreePop();
       }
 
