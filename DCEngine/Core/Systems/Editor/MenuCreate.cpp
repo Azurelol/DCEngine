@@ -29,6 +29,8 @@ namespace DCEngine {
       transform->setObjectName("Transform");
       //transform->setArchetype = "Transform";
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
+      SelectedObject = transform;
+      WindowPropertiesEnabled = true;
     }
 
     /**************************************************************************/
@@ -48,6 +50,8 @@ namespace DCEngine {
       sprite->AddComponent<Sprite>(true);
       //sprite->AddComponent<Sprite>();
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
+      SelectedObject = sprite;
+      WindowPropertiesEnabled = true;
     }
 
     /**************************************************************************/

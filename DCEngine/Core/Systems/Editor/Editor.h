@@ -130,6 +130,7 @@ namespace DCEngine {
       void ScaleTool();
       // Actions
       void MoveObject(Vec3);
+      void ScaleObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);

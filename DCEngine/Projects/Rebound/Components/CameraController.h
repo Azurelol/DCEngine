@@ -26,8 +26,9 @@ namespace DCEngine {
 		Real InterpolationSpeed = 0.04f; //percent of the way to interpolate per frame from 0-1
     String TargetName;
 
-    DCE_DEFINE_PROPERTY(Real, InterpolationSpeed);
     DCE_DEFINE_PROPERTY(String, TargetName);
+    DCE_DEFINE_PROPERTY(Real, InterpolationSpeed);
+    
 
 		CameraController(Entity& owner) : Component(std::string("CameraController"), owner) {}
 		void Initialize();
