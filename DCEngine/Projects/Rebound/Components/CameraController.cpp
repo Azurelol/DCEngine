@@ -70,7 +70,20 @@ namespace DCEngine {
 		{
 			DCTrace << "FRC =" << FrameRateCompensation << "\n";
 		}
+		if (!PlayerRef)
+		{
+			PlayerRef = SpaceRef->FindObjectByName("Player");
+			return;
+		}
 		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;
+		if (CameraControllerTraceOn)
+		{
+			PrintTranslation();
+
+			DCTrace << Owner()->Name() << "::Transform.Translation(" << PlayerRef->getComponent<Transform>()->Translation.x
+				<< ", " << PlayerRef->getComponent<Transform>()->Translation.y
+				<< ", " << PlayerRef->getComponent<Transform>()->Translation.z << ")\n";
+		}
 		TargetPos.z = 0; // do not want the camera moving on the Z axis
 		TargetPos.y += 5;
 		TransformRef->Translation += InterpolationSpeed * TargetPos * FrameRateCompensation;

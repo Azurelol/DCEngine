@@ -7,6 +7,8 @@ namespace DCEngine {
   ZilchDefineType(LevelManager, "LevelManager", Rebound, builder, type) {
     DCE_BINDING_DEFINE_PROPERTY(LevelManager, NextLevel);
     DCE_BINDING_DEFINE_PROPERTY(LevelManager, LoadingTime);
+	DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
+	DCE_BINDING_DEFINE_PROPERTY(LevelManager, TimerStarted);
   }
   #endif
 
@@ -16,6 +18,7 @@ namespace DCEngine {
 
   void LevelManager::OnKeyDownEvent(Events::KeyDown * event)
   {
+
   }
 
   void LevelManager::OnKeyUpEvent(Events::KeyDown * event)
@@ -24,6 +27,11 @@ namespace DCEngine {
 
   void LevelManager::OnCollisionStartedEvent(Events::CollisionStarted * event)
   {
+	  if (event->OtherObject->getComponent<PlayerController>())
+	  {
+		  TimerStarted = true;
+		 // this->SpaceRef->CreateObject()
+	  }
   }
 
   void LevelManager::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -32,6 +40,14 @@ namespace DCEngine {
 
   void LevelManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
+	  if (!TimerStarted)
+		  return;
+
+	  Timer += event->Dt;
+	  if (Timer > LoadingTime)
+	  {
+		  this->SpaceRef->LoadLevel(NextLevel);
+	  }
   }
 
 }
