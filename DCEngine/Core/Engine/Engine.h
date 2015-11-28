@@ -19,6 +19,7 @@
 // Headers
 #include "Types.h"
 #include "Event.h"
+#include "Math.h"
 
 #include "../Objects/ObjectsInclude.h"
 #include "../Objects/Entities/EntitiesInclude.h"

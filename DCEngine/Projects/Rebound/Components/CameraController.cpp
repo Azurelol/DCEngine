@@ -50,6 +50,7 @@ namespace DCEngine {
 			PlayerRef = SpaceRef->FindObjectByName("Player");
 			//DCTrace << "A key pressed";
 		}
+    
 	}
 	
 	void CameraController::OnMouseDownEvent(Events::MouseDown * event)
@@ -64,7 +65,7 @@ namespace DCEngine {
 
 	void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
-    //return;
+    return;
 		Real FrameRateCompensation = event->Dt * 60;
 		if (CameraControllerTraceOn)
 		{
