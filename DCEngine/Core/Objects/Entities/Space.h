@@ -60,6 +60,7 @@ namespace DCEngine {
     void ReloadLevel();
 
     GameObjectPtr CreateObject(); 
+    GameObjectPtr CreateObject(std::string archetypeName);
     GameObjectPtr CreateObject(ArchetypePtr archetype);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();

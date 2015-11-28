@@ -82,9 +82,9 @@ namespace DCEngine {
     if (ParentRef)
       Detach();
     // If there are children attached to this GameObject, dettach them
-    //for (auto child : ChildrenContainer) {
-    //  RemoveChild(child);
-    //}
+    for (auto child : ChildrenContainer) {
+      RemoveChild(child);
+    }
 
     // Diagnostics
     if (DiagnosticsEnabled)
@@ -283,6 +283,7 @@ namespace DCEngine {
   {
     for (auto& child : ChildrenContainer) {
       if (child == childToRemove) {
+        child->ParentRef = nullptr;
         std::swap(child, ChildrenContainer.back());
         ChildrenContainer.pop_back();
       }

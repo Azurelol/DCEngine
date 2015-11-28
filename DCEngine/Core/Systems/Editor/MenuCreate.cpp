@@ -63,7 +63,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::CreateFromArchetype(std::string & archetype)
     {
-      CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
+      auto gameObject = CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
+      SelectedObject = gameObject;
+      WindowPropertiesEnabled = true;
     }
 
 
