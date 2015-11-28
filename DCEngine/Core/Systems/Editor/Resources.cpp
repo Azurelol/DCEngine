@@ -76,8 +76,11 @@ namespace DCEngine {
       auto levelResource = CurrentSpace->SaveLevel(LevelPath + level + std::string(".lvl"));
       
       // If the level was saved successfully
-      if (levelResource)
+      if (levelResource) {
+        // Scan for levels again
+        Daisy->getSystem<Content>()->ScanForLevels();
         return true;
+      }        
       else
         return false;      
 
