@@ -18,6 +18,8 @@ namespace DCEngine {
     // Properties
     DCE_DEFINE_PROPERTY(String, NextLevel);
     DCE_DEFINE_PROPERTY(Real, LoadingTime);
+	DCE_DEFINE_PROPERTY(Real, Timer);
+	DCE_DEFINE_PROPERTY(Boolean, TimerStarted);
     // Methods
     LevelManager(Entity& owner) : Component(std::string("LevelManager"), owner) {}
     void Initialize();
@@ -34,7 +36,8 @@ namespace DCEngine {
   private:
     String NextLevel;
     Real LoadingTime;
-
+	Real Timer;
+	Boolean TimerStarted;
 
   };
 
