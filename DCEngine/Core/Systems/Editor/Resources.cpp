@@ -33,6 +33,12 @@ namespace DCEngine {
     {
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
       
+      // Save the currently-loaded level before loading a new one
+      if (CurrentSpace->CurrentLevel) {
+        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
+        SaveLevel(currentLevelName);
+      }      
+
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
       SelectedObject = nullptr;

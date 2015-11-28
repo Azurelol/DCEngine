@@ -88,11 +88,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Exits the engine.
+    @brief  Exits the engine through the editor.
     */
     /**************************************************************************/
     void Editor::Exit()
     {
+      // Save the currently-loaded level before exiting the editor
+      if (CurrentSpace->CurrentLevel) {
+        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
+        SaveLevel(currentLevelName);
+      }
+
       auto exitEvent = new Events::EngineExit();
       Daisy->Dispatch<Events::EngineExit>(exitEvent);
       delete exitEvent;

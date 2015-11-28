@@ -50,8 +50,15 @@ namespace DCEngine {
       // Destroy the currently selected GameObject
       if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
         gameObject->Destroy();
-        DCTrace << "Editor::DeleteObject - " << SelectedObject->Name() << "\n";
+        DCTrace << "Editor::DeleteObject - Deleting gameobject: " << SelectedObject->Name() << "\n";
         SelectedObject = nullptr;        
+      }
+
+      // Destroy the currently selected Resource
+      if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {
+        
+        DCTrace << "Editor::DeleteObject - Deleting resource: " << SelectedObject->Name() << "\n";
+        SelectedObject = nullptr;
       }
     }
 

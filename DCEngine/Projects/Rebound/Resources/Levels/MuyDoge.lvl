@@ -52,7 +52,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Doge", 
+        "Name": "Facey", 
         "Archetype": "PlayerDoge", 
         "Components": 
         {
@@ -99,7 +99,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "MonkeyWalk1", 
+            "SpriteSource": "index", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": true, 
@@ -176,8 +176,8 @@
             {
               "Vec3": 
               {
-                "x": 6.000000, 
-                "y": -4.000000, 
+                "x": -2.000000, 
+                "y": -6.000000, 
                 "z": 0.000000
               }
             }, 
