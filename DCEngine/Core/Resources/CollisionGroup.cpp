@@ -17,5 +17,7 @@ namespace DCEngine {
   CollisionGroup & CollisionGroup::operator=(const CollisionGroup & rhs)
   {
     this->ObjectName = rhs.ObjectName;
+
+    return *this;
   }
 }
