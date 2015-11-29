@@ -20,7 +20,7 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(Fade, "Fade", DCEngineCore, builder, type) {
+	ZilchDefineType(Fade, "Fade", Rebound, builder, type) {
 		DCE_BINDING_DEFINE_PROPERTY(Fade, Timer);
 	}
 #endif
