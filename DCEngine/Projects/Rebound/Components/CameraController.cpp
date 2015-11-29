@@ -65,18 +65,17 @@ namespace DCEngine {
 
 	void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
-    return;
 		Real FrameRateCompensation = event->Dt * 60;
 		if (CameraControllerTraceOn)
 		{
-			DCTrace << "FRC =" << FrameRateCompensation << "\n";
+			DCTrace << "CameraController::OnLogicUpdateEvent - FRC =" << FrameRateCompensation << "\n";
 		}
 		if (!PlayerRef)
 		{
 			PlayerRef = SpaceRef->FindObjectByName("Player");
 			return;
 		}
-		auto TargetPos = PlayerRef->getComponent<Transform>()->WorldTranslation - TransformRef->WorldTranslation;
+		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;
 		if (CameraControllerTraceOn)
 		{
 			PrintTranslation();
