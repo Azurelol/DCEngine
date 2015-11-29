@@ -50,6 +50,17 @@ namespace DCEngine {
   /**************************************************************************/
   Camera::~Camera()
   {
+    // If the camera is active, inform the camera viewport that it's been
+    // destroyed.
+    if (Active) {
+      auto currentCam = SpaceRef->getComponent<CameraViewport>()->getCamera();
+      if (currentCam == this) {
+        DCTrace << ObjectName << "::Camera::~Camera - Removing default camera from the space \n";
+        SpaceRef->getComponent<CameraViewport>()->setCamera(nullptr);
+      }
+        
+    }
+      
   }
 
   /**************************************************************************/

@@ -218,6 +218,8 @@ namespace DCEngine {
     CurrentLevel = level;
     // Build all the GameObjects from the level
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
+    // Set the default camera
+    auto camera = getComponent<CameraViewport>()->FindDefaultCamera();
 
     //return;
     // Deserialize the space

@@ -54,6 +54,8 @@ namespace DCEngine {
     Real getSize() const;
     void setSize(Real);
 
+    DCE_DEFINE_PROPERTY(bool, Active);
+
     // Camera Attributes
 		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -88,6 +90,7 @@ namespace DCEngine {
     // References to the Window context's settings
     unsigned int* ScreenWidth;
     unsigned int* ScreenHeight;
+    bool Active;
     		
 		void Update();
 		// Calculates the front vector from the Camera's (updated) Euler angles
