@@ -30,12 +30,8 @@ namespace DCEngine
     bool rigid1;
     bool rigid2;
 
-    Vec3 CollisionCenter;
     GameObject* Object1;
     GameObject* Object2;
-
-    ColliderType obj1;
-    ColliderType obj2;
 
     glm::vec3 v1;
     glm::vec3 v2;

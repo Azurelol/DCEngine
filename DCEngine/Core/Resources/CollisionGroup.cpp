@@ -13,4 +13,9 @@ namespace DCEngine {
   {
     return Daisy->getSystem<Systems::Content>()->getCollisionGroup(name);
   }
+
+  CollisionGroup & CollisionGroup::operator=(const CollisionGroup & rhs)
+  {
+    this->ObjectName = rhs.ObjectName;
+  }
 }
