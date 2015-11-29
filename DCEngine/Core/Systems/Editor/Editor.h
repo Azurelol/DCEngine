@@ -144,7 +144,7 @@ namespace DCEngine {
       void CreateTransform();
       void CreateSprite();
       void CreateFromArchetype(std::string&);
-
+      void MoveToViewportCenter(GameObject* gameobject);
       /* Functions */
       Editor(EditorConfig settings);
       void Initialize();

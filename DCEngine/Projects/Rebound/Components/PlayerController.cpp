@@ -65,8 +65,12 @@ namespace DCEngine {
 
 	void PlayerController::OnCollisionStartedEvent(Events::CollisionStarted * event)
 	{
-		Grounded = true;
-		this->SpaceRef->getComponent<SoundSpace>()->PlayCue("HighThud");
+		if (event->OtherObject->getComponent<Transform>()->getTranslation().y + event->OtherObject->getComponent<Transform>()->getScale().y / 2  < TransformRef->getTranslation().y)
+		{
+			Grounded = true;
+			this->SpaceRef->getComponent<SoundSpace>()->PlayCue("HighThud");
+		}
+
 
 	}
 
@@ -84,9 +88,13 @@ namespace DCEngine {
 		//DCTrace << "Grounded =" << Grounded << "\n";
 		if (!Grounded)
 		{
-      SpriteComponent->SpriteSource = StandAnimation;
+			SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = false;
 			//SpriteComponent->AnimationActive = false;
+		}
+		else
+		{
+			SpriteComponent->SpriteSource = StandAnimation;
 		}
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W) || Daisy->getKeyboard()->KeyIsDown(Keys::Space))
@@ -100,7 +108,6 @@ namespace DCEngine {
 		}
 		else
 		{
-      SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = true;
 			//SpriteComponent->AnimationActive = true;
 			Jumping = false;
