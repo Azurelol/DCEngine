@@ -51,6 +51,7 @@ namespace DCEngine {
 		{
 			//TransformRef->Translation.x = -1000;
 			//TransformRef->Translation.y = -1000;
+			//this->SpaceRef
 		}
 	}
 
