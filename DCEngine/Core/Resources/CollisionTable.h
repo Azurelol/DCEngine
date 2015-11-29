@@ -67,6 +67,7 @@ namespace DCEngine {
 
   public:
     CollisionTable(std::string name);
+    CollisionTable(void);
     ~CollisionTable() {}
 
     bool AddGroup(CollisionGroup group);
@@ -82,6 +83,8 @@ namespace DCEngine {
     CollisionBlock &GetEndBlock(std::string const &group1, std::string const &group2);
     bool SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
     CollisionBlock &GetPreSolveBlock(std::string const &group1, std::string const &group2);
+
+    CollisionTable &operator=(const CollisionTable & rhs);
 
     static CollisionTablePtr Find(std::string);
 

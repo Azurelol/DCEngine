@@ -16,13 +16,13 @@
 #include "Components\GraphicsSpace.h"
 #include "Components\SoundSpace.h"
 #include "Components\TimeSpace.h"
-
-/* Graphics */
+// Graphics 
 #include "Components\Camera.h"
 #include "Components\CameraViewport.h"
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
 #include "Components\EditorCameraController.h"
+#include "Components\Reactive.h"
 // Audio
 #include "Components\SoundEmitter.h"
 // Particles
@@ -30,16 +30,14 @@
 #include "Components\ParticleEmitter.h"
 #include "Components\ParticleColorAnimator.h"
 #include "Components\LinearParticleAnimator.h"
-
-/* Physics */
+// Physics
 #include "Components\Transform.h"
 #include "Components\RigidBody.h"
 #include "Components\Collider.h"
 #include "Components\BoxCollider.h"
 #include "Components\Orientation.h"
 #include "Components\IgnoreSpaceEffects.h"
-
-/* Debug */
+// Debug
 #include "Components\DebugMoveController.h"
 #include "Components\DebugReport.h"
 #include "Components\DebugCamera.h"

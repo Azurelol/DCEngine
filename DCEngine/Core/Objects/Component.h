@@ -24,12 +24,15 @@
 
 namespace DCEngine {
 
+#define ThisOwner dynamic_cast<GameObject*>(Owner())
+
   // (?) EXPLAIN
   using mask = unsigned;
 
 #pragma region metadataEnums
   
   enum class EntityType;
+  
 
   enum class EnumeratedComponent {
     None = 0,
@@ -71,8 +74,7 @@ namespace DCEngine {
   class GameSession;
   namespace Systems {
     class Factory;
-  }
-  
+  }  
 
   class Component : public Object {
 	  friend class Entity;
