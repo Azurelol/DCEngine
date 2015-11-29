@@ -23,3 +23,4 @@
 #include "Components\Skeleton.h"
 #include "Components\FreezeEnabler.h"
 #include "Components\Button.h"
+#include "Components\Fade.h"
