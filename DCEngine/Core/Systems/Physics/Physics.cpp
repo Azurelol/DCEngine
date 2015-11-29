@@ -177,11 +177,11 @@ namespace DCEngine {
 
 				auto pairs = BroadPhaseDetection(physpace);
 
-				NarrowPhaseDetection(pairs, contactlist);
-
-				Integrate(dt, physpace);
+        NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
+
+        Integrate(dt, physpace);
 
 				PublishResults(physpace);
 
