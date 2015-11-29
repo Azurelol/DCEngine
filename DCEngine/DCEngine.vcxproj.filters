@@ -625,9 +625,12 @@
       <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\Fade.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
+=======
+>>>>>>> 847b693f82dbceb811da6ef1d684641dbfef1b83
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

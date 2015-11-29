@@ -14,6 +14,9 @@ namespace DCEngine {
 
   void LevelManager::Initialize()
   {
+	  auto gameObj = dynamic_cast<GameObject*>(Owner());
+	  Connect(gameObj, Events::CollisionStarted, LevelManager::OnCollisionStartedEvent);
+	  Connect(SpaceRef, Events::LogicUpdate, LevelManager::OnLogicUpdateEvent);
   }
 
   void LevelManager::OnKeyDownEvent(Events::KeyDown * event)
@@ -40,12 +43,14 @@ namespace DCEngine {
 
   void LevelManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
+	  //DCTrace << "LevelManager::OnLogicUpdateEvent \n";
 	  if (!TimerStarted)
 		  return;
 
 	  Timer += event->Dt;
 	  if (Timer > LoadingTime)
 	  {
+		  DCTrace << "LevelManager::OnLogicUpdateEvent - Loading " << NextLevel << "\n";
 		  this->SpaceRef->LoadLevel(NextLevel);
 	  }
   }

@@ -19,7 +19,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-  ZilchDefineType(Skeleton, "Skeleton", DCEngineCore, builder, type) {
+  ZilchDefineType(Skeleton, "Skeleton", Rebound, builder, type) {
 	  DCE_BINDING_DEFINE_PROPERTY(Skeleton, Timer);
   }
 #endif

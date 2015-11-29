@@ -16,9 +16,11 @@ namespace DCEngine {
     ZilchInitializeType(EnemyController);
     ZilchInitializeType(CameraController);
     ZilchInitializeType(ChargeBar);    
+	ZilchInitializeType(Fade);
     ZilchInitializeType(HazardArea);
     ZilchInitializeType(MusicManager);
     ZilchInitializeType(PauseManager);
+	ZilchInitializeType(LevelManager);
   }
 
   void ReboundComponentsAddToFactory() {
@@ -35,6 +37,8 @@ namespace DCEngine {
     factory->AddComponentFactory(PauseManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<PauseManager>>());
     factory->AddComponentFactory(ChargeBar::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<ChargeBar>>());
     factory->AddComponentFactory(HazardArea::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<HazardArea>>());
+	factory->AddComponentFactory(Fade::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Fade>>());
+	factory->AddComponentFactory(LevelManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<LevelManager>>());
 
   }
 

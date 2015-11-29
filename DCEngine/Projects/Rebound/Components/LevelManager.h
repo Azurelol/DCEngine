@@ -35,9 +35,9 @@ namespace DCEngine {
 
   private:
     String NextLevel;
-    Real LoadingTime;
-	Real Timer;
-	Boolean TimerStarted;
+    Real LoadingTime = 1;
+	Real Timer = 1;
+	Boolean TimerStarted = false;
 
   };
 

@@ -76,7 +76,7 @@ namespace DCEngine {
 			PlayerRef = SpaceRef->FindObjectByName("Player");
 			return;
 		}
-		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;
+		auto TargetPos = PlayerRef->getComponent<Transform>()->WorldTranslation - TransformRef->WorldTranslation;
 		if (CameraControllerTraceOn)
 		{
 			PrintTranslation();
