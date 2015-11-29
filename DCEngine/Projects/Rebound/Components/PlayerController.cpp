@@ -36,6 +36,7 @@ namespace DCEngine {
 		Connect(gameObj, Events::CollisionStarted, PlayerController::OnCollisionStartedEvent);
 		Connect(gameObj, Events::CollisionEnded, PlayerController::OnCollisionEndedEvent);
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
+		//Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
@@ -70,8 +71,6 @@ namespace DCEngine {
 			Grounded = true;
 			this->SpaceRef->getComponent<SoundSpace>()->PlayCue("HighThud");
 		}
-
-
 	}
 
 	void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -131,6 +130,10 @@ namespace DCEngine {
 		}
 	}
 
+	//void PlayerController::OnDamageEvent(Events::DamageEvent * event)
+	//{
+	//}
+
 	void PlayerController::Jump()
 	{
 		++JumpFramesApplied;
@@ -160,6 +163,7 @@ namespace DCEngine {
 
 	void PlayerController::Die()
 	{
+		this->SpaceRef->ReloadLevel();
 	}
 
 

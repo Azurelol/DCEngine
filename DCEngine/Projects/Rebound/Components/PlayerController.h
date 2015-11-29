@@ -11,6 +11,7 @@
 #pragma once
 #include "ReboundComponent.h"
 
+
 #define PlayerControllerTraceOn 0 // Use a static bool inside the class
 
 namespace DCEngine {
@@ -58,6 +59,7 @@ namespace DCEngine {
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+		//void OnDamageEvent(Events::DamageEvent event);
 		void Jump();
 		void TakeDamage(int damage);
 		void Die();

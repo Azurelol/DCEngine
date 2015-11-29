@@ -23,6 +23,10 @@ namespace DCEngine {
       String NextLevel;
     };
 
+	class DamageEvent : public Event {
+	public:
+		Real Damage;
+	};
 
   }
 
