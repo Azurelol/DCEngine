@@ -72,6 +72,7 @@ namespace DCEngine {
     bool EditorEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;
+    bool Dragging = false;
   };
 
   /**************************************************************************/

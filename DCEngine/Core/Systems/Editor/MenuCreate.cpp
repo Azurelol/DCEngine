@@ -16,6 +16,7 @@
 namespace DCEngine {
   namespace Systems {
 
+
     /**************************************************************************/
     /*!
     @brief  Creates a GameObject with a Transform component on the selected
@@ -31,6 +32,7 @@ namespace DCEngine {
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
       SelectedObject = transform;
       WindowPropertiesEnabled = true;
+      MoveToViewportCenter(transform);
     }
 
     /**************************************************************************/
@@ -52,6 +54,7 @@ namespace DCEngine {
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
       SelectedObject = sprite;
       WindowPropertiesEnabled = true;
+      MoveToViewportCenter(sprite);
     }
 
     /**************************************************************************/
@@ -66,9 +69,20 @@ namespace DCEngine {
       auto gameObject = CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
       SelectedObject = gameObject;
       WindowPropertiesEnabled = true;
+      MoveToViewportCenter(gameObject);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Moves the object to the viewport's center.
+    */
+    /**************************************************************************/
+    void Editor::MoveToViewportCenter(GameObject* gameobject)
+    {
+      auto viewportCenter = CurrentSpace->getComponent<CameraViewport>()->getCamera()->TransformComponent->Translation;
+      gameobject->getComponent<Transform>()->setTranslation(Vec3(viewportCenter.x, viewportCenter.y, 0));
+    }
 
-
+    
   }
 }

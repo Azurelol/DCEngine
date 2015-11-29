@@ -22,6 +22,14 @@ namespace DCEngine {
     {
       switch (event->Key) {
 
+      case Keys::Escape:
+        ActiveTool = EditorTool::None;
+        break;
+
+      case Keys::Return:
+        ActiveTool = EditorTool::None;
+        break;
+
       case Keys::Tilde:
         WindowConsoleEnabled = !WindowConsoleEnabled;
         break;
@@ -90,8 +98,10 @@ namespace DCEngine {
       //  ActiveTool = EditorTool::None;
       //  break;
 
+
+
       default:
-        ActiveTool = EditorTool::None;
+        //ActiveTool = EditorTool::None;
         break;
 
       }
