@@ -24,7 +24,7 @@ namespace DCEngine {
 		bool Grounded = true;
 		bool Jumping = false;
 		bool DoAutoPlay = true;
-		Real MoveSpeed = 0.4f;
+		Real MoveSpeed = 0.6f;
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;
 		Real JumpFramesApplied = 0;

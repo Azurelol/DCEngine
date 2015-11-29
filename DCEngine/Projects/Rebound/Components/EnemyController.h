@@ -16,7 +16,7 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
-	enum class EnemyType { RandomJumper, BasicChaser };
+	enum class EnemyType { RandomJumper, BasicChaser, AdvancedChaser};
 	class EnemyController : public Component {
 
 	public:
@@ -39,7 +39,7 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(Real, JumpPowerX);
     DCE_DEFINE_PROPERTY(Real, JumpInterval);
     DCE_DEFINE_PROPERTY(Real, PatrolRange);    
-    DCE_DEFINE_PROPERTY(Real, Timer);    
+    DCE_DEFINE_PROPERTY(Real, Timer);
     
     // Methods
 		EnemyController(Entity& owner) : Component(std::string("EnemyController"), owner) {}

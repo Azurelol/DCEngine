@@ -62,7 +62,7 @@ namespace DCEngine {
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		Timer += event->Dt;
-		if (EnemyType == EnemyType::BasicChaser)
+		if (EnemyType == EnemyType::BasicChaser || EnemyType == EnemyType::AdvancedChaser)
 		{
 			DoBasicChaser();
 			Patrol();
@@ -92,6 +92,11 @@ namespace DCEngine {
 			{
 				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
+		}
+
+		if(EnemyType == EnemyType::AdvancedChaser)
+		{
+			return;
 		}
 
 		if (TransformRef->getTranslation().x < InitialPosition.x)
