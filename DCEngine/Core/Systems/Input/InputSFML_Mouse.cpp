@@ -24,6 +24,21 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Polls for MouseMoved events.
+    */
+    /**************************************************************************/
+    void InputSFML::PollMouseMoved(sf::Event & event)
+    {
+      // Send an event with the mouse moved information
+      auto mouseUpdate = new Events::MouseUpdate();      
+      mouseUpdate->ScreenPosition.x = static_cast<float>(event.mouseMove.x);
+      mouseUpdate->ScreenPosition.y = static_cast<float>(event.mouseMove.y);
+      Daisy->getMouse()->Dispatch<Events::MouseUpdate>(mouseUpdate);
+      delete mouseUpdate;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Polls for MousePressed evemts. Everytime a key is released, sends an
     event to the keyboard interface.
     */

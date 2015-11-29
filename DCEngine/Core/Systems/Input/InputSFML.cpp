@@ -89,6 +89,9 @@ namespace DCEngine {
         //ImGuiPollKeyReleased(_event);
         PollKeyReleased(_event);
         break;
+      case sf::Event::MouseMoved:
+        PollMouseMoved(_event);
+        break;
       case sf::Event::MouseButtonPressed:
         Daisy->getSystem<GUI>()->GUIHandler->MousePressed[_event.mouseButton.button] = true;
         PollMouseButtonPressed(_event);

@@ -245,6 +245,7 @@
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp" />
+    <ClCompile Include="Core\Components\Reactive.cpp" />
     <ClCompile Include="Core\Components\SpriteParticleSystem.cpp" />
     <ClCompile Include="Core\Components\Sprite_Animation.cpp" />
     <ClCompile Include="Core\Components\BoxCollider.cpp" />
@@ -401,6 +402,7 @@
     <ClInclude Include="Core\Components\LinearParticleAnimator.h" />
     <ClInclude Include="Core\Components\Orientation.h" />
     <ClInclude Include="Core\Components\PhysicsSpace.h" />
+    <ClInclude Include="Core\Components\Reactive.h" />
     <ClInclude Include="Core\Components\RigidBody.h" />
     <ClInclude Include="Core\Components\SoundEmitter.h" />
     <ClInclude Include="Core\Components\SoundSpace.h" />
@@ -431,6 +433,7 @@
     <ClInclude Include="Core\Events\KeyDownEvent.h" />
     <ClInclude Include="Core\Events\KeyUpEvent.h" />
     <ClInclude Include="Core\Events\MouseDown.h" />
+    <ClInclude Include="Core\Events\MouseEvents.h" />
     <ClInclude Include="Core\Events\MouseScroll.h" />
     <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />

@@ -66,7 +66,7 @@ namespace DCEngine {
     GLfloat Roll = 90.0f; // rotation degree
     GLfloat BaseRollVal = 90.0f;
 		//Projection Mode
-		ProjectionMode Projection = ProjectionMode::Orthographic;
+		ProjectionMode Projection = ProjectionMode::Perspective;
 		GLfloat FieldOfView = 250;
 		GLfloat WindowWidth = 8;
 		GLfloat WindowHeight = 6;

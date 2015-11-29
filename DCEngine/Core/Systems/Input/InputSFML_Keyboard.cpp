@@ -507,6 +507,8 @@ namespace DCEngine {
       delete keyUp;
     }
 
+
+
     /**************************************************************************/
     /*!
     \brief  Toggles fullscreen on and off.
