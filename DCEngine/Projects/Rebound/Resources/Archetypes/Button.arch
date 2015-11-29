@@ -2,7 +2,7 @@
 {
   "GameObject": 
   {
-    "Name": "Resume Game", 
+    "Name": "How To play", 
     "Archetype": "Button", 
     "Components": 
     {
@@ -13,7 +13,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 12.000000, 
+            "y": 8.000000, 
             "z": 0.000000
           }
         }, 
