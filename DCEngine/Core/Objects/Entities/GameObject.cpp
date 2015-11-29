@@ -74,6 +74,7 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  GameObject destructor.
+  @todo   Remove all the children in a more intelligent way.
   */
   /**************************************************************************/
   GameObject::~GameObject()
@@ -83,8 +84,9 @@ namespace DCEngine {
       Detach();
     // If there are children attached to this GameObject, dettach them
     for (auto child : ChildrenContainer) {
-      RemoveChild(child);
+      child->ParentRef = nullptr;
     }
+    ChildrenContainer.clear();
 
     // Diagnostics
     if (DiagnosticsEnabled)
