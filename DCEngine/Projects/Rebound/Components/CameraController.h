@@ -11,7 +11,7 @@
 #pragma once
 #include "ReboundComponent.h"
 
-#define CameraControllerTraceOn 1
+#define CameraControllerTraceOn 0
 
 namespace DCEngine {
 
