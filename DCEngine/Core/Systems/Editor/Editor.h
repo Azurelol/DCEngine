@@ -60,6 +60,7 @@ namespace DCEngine {
       bool WindowSaveLevelEnabled = false;
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
+      bool WindowToolsEnabled = false;
       bool WindowCreateFromArchetypeEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
@@ -78,6 +79,8 @@ namespace DCEngine {
       void WidgetLevel();
       void WidgetResourceAdd();
       void WidgetObjects();
+      // Tools
+      void WindowTools();
       // Properties
       void WindowProperties();
       void DisplayProperties(ObjectPtr);
@@ -85,7 +88,6 @@ namespace DCEngine {
       void DisplayResourceProperties();
       void AddComponent(EntityPtr);
       void SelectResource(Zilch::Property*, ObjectPtr);
-
       // Library
       void WidgetLibrary();
       void WidgetDiagnostics();

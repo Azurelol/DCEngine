@@ -130,10 +130,13 @@ namespace DCEngine {
             WidgetLibraryEnabled = !WidgetLibraryEnabled;
           if (ImGui::MenuItem("Objects"))
             WidgetObjectsEnabled = !WidgetObjectsEnabled;
+          if (ImGui::MenuItem("Tools"))
+            WindowToolsEnabled = !WindowToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
             WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
           if (ImGui::MenuItem("Console"))
             WindowConsoleEnabled = !WindowConsoleEnabled;
+
           ImGui::EndMenu();
         }
 

@@ -621,6 +621,9 @@
     <ClCompile Include="Core\Engine\Math.cpp">
       <Filter>Core\Libraries</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

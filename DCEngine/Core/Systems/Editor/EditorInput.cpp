@@ -34,6 +34,10 @@ namespace DCEngine {
         StopGame();
         break;
 
+      case Keys::Tab:
+        WindowToolsEnabled = !WindowToolsEnabled;
+        break;
+
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
           DCTrace << "Editor::SelectTool \n";

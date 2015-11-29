@@ -58,6 +58,114 @@ namespace DCEngine {
       ScanForArchetypes(ArchetypePath);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Adds a Font to the font resource map.
+    @param The name of the Font.
+    @param The pointer to the Font resource.
+    @note  We load the font immediately so its ready for use by SpriteText
+    component.
+    */
+    /**************************************************************************/
+    void Content::AddFont(std::string & fontName, FontPtr fontPtr)
+    {
+      FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
+      DCTrace << "Content::AddFont - " << fontName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds an archetype to the Archetype resource map.
+    @param The name of the archetype.
+    @param The pointer to the archetype.
+    @note  Perhaps it's okay to overwrite previous archetypes, unlike
+    other resources.
+    */
+    /**************************************************************************/
+    void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
+    {
+      // Prevent duplicates
+      //if (ArchetypeMap.count(archetypeName)) {
+      //  DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map.\n";
+      //  return;
+      //}
+
+      ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a shader to the shader resource map.
+    @param The name of the shader.
+    @param The pointer to the shader resource.
+    */
+    /**************************************************************************/
+    void Content::AddShader(std::string & shaderName, ShaderPtr shaderPtr)
+    {
+      ShaderMap.insert(std::pair<std::string, ShaderPtr>(shaderName, shaderPtr));
+      DCTrace << "Content::AddShader - " << shaderName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a spritesource to the spritesource resource map.
+    @param The name of the spritesource.
+    @param The pointer to the spritesource resource.
+    */
+    /**************************************************************************/
+    void Content::AddSpriteSource(std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
+    {
+      // Prevent duplicates
+      if (SpriteSourceMap.count(spriteSourceName)) {
+        DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
+        return;
+      }
+
+      SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
+      DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a soundcue resource to the soundcue resource map.
+    @param The name of the soundcue.
+    @param The pointer to the soundcue resource.
+    */
+    /**************************************************************************/
+    void Content::AddSoundCue(std::string & soundCueName, SoundCuePtr soundcuePtr)
+    {
+      // Prevent duplicates
+      if (SoundCueMap.count(soundCueName)) {
+        DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
+        return;
+      }
+
+      SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
+      DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a level resource to the Level resource map.
+    @param The name of the level.
+    @param The pointer to the level resource.
+    */
+    /**************************************************************************/
+    void Content::AddLevel(std::string & levelName, LevelPtr levelPtr)
+    {
+      // Prevent duplicates
+      if (LevelMap.count(levelName)) {
+        //// Reload the level
+        //LevelMap.at(levelName)->Load();
+        DCTrace << "Content::AddLevel - " << levelName << " is already present in the map.\n";
+        return;
+      }
+
+      LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
+      DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
+    }
+
 
     /**************************************************************************/
     /*!

@@ -80,6 +80,9 @@ namespace DCEngine {
       case sf::Keyboard::Return:
         keyDown->Key = Keys::Return;
         break;
+      case sf::Keyboard::Tab:
+        keyDown->Key = Keys::Tab;
+        break;
       case sf::Keyboard::F1:
         keyDown->Key = Keys::F1;
         break;
@@ -336,7 +339,9 @@ namespace DCEngine {
         keyUp->Key = Keys::Space;
         KeyboardRef->KeyDown_Space = false;
         break;
-
+      case sf::Keyboard::Tab:
+        keyUp->Key = Keys::Tab;
+        break;
       case sf::Keyboard::F1:
         keyUp->Key = Keys::F1;
         break;
