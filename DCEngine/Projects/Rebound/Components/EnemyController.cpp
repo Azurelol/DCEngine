@@ -53,6 +53,13 @@ namespace DCEngine {
 			//TransformRef->Translation.y = -1000;
 			dynamic_cast<GameObject*>(Owner())->Destroy();
 		}
+		if (event->OtherObject->getComponent<PlayerController>())
+		{
+			//TransformRef->Translation.x = -1000;
+			//TransformRef->Translation.y = -1000;
+
+			//this->SpaceRef->Dispatch()
+		}
 	}
 
 	void EnemyController::OnCollisionEndedEvent(Events::CollisionEnded * event)
