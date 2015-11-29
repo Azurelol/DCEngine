@@ -362,11 +362,6 @@ namespace DCEngine {
 					// COLLISION DETECTED
 					if (Collision::BoxtoBox(obj1, obj2, collision))
 					{
-
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve )
-            {
-              contactlist.push_back(collision);
-            }
             
             // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
@@ -378,8 +373,14 @@ namespace DCEngine {
             }
             else
             {
-              
+              collision.FrictionCof *= 0.9;
             }
+
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            {
+              contactlist.push_back(collision);
+            }
+
 					}
 					// NO COLLISION DETECTED
 					else 
@@ -397,10 +398,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
-            {
-              contactlist.push_back(collision);
-            }
+
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
@@ -411,7 +409,12 @@ namespace DCEngine {
             }
             else
             {
+              collision.FrictionCof *= 0.9;
+            }
 
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            {
+              contactlist.push_back(collision);
             }
 
 					}
@@ -431,10 +434,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
-            {
-              contactlist.push_back(collision);
-            }
+
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
@@ -445,7 +445,12 @@ namespace DCEngine {
             }
             else
             {
-              
+              collision.FrictionCof *= 0.9;
+            }
+
+            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            {
+              contactlist.push_back(collision);
             }
 
 					}
@@ -465,10 +470,7 @@ namespace DCEngine {
 				{
 					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
-            {
-              contactlist.push_back(collision);
-            }
+
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj2;
 						Collision.OtherObject = obj1;
@@ -479,7 +481,12 @@ namespace DCEngine {
             }
             else
             {
-              
+              collision.FrictionCof *= 0.9;
+            }
+
+            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            {
+              contactlist.push_back(collision);
             }
 
 					}
