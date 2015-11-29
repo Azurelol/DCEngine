@@ -98,17 +98,20 @@ namespace DCEngine {
   /**************************************************************************/
   void CameraViewport::setCamera(Camera * camera)
   {
+    // Set the previous camera to false
+    if (CameraObj)
+      CameraObj->Active = false;
+    // Set the current camera
     CameraObj = camera;
     // If the camera pointer was invalid... 
     if (camera == nullptr) {
-      DCTrace << "\n";
       DCTrace << "CameraViewport::setCamera - No active camera has been set. \n";
-      DCTrace << "\n";
       return;
     }
-    DCTrace << "\n";
+    // Set it as active
+    CameraObj->Active = true;
     DCTrace << "CameraViewport::setCamera - Setting " << camera->Owner()->Name() << " as the active camera \n";
-    DCTrace << "\n";
+
   }
 
   /**************************************************************************/
@@ -123,8 +126,10 @@ namespace DCEngine {
       // Do not set the EditorCamera as the space's default camera.
       if (camera != nullptr && camera->Owner()->Name() != std::string("EditorCamera")) {
         DCTrace << "CameraViewport::FindDefaultCamera - Setting " << camera->Owner()->Name() << " as the default camera \n";
-        DefaultCameraObj = camera;
-        return DefaultCameraObj;
+        setCamera(camera);
+        return camera;
+        //DefaultCameraObj = camera;        
+        //return DefaultCameraObj;
       }        
     }    
     DCTrace << "CameraViewport::FindDefaultCamera - No camera was found on the space \n";
