@@ -89,7 +89,7 @@
       "GameObject": 
       {
         "Name": "Player", 
-        "Archetype": "", 
+        "Archetype": "Player", 
         "Components": 
         {
           "Transform": 
