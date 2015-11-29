@@ -621,8 +621,8 @@
     <ClCompile Include="Core\Engine\Math.cpp">
       <Filter>Core\Libraries</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Fade.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
+    <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
+      <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1078,9 +1078,6 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Math.h">
       <Filter>Core\Libraries</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Fade.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

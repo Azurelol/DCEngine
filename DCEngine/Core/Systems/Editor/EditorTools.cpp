@@ -113,6 +113,7 @@ namespace DCEngine {
         return;
 
 
+
     }
 
     /**************************************************************************/
@@ -122,9 +123,22 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ScaleTool()
     {
-
       if (!SelectedObject)
         return;
+
+        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+          // Get the object's transform data
+          auto transform = gameObject->getComponent<Transform>();
+          Vec3 pos = transform->getTranslation();
+          Real width = transform->getScale().x *2.5;
+          Real height = transform->getScale().y *2.5;
+          Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
+
+          // Draw a selected 'box' around the object
+          CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(pos,
+            width, width, color);
+        }
+      
     }
 
     /**************************************************************************/
@@ -151,6 +165,12 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Scales an object by the specified vector.
+    @param  scaleChange The scaling value.
+    */
+    /**************************************************************************/
     void Editor::ScaleObject(Vec3 scaleChange)
     {
       if (!SelectedObject)

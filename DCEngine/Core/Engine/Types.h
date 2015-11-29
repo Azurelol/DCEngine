@@ -33,6 +33,7 @@ namespace DCEngine {
   enum class Keys {
     None,
     Tilde,
+    Tab,
     Escape,
     Space,
     Return,

@@ -54,8 +54,9 @@ namespace DCEngine {
         // Display every SpriteSource
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
           if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {    
-            //ImGui::IsMouseDown()
-            //if (ImGui::IsMouseDoubleClicked(ImGui::GetIO().MouseDoubleClicked())) {
+            
+            //auto a = ImGui::GetID(spriteSrc.second->Name().c_str());            
+            //if (ImGui::IsMouseDoubleClicked(a)) {
             //  DCTrace << "hey ";
             //}
             SelectedObject = spriteSrc.second.get();
