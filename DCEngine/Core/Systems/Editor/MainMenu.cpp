@@ -106,7 +106,7 @@ namespace DCEngine {
         // Resources
         if (ImGui::BeginMenu("Resources")) {
           if (ImGui::MenuItem("Add")) {
-            AddResource();
+            WindowAddResourceEnabled = !WindowAddResourceEnabled;
           }
           ImGui::Separator();
           if (ImGui::MenuItem("Load Level"))

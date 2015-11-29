@@ -139,5 +139,18 @@ namespace DCEngine {
     GLboolean lastEnableScissorTest;
   };
 
+  enum class ResourceType {
+    None,
+    Archetype,
+    CollisionGroup,
+    CollisionTable,
+    Level,
+    Material,
+    PhysicsMaterial,
+    SoundCue,
+    SpriteSource,
+    SpriteLayer,
+
+  };
 
 }

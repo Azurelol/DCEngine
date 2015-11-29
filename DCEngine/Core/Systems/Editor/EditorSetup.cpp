@@ -75,7 +75,8 @@ namespace DCEngine {
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
         editorCamera->Destroy();
-      }      
+      }
+      SelectedObject = nullptr;
     }
 
   }

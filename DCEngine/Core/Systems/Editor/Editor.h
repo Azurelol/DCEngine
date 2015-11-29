@@ -52,7 +52,7 @@ namespace DCEngine {
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
       bool WidgetLevelEnabled = false;
-      bool WidgetResourceAddEnabled = false;
+      bool WindowAddResourceEnabled = false;
       bool WidgetObjectsEnabled = false;
       bool WindowPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
@@ -61,7 +61,7 @@ namespace DCEngine {
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
       bool WindowToolsEnabled = false;
-      bool WindowCreateFromArchetypeEnabled = false;
+      bool WindowCreateFromArchetypeEnabled = false;      
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       Object* SelectedObject = nullptr;      
@@ -95,6 +95,7 @@ namespace DCEngine {
       void WindowLoadLevel();
       void WindowConsole();
       void WindowCreateFromArchetype();
+      
       // Archetypes
       void SaveArchetype(std::string&);
       void RevertToArchetype();
@@ -114,7 +115,9 @@ namespace DCEngine {
       // Select
       void SelectSpace();
       // Resources
-      void AddResource();
+      void WindowAddResource();
+      void AddResource(std::string& name, ResourceType type);
+      bool CreateLevel(std::string&);
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();

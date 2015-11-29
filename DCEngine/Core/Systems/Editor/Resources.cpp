@@ -19,11 +19,90 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Adds a resource to the project.
+    @param  name The name of the resource.
+    @param  type The type of the resource.
     */
     /**************************************************************************/
-    void Editor::AddResource()
-    {
+    void Editor::AddResource(std::string& name, ResourceType type) {
+      DCTrace << "Editor::AddResource - Adding " << name << "\n";
 
+      switch (type) {
+
+      case ResourceType::Level:
+        CreateLevel(name);
+        break;
+
+      default:
+        break;
+
+      }
+    }
+
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays the 'AddResource' editor window.
+    */
+    /**************************************************************************/
+    void Editor::WindowAddResource()
+    {
+      if (!WindowAddResourceEnabled) {
+        ImGui::SetNextWindowSize(ImVec2(300, 500), ImGuiWindowFlags_AlwaysAutoResize);
+        ImGui::Begin("Add a Resource", &WindowAddResourceEnabled);
+
+        static char resourceName[32];
+        // Resource Selection
+        static ResourceType type = ResourceType::None;
+        if (ImGui::Selectable("CollisionGroup")) {
+          type = ResourceType::CollisionGroup;
+          strcpy(resourceName, "NewCollisionGroup");
+        }
+        if (ImGui::Selectable("CollisionTable")) {
+          type = ResourceType::CollisionTable;
+          strcpy(resourceName, "NewCollisionTable");
+        }
+        if (ImGui::Selectable("Level")) {
+          type = ResourceType::Level;
+          strcpy(resourceName, "NewLevel");
+        }
+        if (ImGui::Selectable("Material")) {
+          type = ResourceType::Material;
+          strcpy(resourceName, "NewMaterial");
+        }
+        if (ImGui::Selectable("PhysicsMaterial")) {
+          type = ResourceType::PhysicsMaterial;
+          strcpy(resourceName, "NewPhysicsMaterial");
+        }
+        if (ImGui::Selectable("SoundCue")) {
+          type = ResourceType::SoundCue;
+          strcpy(resourceName, "NewSoundCue");
+        }
+        if (ImGui::Selectable("SpriteSource")) {
+          type = ResourceType::SpriteSource;
+          strcpy(resourceName, "NewSpriteSource");
+        }
+        if (ImGui::Selectable("SpriteLayer")) {
+          type = ResourceType::SpriteLayer;
+          strcpy(resourceName, "NewSpriteLayer");
+        }
+        // Name
+        ImGui::InputText("Name:", resourceName, IM_ARRAYSIZE(resourceName));
+        // Buttons
+        ImGui::Separator();
+        if (ImGui::Button("Create")) {
+          AddResource(std::string(resourceName), type);
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("From File")) {
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel")) {
+          WindowAddResourceEnabled = false;
+        }
+
+        ImGui::End();
+      }
     }
 
 
@@ -77,6 +156,8 @@ namespace DCEngine {
       
       // If the level was saved successfully
       if (levelResource) {
+        // Set it as the current level on the space
+        CurrentSpace->CurrentLevel = levelResource;
         // Scan for levels again
         Daisy->getSystem<Content>()->ScanForLevels();
         return true;

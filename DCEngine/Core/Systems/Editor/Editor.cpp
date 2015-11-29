@@ -197,6 +197,7 @@ namespace DCEngine {
       WindowConsole();
       WindowCreateFromArchetype();
       WindowTools();
+      WindowAddResource();
     }
 
     /**************************************************************************/

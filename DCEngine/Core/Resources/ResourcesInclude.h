@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #pragma once
 
 #include "Shader.h"
@@ -22,3 +21,9 @@
 #include "Archetype.h"
 #include "CollisionGroup.h"
 #include "CollisionTable.h"
+
+namespace DCEngine {
+
+
+
+}
