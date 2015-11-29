@@ -23,6 +23,8 @@ namespace DCEngine {
     ~CollisionGroup() {}
     static CollisionGroupPtr Find(std::string);
 
+    CollisionGroup &operator=(const CollisionGroup & rhs);
+
   private:
 
   };

@@ -316,9 +316,12 @@ namespace DCEngine {
          {
            Fill.filter = CollisionFilter();
          }
+         else
+         {
+           // need to access the collision table and get info from it
+           Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
+         }
 
-         // need to access the collision table and get info from it
-         // Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
 
          result.push_back(Fill);
 				}

@@ -32,7 +32,7 @@ namespace DCEngine {
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
     PlayerRef = SpaceRef->FindObjectByName(TargetName);
     //PlayerRef = SpaceRef->FindObjectByName(TargetName);
-    gameObj->AttachTo(PlayerRef);
+    //gameObj->AttachTo(PlayerRef);
 	}
 
 	void CameraController::Serialize(Json::Value & root)

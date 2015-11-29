@@ -25,6 +25,11 @@ namespace DCEngine
     Groups.push_back(CollisionGroup("Default"));
   }
 
+  CollisionTable::CollisionTable(void) : Resource("CollisionTable")
+  {
+    Groups.push_back(CollisionGroup("Default"));
+  }
+
   std::vector<CollisionGroup> const &CollisionTable::GetGroups(void) const
   {
     return Groups;
@@ -236,6 +241,19 @@ namespace DCEngine
   CollisionTablePtr CollisionTable::Find(std::string name)
   {
     return Daisy->getSystem<Systems::Content>()->getCollisionTable(name);
+  }
+
+  CollisionTable &CollisionTable::operator=(const CollisionTable & rhs)
+  {
+    if (this == &rhs)
+    {
+      return *this;
+    }
+
+    Groups = rhs.Groups;
+    Pairs = rhs.Pairs;
+
+    return *this;
   }
 
 }

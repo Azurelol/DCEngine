@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Wall", 
-    "Archetype": "Wall", 
+    "Name": "Acid", 
+    "Archetype": "Acid", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 8.000000, 
+            "x": 74.000000, 
+            "y": -70.500000, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 5.000000, 
+            "x": 8.000000, 
+            "y": 1.500000, 
             "z": 1.000000
           }
         }
@@ -43,9 +43,9 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000, 
+            "x": 0.500000, 
+            "y": 0.900000, 
+            "z": 0.300000, 
             "w": 1.000000
           }
         }, 
@@ -55,29 +55,10 @@
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000
       }, 
-      "BoxCollider": 
+      "HazardArea": 
       {
-        "Size": 
-        {
-          "Vec3": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000
-          }
-        }, 
-        "Offset": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Ghost": false, 
-        "SendsEvents": true, 
-        "IsDrawingCollider": false
+        "Damage": 1.000000, 
+        "DamageInterval": 0.000000
       }
     }
   }

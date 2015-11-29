@@ -13,6 +13,7 @@ physics integration and resolution, for collisions, velocity, etc...
 #include "PhysicsSpace.h"
 #include "EngineReference.h"
 #include "../../Core/Systems/Physics/Physics.h"
+#include "../Resources/CollisionTable.h"
 
 namespace DCEngine {
 
@@ -130,19 +131,21 @@ namespace DCEngine {
   @brief Sets the collision table.
   */
   /**************************************************************************/
-  void PhysicsSpace::setCollisionTable(CollisionTableHandle table)
+  void PhysicsSpace::setCollisionTable(CollisionTable & table)
   {
-    this->CollisionTable = table;
+    Table = table;
   }
+
+
 
   /**************************************************************************/
   /*!
   @brief Gets the collision table.
   */
   /**************************************************************************/
-  CollisionTableHandle PhysicsSpace::getCollisionTable()
+  CollisionTable *PhysicsSpace::getCollisionTable(void)
   {
-    return this->CollisionTable;
+    return &Table;
   }
 
 }

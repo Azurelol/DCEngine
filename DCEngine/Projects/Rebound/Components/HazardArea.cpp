@@ -29,7 +29,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, HazardArea::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
-		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+		PlayerRef = SpaceRef->FindObjectByName("Player");
 	}
 
 	void HazardArea::Serialize(Json::Value & root)
