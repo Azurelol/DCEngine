@@ -41,6 +41,7 @@ namespace DCEngine {
       void PollEvents();
       void PollKeyPressed(sf::Event& event);
       void PollKeyReleased(sf::Event& event);
+      void PollMouseMoved(sf::Event& event);
       void PollMouseButtonPressed(sf::Event& event);
 	    void PollMouseButtonReleased(sf::Event& event);
       void PollMouseWheelMoved(sf::Event& event);

@@ -30,7 +30,7 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, CameraController::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-    PlayerRef = SpaceRef->FindObjectByName("Player");
+    PlayerRef = SpaceRef->FindObjectByName(TargetName);
     //PlayerRef = SpaceRef->FindObjectByName(TargetName);
     //gameObj->AttachTo(PlayerRef);
 	}
@@ -47,7 +47,7 @@ namespace DCEngine {
 	{
 		if (event->Key == Keys::A)
 		{
-			PlayerRef = SpaceRef->FindObjectByName("Player");
+			PlayerRef = SpaceRef->FindObjectByName(TargetName);
 			//DCTrace << "A key pressed";
 		}
     
@@ -72,7 +72,7 @@ namespace DCEngine {
 		}
 		if (!PlayerRef)
 		{
-			PlayerRef = SpaceRef->FindObjectByName("Player");
+			PlayerRef = SpaceRef->FindObjectByName(TargetName);
 			return;
 		}
 		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;

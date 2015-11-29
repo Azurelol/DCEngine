@@ -630,6 +630,9 @@
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\Reactive.cpp">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1087,6 +1090,12 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\Fade.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Reactive.h">
+      <Filter>Core\Components\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\MouseEvents.h">
+      <Filter>Core\Events\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

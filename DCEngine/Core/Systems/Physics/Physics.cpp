@@ -21,7 +21,7 @@
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 // Custom physics libraries
-#include "Collision.h"
+
 #include "Resolution.h"
 
 namespace DCEngine {
@@ -316,9 +316,12 @@ namespace DCEngine {
          {
            Fill.filter = CollisionFilter();
          }
+         else
+         {
+           // need to access the collision table and get info from it
+           Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
+         }
 
-         // need to access the collision table and get info from it
-         // Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
 
          result.push_back(Fill);
 				}

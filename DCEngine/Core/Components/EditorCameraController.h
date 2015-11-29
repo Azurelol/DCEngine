@@ -27,6 +27,10 @@ namespace DCEngine {
     Real RotSpeed = 15;
     Real ZoomSpeed = 10;
 
+    DCE_DEFINE_PROPERTY(Real, MoveSpeed);
+    DCE_DEFINE_PROPERTY(Real, RotSpeed);
+    DCE_DEFINE_PROPERTY(Real, ZoomSpeed);
+
     /* Initialize */
     EditorCameraController(Entity& owner) : Component(std::string("EditorCameraController"), owner) {}
     void Initialize();

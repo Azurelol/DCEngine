@@ -7,6 +7,7 @@
 \brief  The physics space hold the settings for all physical interactions within
         a space. It also holds several containers of objects that require
         physics integration and resolution, for collisions, velocity, etc...
+\todo   make get/set CollisionTable work with zilch/editor
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
@@ -29,9 +30,10 @@ namespace DCEngine {
     friend class Physics;
   public:
 
-    // Properties
-    void setCollisionTable(CollisionTableHandle);
-    CollisionTableHandle getCollisionTable();
+    // PropertiesColli
+    DCE_DEFINE_PROPERTY(CollisionTable, Table);
+    void setCollisionTable(CollisionTable &table);
+    CollisionTable *getCollisionTable(void);
 
     // Methods
     void AddRigidBody(RigidBody& rigidbody);
@@ -52,7 +54,7 @@ namespace DCEngine {
     bool Mode2D;
     bool Deterministic;
 
-    CollisionTableHandle CollisionTable;
+    CollisionTable Table;
     RigidBodyContainer RigidBodiesContainer;
     ColliderContainer CollidersContainer;
 

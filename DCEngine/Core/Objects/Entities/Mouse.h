@@ -37,14 +37,19 @@ namespace DCEngine {
 
     bool MouseDown(MouseButton button);
     bool MouseUp(MouseButton button);
+    DCE_DEFINE_PROPERTY(Vec2, ScreenPosition);
 
   private:
 
+    // Variables
+    Vec2 ScreenPosition;    
     bool MouseDown_Left = false;
     bool MouseDown_Right = false;
     bool MouseDown_Middle = false;
-
+    // Methods
     void Initialize();
+    
+
   };
 
   using MousePtr = std::unique_ptr<Mouse>;
