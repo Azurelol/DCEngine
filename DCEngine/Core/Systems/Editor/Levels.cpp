@@ -110,7 +110,7 @@ namespace DCEngine {
         return;
 
       
-      ImGui::SetNextWindowSize(ImVec2(200, 200));
+      ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiWindowFlags_AlwaysAutoResize);
       ImGui::Begin("Load Level", &WindowLoadLevelEnabled);
            
       // Request the content system to scan for levels everytime the window is opened
