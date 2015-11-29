@@ -20,13 +20,7 @@ namespace DCEngine {
   /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Skeleton, "Skeleton", DCEngineCore, builder, type) {
-    //// Constructor / Destructor
-    //ZilchBindConstructor(builder, type, Skeleton, "owner", Entity&);
-    //ZilchBindDestructor(builder, type, Skeleton);
-    //// Properties
-    //ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-    //ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-    //ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+	  DCE_BINDING_DEFINE_PROPERTY(Skeleton, Timer);
   }
 #endif
 
@@ -34,9 +28,16 @@ namespace DCEngine {
 	void Skeleton::Initialize()
 	{
 		auto gameObj = dynamic_cast<GameObject*>(Owner());
-		Connect(Daisy->getMouse(), Events::MouseDown, Skeleton::OnMouseDownEvent);
-		Connect(Daisy->getMouse(), Events::MouseUp, Skeleton::OnMouseUpEvent);
-		Connect(SpaceRef, Events::LogicUpdate, Skeleton::OnLogicUpdateEvent);
+		//Connect(Daisy->getKeyboard(), Events::KeyDown, Skeleton::OnKeyDownEvent);
+		//Connect(Daisy->getKeyboard(), Events::KeyUp, Skeleton::OnKeyUpEvent);
+		//Connect(Daisy->getMouse(), Events::MouseDown, Skeleton::OnMouseDownEvent);
+		//Connect(Daisy->getMouse(), Events::MouseUp, Skeleton::OnMouseUpEvent);
+		//Connect(gameObj, Events::CollisionStarted, Skeleton::OnCollisionStartedEvent);
+		//Connect(gameObj, Events::CollisionEnded, Skeleton::OnCollisionEndedEvent);
+		//Connect(SpaceRef, Events::LogicUpdate, Skeleton::OnLogicUpdateEvent);
+		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
+		//RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
+		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 	}
 
 	void Skeleton::OnMouseDownEvent(Events::MouseDown * event)

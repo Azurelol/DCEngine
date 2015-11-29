@@ -621,6 +621,9 @@
     <ClCompile Include="Core\Engine\Math.cpp">
       <Filter>Core\Libraries</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Fade.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1075,6 +1078,9 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Math.h">
       <Filter>Core\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Fade.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

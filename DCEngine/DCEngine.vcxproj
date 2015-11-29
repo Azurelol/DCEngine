@@ -360,6 +360,7 @@
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\Fade.cpp" />
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
@@ -509,6 +510,7 @@
     <ClInclude Include="Projects\Rebound\Components\Button.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
     <ClInclude Include="Projects\Rebound\Components\ChargeBar.h" />
+    <ClInclude Include="Projects\Rebound\Components\Fade.h" />
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />

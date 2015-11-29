@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-@file   Skeleton.h
+@file   Fade.h
 @author Connor Tilley
 @par    email: connor.tilley\@digipen.edu
 @date   11/19/2015
@@ -15,18 +15,21 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
-	class Skeleton : public Component {
+	class Fade : public Component {
 
 	public:
 		Transform* TransformRef;
 		RigidBody* RigidBodyRef;
 		Sprite* SpriteRef;
 
-    // Properties
-    DCE_DEFINE_PROPERTY(Real, Timer);
-
-    // Methods
-		Skeleton(Entity& owner) : Component(std::string("Skeleton"), owner) {}
+		// Properties
+		DCE_DEFINE_PROPERTY(Real, Timer);
+		DCE_DEFINE_PROPERTY(Boolean, Fading);
+		DCE_DEFINE_PROPERTY(Real, FadeTime); //How long in seconds it takes to fade to TargetColor
+		DCE_DEFINE_PROPERTY(Vec4, InitialColor);
+		DCE_DEFINE_PROPERTY(Vec4, TargetColor);
+		// Methods
+		Fade(Entity& owner) : Component(std::string("Fade"), owner) {}
 		void Initialize();
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
@@ -36,13 +39,17 @@ namespace DCEngine {
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
-		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-				ZilchDeclareDerivedType(Skeleton, Component);
-		#endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+		ZilchDeclareDerivedType(Fade, Component);
+#endif
 
 	private:
-    // Member variables
-    Real Timer;
+		// Member variables
+		Real Timer = 0;
+		Vec4 TargetColor = Vec4(1, 1, 1, 1);
+		Vec4 InitialColor = Vec4(-1.0f, -1.0f, -1.0f, -1.0f);
+		Boolean Fading = false;
+		Real FadeTime = 1;
 	};
 
 }
