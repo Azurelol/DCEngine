@@ -33,7 +33,7 @@ namespace DCEngine {
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+		PlayerRef = SpaceRef->FindObjectByName(PlayerName);
 		InitialPosition = TransformRef->getTranslation();
 	}
 
@@ -51,7 +51,7 @@ namespace DCEngine {
 		{
 			//TransformRef->Translation.x = -1000;
 			//TransformRef->Translation.y = -1000;
-			//this->SpaceRef
+			dynamic_cast<GameObject*>(Owner())->Destroy();
 		}
 	}
 
