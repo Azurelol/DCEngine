@@ -624,13 +624,12 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Fade.cpp" />
-<<<<<<< HEAD
+    <ClCompile Include="Projects\Rebound\Components\Fade.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
-=======
->>>>>>> 847b693f82dbceb811da6ef1d684641dbfef1b83
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1086,7 +1085,9 @@
     <ClInclude Include="Core\Engine\Math.h">
       <Filter>Core\Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Fade.h" />
+    <ClInclude Include="Projects\Rebound\Components\Fade.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
