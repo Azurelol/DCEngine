@@ -33,7 +33,7 @@ namespace DCEngine {
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-		PlayerRef = SpaceRef->FindObjectByName("Mariah");
+		PlayerRef = SpaceRef->FindObjectByName(PlayerName);
 		InitialPosition = TransformRef->getTranslation();
 	}
 
@@ -51,6 +51,7 @@ namespace DCEngine {
 		{
 			//TransformRef->Translation.x = -1000;
 			//TransformRef->Translation.y = -1000;
+			dynamic_cast<GameObject*>(Owner())->Destroy();
 		}
 	}
 
@@ -61,7 +62,7 @@ namespace DCEngine {
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		Timer += event->Dt;
-		if (EnemyType == EnemyType::BasicChaser)
+		if (EnemyType == EnemyType::BasicChaser || EnemyType == EnemyType::AdvancedChaser)
 		{
 			DoBasicChaser();
 			Patrol();
@@ -91,6 +92,11 @@ namespace DCEngine {
 			{
 				RigidBodyRef->setVelocity(Vec3(-MoveSpeed, RigidBodyRef->getVelocity().y, 0));
 			}
+		}
+
+		if(EnemyType == EnemyType::AdvancedChaser)
+		{
+			return;
 		}
 
 		if (TransformRef->getTranslation().x < InitialPosition.x)

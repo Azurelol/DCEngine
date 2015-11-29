@@ -66,6 +66,8 @@ namespace DCEngine {
 	void PlayerController::OnCollisionStartedEvent(Events::CollisionStarted * event)
 	{
 		Grounded = true;
+		this->SpaceRef->getComponent<SoundSpace>()->PlayCue("HighThud");
+
 	}
 
 	void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -131,7 +133,7 @@ namespace DCEngine {
 			Jumping = false;
 			JumpFramesApplied = 0;
 		}
-
+		this->SpaceRef->getComponent<SoundSpace>()->PlayCue("FootConcreteBootRun2");
 	}
 
 	void PlayerController::TakeDamage(int damage)
