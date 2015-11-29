@@ -63,6 +63,11 @@ namespace DCEngine {
         //}
         SelectedObject = nullptr;
       }
+
+      // Turn off the Properties window
+      WindowPropertiesEnabled = false;
+
+
     }
 
 

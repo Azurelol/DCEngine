@@ -113,7 +113,10 @@ namespace DCEngine {
       void ExportGame();
       void Exit();
       // Select
+      GameObject* SelectObjectFromSpace(Vec2 pos);
+      void SelectObject(GameObject* obj);
       void SelectSpace();
+      void DragObject(Vec2);
       // Resources
       void WindowAddResource();
       void AddResource(std::string& name, ResourceType type);
@@ -123,8 +126,7 @@ namespace DCEngine {
       bool ReloadLevel();
       void LoadDollhouse();
       // Object Selection
-      void SelectObjectFromSpace(Vec2 pos);
-      void SelectObject(GameObject* obj);
+
       void DeleteObject();
       void DuplicateObject();
       // Tools
@@ -156,6 +158,7 @@ namespace DCEngine {
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
+      void OnMouseUpdateEvent(Events::MouseUpdate* event);
 
     };
 

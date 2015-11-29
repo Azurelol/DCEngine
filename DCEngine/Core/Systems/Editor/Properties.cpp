@@ -361,6 +361,10 @@ namespace DCEngine {
       std::string archeTypePath("Projects/Rebound/Resources/Archetypes/");
       Daisy->getSystem<Factory>()->BuildArchetype(archeTypePath + archetype + ".arch", 
                                                   dynamic_cast<GameObjectPtr>(SelectedObject));
+      // Upload the latest archetype
+      
+      // Scan for archetypes again
+      Daisy->getSystem<Content>()->ScanForArchetypes();
     }
 
     /**************************************************************************/

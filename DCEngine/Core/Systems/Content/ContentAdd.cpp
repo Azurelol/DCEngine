@@ -84,11 +84,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
     {
-      // Prevent duplicates
-      //if (ArchetypeMap.count(archetypeName)) {
-      //  DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map.\n";
-      //  return;
-      //}
+      // Overwrite archetypes
+      if (ArchetypeMap.count(archetypeName)) {
+        ArchetypeMap.erase(archetypeName);
+        DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map. Overwriting \n";
+        //return;
+      }
 
       ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
       DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
@@ -156,10 +157,10 @@ namespace DCEngine {
     {
       // Prevent duplicates
       if (LevelMap.count(levelName)) {
-        //// Reload the level
-        //LevelMap.at(levelName)->Load();
-        DCTrace << "Content::AddLevel - " << levelName << " is already present in the map.\n";
-        return;
+        // Overwrite the current level
+        LevelMap.erase(levelName);        
+        DCTrace << "Content::AddLevel - " << levelName << " is already present in the map. Overwriting. \n";
+        //return;
       }
 
       LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
