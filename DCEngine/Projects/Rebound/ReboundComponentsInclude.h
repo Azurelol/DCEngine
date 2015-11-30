@@ -18,6 +18,7 @@
 #include "Components\CameraController.h"
 #include "Components\HazardArea.h"
 #include "Components\LevelManager.h"
+#include "Components\MainMenuManager.h"
 #include "Components\PauseManager.h"
 #include "Components\MusicManager.h"
 #include "Components\Skeleton.h"

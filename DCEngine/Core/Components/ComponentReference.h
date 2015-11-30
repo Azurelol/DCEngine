@@ -11,3 +11,4 @@
 
 #pragma once
 #include "../Objects/Component.h"
+#include "../Resources/ResourcesInclude.h"

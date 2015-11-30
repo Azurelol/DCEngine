@@ -51,6 +51,8 @@ namespace DCEngine {
       ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
+      void MarkComponent(Component& component);
+      void DestroyComponents();
       // Resources
       ResourceStrongPtr CreateResource(const std::string& resourceName, bool init);       
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
@@ -62,6 +64,7 @@ namespace DCEngine {
       ComponentVec ActiveComponents; //!< Container of active Components
       std::map<std::string, std::type_index> ComponentClassMap;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
+      std::set<ComponentPtr> ComponentsToBeDeleted;
       ComponentMap ComponentFactories;
 
       /* Functions */

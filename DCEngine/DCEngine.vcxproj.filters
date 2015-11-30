@@ -636,6 +636,9 @@
     <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp">
       <Filter>Core\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1105,6 +1108,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h">
       <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
