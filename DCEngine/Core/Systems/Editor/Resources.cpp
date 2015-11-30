@@ -47,7 +47,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowAddResource()
     {
-      if (!WindowAddResourceEnabled) {
+      if (!WindowAddResourceEnabled)
+        return;
+            
         ImGui::SetNextWindowSize(ImVec2(300, 500), ImGuiWindowFlags_AlwaysAutoResize);
         ImGui::Begin("Add a Resource", &WindowAddResourceEnabled);
 
@@ -102,7 +104,7 @@ namespace DCEngine {
         }
 
         ImGui::End();
-      }
+      
     }
 
 

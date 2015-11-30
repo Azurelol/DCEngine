@@ -67,8 +67,6 @@ namespace DCEngine {
       Object* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
-      float SnapDistance = 1.0;
-      float SnapAngle = 15; 
 
       /////////////////
       //  Methods 
@@ -113,10 +111,12 @@ namespace DCEngine {
       void ExportGame();
       void Exit();
       // Select
-      GameObject* SelectObjectFromSpace(Vec2 pos);
+      void SelectObjectFromSpace(GameObject*);
+      GameObject* FindObjectFromSpace(Vec2 pos);
       void SelectObject(GameObject* obj);
       void SelectSpace();
       void DragObject(Vec2);
+      void ReleaseObject();
       // Resources
       void WindowAddResource();
       void AddResource(std::string& name, ResourceType type);
