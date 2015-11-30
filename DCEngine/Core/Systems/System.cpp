@@ -9,4 +9,14 @@
 */
 /******************************************************************************/
 #include "System.h"
+#include "../Engine/Engine.h"
 
+DCEngine::System::~System()
+{
+  // Deregister from all publishers
+  for (auto publisher : ActiveDelegateHolders) {
+    //publisher->Dis
+    Daisy->Disconnect<Entity>(publisher, this);
+  }
+
+}

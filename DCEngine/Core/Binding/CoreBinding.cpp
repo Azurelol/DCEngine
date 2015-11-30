@@ -44,7 +44,7 @@ namespace DCEngine {
     ZilchInitializeType(SpriteSource);
     ZilchInitializeType(SoundCue);
 
-    // Components
+
 
     // Spaces
     ZilchInitializeType(PhysicsSpace);
@@ -57,6 +57,7 @@ namespace DCEngine {
     ZilchInitializeType(BoxCollider);
     // Graphics
     ZilchInitializeType(Sprite);
+    ZilchInitializeType(SpriteText);
     ZilchInitializeType(Camera);
     ZilchInitializeType(EditorCameraController);
     ZilchInitializeType(Reactive);

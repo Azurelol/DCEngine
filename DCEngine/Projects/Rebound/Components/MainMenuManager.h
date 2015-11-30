@@ -27,6 +27,12 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
 
+    void OnNewGameClicked(Events::MouseClickedOn* event);
+    void OnHelpClicked(Events::MouseClickedOn* event);
+    void OnCreditsClicked(Events::MouseClickedOn* event);
+    void OnExitClicked(Events::MouseClickedOn* event);
+
+
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(MainMenuManager, Component);
     #endif

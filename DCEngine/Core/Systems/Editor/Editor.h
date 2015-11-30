@@ -12,7 +12,9 @@
 #pragma once
 #include "../System.h"
 #include "../../Engine/Data.h"
+#include "../../Objects/Object.h"
 #include "../../Objects/ObjectsInclude.h"
+#include "../../Objects/Entities/EntitiesInclude.h"
 
 namespace DCEngine {
   
@@ -114,6 +116,7 @@ namespace DCEngine {
       // Select
       void SelectObjectFromSpace(GameObject*);
       GameObject* FindObjectFromSpace(Vec2 pos);
+      GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
       void SelectSpace();
       void DragObject(Vec2);

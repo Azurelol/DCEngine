@@ -56,6 +56,10 @@ namespace DCEngine {
         if (obj->getObjectName() == "EditorCamera")
           continue;
         
+        // Do nothing if the GameObject does not have a transform.
+        if (! obj->HasComponent(std::string("Transform")))
+          continue;
+
         // 3.1 Get the Z-pos of the current object in the container
         auto ObjectName = obj->Name();
 
@@ -75,8 +79,25 @@ namespace DCEngine {
       }
       
       // 4. Pick the object closest to the camera.
-      SelectObject(closestObj);
+      //SelectObject(closestObj);
       return closestObj;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Checks if the object is a valid selectable GameObject. That is,
+            one with an active transform component.
+    @param  object An Object*
+    */
+    /**************************************************************************/
+    GameObjectPtr Editor::IsSelectableGameObject(ObjectPtr object)
+    {
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(object)) {
+        if (gameObject->HasComponent(std::string("Transform"))) {
+          return gameObject;
+        }
+      }
+      return nullptr;
     }
 
     /**************************************************************************/

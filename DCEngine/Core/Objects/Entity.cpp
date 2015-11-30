@@ -40,6 +40,9 @@ namespace DCEngine {
       DCTrace << Name() << "::~Entity - Destructor called! \n";
     // 1. Remove all components from the entity
     ComponentsContainer.clear();
+    // 2. Inform all observers of this entity's death
+    InformObserversOfDeath();
+
     /*for (auto component : ComponentsContainer)
       RemoveComponent(component);*/
   }
@@ -229,13 +232,13 @@ namespace DCEngine {
   {
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == name) {
-        DCTrace << ObjectName << "::HasComponent - '" << name
-          << "' is already attached! \n";
+        //DCTrace << ObjectName << "::HasComponent - '" << name
+        //  << "' is already attached! \n";
         return true;
       }        
     }
-    DCTrace << ObjectName << "::HasComponent - '" << name
-      << "' is not present. \n";
+   // DCTrace << ObjectName << "::HasComponent - '" << name
+   //   << "' is not present. \n";
     return false;
   }
 
@@ -292,6 +295,41 @@ namespace DCEngine {
     //  componentsContainer.push_back(component);
     //}
     return &ComponentsContainer;
+  }
+  /**************************************************************************/
+  /*!
+  @brief  Informs all active observers of this entity's death. This allows
+          them to remove this entity from their list of active delegate holders.
+          Otherwise, CRASH!
+  */
+  /**************************************************************************/
+  void Entity::InformObserversOfDeath()
+  {
+    // For every event in the map of events this entity is receiving...
+    for (auto& event : ObserverRegistry) {
+      // For every delegate in the list of delegates for each event... 
+      for (auto it = event.second.begin(); it != event.second.end(); ++it) {        
+        
+        // Component: Inform each observer this object is being destroyed
+        auto observer = (*it)->GetObserver();
+        if (!observer)
+          continue;
+
+        if (auto component = dynamic_cast<ComponentPtr>(observer)) {          
+          // Look in its container of active delegates for the pointer to this
+          // entity, then remove it.
+          for (auto& publisher : component->ActiveDelegateHolders) {
+            if (this == publisher) {
+              std::swap(publisher, component->ActiveDelegateHolders.back());
+              component->ActiveDelegateHolders.pop_back();
+              break;
+            }
+          }
+        }
+
+      }
+    }
+
   }
 
   #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)

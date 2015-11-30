@@ -8,20 +8,39 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #pragma once
 #include "ComponentReference.h"
 
 namespace DCEngine {
     
   class Transform;
-  class GraphicsGL;
+
+  namespace Systems {
+    class GraphicsGL;
+  }
 
   class SpriteText : public Component {
     friend class GraphicsGL;
   public:
 
+    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(SpriteText, Component);
+    #endif
+
+    DCE_DEFINE_PROPERTY(Boolean, Visible);
+    DCE_DEFINE_PROPERTY(Vec4, Color);
+    DCE_DEFINE_PROPERTY(String, Font);
+    DCE_DEFINE_PROPERTY(Integer, FontSize);
+    DCE_DEFINE_PROPERTY(String, Text);
+    DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
+    DCE_DEFINE_PROPERTY(Boolean, Smoothing);
+     
+    SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
+    void Initialize();
     Transform* TransformComponent;
+
+  private:
+        
     Boolean Visible = true;
     Vec4 Color = Vec4(0, 0, 0, 1);
     String Font = "Verdana";
@@ -29,13 +48,8 @@ namespace DCEngine {
     String Text = "";
     Integer PixelsPerUnit = 64;
     Boolean Smoothing = true;
-     
-    SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
 
-  private:
+    
 
   };
 

@@ -712,7 +712,7 @@ ImGuiIO::ImGuiIO()
     DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
     MousePos = ImVec2(-1,-1);
     MousePosPrev = ImVec2(-1,-1);
-    MouseDoubleClickTime = 0.10f; // Test
+    MouseDoubleClickTime = 0.30f; // Test
     MouseDoubleClickMaxDist = 6.0f;
     MouseDragThreshold = 6.0f;
     for (int i = 0; i < IM_ARRAYSIZE(MouseDownDuration); i++)

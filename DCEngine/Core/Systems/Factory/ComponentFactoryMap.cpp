@@ -54,14 +54,10 @@ namespace DCEngine {
       // Graphics
       AddComponentFactory(DCEngine::Camera::ZilchGetStaticType(), std::make_unique<ComponentFactory<DCEngine::Camera>>());
       AddComponentFactory(Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Sprite>>());
+      AddComponentFactory(SpriteText::ZilchGetStaticType(), std::make_unique<ComponentFactory<SpriteText>>());
       AddComponentFactory(Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Reactive>>());
-      //DCE_FACTORY_CREATECOMPONENTFACTORY(Sprite);
-
       // Audio
       AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
-      
-      
-      //AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
       
       
 

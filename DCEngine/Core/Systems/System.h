@@ -49,6 +49,7 @@ namespace DCEngine {
     System(std::string& name, ESys type) : SysName(name), _type(type) {
       //trace << _name << "::Constructor \n";
     }
+    ~System();
     
     // Sharing is caring
     friend class Space;

@@ -129,6 +129,9 @@ namespace DCEngine {
         //SetEditorCamera(true);
       }
       else {
+        // Save the current level (if there's one)
+        if (CurrentSpace->CurrentLevel)
+          SaveLevel(CurrentSpace->CurrentLevel->Name());
         // Unpause the engine (Physics, Input, Events)
         auto resume = new Events::EngineResume();
         Daisy->Dispatch<Events::EngineResume>(resume);
@@ -136,6 +139,7 @@ namespace DCEngine {
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);
+
       }
     }
 
@@ -261,7 +265,7 @@ namespace DCEngine {
           // And a valid GameObject was selected, start dragging it
           if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
             Settings.Dragging = true;
-            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << SelectedObject->getObjectName() << "'\n";
+            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
           }
 
         }
@@ -290,6 +294,12 @@ namespace DCEngine {
       //DCTrace << "Editor::OnMouseUpEvent - \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Receives a MouseUpdate event.
+    @param  event The MouseUpdate event.
+    */
+    /**************************************************************************/
     void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
     {
       DragObject(event->ScreenPosition);

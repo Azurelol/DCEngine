@@ -101,6 +101,7 @@ namespace DCEngine {
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
     template <typename Class>
     void DeregisterObserver(Class* observer);
+    void InformObserversOfDeath();
 
 
   }; // class Entity

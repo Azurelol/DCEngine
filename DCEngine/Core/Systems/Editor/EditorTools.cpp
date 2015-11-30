@@ -52,7 +52,12 @@ namespace DCEngine {
       if (!SelectedObject)
         return;
 
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+      if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
+
+        // Do nothing if the GameObject does not have a transform.
+        if (!gameObject->HasComponent(std::string("Transform")))
+          return;
+
         // Get the object's position
         auto transform = gameObject->getComponent<Transform>();
 
@@ -66,7 +71,6 @@ namespace DCEngine {
           width, height, color);
       }
 
-
     }
 
     /**************************************************************************/
@@ -79,8 +83,8 @@ namespace DCEngine {
       if (!SelectedObject)
         return;
 
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-
+      if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
+        
         // Get the object's transform data
         auto transform = gameObject->getComponent<Transform>();
         Vec3 pos = transform->getTranslation();
@@ -112,7 +116,8 @@ namespace DCEngine {
       if (!SelectedObject)
         return;
 
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+      if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
+
         // Get the object's transform data
         auto transform = gameObject->getComponent<Transform>();
         Vec3 pos = transform->getTranslation();
@@ -135,7 +140,7 @@ namespace DCEngine {
       if (!SelectedObject)
         return;
 
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+        if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
           // Get the object's transform data
           auto transform = gameObject->getComponent<Transform>();
           Vec3 pos = transform->getTranslation();
@@ -164,7 +169,8 @@ namespace DCEngine {
       if (ActiveTool != EditorTool::Translate)
         return;
 
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+      if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
+        
         DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
         // Get the object's transform data
         auto transform = gameObject->getComponent<Transform>();
@@ -188,7 +194,8 @@ namespace DCEngine {
       if (ActiveTool != EditorTool::Scale)
         return;
 
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+      if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
+
         DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
         // Get the object's transform data
         auto transform = gameObject->getComponent<Transform>();

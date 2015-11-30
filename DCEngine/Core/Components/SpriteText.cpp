@@ -4,6 +4,25 @@
 
 namespace DCEngine {
   
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @note This can only go in the translational unit (.cpp)
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(SpriteText, "SpriteText", DCEngineCore, builder, type) {    
+    DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE;
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, Visible);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, Color);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, Font);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, FontSize);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, Text);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, PixelsPerUnit);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteText, Smoothing);
+  }
+  #endif
 
   void SpriteText::Initialize()
   {
@@ -13,12 +32,5 @@ namespace DCEngine {
     SpaceRef->getComponent<GraphicsSpace>()->AddSpriteText(*this);
   }
 
-  void SpriteText::Serialize(Json::Value & root)
-  {
-  }
-
-  void SpriteText::Deserialize(Json::Value & root)
-  {
-  }
 
 }

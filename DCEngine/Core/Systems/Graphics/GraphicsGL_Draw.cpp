@@ -152,7 +152,7 @@ namespace DCEngine {
 
       // Activate the SpriteText shader
       this->SpriteTextShader->Use();
-      this->SpriteTextShader->SetVector4f("textColor", st.Color);
+      this->SpriteTextShader->SetVector4f("textColor", st.getColor());
 
       glActiveTexture(GL_TEXTURE0);
       if (auto a = Debug::CheckOpenGLError())
@@ -162,7 +162,7 @@ namespace DCEngine {
         DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
       // Retrieve the Font resource from the content system
-      auto font = Daisy->getSystem<Content>()->getFont(st.Font);
+      auto font = Daisy->getSystem<Content>()->getFont(std::string(st.getFont()));
 
       // (!) This is used to advance cursors
       GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
@@ -170,16 +170,16 @@ namespace DCEngine {
 
       // Iterate through all the characters
       std::string::const_iterator c;
-      for (c = st.Text.begin(); c != st.Text.end(); ++c) {
+      for (c = st.getText().begin(); c != st.getText().end(); ++c) {
         // Access a character glyph from the characters map
         Character ch = font->Characters[*c];
 
         // Calculate the origin position of the quad 
-        GLfloat xPos = x + ch.Bearing.x * st.FontSize;
-        GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y) * st.FontSize;
+        GLfloat xPos = x + ch.Bearing.x * st.getFontSize();
+        GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y) * st.getFontSize();
         // Calculate the quad's size
-        GLfloat w = ch.Size.x * static_cast<GLfloat>(st.FontSize);
-        GLfloat h = ch.Size.y * static_cast<GLfloat>(st.FontSize);
+        GLfloat w = ch.Size.x * static_cast<GLfloat>(st.getFontSize());
+        GLfloat h = ch.Size.y * static_cast<GLfloat>(st.getFontSize());
         // Generate a set of 6 vertices to form the 2D quad
         GLfloat vertices[6][4] = {
           { xPos    , yPos + h, 0.0, 0.0 },
@@ -203,7 +203,7 @@ namespace DCEngine {
         // Update quad
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // Advance cursors for next glyph (Advance is number of 1/64 pixels)
-        x += (ch.Advance >> 6) * st.FontSize;
+        x += (ch.Advance >> 6) * st.getFontSize();
       }
 
       // Unbind

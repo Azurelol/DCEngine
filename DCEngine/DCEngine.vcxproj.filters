@@ -555,9 +555,6 @@
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
-      <Filter>Core\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Levels.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
@@ -638,6 +635,9 @@
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
+      <Filter>Core\Binding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
