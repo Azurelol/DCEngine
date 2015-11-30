@@ -76,12 +76,14 @@ namespace DCEngine {
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
       std::string DefaultImage = "Wow";
+      //std::string DefaultSound = "Eh";
 
       // Resource maps
-      std::map<std::string, SoundCuePtr> SoundCueMap;
+      
       std::map<std::string, ShaderPtr> ShaderMap;
       std::map<std::string, FontPtr> FontMap;
-      SpriteSourceMap SpriteSourceMap;
+      SoundCueMap SoundCueMap;
+      SpriteSourceMap SpriteSourceMap;      
       ArchetypeMap ArchetypeMap;
       LevelMap LevelMap;
       CollisionGroupMap CollisionGroupMap;

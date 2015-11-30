@@ -55,6 +55,13 @@ namespace DCEngine {
     /**************************************************************************/
     SoundCuePtr Content::getSoundCue(std::string & soundCueName)
     {
+      // Check if the resource is present in the map
+      if (!SoundCueMap.count(soundCueName)) {
+        //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
+        // Return a default '404 image not found.
+        //return SoundCueMap.at(DefaultSound);
+        return nullptr;
+      }
       return SoundCueMap.at(soundCueName);
     }
 

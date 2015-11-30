@@ -55,6 +55,8 @@ namespace DCEngine {
   void MainMenuManager::OnNewGameClicked(Events::MouseClickedOn * event)
   {
     DCTrace << "MainMenuManager::OnNewGameClicked \n";
+    // Load the first level
+    SpaceRef->LoadLevel(LevelNewGame);
   }
 
   void MainMenuManager::OnHelpClicked(Events::MouseClickedOn * event)
@@ -70,6 +72,7 @@ namespace DCEngine {
   void MainMenuManager::OnExitClicked(Events::MouseClickedOn * event)
   {
     DCTrace << "MainMenuManager::OnExitClicked \n";
+    Systems::DispatchSystemEvents::EngineExit();
   }
 
 }

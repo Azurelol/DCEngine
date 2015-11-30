@@ -147,9 +147,7 @@ namespace DCEngine {
         SaveLevel(currentLevelName);
       }
 
-      auto exitEvent = new Events::EngineExit();
-      Daisy->Dispatch<Events::EngineExit>(exitEvent);
-      delete exitEvent;
+      DispatchSystemEvents::EngineExit();
     }
 
 

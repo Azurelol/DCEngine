@@ -109,6 +109,10 @@ namespace DCEngine {
     void Audio::PlaySound(std::string& soundCueName) {
       DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      // Do not attempt to play if the soundcue could not be found
+      if (!soundCue)
+        return;
+
       AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
     }
 

@@ -6,14 +6,24 @@ namespace DCEngine {
 
     void DispatchSystemEvents::EngineResume()
     {
-
+      auto resume = new Events::EngineResume();
+      Daisy->Dispatch<Events::EngineResume>(resume);
+      delete resume;
     }
 
     void DispatchSystemEvents::EnginePause()
     {
-
+      auto pause = new Events::EnginePause();
+      Daisy->Dispatch<Events::EnginePause>(pause);
+      delete pause;
     }
 
+    void DispatchSystemEvents::EngineExit()
+    {
+      auto exitEvent = new Events::EngineExit();
+      Daisy->Dispatch<Events::EngineExit>(exitEvent);
+      delete exitEvent;
+    }
 
     void DispatchSystemEvents::SetWindowCaption(std::string caption)
     {

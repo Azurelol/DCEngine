@@ -117,9 +117,10 @@ namespace DCEngine {
 
       if (EditorEnabled) {
         // Pause the engine (Physics, Input, Events)
-        auto pause = new Events::EnginePause();
-        Daisy->Dispatch<Events::EnginePause>(pause);
-        delete pause;
+        DispatchSystemEvents::EnginePause();
+        //auto pause = new Events::EnginePause();
+        //Daisy->Dispatch<Events::EnginePause>(pause);
+        //delete pause;
         DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
         // Reload the level
         ReloadLevel();
@@ -133,9 +134,10 @@ namespace DCEngine {
         if (CurrentSpace->CurrentLevel)
           SaveLevel(CurrentSpace->CurrentLevel->Name());
         // Unpause the engine (Physics, Input, Events)
-        auto resume = new Events::EngineResume();
-        Daisy->Dispatch<Events::EngineResume>(resume);
-        delete resume;
+        DispatchSystemEvents::EngineResume();
+        //auto resume = new Events::EngineResume();
+        //Daisy->Dispatch<Events::EngineResume>(resume);
+        //delete resume;
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);
