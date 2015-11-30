@@ -88,6 +88,7 @@ namespace DCEngine {
           type = ResourceType::SpriteLayer;
           strcpy(resourceName, "NewSpriteLayer");
         }
+        ImGui::Separator();
         // Name
         ImGui::InputText("Name:", resourceName, IM_ARRAYSIZE(resourceName));
         // Buttons
@@ -137,6 +138,8 @@ namespace DCEngine {
       CurrentSpace->LoadLevel(level);
       // Load the editor camera
       SetEditorCamera(true);
+      // Sets the current window's caption
+      UpdateCaption();
       return true;
     }
 
@@ -162,10 +165,15 @@ namespace DCEngine {
         CurrentSpace->CurrentLevel = levelResource;
         // Scan for levels again
         Daisy->getSystem<Content>()->ScanForLevels();
+        // Update the caption
+        UpdateCaption();
+
         return true;
       }        
       else
         return false;      
+
+
 
     }
 

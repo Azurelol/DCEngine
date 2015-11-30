@@ -12,6 +12,7 @@
 #pragma once
 #include "../System.h"
 #include "../../Engine/Data.h"
+#include "../../Objects/ObjectsInclude.h"
 
 namespace DCEngine {
   
@@ -128,6 +129,7 @@ namespace DCEngine {
       // Object Selection
 
       void DeleteObject();
+      void DeleteResource(ResourcePtr);
       void DuplicateObject();
       // Tools
       void UseTool();
@@ -142,6 +144,7 @@ namespace DCEngine {
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
+      void UpdateCaption();
       // Create
       void CreateTransform();
       void CreateSprite();

@@ -29,6 +29,10 @@ namespace DCEngine {
     #endif
 
     Resource(std::string name);
+    bool Destroy();
+
+  protected:
+
     //virtual Resource* Find(std::string) = 0;
   };
 

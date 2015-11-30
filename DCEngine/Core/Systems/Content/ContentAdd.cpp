@@ -176,9 +176,30 @@ namespace DCEngine {
     belongs and its dat file deleted.
     */
     /**************************************************************************/
-    void Content::RemoveResource(ResourcePtr)
+    void Content::RemoveResource(ResourcePtr resource)
     {
+      // Level
+      if (dynamic_cast<Level*>(resource)) {
+        // Delete it from file
+
+        // 
+
+        // Scan again
+      }
+      // Archetype
+      else if (dynamic_cast<Archetype*>(resource)) {
+
+      }
+
+
+
     }
+
+
+
+
+
+
 
     void Content::ScanForLevels()
     {

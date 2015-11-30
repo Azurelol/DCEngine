@@ -23,4 +23,16 @@ namespace DCEngine {
   Resource::Resource(std::string name) : Object(name) {
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Removes the resource from the Content system, as well as deleting
+          its serialized file from disk.
+  @return The success of the operation.
+  */
+  /**************************************************************************/
+  bool Resource::Destroy()
+  {
+    return false;
+  }
+
 }

@@ -633,6 +633,9 @@
     <ClCompile Include="Core\Components\Reactive.cpp">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp">
+      <Filter>Core\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1096,6 +1099,12 @@
     </ClInclude>
     <ClInclude Include="Core\Events\MouseEvents.h">
       <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\WindowEvents.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\DispatchSystemEvents.h">
+      <Filter>Core\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

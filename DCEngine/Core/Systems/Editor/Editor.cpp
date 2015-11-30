@@ -259,9 +259,10 @@ namespace DCEngine {
         // If the 'Translate' tool is active...
         if (ActiveTool == EditorTool::Translate) {
           // And a valid GameObject was selected, start dragging it
-          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera"))
+          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
             Settings.Dragging = true;
-          DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << SelectedObject->getObjectName() << "'\n";
+            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << SelectedObject->getObjectName() << "'\n";
+          }
 
         }
       }
