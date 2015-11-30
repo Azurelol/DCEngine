@@ -25,8 +25,9 @@ namespace DCEngine {
     bool Editor::CreateLevel(std::string & name)
     {
       DCTrace << "Editor::CreateLevel - Creating " << name << "\n";
-      // Save the current level
-      SaveLevel(CurrentSpace->CurrentLevel->Name());
+      // Save the current level, if there's one loaded
+      if (CurrentSpace->CurrentLevel)
+        SaveLevel(CurrentSpace->CurrentLevel->Name());
       // Destroy the objects in the space
       CurrentSpace->DestroyAll();
       // Add a default camera

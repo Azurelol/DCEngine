@@ -55,17 +55,29 @@ namespace DCEngine {
       }
 
       // Destroy the currently selected Resource
-      if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {
-        
-        DCTrace << "Editor::DeleteObject - Deleting resource: " << SelectedObject->Name() << "\n";
-        //if (dynamic_cast<SpriteSource*>(resource)) {
-        //  
-        //}
+      if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {               
+        DeleteResource(resource);
         SelectedObject = nullptr;
       }
 
       // Turn off the Properties window
       WindowPropertiesEnabled = false;
+
+
+    }
+
+    void Editor::DeleteResource(ResourcePtr resource)
+    {
+      DCTrace << "Editor::DeleteResource - Deleting resource: " << resource->Name() << "\n";
+      Daisy->getSystem<Content>()->RemoveResource(resource);
+
+      // If the deleted resource is the current level.. 
+      if (auto level = dynamic_cast<Level*>(resource)) {
+        if (level == CurrentSpace->CurrentLevel.get()) {
+          // Clear the current level
+
+        }
+      }
 
 
     }

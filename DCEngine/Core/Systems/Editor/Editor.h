@@ -12,6 +12,7 @@
 #pragma once
 #include "../System.h"
 #include "../../Engine/Data.h"
+#include "../../Objects/ObjectsInclude.h"
 
 namespace DCEngine {
   
@@ -67,8 +68,6 @@ namespace DCEngine {
       Object* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
-      float SnapDistance = 1.0;
-      float SnapAngle = 15; 
 
       /////////////////
       //  Methods 
@@ -113,10 +112,12 @@ namespace DCEngine {
       void ExportGame();
       void Exit();
       // Select
-      GameObject* SelectObjectFromSpace(Vec2 pos);
+      void SelectObjectFromSpace(GameObject*);
+      GameObject* FindObjectFromSpace(Vec2 pos);
       void SelectObject(GameObject* obj);
       void SelectSpace();
       void DragObject(Vec2);
+      void ReleaseObject();
       // Resources
       void WindowAddResource();
       void AddResource(std::string& name, ResourceType type);
@@ -128,6 +129,7 @@ namespace DCEngine {
       // Object Selection
 
       void DeleteObject();
+      void DeleteResource(ResourcePtr);
       void DuplicateObject();
       // Tools
       void UseTool();
@@ -142,6 +144,7 @@ namespace DCEngine {
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
+      void UpdateCaption();
       // Create
       void CreateTransform();
       void CreateSprite();

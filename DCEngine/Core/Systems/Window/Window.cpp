@@ -56,6 +56,7 @@ namespace DCEngine {
     {
       Daisy->Connect<Events::FullscreenEnabledEvent>(&Window::OnFullscreenEnabledEvent, this);
       Daisy->Connect<Events::EngineExit>(&Window::OnEngineExitEvent, this);
+      Daisy->Connect<Events::SetWindowCaption>(&Window::OnSetWindowCaptionEvent, this);
     }
 
     /**************************************************************************/
@@ -73,6 +74,16 @@ namespace DCEngine {
     {
       DCTrace << "Window::OnEngineExitEvent - \n";
       WindowHandler->Terminate();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Sets the current window's caption.
+    */
+    /**************************************************************************/
+    void Window::OnSetWindowCaptionEvent(Events::SetWindowCaption * event)
+    {
+      Caption = event->Caption;
     }
 
     /**************************************************************************/

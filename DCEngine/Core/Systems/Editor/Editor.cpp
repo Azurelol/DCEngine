@@ -246,13 +246,24 @@ namespace DCEngine {
     {
       if (!EditorEnabled)
         return;
-
+      
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
-        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
-        // If a valid object is selected
-        if (SelectObjectFromSpace(posOnSpace)) {
-          Settings.Dragging = true;
+        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);        
+        auto gameObject = FindObjectFromSpace(posOnSpace);
+
+        // If the 'Select' tool is active, attempt to pick it
+        if (ActiveTool == EditorTool::Select) {
+          SelectObjectFromSpace(gameObject);
+        }
+        // If the 'Translate' tool is active...
+        if (ActiveTool == EditorTool::Translate) {
+          // And a valid GameObject was selected, start dragging it
+          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+            Settings.Dragging = true;
+            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << SelectedObject->getObjectName() << "'\n";
+          }
+
         }
       }
 
@@ -271,7 +282,11 @@ namespace DCEngine {
         return;
 
       // Stop dragging
-      Settings.Dragging = false;
+      if (Settings.Dragging) {
+        ReleaseObject();
+        Settings.Dragging = false;
+      }
+      
       //DCTrace << "Editor::OnMouseUpEvent - \n";
     }
 

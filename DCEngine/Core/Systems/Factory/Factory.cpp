@@ -49,6 +49,8 @@ namespace DCEngine {
       
       // Destroy all objects on the to-be-deleted list
       DestroyGameObjects();      
+      // Destroy all marked components
+      DestroyComponents();
     }
 
     /**************************************************************************/
@@ -311,6 +313,36 @@ namespace DCEngine {
         throw DCException("Factory::CreateComponentByType - Tried to construct '" + std::string(boundType->Name.c_str()) + "' that's not bound yet!");
 
       return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
+    void Factory::MarkComponent(Component & component)
+    {
+      DCTrace << "Factory::MarkComponent - " << component.getObjectName() << " has been marked for removal \n";
+      ComponentsToBeDeleted.insert(ComponentPtr(&component));
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Destroys all marked components. This removes them from the entities
+           they are attached to.    
+    @todo  May have to do different logic if multiple components from the same
+           object are asked to be removed on the same frame...
+    */
+    /**************************************************************************/
+    void Factory::DestroyComponents()
+    {
+      for (auto& component : ComponentsToBeDeleted) {
+        DCTrace << "Factory::DestroyComponents - Destroying: " << component->Name() << "\n";
+        component->Owner()->RemoveComponentByName(component->Name());
+      }
+      ComponentsToBeDeleted.clear();
+
     }
 
     /**************************************************************************/

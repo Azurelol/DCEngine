@@ -27,6 +27,21 @@ namespace DCEngine {
       if (!WidgetLibraryEnabled)
         return;
       
+      bool clicked;      
+      if (clicked = ImGui::IsMouseDoubleClicked(0)) {
+        DCTrace << "Double clicked checck B \n";
+      }
+      //if (clicked = ImGui::GetIO().MouseDoubleClicked[0]) {
+      //  DCTrace << "Double clicked checck A \n";
+      //}
+
+      //if (ImGui::GetIO().MouseDoubleClicked[1]) {
+      //  DCTrace << "Double clicked!! \n";
+      //}
+      //if (ImGui::GetIO().MouseDoubleClicked[2]) {
+      //  DCTrace << "Double clicked!! \n";
+      //}
+
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);
 
@@ -98,7 +113,14 @@ namespace DCEngine {
         
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           // If the user double-clicks on.. @todo not working yet
-          if (ImGui::Selectable(level.second->Name().c_str())) {
+
+
+          if (ImGui::Selectable(level.second->Name().c_str()) ) {
+            
+            if (ImGui::IsMouseDoubleClicked(0)) {
+              DCTrace << "hey\n";
+            }
+
             SelectedObject = level.second.get();
             WindowPropertiesEnabled = true;
           }
@@ -110,6 +132,7 @@ namespace DCEngine {
       }
 
       ImGui::End();
+
 
 
       //ImGui::SetNextWindowSize(ImVec2(200, 500), ImGuiSetCond_FirstUseEver);

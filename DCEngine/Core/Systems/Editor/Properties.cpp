@@ -91,6 +91,7 @@ namespace DCEngine {
       /////////////////////////////
       ImGui::Separator();
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
+      unsigned int inputID = 0;      
       for (auto &component : *selectedEntity->AllComponents()) {
         if (ImGui::TreeNode(component->Name().c_str())) {
           //ImGui::SetWindowFocus();
@@ -99,6 +100,17 @@ namespace DCEngine {
           DisplayProperties(component.get());
           ImGui::TreePop();
         }
+        ImGui::SameLine();
+
+        // Remove component
+        ImGui::PushID(inputID++);
+        if (ImGui::Button("X")) {          
+          DCTrace << "Editor::DisplayEntityProperties - Removing component: '" << component->Name() 
+                  << "' from " << selectedEntity->Name() << "\n";
+          component->Destroy();
+          //selectedEntity->RemoveComponentByName(component->getObjectName());
+        }
+        ImGui::PopID();
       }
 
       ///////////////////////////////////////////

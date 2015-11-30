@@ -241,6 +241,28 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Removes the specified component from the entity.
+  @param  component The name of the component
+  @todo   Check for dependencies before removing the component.
+  */
+  /**************************************************************************/
+  void Entity::RemoveComponentByName(std::string  componentName)
+  {
+    for (auto& component : ComponentsContainer) {
+      if (component->getObjectName() == componentName) {
+        DCTrace << "Entity::RemoveComponentByName - Removing " << componentName <<  "\n";
+        // Check for dependencies
+        
+        // Remove it
+        std::swap(component, ComponentsContainer.back());
+        ComponentsContainer.pop_back();
+        return;
+      }
+    }
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Removes the component from the entity.
   @param  component A pointer to the component.
   */

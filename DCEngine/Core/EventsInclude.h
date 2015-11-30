@@ -40,3 +40,5 @@ PHYSICS
 #include "Events\EditorEvents.h"
 #include "Events\EngineEvents.h"
 
+// Window
+#include "Events\WindowEvents.h"

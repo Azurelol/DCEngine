@@ -80,6 +80,17 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Destroys the component at the beginning of the next frame.
+  */
+  /**************************************************************************/
+  void Component::Destroy()
+  {
+    // Mark the component to be deleted by the factory on the next frame
+    Daisy->getSystem<Systems::Factory>()->MarkComponent(*this);
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Serializes a Component.
   @param builder A reference to the JSON builder.
   @note  This will serialize the component and all its properties.

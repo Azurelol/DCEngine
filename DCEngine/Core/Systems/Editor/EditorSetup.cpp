@@ -79,5 +79,21 @@ namespace DCEngine {
       SelectedObject = nullptr;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Updates the current window's caption!
+    */
+    /**************************************************************************/
+    void Editor::UpdateCaption()
+    {
+      // Get the current project's name
+      auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
+      std::string levelName;
+      if (CurrentSpace->CurrentLevel)
+        levelName = CurrentSpace->CurrentLevel->getObjectName();
+
+      DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName + " -                       Level: " + levelName);
+    }
+
   }
 }

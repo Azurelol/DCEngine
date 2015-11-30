@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "Editor.h"
 
 #include "../../Engine/Engine.h"
@@ -26,11 +25,20 @@ namespace DCEngine {
     Use std::sort rather than some hacky algorithm.
     */
     /**************************************************************************/
-    GameObject* Editor::SelectObjectFromSpace(Vec2 pos)
+    void Editor::SelectObjectFromSpace(GameObject* object)
     {
-      if (WindowPropertiesEnabled)
-        return nullptr;
+      if (object)
+        SelectObject(object);
+    }
 
+    /**************************************************************************/
+    /*!
+    @brief  Finds the current object at the position.
+    @param  obj A reference to an object.
+    */
+    /**************************************************************************/
+    GameObject * Editor::FindObjectFromSpace(Vec2 pos)
+    {
       // 1. Find all objects on the current mouse position
       auto objsAtPos = Daisy->getSystem<Physics>()->FindAllObjectsAtPosition(Vec3(pos, 0), *CurrentSpace);
       if (objsAtPos.empty())
@@ -40,14 +48,24 @@ namespace DCEngine {
       auto camPos = CurrentSpace->getComponent<CameraViewport>()->getCamera()->TransformComponent->Translation;
       // 2.2 Find the camera's forward direction vector.
       auto camDir = Vec3(0, 0, -1);
-
       // 3. Sort them in the order of the ones closest to the front of the camera.
-      GameObjectPtr closestObj = objsAtPos.front();
-      for (auto obj : objsAtPos) {
+      GameObjectPtr closestObj = nullptr;
+      for (auto& obj : objsAtPos) {
+
+        // Do not select the EditorCamera
+        if (obj->getObjectName() == "EditorCamera")
+          continue;
+        
         // 3.1 Get the Z-pos of the current object in the container
         auto ObjectName = obj->Name();
-        auto closestObjectName = closestObj->Name();
 
+        // Done on the first iteration
+        if (!closestObj) {
+          closestObj = obj;
+          continue;
+        }          
+
+        auto closestObjectName = closestObj->Name();
         auto objZ = obj->getComponent<Transform>()->Translation.z;
         auto closestZ = closestObj->getComponent<Transform>()->Translation.z;
 
@@ -55,7 +73,7 @@ namespace DCEngine {
           closestObj = obj;
         }
       }
-
+      
       // 4. Pick the object closest to the camera.
       SelectObject(closestObj);
       return closestObj;
@@ -88,19 +106,23 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Drags the object
-    @param  The mouse's current position
+    @param  The mouse's current position.
     */
     /**************************************************************************/
     void Editor::DragObject(Vec2 pos)
     {
+      // Only drag GameObjects in the Space while in translate mode
+      if (ActiveTool != EditorTool::Translate)
+        return;
+
       // If the mouse is currently being dragged
       if (Settings.Dragging) {
+        //DCTrace << "Dragging! \n ";
         // If the selected object is a GameObject on the space
         if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
           // Calculate the current mouse position
           auto mousePos = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(pos);
           // Move the object
-
           gameObject->getComponent<Transform>()->setTranslation(Vec3(mousePos.x, 
                                                                     mousePos.y, 
                                                                     gameObject->getComponent<Transform>()->getTranslation().z));
@@ -110,6 +132,29 @@ namespace DCEngine {
         }
       }
 
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Releases the object at the current dragged position.    
+    */
+    /**************************************************************************/
+    void Editor::ReleaseObject()
+    {
+      if (Settings.Dragging) {       
+
+        // Snap the object to the nearest (x,y) snapDistance      
+        if (Settings.Snapping) {
+          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->getTranslation();
+          auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
+          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, 0));
+
+          DCTrace << "Editor::ReleaseObject - Releasing '" << SelectedObject->getObjectName() << "' at: \n"
+            << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";
+        }
+
+      }
+        
     }
 
 

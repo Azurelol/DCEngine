@@ -304,6 +304,7 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
+    <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
@@ -366,6 +367,7 @@
     <ClCompile Include="Projects\Rebound\Components\Fade.cpp" />
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
@@ -438,6 +440,7 @@
     <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
+    <ClInclude Include="Core\Events\WindowEvents.h" />
     <ClInclude Include="Core\Objects\Component.h" />
     <ClInclude Include="Core\Objects\Components\ZilchComponent.h" />
     <ClInclude Include="Core\Objects\DebugDraw.h" />
@@ -475,6 +478,7 @@
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
     <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
+    <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
@@ -518,6 +522,7 @@
     <ClInclude Include="Projects\Rebound\Components\Fade.h" />
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
+    <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />

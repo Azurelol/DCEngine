@@ -18,6 +18,8 @@
 // Headers
 #include "..\Objects\Entity.h"
 #include "..\Debug\Debug.h"
+// Helpers
+#include "DispatchSystemEvents.h"
 
 namespace DCEngine {
 

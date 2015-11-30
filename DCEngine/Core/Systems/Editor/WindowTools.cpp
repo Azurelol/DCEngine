@@ -26,8 +26,13 @@ namespace DCEngine {
       // The console needs to read the DCTrace lines while active.
       // Or it could read the log file?
 
+      ImGui::Text("Snapping");
+      if (ImGui::Checkbox("##snappingBool", &Settings.Snapping)) {
+        DCTrace << "Editor::WindowTools - Snapping \n";
+      }
+
       ImGui::Text("Snap Distance");
-      if (ImGui::InputFloat("##Snapping", &SnapDistance, 0.5f)) {
+      if (ImGui::InputFloat("##Snapping", &Settings.SnapDistance, 0.5f)) {
 
       }
 

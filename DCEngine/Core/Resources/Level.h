@@ -35,6 +35,7 @@ namespace DCEngine {
   };
   
   using LevelPtr = std::shared_ptr<Level>;
+  using LevelHandle = std::string;
 
 }
 

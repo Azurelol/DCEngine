@@ -66,11 +66,16 @@ namespace DCEngine {
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
+      // Update the window caption to display the current project
+      auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
+      DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
       // Load its default level      
       if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
         // If the project is set to 'Play', start playing right away.
         if (Daisy->getSystem<Content>()->ProjectInfo->Play)
           PlayGame();
+        else
+          ToggleEditor();
       }      
       // No default level set, turn on the editor!
       else
