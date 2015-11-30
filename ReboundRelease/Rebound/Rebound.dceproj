@@ -1,0 +1,10 @@
+{
+	"Project Name": "Rebound",
+  "Default Level": "Level1",
+  "Default Space": "",  
+  "Project Path": "Rebound/",
+  "Resource Path": "Resources/",
+  "Asset Path": "Assets/",
+  "Script Path": "Scripts/",
+  "Play":  true
+}
