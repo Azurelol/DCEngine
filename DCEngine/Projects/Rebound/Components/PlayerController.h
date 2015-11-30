@@ -58,6 +58,7 @@ namespace DCEngine {
 		void OnKeyDownEvent(Events::KeyDown* event);
 		void OnCollisionStartedEvent(Events::CollisionStarted* event);
 		void OnCollisionEndedEvent(Events::CollisionEnded* event);
+    void OnCollisionPersistedEvent(Events::CollisionPersisted* event);
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 		//void OnDamageEvent(Events::DamageEvent event);
 		void Jump();

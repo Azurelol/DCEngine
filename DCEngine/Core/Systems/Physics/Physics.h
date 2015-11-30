@@ -76,6 +76,7 @@ namespace DCEngine {
       void Resolve(Manifold data);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);
+      void DispatchCollisionPersisted(CollisionData& collisionData);
 
     };
 

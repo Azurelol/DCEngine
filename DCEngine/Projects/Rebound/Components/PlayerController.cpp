@@ -35,8 +35,10 @@ namespace DCEngine {
 		Connect(Daisy->getKeyboard(), Events::KeyDown, PlayerController::OnKeyDownEvent);
 		Connect(gameObj, Events::CollisionStarted, PlayerController::OnCollisionStartedEvent);
 		Connect(gameObj, Events::CollisionEnded, PlayerController::OnCollisionEndedEvent);
+    Connect(gameObj, Events::CollisionPersisted, PlayerController::OnCollisionPersistedEvent);
 		Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
 		//Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
+
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
@@ -81,6 +83,11 @@ namespace DCEngine {
 			DCTrace << "PlayerController::OnCollisionEndedEvent \n";
 		}
 	}
+
+  void PlayerController::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
+  {
+    //DCTrace << "PlayerController::OnCollisionPersistedEvent - \n";
+  }
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
@@ -163,7 +170,8 @@ namespace DCEngine {
 
 	void PlayerController::Die()
 	{
-		this->SpaceRef->ReloadLevel();
+    DCTrace << "PlayerController::Die - Reloading level \n";
+		//this->SpaceRef->ReloadLevel();
 	}
 
 

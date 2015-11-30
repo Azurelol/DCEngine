@@ -374,6 +374,7 @@ namespace DCEngine {
             else
             {
               collision.FrictionCof *= 0.9;
+              DispatchCollisionPersisted(Collision);
             }
 
             if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -410,6 +411,7 @@ namespace DCEngine {
             else
             {
               collision.FrictionCof *= 0.9;
+              DispatchCollisionPersisted(Collision);
             }
 
             if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -446,6 +448,7 @@ namespace DCEngine {
             else
             {
               collision.FrictionCof *= 0.9;
+              DispatchCollisionPersisted(Collision);
             }
 
             if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -482,6 +485,7 @@ namespace DCEngine {
             else
             {
               collision.FrictionCof *= 0.9;
+              DispatchCollisionPersisted(Collision);
             }
 
             if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -571,6 +575,33 @@ namespace DCEngine {
       }
       delete collisionEndedEvent;
 		}
+
+    /**************************************************************************/
+    /*!
+    @brief Dispatch the event that signals that a collision is persisting
+           between two objects.
+    @param A struct that contains the collision data detected by the engine.
+    */
+    /**************************************************************************/
+    void Physics::DispatchCollisionPersisted(CollisionData & collisionData)
+    {
+      auto collisionPersistedEvent = new Events::CollisionPersisted();
+      // Dispatch collision event to the first object
+      collisionPersistedEvent->Object = collisionData.Object;
+      collisionPersistedEvent->OtherObject = collisionData.OtherObject;
+      if (collisionData.filter.CollisionStartBlock.SendEventsToA)
+      {
+        collisionData.Object->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);
+      }
+      // Dispatch collision event to the second object
+      collisionPersistedEvent->Object = collisionData.OtherObject;
+      collisionPersistedEvent->OtherObject = collisionData.Object;
+      if (collisionData.filter.CollisionStartBlock.SendEventsToB)
+      {
+        collisionData.OtherObject->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);
+      }
+      delete collisionPersistedEvent;
+    }
 
 
 		/**************************************************************************/
