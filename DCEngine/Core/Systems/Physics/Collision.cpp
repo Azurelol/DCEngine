@@ -74,8 +74,21 @@ namespace DCEngine
     {
       return false;
     }
-
-    
+    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if (result.rigid1 && result.rigid2)
+    {
+      if ((obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      {
+        return false;
+      }
+    }
 
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<BoxCollider>();
