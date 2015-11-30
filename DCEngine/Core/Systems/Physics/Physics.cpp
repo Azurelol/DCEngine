@@ -174,8 +174,9 @@ namespace DCEngine {
 			for (auto physpace : physicsSpaces_)
 			{
 				std::vector<Manifold> contactlist;
+        std::vector<DetectionPairing> pairs;
 
-				auto pairs = BroadPhaseDetection(physpace);
+				BroadPhaseDetection(physpace, pairs);
 
         NarrowPhaseDetection(pairs, contactlist);
 
@@ -265,12 +266,12 @@ namespace DCEngine {
 		@param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-    std::vector<DetectionPairing> Physics::BroadPhaseDetection(PhysicsSpace* physpace)
+    void Physics::BroadPhaseDetection(PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
 			// For all gameobjects with a 'Collider' component
 			auto& list = physpace->AllColliders();
 
-      std::vector<DetectionPairing> result;
+      pairs.clear();
 
       DetectionPairing Fill;
 
@@ -323,11 +324,9 @@ namespace DCEngine {
          }
 
 
-         result.push_back(Fill);
+         pairs.push_back(Fill);
 				}
 			}
-
-			return result;
 		}
 
 		/**************************************************************************/
@@ -336,7 +335,7 @@ namespace DCEngine {
 		@param A vector of GameObjects.
 		*/
 		/**************************************************************************/
-		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> pairs, std::vector<Manifold> &contactlist)
+		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist)
 		{
 			GameObject * obj1, *obj2;
       std::pair<GameObjectPtr, GameObjectPtr> pair;

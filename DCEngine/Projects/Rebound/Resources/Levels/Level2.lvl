@@ -2605,6 +2605,492 @@
             "IsDrawingCollider": false
           }
         }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Floor14", 
+        "Archetype": "Floor", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 223.500000, 
+                "y": -96.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 36.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Ceiling5", 
+        "Archetype": "Floor", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 230.500000, 
+                "y": -73.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 20.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Plat1", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 205.500000, 
+                "y": -12.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Plat2", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 190.500000, 
+                "y": -38.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Plat3", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 205.500000, 
+                "y": -64.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Plat4", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 190.500000, 
+                "y": -89.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
       }
     }
   }
