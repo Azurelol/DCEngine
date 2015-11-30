@@ -70,6 +70,13 @@ namespace DCEngine
       result.rigid2 = true;
     }
 
+    if (!result.rigid1 && !result.rigid2)
+    {
+      return false;
+    }
+
+    
+
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<BoxCollider>();
     auto boxcollider2 = obj2->getComponent<BoxCollider>();
