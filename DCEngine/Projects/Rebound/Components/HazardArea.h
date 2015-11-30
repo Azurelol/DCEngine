@@ -21,10 +21,10 @@ namespace DCEngine {
 
 	public:
 
-		Real Damage = 1.0f;
-		Real DamageInterval = .0f;
-		Real Timer = DamageInterval; //will always damage the player on first tick of contact
-		bool TouchingPlayer = true;
+		Real Damage = 3.0f;
+		Real DamageInterval = 1.0f;
+		Real Timer = 0; //will always damage the player on first tick of contact
+		bool TouchingPlayer = false;
 
     DCE_DEFINE_PROPERTY(Real, Damage);
     DCE_DEFINE_PROPERTY(Real, DamageInterval);
