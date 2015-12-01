@@ -211,7 +211,7 @@ namespace DCEngine
 	/**************************************************************************/
 	void RigidBody::ApplyLinearVelocity(Vec3 vel)
 	{
-		Velocity = vel + getVelocity();
+    Velocity += vel;
 	}
 
 

@@ -154,9 +154,13 @@ namespace DCEngine {
     }
       
     // If the owner is a 'GameSession' entity
-    if (type == EntityType::GameSession)
+    if (type == EntityType::GameSession) {
       SpaceRef = NULL;
       GameSessionRef = dynamic_cast<GameSession*>(entity);
+    }
+
+    auto a = GameSessionRef;
+      
   }
 
   /**************************************************************************/

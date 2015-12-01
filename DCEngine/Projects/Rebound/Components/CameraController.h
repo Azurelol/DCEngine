@@ -23,7 +23,7 @@ namespace DCEngine {
 		Transform* TransformRef;
 		Sprite* SpriteRef;
 		GameObject* PlayerRef;
-		Real InterpolationSpeed = 0.04f; //percent of the way to interpolate per frame from 0-1
+		Real InterpolationSpeed = 0.06f; //percent of the way to interpolate per frame from 0-1
 		String TargetName = "Player";
 
     DCE_DEFINE_PROPERTY(String, TargetName);
