@@ -59,6 +59,31 @@ namespace DCEngine {
     PauseSpace = GameSessionRef->CreateSpace("PauseSpace");
     // Load the pause level onto it
     PauseSpace->LoadLevel(std::string("PauseMenu"));
+    // Set the references to the objects within its space
+    ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
+    ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
+    ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
+    ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+    // Connect to its events
+    if (ButtonResume)
+      Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
+    else
+      DCTrace << "PauseManager::Initialize - Failed to find ButtonNewGame! \n";
+
+    if (ButtonHelp)
+      Connect(ButtonHelp, Events::MouseClickedOn, PauseManager::OnHelpClicked);
+    else
+      DCTrace << "PauseManager::Initialize - Failed to find ButtonHelp! \n";
+
+    if (ButtonCredits)
+      Connect(ButtonCredits, Events::MouseClickedOn, PauseManager::OnCreditsClicked);
+    else
+      DCTrace << "PauseManager::Initialize - Failed to find ButtonCredits! \n";
+
+    if (ButtonQuit)
+      Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
+    else
+      DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
 
   }
 
@@ -70,7 +95,34 @@ namespace DCEngine {
 
     // Delete the PauseMenu space
     PauseSpace->Destroy();
+    // Clear the references
+    ButtonResume = nullptr;
+    ButtonHelp = nullptr;
+    ButtonCredits = nullptr;
+    ButtonQuit = nullptr;
     
+  }
+
+  void PauseManager::OnResumeClicked(Events::MouseClickedOn * event)
+  {
+    DCTrace << "PauseManager::OnResumeClicked \n";
+    DisablePauseMenu();
+  }
+
+  void PauseManager::OnHelpClicked(Events::MouseClickedOn * event)
+  {
+    DCTrace << "PauseManager::OnHelpClicked \n";
+  }
+
+  void PauseManager::OnCreditsClicked(Events::MouseClickedOn * event)
+  {
+    DCTrace << "PauseManager::OnCreditsClicked \n";
+  }
+
+  void PauseManager::OnQuitClicked(Events::MouseClickedOn * event)
+  {
+    DCTrace << "PauseManager::OnQuitClicked \n";
+    Systems::DispatchSystemEvents::EngineExit();
   }
 
 
