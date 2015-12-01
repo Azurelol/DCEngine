@@ -21,23 +21,23 @@ namespace DCEngine
   class Manifold
   {
   public:
-    GameObject* Object1;
-    GameObject* Object2;
+    GameObject* Object1 = NULL;
+    GameObject* Object2 = NULL;
 
     glm::vec3 v1;
     glm::vec3 v2;
 
     glm::vec3 ContactNormal;
-    float Penetration;
-    float Restitution;
-    float FrictionCof;
+    float Penetration = 0.0f;
+    float Restitution = 0.0f;
+    float FrictionCof = 0.0f;
 
-    float SeperatingVelocity;
-    float ContactImpulse;
+    float SeperatingVelocity = 0.0f;
+    float ContactImpulse = 0.0f;
     float CalculateSeparatingVelocity();
 
-    bool rigid1;
-    bool rigid2;
+    bool rigid1 = false;
+    bool rigid2 = false;
 
   };
 

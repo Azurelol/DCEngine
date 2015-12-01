@@ -87,7 +87,7 @@ namespace DCEngine
     void setPosition(Vec3 pos);
     Vec3 getPosition(void);
 
-		Transform* TransformComponent; //!< Reference to the Transform component.
+    Transform* TransformComponent = NULL;; //!< Reference to the Transform component.
 
 	  /* Variables */
     DynamicStateType DynamicState = DynamicStateType::Dynamic;

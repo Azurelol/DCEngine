@@ -57,7 +57,7 @@ namespace DCEngine {
 
 	private:
 
-    Transform* TransformComponent;
+    Transform* TransformComponent = NULL;
 
     // The group is a tag used for filter out collisions. The rules
     // for filtering are on the CollisionFilter that is on the running space.
