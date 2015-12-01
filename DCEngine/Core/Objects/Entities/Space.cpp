@@ -387,8 +387,8 @@ namespace DCEngine {
   }
 
   
-  GameSession& Space::getGameSession() {
-    return *GameSessionRef;
+  GameSession* Space::getGameSession() {
+    return GameSessionRef;
   }
 
   /**************************************************************************/

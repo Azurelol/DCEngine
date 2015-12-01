@@ -80,7 +80,7 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(std::string name, Space& space, bool init) {
 
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, space.getGameSession())));
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, *space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
       gameObjPtr->AddComponent<Transform>();
       // If the object needs to be initialized right away
@@ -127,7 +127,7 @@ namespace DCEngine {
     GameObjectPtr Factory::BuildGameObject(SerializedMember* objectData, Space & space)
     {      
       // 1. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, space.getGameSession())));
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();      
 
       // 2. For every property !!! CURRENTLY HARDCODED !!!
