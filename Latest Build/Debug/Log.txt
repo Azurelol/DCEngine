@@ -1,0 +1,1058 @@
+[Engine::Engine - Constructor] 
+
+[Engine::Initialize] 
+*Using Zilch to bind Object classes and provide reflection 
+ZilchInterface::ZilchInterface - Constructor
+*Using SFML Context for Window and Input 
+*Using FMOD for Audio 
+*Using OpenGL for Graphics 
+Daisy Project::CreateSpace - Daisy World has been constructed. 
+Content::Initialize 
+
+[Content::LoadDefaultResources] - Loading default resources 
+Content::AddShader - SpriteShader was added.
+Content::AddShader - SpriteTextShader was added.
+Content::AddShader - GUIShader was added.
+Content::ScanForSpriteSources - Scanning for archetypes on the current project 
+Content::AddSpriteSource - Circle was added.
+Content::AddSpriteSource - Square was added.
+Content::AddSpriteSource - Wow was added.
+Content::AddSoundCue - train was added.
+Content::AddFont - Verdana was added.
+[Content::LoadDefaultResources] - Finished loading default resources 
+
+Content::ScanForArchetypes - Scanning for archetypes on the current project 
+Content::AddArchetype - Camera was added.
+Content::AddArchetype - Sprite was added.
+ZilchInterface::Initialize
+ZilchInterface::AddLibrary - Adding library: DCEngineCore
+ZilchInterface::CompileScripts - Compiling the script library: DCScripts
+ZilchInterface::AddLibrary - Adding library: DCScripts
+ZilchInterface::Build - Linking and compiling the executable state! 
+Factory::Initialize 
+Factory::ConstructComponentFactoryMap - Constructing all component factories 
+Factory::AddComponentFactory - Added: 'SoundSpace' 
+Factory::AddComponentFactory - Added: 'GraphicsSpace' 
+Factory::AddComponentFactory - Added: 'Component' 
+Factory::AddComponentFactory - Added: 'TimeSpace' 
+Factory::AddComponentFactory - Added: 'Transform' 
+Factory::AddComponentFactory - Added: 'BoxCollider' 
+Factory::AddComponentFactory - Added: 'RigidBody' 
+Factory::AddComponentFactory - Added: 'Camera' 
+Factory::AddComponentFactory - Added: 'Sprite' 
+Factory::AddComponentFactory - Added: 'SpriteText' 
+Factory::AddComponentFactory - Added: 'Reactive' 
+Factory::AddComponentFactory - Added: 'SoundEmitter' 
+ZilchInterface::AddLibrary - Adding library: Rebound
+ZilchInterface::Build - Linking and compiling the executable state! 
+Factory::AddComponentFactory - Added: 'PlayerController' 
+Factory::AddComponentFactory - Added: 'BallController' 
+Factory::AddComponentFactory - Added: 'EnemyController' 
+Factory::AddComponentFactory - Added: 'CameraController' 
+Factory::AddComponentFactory - Added: 'MusicManager' 
+Factory::AddComponentFactory - Added: 'PauseManager' 
+Factory::AddComponentFactory - Added: 'ChargeBar' 
+Factory::AddComponentFactory - Added: 'HazardArea' 
+Factory::AddComponentFactory - Added: 'Fade' 
+Factory::AddComponentFactory - Added: 'LevelManager' 
+Factory::AddComponentFactory - Added: 'MainMenuManager' 
+Window::Initialize 
+Input::Initialize 
+Editor::Initialize 
+Audio::Initialize 
+Audio::LoadSoundCues - Loading every SoundCue into memory!AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Core Assets/Sounds/train.mp3!
+Audio::LoadSoundCues - Done loading!Graphics::Initialize 
+
+[GraphicsGL::Initialize] - Compiling shaders 
+SpriteShader::Compile 
+SpriteShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteShader::AssertShaderCompilation - Shader program linked! 
+SpriteTextShader::Compile 
+SpriteTextShader::AssertShaderCompilation - Vertex Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Fragment Shader compiled! 
+SpriteTextShader::AssertShaderCompilation - Shader program linked! 
+[GraphicsGL::Initialize] - Finished compiling shaders 
+GUI::Initialize 
+GUI::Initialize 
+GUIShader::Compile 
+GUIShader::AssertShaderCompilation - Vertex Shader compiled! 
+GUIShader::AssertShaderCompilation - Fragment Shader compiled! 
+GUIShader::AssertShaderCompilation - Shader program linked! 
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Core Assets/Sounds/train.mp3!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+Font::GenerateCharacters - Successfully generated character map
+Font::Load - Font was successfully loaded! 
+[Engine::Initialize - All engine systems initialized]
+[Daisy Project::Initialize - Initializing all spaces... ] 
+|Daisy World::Initialize| 
+Audio::Register -  Daisy World has registered to the Audio system
+Physics::Register -  Daisy World has registered to the Physics system
+CameraViewport::FindDefaultCamera - No camera was found on the space 
+Graphics::Register -  Daisy World has registered to the Graphics system
+[Daisy World::Initialize - Initializing all GameObjects...] 
+Content::LoadProjectResources - 
+Content::ScanForLevels - Scanning for levels on the current project at: Rebound/Resources/Levels/
+Content::AddLevel - Connortesting was added.
+Content::AddLevel - Level1 was added.
+Content::AddLevel - Level2 was added.
+Content::AddLevel - Level3 was added.
+Content::AddLevel - Level4 was added.
+Content::AddLevel - LevelFirst was added.
+Content::AddLevel - LevelJohnNoticeMe was added.
+Content::AddLevel - LevelJohnNoticeMe2 was added.
+Content::AddLevel - NewLevel3 was added.
+Content::AddLevel - NewLevel4 was added.
+Content::ScanForArchetypes - Scanning for archetypes on the current project 
+Content::AddArchetype - Floor was added.
+Content::AddArchetype - Wall was added.
+Content::AddSoundCue - AbstractRoboticSounds10 was added.
+Content::AddSoundCue - Dogma was added.
+Content::AddSoundCue - Drone_v2 was added.
+Content::AddSoundCue - Empty Sky_v3 was added.
+Content::AddSoundCue - Flurry was added.
+Content::AddSoundCue - FootConcreteBootRun2 was added.
+Content::AddSoundCue - Halloween 1 was added.
+Content::AddSoundCue - HighPriceVictory was added.
+Content::AddSoundCue - HighThud was added.
+Content::AddSoundCue - PacMan-InGame2 was added.
+Content::AddSoundCue - RobotHugeDeathFall3 was added.
+Content::AddSoundCue - RobotMonsterGrowl was added.
+Content::AddSoundCue - RockAndAHardPlace was added.
+Content::AddSoundCue - Sole Groove was added.
+Content::AddSoundCue - soulja was added.
+Content::AddSoundCue - spacejam was added.
+Content::AddSoundCue - spacejam2 was added.
+Content::AddSoundCue - SpaghettiGuitarInSpace was added.
+Content::AddSoundCue - Thud was added.
+Content::AddSoundCue - Trine_v7_Music was added.
+Content::AddSoundCue - Whoosh5 was added.
+Content::ScanForSpriteSources - Scanning for archetypes on the current project 
+Content::AddSpriteSource - City_Background was added.
+Content::AddSpriteSource - City_Foreground was added.
+Content::AddSpriteSource - City_Middleground was added.
+Content::AddSpriteSource - FacilityBackground was added.
+Content::AddSpriteSource - MonkeyJump1 was added.
+Content::AddSpriteSource - MonkeyStand was added.
+Content::AddSpriteSource - MonkeyWalk was added.
+Content::AddSpriteSource - MonkeyWalk1 was added.
+Content::AddSpriteSource - MoonwardLogo was added.
+Content::AddSpriteSource - Oldworld_Background_1 was added.
+Content::AddSpriteSource - Oldworld_Foreground_1 was added.
+Content::AddSpriteSource - Oldworld_Foreground_2 was added.
+Content::AddSpriteSource - Oldworld_Middleground_1 was added.
+Content::AddSpriteSource - PlayerFall was added.
+Content::AddSpriteSource - PlayerRun was added.
+Content::AddSpriteSource - PlayerStand was added.
+Content::AddSpriteSource - Sky was added.
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/AbstractRoboticSounds10.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Dogma.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Drone_v2.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Empty Sky_v3.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Flurry.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/FootConcreteBootRun2.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Halloween 1.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/HighPriceVictory.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/HighThud.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/PacMan-InGame2.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/RobotHugeDeathFall3.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/RobotMonsterGrowl.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/RockAndAHardPlace.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Sole Groove.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/SpaghettiGuitarInSpace.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Thud.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Trine_v7_Music.ogg!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/Whoosh5.wav!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/soulja.mp3!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/spacejam.mp3!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Rebound/Assets/Sounds/spacejam2.mp3!
+AudioFMOD::CreateStream 
+SoundCue::Load - Finished loading Core Assets/Sounds/train.mp3!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+SpriteSource::LoadTexture - Image was successfully loaded!
+Texture2D::Generate - Successfully generated texture!
+Font::GenerateCharacters - Successfully generated character map
+Font::Load - Font was successfully loaded! 
+Editor::LoadLevel - Loading Level1
+Level1::Level::Load - Loading from Rebound/Resources/Levels/Level1.lvl succeeded 
+Daisy World Space::LoadLevel - Loading Level1
+Level1::Level::Load - Loading from Rebound/Resources/Levels/Level1.lvl succeeded 
+Daisy World Space::LoadLevel - Loading Level1 level.
+Daisy World::DestroyAll - Removing all objects from the space.
+Factory::BuildFromLevel - Building GameObjects from Level: 'Level1' 
+Floor1::AddComponentByName - Transform has been added!
+Floor1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor1
+Floor1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor1
+Daisy World::AddObject - Added Floor1 to the space.
+Player::AddComponentByName - Transform has been added!
+Player::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Player
+Player::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Player
+Player::AddComponentByName - RigidBody has been added!
+Daisy World::PhysicsSpace::AddRigidBody - Player
+Player::AddComponentByName - PlayerController has been added!
+Daisy World::AddObject - Added Player to the space.
+Camera::AddComponentByName - Transform has been added!
+Camera::AddComponentByName - Camera has been added!
+Camera::AddComponentByName - CameraController has been added!
+Daisy World::AddObject - Added Camera to the space.
+LeftWall::AddComponentByName - Transform has been added!
+LeftWall::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - LeftWall
+LeftWall::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - LeftWall
+Daisy World::AddObject - Added LeftWall to the space.
+Floor2::AddComponentByName - Transform has been added!
+Floor2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor2
+Floor2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor2
+Daisy World::AddObject - Added Floor2 to the space.
+Floor3::AddComponentByName - Transform has been added!
+Floor3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor3
+Floor3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor3
+Daisy World::AddObject - Added Floor3 to the space.
+Wall2::AddComponentByName - Transform has been added!
+Wall2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall2
+Wall2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall2
+Daisy World::AddObject - Added Wall2 to the space.
+Floor 4::AddComponentByName - Transform has been added!
+Floor 4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 4
+Floor 4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 4
+Daisy World::AddObject - Added Floor 4 to the space.
+Floor 5::AddComponentByName - Transform has been added!
+Floor 5::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 5
+Floor 5::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 5
+Daisy World::AddObject - Added Floor 5 to the space.
+Wall3::AddComponentByName - Transform has been added!
+Wall3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall3
+Wall3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall3
+Daisy World::AddObject - Added Wall3 to the space.
+Wall4::AddComponentByName - Transform has been added!
+Wall4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall4
+Wall4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall4
+Daisy World::AddObject - Added Wall4 to the space.
+Step1::AddComponentByName - Transform has been added!
+Step1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step1
+Step1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step1
+Daisy World::AddObject - Added Step1 to the space.
+Step2::AddComponentByName - Transform has been added!
+Step2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step2
+Step2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step2
+Daisy World::AddObject - Added Step2 to the space.
+Step3::AddComponentByName - Transform has been added!
+Step3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step3
+Step3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step3
+Daisy World::AddObject - Added Step3 to the space.
+HangingPlatform::AddComponentByName - Transform has been added!
+HangingPlatform::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - HangingPlatform
+HangingPlatform::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - HangingPlatform
+Daisy World::AddObject - Added HangingPlatform to the space.
+CameraViewport::FindDefaultCamera - Setting Camera as the default camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+Editor::SetEditorCamera - Setting the editor camera. 
+Daisy World::AddObject - Added EditorCamera to the space.
+CameraViewport::setCamera - Setting EditorCamera as the active camera 
+Editor::PlayGame - Playing: /Rebound'
+Input::OnEngineResumeEvent - Resume 
+Physics::OnEngineResumeEvent - Resume 
+Engine::OnEngineResumeEvent - Resumed 
+Editor::ToggleEditor - Dispatching 'EngineResume' event 
+Editor::SetEditorCamera - Removing the editor camera. 
+CameraViewport::FindDefaultCamera - Setting Camera as the default camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+Daisy World::RemoveObject - Removed EditorCamera from the space.
+Space: 'Daisy World' 
+GameObjects: 
+ - 'Floor1' 
+ - 'Player' 
+ - 'Camera' 
+ - 'LeftWall' 
+ - 'Floor2' 
+ - 'Floor3' 
+ - 'Wall2' 
+ - 'Floor 4' 
+ - 'Floor 5' 
+ - 'Wall3' 
+ - 'Wall4' 
+ - 'Step1' 
+ - 'Step2' 
+ - 'Step3' 
+ - 'HangingPlatform' 
+
+[Engine::Loop]
+Factory::DestroyGameObjects - Removing: 
+ - EditorCamera
+EditorCamera::~Entity - Destructor called! 
+EditorCamera::Transform::~Component - Destructor called! 
+EditorCamera::Camera::~Component - Destructor called! 
+EditorCamera::EditorCameraController::~Component - Destructor called! 
+EditorCamera::DebugAudio::~Component - Destructor called! 
+Audio::PlaySound - Playing SoundCue: HighThud
+AudioFMOD::PlaySound 
+Editor::OnEditorEnabledEvent 
+*!* Editor::ToggleEditor 
+Input::OnEnginePausedEvent - Pause 
+Physics::OnEnginePausedEvent - Pause 
+Engine::OnEnginePauseEvent - Paused 
+Editor::ToggleEditor - Dispatching 'EnginePaused' event 
+Daisy World Space::LoadLevel - Loading Level1 level.
+Daisy World::DestroyAll - Removing all objects from the space.
+ - Floor1
+ - Player
+ - Camera
+ - LeftWall
+ - Floor2
+ - Floor3
+ - Wall2
+ - Floor 4
+ - Floor 5
+ - Wall3
+ - Wall4
+ - Step1
+ - Step2
+ - Step3
+ - HangingPlatform
+Factory::BuildFromLevel - Building GameObjects from Level: 'Level1' 
+Floor1::AddComponentByName - Transform has been added!
+Floor1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor1
+Floor1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor1
+Daisy World::AddObject - Added Floor1 to the space.
+Player::AddComponentByName - Transform has been added!
+Player::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Player
+Player::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Player
+Player::AddComponentByName - RigidBody has been added!
+Daisy World::PhysicsSpace::AddRigidBody - Player
+Player::AddComponentByName - PlayerController has been added!
+Daisy World::AddObject - Added Player to the space.
+Camera::AddComponentByName - Transform has been added!
+Camera::AddComponentByName - Camera has been added!
+Camera::AddComponentByName - CameraController has been added!
+Daisy World::AddObject - Added Camera to the space.
+LeftWall::AddComponentByName - Transform has been added!
+LeftWall::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - LeftWall
+LeftWall::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - LeftWall
+Daisy World::AddObject - Added LeftWall to the space.
+Floor2::AddComponentByName - Transform has been added!
+Floor2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor2
+Floor2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor2
+Daisy World::AddObject - Added Floor2 to the space.
+Floor3::AddComponentByName - Transform has been added!
+Floor3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor3
+Floor3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor3
+Daisy World::AddObject - Added Floor3 to the space.
+Wall2::AddComponentByName - Transform has been added!
+Wall2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall2
+Wall2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall2
+Daisy World::AddObject - Added Wall2 to the space.
+Floor 4::AddComponentByName - Transform has been added!
+Floor 4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 4
+Floor 4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 4
+Daisy World::AddObject - Added Floor 4 to the space.
+Floor 5::AddComponentByName - Transform has been added!
+Floor 5::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 5
+Floor 5::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 5
+Daisy World::AddObject - Added Floor 5 to the space.
+Wall3::AddComponentByName - Transform has been added!
+Wall3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall3
+Wall3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall3
+Daisy World::AddObject - Added Wall3 to the space.
+Wall4::AddComponentByName - Transform has been added!
+Wall4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall4
+Wall4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall4
+Daisy World::AddObject - Added Wall4 to the space.
+Step1::AddComponentByName - Transform has been added!
+Step1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step1
+Step1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step1
+Daisy World::AddObject - Added Step1 to the space.
+Step2::AddComponentByName - Transform has been added!
+Step2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step2
+Step2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step2
+Daisy World::AddObject - Added Step2 to the space.
+Step3::AddComponentByName - Transform has been added!
+Step3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step3
+Step3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step3
+Daisy World::AddObject - Added Step3 to the space.
+HangingPlatform::AddComponentByName - Transform has been added!
+HangingPlatform::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - HangingPlatform
+HangingPlatform::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - HangingPlatform
+Daisy World::AddObject - Added HangingPlatform to the space.
+CameraViewport::FindDefaultCamera - Setting Camera as the default camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+Editor::SetEditorCamera - Setting the editor camera. 
+Daisy World::AddObject - Added EditorCamera to the space.
+CameraViewport::setCamera - Setting EditorCamera as the active camera 
+Editor::StopGame 
+Factory::DestroyGameObjects - Removing: 
+ - Floor1
+ - Player
+ - Camera
+ - LeftWall
+ - Floor2
+ - Floor3
+ - Wall2
+ - Floor 4
+ - Floor 5
+ - Wall3
+ - Wall4
+ - Step1
+ - Step2
+ - Step3
+ - HangingPlatform
+Floor1::~Entity - Destructor called! 
+Floor1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor1
+Floor1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor1
+Floor1::BoxCollider::~Component - Destructor called! 
+Player::~Entity - Destructor called! 
+Player::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Player
+Player::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Player
+Player::BoxCollider::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveRigidBody - Player
+Player::RigidBody::~Component - Destructor called! 
+Player::PlayerController::~Component - Destructor called! 
+Camera::~Entity - Destructor called! 
+Camera::Transform::~Component - Destructor called! 
+Camera::Camera::~Component - Destructor called! 
+Camera::CameraController::~Component - Destructor called! 
+LeftWall::~Entity - Destructor called! 
+LeftWall::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - LeftWall
+LeftWall::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - LeftWall
+LeftWall::BoxCollider::~Component - Destructor called! 
+Floor2::~Entity - Destructor called! 
+Floor2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor2
+Floor2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor2
+Floor2::BoxCollider::~Component - Destructor called! 
+Floor3::~Entity - Destructor called! 
+Floor3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor3
+Floor3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor3
+Floor3::BoxCollider::~Component - Destructor called! 
+Wall2::~Entity - Destructor called! 
+Wall2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall2
+Wall2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall2
+Wall2::BoxCollider::~Component - Destructor called! 
+Floor 4::~Entity - Destructor called! 
+Floor 4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 4
+Floor 4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 4
+Floor 4::BoxCollider::~Component - Destructor called! 
+Floor 5::~Entity - Destructor called! 
+Floor 5::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 5
+Floor 5::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 5
+Floor 5::BoxCollider::~Component - Destructor called! 
+Wall3::~Entity - Destructor called! 
+Wall3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall3
+Wall3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall3
+Wall3::BoxCollider::~Component - Destructor called! 
+Wall4::~Entity - Destructor called! 
+Wall4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall4
+Wall4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall4
+Wall4::BoxCollider::~Component - Destructor called! 
+Step1::~Entity - Destructor called! 
+Step1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step1
+Step1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step1
+Step1::BoxCollider::~Component - Destructor called! 
+Step2::~Entity - Destructor called! 
+Step2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step2
+Step2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step2
+Step2::BoxCollider::~Component - Destructor called! 
+Step3::~Entity - Destructor called! 
+Step3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step3
+Step3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step3
+Step3::BoxCollider::~Component - Destructor called! 
+HangingPlatform::~Entity - Destructor called! 
+HangingPlatform::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - HangingPlatform
+HangingPlatform::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - HangingPlatform
+HangingPlatform::BoxCollider::~Component - Destructor called! 
+Editor::OnEditorEnabledEvent 
+*!* Editor::ToggleEditor 
+Editor::SaveLevel - Saving Level1
+Factory::BuildLevel - Saved level: Projects/Rebound/Resources/Levels/Level1.lvl to file: data from file! 
+Content::ScanForLevels - Scanning for levels on the current project at: Rebound/Resources/Levels/
+Content::AddLevel - Connortesting is already present in the map. Overwriting. 
+Content::AddLevel - Connortesting was added.
+Content::AddLevel - Level1 is already present in the map. Overwriting. 
+Content::AddLevel - Level1 was added.
+Content::AddLevel - Level2 is already present in the map. Overwriting. 
+Content::AddLevel - Level2 was added.
+Content::AddLevel - Level3 is already present in the map. Overwriting. 
+Content::AddLevel - Level3 was added.
+Content::AddLevel - Level4 is already present in the map. Overwriting. 
+Content::AddLevel - Level4 was added.
+Content::AddLevel - LevelFirst is already present in the map. Overwriting. 
+Content::AddLevel - LevelFirst was added.
+Content::AddLevel - LevelJohnNoticeMe is already present in the map. Overwriting. 
+Content::AddLevel - LevelJohnNoticeMe was added.
+Content::AddLevel - LevelJohnNoticeMe2 is already present in the map. Overwriting. 
+Content::AddLevel - LevelJohnNoticeMe2 was added.
+Content::AddLevel - NewLevel3 is already present in the map. Overwriting. 
+Content::AddLevel - NewLevel3 was added.
+Content::AddLevel - NewLevel4 is already present in the map. Overwriting. 
+Content::AddLevel - NewLevel4 was added.
+Input::OnEngineResumeEvent - Resume 
+Physics::OnEngineResumeEvent - Resume 
+Engine::OnEngineResumeEvent - Resumed 
+Editor::ToggleEditor - Dispatching 'EngineResume' event 
+Editor::SetEditorCamera - Removing the editor camera. 
+CameraViewport::FindDefaultCamera - Setting Camera as the default camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+Daisy World::RemoveObject - Removed EditorCamera from the space.
+Space: 'Daisy World' 
+GameObjects: 
+ - 'Floor1' 
+ - 'Player' 
+ - 'Camera' 
+ - 'LeftWall' 
+ - 'Floor2' 
+ - 'Floor3' 
+ - 'Wall2' 
+ - 'Floor 4' 
+ - 'Floor 5' 
+ - 'Wall3' 
+ - 'Wall4' 
+ - 'Step1' 
+ - 'Step2' 
+ - 'Step3' 
+ - 'HangingPlatform' 
+Editor::StopGame 
+Factory::DestroyGameObjects - Removing: 
+ - EditorCamera
+EditorCamera::~Entity - Destructor called! 
+EditorCamera::Transform::~Component - Destructor called! 
+EditorCamera::Camera::~Component - Destructor called! 
+EditorCamera::EditorCameraController::~Component - Destructor called! 
+EditorCamera::DebugAudio::~Component - Destructor called! 
+Audio::PlaySound - Playing SoundCue: HighThud
+AudioFMOD::PlaySound 
+Editor::OnEditorEnabledEvent 
+*!* Editor::ToggleEditor 
+Input::OnEnginePausedEvent - Pause 
+Physics::OnEnginePausedEvent - Pause 
+Engine::OnEnginePauseEvent - Paused 
+Editor::ToggleEditor - Dispatching 'EnginePaused' event 
+Daisy World Space::LoadLevel - Loading Level1 level.
+Daisy World::DestroyAll - Removing all objects from the space.
+ - Floor1
+ - Player
+ - Camera
+ - LeftWall
+ - Floor2
+ - Floor3
+ - Wall2
+ - Floor 4
+ - Floor 5
+ - Wall3
+ - Wall4
+ - Step1
+ - Step2
+ - Step3
+ - HangingPlatform
+Factory::BuildFromLevel - Building GameObjects from Level: 'Level1' 
+Floor1::AddComponentByName - Transform has been added!
+Floor1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor1
+Floor1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor1
+Daisy World::AddObject - Added Floor1 to the space.
+Player::AddComponentByName - Transform has been added!
+Player::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Player
+Player::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Player
+Player::AddComponentByName - RigidBody has been added!
+Daisy World::PhysicsSpace::AddRigidBody - Player
+Player::AddComponentByName - PlayerController has been added!
+Daisy World::AddObject - Added Player to the space.
+Camera::AddComponentByName - Transform has been added!
+Camera::AddComponentByName - Camera has been added!
+Camera::AddComponentByName - CameraController has been added!
+Daisy World::AddObject - Added Camera to the space.
+LeftWall::AddComponentByName - Transform has been added!
+LeftWall::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - LeftWall
+LeftWall::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - LeftWall
+Daisy World::AddObject - Added LeftWall to the space.
+Floor2::AddComponentByName - Transform has been added!
+Floor2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor2
+Floor2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor2
+Daisy World::AddObject - Added Floor2 to the space.
+Floor3::AddComponentByName - Transform has been added!
+Floor3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor3
+Floor3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor3
+Daisy World::AddObject - Added Floor3 to the space.
+Wall2::AddComponentByName - Transform has been added!
+Wall2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall2
+Wall2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall2
+Daisy World::AddObject - Added Wall2 to the space.
+Floor 4::AddComponentByName - Transform has been added!
+Floor 4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 4
+Floor 4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 4
+Daisy World::AddObject - Added Floor 4 to the space.
+Floor 5::AddComponentByName - Transform has been added!
+Floor 5::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Floor 5
+Floor 5::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Floor 5
+Daisy World::AddObject - Added Floor 5 to the space.
+Wall3::AddComponentByName - Transform has been added!
+Wall3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall3
+Wall3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall3
+Daisy World::AddObject - Added Wall3 to the space.
+Wall4::AddComponentByName - Transform has been added!
+Wall4::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Wall4
+Wall4::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Wall4
+Daisy World::AddObject - Added Wall4 to the space.
+Step1::AddComponentByName - Transform has been added!
+Step1::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step1
+Step1::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step1
+Daisy World::AddObject - Added Step1 to the space.
+Step2::AddComponentByName - Transform has been added!
+Step2::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step2
+Step2::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step2
+Daisy World::AddObject - Added Step2 to the space.
+Step3::AddComponentByName - Transform has been added!
+Step3::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - Step3
+Step3::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - Step3
+Daisy World::AddObject - Added Step3 to the space.
+HangingPlatform::AddComponentByName - Transform has been added!
+HangingPlatform::AddComponentByName - Sprite has been added!
+Daisy WorldGraphicsSpace::AddSprite - HangingPlatform
+HangingPlatform::AddComponentByName - BoxCollider has been added!
+Daisy World::PhysicsSpace::AddCollider - HangingPlatform
+Daisy World::AddObject - Added HangingPlatform to the space.
+CameraViewport::FindDefaultCamera - Setting Camera as the default camera 
+CameraViewport::setCamera - Setting Camera as the active camera 
+Editor::SetEditorCamera - Setting the editor camera. 
+Daisy World::AddObject - Added EditorCamera to the space.
+CameraViewport::setCamera - Setting EditorCamera as the active camera 
+Editor::StopGame 
+Factory::DestroyGameObjects - Removing: 
+ - Floor3
+ - Wall2
+ - Floor 4
+ - Floor 5
+ - Wall3
+ - Wall4
+ - Step1
+ - Step2
+ - Step3
+ - HangingPlatform
+ - Floor1
+ - Player
+ - Camera
+ - LeftWall
+ - Floor2
+Floor1::~Entity - Destructor called! 
+Floor1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor1
+Floor1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor1
+Floor1::BoxCollider::~Component - Destructor called! 
+Player::~Entity - Destructor called! 
+Player::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Player
+Player::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Player
+Player::BoxCollider::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveRigidBody - Player
+Player::RigidBody::~Component - Destructor called! 
+Player::PlayerController::~Component - Destructor called! 
+Camera::~Entity - Destructor called! 
+Camera::Transform::~Component - Destructor called! 
+Camera::Camera::~Component - Destructor called! 
+Camera::CameraController::~Component - Destructor called! 
+LeftWall::~Entity - Destructor called! 
+LeftWall::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - LeftWall
+LeftWall::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - LeftWall
+LeftWall::BoxCollider::~Component - Destructor called! 
+Floor2::~Entity - Destructor called! 
+Floor2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor2
+Floor2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor2
+Floor2::BoxCollider::~Component - Destructor called! 
+Floor3::~Entity - Destructor called! 
+Floor3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor3
+Floor3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor3
+Floor3::BoxCollider::~Component - Destructor called! 
+Wall2::~Entity - Destructor called! 
+Wall2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall2
+Wall2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall2
+Wall2::BoxCollider::~Component - Destructor called! 
+Floor 4::~Entity - Destructor called! 
+Floor 4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 4
+Floor 4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 4
+Floor 4::BoxCollider::~Component - Destructor called! 
+Floor 5::~Entity - Destructor called! 
+Floor 5::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 5
+Floor 5::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 5
+Floor 5::BoxCollider::~Component - Destructor called! 
+Wall3::~Entity - Destructor called! 
+Wall3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall3
+Wall3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall3
+Wall3::BoxCollider::~Component - Destructor called! 
+Wall4::~Entity - Destructor called! 
+Wall4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall4
+Wall4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall4
+Wall4::BoxCollider::~Component - Destructor called! 
+Step1::~Entity - Destructor called! 
+Step1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step1
+Step1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step1
+Step1::BoxCollider::~Component - Destructor called! 
+Step2::~Entity - Destructor called! 
+Step2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step2
+Step2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step2
+Step2::BoxCollider::~Component - Destructor called! 
+Step3::~Entity - Destructor called! 
+Step3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step3
+Step3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step3
+Step3::BoxCollider::~Component - Destructor called! 
+HangingPlatform::~Entity - Destructor called! 
+HangingPlatform::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - HangingPlatform
+HangingPlatform::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - HangingPlatform
+HangingPlatform::BoxCollider::~Component - Destructor called! 
+Editor::SaveLevel - Saving Level1
+Factory::BuildLevel - Saved level: Projects/Rebound/Resources/Levels/Level1.lvl to file: data from file! 
+Content::ScanForLevels - Scanning for levels on the current project at: Rebound/Resources/Levels/
+Content::AddLevel - Connortesting is already present in the map. Overwriting. 
+Content::AddLevel - Connortesting was added.
+Content::AddLevel - Level1 is already present in the map. Overwriting. 
+Content::AddLevel - Level1 was added.
+Content::AddLevel - Level2 is already present in the map. Overwriting. 
+Content::AddLevel - Level2 was added.
+Content::AddLevel - Level3 is already present in the map. Overwriting. 
+Content::AddLevel - Level3 was added.
+Content::AddLevel - Level4 is already present in the map. Overwriting. 
+Content::AddLevel - Level4 was added.
+Content::AddLevel - LevelFirst is already present in the map. Overwriting. 
+Content::AddLevel - LevelFirst was added.
+Content::AddLevel - LevelJohnNoticeMe is already present in the map. Overwriting. 
+Content::AddLevel - LevelJohnNoticeMe was added.
+Content::AddLevel - LevelJohnNoticeMe2 is already present in the map. Overwriting. 
+Content::AddLevel - LevelJohnNoticeMe2 was added.
+Content::AddLevel - NewLevel3 is already present in the map. Overwriting. 
+Content::AddLevel - NewLevel3 was added.
+Content::AddLevel - NewLevel4 is already present in the map. Overwriting. 
+Content::AddLevel - NewLevel4 was added.
+Window::OnEngineExitEvent - 
+Engine::OnEngineExitEvent - Exit 
+
+[Engine::Terminate] 
+Daisy World::DestroyAll - Removing all objects from the space.
+ - Floor1
+ - Player
+ - Camera
+ - LeftWall
+ - Floor2
+ - Floor3
+ - Wall2
+ - Floor 4
+ - Floor 5
+ - Wall3
+ - Wall4
+ - Step1
+ - Step2
+ - Step3
+ - HangingPlatform
+ - EditorCamera
+Content::Terminate
+ZilchInterface::TerminateZilchInterface::Clean - Freeing the state, report, dependencies... 
+Factory::Terminate 
+Window::Terminate 
+Input::Terminate 
+Editor::Terminate 
+Audio::Terminate 
+Graphics::Terminate 
+GUI::Terminate 
+Floor1::~Entity - Destructor called! 
+Floor1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor1
+Floor1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor1
+Floor1::BoxCollider::~Component - Destructor called! 
+Player::~Entity - Destructor called! 
+Player::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Player
+Player::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Player
+Player::BoxCollider::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveRigidBody - Player
+Player::RigidBody::~Component - Destructor called! 
+Player::PlayerController::~Component - Destructor called! 
+Camera::~Entity - Destructor called! 
+Camera::Transform::~Component - Destructor called! 
+Camera::Camera::~Component - Destructor called! 
+Camera::CameraController::~Component - Destructor called! 
+LeftWall::~Entity - Destructor called! 
+LeftWall::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - LeftWall
+LeftWall::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - LeftWall
+LeftWall::BoxCollider::~Component - Destructor called! 
+Floor2::~Entity - Destructor called! 
+Floor2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor2
+Floor2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor2
+Floor2::BoxCollider::~Component - Destructor called! 
+Floor3::~Entity - Destructor called! 
+Floor3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor3
+Floor3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor3
+Floor3::BoxCollider::~Component - Destructor called! 
+Wall2::~Entity - Destructor called! 
+Wall2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall2
+Wall2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall2
+Wall2::BoxCollider::~Component - Destructor called! 
+Floor 4::~Entity - Destructor called! 
+Floor 4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 4
+Floor 4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 4
+Floor 4::BoxCollider::~Component - Destructor called! 
+Floor 5::~Entity - Destructor called! 
+Floor 5::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Floor 5
+Floor 5::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Floor 5
+Floor 5::BoxCollider::~Component - Destructor called! 
+Wall3::~Entity - Destructor called! 
+Wall3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall3
+Wall3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall3
+Wall3::BoxCollider::~Component - Destructor called! 
+Wall4::~Entity - Destructor called! 
+Wall4::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Wall4
+Wall4::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Wall4
+Wall4::BoxCollider::~Component - Destructor called! 
+Step1::~Entity - Destructor called! 
+Step1::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step1
+Step1::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step1
+Step1::BoxCollider::~Component - Destructor called! 
+Step2::~Entity - Destructor called! 
+Step2::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step2
+Step2::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step2
+Step2::BoxCollider::~Component - Destructor called! 
+Step3::~Entity - Destructor called! 
+Step3::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - Step3
+Step3::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - Step3
+Step3::BoxCollider::~Component - Destructor called! 
+HangingPlatform::~Entity - Destructor called! 
+HangingPlatform::Transform::~Component - Destructor called! 
+Daisy World::GraphicsSpace::RemoveSprite - HangingPlatform
+HangingPlatform::Sprite::~Component - Destructor called! 
+Daisy World::PhysicsSpace::RemoveCollider - HangingPlatform
+HangingPlatform::BoxCollider::~Component - Destructor called! 
+EditorCamera::~Entity - Destructor called! 
+EditorCamera::Transform::~Component - Destructor called! 
+Camera::Camera::~Camera - Removing default camera from the space 
+CameraViewport::setCamera - No active camera has been set. 
+EditorCamera::Camera::~Component - Destructor called! 
+EditorCamera::EditorCameraController::~Component - Destructor called! 
+EditorCamera::DebugAudio::~Component - Destructor called! 
+Mouse::~Entity - Destructor called! 
+Keyboard::~Entity - Destructor called! 
+Daisy World::~Entity - Destructor called! 
+Daisy World::SoundSpace::~Component - Destructor called! 
+Daisy World::TimeSpace::~Component - Destructor called! 
+Daisy World::PhysicsSpace::~Component - Destructor called! 
+Daisy World::CameraViewport::~Component - Destructor called! 
+Daisy World::GraphicsSpace::~Component - Destructor called! 
+Daisy Project::~Entity - Destructor called! 

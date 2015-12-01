@@ -62,7 +62,7 @@ namespace DCEngine {
     Space* DefaultSpace;
     std::string _defaultSpace = "Daisy Space";
     SystemVec _systems; //!< Container for the GameSession's systems. 
-    SpaceMap _spaces; //!< A map of spaces created by the engine.
+    SpaceMap ActiveSpaces; //!< A map of spaces created by the engine.
 
   }; // GameSession
 

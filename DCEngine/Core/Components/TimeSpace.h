@@ -20,11 +20,14 @@ namespace DCEngine {
     ZilchDeclareDerivedType(TimeSpace, Component);
     #endif
 
-    // Property Methods
+    // Properties
     DCE_DEFINE_PROPERTY(bool, Paused);
     DCE_DEFINE_PROPERTY(float, TimeScale);
     DCE_DEFINE_PROPERTY(int, StepCount);
 
+
+    // Methods
+    bool Pause();
     TimeSpace(Entity& owner);
     void Initialize();
 

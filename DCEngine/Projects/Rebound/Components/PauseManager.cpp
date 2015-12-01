@@ -12,18 +12,53 @@ namespace DCEngine {
 
   void PauseManager::Initialize()
   {
+    Connect(Daisy->getKeyboard(), Events::KeyDown, PauseManager::OnKeyDownEvent);
   }
 
   void PauseManager::OnKeyDownEvent(Events::KeyDown * event)
   {
+    if (event->Key == Keys::Escape) {
+
+      if (!Paused)
+        EnablePauseMenu();
+      else if (Paused)
+        DisablePauseMenu();
+    }
+    
   }
 
   void PauseManager::OnKeyUpEvent(Events::KeyDown * event)
   {
+
   }
 
   void PauseManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
+  }
+
+  void PauseManager::EnablePauseMenu()
+  {
+    Paused = true;
+    DCTrace << "PauseManager::EnablePauseMenu \n";
+    SpaceRef->getComponent<TimeSpace>()->Pause();
+
+    auto gs = GameSessionRef;
+
+    // Create the PauseMenu space
+    PauseSpace = GameSessionRef->CreateSpace("PauseSpace").get();
+    // Load the pause level onto it
+    PauseSpace->LoadLevel(std::string("PauseMenu"));
+
+  }
+
+  void PauseManager::DisablePauseMenu()
+  {
+    Paused = false;
+    DCTrace << "PauseManager::DisablePauseMenu \n";
+    SpaceRef->getComponent<TimeSpace>()->Pause();
+
+    // Delete the PauseMenu space
+    
   }
 
 
