@@ -639,6 +639,15 @@
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
       <Filter>Core\Binding</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\ErraticDoor.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+>>>>>>> 07696ddf8af5d2462f9183b086b074a271ead14f
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1112,6 +1121,15 @@
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ErraticDoor.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+>>>>>>> 07696ddf8af5d2462f9183b086b074a271ead14f
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

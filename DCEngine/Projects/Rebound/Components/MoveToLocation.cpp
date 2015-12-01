@@ -91,7 +91,8 @@ namespace DCEngine {
 		if(TransformRef->getTranslation() == TargetLocation)
 		{
 			Moving = false;
-			InitialLocation = TargetLocation;
+			TargetLocation = InitialLocation;
+			InitialLocation = TransformRef->getTranslation();
 		}
 	}
 
