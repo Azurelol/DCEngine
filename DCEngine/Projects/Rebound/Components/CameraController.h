@@ -25,6 +25,7 @@ namespace DCEngine {
 		GameObject* PlayerRef;
 		Real InterpolationSpeed = 0.06f; //percent of the way to interpolate per frame from 0-1
 		String TargetName = "Player";
+		Boolean DoScreenShake = false;
 
     DCE_DEFINE_PROPERTY(String, TargetName);
     DCE_DEFINE_PROPERTY(Real, InterpolationSpeed);
