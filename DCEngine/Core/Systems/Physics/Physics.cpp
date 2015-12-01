@@ -173,6 +173,10 @@ namespace DCEngine {
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
+        // If the space is paused, skip physics update
+        if (physpace->Owner()->getComponent<TimeSpace>()->getPaused())
+          continue;
+
 				std::vector<Manifold> contactlist;
         std::vector<DetectionPairing> pairs;
 
@@ -507,17 +511,6 @@ namespace DCEngine {
 				}
 			}
 			return;
-		}
-    
-		/**************************************************************************/
-		/*!
-		@brief Resolve all collisions
-		@param A manifold.
-		*/
-		/**************************************************************************/
-		void Physics::Resolve(Manifold data)
-		{
-
 		}
 
 		/**************************************************************************/

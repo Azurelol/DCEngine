@@ -38,7 +38,7 @@ namespace DCEngine {
     DCTrace << "[" << ObjectName << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
-    for (auto space : _spaces)
+    for (auto space : ActiveSpaces)
       space.second->Initialize();
   }
 
@@ -59,7 +59,7 @@ namespace DCEngine {
 
     // DEPRECATED: Spaces are not updated by gamesession
     // Update all active spaces
-    //for (auto space : _spaces)
+    //for (auto space : ActiveSpaces)
     //  UpdateSpace(space.second, dt);
     
     if (TRACE_UPDATE)
@@ -76,14 +76,17 @@ namespace DCEngine {
   SpacePtr GameSession::CreateSpace(std::string name) {
     DCTrace << ObjectName << "::CreateSpace - " << name << " has been constructed. \n";
 
-    // Check if the space already exists.
-    auto space = _spaces.find(name);
-    if (space != _spaces.end())
+    // Check if the space already exists.    
+    //if (ActiveSpaces.count(name))
+    //  return ActiveSpaces.at(name);
+
+    auto space = ActiveSpaces.find(name);
+    if (space != ActiveSpaces.end())
       return (*space).second;
 
     // If the space doesn't exist, create it
     else
-      _spaces.emplace(name, SpacePtr(new DCEngine::Space(name, *this)));
+      ActiveSpaces.emplace(name, SpacePtr(new DCEngine::Space(name, *this)));
 
     /* http://en.cppreference.com/w/cpp/container/unordered_map/emplace
     Inserts a new element into the container by constructing it in-place
@@ -113,10 +116,10 @@ namespace DCEngine {
   /**************************************************************************/
   SpacePtr GameSession::GetSpace(std::string name) {
     // Searches for a space with the specified name
-    SpaceMap::iterator it = _spaces.find(name);
+    SpaceMap::iterator it = ActiveSpaces.find(name);
 
     // Check if the space was found
-    if (it != _spaces.end())
+    if (it != ActiveSpaces.end())
       return it->second;
 
     /*

@@ -12,6 +12,7 @@
 
 namespace DCEngine {
 
+  class Space;
   class PauseManager : public Component {
 
   public:
@@ -23,14 +24,17 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
     void OnLogicUpdateEvent(Events::LogicUpdate * event);
+    void EnablePauseMenu();
+    void DisablePauseMenu();
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(PauseManager, Component);
     #endif
 
   private:
-    Keys PauseKey = Keys::Escape;
-    Boolean Paused = FALSE;
+    Keys PauseKey;
+    Boolean Paused = false;
+    Space* PauseSpace;
 
   };
 

@@ -271,8 +271,13 @@ namespace DCEngine {
     // Dispatch the logic update event to the gamesession
     gamesession_->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     // Dispatch the logic update event to all active spaces
-    for (auto space : gamesession_->_spaces)
+    for (auto space : gamesession_->ActiveSpaces) {
+      // Do not dispatch the 'LogicUpdate' event if the space is paused
+      if (space.second->getComponent<TimeSpace>()->getPaused())
+        continue;
+
       space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    }      
     // Delete the event
     delete logicUpdateEvent;
 
@@ -381,7 +386,7 @@ namespace DCEngine {
   void Engine::Terminate() {
     DCTrace << "\n[Engine::Terminate] \n";
     // Clear every Space
-    for (auto space : gamesession_->_spaces) {
+    for (auto space : gamesession_->ActiveSpaces) {
       space.second->DestroyAll();
     }
     // Clear the GameSession

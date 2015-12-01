@@ -33,6 +33,13 @@ namespace DCEngine {
   }
 #endif
 
+  bool TimeSpace::Pause()
+  {
+    Paused = !Paused;
+    DCTrace << "TimeSpace::Pause - " << std::boolalpha << Paused << "\n";
+    return Paused;
+  }
+
   /**************************************************************************/
   /*!
   @brief Default TimeSpace constructor.

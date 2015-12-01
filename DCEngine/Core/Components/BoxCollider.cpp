@@ -194,7 +194,7 @@ namespace DCEngine {
     return CollisionGroup;
   }
 
-  void BoxCollider::setCollisionGroup(String group)
+  void BoxCollider::setCollisionGroup(const String &group)
   {
     CollisionGroup = group;
   }
