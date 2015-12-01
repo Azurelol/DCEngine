@@ -278,6 +278,15 @@ namespace DCEngine {
       RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar, 0, 0));
     }
 
+    if (musicplay)
+    {
+      auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+      auto event = new Events::PlayMusic;
+      objref->Dispatch<Events::PlayMusic>(event);
+      delete event;
+      musicplay = false;
+    }
+
 		//PrintTranslation();
 	}
 	void PlayerController::MoveRight()
@@ -300,6 +309,15 @@ namespace DCEngine {
     else
     {
       RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar, 0, 0));
+    }
+
+    if (musicplay)
+    {
+      auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+      auto event = new Events::PlayMusic;
+      objref->Dispatch<Events::PlayMusic>(event);
+      delete event;
+      musicplay = false;
     }
 
 	}
