@@ -9,7 +9,6 @@
 
 */
 /******************************************************************************/
-
 #include "Audio.h"
 #include "../../Engine/Engine.h"
 
@@ -56,6 +55,22 @@ namespace DCEngine {
       LoadSoundCues();
     }
 
+    void Audio::Subscribe()
+    {
+      Daisy->Connect<Events::EnginePause>(&Audio::OnEnginePauseEvent, this);
+      Daisy->Connect<Events::EngineResume>(&Audio::OnEngineResumeEvent, this);
+    }
+
+    void Audio::OnEnginePauseEvent(Events::EnginePause * event)
+    {
+      Enabled = false;
+    }
+
+    void Audio::OnEngineResumeEvent(Events::EngineResume * event)
+    {
+      Enabled = true;
+    }
+
     /**************************************************************************/
     /*!
     @brief  Updates the Audio system. This is a necessary step for FMOD.
@@ -65,7 +80,8 @@ namespace DCEngine {
     void Audio::Update(float dt) {
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Audio::Update \n";
-      AudioHandler->Update(dt);
+      if (Enabled)
+        AudioHandler->Update(dt);
     }
     /**************************************************************************/
     /*!
@@ -107,7 +123,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
-      DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
+      //DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       // Do not attempt to play if the soundcue could not be found
       if (!soundCue)
@@ -180,6 +196,8 @@ namespace DCEngine {
       }
       DCTrace << "Audio::LoadSoundCues - Done loading!";
     }
+
+
     
     void Audio::Terminate() {
       if (TRACE_ON)

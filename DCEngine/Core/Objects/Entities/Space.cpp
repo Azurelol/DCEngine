@@ -11,7 +11,6 @@ Each space has its own instances of the core systems of the engine.
 
 */
 /******************************************************************************/
-
 #include "Space.h"
 
 // Space-level components
@@ -95,6 +94,14 @@ namespace DCEngine {
   void Space::Terminate()
   {
     DestroyAll();
+  }
+
+  void Space::Destroy()
+  {
+    Daisy->getSystem<Systems::Factory>()->MarkSpace(*this);
+    // Destroy all the objects in the space
+    DestroyAll();
+    // Remove this Space from the GameSession
   }
 
   /**************************************************************************/

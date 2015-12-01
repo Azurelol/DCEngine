@@ -56,7 +56,7 @@ namespace DCEngine {
     auto gs = GameSessionRef;
 
     // Create the PauseMenu space
-    PauseSpace = GameSessionRef->CreateSpace("PauseSpace").get();
+    PauseSpace = GameSessionRef->CreateSpace("PauseSpace");
     // Load the pause level onto it
     PauseSpace->LoadLevel(std::string("PauseMenu"));
 
@@ -69,6 +69,7 @@ namespace DCEngine {
     SpaceRef->getComponent<TimeSpace>()->Pause();
 
     // Delete the PauseMenu space
+    PauseSpace->Destroy();
     
   }
 

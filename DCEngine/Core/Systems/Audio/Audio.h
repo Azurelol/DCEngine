@@ -44,13 +44,17 @@ namespace DCEngine {
 
     private:
 
+      bool Enabled = false;
       std::vector<SoundSpace*> SoundSpaceContainer; //!< Container of registered soundspace components.
 
       Audio();
       void Initialize();
+      void Subscribe();
       void Update(float dt);
       void Terminate();
       void LoadSoundCues();
+      void OnEnginePauseEvent(Events::EnginePause* event);
+      void OnEngineResumeEvent(Events::EngineResume* event);
 
 
       #if(USE_FMOD)

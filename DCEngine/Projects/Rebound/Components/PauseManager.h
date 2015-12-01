@@ -36,6 +36,11 @@ namespace DCEngine {
     Boolean Paused = false;
     Space* PauseSpace;
 
+    GameObjectPtr ButtonResume;
+    GameObjectPtr ButtonHelp;
+    GameObjectPtr ButtonCredits;
+    GameObjectPtr ButtonQuit;
+
   };
 
 }

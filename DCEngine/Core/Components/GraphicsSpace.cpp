@@ -52,7 +52,7 @@ namespace DCEngine {
   /**************************************************************************/
   GraphicsSpace::~GraphicsSpace() {
     // Deregister from the Graphics System
-
+    Daisy->getSystem<Systems::Graphics>()->Deregister(*this);
   }
 
   /**************************************************************************/

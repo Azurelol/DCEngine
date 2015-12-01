@@ -163,10 +163,22 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::Subscribe()
   {
+    Connect<Events::WindowLostFocus>(&Engine::OnWindowLostFocusEvent, this);
+    Connect<Events::WindowGainedFocus>(&Engine::OnWindowGainedFocusEvent, this);
     Connect<Events::EnginePause>(&Engine::OnEnginePauseEvent, this);
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
     Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
+  }
+
+  void Engine::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
+  {
+    Systems::DispatchSystemEvents::EnginePause();
+  }
+
+  void Engine::OnWindowGainedFocusEvent(Events::WindowGainedFocus * event)
+  {
+    Systems::DispatchSystemEvents::EngineResume();
   }
 
   /**************************************************************************/
@@ -328,7 +340,7 @@ namespace DCEngine {
     // Create the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
     // Set a reference to it in the GameSession object
-    gamesession_->DefaultSpace = defaultSpace.get();
+    gamesession_->DefaultSpace = defaultSpace;
     DCTrace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
     // Initialize the gamesession. (This will initialize its spaces,
@@ -360,7 +372,7 @@ namespace DCEngine {
     // Create the default space
     SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace, false);
     // Set a reference to it in the GameSession object
-    gamesession_->DefaultSpace = defaultSpace.get();
+    gamesession_->DefaultSpace = defaultSpace;
   }
 
   /**************************************************************************/
@@ -373,15 +385,16 @@ namespace DCEngine {
     DCTrace << "\n[Engine::Terminate] \n";
     // Clear every Space
     for (auto space : gamesession_->ActiveSpaces) {
-      space.second->DestroyAll();
+      space.second->DestroyAll();      
     }
+    // Destroy every GameObject
+    getSystem<Systems::Factory>()->ActiveGameObjects.clear();
     // Clear the GameSession
-
+    gamesession_->ActiveSpaces.clear();
 
     // Terminates all systems.
     for (auto sys : _systems)
       sys->Terminate();
-
     _systems.clear();
 
     Daisy.reset();
