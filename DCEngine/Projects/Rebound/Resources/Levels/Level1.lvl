@@ -1352,6 +1352,51 @@
           {
           }
         }
+      }, 
+      "GameObject": 
+      {
+        "Name": "MusicManager", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "MusicManager": 
+          {
+            "CurrentTrack": "Empty Sky_v3", 
+            "LastTrack": "NO TRACK SET", 
+            "FadeInTime": 0.000000, 
+            "FadeOutTime": 0.000000
+          }
+        }
       }
     }
   }
