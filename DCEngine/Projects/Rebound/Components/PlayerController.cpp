@@ -170,8 +170,8 @@ namespace DCEngine {
 
 	void PlayerController::Die()
 	{
-    DCTrace << "PlayerController::Die - Reloading level \n";
-		//this->SpaceRef->ReloadLevel();
+		DCTrace << "PlayerController::Die - Reloading level \n";
+		this->SpaceRef->ReloadLevel();
 	}
 
 
