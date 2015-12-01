@@ -19,7 +19,7 @@ namespace DCEngine {
   class DebugAudio : public Component {
   public:
     
-    String Track1;
+    String Track1 = "soulja";
     String Track2;
     String Track3;
     String CurrentSoundCue;

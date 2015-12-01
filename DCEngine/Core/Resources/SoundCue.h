@@ -18,6 +18,7 @@ namespace DCEngine {
 
   class SoundCue;
   using SoundCuePtr = std::shared_ptr<SoundCue>;
+  using SoundCueHandle = std::string;
 
   enum class PlayMode {
     Single,
