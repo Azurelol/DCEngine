@@ -23,6 +23,11 @@
 Zilch::Attribute resourceAttribute; \
 resourceAttribute.Name = "Resource"
 
+#define DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE_TYPE(resource) \
+Zilch::Attribute resourceAttribute; \
+resourceAttribute.Name = "" #resource
+
+
 // What type of handle manager to use for components. For now we will be 
 // constructing components internally so we use pointers.
 #define DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE \

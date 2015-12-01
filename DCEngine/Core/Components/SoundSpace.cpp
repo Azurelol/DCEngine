@@ -62,6 +62,16 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
     }
 
+    void SoundSpace::PauseCue(std::string soundCueName)
+    {
+      Daisy->getSystem<Systems::Audio>()->PauseSound(soundCueName);
+    }
+
+    void SoundSpace::ResumeCue(std::string soundCueName)
+    {
+      Daisy->getSystem<Systems::Audio>()->ResumeSound(soundCueName);
+    }
+
     /**************************************************************************/
     /*!
     @brief  Stops a 'SoundCue' from playing.

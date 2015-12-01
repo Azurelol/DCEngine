@@ -53,6 +53,7 @@ namespace DCEngine {
       AudioHandler->Initialize();
       // Load every SoundCue into FMOD
       LoadSoundCues();
+      Subscribe();
     }
 
     void Audio::Subscribe()
@@ -63,12 +64,14 @@ namespace DCEngine {
 
     void Audio::OnEnginePauseEvent(Events::EnginePause * event)
     {
-      Enabled = false;
+      DCTrace << "Audio::OnEnginePauseEvent - Pause \n";
+      this->Enabled = false;
     }
 
     void Audio::OnEngineResumeEvent(Events::EngineResume * event)
     {
-      Enabled = true;
+      DCTrace << "Audio::OnEngineResumeEvent - Pause \n";
+      this->Enabled = true;
     }
 
     /**************************************************************************/
@@ -81,7 +84,8 @@ namespace DCEngine {
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Audio::Update \n";
       if (Enabled)
-        AudioHandler->Update(dt);
+        AudioHandler->Update(dt);    
+
     }
     /**************************************************************************/
     /*!
@@ -123,11 +127,14 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
-      //DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
+      DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       // Do not attempt to play if the soundcue could not be found
-      if (!soundCue)
+      if (!soundCue) {
+        DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
         return;
+      }
+        
 
       AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
     }
@@ -142,6 +149,10 @@ namespace DCEngine {
     {
       DCTrace << "Audio::ResumeSound - Resuming SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      if (!soundCue) {
+        DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
+        return;
+      }
       AudioHandler->ResumeSound(soundCue->Data.Channel);
     }
 
@@ -153,8 +164,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Audio::PauseSound(std::string & soundCueName)
     {
-      DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
+      DCTrace << "Audio::PlaySound - Pausing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      if (!soundCue) {
+        DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
+        return;
+      }
       AudioHandler->PauseSound(soundCue->Data.Channel);
     }
 
@@ -167,6 +182,10 @@ namespace DCEngine {
     void Audio::StopSound(std::string & soundCueName)
     {
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      if (!soundCue) {
+        DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
+        return;
+      }
       AudioHandler->StopSound(soundCue->Data.Channel);
     }
 

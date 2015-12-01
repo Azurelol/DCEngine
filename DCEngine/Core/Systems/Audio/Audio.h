@@ -46,6 +46,7 @@ namespace DCEngine {
 
       bool Enabled = false;
       std::vector<SoundSpace*> SoundSpaceContainer; //!< Container of registered soundspace components.
+      
 
       Audio();
       void Initialize();

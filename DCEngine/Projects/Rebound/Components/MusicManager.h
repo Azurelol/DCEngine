@@ -27,6 +27,8 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnPlayMusicEvent(Events::PlayMusic* event);
     void OnKeyUpEvent(Events::KeyUp* event);
+    void OnEnginePauseEvent(Events::EnginePause* event);
+    void OnEngineResumeEvent(Events::EngineResume* event);
 
     DCE_BINDING_DECLARE_DERIVED_TYPE(MusicManager, Component);
 
