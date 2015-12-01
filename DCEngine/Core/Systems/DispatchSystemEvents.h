@@ -20,7 +20,10 @@ namespace DCEngine {
       static void EngineResume();
       static void EnginePause();
       static void EngineExit();
+      
       static void SetWindowCaption(std::string name);
+      static void WindowLostFocus();
+      static void WindowGainedFocus();
 
     };
 

@@ -26,6 +26,10 @@ namespace DCEngine {
     void OnLogicUpdateEvent(Events::LogicUpdate * event);
     void EnablePauseMenu();
     void DisablePauseMenu();
+    void OnResumeClicked(Events::MouseClickedOn* event);
+    void OnHelpClicked(Events::MouseClickedOn* event);
+    void OnCreditsClicked(Events::MouseClickedOn* event);
+    void OnQuitClicked(Events::MouseClickedOn* event);
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(PauseManager, Component);
@@ -35,6 +39,11 @@ namespace DCEngine {
     Keys PauseKey;
     Boolean Paused = false;
     Space* PauseSpace;
+
+    GameObjectPtr ButtonResume;
+    GameObjectPtr ButtonHelp;
+    GameObjectPtr ButtonCredits;
+    GameObjectPtr ButtonQuit;
 
   };
 

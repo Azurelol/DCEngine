@@ -26,12 +26,14 @@ namespace DCEngine {
    
   // Forward declarations
   class Engine;
-  class Factory;
+  namespace Systems {
+    class Factory;
+  }
   
   class GameSession : public Entity {
 
     friend class Engine; //!< Engine has access to gamesession.
-    friend class Factory;
+    friend class Systems::Factory;
 
   public:
 
@@ -58,6 +60,8 @@ namespace DCEngine {
     void Update(float dt);
     void UpdateSpace(SpacePtr space, float dt);
     void OnUpdateEvent() {};
+    void RemoveSpace(SpacePtr);
+
 
     Space* DefaultSpace;
     std::string _defaultSpace = "Daisy Space";

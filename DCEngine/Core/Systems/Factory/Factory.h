@@ -39,8 +39,9 @@ namespace DCEngine {
       GameObjectPtr BuildGameObject(SerializedMember* objectData, Space& space);      
       void MarkGameObject(GameObject& gameObj);
       void DestroyGameObjects();      
-
-      // Levels
+      // Spaces
+      void MarkSpace(Space&);
+      void DestroySpaces();
       bool BuildFromLevel(LevelPtr level, Space&);
       LevelPtr BuildLevel(std::string name, Space&);
       // Archetypes
@@ -65,6 +66,7 @@ namespace DCEngine {
       std::map<std::string, std::type_index> ComponentClassMap;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
       std::set<ComponentPtr> ComponentsToBeDeleted;
+      std::set<SpacePtr> SpacesToBeDeleted;
       ComponentMap ComponentFactories;
 
       /* Functions */

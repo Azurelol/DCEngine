@@ -26,3 +26,4 @@
 #include "Components\Button.h"
 #include "Components\Fade.h"
 #include "Components\MoveToLocation.h"
+#include "Components\ErraticDoor.h"
