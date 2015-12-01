@@ -68,7 +68,7 @@ namespace DCEngine {
     void RemoveObject(GameObject&);
     void DestroyAll();
 
-    GameSession& getGameSession();
+    GameSession* getGameSession();
     const GameSession* Owner() { return GameSessionRef; };
     friend std::ostream& operator<<(std::ostream& out, Space const& space);
 

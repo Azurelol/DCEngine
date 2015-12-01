@@ -57,9 +57,14 @@ namespace DCEngine
 
       template<typename T>
       Trace& operator<<(const T& data) {
+      #ifndef _PRODUCTION
         std::cout << data;
         _file << data;
         return *this;
+      #else
+        return *this;
+      #endif
+        
       }
 
     private:

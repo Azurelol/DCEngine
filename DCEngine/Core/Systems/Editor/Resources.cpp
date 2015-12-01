@@ -203,7 +203,7 @@ namespace DCEngine {
     {
       SelectedObject = nullptr;
       // !!! TESTING: Level loading
-      LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, CurrentSpace->getGameSession()));
+      LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, *CurrentSpace->getGameSession()));
       CurrentSpace->LoadSampleLevel(dollhouse);      
       // Load the editor camera
       SetEditorCamera(true);

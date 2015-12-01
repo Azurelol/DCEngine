@@ -144,19 +144,19 @@ namespace DCEngine {
     if (type == EntityType::GameObject) {
       auto gameObj = (GameObject*)entity;
       SpaceRef = gameObj->GetSpace();
-      GameSessionRef = &SpaceRef->getGameSession();
+      GameSessionRef = SpaceRef->getGameSession();
     }
 
     // If the owner is a 'Space' entity
     if (type == EntityType::Space) {
       SpaceRef = dynamic_cast<Space*>(entity);
-      GameSessionRef = dynamic_cast<GameSession*>(&SpaceRef->getGameSession());
+      GameSessionRef = SpaceRef->getGameSession();
     }
       
     // If the owner is a 'GameSession' entity
     if (type == EntityType::GameSession)
       SpaceRef = NULL;
-      GameSessionRef = (GameSession*)Owner();
+      GameSessionRef = dynamic_cast<GameSession*>(entity);
   }
 
   /**************************************************************************/

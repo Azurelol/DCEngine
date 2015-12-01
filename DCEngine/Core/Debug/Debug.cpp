@@ -1,4 +1,5 @@
-/******************************************************************************/
+/*********************
+*********************************************************/
 /*!
 @file   Debug.cpp
 @author Christian Sagel
@@ -26,6 +27,9 @@ namespace DCEngine
     */
     /**************************************************************************/
     Trace::Trace(std::string fileName) {
+#ifndef _PRODUCTION
+
+
       _file.open(fileName.c_str(), std::ios::trunc);
 
       _file.exceptions(std::ofstream::badbit | std::ofstream::failbit);
@@ -35,6 +39,7 @@ namespace DCEngine
       }
 
       std::cout << "Debug::Trace - Log file: " << fileName << std::endl;
+#endif
     }
 
     /**************************************************************************/
@@ -44,7 +49,9 @@ namespace DCEngine
     */
     /**************************************************************************/
     Trace::~Trace() {
+#ifndef _PRODUCTION
       _file.close();
+#endif
       //std::cout << "Debug::~Trace - Closing" << std::endl;
     }
 
