@@ -25,6 +25,7 @@ namespace DCEngine {
 		DCE_BINDING_DEFINE_PROPERTY(Fade, FadeTime);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, TargetColor);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, Fading);
+		DCE_BINDING_DEFINE_PROPERTY(Fade, Pulse);
 	}
 #endif
 
@@ -87,6 +88,20 @@ namespace DCEngine {
 		{
 			Fading = false;
 		}
+		auto percentDone = Timer / FadeTime;
+		//SpriteRef->Color = Interpolate(InitialColor, TargetColor, Timer / MoveToLocationTime);
+
+		SpriteRef->Color = InitialColor * (1 - percentDone) + (TargetColor * percentDone);
+		if (SpriteRef->Color == TargetColor)
+		{
+			if (!Pulse)
+			{
+				Fading = false;
+			}
+			Timer = 0;
+			TargetColor = InitialColor;
+			InitialColor = SpriteRef->Color;
+	}
 	}
 
 
