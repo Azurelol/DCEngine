@@ -21,6 +21,35 @@ namespace DCEngine {
   }
   #endif  
 
+  void PauseManager::ReloadPauseMainMenu()
+  {
+	  PauseSpace->LoadLevel(std::string("PauseMenu"));
+	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
+	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
+	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
+	  ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+	  // Connect to its events
+	  if (ButtonResume)
+		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonNewGame! \n";
+
+	  if (ButtonHelp)
+		  Connect(ButtonHelp, Events::MouseClickedOn, PauseManager::OnHelpClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonHelp! \n";
+
+	  if (ButtonCredits)
+		  Connect(ButtonCredits, Events::MouseClickedOn, PauseManager::OnCreditsClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonCredits! \n";
+
+	  if (ButtonQuit)
+		  Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
+  }
+
   void PauseManager::Initialize()
   {
     Connect(Daisy->getKeyboard(), Events::KeyDown, PauseManager::OnKeyDownEvent);
@@ -32,8 +61,25 @@ namespace DCEngine {
 
       if (!Paused)
         EnablePauseMenu();
-      else if (Paused)
-        DisablePauseMenu();
+	  else if (Paused)
+	  {
+		  if (IsInCredits)
+		  {
+			  IsInCredits = false;
+			  ReloadPauseMainMenu();
+			  ButtonBackCredits = NULL;
+		  }
+		  else if (IsInHowToPlay)
+		  {
+			  IsInHowToPlay = false;
+			  ReloadPauseMainMenu();
+			  ButtonBackHTP = NULL;
+		  }
+		  else
+		  {
+			  DisablePauseMenu();
+		  }
+	  }
     }
     
   }
@@ -87,6 +133,44 @@ namespace DCEngine {
 
   }
 
+  void PauseManager::OnBackButtonHTP(Events::MouseClickedOn* event)
+  {
+	  IsInHowToPlay = false;
+	  PauseSpace->LoadLevel(std::string("PauseMenu"));
+	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
+	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
+	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
+	  ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+	  // Connect to its events
+	  if (ButtonResume)
+		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonNewGame! \n";
+
+	  if (ButtonHelp)
+		  Connect(ButtonHelp, Events::MouseClickedOn, PauseManager::OnHelpClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonHelp! \n";
+
+	  if (ButtonCredits)
+		  Connect(ButtonCredits, Events::MouseClickedOn, PauseManager::OnCreditsClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonCredits! \n";
+
+	  if (ButtonQuit)
+		  Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
+	  ButtonBackHTP = NULL;
+  }
+
+  void PauseManager::OnBackButtonCredits(Events::MouseClickedOn* event)
+  {
+	  IsInCredits = false;
+	  ReloadPauseMainMenu();
+	  ButtonBackCredits = NULL;
+  }
+
   void PauseManager::DisablePauseMenu()
   {
     Paused = false;
@@ -112,11 +196,28 @@ namespace DCEngine {
   void PauseManager::OnHelpClicked(Events::MouseClickedOn * event)
   {
     DCTrace << "PauseManager::OnHelpClicked \n";
+	std::string tmp("HowToPlay");
+	IsInCredits = true;
+	PauseSpace->LoadLevel(tmp);
+	ButtonBackHTP = PauseSpace->FindObjectByName("BackButtonHTP");
+	if (ButtonBackHTP)
+		Connect(ButtonBackHTP, Events::MouseClickedOn, PauseManager::OnBackButtonHTP);
+	else
+		DCTrace << "PauseManager::Initialize - Failed to find ButtonBackHTP! \n";
+
   }
 
   void PauseManager::OnCreditsClicked(Events::MouseClickedOn * event)
   {
     DCTrace << "PauseManager::OnCreditsClicked \n";
+	std::string tmp("CreditsLevel");
+	IsInHowToPlay = true;
+	PauseSpace->LoadLevel(tmp);
+	ButtonBackCredits = PauseSpace->FindObjectByName("BackButtonCredits");
+	if (ButtonBackCredits)
+		Connect(ButtonBackCredits, Events::MouseClickedOn, PauseManager::OnBackButtonCredits);
+	else
+		DCTrace << "PauseManager::Initialize - Failed to find OnBackButtonCredits! \n";
   }
 
   void PauseManager::OnQuitClicked(Events::MouseClickedOn * event)

@@ -88,8 +88,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -151,8 +151,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -214,8 +214,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -277,8 +277,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
