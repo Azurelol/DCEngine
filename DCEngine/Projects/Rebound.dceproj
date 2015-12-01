@@ -1,6 +1,6 @@
 {
 	"Project Name": "Rebound",
-  "Default Level": "MainMenu",
+  "Default Level": "Level1",
   "Default Space": "",  
   "Project Path": "Projects/Rebound/",
   "Resource Path": "Resources/",

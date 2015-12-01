@@ -115,9 +115,9 @@ namespace DCEngine {
             WindowSaveLevelEnabled = !WindowSaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))
             ReloadLevel();
-          ImGui::Separator();
-          if (ImGui::MenuItem("Load Dollhouse"))
-            LoadDollhouse();
+          //ImGui::Separator();
+          /*if (ImGui::MenuItem("Load Dollhouse"))
+            LoadDollhouse();*/
           //ReloadLevel();
           ImGui::EndMenu();
         }
