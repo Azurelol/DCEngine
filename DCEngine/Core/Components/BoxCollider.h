@@ -47,7 +47,7 @@ namespace DCEngine {
 
     // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
     String getCollisionGroup() const;
-    void setCollisionGroup(String);
+    void setCollisionGroup(const String &);
 
 		// These should be private!
     BoxCollider(Entity& owner);

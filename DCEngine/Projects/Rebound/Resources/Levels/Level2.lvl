@@ -335,7 +335,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Acid2", 
+        "Name": "Acid1", 
         "Archetype": "Acid", 
         "Components": 
         {
@@ -391,7 +391,31 @@
           "HazardArea": 
           {
             "Damage": 1.000000, 
-            "DamageInterval": 0.000000
+            "DamageInterval": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }, 
@@ -1104,8 +1128,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }, 
@@ -1587,7 +1611,31 @@
           "HazardArea": 
           {
             "Damage": 1.000000, 
-            "DamageInterval": 0.000000
+            "DamageInterval": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }, 
@@ -1649,7 +1697,31 @@
           "HazardArea": 
           {
             "Damage": 1.000000, 
-            "DamageInterval": 0.000000
+            "DamageInterval": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }, 
@@ -1711,7 +1783,31 @@
           "HazardArea": 
           {
             "Damage": 1.000000, 
-            "DamageInterval": 0.000000
+            "DamageInterval": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }, 

@@ -73,7 +73,6 @@ namespace DCEngine {
       void Step(float dt);
       void BroadPhaseDetection(PhysicsSpace* physpace , std::vector<DetectionPairing> &pairs);
       void NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist);
-      void Resolve(Manifold data);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);
       void DispatchCollisionPersisted(CollisionData& collisionData);

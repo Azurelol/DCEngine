@@ -71,11 +71,16 @@ namespace DCEngine {
 
 	void HazardArea::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (HazardAreaTraceOn)
+		{
+			DCTrace << "HazardArea::OnLogicUpdate - Timer = " << Timer << ", Dt = " << event->Dt << "\n";
+		}
 		if(TouchingPlayer)
 		{
 			Timer += event->Dt;
 			if (Timer > DamageInterval)
 			{
+				DCTrace << "HazardArea::OnLogicUpdate - Timer Above " << DamageInterval << ", Timer =" << Timer << ", Dt = " << event->Dt << "\n";
 				Timer = 0;
 				PlayerRef->getComponent<PlayerController>()->TakeDamage(Damage);
 			}
