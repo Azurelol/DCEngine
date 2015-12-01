@@ -44,6 +44,7 @@ namespace DCEngine {
 	  if (event->OtherObject->getComponent<PlayerController>())
 	  {
 		  TimerStarted = true;
+      SpaceRef->getComponent<SoundSpace>()->PlayCue("Rumble");
 		 // this->SpaceRef->CreateObject()
 	  }
   }

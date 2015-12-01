@@ -147,6 +147,7 @@ namespace DCEngine {
           SelectResource(property, object);
           continue;
         }
+        
 
         // If the bound field/property does not have the Property Attribute, do
         // nothing.
@@ -338,6 +339,7 @@ namespace DCEngine {
       static std::vector<const char*> componentNames;
       // Scan for components only when need be
       if (!Scanned) {
+        componentNames.clear();
         components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
         for (auto component : components) {
           componentNames.push_back(component->Name.c_str());

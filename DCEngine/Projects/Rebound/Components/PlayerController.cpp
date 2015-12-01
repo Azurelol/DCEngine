@@ -270,6 +270,7 @@ namespace DCEngine {
 		}
 		SpriteComponent->Color = Vec4(1, 0, 0, 1);
 		Health -= damage;
+    SpaceRef->getComponent<SoundSpace>()->PlayCue("Hit");
 		if (PlayerControllerTraceOn)
 		{
 			DCTrace << "PlayerController::TakeDamage:: Health = " << Health << ".\n";

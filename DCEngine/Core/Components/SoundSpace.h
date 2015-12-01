@@ -31,7 +31,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Boolean, Pause);
 
       void PlayCue(std::string soundCueName);
-      void PlayCueAt(std::string soundCueName);
+      void PlayCueAt(std::string soundCueName);      
+      void PauseCue(std::string soundCueName);
+      void ResumeCue(std::string soundCueName);
       void StopCue(std::string soundCueName);
 
       SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
