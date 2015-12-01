@@ -34,7 +34,7 @@ namespace DCEngine {
     #endif
 
   private:
-    String NextLevel;
+    String NextLevel = "NO LEVEL SELECTED";
     Real LoadingTime = 1;
 	Real Timer = 1;
 	Boolean TimerStarted = false;

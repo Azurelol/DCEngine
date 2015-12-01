@@ -23,7 +23,7 @@ namespace DCEngine {
 		Sprite* SpriteRef;
 
     // Properties
-    DCE_DEFINE_PROPERTY(Real, Timer);
+	    DCE_DEFINE_PROPERTY(Real, Timer);
 
     // Methods
 		Skeleton(Entity& owner) : Component(std::string("Skeleton"), owner) {}
@@ -42,7 +42,7 @@ namespace DCEngine {
 
 	private:
     // Member variables
-    Real Timer;
+    Real Timer = 0;
 	};
 
 }

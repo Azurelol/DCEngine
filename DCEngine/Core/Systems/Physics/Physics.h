@@ -37,8 +37,8 @@ namespace DCEngine {
   {
     struct DetectionPairing
     {
-      GameObjectPtr obj1;
-      GameObjectPtr obj2;
+      GameObjectPtr obj1 = NULL;
+      GameObjectPtr obj2 = NULL;
       CollisionFilter filter;
     };
 
@@ -53,7 +53,7 @@ namespace DCEngine {
 
     private:
 
-      bool Paused;
+      bool Paused = false;
       std::vector<PhysicsSpace*> physicsSpaces_;
       std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
 
