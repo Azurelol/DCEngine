@@ -25,10 +25,12 @@ namespace DCEngine {
 		bool Grounded = true;
 		bool Jumping = false;
 		bool DoAutoPlay = true; //this is a lie, false is true and true is false. i am sorry, i will fix this.
-		bool Invincible = true;
+		bool Invincible = false;
 		bool LevelCheatLoaded = true;
 		bool musicplay = true;
 		Real AutoPlayTimer = 2;
+		Real FramesOfDamageColor = 10;
+		Real FramesOfDamageColorApplied = 0;
 		Real MoveSpeed = 0.7f;
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;

@@ -156,6 +156,22 @@ namespace DCEngine {
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		//hacking in logic for color changing, use fade later
+		if (SpriteComponent->Color == Vec4(1, 0, 0, 1))
+		{
+			if (FramesOfDamageColorApplied < FramesOfDamageColor)
+			{
+				FramesOfDamageColorApplied++;
+			}
+			else
+			{
+				FramesOfDamageColorApplied = 0;
+				SpriteComponent->Color = Vec4(1, 1, 1, 1);
+			}
+
+		}
+
+
 		if (!DoAutoPlay)
 		{
 			AutoPlayTimer += event->Dt;
@@ -243,7 +259,7 @@ namespace DCEngine {
 		{
 			return;
 		}
-
+		SpriteComponent->Color = Vec4(1, 0, 0, 1);
 		Health -= damage;
 		if (PlayerControllerTraceOn)
 		{
