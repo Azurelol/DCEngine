@@ -63,7 +63,11 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
-		if (LevelCheatLoaded = true)
+		if (event->Key == Keys::L)
+		{
+			LevelCheatLoaded = false;
+		}
+		if (LevelCheatLoaded == true)
 		{
 			return;
 		}
@@ -90,6 +94,9 @@ namespace DCEngine {
 			LevelCheatLoaded = true;
 			level = "YouWon";
 			SpaceRef->LoadLevel(level);
+			break;
+		case Keys::L:
+			LevelCheatLoaded = false;
 			break;
 		case Keys::Num1:
 			LevelCheatLoaded = true;
