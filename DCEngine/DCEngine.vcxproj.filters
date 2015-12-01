@@ -639,6 +639,9 @@
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
       <Filter>Core\Binding</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1110,6 +1113,9 @@
       <Filter>Core\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>

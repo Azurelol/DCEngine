@@ -81,6 +81,10 @@ namespace DCEngine {
 
       // Poll for events
       switch (_event.type) {
+	  case sf::Event::Closed:
+		  WindowContext->close();
+		  Daisy->Stop();
+		  break;
       case sf::Event::KeyPressed:
         //ImGuiPollKeyPressed(_event);
         PollKeyPressed(_event);

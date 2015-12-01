@@ -11,6 +11,7 @@
 /******************************************************************************/
 #include "Editor.h"
 #include "../../Engine/Engine.h"
+#include "../Input/InputSFML.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -23,6 +24,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayMainMenuBar()
     {
+		bool IsFullScreenTriggered = false;
       if (ImGui::BeginMainMenuBar()) {
 
         // Project
@@ -136,6 +138,11 @@ namespace DCEngine {
             WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
           if (ImGui::MenuItem("Console"))
             WindowConsoleEnabled = !WindowConsoleEnabled;
+		  ImGui::Separator();
+		  if (ImGui::MenuItem("Full Screen/Window mode"))
+		  {
+			  IsFullScreenTriggered = true;
+		  }
 
           ImGui::EndMenu();
         }
@@ -159,7 +166,13 @@ namespace DCEngine {
         ImGui::EndMainMenuBar();
 
       }
-
+	  if (IsFullScreenTriggered)
+	  {
+		  auto fsevent = new Events::FullscreenEnabledEvent();
+		  Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
+		  delete fsevent;
+		  return;
+	  }
     }
 
   }

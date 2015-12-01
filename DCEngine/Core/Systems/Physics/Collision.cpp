@@ -27,9 +27,9 @@ namespace DCEngine
     return 	std::max(a.getRestitution(), b.getRestitution());
   }
 
-  float DetermineFriction(RigidBody &a, RigidBody &b)
+  float DetermineFriction(float a, float b)
   {
-    return sqrt(a.getFriction() * b.getFriction());
+    return sqrt(a * b);
   }
 
   // remember to come back and fill these out with manifold data
@@ -274,17 +274,17 @@ namespace DCEngine
 
     if (result.rigid1 != false && result.rigid2 != false)
     {
-      result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+      result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
       result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
     }
     else if (result.rigid1 == false && result.rigid2 != false)
     {
-      result.FrictionCof = rigidbody2->getFriction();
+      result.FrictionCof = DetermineFriction(0.5f, rigidbody2->getFriction());
       result.Restitution = rigidbody2->getRestitution();
     }
     else if (result.rigid1 != false && result.rigid2 == false)
     {
-      result.FrictionCof = rigidbody1->getFriction();
+      result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), 0.5f);
       result.Restitution = rigidbody1->getRestitution();
     }
     else if (result.rigid1 == false && result.rigid2 == false)
@@ -319,7 +319,7 @@ namespace DCEngine
 
           if (result.rigid1 != false && result.rigid2 != false)
           {
-            result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+            result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
             result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
           }
           else if (result.rigid1 == false && result.rigid2 != false)
@@ -351,7 +351,7 @@ namespace DCEngine
 
           if (result.rigid1 != false && result.rigid2 != false)
           {
-            result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+            result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
             result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
           }
           else if (result.rigid1 == false && result.rigid2 != false)
@@ -677,17 +677,17 @@ namespace DCEngine
 
         if (result.rigid1 != false && result.rigid2 != false)
         {
-          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+          result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
           result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
         }
         else if (result.rigid1 == false && result.rigid2 != false)
         {
-          result.FrictionCof = rigidbody2->getFriction();
+          result.FrictionCof = DetermineFriction(0.5f, rigidbody2->getFriction());
           result.Restitution = rigidbody2->getRestitution();
         }
         else if (result.rigid1 != false && result.rigid2 == false)
         {
-          result.FrictionCof = rigidbody1->getFriction();
+          result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), 0.5f);
           result.Restitution = rigidbody1->getRestitution();
         }
         else if (result.rigid1 == false && result.rigid2 == false)
@@ -707,7 +707,7 @@ namespace DCEngine
 
         if (result.rigid1 != false && result.rigid2 != false)
         {
-          result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+          result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
           result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
         }
         else if (result.rigid1 == false && result.rigid2 != false)
@@ -838,17 +838,17 @@ namespace DCEngine
 
       if (result.rigid1 != false && result.rigid2 != false)
       {
-        result.FrictionCof = DetermineFriction(*rigidbody1, *rigidbody2);
+        result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
         result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
       }
       else if (result.rigid1 == false && result.rigid2 != false)
       {
-        result.FrictionCof = rigidbody2->getFriction();
+        result.FrictionCof = DetermineFriction(0.5f, rigidbody2->getFriction());
         result.Restitution = rigidbody2->getRestitution();
       }
       else if (result.rigid1 != false && result.rigid2 == false)
       {
-        result.FrictionCof = rigidbody1->getFriction();
+        result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), 0.5f);
         result.Restitution = rigidbody1->getRestitution();
       }
       else if (result.rigid1 == false && result.rigid2 == false)

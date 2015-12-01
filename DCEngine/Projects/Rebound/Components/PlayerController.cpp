@@ -97,6 +97,7 @@ namespace DCEngine {
 			SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = false;
 			//SpriteComponent->AnimationActive = false;
+      RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
 		}
 		else
 		{
@@ -127,14 +128,18 @@ namespace DCEngine {
 		{
 			SpriteComponent->FlipX = true;
 			MoveLeft();
-
+      RigidBodyRef->setFriction(0.3f);
 		}
-
-		if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
+		else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
 			SpriteComponent->FlipX = false;
 			MoveRight();
+      RigidBodyRef->setFriction(0.3f);
 		}
+    else
+    {
+      RigidBodyRef->setFriction(1.3f);
+    }
 	}
 
 	//void PlayerController::OnDamageEvent(Events::DamageEvent * event)
@@ -170,8 +175,8 @@ namespace DCEngine {
 
 	void PlayerController::Die()
 	{
-    DCTrace << "PlayerController::Die - Reloading level \n";
-		//this->SpaceRef->ReloadLevel();
+		DCTrace << "PlayerController::Die - Reloading level \n";
+		this->SpaceRef->ReloadLevel();
 	}
 
 
@@ -202,31 +207,50 @@ namespace DCEngine {
 	}
 	void PlayerController::MoveLeft()
 	{
+    float scalar = 0.0f;
+
 		if (RigidBodyRef->getVelocity().x > 0)
 		{
-			auto scalar = TurnSpeedScalar;
+			scalar = TurnSpeedScalar;
 		}
 		else
 		{
-			auto scalar = 1;
+			scalar = 1;
 		}
-		RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed, 0, 0));
 
+    if (RigidBodyRef->getVelocity().length() < 4.0f)
+    {
+      RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar * 1.5f, 0, 0));
+    }
+    else
+    {
+      RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar, 0, 0));
+    }
 
 		//PrintTranslation();
 	}
 	void PlayerController::MoveRight()
 	{
+    float scalar = 0.0f;
+
 		if (RigidBodyRef->getVelocity().x < 0)
 		{
-			auto scalar = TurnSpeedScalar;
+			scalar = TurnSpeedScalar;
 		}
 		else
 		{
-			auto scalar = 1;
+			scalar = 1;
 		}
-		RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed, 0, 0));
 		//PrintTranslation();
+    if (RigidBodyRef->getVelocity().length() < 4.0f)
+    {
+      RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar * 1.5f, 0, 0));
+    }
+    else
+    {
+      RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar, 0, 0));
+    }
+
 	}
 
 }

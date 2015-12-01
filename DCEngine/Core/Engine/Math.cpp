@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/*!
+@file   Math.cpp
+@author Christian Sagel, Blaine Reiner
+@par    email: c.sagel\@digipen.edu , blaine.reiner\@digipen.edu
+@date   10/01/2015
+@note   This file includes all the headers for the components that Rebound
+uses.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Math.h""
 
 namespace DCEngine {
@@ -48,9 +59,40 @@ namespace DCEngine {
 
   Vec3 Math::Snap(Vec3 & val, float snapDistance)
   {
-    return Vec3(static_cast<int>(val.x) + snapDistance,
-                static_cast<int>(val.y) + snapDistance,
-                static_cast<int>(val.z) + snapDistance);
+    Vec3 Result;
+
+    float remainderx = Modulus(val.x, abs(snapDistance));
+    float remaindery = Modulus(val.y, abs(snapDistance));
+    float remainderz = Modulus(val.z, abs(snapDistance));
+
+    if ((snapDistance - remainderx) > remainderx)
+    {
+      Result.x = val.x - remainderx;
+    }
+    else
+    {
+      Result.x = (val.x - remainderx) + snapDistance;
+    }
+
+    if ((snapDistance - remaindery) > remaindery)
+    {
+      Result.y = val.y - remaindery;
+    }
+    else
+    {
+      Result.y = (val.y - remaindery) + snapDistance;
+    }
+
+    if ((snapDistance - remainderz) > remainderz)
+    {
+      Result.z = val.z - remainderz;
+    }
+    else
+    {
+      Result.z = (val.z - remainderz) + snapDistance;
+    }
+
+    return Result;
   }
   std::ostream& operator<<(std::ostream & os, Vec3 & const vec)
   {

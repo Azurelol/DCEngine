@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/*!
+@file   ReboundBinding.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   10/01/2015
+@note   This file includes all the headers for the components that Rebound
+uses.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "ReboundBinding.h"
 
 // Components
@@ -16,12 +27,14 @@ namespace DCEngine {
     ZilchInitializeType(EnemyController);
     ZilchInitializeType(CameraController);
     ZilchInitializeType(ChargeBar);    
-	  ZilchInitializeType(Fade);
+	ZilchInitializeType(Fade);
     ZilchInitializeType(HazardArea);
+	ZilchInitializeType(MoveToLocation);
     ZilchInitializeType(MusicManager);
     ZilchInitializeType(PauseManager);
-	  ZilchInitializeType(LevelManager);
+	ZilchInitializeType(LevelManager);
     ZilchInitializeType(MainMenuManager);
+
   }
 
   void ReboundComponentsAddToFactory() {
@@ -38,9 +51,10 @@ namespace DCEngine {
     factory->AddComponentFactory(PauseManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<PauseManager>>());
     factory->AddComponentFactory(ChargeBar::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<ChargeBar>>());
     factory->AddComponentFactory(HazardArea::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<HazardArea>>());
-	  factory->AddComponentFactory(Fade::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Fade>>());
-	  factory->AddComponentFactory(LevelManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<LevelManager>>());
+	factory->AddComponentFactory(Fade::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Fade>>());
+	factory->AddComponentFactory(LevelManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<LevelManager>>());
     factory->AddComponentFactory(MainMenuManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MainMenuManager>>());
+	factory->AddComponentFactory(MoveToLocation::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MoveToLocation>>());
 
   }
 
