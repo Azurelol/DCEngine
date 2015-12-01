@@ -157,6 +157,15 @@ namespace DCEngine {
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
 		//hacking in logic for color changing, use fade later
+		if (Dead)
+		{
+			DeathTimer += event->Dt;
+			if (DeathTimer > TimeToDie)
+			{
+				this->SpaceRef->ReloadLevel();
+			}
+			return;
+		}
 		if (SpriteComponent->Color == Vec4(1, 0, 0, 1))
 		{
 			if (FramesOfDamageColorApplied < FramesOfDamageColor)
@@ -277,7 +286,13 @@ namespace DCEngine {
 	void PlayerController::Die()
 	{
 		DCTrace << "PlayerController::Die - Reloading level \n";
-		this->SpaceRef->ReloadLevel();
+		SpriteComponent->Color = Vec4(0, 0, 0, 1);
+		Dead = true;
+		auto cameraRef = SpaceRef->FindObjectByName("Camera");
+		if(cameraRef)
+		{
+			cameraRef->getComponent<CameraController>()->DoScreenShake = true;
+		}
 	}
 
 

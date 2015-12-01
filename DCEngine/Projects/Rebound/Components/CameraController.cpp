@@ -64,6 +64,10 @@ namespace DCEngine {
 
 	void CameraController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (DoScreenShake)
+		{
+			TransformRef->setTranslation(TransformRef->getTranslation() + Vec3((rand() % 100 - 50) / 50, (rand() % 100 - 50) / 50, 0));
+		}
 		Real FrameRateCompensation = event->Dt * 60;
 		if (CameraControllerTraceOn)
 		{
