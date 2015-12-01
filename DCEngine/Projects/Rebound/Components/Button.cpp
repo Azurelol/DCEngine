@@ -19,14 +19,8 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(Button, "Button", DCEngineCore, builder, type) {
-		//// Constructor / Destructor
-		//ZilchBindConstructor(builder, type, Button, "owner", Entity&);
-		//ZilchBindDestructor(builder, type, Button);
-		//// Properties
-		//ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-		//ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-		//ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+	ZilchDefineType(Button, "Button", Rebound, builder, type) {
+		DCE_BINDING_DEFINE_PROPERTY(Button, Target);
 	}
 #endif
 
@@ -54,10 +48,10 @@ namespace DCEngine {
 			auto ball = SpaceRef->FindObjectByName("Basketball");
 			if (ball)
 			{
-				auto wall = SpaceRef->FindObjectByName("Door");
+				auto wall = SpaceRef->FindObjectByName("Target");
 				if (wall)
 				{
-					wall->getComponent<Transform>()->setTranslation(Vec3(0, -100, 0));
+					wall->getComponent<MoveToLocation>()->setMoving(true);
 				}
 			}
 		}

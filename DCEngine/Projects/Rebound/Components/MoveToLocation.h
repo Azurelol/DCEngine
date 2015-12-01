@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-@file   Button.h
+@file   MoveToLocation.h
 @author Connor Tilley
 @par    email: connor.tilley\@digipen.edu
 @date   11/19/2015
@@ -15,17 +15,21 @@ namespace DCEngine {
 	class Transform;
 	class RigidBody;
 	class Sprite;
-	class Button : public Component {
+	class MoveToLocation : public Component {
 
 	public:
 		Transform* TransformRef;
-		Sprite* SpriteRef;
+		//RigidBody* RigidBodyRef;
+		//Sprite* SpriteRef;
 
-		DCE_DEFINE_PROPERTY(String, Target);
 		// Properties
-
+		DCE_DEFINE_PROPERTY(Real, Timer);
+		DCE_DEFINE_PROPERTY(Boolean, Moving);
+		DCE_DEFINE_PROPERTY(Real, MoveToLocationTime); //How long in seconds it takes to MoveToLocation to TargetLocation
+		DCE_DEFINE_PROPERTY(Vec3, InitialLocation);
+		DCE_DEFINE_PROPERTY(Vec3, TargetLocation);
 		// Methods
-		Button(Entity& owner) : Component(std::string("Button"), owner) {}
+		MoveToLocation(Entity& owner) : Component(std::string("MoveToLocation"), owner) {}
 		void Initialize();
 		void OnMouseDownEvent(Events::MouseDown* event);
 		void OnMouseUpEvent(Events::MouseUp* event);
@@ -36,12 +40,16 @@ namespace DCEngine {
 		void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDeclareDerivedType(Button, Component);
+		ZilchDeclareDerivedType(MoveToLocation, Component);
 #endif
 
 	private:
 		// Member variables
-		String Target;
+		Real Timer = 0;
+		Vec3 TargetLocation = Vec3(10.0f, 0.0f, 0.0f);
+		Vec3 InitialLocation = Vec3(-9001.0f, -9001.0f, -9001.0f);
+		Boolean Moving = true;
+		Real MoveToLocationTime = 1;
 	};
 
 }
