@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+@file   EditorCameraController.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/22/2015
+@brief  The EditorCameraController...
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "EditorCameraController.h"
 
 #include "EngineReference.h"

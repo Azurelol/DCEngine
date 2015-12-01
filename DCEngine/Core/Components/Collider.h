@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   BoxCollider.h
+@file   Collider.h
 @author Blaine Reiner, Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   9/23/2015
