@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+@file   SpriteParticleSystem.cpp
+@author Chen Shu, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/6/2015
+@brief  The SpriteParticleSystem component...
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "SpriteParticleSystem.h"
 #include "EngineReference.h"
 

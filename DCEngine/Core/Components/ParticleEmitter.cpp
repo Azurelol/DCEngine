@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   ParticleEmitter.cpp
+@author Chen Shu, Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   11/6/2015
+@brief  The ParticleEmitter component...
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
 #include "ParticleEmitter.h"
 #include "EngineReference.h"
 

@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/*!
+@file   Math.cpp
+@author Christian Sagel, Blaine Reiner
+@par    email: c.sagel\@digipen.edu , blaine.reiner\@digipen.edu
+@date   10/01/2015
+@note   This file includes all the headers for the components that Rebound
+uses.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Math.h""
 
 namespace DCEngine {
