@@ -63,7 +63,43 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
+		String level;
+		switch (event->Key)
+		{
+		case Keys::I:
+			Invincible = !Invincible;
+			if (Invincible)
+			{
+				SpriteComponent->Color = Vec4(1, 0, 1, 1);
+			}
+			else
+			{
+				SpriteComponent->Color = Vec4(1, 1, 1, 1);
+			}
+			break;
+		case Keys::O:
+			Die();
+			break;
+		case Keys::P:
+			level = "YouWon";
+			SpaceRef->LoadLevel(level);
+			break;
+		case Keys::Num1:
+			level = "Level1";
+			SpaceRef->LoadLevel(level);
+			break;
+		case Keys::Num2:
+			level = "Level2";
+			SpaceRef->LoadLevel(level);
+			break;
+		case Keys::Num3:
+			level = "Level3";
+			SpaceRef->LoadLevel(level);
+			break;
 
+		default:
+			break;
+		}
 	}
 
 	void PlayerController::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -160,6 +196,11 @@ namespace DCEngine {
 
 	void PlayerController::TakeDamage(int damage)
 	{
+		if(Invincible)
+		{
+			return;
+		}
+
 		Health -= damage;
 		if (PlayerControllerTraceOn)
 		{
@@ -227,6 +268,15 @@ namespace DCEngine {
       RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar, 0, 0));
     }
 
+    if (musicplay)
+    {
+      auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+      auto event = new Events::PlayMusic;
+      objref->Dispatch<Events::PlayMusic>(event);
+      delete event;
+      musicplay = false;
+    }
+
 		//PrintTranslation();
 	}
 	void PlayerController::MoveRight()
@@ -249,6 +299,15 @@ namespace DCEngine {
     else
     {
       RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar, 0, 0));
+    }
+
+    if (musicplay)
+    {
+      auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+      auto event = new Events::PlayMusic;
+      objref->Dispatch<Events::PlayMusic>(event);
+      delete event;
+      musicplay = false;
     }
 
 	}

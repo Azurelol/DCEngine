@@ -25,6 +25,11 @@ namespace DCEngine {
 		bool Grounded = true;
 		bool Jumping = false;
 		bool DoAutoPlay = true;
+
+                bool musicplay = true;
+
+		bool Invincible = true;
+
 		Real MoveSpeed = 0.7f;
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;

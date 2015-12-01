@@ -18,6 +18,10 @@ namespace DCEngine {
       String NextTrack;
     };
 
+    class PlayMusic : public Event {
+    public:
+    };
+
     class ChangeLevel : public Event {
     public:
       String NextLevel;
