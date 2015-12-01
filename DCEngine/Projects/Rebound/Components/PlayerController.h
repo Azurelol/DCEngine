@@ -26,6 +26,7 @@ namespace DCEngine {
 		bool Jumping = false;
 		bool DoAutoPlay = true;
 		bool Invincible = true;
+		bool LevelCheatLoaded = false;
 		Real MoveSpeed = 0.7f;
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;

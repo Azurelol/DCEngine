@@ -63,6 +63,11 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
+		if (LevelCheatLoaded = true)
+		{
+			return;
+		}
+
 		String level;
 		switch (event->Key)
 		{
@@ -70,7 +75,7 @@ namespace DCEngine {
 			Invincible = !Invincible;
 			if (Invincible)
 			{
-				SpriteComponent->Color = Vec4(1, 0, 1, 1);
+				SpriteComponent->Color = Vec4(1, 1, 0, 1);
 			}
 			else
 			{
@@ -78,21 +83,26 @@ namespace DCEngine {
 			}
 			break;
 		case Keys::O:
+			LevelCheatLoaded = true;
 			Die();
 			break;
 		case Keys::P:
+			LevelCheatLoaded = true;
 			level = "YouWon";
 			SpaceRef->LoadLevel(level);
 			break;
 		case Keys::Num1:
+			LevelCheatLoaded = true;
 			level = "Level1";
 			SpaceRef->LoadLevel(level);
 			break;
 		case Keys::Num2:
+			LevelCheatLoaded = true;
 			level = "Level2";
 			SpaceRef->LoadLevel(level);
 			break;
 		case Keys::Num3:
+			LevelCheatLoaded = true;
 			level = "Level3";
 			SpaceRef->LoadLevel(level);
 			break;
