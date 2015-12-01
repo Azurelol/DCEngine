@@ -490,6 +490,26 @@ namespace DCEngine
     auto boxcollider = objrect->getComponent<BoxCollider>();
     auto circlecollider = objcircle->getComponent<CircleCollider>();
 
+    if (!result.rigid1 && !result.rigid2)
+    {
+      return false;
+    }
+    else if ((result.rigid1 && !result.rigid2) && (objrect->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if ((!result.rigid1 && result.rigid2) && (objcircle->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if (result.rigid1 && result.rigid2)
+    {
+      if ((objrect->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (objcircle->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      {
+        return false;
+      }
+    }
+
     if (boxcollider == NULL)
     {
       throw DCException("An object Missing a BoxCollider component got passed to BoxtoCircle");
@@ -747,6 +767,26 @@ namespace DCEngine
     /* get the colliders */
     auto circlecollider1 = obj1->getComponent<CircleCollider>();
     auto circlecollider2 = obj2->getComponent<CircleCollider>();
+
+    if (!result.rigid1 && !result.rigid2)
+    {
+      return false;
+    }
+    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    {
+      return false;
+    }
+    else if (result.rigid1 && result.rigid2)
+    {
+      if ((obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      {
+        return false;
+      }
+    }
 
     if (circlecollider1 == NULL || circlecollider2 == NULL)
     {

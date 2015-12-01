@@ -16,20 +16,11 @@
 
 namespace DCEngine
 {
-  enum ColliderType
-  {
-    Circle = 0,
-    Rectangle
-  };
 
   class GameObject;
   class Manifold
   {
   public:
-
-    bool rigid1;
-    bool rigid2;
-
     GameObject* Object1;
     GameObject* Object2;
 
@@ -45,6 +36,8 @@ namespace DCEngine
     float ContactImpulse;
     float CalculateSeparatingVelocity();
 
+    bool rigid1;
+    bool rigid2;
 
   };
 
