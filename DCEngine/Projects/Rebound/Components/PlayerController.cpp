@@ -24,6 +24,7 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
+	DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
   }
   #endif
 
@@ -63,14 +64,34 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
+		if (event->Key == Keys::L)
+		{
+			LevelCheatLoaded = false;
+		}
+		if (LevelCheatLoaded == true)
+		{
+			return;
+		}
+
 		String level;
 		switch (event->Key)
 		{
 		case Keys::I:
-			Invincible = !Invincible;
+			
 			if (Invincible)
 			{
-				SpriteComponent->Color = Vec4(1, 0, 1, 1);
+				SpriteComponent->Color = Vec4(1, 1, 0, 1);
+			}
+			else
+			{
+				SpriteComponent->Color = Vec4(1, 1, 1, 1);
+			}
+			break;
+		case Keys::U:
+			DoAutoPlay = !DoAutoPlay;
+			if (!DoAutoPlay)
+			{
+				SpriteComponent->Color = Vec4(0, 0.5, 0, 1);
 			}
 			else
 			{
@@ -78,21 +99,29 @@ namespace DCEngine {
 			}
 			break;
 		case Keys::O:
+			LevelCheatLoaded = true;
 			Die();
 			break;
 		case Keys::P:
+			LevelCheatLoaded = true;
 			level = "YouWon";
 			SpaceRef->LoadLevel(level);
 			break;
+		case Keys::L:
+			LevelCheatLoaded = false;
+			break;
 		case Keys::Num1:
+			LevelCheatLoaded = true;
 			level = "Level1";
 			SpaceRef->LoadLevel(level);
 			break;
 		case Keys::Num2:
+			LevelCheatLoaded = true;
 			level = "Level2";
 			SpaceRef->LoadLevel(level);
 			break;
 		case Keys::Num3:
+			LevelCheatLoaded = true;
 			level = "Level3";
 			SpaceRef->LoadLevel(level);
 			break;
@@ -127,18 +156,36 @@ namespace DCEngine {
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		//hacking in logic for color changing, use fade later
+		if (SpriteComponent->Color == Vec4(1, 0, 0, 1))
+		{
+			if (FramesOfDamageColorApplied < FramesOfDamageColor)
+			{
+				FramesOfDamageColorApplied++;
+			}
+			else
+			{
+				FramesOfDamageColorApplied = 0;
+				SpriteComponent->Color = Vec4(1, 1, 1, 1);
+			}
+
+		}
+
+
+		if (!DoAutoPlay)
+		{
+			AutoPlayTimer += event->Dt;
+			AutoPlay(event);
+		}
 		//DCTrace << "Grounded =" << Grounded << "\n";
 		if (!Grounded)
 		{
 			SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = false;
 			//SpriteComponent->AnimationActive = false;
-      RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
+		    RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
 		}
-		else
-		{
-			SpriteComponent->SpriteSource = StandAnimation;
-		}
+
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W) || Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		{
@@ -164,18 +211,30 @@ namespace DCEngine {
 		{
 			SpriteComponent->FlipX = true;
 			MoveLeft();
-      RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(0.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = RunAnimation;
+			}
 		}
 		else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
 			SpriteComponent->FlipX = false;
 			MoveRight();
-      RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(0.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = RunAnimation;
+			}
 		}
-    else
-    {
-      RigidBodyRef->setFriction(1.3f);
-    }
+		else
+		{
+		    RigidBodyRef->setFriction(1.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = StandAnimation;
+			}
+		}
 	}
 
 	//void PlayerController::OnDamageEvent(Events::DamageEvent * event)
@@ -200,7 +259,7 @@ namespace DCEngine {
 		{
 			return;
 		}
-
+		SpriteComponent->Color = Vec4(1, 0, 0, 1);
 		Health -= damage;
 		if (PlayerControllerTraceOn)
 		{
@@ -235,6 +294,14 @@ namespace DCEngine {
 
 	void PlayerController::AutoPlay(Events::LogicUpdate * event)
 	{
+		//autoplay is a super hacky copy of enemycontroller's random enemy - fix this later
+		if (AutoPlayTimer > 2)
+		{
+			AutoPlayTimer = 0;
+			auto direction = rand() % 11 - 5; //-5 to 5
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * 10, 200, 0));
+		}
+
 		switch (rand() % 3)
 		{
 

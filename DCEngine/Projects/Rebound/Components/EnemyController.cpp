@@ -57,7 +57,7 @@ namespace DCEngine {
 		{
 			//TransformRef->Translation.x = -1000;
 			//TransformRef->Translation.y = -1000;
-
+			PlayerRef->getComponent<PlayerController>()->TakeDamage(3);
 			//this->SpaceRef->Dispatch()
 		}
 	}

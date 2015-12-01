@@ -14,9 +14,7 @@ namespace DCEngine {
 
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(MusicManager, "MusicManager", Rebound, builder, type) {
-    DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE_TYPE(SoundCue);    
-    //DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE;    
-    DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack)->Attributes.push_back(resourceAttribute);
+    DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack);
     DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack);
     DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
     DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
@@ -32,8 +30,7 @@ namespace DCEngine {
     Connect(Daisy->getKeyboard(), Events::KeyDown, MusicManager::OnKeyDownEvent);
     Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
     Connect(Owner() , Events::PlayMusic, MusicManager::OnPlayMusicEvent);
-    Daisy->Connect<Events::EnginePause>(&MusicManager::OnEnginePauseEvent, this);
-    Daisy->Connect<Events::EngineResume>(&MusicManager::OnEngineResumeEvent, this);
+    Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
   }
 
   void MusicManager::OnKeyDownEvent(Events::KeyDown * event)
@@ -51,20 +48,19 @@ namespace DCEngine {
   {
   }
 
-  void MusicManager::OnEnginePauseEvent(Events::EnginePause * event)
-  {
-    //this->SpaceRef->getComponent<SoundSpace>()->PauseCue(CurrentTrack);
-  }
-
-  void MusicManager::OnEngineResumeEvent(Events::EngineResume * event)
-  {
-    //this->SpaceRef->getComponent<SoundSpace>()->ResumeCue(CurrentTrack);
-  }
-
   void MusicManager::OnPlayMusicEvent(Events::PlayMusic* event)
   {
     Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
     this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
   }
 
+  void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
+  {
+    if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play)
+    {
+      Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
+      this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
+      play = false;
+    }
+  }
 }
