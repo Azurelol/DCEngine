@@ -113,26 +113,24 @@ namespace DCEngine {
 	  case sf::Event::LostFocus:
 		  if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
 		  {
-			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
-        // Send event to start pause menu
-        // Pause the engine (Physics, Input, Events)
-        auto pause = new Events::EnginePauseMenu();
-        Daisy->Dispatch<Events::EnginePauseMenu>(pause);
-        delete pause;
-
+			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);        
 		  }
-		  break;
+      DispatchSystemEvents::WindowLostFocus();
+		  break;      
 	  case sf::Event::GainedFocus:
 		  ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
+      DispatchSystemEvents::WindowGainedFocus();
 		  break;
 
 
         // Don't process other events
       default:
       // @todo WHAT?? - CTRL - ALT - DELETE COMBO FOR TASK MANAGER
+        // Send lose focus event
 		  if ((((unsigned short)GetKeyState(VK_CONTROL)) >> 15) && (((unsigned short)GetKeyState(VK_MENU) >> 15)) && (((unsigned short)GetKeyState(VK_MENU) >> 15)))
 		  {
 			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+        DispatchSystemEvents::WindowLostFocus();
 		  }
         break;
       }

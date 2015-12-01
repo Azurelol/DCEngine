@@ -92,13 +92,13 @@ namespace DCEngine {
     void LoadDefaultSpace();
     void Update(float dt);   
     void Subscribe();
+    void OnWindowLostFocusEvent(Events::WindowLostFocus* event);
+    void OnWindowGainedFocusEvent(Events::WindowGainedFocus* event);    
     void OnEnginePauseEvent(Events::EnginePause* event);
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
     void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
     void DispatchLogicUpdateEvent(float dt);
-    void PauseMenu();
-
 
   }; // Engine. Template definitions are found below.
 

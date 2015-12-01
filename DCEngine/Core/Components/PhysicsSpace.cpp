@@ -34,6 +34,7 @@ namespace DCEngine {
   PhysicsSpace::~PhysicsSpace()
   {
     // Deregister from the Physics System
+    Daisy->getSystem<Systems::Physics>()->DeregisterSpace(*this);
   }
 
   /**************************************************************************/

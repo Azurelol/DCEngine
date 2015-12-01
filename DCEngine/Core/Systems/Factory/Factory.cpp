@@ -51,6 +51,8 @@ namespace DCEngine {
       DestroyGameObjects();      
       // Destroy all marked components
       DestroyComponents();
+      // Destroy all marked spaces
+      DestroySpaces();
     }
 
     /**************************************************************************/
@@ -345,6 +347,17 @@ namespace DCEngine {
 
     }
 
+
+    void Factory::DestroySpaces()
+    {
+      for (auto& space : SpacesToBeDeleted) {
+        space->GameSessionRef->RemoveSpace(space);        
+      }
+
+      SpacesToBeDeleted.clear();
+    }
+
+
     /**************************************************************************/
     /*!
     @brief Adds a component factory to the Factory system.
@@ -372,6 +385,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::MarkGameObject(GameObject& gameObj) {
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
+    }
+
+    void Factory::MarkSpace(Space& space)
+    {
+      SpacesToBeDeleted.insert(SpacePtr(&space));
     }
 
     /**************************************************************************/
@@ -411,6 +429,8 @@ namespace DCEngine {
       GameObjectsToBeDeleted.clear();
 
     }
+
+
 
 
 

@@ -51,14 +51,16 @@ namespace DCEngine {
     ~Space();
     void Initialize();
     void Terminate();
+    void Destroy();
     void Update(float dt);
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
 
-
+    // Levels
     void LoadLevel(std::string& level);
     void ReloadLevel();
 
+    // GameObjects
     GameObjectPtr CreateObject(); 
     GameObjectPtr CreateObject(std::string archetypeName);
     GameObjectPtr CreateObject(ArchetypePtr archetype);
@@ -89,7 +91,8 @@ namespace DCEngine {
 
   };
 
-  using SpacePtr = std::shared_ptr<Space>;
-  using SpaceMap = std::unordered_map<std::string, SpacePtr>;
+  using SpacePtr = Space*;
+  using SpaceStrongPtr = std::shared_ptr<Space>;
+  using SpaceMap = std::unordered_map<std::string, SpaceStrongPtr>;
 
 }

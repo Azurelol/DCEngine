@@ -82,11 +82,11 @@ namespace DCEngine {
 
     auto space = ActiveSpaces.find(name);
     if (space != ActiveSpaces.end())
-      return (*space).second;
+      return (*space).second.get();
 
     // If the space doesn't exist, create it
     else
-      ActiveSpaces.emplace(name, SpacePtr(new DCEngine::Space(name, *this)));
+      ActiveSpaces.emplace(name, SpaceStrongPtr(new DCEngine::Space(name, *this)));
 
     /* http://en.cppreference.com/w/cpp/container/unordered_map/emplace
     Inserts a new element into the container by constructing it in-place
@@ -127,7 +127,7 @@ namespace DCEngine {
 
     // Check if the space was found
     if (it != ActiveSpaces.end())
-      return it->second;
+      return it->second.get();
 
     /*
     Dereferencing a std::map iterator gives you a std::pair,
@@ -151,6 +151,19 @@ namespace DCEngine {
   /**************************************************************************/
   void GameSession::UpdateSpace(SpacePtr space, float dt) {
     space->Update(dt);
+  }
+
+  void GameSession::RemoveSpace(SpacePtr space)
+  {
+    SpaceMap::iterator it = ActiveSpaces.find(space->getObjectName());
+    ActiveSpaces.erase(it);
+    return;
+
+    DCTrace << "GameSession::RemoveSpace - Removing: " << space->getObjectName() << "\n";
+    DCTrace << "Remaining spaces: \n";
+    for (auto& space : ActiveSpaces) {
+      DCTrace << "- " << space.second->getObjectName() << "\n";
+    }
   }
 
 
