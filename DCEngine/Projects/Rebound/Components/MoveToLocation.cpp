@@ -77,6 +77,7 @@ namespace DCEngine {
 		if (InitialLocation == Vec3(-9001.0f, -9001.0f, -9001.0f))
 		{
 			InitialLocation = TransformRef->getTranslation();
+			TargetLocation = InitialLocation + TargetLocation;
 		}
 		Timer += event->Dt;
 		if (Timer > MoveToLocationTime)
@@ -91,6 +92,7 @@ namespace DCEngine {
 		if(TransformRef->getTranslation() == TargetLocation)
 		{
 			Moving = false;
+			Timer = 0;
 			TargetLocation = InitialLocation;
 			InitialLocation = TransformRef->getTranslation();
 		}
