@@ -31,6 +31,7 @@ namespace DCEngine {
     void OnHelpClicked(Events::MouseClickedOn* event);
     void OnCreditsClicked(Events::MouseClickedOn* event);
     void OnExitClicked(Events::MouseClickedOn* event);
+	void OnFullScreenSwitch(Events::MouseClickedOn* event);
 
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
@@ -48,6 +49,7 @@ namespace DCEngine {
     GameObjectPtr ButtonHelp;
     GameObjectPtr ButtonCredits;
     GameObjectPtr ButtonExit;
+	GameObjectPtr ButtonFullScreen;
 
   };
 
