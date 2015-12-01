@@ -32,6 +32,7 @@ namespace DCEngine {
       Result.y = (val.y - remaindery) + snapDistance;
     }
     
+    return Result;
   }
 
   float Math::Modulus(float val, float divisor)

@@ -199,7 +199,7 @@ namespace DCEngine
 
         Real dot = glm::dot(friction1, c.Object1->getComponent<RigidBody>()->getVelocity());
 
-        friction1 *= dot / 15.0f;
+        friction1 *= dot / 12.0f;
 
         friction1 *= -c.FrictionCof;
 
@@ -217,7 +217,7 @@ namespace DCEngine
 
         Real dot = glm::dot(friction2, c.Object2->getComponent<RigidBody>()->getVelocity());
 
-        friction2 *= dot / 15.0f;
+        friction2 *= dot / 12.0f;
 
         friction2 *= -c.FrictionCof;
 
@@ -235,7 +235,7 @@ namespace DCEngine
 
         Real dot = glm::dot(friction1, c.Object1->getComponent<RigidBody>()->getVelocity());
 
-        friction1 *= dot / 15.0f;
+        friction1 *= dot / 12.0f;
 
         friction1 *= -c.FrictionCof;
 
@@ -251,7 +251,7 @@ namespace DCEngine
 
         Real dot = glm::dot(friction2, c.Object2->getComponent<RigidBody>()->getVelocity());
 
-        friction2 *= dot / 15.0f;
+        friction2 *= dot / 12.0f;
 
         friction2 *= -c.FrictionCof;
 
