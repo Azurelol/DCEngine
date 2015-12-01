@@ -34,12 +34,12 @@ namespace DCEngine {
 		//Connect(Daisy->getMouse(), Events::MouseUp, ErraticDoor::OnMouseUpEvent);
 		//Connect(gameObj, Events::CollisionStarted, ErraticDoor::OnCollisionStartedEvent);
 		//Connect(gameObj, Events::CollisionEnded, ErraticDoor::OnCollisionEndedEvent);
-		//Connect(SpaceRef, Events::LogicUpdate, ErraticDoor::OnLogicUpdateEvent);
+		Connect(SpaceRef, Events::LogicUpdate, ErraticDoor::OnLogicUpdateEvent);
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		//RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		MTLRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<MoveToLocation>();
-		RandomDelay = (rand() % 10 + 1) * 2;
+		RandomDelay = (rand() % 10 + 1) / 3;
 	}
 
 	void ErraticDoor::OnMouseDownEvent(Events::MouseDown * event)
@@ -76,7 +76,9 @@ namespace DCEngine {
 		Timer += event->Dt;
 		if (Timer > RandomDelay)
 		{
+			RandomDelay = (rand() % 10 + 1) / 3;
 			MTLRef->setMoving(true);
+			Timer = 0;
 		}
 	}
 
