@@ -27,6 +27,7 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnPlayMusicEvent(Events::PlayMusic* event);
     void OnKeyUpEvent(Events::KeyUp* event);
+    void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
     DCE_BINDING_DECLARE_DERIVED_TYPE(MusicManager, Component);
 
@@ -39,6 +40,7 @@ namespace DCEngine {
     String LastTrack = "NO TRACK SET";
     Real FadeInTime = 0;
     Real FadeOutTime = 0;
+    bool play = true;
     
 
 

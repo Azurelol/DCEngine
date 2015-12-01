@@ -17,8 +17,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.000000, 
+                "x": -33.999966, 
+                "y": 9.067459, 
                 "z": 1.000000
               }
             }, 
@@ -149,7 +149,7 @@
               "Vec3": 
               {
                 "x": -34.000000, 
-                "y": 6.000000, 
+                "y": 4.067468, 
                 "z": 0.000000
               }
             }, 
@@ -185,7 +185,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerRun", 
+            "SpriteSource": "PlayerStand", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -223,7 +223,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -0.961171, 
                 "z": 0.000000
               }
             }, 
@@ -3314,7 +3314,7 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "Flurry", 
+            "CurrentTrack": "PacMan-InGame2", 
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
