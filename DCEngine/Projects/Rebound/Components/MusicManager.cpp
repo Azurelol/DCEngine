@@ -30,6 +30,7 @@ namespace DCEngine {
     Connect(Daisy->getKeyboard(), Events::KeyDown, MusicManager::OnKeyDownEvent);
     Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
     Connect(Owner() , Events::PlayMusic, MusicManager::OnPlayMusicEvent);
+    Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
   }
 
   void MusicManager::OnKeyDownEvent(Events::KeyDown * event)
@@ -53,4 +54,13 @@ namespace DCEngine {
     this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
   }
 
+  void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
+  {
+    if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play)
+    {
+      Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
+      this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
+      play = false;
+    }
+  }
 }
