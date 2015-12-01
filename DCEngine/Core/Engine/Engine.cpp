@@ -358,23 +358,9 @@ namespace DCEngine {
   void Engine::LoadDefaultSpace()
   {
     // Create the default space
-    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
+    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace, false);
     // Set a reference to it in the GameSession object
     gamesession_->DefaultSpace = defaultSpace.get();
-    //// Construct a camera object
-    //auto camera = getSystem<Systems::Factory>()->CreateGameObject("DefaultCamera", *defaultSpace, false);
-    //
-    //camera->AddComponent<Camera>();
-    //camera->AddComponent<DebugCamera>();
-    //camera->AddComponent<DebugAudio>();
-    //// Camera properties      
-    //camera->getComponent<DebugAudio>()->Track1 = "soulja";
-    //camera->getComponent<DebugAudio>()->Track2 = "spacejam2";
-    //camera->getComponent<Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
-    //camera->getComponent<Camera>()->Size = 70;
-    //camera->getComponent<Camera>()->Projection = ProjectionMode::Perspective;
-    //// Add the camera to the space
-    //defaultSpace->AddObject(camera);
   }
 
   /**************************************************************************/

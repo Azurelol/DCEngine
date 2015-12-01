@@ -73,7 +73,7 @@ namespace DCEngine {
   \return A pointer to the space.
   */
   /**************************************************************************/
-  SpacePtr GameSession::CreateSpace(std::string name) {
+  SpacePtr GameSession::CreateSpace(std::string name, bool initialize) {
     DCTrace << ObjectName << "::CreateSpace - " << name << " has been constructed. \n";
 
     // Check if the space already exists.    
@@ -104,6 +104,13 @@ namespace DCEngine {
 
     // Set the space's gamesession
     GetSpace(name)->GameSessionRef = this;
+    
+
+    // Initialize the space
+    if (initialize)
+      GetSpace(name)->Initialize();
+
+
     return GetSpace(name);
   }
 
