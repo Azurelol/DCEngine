@@ -42,7 +42,7 @@ namespace DCEngine {
 
 	private:
     // Member variables
-    Real Timer;
+    Real Timer = 0;
 	};
 
 }

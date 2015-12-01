@@ -29,8 +29,8 @@ namespace DCEngine {
     #endif
 
   private:
-    Keys PauseKey;
-    Boolean Paused;
+    Keys PauseKey = Keys::Escape;
+    Boolean Paused = FALSE;
 
   };
 

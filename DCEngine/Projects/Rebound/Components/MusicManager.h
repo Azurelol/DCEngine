@@ -32,10 +32,10 @@ namespace DCEngine {
     //#endif
 
   private:
-    String CurrentTrack;
-    String LastTrack;
-    Real FadeInTime;
-    Real FadeOutTime;
+    String CurrentTrack = "NO TRACK SET";
+    String LastTrack = "NO TRACK SET";
+    Real FadeInTime = 1;
+    Real FadeOutTime = 1;
     
 
 

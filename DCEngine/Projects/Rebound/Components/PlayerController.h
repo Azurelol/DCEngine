@@ -32,8 +32,8 @@ namespace DCEngine {
 		Real Health = 10;
 		Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
-    String StandAnimation = "PlayerStand";
-    String JumpAnimation = "PlayerFall";
+		String StandAnimation = "PlayerStand";
+		String JumpAnimation = "PlayerFall";
     
     
     Transform* TransformRef;
