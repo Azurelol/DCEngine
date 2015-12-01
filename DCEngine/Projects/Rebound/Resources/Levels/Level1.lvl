@@ -198,7 +198,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall"
+            "JumpAnimation": "PlayerFall", 
+            "AutoPlayTimer": 2.000000
           }
         }
       }, 

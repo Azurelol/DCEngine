@@ -24,10 +24,11 @@ namespace DCEngine {
 	public:
 		bool Grounded = true;
 		bool Jumping = false;
-		bool DoAutoPlay = true;
+		bool DoAutoPlay = true; //this is a lie, false is true and true is false. i am sorry, i will fix this.
 		bool Invincible = true;
 		bool LevelCheatLoaded = true;
 		bool musicplay = true;
+		Real AutoPlayTimer = 2;
 		Real MoveSpeed = 0.7f;
 		Real JumpPower = 60.0f;
 		Real JumpFrames = 1.0f;
@@ -37,6 +38,7 @@ namespace DCEngine {
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
 		String StandAnimation = "PlayerStand";
 		String JumpAnimation = "PlayerFall";
+		String RunAnimation = "PlayerRun";
     
     
     Transform* TransformRef;
@@ -48,9 +50,12 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(Real, Health);
     DCE_DEFINE_PROPERTY(Real, AirBrakeScalar);
     DCE_DEFINE_PROPERTY(Real, TurnSpeedScalar);
+	DCE_DEFINE_PROPERTY(Real, AutoPlayTimer);
     DCE_DEFINE_PROPERTY(Boolean, DoAutoPlay);
     DCE_DEFINE_PROPERTY(String, StandAnimation);
     DCE_DEFINE_PROPERTY(String, JumpAnimation);
+	DCE_DEFINE_PROPERTY(String, RunAnimation);
+
 
 		PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
 		void Initialize();

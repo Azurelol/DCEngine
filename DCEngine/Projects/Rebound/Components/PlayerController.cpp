@@ -24,6 +24,7 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
     DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
+	DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
   }
   #endif
 
@@ -76,10 +77,21 @@ namespace DCEngine {
 		switch (event->Key)
 		{
 		case Keys::I:
-			Invincible = !Invincible;
+			
 			if (Invincible)
 			{
 				SpriteComponent->Color = Vec4(1, 1, 0, 1);
+			}
+			else
+			{
+				SpriteComponent->Color = Vec4(1, 1, 1, 1);
+			}
+			break;
+		case Keys::U:
+			DoAutoPlay = !DoAutoPlay;
+			if (!DoAutoPlay)
+			{
+				SpriteComponent->Color = Vec4(0, 0.5, 0, 1);
 			}
 			else
 			{
@@ -144,18 +156,20 @@ namespace DCEngine {
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (!DoAutoPlay)
+		{
+			AutoPlayTimer += event->Dt;
+			AutoPlay(event);
+		}
 		//DCTrace << "Grounded =" << Grounded << "\n";
 		if (!Grounded)
 		{
 			SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = false;
 			//SpriteComponent->AnimationActive = false;
-      RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
+		    RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
 		}
-		else
-		{
-			SpriteComponent->SpriteSource = StandAnimation;
-		}
+
 
 		if (Daisy->getKeyboard()->KeyIsDown(Keys::W) || Daisy->getKeyboard()->KeyIsDown(Keys::Space))
 		{
@@ -181,18 +195,30 @@ namespace DCEngine {
 		{
 			SpriteComponent->FlipX = true;
 			MoveLeft();
-      RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(0.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = RunAnimation;
+			}
 		}
 		else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
 		{
 			SpriteComponent->FlipX = false;
 			MoveRight();
-      RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(0.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = RunAnimation;
+			}
 		}
-    else
-    {
-      RigidBodyRef->setFriction(1.3f);
-    }
+		else
+		{
+		    RigidBodyRef->setFriction(1.3f);
+			if (Grounded)
+			{
+				SpriteComponent->SpriteSource = StandAnimation;
+			}
+		}
 	}
 
 	//void PlayerController::OnDamageEvent(Events::DamageEvent * event)
@@ -252,6 +278,14 @@ namespace DCEngine {
 
 	void PlayerController::AutoPlay(Events::LogicUpdate * event)
 	{
+		//autoplay is a super hacky copy of enemycontroller's random enemy - fix this later
+		if (AutoPlayTimer > 2)
+		{
+			AutoPlayTimer = 0;
+			auto direction = rand() % 11 - 5; //-5 to 5
+			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(direction * 10, 200, 0));
+		}
+
 		switch (rand() % 3)
 		{
 
