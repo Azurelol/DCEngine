@@ -57,7 +57,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "YouWon", 
+        "Name": "GoBackButton", 
         "Archetype": "", 
         "Components": 
         {
@@ -67,7 +67,7 @@
             {
               "Vec3": 
               {
-                "x": -2.000000, 
+                "x": -1.500000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -109,6 +109,12 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }
         }
       }, 
@@ -125,7 +131,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": -560.663696, 
+                "y": -1083.242920, 
                 "z": 0.000000
               }
             }, 
@@ -271,6 +277,63 @@
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Sprite", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -10.000000, 
+                "z": 0.100000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 7.000000, 
+                "y": 3.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "BackButton", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
           }
         }
       }
