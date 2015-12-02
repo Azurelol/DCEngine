@@ -68,15 +68,23 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct EditorConfig {
+    // Project
     bool EditorStart = false;
     bool EditorEnabled = false;
     std::string ProjectsPath;
-    std::string RecentProject;
-    bool Dragging = false;
+    std::string RecentProject;    
+    // Snapping
     bool Snapping = true;
-    bool Panning = false;
     float SnapDistance = 1.0;
     float SnapAngle = 15;
+
+    bool Dragging = false;
+    bool Panning = false;
+    Vec3 CamStartPos;
+    Vec3 MouseStartPos;
+    //Vec2 Mouse
+	  //Vec2 PositionRecord;
+
   };
 
   /**************************************************************************/

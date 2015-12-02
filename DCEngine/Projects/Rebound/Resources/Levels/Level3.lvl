@@ -173,7 +173,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -0.956540, 
+                "y": -4.906092, 
                 "z": 0.000000
               }
             }, 
@@ -198,7 +198,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall"
+            "JumpAnimation": "PlayerFall", 
+            "AutoPlayTimer": 2.000000
           }
         }
       }, 
@@ -2299,7 +2300,7 @@
             {
               "Vec3": 
               {
-                "x": 121.103073, 
+                "x": 100.028137, 
                 "y": -2.005251, 
                 "z": 0.000000
               }
@@ -2349,8 +2350,8 @@
             {
               "Vec3": 
               {
-                "x": -10.000000, 
-                "y": -0.956540, 
+                "x": 0.000000, 
+                "y": -4.906092, 
                 "z": 0.000000
               }
             }, 
@@ -2396,7 +2397,7 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 15.000000, 
-            "Timer": 37.605968
+            "Timer": 96.191864
           }
         }
       }, 

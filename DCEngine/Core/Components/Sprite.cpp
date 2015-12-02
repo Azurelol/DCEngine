@@ -57,7 +57,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
-
+    // Register this component to the GraphicsSpace so that it can be drawn
+    // by the graphics system.
+    Register();
   }
 
   /**************************************************************************/
@@ -90,14 +92,16 @@ namespace DCEngine {
   void Sprite::Initialize() {
     if (TRACE_COMPONENT_INITIALIZE)
       DCTrace << Owner()->Name() << "::" << ObjectName << "::Initialize\n";
-    
+
+
+  }
+
+  void Sprite::Register()
+  {
     // Store the reference to this owner's Transform component
     TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Transform>();
-
-    // Register this component to the GraphicsSpace so that it can be drawn
-    // by the graphics system.
+    // Register
     SpaceRef->getComponent<GraphicsSpace>()->AddSprite(*this);
-
   }
     
   /**************************************************************************/
@@ -111,6 +115,7 @@ namespace DCEngine {
 
   @todo   Delete this function. This function is not used anymore.
   */
+
   /**************************************************************************/
   void Sprite::UpdateFlip()
   {

@@ -88,6 +88,10 @@ namespace DCEngine {
 
     //auto pos = glm::unProject(screenPos, view, proj, glm::vec4(0, 0, viewport[2], viewport[3]));
 
+    //.vecCenter = vecCenter.x * CameraObj->getSize();
+
+    DCTrace << " CameraViewport::ScreenToViewport - Size: " << CameraObj->getSize() << "\n";
+
     return Vec2(vecCenter.x, vecCenter.y);
   }
 

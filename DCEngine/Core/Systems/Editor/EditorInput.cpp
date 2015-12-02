@@ -42,8 +42,17 @@ namespace DCEngine {
         }
       }
       else if (event->ButtonPressed == MouseButton::Right) {
-        Settings.Panning = true;        
+        Settings.Panning = true;
+        Settings.CamStartPos = EditorCamera->getComponent<Transform>()->getTranslation();
+        Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position), 0);
       }
+
+		  //if (Settings.Panning == false)
+		  //{
+			 // //Settings.PositionRecord = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+		  //}
+    //    Settings.Panning = true;        
+    //  }
     }
 
     /**************************************************************************/
@@ -188,20 +197,20 @@ namespace DCEngine {
     void Editor::PanCamera(Vec2 mousePosition)
     {
       if (Settings.Panning) {
-        static Vec2 lastPosition;
-
-
-        auto mousePos = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(mousePosition);
+        // Get the mouse position
+        auto mousePos = Vec3(CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(mousePosition), 0);
         auto camPos = EditorCamera->getComponent<Transform>()->getTranslation();
-        // Drag the mouse in the direction opposite the dragging
-        
+        //auto offset = Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z);
 
-        // If the positions don't match
-        if (lastPosition != mousePosition )
-          EditorCamera->getComponent<Transform>()->setTranslation(Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z));
+        Vec3 cameraDiff = camPos - Settings.CamStartPos;
+        Vec3 mouseDiff = mousePos - Settings.MouseStartPos;        
 
-        // Save the mouse's last position
-        lastPosition = mousePosition;
+        //float width = 5;
+        //CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(mousePos, width, width, Vec4(1, 0, 0, 1));
+
+        // Set the camera's position
+        EditorCamera->getComponent<Transform>()->setTranslation(Settings.CamStartPos + cameraDiff - mouseDiff);
+
       }
       
 
