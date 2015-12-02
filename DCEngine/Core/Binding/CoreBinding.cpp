@@ -19,6 +19,8 @@
 #include "..\Objects\Entities\EntitiesInclude.h"
 // Core Components
 #include "..\ComponentsInclude.h"
+// Engine
+#include "..\Engine\Engine.h"
 
 namespace DCEngine {  
 
@@ -30,8 +32,10 @@ namespace DCEngine {
     compilers automatically remove "unreferenced" classes, even if they are referenced
     by globals/pre-main initializations. This method ensures that all classes will be properly bound.
     */
-
-    // Objects
+    
+    /*===================*
+    *     Objects       *
+    *===================*/
     ZilchInitializeType(Object);
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
@@ -40,13 +44,16 @@ namespace DCEngine {
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
 
-    // Resources
+    /*===================*
+    *     Resources      *
+    *===================*/
     ZilchInitializeType(SpriteSource);
     ZilchInitializeType(SoundCue);
 
-
-
-    // Spaces
+    /*===================*
+    *     Components     *
+    *===================*/
+    // Space
     ZilchInitializeType(PhysicsSpace);
     ZilchInitializeType(GraphicsSpace);
     ZilchInitializeType(SoundSpace);
@@ -65,8 +72,48 @@ namespace DCEngine {
     ZilchInitializeType(SoundSpace);
     ZilchInitializeType(SoundEmitter);
     
-    // Space
-    
 
   }
+
+
+  /**************************************************************************/
+  /*!
+  @brief  Constructs a component factory for every bound component type.
+  */
+  /**************************************************************************/
+  void Systems::Factory::ConstructComponentFactoryMap()
+  {
+    // Loop through every known bound type...
+    //auto components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
+    //for (auto component : components) {
+    //  // And adds it to the component factory map
+    //  auto name = std::string(component->Name.c_str());
+    //  //DCE_FACTORY_CREATECOMPONENTFACTORY(name);
+    //}
+
+    DCTrace << "Factory::ConstructComponentFactoryMap - Constructing all component factories \n";
+    // Space
+    AddComponentFactory(SoundSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundSpace>>());
+    AddComponentFactory(GraphicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<GraphicsSpace>>());
+    AddComponentFactory(PhysicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<PhysicsSpace>>());
+    AddComponentFactory(TimeSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<TimeSpace>>());
+    // Physics
+    AddComponentFactory(Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Transform>>());
+    AddComponentFactory(BoxCollider::ZilchGetStaticType(), std::make_unique<ComponentFactory<BoxCollider>>());
+    AddComponentFactory(RigidBody::ZilchGetStaticType(), std::make_unique<ComponentFactory<RigidBody>>());
+    // Graphics
+    AddComponentFactory(DCEngine::Camera::ZilchGetStaticType(), std::make_unique<ComponentFactory<DCEngine::Camera>>());
+    AddComponentFactory(Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Sprite>>());
+    AddComponentFactory(SpriteText::ZilchGetStaticType(), std::make_unique<ComponentFactory<SpriteText>>());
+    AddComponentFactory(Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Reactive>>());
+    // Audio
+    AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
+
+
+
+
+
+
+  }
+
 }

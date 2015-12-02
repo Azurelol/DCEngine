@@ -28,6 +28,11 @@ namespace DCEngine {
       friend class Engine;
     public:
 
+      static std::string PropertyAsString(Zilch::Property*, ObjectPtr object);
+      template <typename T>
+      T GetProperty(Zilch::Property*);
+
+     // static Zilch::Call Get(Zilch::Property*);
       std::vector<Zilch::BoundType*> AllComponents();
       ZilchInterface* Handler();
 
@@ -41,6 +46,12 @@ namespace DCEngine {
 
     };
 
+
+    template<typename T>
+    inline T Reflection::GetProperty(Zilch::Property *)
+    {
+      return T();
+    }
 
   }
 

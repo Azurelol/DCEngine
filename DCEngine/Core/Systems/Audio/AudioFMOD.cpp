@@ -83,6 +83,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Terminate() {
+      //system_.ptr->
+      //system_.ptr->getChannelsPlaying().
+
       //delete(MusicPtr);
       //delete CurrentChannel;
     }
@@ -135,6 +138,8 @@ namespace DCEngine {
       else {
         soundPtr->setMode(FMOD_LOOP_OFF);
       }
+
+      //FMOD::Channel::
 
       OperationResult = system_.ptr->playSound(soundPtr, NULL, 0, channel);
       ErrorCheck(OperationResult);

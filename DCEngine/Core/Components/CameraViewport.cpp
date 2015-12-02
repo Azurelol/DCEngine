@@ -90,7 +90,7 @@ namespace DCEngine {
 
     //.vecCenter = vecCenter.x * CameraObj->getSize();
 
-    DCTrace << " CameraViewport::ScreenToViewport - Size: " << CameraObj->getSize() << "\n";
+    //DCTrace << " CameraViewport::ScreenToViewport - Size: " << CameraObj->getSize() << "\n";
 
     return Vec2(vecCenter.x, vecCenter.y);
   }

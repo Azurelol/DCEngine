@@ -24,6 +24,10 @@ namespace DCEngine {
     MusicManager(Entity& owner) : Component(std::string("MusicManager"), owner) {}
     ~MusicManager();
     void Initialize();
+    void PlayMusic();
+    void PauseMusic();
+    void StopMusic();
+    void OnGameStartedEvent(Events::GameStarted* event);
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnPlayMusicEvent(Events::PlayMusic* event);
     void OnKeyUpEvent(Events::KeyUp* event);

@@ -112,8 +112,13 @@ namespace DCEngine {
     {
       DCTrace << "Editor::PlayGame - Playing: /"
               << Daisy->getSystem<Content>()->ProjectInfo->ProjectName << "'\n";
+      
+      
       // Toggle the editor off
-      ToggleEditor(false);
+      if (EditorEnabled)
+        ToggleEditor(false);
+      else
+        ToggleEditor(true);
       // Unpause it
     }
 
