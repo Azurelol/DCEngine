@@ -1228,7 +1228,7 @@
       "GameObject": 
       {
         "Name": "EndOfLevel", 
-        "Archetype": "Cat", 
+        "Archetype": "EndOfLevel", 
         "Components": 
         {
           "Transform": 
