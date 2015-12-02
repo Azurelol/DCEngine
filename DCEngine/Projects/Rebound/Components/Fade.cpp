@@ -23,6 +23,7 @@ namespace DCEngine {
 	ZilchDefineType(Fade, "Fade", Rebound, builder, type) {
 		DCE_BINDING_DEFINE_PROPERTY(Fade, Timer);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, FadeTime);
+		DCE_BINDING_DEFINE_PROPERTY(Fade, FadeTimeGrowth);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, TargetColor);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, Fading);
 		DCE_BINDING_DEFINE_PROPERTY(Fade, Pulse);
@@ -99,6 +100,7 @@ namespace DCEngine {
 				Fading = false;
 			}
 			Timer = 0;
+			FadeTime *= FadeTimeGrowth;
 			TargetColor = InitialColor;
 			InitialColor = SpriteRef->Color;
 	}

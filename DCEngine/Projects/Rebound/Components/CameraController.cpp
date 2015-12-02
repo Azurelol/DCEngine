@@ -32,6 +32,7 @@ namespace DCEngine {
     PlayerRef = SpaceRef->FindObjectByName(TargetName);
     //PlayerRef = SpaceRef->FindObjectByName(TargetName);
     //gameObj->AttachTo(PlayerRef);
+	//hardcoded and bad, fix
 	}
 
 	void CameraController::Serialize(Json::Value & root)
@@ -66,7 +67,7 @@ namespace DCEngine {
 	{
 		if (DoScreenShake)
 		{
-			TransformRef->setTranslation(TransformRef->getTranslation() + Vec3((rand() % 100 - 50) / 50, (rand() % 100 - 50) / 50, 0));
+			TransformRef->setTranslation(TransformRef->getTranslation() + Vec3((rand() % 100 - 50) / 10.0f, (rand() % 100 - 50) / 10.0f, 0));
 		}
 		Real FrameRateCompensation = event->Dt * 60;
 		if (CameraControllerTraceOn)
@@ -78,6 +79,8 @@ namespace DCEngine {
 			PlayerRef = SpaceRef->FindObjectByName(TargetName);
 			return;
 		}
+		DoScreenShake = PlayerRef->getComponent<PlayerController>()->Dead;
+
 		auto TargetPos = PlayerRef->getComponent<Transform>()->Translation - TransformRef->Translation;
 		if (CameraControllerTraceOn)
 		{

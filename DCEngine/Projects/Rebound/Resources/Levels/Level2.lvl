@@ -17,8 +17,8 @@
             {
               "Vec3": 
               {
-                "x": -33.999966, 
-                "y": 9.067459, 
+                "x": -14.134267, 
+                "y": 9.869620, 
                 "z": 1.000000
               }
             }, 
@@ -148,8 +148,8 @@
             {
               "Vec3": 
               {
-                "x": -34.000000, 
-                "y": 5.000000, 
+                "x": -14.134274, 
+                "y": 4.869613, 
                 "z": 0.000000
               }
             }, 
@@ -186,7 +186,7 @@
               }
             }, 
             "SpriteSource": "PlayerStand", 
-            "FlipX": false, 
+            "FlipX": true, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
@@ -222,8 +222,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": -0.961171, 
+                "x": -0.000000, 
+                "y": -0.955715, 
                 "z": 0.000000
               }
             }, 
@@ -377,9 +377,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.408488, 
+                "y": 0.918302, 
+                "z": 0.245092, 
                 "w": 1.000000
               }
             }, 
@@ -420,15 +420,16 @@
           }, 
           "Fade": 
           {
-            "Timer": 0.000000, 
+            "Timer": 0.317122, 
             "FadeTime": 0.600000, 
+            "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
+                "x": 0.500000, 
+                "y": 0.900000, 
+                "z": 0.300000, 
                 "w": 1.000000
               }
             }, 
@@ -1340,8 +1341,8 @@
             {
               "Vec3": 
               {
-                "x": 63.000000, 
-                "y": -36.000000, 
+                "x": 66.000000, 
+                "y": -35.490341, 
                 "z": 0.000000
               }
             }, 
@@ -1371,9 +1372,9 @@
             {
               "Vec4": 
               {
-                "x": 0.600000, 
+                "x": 0.747684, 
                 "y": 0.000000, 
-                "z": 0.800000, 
+                "z": 0.615396, 
                 "w": 1.000000
               }
             }, 
@@ -1409,7 +1410,7 @@
           }, 
           "MoveToLocation": 
           {
-            "Timer": 0.000000, 
+            "Timer": 0.317122, 
             "TargetLocation": 
             {
               "Vec3": 
@@ -1425,6 +1426,24 @@
           "ErraticDoor": 
           {
             "Timer": 0.000000
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.765316, 
+            "FadeTime": 1.000000, 
+            "FadeTimeGrowth": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.792971, 
+                "y": 0.000000, 
+                "z": 0.558787, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -1633,9 +1652,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.315396, 
+                "y": 0.936921, 
+                "z": 0.189237, 
                 "w": 1.000000
               }
             }, 
@@ -1673,6 +1692,24 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.765316, 
+            "FadeTime": 1.000000, 
+            "FadeTimeGrowth": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.258787, 
+                "y": 0.948243, 
+                "z": 0.155272, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -1719,9 +1756,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.315396, 
+                "y": 0.936921, 
+                "z": 0.189237, 
                 "w": 1.000000
               }
             }, 
@@ -1759,6 +1796,24 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.765316, 
+            "FadeTime": 1.000000, 
+            "FadeTimeGrowth": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.258787, 
+                "y": 0.948243, 
+                "z": 0.155272, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -1805,9 +1860,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.315396, 
+                "y": 0.936921, 
+                "z": 0.189237, 
                 "w": 1.000000
               }
             }, 
@@ -1845,6 +1900,24 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.765316, 
+            "FadeTime": 1.000000, 
+            "FadeTimeGrowth": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.258787, 
+                "y": 0.948243, 
+                "z": 0.155272, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -2832,8 +2905,8 @@
             {
               "Vec3": 
               {
-                "x": 230.500000, 
-                "y": -73.500000, 
+                "x": 235.000000, 
+                "y": -74.000000, 
                 "z": 0.000000
               }
             }, 
@@ -2850,7 +2923,7 @@
             {
               "Vec3": 
               {
-                "x": 20.000000, 
+                "x": 24.000000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -3227,8 +3300,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
-        "Archetype": "", 
+        "Name": "EndOfLevel", 
+        "Archetype": "EndOfLevel", 
         "Components": 
         {
           "Transform": 
@@ -3274,7 +3347,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "VictorySymbol", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -3307,9 +3380,27 @@
           "LevelManager": 
           {
             "NextLevel": "Level3", 
-            "LoadingTime": 1.000000, 
-            "Timer": 1.000000, 
+            "LoadingTime": 2.000000, 
+            "Timer": 0.000000, 
             "TimerStarted": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 0.400000, 
+            "FadeTimeGrowth": 0.700000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
           }
         }
       }, 
@@ -3445,7 +3536,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 1.000000
+                "w": 0.000000
               }
             }, 
             "SpriteSource": "square", 
@@ -3458,6 +3549,7 @@
           {
             "Timer": 0.000000, 
             "FadeTime": 2.000000, 
+            "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
@@ -3465,10 +3557,10 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.000000
+                "w": 1.000000
               }
             }, 
-            "Fading": true, 
+            "Fading": false, 
             "Pulse": false
           }
         }
@@ -3770,6 +3862,130 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Barrier", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -47.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 17.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Barrier2", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 261.147705, 
+                "y": -85.106201, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 14.000000, 
+                "z": 1.000000
+              }
+            }
           }, 
           "BoxCollider": 
           {

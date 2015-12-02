@@ -12,6 +12,7 @@
 
 namespace DCEngine {
 
+	class Fade;
   class LevelManager : public Component {
 
   public:
@@ -37,6 +38,7 @@ namespace DCEngine {
     String NextLevel = "NO LEVEL SELECTED";
     Real LoadingTime = 1;
 	Real Timer = 1;
+	Fade* FadeRef;
 	Boolean TimerStarted = false;
 
   };

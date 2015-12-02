@@ -279,6 +279,9 @@ namespace DCEngine {
       case sf::Keyboard::Num9:
         keyDown->Key = Keys::Num9;
         break;
+	  case sf::Keyboard::Tilde:
+		  keyDown->Key = Keys::Tilde;
+		  break;
 
       default:
         break;

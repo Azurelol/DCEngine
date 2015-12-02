@@ -7,6 +7,69 @@
     {
       "GameObject": 
       {
+        "Name": "FullScreen", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": -4.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 6.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonFullscreen", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -17,8 +80,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 12.000000, 
+                "x": 0.500000, 
+                "y": 8.000000, 
                 "z": 1.000000
               }
             }, 
@@ -68,7 +131,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 13.500000, 
+                "y": 12.000000, 
                 "z": 0.000000
               }
             }, 
@@ -85,8 +148,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 2.500000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -104,7 +167,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "HelpButton", 
+            "SpriteSource": "ButtonHTP", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -131,7 +194,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 19.500000, 
+                "y": 17.000000, 
                 "z": 0.000000
               }
             }, 
@@ -148,8 +211,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 3.000000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -167,7 +230,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "NewGameButton", 
+            "SpriteSource": "ButtonNewGame", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -193,8 +256,8 @@
             {
               "Vec3": 
               {
-                "x": -23.500000, 
-                "y": -1.500000, 
+                "x": -9.500000, 
+                "y": 25.000000, 
                 "z": 0.000000
               }
             }, 
@@ -211,8 +274,8 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
-                "y": 3.000000, 
+                "x": 0.500000, 
+                "y": 0.500000, 
                 "z": 1.000000
               }
             }
@@ -230,7 +293,70 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "MonkeyStand", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "CreditsButton", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.500000, 
+                "y": 7.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonCredits", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -257,7 +383,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 0.500000, 
+                "y": 2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -274,8 +400,8 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 2.500000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -293,7 +419,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ExitButton", 
+            "SpriteSource": "ButtonQuit", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -319,9 +445,9 @@
             {
               "Vec3": 
               {
-                "x": -3.500000, 
-                "y": 16.500000, 
-                "z": 0.000000
+                "x": 0.000000, 
+                "y": 10.000000, 
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -337,8 +463,8 @@
             {
               "Vec3": 
               {
-                "x": 50.000000, 
-                "y": 50.000000, 
+                "x": 18.000000, 
+                "y": 22.000000, 
                 "z": 1.000000
               }
             }
@@ -356,74 +482,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Oldworld_Background_1", 
+            "SpriteSource": "BackgroundMainMenu", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "CreditsButton", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.500000, 
-                "y": 7.500000, 
-                "z": 0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "City_Background", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
           }
         }
       }, 
@@ -469,6 +532,108 @@
             "LevelHelp": "", 
             "LevelCredits": "", 
             "TransitionTime": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "MusicManager", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "MusicManager": 
+          {
+            "CurrentTrack": "Dogma", 
+            "LastTrack": "NO TRACK SET", 
+            "FadeInTime": 0.000000, 
+            "FadeOutTime": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "BackgroundSky", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 2.679604, 
+                "y": 4.128868, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 50.000000, 
+                "y": 50.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "City_Background", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
           }
         }
       }

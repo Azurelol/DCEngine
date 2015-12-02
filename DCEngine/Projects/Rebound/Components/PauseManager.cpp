@@ -9,6 +9,7 @@ uses.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
+#include <Windows.h>
 #include "PauseManager.h"
 
 // Engine
@@ -143,39 +144,16 @@ namespace DCEngine {
 
   void PauseManager::OnBackButtonHTP(Events::MouseClickedOn* event)
   {
-	  IsInHowToPlay = false;
-	  PauseSpace->LoadLevel(std::string("PauseMenu"));
-	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
-	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
-	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-	  ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
-	  // Connect to its events
-	  if (ButtonQuit)
-		  Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
-	  else
-		  DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
-	  if (ButtonResume)
-		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
-	  else
-		  DCTrace << "PauseManager::Initialize - Failed to find ButtonNewGame! \n";
-
-	  if (ButtonHelp)
-		  Connect(ButtonHelp, Events::MouseClickedOn, PauseManager::OnHelpClicked);
-	  else
-		  DCTrace << "PauseManager::Initialize - Failed to find ButtonHelp! \n";
-
-	  if (ButtonCredits)
-		  Connect(ButtonCredits, Events::MouseClickedOn, PauseManager::OnCreditsClicked);
-	  else
-		  DCTrace << "PauseManager::Initialize - Failed to find ButtonCredits! \n";
-	  ButtonBackHTP = NULL;
+	  const int KEYEVENT_KEYUP = 0x02;
+	  keybd_event(VK_ESCAPE, 0, 0, 0);              // press the Esc key
+	  keybd_event(VK_ESCAPE, 0, KEYEVENT_KEYUP, 0);
   }
 
   void PauseManager::OnBackButtonCredits(Events::MouseClickedOn* event)
   {
-	  IsInCredits = false;
-	  ReloadPauseMainMenu();
-	  ButtonBackCredits = NULL;
+	  const int KEYEVENT_KEYUP = 0x02;
+	  keybd_event(VK_ESCAPE, 0, 0, 0);              // press the Esc key
+	  keybd_event(VK_ESCAPE, 0, KEYEVENT_KEYUP, 0);
   }
 
   void PauseManager::DisablePauseMenu()

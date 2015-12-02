@@ -1,0 +1,119 @@
+
+{
+  "GameObject": 
+  {
+    "Name": "Player", 
+    "Archetype": "Player", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": -6.000000, 
+            "y": 7.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 3.000000, 
+            "y": 3.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "Sprite": 
+      {
+        "Visible": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "PlayerRun", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000
+      }, 
+      "BoxCollider": 
+      {
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }, 
+      "RigidBody": 
+      {
+        "Mass": 10.000000, 
+        "Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Angular_Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation_Locked": true
+      }, 
+      "PlayerController": 
+      {
+        "MoveSpeed": 0.400000, 
+        "JumpPower": 60.000000, 
+        "JumpFrames": 1.000000, 
+        "Health": 10.000000, 
+        "AirBrakeScalar": 0.950000, 
+        "TurnSpeedScalar": 5.000000, 
+        "DoAutoPlay": true, 
+        "StandAnimation": "PlayerStand", 
+        "JumpAnimation": "PlayerFall"
+      }
+    }
+  }
+}

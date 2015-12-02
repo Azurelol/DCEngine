@@ -17,7 +17,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": -5.000000, 
                 "y": -5.000000, 
                 "z": 0.000000
               }
@@ -98,8 +98,8 @@
             {
               "Vec3": 
               {
-                "x": -2.500000, 
-                "y": -0.197101, 
+                "x": -22.500000, 
+                "y": -0.137434, 
                 "z": 0.000000
               }
             }, 
@@ -173,7 +173,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -0.962312, 
+                "y": -1.018645, 
                 "z": 0.000000
               }
             }, 
@@ -215,7 +215,7 @@
             {
               "Vec3": 
               {
-                "x": -30.000000, 
+                "x": -37.000000, 
                 "y": 8.000000, 
                 "z": 0.000000
               }
@@ -1187,8 +1187,8 @@
             {
               "Vec3": 
               {
-                "x": -2.500000, 
-                "y": 4.802899, 
+                "x": -22.499981, 
+                "y": 4.862568, 
                 "z": 1.000000
               }
             }, 
@@ -1227,8 +1227,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite2", 
-        "Archetype": "Cat", 
+        "Name": "EndOfLevel", 
+        "Archetype": "EndOfLevel", 
         "Components": 
         {
           "Transform": 
@@ -1237,8 +1237,8 @@
             {
               "Vec3": 
               {
-                "x": 144.000000, 
-                "y": 34.000000, 
+                "x": 142.500000, 
+                "y": 35.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1274,7 +1274,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "VictorySymbol", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -1283,8 +1283,8 @@
           "LevelManager": 
           {
             "NextLevel": "Level2", 
-            "LoadingTime": 1.000000, 
-            "Timer": 1.000000, 
+            "LoadingTime": 2.000000, 
+            "Timer": 0.000000, 
             "TimerStarted": false
           }, 
           "BoxCollider": 
@@ -1310,6 +1310,24 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 0.400000, 
+            "FadeTimeGrowth": 0.700000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
           }
         }
       }, 
@@ -1396,6 +1414,192 @@
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Tut1", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -21.000000, 
+                "y": 8.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "TutorialMove", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "TutorialTextLogic": 
+          {
+            "Timer": 0.000000, 
+            "Type": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "TUT2", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 18.661959, 
+                "y": 12.883201, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "TutorialJump", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "TutorialTextLogic": 
+          {
+            "Timer": 0.000000, 
+            "Type": 420.133759
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Wall", 
+        "Archetype": "Wall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.000000, 
+                "y": 39.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 14.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }
