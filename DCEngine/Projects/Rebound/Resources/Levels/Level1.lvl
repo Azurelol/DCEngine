@@ -1227,7 +1227,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite2", 
+        "Name": "EndOfLevel", 
         "Archetype": "Cat", 
         "Components": 
         {
@@ -1237,8 +1237,8 @@
             {
               "Vec3": 
               {
-                "x": 144.000000, 
-                "y": 34.000000, 
+                "x": 144.500000, 
+                "y": 35.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1283,8 +1283,8 @@
           "LevelManager": 
           {
             "NextLevel": "Level2", 
-            "LoadingTime": 1.000000, 
-            "Timer": 1.000000, 
+            "LoadingTime": 2.000000, 
+            "Timer": 0.000000, 
             "TimerStarted": false
           }, 
           "BoxCollider": 
@@ -1310,6 +1310,24 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 0.400000, 
+            "FadeTimeGrowth": 0.700000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
           }
         }
       }, 
