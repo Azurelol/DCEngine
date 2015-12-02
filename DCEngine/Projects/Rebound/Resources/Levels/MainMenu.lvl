@@ -7,6 +7,69 @@
     {
       "GameObject": 
       {
+        "Name": "ExitButton", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.500000, 
+                "y": 13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonQuit", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
         "Name": "FullScreen", 
         "Archetype": "", 
         "Components": 
@@ -120,7 +183,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "HelpButton", 
+        "Name": "MusicManager", 
         "Archetype": "", 
         "Components": 
         {
@@ -130,8 +193,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 12.000000, 
+                "x": 1.000000, 
+                "y": 11.000000, 
                 "z": 0.000000
               }
             }, 
@@ -148,36 +211,18 @@
             {
               "Vec3": 
               {
-                "x": 8.000000, 
-                "y": 1.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "Sprite": 
+          "MusicManager": 
           {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "ButtonHTP", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
+            "CurrentTrack": "Dogma", 
+            "LastTrack": "NO TRACK SET", 
+            "FadeInTime": 0.000000, 
+            "FadeOutTime": 0.000000
           }
         }
       }, 
@@ -246,7 +291,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "CrunkButton", 
+        "Name": "BackgroundSky", 
         "Archetype": "", 
         "Components": 
         {
@@ -256,8 +301,8 @@
             {
               "Vec3": 
               {
-                "x": -9.500000, 
-                "y": 25.000000, 
+                "x": 2.679604, 
+                "y": 4.128868, 
                 "z": 0.000000
               }
             }, 
@@ -274,8 +319,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 50.000000, 
+                "y": 50.000000, 
                 "z": 1.000000
               }
             }
@@ -293,143 +338,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "MonkeyStand", 
+            "SpriteSource": "City_Background", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "CreditsButton", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.500000, 
-                "y": 7.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 8.000000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "ButtonCredits", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "ExitButton", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.500000, 
-                "y": 2.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 8.000000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "ButtonQuit", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
           }
         }
       }, 
@@ -532,108 +445,6 @@
             "LevelHelp": "", 
             "LevelCredits": "", 
             "TransitionTime": 1.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "MusicManager", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "MusicManager": 
-          {
-            "CurrentTrack": "Dogma", 
-            "LastTrack": "NO TRACK SET", 
-            "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "BackgroundSky", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 2.679604, 
-                "y": 4.128868, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 50.000000, 
-                "y": 50.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "City_Background", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
           }
         }
       }
