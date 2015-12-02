@@ -74,6 +74,8 @@ namespace DCEngine {
     std::string RecentProject;
     bool Dragging = false;
     bool Snapping = true;
+    bool Panning = false;
+	Vec2 PositionRecord;
     float SnapDistance = 1.0;
     float SnapAngle = 15;
   };

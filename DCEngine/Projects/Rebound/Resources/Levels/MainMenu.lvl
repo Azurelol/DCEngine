@@ -17,8 +17,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": -6.500000, 
+                "x": 1.000000, 
+                "y": -4.000000, 
                 "z": 0.000000
               }
             }, 
@@ -35,8 +35,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 6.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -54,7 +54,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Wow", 
+            "SpriteSource": "ButtonFullscreen", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -131,7 +131,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 13.500000, 
+                "y": 12.000000, 
                 "z": 0.000000
               }
             }, 
@@ -148,8 +148,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 2.500000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -167,7 +167,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "HelpButton", 
+            "SpriteSource": "ButtonHTP", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -194,7 +194,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 19.500000, 
+                "y": 17.000000, 
                 "z": 0.000000
               }
             }, 
@@ -211,8 +211,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 3.000000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -230,7 +230,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "NewGameButton", 
+            "SpriteSource": "ButtonNewGame", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -320,7 +320,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 7.500000, 
+                "y": 7.000000, 
                 "z": 0.000000
               }
             }, 
@@ -337,8 +337,8 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 2.000000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -356,7 +356,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "City_Background", 
+            "SpriteSource": "ButtonCredits", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -383,7 +383,7 @@
               "Vec3": 
               {
                 "x": 0.500000, 
-                "y": 0.500000, 
+                "y": 2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -400,8 +400,8 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 2.500000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -419,7 +419,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ExitButton", 
+            "SpriteSource": "ButtonQuit", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -445,9 +445,9 @@
             {
               "Vec3": 
               {
-                "x": -3.500000, 
-                "y": 16.500000, 
-                "z": 0.000000
+                "x": 0.000000, 
+                "y": 10.000000, 
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -463,8 +463,8 @@
             {
               "Vec3": 
               {
-                "x": 50.000000, 
-                "y": 50.000000, 
+                "x": 18.000000, 
+                "y": 22.000000, 
                 "z": 1.000000
               }
             }
@@ -482,7 +482,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Oldworld_Background_1", 
+            "SpriteSource": "BackgroundMainMenu", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
