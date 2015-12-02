@@ -64,7 +64,7 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
-		if (event->Key == Keys::L)
+		if (event->Key == Keys::Tilde)
 		{
 			LevelCheatLoaded = false;
 		}
