@@ -98,7 +98,7 @@
             {
               "Vec3": 
               {
-                "x": -8.211202, 
+                "x": -4.300692, 
                 "y": -0.365902, 
                 "z": 0.000000
               }
@@ -136,7 +136,7 @@
               }
             }, 
             "SpriteSource": "PlayerStand", 
-            "FlipX": true, 
+            "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
@@ -172,8 +172,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": -0.996831, 
+                "x": 0.013998, 
+                "y": -1.021984, 
                 "z": 0.000000
               }
             }, 
@@ -215,8 +215,8 @@
             {
               "Vec3": 
               {
-                "x": -8.211195, 
-                "y": 4.634099, 
+                "x": -4.387778, 
+                "y": 4.634098, 
                 "z": 1.000000
               }
             }, 
@@ -620,9 +620,9 @@
             {
               "Vec4": 
               {
-                "x": 0.070430, 
-                "y": 0.985914, 
-                "z": 0.042258, 
+                "x": 0.061699, 
+                "y": 0.987660, 
+                "z": 0.037020, 
                 "w": 1.000000
               }
             }, 
@@ -663,16 +663,16 @@
           }, 
           "Fade": 
           {
-            "Timer": 0.718653, 
+            "Timer": 0.876037, 
             "FadeTime": 1.000000, 
             "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
+                "x": 0.070430, 
+                "y": 0.985914, 
+                "z": 0.042258, 
                 "w": 1.000000
               }
             }, 
@@ -724,9 +724,9 @@
             {
               "Vec4": 
               {
-                "x": 0.498237, 
-                "y": 0.900353, 
-                "z": 0.298942, 
+                "x": 0.184169, 
+                "y": 0.963166, 
+                "z": 0.110501, 
                 "w": 1.000000
               }
             }, 
@@ -767,16 +767,16 @@
           }, 
           "Fade": 
           {
-            "Timer": 0.066063, 
+            "Timer": 0.369642, 
             "FadeTime": 1.000000, 
             "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
+                "x": 0.498237, 
+                "y": 0.900353, 
+                "z": 0.298942, 
                 "w": 1.000000
               }
             }, 
@@ -2387,7 +2387,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -0.996831, 
+                "y": -1.021984, 
                 "z": 0.000000
               }
             }, 
@@ -2433,7 +2433,7 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 100.000000, 
-            "Timer": 291.024475
+            "Timer": 294.358551
           }
         }
       }, 
@@ -3994,7 +3994,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -0.996831, 
+                "y": -1.021984, 
                 "z": 0.000000
               }
             }, 
@@ -4016,7 +4016,7 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 30.000000, 
-            "Timer": 195.672668
+            "Timer": 199.006577
           }
         }
       }, 
@@ -4033,7 +4033,7 @@
               "Vec3": 
               {
                 "x": 211.000000, 
-                "y": -100.593002, 
+                "y": -106.278404, 
                 "z": 0.000000
               }
             }, 
@@ -4107,7 +4107,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -0.996831, 
+                "y": -1.021984, 
                 "z": 0.000000
               }
             }, 
@@ -4129,7 +4129,250 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 15.000000, 
-            "Timer": 78.926888
+            "Timer": 82.260872
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Floor", 
+        "Archetype": "Floor", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 164.000000, 
+                "y": -1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Floor", 
+        "Archetype": "Floor", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 170.500000, 
+                "y": 28.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Floor", 
+        "Archetype": "Floor", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 347.500000, 
+                "y": -130.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }
