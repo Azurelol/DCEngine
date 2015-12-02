@@ -28,7 +28,7 @@ namespace DCEngine {
 	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
 	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
 	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-	  ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit1");
+	  ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
 	  // Connect to its events
 	  if (ButtonResume)
 		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
@@ -118,7 +118,7 @@ namespace DCEngine {
     ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
     ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
     ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-    ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit1");
+    ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
     // Connect to its events
     if (ButtonResume)
       Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
