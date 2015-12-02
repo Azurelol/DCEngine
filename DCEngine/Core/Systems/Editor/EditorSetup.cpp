@@ -60,7 +60,7 @@ namespace DCEngine {
         editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
         // Add the camera to the current space
         CurrentSpace->AddObject(editorCamera);
-
+        EditorCamera = editorCamera;
         // Set it as the default camera on the space
         auto cameraComp = editorCamera->getComponent<DCEngine::Camera>();
         CurrentSpace->getComponent<CameraViewport>()->setCamera(cameraComp);
@@ -75,6 +75,7 @@ namespace DCEngine {
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
         editorCamera->Destroy();
+        EditorCamera = nullptr;
       }
       SelectedObject = nullptr;
     }
@@ -94,6 +95,8 @@ namespace DCEngine {
 
       DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName + " -                       Level: " + levelName);
     }
+
+
 
   }
 }

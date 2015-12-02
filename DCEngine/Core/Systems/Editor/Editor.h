@@ -67,6 +67,7 @@ namespace DCEngine {
       bool WindowCreateFromArchetypeEnabled = false;      
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
+      GameObjectPtr EditorCamera;
       Object* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
@@ -130,7 +131,6 @@ namespace DCEngine {
       bool ReloadLevel();
       void LoadDollhouse();
       // Object Selection
-
       void DeleteObject();
       void DeleteResource(ResourcePtr);
       void DuplicateObject();
@@ -148,6 +148,7 @@ namespace DCEngine {
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
+      void PanCamera(Vec2);
       // Create
       void CreateTransform();
       void CreateSprite();

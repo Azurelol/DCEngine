@@ -242,71 +242,7 @@ namespace DCEngine {
 
 
 
-    /**************************************************************************/
-    /*!
-    @brief  Receives a MouseDown event.
-    @param  event The MouseDown event.
-    */
-    /**************************************************************************/
-    void Editor::OnMouseDownEvent(Events::MouseDown* event)
-    {
-      if (!EditorEnabled)
-        return;
-      
-      if (event->ButtonPressed == MouseButton::Left) {
-        // Look for an object that matches the translation
-        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);        
-        auto gameObject = FindObjectFromSpace(posOnSpace);
-
-        // If the 'Select' tool is active, attempt to pick it
-        if (ActiveTool == EditorTool::Select) {
-          SelectObjectFromSpace(gameObject);
-        }
-        // If the 'Translate' tool is active...
-        if (ActiveTool == EditorTool::Translate) {
-          // And a valid GameObject was selected, start dragging it
-          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-            Settings.Dragging = true;
-            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
-          }
-
-        }
-      }
-
-      //DCTrace << "Editor::OnMouseDownEvent - \n";
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives a MouseUp event.
-    @param  event The MouseUp event.
-    */
-    /**************************************************************************/
-    void Editor::OnMouseUpEvent(Events::MouseUp* event)
-    {
-      if (!EditorEnabled)
-        return;
-
-      // Stop dragging
-      if (Settings.Dragging) {
-        ReleaseObject();
-        Settings.Dragging = false;
-      }
-      
-      //DCTrace << "Editor::OnMouseUpEvent - \n";
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives a MouseUpdate event.
-    @param  event The MouseUpdate event.
-    */
-    /**************************************************************************/
-    void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
-    {
-      DragObject(event->ScreenPosition);
-    }
-
+    
 
 
 

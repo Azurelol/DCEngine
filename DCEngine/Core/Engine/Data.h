@@ -74,6 +74,7 @@ namespace DCEngine {
     std::string RecentProject;
     bool Dragging = false;
     bool Snapping = true;
+    bool Panning = false;
     float SnapDistance = 1.0;
     float SnapAngle = 15;
   };

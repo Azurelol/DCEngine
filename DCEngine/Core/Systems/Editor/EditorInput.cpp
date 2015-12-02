@@ -14,6 +14,77 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Receives a MouseDown event.
+    @param  event The MouseDown event.
+    */
+    /**************************************************************************/
+    void Editor::OnMouseDownEvent(Events::MouseDown* event)
+    {
+      if (!EditorEnabled)
+        return;
+
+      if (event->ButtonPressed == MouseButton::Left) {
+        // Look for an object that matches the translation
+        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+        auto gameObject = FindObjectFromSpace(posOnSpace);
+
+        // If the 'Select' tool is active, attempt to pick it
+        if (ActiveTool == EditorTool::Select) {
+          SelectObjectFromSpace(gameObject);
+        }
+        // If the 'Translate' tool is active...
+        if (ActiveTool == EditorTool::Translate) {
+          // And a valid GameObject was selected, start dragging it
+          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+            Settings.Dragging = true;
+            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
+          }
+        }
+      }
+      else if (event->ButtonPressed == MouseButton::Right) {
+        Settings.Panning = true;        
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives a MouseUp event.
+    @param  event The MouseUp event.
+    */
+    /**************************************************************************/
+    void Editor::OnMouseUpEvent(Events::MouseUp* event)
+    {
+      if (!EditorEnabled)
+        return;
+
+      // Stop dragging
+      if (Settings.Dragging) {
+        ReleaseObject();
+        Settings.Dragging = false;
+      }
+      // Stop panning
+      if (Settings.Panning) {
+        Settings.Panning = false;
+      }
+
+      //DCTrace << "Editor::OnMouseUpEvent - \n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives a MouseUpdate event.
+    @param  event The MouseUpdate event.
+    */
+    /**************************************************************************/
+    void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
+    {
+      DragObject(event->ScreenPosition);
+      PanCamera(event->ScreenPosition);
+    }
+
+
+    /**************************************************************************/
+    /*!
     @brief  Receives a KeyDown event.
     @param  event A pointer to the event.
     */
@@ -108,7 +179,40 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Pans the camera when the specified mouse-button is held.
+    @param  event The current mouse position.
+    */
+    /**************************************************************************/
+    void Editor::PanCamera(Vec2 mousePosition)
+    {
+      if (Settings.Panning) {
+        static Vec2 lastPosition;
 
+
+        auto mousePos = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(mousePosition);
+        auto camPos = EditorCamera->getComponent<Transform>()->getTranslation();
+        // Drag the mouse in the direction opposite the dragging
+        
+
+        // If the positions don't match
+        if (lastPosition != mousePosition )
+          EditorCamera->getComponent<Transform>()->setTranslation(Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z));
+
+        // Save the mouse's last position
+        lastPosition = mousePosition;
+      }
+      
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Pans the camera when the specified mouse-button is held.
+    @param  event The current mouse position.
+    */
+    /**************************************************************************/
     void Editor::Hotkeys(Events::KeyDown * event)
     {
 
