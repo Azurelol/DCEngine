@@ -96,10 +96,9 @@ namespace DCEngine {
 	bool XFlipped = false;
 	bool YFlipped = false;
 
-	private:
+	private:	
 
-		
-
+    void Register();
 		//Update
 		void UpdateFlip();
 		//Animation subsystem
