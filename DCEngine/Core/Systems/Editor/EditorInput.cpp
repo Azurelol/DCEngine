@@ -42,6 +42,10 @@ namespace DCEngine {
         }
       }
       else if (event->ButtonPressed == MouseButton::Right) {
+		  if (Settings.Panning == false)
+		  {
+			  Settings.PositionRecord = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+		  }
         Settings.Panning = true;        
       }
     }
@@ -195,10 +199,14 @@ namespace DCEngine {
         auto camPos = EditorCamera->getComponent<Transform>()->getTranslation();
         // Drag the mouse in the direction opposite the dragging
         
+		float x = camPos.x + -0.5 * (mousePos.x - Settings.PositionRecord.x);
+		float y = camPos.y + -0.5 * (mousePos.y - Settings.PositionRecord.y);
+
+		Settings.PositionRecord.x = mousePos.x;
+		Settings.PositionRecord.y = mousePos.y;
 
         // If the positions don't match
-        if (lastPosition != mousePosition )
-          EditorCamera->getComponent<Transform>()->setTranslation(Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z));
+          EditorCamera->getComponent<Transform>()->setTranslation(Vec3(x, y, camPos.z));
 
         // Save the mouse's last position
         lastPosition = mousePosition;
