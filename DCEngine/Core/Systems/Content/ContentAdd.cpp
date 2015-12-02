@@ -81,7 +81,8 @@ namespace DCEngine {
     void Content::AddFont(std::string & fontName, FontPtr fontPtr)
     {
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
-      DCTrace << "Content::AddFont - " << fontName << " was added.\n";
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        DCTrace << "Content::AddFont - " << fontName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -98,11 +99,13 @@ namespace DCEngine {
       // Overwrite archetypes
       if (ArchetypeMap.count(archetypeName)) {
         ArchetypeMap.erase(archetypeName);
-        DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map. Overwriting \n";
+        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+          DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map. Overwriting \n";
         //return;
       }
 
-      ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
       DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
     }
 
@@ -130,12 +133,14 @@ namespace DCEngine {
     {
       // Prevent duplicates
       if (SpriteSourceMap.count(spriteSourceName)) {
-        DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
+        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+          DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
         return;
       }
 
       SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
-      DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -149,12 +154,14 @@ namespace DCEngine {
     {
       // Prevent duplicates
       if (SoundCueMap.count(soundCueName)) {
-        DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
+        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+          DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
         return;
       }
 
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
-      DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
     }
 
     /**************************************************************************/
@@ -169,13 +176,15 @@ namespace DCEngine {
       // Prevent duplicates
       if (LevelMap.count(levelName)) {
         // Overwrite the current level
-        LevelMap.erase(levelName);        
-        DCTrace << "Content::AddLevel - " << levelName << " is already present in the map. Overwriting. \n";
+        LevelMap.erase(levelName);       
+        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+          DCTrace << "Content::AddLevel - " << levelName << " is already present in the map. Overwriting. \n";
         //return;
       }
 
       LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
-      DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
 
 
