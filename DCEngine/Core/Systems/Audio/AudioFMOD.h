@@ -45,6 +45,8 @@ namespace DCEngine {
       //void StopSound(FMOD::Sound* channel);
       void ReleaseSound(FMOD::Sound* soundPtr);
 
+      
+
       void Initialize();
       void Update(float dt);
       void Terminate();

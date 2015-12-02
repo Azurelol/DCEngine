@@ -20,6 +20,7 @@
 #include "..\Component.h"
 #include "..\..\Systems\System.h"
 #include "..\..\Systems\SystemsInclude.h"
+#include "..\..\Events\DispatchGameEvents.h"
 
 
 namespace DCEngine {
@@ -43,10 +44,7 @@ namespace DCEngine {
 
 
     GameSession(std::string name);
-    ~GameSession();
-
-    //virtual void Serialize(Json::Value& root);
-    //virtual void Deserialize(Json::Value& root);    
+    ~GameSession();  
 
     SpacePtr CreateSpace(std::string name, bool initialize = true);
     SpacePtr GetSpace(std::string name);

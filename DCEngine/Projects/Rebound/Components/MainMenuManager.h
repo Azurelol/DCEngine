@@ -19,6 +19,7 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(LevelHandle, LevelNewGame);
     DCE_DEFINE_PROPERTY(LevelHandle, LevelHelp);
     DCE_DEFINE_PROPERTY(LevelHandle, LevelCredits);
+    DCE_DEFINE_PROPERTY(LevelHandle, LevelCrunk);
     DCE_DEFINE_PROPERTY(Real, TransitionTime);
 
     // Methods
@@ -31,7 +32,8 @@ namespace DCEngine {
     void OnHelpClicked(Events::MouseClickedOn* event);
     void OnCreditsClicked(Events::MouseClickedOn* event);
     void OnExitClicked(Events::MouseClickedOn* event);
-	void OnFullScreenSwitch(Events::MouseClickedOn* event);
+	  void OnFullScreenSwitch(Events::MouseClickedOn* event);
+    void OnCrunkClickedEvent(Events::MouseClickedOn* event);
 
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
@@ -43,13 +45,15 @@ namespace DCEngine {
     LevelHandle LevelNewGame;
     LevelHandle LevelHelp;
     LevelHandle LevelCredits;
+    LevelHandle LevelCrunk;
     Real TransitionTime = 0;
 
     GameObjectPtr ButtonNewGame;
+    GameObjectPtr ButtonCrunk;
     GameObjectPtr ButtonHelp;
     GameObjectPtr ButtonCredits;
     GameObjectPtr ButtonExit;
-	GameObjectPtr ButtonFullScreen;
+	  GameObjectPtr ButtonFullScreen;
 
   };
 

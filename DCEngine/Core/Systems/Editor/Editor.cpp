@@ -156,10 +156,10 @@ namespace DCEngine {
       if (toggle) {
         EditorEnabled = true;
         // Pause the engine (Physics, Input, Events)
-        auto pause = new Events::EnginePause();
-        Daisy->Dispatch<Events::EnginePause>(pause);
-        delete pause;
+        DispatchSystemEvents::EnginePause();
         DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
+        // Quit the Game
+        DispatchGameEvents::GameEnded();
         // Reload the level
         ReloadLevel();
       }
@@ -167,9 +167,9 @@ namespace DCEngine {
       else {
         EditorEnabled = false;
         // Unpause the engine (Physics, Input, Events)
-        auto resume = new Events::EngineResume();
-        Daisy->Dispatch<Events::EngineResume>(resume);
-        delete resume;
+        DispatchSystemEvents::EngineResume();
+        // Send the game start event
+        DispatchGameEvents::GameStarted();
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);

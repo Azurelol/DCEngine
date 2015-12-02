@@ -12,8 +12,10 @@ header.
 
 */
 /******************************************************************************/
-
 #include "Reflection.h"
+
+#include "../../Engine/Engine.h"
+
 
 namespace DCEngine {
   
@@ -84,6 +86,29 @@ namespace DCEngine {
       return componentTypes;
     }
     
+    /**************************************************************************/
+    /*!
+    @brief  Constructs a Call object with access to the property's accessor method.
+    @param  property A pointer to the property.
+    @return A Zilch::Call object.
+    */
+    /**************************************************************************/
+  // Zilch::Call DCEngine::Systems::Reflection::Get(Zilch::Property * property)
+  // {
+
+  // }
+
+    std::string DCEngine::Systems::Reflection::PropertyAsString(Zilch::Property * property, ObjectPtr object)
+    {
+      // Create an exception report object
+      Zilch::ExceptionReport report;
+      // Grab the current resource
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      getCall.SetHandleVirtual(Zilch::Call::This, object);
+      getCall.Invoke(report);
+      return std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
+    }
+
     ZilchInterface* Reflection::Handler()
     {
       return ZilchHandler.get();

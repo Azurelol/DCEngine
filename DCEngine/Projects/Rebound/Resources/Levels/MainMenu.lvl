@@ -277,7 +277,7 @@
           "MusicManager": 
           {
             "CurrentTrack": "Dogma", 
-            "LastTrack": "NO TRACK SET", 
+            "LastTrack": "HighThud", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
           }
@@ -405,6 +405,69 @@
       }, 
       "GameObject": 
       {
+        "Name": "CrunkButton", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 27.000000, 
+                "y": -3.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.500000, 
+                "y": 0.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "MonkeyJump1", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
         "Name": "MainMenuManager", 
         "Archetype": "MainMenuManager", 
         "Components": 
@@ -442,8 +505,9 @@
           "MainMenuManager": 
           {
             "LevelNewGame": "Level1", 
-            "LevelHelp": "", 
-            "LevelCredits": "", 
+            "LevelHelp": "HowToPlay", 
+            "LevelCredits": "CreditsLevel", 
+            "LevelCrunk": "Whammu", 
             "TransitionTime": 1.000000
           }
         }

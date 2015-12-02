@@ -11,34 +11,24 @@
 
 #pragma once
 
-/********
-  UPDATE
-********/
+// Update
 #include "Events\UpdateEvents.h"
-
-/*******
-GRAPHICS
-*******/
+// Graphics
 #include "Events\GraphicsEvents.h"
 #include "Events\SpriteRegistrationEvent.h"
-
-/*******
-PHYSICS
-*******/
+// Physics
 #include "Events\CollisionEvents.h"
-
-/*******
-  INPUT
-*******/
+// Input
 #include "Events\KeyDownEvent.h"
 #include "Events\KeyUpEvent.h"
 #include "Events\MouseDown.h"
 #include "Events\MouseUp.h"
 #include "Events\MouseScroll.h"
 #include "Events\MouseEvents.h"
-
+// Engine
 #include "Events\EditorEvents.h"
 #include "Events\EngineEvents.h"
-
 // Window
 #include "Events\WindowEvents.h"
+// Game
+#include "Events\GameEvents.h"

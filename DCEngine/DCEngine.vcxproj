@@ -280,6 +280,7 @@
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
+    <ClCompile Include="Core\Events\DispatchGameEvents.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameObject.cpp" />
     <ClCompile Include="Core\Objects\Entities\GameSession.cpp" />
@@ -436,6 +437,7 @@
     <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
     <ClInclude Include="Core\Events\CollisionEvents.h" />
+    <ClInclude Include="Core\Events\DispatchGameEvents.h" />
     <ClInclude Include="Core\Events\EditorEvents.h" />
     <ClInclude Include="Core\Events\EngineEvents.h" />
     <ClInclude Include="Core\Events\EventReference.h" />

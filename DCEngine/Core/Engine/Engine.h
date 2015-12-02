@@ -51,7 +51,7 @@ namespace DCEngine {
     Systems::Factory& getFactory() {
       return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
     }
-    GameSession* getGameSession() { return gamesession_.get(); }
+    GameSession* getGameSession() { return CurrentGameSession.get(); }
 
     // Component Events
     template <typename EventClass, typename Class, typename MemberFunction>
@@ -73,7 +73,7 @@ namespace DCEngine {
     bool PauseMenuEnabled = false; // @todo temp pause menu
     bool Paused;
     EngineConfigPtr EngineConfiguration;
-    GameSessionPtr gamesession_; //!< The current GameSession object.
+    GameSessionPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr keyboard_;
     MousePtr mouse_;
     float dt; //!< Delta time. 

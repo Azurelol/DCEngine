@@ -2433,7 +2433,8 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 100.000000, 
-            "Timer": 291.024475
+            "Timer": 291.024475, 
+            "AutoPlay": true
           }
         }
       }, 
@@ -4016,7 +4017,8 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 30.000000, 
-            "Timer": 195.672668
+            "Timer": 195.672668, 
+            "AutoPlay": true
           }
         }
       }, 
@@ -4129,7 +4131,8 @@
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
             "PatrolRange": 15.000000, 
-            "Timer": 78.926888
+            "Timer": 78.926888, 
+            "AutoPlay": true
           }
         }
       }, 

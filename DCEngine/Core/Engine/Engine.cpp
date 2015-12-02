@@ -125,7 +125,7 @@ namespace DCEngine {
     _systems.push_back(SystemPtr(new Systems::GUI));        
 
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
-    gamesession_.reset(new GameSession(_projectName));
+    CurrentGameSession.reset(new GameSession(_projectName));
     // Load the default space to start with
     LoadDefaultSpace();
 
@@ -145,7 +145,7 @@ namespace DCEngine {
 
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
-    gamesession_->Initialize();  
+    CurrentGameSession->Initialize();  
     
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();
@@ -174,11 +174,14 @@ namespace DCEngine {
   void Engine::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
   {
     Systems::DispatchSystemEvents::EnginePause();
+    DispatchGameEvents::GameFocusOut();
+    
   }
 
   void Engine::OnWindowGainedFocusEvent(Events::WindowGainedFocus * event)
   {
     Systems::DispatchSystemEvents::EngineResume();
+    DispatchGameEvents::GameFocusIn();
   }
 
   /**************************************************************************/
@@ -191,8 +194,6 @@ namespace DCEngine {
     DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
     this->Paused = true;
   }
-
-
 
   /**************************************************************************/
   /*!
@@ -281,9 +282,9 @@ namespace DCEngine {
     auto logicUpdateEvent = new Events::LogicUpdate();
     logicUpdateEvent->Dt = dt;
     // Dispatch the logic update event to the gamesession
-    gamesession_->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    CurrentGameSession->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     // Dispatch the logic update event to all active spaces
-    for (auto space : gamesession_->ActiveSpaces) {
+    for (auto space : CurrentGameSession->ActiveSpaces) {
       // Do not dispatch the 'LogicUpdate' event if the space is paused
       if (space.second->getComponent<TimeSpace>()->getPaused())
         continue;
@@ -309,26 +310,6 @@ namespace DCEngine {
 
     DCTrace << "\n[Engine::LoadProject - Loading " << projectFile << "]\n";
 
-    // 1. Deserialize the input file for information about the project,
-    // and store that in a struct owned by the engine.
-
-    // 2. Scan through the "Assets" folder given for game resources:
-    // SpriteSources, SoundCues, Levels. Add these resources to the content
-    // system hashmaps, as "Name"/"FileName" pairs.
-
-    // 3. Scan through the "Scripts" folder for game components (scripts):
-    // Add these components dynamically to the engine's components to be used
-    // for gameplay.
-
-    // 4. Scan through the "Archetypes" folder for serialized archetypes to
-    // be used in the game. These are GameObjects with specific components,
-    // and will be added to an "Archetype"/"FileName" map.
-
-    // 5. Scan the archetyped "GameSession" object and use the values in its
-    // 'ProjectSetup' component: DefaultSpace, DefaultLevel to load an 
-    // archetyped space and load the specified default level onto it. 
-    // (This level is looked for in the content's system "Levels map" container.
-
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
   }
@@ -336,16 +317,16 @@ namespace DCEngine {
   void Engine::StartProject()
   {
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
-    gamesession_.reset(new GameSession(_projectName));
+    CurrentGameSession.reset(new GameSession(_projectName));
     // Create the default space
-    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace);
+    SpacePtr defaultSpace = CurrentGameSession->CreateSpace(_defaultSpace);
     // Set a reference to it in the GameSession object
-    gamesession_->DefaultSpace = defaultSpace;
+    CurrentGameSession->DefaultSpace = defaultSpace;
     DCTrace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
 
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
-    gamesession_->Initialize();
+    CurrentGameSession->Initialize();
 
   }
 
@@ -370,9 +351,9 @@ namespace DCEngine {
   void Engine::LoadDefaultSpace()
   {
     // Create the default space
-    SpacePtr defaultSpace = gamesession_->CreateSpace(_defaultSpace, false);
+    SpacePtr defaultSpace = CurrentGameSession->CreateSpace(_defaultSpace, false);
     // Set a reference to it in the GameSession object
-    gamesession_->DefaultSpace = defaultSpace;
+    CurrentGameSession->DefaultSpace = defaultSpace;
   }
 
   /**************************************************************************/
@@ -384,13 +365,13 @@ namespace DCEngine {
   void Engine::Terminate() {
     DCTrace << "\n[Engine::Terminate] \n";
     // Clear every Space
-    for (auto space : gamesession_->ActiveSpaces) {
+    for (auto space : CurrentGameSession->ActiveSpaces) {
       space.second->DestroyAll();      
     }
     // Destroy every GameObject
     getSystem<Systems::Factory>()->ActiveGameObjects.clear();
     // Clear the GameSession
-    gamesession_->ActiveSpaces.clear();
+    CurrentGameSession->ActiveSpaces.clear();
 
     // Terminates all systems.
     for (auto sys : _systems)

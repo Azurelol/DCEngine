@@ -21,6 +21,7 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpInterval);
     DCE_BINDING_DEFINE_PROPERTY(EnemyController, PatrolRange);
     DCE_BINDING_DEFINE_PROPERTY(EnemyController, Timer);
+    DCE_BINDING_DEFINE_PROPERTY(EnemyController, AutoPlay);
   }
   #endif
 
@@ -33,8 +34,14 @@ namespace DCEngine {
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
 		RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-		PlayerRef = SpaceRef->FindObjectByName(PlayerName);
-		InitialPosition = TransformRef->getTranslation();
+    InitialPosition = TransformRef->getTranslation();
+    
+    if (AutoPlay) {
+      EnemyType = EnemyType::RandomJumper;
+    }
+    else {
+      PlayerRef = SpaceRef->FindObjectByName(PlayerName);
+    }		
 	}
 
 	void EnemyController::Serialize(Json::Value & root)
@@ -74,7 +81,7 @@ namespace DCEngine {
 			DoBasicChaser();
 			Patrol();
 		}
-		if (EnemyType == EnemyType::RandomJumper)
+		if (EnemyType == EnemyType::RandomJumper )
 		{
 			if (Timer > JumpInterval)
 			{

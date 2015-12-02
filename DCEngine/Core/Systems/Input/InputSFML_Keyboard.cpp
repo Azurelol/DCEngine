@@ -103,11 +103,10 @@ namespace DCEngine {
         break;
       case sf::Keyboard::F7: // RESERVED: Toggle Test
         keyDown->Key = Keys::F7;
-        Daisy->getSystem<Systems::Editor>()->ToggleTest();
         break;
       case sf::Keyboard::F8: // RESERVED: Toggle Editor
         //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
-        ToggleEditor();
+        //ToggleEditor();
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:

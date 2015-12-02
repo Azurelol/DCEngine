@@ -33,6 +33,7 @@ namespace DCEngine {
 		Vec3 InitialPosition;
 		EnemyType EnemyType = EnemyType::AdvancedChaser;
 		String PlayerName = "Player";
+    Boolean AutoPlay;
 		
     // Properties
     DCE_DEFINE_PROPERTY(Real, MoveSpeed);
@@ -41,7 +42,8 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(Real, JumpInterval);
     DCE_DEFINE_PROPERTY(Real, PatrolRange);    
     DCE_DEFINE_PROPERTY(Real, Timer);
-	DCE_DEFINE_PROPERTY(String, PlayerName);
+	  DCE_DEFINE_PROPERTY(String, PlayerName);
+    DCE_DEFINE_PROPERTY(Boolean, AutoPlay);
     
     // Methods
 		EnemyController(Entity& owner) : Component(std::string("EnemyController"), owner) {}

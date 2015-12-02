@@ -5,9 +5,11 @@ namespace DCEngine {
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
 	ZilchDefineType(MainMenuManager, "MainMenuManager", Rebound, builder, type) {
-		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelNewGame);
-		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelHelp);
-		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelCredits);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Level);
+		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelNewGame)->Attributes.push_back(attributeLevel);
+		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelHelp)->Attributes.push_back(attributeLevel);
+		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelCredits)->Attributes.push_back(attributeLevel);
+    DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelCrunk)->Attributes.push_back(attributeLevel);
 		DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, TransitionTime);
 	}
 #endif  
@@ -18,7 +20,8 @@ namespace DCEngine {
 		// Set the references to the buttons
 		ButtonNewGame = SpaceRef->FindObjectByName("NewGameButton");
 		ButtonHelp = SpaceRef->FindObjectByName("HelpButton");
-		ButtonCredits = SpaceRef->FindObjectByName("CreditsButton");
+    ButtonCrunk = SpaceRef->FindObjectByName("CrunkButton");
+    ButtonCredits = SpaceRef->FindObjectByName("CreditsButton");
 		ButtonExit = SpaceRef->FindObjectByName("ExitButton");
 		ButtonFullScreen = SpaceRef->FindObjectByName("FullScreen");
 
@@ -42,6 +45,12 @@ namespace DCEngine {
 			Connect(ButtonExit, Events::MouseClickedOn, MainMenuManager::OnExitClicked);
 		else
 			DCTrace << "MainMenuManager::Initialize - Failed to find ButtonExit! \n";
+
+    if (ButtonCrunk)
+      Connect(ButtonCrunk, Events::MouseClickedOn, MainMenuManager::OnCrunkClickedEvent);
+    else
+      DCTrace << "MainMenuManager::Initialize - Failed to find ButtonCrunk! \n";
+
 
 		if (ButtonFullScreen)
 			Connect(ButtonFullScreen, Events::MouseClickedOn, MainMenuManager::OnFullScreenSwitch);
@@ -89,5 +98,10 @@ namespace DCEngine {
 		Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
 		delete fsevent;
 	}
+
+  void MainMenuManager::OnCrunkClickedEvent(Events::MouseClickedOn * event)
+  {
+    SpaceRef->LoadLevel(LevelCrunk);
+  }
 
 }

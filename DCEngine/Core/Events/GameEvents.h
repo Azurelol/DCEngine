@@ -35,6 +35,10 @@ namespace DCEngine {
     public:
     };
 
+    class GameEnded : public Event {
+    public:
+    };
+
     class GameSetup : public Event {
     public:
     };

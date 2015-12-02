@@ -162,6 +162,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ReleaseObject()
     {
+      if (!SelectedObject)
+        return;
+
       if (Settings.Dragging) {       
 
         // Snap the object to the nearest (x,y) snapDistance      

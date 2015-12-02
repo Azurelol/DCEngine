@@ -89,7 +89,7 @@ namespace DCEngine {
       void DisplayEntityProperties();
       void DisplayResourceProperties();
       void AddComponent(EntityPtr);
-      void SelectResource(Zilch::Property*, ObjectPtr);
+      void SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       // Library
       void WidgetLibrary();
       void WidgetDiagnostics();

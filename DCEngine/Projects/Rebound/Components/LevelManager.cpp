@@ -16,10 +16,11 @@ namespace DCEngine {
 
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(LevelManager, "LevelManager", Rebound, builder, type) {
-    DCE_BINDING_DEFINE_PROPERTY(LevelManager, NextLevel);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Level);
+    DCE_BINDING_DEFINE_PROPERTY(LevelManager, NextLevel)->Attributes.push_back(attributeLevel);
     DCE_BINDING_DEFINE_PROPERTY(LevelManager, LoadingTime);
-	DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
-	DCE_BINDING_DEFINE_PROPERTY(LevelManager, TimerStarted);
+	  DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
+	  DCE_BINDING_DEFINE_PROPERTY(LevelManager, TimerStarted);
   }
   #endif
 

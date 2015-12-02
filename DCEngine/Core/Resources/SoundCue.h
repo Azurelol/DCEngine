@@ -34,9 +34,9 @@ namespace DCEngine {
     #endif
 
     PlayMode PlayMode; // Add this later
-    float Volume = 0.0f;
+    float Volume = 1.0f;
     float VolumeVariation = 0.0f;
-    float Pitch = 0.0f;
+    float Pitch = 1.0f;
     float PitchVariation = 0.0f;
     bool Loop = false;
     
