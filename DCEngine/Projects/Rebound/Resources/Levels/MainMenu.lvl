@@ -70,6 +70,63 @@
       }, 
       "GameObject": 
       {
+        "Name": "Background", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 10.000000, 
+                "z": -0.100000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 18.000000, 
+                "y": 22.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "BackgroundMainMenu", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
         "Name": "FullScreen", 
         "Archetype": "", 
         "Components": 
@@ -303,7 +360,7 @@
               {
                 "x": 2.679604, 
                 "y": 4.128868, 
-                "z": 0.000000
+                "z": -0.200000
               }
             }, 
             "Rotation": 
@@ -339,63 +396,6 @@
               }
             }, 
             "SpriteSource": "City_Background", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Background", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 10.000000, 
-                "z": -0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 18.000000, 
-                "y": 22.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "BackgroundMainMenu", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
