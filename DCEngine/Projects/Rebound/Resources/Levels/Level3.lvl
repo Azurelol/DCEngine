@@ -98,7 +98,7 @@
             {
               "Vec3": 
               {
-                "x": -7.000000, 
+                "x": -8.211202, 
                 "y": -0.365902, 
                 "z": 0.000000
               }
@@ -136,7 +136,7 @@
               }
             }, 
             "SpriteSource": "PlayerStand", 
-            "FlipX": false, 
+            "FlipX": true, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
@@ -173,7 +173,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -4.906092, 
+                "y": -0.996831, 
                 "z": 0.000000
               }
             }, 
@@ -215,7 +215,7 @@
             {
               "Vec3": 
               {
-                "x": -7.000000, 
+                "x": -8.211195, 
                 "y": 4.634099, 
                 "z": 1.000000
               }
@@ -620,9 +620,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.070430, 
+                "y": 0.985914, 
+                "z": 0.042258, 
                 "w": 1.000000
               }
             }, 
@@ -660,6 +660,23 @@
           {
             "Damage": 3.000000, 
             "DamageInterval": 1.000000
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.718653, 
+            "FadeTime": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -706,9 +723,9 @@
             {
               "Vec4": 
               {
-                "x": 0.500000, 
-                "y": 0.900000, 
-                "z": 0.300000, 
+                "x": 0.498237, 
+                "y": 0.900353, 
+                "z": 0.298942, 
                 "w": 1.000000
               }
             }, 
@@ -746,6 +763,23 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.066063, 
+            "FadeTime": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.473317, 
+                "y": 0.905337, 
+                "z": 0.283990, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
           }
         }
       }, 
@@ -2300,7 +2334,7 @@
             {
               "Vec3": 
               {
-                "x": 100.028137, 
+                "x": 104.028137, 
                 "y": -2.005251, 
                 "z": 0.000000
               }
@@ -2351,7 +2385,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -4.906092, 
+                "y": -0.996831, 
                 "z": 0.000000
               }
             }, 
@@ -2396,8 +2430,8 @@
             "JumpPowerY": 20.000000, 
             "JumpPowerX": 3.000000, 
             "JumpInterval": 2.000000, 
-            "PatrolRange": 15.000000, 
-            "Timer": 96.191864
+            "PatrolRange": 100.000000, 
+            "Timer": 291.024475
           }
         }
       }, 
@@ -2646,6 +2680,23 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
           }
         }
       }, 
@@ -3704,7 +3755,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "EndOfLevel", 
         "Archetype": "", 
         "Components": 
         {
@@ -3783,7 +3834,7 @@
           }, 
           "LevelManager": 
           {
-            "NextLevel": "Level4", 
+            "NextLevel": "YouWon", 
             "LoadingTime": 1.000000, 
             "Timer": 1.000000, 
             "TimerStarted": false
@@ -3832,6 +3883,232 @@
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Enemy2", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 233.000000, 
+                "y": -79.131363, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Mass": 10.000000, 
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -0.996831, 
+                "z": 0.000000
+              }
+            }, 
+            "Angular_Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation_Locked": true
+          }, 
+          "EnemyController": 
+          {
+            "MoveSpeed": 5.000000, 
+            "JumpPowerY": 20.000000, 
+            "JumpPowerX": 3.000000, 
+            "JumpInterval": 2.000000, 
+            "PatrolRange": 30.000000, 
+            "Timer": 195.672668
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Enemy3", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 211.000000, 
+                "y": -100.593002, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Mass": 10.000000, 
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -0.996831, 
+                "z": 0.000000
+              }
+            }, 
+            "Angular_Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation_Locked": true
+          }, 
+          "EnemyController": 
+          {
+            "MoveSpeed": 5.000000, 
+            "JumpPowerY": 20.000000, 
+            "JumpPowerX": 3.000000, 
+            "JumpInterval": 2.000000, 
+            "PatrolRange": 15.000000, 
+            "Timer": 78.926888
           }
         }
       }

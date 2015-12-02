@@ -64,7 +64,7 @@ namespace DCEngine {
 
 	void PlayerController::OnKeyDownEvent(Events::KeyDown* event)
 	{
-		if (event->Key == Keys::L)
+		if (event->Key == Keys::Tilde)
 		{
 			LevelCheatLoaded = false;
 		}
@@ -77,7 +77,7 @@ namespace DCEngine {
 		switch (event->Key)
 		{
 		case Keys::I:
-			
+			Invincible = !Invincible;
 			if (Invincible)
 			{
 				SpriteComponent->Color = Vec4(1, 1, 0, 1);
@@ -137,6 +137,10 @@ namespace DCEngine {
 		{
 			Grounded = true;
 			this->SpaceRef->getComponent<SoundSpace>()->PlayCue("HighThud");
+		}
+		if (event->OtherObject->getComponent<LevelManager>())
+		{
+			event->OtherObject->getComponent<Fade>()->setFading(true);
 		}
 	}
 

@@ -28,6 +28,7 @@ namespace DCEngine {
 	  auto gameObj = dynamic_cast<GameObject*>(Owner());
 	  Connect(gameObj, Events::CollisionStarted, LevelManager::OnCollisionStartedEvent);
 	  Connect(SpaceRef, Events::LogicUpdate, LevelManager::OnLogicUpdateEvent);
+	  //FadeRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Fade>();
   }
 
   void LevelManager::OnKeyDownEvent(Events::KeyDown * event)
@@ -44,7 +45,8 @@ namespace DCEngine {
 	  if (event->OtherObject->getComponent<PlayerController>())
 	  {
 		  TimerStarted = true;
-      SpaceRef->getComponent<SoundSpace>()->PlayCue("Rumble");
+	      SpaceRef->getComponent<SoundSpace>()->PlayCue("Rumble");
+		  //FadeRef->setFading(true);
 		 // this->SpaceRef->CreateObject()
 	  }
   }

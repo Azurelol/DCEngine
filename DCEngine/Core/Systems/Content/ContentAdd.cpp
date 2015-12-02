@@ -105,8 +105,9 @@ namespace DCEngine {
       }
 
       if (DCE_TRACE_FACTORY_RESOURCE_ADD)
-        ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
-      DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
+        DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";
+
+        ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));      
     }
 
     /**************************************************************************/
