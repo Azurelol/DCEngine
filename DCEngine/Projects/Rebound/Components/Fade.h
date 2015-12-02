@@ -25,6 +25,7 @@ namespace DCEngine {
 		// Properties
 		DCE_DEFINE_PROPERTY(Real, Timer);
 		DCE_DEFINE_PROPERTY(Boolean, Fading);
+		DCE_DEFINE_PROPERTY(Boolean, Pulse);
 		DCE_DEFINE_PROPERTY(Real, FadeTime); //How long in seconds it takes to fade to TargetColor
 		DCE_DEFINE_PROPERTY(Vec4, InitialColor);
 		DCE_DEFINE_PROPERTY(Vec4, TargetColor);
@@ -49,6 +50,7 @@ namespace DCEngine {
 		Vec4 TargetColor = Vec4(1, 1, 1, 1);
 		Vec4 InitialColor = Vec4(-1.0f, -1.0f, -1.0f, -1.0f);
 		Boolean Fading = false;
+		Boolean Pulse = true;
 		Real FadeTime = 1;
 	};
 

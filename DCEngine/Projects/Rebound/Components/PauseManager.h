@@ -20,6 +20,7 @@ namespace DCEngine {
     
     // Methods
     PauseManager(Entity& owner) : Component(std::string("PauseManager"), owner) {}
+	//~PauseManager();
     void Initialize();    
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
@@ -30,6 +31,12 @@ namespace DCEngine {
     void OnHelpClicked(Events::MouseClickedOn* event);
     void OnCreditsClicked(Events::MouseClickedOn* event);
     void OnQuitClicked(Events::MouseClickedOn* event);
+
+	void OnBackButtonHTP(Events::MouseClickedOn* event);
+	void OnBackButtonCredits(Events::MouseClickedOn* event);
+	void ReloadPauseMainMenu();
+
+	bool CheckQuitBool();
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(PauseManager, Component);
@@ -44,6 +51,12 @@ namespace DCEngine {
     GameObjectPtr ButtonHelp;
     GameObjectPtr ButtonCredits;
     GameObjectPtr ButtonQuit;
+
+	GameObjectPtr ButtonBackHTP = NULL;
+	GameObjectPtr ButtonBackCredits = NULL;
+
+	bool IsInCredits = false;
+	bool IsInHowToPlay = false;
 
   };
 

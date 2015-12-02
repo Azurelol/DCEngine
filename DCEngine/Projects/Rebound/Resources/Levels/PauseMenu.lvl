@@ -88,8 +88,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -151,8 +151,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -214,8 +214,8 @@
           }, 
           "Reactive": 
           {
-            "Active": false, 
-            "CaptureMouse": false, 
+            "Active": true, 
+            "CaptureMouse": true, 
             "Noise": false
           }, 
           "Sprite": 
@@ -241,7 +241,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "ButtonQuit", 
+        "Name": "SpriteQuit", 
         "Archetype": "", 
         "Components": 
         {
@@ -252,7 +252,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -1.000000, 
                 "z": 0.000000
               }
             }, 
@@ -269,17 +269,11 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 4.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
             }
-          }, 
-          "Reactive": 
-          {
-            "Active": false, 
-            "CaptureMouse": false, 
-            "Noise": false
           }, 
           "Sprite": 
           {
@@ -299,6 +293,12 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }
         }
       }

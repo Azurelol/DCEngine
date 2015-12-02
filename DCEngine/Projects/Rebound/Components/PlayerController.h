@@ -28,7 +28,10 @@ namespace DCEngine {
 		bool Invincible = false;
 		bool LevelCheatLoaded = true;
 		bool musicplay = true;
+		bool Dead = false;
 		Real AutoPlayTimer = 2;
+		Real DeathTimer = 0;
+		Real TimeToDie = 1;
 		Real FramesOfDamageColor = 10;
 		Real FramesOfDamageColorApplied = 0;
 		Real MoveSpeed = 0.7f;
