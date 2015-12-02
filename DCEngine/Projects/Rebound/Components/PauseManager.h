@@ -20,6 +20,7 @@ namespace DCEngine {
     
     // Methods
     PauseManager(Entity& owner) : Component(std::string("PauseManager"), owner) {}
+	//~PauseManager();
     void Initialize();    
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
@@ -34,6 +35,8 @@ namespace DCEngine {
 	void OnBackButtonHTP(Events::MouseClickedOn* event);
 	void OnBackButtonCredits(Events::MouseClickedOn* event);
 	void ReloadPauseMainMenu();
+
+	bool CheckQuitBool();
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(PauseManager, Component);

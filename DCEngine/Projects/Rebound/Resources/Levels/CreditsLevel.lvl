@@ -57,7 +57,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "CreditSprite", 
         "Archetype": "", 
         "Components": 
         {
@@ -67,9 +67,9 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
+                "x": 14.000000, 
+                "y": 13.000000, 
+                "z": 0.400000
               }
             }, 
             "Rotation": 
@@ -98,17 +98,80 @@
             {
               "Vec4": 
               {
-                "x": 5.000000, 
-                "y": 5.000000, 
-                "z": 94.000000, 
-                "w": 0.500000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.700000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "CreditsImagev1", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "BackButtonCredits", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.000000, 
+                "y": 25.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "BackButton", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }
         }
       }

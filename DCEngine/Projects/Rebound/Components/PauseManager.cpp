@@ -27,7 +27,7 @@ namespace DCEngine {
 	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
 	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
 	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-	  ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+	  ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
 	  // Connect to its events
 	  if (ButtonResume)
 		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
@@ -89,6 +89,14 @@ namespace DCEngine {
 
   }
 
+  /*PauseManager::~PauseManager()
+  {
+	  if (PauseSpace)
+	  {
+		  PauseSpace->Destroy();
+	  }
+  }*/
+
   void PauseManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
   }
@@ -109,7 +117,7 @@ namespace DCEngine {
     ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
     ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
     ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-    ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+    ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
     // Connect to its events
     if (ButtonResume)
       Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
@@ -140,8 +148,12 @@ namespace DCEngine {
 	  ButtonResume = PauseSpace->FindObjectByName("ButtonResume");
 	  ButtonHelp = PauseSpace->FindObjectByName("ButtonHelp");
 	  ButtonCredits = PauseSpace->FindObjectByName("ButtonCredits");
-	  ButtonQuit = PauseSpace->FindObjectByName("ButtonQuit");
+	  ButtonQuit = PauseSpace->FindObjectByName("SpriteQuit");
 	  // Connect to its events
+	  if (ButtonQuit)
+		  Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
+	  else
+		  DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
 	  if (ButtonResume)
 		  Connect(ButtonResume, Events::MouseClickedOn, PauseManager::OnResumeClicked);
 	  else
@@ -156,11 +168,6 @@ namespace DCEngine {
 		  Connect(ButtonCredits, Events::MouseClickedOn, PauseManager::OnCreditsClicked);
 	  else
 		  DCTrace << "PauseManager::Initialize - Failed to find ButtonCredits! \n";
-
-	  if (ButtonQuit)
-		  Connect(ButtonQuit, Events::MouseClickedOn, PauseManager::OnQuitClicked);
-	  else
-		  DCTrace << "PauseManager::Initialize - Failed to find ButtonExit! \n";
 	  ButtonBackHTP = NULL;
   }
 
