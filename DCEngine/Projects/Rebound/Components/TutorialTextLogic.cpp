@@ -40,6 +40,7 @@ namespace DCEngine {
 																						  //RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
 		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		//SpriteRef->setVisible(false);
+		SpriteRef->Color = Vec4(1, 1, 1, 0);
 	}
 
 	void TutorialTextLogic::OnMouseDownEvent(Events::MouseDown * event)
