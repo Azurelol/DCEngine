@@ -1341,8 +1341,8 @@
             {
               "Vec3": 
               {
-                "x": 66.000000, 
-                "y": -30.004009, 
+                "x": 68.500000, 
+                "y": -35.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1410,22 +1410,18 @@
           }, 
           "MoveToLocation": 
           {
-            "Timer": 0.225683, 
+            "Timer": 0.350000, 
             "TargetLocation": 
             {
               "Vec3": 
               {
-                "x": 66.000000, 
-                "y": -35.490341, 
+                "x": 68.500000, 
+                "y": -28.000000, 
                 "z": 0.000000
               }
             }, 
             "MoveToLocationTime": 0.500000, 
             "Moving": true
-          }, 
-          "ErraticDoor": 
-          {
-            "Timer": 0.000000
           }, 
           "Fade": 
           {
@@ -1444,6 +1440,10 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "ErraticDoor": 
+          {
+            "Timer": 1.000000
           }
         }
       }, 
@@ -4010,6 +4010,120 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "BG1w", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -26.000000, 
+                "y": 20.000000, 
+                "z": -5.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 500.000000, 
+                "y": 250.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "City_Background", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ForGround?", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 78.000000, 
+                "y": -22.500000, 
+                "z": -3.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 300.000000, 
+                "y": 150.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "City_Middleground", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
           }
         }
       }

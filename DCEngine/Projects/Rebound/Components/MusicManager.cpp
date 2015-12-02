@@ -40,8 +40,8 @@ namespace DCEngine {
     switch (event->Key) {
 
     case Keys::M:
-      //Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-      //this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
+      Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
+      this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
       break;
     }
   }

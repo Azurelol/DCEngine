@@ -75,6 +75,7 @@ namespace DCEngine {
 
 	void EnemyController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+    PlayerRef = SpaceRef->FindObjectByName(PlayerName);
 		Timer += event->Dt;
 		if (EnemyType == EnemyType::BasicChaser || EnemyType == EnemyType::AdvancedChaser)
 		{
