@@ -23,7 +23,8 @@ namespace DCEngine {
 
   MusicManager::~MusicManager()
   {
-    this->SpaceRef->getComponent<SoundSpace>()->StopCue(CurrentTrack);
+	  if (!play)
+		this->SpaceRef->getComponent<SoundSpace>()->StopCue(CurrentTrack);
   }
   void MusicManager::Initialize()
   {
