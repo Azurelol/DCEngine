@@ -27,3 +27,4 @@
 #include "Components\Fade.h"
 #include "Components\MoveToLocation.h"
 #include "Components\ErraticDoor.h"
+#include "Components\TutorialTextLogic.h"

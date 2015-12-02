@@ -35,6 +35,7 @@ namespace DCEngine {
 	ZilchInitializeType(LevelManager);
     ZilchInitializeType(MainMenuManager);
 	ZilchInitializeType(ErraticDoor);
+	ZilchInitializeType(TutorialTextLogic);
   }
 
   void ReboundComponentsAddToFactory() {
@@ -56,6 +57,7 @@ namespace DCEngine {
     factory->AddComponentFactory(MainMenuManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MainMenuManager>>());
 	factory->AddComponentFactory(MoveToLocation::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MoveToLocation>>());
 	factory->AddComponentFactory(ErraticDoor::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<ErraticDoor>>());
+	factory->AddComponentFactory(TutorialTextLogic::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<TutorialTextLogic>>());
   }
 
 

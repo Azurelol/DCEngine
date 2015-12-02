@@ -208,6 +208,9 @@
     <Filter Include="Core\Resources\Serialization">
       <UniqueIdentifier>{f26a3eba-ea7e-49fc-b352-40b491e53e75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\FMOD">
+      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Systems\Editor\Configuration">
       <UniqueIdentifier>{eca0de98-1c71-44eb-a046-0618deb60def}</UniqueIdentifier>
     </Filter>
@@ -231,9 +234,6 @@
     </Filter>
     <Filter Include="Core\Libraries">
       <UniqueIdentifier>{2ce09bdb-9f9a-4d29-8efc-cfc6e38891f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Audio\FMOD">
-      <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -274,7 +274,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Component.cpp">
       <Filter>Core\Object\Component</Filter>
@@ -645,6 +645,9 @@
     <ClCompile Include="Projects\Rebound\Components\ErraticDoor.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -702,7 +705,7 @@
       <Filter>Core\Systems\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Types.h">
       <Filter>Core\Engine</Filter>
@@ -996,7 +999,7 @@
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
+      <Filter>Core\Systems\FMOD</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -1125,6 +1128,9 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\GameEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\TutorialTextLogic.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
