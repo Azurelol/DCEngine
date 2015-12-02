@@ -31,7 +31,7 @@ namespace DCEngine {
 		Real Timer = 0;
 		Real PatrolRange = 15;
 		Vec3 InitialPosition;
-		EnemyType EnemyType = EnemyType::BasicChaser;
+		EnemyType EnemyType = EnemyType::AdvancedChaser;
 		String PlayerName = "Player";
 		
     // Properties
