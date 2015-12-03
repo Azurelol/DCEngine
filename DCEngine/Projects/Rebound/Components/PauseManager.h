@@ -25,16 +25,23 @@ namespace DCEngine {
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
     void OnLogicUpdateEvent(Events::LogicUpdate * event);
+    // Toggle
     void EnablePauseMenu();
     void DisablePauseMenu();
+    void ReloadPauseMainMenu();
+    void ConnectPauseMainMenu();
+
     void OnResumeClicked(Events::MouseClickedOn* event);
     void OnHelpClicked(Events::MouseClickedOn* event);
     void OnCreditsClicked(Events::MouseClickedOn* event);
     void OnQuitClicked(Events::MouseClickedOn* event);
-
-	void OnBackButtonHTP(Events::MouseClickedOn* event);
-	void OnBackButtonCredits(Events::MouseClickedOn* event);
-	void ReloadPauseMainMenu();
+    // Confirm
+    void OnConfirmQuitClicked(Events::MouseClickedOn* event);
+    void OnCancelQuitClicked(Events::MouseClickedOn* event);
+    // Back
+	  void OnBackButtonHTP(Events::MouseClickedOn* event);
+	  void OnBackButtonCredits(Events::MouseClickedOn* event);
+	  
 
 	bool CheckQuitBool();
 
@@ -47,13 +54,25 @@ namespace DCEngine {
     Boolean Paused = false;
     Space* PauseSpace;
 
-    GameObjectPtr ButtonResume;
-    GameObjectPtr ButtonHelp;
-    GameObjectPtr ButtonCredits;
-    GameObjectPtr ButtonQuit;
+    // Main Menu
+    GameObjectPtr Background = nullptr;
+    GameObjectPtr ButtonResume = nullptr;
+    GameObjectPtr ButtonHelp = nullptr;
+    GameObjectPtr ButtonCredits = nullptr;
+    GameObjectPtr ButtonQuit = nullptr;
+    // Confirm
+    bool DisplayConfirmationActive = false;
+    void DisplayConfirmQuit(bool);
+    GameObjectPtr BackgroundConfirm = nullptr;
+    GameObjectPtr ButtonConfirm = nullptr;
+    GameObjectPtr ButtonCancel = nullptr;
 
-	GameObjectPtr ButtonBackHTP = NULL;
-	GameObjectPtr ButtonBackCredits = NULL;
+	  GameObjectPtr ButtonBackHTP = NULL;
+	  GameObjectPtr ButtonBackCredits = NULL;
+
+
+
+    
 
 	bool IsInCredits = false;
 	bool IsInHowToPlay = false;

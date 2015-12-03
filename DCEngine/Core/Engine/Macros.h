@@ -14,6 +14,8 @@
 
 namespace DCEngine {
 
+#define DEFER(X) X
+
   /*===================*
   *     Components     *
   *===================*/
@@ -31,15 +33,14 @@ namespace DCEngine {
     propertyName = value;                                                         \
   }
 
-  /*
-  #define DCE_BINDING_DECLARE_COMPONENT(componentClass)   \
-  class componentClass : public Component  {              \
-    public:                                               \  
-  ZilchDeclareDerivedType(component, Component)             
-  */
   
-
-
+  #define DCE_BINDING_DECLARE_COMPONENT(COMP)   \
+  class COMP;                                   \
+  class COMP : public Component  {              \
+    public:                                     \
+  ZilchDeclareDerivedType(COMP, Component)
+  
+  
   // This macro declares a derived type to Zilch
   #define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
     ZilchDeclareDerivedType(derivedClass, baseClass)  

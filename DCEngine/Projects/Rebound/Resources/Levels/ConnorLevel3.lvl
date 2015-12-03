@@ -99,7 +99,7 @@
               "Vec3": 
               {
                 "x": -7.000000, 
-                "y": 7.000000, 
+                "y": -0.370445, 
                 "z": 0.000000
               }
             }, 
@@ -135,7 +135,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerRun", 
+            "SpriteSource": "PlayerStand", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -173,7 +173,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -0.959872, 
                 "z": 0.000000
               }
             }, 
@@ -222,8 +222,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -6.999996, 
+                "y": 4.629559, 
                 "z": 1.000000
               }
             }, 
@@ -1024,6 +1024,63 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Wow", 
+        "Archetype": "Wow", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 26.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Wow", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
           }
         }
       }

@@ -24,11 +24,13 @@ namespace DCEngine {
     // Methods
     LevelManager(Entity& owner) : Component(std::string("LevelManager"), owner) {}
     void Initialize();
+    void OnMouseClickedOnEvent(Events::MouseClickedOn* event);
     void OnKeyDownEvent(Events::KeyDown* event);
     void OnKeyUpEvent(Events::KeyDown* event);
     void OnCollisionStartedEvent(Events::CollisionStarted* event);
     void OnCollisionEndedEvent(Events::CollisionEnded* event);
     void OnLogicUpdateEvent(Events::LogicUpdate * event);
+    
 
     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(LevelManager, Component);
@@ -37,9 +39,9 @@ namespace DCEngine {
   private:
     String NextLevel = "NO LEVEL SELECTED";
     Real LoadingTime = 1;
-	Real Timer = 1;
-	Fade* FadeRef;
-	Boolean TimerStarted = false;
+	  Real Timer = 1;
+	  Fade* FadeRef;
+	  Boolean TimerStarted = false;
 
   };
 

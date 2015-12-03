@@ -29,7 +29,13 @@ namespace DCEngine {
 	  auto gameObj = dynamic_cast<GameObject*>(Owner());
 	  Connect(gameObj, Events::CollisionStarted, LevelManager::OnCollisionStartedEvent);
 	  Connect(SpaceRef, Events::LogicUpdate, LevelManager::OnLogicUpdateEvent);
+    Connect(gameObj, Events::MouseClickedOn, LevelManager::OnMouseClickedOnEvent);
 	  //FadeRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Fade>();
+  }
+
+  void LevelManager::OnMouseClickedOnEvent(Events::MouseClickedOn * event)
+  {
+    SpaceRef->LoadLevel(NextLevel);
   }
 
   void LevelManager::OnKeyDownEvent(Events::KeyDown * event)

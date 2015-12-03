@@ -14,12 +14,15 @@
 
 namespace DCEngine {
 
-    class SoundEmitter : public Component {
-    public:
+ //DCE_BINDING_DECLARE_COMPONENT(SoundEmitter)
 
-      #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(SoundEmitter, Component);
-      #endif
+   class SoundEmitter : public Component {
+   public:
+   
+     #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+     ZilchDeclareDerivedType(SoundEmitter, Component);
+     #endif
+  
 
       //DCE_DEFINE_PROPERTY(String, CurrentSoundCue);
       DCE_DEFINE_PROPERTY(SoundCueHandle, Cue);

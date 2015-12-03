@@ -24,6 +24,8 @@ namespace DCEngine {
     ButtonCredits = SpaceRef->FindObjectByName("CreditsButton");
 		ButtonExit = SpaceRef->FindObjectByName("ExitButton");
 		ButtonFullScreen = SpaceRef->FindObjectByName("FullScreen");
+    ButtonConfirm = SpaceRef->FindObjectByName("ConfirmButton");
+    ButtonCancel = SpaceRef->FindObjectByName("CancelButton");
 
 		// Connect to their events
 		if (ButtonNewGame)
@@ -51,12 +53,22 @@ namespace DCEngine {
     else
       DCTrace << "MainMenuManager::Initialize - Failed to find ButtonCrunk! \n";
 
-
 		if (ButtonFullScreen)
 			Connect(ButtonFullScreen, Events::MouseClickedOn, MainMenuManager::OnFullScreenSwitch);
-
 		else
 			DCTrace << "MainMenuManager::Initialize - Failed to find ButtonFullScreen! \n";
+
+    if (ButtonConfirm)
+      Connect(ButtonConfirm, Events::MouseClickedOn, MainMenuManager::OnConfirmQuitClicked);
+    else
+      DCTrace << "MainMenuManager::Initialize - Failed to find ButtonConfirm! \n";
+
+    if (ButtonCancel)
+      Connect(ButtonCancel, Events::MouseClickedOn, MainMenuManager::OnCancelQuitClicked);
+    else
+      DCTrace << "MainMenuManager::Initialize - Failed to find ButtonCancel! \n";
+
+    DisplayConfirmQuit(false);
 
 	}
 
@@ -68,8 +80,17 @@ namespace DCEngine {
 	{
 	}
 
+
+  /*
+    MAIN MENU  
+  */
+
+
 	void MainMenuManager::OnNewGameClicked(Events::MouseClickedOn * event)
 	{
+    if (DisplayConfirmationActive)
+      return;
+
 		DCTrace << "MainMenuManager::OnNewGameClicked \n";
 		// Load the first level
 		SpaceRef->LoadLevel(LevelNewGame);
@@ -77,22 +98,30 @@ namespace DCEngine {
 
 	void MainMenuManager::OnHelpClicked(Events::MouseClickedOn * event)
 	{
+    if (DisplayConfirmationActive)
+      return;
 		DCTrace << "MainMenuManager::OnHelpClicked \n";
 	}
 
 	void MainMenuManager::OnCreditsClicked(Events::MouseClickedOn * event)
 	{
+    if (DisplayConfirmationActive)
+      return;
 		DCTrace << "MainMenuManager::OnCreditsClicked \n";
 	}
 
 	void MainMenuManager::OnExitClicked(Events::MouseClickedOn * event)
 	{
+    if (DisplayConfirmationActive)
+      return;
 		DCTrace << "MainMenuManager::OnExitClicked \n";
-		Systems::DispatchSystemEvents::EngineExit();
+    DisplayConfirmQuit(true);		
 	}
 
 	void MainMenuManager::OnFullScreenSwitch(Events::MouseClickedOn * event)
 	{
+    if (DisplayConfirmationActive)
+      return;
 		DCTrace << "MainMenuManager::OnFullScreenSwitch \n";
 		auto fsevent = new Events::FullscreenEnabledEvent();
 		Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
@@ -101,7 +130,86 @@ namespace DCEngine {
 
   void MainMenuManager::OnCrunkClickedEvent(Events::MouseClickedOn * event)
   {
+    if (DisplayConfirmationActive)
+      return;
     SpaceRef->LoadLevel(LevelCrunk);
+  }
+
+
+  /*   
+    CONFIRMATION MENU
+  */
+
+
+  void MainMenuManager::OnConfirmQuitClicked(Events::MouseClickedOn * event)
+  {
+    if (!DisplayConfirmationActive)
+      return;
+
+    DCTrace << "MainMenuManager::OnConfirmQuitClicked \n";
+    Systems::DispatchSystemEvents::EngineExit();
+  }
+
+  void MainMenuManager::OnCancelQuitClicked(Events::MouseClickedOn * event)
+  {
+    if (!DisplayConfirmationActive)
+      return;
+
+    DCTrace << "MainMenuManager::OnConfirmQuitClicked \n";
+    DisplayConfirmQuit(false);
+  }
+
+
+  // Display the quit confirmation menu
+  void MainMenuManager::DisplayConfirmQuit(bool display)
+  {
+    if (display) {
+      DCTrace << "MainMenuManager::DisplayConfirmQuit - true \n";
+      DisplayConfirmationActive = true;
+      // Hide the main menu
+      if (ButtonNewGame)
+        ButtonNewGame->getComponent<Sprite>()->setVisible(false);
+      if (ButtonCrunk)
+        ButtonCrunk->getComponent<Sprite>()->setVisible(false);
+      if (ButtonHelp)
+        ButtonHelp->getComponent<Sprite>()->setVisible(false);
+      if (ButtonCredits)
+        ButtonCredits->getComponent<Sprite>()->setVisible(false);
+      if (ButtonExit)
+        ButtonExit->getComponent<Sprite>()->setVisible(false);
+      if (ButtonFullScreen)
+        ButtonFullScreen->getComponent<Sprite>()->setVisible(false);
+      // Display the confirmation menu
+      if (ButtonConfirm)
+        ButtonConfirm->getComponent<Sprite>()->setVisible(true);  
+      if (ButtonCancel)
+        ButtonCancel->getComponent<Sprite>()->setVisible(true);
+
+    }
+
+    else {
+      DCTrace << "MainMenuManager::DisplayConfirmQuit - false \n";
+      DisplayConfirmationActive = false;
+      // Display the main menu
+      if (ButtonNewGame)
+        ButtonNewGame->getComponent<Sprite>()->setVisible(true);
+      if (ButtonCrunk)
+        ButtonCrunk->getComponent<Sprite>()->setVisible(true);
+      if (ButtonHelp)
+        ButtonHelp->getComponent<Sprite>()->setVisible(true);
+      if (ButtonCredits)
+        ButtonCredits->getComponent<Sprite>()->setVisible(true);
+      if (ButtonExit)
+        ButtonExit->getComponent<Sprite>()->setVisible(true);
+      if (ButtonFullScreen)
+        ButtonFullScreen->getComponent<Sprite>()->setVisible(true);
+      // Hide the confirmation menu
+      if (ButtonConfirm)
+        ButtonConfirm->getComponent<Sprite>()->setVisible(false);
+      if (ButtonCancel)
+        ButtonCancel->getComponent<Sprite>()->setVisible(false);
+
+    }     
   }
 
 }

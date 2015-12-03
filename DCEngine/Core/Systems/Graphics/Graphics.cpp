@@ -70,7 +70,7 @@ namespace DCEngine {
 
 			// For every Space with a 'GraphicsSpace' component...
 			for (auto gfxSpace : graphicsSpaces_) {
-
+        
 				// Get the default camera from the 'CameraViewport' component
 				auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
 
@@ -200,7 +200,11 @@ namespace DCEngine {
 		*/
 		/**************************************************************************/
 		void Graphics::DrawSprite(Sprite & sprite, Camera& cam, float dt) {
-			if (TRACE_UPDATE)
+			
+      if (!sprite.Visible)
+        return;
+
+      if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
 			GraphicsHandler->DrawSprite(sprite, cam, dt);
 		}

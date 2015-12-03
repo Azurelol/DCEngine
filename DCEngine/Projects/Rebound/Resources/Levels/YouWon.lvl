@@ -57,7 +57,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "GoBackButton", 
+        "Name": "Background", 
         "Archetype": "", 
         "Components": 
         {
@@ -69,7 +69,7 @@
               {
                 "x": -1.500000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -109,18 +109,12 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
           }
         }
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "PlayerController", 
         "Archetype": "", 
         "Components": 
         {
@@ -282,7 +276,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "GoBackButton", 
         "Archetype": "", 
         "Components": 
         {
@@ -294,7 +288,7 @@
               {
                 "x": 0.000000, 
                 "y": -10.000000, 
-                "z": 0.100000
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -334,6 +328,19 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }, 
+          "LevelManager": 
+          {
+            "NextLevel": "MainMenu", 
+            "LoadingTime": 1.000000, 
+            "Timer": 1.000000, 
+            "TimerStarted": false
           }
         }
       }

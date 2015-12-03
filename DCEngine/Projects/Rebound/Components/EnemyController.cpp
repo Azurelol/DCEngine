@@ -94,6 +94,9 @@ namespace DCEngine {
 
 	void EnemyController::Patrol()
 	{
+    if (!PlayerRef)
+      return;
+
 		auto XDistanceFromPlayer = TransformRef->Translation.x - PlayerRef->getComponent<Transform>()->Translation.x;
 		auto direction = glm::sign(XDistanceFromPlayer); //-5 to 5
 		if(LockedOnPlayer)
@@ -150,6 +153,9 @@ namespace DCEngine {
 
 	void EnemyController::DoBasicChaser()
 	{
+    if (!PlayerRef)
+      return;
+
 		auto PlayerPosX = PlayerRef->getComponent<Transform>()->Translation.x;
 		if (PlayerPosX > InitialPosition.x && PlayerPosX < InitialPosition.x + PatrolRange)
 		{
