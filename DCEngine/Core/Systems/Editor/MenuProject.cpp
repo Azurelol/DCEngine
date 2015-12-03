@@ -76,20 +76,20 @@ namespace DCEngine {
       auto load = LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel);
 
       if (load) {
-      //if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
-        // If the project is set to 'Play', start playing right away.
+        //if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
+          // If the project is set to 'Play', start playing right away.
         if (Daisy->getSystem<Content>()->ProjectInfo->Play)
           PlayGame();
         else {
           DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
           ToggleEditor(true);
         }
-          
-      }      
-      // No default level set, turn on the editor!
+      }
+        // No default level set, turn on the editor!
       else
         ToggleEditor(true);
-    }
+     }
+    
 
     /**************************************************************************/
     /*!
@@ -125,9 +125,9 @@ namespace DCEngine {
       
       // Toggle the editor off
       if (EditorEnabled)
-        ToggleEditor(false);
-      else
         ToggleEditor(true);
+      else
+        ToggleEditor(false);
       // Unpause it
     }
 
