@@ -133,8 +133,7 @@ namespace DCEngine {
       if (!soundCue) {
         DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
         return;
-      }
-        
+      }        
 
       AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
     }
