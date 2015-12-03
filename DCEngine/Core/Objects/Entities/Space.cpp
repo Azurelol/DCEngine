@@ -149,7 +149,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::DestroyAll()
   {
-    if (TRACE_GAMEOBJECT_ADD)
+    if (DCE_TRACE_GAMEOBJECT_ADD)
       DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
@@ -359,7 +359,7 @@ namespace DCEngine {
     GameObjectContainer.push_back(gameObject);
     //ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
 
-    if (TRACE_GAMEOBJECT_ADD)
+    if (DCE_TRACE_GAMEOBJECT_ADD)
       DCTrace << ObjectName << "::AddObject - Added " << gameObject->Name() << " to the space.\n";
   }
 
@@ -376,7 +376,7 @@ namespace DCEngine {
       if (gameObjPtr == &gameObj) {
         std::swap(gameObjPtr, GameObjectContainer.back());
         GameObjectContainer.pop_back();
-        if (TRACE_GAMEOBJECT_ADD)
+        if (DCE_TRACE_GAMEOBJECT_ADD)
           DCTrace << ObjectName << "::RemoveObject - Removed " << gameObj.Name() << " from the space.\n";
         break;
       }

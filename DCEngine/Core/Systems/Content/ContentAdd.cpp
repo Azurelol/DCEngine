@@ -253,8 +253,10 @@ namespace DCEngine {
 
       // Load sound files
       std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(levelPath, levels))
-        throw DCException("Content::ScanForLevels - Failed to load level files !");
+      if (!FileSystem::DirectoryListFilePaths(levelPath, levels)) {
+        auto exceptionInfo = std::string("Content::ScanForLevels - Failed to find level directory: " + levelPath);
+        throw DCException(exceptionInfo);
+      }
       for (auto level : levels) {
         auto soundName = FileSystem::FileNoExtension(level);
         AddLevel(soundName, LevelPtr(new Level(level)));
@@ -266,6 +268,8 @@ namespace DCEngine {
     @brief  Scans the specified path for archetype files.
     */
     /**************************************************************************/
+
+
     void Content::ScanForArchetypes(std::string& archetypePath)
     {
       DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
@@ -273,8 +277,10 @@ namespace DCEngine {
 
       // Load sound files
       std::vector<std::string> archetypes;
-      if (!FileSystem::DirectoryListFilePaths(archetypePath, archetypes))
-        throw DCException("Content::ScanForArchetypes - Failed to load archetype files!");
+      if (!FileSystem::DirectoryListFilePaths(archetypePath, archetypes)) {
+        auto exceptionInfo = std::string("Content::ScanForArchetypes - Failed to find archetype directory: " + archetypePath);
+        throw DCException(exceptionInfo);      
+      }
       for (auto archetype : archetypes) {
         auto archetypeName = FileSystem::FileNoExtension(archetype);
         AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
@@ -288,12 +294,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::ScanForSpriteSources(std::string & spriteSourcePath)
     {
-      DCTrace << "Content::ScanForSpriteSources - Scanning for archetypes on the current project \n";
+      DCTrace << "Content::ScanForSpriteSources - Scanning for spritesources on the current project \n";
 
       // Load sprites
       std::vector<std::string> sprites;
-      if (!FileSystem::DirectoryListFilePaths(spriteSourcePath, sprites))
-        throw DCException("Content::LoadCoreAssets - Failed to load sprite files!");
+      if (!FileSystem::DirectoryListFilePaths(spriteSourcePath, sprites)) {
+        auto exceptionInfo = std::string("Content::ScanForSpriteSources - Failed to find sprite directory: " + spriteSourcePath);
+        throw DCException(exceptionInfo);
+      }
+
+        
       for (auto sprite : sprites) {
         auto spriteName = FileSystem::FileNoExtension(sprite);
         AddSpriteSource(spriteName, SpriteSourcePtr(new SpriteSource(sprite)));
@@ -309,8 +319,10 @@ namespace DCEngine {
     {
       // Load sound files
       std::vector<std::string> soundCues;
-      if (!FileSystem::DirectoryListFilePaths(soundCuePath, soundCues))
-        throw DCException("Content::LoadCoreAssets - Failed to load sound files!");
+      if (!FileSystem::DirectoryListFilePaths(soundCuePath, soundCues)) {
+        auto exceptionInfo = std::string("Content::ScanForSoundCues - Failed to find sound directory: " + soundCuePath);
+        throw DCException(exceptionInfo);
+      }
       for (auto sound : soundCues) {
         auto soundName = FileSystem::FileNoExtension(sound);
         AddSoundCue(soundName, SoundCuePtr(new SoundCue(sound)));

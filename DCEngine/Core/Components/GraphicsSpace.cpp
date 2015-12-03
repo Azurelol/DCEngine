@@ -75,8 +75,8 @@ namespace DCEngine {
   void GraphicsSpace::AddSpriteText(SpriteText& spriteText)
   {
     SpriteTextContainer.push_back(&spriteText);
-    DCTrace << "GraphicsSpace::AddSpriteText - "
-      << spriteText.Owner()->Name() << "\n";
+    //DCTrace << "GraphicsSpace::AddSpriteText - "
+    //  << spriteText.Owner()->Name() << "\n";
   }
 
   /**************************************************************************/
@@ -88,8 +88,8 @@ namespace DCEngine {
   void GraphicsSpace::AddSprite(Sprite & sprite)
   {
     SpriteContainer.push_back(&sprite);
-    DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
-            << sprite.Owner()->Name() << "\n";
+    //DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
+    //        << sprite.Owner()->Name() << "\n";
   }
 
   /**************************************************************************/
@@ -100,8 +100,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GraphicsSpace::RemoveSprite(Sprite & sprite)
   {
-    DCTrace << Owner()->Name() <<"::GraphicsSpace::RemoveSprite - "
-            << sprite.Owner()->Name() << "\n";
+    //DCTrace << Owner()->Name() <<"::GraphicsSpace::RemoveSprite - "
+    //        << sprite.Owner()->Name() << "\n";
     Sprite* spritePtr = &sprite;
     SpriteContainer.erase(std::remove(SpriteContainer.begin(),
       SpriteContainer.end(), spritePtr),

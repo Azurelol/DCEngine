@@ -2,9 +2,9 @@
 	"Project Name": "Rebound",
   "Default Level": "MainMenu",
   "Default Space": "",  
-  "Project Path": "Rebound/",
+  "Project Path": "Projects/Rebound/",
   "Resource Path": "Resources/",
   "Asset Path": "Assets/",
   "Script Path": "Scripts/",
-  "Play":  true
+  "Play": true
 }

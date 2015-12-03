@@ -46,6 +46,8 @@ namespace DCEngine {
     std::string configString; 
     if (FileSystem::FileReadToString(configPath, configString))
       Serialization::Deserialize(EngineConfiguration.get(), configString);
+    else
+      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
   }
 
   /**************************************************************************/
@@ -69,6 +71,8 @@ namespace DCEngine {
     std::string configString;
     if (FileSystem::FileReadToString(configFile, configString))
       Serialization::Deserialize(EngineConfiguration.get(), configString);
+    else
+      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
   }
 
   /**************************************************************************/

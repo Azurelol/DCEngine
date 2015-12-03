@@ -51,7 +51,7 @@ namespace DCEngine {
       // If there is not, enable the editor right away!
       else {
         if (Settings.EditorEnabled)
-          ToggleEditor();
+          ToggleEditor(true);
       }
     }
 
@@ -63,23 +63,32 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::LoadProject(std::string& path)
     {
+
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
       // Update the window caption to display the current project
       auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
+      DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
       DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
-      // Load its default level      
-      if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
+      // Load its default level 
+      auto play = Daisy->getSystem<Content>()->ProjectInfo->Play;
+      auto load = LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel);
+
+      if (load) {
+      //if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
         // If the project is set to 'Play', start playing right away.
         if (Daisy->getSystem<Content>()->ProjectInfo->Play)
           PlayGame();
-        else
-          ToggleEditor();
+        else {
+          DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
+          ToggleEditor(true);
+        }
+          
       }      
       // No default level set, turn on the editor!
       else
-        ToggleEditor();
+        ToggleEditor(true);
     }
 
     /**************************************************************************/

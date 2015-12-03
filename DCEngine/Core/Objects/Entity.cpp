@@ -188,12 +188,14 @@ namespace DCEngine {
 
     // If the component could not be constructed... 
     if (component == nullptr) {
-      DCTrace << ObjectName << "::AddComponentByName - " << name << " could not be added!\n";
+      if (DCE_TRACE_COMPONENT_ADD)
+        DCTrace << ObjectName << "::AddComponentByName - " << name << " could not be added!\n";
       return nullptr;
     }    
 
     ComponentsContainer.emplace_back(std::move(component));
-    DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
+    if (DCE_TRACE_COMPONENT_ADD)
+      DCTrace << ObjectName << "::AddComponentByName - " << name << " has been added!\n";
 
     // Initialize the component if need be
     if (initialize)
@@ -214,7 +216,8 @@ namespace DCEngine {
   {    
     auto Factory = Daisy->getSystem<Systems::Factory>();
     ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByType(boundType, *this)));
-    DCTrace << "Entity::AddComponentByType - " << std::string(boundType->Name.c_str()) << "\n";
+    if (DCE_TRACE_COMPONENT_ADD)
+      DCTrace << "Entity::AddComponentByType - " << std::string(boundType->Name.c_str()) << "\n";
     // Initialize the component if need be
     if (initialize)
       ComponentsContainer.back().get()->Initialize();
