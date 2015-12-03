@@ -44,7 +44,7 @@ namespace DCEngine {
     String LastTrack = "NO TRACK SET";
     Real FadeInTime = 0;
     Real FadeOutTime = 0;
-    bool play = true;
+    int play = 0;
     
 
 

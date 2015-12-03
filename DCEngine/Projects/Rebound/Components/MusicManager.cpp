@@ -23,7 +23,7 @@ namespace DCEngine {
 
   MusicManager::~MusicManager()
   {
-	  if (!play)
+	  if (play >= 3)
 		this->SpaceRef->getComponent<SoundSpace>()->StopCue(CurrentTrack);
   }
   void MusicManager::Initialize()
@@ -58,11 +58,12 @@ namespace DCEngine {
 
   void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
   {
-    if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play)
+    if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play < 3)
     {
       Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
       this->SpaceRef->getComponent<SoundSpace>()->PlayCue(CurrentTrack);
-      play = false;
     }
+
+    ++play;
   }
 }
