@@ -119,6 +119,15 @@ namespace DCEngine {
 		  {
 			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);        
 		  }
+
+      // @todo plz fix me
+      KeyboardRef->KeyDown_S = false;
+      KeyboardRef->KeyDown_W = false;
+      KeyboardRef->KeyDown_A = false;
+      KeyboardRef->KeyDown_D = false;
+      KeyboardRef->KeyDown_D = false;
+      KeyboardRef->KeyDown_Space = false;
+
       DispatchSystemEvents::WindowLostFocus();
 		  break;      
 	  case sf::Event::GainedFocus:

@@ -79,7 +79,7 @@ namespace DCEngine {
         //if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
           // If the project is set to 'Play', start playing right away.
         if (play) {
-          EditorEnabled = false;
+          ToggleEditor(false);
           //PlayGame();
         }
           
