@@ -41,6 +41,8 @@ namespace DCEngine {
 		Connect(SpaceRef, Events::LogicUpdate, MoveToLocation::OnLogicUpdateEvent);
 		//SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
 		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>();
+		InitialLocation = TransformRef->getTranslation();
+		TargetLocation = InitialLocation + TargetLocation;
 	}
 
 	void MoveToLocation::OnMouseDownEvent(Events::MouseDown * event)
@@ -77,7 +79,6 @@ namespace DCEngine {
 		if (InitialLocation == Vec3(-9001.0f, -9001.0f, -9001.0f))
 		{
 			InitialLocation = TransformRef->getTranslation();
-			TargetLocation = InitialLocation + TargetLocation;
 		}
 		Timer += event->Dt;
 		if (Timer > MoveToLocationTime)
@@ -93,7 +94,7 @@ namespace DCEngine {
 		{
 			Moving = false;
 			Timer = 0;
-			TargetLocation = InitialLocation - TransformRef->getTranslation();
+			TargetLocation = InitialLocation;
 			InitialLocation = TransformRef->getTranslation();
 		}
 	}

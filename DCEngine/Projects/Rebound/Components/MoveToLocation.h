@@ -28,6 +28,7 @@ namespace DCEngine {
 		DCE_DEFINE_PROPERTY(Real, MoveToLocationTime); //How long in seconds it takes to MoveToLocation to TargetLocation
 		DCE_DEFINE_PROPERTY(Vec3, InitialLocation);
 		DCE_DEFINE_PROPERTY(Vec3, TargetLocation);
+
 		// Methods
 		MoveToLocation(Entity& owner) : Component(std::string("MoveToLocation"), owner) {}
 		void Initialize();
@@ -47,6 +48,7 @@ namespace DCEngine {
 		// Member variables
 		Real Timer = 0;
 		Vec3 TargetLocation = Vec3(10.0f, 0.0f, 0.0f);
+		Vec3 TempTargetLocation = Vec3(10.0f, 0.0f, 0.0f);
 		Vec3 InitialLocation = Vec3(-9001.0f, -9001.0f, -9001.0f);
 		Boolean Moving = true;
 		Real MoveToLocationTime = 1;
