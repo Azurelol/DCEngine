@@ -93,7 +93,7 @@ namespace DCEngine {
 		{
 			Moving = false;
 			Timer = 0;
-			TargetLocation = InitialLocation;
+			TargetLocation = InitialLocation - TransformRef->getTranslation();
 			InitialLocation = TransformRef->getTranslation();
 		}
 	}

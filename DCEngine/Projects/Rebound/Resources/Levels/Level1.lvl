@@ -1474,7 +1474,7 @@
           }, 
           "TutorialTextLogic": 
           {
-            "Timer": 0.895962, 
+            "Timer": 0.000000, 
             "Type": 0.000000
           }
         }
@@ -1536,7 +1536,7 @@
           }, 
           "TutorialTextLogic": 
           {
-            "Timer": 0.895962, 
+            "Timer": 0.000000, 
             "Type": 420.133759
           }
         }

@@ -160,12 +160,21 @@ namespace DCEngine {
 
 	void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 	{
+		if (glm::abs(RigidBodyRef->getVelocity().x) > VelocityXCap)
+		{
+			Vec3 currentVel = RigidBodyRef->getVelocity();
+			currentVel.x = VelocityXCap * glm::sign(currentVel.x);
+			RigidBodyRef->setVelocity(currentVel);
+		}
+		DCTrace << RigidBodyRef->getVelocity().x << "\n";
+
 		//hacking in logic for color changing, use fade later
 		if (Dead)
 		{
 			DeathTimer += event->Dt;
 			if (DeathTimer > TimeToDie)
 			{
+				Dead = false;
 				this->SpaceRef->ReloadLevel();
 			}
 			return;
@@ -196,7 +205,7 @@ namespace DCEngine {
 			SpriteComponent->SpriteSource = JumpAnimation;
 			//SpriteComponent->HaveAnimation = false;
 			//SpriteComponent->AnimationActive = false;
-		    RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * 0.99f);
+		    RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
 		}
 
 
@@ -224,7 +233,7 @@ namespace DCEngine {
 		{
 			SpriteComponent->FlipX = true;
 			MoveLeft();
-		    RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(GroundFriction);
 			if (Grounded)
 			{
 				SpriteComponent->SpriteSource = RunAnimation;
@@ -234,7 +243,7 @@ namespace DCEngine {
 		{
 			SpriteComponent->FlipX = false;
 			MoveRight();
-		    RigidBodyRef->setFriction(0.3f);
+		    RigidBodyRef->setFriction(GroundFriction);
 			if (Grounded)
 			{
 				SpriteComponent->SpriteSource = RunAnimation;
@@ -293,6 +302,7 @@ namespace DCEngine {
 		SpriteComponent->Color = Vec4(0, 0, 0, 1);
 		Dead = true;
 		auto cameraRef = SpaceRef->FindObjectByName("Camera");
+		SpaceRef->getComponent<SoundSpace>()->PlayCue("Death");
 		if(cameraRef)
 		{
 			cameraRef->getComponent<CameraController>()->DoScreenShake = true;
@@ -346,9 +356,9 @@ namespace DCEngine {
 			scalar = 1;
 		}
 
-    if (RigidBodyRef->getVelocity().length() < 4.0f)
+    if (RigidBodyRef->getVelocity().length() < 7.0f)
     {
-      RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar * 1.5f, 0, 0));
+      RigidBodyRef->ApplyLinearVelocity(Vec3(-MoveSpeed * scalar * 2.0f, 0, 0));
     }
     else
     {
@@ -379,9 +389,9 @@ namespace DCEngine {
 			scalar = 1;
 		}
 		//PrintTranslation();
-    if (RigidBodyRef->getVelocity().length() < 4.0f)
+    if (RigidBodyRef->getVelocity().length() < 7.0f)
     {
-      RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar * 1.5f, 0, 0));
+      RigidBodyRef->ApplyLinearVelocity(Vec3(MoveSpeed * scalar * 2.0f, 0, 0));
     }
     else
     {

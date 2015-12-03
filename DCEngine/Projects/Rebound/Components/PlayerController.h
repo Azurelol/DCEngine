@@ -31,7 +31,7 @@ namespace DCEngine {
 		bool Dead = false;
 		Real AutoPlayTimer = 2;
 		Real DeathTimer = 0;
-		Real TimeToDie = 1;
+		Real TimeToDie = 0.7;
 		Real FramesOfDamageColor = 10;
 		Real FramesOfDamageColorApplied = 0;
 		Real MoveSpeed = 0.7f;
@@ -41,6 +41,8 @@ namespace DCEngine {
 		Real Health = 10;
 		Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
 		Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
+		Real VelocityXCap = 30.0f;
+		Real GroundFriction = 0.2f;
 		String StandAnimation = "PlayerStand";
 		String JumpAnimation = "PlayerFall";
 		String RunAnimation = "PlayerRun";
