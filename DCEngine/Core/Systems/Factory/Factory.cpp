@@ -150,14 +150,13 @@ namespace DCEngine {
       for (auto component : components) {
         // Construct the Component
         auto componentName = std::string(component->Key.c_str());
-        auto componentPtr = gameObjPtr->AddComponentByName(componentName, true);
+        auto componentPtr = gameObjPtr->AddComponentByName(componentName);
         // If the component was successfully constructed..
         if (componentPtr) {
           // Deserialize it
           auto properties = component->Value;
           componentPtr->Deserialize(properties);
         }
-
       }
 
       // 4. Add it to the space's container of active gameobjects

@@ -29,6 +29,10 @@ namespace DCEngine {
     /**************************************************************************/
     void InputSFML::PollMouseMoved(sf::Event & event)
     {
+      // Do nothing if ImGui is currently capturing the mouse
+      if (ImGui::GetIO().WantCaptureMouse)
+        return;
+
       // Send an event with the mouse moved information
       auto mouseUpdate = new Events::MouseUpdate();      
       mouseUpdate->ScreenPosition.x = static_cast<float>(event.mouseMove.x);
@@ -44,6 +48,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void InputSFML::PollMouseButtonPressed(sf::Event & event) {
+
+      // Do nothing if ImGui is currently capturing the mouse
+      if (ImGui::GetIO().WantCaptureMouse)
+        return;
 
       // Create a mouse button pressed event
       auto mouseDown = new Events::MouseDown();
@@ -74,7 +82,17 @@ namespace DCEngine {
       delete mouseDown;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Polls for MouseReleased events. Everytime a mouse button is pressed,
+            sends an event.
+    */
+    /**************************************************************************/
     void InputSFML::PollMouseButtonReleased(sf::Event & event) {
+
+      // Do nothing if ImGui is currently capturing the mouse
+      if (ImGui::GetIO().WantCaptureMouse)
+        return;
 
       // Create a mouse button pressed event
       auto mouseUp = new Events::MouseUp();
@@ -125,8 +143,11 @@ namespace DCEngine {
       // Update ImGui
       ImGuiIO& io = ImGui::GetIO();
       io.MouseWheel += (float)event.mouseWheel.delta;
-
       auto delta = io.MouseWheel;
+
+      // Do nothing if ImGui is currently capturing the mouse
+      if (ImGui::GetIO().WantCaptureMouse)
+        return;
 
       // Dispatch the event
       auto mouseScrolled = new Events::MouseScroll();

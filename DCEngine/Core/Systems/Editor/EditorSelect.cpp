@@ -171,7 +171,7 @@ namespace DCEngine {
         if (Settings.Snapping) {
           auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->getTranslation();
           auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
-          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, 0));
+          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
 
           DCTrace << "Editor::ReleaseObject - Releasing '" << SelectedObject->getObjectName() << "' at: \n"
             << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";

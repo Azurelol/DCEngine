@@ -37,7 +37,9 @@ namespace DCEngine {
         Scale,
         
       };
+            
 
+      bool IsEnabled();
       void ToggleEditor();
       void ToggleEditor(bool);
       void ToggleTest();
@@ -47,11 +49,9 @@ namespace DCEngine {
       /////////////////
       //  Settings 
       ////////////////
-      // Widgets
-      //bool EditorStart = false;
-      bool EditorEnabled = false;
-      std::string RecentProject;
       EditorConfig Settings;
+      void setEnabled(bool);
+      std::string RecentProject;      
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
       bool WidgetLevelEnabled = false;
@@ -96,12 +96,10 @@ namespace DCEngine {
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
-      void WindowCreateFromArchetype();
-      
+      void WindowCreateFromArchetype();      
       // Archetypes
       void SaveArchetype(std::string&);
-      void RevertToArchetype();
-      
+      void RevertToArchetype();      
       // Project
       void NewProject();
       void ArchiveProject();
@@ -109,6 +107,7 @@ namespace DCEngine {
       void OpenRecentProject();
       void LoadProject(std::string& path);
       void SaveProject();
+      void SaveCurrentLevel();
       void ShowProjectFolder();
       void PlayGame();
       void StopGame();

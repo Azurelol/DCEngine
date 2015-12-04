@@ -25,7 +25,7 @@ namespace DCEngine {
     void Editor::ApplyEditorWindowLayout()
     {
       auto viewportResize = new Events::ResizeViewportEvent();
-      if (EditorEnabled) {
+      if (Settings.EditorEnabled) {
         viewportResize->viewportScale.x = 1;
         viewportResize->viewportScale.y = 1;
       }

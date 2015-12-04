@@ -69,7 +69,6 @@ namespace DCEngine {
   /**************************************************************************/
   struct EditorConfig {
     // Project
-    bool EditorStart = false;
     bool EditorEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;    

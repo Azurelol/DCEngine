@@ -29,7 +29,7 @@ namespace DCEngine {
       
       bool clicked;      
       if (clicked = ImGui::IsMouseDoubleClicked(0)) {
-        DCTrace << "Double clicked checck B \n";
+        DCTrace << "Double clicked! \n";
       }
       //if (clicked = ImGui::GetIO().MouseDoubleClicked[0]) {
       //  DCTrace << "Double clicked checck A \n";
@@ -109,22 +109,18 @@ namespace DCEngine {
         if (!ScannedForLevels) {
           Daisy->getSystem<Content>()->ScanForLevels();
           ScannedForLevels = true;
-        }
-        
+        }        
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
-          // If the user double-clicks on.. @todo not working yet
-
-
-          if (ImGui::Selectable(level.second->Name().c_str()) ) {
-            
-            if (ImGui::IsMouseDoubleClicked(0)) {
-              DCTrace << "hey\n";
-            }
-
+          auto levelName = level.second->Name().c_str();
+          if (ImGui::Selectable(levelName) ) {
             SelectedObject = level.second.get();
             WindowPropertiesEnabled = true;
           }
-          
+          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+            // Load the selected level
+            DCTrace << "Loading: " << levelName << "\n";
+            LoadLevel(levelName);            
+          }
         }
         
         //ScannedForLevels = false;

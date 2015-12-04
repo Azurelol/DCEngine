@@ -20,7 +20,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseDownEvent(Events::MouseDown* event)
     {
-      if (!EditorEnabled)
+      if (!Settings.EditorEnabled)
         return;
 
       if (event->ButtonPressed == MouseButton::Left) {
@@ -63,7 +63,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpEvent(Events::MouseUp* event)
     {
-      if (!EditorEnabled)
+      if (!Settings.EditorEnabled)
         return;
 
       // Stop dragging
@@ -119,7 +119,6 @@ namespace DCEngine {
         break;
 
       case Keys::F8:
-        StopGame();
         break;
 
       case Keys::Tab:

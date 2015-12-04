@@ -76,21 +76,19 @@ namespace DCEngine {
       auto load = LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel);
 
       if (load) {
-        //if (LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel)) {
-          // If the project is set to 'Play', start playing right away.
-        if (play) {
+        if (play) {       
           ToggleEditor(false);
           //PlayGame();
         }
           
         else {
           DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-          ToggleEditor();
+          ToggleEditor(true);
         }
       }
         // No default level set, turn on the editor!
       else
-        ToggleEditor();
+        ToggleEditor(true);
      }
     
 
@@ -103,6 +101,19 @@ namespace DCEngine {
     void Editor::SaveProject()
     {
       // Serialize all resources, scripts
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Saves the currently-loaded level.
+    */
+    /**************************************************************************/
+    void Editor::SaveCurrentLevel()
+    {      
+      if (CurrentSpace->CurrentLevel) {
+        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
+        SaveLevel(currentLevelName);
+      }
     }
 
     /**************************************************************************/
@@ -125,13 +136,12 @@ namespace DCEngine {
       DCTrace << "Editor::PlayGame - Playing: /"
               << Daisy->getSystem<Content>()->ProjectInfo->ProjectName << "'\n";
       
-      
-      // Toggle the editor off
-      if (EditorEnabled)
-        ToggleEditor(false);
-      else
-        ToggleEditor(true);
-      // Unpause it
+      // If on editor mode, save the currently-loaded level before exiting the editor
+      if (Settings.EditorEnabled)      
+        SaveCurrentLevel();
+
+      // Turn the editor on/off
+      ToggleEditor(!Settings.EditorEnabled);
     }
 
     /**************************************************************************/
@@ -159,10 +169,7 @@ namespace DCEngine {
     void Editor::Exit()
     {
       // Save the currently-loaded level before exiting the editor
-      if (CurrentSpace->CurrentLevel) {
-        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
-        SaveLevel(currentLevelName);
-      }
+      SaveCurrentLevel();
 
       DispatchSystemEvents::EngineExit();
     }

@@ -118,7 +118,7 @@ namespace DCEngine {
 
     // Editor configuration
     EditorConfig editorConfig;
-    editorConfig.EditorStart = EngineConfiguration->EditorEnabled;
+    editorConfig.EditorEnabled = EngineConfiguration->EditorEnabled;
     editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
     editorConfig.RecentProject = EngineConfiguration->RecentProject;
 

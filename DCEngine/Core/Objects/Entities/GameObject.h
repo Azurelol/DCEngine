@@ -57,6 +57,9 @@ namespace DCEngine {
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
 
+    // Stream
+    friend std::ostream& operator<<(std::ostream&, GameObject const&);
+
     // Static member variables
     static unsigned int GameObjectsCreated;
     static unsigned int GameObjectsDestroyed;

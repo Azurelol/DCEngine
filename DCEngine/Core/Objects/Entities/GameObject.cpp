@@ -290,12 +290,32 @@ namespace DCEngine {
         ChildrenContainer.pop_back();
       }
 
-    }
-    //
+    }  
+  }
 
-    //ChildrenContainer.erase(std::remove(ChildrenContainer.begin(),
-    //  ChildrenContainer.end(), child),
-    //  ChildrenContainer.end());    
+  /**************************************************************************/
+  /*!
+  @brief  Deregisters a child onto the GameObject.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  std::ostream & operator<<(std::ostream& out, GameObject const & gameObject)
+  {
+    out << "GameObject: '" << gameObject.Name() << "' \n";
+    out << "Components: \n";
+    for (auto& component : gameObject.ComponentsContainer) {
+      out << " - " << component->getObjectName() << "\n";
+    }
+    if (gameObject.ParentRef)
+      out << "Parent: " << gameObject.ParentRef->getObjectName() << "\n";
+    if (!gameObject.ChildrenContainer.empty())
+    {
+      out << "Children: \n";
+      for (auto& child : gameObject.ChildrenContainer) {
+        out << " - '" << child->Name() << "' \n";
+      }
+    }    
+    return out;
   }
 
 }

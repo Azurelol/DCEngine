@@ -46,8 +46,6 @@ namespace DCEngine {
       LevelPtr BuildLevel(std::string name, Space&);
       // Archetypes
       ArchetypePtr BuildArchetype(std::string, GameObjectPtr);
-      //GameObjectPtr BuildFromArchetype(ArchetypePtr);
-
       // Components
       ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);

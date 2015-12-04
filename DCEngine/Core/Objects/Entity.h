@@ -60,7 +60,7 @@ namespace DCEngine {
     std::string getArchetype() const; 
 
     // Components    
-    template<typename ComponentClass> bool AddComponent(bool initialize);
+    template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(std::string& name, bool initialize = false);
     bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
@@ -116,7 +116,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template<typename ComponentClass>
-  inline bool Entity::AddComponent(bool initialize  = false)
+  inline bool Entity::AddComponent(bool initialize)
   {
     // If there is already a component of the same class, reject the operation
     for (auto &componentOwned : ComponentsContainer) {
@@ -270,6 +270,12 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Deregisters an observer from this entity.
+    @param  observer A pointer to the object listening to this entity.    
+    */
+    /**************************************************************************/
     template<typename Class>
     inline void Entity::DeregisterObserver(Class * observer)
     {

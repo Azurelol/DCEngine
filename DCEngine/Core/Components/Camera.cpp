@@ -9,8 +9,8 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "Camera.h"
+
 #include "EngineReference.h"
 #include "Transform.h"
 
@@ -41,6 +41,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
+    Configure();
   }
 
   /**************************************************************************/
@@ -70,6 +71,16 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Camera::Initialize() {
+
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Configures the Camera settings.
+  */
+  /**************************************************************************/
+  void Camera::Configure()
+  {
     auto gameObjOwner = (GameObject*)Owner();
     TransformComponent = gameObjOwner->getComponent<Transform>();
 
@@ -79,9 +90,6 @@ namespace DCEngine {
       throw DCException("Camera::Initialize - Failed. No Transform component");
       return;
     }
-
-    // Connect the camera to LogicUpdate events
-    Connect(SpaceRef, Events::LogicUpdate, Camera::OnLogicUpdate);
 
     // Set the references to the Window system's screen width and height
     ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
@@ -99,6 +107,8 @@ namespace DCEngine {
     //DCTrace << "Camera::OnLogicUpdate::Updatelol";
     //Update();
   }
+
+
 
   /**************************************************************************/
   /*!

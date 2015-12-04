@@ -32,6 +32,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Initialize()
     {
+      //auto& a = Settings;
+
       if (TRACE_INITIALIZE)
         DCTrace << "Editor::Initialize \n";
       // Store a reference to the Reflection System
@@ -40,14 +42,6 @@ namespace DCEngine {
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
-
-      // If the Editor was enabled from the start,
-      // toggle the widgets
-      //if (EditorStart)
-      //  ToggleEditor();
-      
-
-        
     }
 
     /**************************************************************************/
@@ -97,6 +91,28 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Sets the current status of the editor.
+    */
+    /**************************************************************************/
+    void Editor::setEnabled(bool set)
+    {
+      Settings.EditorEnabled = set;
+      DCTrace << "Editor::setEnabled : " << std::boolalpha << Settings.EditorEnabled << "\n";
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Returns the current state of the editor.
+    */
+    /**************************************************************************/
+    bool Editor::IsEnabled()
+    {
+      return Settings.EditorEnabled;
+    }
+
+    /**************************************************************************/
+    /*!
     \brief  Toggled the Editor on and off.
     */
     /**************************************************************************/
@@ -105,34 +121,10 @@ namespace DCEngine {
       DCTrace << "*!* Editor::ToggleEditor \n";
       // Resize the viewport to accomodate the editor
       //ApplyEditorWindowLayout();
-
-      // Set it's current space to work on
-      //CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
-
+      
       // Toggle on the editor
-      EditorEnabled = !EditorEnabled;
-      // Toggle the widgets
-      WidgetLibraryEnabled = true;
-      WidgetObjectsEnabled = true;
-
-      if (EditorEnabled) {
-        // Pause the engine (Physics, Input, Events)
-        DispatchSystemEvents::EnginePause();
-        DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
-        // Reload the level
-        ReloadLevel();
-      }
-      else {
-        // Save the current level (if there's one)
-        if (CurrentSpace->CurrentLevel)
-          SaveLevel(CurrentSpace->CurrentLevel->Name());
-        // Unpause the engine (Physics, Input, Events)
-        DispatchSystemEvents::EngineResume();
-        DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
-        // Set the editor camera
-        SetEditorCamera(false);
-
-      }
+      setEnabled(!Settings.EditorEnabled);
+      ToggleEditor(Settings.EditorEnabled);      
     }
 
     /**************************************************************************/
@@ -144,7 +136,7 @@ namespace DCEngine {
     {
       // Editor ON
       if (toggle) {
-        EditorEnabled = true;
+        setEnabled(true);
         // Pause the engine (Physics, Input, Events)
         DispatchSystemEvents::EnginePause();
         DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
@@ -152,10 +144,13 @@ namespace DCEngine {
         DispatchGameEvents::GameEnded();
         // Reload the level
         ReloadLevel();
+        // Toggle the widgets
+        WidgetLibraryEnabled = true;
+        WidgetObjectsEnabled = true;
       }
       // Editor OFF
       else {
-        EditorEnabled = false;
+        setEnabled(false);
         // Unpause the engine (Physics, Input, Events)
         DispatchSystemEvents::EngineResume();
         // Send the game start event
@@ -163,6 +158,9 @@ namespace DCEngine {
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);
+        SelectedObject = nullptr;
+        // Ask the space to reload the level
+        CurrentSpace->ReloadLevel();
       }
     }
 
@@ -178,9 +176,14 @@ namespace DCEngine {
       DCTrace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Displays every created Editor window.
+    */
+    /**************************************************************************/
     void Editor::DisplayEditor()
     {
-      if (!EditorEnabled)
+      if (!Settings.EditorEnabled)
         return;
 
       // Display all known editor windows
@@ -227,7 +230,6 @@ namespace DCEngine {
     void Editor::Terminate()
     {
       DCTrace << "Editor::Terminate \n";
-      //GUIHandler->Terminate();
     }
 
 

@@ -140,7 +140,7 @@ namespace DCEngine {
       unsigned int propertyID = 0;
 
       // 2. Get a list of all properties on the object      
-      for (auto property : componentBoundType->AllProperties) {
+      for (auto& property : componentBoundType->AllProperties) {
         
         // If there's at least one attribute... 
         if (!property->Attributes.empty()) {

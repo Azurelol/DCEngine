@@ -60,6 +60,10 @@ namespace DCEngine {
       io.KeyCtrl = event.key.control;
       io.KeyShift = event.key.shift;
             
+      // Do nothing if ImGui is currently capturing the keyboard
+      if (ImGui::GetIO().WantCaptureKeyboard)
+        return;
+
       // Create a keyboard pressed event
       auto keyDown = new Events::KeyDown();
 
@@ -101,12 +105,10 @@ namespace DCEngine {
       case sf::Keyboard::F6:
         keyDown->Key = Keys::F6;
         break;
-      case sf::Keyboard::F7: // RESERVED: Toggle Test
+      case sf::Keyboard::F7:
         keyDown->Key = Keys::F7;
         break;
-      case sf::Keyboard::F8: // RESERVED: Toggle Editor
-        //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
-        //ToggleEditor();
+      case sf::Keyboard::F8:
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
@@ -326,6 +328,10 @@ namespace DCEngine {
       //if (Paused)
       //  return;
 
+      // Do nothing if ImGui is currently capturing the keyboard
+      if (ImGui::GetIO().WantCaptureKeyboard)
+        return;
+
       // Create a keyboard pressed event
       auto keyUp = new Events::KeyUp();
 
@@ -363,21 +369,18 @@ namespace DCEngine {
       case sf::Keyboard::F6:
         keyUp->Key = Keys::F6;
         break;
-      case sf::Keyboard::F7: // RESERVED: Toggle Test
-        keyUp->Key = Keys::F7;
-        Daisy->getSystem<Systems::Editor>()->ToggleTest();        
+      case sf::Keyboard::F7:
+        keyUp->Key = Keys::F7;   
         break;
       case sf::Keyboard::F8:
-        //Daisy->getSystem<Systems::Editor>()->ToggleEditor();
         keyUp->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
         keyUp->Key = Keys::F9;
         break;
-      case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
+      case sf::Keyboard::F10:
         keyUp->Key = Keys::F10;
         break;
-
 
       case sf::Keyboard::Up:
         keyUp->Key = Keys::Up;

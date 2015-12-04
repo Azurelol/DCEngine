@@ -228,10 +228,13 @@ namespace DCEngine {
     // Set the default camera
     auto camera = getComponent<CameraViewport>()->FindDefaultCamera();
 
-    //return;
-    // Deserialize the space
-    // Clear its current components
-    // Load new ones from the archetype
+    // If the editor is not enabled, initialize all their components too
+    auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
+    if (!editorEnabled) {
+      for (auto& gameObject : GameObjectContainer)
+        gameObject->Initialize();    
+    }
+
   }
 
   /**************************************************************************/
@@ -389,10 +392,7 @@ namespace DCEngine {
 
     // Mark the object for destruction on next frmae
     Daisy->getSystem<Systems::Factory>()->MarkGameObject(gameObj);
-
-
   }
-
   
   GameSession* Space::getGameSession() {
     return GameSessionRef;
