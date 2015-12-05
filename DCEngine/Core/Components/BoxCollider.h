@@ -63,6 +63,8 @@ namespace DCEngine {
     // for filtering are on the CollisionFilter that is on the running space.
     CollisionGroupHandle CollisionGroup = String("Default");
 
+    void Register();
+
     /* Events */
     void OnLogicUpdateEvent(Events::LogicUpdate* event);
     void OnCollisionStartedEvent(Events::CollisionStarted* event);

@@ -45,6 +45,7 @@ namespace DCEngine {
   /**************************************************************************/
   BoxCollider::BoxCollider(Entity & owner) : Collider(owner, "BoxCollider")//: Component(std::string("BoxCollider"), owner)
   {
+    Register();
   }
 
   /**************************************************************************/
@@ -64,19 +65,25 @@ namespace DCEngine {
   /**************************************************************************/
 	void BoxCollider::Initialize()
 	{
-		// Store a reference to the Transform Component
-		TransformComponent = Owner()->getComponent<Transform>();
-		// Subscribe this physics component to the physics space
-		SpaceRef->getComponent<PhysicsSpace>()->AddCollider(this);
-
-		// If this component needs to draw the collider with debug draw,
-		// subscribe to LogicUpdate events so it can draw
-		if (IsDrawingCollider)
-			Connect(SpaceRef, Events::LogicUpdate, BoxCollider::OnLogicUpdateEvent);
-
-		// Make sure the collider scales with the transform's scale
-
 	}
+
+  /**************************************************************************/
+  /*!
+  @brief Registers the component.
+  */
+  /**************************************************************************/
+  void BoxCollider::Register()
+  {
+    // Store a reference to the Transform Component
+    TransformComponent = Owner()->getComponent<Transform>();
+    // Subscribe this physics component to the physics space
+    SpaceRef->getComponent<PhysicsSpace>()->AddCollider(this);
+
+    // If this component needs to draw the collider with debug draw,
+    // subscribe to LogicUpdate events so it can draw
+    if (IsDrawingCollider)
+      Connect(SpaceRef, Events::LogicUpdate, BoxCollider::OnLogicUpdateEvent);
+  }
 
   /**************************************************************************/
   /*!

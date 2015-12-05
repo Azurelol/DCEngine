@@ -33,7 +33,8 @@ namespace DCEngine {
     // Properties
     ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
     ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
-    ZilchBindProperty(builder, type, &Sprite::getSpriteSource, &Sprite::setSpriteSource, "SpriteSource")->Attributes.push_back(attributeSpriteSource);
+    auto spriteSource = ZilchBindProperty(builder, type, &Sprite::getSpriteSource, &Sprite::setSpriteSource, "SpriteSource");
+    spriteSource->Attributes.push_back(attributeSpriteSource);
     ZilchBindProperty(builder, type, &Sprite::getFlipX, &Sprite::setFlipX, "FlipX");
     ZilchBindProperty(builder, type, &Sprite::getFlipY, &Sprite::setFlipY, "FlipY");
     ZilchBindProperty(builder, type, &Sprite::getAnimationActive, &Sprite::setAnimationActive, "AnimationActive");

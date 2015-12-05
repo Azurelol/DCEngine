@@ -14,6 +14,15 @@
 #include "EngineReference.h"
 #include "Transform.h"
 
+
+ZilchDefineExternalType(DCEngine::ProjectionMode, "ProjectionMode", DCEngine::DCEngineCore, builder, type) {
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+
+  ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Orthographic, "Orthographic");
+  ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Perspective, "Perspective");
+}
+
+
 namespace DCEngine {
 
   /**************************************************************************/

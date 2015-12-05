@@ -96,9 +96,7 @@ namespace DCEngine {
 		void Update();
 		// Calculates the front vector from the Camera's (updated) Euler angles
 		void UpdateCameraVectors();
-
-
 	};
-
-
 }
+
+ZilchDeclareExternalBaseType(DCEngine::ProjectionMode, Zilch::TypeCopyMode::ValueType);

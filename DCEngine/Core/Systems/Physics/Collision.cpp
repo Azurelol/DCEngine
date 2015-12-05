@@ -888,6 +888,16 @@ namespace DCEngine
     return true;
   }
 
+  
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch.
+  @param  
+  @param  
+  @return
+  @todo Look at the comment.
+  */
+  /**************************************************************************/
   bool Collision::PointToRectangle(GameObject * rect, glm::vec3 point)
   {
     BoxCollider *collider = rect->getComponent<BoxCollider>();
@@ -895,16 +905,19 @@ namespace DCEngine
 
     float height, width;
 
-    if (collider == NULL)
-    {
-      height = transform->Scale.y;
-      width = transform->Scale.x;
-    }
-    else
-    {
-      height = collider->getColliderScale().y;
-      width = collider->getColliderScale().x;
-    }
+    height = transform->Scale.y;
+    width = transform->Scale.x;
+
+   // if (collider == NULL)
+   // {
+   //   height = transform->Scale.y;
+   //   width = transform->Scale.x;
+   // }
+   // else
+   // {
+   //   height = collider->getColliderScale().y;
+   //   width = collider->getColliderScale().x;
+   // }
 
 
 

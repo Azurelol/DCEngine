@@ -119,7 +119,8 @@ namespace DCEngine {
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Load the selected level
             DCTrace << "Loading: " << levelName << "\n";
-            LoadLevel(levelName);            
+            LoadLevel(levelName);
+            break;
           }
         }
         
