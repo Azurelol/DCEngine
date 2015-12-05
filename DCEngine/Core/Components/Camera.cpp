@@ -14,7 +14,11 @@
 #include "EngineReference.h"
 #include "Transform.h"
 
-
+/**************************************************************************/
+/*!
+@brief Binds the ProjectionMode enum class.
+*/
+/**************************************************************************/
 ZilchDefineExternalType(DCEngine::ProjectionMode, "ProjectionMode", DCEngine::DCEngineCore, builder, type) {
   ZilchBindEnum(builder, type, SpecialType::Enumeration);
 
@@ -37,6 +41,7 @@ namespace DCEngine {
     ZilchBindConstructor(builder, type, Camera, "owner", Entity&);
     ZilchBindDestructor(builder, type, Camera);
     // Properties
+    //DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
     ZilchBindProperty(builder, type, &Camera::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");
     ZilchBindProperty(builder, type, &Camera::getNearPlane, &Camera::setNearPlane, "NearPlane");
     ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
@@ -50,7 +55,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
-    Configure();
+    Configure();    
   }
 
   /**************************************************************************/

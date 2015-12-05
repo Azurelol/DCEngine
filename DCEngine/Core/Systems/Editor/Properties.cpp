@@ -160,8 +160,7 @@ namespace DCEngine {
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
         getCall.SetHandleVirtual(Zilch::Call::This, object);        
         getCall.Invoke(report);
-
-
+                
 
         // Property: Boolean
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {

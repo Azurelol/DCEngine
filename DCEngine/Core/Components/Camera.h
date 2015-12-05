@@ -55,6 +55,7 @@ namespace DCEngine {
     void setSize(Real);
 
     DCE_DEFINE_PROPERTY(bool, Active);
+    DCE_DEFINE_PROPERTY(ProjectionMode, Projection);
 
     // Camera Attributes
 		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
