@@ -9,7 +9,7 @@ uses.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-#include "Math.h""
+#include "Math.h"
 
 namespace DCEngine {
   
@@ -94,7 +94,8 @@ namespace DCEngine {
 
     return Result;
   }
-  std::ostream& operator<<(std::ostream & os, Vec3 & const vec)
+
+  std::ostream& operator<<(std::ostream & os, const Vec3 & vec)
   {
     os << "Vec3 - x: '" << vec.x << "', y: '" << vec.y << "', z: '" << vec.z << "' \n";
     return os;
