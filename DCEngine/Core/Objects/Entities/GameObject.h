@@ -28,11 +28,13 @@ namespace DCEngine {
 
   namespace Systems {
     class Factory;
+    class Editor;
   }
 
   class GameObject : public Entity {
     friend class Space;
     friend class Factory;
+    friend class Systems::Editor;
 
   public:
     

@@ -80,7 +80,9 @@ namespace DCEngine {
       void DisplayMainMenuBar();
       void WidgetLevel();
       void WidgetResourceAdd();
-      void WidgetObjects();
+      // Objects
+      void WindowObjects();
+      void ObjectsListSwapPosition(GameObjectPtr, Direction);
       // Tools
       void WindowTools();
       // Properties

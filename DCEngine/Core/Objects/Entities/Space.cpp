@@ -169,10 +169,48 @@ namespace DCEngine {
   @return A string containing the serialized level data as JSON.
   */
   /**************************************************************************/
- LevelPtr Space::SaveLevel(const std::string & level)
+  LevelPtr Space::SaveLevel(const std::string & level)
   {
     return Daisy->getSystem<Systems::Factory>()->BuildLevel(level, *this);
   }
+
+ /**************************************************************************/
+ /*!
+ @brief Swaps the position of a GameObject in the space's gameobject list.
+ @param object A pointer to the GameObject
+ @param dir The direction in which to swap the object.
+ */
+ /**************************************************************************/
+ void Space::SwapGameObject(GameObjectPtr object, Direction dir)
+ {   
+   DCTrace << "Space::SwapGameObject - Moving '" << object->getObjectName();
+   // Look for the current object's position in the container
+   auto objectPos = std::find(GameObjectContainer.begin(), GameObjectContainer.end(), object);
+   if (dir == Direction::Up) {
+     DCTrace << "' up the Objects list. \n";
+     // Check if it will go outside of bounds
+     if (objectPos == GameObjectContainer.begin())
+       return;
+     // Look for the object before the current one
+     auto previousObjectPos = objectPos;
+     std::advance(previousObjectPos, -1);
+     // If there's an object before the current one
+     if (*previousObjectPos)
+       std::iter_swap(objectPos, previousObjectPos);
+   }
+   else if (dir == Direction::Down) {
+     DCTrace << "' down the Objects list. \n";
+     // Check if it will go outside of bounds
+     if (objectPos == GameObjectContainer.end() - 1)
+       return;
+     // Look for the object after this one
+     auto nextObjectPos = objectPos;
+     std::advance(nextObjectPos, 1);
+     // If there's an object after the current one
+     if (*nextObjectPos)
+       std::iter_swap(nextObjectPos, objectPos);
+   }
+ }
 
   /**************************************************************************/
   /*!

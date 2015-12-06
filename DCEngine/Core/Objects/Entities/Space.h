@@ -79,6 +79,7 @@ namespace DCEngine {
     LevelPtr CurrentLevel; //!< The currently-loaded level.
     GameSession* GameSessionRef; //!< The gamesession in which this space resides
     GameObjectVec GameObjectContainer; //!< A vector of GameObjects this space holds.
+    void SwapGameObject(GameObjectPtr, Direction);
 
     Space() = delete; //!< Spaces should never be default or copy constructed.
     Space(Space& space) = delete;  
