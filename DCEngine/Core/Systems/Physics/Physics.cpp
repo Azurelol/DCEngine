@@ -376,7 +376,7 @@ namespace DCEngine {
             }
             else
             {
-              collision.FrictionCof *= 0.9;
+              collision.FrictionCof *= 0.9f;
               DispatchCollisionPersisted(Collision);
             }
 
@@ -413,7 +413,7 @@ namespace DCEngine {
             }
             else
             {
-              collision.FrictionCof *= 0.9;
+              collision.FrictionCof *= 0.9f;
               DispatchCollisionPersisted(Collision);
             }
 
@@ -450,7 +450,7 @@ namespace DCEngine {
             }
             else
             {
-              collision.FrictionCof *= 0.9;
+              collision.FrictionCof *= 0.9f;
               DispatchCollisionPersisted(Collision);
             }
 
@@ -487,7 +487,7 @@ namespace DCEngine {
             }
             else
             {
-              collision.FrictionCof *= 0.9;
+              collision.FrictionCof *= 0.9f;
               DispatchCollisionPersisted(Collision);
             }
 

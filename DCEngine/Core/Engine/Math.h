@@ -21,7 +21,7 @@ namespace DCEngine {
     static Vec3 Snap(Vec3&, float snapDistance = 0.5f);
     static float Modulus(float val, float divisor);
 
-    friend std::ostream& operator<<(std::ostream& os, Vec3& const vec);
+    friend std::ostream& operator<<(std::ostream& os, const Vec3& vec);
 
   private:
     

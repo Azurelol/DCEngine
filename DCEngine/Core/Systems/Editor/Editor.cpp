@@ -189,7 +189,7 @@ namespace DCEngine {
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();
-      WidgetObjects();
+      WindowObjects();
       WidgetLibrary();
       WindowProperties();
       WidgetDiagnostics();

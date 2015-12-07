@@ -42,7 +42,7 @@ namespace DCEngine
 
   CollisionFilter &CollisionTable::GetFilter(std::string const &group1, std::string const &group2)
   {
-    for (auto Pair : Pairs)
+    for (auto &Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -50,10 +50,9 @@ namespace DCEngine
       }
     }
 
-    CollisionFilter temp;
 
     DCTrace << "CollisionTable::GetFilter - Tried to get filter of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
-    return temp;
+    return Pairs[0];
   }
 
   bool CollisionTable::AddGroup(CollisionGroup group)

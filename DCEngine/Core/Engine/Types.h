@@ -30,6 +30,14 @@ namespace DCEngine {
   
   // Reference: http://codereview.stackexchange.com/questions/48344/yet-another-any-class-implementation-named-some
   
+  enum class Direction {
+    None,
+    Up,
+    Down,
+    Left,
+    Right,
+  };
+
   enum class Keys {
     None,
     Tilde,
