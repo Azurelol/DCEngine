@@ -34,6 +34,8 @@ namespace DCEngine {
       // Scan the Projects folder for DCE files
       //auto projects = FileSystem::
       DCTrace << "Editor::OpenProject - Opening project \n";
+      std::string openPath;
+      FileSystem::FileOpenDialog(openPath);
       
     }
 

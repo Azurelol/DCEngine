@@ -11,7 +11,6 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 \******************************************************************************/
-
 #pragma once
 #include <string>
 #include <vector>
@@ -27,6 +26,11 @@ namespace DCEngine
   {
   public:
 
+
+    /* File Dialog */
+    static std::string  FileOpenDialog(std::string& openPath);
+    static std::string  FileSaveDialog(std::string& savePath);
+
     /* Path Operations*/
     static bool         Exists(filepath path);
     static std::time_t  LastModified(filepath path);
@@ -40,7 +44,9 @@ namespace DCEngine
     static bool         FileReadToString(filepath filePath, std::string& output);
     static bool         FileWriteString(filepath filePath, std::string& input, bool append = false);
     static std::string  FileNoExtension(filepath filePath);
-    static std::string  FileNoPath(filepath filePath);
+    static std::string  FileExtension(filepath filePath);
+    static bool         FileHasExtension(filepath filePath, std::string extension);
+    static std::string  FileNoPath(filepath filePath);   
 
 
     /* Folder Operations */
@@ -49,6 +55,7 @@ namespace DCEngine
     static bool         DirectoryListFiles(filepath dirPath, std::vector<filepath>& files);
     static bool         DirectoryListFileNames(std::string dirPath, std::vector<std::string>& fileNames);
     static bool         DirectoryListFilePaths(std::string dirPath, std::vector<std::string>& filePaths);
+    static bool         DirectoryListFilePaths(std::string dirPath, std::vector<std::string>& filePaths, std::string extension);
     static bool         DirectoryListDirs(filepath dirPath, std::vector<filepath>& dirs);
     static bool         DirectoryContainsFile(filepath dirPath, std::string fileName, std::string& foundPath);
     static unsigned int DirectoryCountFiles(filepath dirPath);

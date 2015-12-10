@@ -11,17 +11,59 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 \******************************************************************************/
-
 #include "FileSystem.h"
 #include <algorithm>
 #include <BOOST/filesystem.hpp>
 #include <BOOST/lambda/bind.hpp>
+#include <NFD\nfd.h>
 
 #include <iostream>
 
 
 namespace DCEngine
 {
+  std::string FileSystem::FileOpenDialog(std::string & openPath)
+  {
+    nfdchar_t *outPath = NULL;
+    nfdresult_t result = NFD_OpenDialog("png,jpg;pdf", NULL, &outPath);
+    if (result == NFD_OKAY)
+    {
+      puts("Success!");
+      puts(outPath);
+      free(outPath);
+    }
+    else if (result == NFD_CANCEL)
+    {
+      puts("User pressed cancel.");
+    }
+    else
+    {
+      printf("Error: %s\n", NFD_GetError());
+    }
+    return std::string();
+  }
+
+  std::string FileSystem::FileSaveDialog(std::string & savePath2)
+  {
+    nfdchar_t *savePath = NULL;
+    nfdresult_t result = NFD_SaveDialog("png,jpg;pdf", NULL, &savePath);
+    if (result == NFD_OKAY)
+    {
+      puts("Success!");
+      puts(savePath);
+      free(savePath);
+    }
+    else if (result == NFD_CANCEL)
+    {
+      puts("User pressed cancel.");
+    }
+    else
+    {
+      printf("Error: %s\n", NFD_GetError());
+    }
+
+    return std::string();
+  }
   /*!************************************************************************\
   @brief  Looks for a file or directory in a given path.
   @param  The path of the file or directory
@@ -91,6 +133,28 @@ namespace DCEngine
     return filePath.stem().string();
   }
 
+  /*!************************************************************************\
+  @brief  Returns a file's extension.
+  @param  The file path.
+  @return A new string containing the extension's name.
+  \**************************************************************************/
+  std::string FileSystem::FileExtension(filepath filePath)
+  {
+    return filePath.extension().string();
+  }
+
+  /*!************************************************************************\
+  @brief  Returns whether a file has the given extension.
+  @param  The file path.
+  @return Whether the file has the specified extension or not.
+  \**************************************************************************/
+  bool FileSystem::FileHasExtension(filepath filePath, std::string extension)
+  {
+    if (FileExtension(filePath) == extension)
+      return true;
+    return false;
+  }
+
 
   /*!************************************************************************\
   @brief  get a file without its extension
@@ -101,7 +165,7 @@ namespace DCEngine
   {
     return filePath.filename().string();
   }
-
+  
 
   /*!************************************************************************\
   @brief  Renames a file.
@@ -147,6 +211,8 @@ namespace DCEngine
   \**************************************************************************/
   bool FileSystem::FileReadToString(filepath filePath, std::string& output)
   {
+    
+
     std::ifstream inputFile(filePath.string());
     if (inputFile)
     {
@@ -255,6 +321,29 @@ namespace DCEngine
       for (auto&& file : boost::filesystem::directory_iterator(dirPath)) {
         auto filePath = dirPath + file.path().filename().string();
         filePaths.push_back(filePath);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Scans a folder, given a path and extracts all the files paths
+         with a given extension into a string vector.
+  @param dirPath The directory path.
+  @param filePaths A vector containing all the file paths.
+  @param extension The extension which to extract.
+  @return The string vector, containing all the files paths.
+  */
+  /**************************************************************************/
+  bool FileSystem::DirectoryListFilePaths(std::string dirPath, std::vector<std::string>& filePaths, std::string extension)
+  {
+    if (boost::filesystem::exists(dirPath)) {
+      for (auto&& file : boost::filesystem::directory_iterator(dirPath)) {        
+        auto filePath = file.path().filename().string();        
+        auto relativeFilePath = dirPath + filePath;
+        filePaths.push_back(relativeFilePath);
       }
       return true;
     }
