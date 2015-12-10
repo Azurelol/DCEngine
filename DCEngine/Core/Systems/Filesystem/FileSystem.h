@@ -27,9 +27,12 @@ namespace DCEngine
   public:
 
 
+    /* Shell */
+    static bool Execute(std::string command);
+
     /* File Dialog */
-    static std::string  FileOpenDialog(std::string& openPath);
-    static std::string  FileSaveDialog(std::string& savePath);
+    static std::string  FileOpenDialog(std::string& defaultPath, std::string& filters);
+    static std::string  FileSaveDialog(std::string& defaultPath, std::string& filters);
 
     /* Path Operations*/
     static bool         Exists(filepath path);

@@ -12,38 +12,46 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 
 \******************************************************************************/
 #include "FileSystem.h"
-#include <algorithm>
-#include <BOOST/filesystem.hpp>
-#include <BOOST/lambda/bind.hpp>
-#include <NFD\nfd.h>
-#include <TFD\tinyfiledialogs.h>
 
 #include <iostream>
+#include <algorithm>
+
+#include <BOOST/filesystem.hpp>
+#include <BOOST/lambda/bind.hpp>
+//#include <BOOST/process.hpp>
+
+#include <NFD\nfd.h>
+#include <TFD\tinyfiledialogs.h>
 
 
 namespace DCEngine
 {
-  std::string FileSystem::FileOpenDialog(std::string & openPath)
+  bool FileSystem::Execute(std::string command)
   {
-
-    //tinyfd_messageBox(
-    //  "Error",
-    //  "Can not open this file in writting mode",
-    //  "ok",
-    //  "error",
-    //  1);
-
-
-    //return std::string();
-
-
+    //auto a = boost::process::context::basic_work_directory_context();
+    //boost::process::launch_shell(command, a);
+    return true;
+  }
+  /*!************************************************************************\
+  @brief  Opens a file dialog for opening a file.
+  @param  openpath The path from which to start.
+  @param  filters What filters to be used for the files.  
+  @return The path of the selected file that will be opened.
+  @note   Filters are of the format: "png,jpg;pdf"
+  \**************************************************************************/
+  std::string FileSystem::FileOpenDialog(std::string & defaultPath, std::string& filters)
+  {
+   
     nfdchar_t *outPath = NULL;
-    nfdresult_t result = NFD_OpenDialog("png,jpg;pdf", NULL, &outPath);
+    nfdresult_t result = NFD_OpenDialog(filters.c_str(), defaultPath.c_str(), &outPath);
+    //nfdresult_t result = NFD_OpenDialog("png,jpg;pdf", openPath.c_str(), &outPath);
     if (result == NFD_OKAY)
     {
-      puts("Success!");
-      puts(outPath);
+      //puts("Success!");      
+      std::string outPathString(outPath);
+      //puts(outPath);
       free(outPath);
+      return outPathString;
     }
     else if (result == NFD_CANCEL)
     {
@@ -53,18 +61,29 @@ namespace DCEngine
     {
       printf("Error: %s\n", NFD_GetError());
     }
+
+    // Returns the selected file path
     return std::string();
   }
 
-  std::string FileSystem::FileSaveDialog(std::string & savePath2)
+  /*!************************************************************************\
+  @brief  Opens a file dialog for saving a file.
+  @param  openpath The path from which to start.
+  @param  filters What filters to be used for the files.
+  @return The path of the selected file that will be saved.
+  @note   Filters are of the format: "png,jpg;pdf"
+  \**************************************************************************/
+  std::string FileSystem::FileSaveDialog(std::string & defaultPath, std::string& filters)
   {
     nfdchar_t *savePath = NULL;
-    nfdresult_t result = NFD_SaveDialog("png,jpg;pdf", NULL, &savePath);
+    nfdresult_t result = NFD_SaveDialog(filters.c_str(), defaultPath.c_str(), &savePath);
     if (result == NFD_OKAY)
     {
-      puts("Success!");
-      puts(savePath);
+      //puts("Success!");
+      std::string savePathString(savePath);
+      //puts(savePath);
       free(savePath);
+      return savePathString;
     }
     else if (result == NFD_CANCEL)
     {
@@ -77,6 +96,7 @@ namespace DCEngine
 
     return std::string();
   }
+
   /*!************************************************************************\
   @brief  Looks for a file or directory in a given path.
   @param  The path of the file or directory

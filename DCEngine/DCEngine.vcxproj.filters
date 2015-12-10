@@ -241,6 +241,9 @@
     <Filter Include="Core\Systems\Audio\FMOD">
       <UniqueIdentifier>{2cb3eaf3-0f35-49cc-85c2-5d5158d1abe0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\TinyFileDialog">
+      <UniqueIdentifier>{000705cb-d06e-450e-b41f-a5451bd89850}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">

@@ -32,11 +32,18 @@ namespace DCEngine {
     void Editor::OpenProject()
     {
       // Scan the Projects folder for DCE files
-      //auto projects = FileSystem::
       DCTrace << "Editor::OpenProject - Opening project \n";
-      std::string openPath;
-      FileSystem::FileOpenDialog(openPath);
-      
+      // Open the projects path
+      auto executablePath = boost::filesystem::initial_path().string();
+      auto projectsPath = executablePath + "\\Projects";
+      // If the projects directory doesn't exist, start from the executable
+      if (!FileSystem::Exists(projectsPath)) {
+        projectsPath = executablePath;
+      }
+      // Grab the path of the file selected
+      auto fileOpenedPath = FileSystem::FileOpenDialog(projectsPath, std::string("dceproj"));
+      // Do something with this path:
+
     }
 
     /**************************************************************************/
@@ -125,6 +132,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ShowProjectFolder()
     {
+      // Open the projects path
+      auto executablePath = boost::filesystem::initial_path().string();
+      auto documentationPath = executablePath + "\\Documentation\\html\\index.html";
+      // If the projects directory doesn't exist, start from the executable
+      if (FileSystem::Exists(documentationPath)) {
+        FileSystem::Execute(documentationPath);
+      }
     }
 
     /**************************************************************************/
