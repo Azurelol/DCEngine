@@ -16,6 +16,7 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 #include <BOOST/filesystem.hpp>
 #include <BOOST/lambda/bind.hpp>
 #include <NFD\nfd.h>
+#include <TFD\tinyfiledialogs.h>
 
 #include <iostream>
 
@@ -24,6 +25,18 @@ namespace DCEngine
 {
   std::string FileSystem::FileOpenDialog(std::string & openPath)
   {
+
+    //tinyfd_messageBox(
+    //  "Error",
+    //  "Can not open this file in writting mode",
+    //  "ok",
+    //  "error",
+    //  1);
+
+
+    //return std::string();
+
+
     nfdchar_t *outPath = NULL;
     nfdresult_t result = NFD_OpenDialog("png,jpg;pdf", NULL, &outPath);
     if (result == NFD_OKAY)
