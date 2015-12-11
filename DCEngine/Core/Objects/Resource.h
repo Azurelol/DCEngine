@@ -33,6 +33,7 @@ namespace DCEngine {
 
   protected:
 
+
     //virtual Resource* Find(std::string) = 0;
   };
 
