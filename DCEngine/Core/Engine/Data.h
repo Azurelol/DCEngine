@@ -62,29 +62,6 @@ namespace DCEngine {
   };
   using EngineConfigPtr = std::unique_ptr<EngineConfig>;
 
-  /**************************************************************************/
-  /*!
-  @struct Configuration data for the Editor system.
-  */
-  /**************************************************************************/
-  struct EditorConfig {
-    // Project
-    bool EditorEnabled = false;
-    std::string ProjectsPath;
-    std::string RecentProject;    
-    // Snapping
-    bool Snapping = true;
-    float SnapDistance = 1.0;
-    float SnapAngle = 15;
-
-    bool Dragging = false;
-    bool Panning = false;
-    Vec3 CamStartPos;
-    Vec3 MouseStartPos;
-    //Vec2 Mouse
-	  //Vec2 PositionRecord;
-
-  };
 
   /**************************************************************************/
   /*!

@@ -17,12 +17,28 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch for reflection.
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(SoundCue, "SoundCue", DCEngineCore, builder, type) {
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, Loop);
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, Volume);
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, VolumeVariation);
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, Pitch);
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, PitchVariation);
+    
+  }
+  #endif
+
+  /**************************************************************************/
+  /*!
   @brief  SoundCue constructor.
   */
   /**************************************************************************/
-  SoundCue::SoundCue(std::string soundFile) : Resource(FileSystem::FileNoExtension(soundFile)), 
-                                              SoundFileName(soundFile) {
-    //Load();
+  SoundCue::SoundCue(std::string soundFile) : 
+                     Resource("SoundCue", FileSystem::FileNoExtension(soundFile), soundFile)
+  {
   }
 
   /**************************************************************************/
@@ -30,10 +46,10 @@ namespace DCEngine {
   @brief  Loads this Sound pointer by interfacing with the audio system.
   */
   /**************************************************************************/
-  void SoundCue::Load()
+  void SoundCue::GenerateSound()
   {
-    Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(SoundFileName), Data);
-    DCTrace << "SoundCue::Load - Finished loading " << SoundFileName << "!\n";
+    Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(AssetPath), Data);
+    DCTrace << "SoundCue::Load - Finished loading " << Name() << "!\n";
     //Data.Channel->set
   }
 

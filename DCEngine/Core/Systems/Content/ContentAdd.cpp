@@ -63,8 +63,8 @@ namespace DCEngine {
       // Load sound files
       ScanForSoundCues(SoundPath);
       // Load default fonts      
-      AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
-      DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+      //AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
+      //DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
       // Load archetypes
       ScanForArchetypes(ArchetypePath);
     }
@@ -187,6 +187,30 @@ namespace DCEngine {
         DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Adds a CollisionGroup resource to the engine.
+    @param The name of the CollisionGroup.
+    @param The pointer to the CollisionGroup resource.
+    */
+    /**************************************************************************/
+    void Content::AddCollisionGroup(std::string & collisionGroupName, CollisionGroupPtr collisionGroupPtr)
+    {
+      AddResourceToMap<CollisionGroupPtr, CollisionGroupMap>(collisionGroupName, collisionGroupPtr, MapCollisionGroup);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a CollisionTable resource to the engine.
+    @param The name of the CollisionTable.
+    @param The pointer to the CollisionTable resource.
+    */
+    /**************************************************************************/
+    void Content::AddCollisionTable(std::string & collisionTableName, CollisionTablePtr collisionTablePtr)
+    {
+      AddResourceToMap<CollisionTablePtr, CollisionTableMap>(collisionTableName, collisionTablePtr, MapCollisionTable);
+    }
+
 
     /**************************************************************************/
     /*!
@@ -214,6 +238,43 @@ namespace DCEngine {
 
 
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Scans the project's resource path for resources to add to the engine.
+    */
+    /**************************************************************************/
+    void Content::ScanResources()
+    {
+      auto resourcePath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;    
+      // 1. Scan for all resources in the specified directory
+      std::vector<std::string> resources;
+      if (!FileSystem::DirectoryListFilePaths(resourcePath, resources)) {
+        auto exceptionInfo = std::string("Content::ScanResources - Failed to find the resource directory: " + ProjectInfo->ResourcePath);
+        throw DCException(exceptionInfo);
+      }
+
+      // 2. Parse the resources and add them to their appropiate maps
+      for (auto resource : resources) {
+        // 1. Get the resource's name and extension
+        auto resourceName = FileSystem::FileNoExtension(resource);
+        auto extension = FileSystem::FileExtension(resource);
+        // 2. Depending on the extension, add the specific resource:
+        if (extension == SpriteSource::Extension())
+          AddSpriteSource(resourceName, SpriteSourcePtr(new SpriteSource(resource)));
+        else if (extension == SoundCue::Extension())
+          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource)));
+        else if (extension == Level::Extension())
+          AddLevel(resourceName, LevelPtr(new Level(resource)));        
+        else if (extension == Archetype::Extension())
+          AddArchetype(resourceName, ArchetypePtr(new Archetype(resource)));
+        else if (extension == CollisionGroup::Extension())
+          AddCollisionGroup(resourceName, CollisionGroupPtr(new CollisionGroup(resource)));
+        else if (extension == CollisionTable::Extension())
+          AddCollisionTable(resourceName, CollisionTablePtr(new CollisionTable(resource)));
+      }
+    }
+
 
 
     void Content::ScanForLevels()
@@ -263,8 +324,6 @@ namespace DCEngine {
     @brief  Scans the specified path for archetype files.
     */
     /**************************************************************************/
-
-
     void Content::ScanForArchetypes(std::string& archetypePath)
     {
       DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
@@ -297,11 +356,12 @@ namespace DCEngine {
         auto exceptionInfo = std::string("Content::ScanForSpriteSources - Failed to find sprite directory: " + spriteSourcePath);
         throw DCException(exceptionInfo);
       }
-
         
       for (auto sprite : sprites) {
         auto spriteName = FileSystem::FileNoExtension(sprite);
-        AddSpriteSource(spriteName, SpriteSourcePtr(new SpriteSource(sprite)));
+        auto spriteSource = SpriteSourcePtr(new SpriteSource(sprite));
+        spriteSource->setAssetPath(sprite);
+        AddSpriteSource(spriteName, spriteSource);
       }
     }
 
@@ -320,7 +380,9 @@ namespace DCEngine {
       }
       for (auto sound : soundCues) {
         auto soundName = FileSystem::FileNoExtension(sound);
-        AddSoundCue(soundName, SoundCuePtr(new SoundCue(sound)));
+        auto soundCue = SoundCuePtr(new SoundCue(sound));
+        soundCue->setAssetPath(sound);
+        AddSoundCue(soundName, soundCue);
       }
     }
 

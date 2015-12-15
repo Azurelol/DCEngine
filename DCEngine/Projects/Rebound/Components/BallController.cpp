@@ -24,7 +24,7 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
     DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
     DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);	
-	DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
+	  DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
   }
   #endif
 

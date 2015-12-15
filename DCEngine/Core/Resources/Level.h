@@ -21,16 +21,15 @@ namespace DCEngine {
     Level(std::string name);
     Level(std::string name, std::string serializedData);
     ~Level();
-    void Save(std::string& serializedData);
-    bool Load();
+    static std::string Extension() { return ".Level"; }
+    //void Save(std::string& serializedData);
+    //bool Load();
     const std::string& Get();
 
     void AddGameObject(GameObjectPtr gameObject);
     GameObjectVec GameObjects; //!< Container for entities in the level.   
 
   private:
-    std::string SerializedData;
-    std::string SourceFile;
 
   };
   

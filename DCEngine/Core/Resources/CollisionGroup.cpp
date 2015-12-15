@@ -16,6 +16,27 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch for reflection.
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(CollisionGroup, "CollisionGroup", DCEngineCore, builder, type) {
+  }
+  #endif
+
+  /**************************************************************************/
+  /*!
+  @brief  CollisionGroup constructor.
+  */
+  /**************************************************************************/
+  CollisionGroup::CollisionGroup(std::string collisionGroupFile) : 
+                                Resource("CollisionGroup", FileSystem::FileNoExtension(collisionGroupFile), 
+                                collisionGroupFile) 
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns the texture resource to be used by the graphics system.
   @return A reference to the texture object.
   */

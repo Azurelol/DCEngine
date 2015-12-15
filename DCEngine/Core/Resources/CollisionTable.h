@@ -66,9 +66,15 @@ namespace DCEngine {
   class CollisionTable : public Resource {
 
   public:
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(CollisionTable, Resource);
+    #endif
+
     CollisionTable(std::string name);
     CollisionTable(void);
     ~CollisionTable() {}
+    static std::string Extension() { return ".CollisionTable"; }
 
     bool AddGroup(CollisionGroup group);
     bool AddGroup(std::string group);
@@ -92,7 +98,6 @@ namespace DCEngine {
   private:
 
     std::vector<CollisionGroup> Groups;
-
     std::vector<CollisionFilter> Pairs;
 
   };

@@ -39,15 +39,25 @@ namespace DCEngine {
   class Font : public Resource {
     
   public:
-    const std::string FontFileName;
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(Font, Resource);
+    #endif
+
+    // Properties
+    DCE_DEFINE_PROPERTY(String, AssetPath);
+    
     std::map<GLchar, Character> Characters;
 
-    Font(std::string fontFile);
+    Font(std::string fontFile, std::string assetPath);
+    static std::string Extension() { return ".Font"; }
     void GenerateCharacters(FT_Face face);
-    void Load();
+    bool Load();
 
-  }; // Font
+  private:
+    std::string AssetPath;
+
+  };
 
   using FontPtr = std::shared_ptr<Font>;
-
-} // DCEngine
+}

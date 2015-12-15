@@ -28,12 +28,24 @@ namespace DCEngine {
     ZilchDeclareDerivedType(Resource, Object);
     #endif
 
-    Resource(std::string name);
+    // Properties
+    DCE_DEFINE_PROPERTY(std::string, ResourcePath);
+    DCE_DEFINE_PROPERTY(std::string, SerializedData);
+    // Methods
+    Resource(std::string type, std::string name, std::string resourcePath);
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
+    std::string Build();
+    virtual void Save(std::string& serializedData);
+    virtual bool Load();
     bool Destroy();
 
-  protected:
+  protected:    
+    std::string ResourceType;
+    std::string ResourcePath;    
+    std::string SerializedData;
 
-
+    //const std::string Extension;
     //virtual Resource* Find(std::string) = 0;
   };
 

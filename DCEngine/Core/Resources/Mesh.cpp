@@ -14,7 +14,7 @@
 namespace DCEngine {
 
   Mesh::Mesh(VertexVec vertices, IndicesVec indices, TextureVec textures) 
-    : Resource("Shader"), vertices_(vertices), indices_(indices), textures_(textures) {}
+    : vertices_(vertices), indices_(indices), textures_(textures) {}
 
   void Mesh::Build() {
     glGenVertexArrays(1, &VAO);

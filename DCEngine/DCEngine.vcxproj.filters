@@ -244,6 +244,9 @@
     <Filter Include="Libraries\TinyFileDialog">
       <UniqueIdentifier>{000705cb-d06e-450e-b41f-a5451bd89850}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Resources\Physics">
+      <UniqueIdentifier>{9ad6bb53-4e8c-442c-829e-d0a95bc88427}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -393,9 +396,6 @@
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
@@ -431,12 +431,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Editor.cpp">
       <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugFade.cpp">
       <Filter>Core\Components\Audio\Debug</Filter>
@@ -531,12 +525,6 @@
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\CameraController.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
@@ -552,17 +540,11 @@
     <ClCompile Include="Core\Resources\Level.cpp">
       <Filter>Core\Resources\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Resources\CollisionTable.cpp">
-      <Filter>Core\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
       <Filter>Core\Systems\Editor\Configuration</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp">
       <Filter>Core\Systems\Editor\Configuration</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Levels.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
@@ -579,17 +561,11 @@
     <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp">
       <Filter>Core\Systems\Editor\Select</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Resources\CollisionGroup.cpp">
-      <Filter>Core\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Properties.cpp">
       <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp">
       <Filter>Projects\Rebound</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Resources.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
@@ -599,21 +575,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Button.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Collider.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -630,9 +591,6 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\Fade.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
@@ -642,23 +600,68 @@
     <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp">
       <Filter>Core\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Events\DispatchGameEvents.cpp">
+      <Filter>Core\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
+      <Filter>Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionGroup.cpp">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\CollisionTable.cpp">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\BallController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Button.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\CameraController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\ChargeBar.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\EnemyController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\ErraticDoor.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Fade.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\ErraticDoor.cpp">
+    <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp">
       <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Events\DispatchGameEvents.cpp">
-      <Filter>Core\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp">
-      <Filter>Deprecated</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -929,9 +932,6 @@
     <ClInclude Include="Projects\ProjectEvents.h">
       <Filter>Projects</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\BallController.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\ProjectEvent.h">
       <Filter>Projects</Filter>
     </ClInclude>
@@ -955,12 +955,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\Editor.h">
       <Filter>Core\Systems\Editor</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugFade.h">
       <Filter>Core\Components\Audio\Debug</Filter>
@@ -1031,12 +1025,6 @@
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\CameraController.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\ChargeBar.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Interpolation.h">
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
@@ -1046,17 +1034,8 @@
     <ClInclude Include="Core\Resources\Level.h">
       <Filter>Core\Resources\Serialization</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Resources\CollisionGroup.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Resources\CollisionTable.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h">
       <Filter>Core\Systems\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugDrawReference.h">
       <Filter>Core\Components\References</Filter>
@@ -1082,41 +1061,14 @@
     <ClInclude Include="Projects\Rebound\ReboundComponentsInclude.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\PauseManager.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\LevelManager.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\MusicManager.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Rebound\ReboundEvents.h">
       <Filter>Projects\Rebound\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Button.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Collider.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Math.h">
       <Filter>Core\Libraries</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\Fade.h">
-      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Reactive.h">
       <Filter>Core\Components\Graphics\Camera</Filter>
@@ -1130,23 +1082,74 @@
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h">
       <Filter>Core\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Events\DispatchGameEvents.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\GameEvents.h">
+      <Filter>Core\Events\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\CollisionTable.h">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\CollisionGroup.h">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\BallController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Button.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\CameraController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ChargeBar.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\EnemyController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ErraticDoor.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Fade.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\HazardArea.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\LevelManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\ErraticDoor.h">
+    <ClInclude Include="Projects\Rebound\Components\MusicManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PauseManager.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PlayerController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Skeleton.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\TutorialTextLogic.h">
       <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\DispatchGameEvents.h">
-      <Filter>Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\GameEvents.h">
-      <Filter>Core\Events\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

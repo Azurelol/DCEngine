@@ -22,16 +22,14 @@ namespace DCEngine {
   @param  archetypeFile The name of the archetype file.
   */
   /**************************************************************************/
-  Archetype::Archetype(std::string archetypeFile) : Resource(FileSystem::FileNoExtension(archetypeFile)),
-                                                             SourceFile(archetypeFile)
+  Archetype::Archetype(std::string archetypeFile) : Resource("Archetype", FileSystem::FileNoExtension(archetypeFile), archetypeFile)                                                          
   {
     // Load the archetype from file immediately
     Load();
   }
 
   Archetype::Archetype(std::string archetypeFile, std::string serializedData) 
-      : Resource(FileSystem::FileNoExtension(archetypeFile)),
-                 SourceFile(archetypeFile)
+      : Resource("Archetype", FileSystem::FileNoExtension(archetypeFile), archetypeFile)
   {
     // Save the serialized data
     Save(serializedData);
@@ -47,28 +45,33 @@ namespace DCEngine {
 
   }
 
-  /**************************************************************************/
-  /*!
-  @brief Serializes the data definition of an object from a string back into
-         the source file now that we have modified it.
-  */
-  /**************************************************************************/
-  void Archetype::Save(std::string& serializedData)
-  {
-    SerializedData = serializedData;
-    FileSystem::FileWriteString(SourceFile, SerializedData);
-  }
+ /**************************************************************************/
+ /*!
+ @brief Serializes the data definition of an object from a string back into
+        the source file now that we have modified it.
+ */
+ /**************************************************************************/
+ void Archetype::Save(std::string& serializedData)
+ {
+   SerializedData = serializedData;
+   FileSystem::FileWriteString(ResourcePath, SerializedData);
+ }
 
-  /**************************************************************************/
-  /*!
-  @brief  Deserializes the binary cache the serialized data definition of an
-          object into a string that can be parsed by the engine's serializer.
-  */
-  /**************************************************************************/
-  void Archetype::Load()
-  {
-    FileSystem::FileReadToString(SourceFile, SerializedData);
-  }
+ /**************************************************************************/
+ /*!
+ @brief  Deserializes the binary cache the serialized data definition of an
+         object into a string that can be parsed by the engine's serializer.
+ */
+ /**************************************************************************/
+ bool Archetype::Load()
+ {
+   if (FileSystem::FileReadToString(ResourcePath, SerializedData))
+   {
+     return true;
+   }
+   DCTrace << getObjectName() << "::Archetype::Load - Failed to load! \n";
+   return false;
+ }
 
   const std::string & Archetype::Get()
   {

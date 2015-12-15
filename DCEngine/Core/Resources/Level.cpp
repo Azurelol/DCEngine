@@ -20,8 +20,7 @@ namespace DCEngine {
   @brief  Level default constructor.
   */
   /**************************************************************************/
-  Level::Level(std::string levelFile) : Resource(FileSystem::FileNoExtension(levelFile)),
-                                                  SourceFile(levelFile) {
+  Level::Level(std::string levelFile) : Resource("Level", FileSystem::FileNoExtension(levelFile), levelFile) {
     if (TRACE_CONSTRUCTOR)
       DCTrace << ObjectName << "::Level - Constructor \n";  
   }
@@ -32,8 +31,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Level::Level(std::string levelFile, std::string serializedData) : 
-               Resource(FileSystem::FileNoExtension(levelFile)),
-               SourceFile(levelFile) {
+               Resource("Level", FileSystem::FileNoExtension(levelFile), levelFile) {
   
     // Saves the level data right away
     Save(serializedData);
@@ -52,33 +50,34 @@ namespace DCEngine {
   }
   
 
-  /**************************************************************************/
-  /*!
-  @brief  Serializes the data definition of a level from a string back into
-         the source file now that we have modified it.
-  */
-  /**************************************************************************/
-  void Level::Save(std::string & serializedData)
-  {
-    SerializedData = serializedData;
-    FileSystem::FileWriteString(SourceFile, SerializedData);
-  }
+  ///**************************************************************************/
+  ///*!
+  //@brief  Serializes the data definition of a level from a string back into
+  //       the source file now that we have modified it.
+  //*/
+  ///**************************************************************************/
+  //void Level::Save(std::string & serializedData)
+  //{
+  //  SerializedData = serializedData;
+  //  FileSystem::FileWriteString(ResourcePath, SerializedData);
+  //}
 
-  /**************************************************************************/
-  /*!
-  @brief  Deserializes the binary cache the serialized data definition of a
-          level into a string that can be parsed by the engine's serializer.
-  */
-  /**************************************************************************/
-  bool Level::Load()
-  {
-    if (FileSystem::FileReadToString(SourceFile, SerializedData)) {
-      DCTrace << ObjectName << "::Level::Load - Loading from " << SourceFile <<  " succeeded \n";
-      return true;
-    }
-    DCTrace << ObjectName << "::Level::Load -Loading from " << SourceFile << " failed \n";
-    return false;
-  }
+  ///**************************************************************************/
+  ///*!
+  //@brief  Deserializes the binary cache the serialized data definition of a
+  //        level into a string that can be parsed by the engine's serializer.
+  //*/
+  ///**************************************************************************/
+  //bool Level::Load()
+  //{
+  //  if (FileSystem::FileReadToString(ResourcePath, SerializedData)) {
+  //    DCTrace << ObjectName << "::Level::Load - Loading from " << ResourcePath <<  " succeeded \n";
+  //    return true;
+  //  }
+  //  DCTrace << ObjectName << "::Level::Load -Loading from " << ResourcePath << " failed \n";
+  //  return false;
+  //}
+
 
   const std::string & Level::Get()
   {

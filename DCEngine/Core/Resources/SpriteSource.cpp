@@ -15,14 +15,35 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch for reflection.
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(SpriteSource, "SpriteSource", DCEngineCore, builder, type) {
+    DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Image);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, FrameRate);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, PixelsPerUnit);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, ColumnCount);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, RowCount);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Smoothing);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Looping);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Fill);
+    // Image
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, AssetPath);
+    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeImage);
+  }
+  #endif
+
+  /**************************************************************************/
+  /*!
   @brief Constructor for the SpriteSource resource.
   @param The name of the image (texture) file.
   */
 
   /**************************************************************************/
-  SpriteSource::SpriteSource(std::string spriteFile) : Resource(FileSystem::FileNoExtension(spriteFile)), 
-                                                       ImageFileName(spriteFile) {
-    
+  SpriteSource::SpriteSource(std::string spriteFile) : 
+                             Resource("SpriteSource", FileSystem::FileNoExtension(spriteFile), spriteFile) {
+
     #if (USE_SFML_TEXTURE)
     TextureObj.reset(new sf::Texture());
     #else
@@ -53,7 +74,7 @@ namespace DCEngine {
 
     // Load image
     sf::Image image;
-    image.loadFromFile(ImageFileName);
+    image.loadFromFile(AssetPath);
     image.flipVertically();
 
     // If the image file failed to load, throw an exception
@@ -67,10 +88,10 @@ namespace DCEngine {
 
     // Generate texture
     TextureObj->Generate(image.getSize().x, image.getSize().y, image);
-	MaxX = image.getSize().x;
-	MaxY = image.getSize().y;
-	PicHeight = image.getSize().y;
-	PicWidth = image.getSize().x;
+	  MaxX = image.getSize().x;
+	  MaxY = image.getSize().y;
+	  PicHeight = image.getSize().y;
+	  PicWidth = image.getSize().x;
     // Free image data
     //SOIL_free_image_data(image);
     #endif

@@ -20,15 +20,39 @@ http://zero.digipen.edu/ZeroManual/Physics/Collision/CollisionTables.html?highli
 
 namespace DCEngine
 {
-  CollisionTable::CollisionTable(std::string name) : Resource(name)
+
+  /**************************************************************************/
+  /*!
+  @brief Provides the definition of this class to Zilch for reflection.
+  */
+  /**************************************************************************/
+  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(CollisionTable, "CollisionTable", DCEngineCore, builder, type) {
+  }
+  #endif
+  
+  /**************************************************************************/
+  /*!
+  @brief CollisionTable constructor.
+  */
+  /**************************************************************************/
+  CollisionTable::CollisionTable(std::string collisionTableFile) : 
+                                  Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
   {
     Groups.push_back(CollisionGroup("Default"));
   }
 
-  CollisionTable::CollisionTable(void) : Resource("CollisionTable")
+  /**************************************************************************/
+  /*!
+  @brief CollisionTable constructor.
+  @todo  What? Remove it.
+  */
+  /**************************************************************************/
+  CollisionTable::CollisionTable(void) : Resource("CollisionTable", "CollisionTable", "NoFile")
   {
     Groups.push_back(CollisionGroup("Default"));
   }
+
 
   std::vector<CollisionGroup> const &CollisionTable::GetGroups(void) const
   {

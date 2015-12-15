@@ -15,8 +15,6 @@
 namespace DCEngine {
   namespace Systems {
 
-
-
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.
@@ -48,11 +46,11 @@ namespace DCEngine {
       // Archetype Tree
       if (ImGui::TreeNode("Archetype")) {
         // Query the Content system for the current list of archetypes
-        static bool ScannedForArchetypes;
-        if (!ScannedForArchetypes) {
-          Daisy->getSystem<Content>()->ScanForArchetypes();
-          ScannedForArchetypes = true;
-        }
+        //static bool ScannedForArchetypes;
+        //if (!ScannedForArchetypes) {
+        //  Daisy->getSystem<Content>()->ScanResources();
+        //  ScannedForArchetypes = true;
+        //}
         
         // Display all archetypes.
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
@@ -68,12 +66,7 @@ namespace DCEngine {
       if (ImGui::TreeNode("SpriteSource")) {
         // Display every SpriteSource
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
-          if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {    
-            
-            //auto a = ImGui::GetID(spriteSrc.second->Name().c_str());            
-            //if (ImGui::IsMouseDoubleClicked(a)) {
-            //  DCTrace << "hey ";
-            //}
+          if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
             SelectedObject = spriteSrc.second.get();
             WindowPropertiesEnabled = true;
           }
@@ -105,11 +98,11 @@ namespace DCEngine {
       // 4. Display every level
       if (ImGui::TreeNode("Level")) {
         // Query the Content system for the current list of levels
-        static bool ScannedForLevels;
+        /*        static bool ScannedForLevels;
         if (!ScannedForLevels) {
           Daisy->getSystem<Content>()->ScanForLevels();
           ScannedForLevels = true;
-        }        
+        }    */    
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           auto levelName = level.second->Name().c_str();
           if (ImGui::Selectable(levelName) ) {

@@ -23,9 +23,15 @@
 Zilch::Attribute resourceAttribute; \
 resourceAttribute.Name = "Resource"
 
-#define DCE_BINDING_DEFINE_ATTRIBUTE(resource) \
-Zilch::Attribute attribute##resource; \
+
+
+#define DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(resource) \
+Zilch::Attribute attributeResource;                     \
+attributeResource.Name = "Resource";                    \
+Zilch::Attribute attribute##resource;                   \
 attribute##resource.Name = "" #resource
+
+#define DCE_BINDING_SET_RESOURCE_ATTRIBUTE(resource)  \
 
 
 /*

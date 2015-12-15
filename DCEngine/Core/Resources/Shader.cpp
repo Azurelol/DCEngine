@@ -1,12 +1,13 @@
 /******************************************************************************/
 /*!
-\file   Shader.cpp
-\author Christian Sagel
-\par    email: c.sagel\@digipen.edu
-\date   8/13/2015
-\brief  An encapsulated object that reads shaders from disk, compiles, links them,
-checks for errors and other useful functions.
-@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+@file   Shader.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   8/13/2015
+@brief  An encapsulated object that reads shaders from disk, compiles, links them,
+        checks for errors and other useful functions.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved
+@todo   Should shaders be a resource?
 */
 /******************************************************************************/
 
@@ -18,7 +19,7 @@ checks for errors and other useful functions.
 namespace DCEngine {
 
   Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath) 
-                 : Resource(shaderName), VertexPath(vertexPath), FragmentPath(fragmentPath) {
+                 : Resource("Shader", shaderName, "None"), VertexPath(vertexPath), FragmentPath(fragmentPath) {
     if (TRACE_CONSTRUCTOR)
       DCTrace << "\n" << ObjectName << "::Shader - Constructor \n";
 
@@ -36,7 +37,7 @@ namespace DCEngine {
   \param   The path of the fragment shader.
   */
   /**************************************************************************/
-  void Shader::Load() {
+  bool Shader::Load() {
     //if (TRACE_ON)
     //  DCTrace << ObjectName << "::Load - Vertex: " << VertexPath << " , Fragment: " << FragmentPath << "\n";
     std::ifstream vertexShaderFile;
@@ -65,8 +66,10 @@ namespace DCEngine {
     }
     catch (std::ifstream::failure e) {
       if (TRACE_ON)
+        return false;
         DCTrace << ObjectName << "Shader::LoadShaders failed! \n";
-    }    
+    }
+    return true;
   }
 
   /**************************************************************************/

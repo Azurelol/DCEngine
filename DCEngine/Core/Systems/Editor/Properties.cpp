@@ -16,6 +16,8 @@
 
 namespace DCEngine {
   namespace Systems {
+
+    void DisplayImage(Zilch::Property* property, ObjectPtr object);
     
     /**************************************************************************/
     /*!
@@ -134,7 +136,7 @@ namespace DCEngine {
       auto componentBoundType = object->ZilchGetDerivedType();
       if (componentBoundType == nullptr)
         return;
-
+      
       // ImGui uses an unique handle for each Input Widget. We will use a
       // a counter to have generate unique IDs for each of them.
       unsigned int propertyID = 0;
@@ -142,6 +144,17 @@ namespace DCEngine {
       // 2. Get a list of all properties on the object      
       for (auto& property : componentBoundType->AllProperties) {
         
+        // If property is marked as hidden...
+        if (property->HasAttribute("Hidden"))
+          continue;
+
+        // If the property is marked as an image...
+        if (property->HasAttribute("Image")) {
+          DisplayImage(property, object);
+          continue;
+        }
+          
+
         // If there's at least one attribute... 
         if (!property->Attributes.empty()) {
           SelectResource(property, object, propertyID);
@@ -177,7 +190,7 @@ namespace DCEngine {
         // Property: String
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
-          char buf[32];
+          char buf[128];
           strcpy(buf, string.c_str());
           // If the user has given input, set the property
           if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf)), ImGuiInputTextFlags_EnterReturnsTrue) {
@@ -391,7 +404,29 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Displays an image on the Editor's properties inspector.
+    */
+    /**************************************************************************/
+    void DisplayImage(Zilch::Property * property, ObjectPtr object)
+    {
+      // Create an exception report object
+      Zilch::ExceptionReport report;      
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      getCall.SetHandleVirtual(Zilch::Call::This, object);
+      getCall.Invoke(report);
+      // Grab the image's path
+      auto imagePath = getCall.Get<Zilch::String>(Zilch::Call::Return);
+      
+      // Grab a pointer to the texture data of the image from the SpriteSource it's on
+      auto spriteSource = dynamic_cast<SpriteSource*>(object);
+      auto textureData = spriteSource->getTexture();
+      //ImTextureID texID = textureData;
+      ImGui::Image((void*)(textureData.TextureID), ImVec2(textureData.Width, textureData.Height), 
+                   ImVec2(0, 0), ImVec2(1, 1), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
 
+    }
 
 }
 }

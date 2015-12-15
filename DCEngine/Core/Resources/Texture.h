@@ -15,7 +15,7 @@
 
 namespace DCEngine {
 
-  class Texture : public Resource {
+  class Texture  {
   public:
     GLuint id;
     std::string type;

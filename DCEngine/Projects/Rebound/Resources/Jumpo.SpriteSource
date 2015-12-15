@@ -1,0 +1,18 @@
+
+{
+  "SpriteSource": 
+  {
+    "Name": "Jumpo", 
+    "Properties": 
+    {
+      "AssetPath": "G:\\Repositories\\Daisy Chain Engine\\DCEngine\\Projects\\Rebound\\Assets\\Images\\MonkeyJump1.png", 
+      "FrameRate": 0.000000, 
+      "PixelsPerUnit": 0.000000, 
+      "ColumnCount": 0, 
+      "RowCount": 0, 
+      "Smoothing": false, 
+      "Looping": false, 
+      "Fill": false
+    }
+  }
+}

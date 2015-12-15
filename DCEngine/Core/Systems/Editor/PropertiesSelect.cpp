@@ -35,6 +35,7 @@ namespace DCEngine {
       auto resourceType = std::string(resource->Name.c_str());
       ImGui::Text(resourceType.c_str()); 
       ImGui::PushID(propertyID++);
+
       // SpriteSource 
       if (resource->HasAttribute("SpriteSource")) {
         SelectSpriteSource(resource, object, propertyID);

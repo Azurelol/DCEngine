@@ -75,9 +75,12 @@ namespace DCEngine {
   ZilchDefineType(Resource, "Resource", DCEngineCore, builder, type) {
     DCE_BINDING_RESOURCE_SET_HANDLE_TYPE;
     // Constructor / Destructor
-    ZilchBindConstructor(builder, type, Resource, "name", std::string);
+    ZilchBindConstructor(builder, type, Resource, "type, name, resourcePath", std::string, std::string, std::string);
     ZilchBindDestructor(builder, type, Resource);
-    // Fields
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(Resource, ResourcePath);
+    DCE_BINDING_DEFINE_PROPERTY(Resource, SerializedData);
+
   }
 
   /*!************************************************************************\
@@ -148,39 +151,6 @@ namespace DCEngine {
     ZilchBindDestructor(builder, type, Component);
     // Fields
   }
-
-
-  // Resources
-
-  /*!************************************************************************\
-  @brief  SpriteSource Definition
-  \**************************************************************************/
-  ZilchDefineType(SpriteSource, "SpriteSource", DCEngineCore, builder, type) {
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, SpriteSource, "name", std::string);
-    ZilchBindDestructor(builder, type, SpriteSource);
-    // Properties
-    ZilchBindProperty(builder, type, &SpriteSource::getFrameRate , &SpriteSource::setFrameRate, "FrameRate");
-    ZilchBindProperty(builder, type, &SpriteSource::getPixelsPerUnit, &SpriteSource::setPixelsPerUnit, "PixelsPerUnit");
-    ZilchBindProperty(builder, type, &SpriteSource::getColumnCount, &SpriteSource::setColumnCount, "ColumnCount");
-    ZilchBindProperty(builder, type, &SpriteSource::getRowCount, &SpriteSource::setRowCount, "RowCount");
-  }
-
-  /*!************************************************************************\
-  @brief  SoundCue Definition
-  \**************************************************************************/
-  ZilchDefineType(SoundCue, "SoundCue", DCEngineCore, builder, type) {
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, SoundCue, "name", std::string);
-    ZilchBindDestructor(builder, type, SoundCue);
-    // Properties
-    ZilchBindProperty(builder, type, &SoundCue::getVolume, &SoundCue::setVolume, "Volume");
-    ZilchBindProperty(builder, type, &SoundCue::getVolumeVariation, &SoundCue::setVolumeVariation, "VolumeVariation");
-    ZilchBindProperty(builder, type, &SoundCue::getPitch, &SoundCue::setPitch, "Pitch");
-    ZilchBindProperty(builder, type, &SoundCue::getPitchVariation, &SoundCue::setPitchVariation, "Pitch Variation");
-    ZilchBindProperty(builder, type, &SoundCue::getLoop, &SoundCue::setLoop, "Loop");
-  }
-
 
   #endif
 

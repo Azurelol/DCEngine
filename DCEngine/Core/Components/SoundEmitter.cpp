@@ -28,7 +28,8 @@ namespace DCEngine {
     ZilchBindConstructor(builder, type, SoundEmitter, "owner", Entity&);
     ZilchBindDestructor(builder, type, SoundEmitter);
     // Properties
-    DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Cue)->Attributes.push_back(attributeSoundCue);
+    DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Cue); // ->Attributes.push_back(attributeSoundCue);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCue, attributeSoundCue);
     DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Volume);
     DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Pitch);
     DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, IsPlaying);

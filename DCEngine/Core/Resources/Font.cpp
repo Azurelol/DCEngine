@@ -23,11 +23,26 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Provides the definition of this class to Zilch for reflection.
+  */
+  /**************************************************************************/
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(Font, "Font", DCEngineCore, builder, type) {
+    // Constructor / Destructor
+    //ZilchBindConstructor(builder, type, SoundCue, "owner", Entity&);
+    //ZilchBindDestructor(builder, type, SoundCue);
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(Font, AssetPath);
+  }
+#endif
+
+  /**************************************************************************/
+  /*!
   @brief Constructor for the SpriteSource resource.
   @param The name of the font file.
   */
   /**************************************************************************/
-  Font::Font(std::string fontFile) : Resource("Font"), FontFileName(fontFile) {
+  Font::Font(std::string fontFile, std::string assetPath) : Resource("Font", FileSystem::FileNoExtension(fontFile), fontFile) {
   }
 
   /**************************************************************************/
@@ -36,18 +51,24 @@ namespace DCEngine {
   @param The name of the font file.
   */
   /**************************************************************************/
-  void Font::Load() {
+  bool Font::Load() {
     FT_Library ft;
 
     // Initialize the FreeType library
-    if (FT_Init_FreeType(&ft))
+    if (FT_Init_FreeType(&ft)) {
       DCTrace << "Font::Load - Error! Could not initialize FreeType library! \n";
+      return false;
+    }
+      
     // Load the font from file
     //std::string fontPath = "Core/Resources/Fonts/";
     //fontPath.append(FontFileName);
     FT_Face face;
-    if (FT_New_Face(ft, FontFileName.c_str(), 0, &face))
+    if (FT_New_Face(ft, ResourcePath.c_str(), 0, &face)) {
       DCTrace << "Font::Load - Error! Failed to load font \n";
+      return false;
+    }
+      
     // Define the font size to extract from this face. This function sets
     // the font's width and height parameters. Setting the widh to 0
     // lets the face dynamically calculate the width based on a given height.
@@ -60,6 +81,8 @@ namespace DCEngine {
     // Clear FreeType's resources now that we are done processing glyphs
     FT_Done_Face(face);
     FT_Done_FreeType(ft);
+
+    return true;
 
 
   }

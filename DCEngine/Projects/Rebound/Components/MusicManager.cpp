@@ -15,8 +15,10 @@ namespace DCEngine {
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(MusicManager, "MusicManager", Rebound, builder, type) {
     DCE_BINDING_DEFINE_ATTRIBUTE(SoundCue);
-    DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack)->Attributes.push_back(attributeSoundCue);
-    DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack)->Attributes.push_back(attributeSoundCue);
+    DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack); // ->Attributes.push_back(attributeSoundCue);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCurrentTrack, attributeSoundCue);
+    DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack); // ->Attributes.push_back(attributeSoundCue);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLastTrack, attributeSoundCue);
     DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
     DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
   }

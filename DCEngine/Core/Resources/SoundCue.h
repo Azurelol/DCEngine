@@ -33,31 +33,31 @@ namespace DCEngine {
     ZilchDeclareDerivedType(SoundCue, Resource);
     #endif
 
+    // Member variables
     PlayMode PlayMode; // Add this later
     float Volume = 1.0f;
     float VolumeVariation = 0.0f;
     float Pitch = 1.0f;
     float PitchVariation = 0.0f;
     bool Loop = false;
+    FMODSoundPtr Data;
     
     // Properties
+    DCE_DEFINE_PROPERTY(String, AssetPath);
     DCE_DEFINE_PROPERTY(bool, Loop);
     DCE_DEFINE_PROPERTY(float, Volume);
     DCE_DEFINE_PROPERTY(float, VolumeVariation);
     DCE_DEFINE_PROPERTY(float, Pitch);
     DCE_DEFINE_PROPERTY(float, PitchVariation);    
-    
-    FMODSoundPtr Data;
 
-
+    // Methods
     SoundCue(std::string soundFile);
-    void Load();
+    void GenerateSound();
+    static std::string Extension() { return ".SoundCue"; }
     static SoundCuePtr Find(std::string);
 
   private:
-    const std::string SoundFileName;
-
-    //FMODSoundPtr SoundPtr; //!< A hand-written smart pointer for FMOD::Sound*.
+    std::string AssetPath;
   };
 
 

@@ -22,8 +22,33 @@ namespace DCEngine {
   class Engine;  
   class Space;
 
-  namespace Systems {
+  /**************************************************************************/
+  /*!
+  @struct Configuration data for the Editor system.
+  */
+  /**************************************************************************/
+  struct EditorConfig {
+    // Project
+    bool EditorEnabled = false;
+    std::string ProjectsPath;
+    std::string RecentProject;
+    ProjectData* ProjectInfo;
+    // Snapping
+    bool Snapping = true;
+    float SnapDistance = 1.0;
+    float SnapAngle = 15;
 
+    bool Dragging = false;
+    bool Panning = false;
+    Vec3 CamStartPos;
+    Vec3 MouseStartPos;
+    //Vec2 Mouse
+    //Vec2 PositionRecord;
+
+  };
+
+  namespace Systems {
+    
     class Editor : public System {
       friend class Engine;
 
@@ -36,8 +61,7 @@ namespace DCEngine {
         Rotate,
         Scale,
         
-      };
-            
+      };            
 
       bool IsEnabled();
       void ToggleEditor();
@@ -125,8 +149,11 @@ namespace DCEngine {
       void ReleaseObject();
       // Resources
       void WindowAddResource();
-      void AddResource(std::string& name, ResourceType type);
+      void ResourceCreate(std::string& name, ResourceType type);
+      void ResourceAddFromFile(std::string& name, ResourceType type);
       bool CreateLevel(std::string&);
+      ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
+      ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();

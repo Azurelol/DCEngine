@@ -23,10 +23,11 @@ namespace DCEngine {
     
     Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath);
     
-    void Load();
+    bool Load();
+    std::string Extension() { return ".Shader"; }
     void Compile();    
     Shader& Use(); 
-      Shader& Unbind();
+    Shader& Unbind();
     GLuint Get() { return ShaderProgramID; }
     
     /* Uniform testing */

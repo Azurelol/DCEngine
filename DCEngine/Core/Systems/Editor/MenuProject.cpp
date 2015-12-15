@@ -98,6 +98,9 @@ namespace DCEngine {
         // No default level set, turn on the editor!
       else
         ToggleEditor(true);
+
+      // Save a pointer to the project data
+      Settings.ProjectInfo = Daisy->getSystem<Content>()->ProjectInfo.get();
      }
     
 

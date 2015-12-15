@@ -25,7 +25,7 @@ namespace DCEngine {
   *     Properties     *
   *===================*/
   // This macro creates the definitions of getter and setter method for a Property.
-  #define DCE_DEFINE_PROPERTY(propertyType, propertyName)                         \
+#define DCE_DEFINE_PROPERTY(propertyType, propertyName)                         \
   const propertyType& get##propertyName() const {                                 \
     return propertyName;                                                          \
   }                                                                               \
@@ -33,33 +33,43 @@ namespace DCEngine {
     propertyName = value;                                                         \
   }
 
-  
-  #define DCE_BINDING_DECLARE_COMPONENT(COMP)   \
+
+#define DCE_BINDING_DECLARE_COMPONENT(COMP)   \
   class COMP;                                   \
   class COMP : public Component  {              \
     public:                                     \
   ZilchDeclareDerivedType(COMP, Component)
-  
-  
+
+
   // This macro declares a derived type to Zilch
-  #define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
+#define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
     ZilchDeclareDerivedType(derivedClass, baseClass)  
 
   // This macro defines a property to Zilch
-  #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
-  ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
-  // ZilchBindProperty(builder, type, &SoundEmitter::getTranslation, &SoundEmitter::setTranslation, "Translation");
+#define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
+  auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
 
-  //// This macro creates the definitions of getter and setter method for a Property.
-  //#define DCE_DEFINE_PROPERTY(propertyClass, propertyType, propertyName)        \
-  //propertyType propertyClass::get#propertyName() const                          \
-  //{                                                                             \
-  //  return this->propertyName;                                                  \
-  //}                                                                             \
-  //void propertyClass::set#propertyName(propertyType value)                      \
-  //{                                                                             \
-  //  this->propertyName = value;                                                 \
-  //}                                                                             
+  // This macro defines a Zilch attribute
+#define DCE_BINDING_DEFINE_ATTRIBUTE(name) \
+  Zilch::Attribute attribute##name; \
+  attribute##name.Name = "" #name      
+
+  // This macro sets a Resource-specific attribute onto a property
+#define DCE_BINDING_PROPERTY_SET_ATTRIBUTE(property, attribute) \
+  property->Attributes.push_back(attribute)  
+
+  // This macro defines a Resource-specific attribute.
+#define DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(resource) \
+  Zilch::Attribute attributeResource;                     \
+  attributeResource.Name = "Resource";                    \
+  Zilch::Attribute attribute##resource;                   \
+  attribute##resource.Name = "" #resource
+
+  // This macro sets a Resource-specific attribute onto a property
+#define DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(property, attribute) \
+  property->Attributes.push_back(attributeResource);                     \
+  property->Attributes.push_back(attribute)  
+
 
 }
 

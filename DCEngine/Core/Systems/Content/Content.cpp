@@ -52,14 +52,17 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadAllResources()
     {
-      // Load every SoundCue's sound
+      // Generate every SoundCue's sound
       for (auto soundCue : SoundCueMap) {
-        soundCue.second->Load();
+        soundCue.second->GenerateSound();
       }
 
       // Load every SpriteSource's texture
-      for (auto texture : SpriteSourceMap) {
-        texture.second->LoadTexture();
+      for (auto spriteSource : SpriteSourceMap) {
+        // Load the SpriteSource's properties data from file
+        spriteSource.second->Load(); 
+        // Load its texture onto the graphics system
+        spriteSource.second->LoadTexture();
       }
 
       // Load every Font
@@ -76,9 +79,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProjectData(std::string& projectData)
     {
-
-      //auto test = DirectoryExtractFilePaths(std::string("Core/Assets"));
-
       // Load the loaded project's assets
       LoadProjectAssets();
 
@@ -104,6 +104,8 @@ namespace DCEngine {
       // Load it
       LoadProjectResources();
 
+
+
     }
 
     /**************************************************************************/
@@ -114,6 +116,7 @@ namespace DCEngine {
     void Content::LoadProjectAssets()
     {
       auto LevelPath = CoreAssetsPath + "Levels/";
+
       // Load levels
       std::vector<std::string> levels;
       if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
@@ -125,17 +128,16 @@ namespace DCEngine {
     }
 
     void Content::LoadProjectResources()
-    {
-      //std::string resourcePath("Projects/Rebound/Resources/");
-      //std::string levelPath(resourcePath + "Levels/");
-      //std::string archetypePath(resourcePath + "Archetypes/");
+    {      
       DCTrace << "Content::LoadProjectResources - \n";
 
       // Scan for the resources... 
-      ScanForLevels();
-      ScanForArchetypes();
-      ScanForSoundCues();
-      ScanForSpriteSources();
+      ScanResources();
+
+      //ScanForLevels();
+      //ScanForArchetypes();
+      //ScanForSoundCues();
+      //ScanForSpriteSources();
       // Load the resources
       LoadAllResources();
 

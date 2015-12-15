@@ -22,14 +22,15 @@ namespace DCEngine {
     Archetype(std::string archetypeFile);
     Archetype(std::string archetypeFile, std::string serializedData);
     ~Archetype();
+    static std::string Extension() { return ".Archetype"; }
     void Save(std::string& serializedData);
-    void Load();
+    bool Load();
     const std::string& Get();
 
   private:
 
     std::string SerializedData;
-    std::string SourceFile;
+    //std::string SourceFile;
   };
 
   using ArchetypePtr = std::shared_ptr<Archetype>;

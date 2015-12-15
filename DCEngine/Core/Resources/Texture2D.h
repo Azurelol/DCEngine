@@ -17,7 +17,7 @@
 
 namespace DCEngine {
 
-  class Texture2D : public Resource {
+  class Texture2D /* : public Resource */ {
   public:
     // Constructor (sets default texture mode)
     Texture2D(std::string& imageFile);

@@ -13,11 +13,13 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 \******************************************************************************/
 #include "FileSystem.h"
 
+// Standard libraries
 #include <iostream>
 #include <algorithm>
-
+// External Libraries
 #include <BOOST/filesystem.hpp>
 #include <BOOST/lambda/bind.hpp>
+#include <BOOST/algorithm/string/replace.hpp>
 //#include <BOOST/process.hpp>
 
 #include <NFD\nfd.h>
@@ -140,6 +142,35 @@ namespace DCEngine
     return false;
   }
 
+  std::string ReplaceAll(std::string str, const std::string& from, const std::string& to) {
+    size_t start_pos = 0;
+    while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
+      str.replace(start_pos, from.length(), to);
+      start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+    }
+    return str;
+  }
+
+  /*!************************************************************************\
+  @brief  Fixes the current path in the string to be compatible with
+          file dialogs.
+  @param  path The file path.
+  @return A string containing the corrected path.
+  \**************************************************************************/
+  std::string FileSystem::CorrectPath(std::string & path)
+  {    
+    boost::replace_all(path, "/", "\\");
+
+    std::replace(path.begin(), path.end(), '/', '\\');
+    //std::for_each(path.begin(), path.end(), [&](auto val) {
+    //  if (val == "/" || val == "\")
+    //    val = "\\";
+    //
+    //} );
+
+    return std::string();
+  }
+
 
 
   /*!************************************************************************\
@@ -243,9 +274,7 @@ namespace DCEngine
   @note   This operation is particularly useful for deserializing data.
   \**************************************************************************/
   bool FileSystem::FileReadToString(filepath filePath, std::string& output)
-  {
-    
-
+  {   
     std::ifstream inputFile(filePath.string());
     if (inputFile)
     {

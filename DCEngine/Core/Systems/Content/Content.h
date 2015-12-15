@@ -59,6 +59,7 @@ namespace DCEngine {
       // Remove resource
       void RemoveResource(ResourcePtr);      
       // Scanners
+      void ScanResources();
       void ScanForLevels();
       void ScanForArchetypes();
       void ScanForSpriteSources();
@@ -86,8 +87,8 @@ namespace DCEngine {
       SpriteSourceMap SpriteSourceMap;      
       ArchetypeMap ArchetypeMap;
       LevelMap LevelMap;
-      CollisionGroupMap CollisionGroupMap;
-      CollisionTableMap CollisionTableMap;
+      CollisionGroupMap MapCollisionGroup;
+      CollisionTableMap MapCollisionTable;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
@@ -96,6 +97,12 @@ namespace DCEngine {
       void AddSpriteSource(std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
       void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
       void AddLevel(std::string& levelName, LevelPtr levelPtr);
+      void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
+      void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
+
+      template <typename ResourcePtr, typename ResourceMap>
+      void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
+
       // Core functions
       Content(std::string& coreAssetsPath);
       void Initialize();
@@ -110,6 +117,32 @@ namespace DCEngine {
 
       void LoadProjectData(std::string&); //!<             
     };
+
+    // Templates    
+    /**************************************************************************/
+    /*!
+    @brief Adds a resource to its resource map in the engine.
+    @param resourceName The name of the resource.
+    @param ptr A pointer to the resource.
+    @param map A reference to the map to use.
+    */
+    /**************************************************************************/
+    template<typename ResourcePtr, typename ResourceMap>
+    inline void Content::AddResourceToMap(std::string & resourceName, ResourcePtr ptr, ResourceMap& map)
+    {
+      // Prevent duplicates
+      if (map.count(resourceName)) {
+        // Overwrite the current level
+        map.erase(resourceName);
+        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+          DCTrace << "Content::AddResourceToMap - " << resourceName << " is already present in the map. Overwriting. \n";
+        //return;
+      }
+
+      map.insert(std::pair<std::string, ResourcePtr>(resourceName, ptr));
+      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        DCTrace << "Content::AddResourceToMap - " << resourceName << " was added.\n";
+    }
   }
 
 }

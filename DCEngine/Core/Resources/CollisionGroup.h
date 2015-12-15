@@ -19,13 +19,18 @@ namespace DCEngine {
 
   class CollisionGroup : public Resource {
   public:
-    CollisionGroup(std::string name) : Resource(name) {}
+
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareDerivedType(CollisionGroup, Resource);
+    #endif
+
+    CollisionGroup(std::string name);
     ~CollisionGroup() {}
+    static std::string Extension() { return ".CollisionGroup"; }
     static CollisionGroupPtr Find(std::string);
 
     CollisionGroup &operator=(const CollisionGroup & rhs);
 
-  private:
 
   };
   

@@ -16,33 +16,12 @@
 namespace DCEngine {
   namespace Systems {
 
-    /**************************************************************************/
-    /*!
-    @brief  Adds a resource to the project.
-    @param  name The name of the resource.
-    @param  type The type of the resource.
-    */
-    /**************************************************************************/
-    void Editor::AddResource(std::string& name, ResourceType type) {
-      DCTrace << "Editor::AddResource - Adding " << name << "\n";
-
-      switch (type) {
-
-      case ResourceType::Level:
-        CreateLevel(name);
-        break;
-
-      default:
-        break;
-
-      }
-    }
 
 
 
     /**************************************************************************/
     /*!
-    @brief  Displays the 'AddResource' editor window.
+    @brief  Displays the 'ResourceCreate' editor window.
     */
     /**************************************************************************/
     void Editor::WindowAddResource()
@@ -94,10 +73,17 @@ namespace DCEngine {
         // Buttons
         ImGui::Separator();
         if (ImGui::Button("Create")) {
-          AddResource(std::string(resourceName), type);
+          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue)
+            DCTrace << "Editor::WindowAddResource - That resource cannot be created without an asset file! \n";
+          else
+            ResourceCreate(std::string(resourceName), type);
         }
         ImGui::SameLine();
         if (ImGui::Button("From File")) {
+          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue)
+            ResourceAddFromFile(std::string(resourceName), type);
+          else
+            DCTrace << "Editor::WindowAddResource - That resource cannot be added from file! \n";
         }
         ImGui::SameLine();
         if (ImGui::Button("Cancel")) {
@@ -106,92 +92,6 @@ namespace DCEngine {
 
         ImGui::End();
       
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Loads the level, deserializing a level file's binary data and
-            constructing gameobjects along with their components.
-    */
-    /**************************************************************************/
-    bool Editor::LoadLevel(std::string level)
-    {
-      DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
-      
-      // Save the currently-loaded level before loading a new one
-      if (CurrentSpace->CurrentLevel) {
-        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
-        SaveLevel(currentLevelName);
-      }      
-
-      // Query the Content system for the Level resource 
-      auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
-      SelectedObject = nullptr;
-
-      if (levelPtr == nullptr) {
-        DCTrace << "Editor::LoadLevel - Could not find " << level << "\n";
-        return false;
-      }
-        
-      // Load the level
-      CurrentSpace->LoadLevel(level);
-      // Load the editor camera
-      SetEditorCamera(true);
-      // Sets the current window's caption
-      UpdateCaption();
-      return true;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Saves the current level, serializing all of the active gameobjects
-            along with their components in the space.
-    @param  level The name of the level.
-    @todo   The level path is currently hardcoded. Change that.
-    */
-    /**************************************************************************/
-    bool Editor::SaveLevel(std::string level)
-    {
-      DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
-      
-      // Get the current project's path
-      std::string LevelPath("Projects/Rebound/Resources/Levels/");
-      auto levelResource = CurrentSpace->SaveLevel(LevelPath + level + std::string(".lvl"));
-      
-      // If the level was saved successfully
-      if (levelResource) {
-        // Set it as the current level on the space
-        CurrentSpace->CurrentLevel = levelResource;
-        // Scan for levels again
-        Daisy->getSystem<Content>()->ScanForLevels();
-        // Update the caption
-        UpdateCaption();
-
-        return true;
-      }        
-      else
-        return false;      
-
-
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Reloads the currently loaded level.
-    */
-    /**************************************************************************/
-    bool Editor::ReloadLevel()
-    {
-      // Reload the current level
-      CurrentSpace->ReloadLevel();
-      // Reload the editor camera
-      SetEditorCamera(true);
-      // Clear the currently selected object
-      SelectedObject = nullptr;
-      // Eh?
-      return true;
     }
 
     /**************************************************************************/

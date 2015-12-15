@@ -26,7 +26,7 @@ namespace DCEngine {
   using IndicesVec = std::vector<GLuint>;
 
 
-  class Mesh : public Resource {
+  class Mesh {
 
   public:
     Mesh(VertexVec vertices, IndicesVec indices, TextureVec textures);
