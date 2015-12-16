@@ -18,6 +18,8 @@ namespace DCEngine {
   namespace Systems {
 
     void DisplayImage(Zilch::Property* property, ObjectPtr object);
+    void PreviewSound(Zilch::Property* property, ObjectPtr object);
+
     
     /**************************************************************************/
     /*!
@@ -153,7 +155,12 @@ namespace DCEngine {
           DisplayImage(property, object);
           continue;
         }
-          
+
+        // If the property is marked as a sound...
+        if (property->HasAttribute("Sound")) {
+          PreviewSound(property, object);
+          continue;
+        }          
 
         // If there's at least one attribute... 
         if (!property->Attributes.empty()) {
@@ -407,6 +414,9 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Displays an image on the Editor's properties inspector.
+    @param  property A pointer to the property.
+    @param  object A pointer to the object the property belongs to.
+    @todo   Currently we are pulling the image from the Content system..
     */
     /**************************************************************************/
     void DisplayImage(Zilch::Property * property, ObjectPtr object)
@@ -425,6 +435,37 @@ namespace DCEngine {
       //ImTextureID texID = textureData;
       ImGui::Image((void*)(textureData.TextureID), ImVec2(textureData.Width, textureData.Height), 
                    ImVec2(0, 0), ImVec2(1, 1), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Previews a sound on the Editor's properties inspector.
+    @param  property A pointer to the property.
+    @param  object A pointer to the object the property belongs to.
+    @todo   Currently we are pulling the sound from the Content system..
+    */
+    /**************************************************************************/
+    void PreviewSound(Zilch::Property * property, ObjectPtr object)
+    {
+      // Create an exception report object
+      Zilch::ExceptionReport report;
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      getCall.SetHandleVirtual(Zilch::Call::This, object);
+      getCall.Invoke(report);
+      // Grab the sound's path
+      auto soundPath = getCall.Get<Zilch::String>(Zilch::Call::Return);
+
+      // Grab the reference to the sound this SoundCue holds
+      auto soundCue = dynamic_cast<SoundCue*>(object);
+
+      if (ImGui::Button("Preview")) {
+        Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Stop Preview")) {
+        Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
+      }
 
     }
 

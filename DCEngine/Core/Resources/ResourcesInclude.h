@@ -21,6 +21,7 @@
 #include "Archetype.h"
 #include "CollisionGroup.h"
 #include "CollisionTable.h"
+#include "ZilchScript.h"
 
 namespace DCEngine {
 

@@ -152,8 +152,11 @@ namespace DCEngine {
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
       bool CreateLevel(std::string&);
+      ResourcePtr CreateCollisionGroup(std::string& name);
+      ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
+      ResourcePtr CreateZilchScript(std::string& name);
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();

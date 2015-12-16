@@ -158,7 +158,7 @@ namespace DCEngine {
     SoundCue,
     SpriteSource,
     SpriteLayer,
-
+    ZilchScript,
   };
 
 }

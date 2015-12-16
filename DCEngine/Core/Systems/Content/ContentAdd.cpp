@@ -211,6 +211,18 @@ namespace DCEngine {
       AddResourceToMap<CollisionTablePtr, CollisionTableMap>(collisionTableName, collisionTablePtr, MapCollisionTable);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Adds a ZilchScript resource to the engine.
+    @param The name of the ZilchScript.
+    @param The pointer to the ZilchScript resource.
+    */
+    /**************************************************************************/
+    void Content::AddZilchScript(std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
+    {
+      AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
+    }
+
 
     /**************************************************************************/
     /*!

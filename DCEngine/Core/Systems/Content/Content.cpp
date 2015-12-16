@@ -54,6 +54,7 @@ namespace DCEngine {
     {
       // Generate every SoundCue's sound
       for (auto soundCue : SoundCueMap) {
+        soundCue.second->Load();
         soundCue.second->GenerateSound();
       }
 

@@ -42,13 +42,13 @@ namespace DCEngine {
     bool Loop = false;
     FMODSoundPtr Data;
     
-    // Properties
-    DCE_DEFINE_PROPERTY(String, AssetPath);
+    // Properties    
     DCE_DEFINE_PROPERTY(bool, Loop);
     DCE_DEFINE_PROPERTY(float, Volume);
     DCE_DEFINE_PROPERTY(float, VolumeVariation);
     DCE_DEFINE_PROPERTY(float, Pitch);
     DCE_DEFINE_PROPERTY(float, PitchVariation);    
+    DCE_DEFINE_PROPERTY(String, AssetPath);
 
     // Methods
     SoundCue(std::string soundFile);

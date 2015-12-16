@@ -247,6 +247,9 @@
     <Filter Include="Core\Resources\Physics">
       <UniqueIdentifier>{9ad6bb53-4e8c-442c-829e-d0a95bc88427}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Resources\Scripting">
+      <UniqueIdentifier>{90909f29-5786-4d35-8ae1-5ac55384b5f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -662,6 +665,9 @@
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\ZilchScript.cpp">
+      <Filter>Core\Resources\Scripting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1150,6 +1156,9 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\TutorialTextLogic.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ZilchScript.h">
+      <Filter>Core\Resources\Scripting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

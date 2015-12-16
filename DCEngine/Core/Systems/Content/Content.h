@@ -24,7 +24,7 @@ namespace DCEngine {
 
   namespace Systems {
 
-    //using SoundCueMap = std::map<std::string, SoundCuePtr>;
+    // Resource Maps
     using ResourceMap = std::map<std::string, std::string>;    
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
@@ -33,6 +33,8 @@ namespace DCEngine {
     using LevelMap = std::map<std::string, LevelPtr>;
     using CollisionTableMap = std::map<std::string, CollisionTablePtr>;;
     using CollisionGroupMap = std::map<std::string, CollisionGroupPtr>;
+    using ZilchScriptMap = std::map<std::string, ZilchScriptPtr>;
+
 
     class Content : public System {
       friend class Engine;
@@ -49,13 +51,15 @@ namespace DCEngine {
       ArchetypePtr getArchetype(std::string& archetypeName);
       LevelPtr getLevel(std::string& levelName);
       CollisionGroupPtr getCollisionGroup(std::string& groupName);
-      CollisionTablePtr getCollisionTable(std::string& groupName);
+      CollisionTablePtr getCollisionTable(std::string& tableName);
+      ZilchScriptPtr getZilchScript(std::string& scriptName);
       // Container getters
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
       ShaderMap* AllShaders();
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
+      ZilchScriptMap* AllZilchScripts();
       // Remove resource
       void RemoveResource(ResourcePtr);      
       // Scanners
@@ -89,6 +93,7 @@ namespace DCEngine {
       LevelMap LevelMap;
       CollisionGroupMap MapCollisionGroup;
       CollisionTableMap MapCollisionTable;
+      ZilchScriptMap MapZilchScript;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
@@ -99,6 +104,7 @@ namespace DCEngine {
       void AddLevel(std::string& levelName, LevelPtr levelPtr);
       void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
       void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
+      void AddZilchScript(std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
 
       template <typename ResourcePtr, typename ResourceMap>
       void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);

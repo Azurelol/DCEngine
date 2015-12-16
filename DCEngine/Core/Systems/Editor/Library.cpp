@@ -45,13 +45,7 @@ namespace DCEngine {
 
       // Archetype Tree
       if (ImGui::TreeNode("Archetype")) {
-        // Query the Content system for the current list of archetypes
-        //static bool ScannedForArchetypes;
-        //if (!ScannedForArchetypes) {
-        //  Daisy->getSystem<Content>()->ScanResources();
-        //  ScannedForArchetypes = true;
-        //}
-        
+
         // Display all archetypes.
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
@@ -97,12 +91,6 @@ namespace DCEngine {
       }
       // 4. Display every level
       if (ImGui::TreeNode("Level")) {
-        // Query the Content system for the current list of levels
-        /*        static bool ScannedForLevels;
-        if (!ScannedForLevels) {
-          Daisy->getSystem<Content>()->ScanForLevels();
-          ScannedForLevels = true;
-        }    */    
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           auto levelName = level.second->Name().c_str();
           if (ImGui::Selectable(levelName) ) {
@@ -118,6 +106,16 @@ namespace DCEngine {
         }
         
         //ScannedForLevels = false;
+        ImGui::TreePop();
+      }
+      if (ImGui::TreeNode("ZilchScript")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& script : *Daisy->getSystem<Content>()->AllZilchScripts()) {
+          if (ImGui::Selectable(script.second->Name().c_str())) {
+            SelectedObject = script.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
         ImGui::TreePop();
       }
 

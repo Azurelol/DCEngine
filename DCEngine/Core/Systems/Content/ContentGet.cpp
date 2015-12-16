@@ -159,5 +159,10 @@ namespace DCEngine {
       return &LevelMap;
     }
 
+    ZilchScriptMap * Content::AllZilchScripts()
+    {
+      return &MapZilchScript;
+    }
+
   }
 }

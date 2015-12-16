@@ -22,11 +22,14 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(SoundCue, "SoundCue", DCEngineCore, builder, type) {
+    DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Sound);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Loop);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Volume);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, VolumeVariation);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Pitch);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, PitchVariation);
+    DCE_BINDING_DEFINE_PROPERTY(SoundCue, AssetPath);
+    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeSound);
     
   }
   #endif

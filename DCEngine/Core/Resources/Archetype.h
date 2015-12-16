@@ -13,7 +13,7 @@
 /******************************************************************************/
 #pragma once
 #include "ResourceReference.h"
-#include "..\Objects\Entities\GameObject.h"
+//#include "..\Objects\Entities\GameObject.h"
 
 namespace DCEngine {
 
@@ -29,7 +29,7 @@ namespace DCEngine {
 
   private:
 
-    std::string SerializedData;
+    //std::string SerializedData;
     //std::string SourceFile;
   };
 
