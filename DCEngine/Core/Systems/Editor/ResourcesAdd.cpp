@@ -237,10 +237,22 @@ namespace DCEngine {
     ResourcePtr Editor::CreateZilchScript(std::string & name)
     {
       DCTrace << "Editor::CreateZilchScript - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                  + name + ZilchScript::Extension();
+      FileSystem::CorrectPath(path);
+      auto script = ZilchScriptPtr(new ZilchScript(path));
+      
+      // Build the script from a template
+      if (script->BuildDefaultFromTemplate()) {
+        // If successful, open the default text editor and read it!
+        std::string command = "notepad++ " + path;
+        system(command.c_str());
+      }     
+      
+      // Add the script to the content system
+      Daisy->getSystem<Content>()->AddZilchScript(name, script);
 
-
-
-      return ResourcePtr();
+      return script.get();
     }
 
   }

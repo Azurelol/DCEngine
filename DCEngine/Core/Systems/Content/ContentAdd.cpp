@@ -284,6 +284,8 @@ namespace DCEngine {
           AddCollisionGroup(resourceName, CollisionGroupPtr(new CollisionGroup(resource)));
         else if (extension == CollisionTable::Extension())
           AddCollisionTable(resourceName, CollisionTablePtr(new CollisionTable(resource)));
+        else if (extension == ZilchScript::Extension())
+          AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
       }
     }
 

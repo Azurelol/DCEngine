@@ -71,6 +71,8 @@ namespace DCEngine {
         font.second->Load();
       }
 
+      // Load every script..
+
     }
     
     /**************************************************************************/

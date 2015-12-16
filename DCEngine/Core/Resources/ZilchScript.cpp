@@ -12,8 +12,14 @@ data and the source file for debugging and for archetype updating.
 */
 /******************************************************************************/
 #include "ZilchScript.h"
+#include <BOOST/algorithm/string/replace.hpp>
 
 namespace DCEngine {
+
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(ZilchScript, "ZilchScript", DCEngineCore, builder, type) {
+  }
+#endif
 
   /**************************************************************************/
   /*!
@@ -64,6 +70,36 @@ namespace DCEngine {
     }
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Builds the default script code from a template file.
+  @note   This will set up the script.
+  @todo   In the future, perhaps take an argument for what template to use
+          from the editor.
+  */
+  /**************************************************************************/
+  bool ZilchScript::BuildDefaultFromTemplate()
+  {
+    // Load the script from the file
+    std::string templatePath = "Core\\Assets\\Templates\\Component.Zilch";
+    // If the template file could be read properly..
+    if (FileSystem::FileReadToString(templatePath, SerializedData)) {
+      // Replace the templated name
+      boost::replace_all(SerializedData, "Script", Name());
+      //SerializedData.replace(SerializedData.begin(), SerializedData.begin() + SerializedData.find("Script"), Name().c_str() );
+      // Save the script to file
+      Save(SerializedData); // lol
+      return true;
+    } 
+    return false;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Adds the script to Zilch so it generates the code for it. ?
+  @todo   May be unnecessary.
+  */
+  /**************************************************************************/
   bool ZilchScript::GenerateCode()
   {
     return false;

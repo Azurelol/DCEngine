@@ -16,11 +16,14 @@ namespace DCEngine {
 
   class ZilchScript : public Resource {
   public:
+
+    ZilchDeclareDerivedType(ZilchScript, Resource);
     ZilchScript(std::string scriptFile);
     ~ZilchScript();
     static std::string Extension() { return ".Zilch"; }
     void Save(std::string& serializedData);
     bool Load();
+    bool BuildDefaultFromTemplate();
     bool GenerateCode();
 
   private:

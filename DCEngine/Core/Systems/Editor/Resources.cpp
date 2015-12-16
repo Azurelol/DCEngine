@@ -67,6 +67,10 @@ namespace DCEngine {
           type = ResourceType::SpriteLayer;
           strcpy(resourceName, "NewSpriteLayer");
         }
+        if (ImGui::Selectable("ZilchScript")) {
+          type = ResourceType::ZilchScript;
+          strcpy(resourceName, "NewZilchScript");
+        }
         ImGui::Separator();
         // Name
         ImGui::InputText("Name:", resourceName, IM_ARRAYSIZE(resourceName));
