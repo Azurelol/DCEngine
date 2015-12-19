@@ -80,7 +80,7 @@ namespace DCEngine {
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Load the selected level
-            DCTrace << "Loading: " << levelName << "\n";
+            DCTrace << "Editor::WidgetLibrary - Loading: " << levelName << "\n";
             LoadLevel(levelName);
             break;
           }
@@ -108,6 +108,14 @@ namespace DCEngine {
             SelectedObject = resource.second.get();
             WindowPropertiesEnabled = true;
           }
+          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+            // Load the selected level
+            DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
+            SelectedCollisionTable = resource.second.get();
+            WindowCollisionTableEditorEnabled = true;
+            break;
+          }
+
         }
         ImGui::TreePop();
       }

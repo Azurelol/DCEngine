@@ -363,7 +363,6 @@ namespace DCEngine {
         componentNames.clear();
         components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
         for (auto component : components) {
-
           // Do not display components marked as hidden
           if (component->HasAttribute("Hidden"))
             continue;

@@ -27,7 +27,7 @@ namespace DCEngine {
       // Or it could read the log file?
       
       ImGui::Text("Console text here");
-
+      
       ImGui::End();
       
 

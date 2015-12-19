@@ -199,6 +199,7 @@ namespace DCEngine {
       WindowCreateFromArchetype();
       WindowTools();
       WindowAddResource();
+      WindowCollisionTableEditor();
     }
 
     /**************************************************************************/

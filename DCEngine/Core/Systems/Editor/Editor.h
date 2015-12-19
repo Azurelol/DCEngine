@@ -88,7 +88,8 @@ namespace DCEngine {
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
       bool WindowToolsEnabled = false;
-      bool WindowCreateFromArchetypeEnabled = false;      
+      bool WindowCreateFromArchetypeEnabled = false;   
+      bool WindowCollisionTableEditorEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObjectPtr EditorCamera;
@@ -151,15 +152,18 @@ namespace DCEngine {
       void WindowAddResource();
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
-      bool CreateLevel(std::string&);
+      bool CreateLevel(std::string&);          
       ResourcePtr CreateCollisionGroup(std::string& name);
       ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreatePhysicsMaterial(std::string& name);
       ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
-      ResourcePtr CreateZilchScript(std::string& name);
+      ResourcePtr CreateZilchScript(std::string& name);      
       template <typename ResourceMap>
       void SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
+      
+      void WindowCollisionTableEditor();
+      ResourcePtr SelectedCollisionTable;
 
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);

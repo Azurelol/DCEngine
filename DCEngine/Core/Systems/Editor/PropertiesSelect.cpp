@@ -39,15 +39,12 @@ namespace DCEngine {
       ImGui::Text(resourceType.c_str()); 
       ImGui::PushID(propertyID++);
 
-      // SpriteSource 
       if (resource->HasAttribute("SpriteSource")) {
         SelectSpriteSource(resource, object, propertyID);
       }
-      // SoundCue
       else if (resource->HasAttribute("SoundCue")) {
         SelectSoundCue(resource, object, propertyID);
       }
-      // Level
       else if (resource->HasAttribute("Level")) {
         SelectLevel(resource, object, propertyID);
       }
@@ -59,17 +56,11 @@ namespace DCEngine {
         auto container = Daisy->getSystem<Content>()->AllCollisionGroups();
         SelectResource<CollisionGroupMap>("CollisionGroup", container, resource, object, propertyID);
       }
+      else if (resource->HasAttribute("CollisionTable")) {
+        auto container = Daisy->getSystem<Content>()->AllCollisionTables();
+        SelectResource<CollisionTableMap>("CollisionTable", container, resource, object, propertyID);
+      }
       ImGui::PopID();
-
-      //// SpriteSource 
-      //if (resourceType == std::string("SpriteSource")) {
-      //  SelectSpriteSource(resource, object);
-      //}
-      //// SoundCue
-      //else if (resourceType == std::string("SoundCue")) {
-      //  SelectSoundCue(resource, object);
-      //}
-
     }
 
     /**************************************************************************/
@@ -86,7 +77,7 @@ namespace DCEngine {
       
       auto resourceValue = Reflection::PropertyAsString(resource, component);
       static int currentItem = 0;
-      for (auto spriteSource : *container) {
+      for (auto& spriteSource : *container) {
         // Push the name of it into the vector of strings
         spriteSourceNames.push_back(spriteSource.second->Name().c_str());
         if (spriteSource.second->getObjectName() == resourceValue)

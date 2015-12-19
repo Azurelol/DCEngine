@@ -672,6 +672,9 @@
     <ClCompile Include="Core\Resources\PhysicsMaterial.cpp">
       <Filter>Core\Resources\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\CollisionTableEditor.cpp">
+      <Filter>Core\Systems\Editor\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
