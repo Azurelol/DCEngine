@@ -42,6 +42,10 @@ namespace DCEngine {
         CreateCollisionTable(name);
         break;
 
+      case ResourceType::PhysicsMaterial:
+        CreatePhysicsMaterial(name);
+        break;
+
       case ResourceType::ZilchScript:
         CreateZilchScript(name);
         break;
@@ -170,6 +174,24 @@ namespace DCEngine {
       collisionTable->Build();
 
       return collisionTable.get();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a PhysicsMaterial on the currently selected project
+    @param  name The name of the resource to create.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreatePhysicsMaterial(std::string & name)
+    {
+      DCTrace << "Editor::CreatePhysicsMaterial - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                  + name + PhysicsMaterial::Extension();
+      auto resource = PhysicsMaterialPtr(new PhysicsMaterial(path));
+      Daisy->getSystem<Content>()->AddPhysicsMaterial(name, resource);
+      // Serialize it and save it to file
+      resource->Build();
+      return resource.get();
     }
 
     /**************************************************************************/

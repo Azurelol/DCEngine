@@ -348,6 +348,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Allows the user to add a component to the entity.
+    @todo   If the component has been marked as skipped, do not attempt to add it.
     */
     /**************************************************************************/
     void Editor::AddComponent(EntityPtr selectedEntity)
@@ -362,6 +363,10 @@ namespace DCEngine {
         componentNames.clear();
         components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
         for (auto component : components) {
+
+          // Do not display components marked as hidden
+          if (component->HasAttribute("Hidden"))
+            continue;
           componentNames.push_back(component->Name.c_str());
         }
         Scanned = true;

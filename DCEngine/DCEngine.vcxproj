@@ -301,6 +301,7 @@
     <ClCompile Include="Core\Resources\Font.cpp" />
     <ClCompile Include="Core\Resources\Level.cpp" />
     <ClCompile Include="Core\Resources\Mesh.cpp" />
+    <ClCompile Include="Core\Resources\PhysicsMaterial.cpp" />
     <ClCompile Include="Core\Resources\Shader.cpp" />
     <ClCompile Include="Core\Resources\SoundCue.cpp" />
     <ClCompile Include="Core\Resources\SpriteSource.cpp" />
@@ -478,6 +479,7 @@
     <ClInclude Include="Core\Resources\Level.h" />
     <ClInclude Include="Core\Resources\Material.h" />
     <ClInclude Include="Core\Resources\Mesh.h" />
+    <ClInclude Include="Core\Resources\PhysicsMaterial.h" />
     <ClInclude Include="Core\Resources\ResourceReference.h" />
     <ClInclude Include="Core\Resources\ResourcesInclude.h" />
     <ClInclude Include="Core\Resources\Shader.h" />
@@ -563,6 +565,7 @@
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
+    <None Include="Core\Systems\Editor\Editor.tcc" />
     <None Include="Daisy.cfg" />
     <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>

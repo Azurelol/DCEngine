@@ -31,11 +31,11 @@ namespace DCEngine {
     using ShaderMap = std::map<std::string, ShaderPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
     using LevelMap = std::map<std::string, LevelPtr>;
-    using CollisionTableMap = std::map<std::string, CollisionTablePtr>;;
+    using CollisionTableMap = std::map<std::string, CollisionTablePtr>;
     using CollisionGroupMap = std::map<std::string, CollisionGroupPtr>;
+    using PhysicsMaterialMap = std::map<std::string, PhysicsMaterialPtr>;    
     using ZilchScriptMap = std::map<std::string, ZilchScriptPtr>;
-
-
+    
     class Content : public System {
       friend class Engine;
       friend class Factory;
@@ -53,6 +53,9 @@ namespace DCEngine {
       CollisionGroupPtr getCollisionGroup(std::string& groupName);
       CollisionTablePtr getCollisionTable(std::string& tableName);
       ZilchScriptPtr getZilchScript(std::string& scriptName);
+      PhysicsMaterialPtr getPhysicsMaterial(std::string& materialName);
+      template <typename ResourceMap, typename ResourcePtr>
+      ResourcePtr getResource(std::string& resourceName, ResourceMap map);
       // Container getters
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
@@ -60,6 +63,9 @@ namespace DCEngine {
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
       ZilchScriptMap* AllZilchScripts();
+      CollisionGroupMap* AllCollisionGroups();
+      CollisionTableMap* AllCollisionTables();
+      PhysicsMaterialMap* AllPhysicsMaterials();
       // Remove resource
       void RemoveResource(ResourcePtr);      
       // Scanners
@@ -83,8 +89,7 @@ namespace DCEngine {
       std::string DefaultImage = "Wow";
       //std::string DefaultSound = "Eh";
 
-      // Resource maps
-      
+      // Resource maps      
       std::map<std::string, ShaderPtr> ShaderMap;
       std::map<std::string, FontPtr> FontMap;
       SoundCueMap SoundCueMap;
@@ -94,6 +99,7 @@ namespace DCEngine {
       CollisionGroupMap MapCollisionGroup;
       CollisionTableMap MapCollisionTable;
       ZilchScriptMap MapZilchScript;
+      PhysicsMaterialMap MapPhysicsMaterial;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
@@ -104,8 +110,8 @@ namespace DCEngine {
       void AddLevel(std::string& levelName, LevelPtr levelPtr);
       void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
       void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
+      void AddPhysicsMaterial(std::string& physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr);
       void AddZilchScript(std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
-
       template <typename ResourcePtr, typename ResourceMap>
       void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
 
@@ -123,6 +129,7 @@ namespace DCEngine {
 
       void LoadProjectData(std::string&); //!<             
     };
+
 
     // Templates    
     /**************************************************************************/
@@ -149,6 +156,28 @@ namespace DCEngine {
       if (DCE_TRACE_FACTORY_RESOURCE_ADD)
         DCTrace << "Content::AddResourceToMap - " << resourceName << " was added.\n";
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a resource from the specified resource map.
+    @param  resourceName The name of the resource.
+    @return A pointer of the resource type in question.
+    */
+    /**************************************************************************/
+    template<typename ResourceMap, typename ResourcePtr>
+    inline ResourcePtr Content::getResource(std::string & resourceName, ResourceMap map)
+    {
+      // Check if the resource is present in the map
+      if (!map.count(resourceName)) {
+        DCTrace << "Content::getResource - " << resourceName << " was not found!\n";
+        return nullptr;
+      }
+      // If it does, first load it
+      map.at(resourceName)->Load();
+      // Then return it
+      return LevelMap.at(levelName);
+    }
+
   }
 
 }

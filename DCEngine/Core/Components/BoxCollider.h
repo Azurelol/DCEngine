@@ -14,6 +14,8 @@ another. This component interacts directly with the physics system.
 #include "ComponentReference.h"
 #include "Collider.h"
 
+
+
 namespace DCEngine {
 
 	class Transform;
@@ -34,6 +36,8 @@ namespace DCEngine {
 		Boolean IsDrawingCollider = false;
     
     /* Properties */
+    DCE_DEFINE_PROPERTY(CollisionGroupHandle, CollisionGroup);
+    DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
 		Vec3 getSize(void);
     void setSize(Vec3);
 		Vec3 getOffset(void);
@@ -45,10 +49,6 @@ namespace DCEngine {
     bool getIsDrawingCollider(void);
     void setIsDrawingCollider(bool);
 
-    // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
-    String getCollisionGroup() const;
-    void setCollisionGroup(const String &);
-
 		// These should be private!
     BoxCollider(Entity& owner);
     ~BoxCollider();
@@ -58,9 +58,9 @@ namespace DCEngine {
 	private:
 
     Transform* TransformComponent = NULL;
-
     // The group is a tag used for filter out collisions. The rules
-    // for filtering are on the CollisionFilter that is on the running space.
+    // for filtering are on the CollisionFilter that is on the running space.    
+    PhysicsMaterialHandle PhysicsMaterial;
     CollisionGroupHandle CollisionGroup = String("Default");
 
     void Register();

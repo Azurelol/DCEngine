@@ -21,6 +21,9 @@ namespace DCEngine {
     void SelectSpriteSource(Zilch::Property * resource, ObjectPtr component, unsigned int);
     void SelectSoundCue(Zilch::Property * resource, ObjectPtr component, unsigned int);
     void SelectLevel(Zilch::Property * resource, ObjectPtr component, unsigned int);
+    void SelectPhysicsMaterial(Zilch::Property * resource, ObjectPtr component, unsigned int);
+    void SelectCollisionGroup(Zilch::Property * resource, ObjectPtr component, unsigned int);
+    void SelectCollisionTable(Zilch::Property * resource, ObjectPtr component, unsigned int);
 
     /**************************************************************************/
     /*!
@@ -47,6 +50,14 @@ namespace DCEngine {
       // Level
       else if (resource->HasAttribute("Level")) {
         SelectLevel(resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("PhysicsMaterial")) {
+        auto container = Daisy->getSystem<Content>()->AllPhysicsMaterials();
+        SelectResource<PhysicsMaterialMap>("PhysicsMaterial", container, resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("CollisionGroup")) {
+        auto container = Daisy->getSystem<Content>()->AllCollisionGroups();
+        SelectResource<CollisionGroupMap>("CollisionGroup", container, resource, object, propertyID);
       }
       ImGui::PopID();
 

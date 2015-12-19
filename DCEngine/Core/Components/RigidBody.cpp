@@ -25,12 +25,15 @@ namespace DCEngine
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(RigidBody, "RigidBody", DCEngineCore, builder, type) {
+    
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, RigidBody, "owner", Entity&);
     ZilchBindDestructor(builder, type, RigidBody);
     // Fields
     ZilchBindField(builder, type, &RigidBody::Mass, "Mass", Zilch::PropertyBinding::Get);
     // Properties
+    
+
     ZilchBindProperty(builder, type, &RigidBody::getVelocity, &RigidBody::setVelocity, "Velocity");
     ZilchBindProperty(builder, type, &RigidBody::getAngularVelocity, &RigidBody::setAngularVelocity, "Angular Velocity");
     ZilchBindProperty(builder, type, &RigidBody::getRotationLocked, &RigidBody::setRotationLocked, "Rotation Locked");

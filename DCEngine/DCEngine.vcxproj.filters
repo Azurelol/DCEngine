@@ -669,6 +669,9 @@
     <ClCompile Include="Core\Resources\ZilchScript.cpp">
       <Filter>Core\Resources\Scripting</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\PhysicsMaterial.cpp">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1160,6 +1163,9 @@
     <ClInclude Include="Core\Resources\ZilchScript.h">
       <Filter>Core\Resources\Scripting</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Resources\PhysicsMaterial.h">
+      <Filter>Core\Resources\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1194,6 +1200,9 @@
     <None Include="Daisy.cfg" />
     <None Include="Projects\Rebound.dceproj">
       <Filter>Projects\Rebound</Filter>
+    </None>
+    <None Include="Core\Systems\Editor\Editor.tcc">
+      <Filter>Core\Systems\Editor</Filter>
     </None>
   </ItemGroup>
 </Project>

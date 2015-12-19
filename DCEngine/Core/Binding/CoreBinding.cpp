@@ -52,6 +52,7 @@ namespace DCEngine {
     ZilchInitializeType(CollisionGroup);
     ZilchInitializeType(CollisionTable);
     ZilchInitializeType(ZilchScript);
+    ZilchInitializeType(PhysicsMaterial);
 
     /*===================*
     *     Components     *

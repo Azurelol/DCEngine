@@ -24,11 +24,17 @@ namespace DCEngine {
   */
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-  ZilchDefineType(BoxCollider, "BoxCollider", DCEngineCore, builder, type) {
+  ZilchDefineType(BoxCollider, "BoxCollider", DCEngineCore, builder, type) {    
+    DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
+    DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
     ZilchBindDestructor(builder, type, BoxCollider);
     // Properties
+    DCE_BINDING_DEFINE_PROPERTY(BoxCollider, PhysicsMaterial);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyPhysicsMaterial, attributePhysicsMaterial);
+    DCE_BINDING_DEFINE_PROPERTY(BoxCollider, CollisionGroup);    
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCollisionGroup, attributeCollisionGroup);
     ZilchBindProperty(builder, type, &BoxCollider::getSize, &BoxCollider::setSize, "Size");
     ZilchBindProperty(builder, type, &BoxCollider::getOffset, &BoxCollider::setOffset, "Offset");
     ZilchBindProperty(builder, type, &BoxCollider::getGhost, &BoxCollider::setGhost, "Ghost");
@@ -195,15 +201,5 @@ namespace DCEngine {
   {
     this->IsDrawingCollider = isDrawing;
   }
-
-  String BoxCollider::getCollisionGroup() const
-  {
-    return CollisionGroup;
-  }
-
-  void BoxCollider::setCollisionGroup(const String &group)
-  {
-    CollisionGroup = group;
-  }
-
+  
 }

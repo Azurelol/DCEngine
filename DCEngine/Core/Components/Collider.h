@@ -12,6 +12,7 @@ another. This component interacts directly with the physics system.
 /******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
+#include "../Resources/PhysicsMaterial.h"
 
 namespace DCEngine {
 

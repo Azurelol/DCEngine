@@ -211,6 +211,11 @@ namespace DCEngine {
       AddResourceToMap<CollisionTablePtr, CollisionTableMap>(collisionTableName, collisionTablePtr, MapCollisionTable);
     }
 
+    void Content::AddPhysicsMaterial(std::string & physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr)
+    {
+      AddResourceToMap<PhysicsMaterialPtr, PhysicsMaterialMap>(physicsMaterialName, physicsMaterialPtr, MapPhysicsMaterial);
+    }
+
     /**************************************************************************/
     /*!
     @brief Adds a ZilchScript resource to the engine.
@@ -284,6 +289,8 @@ namespace DCEngine {
           AddCollisionGroup(resourceName, CollisionGroupPtr(new CollisionGroup(resource)));
         else if (extension == CollisionTable::Extension())
           AddCollisionTable(resourceName, CollisionTablePtr(new CollisionTable(resource)));
+        else if (extension == PhysicsMaterial::Extension())
+          AddPhysicsMaterial(resourceName, PhysicsMaterialPtr(new PhysicsMaterial(resource)));
         else if (extension == ZilchScript::Extension())
           AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
       }

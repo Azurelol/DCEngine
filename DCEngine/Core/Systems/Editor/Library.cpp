@@ -17,7 +17,8 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Displays the properties of the currently selected object.
+    @brief  Displays the properties of the currently selected object.
+    @todo   Refactor each resource into a template for the type, perhaps?
     */
     /**************************************************************************/
     void Editor::WidgetLibrary()
@@ -25,25 +26,9 @@ namespace DCEngine {
       if (!WidgetLibraryEnabled)
         return;
       
-      bool clicked;      
-      if (clicked = ImGui::IsMouseDoubleClicked(0)) {
-        DCTrace << "Double clicked! \n";
-      }
-      //if (clicked = ImGui::GetIO().MouseDoubleClicked[0]) {
-      //  DCTrace << "Double clicked checck A \n";
-      //}
-
-      //if (ImGui::GetIO().MouseDoubleClicked[1]) {
-      //  DCTrace << "Double clicked!! \n";
-      //}
-      //if (ImGui::GetIO().MouseDoubleClicked[2]) {
-      //  DCTrace << "Double clicked!! \n";
-      //}
-
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);
 
-      // Archetype Tree
       if (ImGui::TreeNode("Archetype")) {
 
         // Display all archetypes.
@@ -55,8 +40,6 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
-
-      // SpriteSource
       if (ImGui::TreeNode("SpriteSource")) {
         // Display every SpriteSource
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
@@ -67,7 +50,6 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
-      // 2. Display every soundcue
       if (ImGui::TreeNode("SoundCue")) {        
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
         for (auto& soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
@@ -78,7 +60,6 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
-      // 3. Display every shader
       if (ImGui::TreeNode("Shader")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& shader : *Daisy->getSystem<Content>()->AllShaders()) {
@@ -108,6 +89,42 @@ namespace DCEngine {
         //ScannedForLevels = false;
         ImGui::TreePop();
       }
+
+      if (ImGui::TreeNode("CollisionGroup")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionGroups()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
+      if (ImGui::TreeNode("CollisionTable")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionTables()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
+
+      if (ImGui::TreeNode("PhysicsMaterial")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllPhysicsMaterials()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
+
       if (ImGui::TreeNode("ZilchScript")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& script : *Daisy->getSystem<Content>()->AllZilchScripts()) {

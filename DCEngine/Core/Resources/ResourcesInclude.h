@@ -22,6 +22,7 @@
 #include "CollisionGroup.h"
 #include "CollisionTable.h"
 #include "ZilchScript.h"
+#include "PhysicsMaterial.h"
 
 namespace DCEngine {
 

@@ -26,7 +26,7 @@ namespace DCEngine {
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Collider, "Collider", DCEngineCore, builder, type) {
     DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-    DCE_BINDING_DEFINE_ATTRIBUTE(Skip);    
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);    
     // Constructor / Destructor
     //ZilchBindConstructor(builder, type, Collider, "owner", Entity&);
     //ZilchBindDestructor(builder, type, Collider);

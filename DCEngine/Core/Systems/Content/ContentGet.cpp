@@ -128,6 +128,11 @@ namespace DCEngine {
       return CollisionTablePtr();
     }
 
+    PhysicsMaterialPtr Content::getPhysicsMaterial(std::string & materialName)
+    {
+      return PhysicsMaterialPtr();
+    }
+
     /**************************************************************************/
     /*!
     @brief Returns pointers to the content maps.
@@ -162,6 +167,21 @@ namespace DCEngine {
     ZilchScriptMap * Content::AllZilchScripts()
     {
       return &MapZilchScript;
+    }
+
+    CollisionGroupMap * Content::AllCollisionGroups()
+    {
+      return &MapCollisionGroup;
+    }
+
+    CollisionTableMap * Content::AllCollisionTables()
+    {
+      return &MapCollisionTable;
+    }
+
+    PhysicsMaterialMap * Content::AllPhysicsMaterials()
+    {
+      return &MapPhysicsMaterial;
     }
 
   }
