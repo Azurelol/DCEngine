@@ -396,8 +396,10 @@ namespace DCEngine {
     void Editor::SaveArchetype(std::string& archetype)
     {
       // Get the current project's archetype path
-      std::string archeTypePath("Projects/Rebound/Resources/Archetypes/");
-      Daisy->getSystem<Factory>()->BuildArchetype(archeTypePath + archetype + ".arch", 
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+        + archetype + Archetype::Extension();
+
+      Daisy->getSystem<Factory>()->BuildArchetype(path,
                                                   dynamic_cast<GameObjectPtr>(SelectedObject));
       // Upload the latest archetype
       

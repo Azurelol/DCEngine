@@ -93,12 +93,12 @@ namespace DCEngine {
           if (ImGui::MenuItem("Select None")) {};
           if (ImGui::MenuItem("Select All")) {};
           ImGui::Separator();
-          if (ImGui::MenuItem("Center Selected")) {};
+          if (ImGui::MenuItem("Center Selected", "F")) {};
           if (ImGui::MenuItem("Frame Selected")) {};
           ImGui::Separator();
           if (ImGui::MenuItem("Group Selected")) {};
           ImGui::Separator();
-          if (ImGui::MenuItem("Select Space"))
+          if (ImGui::MenuItem("Select Space", "Shift+S"))
             SelectSpace();
           if (ImGui::MenuItem("Select Game")) {};
           ImGui::EndMenu();

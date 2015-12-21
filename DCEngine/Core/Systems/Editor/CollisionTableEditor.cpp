@@ -37,8 +37,6 @@ namespace DCEngine {
         }
       }
 
-
-
       ImGui::End();
 
     }

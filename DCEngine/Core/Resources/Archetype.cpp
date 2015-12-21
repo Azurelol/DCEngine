@@ -15,7 +15,8 @@ data and the source file for debugging and for archetype updating.
 #include "Archetype.h"
 
 namespace DCEngine {
-  
+
+
   /**************************************************************************/
   /*!
   @brief  Archetype constructor.

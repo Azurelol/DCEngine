@@ -74,6 +74,7 @@ namespace DCEngine {
       // Get a container of all active spritesources        
       auto container = Daisy->getSystem<Content>()->AllSpriteSources();
       std::vector<const char *> spriteSourceNames;
+
       
       auto resourceValue = Reflection::PropertyAsString(resource, component);
       static int currentItem = 0;
