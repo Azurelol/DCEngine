@@ -11,42 +11,44 @@
 #include "ReboundComponent.h"
 
 namespace DCEngine {
+  namespace Components
+  {
+    class Transform;
+    class RigidBody;
+    class Sprite;
+    class MoveToLocation;
+    class ErraticDoor : public Component {
 
-	class Transform;
-	class RigidBody;
-	class Sprite;
-	class MoveToLocation;
-	class ErraticDoor : public Component {
+    public:
+      Transform* TransformRef;
+      RigidBody* RigidBodyRef;
+      Sprite* SpriteRef;
+      MoveToLocation* MTLRef;
 
-	public:
-		Transform* TransformRef;
-		RigidBody* RigidBodyRef;
-		Sprite* SpriteRef;
-		MoveToLocation* MTLRef;
+      // Properties
+      DCE_DEFINE_PROPERTY(Real, Timer);
+      DCE_DEFINE_PROPERTY(Real, RandomDelay);
 
-		// Properties
-		DCE_DEFINE_PROPERTY(Real, Timer);
-		DCE_DEFINE_PROPERTY(Real, RandomDelay);
-
-		// Methods
-		ErraticDoor(Entity& owner) : Component(std::string("ErraticDoor"), owner) {}
-		void Initialize();
-		void OnMouseDownEvent(Events::MouseDown* event);
-		void OnMouseUpEvent(Events::MouseUp* event);
-		void OnKeyDownEvent(Events::KeyDown* event);
-		void OnKeyUpEvent(Events::KeyDown* event);
-		void OnCollisionStartedEvent(Events::CollisionStarted* event);
-		void OnCollisionEndedEvent(Events::CollisionEnded* event);
-		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      // Methods
+      ErraticDoor(Entity& owner) : Component(std::string("ErraticDoor"), owner) {}
+      void Initialize();
+      void OnMouseDownEvent(Events::MouseDown* event);
+      void OnMouseUpEvent(Events::MouseUp* event);
+      void OnKeyDownEvent(Events::KeyDown* event);
+      void OnKeyUpEvent(Events::KeyDown* event);
+      void OnCollisionStartedEvent(Events::CollisionStarted* event);
+      void OnCollisionEndedEvent(Events::CollisionEnded* event);
+      void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-		ZilchDeclareDerivedType(ErraticDoor, Component);
+      ZilchDeclareDerivedType(ErraticDoor, Component);
 #endif
 
-	private:
-		// Member variables
-		Real Timer = 0;
-		Real RandomDelay;
-	};
+    private:
+      // Member variables
+      Real Timer = 0;
+      Real RandomDelay;
+    };
+  }
 
 }

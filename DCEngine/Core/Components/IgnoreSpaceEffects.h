@@ -14,26 +14,27 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
+  namespace Components {
+    class IgnoreSpaceEffects : public Component {
+    public:
+      Boolean IgnoreDrag;
+      Boolean IgnoreFlow;
+      Boolean IgnoreForce;
+      Boolean IgnoreGravity;
+      Boolean IgnorePointForce;
+      Boolean IgnoreThrust;
+      Boolean IgnoreVortex;
+      Boolean IgnoreWind;
+      Boolean IgnoreTorque;
+      Boolean IgnoreBuoyancy;
 
-  class IgnoreSpaceEffects : public Component {
-  public:
-    Boolean IgnoreDrag;
-    Boolean IgnoreFlow;
-    Boolean IgnoreForce;
-    Boolean IgnoreGravity;
-    Boolean IgnorePointForce;
-    Boolean IgnoreThrust;
-    Boolean IgnoreVortex;
-    Boolean IgnoreWind;
-    Boolean IgnoreTorque;
-    Boolean IgnoreBuoyancy;
+      /* Initialize */
+      IgnoreSpaceEffects(Entity& owner) : Component(std::string("IgnoreSpaceEffects"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
-    /* Initialize */
-    IgnoreSpaceEffects(Entity& owner) : Component(std::string("IgnoreSpaceEffects"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-
-  private:
-  };
+    private:
+    };
+  }
 }

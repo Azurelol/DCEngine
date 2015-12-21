@@ -180,7 +180,7 @@ namespace DCEngine {
   {
     parent->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
-    if (auto transform = getComponent<Transform>()) {
+    if (auto transform = getComponent<Components::Transform>()) {
       transform->UpdateTranslation();
     }
   }
@@ -211,7 +211,7 @@ namespace DCEngine {
     ParentRef->RemoveChild(GameObjectPtr(this));
     ParentRef = nullptr;
     // Compute new translation if a transform component is attached
-    if (auto transform = getComponent<Transform>()) {
+    if (auto transform = getComponent<Components::Transform>()) {
       transform->UpdateTranslation();
     }
   }

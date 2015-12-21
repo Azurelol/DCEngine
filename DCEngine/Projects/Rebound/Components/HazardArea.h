@@ -14,44 +14,47 @@
 
 namespace DCEngine {
 
-	class Transform;
-	class RigidBody;
-	class Sprite;
-	class HazardArea : public Component {
+  namespace Components
+  {
+    class Transform;
+    class RigidBody;
+    class Sprite;
+    class HazardArea : public Component {
 
-	public:
+    public:
 
-		Real Damage = 3.0f;
-		Real DamageInterval = 1.0f;
-		Real Timer = 0; //will always damage the player on first tick of contact
-		bool TouchingPlayer = false;
+      Real Damage = 3.0f;
+      Real DamageInterval = 1.0f;
+      Real Timer = 0; //will always damage the player on first tick of contact
+      bool TouchingPlayer = false;
 
-    DCE_DEFINE_PROPERTY(Real, Damage);
-    DCE_DEFINE_PROPERTY(Real, DamageInterval);
+      DCE_DEFINE_PROPERTY(Real, Damage);
+      DCE_DEFINE_PROPERTY(Real, DamageInterval);
 
-		HazardArea(Entity& owner) : Component(std::string("HazardArea"), owner) {}
-		void Initialize();
-		virtual void Serialize(Json::Value& root);
-		virtual void Deserialize(Json::Value& root);
-		void OnCollisionStartedEvent(Events::CollisionStarted* event);
-		void OnCollisionEndedEvent(Events::CollisionEnded* event);
-		void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      HazardArea(Entity& owner) : Component(std::string("HazardArea"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
+      void OnCollisionStartedEvent(Events::CollisionStarted* event);
+      void OnCollisionEndedEvent(Events::CollisionEnded* event);
+      void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
-		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-				ZilchDeclareDerivedType(HazardArea, Component);
-		#endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(HazardArea, Component);
+#endif
 
-	private:
-    Transform* TransformRef;
-    RigidBody* RigidBodyRef;
-    Sprite* SpriteRef;
-    GameObject* PlayerRef;
+    private:
+      Transform* TransformRef;
+      RigidBody* RigidBodyRef;
+      Sprite* SpriteRef;
+      GameObject* PlayerRef;
 
-		void PrintTranslation();
-		void PrintVelocity();
-		std::string FootstepSound;
-		Boolean FootstepSoundEnabled = false;
-	};
+      void PrintTranslation();
+      void PrintVelocity();
+      std::string FootstepSound;
+      Boolean FootstepSoundEnabled = false;
+    };
+  }
 
 
 }

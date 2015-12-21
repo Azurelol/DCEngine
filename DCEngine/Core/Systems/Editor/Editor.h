@@ -168,7 +168,6 @@ namespace DCEngine {
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();
-      void LoadDollhouse();
       // Object Selection
       void DeleteObject();
       void DeleteResource(ResourcePtr);

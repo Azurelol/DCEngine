@@ -40,12 +40,12 @@ namespace DCEngine {
       void ResumeSound(std::string& soundCueName);
       void PauseSound(std::string& soundCueName);
       void StopSound(std::string& soundCueName);
-      void Register(SoundSpace& soundSpace);
+      void Register(Components::SoundSpace& soundSpace);
 
     private:
 
       bool Enabled = false;
-      std::vector<SoundSpace*> SoundSpaceContainer; //!< Container of registered soundspace components.
+      std::vector<Components::SoundSpace*> SoundSpaceContainer; //!< Container of registered soundspace components.
       
 
       Audio();

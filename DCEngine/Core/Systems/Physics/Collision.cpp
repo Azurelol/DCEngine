@@ -22,7 +22,7 @@
 namespace DCEngine
 {
   // the problem is that the values in min and max are wrong
-  float DetermineRestitution(RigidBody  &a, RigidBody &b)
+  float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
     return 	std::max(a.getRestitution(), b.getRestitution());
   }
@@ -48,8 +48,8 @@ namespace DCEngine
     /* christian if you are looking at this im sorry about the math in here */
 
     /* get the rigidbodies */
-    auto rigidbody1 = obj1->getComponent<RigidBody>();
-    auto rigidbody2 = obj2->getComponent<RigidBody>();
+    auto rigidbody1 = obj1->getComponent<Components::RigidBody>();
+    auto rigidbody2 = obj2->getComponent<Components::RigidBody>();
 
 
     if (rigidbody1 == NULL)
@@ -74,25 +74,25 @@ namespace DCEngine
     {
       return false;
     }
-    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
-    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
     else if (result.rigid1 && result.rigid2)
     {
-      if ((obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      if ((obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
       {
         return false;
       }
     }
 
     /* get the colliders */
-    auto boxcollider1 = obj1->getComponent<BoxCollider>();
-    auto boxcollider2 = obj2->getComponent<BoxCollider>();
+    auto boxcollider1 = obj1->getComponent<Components::BoxCollider>();
+    auto boxcollider2 = obj2->getComponent<Components::BoxCollider>();
 
     if (boxcollider1 == NULL || boxcollider2 == NULL)
     {
@@ -100,8 +100,8 @@ namespace DCEngine
     }
 
     /* get the transforms */
-    auto transform1 = obj1->getComponent<Transform>();
-    auto transform2 = obj2->getComponent<Transform>();
+    auto transform1 = obj1->getComponent<Components::Transform>();
+    auto transform2 = obj2->getComponent<Components::Transform>();
 
     if (transform1 == NULL || transform2 == NULL)
     {
@@ -465,8 +465,8 @@ namespace DCEngine
   {
 
     /* get the rigidbodies */
-    auto rigidbody1 = objrect->getComponent<RigidBody>();
-    auto rigidbody2 = objcircle->getComponent<RigidBody>();
+    auto rigidbody1 = objrect->getComponent<Components::RigidBody>();
+    auto rigidbody2 = objcircle->getComponent<Components::RigidBody>();
 
     if (rigidbody1 == NULL)
     {
@@ -487,24 +487,24 @@ namespace DCEngine
     }
 
     /* get the colliders */
-    auto boxcollider = objrect->getComponent<BoxCollider>();
-    auto circlecollider = objcircle->getComponent<CircleCollider>();
+    auto boxcollider = objrect->getComponent<Components::BoxCollider>();
+    auto circlecollider = objcircle->getComponent<Components::CircleCollider>();
 
     if (!result.rigid1 && !result.rigid2)
     {
       return false;
     }
-    else if ((result.rigid1 && !result.rigid2) && (objrect->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((result.rigid1 && !result.rigid2) && (objrect->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
-    else if ((!result.rigid1 && result.rigid2) && (objcircle->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((!result.rigid1 && result.rigid2) && (objcircle->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
     else if (result.rigid1 && result.rigid2)
     {
-      if ((objrect->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (objcircle->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      if ((objrect->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static) && (objcircle->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
       {
         return false;
       }
@@ -521,8 +521,8 @@ namespace DCEngine
     }
 
     /* get the transforms */
-    auto transform1 = objrect->getComponent<Transform>();
-    auto transform2 = objcircle->getComponent<Transform>();
+    auto transform1 = objrect->getComponent<Components::Transform>();
+    auto transform2 = objcircle->getComponent<Components::Transform>();
 
     if (transform1 == NULL || transform2 == NULL)
     {
@@ -743,8 +743,8 @@ namespace DCEngine
   bool Collision::CircletoCircle(GameObject * obj1, GameObject * obj2, Manifold &result)
   {
     /* get the rigidbodies */
-    auto rigidbody1 = obj1->getComponent<RigidBody>();
-    auto rigidbody2 = obj2->getComponent<RigidBody>();
+    auto rigidbody1 = obj1->getComponent<Components::RigidBody>();
+    auto rigidbody2 = obj2->getComponent<Components::RigidBody>();
 
     if (rigidbody1 == NULL)
     {
@@ -765,24 +765,24 @@ namespace DCEngine
     }
 
     /* get the colliders */
-    auto circlecollider1 = obj1->getComponent<CircleCollider>();
-    auto circlecollider2 = obj2->getComponent<CircleCollider>();
+    auto circlecollider1 = obj1->getComponent<Components::CircleCollider>();
+    auto circlecollider2 = obj2->getComponent<Components::CircleCollider>();
 
     if (!result.rigid1 && !result.rigid2)
     {
       return false;
     }
-    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
-    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
     {
       return false;
     }
     else if (result.rigid1 && result.rigid2)
     {
-      if ((obj1->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<RigidBody>()->DynamicState == DynamicStateType::Static))
+      if ((obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
       {
         return false;
       }
@@ -794,8 +794,8 @@ namespace DCEngine
     }
 
     /* get the transforms */
-    auto transform1 = obj1->getComponent<Transform>();
-    auto transform2 = obj2->getComponent<Transform>();
+    auto transform1 = obj1->getComponent<Components::Transform>();
+    auto transform2 = obj2->getComponent<Components::Transform>();
 
     if (transform1 == NULL || transform2 == NULL)
     {
@@ -871,8 +871,8 @@ namespace DCEngine
 
   bool Collision::PointToCircle(GameObject * circle, glm::vec3 point)
   {
-    CircleCollider *collider = circle->getComponent<CircleCollider>();
-    Transform *transform = circle->getComponent<Transform>();
+    Components::CircleCollider *collider = circle->getComponent<Components::CircleCollider>();
+    Components::Transform *transform = circle->getComponent<Components::Transform>();
 
     if (collider == NULL)
     {
@@ -900,8 +900,8 @@ namespace DCEngine
   /**************************************************************************/
   bool Collision::PointToRectangle(GameObject * rect, glm::vec3 point)
   {
-    BoxCollider *collider = rect->getComponent<BoxCollider>();
-    Transform *transform = rect->getComponent<Transform>();
+    Components::BoxCollider *collider = rect->getComponent<Components::BoxCollider>();
+    Components::Transform *transform = rect->getComponent<Components::Transform>();
 
     float height, width;
 

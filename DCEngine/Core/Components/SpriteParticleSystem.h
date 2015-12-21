@@ -23,28 +23,31 @@ namespace DCEngine {
     Flat,
   };
 
-  class Transform;
-  class Camera;
-  class SpriteParticleSystem : public Component {
-  public:
-    
-    /* Properties */
-    Boolean Visible;
-    Vec4 Tint = Vec4(1,1,1,1); //!< Color to tint/multiply all particles in the system.
-    String SpriteSource;
-    Real VelocityScale = 1;
-    Real LengthScale = 1;
-    Vec3 SystemSize = Vec3(4, 4, 4);
+  namespace Components
+  {
+    class Transform;
+    class Camera;
+    class SpriteParticleSystem : public Component {
+    public:
 
-    SpriteParticleSystem(Entity& owner);
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+      /* Properties */
+      Boolean Visible;
+      Vec4 Tint = Vec4(1, 1, 1, 1); //!< Color to tint/multiply all particles in the system.
+      String SpriteSource;
+      Real VelocityScale = 1;
+      Real LengthScale = 1;
+      Vec3 SystemSize = Vec3(4, 4, 4);
 
-  private:
-    Transform* TransformComponent;
-    Camera* CameraComponent;
+      SpriteParticleSystem(Entity& owner);
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
-  };
+    private:
+      Transform* TransformComponent;
+      Camera* CameraComponent;
+
+    };
+  }
 
 }

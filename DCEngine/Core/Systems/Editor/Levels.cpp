@@ -8,18 +8,12 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "Editor.h"
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
-
-
-
-
-
-
+    
     /**************************************************************************/
     /*!
     @brief  Loads the level, deserializing a level file's binary data and

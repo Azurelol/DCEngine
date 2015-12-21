@@ -68,7 +68,7 @@ namespace DCEngine {
     @note
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSprite(Sprite& sprite, Camera& camera, float dt) {
+    void GraphicsGL::DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt) {
       AnimationUpdate(sprite, dt);
       this->SpriteShader->SetInteger("isTexture", 1);
       //DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
@@ -143,7 +143,7 @@ namespace DCEngine {
     using the character's metrics.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawSpriteText(SpriteText & st, Camera & camera)
+    void GraphicsGL::DrawSpriteText(Components::SpriteText & st, Components::Camera & camera)
     {
       return;
       // Enable alpha blending for opacity.
@@ -220,9 +220,9 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Camera& camera) {
+    void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
 
-      auto camTrans = camera.Owner()->getComponent<Transform>();
+      auto camTrans = camera.Owner()->getComponent<Components::Transform>();
 
       // (???) Sets the "image" uniform to 0
       shader->SetInteger("image", 0);
@@ -235,7 +235,7 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Sets the Sprite's Shaders Uniforms.
     \**************************************************************************/
-    void GraphicsGL::SetSpriteShader(Camera& camera)
+    void GraphicsGL::SetSpriteShader(Components::Camera& camera)
     {
       SetShaderProjViewUniforms(this->SpriteShader, camera);
       // Enable alpha blending for opacity.
@@ -244,7 +244,7 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Sets the SpriteText's Shader Uniforms.
     \**************************************************************************/
-    void GraphicsGL::SetSpriteTextShader(Camera& camera)
+    void GraphicsGL::SetSpriteTextShader(Components::Camera& camera)
     {
       SetShaderProjViewUniforms(this->SpriteTextShader, camera);
     }
@@ -255,7 +255,7 @@ namespace DCEngine {
     @todo   Currently hard-coded the ColumnCount.
     */
     /**************************************************************************/
-    void GraphicsGL::AnimationUpdate(Sprite& sprite, float dt)
+    void GraphicsGL::AnimationUpdate(Components::Sprite& sprite, float dt)
     {
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
       // CHANGE THIS
@@ -309,7 +309,7 @@ namespace DCEngine {
       }
     }
 
-    int GraphicsGL::IsNextFrame(Sprite& sprite)
+    int GraphicsGL::IsNextFrame(Components::Sprite& sprite)
     {
       if (sprite.GetAnimationSpeedFPSCounter() >= sprite.GetAnimationSpeedFPS())
       {

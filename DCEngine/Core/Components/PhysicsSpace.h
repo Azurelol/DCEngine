@@ -22,43 +22,46 @@
 
 namespace DCEngine {
 
-  using RigidBodyContainer = std::vector<RigidBody*>;
-  using ColliderContainer = std::vector<Collider*>;
+  namespace Components
+  {
+    using RigidBodyContainer = std::vector<RigidBody*>;
+    using ColliderContainer = std::vector<Collider*>;
 
-  class Physics;
-  class PhysicsSpace : public Component {
-    friend class Physics;
-  public:
+    class Physics;
+    class PhysicsSpace : public Component {
+      friend class Physics;
+    public:
 
-    // PropertiesColli
-    DCE_DEFINE_PROPERTY(CollisionTable, Table);
-    void setCollisionTable(CollisionTable &table);
-    CollisionTable *getCollisionTable(void);
+      // PropertiesColli
+      DCE_DEFINE_PROPERTY(CollisionTable, Table);
+      void setCollisionTable(CollisionTable &table);
+      CollisionTable *getCollisionTable(void);
 
-    // Methods
-    void AddRigidBody(RigidBody& rigidbody);
-    void RemoveRigidBody(RigidBody& rigidbody);
-    void AddCollider(Collider* collider);
-    void RemoveCollider(Collider* collider);
+      // Methods
+      void AddRigidBody(RigidBody& rigidbody);
+      void RemoveRigidBody(RigidBody& rigidbody);
+      void AddCollider(Collider* collider);
+      void RemoveCollider(Collider* collider);
 
-    RigidBodyContainer& AllRigidBodies();
-    ColliderContainer& AllColliders();
+      RigidBodyContainer& AllRigidBodies();
+      ColliderContainer& AllColliders();
 
-    PhysicsSpace(Entity& owner);
-    ~PhysicsSpace();
-    void Initialize();
+      PhysicsSpace(Entity& owner);
+      ~PhysicsSpace();
+      void Initialize();
 
-  private:
+    private:
 
-    bool AllowSleep;
-    bool Mode2D;
-    bool Deterministic;
+      bool AllowSleep;
+      bool Mode2D;
+      bool Deterministic;
 
-    CollisionTable Table;
-    RigidBodyContainer RigidBodiesContainer;
-    ColliderContainer CollidersContainer;
+      CollisionTable Table;
+      RigidBodyContainer RigidBodiesContainer;
+      ColliderContainer CollidersContainer;
 
-  };
+    };
 
+  }
 
 }

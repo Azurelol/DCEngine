@@ -28,13 +28,17 @@ class GLCameraTutorial;
 namespace DCEngine {
   class Engine;
 
+  namespace Components {
+    class Camera;
+  }  
+
   namespace Systems {
     class Window : public System {      
       friend class Engine;
       friend class GLCameraTutorial;
       friend class InputSFML;
       friend class WindowSFML;
-      friend class Camera; 
+      friend class Components::Camera; 
       // Wow, that's a lot of friends...
 
     public:

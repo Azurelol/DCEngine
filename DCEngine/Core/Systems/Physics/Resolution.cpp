@@ -82,17 +82,17 @@ namespace DCEngine
 
       if (c.rigid1 != false && c.rigid2 == false)
       {
-        accCausedVelocity = c.Object1->getComponent<RigidBody>()->getAcceleration();
+        accCausedVelocity = c.Object1->getComponent<Components::RigidBody>()->getAcceleration();
       }
 
       if (c.rigid1 == false && c.rigid2 != false)
       {
-        accCausedVelocity = -c.Object2->getComponent<RigidBody>()->getAcceleration();
+        accCausedVelocity = -c.Object2->getComponent<Components::RigidBody>()->getAcceleration();
       }
 
       if (c.rigid1 != false && c.rigid2 != false)
       {
-        accCausedVelocity = c.Object1->getComponent<RigidBody>()->getAcceleration() - c.Object2->getComponent<RigidBody>()->getAcceleration();
+        accCausedVelocity = c.Object1->getComponent<Components::RigidBody>()->getAcceleration() - c.Object2->getComponent<Components::RigidBody>()->getAcceleration();
       }
 
 
@@ -125,17 +125,17 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object2->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass() + c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
 
@@ -157,32 +157,32 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<RigidBody>()->getInvMass());
+        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass());
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
@@ -190,13 +190,13 @@ namespace DCEngine
     // this is the code that handles friction
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
           Vec3 friction(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
           friction = glm::normalize(friction);
 
-          Real dot = glm::dot(friction, c.Object1->getComponent<RigidBody>()->getVelocity());
+          Real dot = glm::dot(friction, c.Object1->getComponent<Components::RigidBody>()->getVelocity());
 
           friction *= dot / 12.0f;
 
@@ -208,26 +208,26 @@ namespace DCEngine
             friction *= 2.0f;
           }
 
-          if (friction.length() > c.Object1->getComponent<RigidBody>()->getVelocity().length())
+          if (friction.length() > c.Object1->getComponent<Components::RigidBody>()->getVelocity().length())
           {
             friction = glm::normalize(friction);
-            friction *= c.Object1->getComponent<RigidBody>()->getVelocity().length();
+            friction *= c.Object1->getComponent<Components::RigidBody>()->getVelocity().length();
           }
 
-          c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction);
+          c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         Vec3 friction(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
         friction = glm::normalize(friction);
 
-        Real dot = glm::dot(friction, c.Object2->getComponent<RigidBody>()->getVelocity());
+        Real dot = glm::dot(friction, c.Object2->getComponent<Components::RigidBody>()->getVelocity());
 
         friction *= dot / 12.0f;
 
@@ -239,25 +239,25 @@ namespace DCEngine
           friction *= 2.0f;
         }
 
-        if (friction.length() > c.Object2->getComponent<RigidBody>()->getVelocity().length())
+        if (friction.length() > c.Object2->getComponent<Components::RigidBody>()->getVelocity().length())
         {
           friction = glm::normalize(friction);
-          friction *= c.Object2->getComponent<RigidBody>()->getVelocity().length();
+          friction *= c.Object2->getComponent<Components::RigidBody>()->getVelocity().length();
         }
 
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction);
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         Vec3 friction(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
         friction = glm::normalize(friction);
 
-        Real dot = glm::dot(friction, c.Object1->getComponent<RigidBody>()->getVelocity());
+        Real dot = glm::dot(friction, c.Object1->getComponent<Components::RigidBody>()->getVelocity());
 
         friction *= dot / 12.0f;
 
@@ -269,23 +269,23 @@ namespace DCEngine
           friction *= 2.0f;
         }
 
-        if (friction.length() > c.Object1->getComponent<RigidBody>()->getVelocity().length())
+        if (friction.length() > c.Object1->getComponent<Components::RigidBody>()->getVelocity().length())
         {
           friction = glm::normalize(friction);
-          friction *= c.Object1->getComponent<RigidBody>()->getVelocity().length();
+          friction *= c.Object1->getComponent<Components::RigidBody>()->getVelocity().length();
         }
 
-        c.Object1->getComponent<RigidBody>()->setVelocity(c.Object1->getComponent<RigidBody>()->getVelocity() + friction);
+        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
         Vec3 friction(-c.ContactNormal.y, c.ContactNormal.x, 0);
 
         friction = glm::normalize(friction);
 
-        Real dot = glm::dot(friction, c.Object2->getComponent<RigidBody>()->getVelocity());
+        Real dot = glm::dot(friction, c.Object2->getComponent<Components::RigidBody>()->getVelocity());
 
         friction *= dot / 12.0f;
 
@@ -297,13 +297,13 @@ namespace DCEngine
           friction *= 2.0f;
         }
 
-        if (friction.length() > c.Object2->getComponent<RigidBody>()->getVelocity().length())
+        if (friction.length() > c.Object2->getComponent<Components::RigidBody>()->getVelocity().length())
         {
           friction = glm::normalize(friction);
-          friction *= c.Object2->getComponent<RigidBody>()->getVelocity().length();
+          friction *= c.Object2->getComponent<Components::RigidBody>()->getVelocity().length();
         }
 
-        c.Object2->getComponent<RigidBody>()->setVelocity(c.Object2->getComponent<RigidBody>()->getVelocity() + friction);
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
 
@@ -359,17 +359,17 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object2->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object1->getComponent<RigidBody>()->getInvMass() + c.Object2->getComponent<RigidBody>()->getInvMass();
+      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass() + c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     // Find the amount of penetration resolution per unit of inverse mass
@@ -389,20 +389,20 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
+      c.v1 = movePerIMass *  c.Object1->getComponent<Components::RigidBody>()->getInvMass();
       c.v2 = movePerIMass * -0.0f;
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
       c.v1 = movePerIMass *  0.0f;
-      c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
+      c.v2 = movePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      c.v1 = movePerIMass *  c.Object1->getComponent<RigidBody>()->getInvMass();
-      c.v2 = movePerIMass * -c.Object2->getComponent<RigidBody>()->getInvMass();
+      c.v1 = movePerIMass *  c.Object1->getComponent<Components::RigidBody>()->getInvMass();
+      c.v2 = movePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass();
     }
 
     // Apply the penetration resolution
@@ -414,38 +414,38 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1 * 2.0f);
+        c.Object1->getComponent<Components::RigidBody>()->setPosition(c.Object1->getComponent<Components::RigidBody>()->getPosition() + c.v1 * 2.0f);
       }
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2 * 2.0f);
+        c.Object2->getComponent<Components::RigidBody>()->setPosition(c.Object2->getComponent<Components::RigidBody>()->getPosition() + c.v2 * 2.0f);
       }
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
+        c.Object1->getComponent<Components::RigidBody>()->setPosition(c.Object1->getComponent<Components::RigidBody>()->getPosition() + c.v1);
       }
-      else if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      else if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+        c.Object2->getComponent<Components::RigidBody>()->setPosition(c.Object2->getComponent<Components::RigidBody>()->getPosition() + c.v2);
       }
 
-      if (c.Object2->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<RigidBody>()->setPosition(c.Object2->getComponent<RigidBody>()->getPosition() + c.v2);
+        c.Object2->getComponent<Components::RigidBody>()->setPosition(c.Object2->getComponent<Components::RigidBody>()->getPosition() + c.v2);
       }
-      else if (c.Object1->getComponent<RigidBody>()->DynamicState != DynamicStateType::Static)
+      else if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<RigidBody>()->setPosition(c.Object1->getComponent<RigidBody>()->getPosition() + c.v1);
+        c.Object1->getComponent<Components::RigidBody>()->setPosition(c.Object1->getComponent<Components::RigidBody>()->getPosition() + c.v1);
       }
     }
 

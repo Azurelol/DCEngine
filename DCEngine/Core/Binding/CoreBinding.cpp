@@ -58,23 +58,22 @@ namespace DCEngine {
     *     Components     *
     *===================*/
     // Space
-    ZilchInitializeType(PhysicsSpace);
-    ZilchInitializeType(GraphicsSpace);
-    ZilchInitializeType(SoundSpace);
-    ZilchInitializeType(TimeSpace);
+    ZilchInitializeType(Components::PhysicsSpace);
+    ZilchInitializeType(Components::GraphicsSpace);
+    ZilchInitializeType(Components::SoundSpace);
+    ZilchInitializeType(Components::TimeSpace);
     // Physics
-    ZilchInitializeType(Transform);
-    ZilchInitializeType(RigidBody);
-    ZilchInitializeType(BoxCollider);
+    ZilchInitializeType(Components::Transform);
+    ZilchInitializeType(Components::RigidBody);
+    ZilchInitializeType(Components::BoxCollider);
     // Graphics
-    ZilchInitializeType(Sprite);
-    ZilchInitializeType(SpriteText);
-    ZilchInitializeType(Camera);
-    ZilchInitializeType(EditorCameraController);
-    ZilchInitializeType(Reactive);
+    ZilchInitializeType(Components::Sprite);
+    ZilchInitializeType(Components::SpriteText);
+    ZilchInitializeType(Components::Camera);
+    ZilchInitializeType(Components::EditorCameraController);
+    ZilchInitializeType(Components::Reactive);
     // Audio
-    ZilchInitializeType(SoundSpace);
-    ZilchInitializeType(SoundEmitter);
+    ZilchInitializeType(Components::SoundEmitter);
     
 
   }
@@ -97,21 +96,21 @@ namespace DCEngine {
 
     DCTrace << "Factory::ConstructComponentFactoryMap - Constructing all component factories \n";
     // Space
-    AddComponentFactory(SoundSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundSpace>>());
-    AddComponentFactory(GraphicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<GraphicsSpace>>());
-    AddComponentFactory(PhysicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<PhysicsSpace>>());
-    AddComponentFactory(TimeSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<TimeSpace>>());
+    AddComponentFactory(Components::SoundSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::SoundSpace>>());
+    AddComponentFactory(Components::GraphicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::GraphicsSpace>>());
+    AddComponentFactory(Components::PhysicsSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::PhysicsSpace>>());
+    AddComponentFactory(Components::TimeSpace::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::TimeSpace>>());
     // Physics
-    AddComponentFactory(Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Transform>>());
-    AddComponentFactory(BoxCollider::ZilchGetStaticType(), std::make_unique<ComponentFactory<BoxCollider>>());
-    AddComponentFactory(RigidBody::ZilchGetStaticType(), std::make_unique<ComponentFactory<RigidBody>>());
+    AddComponentFactory(Components::Transform::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Transform>>());
+    AddComponentFactory(Components::BoxCollider::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::BoxCollider>>());
+    AddComponentFactory(Components::RigidBody::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::RigidBody>>());
     // Graphics
-    AddComponentFactory(DCEngine::Camera::ZilchGetStaticType(), std::make_unique<ComponentFactory<DCEngine::Camera>>());
-    AddComponentFactory(Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Sprite>>());
-    AddComponentFactory(SpriteText::ZilchGetStaticType(), std::make_unique<ComponentFactory<SpriteText>>());
-    AddComponentFactory(Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Reactive>>());
+    AddComponentFactory(Components::Camera::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Camera>>());
+    AddComponentFactory(Components::Sprite::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Sprite>>());
+    AddComponentFactory(Components::SpriteText::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::SpriteText>>());
+    AddComponentFactory(Components::Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Reactive>>());
     // Audio
-    AddComponentFactory(SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<SoundEmitter>>());
+    AddComponentFactory(Components::SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::SoundEmitter>>());
 
 
 

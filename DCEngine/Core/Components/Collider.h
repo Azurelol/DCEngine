@@ -15,56 +15,58 @@ another. This component interacts directly with the physics system.
 #include "../Resources/PhysicsMaterial.h"
 
 namespace DCEngine {
+  namespace Components {
 
-  class Transform;
-  class Physics;
-  class Collider : public Component {
-  public:
-    friend class Physics;
+    class Transform;
+    class Physics;
+    class Collider : public Component {
+    public:
+      friend class Physics;
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(Collider, Component);
-    #endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Collider, Component);
+#endif
 
-    /* Variables */
-    //Vec3 Size = Vec3(1, 1, 1);
-    //Vec3 Offset = Vec3(0, 0, 0);
-    //Boolean Ghost = false;
-    //Boolean SendsEvents = true;
-    //Boolean IsDrawingCollider = false;
-    
-
-    /* Properties */
-    DCE_DEFINE_PROPERTY(String, CollisionGroup);
-
-    // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
-    //String getCollisionGroup() const;
-    //void setCollisionGroup(String);
-
-    // These should be private!
-    Collider(Entity& owner, std::string colliderClass);
-    ~Collider();
-    void Initialize();
-    //Vec3 getColliderScale();
-
-  private:
-
-   // Transform* TransformComponent;
-   //
-   // // The group is a tag used for filter out collisions. The rules
-   // // for filtering are on the CollisionFilter that is on the running space.
-   CollisionGroupHandle CollisionGroup = String("Default");
-
-    /* Events */
-    //void OnLogicUpdateEvent(Events::LogicUpdate* event);
-    //void OnCollisionStartedEvent(Events::CollisionStarted* event);
-    //void OnCollisionEndedEvent(Events::CollisionEnded* event);
-    ///* Methods */
-    //void DrawCollider();
-
-    /* Variables */
+      /* Variables */
+      //Vec3 Size = Vec3(1, 1, 1);
+      //Vec3 Offset = Vec3(0, 0, 0);
+      //Boolean Ghost = false;
+      //Boolean SendsEvents = true;
+      //Boolean IsDrawingCollider = false;
 
 
-  };
+      /* Properties */
+      DCE_DEFINE_PROPERTY(String, CollisionGroup);
 
+      // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
+      //String getCollisionGroup() const;
+      //void setCollisionGroup(String);
+
+      // These should be private!
+      Collider(Entity& owner, std::string colliderClass);
+      ~Collider();
+      void Initialize();
+      //Vec3 getColliderScale();
+
+    private:
+
+      // Transform* TransformComponent;
+      //
+      // // The group is a tag used for filter out collisions. The rules
+      // // for filtering are on the CollisionFilter that is on the running space.
+      CollisionGroupHandle CollisionGroup = String("Default");
+
+      /* Events */
+      //void OnLogicUpdateEvent(Events::LogicUpdate* event);
+      //void OnCollisionStartedEvent(Events::CollisionStarted* event);
+      //void OnCollisionEndedEvent(Events::CollisionEnded* event);
+      ///* Methods */
+      //void DrawCollider();
+
+      /* Variables */
+
+
+    };
+
+  }
 }

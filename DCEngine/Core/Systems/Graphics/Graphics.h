@@ -35,18 +35,18 @@ namespace DCEngine {
 			friend class GraphicsGL;
 		public:
 
-			void Register(GraphicsSpace& graphicsSpace);
-			void Deregister(GraphicsSpace& graphicsSpace);
+			void Register(Components::GraphicsSpace& graphicsSpace);
+			void Deregister(Components::GraphicsSpace& graphicsSpace);
 
-			void DrawSprite(Sprite& sprite, Camera& camera, float dt);
-			void DrawSpriteText(SpriteText& st, Camera& cam);
+			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
+			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
 			void DrawModel(GameObject& gameObj);
 			void DrawDebug(DebugDrawObject& debugDraw);
 
 			/* Debug Drawing functions*/
-			void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
-			void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
-			void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam);
+			void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam);
+			void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam);
+			void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam);
 
 		private:
 			std::unique_ptr<GraphicsGL> GraphicsHandler;
@@ -57,7 +57,7 @@ namespace DCEngine {
 			Mat4 ProjMatrix;
 			Mat4 ViewMatrix;
 			Mat4 ViewProjMatrix;
-			std::vector<GraphicsSpace*> graphicsSpaces_;
+			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
 
 			/* Base methods */
 			void StartFrame();
@@ -78,10 +78,10 @@ namespace DCEngine {
 			int TotalObjNumG = 0;
 			int TotalObjTranspNumG = 0;
 
-			std::vector<Sprite*>  NonTextureObjNontransp;
-			std::vector<Sprite*>  TextureObjNontransp;
-			std::vector<Sprite*> NonTextureObjtransp;
-			std::vector<Sprite*> TextureObjtransp;
+			std::vector<Components::Sprite*>  NonTextureObjNontransp;
+			std::vector<Components::Sprite*>  TextureObjNontransp;
+			std::vector<Components::Sprite*> NonTextureObjtransp;
+			std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 		};
 

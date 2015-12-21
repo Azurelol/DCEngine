@@ -98,20 +98,6 @@ namespace DCEngine {
       
     }
 
-    /**************************************************************************/
-    /*!
-    @brief Loads the hard-coded level, Dollhouse.
-    */
-    /**************************************************************************/
-    void Editor::LoadDollhouse()
-    {
-      SelectedObject = nullptr;
-      // !!! TESTING: Level loading
-      LevelPtr dollhouse = LevelPtr(new DollHouse(*CurrentSpace, *CurrentSpace->getGameSession()));
-      CurrentSpace->LoadSampleLevel(dollhouse);      
-      // Load the editor camera
-      SetEditorCamera(true);
-    }
 
   }
 }

@@ -49,29 +49,29 @@ namespace DCEngine {
       if (set) {
         DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
-        editorCamera->AddComponent<DCEngine::Camera>(true);
-        editorCamera->AddComponent<DCEngine::EditorCameraController>(true);
-        editorCamera->AddComponent<DCEngine::DebugAudio>(true);
+        editorCamera->AddComponent<Components::Camera>(true);
+        editorCamera->AddComponent<Components::EditorCameraController>(true);
+        editorCamera->AddComponent<Components::DebugAudio>(true);
         // Camera properties      
-        editorCamera->getComponent<DCEngine::DebugAudio>()->Track1 = "soulja";
-        editorCamera->getComponent<DCEngine::DebugAudio>()->Track2 = "Halloween 1";
-        editorCamera->getComponent<DCEngine::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
-        editorCamera->getComponent<DCEngine::Camera>()->Size = 70;
-        editorCamera->getComponent<DCEngine::Camera>()->Projection = ProjectionMode::Perspective;
+        editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
+        editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
+        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
+        editorCamera->getComponent<Components::Camera>()->Size = 70;
+        editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
         // Add the camera to the current space
         CurrentSpace->AddObject(editorCamera);
         EditorCamera = editorCamera;
         // Set it as the default camera on the space
-        auto cameraComp = editorCamera->getComponent<DCEngine::Camera>();
-        CurrentSpace->getComponent<CameraViewport>()->setCamera(cameraComp);
+        auto cameraComp = editorCamera->getComponent<Components::Camera>();
+        CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(cameraComp);
       }
       // If the editor camera needs to be removed
       else {
         DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
         // Look for a camera on the space to be default
-        auto defaultcam = CurrentSpace->getComponent<CameraViewport>()->FindDefaultCamera();
+        auto defaultcam = CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
         // Set it as the default camera
-        CurrentSpace->getComponent<CameraViewport>()->setCamera(defaultcam);
+        CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
 		if (editorCamera)

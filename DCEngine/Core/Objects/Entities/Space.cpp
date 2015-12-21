@@ -57,11 +57,11 @@ namespace DCEngine {
     DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
-    AddComponent<SoundSpace>();
-    AddComponent<TimeSpace>();
-    AddComponent<PhysicsSpace>();
-    AddComponent<CameraViewport>();
-    AddComponent<GraphicsSpace>();
+    AddComponent<Components::SoundSpace>();
+    AddComponent<Components::TimeSpace>();
+    AddComponent<Components::PhysicsSpace>();
+    AddComponent<Components::CameraViewport>();
+    AddComponent<Components::GraphicsSpace>();
     //AddComponent(ComponentPtr(new SoundSpace(*this)));
     //AddComponent(ComponentPtr(new TimeSpace(*this)));
     //AddComponent(ComponentPtr(new PhysicsSpace(*this)));
@@ -264,7 +264,7 @@ namespace DCEngine {
     // Build all the GameObjects from the level
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
-    auto camera = getComponent<CameraViewport>()->FindDefaultCamera();
+    auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
 
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();

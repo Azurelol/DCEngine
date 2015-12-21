@@ -84,7 +84,7 @@ namespace DCEngine {
 
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, *space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
-      gameObjPtr->AddComponent<Transform>();
+      gameObjPtr->AddComponent<Components::Transform>();
       // If the object needs to be initialized right away
       if (init)
         gameObjPtr->Initialize();

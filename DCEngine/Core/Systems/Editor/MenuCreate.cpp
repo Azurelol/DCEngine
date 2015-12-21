@@ -49,7 +49,7 @@ namespace DCEngine {
       auto sprite = CurrentSpace->CreateObject();
       sprite->setObjectName("Sprite");
       // Add the Sprite component
-      sprite->AddComponent<Sprite>(true);
+      sprite->AddComponent<Components::Sprite>(true);
       //sprite->AddComponent<Sprite>();
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
       SelectedObject = sprite;
@@ -79,8 +79,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::MoveToViewportCenter(GameObject* gameobject)
     {
-      auto viewportCenter = CurrentSpace->getComponent<CameraViewport>()->getCamera()->TransformComponent->Translation;
-      gameobject->getComponent<Transform>()->setTranslation(Vec3(viewportCenter.x, viewportCenter.y, 0));
+      auto viewportCenter = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera()->TransformComponent->Translation;
+      gameobject->getComponent<Components::Transform>()->setTranslation(Vec3(viewportCenter.x, viewportCenter.y, 0));
     }
 
     

@@ -13,32 +13,35 @@
 
 namespace DCEngine {
 
-  class TimeSpace : public Component {
-  public:
+  namespace Components
+  {
+    class TimeSpace : public Component {
+    public:
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(TimeSpace, Component);
-    #endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(TimeSpace, Component);
+#endif
 
-    // Properties
-    DCE_DEFINE_PROPERTY(bool, Paused);
-    DCE_DEFINE_PROPERTY(float, TimeScale);
-    DCE_DEFINE_PROPERTY(int, StepCount);
+      // Properties
+      DCE_DEFINE_PROPERTY(bool, Paused);
+      DCE_DEFINE_PROPERTY(float, TimeScale);
+      DCE_DEFINE_PROPERTY(int, StepCount);
 
 
-    // Methods
-    bool Pause();
-    TimeSpace(Entity& owner);
-    void Initialize();
+      // Methods
+      bool Pause();
+      TimeSpace(Entity& owner);
+      void Initialize();
 
-  private:
-    // Properties
-    bool Paused = false; // If the time space is paused then we cease sending out LogicUpdate events.
-    float TimeScale = 1; // Scale the speed of time for interesting effects like bullet time..
-    int StepCount = 1; // Causes the engine to update this space 'n' times
+    private:
+      // Properties
+      bool Paused = false; // If the time space is paused then we cease sending out LogicUpdate events.
+      float TimeScale = 1; // Scale the speed of time for interesting effects like bullet time..
+      int StepCount = 1; // Causes the engine to update this space 'n' times
 
-    void OnLogicUpdate(Events::LogicUpdate* updateEvent);
+      void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
-  };
+    };
+  }
 
 }

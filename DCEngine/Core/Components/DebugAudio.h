@@ -15,26 +15,29 @@ projection matrix.
 #include "ComponentReference.h"
 
 namespace DCEngine {
+  namespace Components
+  {
+    class DebugAudio : public Component {
+    public:
 
-  class DebugAudio : public Component {
-  public:
-    
-    String Track1 = "soulja";
-    String Track2;
-    String Track3;
-    String CurrentSoundCue;
+      String Track1 = "soulja";
+      String Track2;
+      String Track3;
+      String CurrentSoundCue;
 
-    /* Initialize */
-    DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-    
-    /* Events */
-    void OnKeyDownEvent(Events::KeyDown* event);
-    void OnKeyUpEvent(Events::KeyUp* event);
-    void ChangeTrack(std::string& track);
+      /* Initialize */
+      DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
-  private:
-  };
+      /* Events */
+      void OnKeyDownEvent(Events::KeyDown* event);
+      void OnKeyUpEvent(Events::KeyUp* event);
+      void ChangeTrack(std::string& track);
+
+    private:
+    };
+  }
+
 }

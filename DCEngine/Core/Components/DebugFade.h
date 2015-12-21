@@ -14,25 +14,27 @@ projection matrix.
 #pragma once
 #include "ComponentReference.h"
 
-namespace DCEngine {
-  
-  class Sprite;
-  class DebugFade : public Component {
-  public:
-    
-    Sprite* SpriteComponent;
-    Real FadeOutDur = 10;
-    Vec4 FadeColor = Vec4(0, 0, 0, 0);
+namespace DCEngine {  
+  namespace Components
+  {
+    class Sprite;
+    class DebugFade : public Component {
+    public:
 
-    /* Initialize */
-    DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+      Sprite* SpriteComponent;
+      Real FadeOutDur = 10;
+      Vec4 FadeColor = Vec4(0, 0, 0, 0);
 
-    /* Events */
-    void OnLogicUpdateEvent(Events::LogicUpdate* event);
+      /* Initialize */
+      DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
-  private:
-  };
+      /* Events */
+      void OnLogicUpdateEvent(Events::LogicUpdate* event);
+
+    private:
+    };
+  }
 }

@@ -87,7 +87,7 @@ namespace DCEngine {
     @param physicsSpace A reference to the PhysicsSpace.
 		*/
     /**************************************************************************/
-		void Physics::RegisterSpace(PhysicsSpace & physicsSpace)
+		void Physics::RegisterSpace(Components::PhysicsSpace & physicsSpace)
 		{
 			physicsSpaces_.push_back(&physicsSpace);
 			DCTrace << "Physics::Register -  " << physicsSpace.Owner()->Name()
@@ -100,7 +100,7 @@ namespace DCEngine {
     @param physicsSpace A reference to the PhysicsSpace.
     */
     /**************************************************************************/
-    void Physics::DeregisterSpace(PhysicsSpace & physicsSpace)
+    void Physics::DeregisterSpace(Components::PhysicsSpace & physicsSpace)
     {
       DCTrace << "Physics::Deregister -  " << physicsSpace.Owner()->Name()
               << " has deregistered from the Physics system\n";
@@ -174,7 +174,7 @@ namespace DCEngine {
 			for (auto physpace : physicsSpaces_)
 			{
         // If the space is paused, skip physics update
-        if (physpace->Owner()->getComponent<TimeSpace>()->getPaused())
+        if (physpace->Owner()->getComponent<Components::TimeSpace>()->getPaused())
           continue;
 
 				std::vector<Manifold> contactlist;
@@ -203,7 +203,7 @@ namespace DCEngine {
 		@param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-		void Physics::Integrate(float dt, PhysicsSpace* physpace)
+		void Physics::Integrate(float dt, Components::PhysicsSpace* physpace)
 		{
 			auto& bodies = physpace->AllRigidBodies();
 
@@ -224,7 +224,7 @@ namespace DCEngine {
 		@param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-		void Physics::PublishResults(PhysicsSpace* physpace)
+		void Physics::PublishResults(Components::PhysicsSpace* physpace)
 		{
 			auto& bodies = physpace->AllRigidBodies();
 
@@ -253,14 +253,14 @@ namespace DCEngine {
     @param A pointer to the 'PhysicsSpace' component.
     */
     /**************************************************************************/
-    void Physics::UpdateTransforms(PhysicsSpace *physpace)
+    void Physics::UpdateTransforms(Components::PhysicsSpace *physpace)
     {
       auto objects = dynamic_cast<Space*>(physpace->Owner())->AllObjects();
 
       for (auto current : *objects)
       {
-        current->getComponent<Transform>()->UpdateTranslation();
-        current->getComponent<Transform>()->UpdateRotation();
+        current->getComponent<Components::Transform>()->UpdateTranslation();
+        current->getComponent<Components::Transform>()->UpdateRotation();
       }
     }
 
@@ -270,7 +270,7 @@ namespace DCEngine {
 		@param A pointer to the 'PhysicsSpace' component.
 		*/
 		/**************************************************************************/
-    void Physics::BroadPhaseDetection(PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
+    void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
 			// For all gameobjects with a 'Collider' component
 			auto& list = physpace->AllColliders();
@@ -283,10 +283,10 @@ namespace DCEngine {
 			{
 				for (int j = i + 1; j < list.size(); ++j)
 				{
-          auto box1 = dynamic_cast<BoxCollider*>(list[i]);
-          auto box2 = dynamic_cast<BoxCollider*>(list[j]);
-          auto cir1 = dynamic_cast<CircleCollider*>(list[i]);
-          auto cir2 = dynamic_cast<CircleCollider*>(list[j]);
+          auto box1 = dynamic_cast<Components::BoxCollider*>(list[i]);
+          auto box2 = dynamic_cast<Components::BoxCollider*>(list[j]);
+          auto cir1 = dynamic_cast<Components::CircleCollider*>(list[i]);
+          auto cir2 = dynamic_cast<Components::CircleCollider*>(list[j]);
 
          //auto box1 = list[i]->getComponent<BoxCollider>();
          //auto box2 = list[j]->getComponent<BoxCollider>();
@@ -360,7 +360,7 @@ namespace DCEngine {
           continue;
         }
 
-				if (obj1->getComponent<BoxCollider>() && obj2->getComponent<BoxCollider>())
+				if (obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::BoxCollider>())
 				{
 					// COLLISION DETECTED
 					if (Collision::BoxtoBox(obj1, obj2, collision))
@@ -380,7 +380,7 @@ namespace DCEngine {
               DispatchCollisionPersisted(Collision);
             }
 
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<Components::BoxCollider>()->getGhost() == false && obj2->getComponent<Components::BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
@@ -398,7 +398,7 @@ namespace DCEngine {
             }
           }
 				}
-				else if (obj1->getComponent<CircleCollider>() && obj2->getComponent<CircleCollider>())
+				else if (obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::CircleCollider>())
 				{
 					if (Collision::CircletoCircle(obj1, obj2, collision))
 					{
@@ -417,7 +417,7 @@ namespace DCEngine {
               DispatchCollisionPersisted(Collision);
             }
 
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<Components::CircleCollider>()->getGhost() == false && obj2->getComponent<Components::CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
@@ -435,7 +435,7 @@ namespace DCEngine {
             }
 					}
 				}
-				else if ((obj1->getComponent<BoxCollider>() && obj2->getComponent<CircleCollider>()))
+				else if ((obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::CircleCollider>()))
 				{
 					if (Collision::CircletoBox(obj1, obj2, collision))
 					{
@@ -454,7 +454,7 @@ namespace DCEngine {
               DispatchCollisionPersisted(Collision);
             }
 
-            if (obj1->getComponent<BoxCollider>()->getGhost() == false && obj2->getComponent<CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<Components::BoxCollider>()->getGhost() == false && obj2->getComponent<Components::CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }
@@ -472,7 +472,7 @@ namespace DCEngine {
             }
 					}
 				}
-				else if ((obj1->getComponent<CircleCollider>() && obj2->getComponent<BoxCollider>()))
+				else if ((obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::BoxCollider>()))
 				{
 					if (Collision::CircletoBox(obj2, obj1, collision))
 					{
@@ -491,7 +491,7 @@ namespace DCEngine {
               DispatchCollisionPersisted(Collision);
             }
 
-            if (obj1->getComponent<CircleCollider>()->getGhost() == false && obj2->getComponent<BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
+            if (obj1->getComponent<Components::CircleCollider>()->getGhost() == false && obj2->getComponent<Components::BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
             {
               contactlist.push_back(collision);
             }

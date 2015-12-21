@@ -25,7 +25,7 @@ namespace DCEngine {
 
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
-        auto posOnSpace = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+        auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);
 
         // If the 'Select' tool is active, attempt to pick it
@@ -43,13 +43,13 @@ namespace DCEngine {
       }
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
-        Settings.CamStartPos = EditorCamera->getComponent<Transform>()->getTranslation();
-        Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position), 0);
+        Settings.CamStartPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
+        Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
       }
 
 		  //if (Settings.Panning == false)
 		  //{
-			 // //Settings.PositionRecord = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(event->Position);
+			 // //Settings.PositionRecord = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
 		  //}
     //    Settings.Panning = true;        
     //  }
@@ -197,18 +197,18 @@ namespace DCEngine {
     {
       if (Settings.Panning) {
         // Get the mouse position
-        auto mousePos = Vec3(CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(mousePosition), 0);
-        auto camPos = EditorCamera->getComponent<Transform>()->getTranslation();
+        auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(mousePosition), 0);
+        auto camPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
         //auto offset = Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z);
 
         Vec3 cameraDiff = camPos - Settings.CamStartPos;
         Vec3 mouseDiff = mousePos - Settings.MouseStartPos;        
 
         //float width = 5;
-        //CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(mousePos, width, width, Vec4(1, 0, 0, 1));
+        //CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(mousePos, width, width, Vec4(1, 0, 0, 1));
 
         // Set the camera's position
-        EditorCamera->getComponent<Transform>()->setTranslation(Settings.CamStartPos + cameraDiff - mouseDiff);
+        EditorCamera->getComponent<Components::Transform>()->setTranslation(Settings.CamStartPos + cameraDiff - mouseDiff);
 
       }
       

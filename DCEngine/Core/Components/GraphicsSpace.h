@@ -21,57 +21,60 @@ engine's underlying graphics system.
 
 namespace DCEngine {
 
-  // Forward Declarations
   class Graphics;
-  class Camera;
-  class CameraViewport;
 
-  // Containers
-  using SpriteTextContainer = std::vector<SpriteText*>;
-  using SpriteContainer = std::vector<Sprite*>;
+  namespace Components {
 
-  class GraphicsSpace : public Component {
-    friend class Graphics;
-    
-  public:
+    class Camera;
+    class CameraViewport;
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(GraphicsSpace, Component);
-    #endif
+    // Containers
+    using SpriteTextContainer = std::vector<SpriteText*>;
+    using SpriteContainer = std::vector<Sprite*>;
 
-    bool Active; // Prevent visibility, particle system and render updates
-    
-    // Properties
-    DCE_DEFINE_PROPERTY(bool, Active);
+    class GraphicsSpace : public Component {
+      friend class Graphics;
 
-    GraphicsSpace(Entity& owner);
-    ~GraphicsSpace();
-    void Initialize();
+    public:
 
-    void AddSprite(Sprite& sprite);
-    void RemoveSprite(Sprite& sprite);
-    void AddSpriteText(SpriteText& spriteText);
-    void RemoveSpriteText(SpriteText& spriteText);
-    // Debug Drawing functions 
-    void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
-    void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
-    void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color);
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(GraphicsSpace, Component);
+#endif
 
-    /* Getters */
-    SpriteContainer getSprites(); // Return the vector of sprites to be drawn
-    SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
+      bool Active; // Prevent visibility, particle system and render updates
 
-    void OnLogicUpdate(Events::LogicUpdate* updateEvent);
+      // Properties
+      DCE_DEFINE_PROPERTY(bool, Active);
 
-  private:
+      GraphicsSpace(Entity& owner);
+      ~GraphicsSpace();
+      void Initialize();
 
-    Graphics* GraphicsSystem;
-    CameraViewport* CameraViewportComponent;
-    GameObjectRawVec models_;  //!< Container of models that need to be rendered
-    SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
-    SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
-    DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
+      void AddSprite(Sprite& sprite);
+      void RemoveSprite(Sprite& sprite);
+      void AddSpriteText(SpriteText& spriteText);
+      void RemoveSpriteText(SpriteText& spriteText);
+      // Debug Drawing functions 
+      void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
+      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
+      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color);
 
-  };
+      /* Getters */
+      SpriteContainer getSprites(); // Return the vector of sprites to be drawn
+      SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
 
+      void OnLogicUpdate(Events::LogicUpdate* updateEvent);
+
+    private:
+
+      Graphics* GraphicsSystem;
+      CameraViewport* CameraViewportComponent;
+      GameObjectRawVec models_;  //!< Container of models that need to be rendered
+      SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
+      SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
+      DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
+
+    };
+
+  }
 }

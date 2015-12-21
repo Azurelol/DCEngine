@@ -12,6 +12,8 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
+  namespace Components
+  {
 
     class ParticleColorAnimator : public Component {
     public:
@@ -32,6 +34,7 @@ namespace DCEngine {
 
     };
 
+  }
 
   
 }

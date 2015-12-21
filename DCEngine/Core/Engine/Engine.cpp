@@ -290,7 +290,7 @@ namespace DCEngine {
     // Dispatch the logic update event to all active spaces
     for (auto space : CurrentGameSession->ActiveSpaces) {
       // Do not dispatch the 'LogicUpdate' event if the space is paused
-      if (space.second->getComponent<TimeSpace>()->getPaused())
+      if (space.second->getComponent<Components::TimeSpace>()->getPaused())
         continue;
 
       space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);

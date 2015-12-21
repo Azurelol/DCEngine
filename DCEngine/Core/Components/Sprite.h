@@ -32,79 +32,73 @@ namespace DCEngine {
     class Graphics;
   }
 
-	class Transform;
-	class Sprite : public Component {
-	public:
-    friend class Graphics;
+  namespace Components
+  {
+    class Transform;
+    class Sprite : public Component {
+    public:
+      friend class Graphics;
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(Sprite, Component);
-    #endif
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Sprite, Component);
+#endif
 
-    /* Property methods */
-    DCE_DEFINE_PROPERTY(bool, Visible);
-    
-    //bool getVisible() const;
-    //void setVisible(bool);
+      // Variables
+      String SpriteSource = "square";
+      bool Visible = true;
+      Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+      BlendModeType BlendMode = BlendModeType::Alpha;
+      bool FlipX = false;
+      bool FlipY = false;
+      //Animation subsystem
+      bool AnimationActive = false;
+      bool HaveAnimation = false;
+      float AnimationSpeed = 1;
+      int StartColumn = 0;//the number of first frame is 0
+      int StartRow = 0;//the number of first row is 0
+      int CurrentColumn = 0;
+      int CurrentRow = 0;
 
-    Vec4 getColor() const;
-    void setColor(Vec4);
-	void addColor(Vec4 color);
-    String getSpriteSource() const;
-    void setSpriteSource(String);
-    bool getFlipX() const;
-    void setFlipX(bool);
-    bool getFlipY() const;
-    void setFlipY(bool);
-    bool getAnimationActive() const;
-    void setAnimationActive(bool);
-    Real getAnimationSpeed() const;
-    void setAnimationSpeed(Real);
-    
 
-    /* Variables */
-		String SpriteSource = "square";
-		bool Visible = true;
-		Vec4 Color = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-		BlendModeType BlendMode = BlendModeType::Alpha;
-		bool FlipX = false;
-		bool FlipY = false;
-    //Animation subsystem
-		bool AnimationActive = false;
-		bool HaveAnimation = false;
-		float AnimationSpeed = 1;
-		int StartColumn = 0;//the number of first frame is 0
-		int StartRow = 0;//the number of first row is 0
-		int CurrentColumn = 0;
-		int CurrentRow = 0;
-		void IncreaseAnimationCounter(float dt);
-		//return 1, speed is not 0. return 0, speed is 0
-		int UpdateAnimationSpeed(void);
-		//reutrn 1 if it is the time to goto next frame, else 0
-		bool CheckAnimationIntialized(void);
-		float GetAnimationSpeedFPSCounter(void);
-		float GetAnimationSpeedFPS(void);
-		void ResetSpeedCounter(void);
-		void SetColorUsing255(Vec3 newColor);
+      // Properties
+      DCE_DEFINE_PROPERTY(bool, Visible);
+      DCE_DEFINE_PROPERTY(Vec4, Color);
+      DCE_DEFINE_PROPERTY(String, SpriteSource);
+      DCE_DEFINE_PROPERTY(bool, FlipX);
+      DCE_DEFINE_PROPERTY(bool, FlipY);
+      DCE_DEFINE_PROPERTY(bool, AnimationActive);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeed);
+      
+      // Methods
+      void IncreaseAnimationCounter(float dt);
+      //return 1, speed is not 0. return 0, speed is 0
+      int UpdateAnimationSpeed(void);
+      //reutrn 1 if it is the time to goto next frame, else 0
+      bool CheckAnimationIntialized(void);
+      float GetAnimationSpeedFPSCounter(void);
+      float GetAnimationSpeedFPS(void);
+      void ResetSpeedCounter(void);
+      void SetColorUsing255(Vec3 newColor);
 
-    Sprite(Entity& owner);
-    ~Sprite();
-    void Initialize();
-    void UpdateSprite();
-    Transform* TransformComponent;
-	glm::mat4 FlipMatrix;
-	bool XFlipped = false;
-	bool YFlipped = false;
+      Sprite(Entity& owner);
+      ~Sprite();
+      void Initialize();
+      void UpdateSprite();
+      Transform* TransformComponent;
+      glm::mat4 FlipMatrix;
+      bool XFlipped = false;
+      bool YFlipped = false;
 
-	private:	
+    private:
 
-    void Register();
-		//Update
-		void UpdateFlip();
-		//Animation subsystem
-		bool AnimationInitialized = false;
-		float AnimationSpeedFPS = 0;
-		float AnimationSpeedFPSCounter = 0;
-	};
+      void Register();
+      //Update
+      void UpdateFlip();
+      //Animation subsystem
+      bool AnimationInitialized = false;
+      float AnimationSpeedFPS = 0;
+      float AnimationSpeedFPSCounter = 0;
+    };
 
+  }
 }

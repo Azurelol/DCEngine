@@ -13,44 +13,46 @@
 
 namespace DCEngine {
     
-  class Transform;
-
   namespace Systems {
     class GraphicsGL;
   }
 
-  class SpriteText : public Component {
-    friend class GraphicsGL;
-  public:
+  namespace Components {
+    class Transform;
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(SpriteText, Component);
-    #endif
+    class SpriteText : public Component {
+      friend class GraphicsGL;
+    public:
 
-    DCE_DEFINE_PROPERTY(Boolean, Visible);
-    DCE_DEFINE_PROPERTY(Vec4, Color);
-    DCE_DEFINE_PROPERTY(String, Font);
-    DCE_DEFINE_PROPERTY(Integer, FontSize);
-    DCE_DEFINE_PROPERTY(String, Text);
-    DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
-    DCE_DEFINE_PROPERTY(Boolean, Smoothing);
-     
-    SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
-    void Initialize();
-    Transform* TransformComponent;
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(SpriteText, Component);
+#endif
 
-  private:
-        
-    Boolean Visible = true;
-    Vec4 Color = Vec4(0, 0, 0, 1);
-    String Font = "Verdana";
-    Integer FontSize = 12;
-    String Text = "";
-    Integer PixelsPerUnit = 64;
-    Boolean Smoothing = true;
+      DCE_DEFINE_PROPERTY(Boolean, Visible);
+      DCE_DEFINE_PROPERTY(Vec4, Color);
+      DCE_DEFINE_PROPERTY(String, Font);
+      DCE_DEFINE_PROPERTY(Integer, FontSize);
+      DCE_DEFINE_PROPERTY(String, Text);
+      DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
+      DCE_DEFINE_PROPERTY(Boolean, Smoothing);
 
-    
+      SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
+      void Initialize();
+      Transform* TransformComponent;
 
-  };
+    private:
 
+      Boolean Visible = true;
+      Vec4 Color = Vec4(0, 0, 0, 1);
+      String Font = "Verdana";
+      Integer FontSize = 12;
+      String Text = "";
+      Integer PixelsPerUnit = 64;
+      Boolean Smoothing = true;
+
+
+
+    };
+
+  }
 }

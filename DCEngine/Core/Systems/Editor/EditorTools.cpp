@@ -59,7 +59,7 @@ namespace DCEngine {
           return;
 
         // Get the object's position
-        auto transform = gameObject->getComponent<Transform>();
+        auto transform = gameObject->getComponent<Components::Transform>();
 
         // Draw a selected 'box' around the object
         Vec3 pos = transform->getTranslation();
@@ -67,7 +67,7 @@ namespace DCEngine {
         Real height = transform->getScale().y * 2;
         Vec4 color(1.0, 0, 0, 1.0);
 
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(pos,
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
           width, height, color);
       }
 
@@ -86,20 +86,20 @@ namespace DCEngine {
       if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
         
         // Get the object's transform data
-        auto transform = gameObject->getComponent<Transform>();
+        auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 pos = transform->getTranslation();
         Real radius = 8;
         Real arrowTip = 1;
         Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
         Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
                                          // X-axis
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor);
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, -arrowTip, 0), xColor);
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, arrowTip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, -arrowTip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, arrowTip, 0), xColor);
         // Y-axis
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-arrowTip, -arrowTip, 0), yColor);
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(arrowTip, -arrowTip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-arrowTip, -arrowTip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(arrowTip, -arrowTip, 0), yColor);
       }
       
       // Create thin box-colliders on every line
@@ -119,13 +119,13 @@ namespace DCEngine {
       if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
 
         // Get the object's transform data
-        auto transform = gameObject->getComponent<Transform>();
+        auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 pos = transform->getTranslation();
         Real width = transform->getScale().x *2.5;
         Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
 
         // Draw a selected 'box' around the object
-        CurrentSpace->getComponent<GraphicsSpace>()->DrawCircle(pos, width, color);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, width, color);
       }
 
     }
@@ -142,14 +142,14 @@ namespace DCEngine {
 
         if (auto gameObject = IsSelectableGameObject(SelectedObject)) {
           // Get the object's transform data
-          auto transform = gameObject->getComponent<Transform>();
+          auto transform = gameObject->getComponent<Components::Transform>();
           Vec3 pos = transform->getTranslation();
           Real width = transform->getScale().x *2.5;
           Real height = transform->getScale().y *2.5;
           Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
 
           // Draw a selected 'box' around the object
-          CurrentSpace->getComponent<GraphicsSpace>()->DrawRectangle(pos,
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
             width, width, color);
         }
       
@@ -173,10 +173,10 @@ namespace DCEngine {
         
         DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
         // Get the object's transform data
-        auto transform = gameObject->getComponent<Transform>();
+        auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 pos = transform->getTranslation();
         // Translate the object
-        gameObject->getComponent<Transform>()->setTranslation(pos + direction);
+        gameObject->getComponent<Components::Transform>()->setTranslation(pos + direction);
       }
     }
 
@@ -198,10 +198,10 @@ namespace DCEngine {
 
         DCTrace << "Editor::MoveObject - Moving '" << SelectedObject->Name() << "' \n";
         // Get the object's transform data
-        auto transform = gameObject->getComponent<Transform>();
+        auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 scale = transform->getScale();
         // Translate the object
-        gameObject->getComponent<Transform>()->setScale(scale + scaleChange);
+        gameObject->getComponent<Components::Transform>()->setScale(scale + scaleChange);
       }
 
     }

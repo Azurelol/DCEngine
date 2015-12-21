@@ -22,20 +22,20 @@ namespace DCEngine {
 
   ZilchDefineStaticLibrary(Rebound) {
 
-    ZilchInitializeType(PlayerController);
-    ZilchInitializeType(BallController);
-    ZilchInitializeType(EnemyController);
-    ZilchInitializeType(CameraController);
-    ZilchInitializeType(ChargeBar);    
-	ZilchInitializeType(Fade);
-    ZilchInitializeType(HazardArea);
-	ZilchInitializeType(MoveToLocation);
-    ZilchInitializeType(MusicManager);
-    ZilchInitializeType(PauseManager);
-	ZilchInitializeType(LevelManager);
-    ZilchInitializeType(MainMenuManager);
-	ZilchInitializeType(ErraticDoor);
-	ZilchInitializeType(TutorialTextLogic);
+    ZilchInitializeType(Components::PlayerController);
+    ZilchInitializeType(Components::BallController);
+    ZilchInitializeType(Components::EnemyController);
+    ZilchInitializeType(Components::CameraController);
+    ZilchInitializeType(Components::ChargeBar);    
+	  ZilchInitializeType(Components::Fade);
+    ZilchInitializeType(Components::HazardArea);
+	  ZilchInitializeType(Components::MoveToLocation);
+    ZilchInitializeType(Components::MusicManager);
+    ZilchInitializeType(Components::PauseManager);
+	  ZilchInitializeType(Components::LevelManager);
+    ZilchInitializeType(Components::MainMenuManager);
+	  ZilchInitializeType(Components::ErraticDoor);
+	  ZilchInitializeType(Components::TutorialTextLogic);
   }
 
   void ReboundComponentsAddToFactory() {
@@ -44,20 +44,20 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Reflection>()->Handler()->Build();
     // Add the components to the engine's component factory map
     auto factory = Daisy->getSystem<Systems::Factory>();
-    factory->AddComponentFactory(PlayerController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<PlayerController>>());
-    factory->AddComponentFactory(BallController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<BallController>>());
-    factory->AddComponentFactory(EnemyController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<EnemyController>>());
-    factory->AddComponentFactory(CameraController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<CameraController>>());
-    factory->AddComponentFactory(MusicManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MusicManager>>());
-    factory->AddComponentFactory(PauseManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<PauseManager>>());
-    factory->AddComponentFactory(ChargeBar::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<ChargeBar>>());
-    factory->AddComponentFactory(HazardArea::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<HazardArea>>());
-	factory->AddComponentFactory(Fade::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Fade>>());
-	factory->AddComponentFactory(LevelManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<LevelManager>>());
-    factory->AddComponentFactory(MainMenuManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MainMenuManager>>());
-	factory->AddComponentFactory(MoveToLocation::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<MoveToLocation>>());
-	factory->AddComponentFactory(ErraticDoor::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<ErraticDoor>>());
-	factory->AddComponentFactory(TutorialTextLogic::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<TutorialTextLogic>>());
+    factory->AddComponentFactory(Components::PlayerController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::PlayerController>>());
+    factory->AddComponentFactory(Components::BallController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::BallController>>());
+    factory->AddComponentFactory(Components::EnemyController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::EnemyController>>());
+    factory->AddComponentFactory(Components::CameraController::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::CameraController>>());
+    factory->AddComponentFactory(Components::MusicManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::MusicManager>>());
+    factory->AddComponentFactory(Components::PauseManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::PauseManager>>());
+    factory->AddComponentFactory(Components::ChargeBar::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::ChargeBar>>());
+    factory->AddComponentFactory(Components::HazardArea::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::HazardArea>>());
+	  factory->AddComponentFactory(Components::Fade::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Fade>>());
+	  factory->AddComponentFactory(Components::LevelManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::LevelManager>>());
+    factory->AddComponentFactory(Components::MainMenuManager::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::MainMenuManager>>());
+	  factory->AddComponentFactory(Components::MoveToLocation::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::MoveToLocation>>());
+	  factory->AddComponentFactory(Components::ErraticDoor::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::ErraticDoor>>());
+	  factory->AddComponentFactory(Components::TutorialTextLogic::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::TutorialTextLogic>>());
   }
 
 

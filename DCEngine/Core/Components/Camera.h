@@ -35,69 +35,76 @@ namespace DCEngine {
 		Perspective,
 	};
 
-  class CameraViewport;
-	class Camera : public Component {
-    friend class CameraViewport;
-  public:
+  namespace Components
+  {
+    class CameraViewport;
 
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(Camera, Component);
-    #endif
+    class Camera : public Component {
+      friend class CameraViewport;
+    public:
 
-    /* Property-methods */
-    Real getFieldOfView() const;
-    void setFieldOfView(Real);
-    Real getNearPlane() const;
-    void setNearPlane(Real);
-    Real getFarPlane() const;
-    void setFarPlane(Real);
-    Real getSize() const;
-    void setSize(Real);
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Camera, Component);
+#endif
 
-    DCE_DEFINE_PROPERTY(bool, Active);
-    DCE_DEFINE_PROPERTY(ProjectionMode, Projection);
+      /* Property-methods */
+      Real getFieldOfView() const;
+      void setFieldOfView(Real);
+      Real getNearPlane() const;
+      void setNearPlane(Real);
+      Real getFarPlane() const;
+      void setFarPlane(Real);
+      Real getSize() const;
+      void setSize(Real);
 
-    // Camera Attributes
-		glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 Right = glm::vec3(1.0f, 0.0f, 0.0f);
-		// Euler Angles(Yaw and Pitch are not needed in 2D camera)
-    GLfloat Yaw = 90.0f;
-    GLfloat Pitch = 0.0f;;
-    GLfloat Roll = 90.0f; // rotation degree
-    GLfloat BaseRollVal = 90.0f;
-		//Projection Mode
-		ProjectionMode Projection = ProjectionMode::Perspective;
-		GLfloat FieldOfView = 250;
-		GLfloat WindowWidth = 8;
-		GLfloat WindowHeight = 6;
-		GLfloat Size = 90; // Size of th orthographic projection. 
-                       // 0 - 100 **need a if statement to control outranged value
-		//Clipping plane
-		GLfloat NearPlane = 0.1f;
-		GLfloat FarPlane = 100.0f;
-    Transform *TransformComponent;
+      DCE_DEFINE_PROPERTY(bool, Active);
+      DCE_DEFINE_PROPERTY(ProjectionMode, Projection);
+
+      // Camera Attributes
+      glm::vec3 Front = glm::vec3(0.0f, 0.0f, -1.0f);
+      glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
+      glm::vec3 Right = glm::vec3(1.0f, 0.0f, 0.0f);
+      // Euler Angles(Yaw and Pitch are not needed in 2D camera)
+      GLfloat Yaw = 90.0f;
+      GLfloat Pitch = 0.0f;;
+      GLfloat Roll = 90.0f; // rotation degree
+      GLfloat BaseRollVal = 90.0f;
+      //Projection Mode
+      ProjectionMode Projection = ProjectionMode::Perspective;
+      GLfloat FieldOfView = 250;
+      GLfloat WindowWidth = 8;
+      GLfloat WindowHeight = 6;
+      GLfloat Size = 90; // Size of th orthographic projection. 
+                         // 0 - 100 **need a if statement to control outranged value
+      //Clipping plane
+      GLfloat NearPlane = 0.1f;
+      GLfloat FarPlane = 100.0f;
+      Transform *TransformComponent;
 
 
-    glm::mat4 GetViewMatrix();
-    glm::mat4 GetProjectionMatrix();
-		Camera(Entity& owner);
-    //Camera(const Camera& rhs) { DCTrace << "Camera::COPY??/n"; }
-    ~Camera();
-		void Initialize();
-		void OnLogicUpdate(Events::LogicUpdate* event);
-		
-	private:
-    // References to the Window context's settings
-    unsigned int* ScreenWidth;
-    unsigned int* ScreenHeight;
-    bool Active;
-    		
-    void Configure();
-		void Update();
-		// Calculates the front vector from the Camera's (updated) Euler angles
-		void UpdateCameraVectors();
-	};
+      glm::mat4 GetViewMatrix();
+      glm::mat4 GetProjectionMatrix();
+      Camera(Entity& owner);
+      //Camera(const Camera& rhs) { DCTrace << "Camera::COPY??/n"; }
+      ~Camera();
+      void Initialize();
+      void OnLogicUpdate(Events::LogicUpdate* event);
+
+    private:
+      // References to the Window context's settings
+      unsigned int* ScreenWidth;
+      unsigned int* ScreenHeight;
+      bool Active;
+
+      void Configure();
+      void Update();
+      // Calculates the front vector from the Camera's (updated) Euler angles
+      void UpdateCameraVectors();
+    };
+  }
+
+
+
 }
 
 ZilchDeclareExternalBaseType(DCEngine::ProjectionMode, Zilch::TypeCopyMode::ValueType);

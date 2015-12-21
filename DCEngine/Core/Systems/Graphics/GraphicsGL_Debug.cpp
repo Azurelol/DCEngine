@@ -55,7 +55,7 @@ namespace DCEngine {
     \brief  Sets the DebugDraw projection and view uniforms from the camera
     */
     /**************************************************************************/
-    void GraphicsGL::SetDebugDrawShaderProjViewUniform(Camera & camera)
+    void GraphicsGL::SetDebugDrawShaderProjViewUniform(Components::Camera & camera)
     {
 
     }
@@ -67,7 +67,7 @@ namespace DCEngine {
     \para   A reference to the space's camera.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Camera& cam)
+    void GraphicsGL::DrawDebug(DebugDrawObject & debugDrawObj, Components::Camera& cam)
     {
       // The received object is a DrawLine
       //if (std::type_index(typeid(debugDrawObj)) == typeid(DrawLine)) {
@@ -97,7 +97,7 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam)
+    void GraphicsGL::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam)
     {
 		CleanBuffer();
 		this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0));
@@ -124,7 +124,7 @@ namespace DCEngine {
     \param The color of the circle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam)
+    void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam)
     {
       // Do your magic here Chen
       //DCTrace << "Drawing a circle\n";
@@ -154,7 +154,7 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam)
+    void GraphicsGL::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam)
     {
 		
 		CleanBuffer();

@@ -72,7 +72,7 @@ namespace DCEngine {
 			for (auto gfxSpace : graphicsSpaces_) {
         
 				// Get the default camera from the 'CameraViewport' component
-				auto camera = gfxSpace->Owner()->getComponent<CameraViewport>()->getCamera();
+				auto camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
 				// Do not update the space if no camera has been set
 				if (camera == nullptr)
@@ -169,7 +169,7 @@ namespace DCEngine {
 		@param A reference to the 'GraphicsSpace' component in the Space.
 		*/
 		/**************************************************************************/
-		void Graphics::Register(GraphicsSpace& graphicsSpace) {
+		void Graphics::Register(Components::GraphicsSpace& graphicsSpace) {
 			graphicsSpaces_.push_back(&graphicsSpace);
 			DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
 				<< " has registered to the Graphics system\n";
@@ -181,7 +181,7 @@ namespace DCEngine {
 		@param A reference to the 'GraphicsSpace' component in the Space.
 		*/
 		/**************************************************************************/
-		void Graphics::Deregister(GraphicsSpace & graphicsSpace)
+		void Graphics::Deregister(Components::GraphicsSpace & graphicsSpace)
 		{
 			DCTrace << "Graphics::Deregister -  " << graphicsSpace.Owner()->Name()
 				<< " has deregistered from the Graphics system\n";
@@ -199,7 +199,7 @@ namespace DCEngine {
 		\note
 		*/
 		/**************************************************************************/
-		void Graphics::DrawSprite(Sprite & sprite, Camera& cam, float dt) {
+		void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
 			
       if (!sprite.Visible)
         return;
@@ -217,7 +217,7 @@ namespace DCEngine {
 		\note
 		*/
 		/**************************************************************************/
-		void Graphics::DrawSpriteText(SpriteText & st, Camera & cam)
+		void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
 		{
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
@@ -239,17 +239,17 @@ namespace DCEngine {
 		// DEBUG DRAW
 		///////////////
 
-		void Graphics::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam)
+		void Graphics::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawCircle(pos, radius, color, cam);
 		}
 
-		void Graphics::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam)
+		void Graphics::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawRectangle(pos, width, height, color, cam);
 		}
 
-		void Graphics::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam)
+		void Graphics::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawLineSegment(startPos, endPos, color, cam);
 		}

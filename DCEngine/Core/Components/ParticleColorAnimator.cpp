@@ -12,6 +12,8 @@
 #include "EngineReference.h"
 
 namespace DCEngine {
+  namespace Components
+  {
     void ParticleColorAnimator::Serialize(Json::Value & root)
     {
     }
@@ -33,5 +35,6 @@ namespace DCEngine {
     {
     }
 
-  
+
+  }
 }

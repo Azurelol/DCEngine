@@ -45,7 +45,7 @@ namespace DCEngine {
         return nullptr;
 
       // 2.1 Find the camera's position in space.
-      auto camPos = CurrentSpace->getComponent<CameraViewport>()->getCamera()->TransformComponent->Translation;
+      auto camPos = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera()->TransformComponent->Translation;
       // 2.2 Find the camera's forward direction vector.
       auto camDir = Vec3(0, 0, -1);
       // 3. Sort them in the order of the ones closest to the front of the camera.
@@ -70,8 +70,8 @@ namespace DCEngine {
         }          
 
         auto closestObjectName = closestObj->Name();
-        auto objZ = obj->getComponent<Transform>()->Translation.z;
-        auto closestZ = closestObj->getComponent<Transform>()->Translation.z;
+        auto objZ = obj->getComponent<Components::Transform>()->Translation.z;
+        auto closestZ = closestObj->getComponent<Components::Transform>()->Translation.z;
 
         if (objZ < camPos.z && objZ > closestZ) {
           closestObj = obj;
@@ -142,11 +142,11 @@ namespace DCEngine {
         // If the selected object is a GameObject on the space
         if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
           // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<CameraViewport>()->ScreenToViewport(pos);
+          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
           // Move the object
-          gameObject->getComponent<Transform>()->setTranslation(Vec3(mousePos.x, 
+          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x, 
                                                                     mousePos.y, 
-                                                                    gameObject->getComponent<Transform>()->getTranslation().z));
+                                                                    gameObject->getComponent<Components::Transform>()->getTranslation().z));
 
           // Snap the object
 
@@ -169,9 +169,9 @@ namespace DCEngine {
 
         // Snap the object to the nearest (x,y) snapDistance      
         if (Settings.Snapping) {
-          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->getTranslation();
+          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->getTranslation();
           auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
-          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
+          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
 
           DCTrace << "Editor::ReleaseObject - Releasing '" << SelectedObject->getObjectName() << "' at: \n"
             << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";

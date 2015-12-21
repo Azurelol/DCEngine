@@ -14,33 +14,34 @@
 #define ChargeBarTraceOn 0 // @todo Use a static bool instead
 
 namespace DCEngine {
+  namespace Components {
+    class Transform;
+    class Sprite;
+    class ChargeBar : public Component {
 
-	class Transform;
-	class Sprite;
-	class ChargeBar : public Component {
+    public:
+      Transform* TransformRef;
+      Sprite* SpriteRef;
+      GameObject* BallRef;
+      Real ScaleX = 2.5;
 
-	public:
-		Transform* TransformRef;
-		Sprite* SpriteRef;
-		GameObject* BallRef;
-		Real ScaleX = 2.5;
+      DCE_DEFINE_PROPERTY(Real, ScaleX);
 
-    DCE_DEFINE_PROPERTY(Real, ScaleX);
+      ChargeBar(Entity& owner) : Component(std::string("ChargeBar"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
+      void OnMouseDownEvent(Events::MouseDown* event);
+      void OnMouseUpEvent(Events::MouseUp* event);
+      void ChargeBar::OnLogicUpdateEvent(Events::LogicUpdate * event);
 
-		ChargeBar(Entity& owner) : Component(std::string("ChargeBar"), owner) {}
-		void Initialize();
-		virtual void Serialize(Json::Value& root);
-		virtual void Deserialize(Json::Value& root);
-		void OnMouseDownEvent(Events::MouseDown* event);
-		void OnMouseUpEvent(Events::MouseUp* event);
-		void ChargeBar::OnLogicUpdateEvent(Events::LogicUpdate * event);
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(ChargeBar, Component);
+#endif
 
-		#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-				ZilchDeclareDerivedType(ChargeBar, Component);
-		#endif
-
-	private:
-		void PrintTranslation();
-	};
+    private:
+      void PrintTranslation();
+    };
+  }
 
 }

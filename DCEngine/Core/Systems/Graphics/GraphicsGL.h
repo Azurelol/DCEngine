@@ -32,11 +32,13 @@ namespace DCEngine {
   
   // Forward declarations
   
+  namespace Components {
+    class GraphicsSpace;
+    class Camera;
+    class Sprite;
+    class SpriteText;
+  }
   
-  class GraphicsSpace;
-  class Camera;
-  class Sprite;
-  class SpriteText;
 
   namespace Systems {
 
@@ -47,32 +49,32 @@ namespace DCEngine {
       friend class Graphics;
           
     public:
-      void SetShaderProjViewUniforms(ShaderPtr shader, Camera& camera);
+      void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
 
       /* Sprite */
       void ConfigureSpriteVAO();      
-      void SetSpriteShader(Camera& camera);
-      void DrawSprite(Sprite& sprite, Camera& camera, float dt);
-	    void AnimationUpdate(Sprite& sprite, float dt);
-	    int IsNextFrame(Sprite& sprite);
+      void SetSpriteShader(Components::Camera& camera);
+      void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
+	    void AnimationUpdate(Components::Sprite& sprite, float dt);
+	    int IsNextFrame(Components::Sprite& sprite);
       /* SpriteText */
       void ConfigureSpriteTextVAO();
-      void SetSpriteTextShader(Camera& camera);
-      void DrawSpriteText(SpriteText& st, Camera& camera);
+      void SetSpriteTextShader(Components::Camera& camera);
+      void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
       /* Model */
       void DrawModel(GameObject& gameObj);
       /* DebugDraw */
       void ConfigureLineVAO();
       void ConfigureCircleVAO();
       void ConfigureRectangleVAO();
-      void SetDebugDrawShaderProjViewUniform(Camera& camera);
-      void DrawDebug(DebugDrawObject& debugDrawObj, Camera& cam); 
+      void SetDebugDrawShaderProjViewUniform(Components::Camera& camera);
+      void DrawDebug(DebugDrawObject& debugDrawObj, Components::Camera& cam);
       void DrawCircle(DrawCircleObj& obj);
       void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
-      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Camera& cam);
-      void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Camera& cam);
-      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Camera& cam);
+      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam);
+      void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam);
+      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam);
       /* Viewport */
       
     private:

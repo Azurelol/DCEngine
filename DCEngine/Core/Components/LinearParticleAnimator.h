@@ -13,24 +13,26 @@
 #include "../Resources/SpriteSource.h"
 
 namespace DCEngine {
+  namespace Components
+  {
+    class LinearParticleAnimator : public Component {
+    public:
 
-  class LinearParticleAnimator : public Component {
-  public:
-    
-    /* Properties */
-    Vec3 Force;
-    Vec3 RandomForce;
-    Real Torque;
-    Real Growth;
-    Real Dampening;
+      /* Properties */
+      Vec3 Force;
+      Vec3 RandomForce;
+      Real Torque;
+      Real Growth;
+      Real Dampening;
 
-    LinearParticleAnimator(Entity& owner);
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
+      LinearParticleAnimator(Entity& owner);
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
 
-  private:
+    private:
 
-  };
+    };
+  }
 
 }

@@ -11,76 +11,78 @@
 #include "../../CoreComponents.h"
 
 namespace DCEngine {
-
-	/**************************************************************************/
-	/*!
-	@brief Provides the definition of this class to Zilch.
-	@note This can only go in the translational unit (.cpp)
-	*/
-	/**************************************************************************/
+  namespace Components
+  {
+    /**************************************************************************/
+/*!
+@brief Provides the definition of this class to Zilch.
+@note This can only go in the translational unit (.cpp)
+*/
+/**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-	ZilchDefineType(ErraticDoor, "ErraticDoor", Rebound, builder, type) {
-		DCE_BINDING_DEFINE_PROPERTY(ErraticDoor, Timer);
-	}
+    ZilchDefineType(ErraticDoor, "ErraticDoor", Rebound, builder, type) {
+      DCE_BINDING_DEFINE_PROPERTY(ErraticDoor, Timer);
+    }
 #endif
 
 
-	void ErraticDoor::Initialize()
-	{
-		auto gameObj = dynamic_cast<GameObject*>(Owner());
-		//Connect(Daisy->getKeyboard(), Events::KeyDown, ErraticDoor::OnKeyDownEvent);
-		//Connect(Daisy->getKeyboard(), Events::KeyUp, ErraticDoor::OnKeyUpEvent);
-		//Connect(Daisy->getMouse(), Events::MouseDown, ErraticDoor::OnMouseDownEvent);
-		//Connect(Daisy->getMouse(), Events::MouseUp, ErraticDoor::OnMouseUpEvent);
-		//Connect(gameObj, Events::CollisionStarted, ErraticDoor::OnCollisionStartedEvent);
-		//Connect(gameObj, Events::CollisionEnded, ErraticDoor::OnCollisionEndedEvent);
-		Connect(SpaceRef, Events::LogicUpdate, ErraticDoor::OnLogicUpdateEvent);
-		TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Transform>(); // ew
-		//RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
-		SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Sprite>();
-		MTLRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<MoveToLocation>();
-		RandomDelay = (rand() % 10 + 1) / 3;
-	}
+    void ErraticDoor::Initialize()
+    {
+      auto gameObj = dynamic_cast<GameObject*>(Owner());
+      //Connect(Daisy->getKeyboard(), Events::KeyDown, ErraticDoor::OnKeyDownEvent);
+      //Connect(Daisy->getKeyboard(), Events::KeyUp, ErraticDoor::OnKeyUpEvent);
+      //Connect(Daisy->getMouse(), Events::MouseDown, ErraticDoor::OnMouseDownEvent);
+      //Connect(Daisy->getMouse(), Events::MouseUp, ErraticDoor::OnMouseUpEvent);
+      //Connect(gameObj, Events::CollisionStarted, ErraticDoor::OnCollisionStartedEvent);
+      //Connect(gameObj, Events::CollisionEnded, ErraticDoor::OnCollisionEndedEvent);
+      Connect(SpaceRef, Events::LogicUpdate, ErraticDoor::OnLogicUpdateEvent);
+      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
+      //RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      MTLRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::MoveToLocation>();
+      RandomDelay = (rand() % 10 + 1) / 3;
+    }
 
-	void ErraticDoor::OnMouseDownEvent(Events::MouseDown * event)
-	{
+    void ErraticDoor::OnMouseDownEvent(Events::MouseDown * event)
+    {
 
-	}
+    }
 
-	void ErraticDoor::OnCollisionStartedEvent(Events::CollisionStarted * event)
-	{
-	}
+    void ErraticDoor::OnCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+    }
 
-	void ErraticDoor::OnCollisionEndedEvent(Events::CollisionEnded * event)
-	{
-	}
+    void ErraticDoor::OnCollisionEndedEvent(Events::CollisionEnded * event)
+    {
+    }
 
-	void ErraticDoor::OnMouseUpEvent(Events::MouseUp * event)
-	{
+    void ErraticDoor::OnMouseUpEvent(Events::MouseUp * event)
+    {
 
-	}
+    }
 
-	void ErraticDoor::OnKeyDownEvent(Events::KeyDown * event)
-	{
-	}
+    void ErraticDoor::OnKeyDownEvent(Events::KeyDown * event)
+    {
+    }
 
-	void ErraticDoor::OnKeyUpEvent(Events::KeyDown * event)
-	{
-	}
+    void ErraticDoor::OnKeyUpEvent(Events::KeyDown * event)
+    {
+    }
 
-	void ErraticDoor::OnLogicUpdateEvent(Events::LogicUpdate * event)
-	{
-		if (MTLRef->getMoving() == true)
-			return;
+    void ErraticDoor::OnLogicUpdateEvent(Events::LogicUpdate * event)
+    {
+      if (MTLRef->getMoving() == true)
+        return;
 
-		Timer += event->Dt;
-		if (Timer > RandomDelay)
-		{
-			RandomDelay = (rand() % 10 + 1) / 3;
-			MTLRef->setMoving(true);
-			Timer = 0;
-		}
-	}
+      Timer += event->Dt;
+      if (Timer > RandomDelay)
+      {
+        RandomDelay = (rand() % 10 + 1) / 3;
+        MTLRef->setMoving(true);
+        Timer = 0;
+      }
+    }
 
+  }
 
 }

@@ -46,9 +46,6 @@
     <Filter Include="Projects">
       <UniqueIdentifier>{e4a088af-bf36-4199-8320-2aad748ba5b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\Dollhouse">
-      <UniqueIdentifier>{e7afe250-fa5f-4cc5-b011-cfee266461c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Window\SFML">
       <UniqueIdentifier>{faf60919-f8c7-420d-8b0e-b746f624a70e}</UniqueIdentifier>
     </Filter>
@@ -405,15 +402,6 @@
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp">
       <Filter>Core\Systems\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\Environment.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\GameObjects.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Dollhouse\Background.cpp">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\GUI\GUI.cpp">
       <Filter>Core\Systems\GUI</Filter>
     </ClCompile>
@@ -716,9 +704,6 @@
     <ClInclude Include="Core\Objects\Entities\Space.h">
       <Filter>Core\Object\Entity\Space</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Dollhouse\Dollhouse.h">
-      <Filter>Projects\Dollhouse</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Window\WindowSFML.h">
       <Filter>Core\Systems\Window\SFML</Filter>
     </ClInclude>
@@ -922,9 +907,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Dollhouse\ReflectionTest.h">
-      <Filter>Projects\Dollhouse</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\MouseUp.h">
       <Filter>Core\Events\Input</Filter>

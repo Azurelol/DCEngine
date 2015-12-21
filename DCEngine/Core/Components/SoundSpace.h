@@ -16,41 +16,44 @@ namespace DCEngine {
     class SoundCue;
     class SoundEmitter;
 
-    class SoundSpace : public Component {
-      friend class Space;
-      friend class SoundEmitter;
+    namespace Components
+    {
+      class SoundSpace : public Component {
+        friend class Space;
+        friend class SoundEmitter;
 
-    public:
-      
-      #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(SoundSpace, Component);
-      #endif
+      public:
 
-      DCE_DEFINE_PROPERTY(Real, Volume);
-      DCE_DEFINE_PROPERTY(Real, Pitch);
-      DCE_DEFINE_PROPERTY(Boolean, Pause);
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+        ZilchDeclareDerivedType(SoundSpace, Component);
+#endif
 
-      void PlayCue(std::string soundCueName);
-      void PlayCueAt(std::string soundCueName);      
-      void PauseCue(std::string soundCueName);
-      void ResumeCue(std::string soundCueName);
-      void StopCue(std::string soundCueName);
+        DCE_DEFINE_PROPERTY(Real, Volume);
+        DCE_DEFINE_PROPERTY(Real, Pitch);
+        DCE_DEFINE_PROPERTY(Boolean, Pause);
 
-      SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
-      void Initialize();
+        void PlayCue(std::string soundCueName);
+        void PlayCueAt(std::string soundCueName);
+        void PauseCue(std::string soundCueName);
+        void ResumeCue(std::string soundCueName);
+        void StopCue(std::string soundCueName);
 
-    private:
-      StringVec CuesCurrentlyPlaying;
-      Real Volume; // Change the volume for all sounds in the space
-      Real Pitch; // Pitch scale for all sounds in the space
-      bool Pause; // Pause all sounds in the space
+        SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
+        void Initialize();
 
-      void OnLogicUpdate(Events::LogicUpdate* event);
-      void Update() {}
+      private:
+        StringVec CuesCurrentlyPlaying;
+        Real Volume; // Change the volume for all sounds in the space
+        Real Pitch; // Pitch scale for all sounds in the space
+        bool Pause; // Pause all sounds in the space
 
-      void TestMusic();
+        void OnLogicUpdate(Events::LogicUpdate* event);
+        void Update() {}
 
-    };
+        void TestMusic();
+
+      };
+    }
 
   
 

@@ -366,9 +366,6 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
-    <ClCompile Include="Projects\Dollhouse\Environment.cpp" />
-    <ClCompile Include="Projects\Dollhouse\Background.cpp" />
-    <ClCompile Include="Projects\Dollhouse\GameObjects.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -524,8 +521,6 @@
     <ClInclude Include="Dependencies\include\IMGUI\imgui_internal.h" />
     <ClInclude Include="Libraries\Timer.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
-    <ClInclude Include="Projects\Dollhouse\Dollhouse.h" />
-    <ClInclude Include="Projects\Dollhouse\ReflectionTest.h" />
     <ClInclude Include="Projects\CoreComponents.h" />
     <ClInclude Include="Projects\ProjectComponent.h" />
     <ClInclude Include="Projects\ProjectComponents.h" />

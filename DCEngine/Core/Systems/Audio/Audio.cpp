@@ -34,7 +34,7 @@ namespace DCEngine {
     @param  soundSpace The 'SoundSpace' component of the space.
     */
     /**************************************************************************/
-    void Audio::Register(SoundSpace & soundSpace)
+    void Audio::Register(Components::SoundSpace & soundSpace)
     {
       SoundSpaceContainer.push_back(&soundSpace);
       DCTrace << "Audio::Register -  " << soundSpace.Owner()->Name()

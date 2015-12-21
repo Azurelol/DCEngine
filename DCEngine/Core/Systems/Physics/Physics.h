@@ -48,13 +48,13 @@ namespace DCEngine {
     public:
       GameObjectPtr FindObjectAtPosition(Vec3 pos, Space& space);
       GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
-      void RegisterSpace(PhysicsSpace& physicsSpace);
-      void DeregisterSpace(PhysicsSpace& physicsSpace);
+      void RegisterSpace(Components::PhysicsSpace& physicsSpace);
+      void DeregisterSpace(Components::PhysicsSpace& physicsSpace);
 
     private:
 
       bool Paused = false;
-      std::vector<PhysicsSpace*> physicsSpaces_;
+      std::vector<Components::PhysicsSpace*> physicsSpaces_;
       std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
 
       Physics();
@@ -67,11 +67,11 @@ namespace DCEngine {
 
       bool Persisted(std::pair<GameObjectPtr, GameObjectPtr> &pair);
       void RemovePair(std::pair<GameObjectPtr, GameObjectPtr> &pair);
-      void Integrate(float dt, PhysicsSpace* physpace);
-      void PublishResults(PhysicsSpace* physpace);
-      void UpdateTransforms(PhysicsSpace *physpace);
+      void Integrate(float dt, Components::PhysicsSpace* physpace);
+      void PublishResults(Components::PhysicsSpace* physpace);
+      void UpdateTransforms(Components::PhysicsSpace *physpace);
       void Step(float dt);
-      void BroadPhaseDetection(PhysicsSpace* physpace , std::vector<DetectionPairing> &pairs);
+      void BroadPhaseDetection(Components::PhysicsSpace* physpace , std::vector<DetectionPairing> &pairs);
       void NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist);
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);

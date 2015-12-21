@@ -13,41 +13,43 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
+  namespace Components
+  {
+    class Reactive : public Component {
+    public:
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Reactive, Component);
+#endif
 
-  class Reactive : public Component {
-  public:
-    #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(Reactive, Component);
-    #endif
+      // Properties   
+      DCE_DEFINE_PROPERTY(Boolean, Active);
+      DCE_DEFINE_PROPERTY(Boolean, CaptureMouse);
+      DCE_DEFINE_PROPERTY(Boolean, Noise);
+      // Methods
+      Reactive(Entity& owner);
+      ~Reactive();
+      void Initialize();
+      void CheckMousePosition(Vec2);
+      void DispatchMouseEnterEvent();
+      void DispatchMouseExitEvent();
+      void DispatchMouseClickedOnEvent();
+      // Events
+      void OnLogicUpdate(Events::LogicUpdate* event);
+      void OnMouseUpdateEvent(Events::MouseUpdate* event);
+      void OnMouseDownEvent(Events::MouseDown* event);
+      void OnMouseUpEvent(Events::MouseUp* event);
+      void OnMouseScrollEvent(Events::MouseScroll* event);
 
-    // Properties   
-    DCE_DEFINE_PROPERTY(Boolean, Active); 
-    DCE_DEFINE_PROPERTY(Boolean, CaptureMouse);    
-    DCE_DEFINE_PROPERTY(Boolean, Noise);
-    // Methods
-    Reactive(Entity& owner);
-    ~Reactive();
-    void Initialize();
-    void CheckMousePosition(Vec2);
-    void DispatchMouseEnterEvent();
-    void DispatchMouseExitEvent();
-    void DispatchMouseClickedOnEvent();
-    // Events
-    void OnLogicUpdate(Events::LogicUpdate* event);
-    void OnMouseUpdateEvent(Events::MouseUpdate* event);
-    void OnMouseDownEvent(Events::MouseDown* event);
-    void OnMouseUpEvent(Events::MouseUp* event);
-    void OnMouseScrollEvent(Events::MouseScroll* event);
+    private:
 
-  private:
+      Vec2 LastPosition;
+      Boolean Active;
+      Boolean CaptureMouse;
+      Boolean MouseEntered;
+      Boolean Noise = false;
 
-    Vec2 LastPosition;
-    Boolean Active;
-    Boolean CaptureMouse;
-    Boolean MouseEntered;
-    Boolean Noise = false;
-
-  };
+    };
 
 
+  }
 }

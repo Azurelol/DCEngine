@@ -29,17 +29,17 @@ namespace DCEngine
 
 		if (this->rigid1 != false && this->rigid2 == false)
 		{
-			relativeVelocity = Object1->getComponent<RigidBody>()->getVelocity();
+			relativeVelocity = Object1->getComponent<Components::RigidBody>()->getVelocity();
 		}
 
 		if (this->rigid1 == false && this->rigid2 != false)
 		{
-			relativeVelocity = -Object2->getComponent<RigidBody>()->getVelocity();
+			relativeVelocity = -Object2->getComponent<Components::RigidBody>()->getVelocity();
 		}
 
 		if (this->rigid1 != false && this->rigid2 != false)
 		{
-			relativeVelocity = Object1->getComponent<RigidBody>()->getVelocity() - Object2->getComponent<RigidBody>()->getVelocity();
+			relativeVelocity = Object1->getComponent<Components::RigidBody>()->getVelocity() - Object2->getComponent<Components::RigidBody>()->getVelocity();
 		}
 
 		//Get the separating velocity by projecting along the contact normal

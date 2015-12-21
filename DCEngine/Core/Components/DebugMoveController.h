@@ -15,38 +15,40 @@ projection matrix.
 #include "ComponentReference.h"
 
 namespace DCEngine {
+  namespace Components
+  {
+    class Transform;
+    class RigidBody;
+    class DebugMoveController : public Component {
 
-  class Transform;
-  class RigidBody;
-  class DebugMoveController : public Component {
+    public:
 
-  public:
-        
-    bool Translation = false;
+      bool Translation = false;
 
-    Real MoveSpeed = 10;
-    Real RotSpeed = 15;
-    Real JumpMultiplier = 5;
+      Real MoveSpeed = 10;
+      Real RotSpeed = 15;
+      Real JumpMultiplier = 5;
 
-    Transform* TransformRef; 
-    RigidBody* RigidBodyRef;
+      Transform* TransformRef;
+      RigidBody* RigidBodyRef;
 
-    DebugMoveController(Entity& owner) : Component(std::string("DebugMoveController"), owner) {}
-    void Initialize();
-    virtual void Serialize(Json::Value& root);
-    virtual void Deserialize(Json::Value& root);
-    void OnKeyDownEvent(Events::KeyDown* event);
-    void OnKeyUpEvent(Events::KeyUp* event);
-    void OnMouseDownEvent(Events::MouseDown* event);
-    void OnLogicUpdateEvent(Events::LogicUpdate* event);
-    void SetFootstepSound(std::string& soundfileName);
+      DebugMoveController(Entity& owner) : Component(std::string("DebugMoveController"), owner) {}
+      void Initialize();
+      virtual void Serialize(Json::Value& root);
+      virtual void Deserialize(Json::Value& root);
+      void OnKeyDownEvent(Events::KeyDown* event);
+      void OnKeyUpEvent(Events::KeyUp* event);
+      void OnMouseDownEvent(Events::MouseDown* event);
+      void OnLogicUpdateEvent(Events::LogicUpdate* event);
+      void SetFootstepSound(std::string& soundfileName);
 
-  private:
-    void PlayFootstepSound();
-    void PrintTranslation();
-    std::string FootstepSound;
-    Boolean FootstepSoundEnabled = false;
-  };
+    private:
+      void PlayFootstepSound();
+      void PrintTranslation();
+      std::string FootstepSound;
+      Boolean FootstepSoundEnabled = false;
+    };
 
+  }
 
 }
