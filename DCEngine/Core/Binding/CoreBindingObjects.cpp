@@ -147,9 +147,24 @@ namespace DCEngine {
     // This sets Zilch's Handle manager setting
     DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
-    ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
+    //ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
+    //ZilchBindConstructor(builder, type, Component, "name, owner", std::string, Entity&);
     ZilchBindDestructor(builder, type, Component);
     // Fields
+  }
+
+  /*!************************************************************************\
+  @brief  Zilch Component Definition
+  \**************************************************************************/
+  ZilchDefineType(ZilchComponent, "ZilchComponent", DCEngineCore, builder, type) {
+    // This sets Zilch's Handle manager setting
+    //type->HandleManager = ZilchManagerId(Zilch::HandleManager);    
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor    
+    ZilchBindConstructor(builder, type, ZilchComponent, "name, owner", std::string, Entity&);
+    ZilchBindDestructor(builder, type, ZilchComponent);
+    // Methods
+    ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
   }
 
   #endif

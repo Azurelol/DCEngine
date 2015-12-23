@@ -62,7 +62,7 @@ namespace DCEngine {
       // Add our custom static library for binding our classes
       AddLibrary(DCEngineCore::GetLibrary());
       // Add our custom library for our own Zilch scripts
-      CompileScripts("DCScripts");
+      CompileScripts();
       AddLibrary(ScriptLibrary);
       // Compile and build the exclusive 'ExecutableState' object
       Build();

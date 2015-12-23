@@ -24,7 +24,7 @@ namespace DCEngine {
     void Save(std::string& serializedData);
     bool Load();
     bool BuildDefaultFromTemplate();
-    bool GenerateCode();
+    bool IncludeScript();
 
   private:
 

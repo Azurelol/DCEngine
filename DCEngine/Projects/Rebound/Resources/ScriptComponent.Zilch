@@ -1,0 +1,8 @@
+class ScriptComponent : ZilchComponent
+{
+    function Initialize()
+    {
+        Console.WriteLine("YEEEHAW");
+    }
+
+}

@@ -14,6 +14,24 @@
 namespace DCEngine {
   namespace Systems {
 
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds a Zilch script to the Zilch interface.
+    @param  fileName The name of the file containing the code.
+    @return The success of the operation.
+    */
+    /**************************************************************************/
+    void ZilchInterface::AddScriptFile(std::string fileName)
+    {
+      ScriptFiles[fileName] = true;
+    }
+
+    void ZilchInterface::AddScript(std::string code, std::string origin)
+    {
+      Scripts[origin] = code;
+    }
+
     /**************************************************************************/
     /*!
     @brief  Adds a Zilch script to a Zilch Project.
@@ -65,9 +83,10 @@ namespace DCEngine {
     @param  library The name of the Library.
     */
     /**************************************************************************/
-    void ZilchInterface::CompileScripts(std::string libraryName)
+    void ZilchInterface::CompileScripts()
     {
-      DCTrace << "ZilchInterface::CompileScripts - Compiling the script library: " << libraryName << "\n";
+      
+      DCTrace << "ZilchInterface::CompileScripts - Compiling the script library: \n";
       // A project contains all of the code we combine together to make a single
       // Zilch library. The project also sends events for compilation errors that occur
       // (Including friendly!?? asserts)
@@ -88,7 +107,10 @@ namespace DCEngine {
       }
 
       // Compile all the code we have added together into a single library for our scripts
-      ScriptLibrary = ScriptProject.Compile(libraryName.c_str(), Dependencies, Zilch::EvaluationMode::Project);
+      ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
+      
+      // Build 
+      Build();
     }
 
     /**************************************************************************/

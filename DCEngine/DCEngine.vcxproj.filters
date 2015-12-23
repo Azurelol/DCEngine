@@ -663,6 +663,9 @@
     <ClCompile Include="Core\Systems\Editor\CollisionTableEditor.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\Components\ZilchComponent.cpp">
+      <Filter>Core\Object\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

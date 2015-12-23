@@ -27,7 +27,7 @@ namespace DCEngine
     */
     /**************************************************************************/
     Trace::Trace(std::string fileName) {
-#ifndef _PRODUCTION
+    #ifndef _PRODUCTION
 
 
       _file.open(fileName.c_str(), std::ios::trunc);
@@ -39,7 +39,7 @@ namespace DCEngine
       }
 
       std::cout << "Debug::Trace - Log file: " << fileName << std::endl;
-#endif
+    #endif
     }
 
     /**************************************************************************/
@@ -49,9 +49,9 @@ namespace DCEngine
     */
     /**************************************************************************/
     Trace::~Trace() {
-#ifndef _PRODUCTION
+    #ifndef _PRODUCTION
       _file.close();
-#endif
+    #endif
       //std::cout << "Debug::~Trace - Closing" << std::endl;
     }
 

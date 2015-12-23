@@ -34,10 +34,12 @@ namespace DCEngine {
       ~ZilchInterface();
 
       // Code
+      void AddScriptFile(std::string fileName);
+      void AddScript(std::string code, std::string origin);
       bool AddCodeFromFile(std::string fileName, Zilch::Project& project);
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
-      void CompileScripts(std::string libraryName);
+      void CompileScripts();
       void Build();
       void Clean();
      

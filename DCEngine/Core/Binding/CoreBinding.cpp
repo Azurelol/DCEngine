@@ -40,6 +40,7 @@ namespace DCEngine {
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
     ZilchInitializeType(Component);
+    ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(GameSession);
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);

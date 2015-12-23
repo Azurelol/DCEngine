@@ -14,6 +14,9 @@ data and the source file for debugging and for archetype updating.
 #include "ZilchScript.h"
 #include <BOOST/algorithm/string/replace.hpp>
 
+// Engine
+#include "../Engine/Engine.h"
+
 namespace DCEngine {
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
@@ -100,9 +103,10 @@ namespace DCEngine {
   @todo   May be unnecessary.
   */
   /**************************************************************************/
-  bool ZilchScript::GenerateCode()
-  {
-    return false;
+  bool ZilchScript::IncludeScript()
+  {   
+    Daisy->getSystem<Systems::Reflection>()->Handler()->AddScript(SerializedData, getObjectName());
+    return true;
   }
 
 }

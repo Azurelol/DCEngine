@@ -366,8 +366,31 @@ namespace DCEngine {
           // Do not display components marked as hidden
           if (component->HasAttribute("Hidden"))
             continue;
-          componentNames.push_back(component->Name.c_str());
+
+          // Components to skip
+          bool skip = false;
+          std::vector<std::string> skippableComponents{ "Component", "Collider" };
+          for (auto& name : skippableComponents) {
+            auto componentName = std::string(component->Name.c_str());
+            if (componentName == name) {
+              skip = true;
+              break;
+            }              
+          }
+          if (skip)
+            continue;
+
+          // If it's a Zilch component, we need to do more to get its underlying type
+          if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
+            //componentNames.push_back(component->Name.c_str());
+            auto name = component->Name.c_str();
+          } 
+
+          // If it's a C++ component, it's less cumbersome...
+          else 
+            componentNames.push_back(component->Name.c_str());
         }
+        
         Scanned = true;
       }
 

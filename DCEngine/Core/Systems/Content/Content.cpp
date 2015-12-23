@@ -9,7 +9,9 @@
 */
 /******************************************************************************/
 #include "Content.h" 
+
 #include "../Filesystem/FileSystem.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -53,13 +55,13 @@ namespace DCEngine {
     void Content::LoadAllResources()
     {
       // Generate every SoundCue's sound
-      for (auto soundCue : SoundCueMap) {
+      for (auto& soundCue : SoundCueMap) {
         soundCue.second->Load();
         soundCue.second->GenerateSound();
       }
 
       // Load every SpriteSource's texture
-      for (auto spriteSource : SpriteSourceMap) {
+      for (auto& spriteSource : SpriteSourceMap) {
         // Load the SpriteSource's properties data from file
         spriteSource.second->Load(); 
         // Load its texture onto the graphics system
@@ -67,11 +69,15 @@ namespace DCEngine {
       }
 
       // Load every Font
-      for (auto font : FontMap) {
+      for (auto& font : FontMap) {
         font.second->Load();
       }
 
       // Load every script..
+      for (auto& script : MapZilchScript) {
+        script.second->IncludeScript();
+      }
+      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
 
     }
     

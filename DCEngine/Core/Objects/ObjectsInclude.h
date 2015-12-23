@@ -15,3 +15,4 @@
 #include "Entity.h"
 #include "Resource.h"
 #include "Component.h"
+#include "Components\ZilchComponent.h"
