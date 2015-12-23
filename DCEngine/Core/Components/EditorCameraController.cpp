@@ -26,8 +26,9 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(EditorCameraController, "EditorCameraController", DCEngineCore, builder, type) {
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, EditorCameraController, "owner", Entity&);
-      ZilchBindDestructor(builder, type, EditorCameraController);
+      //ZilchBindConstructor(builder, type, EditorCameraController, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, EditorCameraController);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(EditorCameraController);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, RotSpeed);

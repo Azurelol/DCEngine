@@ -16,6 +16,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(HazardArea, "HazardArea", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(HazardArea);
       DCE_BINDING_DEFINE_PROPERTY(HazardArea, Damage);
       DCE_BINDING_DEFINE_PROPERTY(HazardArea, DamageInterval);
     }

@@ -324,7 +324,8 @@ namespace DCEngine {
          else
          {
            // need to access the collision table and get info from it
-           Fill.filter = physpace->getCollisionTable()->GetFilter(str1, str2);
+           //auto& a = physpace->getTable().GetFilter(str1, str2);
+           //Fill.filter = physpace->getTable().GetFilter(str1, str2);
          }
 
 

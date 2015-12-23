@@ -24,11 +24,12 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(SoundEmitter, "SoundEmitter", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(SoundEmitter);
       //DCE_BINDING_DEFINE_ATTRIBUTE(Resource);
       DCE_BINDING_DEFINE_ATTRIBUTE(SoundCue);
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, SoundEmitter, "owner", Entity&);
-      ZilchBindDestructor(builder, type, SoundEmitter);
+      //ZilchBindConstructor(builder, type, SoundEmitter, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, SoundEmitter);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Cue); // ->Attributes.push_back(attributeSoundCue);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCue, attributeSoundCue);

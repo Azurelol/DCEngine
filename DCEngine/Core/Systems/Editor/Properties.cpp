@@ -96,12 +96,12 @@ namespace DCEngine {
       ImGui::Separator();
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
       unsigned int inputID = 0;      
-      for (auto &component : *selectedEntity->AllComponents()) {
+      for (auto &component : selectedEntity->AllComponents()) {
         if (ImGui::TreeNode(component->Name().c_str())) {
           //ImGui::SetWindowFocus();
           // 3. If the user clicks on a tree-node, display the commponent's properties
           //    through reflection
-          DisplayProperties(component.get());
+          DisplayProperties(component);
           ImGui::TreePop();
         }
         ImGui::SameLine();

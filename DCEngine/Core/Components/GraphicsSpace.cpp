@@ -21,21 +21,22 @@ namespace DCEngine {
   namespace Components
   {
     /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(GraphicsSpace, "GraphicsSpace", DCEngineCore, builder, type) {
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, GraphicsSpace, "owner", Entity&);
-      ZilchBindDestructor(builder, type, GraphicsSpace);
+      //ZilchBindConstructor(builder, type, GraphicsSpace, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, GraphicsSpace);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(GraphicsSpace);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, Active);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
-#endif
+    #endif
 
     /**************************************************************************/
     /*!

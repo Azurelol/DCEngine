@@ -17,11 +17,28 @@ physics integration and resolution, for collisions, velocity, etc...
 
 namespace DCEngine {
   namespace Components {
+
     /**************************************************************************/
-/*!
-\brief PhysicsSpace constructor.
-*/
-/**************************************************************************/
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(PhysicsSpace, "PhysicsSpace", DCEngineCore, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PhysicsSpace);
+      DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, AllowSleep);
+      DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Mode2D);
+      DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Deterministic);
+    }
+    #endif
+
+
+    /**************************************************************************/
+    /*!
+    \brief PhysicsSpace constructor.
+    */
+    /**************************************************************************/
     PhysicsSpace::PhysicsSpace(Entity& owner) : Component(std::string("PhysicsSpace"), owner) {
 
     }
@@ -125,29 +142,7 @@ namespace DCEngine {
     ColliderContainer& PhysicsSpace::AllColliders()
     {
       return CollidersContainer;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Sets the collision table.
-    */
-    /**************************************************************************/
-    void PhysicsSpace::setCollisionTable(CollisionTable & table)
-    {
-      Table = table;
-    }
-
-
-
-    /**************************************************************************/
-    /*!
-    @brief Gets the collision table.
-    */
-    /**************************************************************************/
-    CollisionTable *PhysicsSpace::getCollisionTable(void)
-    {
-      return &Table;
-    }
+    }    
 
   }
 }

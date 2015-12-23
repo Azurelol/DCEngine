@@ -21,6 +21,7 @@ namespace DCEngine {
 /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(FreezeEnabler, "FreezeEnabler", DCEngineCore, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(FreezeEnabler);
       //// Constructor / Destructor
       //ZilchBindConstructor(builder, type, FreezeEnabler, "owner", Entity&);
       //ZilchBindDestructor(builder, type, FreezeEnabler);

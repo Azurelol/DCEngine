@@ -123,6 +123,7 @@ namespace DCEngine {
     Component() = delete; // No default construction
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
+    static Zilch::BoundType* BoundType(std::string componentName);
     //std::vector<Delegate*> ActiveDelegates;
 
   };
@@ -131,6 +132,8 @@ namespace DCEngine {
   using ComponentVec = std::vector<ComponentPtr>;
   using ComponentStrongPtr = std::unique_ptr<Component>;
   using ComponentStrongVec = std::vector<ComponentStrongPtr>;
+  using ComponentHandle = Zilch::Handle;
+  using ComponentHandleVec = std::vector<Zilch::Handle>;
 
   template<typename EntityClass>
   inline EntityClass* Component::getOwner() {

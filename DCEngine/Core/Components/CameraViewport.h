@@ -21,6 +21,8 @@ namespace DCEngine {
     class CameraViewport : public Component {
     public:
 
+      ZilchDeclareDerivedType(CameraViewport, Component);
+
       /* Properties */
       bool Active = true;
       bool Blocking = true;
@@ -28,6 +30,12 @@ namespace DCEngine {
                  // Viewports will be drawn from lowest to highest.
       bool Background; // Should the viewport background be transparent.
       Vec2 ViewportResolution; // The current resolution of the viewport
+
+      DCE_DEFINE_PROPERTY(bool, Active);
+      DCE_DEFINE_PROPERTY(bool, Blocking);
+      DCE_DEFINE_PROPERTY(int, Layer);
+      DCE_DEFINE_PROPERTY(bool, Background);
+      DCE_DEFINE_PROPERTY(Vec2, ViewportResolution);
 
       /* Methods */
       Vec3 ScreenToWorldViewPlane(Vec2 screenPoint, float viewDepth);

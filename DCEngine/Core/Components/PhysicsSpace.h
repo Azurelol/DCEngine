@@ -32,11 +32,15 @@ namespace DCEngine {
       friend class Physics;
     public:
 
-      // PropertiesColli
-      DCE_DEFINE_PROPERTY(CollisionTable, Table);
-      void setCollisionTable(CollisionTable &table);
-      CollisionTable *getCollisionTable(void);
+      #if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(PhysicsSpace, Component);
+      #endif
 
+      DCE_DEFINE_PROPERTY(CollisionTable, Table);
+      DCE_DEFINE_PROPERTY(bool, AllowSleep);
+      DCE_DEFINE_PROPERTY(bool, Mode2D);
+      DCE_DEFINE_PROPERTY(bool, Deterministic);
+            
       // Methods
       void AddRigidBody(RigidBody& rigidbody);
       void RemoveRigidBody(RigidBody& rigidbody);

@@ -71,7 +71,8 @@ namespace DCEngine {
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);    
-    ComponentStrongVec* AllComponents();
+    //ComponentStrongVec* AllComponents();
+    ComponentVec AllComponents();
 
     // Events
     template <typename EventClass>
@@ -85,18 +86,20 @@ namespace DCEngine {
 
   protected:
 
-    //ComponentVec ObserversList; //!< A list of the current listeners to this object.
     ComponentStrongVec ComponentsContainer; //!< The list of components attached to the entity.  
+    ComponentHandleVec ComponentHandlesContainer; //!< The list of components created through Zilch attached to the entity.
+
     EntityType type_;
 
   private:
 
-    // Use a vector here instead, because vector 
+    //! Use a vector here instead perhaps?
     std::map<std::type_index, std::list<std::unique_ptr<Delegate>>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
     bool IsInitialized = false;
 
+    // Methods
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
     template <typename Class>
@@ -150,6 +153,14 @@ namespace DCEngine {
       if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))
         return (reinterpret_cast<ComponentClass*>(component));
     }
+    // Iterate through the container of Zilch component handles
+    for (auto &componentHandle : ComponentHandlesContainer) {
+      auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+      // If the component was found
+      if (std::type_index(typeid(*component)) == std::type_index(typeid(ComponentClass)))
+        return (reinterpret_cast<ComponentClass*>(component));
+    }
+
     // No matching component was found
     return NULL;
   }
@@ -173,6 +184,8 @@ namespace DCEngine {
         RemoveComponent(componentPtr);
       }        
     }
+
+
   }
 
   /**************************************************************************/

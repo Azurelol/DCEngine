@@ -20,6 +20,7 @@ namespace DCEngine {
 /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Button, "Button", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Button);
       DCE_BINDING_DEFINE_PROPERTY(Button, Target);
     }
 #endif

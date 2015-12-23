@@ -6,6 +6,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(MainMenuManager, "MainMenuManager", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(MainMenuManager);
       DCE_BINDING_DEFINE_ATTRIBUTE(Level);
       DCE_BINDING_DEFINE_PROPERTY(MainMenuManager, LevelNewGame); // ->Attributes.push_back(attributeLevel);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLevelNewGame, attributeLevel);

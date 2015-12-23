@@ -22,6 +22,8 @@
 #include "../../Resources/Archetype.h"
 #include "ComponentFactory.h"
 
+#define DCE_FACTORY_CONSTRUCT_COMPONENTS 0
+
 namespace DCEngine {
 
   // Forward declarations
@@ -48,6 +50,7 @@ namespace DCEngine {
       ArchetypePtr BuildArchetype(std::string, GameObjectPtr);
       // Components
       ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);
+      ComponentHandle CreateComponentByNameFromZilch(std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       void MarkComponent(Component& component);

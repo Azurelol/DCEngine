@@ -17,6 +17,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);

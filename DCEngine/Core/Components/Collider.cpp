@@ -26,11 +26,12 @@ namespace DCEngine {
     /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Collider, "Collider", DCEngineCore, builder, type) {
-      DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+      //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+      //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Collider);
       DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
       // Constructor / Destructor
-      //ZilchBindConstructor(builder, type, Collider, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, Collider);
+      ZilchBindConstructor(builder, type, Collider, "owner, colliderClass", Entity&, std::string);
+      ZilchBindDestructor(builder, type, Collider);
       // Properties
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }

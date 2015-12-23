@@ -26,8 +26,9 @@ namespace DCEngine {
     ZilchDefineType(Transform, "Transform", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
-      ZilchBindDestructor(builder, type, Transform);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Transform);
+      //ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, Transform);
       // Properties
       ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
       ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
@@ -42,7 +43,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Transform::Initialize() {
-      if (TRACE_COMPONENT_INITIALIZE)
+      if (DCE_TRACE_COMPONENT_INITIALIZE)
         DCTrace << Owner()->Name() << "::" << Name() << "::Initialize\n";
       WorldRotation.z = 0;
     }

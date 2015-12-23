@@ -18,6 +18,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(BallController, "BallController", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(BallController);
       DCE_BINDING_DEFINE_PROPERTY(BallController, PlayerName);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(BallController, RotSpeed);

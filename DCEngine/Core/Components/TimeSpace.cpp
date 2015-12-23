@@ -25,8 +25,9 @@ namespace DCEngine {
     ZilchDefineType(TimeSpace, "TimeSpace", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, TimeSpace, "owner", Entity&);
-      ZilchBindDestructor(builder, type, TimeSpace);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(TimeSpace);
+      //ZilchBindConstructor(builder, type, TimeSpace, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, TimeSpace);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(TimeSpace, Paused);
       DCE_BINDING_DEFINE_PROPERTY(TimeSpace, TimeScale);

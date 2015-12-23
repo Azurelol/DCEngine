@@ -29,8 +29,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
       DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
-      ZilchBindDestructor(builder, type, BoxCollider);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(BoxCollider);
+      //ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, BoxCollider);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(BoxCollider, PhysicsMaterial);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyPhysicsMaterial, attributePhysicsMaterial);

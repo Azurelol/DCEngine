@@ -24,9 +24,10 @@ namespace DCEngine {
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(SoundSpace, "SoundSpace", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(SoundSpace);
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
-      ZilchBindDestructor(builder, type, SoundSpace);
+      //ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, SoundSpace);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);

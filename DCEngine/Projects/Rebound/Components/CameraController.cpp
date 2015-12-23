@@ -15,6 +15,7 @@ namespace DCEngine {
   namespace Components {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(CameraController, "CameraController", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CameraController);
       DCE_BINDING_DEFINE_PROPERTY(CameraController, TargetName);
       DCE_BINDING_DEFINE_PROPERTY(CameraController, InterpolationSpeed);
     }

@@ -18,6 +18,18 @@ projection matrix.
 namespace DCEngine {
   namespace Components {
 
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(CameraViewport, "CameraViewport", DCEngineCore, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CameraViewport);
+      DCE_BINDING_DEFINE_PROPERTY(CameraViewport, Active);
+      DCE_BINDING_DEFINE_PROPERTY(CameraViewport, Blocking);
+      DCE_BINDING_DEFINE_PROPERTY(CameraViewport, Layer);
+      DCE_BINDING_DEFINE_PROPERTY(CameraViewport, Background);
+      DCE_BINDING_DEFINE_PROPERTY(CameraViewport, ViewportResolution);
+    }
+#endif
+
+
     /**************************************************************************/
     /*!
     @brief  CameraViewport constructor.

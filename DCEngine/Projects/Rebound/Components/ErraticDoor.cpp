@@ -21,6 +21,7 @@ namespace DCEngine {
 /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(ErraticDoor, "ErraticDoor", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ErraticDoor);
       DCE_BINDING_DEFINE_PROPERTY(ErraticDoor, Timer);
     }
 #endif

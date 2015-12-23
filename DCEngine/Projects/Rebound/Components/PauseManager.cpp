@@ -20,6 +20,7 @@ namespace DCEngine {
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(PauseManager, "PauseManager", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PauseManager);
     }
 #endif  
 

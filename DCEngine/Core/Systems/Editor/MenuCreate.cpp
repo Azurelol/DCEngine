@@ -49,7 +49,8 @@ namespace DCEngine {
       auto sprite = CurrentSpace->CreateObject();
       sprite->setObjectName("Sprite");
       // Add the Sprite component
-      sprite->AddComponent<Components::Sprite>(true);
+      sprite->AddComponentByName(std::string("Sprite"), true);
+      //sprite->AddComponent<Components::Sprite>(true);
       //sprite->AddComponent<Sprite>();
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
       SelectedObject = sprite;

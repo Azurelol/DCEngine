@@ -16,6 +16,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(EnemyController, "EnemyController", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(EnemyController);
       DCE_BINDING_DEFINE_PROPERTY(EnemyController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpPowerY);
       DCE_BINDING_DEFINE_PROPERTY(EnemyController, JumpPowerX);

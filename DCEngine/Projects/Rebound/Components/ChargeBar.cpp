@@ -19,6 +19,7 @@ namespace DCEngine {
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(ChargeBar, "ChargeBar", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ChargeBar);
       DCE_BINDING_DEFINE_PROPERTY(ChargeBar, ScaleX);
     }
 #endif

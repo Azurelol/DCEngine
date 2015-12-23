@@ -24,7 +24,7 @@ namespace DCEngine {
 
   // Static member variables
   unsigned int Component::ComponentsCreated = 0;
-  unsigned int Component::ComponentsDestroyed = 0;  
+  unsigned int Component::ComponentsDestroyed = 0;
   std::string Component::ComponentLastCreated;
   std::string Component::ComponentLastDestroyed;
   // Enable diagnostics
@@ -38,13 +38,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Component::Component(std::string name, Entity& owner)
-                        : Object(name), ComponentID(ComponentsCreated++) {
+    : Object(name), ComponentID(ComponentsCreated++) {
     ObjectOwner = (Object*)&owner;
 
     // Set references
     SetReferences();
 
-    if (TRACE_CONSTRUCTOR) {
+    if (DCE_TRACE_COMPONENT_CONSTRUCTOR) {
       DCTrace << ObjectName << "::Component - Constructor - "
         << "Owner: '" << ObjectOwner->Name()
         << "'\n";
@@ -63,10 +63,10 @@ namespace DCEngine {
   Component::~Component()
   {
     if (DCE_TRACE_COMPONENT_DESTRUCTOR)
-      DCTrace << ObjectOwner->Name() << "::" << Name() 
-              << "::~Component - Destructor called! \n";
+      DCTrace << ObjectOwner->Name() << "::" << Name()
+      << "::~Component - Destructor called! \n";
     ComponentsDestroyed++;
-    
+
     // Deregister from all publishers
     for (auto publisher : ActiveDelegateHolders) {
       //publisher->Dis
@@ -98,8 +98,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Component::Serialize(Zilch::JsonBuilder & builder)
   {
-    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();    
-        
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+
     builder.Key(this->Name().c_str());
     builder.Begin(Zilch::JsonType::Object);
     SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
@@ -115,7 +115,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Component::Deserialize(Zilch::JsonValue * properties)
   {
-    if (TRACE_COMPONENT_INITIALIZE)
+    if (DCE_TRACE_COMPONENT_INITIALIZE)
       DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
@@ -152,7 +152,7 @@ namespace DCEngine {
       SpaceRef = dynamic_cast<Space*>(entity);
       GameSessionRef = SpaceRef->getGameSession();
     }
-      
+
     // If the owner is a 'GameSession' entity
     if (type == EntityType::GameSession) {
       SpaceRef = NULL;
@@ -160,7 +160,7 @@ namespace DCEngine {
     }
 
     auto a = GameSessionRef;
-      
+
   }
 
   /**************************************************************************/
@@ -170,9 +170,28 @@ namespace DCEngine {
   */
   /**************************************************************************/
   std::vector<Zilch::BoundType*> Component::AllComponents()
-  {    
+  {
     return Daisy->getSystem<Systems::Reflection>()->AllComponents();
   }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a Zilch::BoundType of the given component name.
+  @param  The name of the component.
+  @return A BoundType pointer.
+  */
+  /**************************************************************************/
+  Zilch::BoundType * Component::BoundType(std::string componentName)
+  {
+    for (auto componentType : AllComponents()) {
+      auto componentTypeName = std::string(componentType->Name.c_str());
+      if (componentTypeName == componentName) {
+        return componentType;
+      }
+    }
+    return nullptr;
+  }
+
 }
 
 

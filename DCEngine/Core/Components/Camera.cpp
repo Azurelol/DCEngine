@@ -39,8 +39,9 @@ namespace DCEngine {
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Camera, "Camera", DCEngineCore, builder, type) {
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, Camera, "owner", Entity&);
-      ZilchBindDestructor(builder, type, Camera);
+      //ZilchBindConstructor(builder, type, Camera, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, Camera);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Camera);
       // Properties
       //DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
       ZilchBindProperty(builder, type, &Camera::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");

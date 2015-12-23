@@ -18,6 +18,7 @@ namespace DCEngine {
   {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Reactive, "Reactive", DCEngineCore, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Reactive);
       DCE_BINDING_DEFINE_PROPERTY(Reactive, Active);
       DCE_BINDING_DEFINE_PROPERTY(Reactive, CaptureMouse);
       DCE_BINDING_DEFINE_PROPERTY(Reactive, Noise);

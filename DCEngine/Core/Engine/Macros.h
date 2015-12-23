@@ -33,22 +33,30 @@ namespace DCEngine {
     propertyName = value;                                                         \
   }
 
-
-#define DCE_BINDING_DECLARE_COMPONENT(COMP)   \
+  /*===================*
+  *     Binding       *
+  *===================*/
+  // This macro declares a component 
+#define DCE_DECLARE_COMPONENT(COMP)   \
   class COMP;                                   \
   class COMP : public Component  {              \
     public:                                     \
   ZilchDeclareDerivedType(COMP, Component)
 
-
   // This macro declares a derived type to Zilch
 #define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
     ZilchDeclareDerivedType(derivedClass, baseClass)  
 
+  // This macro defines a component to zilch
+#define DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(componentName)          \
+  ZilchBindConstructor(builder, type, componentName, "owner", Entity&);  \
+  ZilchBindDestructor(builder, type, componentName)
+  
   // This macro defines a property to Zilch
 #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
   auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
-
+  
+  
   // This macro defines a Zilch attribute
 #define DCE_BINDING_DEFINE_ATTRIBUTE(name) \
   Zilch::Attribute attribute##name; \

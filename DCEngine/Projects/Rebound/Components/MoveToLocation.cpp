@@ -23,6 +23,7 @@ namespace DCEngine {
     /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(MoveToLocation, "MoveToLocation", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(MoveToLocation);
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, Timer);
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, TargetLocation);
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, MoveToLocationTime);

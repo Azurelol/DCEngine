@@ -12,11 +12,12 @@
 #include "Entity.h"
 
 // Headers
-//#include "..\ComponentsInclude.h" // Entities need to know of componnets
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
 
-#include "../Engine/Engine.h" // noooo!
+#include "../Engine/Engine.h" 
+
+
 
 namespace DCEngine {
 
@@ -39,12 +40,15 @@ namespace DCEngine {
     if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
       DCTrace << Name() << "::~Entity - Destructor called! \n";
     // 1. Remove all components from the entity
+    // 1.A Factory-constructed components
     ComponentsContainer.clear();
+    // 1.B Zilch-constructed components
+    for (auto componentHandle : ComponentHandlesContainer)
+      componentHandle.Delete();
+    ComponentHandlesContainer.clear();
+
     // 2. Inform all observers of this entity's death
     InformObserversOfDeath();
-
-    /*for (auto component : ComponentsContainer)
-      RemoveComponent(component);*/
   }
 
   /**************************************************************************/
@@ -160,6 +164,7 @@ namespace DCEngine {
       return nullptr;
     }
 
+    #if (DCE_FACTORY_CONSTRUCT_COMPONENTS)
     auto Factory = Daisy->getSystem<Systems::Factory>();
     auto component = Factory->CreateComponentByName(name, *this);
 
@@ -168,7 +173,7 @@ namespace DCEngine {
       if (DCE_TRACE_COMPONENT_ADD)
         DCTrace << ObjectName << "::AddComponentByName - " << name << " could not be added!\n";
       return nullptr;
-    }    
+    }
 
     ComponentsContainer.emplace_back(std::move(component));
     if (DCE_TRACE_COMPONENT_ADD)
@@ -178,8 +183,20 @@ namespace DCEngine {
     if (initialize)
       ComponentsContainer.back().get()->Initialize();
 
-   // Returns a pointer to the just-added component
+    // Returns a pointer to the just-added component
     return ComponentsContainer.back().get();
+    #else    
+    auto componentHandle = Daisy->getSystem<Systems::Factory>()->CreateComponentByNameFromZilch(name, *this);
+    // Add the component to the container
+    ComponentHandlesContainer.push_back(componentHandle);
+    // Initialize the component if need be
+    auto componentPtr = reinterpret_cast<Component*>(componentHandle.Dereference());
+    if (initialize)
+      componentPtr->Initialize();
+    return componentPtr;
+    #endif
+
+
   }
 
   /**************************************************************************/
@@ -209,14 +226,19 @@ namespace DCEngine {
   */
   /**************************************************************************/
   bool Entity::HasComponent(std::string & name)
-  {
+  {    
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == name) {
-        //DCTrace << ObjectName << "::HasComponent - '" << name
-        //  << "' is already attached! \n";
         return true;
       }        
     }
+    for (auto& component : ComponentHandlesContainer) {
+      if (reinterpret_cast<Component*>(component.Dereference() )-> getObjectName() == name) {
+        return true;
+      }
+    }
+
+
    // DCTrace << ObjectName << "::HasComponent - '" << name
    //   << "' is not present. \n";
     return false;
@@ -231,6 +253,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::RemoveComponentByName(std::string  componentName)
   {
+    // Factory-owned components
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == componentName) {
         DCTrace << "Entity::RemoveComponentByName - Removing " << componentName <<  "\n";
@@ -242,6 +265,22 @@ namespace DCEngine {
         return;
       }
     }
+    // Zilch-owned components
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+      if (component->getObjectName() == componentName) {
+        DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
+        // Check for dependencies
+
+        // Ask Zilch to delete the component 
+        componentHandle.Delete();
+        // Remove it
+        std::swap(componentHandle, ComponentHandlesContainer.back());
+        ComponentHandlesContainer.pop_back();
+        return;
+      }
+    }
+
   }
 
   /**************************************************************************/
@@ -262,20 +301,37 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Returns a container of pointers to the components this entity owns.
+  @return A container of component pointers.
+  @todo   Perhaps just pass the container of handles since this means
+          this container is being constructed every frame.
+  */
+  /**************************************************************************/
+  ComponentVec Entity::AllComponents()
+  {
+    // Fill the container of pointers to the components that this entity owns
+    ComponentVec components;
+    for (auto componentHandle : ComponentHandlesContainer) {
+      components.push_back(reinterpret_cast<Component*>(componentHandle.Dereference()));
+    }
+    return components;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a reference to the container of all the components this
           Entity has.
   @return A reference to the container of all components.
   */
   /**************************************************************************/
-  ComponentStrongVec * Entity::AllComponents()
-  {
-    //ComponentVec componentsContainer;
-    //// Makes a copy of the container
-    //for (auto &component : ComponentsContainer) {
-    //  componentsContainer.push_back(component);
-    //}
-    return &ComponentsContainer;
-  }
+  //ComponentStrongVec * Entity::AllComponents()
+  //{
+  //  return &ComponentsContainer;
+  //}
+
+
+
+
   /**************************************************************************/
   /*!
   @brief  Informs all active observers of this entity's death. This allows

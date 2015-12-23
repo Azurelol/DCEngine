@@ -20,6 +20,7 @@ namespace DCEngine {
 /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(TutorialTextLogic, "TutorialTextLogic", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(TutorialTextLogic);
       DCE_BINDING_DEFINE_PROPERTY(TutorialTextLogic, Timer);
       DCE_BINDING_DEFINE_PROPERTY(TutorialTextLogic, Type);
     }

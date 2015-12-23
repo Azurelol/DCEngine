@@ -10,6 +10,7 @@ components, from serialized data.
 */
 /******************************************************************************/
 #include "Factory.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -84,7 +85,8 @@ namespace DCEngine {
 
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, *space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
-      gameObjPtr->AddComponent<Components::Transform>();
+      gameObjPtr->AddComponentByName(std::string("Transform"));
+      //gameObjPtr->AddComponent<Components::Transform>();
       // If the object needs to be initialized right away
       if (init)
         gameObjPtr->Initialize();
@@ -297,6 +299,32 @@ namespace DCEngine {
 
       DCTrace << "Factory::CreateComponentByName - Could not find the component: '" << name << "' \n";
       return nullptr;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a Component by a given name through Zilch
+    @param  name The name of the component.
+    @param  entity A reference to the entity.
+    @return Returns a component by strong pointer.
+    */
+    /**************************************************************************/
+    ComponentHandle Factory::CreateComponentByNameFromZilch(std::string & name, Entity & entity)
+    {      
+      auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
+      Zilch::ExceptionReport report;
+
+      // Get the component's BoundType
+      auto boundType = Component::BoundType(name);
+      // Allocate the component on the heap through Zilch
+      auto componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);      
+      // Call the component's constructor explicitly
+      Zilch::Call ctorCall(boundType->Constructors[0], state);
+      ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+      ctorCall.Set(0, entity);
+      ctorCall.Invoke(report);
+      // Return the handle to this component
+      return componentHandle;
     }
 
     /**************************************************************************/

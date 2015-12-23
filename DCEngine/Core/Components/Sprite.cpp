@@ -26,11 +26,11 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
       DCE_BINDING_DEFINE_ATTRIBUTE(SpriteSource);
-      DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
       //type->HandleManager = ZilchManagerId(Zilch::PointerManager);
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
-      ZilchBindDestructor(builder, type, Sprite);
+      //ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
+      //ZilchBindDestructor(builder, type, Sprite);
       // Properties
       ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
       ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
@@ -91,7 +91,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Sprite::Initialize() {
-      if (TRACE_COMPONENT_INITIALIZE)
+      if (DCE_TRACE_COMPONENT_INITIALIZE)
         DCTrace << Owner()->Name() << "::" << ObjectName << "::Initialize\n";
 
 

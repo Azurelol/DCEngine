@@ -43,9 +43,7 @@ namespace DCEngine {
       friend class CameraViewport;
     public:
 
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Camera, Component);
-#endif
 
       /* Property-methods */
       Real getFieldOfView() const;
