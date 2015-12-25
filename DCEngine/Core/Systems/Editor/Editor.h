@@ -174,6 +174,10 @@ namespace DCEngine {
       void WindowCommands();
       void Undo();
       void Redo();
+      void Cut();
+      void Copy();
+      void Paste();
+      void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
       void DuplicateObject();

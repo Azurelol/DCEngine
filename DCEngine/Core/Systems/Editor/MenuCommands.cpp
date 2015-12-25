@@ -29,7 +29,13 @@ namespace DCEngine {
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Commands", &WindowCommandsEnabled);
 
+      ImGui::TextColored(ImVec4(1, 0, 0, 1), "Current");
       for (auto& command : Settings.Commands.CommandsCurrent) {
+        ImGui::Text(command->CommandName.c_str());
+      }
+      ImGui::Separator();
+      ImGui::TextColored(ImVec4(1, 0, 0, 1), "Undo");
+      for (auto& command : Settings.Commands.CommandsUndo) {
         ImGui::Text(command->CommandName.c_str());
       }
 
@@ -44,6 +50,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Undo()
     {
+      // If undoing a creation, delesect the object
+      if (Settings.Commands.CommandsCurrent.empty()) // ew
+        return;
+      auto lastCommand = Settings.Commands.CommandsCurrent.back();
+      if (auto creationCommand = dynamic_cast<CommandObjectCreation*>(lastCommand.get()) ) {
+        if (SelectedObject == creationCommand->GameObjectRef)
+          SelectedObject = nullptr;
+      }
+
       Settings.Commands.Undo();
     }
 
@@ -55,6 +70,22 @@ namespace DCEngine {
     void Editor::Redo()
     {
       Settings.Commands.Redo();
+    }
+
+    void Editor::Cut()
+    {
+    }
+
+    void Editor::Copy()
+    {
+    }
+
+    void Editor::Paste()
+    {
+    }
+
+    void Editor::Duplicate()
+    {
     }
 
     /**************************************************************************/

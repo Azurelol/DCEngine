@@ -9,6 +9,8 @@
 /******************************************************************************/
 #include "Editor.h"
 
+#include "../../Engine/Engine.h"
+
 namespace DCEngine {
   namespace Systems {
 
@@ -112,6 +114,36 @@ namespace DCEngine {
 
       case Keys::Tilde:
         WindowConsoleEnabled = !WindowConsoleEnabled;
+        break;
+
+      case Keys::Z:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Undo();
+        break;
+
+      case Keys::Y:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Redo();
+        break;
+
+      case Keys::X:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Cut();
+        break;
+
+      case Keys::C:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Copy();
+        break;
+
+      case Keys::V:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Paste();
+        break;
+
+      case Keys::D:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          Duplicate();
         break;
 
       case Keys::F5:        

@@ -35,6 +35,8 @@ namespace DCEngine {
     Reflection,
     Editor,
     GUI,
+    Keyboard,
+    Mouse,
 
     // The amount of systems
     Capacity

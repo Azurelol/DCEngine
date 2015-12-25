@@ -87,6 +87,22 @@ namespace DCEngine {
       case sf::Keyboard::Tab:
         keyDown->Key = Keys::Tab;
         break;
+      case sf::Keyboard::LControl:
+        keyDown->Key = Keys::LControl;
+        KeyboardRef->KeyDown_LControl = true;
+        break;
+      case sf::Keyboard::RControl:
+        keyDown->Key = Keys::RControl;
+        KeyboardRef->KeyDown_RControl = true;
+        break;
+      case sf::Keyboard::LShift:
+        keyDown->Key = Keys::LShift;
+        KeyboardRef->KeyDown_LShift = true;
+        break;
+      case sf::Keyboard::RShift:
+        keyDown->Key = Keys::RShift;
+        KeyboardRef->KeyDown_RShift = true;
+        break;
       case sf::Keyboard::F1:
         keyDown->Key = Keys::F1;
         break;
@@ -349,6 +365,31 @@ namespace DCEngine {
         break;
       case sf::Keyboard::Tab:
         keyUp->Key = Keys::Tab;
+        break;
+      case sf::Keyboard::Delete:
+        keyUp->Key = Keys::Delete;
+        break;
+      case sf::Keyboard::BackSpace:
+        keyUp->Key = Keys::Backspace;
+        break;
+      case sf::Keyboard::Return:
+        keyUp->Key = Keys::Return;
+        break;
+      case sf::Keyboard::LControl:
+        keyUp->Key = Keys::LControl;
+        KeyboardRef->KeyDown_LControl = false;
+        break;
+      case sf::Keyboard::RControl:
+        keyUp->Key = Keys::RControl;
+        KeyboardRef->KeyDown_RControl = false;
+        break;
+      case sf::Keyboard::LShift:
+        keyUp->Key = Keys::LShift;
+        KeyboardRef->KeyDown_LShift = false;
+        break;
+      case sf::Keyboard::RShift:
+        keyUp->Key = Keys::RShift;
+        KeyboardRef->KeyDown_RShift = false;
         break;
       case sf::Keyboard::F1:
         keyUp->Key = Keys::F1;

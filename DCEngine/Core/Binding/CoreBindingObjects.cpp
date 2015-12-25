@@ -86,14 +86,14 @@ namespace DCEngine {
   /*!************************************************************************\
   @brief  Keyboard Definition
   \**************************************************************************/
-  ZilchDefineType(Keyboard, "Keyboard", DCEngineCore, builder, type) {
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, Keyboard, ZilchNoNames);
-    ZilchBindDestructor(builder, type, Keyboard);
-    // Methods
-    //ZilchBindMethod(builder, type, &Keyboard::KeyIsDown, ZilchNoOverload, "KeyIsDown", Keys);
-    //ZilchBindMethod(builder, type, &Keyboard::KeyIsUp, ZilchNoOverload, "KeyIsUp", Keys);
-  }
+  //ZilchDefineType(Keyboard, "Keyboard", DCEngineCore, builder, type) {
+  //  // Constructor / Destructor
+  //  ZilchBindConstructor(builder, type, Keyboard, ZilchNoNames);
+  //  ZilchBindDestructor(builder, type, Keyboard);
+  //  // Methods
+  //  //ZilchBindMethod(builder, type, &Keyboard::KeyIsDown, ZilchNoOverload, "KeyIsDown", Keys);
+  //  //ZilchBindMethod(builder, type, &Keyboard::KeyIsUp, ZilchNoOverload, "KeyIsUp", Keys);
+  //}
 
   /*!************************************************************************\
   @brief  Mouse Definition

@@ -33,6 +33,12 @@ namespace DCEngine {
       SelectedObject = transform;
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(transform);
+
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
+                                          CommandObjectCreation::Setting::Create));
+      Settings.Commands.Add(command);
+
     }
 
     /**************************************************************************/
@@ -50,12 +56,15 @@ namespace DCEngine {
       sprite->setObjectName("Sprite");
       // Add the Sprite component
       sprite->AddComponentByName(std::string("Sprite"), true);
-      //sprite->AddComponent<Components::Sprite>(true);
-      //sprite->AddComponent<Sprite>();
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
       SelectedObject = sprite;
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(sprite);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
+                                    CommandObjectCreation::Setting::Create));
+      Settings.Commands.Add(command);
+
     }
 
     /**************************************************************************/
@@ -71,6 +80,10 @@ namespace DCEngine {
       SelectedObject = gameObject;
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(gameObject);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace,
+                                    CommandObjectCreation::Setting::Create));
+      Settings.Commands.Add(command);
     }
 
     /**************************************************************************/

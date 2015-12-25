@@ -81,7 +81,7 @@ namespace DCEngine {
     // Redo the last 'Undo' command
     CommandsUndo.back()->Execute();
     // Move it to the 'Current' command stack
-    CommandsCurrent.push_back(CommandsCurrent.back());
+    CommandsCurrent.push_back(CommandsUndo.back());
     // Remove it from the 'Undo' command stack
     CommandsUndo.pop_back();
 
@@ -99,7 +99,7 @@ namespace DCEngine {
   @brief  CommandObjectCreation constructor.
   */
   /**************************************************************************/
-  CommandObjectCreation::CommandObjectCreation(GameObject * object, Space* space, Setting setting) : Command("Delete Object - " + object->Name()),
+  CommandObjectCreation::CommandObjectCreation(GameObject * object, Space* space, Setting setting) : Command("Creation - " + object->Name()),
                                                                                 GameObjectRef(object), SpaceRef(space), CurrentSetting(setting)
   {    
     // Save the data of the selected GameObject
