@@ -106,9 +106,14 @@ namespace DCEngine {
     SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType);
     // Serialize all of its components
     builder.Key("Components");
-    builder.Begin(Zilch::JsonType::Object);            
+    builder.Begin(Zilch::JsonType::Object);           
+    // Factory-created components
     for (auto& component : ComponentsContainer) {
       component->Serialize(builder);
+    }
+    // Zilch-created components
+    for (auto& component : ComponentHandlesContainer) {
+      reinterpret_cast<Component*>(component.Dereference())->Serialize(builder);
     }
     builder.End();
 

@@ -305,7 +305,7 @@ namespace DCEngine {
 
     void Content::ScanForArchetypes()
     {
-      ScanForArchetypes(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath + "Archetypes/");
+      ScanForArchetypes(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
     }
 
     void Content::ScanForSpriteSources()

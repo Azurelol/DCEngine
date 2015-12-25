@@ -18,6 +18,47 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Displays the Command stack.
+    */
+    /**************************************************************************/
+    void Editor::WindowCommands()
+    {
+      if (!WindowCommandsEnabled)
+        return;
+
+      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
+      ImGui::Begin("Commands", &WindowCommandsEnabled);
+
+      for (auto& command : Settings.Commands.CommandsCurrent) {
+        ImGui::Text(command->CommandName.c_str());
+      }
+
+      ImGui::End();
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Undoes the last command.
+    */
+    /**************************************************************************/
+    void Editor::Undo()
+    {
+      Settings.Commands.Undo();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Redoes the last command.
+    */
+    /**************************************************************************/
+    void Editor::Redo()
+    {
+      Settings.Commands.Redo();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Deletes the currently selected GameObject.
     @todo   
     */
@@ -49,7 +90,14 @@ namespace DCEngine {
 
       // Destroy the currently selected GameObject
       if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-        gameObject->Destroy();
+        // Save the command
+        auto deleteCommand = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace, 
+                                            CommandObjectCreation::Setting::Destroy));
+        deleteCommand->Execute();
+        Settings.Commands.Add(deleteCommand);
+
+        // Destroy the object
+        //gameObject->Destroy();
         DCTrace << "Editor::DeleteObject - Deleting gameobject: " << SelectedObject->Name() << "\n";
         SelectedObject = nullptr;        
       }

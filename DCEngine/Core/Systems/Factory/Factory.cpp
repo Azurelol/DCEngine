@@ -254,6 +254,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Builds an Archetype.
+    @param  archetype The name of the Archetype.
     @param  gameObj A pointer to the GameObject.
     @return A pointer to the Archetype resource.
     */

@@ -275,6 +275,7 @@
     <ClCompile Include="Core\Components\Transform.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
+    <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
@@ -323,7 +324,7 @@
     <ClCompile Include="Core\Systems\Editor\Library.cpp" />
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
-    <ClCompile Include="Core\Systems\Editor\MenuEdit.cpp" />
+    <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
@@ -427,7 +428,7 @@
     <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\ActionList.h" />
-    <ClInclude Include="Core\Engine\Archetype.h" />
+    <ClInclude Include="Core\Engine\Command.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />

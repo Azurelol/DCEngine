@@ -247,6 +247,9 @@
     <Filter Include="Core\Resources\Scripting">
       <UniqueIdentifier>{90909f29-5786-4d35-8ae1-5ac55384b5f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Command">
+      <UniqueIdentifier>{41cd794e-1564-4637-b9d4-f5602c29e4ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -504,9 +507,6 @@
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuEdit.cpp">
-      <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
@@ -666,6 +666,12 @@
     <ClCompile Include="Core\Objects\Components\ZilchComponent.cpp">
       <Filter>Core\Object\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Command.cpp">
+      <Filter>Core\Engine\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -682,9 +688,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\SystemsInclude.h">
       <Filter>Core\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Archetype.h">
-      <Filter>Core\Engine\Archetype</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Action.h">
       <Filter>Core\Engine\Action</Filter>
@@ -1153,6 +1156,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\PhysicsMaterial.h">
       <Filter>Core\Resources\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Command.h">
+      <Filter>Core\Engine\Command</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

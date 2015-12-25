@@ -51,8 +51,8 @@ namespace DCEngine {
 
         // Edit
         if (ImGui::BeginMenu("Edit")) {
-          if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
-          if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+          if (ImGui::MenuItem("Undo", "CTRL+Z")) { Undo(); }
+          if (ImGui::MenuItem("Redo", "CTRL+Y")) { Redo(); } 
           ImGui::Separator();
           if (ImGui::MenuItem("Cut", "CTRL+X")) {}
           if (ImGui::MenuItem("Copy", "CTRL+C")) {}
@@ -136,7 +136,9 @@ namespace DCEngine {
             WindowToolsEnabled = !WindowToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
             WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
-          if (ImGui::MenuItem("Console"))
+          if (ImGui::MenuItem("Commands"))
+            WindowCommandsEnabled = !WindowCommandsEnabled;
+          if (ImGui::MenuItem("Console", "~"))
             WindowConsoleEnabled = !WindowConsoleEnabled;
 		  ImGui::Separator();
 		  if (ImGui::MenuItem("Full Screen/Window mode"))

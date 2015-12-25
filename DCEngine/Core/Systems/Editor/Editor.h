@@ -11,10 +11,14 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+
 #include "../../Engine/Data.h"
+#include "../../Engine/Command.h"
+
 #include "../../Objects/Object.h"
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
+
 
 namespace DCEngine {
   
@@ -37,14 +41,13 @@ namespace DCEngine {
     bool Snapping = true;
     float SnapDistance = 1.0;
     float SnapAngle = 15;
-
+    // Dragging
     bool Dragging = false;
     bool Panning = false;
     Vec3 CamStartPos;
     Vec3 MouseStartPos;
-    //Vec2 Mouse
-    //Vec2 PositionRecord;
-
+    // Commands
+    CommandManager Commands;
   };
 
   namespace Systems {
@@ -90,6 +93,7 @@ namespace DCEngine {
       bool WindowToolsEnabled = false;
       bool WindowCreateFromArchetypeEnabled = false;   
       bool WindowCollisionTableEditorEnabled = false;
+      bool WindowCommandsEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObjectPtr EditorCamera;
@@ -160,15 +164,16 @@ namespace DCEngine {
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
       ResourcePtr CreateZilchScript(std::string& name);      
       template <typename ResourceMap>
-      void SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
-      
+      void SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);      
       void WindowCollisionTableEditor();
       ResourcePtr SelectedCollisionTable;
-
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();
       // Object Selection
+      void WindowCommands();
+      void Undo();
+      void Redo();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
       void DuplicateObject();

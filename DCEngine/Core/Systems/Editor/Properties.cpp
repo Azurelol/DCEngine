@@ -410,25 +410,7 @@ namespace DCEngine {
     }
 
 
-    /**************************************************************************/
-    /*!
-    @brief  Saves a GameObject's configuration into an Archetype to file.
-    @todo   Refactor how the path is pulled.
-    */
-    /**************************************************************************/
-    void Editor::SaveArchetype(std::string& archetype)
-    {
-      // Get the current project's archetype path
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
-        + archetype + Archetype::Extension();
 
-      Daisy->getSystem<Factory>()->BuildArchetype(path,
-                                                  dynamic_cast<GameObjectPtr>(SelectedObject));
-      // Upload the latest archetype
-      
-      // Scan for archetypes again
-      Daisy->getSystem<Content>()->ScanForArchetypes();
-    }
 
     /**************************************************************************/
     /*!
