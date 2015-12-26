@@ -40,7 +40,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Show Project Folder"))
             ShowProjectFolder();
           ImGui::Separator();
-          if (ImGui::MenuItem("Play Game"))
+          if (ImGui::MenuItem("Play Game", "F5"))
             PlayGame();
           if (ImGui::MenuItem("Stop Game"))
             StopGame();
@@ -54,16 +54,12 @@ namespace DCEngine {
           if (ImGui::MenuItem("Undo", "CTRL+Z")) { Undo(); }
           if (ImGui::MenuItem("Redo", "CTRL+Y")) { Redo(); } 
           ImGui::Separator();
-          if (ImGui::MenuItem("Cut", "CTRL+X")) {}
-          if (ImGui::MenuItem("Copy", "CTRL+C")) {}
-          if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+          if (ImGui::MenuItem("Cut", "CTRL+X")) { Cut(); }
+          if (ImGui::MenuItem("Copy", "CTRL+C")) { Copy(); }
+          if (ImGui::MenuItem("Paste", "CTRL+V")) { Paste(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Duplicate", "CTRL+D")) {
-            DuplicateObject();
-          }
-          if (ImGui::MenuItem("Delete", "Del")) {
-            DeleteObject();
-          }
+          if (ImGui::MenuItem("Duplicate", "CTRL+D")) { Duplicate(); }
+          if (ImGui::MenuItem("Delete", "Del")) { DeleteObject(); }
           ImGui::EndMenu();
         }
 
@@ -87,27 +83,26 @@ namespace DCEngine {
 
         // Select
         if (ImGui::BeginMenu("Select")) {
-          if (ImGui::MenuItem("Previous Selection")) {}
-          if (ImGui::MenuItem("Next Selection")) {}
+          if (ImGui::MenuItem("Previous Selection", false)) {}
+          if (ImGui::MenuItem("Next Selection", false)) {}
           ImGui::Separator();
-          if (ImGui::MenuItem("Select None")) {};
-          if (ImGui::MenuItem("Select All")) {};
+          if (ImGui::MenuItem("Select None", false)) {};
+          if (ImGui::MenuItem("Select All", false)) {};
           ImGui::Separator();
           if (ImGui::MenuItem("Center Selected", "F")) {};
-          if (ImGui::MenuItem("Frame Selected")) {};
+          if (ImGui::MenuItem("Frame Selected", false)) {};
           ImGui::Separator();
-          if (ImGui::MenuItem("Group Selected")) {};
+          if (ImGui::MenuItem("Group Selected", false)) {};
           ImGui::Separator();
-          if (ImGui::MenuItem("Select Space", "Shift+S"))
-            SelectSpace();
-          if (ImGui::MenuItem("Select Game")) {};
+          if (ImGui::MenuItem("Select Space", "Shift+S")) SelectSpace();
+          if (ImGui::MenuItem("Select Game", "Shift+G")) {};
           ImGui::EndMenu();
         }
 
 
         // Resources
         if (ImGui::BeginMenu("Resources")) {
-          if (ImGui::MenuItem("Add")) {
+          if (ImGui::MenuItem("Add", "Ctrl+N")) {
             WindowAddResourceEnabled = !WindowAddResourceEnabled;
           }
           ImGui::Separator();

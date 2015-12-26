@@ -126,6 +126,23 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Center the editor camera on the selected object.
+    */
+    /**************************************************************************/
+    void Editor::CenterSelected()
+    {
+      if (!SelectedObject)
+        return;
+
+      // Translate the camera to be centered on the object.
+      auto& objectPos = dynamic_cast<GameObjectPtr>(SelectedObject)
+                       ->getComponent<Components::Transform>()->getTranslation();
+      auto& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
+      EditorCamera->getComponent<Components::Transform>()->setTranslation(Vec3(objectPos.x, objectPos.y, cameraPos.z));
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Drags the object
     @param  The mouse's current position.
     */

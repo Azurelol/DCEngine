@@ -549,9 +549,6 @@
     <ClCompile Include="Core\Components\EditorCameraController.cpp">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp">
-      <Filter>Core\Systems\Editor\Select</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Properties.cpp">
       <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
@@ -670,6 +667,9 @@
       <Filter>Core\Engine\Command</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
   </ItemGroup>

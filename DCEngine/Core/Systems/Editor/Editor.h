@@ -150,6 +150,7 @@ namespace DCEngine {
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
       void SelectSpace();
+      void CenterSelected();
       void DragObject(Vec2);
       void ReleaseObject();
       // Resources

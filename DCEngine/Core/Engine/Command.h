@@ -27,6 +27,10 @@ namespace DCEngine {
   };
   using CommandPtr = std::shared_ptr<Command>;
 
+  // Forward declarations
+  class GameObject;
+  class Space;
+  class Archetype;
   /*===================*
   *     Manager       *
   *===================*/
@@ -35,17 +39,21 @@ namespace DCEngine {
     CommandManager();
     void Add(CommandPtr command);
     void Undo();
-    void Redo();    
+    void Redo();
 
-    unsigned int Maximum;
+    void Copy(GameObject*);
+    void Paste(Space*);
+        
     std::deque<CommandPtr> CommandsCurrent;
     std::deque<CommandPtr> CommandsUndo;
+
+  private:
+    unsigned int Maximum;
+    ArchetypePtr ObjectCopyData;
   };
 
 
-  class GameObject;
-  class Space;
-  class Archetype;
+
 
   /*===================*
   *     Creation    *
@@ -58,14 +66,28 @@ namespace DCEngine {
       Destroy,
     };
 
-    CommandObjectCreation(GameObject* gameObject, Space* space, Setting setting);
+    CommandObjectCreation(GameObject* gameObject, Space* space, Setting setting);    
+    CommandObjectCreation(ArchetypePtr copyData, Space* space);
     void Undo();
     void Execute();
 
+    
     void Create();
     void Destroy();
+    void Copy();
 
     Setting CurrentSetting;
+    GameObject* GameObjectRef;
+    Space* SpaceRef;
+    ArchetypePtr GameObjectData;
+  };  
+
+  class ObjectCopy {
+  public:
+    void Set(GameObject* gameObject, Space* space);
+    void Duplicate();
+
+  private:
     GameObject* GameObjectRef;
     Space* SpaceRef;
     ArchetypePtr GameObjectData;

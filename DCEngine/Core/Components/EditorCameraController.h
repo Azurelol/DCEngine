@@ -27,6 +27,7 @@ namespace DCEngine {
       Real MoveSpeed = 3;
       Real RotSpeed = 15;
       Real ZoomSpeed = 10;
+      Boolean MoveByKey = false;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, RotSpeed);

@@ -60,6 +60,8 @@ namespace DCEngine {
       }
 
       Settings.Commands.Undo();
+
+      DCTrace << "Editor::Undo \n";
     }
 
     /**************************************************************************/
@@ -70,22 +72,53 @@ namespace DCEngine {
     void Editor::Redo()
     {
       Settings.Commands.Redo();
+      DCTrace << "Editor::Redo \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Makes a 'Cut' of the selected object. (Copy/Deletion)
+    */
+    /**************************************************************************/
     void Editor::Cut()
     {
+      Settings.Commands.Copy( dynamic_cast<GameObjectPtr>(SelectedObject));
+      DeleteObject();
+      DCTrace << "Editor::Cut \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Makes a Copy of the selected object.
+    */
+    /**************************************************************************/
     void Editor::Copy()
     {
+      Settings.Commands.Copy(dynamic_cast<GameObjectPtr>(SelectedObject));
+      DCTrace << "Editor::Copy \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Recreates the last copied object.
+    */
+    /**************************************************************************/
     void Editor::Paste()
     {
+      Settings.Commands.Paste(CurrentSpace);
+      DCTrace << "Editor::Paste \n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Makes a 'Duplicate' of the selected object. (Copy/Paste)
+    */
+    /**************************************************************************/
     void Editor::Duplicate()
     {
+      Settings.Commands.Copy(dynamic_cast<GameObjectPtr>(SelectedObject));      
+      Settings.Commands.Paste(CurrentSpace);
+      DCTrace << "Editor::Duplicate \n";
     }
 
     /**************************************************************************/
@@ -161,16 +194,6 @@ namespace DCEngine {
 
     }
 
-
-    /**************************************************************************/
-    /*!
-    @brief  Duplicates the currently selected GameObject.
-    */
-    /**************************************************************************/
-    void Editor::DuplicateObject()
-    {
-      DCTrace << "Editor::DuplicateObject - " << SelectedObject->Name() << "\n";
-    }
 
 
 

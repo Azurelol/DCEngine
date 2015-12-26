@@ -318,7 +318,7 @@
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
-    <ClCompile Include="Core\Systems\Editor\EditorSelect.cpp" />
+    <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp" />
     <ClCompile Include="Core\Systems\Editor\Library.cpp" />

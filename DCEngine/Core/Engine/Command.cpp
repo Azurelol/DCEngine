@@ -26,7 +26,7 @@ namespace DCEngine {
   @brief  CommandManager constructor
   */
   /**************************************************************************/
-  CommandManager::CommandManager() : Maximum(10)
+  CommandManager::CommandManager() : Maximum(10), ObjectCopyData(nullptr)
   {
   }
 
@@ -90,6 +90,23 @@ namespace DCEngine {
       CommandsCurrent.pop_front();
   }
 
+  void CommandManager::Copy(GameObject * gameObject)
+  {
+    auto copyName = gameObject->Name() + " Copy";
+    ObjectCopyData = Daisy->getSystem<Systems::Factory>()->BuildArchetype(copyName, gameObject);
+  }
+
+  void CommandManager::Paste(Space * space)
+  {
+    if (ObjectCopyData) {
+      auto createCommand = CommandPtr(new CommandObjectCreation(ObjectCopyData, space));
+      // Recreate the object on the current space
+      createCommand->Execute();
+      // Add this command to the stack
+      Add(createCommand);
+    }
+  }
+
 
   /*===================*
   *     Creation       *
@@ -99,12 +116,19 @@ namespace DCEngine {
   @brief  CommandObjectCreation constructor.
   */
   /**************************************************************************/
-  CommandObjectCreation::CommandObjectCreation(GameObject * object, Space* space, Setting setting) : Command("Creation - " + object->Name()),
-                                                                                GameObjectRef(object), SpaceRef(space), CurrentSetting(setting)
+  CommandObjectCreation::CommandObjectCreation(GameObject * object, Space* space, Setting setting) 
+                                               : Command("Creation - " + object->Name()), 
+                                                 GameObjectRef(object), SpaceRef(space), CurrentSetting(setting)
   {    
     // Save the data of the selected GameObject
-    GameObjectData = Daisy->getSystem<Systems::Factory>()->BuildArchetype("object", GameObjectRef);
-    DCTrace << "CommandObjectDelete - GameObject: " << object->Name() << "\n";
+    Copy();
+    DCTrace << "CommandObjectCreation - GameObject: " << object->Name() << "\n";
+  }
+
+  CommandObjectCreation::CommandObjectCreation(ArchetypePtr copyData, Space * space) 
+                                               : Command("Creation - " + copyData->Name()),
+                                                 GameObjectData(copyData), SpaceRef(space), CurrentSetting(Setting::Create)
+  {
   }
 
   /**************************************************************************/
@@ -149,6 +173,8 @@ namespace DCEngine {
     }
   }
 
+
+
   /**************************************************************************/
   /*!
   @brief (Re)creates the GameObject.
@@ -175,6 +201,15 @@ namespace DCEngine {
 
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Copies the GameObject's data into an Archeteype.
+  */
+  /**************************************************************************/
+  void CommandObjectCreation::Copy()
+  {
+    GameObjectData = Daisy->getSystem<Systems::Factory>()->BuildArchetype("object", GameObjectRef);
+  }
 
   /*===================*
   *     Transform     *

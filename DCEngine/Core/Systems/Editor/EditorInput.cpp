@@ -146,6 +146,15 @@ namespace DCEngine {
           Duplicate();
         break;
 
+      case Keys::F:
+        CenterSelected();
+        break;
+
+      case Keys::N:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          WindowAddResourceEnabled = true;
+        break;
+
       case Keys::F5:        
         PlayGame();
         break;
