@@ -21,7 +21,6 @@
 #include "Components\CameraViewport.h"
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
-#include "Components\EditorCameraController.h"
 #include "Components\Reactive.h"
 // Audio
 #include "Components\SoundEmitter.h"
@@ -44,9 +43,11 @@
 #include "Components\DebugCollider.h"
 #include "Components\DebugAudio.h"
 #include "Components\DebugFade.h"
-
-/* Project Components */
+// Project Components
 #include "../Projects/ProjectComponents.h"
+// Editor
+#include "Components\EditorCameraController.h"
+#include "Components\TransformTool.h"
 
 namespace DCEngine {
   

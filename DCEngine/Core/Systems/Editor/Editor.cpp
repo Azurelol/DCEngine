@@ -158,7 +158,7 @@ namespace DCEngine {
         DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);
-        SelectedObject = nullptr;
+        Deselect();
         // Ask the space to reload the level
         CurrentSpace->ReloadLevel();
       }

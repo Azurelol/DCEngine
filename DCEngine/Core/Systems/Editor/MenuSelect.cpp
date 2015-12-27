@@ -110,7 +110,16 @@ namespace DCEngine {
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
       WindowPropertiesEnabled = true;
-      SelectedObject = obj;
+      SelectedObject = obj;      
+      EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
+    }
+
+    void Editor::Deselect()
+    {
+      DCTrace << "Editor::Deselect \n";
+      SelectedObject = nullptr;
+      if (EditorCamera)
+        EditorCamera->getComponent<Components::TransformTool>()->Deselect();
     }
 
     /**************************************************************************/

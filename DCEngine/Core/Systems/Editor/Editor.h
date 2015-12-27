@@ -96,7 +96,8 @@ namespace DCEngine {
       bool WindowCommandsEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
-      GameObjectPtr EditorCamera;
+      GameObjectPtr EditorCamera = nullptr;
+      GameObjectPtr TransformTool = nullptr;
       Object* SelectedObject = nullptr;      
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
@@ -149,6 +150,7 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
+      void Deselect();
       void SelectSpace();
       void CenterSelected();
       void DragObject(Vec2);

@@ -16,25 +16,23 @@ namespace DCEngine {
 
     class LogicUpdate : public Event {
     public:
-      LogicUpdate() {}
-
       float Dt;
       float TimePassed;
       float RealTimePassed;
+    };
 
-
+    class FrameUpdate : public Event {
+    public:
+      float Dt;
+      float TimePassed;
+      float RealTimePassed;
     };
 
     class PhysicsUpdate : public Event {
     public:
-      PhysicsUpdate() {}
-
       float Dt;
       float TimePassed;
       float RealTimePassed;
-
-
-    private:
 
     };
 

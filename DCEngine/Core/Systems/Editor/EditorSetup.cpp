@@ -51,6 +51,7 @@ namespace DCEngine {
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
         editorCamera->AddComponent<Components::Camera>(true);
         editorCamera->AddComponent<Components::EditorCameraController>(true);
+        editorCamera->AddComponent<Components::TransformTool>(true);
         editorCamera->AddComponent<Components::DebugAudio>(true);
         // Camera properties      
         editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
@@ -74,13 +75,14 @@ namespace DCEngine {
         CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
-		if (editorCamera)
-		{
-			editorCamera->Destroy();
-		}
-	        EditorCamera = nullptr;
+
+        if (editorCamera)
+        {
+          editorCamera->Destroy();
+        }
+        EditorCamera = nullptr;
       }
-      SelectedObject = nullptr;
+      Deselect();
     }
 
     /**************************************************************************/

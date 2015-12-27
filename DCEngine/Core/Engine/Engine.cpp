@@ -252,7 +252,7 @@ namespace DCEngine {
     getSystem<Systems::GUI>()->StartFrame();
 
     // Dispatch the 'LogicUpdate' event
-    DispatchLogicUpdateEvent(dt);
+    DispatchUpdateEvents(dt);
 
     // Update all the sytems at the end of the frame, based on the order
     // they were added to the engine. (Or split it and do it individually?)
@@ -277,31 +277,34 @@ namespace DCEngine {
           its spaces.
   */
   /**************************************************************************/
-  void Engine::DispatchLogicUpdateEvent(float dt)
+  void Engine::DispatchUpdateEvents(float dt)
   {
-    if (Paused)
-      return;
+    //if (Paused)
+    //  return;
 
     // Construct the update event and assign it the engine's dt
     auto logicUpdateEvent = new Events::LogicUpdate();
+    auto frameUpdateEvent = new Events::FrameUpdate();
     logicUpdateEvent->Dt = dt;
+    frameUpdateEvent->Dt = dt;
     // Dispatch the logic update event to the gamesession
     CurrentGameSession->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
+    CurrentGameSession->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
     // Dispatch the logic update event to all active spaces
     for (auto space : CurrentGameSession->ActiveSpaces) {
-      // Do not dispatch the 'LogicUpdate' event if the space is paused
-      if (space.second->getComponent<Components::TimeSpace>()->getPaused())
+      // Always dispatch the 'FrameUpdate' event
+      space.second->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
+      // Do not dispatch the 'LogicUpdate' event if the space is paused or the engine is paused
+      if (space.second->getComponent<Components::TimeSpace>()->getPaused() || Paused)
         continue;
-
       space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     }      
     // Delete the event
     delete logicUpdateEvent;
+    delete frameUpdateEvent;
 
   }
-
-
-
+  
   /**************************************************************************/
   /*!
   \brief Loads the project, using serialization to load all the project data.

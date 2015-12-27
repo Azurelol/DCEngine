@@ -98,7 +98,7 @@ namespace DCEngine {
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
     void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
-    void DispatchLogicUpdateEvent(float dt);
+    void DispatchUpdateEvents(float dt);    
 
   }; // Engine. Template definitions are found below.
 

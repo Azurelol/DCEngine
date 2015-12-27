@@ -32,7 +32,7 @@ namespace DCEngine {
 
       // Query the Content system for the Level resource 
       auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
-      SelectedObject = nullptr;
+      Deselect();
 
       if (levelPtr == nullptr) {
         DCTrace << "Editor::LoadLevel - Could not find " << level << "\n";
@@ -92,7 +92,7 @@ namespace DCEngine {
       // Reload the editor camera
       SetEditorCamera(true);
       // Clear the currently selected object
-      SelectedObject = nullptr;
+      Deselect();
       // Eh?
       return true;
     }

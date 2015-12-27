@@ -18,12 +18,12 @@ namespace DCEngine {
   namespace Components
   {
     /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(EditorCameraController, "EditorCameraController", DCEngineCore, builder, type) {
       // Constructor / Destructor
       //ZilchBindConstructor(builder, type, EditorCameraController, "owner", Entity&);
@@ -34,7 +34,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, RotSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomSpeed);
     }
-#endif
+    #endif
 
 
     /**************************************************************************/

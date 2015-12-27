@@ -30,10 +30,17 @@ namespace DCEngine {
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);
 
-        // If the 'Select' tool is active, attempt to pick it
-        if (ActiveTool == EditorTool::Select) {
+        // If an object was found at that position, select it
+        if (gameObject)
           SelectObjectFromSpace(gameObject);
-        }
+        // If no object was found, deselect
+        else
+          Deselect();
+
+        // If the 'Select' tool is active, attempt to pick it
+        //if (ActiveTool == EditorTool::Select) {
+          
+        //}
         // If the 'Translate' tool is active...
         if (ActiveTool == EditorTool::Translate) {
           // And a valid GameObject was selected, start dragging it
@@ -172,23 +179,23 @@ namespace DCEngine {
         ActiveTool = EditorTool::Select;
         break;
 
-      case Keys::Num2:
-        if (DCE_EDITOR_TRACE_TOOLS)
-          DCTrace << "Editor::TranslateTool \n";
-        ActiveTool = EditorTool::Translate;
-        break;
+      //case Keys::Num2:
+      //  if (DCE_EDITOR_TRACE_TOOLS)
+      //    DCTrace << "Editor::TranslateTool \n";
+      //  ActiveTool = EditorTool::Translate;
+      //  break;
 
-      case Keys::Num3:
-        if (DCE_EDITOR_TRACE_TOOLS)
-          DCTrace << "Editor::RotateTool \n";
-        ActiveTool = EditorTool::Rotate;
-        break;
+      //case Keys::Num3:
+      //  if (DCE_EDITOR_TRACE_TOOLS)
+      //    DCTrace << "Editor::RotateTool \n";
+      //  ActiveTool = EditorTool::Rotate;
+      //  break;
 
-      case Keys::Num4:
-        if (DCE_EDITOR_TRACE_TOOLS)
-          DCTrace << "Editor::ScaleTool \n";
-        ActiveTool = EditorTool::Scale;
-        break;
+      //case Keys::Num4:
+      //  if (DCE_EDITOR_TRACE_TOOLS)
+      //    DCTrace << "Editor::ScaleTool \n";
+      //  ActiveTool = EditorTool::Scale;
+      //  break;
 
       case Keys::Delete:
         DeleteObject();

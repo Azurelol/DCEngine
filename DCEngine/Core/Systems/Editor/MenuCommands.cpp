@@ -56,7 +56,7 @@ namespace DCEngine {
       auto lastCommand = Settings.Commands.CommandsCurrent.back();
       if (auto creationCommand = dynamic_cast<CommandObjectCreation*>(lastCommand.get()) ) {
         if (SelectedObject == creationCommand->GameObjectRef)
-          SelectedObject = nullptr;
+          Deselect();
       }
 
       Settings.Commands.Undo();
@@ -163,13 +163,13 @@ namespace DCEngine {
         // Destroy the object
         //gameObject->Destroy();
         DCTrace << "Editor::DeleteObject - Deleting gameobject: " << SelectedObject->Name() << "\n";
-        SelectedObject = nullptr;        
+        Deselect();
       }
 
       // Destroy the currently selected Resource
       if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {               
         DeleteResource(resource);
-        SelectedObject = nullptr;
+        Deselect();
       }
 
       // Turn off the Properties window

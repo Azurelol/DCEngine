@@ -71,10 +71,13 @@ namespace DCEngine {
     ZilchInitializeType(Components::Sprite);
     ZilchInitializeType(Components::SpriteText);
     ZilchInitializeType(Components::Camera);
-    ZilchInitializeType(Components::EditorCameraController);
+    
     ZilchInitializeType(Components::Reactive);
     // Audio
     ZilchInitializeType(Components::SoundEmitter);
+    // Tools
+    ZilchInitializeType(Components::EditorCameraController);
+    ZilchInitializeType(Components::TransformTool);
     
 
   }
