@@ -137,10 +137,14 @@ namespace DCEngine {
     {
       // Open the projects path
       auto executablePath = boost::filesystem::initial_path().string();
-      auto documentationPath = executablePath + "\\Documentation\\html\\index.html";
-      // If the projects directory doesn't exist, start from the executable
-      if (FileSystem::Exists(documentationPath)) {
-        FileSystem::Execute(documentationPath);
+      auto documentationPath = "\\Documentation\\html\\index.html";
+      //auto documentationPath = executablePath + "\\Documentation\\html\\index.html";
+      // If the projects directory doesn't exist, start from the executable      
+      if (FileSystem::Exists(executablePath + documentationPath)) {        
+        std::string qm = "\"";
+        std::stringstream command;
+        command << qm << executablePath << documentationPath << qm;
+        FileSystem::Execute(command.str());
       }
     }
 

@@ -21,6 +21,7 @@ http://www.technical-recipes.com/2014/using-boostfilesystem/
 #include <BOOST/lambda/bind.hpp>
 #include <BOOST/algorithm/string/replace.hpp>
 //#include <BOOST/process.hpp>
+#include <POCO\Process.h>
 
 #include <NFD\nfd.h>
 #include <TFD\tinyfiledialogs.h>
@@ -30,8 +31,13 @@ namespace DCEngine
 {
   bool FileSystem::Execute(std::string command)
   {
+    std::vector<std::string> arguments;
+    //boost::process::context context;
+    //boost::process::launch(command, arguments, context);
+    //auto a = boost::process::launch<command, 
     //auto a = boost::process::context::basic_work_directory_context();
     //boost::process::launch_shell(command, a);
+    Poco::Process::launch(command, arguments);
     return true;
   }
   /*!************************************************************************\
@@ -40,6 +46,7 @@ namespace DCEngine
   @param  filters What filters to be used for the files.  
   @return The path of the selected file that will be opened.
   @note   Filters are of the format: "png,jpg;pdf"
+          The FileOpenDialog is currently set to return a relativePath;
   \**************************************************************************/
   std::string FileSystem::FileOpenDialog(std::string & defaultPath, std::string& filters)
   {
@@ -53,7 +60,10 @@ namespace DCEngine
       std::string outPathString(outPath);
       //puts(outPath);
       free(outPath);
-      return outPathString;
+      
+      // Return a relative path
+      return FileSystem::RelativePath(outPathString, boost::filesystem::initial_path().string());
+      //return outPathString;
     }
     else if (result == NFD_CANCEL)
     {
@@ -167,6 +177,55 @@ namespace DCEngine
     //    val = "\\";
     //
     //} );
+
+    return std::string();
+  }
+
+  /*!************************************************************************\
+  @brief  Translates an absolute path to a relative path, given the path
+          to be translated as well as the path it should be relative to.
+  @param  path The file path.
+  @param  pathRelativeTo The file path relative to.
+  @return A relative path.
+  \**************************************************************************/
+  std::string FileSystem::RelativePath(const std::string & inputPath, const std::string & pathRelativeTo)
+  {
+    boost::filesystem::path path = boost::filesystem::absolute(inputPath);
+    boost::filesystem::path relativePath = boost::filesystem::absolute(pathRelativeTo);
+
+    // If the root paths are different, return absolute path
+    if (path.root_path() != relativePath.root_path())
+      return path.string();
+
+    // Initialize the relative path
+    boost::filesystem::path result;
+
+    // Find out where the two paths diverge
+    boost::filesystem::path::const_iterator iterPath = path.begin();
+    boost::filesystem::path::const_iterator iterRelativeTo = relativePath.begin();
+    while (*iterPath == *iterRelativeTo
+           && iterPath != path.end()
+           && iterRelativeTo != relativePath.end()) {
+      ++iterPath;
+      ++iterRelativeTo;
+    }
+
+    // Add "../" for each remaining token in the relativeTo
+    if (iterRelativeTo != relativePath.end()) {
+      ++iterRelativeTo;
+      while (iterRelativeTo != relativePath.end()) {
+        result /= "..";
+        ++iterRelativeTo;
+      }
+    }
+
+    // Add the remaining path
+    while (iterPath != path.end()) {
+      result /= *iterPath;
+      ++iterPath;
+    }
+
+    return result.string();
 
     return std::string();
   }

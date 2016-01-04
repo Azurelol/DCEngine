@@ -179,23 +179,28 @@ namespace DCEngine {
         ActiveTool = EditorTool::Select;
         break;
 
-      //case Keys::Num2:
-      //  if (DCE_EDITOR_TRACE_TOOLS)
-      //    DCTrace << "Editor::TranslateTool \n";
-      //  ActiveTool = EditorTool::Translate;
-      //  break;
+      // If the editor's transform tool is not a component, we will perform
+      // transform operations through the editor's functions.
+      if (Settings.TransformTool_IsComponent) {
+          case Keys::Num2:
+            if (DCE_EDITOR_TRACE_TOOLS)
+              DCTrace << "Editor::TranslateTool \n";
+            ActiveTool = EditorTool::Translate;
+            break;
 
-      //case Keys::Num3:
-      //  if (DCE_EDITOR_TRACE_TOOLS)
-      //    DCTrace << "Editor::RotateTool \n";
-      //  ActiveTool = EditorTool::Rotate;
-      //  break;
+          case Keys::Num3:
+            if (DCE_EDITOR_TRACE_TOOLS)
+              DCTrace << "Editor::RotateTool \n";
+            ActiveTool = EditorTool::Rotate;
+            break;
 
-      //case Keys::Num4:
-      //  if (DCE_EDITOR_TRACE_TOOLS)
-      //    DCTrace << "Editor::ScaleTool \n";
-      //  ActiveTool = EditorTool::Scale;
-      //  break;
+          case Keys::Num4:
+            if (DCE_EDITOR_TRACE_TOOLS)
+              DCTrace << "Editor::ScaleTool \n";
+            ActiveTool = EditorTool::Scale;
+            break;
+        }
+
 
       case Keys::Delete:
         DeleteObject();

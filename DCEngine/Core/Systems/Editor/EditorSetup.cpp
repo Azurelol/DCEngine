@@ -51,7 +51,9 @@ namespace DCEngine {
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
         editorCamera->AddComponent<Components::Camera>(true);
         editorCamera->AddComponent<Components::EditorCameraController>(true);
-        editorCamera->AddComponent<Components::TransformTool>(true);
+        // Whether the editor's transform tool is a component
+        if (Settings.TransformTool_IsComponent)
+          editorCamera->AddComponent<Components::TransformTool>(true);
         editorCamera->AddComponent<Components::DebugAudio>(true);
         // Camera properties      
         editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";

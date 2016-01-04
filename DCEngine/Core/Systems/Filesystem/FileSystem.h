@@ -39,6 +39,7 @@ namespace DCEngine
     static std::time_t  LastModified(filepath path);
     static bool         Delete(filepath path);
     static std::string  CorrectPath(std::string&);
+    static std::string  RelativePath(const std::string& path, const std::string& pathRelativeTo);
 
 
     /* File Operations */

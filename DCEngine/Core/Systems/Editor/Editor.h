@@ -37,6 +37,8 @@ namespace DCEngine {
     std::string ProjectsPath;
     std::string RecentProject;
     ProjectData* ProjectInfo;
+    // Tools
+    bool TransformTool_IsComponent = false;
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -72,7 +74,7 @@ namespace DCEngine {
       void ToggleTest();
 
     private:
-
+      
       /////////////////
       //  Settings 
       ////////////////
