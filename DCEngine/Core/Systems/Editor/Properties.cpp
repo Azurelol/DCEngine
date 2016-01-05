@@ -382,7 +382,7 @@ namespace DCEngine {
 
           // If it's a Zilch component, we need to do more to get its underlying type
           if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
-            //componentNames.push_back(component->Name.c_str());
+            componentNames.push_back(component->Name.c_str());
             auto name = component->Name.c_str();
           } 
 

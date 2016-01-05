@@ -21,9 +21,6 @@ namespace DCEngine {
     void SelectSpriteSource(Zilch::Property * resource, ObjectPtr component, unsigned int);
     void SelectSoundCue(Zilch::Property * resource, ObjectPtr component, unsigned int);
     void SelectLevel(Zilch::Property * resource, ObjectPtr component, unsigned int);
-    void SelectPhysicsMaterial(Zilch::Property * resource, ObjectPtr component, unsigned int);
-    void SelectCollisionGroup(Zilch::Property * resource, ObjectPtr component, unsigned int);
-    void SelectCollisionTable(Zilch::Property * resource, ObjectPtr component, unsigned int);
 
     /**************************************************************************/
     /*!

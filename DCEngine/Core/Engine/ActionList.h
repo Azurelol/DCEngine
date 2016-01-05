@@ -17,14 +17,6 @@ Reference: http://gamedevelopment.tutsplus.com/tutorials/the-action-list-data-st
 
 namespace DCEngine {
 
-  class ActionList {
 
-  public:
-
-  private:
-    std::vector<Action> _actions;
-
-
-  };
 
 }
