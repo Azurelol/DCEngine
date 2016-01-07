@@ -263,7 +263,6 @@ namespace DCEngine {
       Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->RowCount;
       //Animation update
       this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
-	  DCTrace << sprite.HaveAnimation << "\n";
 	  sprite.HaveAnimation = sprite.AnimationActive;
       if (sprite.HaveAnimation == true)//Check whether it has animation
       {
