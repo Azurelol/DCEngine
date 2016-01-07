@@ -259,10 +259,12 @@ namespace DCEngine {
     {
       auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
       // CHANGE THIS
-      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->ColumnCount = 8;
-      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->RowCount = 1;
+      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->ColumnCount;
+      Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->RowCount;
       //Animation update
       this->SpriteShader->SetInteger("isAnimaitonActivated", 0);
+	  DCTrace << sprite.HaveAnimation << "\n";
+	  sprite.HaveAnimation = sprite.AnimationActive;
       if (sprite.HaveAnimation == true)//Check whether it has animation
       {
         if (spriteSrc->ColumnCount == 0 || spriteSrc->RowCount == 0)//Check whether the number of frames if 0
