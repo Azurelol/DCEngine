@@ -97,14 +97,16 @@ namespace DCEngine {
         assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("png,jpg"));
         if (assetPath.empty())
           return;
-        CreateSpriteSource(name, assetPath);
+        CreateSpriteSource(FileSystem::FileNoExtension(assetPath), assetPath);
+        //CreateSpriteSource(name, assetPath);
         break;
 
       case ResourceType::SoundCue:
         assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("wav,mp3,ogg"));
         if (assetPath.empty())
           return;
-        CreateSoundCue(name, assetPath);
+        CreateSoundCue(FileSystem::FileNoExtension(assetPath), assetPath);
+        //CreateSoundCue(name, assetPath);
         break;
 
       }
@@ -203,12 +205,15 @@ namespace DCEngine {
     @param  name The name of the SpriteSource.
     @param  assetPath The path to the SpriteSource.
     @return A pointer to the recently-created resource object.
+    @note   The SpriteSource will be created with the name of the file, not
+            the name selected.
     */
     /**************************************************************************/
     ResourcePtr Editor::CreateSpriteSource(std::string & name, std::string & assetPath)
     {
       DCTrace << "Editor::CreateSpriteSource - Created '" << name << "' with asset: '" << assetPath << "' \n";
             
+
       // Create a SpriteSource object
       auto spriteSourcePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SpriteSource::Extension();
       auto spriteSource = SpriteSourcePtr(new SpriteSource(spriteSourcePath));
@@ -217,6 +222,7 @@ namespace DCEngine {
       // Serialize it and save it to file
       auto data = spriteSource->Build();
       // Add it to the content system
+      
       Daisy->getSystem<Content>()->AddSpriteSource(name, spriteSource);
       // Load its textures immediately
       spriteSource->LoadTexture();

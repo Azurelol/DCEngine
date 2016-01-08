@@ -62,21 +62,21 @@ namespace DCEngine {
   //  FileSystem::FileWriteString(ResourcePath, SerializedData);
   //}
 
-  ///**************************************************************************/
-  ///*!
-  //@brief  Deserializes the binary cache the serialized data definition of a
-  //        level into a string that can be parsed by the engine's serializer.
-  //*/
-  ///**************************************************************************/
-  //bool Level::Load()
-  //{
-  //  if (FileSystem::FileReadToString(ResourcePath, SerializedData)) {
-  //    DCTrace << ObjectName << "::Level::Load - Loading from " << ResourcePath <<  " succeeded \n";
-  //    return true;
-  //  }
-  //  DCTrace << ObjectName << "::Level::Load -Loading from " << ResourcePath << " failed \n";
-  //  return false;
-  //}
+  /**************************************************************************/
+  /*!
+  @brief  Deserializes the binary cache the serialized data definition of a
+          level into a string that can be parsed by the engine's serializer.
+  */
+  /**************************************************************************/
+  bool Level::Load()
+  {
+    if (FileSystem::FileReadToString(ResourcePath, SerializedData)) {
+      DCTrace << ObjectName << "::Level::Load - Loading from " << ResourcePath <<  " succeeded \n";
+      return true;
+    }
+    DCTrace << ObjectName << "::Level::Load -Loading from " << ResourcePath << " failed \n";
+    return false;
+  }
 
 
   const std::string & Level::Get()

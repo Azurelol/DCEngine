@@ -1,1 +1,12 @@
-ey i am a sprite archetype
+
+{
+  "Archetype": 
+  {
+    "Name": "Sprite", 
+    "Properties": 
+    {
+      "ResourcePath": "Core/Assets/Archetypes/Sprite.arch", 
+      "SerializedData": "ey i am a sprite archetype"
+    }
+  }
+}

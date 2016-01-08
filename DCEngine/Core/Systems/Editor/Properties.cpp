@@ -93,6 +93,8 @@ namespace DCEngine {
       /////////////////////////////
       // 3. Display its components
       /////////////////////////////
+      // Keep track of whether the entity was modified
+      bool modified = false;
       ImGui::Separator();
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
       unsigned int inputID = 0;      
@@ -101,7 +103,7 @@ namespace DCEngine {
           //ImGui::SetWindowFocus();
           // 3. If the user clicks on a tree-node, display the commponent's properties
           //    through reflection
-          DisplayProperties(component);
+          modified = DisplayProperties(component);
           ImGui::TreePop();
         }
         ImGui::SameLine();
@@ -120,7 +122,33 @@ namespace DCEngine {
       ///////////////////////////////////////////
       // 4. Allow the user to add new components
       ///////////////////////////////////////////
-      AddComponent(selectedEntity);
+      bool componentAdded = AddComponent(selectedEntity);
+      // If the entity was modified or a componen was added, save the level
+      if (modified || componentAdded)
+        SaveCurrentLevel();
+
+
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays a resource's properties
+    */
+    /**************************************************************************/
+    void Editor::DisplayResourceProperties()
+    {
+      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject);
+
+      // 1. Display the Resource's name
+      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
+      ImGui::Text(selectedResource->getObjectName().c_str());
+      // 2. Display all its properties
+      ImGui::Separator();
+      auto modified = DisplayProperties(selectedResource);
+      // If the resource was modified...
+      if (modified)
+        selectedResource->Build();
     }
 
     /**************************************************************************/
@@ -132,12 +160,12 @@ namespace DCEngine {
             3 LINES.
     */
     /**************************************************************************/
-    void Editor::DisplayProperties(ObjectPtr object) {
+    bool Editor::DisplayProperties(ObjectPtr object) {
       
       // 1. Get the object's BoundType, which has a wealth of reflected data
       auto componentBoundType = object->ZilchGetDerivedType();
       if (componentBoundType == nullptr)
-        return;
+        return false;
       
       // ImGui uses an unique handle for each Input Widget. We will use a
       // a counter to have generate unique IDs for each of them.
@@ -145,7 +173,7 @@ namespace DCEngine {
 
       // Keeps track whether any properties were modified. If so,
       // we will make sure to save and serialize the new changes.
-      bool modified;
+      bool modified = false;
 
       // 2. Get a list of all properties on the object      
       for (auto& property : componentBoundType->AllProperties) {
@@ -168,7 +196,7 @@ namespace DCEngine {
 
         // If there's at least one attribute... 
         if (!property->Attributes.empty()) {
-          SelectResource(property, object, propertyID);
+          modified = SelectResource(property, object, propertyID);
           continue;
         }
         
@@ -183,45 +211,54 @@ namespace DCEngine {
         // Grab the current property
         Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
         getCall.SetHandleVirtual(Zilch::Call::This, object);        
-        getCall.Invoke(report);
+        getCall.Invoke(report);        
                 
 
         // Property: Boolean
         if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
           // If the user modifies it
+          ImGui::PushID(propertyID++);
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, boolean);
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: String
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[128];
-          strcpy(buf, string.c_str());
+          strcpy(buf, string.c_str());          
           // If the user has given input, set the property
+          ImGui::PushID(propertyID++);
           if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf)), ImGuiInputTextFlags_EnterReturnsTrue) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::String(buf));
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Integer
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
           // If the user has given input, set the property
+          ImGui::PushID(propertyID++);
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, integer);
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Integer2
@@ -229,12 +266,15 @@ namespace DCEngine {
           auto integer2 = getCall.Get<Zilch::Integer2>(Zilch::Call::Return);
           int int2[2] = { integer2.x, integer2.y };
           // If the user has given input, set the property
+          ImGui::PushID(propertyID++);
           if (ImGui::InputInt2(property->Name.c_str(), int2)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer2(int2[0], int2[1]));
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Integer3
@@ -242,12 +282,15 @@ namespace DCEngine {
           auto integer3 = getCall.Get<Zilch::Integer3>(Zilch::Call::Return);
           int int3[3] = { integer3.x, integer3.y, integer3.z };
           // If the user has given input, set the property
+          ImGui::PushID(propertyID++);
           if (ImGui::InputInt3(property->Name.c_str(), int3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer3(int3[0], int3[1], int3[2]));
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Integer4
@@ -255,20 +298,23 @@ namespace DCEngine {
           auto integer4 = getCall.Get<Zilch::Integer4>(Zilch::Call::Return);
           int int4[4] = { integer4.x, integer4.y, integer4.z, integer4.w};
           // If the user has given input, set the property
+          ImGui::PushID(propertyID++);
           if (ImGui::InputInt4(property->Name.c_str(), int4)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
             setCall.Invoke(report);    
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Real (float)
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
           // If the user has given input, set the property
-          //ImGui::Text(property->Name.c_str());
-          //ImGui::PushID(propertyID++);
+          ImGui::Text(property->Name.c_str());
+          ImGui::PushID(propertyID++);
           if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
           //if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
@@ -276,7 +322,9 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, real);
             setCall.Invoke(report);
+            modified = true;
           }
+          ImGui::PopID();
         }
 
         // Property: Real2 (Vec2)
@@ -286,11 +334,12 @@ namespace DCEngine {
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
           // If the user has given input, set the property
-          if (ImGui::InputFloat2("##inputID", vec2f)) {
+          if (ImGui::InputFloat2("##propertyID", vec2f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec2f));
             setCall.Invoke(report);
+            modified = true;
           }
           ImGui::PopID();
         }
@@ -302,13 +351,14 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++); 
-          if (ImGui::InputFloat3("##inputID", vec3f)) {
+          if (ImGui::InputFloat3("##propertyID", vec3f)) {
             //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec3f));
             //setCall.Set(0, Zilch::Real3(vec3f[0], vec3f[1], vec3f[2]));
             setCall.Invoke(report);
+            modified = true;
           }
           ImGui::PopID(); 
         }        
@@ -320,35 +370,22 @@ namespace DCEngine {
           // If the user has given input, set the property          
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
-          if (ImGui::InputFloat4("##inputID", vec4f)) {
+          if (ImGui::InputFloat4("##propertyID", vec4f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
+            modified = true;
           }
           ImGui::PopID();
         }
       }
+
+      // If the object was modified...
+      return modified;
     }
 
 
-    /**************************************************************************/
-    /*!
-    @brief  Displays a resource's properties
-    */
-    /**************************************************************************/
-    void Editor::DisplayResourceProperties()
-    {
-      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject);
-
-      // 1. Display the Resource's name
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
-      ImGui::Text(selectedResource->getObjectName().c_str());      
-      // 2. Display all its properties
-      ImGui::Separator();
-      DisplayProperties(selectedResource);
-
-    }
 
     /**************************************************************************/
     /*!
@@ -356,7 +393,7 @@ namespace DCEngine {
     @todo   If the component has been marked as skipped, do not attempt to add it.
     */
     /**************************************************************************/
-    void Editor::AddComponent(EntityPtr selectedEntity)
+    bool Editor::AddComponent(EntityPtr selectedEntity)
     {
       static bool Scanned = false;
 
@@ -381,7 +418,7 @@ namespace DCEngine {
             if (componentName == name) {
               skip = true;
               break;
-            }              
+            }
           }
           if (skip)
             continue;
@@ -390,29 +427,30 @@ namespace DCEngine {
           if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
             componentNames.push_back(component->Name.c_str());
             auto name = component->Name.c_str();
-          } 
+          }
 
           // If it's a C++ component, it's less cumbersome...
-          else 
+          else
             componentNames.push_back(component->Name.c_str());
         }
-        
+
         Scanned = true;
       }
 
       int currentComponent = 0;
       ImGui::Separator();
-      //ImGui::TextColored(ImVec4(0.5, 0, 0, 1), "Add Component");
       ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
-        if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
-          
-          auto componentName = std::string(componentNames.at(currentComponent));
-          DCTrace << "Editor::AddComponent - " << componentName << "\n";
-          selectedEntity->AddComponentByName(componentName, true);
-          Scanned = false;
-        }
-      //}
-        
+      if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
+        auto componentName = std::string(componentNames.at(currentComponent));
+        DCTrace << "Editor::AddComponent - " << componentName << "\n";
+        selectedEntity->AddComponentByName(componentName, true);
+        Scanned = false;
+        // A component was added
+        return true;
+      }
+
+      // No component was added
+      return false;
     }
 
 

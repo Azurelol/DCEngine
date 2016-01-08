@@ -119,11 +119,10 @@ namespace DCEngine {
       void WindowTools();
       // Properties
       void WindowProperties();
-      void DisplayProperties(ObjectPtr);
+      bool DisplayProperties(ObjectPtr);
       void DisplayEntityProperties();
       void DisplayResourceProperties();
-      void AddComponent(EntityPtr);
-      void SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
+      bool AddComponent(EntityPtr);      
       // Library
       void WidgetLibrary();
       void WidgetDiagnostics();
@@ -168,8 +167,9 @@ namespace DCEngine {
       ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
       ResourcePtr CreateZilchScript(std::string& name);      
+      bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
-      void SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);      
+      bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);      
       void WindowCollisionTableEditor();
       ResourcePtr SelectedCollisionTable;
       bool LoadLevel(std::string level);
@@ -227,7 +227,7 @@ namespace DCEngine {
     // Templates
     /////////////
     template<typename ResourceMap>
-    inline void Editor::SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID)
+    inline bool Editor::SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID)
     {
       // Get a container of all active resources
       std::vector<const char *> resources;
@@ -249,7 +249,11 @@ namespace DCEngine {
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedResource));
         setCall.Invoke(report);
+        // Property was modified..
+        return true;
       }
+      // Property was not modified
+      return false;
     }
 
 }

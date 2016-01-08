@@ -23,7 +23,7 @@ namespace DCEngine {
     ~Level();
     static std::string Extension() { return ".Level"; }
     //void Save(std::string& serializedData);
-    //bool Load();
+    bool Load();
     const std::string& Get();
 
     void AddGameObject(GameObjectPtr gameObject);

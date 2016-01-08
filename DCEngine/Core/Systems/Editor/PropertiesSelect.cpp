@@ -29,35 +29,45 @@ namespace DCEngine {
     @param  object A pointer to the object that holds the resource.
     */
     /**************************************************************************/
-    void Editor::SelectResource(Zilch::Property * resource, ObjectPtr object, unsigned int& propertyID)
+    bool Editor::SelectResource(Zilch::Property * resource, ObjectPtr object, unsigned int& propertyID)
     {
       // Get the type of the resource      
       auto resourceType = std::string(resource->Name.c_str());
       ImGui::Text(resourceType.c_str()); 
       ImGui::PushID(propertyID++);
+      // Whether a property was modified
+      bool modified = false;
 
       if (resource->HasAttribute("SpriteSource")) {
-        SelectSpriteSource(resource, object, propertyID);
+        auto container = Daisy->getSystem<Content>()->AllSpriteSources();
+        modified = SelectResource<SpriteSourceMap>("SpriteSource", container, resource, object, propertyID);
+        //SelectSpriteSource(resource, object, propertyID);
       }
       else if (resource->HasAttribute("SoundCue")) {
-        SelectSoundCue(resource, object, propertyID);
+        auto container = Daisy->getSystem<Content>()->AllSoundCues();
+        modified = SelectResource<SoundCueMap>("SoundCue", container, resource, object, propertyID);
+        //SelectSoundCue(resource, object, propertyID);
       }
       else if (resource->HasAttribute("Level")) {
-        SelectLevel(resource, object, propertyID);
+        auto container = Daisy->getSystem<Content>()->AllLevels();
+        modified = SelectResource<LevelMap>("Level", container, resource, object, propertyID);
+        //SelectLevel(resource, object, propertyID);
       }
       else if (resource->HasAttribute("PhysicsMaterial")) {
         auto container = Daisy->getSystem<Content>()->AllPhysicsMaterials();
-        SelectResource<PhysicsMaterialMap>("PhysicsMaterial", container, resource, object, propertyID);
+        modified = SelectResource<PhysicsMaterialMap>("PhysicsMaterial", container, resource, object, propertyID);
       }
       else if (resource->HasAttribute("CollisionGroup")) {
         auto container = Daisy->getSystem<Content>()->AllCollisionGroups();
-        SelectResource<CollisionGroupMap>("CollisionGroup", container, resource, object, propertyID);
+        modified = SelectResource<CollisionGroupMap>("CollisionGroup", container, resource, object, propertyID);
       }
       else if (resource->HasAttribute("CollisionTable")) {
         auto container = Daisy->getSystem<Content>()->AllCollisionTables();
-        SelectResource<CollisionTableMap>("CollisionTable", container, resource, object, propertyID);
+        modified = SelectResource<CollisionTableMap>("CollisionTable", container, resource, object, propertyID);
       }
       ImGui::PopID();
+
+      return modified;
     }
 
     /**************************************************************************/

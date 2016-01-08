@@ -303,7 +303,7 @@ namespace DCEngine {
 
     void Content::ScanForLevels()
     {
-      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath + "Levels/");
+      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
     }
 
     void Content::ScanForArchetypes()
