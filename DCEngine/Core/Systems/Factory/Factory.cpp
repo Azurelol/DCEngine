@@ -438,23 +438,23 @@ namespace DCEngine {
         }
       }      
 
-      //ActiveGameObjects.erase(
-      //  std::remove_if( // Selectively remove elements in the second vector...
-      //    ActiveGameObjects.begin(),
-      //    ActiveGameObjects.end(),
-      //    [&](std::unique_ptr<GameObject> const& p)
-      //{   // This predicate checks whether the element is contained
-      //    // in the second vector of pointers to be removed...
-      //  return std::find(
-      //    GameObjectsToBeDeleted.cbegin(),
-      //    GameObjectsToBeDeleted.cend(),
-      //    p.get()
-      //    ) != GameObjectsToBeDeleted.end();
-      //}),
-      //  ActiveGameObjects.end()
-      //  );
+      ActiveGameObjects.erase(
+        std::remove_if( // Selectively remove elements in the second vector...
+          ActiveGameObjects.begin(),
+          ActiveGameObjects.end(),
+          [&](std::unique_ptr<GameObject> const& p)
+      {   // This predicate checks whether the element is contained
+          // in the second vector of pointers to be removed...
+        return std::find(
+          GameObjectsToBeDeleted.cbegin(),
+          GameObjectsToBeDeleted.cend(),
+          p.get()
+          ) != GameObjectsToBeDeleted.end();
+      }),
+        ActiveGameObjects.end()
+        );
 
-      //GameObjectsToBeDeleted.clear();
+      GameObjectsToBeDeleted.clear();
 
     }
 

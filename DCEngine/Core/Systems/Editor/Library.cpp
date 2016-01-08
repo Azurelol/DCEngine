@@ -37,6 +37,11 @@ namespace DCEngine {
             SelectedObject = archetype.second.get();
             WindowPropertiesEnabled = true;
           }
+          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+            // Create the object from Archetype            
+            CreateFromArchetype(std::string(SelectedObject->Name()));
+            break;
+          }
         }
         ImGui::TreePop();
       }
@@ -145,19 +150,6 @@ namespace DCEngine {
       }
 
       ImGui::End();
-
-
-
-      //ImGui::SetNextWindowSize(ImVec2(200, 500), ImGuiSetCond_FirstUseEver);
-      //// Title
-      //ImGui::Begin("Library", &EditorEnabled);
-      //// Print every name
-      //auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
-      //for (auto object : *objects) {
-      //  ImGui::Text(object->Name().c_str());
-      //}
-      //// Ends the window
-      //ImGui::End();
     }
 
 

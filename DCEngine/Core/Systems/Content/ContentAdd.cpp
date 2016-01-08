@@ -333,7 +333,7 @@ namespace DCEngine {
 
       // Load sound files
       std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(levelPath, levels)) {
+      if (!FileSystem::DirectoryListFilePaths(levelPath, levels, Level::Extension())) {
         auto exceptionInfo = std::string("Content::ScanForLevels - Failed to find level directory: " + levelPath);
         throw DCException(exceptionInfo);
       }
@@ -355,7 +355,7 @@ namespace DCEngine {
 
       // Load sound files
       std::vector<std::string> archetypes;
-      if (!FileSystem::DirectoryListFilePaths(archetypePath, archetypes)) {
+      if (!FileSystem::DirectoryListFilePaths(archetypePath, archetypes, Archetype::Extension())) {
         auto exceptionInfo = std::string("Content::ScanForArchetypes - Failed to find archetype directory: " + archetypePath);
         throw DCException(exceptionInfo);      
       }

@@ -93,6 +93,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -174,7 +176,7 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "Turn", 
+            "CurrentTrack": "WoofWoof", 
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
@@ -302,6 +304,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -397,6 +401,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -459,6 +465,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -540,6 +548,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -654,6 +664,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -768,6 +780,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -882,6 +896,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -996,6 +1012,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -1110,6 +1128,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -1247,6 +1267,8 @@
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 

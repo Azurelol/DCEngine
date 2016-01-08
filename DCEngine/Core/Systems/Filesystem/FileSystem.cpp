@@ -462,8 +462,12 @@ namespace DCEngine
   {
     if (boost::filesystem::exists(dirPath)) {
       for (auto&& file : boost::filesystem::directory_iterator(dirPath)) {        
+        // Only add the path if it has the given extension
+        if (file.path().extension().string() != extension)
+          continue;
+
         auto filePath = file.path().filename().string();        
-        auto relativeFilePath = dirPath + filePath;
+        auto relativeFilePath = dirPath + filePath;        
         filePaths.push_back(relativeFilePath);
       }
       return true;

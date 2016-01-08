@@ -69,8 +69,9 @@ namespace DCEngine {
       if (levelResource) {
         // Set it as the current level on the space
         CurrentSpace->CurrentLevel = levelResource;
-        // Scan for levels again
-        Daisy->getSystem<Content>()->ScanForLevels();
+        // Scan for resources again
+        Daisy->getSystem<Content>()->ScanResources();
+        //Daisy->getSystem<Content>()->ScanForLevels();
         // Update the caption
         UpdateCaption();
 
@@ -96,9 +97,6 @@ namespace DCEngine {
       // Eh?
       return true;
     }
-
-
-
 
     /**************************************************************************/
     /*!

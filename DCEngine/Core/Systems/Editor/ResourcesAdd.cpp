@@ -130,7 +130,7 @@ namespace DCEngine {
         SaveLevel(CurrentSpace->CurrentLevel->Name());
       // Destroy the objects in the space
       CurrentSpace->DestroyAll();
-      // Add a default camera
+      // Add a default camera from the 'Camera' archetype
       CurrentSpace->CreateObject("Camera");      
       // Save the level
       SaveLevel(name);

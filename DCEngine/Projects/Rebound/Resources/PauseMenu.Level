@@ -351,7 +351,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "BackgroundPause", 
+            "SpriteSource": "Wow", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -497,8 +497,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 15.000000, 
+                "x": 10.000000, 
+                "y": 17.500000, 
                 "z": 0.100000
               }
             }, 
@@ -534,7 +534,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ConfirmationSprite", 
+            "SpriteSource": "Circle", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
