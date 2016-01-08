@@ -61,12 +61,15 @@ namespace DCEngine {
     if (IsInitialized) {
       DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
       return;
-    }      
+    }         
 
-    // Auto will never deduce to a reference because by default. Because
-    // unique_ptrs do not allow copying, this wouldn't work otherwise.
+    // Initialize factory-created components
     for (auto &component : ComponentsContainer)
       component.get()->Initialize();
+    // Initialize Zilch-created components
+    for (auto& component : ComponentHandlesContainer) {
+      reinterpret_cast<Component*>(component.Dereference())->Initialize();
+    }
     // Flag this entity as already being initialized
     IsInitialized = true;
     DCTrace << ObjectName << "::Initialize \n";
