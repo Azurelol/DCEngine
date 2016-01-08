@@ -88,6 +88,7 @@ namespace DCEngine {
     // If the template file could be read properly..
     if (FileSystem::FileReadToString(templatePath, SerializedData)) {
       // Replace the templated name
+      auto name = Name();
       boost::replace_all(SerializedData, "Script", Name());
       //SerializedData.replace(SerializedData.begin(), SerializedData.begin() + SerializedData.find("Script"), Name().c_str() );
       // Save the script to file

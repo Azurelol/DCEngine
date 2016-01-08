@@ -11,6 +11,7 @@ uses.
 /******************************************************************************/
 #include "Content.h" 
 #include "../Filesystem/FileSystem.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -226,6 +227,8 @@ namespace DCEngine {
     void Content::AddZilchScript(std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
     {
       AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
+      // Recompile scripts again so it can be used immediately.
+      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
     }
 
 

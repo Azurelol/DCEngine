@@ -143,6 +143,10 @@ namespace DCEngine {
       // a counter to have generate unique IDs for each of them.
       unsigned int propertyID = 0;
 
+      // Keeps track whether any properties were modified. If so,
+      // we will make sure to save and serialize the new changes.
+      bool modified;
+
       // 2. Get a list of all properties on the object      
       for (auto& property : componentBoundType->AllProperties) {
         
@@ -255,7 +259,7 @@ namespace DCEngine {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
-            setCall.Invoke(report);
+            setCall.Invoke(report);    
           }
         }
 
@@ -268,6 +272,7 @@ namespace DCEngine {
           if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
           //if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            auto set = property->Set;
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, real);
             setCall.Invoke(report);
@@ -370,6 +375,7 @@ namespace DCEngine {
           // Components to skip
           bool skip = false;
           std::vector<std::string> skippableComponents{ "Component", "Collider" };
+          //skippableComponents.push_back(std::string("ZilchComponet"));
           for (auto& name : skippableComponents) {
             auto componentName = std::string(component->Name.c_str());
             if (componentName == name) {
@@ -382,7 +388,7 @@ namespace DCEngine {
 
           // If it's a Zilch component, we need to do more to get its underlying type
           if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
-            //componentNames.push_back(component->Name.c_str());
+            componentNames.push_back(component->Name.c_str());
             auto name = component->Name.c_str();
           } 
 

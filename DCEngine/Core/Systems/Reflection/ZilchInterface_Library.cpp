@@ -99,11 +99,13 @@ namespace DCEngine {
       // Add code from the scripts stored so far
       for (auto script : Scripts) {
         AddCodeFromString(script.second.c_str(), script.first.c_str(), ScriptProject);
+        DCTrace << "ZilchInterface::CompileScripts - Adding: '" << script.first << "' \n";
       }
 
       // Add code from script files stored so far
       for (auto script : ScriptFiles) {
         AddCodeFromFile(script.first.c_str(), ScriptProject);
+        DCTrace << "ZilchInterface::CompileScripts - Adding: '" << script.first << "' \n";
       }
 
       // Compile all the code we have added together into a single library for our scripts

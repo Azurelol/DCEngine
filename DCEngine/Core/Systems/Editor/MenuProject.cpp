@@ -142,9 +142,22 @@ namespace DCEngine {
       // If the projects directory doesn't exist, start from the executable      
       if (FileSystem::Exists(executablePath + documentationPath)) {        
         std::string qm = "\"";
-        std::stringstream command;
-        command << qm << executablePath << documentationPath << qm;
-        FileSystem::Execute(command.str());
+        //std::stringstream command;
+        //command << qm << executablePath << documentationPath << qm;
+        //FileSystem::Execute(command.str());
+
+        std::string command;
+        command = qm + executablePath + documentationPath + qm;
+        //DCTrace << command2;
+        std::string command2;
+        command2 = "chrome " "C:\\Development\\DCEngine\\DCEngine\\Documentation\\html\\index.html";
+        //std::stringstream ss;
+        //ss << '"';
+        //ss << command2;
+        //ss << '"';
+        //command2 = ss.str();
+        //command2 = "notepad++";
+        FileSystem::Execute(command2);
       }
     }
 

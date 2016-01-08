@@ -51,6 +51,8 @@ namespace DCEngine {
       int driverCount = 0;
       system_.ptr->getNumDrivers(&driverCount);
 
+
+      
       // If there are no sound cards, disable output
       if (driverCount == 0) {
         operationResult = system_.ptr->setOutput(FMOD_OUTPUTTYPE_NOSOUND);

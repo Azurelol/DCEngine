@@ -12,8 +12,13 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
             "x": 1.500000, 
             "y": 20.000000, 
+=======
+            "x": 1.000000, 
+            "y": 11.000000, 
+>>>>>>> 58ad9e170c2d9bfdda30d1d3bd903346152714e7
             "z": 0.000000
           }
         }, 
@@ -49,7 +54,11 @@
             "w": 1.000000
           }
         }, 
+<<<<<<< HEAD
         "SpriteSource": "Catty", 
+=======
+        "SpriteSource": "Circle", 
+>>>>>>> 58ad9e170c2d9bfdda30d1d3bd903346152714e7
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 

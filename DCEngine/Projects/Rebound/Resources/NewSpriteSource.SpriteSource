@@ -2,7 +2,7 @@
 {
   "SpriteSource": 
   {
-    "Name": "Dog", 
+    "Name": "NewSpriteSource", 
     "Properties": 
     {
       "FrameRate": 0.000000, 
@@ -12,7 +12,7 @@
       "Smoothing": false, 
       "Looping": false, 
       "Fill": false, 
-      "AssetPath": "Projects\\Rebound\\Assets\\Images\\PlayerStand.png"
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\ButtonResume.png"
     }
   }
 }
