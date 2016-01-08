@@ -326,6 +326,14 @@ namespace DCEngine {
             sprite.CurrentRow = 0;
           }
         }
+		//Check If it is go into void frame
+		if ((Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->TotalFrame != 0) &&
+			(sprite.CurrentColumn + Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->ColumnCount * sprite.CurrentRow >= Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource)->TotalFrame))
+		{
+			sprite.CurrentColumn = 0;
+			sprite.CurrentRow = 0;
+			return 1;
+		}
         //Current frame started from 0
         return 1;
       }

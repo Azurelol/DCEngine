@@ -48,6 +48,7 @@ namespace DCEngine {
     //Animation    
     int ColumnCount = 0;
     int RowCount = 0;
+	int TotalFrame = 0;
     bool Smoothing = false;
     bool Looping = false;
     bool Fill = false; // Should be enum

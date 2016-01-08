@@ -3,7 +3,7 @@
   "GameObject": 
   {
     "Name": "Sprite", 
-    "Archetype": "CatSpriteyDogWoofWat", 
+    "Archetype": "", 
     "Components": 
     {
       "Transform": 

@@ -59,13 +59,13 @@ void main() {
 
 	if (TexCoords.y == 1)
 	{
-	  TexCoords.y = rowHeight;
-	  TexCoords.y += rowHeight * currentRow;
+	  TexCoords.y = 1;
+	  TexCoords.y -= rowHeight * currentRow;
 	}
 	if (TexCoords.y == 0)
 	{
-	  TexCoords.y = 0;
-	  TexCoords.y += rowHeight * currentRow;
+	  TexCoords.y = 1 - rowHeight;
+	  TexCoords.y -= rowHeight * currentRow;
 	}
   }
   else
