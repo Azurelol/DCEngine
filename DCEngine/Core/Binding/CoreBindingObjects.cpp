@@ -79,7 +79,7 @@ namespace DCEngine {
     ZilchBindDestructor(builder, type, Resource);
     // Properties
     DCE_BINDING_DEFINE_PROPERTY(Resource, ResourcePath);
-    DCE_BINDING_DEFINE_PROPERTY(Resource, SerializedData);
+    //DCE_BINDING_DEFINE_PROPERTY(Resource, SerializedData);
 
   }
 

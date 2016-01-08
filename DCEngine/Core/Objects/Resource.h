@@ -30,7 +30,6 @@ namespace DCEngine {
 
     // Properties
     DCE_DEFINE_PROPERTY(std::string, ResourcePath);
-    DCE_DEFINE_PROPERTY(std::string, SerializedData);
     // Methods
     Resource(std::string type, std::string name, std::string resourcePath);
     void Serialize(Zilch::JsonBuilder& builder);

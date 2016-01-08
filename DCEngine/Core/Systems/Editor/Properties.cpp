@@ -236,7 +236,7 @@ namespace DCEngine {
           strcpy(buf, string.c_str());          
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
-          if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf)), ImGuiInputTextFlags_EnterReturnsTrue) {
+          if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf))) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::String(buf));
@@ -356,7 +356,6 @@ namespace DCEngine {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec3f));
-            //setCall.Set(0, Zilch::Real3(vec3f[0], vec3f[1], vec3f[2]));
             setCall.Invoke(report);
             modified = true;
           }
