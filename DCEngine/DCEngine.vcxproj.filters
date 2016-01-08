@@ -678,6 +678,9 @@
     <ClCompile Include="Core\Components\TransformTool.cpp">
       <Filter>Core\Components\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Action.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

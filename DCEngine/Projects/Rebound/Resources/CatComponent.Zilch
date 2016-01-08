@@ -1,4 +1,4 @@
-class Component2 : ZilchComponent
+class CatComponent : ZilchComponent
 {
     function Initialize(init : CogInitializer)
     {

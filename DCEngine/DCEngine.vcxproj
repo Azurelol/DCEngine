@@ -276,6 +276,7 @@
     <ClCompile Include="Core\Components\TransformTool.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
+    <ClCompile Include="Core\Engine\Action.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />

@@ -2,7 +2,7 @@
 {
   "SoundCue": 
   {
-    "Name": "Soundlol", 
+    "Name": "SoundLol", 
     "Properties": 
     {
       "Loop": false, 
@@ -10,7 +10,7 @@
       "VolumeVariation": 0.000000, 
       "Pitch": 1.000000, 
       "PitchVariation": 0.000000, 
-      "AssetPath": "Projects\\Rebound\\Assets\\Sounds\\PacMan-InGame2.ogg"
+      "AssetPath": "Projects\\Rebound\\Assets\\Sounds\\Dogma.ogg"
     }
   }
 }

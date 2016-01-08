@@ -274,7 +274,7 @@ namespace DCEngine {
       }     
       
       // Add the script to the content system
-      Daisy->getSystem<Content>()->AddZilchScript(name, script);
+      Daisy->getSystem<Content>()->AddZilchScript(name, script);      
 
       return script.get();
     }
