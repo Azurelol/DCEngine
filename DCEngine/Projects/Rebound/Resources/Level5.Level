@@ -99,11 +99,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "MonkeyWalk", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
+            "AnimationActive": true, 
+            "AnimationSpeed": 8.000000
           }
         }
       }
