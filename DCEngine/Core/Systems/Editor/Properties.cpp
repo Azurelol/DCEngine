@@ -488,7 +488,7 @@ namespace DCEngine {
       auto textureData = spriteSource->getTexture();
       //ImTextureID texID = textureData;
       ImGui::Image((void*)(textureData.TextureID), ImVec2(textureData.Width, textureData.Height), 
-                   ImVec2(0, 0), ImVec2(1, 1), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
+                   ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
 
     }
 
