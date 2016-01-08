@@ -176,7 +176,7 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "train", 
+            "CurrentTrack": "WoofWoof", 
             "LastTrack": "NO TRACK SET", 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
@@ -237,13 +237,6 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000
-          }, 
-          "MusicManager": 
-          {
-            "CurrentTrack": "", 
-            "LastTrack": "NO TRACK SET", 
-            "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
           }
         }
       }, 
