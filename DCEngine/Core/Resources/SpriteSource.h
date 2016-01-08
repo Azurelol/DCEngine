@@ -62,6 +62,7 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(bool, Smoothing);
     DCE_DEFINE_PROPERTY(bool, Looping);
     DCE_DEFINE_PROPERTY(bool, Fill);
+	DCE_DEFINE_PROPERTY(int, TotalFrame);
 
     // Methods
     static SpriteSourcePtr Find(std::string);
