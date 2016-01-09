@@ -34,9 +34,14 @@ namespace DCEngine
       // Fields
       ZilchBindField(builder, type, &RigidBody::Mass, "Mass", Zilch::PropertyBinding::Get);
       // Properties
-      ZilchBindProperty(builder, type, &RigidBody::getVelocity, &RigidBody::setVelocity, "Velocity");
-      ZilchBindProperty(builder, type, &RigidBody::getAngularVelocity, &RigidBody::setAngularVelocity, "Angular Velocity");
-      ZilchBindProperty(builder, type, &RigidBody::getRotationLocked, &RigidBody::setRotationLocked, "Rotation Locked");
+      DCE_BINDING_DEFINE_PROPERTY(RigidBody, Velocity);
+      DCE_BINDING_DEFINE_PROPERTY(RigidBody, AngularVelocity);
+      DCE_BINDING_DEFINE_PROPERTY(RigidBody, Mass);
+      DCE_BINDING_DEFINE_PROPERTY(RigidBody, RotationLocked);
+      
+      //ZilchBindProperty(builder, type, &RigidBody::getVelocity, &RigidBody::setVelocity, "Velocity");
+      //ZilchBindProperty(builder, type, &RigidBody::getAngularVelocity, &RigidBody::setAngularVelocity, "Angular Velocity");
+      //ZilchBindProperty(builder, type, &RigidBody::getRotationLocked, &RigidBody::setRotationLocked, "Rotation Locked");
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
 #endif
