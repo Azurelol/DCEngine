@@ -156,6 +156,7 @@ namespace DCEngine {
     Archetype,
     CollisionGroup,
     CollisionTable,
+    Font,
     Level,
     Material,
     PhysicsMaterial,

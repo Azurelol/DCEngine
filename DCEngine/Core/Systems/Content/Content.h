@@ -29,6 +29,7 @@ namespace DCEngine {
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
+    using FontMap = std::map<std::string, FontPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
     using LevelMap = std::map<std::string, LevelPtr>;
     using CollisionTableMap = std::map<std::string, CollisionTablePtr>;
@@ -60,13 +61,14 @@ namespace DCEngine {
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
       ShaderMap* AllShaders();
+      FontMap* AllFonts();
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
       ZilchScriptMap* AllZilchScripts();
       CollisionGroupMap* AllCollisionGroups();
       CollisionTableMap* AllCollisionTables();
       PhysicsMaterialMap* AllPhysicsMaterials();
-      // Remove resource
+      // Remove resource.
       void RemoveResource(ResourcePtr);      
       // Scanners
       void ScanResources();

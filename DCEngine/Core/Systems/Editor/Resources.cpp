@@ -43,6 +43,10 @@ namespace DCEngine {
           type = ResourceType::CollisionTable;
           strcpy(resourceName, "NewCollisionTable");
         }
+        if (ImGui::Selectable("Font")) {
+          type = ResourceType::Font;
+          strcpy(resourceName, "");
+        }
         if (ImGui::Selectable("Level")) {
           type = ResourceType::Level;
           strcpy(resourceName, "NewLevel");
@@ -57,11 +61,11 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("SoundCue")) {
           type = ResourceType::SoundCue;
-          strcpy(resourceName, "NewSoundCue");
+          strcpy(resourceName, "");
         }
         if (ImGui::Selectable("SpriteSource")) {
           type = ResourceType::SpriteSource;
-          strcpy(resourceName, "NewSpriteSource");
+          strcpy(resourceName, "");
         }
         if (ImGui::Selectable("SpriteLayer")) {
           type = ResourceType::SpriteLayer;
@@ -84,7 +88,7 @@ namespace DCEngine {
         }
         ImGui::SameLine();
         if (ImGui::Button("From File")) {
-          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue)
+          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue || type == ResourceType::Font)
             ResourceAddFromFile(std::string(resourceName), type);
           else
             DCTrace << "Editor::WindowAddResource - That resource cannot be added from file! \n";

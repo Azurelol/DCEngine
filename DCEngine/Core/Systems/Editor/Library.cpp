@@ -30,15 +30,12 @@ namespace DCEngine {
       ImGui::Begin("Library", &WidgetLibraryEnabled);
 
       if (ImGui::TreeNode("Archetype")) {
-
-        // Display all archetypes.
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
             SelectedObject = archetype.second.get();
             WindowPropertiesEnabled = true;
           }
-          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
-            // Create the object from Archetype            
+          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
             CreateFromArchetype(std::string(SelectedObject->Name()));
             break;
           }
@@ -46,10 +43,18 @@ namespace DCEngine {
         ImGui::TreePop();
       }
       if (ImGui::TreeNode("SpriteSource")) {
-        // Display every SpriteSource
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
           if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
             SelectedObject = spriteSrc.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+      if (ImGui::TreeNode("Font")) {
+        for (auto& font : *Daisy->getSystem<Content>()->AllFonts()) {
+          if (ImGui::Selectable(font.second->Name().c_str())) {
+            SelectedObject = font.second.get();
             WindowPropertiesEnabled = true;
           }
         }

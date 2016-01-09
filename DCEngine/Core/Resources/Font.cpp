@@ -42,7 +42,7 @@ namespace DCEngine {
   @param The name of the font file.
   */
   /**************************************************************************/
-  Font::Font(std::string fontFile, std::string assetPath) : Resource("Font", FileSystem::FileNoExtension(fontFile), fontFile) {
+  Font::Font(std::string fontFile) : Resource("Font", FileSystem::FileNoExtension(fontFile), fontFile) {
   }
 
   /**************************************************************************/
@@ -59,7 +59,7 @@ namespace DCEngine {
       DCTrace << "Font::Load - Error! Could not initialize FreeType library! \n";
       return false;
     }
-      
+
     // Load the font from file
     //std::string fontPath = "Core/Resources/Fonts/";
     //fontPath.append(FontFileName);
@@ -68,7 +68,7 @@ namespace DCEngine {
       DCTrace << "Font::Load - Error! Failed to load font \n";
       return false;
     }
-      
+
     // Define the font size to extract from this face. This function sets
     // the font's width and height parameters. Setting the widh to 0
     // lets the face dynamically calculate the width based on a given height.
@@ -113,7 +113,7 @@ namespace DCEngine {
       GLuint texture;
       glGenTextures(1, &texture);
       Debug::CheckOpenGLError("Font::GenerateCharacters - Failed to generate texture ID!");
-      
+
       glBindTexture(GL_TEXTURE_2D, texture);
       Debug::CheckOpenGLError("Font::GenerateCharacters - Failed to bind texture");
 

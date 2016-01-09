@@ -154,6 +154,11 @@ namespace DCEngine {
       return &ShaderMap;
     }
 
+    FontMap * Content::AllFonts()
+    {
+      return &FontMap;
+    }
+
     ArchetypeMap * Content::AllArchetypes()
     {
       return &ArchetypeMap;

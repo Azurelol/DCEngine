@@ -41,7 +41,7 @@ namespace DCEngine {
       case ResourceType::CollisionTable:
         CreateCollisionTable(name);
         break;
-
+        
       case ResourceType::PhysicsMaterial:
         CreatePhysicsMaterial(name);
         break;
@@ -106,6 +106,14 @@ namespace DCEngine {
         if (assetPath.empty())
           return;
         CreateSoundCue(FileSystem::FileNoExtension(assetPath), assetPath);
+        //CreateSoundCue(name, assetPath);
+        break;
+
+      case ResourceType::Font:
+        assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("ttf"));
+        if (assetPath.empty())
+          return;
+        CreateFont(FileSystem::FileNoExtension(assetPath), assetPath);
         //CreateSoundCue(name, assetPath);
         break;
 
@@ -211,9 +219,7 @@ namespace DCEngine {
     /**************************************************************************/
     ResourcePtr Editor::CreateSpriteSource(std::string & name, std::string & assetPath)
     {
-      DCTrace << "Editor::CreateSpriteSource - Created '" << name << "' with asset: '" << assetPath << "' \n";
-            
-
+      DCTrace << "Editor::CreateSpriteSource - Created '" << name << "' with asset: '" << assetPath << "' \n";  
       // Create a SpriteSource object
       auto spriteSourcePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SpriteSource::Extension();
       auto spriteSource = SpriteSourcePtr(new SpriteSource(spriteSourcePath));
@@ -242,7 +248,6 @@ namespace DCEngine {
     ResourcePtr Editor::CreateSoundCue(std::string & name, std::string & assetPath)
     {
       DCTrace << "Editor::CreateSoundCue - Created '" << name << "' with asset: '" << assetPath << "' \n";
-
       // Create a SoundCue object
       auto soundCuePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SoundCue::Extension();
       auto soundCue = SoundCuePtr(new SoundCue(soundCuePath));
@@ -283,6 +288,35 @@ namespace DCEngine {
       Daisy->getSystem<Content>()->AddZilchScript(name, script);      
 
       return script.get();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a Font resource from a given name and the
+            path to where the font file lies.
+    @param  name The name of the Font.
+    @param  assetPath The path to the Font.
+    @return A pointer to the recently-created resource object.
+    @note   The Font will be created with the name of the file, not
+            the name selected.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreateFont(std::string & name, std::string & assetPath)
+    {
+      DCTrace << "Editor::CreateFont - Created '" << name << "' with asset: '" << assetPath << "' \n";
+      // Create a SpriteSource object
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + Font::Extension();
+      auto font = FontPtr(new Font(path));
+      // Store the path of its asset
+      font->setAssetPath(assetPath);
+      // Serialize it and save it to file
+      auto data = font->Build();
+      // Add it to the content system
+      Daisy->getSystem<Content>()->AddFont(name, font);
+      // Load its textures immediately
+      font->Load();
+
+      return font.get();
     }
 
   }

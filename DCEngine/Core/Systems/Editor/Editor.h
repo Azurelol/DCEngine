@@ -167,6 +167,7 @@ namespace DCEngine {
       ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
       ResourcePtr CreateZilchScript(std::string& name);      
+      ResourcePtr CreateFont(std::string& name, std::string& assetPath);
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
       bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);      
