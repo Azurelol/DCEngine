@@ -75,9 +75,11 @@ namespace DCEngine {
 			void Terminate();
 
 			//2D draw list
-			int TotalObjNumG = 0;
-			int TotalObjTranspNumG = 0;
+			//int TotalObjNumG = 0;
+			//int TotalObjTranspNumG = 0;
 
+			int MaxDrawLayers;
+			std::vector<std::vector<Components::Sprite*>> mDrawList;
 			std::vector<Components::Sprite*>  NonTextureObjNontransp;
 			std::vector<Components::Sprite*>  TextureObjNontransp;
 			std::vector<Components::Sprite*> NonTextureObjtransp;

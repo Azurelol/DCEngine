@@ -68,6 +68,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, FlipY);
       DCE_DEFINE_PROPERTY(bool, AnimationActive);
       DCE_DEFINE_PROPERTY(float, AnimationSpeed);
+			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
       
       // Methods
       void IncreaseAnimationCounter(float dt);
@@ -79,6 +80,7 @@ namespace DCEngine {
       float GetAnimationSpeedFPS(void);
       void ResetSpeedCounter(void);
       void SetColorUsing255(Vec3 newColor);
+			//unsigned GetDrawLayer(void);
 
       Sprite(Entity& owner);
       ~Sprite();
@@ -98,6 +100,7 @@ namespace DCEngine {
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;
       float AnimationSpeedFPSCounter = 0;
+			unsigned DrawLayer;
     };
 
   }

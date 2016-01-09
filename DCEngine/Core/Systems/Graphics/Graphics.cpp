@@ -24,6 +24,8 @@ namespace DCEngine {
 		*/
 		/**************************************************************************/
 		Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {
+			MaxDrawLayers = 5;
+			mDrawList.resize(MaxDrawLayers);
 			DCTrace << "*Using OpenGL for Graphics \n";
 			GraphicsHandler.reset(new GraphicsGL());
 			GraphicsHandler->ClearColor = ClearColor;
@@ -67,10 +69,13 @@ namespace DCEngine {
 
 			// Update the graphics system
 			//GraphicsHandler->ViewportUpdate();
+			
 
 			// For every Space with a 'GraphicsSpace' component...
 			for (auto gfxSpace : graphicsSpaces_) {
         
+				int TotalObjNumG = 0, TotalObjTranspNumG = 0;
+
 				// Get the default camera from the 'CameraViewport' component
 				auto camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
@@ -82,31 +87,45 @@ namespace DCEngine {
 				GraphicsHandler->SetSpriteShader(*camera);
 
 				for (auto gameObj : gfxSpace->getSprites()) {
-					//draw list
 					++TotalObjNumG;
-					if (gameObj->SpriteSource == "Square")
-					{
-						if (gameObj->Color.a == 1)
-						{
-							NonTextureObjNontransp.push_back(gameObj);
-						}
-						else
-						{
-							NonTextureObjtransp.push_back(gameObj);
-						}
-					}
-					else
-					{
-						if (gameObj->Color.a == 1)
-						{
-							TextureObjNontransp.push_back(gameObj);
-						}
-						else
-						{
-							TextureObjtransp.push_back(gameObj);
-						}
-					}
+					mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
 				}
+
+				for (unsigned i = 0; i < MaxDrawLayers; ++i)
+				{
+					for (auto sprite : mDrawList[i])
+					{
+						DrawSprite(*sprite, *camera, dt);
+					}
+					mDrawList[i].clear();
+				}
+
+				//for (auto gameObj : gfxSpace->getSprites()) {
+				//	//draw list
+				//	++TotalObjNumG;
+				//	if (gameObj->SpriteSource == "Square")
+				//	{
+				//		if (gameObj->Color.a == 1)
+				//		{
+				//			NonTextureObjNontransp.push_back(gameObj);
+				//		}
+				//		else
+				//		{
+				//			NonTextureObjtransp.push_back(gameObj);
+				//		}
+				//	}
+				//	else
+				//	{
+				//		if (gameObj->Color.a == 1)
+				//		{
+				//			TextureObjNontransp.push_back(gameObj);
+				//		}
+				//		else
+				//		{
+				//			TextureObjtransp.push_back(gameObj);
+				//		}
+				//	}
+				//}
 				//sort
 				/*std::map<float, Sprite*> sorted;
 				for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
@@ -115,26 +134,28 @@ namespace DCEngine {
 				sorted[distance] = TransparentObj[i];
 				}*/
 
-				//Nontexture object draw first
-				for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
-				{
-					DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
-				}
 
-				for (int i = 0; i < TextureObjNontransp.size(); ++i)
-				{
-					DrawSprite(*(TextureObjNontransp[i]), *camera, dt);
-				}
 
-				for (int i = 0; i < NonTextureObjtransp.size(); ++i)
-				{
-					DrawSprite(*(NonTextureObjtransp[i]), *camera, dt);
-				}
-
-				for (int i = 0; i < TextureObjtransp.size(); ++i)
-				{
-					DrawSprite(*(TextureObjtransp[i]), *camera, dt);
-				}
+				////Nontexture object draw first
+				//for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
+				//{
+				//	DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
+				//}
+				//
+				//for (int i = 0; i < TextureObjNontransp.size(); ++i)
+				//{
+				//	DrawSprite(*(TextureObjNontransp[i]), *camera, dt);
+				//}
+				//
+				//for (int i = 0; i < NonTextureObjtransp.size(); ++i)
+				//{
+				//	DrawSprite(*(NonTextureObjtransp[i]), *camera, dt);
+				//}
+				//
+				//for (int i = 0; i < TextureObjtransp.size(); ++i)
+				//{
+				//	DrawSprite(*(TextureObjtransp[i]), *camera, dt);
+				//}
 
 				/*for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
 				{
@@ -150,13 +171,14 @@ namespace DCEngine {
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 
 				//Clean the counter
-				TotalObjNumG = 0;
-				TotalObjTranspNumG = 0;
+				//TotalObjNumG = 0;
+				//TotalObjTranspNumG = 0;
 
 				/* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
-				// Update every 'SpriteText'
+				//// Update every 'SpriteText'
 				//GraphicsHandler->SetSpriteTextShader(*camera);
-				//for (auto spriteText : gfxSpace->getSpriteTextContainer()) {
+				//for (auto spriteText : gfxSpace->getSpriteTextContainer()) 
+				//{
 				//  DrawSpriteText(*spriteText, *camera);
 				//}
 			}

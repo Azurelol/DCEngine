@@ -42,7 +42,7 @@ namespace DCEngine {
   @param The name of the font file.
   */
   /**************************************************************************/
-  Font::Font(std::string fontFile, std::string assetPath) : Resource("Font", FileSystem::FileNoExtension(fontFile), fontFile) {
+  Font::Font(const std::string& fontFile, std::string assetPath) : Resource("Font", FileSystem::FileNoExtension(fontFile), fontFile) {
   }
 
   /**************************************************************************/

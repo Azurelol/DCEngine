@@ -40,6 +40,7 @@ namespace DCEngine {
       ZilchBindProperty(builder, type, &Sprite::getFlipY, &Sprite::setFlipY, "FlipY");
       ZilchBindProperty(builder, type, &Sprite::getAnimationActive, &Sprite::setAnimationActive, "AnimationActive");
       ZilchBindProperty(builder, type, &Sprite::getAnimationSpeed, &Sprite::setAnimationSpeed, "AnimationSpeed");
+			DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
     }
 #endif
 
@@ -57,7 +58,7 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner) {
+    Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), DrawLayer(0) {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
       Register();
@@ -192,6 +193,11 @@ namespace DCEngine {
       Color = Vec4(newColor.x / 255.0f, newColor.y / 255.0f, newColor.z / 255.0f, Color.w);
       DCTrace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
     }
+
+		//unsigned Sprite::GetDrawLayer(void)
+		//{
+		//	return DrawLayer;
+		//}
 
     /**************************************************************************/
     /*!

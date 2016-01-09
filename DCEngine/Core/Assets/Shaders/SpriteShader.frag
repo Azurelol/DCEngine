@@ -10,18 +10,21 @@ uniform int isTexture;
 uniform sampler2D image;
 uniform vec4 spriteColor;
 
-void main() {
+void main()
+{
 
   //color = vec4(spriteColor);
 
- // color = vec4(spriteColor) * texture(image, TexCoords);
+  // color = vec4(spriteColor) * texture(image, TexCoords);
 
- vec4 Tmpcolor;
+  vec4 Tmpcolor;
 
-  if (isTexture == 1) {
+  if (isTexture == 1) 
+  {
     Tmpcolor = vec4(spriteColor) * texture(image, TexCoords);
   }
-  else {
+  else 
+  {
     Tmpcolor = vec4(spriteColor);
   }
 
