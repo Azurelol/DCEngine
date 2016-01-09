@@ -681,6 +681,9 @@
     <ClCompile Include="Core\Engine\Action.cpp">
       <Filter>Core\Engine\Action</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\SpriteLayer.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1171,6 +1174,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\TransformTool.h">
       <Filter>Core\Components\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SpriteLayer.h">
+      <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

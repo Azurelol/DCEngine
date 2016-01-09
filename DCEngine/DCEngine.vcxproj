@@ -308,6 +308,7 @@
     <ClCompile Include="Core\Resources\PhysicsMaterial.cpp" />
     <ClCompile Include="Core\Resources\Shader.cpp" />
     <ClCompile Include="Core\Resources\SoundCue.cpp" />
+    <ClCompile Include="Core\Resources\SpriteLayer.cpp" />
     <ClCompile Include="Core\Resources\SpriteSource.cpp" />
     <ClCompile Include="Core\Resources\Texture2D.cpp" />
     <ClCompile Include="Core\Resources\ZilchScript.cpp" />
@@ -487,6 +488,7 @@
     <ClInclude Include="Core\Resources\ResourcesInclude.h" />
     <ClInclude Include="Core\Resources\Shader.h" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
+    <ClInclude Include="Core\Resources\SpriteLayer.h" />
     <ClInclude Include="Core\Resources\SpriteSource.h" />
     <ClInclude Include="Core\Resources\Texture.h" />
     <ClInclude Include="Core\Resources\Texture2D.h" />

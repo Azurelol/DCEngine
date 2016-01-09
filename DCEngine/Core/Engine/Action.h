@@ -66,9 +66,9 @@ namespace DCEngine {
   *===================*/
   class Call : public Action {
   public:
-    Call(ActionSet& sequence, Delegate* funcPtr);
+    Call(ActionSet& sequence, EventDelegate* funcPtr);
     float Update(float dt);
-    Delegate* FunctionPtr;
+    EventDelegate* FunctionPtr;
   };
 
   class Delay : public Action {
@@ -88,7 +88,7 @@ namespace DCEngine {
   class Actions {
     // Constructs an action sequence, adding it to 
     static ActionSetPtr Sequence(ActionSet& owner);
-    static void Call(ActionSet& set, Delegate& fn);
+    static void Call(ActionSet& set, EventDelegate& fn);
     static void Delay(ActionSet& set, Real duration);
     template <typename Property, typename EndValue>
     static void Property(ActionSequence& seq, Property prty, EndValue val, Ease ease);

@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   Delegate.h
+\file   EventDelegate.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   9/9/2015
@@ -44,12 +44,19 @@ namespace DCEngine {
   class Object;
   class Component;
   class Event;
-  class Delegate;
+  class EventDelegate;
 
-  class Delegate {
+
+
+  /**************************************************************************/
+  /*!
+  @class  Base class for delegates used for the event system.
+  */
+  /**************************************************************************/
+  class EventDelegate {
   public:
-    Delegate() {}
-    virtual ~Delegate() {};
+    EventDelegate() {}
+    virtual ~EventDelegate() {};
     virtual bool Call(Event* event) = 0;
     virtual Object* GetObserver() = 0;
   };
@@ -57,12 +64,12 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Templated class that allows member functions to connect
+  @class  Templated class that allows member functions to connect
           to an entity's events.
   */
   /**************************************************************************/
   template <typename Class, typename EventClass>
-  class MemberFunctionDelegate : public Delegate {
+  class EventMemberFunctionDelegate : public EventDelegate {
   public:
     typedef void(Class::*EventFn)(EventClass* event);
     EventFn FuncPtr;

@@ -124,7 +124,7 @@ namespace DCEngine {
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
     static Zilch::BoundType* BoundType(std::string componentName);
-    //std::vector<Delegate*> ActiveDelegates;
+    //std::vector<EventDelegate*> ActiveDelegates;
 
   };
 

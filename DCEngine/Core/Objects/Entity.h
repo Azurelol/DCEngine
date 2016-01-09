@@ -94,7 +94,7 @@ namespace DCEngine {
   private:
 
     //! Use a vector here instead perhaps?
-    std::map<std::type_index, std::list<std::unique_ptr<Delegate>>> ObserverRegistry;
+    std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
     bool IsInitialized = false;

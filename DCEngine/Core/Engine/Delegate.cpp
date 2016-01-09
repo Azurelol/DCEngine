@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   Delegate.h
+\file   EventDelegate.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
 \date   9/9/2015
@@ -51,16 +51,16 @@ namespace DCEngine {
 //  // Forward declarations
 //  class Component;
 //  class Event;
-//  class Delegate;
+//  class EventDelegate;
 //
 //  // Alias declarations
 //  using ComponentFnPtr = void(Component::*)(DCEngine::Event*);
-//  using DelegateFnPtr = void(Delegate::*)(DCEngine::Event*);
+//  using DelegateFnPtr = void(EventDelegate::*)(DCEngine::Event*);
 //
 //  // Class declaration
-//  class Delegate {
+//  class EventDelegate {
 //  public:
-//    Delegate(void) : componentPtr(NULL) {}
+//    EventDelegate(void) : componentPtr(NULL) {}
 //
 //
 //    template <typename GenericComponent, typename EventClass, typename MemberFunction>
@@ -77,7 +77,7 @@ namespace DCEngine {
 //
 //    Component* componentPtr;
 //    ComponentFnPtr funcPtr;
-//    void (Delegate::*caller_)(DCEngine::Event* eventObj);
+//    void (EventDelegate::*caller_)(DCEngine::Event* eventObj);
 //
 //
 //  private:
@@ -86,13 +86,13 @@ namespace DCEngine {
 //    void Invoke(DCEngine::Event* eventObj) {
 //
 //      if (componentPtr == NULL) {
-//        DCTrace << "Delegate::Invoke - Fatal: No component provided \n";
+//        DCTrace << "EventDelegate::Invoke - Fatal: No component provided \n";
 //      }
 //
 //      GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);
 //      (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
 //    }
-//    void (Delegate::*functionPtr)(DCEngine::Event* eventObj);
+//    void (EventDelegate::*functionPtr)(DCEngine::Event* eventObj);
 //  };
 //
 //

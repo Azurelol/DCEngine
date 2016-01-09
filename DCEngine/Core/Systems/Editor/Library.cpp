@@ -15,20 +15,21 @@
 namespace DCEngine {
   namespace Systems {
 
+
     /**************************************************************************/
     /*!
     @brief  Displays the properties of the currently selected object.
     @todo   Refactor each resource into a template for the type, perhaps?
     */
     /**************************************************************************/
-    void Editor::WidgetLibrary()
+    void Editor::WindowLibrary()
     {
       if (!WidgetLibraryEnabled)
         return;
       
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       ImGui::Begin("Library", &WidgetLibraryEnabled);
-
+      
       if (ImGui::TreeNode("Archetype")) {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {

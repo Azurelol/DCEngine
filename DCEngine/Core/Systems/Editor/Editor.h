@@ -21,9 +21,9 @@
 
 
 namespace DCEngine {
-  
+
   /* Forward declarations*/
-  class Engine;  
+  class Engine;
   class Space;
 
   /**************************************************************************/
@@ -53,7 +53,7 @@ namespace DCEngine {
   };
 
   namespace Systems {
-    
+
     class Editor : public System {
       friend class Engine;
 
@@ -65,8 +65,8 @@ namespace DCEngine {
         Translate,
         Rotate,
         Scale,
-        
-      };            
+
+      };
 
       bool IsEnabled();
       void ToggleEditor();
@@ -74,13 +74,13 @@ namespace DCEngine {
       void ToggleTest();
 
     private:
-      
+
       /////////////////
       //  Settings 
       ////////////////
       EditorConfig Settings;
       void setEnabled(bool);
-      std::string RecentProject;      
+      std::string RecentProject;
       bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
       bool WidgetLevelEnabled = false;
@@ -93,14 +93,14 @@ namespace DCEngine {
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
       bool WindowToolsEnabled = false;
-      bool WindowCreateFromArchetypeEnabled = false;   
+      bool WindowCreateFromArchetypeEnabled = false;
       bool WindowCollisionTableEditorEnabled = false;
       bool WindowCommandsEnabled = false;
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
       GameObjectPtr TransformTool = nullptr;
-      Object* SelectedObject = nullptr;      
+      Object* SelectedObject = nullptr;
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
@@ -122,17 +122,18 @@ namespace DCEngine {
       bool DisplayProperties(ObjectPtr);
       void DisplayEntityProperties();
       void DisplayResourceProperties();
-      bool AddComponent(EntityPtr);      
+      bool AddComponent(EntityPtr);
       // Library
-      void WidgetLibrary();
+      void WindowLibrary();
+      //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
       void WidgetDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
-      void WindowCreateFromArchetype();      
+      void WindowCreateFromArchetype();
       // Archetypes
       void SaveArchetype(std::string&);
-      void RevertToArchetype();      
+      void RevertToArchetype();
       // Project
       void NewProject();
       void ArchiveProject();
@@ -160,17 +161,17 @@ namespace DCEngine {
       void WindowAddResource();
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
-      bool CreateLevel(std::string&);          
+      bool CreateLevel(std::string&);
       ResourcePtr CreateCollisionGroup(std::string& name);
       ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreatePhysicsMaterial(std::string& name);
       ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
       ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
-      ResourcePtr CreateZilchScript(std::string& name);      
+      ResourcePtr CreateZilchScript(std::string& name);
       ResourcePtr CreateFont(std::string& name, std::string& assetPath);
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
-      bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);      
+      bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
       void WindowCollisionTableEditor();
       ResourcePtr SelectedCollisionTable;
       bool LoadLevel(std::string level);
@@ -228,6 +229,24 @@ namespace DCEngine {
     /////////////
     // Templates
     /////////////
+    //template<typename ResourceMap>
+    //inline void Editor::DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, EventDelegate* delegate)
+    //{
+    //  if (ImGui::TreeNode(resourceName.c_str())) {
+    //    for (auto& resource : resourceMap) {
+    //      if (ImGui::Selectable(resource.second->Name().c_str())) {
+    //        SelectedObject = resource.second.get();
+    //        WindowPropertiesEnabled = true;
+    //      }
+    //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+    //        
+    //        break;
+    //      }
+    //    }
+    //    ImGui::TreePop();
+    //  }
+    //}
+
     template<typename ResourceMap>
     inline bool Editor::SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID)
     {
@@ -258,7 +277,7 @@ namespace DCEngine {
       return false;
     }
 
-}
+  }
 
 
 }

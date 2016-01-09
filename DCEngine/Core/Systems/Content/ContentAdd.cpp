@@ -69,6 +69,8 @@ namespace DCEngine {
       ScanForFonts(FontPath);
       // Load archetypes
       ScanForArchetypes(ArchetypePath);
+      // Generates default resources
+      GenerateDefaultResources();
       //DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 
@@ -233,6 +235,16 @@ namespace DCEngine {
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
     }
 
+    void Content::AddSpriteLayer(std::string & name, SpriteLayerPtr ptr)
+    {
+      AddResourceToMap<SpriteLayerPtr, SpriteLayerMap>(name, ptr, MapSpriteLayer);
+    }
+
+    void Content::AddSpriteLayerOrder(std::string & name, SpriteLayerOrderPtr ptr)
+    {
+      AddResourceToMap<SpriteLayerOrderPtr, SpriteLayerOrderMap>(name, ptr, MapSpriteLayerOrder);
+    }
+
 
     /**************************************************************************/
     /*!
@@ -256,10 +268,22 @@ namespace DCEngine {
       else if (dynamic_cast<Archetype*>(resource)) {
 
       }
-
-
-
     }
+
+    /**************************************************************************/
+    /*!
+    @brief Generates default resources to be used by the engine.
+    */
+    /**************************************************************************/
+    void Content::GenerateDefaultResources()
+    {
+      AddSpriteLayer(DefaultSpriteLayer, SpriteLayerPtr(new SpriteLayer(DefaultSpriteLayer)));
+      AddSpriteLayerOrder(DefaultSpriteLayerOrder, SpriteLayerOrderPtr(new SpriteLayerOrder(DefaultSpriteLayerOrder)));
+      AddCollisionGroup(DefaultCollisionGroup, CollisionGroupPtr(new CollisionGroup(DefaultCollisionGroup)));
+      AddCollisionTable(DefaultCollisionTable, CollisionTablePtr(new CollisionTable(DefaultCollisionTable)));
+      AddPhysicsMaterial(DefaultPhysicsMaterial, PhysicsMaterialPtr(new PhysicsMaterial(DefaultPhysicsMaterial)));
+    }
+
 
     /**************************************************************************/
     /*!

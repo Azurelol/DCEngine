@@ -1,11 +1,9 @@
 /*****************************************************************************/
 /*!
-@file   CollisionGroup.cpp
-@author Blaine Reiner
-@par    email: blaine.reiner\@digipen.edu
-@date   10/01/2015
-@note   This file includes all the headers for the components that Rebound
-uses.
+@file      CollisionGroup.cpp
+@author    Blaine Reiner
+@par       email: blaine.reiner\@digipen.edu
+@date      10/01/2015
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/

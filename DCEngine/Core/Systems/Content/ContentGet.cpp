@@ -120,7 +120,12 @@ namespace DCEngine {
     /**************************************************************************/
     CollisionGroupPtr Content::getCollisionGroup(std::string & groupName)
     {
-      return CollisionGroupPtr();
+      // Check if the resource is present in the map
+      if (!MapCollisionGroup.count(groupName)) {
+        // Return a default resource
+        return MapCollisionGroup.at(DefaultCollisionGroup);
+      }
+      return MapCollisionGroup.at(groupName);
     }
 
     /**************************************************************************/
@@ -129,15 +134,46 @@ namespace DCEngine {
     @return Returns a pointer to the CollisionTable object.
     */
     /**************************************************************************/
-    CollisionTablePtr Content::getCollisionTable(std::string & groupName)
+    CollisionTablePtr Content::getCollisionTable(std::string & table)
     {
-      return CollisionTablePtr();
+      // Check if the resource is present in the map
+      if (!MapCollisionTable.count(table)) {
+        // Return a default resource
+        return MapCollisionTable.at(DefaultCollisionTable);
+      }
+      return MapCollisionTable.at(table);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a PhysicsMaterial resource.
+    @return Returns a pointer to the PhysicsMaterial object.
+    */
+    /**************************************************************************/
     PhysicsMaterialPtr Content::getPhysicsMaterial(std::string & materialName)
     {
-      return PhysicsMaterialPtr();
+      return getResource<PhysicsMaterialMap, PhysicsMaterialPtr>(materialName, MapPhysicsMaterial, DefaultPhysicsMaterial);
     }
+
+    SpriteLayerPtr Content::getSpriteLayer(std::string & name)
+    {
+      return getResource<SpriteLayerMap, SpriteLayerPtr>(name, MapSpriteLayer, DefaultSpriteLayer);
+    }
+
+    SpriteLayerOrderPtr Content::getSpriteLayerOrder(std::string & name)
+    {
+      return getResource<SpriteLayerOrderMap, SpriteLayerOrderPtr>(name, MapSpriteLayerOrder, DefaultSpriteLayerOrder);
+    }
+
+
+
+
+
+
+
+
+
+
 
     /**************************************************************************/
     /*!
@@ -193,6 +229,16 @@ namespace DCEngine {
     PhysicsMaterialMap * Content::AllPhysicsMaterials()
     {
       return &MapPhysicsMaterial;
+    }
+
+    SpriteLayerMap * Content::AllSpriteLayers()
+    {
+      return &MapSpriteLayer;
+    }
+
+    SpriteLayerOrderMap * Content::AllSpriteLayerOrders()
+    {
+      return &MapSpriteLayerOrder;
     }
 
   }

@@ -103,7 +103,7 @@ namespace DCEngine {
   /*==============*
   *     Call     *
   *==============*/
-  Call::Call(ActionSet & sequence, Delegate * funcPtr) : FunctionPtr(funcPtr)
+  Call::Call(ActionSet & sequence, EventDelegate * funcPtr) : FunctionPtr(funcPtr)
   {
   }
   float Call::Update(float dt)
