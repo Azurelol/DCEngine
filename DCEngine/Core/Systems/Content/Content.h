@@ -99,11 +99,11 @@ namespace DCEngine {
       // Default resources
       std::string DefaultImage = "Wow";
       std::string DefaultFont = "Verdana";
-      std::string DefaultCollisionTable = "DefaultCollisionTable";
-      std::string DefaultCollisionGroup= "DefaultCollisionGroup";
+      std::string DefaultCollisionTable = CollisionTable::Default();
+      std::string DefaultCollisionGroup = "DefaultCollisionGroup";
       std::string DefaultPhysicsMaterial = "DefaultPhysicsMaterial";
       std::string DefaultSpriteLayer = "DefaultSpriteLayer";
-      std::string DefaultSpriteLayerOrder = "DefaultSpriteLayerOrder";
+      std::string DefaultSpriteLayerOrder = SpriteLayerOrder::Default();
       std::string DefaultSound = "Beep";
 
       // Resource maps      

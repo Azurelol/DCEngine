@@ -75,6 +75,7 @@ namespace DCEngine {
     CollisionTable(void);
     ~CollisionTable() {}
     static std::string Extension() { return ".CollisionTable"; }
+    static std::string Default() { return "DefaultCollisionTable"; }
 
     bool AddGroup(CollisionGroup group);
     bool AddGroup(std::string group);

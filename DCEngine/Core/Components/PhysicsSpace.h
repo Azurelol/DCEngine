@@ -36,7 +36,7 @@ namespace DCEngine {
       ZilchDeclareDerivedType(PhysicsSpace, Component);
       #endif
 
-      DCE_DEFINE_PROPERTY(CollisionTable, Table);
+      DCE_DEFINE_PROPERTY(CollisionTableHandle, CollisionTable);
       DCE_DEFINE_PROPERTY(bool, AllowSleep);
       DCE_DEFINE_PROPERTY(bool, Mode2D);
       DCE_DEFINE_PROPERTY(bool, Deterministic);
@@ -56,11 +56,11 @@ namespace DCEngine {
 
     private:
 
-      bool AllowSleep;
-      bool Mode2D;
-      bool Deterministic;
+      bool AllowSleep = false;
+      bool Mode2D = false;
+      bool Deterministic = true;
+      CollisionTableHandle CollisionTable;
 
-      CollisionTable Table;
       RigidBodyContainer RigidBodiesContainer;
       ColliderContainer CollidersContainer;
 

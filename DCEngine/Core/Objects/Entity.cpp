@@ -319,6 +319,9 @@ namespace DCEngine {
   {
     // Fill the container of pointers to the components that this entity owns
     ComponentVec components;
+    for (auto& component : ComponentsContainer) {
+      components.push_back(component.get());
+    }
     for (auto componentHandle : ComponentHandlesContainer) {
       components.push_back(reinterpret_cast<Component*>(componentHandle.Dereference()));
     }

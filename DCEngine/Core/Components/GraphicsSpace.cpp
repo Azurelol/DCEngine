@@ -28,11 +28,11 @@ namespace DCEngine {
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(GraphicsSpace, "GraphicsSpace", DCEngineCore, builder, type) {
-      // Constructor / Destructor
-      //ZilchBindConstructor(builder, type, GraphicsSpace, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, GraphicsSpace);
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(GraphicsSpace);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteLayerOrder);
       // Properties
+      DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, SpriteLayerOrder);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertySpriteLayerOrder, attributeSpriteLayerOrder);
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, Active);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
@@ -44,8 +44,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     GraphicsSpace::GraphicsSpace(Entity & owner) : Component(std::string("GraphicsSpace"), owner)
-
+      , Active(true)
     {
+      SpriteLayerOrder = SpriteLayerOrder::Default();
     }
 
     /**************************************************************************/

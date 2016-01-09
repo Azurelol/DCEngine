@@ -35,6 +35,11 @@ namespace DCEngine {
     }
     #endif
 
+    SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner),
+      Volume(0), Pitch(0), Pause(0)
+    {
+    }
+
     /**************************************************************************/
     /*!
     @brief  Initializes the 'SoundSpace' component.

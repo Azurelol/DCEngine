@@ -57,11 +57,18 @@ namespace DCEngine {
     DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
-    AddComponent<Components::SoundSpace>();
-    AddComponent<Components::TimeSpace>();
-    AddComponent<Components::PhysicsSpace>();
-    AddComponent<Components::CameraViewport>();
-    AddComponent<Components::GraphicsSpace>();
+    AddComponentByName(std::string("SoundSpace"));
+    AddComponentByName(std::string("TimeSpace"));
+    AddComponentByName(std::string("PhysicsSpace"));
+    AddComponentByName(std::string("CameraViewport"));
+    AddComponentByName(std::string("GraphicsSpace"));
+
+    //AddComponent<Components::SoundSpace>();
+    //AddComponent<Components::TimeSpace>();
+    //AddComponent<Components::PhysicsSpace>();
+    //AddComponent<Components::CameraViewport>();
+    //AddComponent<Components::GraphicsSpace>();
+
     //AddComponent(ComponentPtr(new SoundSpace(*this)));
     //AddComponent(ComponentPtr(new TimeSpace(*this)));
     //AddComponent(ComponentPtr(new PhysicsSpace(*this)));

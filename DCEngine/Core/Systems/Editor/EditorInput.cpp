@@ -153,6 +153,11 @@ namespace DCEngine {
           Duplicate();
         break;
 
+      case Keys::S:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift))
+          SelectSpace();
+        break;
+       
       case Keys::F:
         CenterSelected();
         break;

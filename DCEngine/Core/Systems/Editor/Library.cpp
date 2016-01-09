@@ -57,7 +57,7 @@ namespace DCEngine {
 
       if (ImGui::TreeNode("SpriteLayerOrder")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
+        for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayerOrders()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             SelectedObject = resource.second.get();
             WindowPropertiesEnabled = true;

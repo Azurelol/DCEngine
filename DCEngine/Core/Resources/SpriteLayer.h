@@ -47,6 +47,7 @@ namespace DCEngine {
     SpriteLayerOrder(std::string name);
     ~SpriteLayerOrder() {}
     static std::string Extension() { return ".SpriteLayerOrder"; }
+    static std::string Default() { return "DefaultSpriteLayerOrder"; }
     static SpriteLayerOrderPtr Find(std::string);
 
   };

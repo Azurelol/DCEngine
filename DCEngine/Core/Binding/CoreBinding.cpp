@@ -64,6 +64,7 @@ namespace DCEngine {
     // Space
     ZilchInitializeType(Components::PhysicsSpace);
     ZilchInitializeType(Components::GraphicsSpace);
+    ZilchInitializeType(Components::CameraViewport);
     ZilchInitializeType(Components::SoundSpace);
     ZilchInitializeType(Components::TimeSpace);
     // Physics

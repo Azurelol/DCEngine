@@ -41,9 +41,11 @@ namespace DCEngine {
       ZilchDeclareDerivedType(GraphicsSpace, Component);
       #endif
 
-      bool Active; // Prevent visibility, particle system and render updates
-      // Properties
+      SpriteLayerOrderHandle SpriteLayerOrder;
+      bool Active = true; // Prevent visibility, particle system and render updates
+                                
       DCE_DEFINE_PROPERTY(bool, Active);
+      DCE_DEFINE_PROPERTY(SpriteLayerOrderHandle, SpriteLayerOrder);
 
       GraphicsSpace(Entity& owner);
       ~GraphicsSpace();
