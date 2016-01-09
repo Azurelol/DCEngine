@@ -23,9 +23,9 @@ namespace DCEngine {
 		\note  It sets several values for the OpenGL interface...
 		*/
 		/**************************************************************************/
-		Graphics::Graphics() : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics) {
-			MaxDrawLayers = 5;
-			mDrawList.resize(MaxDrawLayers);
+		Graphics::Graphics(GraphicsConfig settings) : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics), Settings(settings) {
+      //Settings.MaxDrawLayers = 5;
+			mDrawList.resize(Settings.MaxDrawLayers);
 			DCTrace << "*Using OpenGL for Graphics \n";
 			GraphicsHandler.reset(new GraphicsGL());
 			GraphicsHandler->ClearColor = ClearColor;
@@ -91,7 +91,7 @@ namespace DCEngine {
 					mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
 				}
 
-				for (unsigned i = 0; i < MaxDrawLayers; ++i)
+				for (unsigned i = 0; i < Settings.MaxDrawLayers; ++i)
 				{
 					for (auto sprite : mDrawList[i])
 					{
