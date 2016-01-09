@@ -370,11 +370,11 @@ namespace DCEngine {
 
       if (musicplay)
       {
-        auto objref = this->SpaceRef->FindObjectByName("MusicManager");
-        auto event = new Events::PlayMusic;
-        objref->Dispatch<Events::PlayMusic>(event);
-        delete event;
-        musicplay = false;
+        //auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+       // auto event = new Events::PlayMusic;
+       // objref->Dispatch<Events::PlayMusic>(event);
+       // delete event;
+       // musicplay = false;
       }
 
       //PrintTranslation();
@@ -403,11 +403,11 @@ namespace DCEngine {
 
       if (musicplay)
       {
-        auto objref = this->SpaceRef->FindObjectByName("MusicManager");
-        auto event = new Events::PlayMusic;
-        objref->Dispatch<Events::PlayMusic>(event);
-        delete event;
-        musicplay = false;
+        //auto objref = this->SpaceRef->FindObjectByName("MusicManager");
+        //auto event = new Events::PlayMusic;
+        //objref->Dispatch<Events::PlayMusic>(event);
+        //delete event;
+        //musicplay = false;
       }
 
     }

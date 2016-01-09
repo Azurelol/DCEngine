@@ -80,6 +80,8 @@ namespace DCEngine {
       void ScanForArchetypes(std::string& archetypePath);
       void ScanForSpriteSources(std::string& spriteSourcePath);
       void ScanForSoundCues(std::string& soundCuePath);
+      void ScanForFonts(std::string& fontPath);
+      void ScanAndGenerateResources();
       // Get the current project's settings
       ProjectDataPtr& ProjectSettings();
 
@@ -89,6 +91,7 @@ namespace DCEngine {
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
       std::string DefaultImage = "Wow";
+      std::string DefaultFont = "Verdana";
       //std::string DefaultSound = "Eh";
 
       // Resource maps      

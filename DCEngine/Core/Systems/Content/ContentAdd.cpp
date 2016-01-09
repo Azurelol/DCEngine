@@ -59,15 +59,17 @@ namespace DCEngine {
       //            EngineInfo->ShaderPath + "SpriteShader.frag")));
       //}
 
+      // Scan for default assets and generate resources
+      ScanAndGenerateResources();
       // Load sprites
       ScanForSpriteSources(SpritePath);
       // Load sound files
       ScanForSoundCues(SoundPath);
       // Load default fonts      
-      //AddFont(std::string("Verdana"), FontPtr(new Font(FontPath + "Verdana.ttf")));
-      //DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
+      ScanForFonts(FontPath);
       // Load archetypes
       ScanForArchetypes(ArchetypePath);
+      //DCTrace << "[Content::LoadDefaultResources] - Finished loading default resources \n\n";
     }
 
     /**************************************************************************/
@@ -301,7 +303,35 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Scans the engine's asset path for resources to generate and add
+            to the engine.
+    @todo   Make it scan recursively.
+    */
+    /**************************************************************************/
+    void Content::ScanAndGenerateResources()
+    {
+      //auto SpritePath = CoreAssetsPath + "Sprites/";
+      //auto SoundPath = CoreAssetsPath + "Sounds/";
+      //auto FontPath = CoreAssetsPath + "Fonts/";
+      //// 1. Scan for all resources in the specified directory
+      //std::vector<std::string> resources;
+      //if (!FileSystem::DirectoryListFilePaths(resourcePath, resources)) {
+      //  auto exceptionInfo = std::string("Content::ScanResources - Failed to find the resource directory: " + ProjectInfo->ResourcePath);
+      //  throw DCException(exceptionInfo);
+      //}
 
+      //// 2. Parse the resources and add them to their appropiate maps
+      //for (auto resource : resources) {
+      //  // 1. Get the resource's name and extension
+      //  auto resourceName = FileSystem::FileNoExtension(resource);
+      //  auto extension = FileSystem::FileExtension(resource);
+      //  // 2. Depending on the extension, add the specific resource:
+      //  if (extension == SpriteSource::Extension())
+      //    AddSpriteSource(resourceName, SpriteSourcePtr(new SpriteSource(resource)));
+      //}
+    }
 
     void Content::ScanForLevels()
     {
@@ -411,6 +441,32 @@ namespace DCEngine {
         AddSoundCue(soundName, soundCue);
       }
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Scans the specified path for Font files.
+    */
+    /**************************************************************************/
+    void Content::ScanForFonts(std::string & fontPath)
+    {
+      DCTrace << "Content::ScanForFonts - Scanning the current project \n";
+
+      // Load sprites
+      std::vector<std::string> fonts;
+      if (!FileSystem::DirectoryListFilePaths(fontPath, fonts)) {
+        auto exceptionInfo = std::string("Content::ScanForFonts - Failed to find font directory: " + fontPath);
+        throw DCException(exceptionInfo);
+      }
+
+      for (auto font : fonts) {
+        auto fontName = FileSystem::FileNoExtension(font);
+        auto fontResource = FontPtr(new Font(font));
+        fontResource->setAssetPath(font);
+        AddFont(fontName, fontResource);
+      }
+    }
+
+
 
     ProjectDataPtr & Content::ProjectSettings()
     {

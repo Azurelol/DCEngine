@@ -115,7 +115,7 @@ namespace DCEngine {
       // do nothing!
       //if (namedProperty != nullptr && !namedProperty->HasAttribute("Property")
       //  continue;
-
+            
       // If there is no set method
       if (namedProperty->Set == nullptr)
         continue;

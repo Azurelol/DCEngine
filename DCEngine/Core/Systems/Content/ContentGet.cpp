@@ -34,6 +34,12 @@ namespace DCEngine {
     /**************************************************************************/
     FontPtr Content::getFont(std::string & fontName)
     {
+      // Check if the resource is present in the map
+      if (!FontMap.count(fontName)) {
+        // Return a default font
+        return FontMap.at(DefaultFont);
+      }
+
       return FontMap.at(fontName);
     }
 

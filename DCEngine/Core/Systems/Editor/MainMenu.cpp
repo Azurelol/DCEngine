@@ -65,14 +65,10 @@ namespace DCEngine {
 
         // Create
         if (ImGui::BeginMenu("Create")) {
-          if (ImGui::MenuItem("Create Transform")) {
-            CreateTransform();
-          }
+          if (ImGui::MenuItem("Create Transform")) { CreateTransform(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Sprite")) {
-            CreateSprite();
-          }
-          if (ImGui::MenuItem("Create SpriteText")) {}
+          if (ImGui::MenuItem("Create Sprite")) { CreateSprite(); }
+          if (ImGui::MenuItem("Create SpriteText")) { CreateSpriteText(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create Particle System")) {}
           ImGui::Separator();

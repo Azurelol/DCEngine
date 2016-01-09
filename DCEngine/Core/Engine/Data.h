@@ -35,6 +35,7 @@ namespace DCEngine {
     bool EditorEnabled;
     std::string ProjectsPath;
     std::string RecentProject;
+		unsigned MaxDrawLayers;
 
     void Serialize(Json::Value& root) {
     }
@@ -51,6 +52,7 @@ namespace DCEngine {
       EditorEnabled = root.get("EditorEnabled", "").asBool();
       ProjectsPath = root.get("ProjectsPath", "").asString();
       RecentProject = root.get("RecentProject", "").asString();
+			MaxDrawLayers = root.get("MaxDrawLayers", "").asInt();
       
       /*SpritePath = root.get("SpritePath", "").asString();
       SoundPath = root.get("SoundPath", "").asString();

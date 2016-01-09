@@ -205,6 +205,7 @@ namespace DCEngine {
       // Create
       void CreateTransform();
       void CreateSprite();
+      void CreateSpriteText();
       void CreateFromArchetype(std::string&);
       void MoveToViewportCenter(GameObject* gameobject);
       /* Functions */

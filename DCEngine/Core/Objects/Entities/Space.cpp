@@ -337,7 +337,7 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
-    return GameObjectPtr();
+    return gameObject;
   }
 
   /**************************************************************************/

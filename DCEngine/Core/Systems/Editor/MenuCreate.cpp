@@ -67,6 +67,23 @@ namespace DCEngine {
 
     }
 
+    void Editor::CreateSpriteText()
+    {
+      // Create the SpriteText GameObject
+      auto spriteText = CurrentSpace->CreateObject("SpriteText");
+      spriteText->setObjectName("SpriteText");
+      // Add the Sprite component
+      spriteText->AddComponentByName(std::string("SpriteText"), true);
+      DCTrace << "Editor::CreateSpriteText - Created 'SpriteText' \n";
+      SelectedObject = spriteText;
+      WindowPropertiesEnabled = true;
+      MoveToViewportCenter(spriteText);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
+                                    CommandObjectCreation::Setting::Create));
+      Settings.Commands.Add(command);
+    }
+
     /**************************************************************************/
     /*!
     @brief  Creates a GameObject from an Archetype into the current space.

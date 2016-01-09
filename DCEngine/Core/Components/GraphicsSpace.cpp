@@ -113,6 +113,21 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Deregisters a SpriteText from the GraphicsSpace
+    @param  A reference to an instance of the 'SpriteText' component.
+    */
+    /**************************************************************************/
+    void GraphicsSpace::RemoveSpriteText(SpriteText & spriteText)
+    {
+      SpriteText* spriteTextPtr = &spriteText;
+      SpriteTextContainer.erase(std::remove(SpriteTextContainer.begin(),
+                                SpriteTextContainer.end(), spriteTextPtr),
+                                SpriteTextContainer.end());
+    }
+
+
+    /**************************************************************************/
+    /*!
     \brief Passes a call requesting a DebugDraw call on to the Graphics System.
     */
     /**************************************************************************/

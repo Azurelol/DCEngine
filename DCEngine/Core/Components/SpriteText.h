@@ -36,7 +36,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
       DCE_DEFINE_PROPERTY(Boolean, Smoothing);
 
-      SpriteText(Entity& owner) : Component(std::string("SpriteText"), owner) {}
+      SpriteText(Entity& owner);
+      ~SpriteText();
+      void Register();
       void Initialize();
       Transform* TransformComponent;
 
@@ -44,7 +46,7 @@ namespace DCEngine {
 
       Boolean Visible = true;
       Vec4 Color = Vec4(0, 0, 0, 1);
-      String Font = "Verdana";
+      String Font;
       Integer FontSize = 12;
       String Text = "";
       Integer PixelsPerUnit = 64;
