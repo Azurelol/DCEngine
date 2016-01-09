@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   CollisionTable.cpp
+@file   ResourceEditors.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   12/18/2015
@@ -13,12 +13,17 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    @brief  Displays the CollisionTable editor.
+    */
+    /**************************************************************************/
     void Editor::WindowCollisionTableEditor()
     {
       if (!WindowCollisionTableEditorEnabled)
         return;
 
-      std::string title = "Collision Table Editor - " + SelectedCollisionTable->Name();
+      std::string title = "CollisionTable Editor - " + SelectedCollisionTable->Name();
       ImGui::Begin(title.c_str(), &WindowCollisionTableEditorEnabled);
       
       // Create an array from all available collision groups (so that we have random access)
@@ -36,6 +41,24 @@ namespace DCEngine {
           }
         }
       }
+
+      ImGui::End();
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays the SpriteLayerOrder editor.
+    */
+    /**************************************************************************/
+    void Editor::WindowSpriteLayerOrderEditor()
+    {
+      if (!WindowSpriteLayerOrderEditorEnabled)
+        return;
+
+      std::string title = "SpriteLayerOrder Editor - " + SelectedSpriteLayerOrder->Name();
+      ImGui::Begin(title.c_str(), &WindowSpriteLayerOrderEditorEnabled);
+
 
       ImGui::End();
 

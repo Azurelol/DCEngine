@@ -55,6 +55,8 @@ namespace DCEngine {
     ZilchInitializeType(ZilchScript);
     ZilchInitializeType(PhysicsMaterial);
     ZilchInitializeType(Font);
+    ZilchInitializeType(SpriteLayer);
+    ZilchInitializeType(SpriteLayerOrder);
 
     /*===================*
     *     Components     *

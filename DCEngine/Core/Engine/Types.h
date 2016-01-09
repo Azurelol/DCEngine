@@ -163,6 +163,7 @@ namespace DCEngine {
     SoundCue,
     SpriteSource,
     SpriteLayer,
+    SpriteLayerOrder,
     ZilchScript,
   };
 

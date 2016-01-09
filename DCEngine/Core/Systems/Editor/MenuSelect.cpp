@@ -115,6 +115,11 @@ namespace DCEngine {
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Deselects the selected object.
+    */
+    /**************************************************************************/
     void Editor::Deselect()
     {
       DCTrace << "Editor::Deselect \n";

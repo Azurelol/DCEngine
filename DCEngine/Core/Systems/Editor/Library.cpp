@@ -43,6 +43,38 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
+
+      if (ImGui::TreeNode("SpriteLayer")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
+      if (ImGui::TreeNode("SpriteLayerOrder")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+            // Edit the selected SpriteLayerOrder
+            DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
+            SelectedSpriteLayerOrder = resource.second.get();
+            WindowSpriteLayerOrderEditorEnabled = true;
+            break;
+          }
+
+        }
+        ImGui::TreePop();
+      }
+
+
       if (ImGui::TreeNode("SpriteSource")) {
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
           if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
@@ -120,7 +152,7 @@ namespace DCEngine {
             WindowPropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
-            // Load the selected level
+            // Edit the selected collision table
             DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
             SelectedCollisionTable = resource.second.get();
             WindowCollisionTableEditorEnabled = true;

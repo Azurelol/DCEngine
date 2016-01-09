@@ -200,6 +200,7 @@ namespace DCEngine {
       WindowTools();
       WindowAddResource();
       WindowCollisionTableEditor();
+      WindowSpriteLayerOrderEditor();
       WindowCommands();
     }
 

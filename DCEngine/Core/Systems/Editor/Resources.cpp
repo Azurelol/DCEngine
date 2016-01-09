@@ -63,6 +63,14 @@ namespace DCEngine {
           type = ResourceType::SoundCue;
           strcpy(resourceName, "");
         }
+        if (ImGui::Selectable("SpriteLayer")) {
+          type = ResourceType::SpriteLayer;
+          strcpy(resourceName, "NewSpriteLayer");
+        }
+        if (ImGui::Selectable("SpriteLayerOrder")) {
+          type = ResourceType::SpriteLayerOrder;
+          strcpy(resourceName, "NewSpriteLayerOrder");
+        }
         if (ImGui::Selectable("SpriteSource")) {
           type = ResourceType::SpriteSource;
           strcpy(resourceName, "");

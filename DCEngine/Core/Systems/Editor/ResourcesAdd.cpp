@@ -50,6 +50,14 @@ namespace DCEngine {
         CreateZilchScript(name);
         break;
 
+      case ResourceType::SpriteLayer:
+        CreateSpriteLayer(name);
+        break;
+
+      case ResourceType::SpriteLayerOrder:
+        CreateSpriteLayerOrder(name);
+        break;
+
       default:
         break;
 
@@ -317,6 +325,44 @@ namespace DCEngine {
       font->Load();
 
       return font.get();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a SpriteLayer resource from a given name.
+    @param  name The name of the SpriteLayer.
+    @return A pointer to the recently-created resource object.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreateSpriteLayer(std::string & name)
+    {
+      DCTrace << "Editor::CreateSpriteLayer - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                                            + name + SpriteLayer::Extension();
+      auto resource = SpriteLayerPtr(new SpriteLayer(path));
+      Daisy->getSystem<Content>()->AddSpriteLayer(name, resource);
+      // Serialize it and save it to file
+      resource->Build();
+      return resource.get();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a SpriteLayerOrder resource from a given name.
+    @param  name The name of the SpriteLayerOrder.
+    @return A pointer to the recently-created resource object.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreateSpriteLayerOrder(std::string & name)
+    {
+      DCTrace << "Editor::CreateSpriteLayerOrder - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                  + name + SpriteLayerOrder::Extension();
+      auto resource = SpriteLayerOrderPtr(new SpriteLayerOrder(path));
+      Daisy->getSystem<Content>()->AddSpriteLayerOrder(name, resource);
+      // Serialize it and save it to file
+      resource->Build();
+      return resource.get();
     }
 
   }
