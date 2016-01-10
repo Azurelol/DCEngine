@@ -47,19 +47,16 @@ namespace DCEngine
       void Integrate(float dt);
       void PublishResults(void);
 
-      /* Properties */
+      // Properties
+      /* It's possible that we want to use a mass-override component instead */
+      
+      DCE_DEFINE_PROPERTY(Vec3, AngularVelocity);
+      DCE_DEFINE_PROPERTY(Real, Mass);
+      DCE_DEFINE_PROPERTY(Boolean, RotationLocked);
+      DCE_DEFINE_PROPERTY(DynamicStateType, DynamicState);
+
       Vec3 getVelocity(void);
       void setVelocity(Vec3 vel);
-      Vec3 getAngularVelocity() const;
-      void setAngularVelocity(Vec3);
-      DynamicStateType getDynamicState() const;
-      void setDynamicState(DynamicStateType);
-      bool getRotationLocked() const;
-      void setRotationLocked(bool);
-      float getMass(void);
-      /* It's possible that we want to use a mass-override component instead */
-      void setMass(float mass);
-
 
       /* @todo This should be private as the end-user will never ask for it. */
       float getInvMass(void);

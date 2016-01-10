@@ -112,12 +112,15 @@ namespace DCEngine {
       if (namedProperty == nullptr)
         continue;
 
+      // If there is no set method
+      if (namedProperty->Set == nullptr)
+        continue;
+
       // Or as an instance field, with only a Getter method
       //if (namedProperty == nullptr)
       //  namedProperty = boundType->GetInstanceField(property->Key);
-      //// If there is no set method
-      //if (namedProperty->Set == nullptr)
-      //  continue;
+      
+
 
       
         //continue;

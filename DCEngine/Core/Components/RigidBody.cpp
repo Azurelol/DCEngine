@@ -205,13 +205,7 @@ namespace DCEngine
     {
       Velocity = vel;
     }
-
-    void RigidBody::setAngularVelocity(Vec3 aVel)
-    {
-      this->AngularVelocity = aVel;
-    }
-
-
+    
     /**************************************************************************/
     /*!
     \brief Updates this object's velocity based on current velocity.
@@ -255,27 +249,6 @@ namespace DCEngine
 
     /**************************************************************************/
     /*!
-    \brief Updates this object's mass.
-    */
-    /**************************************************************************/
-    void RigidBody::setMass(float mass)
-    {
-      this->Mass = mass;
-    }
-
-    void RigidBody::setDynamicState(DynamicStateType type)
-    {
-      DynamicState = type;
-    }
-
-    void RigidBody::setRotationLocked(bool locked)
-    {
-      RotationLocked = locked;
-    }
-
-
-    /**************************************************************************/
-    /*!
     \brief gets this object's Restitution.
     */
     /**************************************************************************/
@@ -302,11 +275,6 @@ namespace DCEngine
       }
 
       return this->Velocity;
-    }
-
-    Vec3 RigidBody::getAngularVelocity() const
-    {
-      return this->AngularVelocity;
     }
 
     /**************************************************************************/
@@ -339,25 +307,7 @@ namespace DCEngine
       return Friction;
     }
 
-    /**************************************************************************/
-    /*!
-    \brief gets this object's Mass.
-    */
-    /**************************************************************************/
-    float RigidBody::getMass(void)
-    {
-      return Mass;
-    }
 
-    DynamicStateType RigidBody::getDynamicState() const
-    {
-      return DynamicState;
-    }
-
-    bool RigidBody::getRotationLocked() const
-    {
-      return this->RotationLocked;
-    }
 
     /**************************************************************************/
     /*!
