@@ -29618,14 +29618,14 @@ namespace Zilch
   template <> ZeroShared const Handle* Call::Get<const Handle*>(size_t index);
   template <> ZeroShared const Handle& Call::Get<const Handle&>(size_t index);
 
-  // Set the Delegate type (handled specially so we can bind 'Delegate')
+  // Set the EventDelegate type (handled specially so we can bind 'EventDelegate')
   template <> ZeroShared void Call::Set<      Delegate*>(size_t index,       Delegate* const& value);
   template <> ZeroShared void Call::Set<      Delegate >(size_t index,        const Delegate& value);
   template <> ZeroShared void Call::Set<      Delegate&>(size_t index,              Delegate& value);
   template <> ZeroShared void Call::Set<const Delegate*>(size_t index, const Delegate* const& value);
   template <> ZeroShared void Call::Set<const Delegate&>(size_t index,        const Delegate& value);
     
-  // Get the Delegate type (handle pointer, reference, and const types)
+  // Get the EventDelegate type (handle pointer, reference, and const types)
   template <> ZeroShared       Delegate* Call::Get<      Delegate*>(size_t index);
   template <> ZeroShared       Delegate  Call::Get<      Delegate >(size_t index);
   template <> ZeroShared       Delegate& Call::Get<      Delegate&>(size_t index);

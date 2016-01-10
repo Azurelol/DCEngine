@@ -27,9 +27,12 @@ namespace DCEngine {
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(PhysicsSpace, "PhysicsSpace", DCEngineCore, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PhysicsSpace);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(CollisionTable);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, AllowSleep);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Mode2D);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Deterministic);
+      DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, CollisionTable);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCollisionTable, attributeCollisionTable);
     }
     #endif
 
@@ -40,7 +43,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     PhysicsSpace::PhysicsSpace(Entity& owner) : Component(std::string("PhysicsSpace"), owner) {
-
+      CollisionTable = CollisionTable::Default();
     }
 
     /**************************************************************************/

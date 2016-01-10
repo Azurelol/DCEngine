@@ -13,6 +13,7 @@
 #include "Shader.h"
 #include "Font.h"
 #include "SpriteSource.h"
+#include "SpriteLayer.h"
 #include "SoundCue.h"
 #include "Level.h"
 #include "Mesh.h"

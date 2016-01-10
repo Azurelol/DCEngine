@@ -156,12 +156,14 @@ namespace DCEngine {
     Archetype,
     CollisionGroup,
     CollisionTable,
+    Font,
     Level,
     Material,
     PhysicsMaterial,
     SoundCue,
     SpriteSource,
     SpriteLayer,
+    SpriteLayerOrder,
     ZilchScript,
   };
 

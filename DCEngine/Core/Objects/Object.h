@@ -107,19 +107,26 @@ namespace DCEngine {
       Zilch::JsonValue* value = property->Value;
       // Attemot to either get it as a 'Property' with Getter/Setter methods
       Zilch::Property* namedProperty = boundType->GetInstanceProperty(property->Key);
-      // Or as an instance field, with only a Getter method
+      
+      // If the property on file could not be found on the object, ignore
       if (namedProperty == nullptr)
-        namedProperty = boundType->GetInstanceField(property->Key);
+        continue;
+
+      // Or as an instance field, with only a Getter method
+      //if (namedProperty == nullptr)
+      //  namedProperty = boundType->GetInstanceField(property->Key);
+      //// If there is no set method
+      //if (namedProperty->Set == nullptr)
+      //  continue;
+
+      
+        //continue;
 
       // If the bound field/property does not have the 'Property' attribute, 
       // do nothing!
       //if (namedProperty != nullptr && !namedProperty->HasAttribute("Property")
       //  continue;
-
-      // If there is no set method
-      if (namedProperty->Set == nullptr)
-        continue;
-
+            
       // Construct a Zilch::Call object for invoking the set method!
       Zilch::ExceptionReport report;
       Zilch::Call call(namedProperty->Set, state);

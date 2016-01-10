@@ -49,11 +49,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "PlayerStand", 
+        "SpriteSource": "PlayerRun", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
-        "AnimationSpeed": 1.000000
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 0
       }, 
       "RigidBody": 
       {
@@ -67,7 +68,7 @@
             "z": 0.000000
           }
         }, 
-        "Angular_Velocity": 
+        "AngularVelocity": 
         {
           "Vec3": 
           {
@@ -76,12 +77,13 @@
             "z": 0.000000
           }
         }, 
-        "Rotation_Locked": true
+        "Mass": 10.000000, 
+        "RotationLocked": true
       }, 
       "BoxCollider": 
       {
         "PhysicsMaterial": "", 
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "Player", 
         "Size": 
         {
           "Vec3": 

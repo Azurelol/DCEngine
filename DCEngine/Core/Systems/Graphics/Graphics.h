@@ -26,6 +26,11 @@ namespace DCEngine {
 	class SpriteText;
 	class DebugDrawObject;
 
+  struct GraphicsConfig {
+    int MaxDrawLayers;
+  };
+
+
 	namespace Systems {
 		class WindowSFML;
 
@@ -35,20 +40,22 @@ namespace DCEngine {
 			friend class GraphicsGL;
 		public:
 
+      // Registration
 			void Register(Components::GraphicsSpace& graphicsSpace);
 			void Deregister(Components::GraphicsSpace& graphicsSpace);
-
+      // Draw
 			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
 			void DrawModel(GameObject& gameObj);
 			void DrawDebug(DebugDrawObject& debugDraw);
-
-			/* Debug Drawing functions*/
+			// DebugDraw
 			void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam);
 			void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam);
 			void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam);
 
 		private:
+
+      GraphicsConfig Settings;
 			std::unique_ptr<GraphicsGL> GraphicsHandler;
 			const int screenwidth_ = 1024;
 			const int screenheight_ = 768;
@@ -59,25 +66,25 @@ namespace DCEngine {
 			Mat4 ViewProjMatrix;
 			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
 
-			/* Base methods */
+			// Base methods
 			void StartFrame();
 			void EndFrame();
 			void BackupState();
 			void RestoreState();
-			/* Events */
+			// Events
 			void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
 			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
-
-			Graphics();
+      // CTOR/ DTOR, Initialize
+			Graphics(GraphicsConfig settings);
 			void Initialize();
 			void Subscribe();
 			void Update(float dt);
 			void Terminate();
 
 			//2D draw list
-			int TotalObjNumG = 0;
-			int TotalObjTranspNumG = 0;
-
+			//int TotalObjNumG = 0;
+			//int TotalObjTranspNumG = 0;			
+			std::vector<std::vector<Components::Sprite*>> mDrawList;
 			std::vector<Components::Sprite*>  NonTextureObjNontransp;
 			std::vector<Components::Sprite*>  TextureObjNontransp;
 			std::vector<Components::Sprite*> NonTextureObjtransp;

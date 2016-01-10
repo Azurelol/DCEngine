@@ -9351,7 +9351,7 @@ namespace Zilch
     EventHandler savedEvents;
     EventSwapAll(&savedEvents, state);
 
-    // Temporary space used for traversing object paths and copying Zilch objects (Delegate is the largest object)
+    // Temporary space used for traversing object paths and copying Zilch objects (EventDelegate is the largest object)
     byte tempSpace[sizeof(Delegate)];
 
     // Send a message back to answer the expression query
@@ -32735,10 +32735,10 @@ namespace Zilch
     ZilchScalarOperators(DoubleInteger);
 
     ZilchEqualityOperators(Boolean, Boolean);
-    // Handle, Delegate, and Value equality operators are handled specially above
+    // Handle, EventDelegate, and Value equality operators are handled specially above
 
     ZilchCopyOperators(Boolean);
-    // Handle, Delegate, and Value copy (assignment) operators are handled specially above
+    // Handle, EventDelegate, and Value copy (assignment) operators are handled specially above
 
     // Boolean operators
     this->AddUnary(core.BooleanType, core.BooleanType, Grammar::LogicalNot, Instruction::LogicalNotBoolean, IoMode::ReadRValue);
@@ -43174,7 +43174,7 @@ switch (character)
                     if (DiffString("ate"))
                     {
                       lastAcceptedPos = this->Position;
-                      outToken->TokenId = Grammar::Delegate /* Delegate */;
+                      outToken->TokenId = Grammar::Delegate /* EventDelegate */;
                       acceptedToken = true;
                     }
                     character = ReadCharacter();
@@ -47862,7 +47862,7 @@ namespace Zilch
   ZilchEqualityCases(Any, Boolean)
 
   ZilchCopyCases(Boolean)
-  // Handle, Delegate, and Value copy (assignment) operators are handled specially above
+  // Handle, EventDelegate, and Value copy (assignment) operators are handled specially above
         
   ZilchCaseUnaryRValue (Boolean, Boolean, LogicalNot, output = !operand);
 

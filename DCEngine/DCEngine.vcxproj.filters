@@ -660,9 +660,6 @@
     <ClCompile Include="Core\Resources\PhysicsMaterial.cpp">
       <Filter>Core\Resources\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\CollisionTableEditor.cpp">
-      <Filter>Core\Systems\Editor\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Objects\Components\ZilchComponent.cpp">
       <Filter>Core\Object\Component</Filter>
     </ClCompile>
@@ -680,6 +677,12 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\Action.cpp">
       <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\SpriteLayer.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
+      <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1171,6 +1174,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\TransformTool.h">
       <Filter>Core\Components\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SpriteLayer.h">
+      <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

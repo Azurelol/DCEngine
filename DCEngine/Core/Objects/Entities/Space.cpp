@@ -57,11 +57,18 @@ namespace DCEngine {
     DCTrace << "|" << ObjectName << "::Initialize| \n";
 
     // Add Space-type components
-    AddComponent<Components::SoundSpace>();
-    AddComponent<Components::TimeSpace>();
-    AddComponent<Components::PhysicsSpace>();
-    AddComponent<Components::CameraViewport>();
-    AddComponent<Components::GraphicsSpace>();
+    AddComponentByName(std::string("SoundSpace"), true);
+    AddComponentByName(std::string("TimeSpace"), true);
+    AddComponentByName(std::string("PhysicsSpace"), true);
+    AddComponentByName(std::string("CameraViewport"), true);
+    AddComponentByName(std::string("GraphicsSpace"), true);
+
+    //AddComponent<Components::SoundSpace>();
+    //AddComponent<Components::TimeSpace>();
+    //AddComponent<Components::PhysicsSpace>();
+    //AddComponent<Components::CameraViewport>();
+    //AddComponent<Components::GraphicsSpace>();
+
     //AddComponent(ComponentPtr(new SoundSpace(*this)));
     //AddComponent(ComponentPtr(new TimeSpace(*this)));
     //AddComponent(ComponentPtr(new PhysicsSpace(*this)));
@@ -337,7 +344,7 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
-    return GameObjectPtr();
+    return gameObject;
   }
 
   /**************************************************************************/

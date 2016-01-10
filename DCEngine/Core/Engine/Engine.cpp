@@ -105,7 +105,7 @@ namespace DCEngine {
     keyboard_.reset(new Keyboard());
     mouse_.reset(new Mouse());
 
-    // Systems are added to to the engine's systems vector, and configurations passed on.
+    // Systems are added to to the engine's systems container, and configurations passed on.
     _systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     _systems.push_back(SystemPtr(new Systems::Reflection));
     _systems.push_back(SystemPtr(new Systems::Factory));
@@ -121,11 +121,15 @@ namespace DCEngine {
     editorConfig.EditorEnabled = EngineConfiguration->EditorEnabled;
     editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
     editorConfig.RecentProject = EngineConfiguration->RecentProject;
+    // Graphics configuration
+    GraphicsConfig graphicsConfig;
+    graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
 
+    // Add the systems to the engine's systems container
     _systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
     _systems.push_back(SystemPtr(new Systems::Physics));
     _systems.push_back(SystemPtr(new Systems::Audio));
-    _systems.push_back(SystemPtr(new Systems::Graphics));
+    _systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
     _systems.push_back(SystemPtr(new Systems::GUI));        
 
     // Create the default gamesession object, the "game" itself,  which contains all spaces.

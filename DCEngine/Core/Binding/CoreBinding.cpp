@@ -54,6 +54,9 @@ namespace DCEngine {
     ZilchInitializeType(CollisionTable);
     ZilchInitializeType(ZilchScript);
     ZilchInitializeType(PhysicsMaterial);
+    ZilchInitializeType(Font);
+    ZilchInitializeType(SpriteLayer);
+    ZilchInitializeType(SpriteLayerOrder);
 
     /*===================*
     *     Components     *
@@ -61,6 +64,7 @@ namespace DCEngine {
     // Space
     ZilchInitializeType(Components::PhysicsSpace);
     ZilchInitializeType(Components::GraphicsSpace);
+    ZilchInitializeType(Components::CameraViewport);
     ZilchInitializeType(Components::SoundSpace);
     ZilchInitializeType(Components::TimeSpace);
     // Physics

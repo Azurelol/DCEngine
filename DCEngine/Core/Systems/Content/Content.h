@@ -21,14 +21,17 @@ namespace DCEngine {
 
   class Engine;
   class Factory;
-
+  
   namespace Systems {
 
     // Resource Maps
     using ResourceMap = std::map<std::string, std::string>;    
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
+    using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
+    using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
+    using FontMap = std::map<std::string, FontPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
     using LevelMap = std::map<std::string, LevelPtr>;
     using CollisionTableMap = std::map<std::string, CollisionTablePtr>;
@@ -54,19 +57,24 @@ namespace DCEngine {
       CollisionTablePtr getCollisionTable(std::string& tableName);
       ZilchScriptPtr getZilchScript(std::string& scriptName);
       PhysicsMaterialPtr getPhysicsMaterial(std::string& materialName);
+      SpriteLayerPtr getSpriteLayer(std::string& name);
+      SpriteLayerOrderPtr getSpriteLayerOrder(std::string& name);
       template <typename ResourceMap, typename ResourcePtr>
-      ResourcePtr getResource(std::string& resourceName, ResourceMap map);
+      ResourcePtr getResource(std::string& resourceName, ResourceMap map, std::string& defaultResource);
       // Container getters
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
       ShaderMap* AllShaders();
+      FontMap* AllFonts();
       ArchetypeMap* AllArchetypes();
       LevelMap* AllLevels();
       ZilchScriptMap* AllZilchScripts();
       CollisionGroupMap* AllCollisionGroups();
       CollisionTableMap* AllCollisionTables();
       PhysicsMaterialMap* AllPhysicsMaterials();
-      // Remove resource
+      SpriteLayerMap* AllSpriteLayers();
+      SpriteLayerOrderMap* AllSpriteLayerOrders();
+      // Remove resource.
       void RemoveResource(ResourcePtr);      
       // Scanners
       void ScanResources();
@@ -78,6 +86,8 @@ namespace DCEngine {
       void ScanForArchetypes(std::string& archetypePath);
       void ScanForSpriteSources(std::string& spriteSourcePath);
       void ScanForSoundCues(std::string& soundCuePath);
+      void ScanForFonts(std::string& fontPath);
+      void ScanAndGenerateResources();
       // Get the current project's settings
       ProjectDataPtr& ProjectSettings();
 
@@ -86,8 +96,15 @@ namespace DCEngine {
       // Data
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
+      // Default resources
       std::string DefaultImage = "Wow";
-      //std::string DefaultSound = "Eh";
+      std::string DefaultFont = "Verdana";
+      std::string DefaultCollisionTable = CollisionTable::Default();
+      std::string DefaultCollisionGroup = "DefaultCollisionGroup";
+      std::string DefaultPhysicsMaterial = "DefaultPhysicsMaterial";
+      std::string DefaultSpriteLayer = "DefaultSpriteLayer";
+      std::string DefaultSpriteLayerOrder = SpriteLayerOrder::Default();
+      std::string DefaultSound = "Beep";
 
       // Resource maps      
       std::map<std::string, ShaderPtr> ShaderMap;
@@ -100,6 +117,8 @@ namespace DCEngine {
       CollisionTableMap MapCollisionTable;
       ZilchScriptMap MapZilchScript;
       PhysicsMaterialMap MapPhysicsMaterial;
+      SpriteLayerMap MapSpriteLayer;
+      SpriteLayerOrderMap MapSpriteLayerOrder;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
@@ -112,6 +131,8 @@ namespace DCEngine {
       void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
       void AddPhysicsMaterial(std::string& physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr);
       void AddZilchScript(std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
+      void AddSpriteLayer(std::string& name, SpriteLayerPtr ptr);
+      void AddSpriteLayerOrder(std::string& name, SpriteLayerOrderPtr ptr);
       template <typename ResourcePtr, typename ResourceMap>
       void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
 
@@ -122,11 +143,10 @@ namespace DCEngine {
       void Terminate();
       // Loading functions
       void LoadCoreAssets(); //!< Load default content files for the engine.   
-
       void LoadProject(std::string projectDataPath);
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
+      void GenerateDefaultResources();
       void LoadAllResources();
-
       void LoadProjectData(std::string&); //!<             
     };
 
@@ -165,17 +185,17 @@ namespace DCEngine {
     */
     /**************************************************************************/
     template<typename ResourceMap, typename ResourcePtr>
-    inline ResourcePtr Content::getResource(std::string & resourceName, ResourceMap map)
+    inline ResourcePtr Content::getResource(std::string & resourceName, ResourceMap map, std::string& defaultResource)
     {
       // Check if the resource is present in the map
       if (!map.count(resourceName)) {
-        DCTrace << "Content::getResource - " << resourceName << " was not found!\n";
-        return nullptr;
+        if (defaultResource.empty())
+          return nullptr;
+        else
+          return map.at(defaultResource);
       }
-      // If it does, first load it
-      map.at(resourceName)->Load();
       // Then return it
-      return LevelMap.at(levelName);
+      return map.at(resourceName);
     }
 
   }

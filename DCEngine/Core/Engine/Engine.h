@@ -85,7 +85,7 @@ namespace DCEngine {
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
     
-    std::map<std::type_index, std::list<DCEngine::Delegate*>> ObserverRegistry;
+    std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
     //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
     bool LoadEngineConfig();
@@ -122,12 +122,12 @@ namespace DCEngine {
     //}
     
     // Construct the member function delegate
-    auto memDeg = new MemberFunctionDelegate<Class, EventClass>();
+    auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
     memDeg->FuncPtr = fn;
     memDeg->Inst = inst;
     // Create a base delegate pointer to pass to the entity's container
-    auto degPtr = dynamic_cast<Delegate*>(memDeg);
-    // Store the base delegate to the <EventClass, std::list<Delegate*> > map
+    auto degPtr = dynamic_cast<EventDelegate*>(memDeg);
+    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
     //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
     // Add a pointer to entiyy
@@ -154,12 +154,12 @@ namespace DCEngine {
   void Engine::Connect(MemberFunction fn, SystemClass* sys) {
 
     // Construct the member function delegate
-    auto memDeg = new MemberFunctionDelegate<SystemClass, EventClass>();
+    auto memDeg = new EventMemberFunctionDelegate<SystemClass, EventClass>();
     memDeg->FuncPtr = fn;
     memDeg->Inst = sys;
     // Create a base delegate pointer to pass to the entity's container
-    auto degPtr = (Delegate*)memDeg;
-    // Store the base delegate to the <EventClass, std::list<Delegate*> > map
+    auto degPtr = (EventDelegate*)memDeg;
+    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     this->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
   }
 

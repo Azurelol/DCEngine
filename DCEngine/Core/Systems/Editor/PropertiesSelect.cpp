@@ -41,6 +41,18 @@ namespace DCEngine {
       if (resource->HasAttribute("SpriteSource")) {
         auto container = Daisy->getSystem<Content>()->AllSpriteSources();
         modified = SelectResource<SpriteSourceMap>("SpriteSource", container, resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("SpriteLayer")) {
+        auto container = Daisy->getSystem<Content>()->AllSpriteLayers();
+        modified = SelectResource<SpriteLayerMap>("SpriteLayer", container, resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("SpriteLayerOrder")) {
+        auto container = Daisy->getSystem<Content>()->AllSpriteLayerOrders();
+        modified = SelectResource<SpriteLayerOrderMap>("SpriteLayerOrder", container, resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("Font")) {
+        auto container = Daisy->getSystem<Content>()->AllFonts();
+        modified = SelectResource<FontMap>("Font", container, resource, object, propertyID);
         //SelectSpriteSource(resource, object, propertyID);
       }
       else if (resource->HasAttribute("SoundCue")) {

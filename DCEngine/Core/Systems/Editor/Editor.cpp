@@ -190,7 +190,7 @@ namespace DCEngine {
       DisplayMainMenuBar();
       WidgetLevel();
       WindowObjects();
-      WidgetLibrary();
+      WindowLibrary();
       WindowProperties();
       WidgetDiagnostics();
       WindowSaveLevel();
@@ -200,6 +200,7 @@ namespace DCEngine {
       WindowTools();
       WindowAddResource();
       WindowCollisionTableEditor();
+      WindowSpriteLayerOrderEditor();
       WindowCommands();
     }
 

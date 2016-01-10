@@ -38,7 +38,7 @@ namespace DCEngine {
         void ResumeCue(std::string soundCueName);
         void StopCue(std::string soundCueName);
 
-        SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner) {}
+        SoundSpace::SoundSpace(Entity & owner);
         void Initialize();
 
       private:
