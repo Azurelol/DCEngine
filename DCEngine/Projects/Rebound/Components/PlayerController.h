@@ -19,6 +19,7 @@ namespace DCEngine {
     class Sprite;
     class Transform;
     class RigidBody;
+	class BoxCollider;
     class PlayerController : public Component {
 
     public:
@@ -50,6 +51,7 @@ namespace DCEngine {
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
+	  BoxCollider* ColliderRef;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, JumpPower);

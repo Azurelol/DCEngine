@@ -126,10 +126,10 @@ namespace DCEngine
       Velocity *= std::pow(Damping, dt);
 
       // Clamp to velocity max for numerical stability
-      if (glm::dot(Velocity, Velocity) > 1600.0f)
+      if (glm::dot(Velocity, Velocity) > 10 * 1000.0f)
       {
         Velocity = glm::normalize(Velocity);
-        Velocity = Velocity * 40.0f;
+        Velocity = Velocity * 100.0f;
       }
 
       // Clear the force

@@ -44,8 +44,11 @@ namespace DCEngine {
       //Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+	  RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+	  ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
       SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+	  
+	 // ColliderRef->	 
     }
 
     void PlayerController::Serialize(Json::Value & root)
@@ -169,7 +172,6 @@ namespace DCEngine {
         currentVel.x = VelocityXCap * glm::sign(currentVel.x);
         RigidBodyRef->setVelocity(currentVel);
       }
-      DCTrace << RigidBodyRef->getVelocity().x << "\n";
 
       //hacking in logic for color changing, use fade later
       if (Dead)
