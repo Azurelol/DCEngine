@@ -35,9 +35,13 @@ namespace DCEngine {
       Real CurrentCharge = 0;
       Real MaxCharge = 2;
       Real MinCharge = 0.5f;
-      Real ChargeFactor = 100 * 1000;
+      Real ChargeFactor = 30 * 1000;
+	  Real Restitution = 0.7; //set from 0 to 1
+	  Real Friction = 0.1; //set from 0 to 1
+	  Real AttractPower = 400.0f;
+	  Real AttractYBoost = 3;
       Boolean Charging = false;
-      Boolean FreezeEnabled = false;
+      Boolean FreezeEnabled = true;
       Vec4 FrozenColor = Vec4(1, 0, 1, 1);
       Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
       Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
@@ -77,7 +81,7 @@ namespace DCEngine {
       void PrintTranslation();
       void PrintVelocity();
       void AttractBall();
-      void FreezeBall(Vec2 MousePosition);
+      void FreezeBall();
     };
   }
 

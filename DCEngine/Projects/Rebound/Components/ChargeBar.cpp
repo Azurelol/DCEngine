@@ -32,7 +32,7 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, ChargeBar::OnLogicUpdateEvent);
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      BallRef = SpaceRef->FindObjectByName("Basketball");
+      BallRef = SpaceRef->FindObjectByName("Ball");
     }
 
     void ChargeBar::Serialize(Json::Value & root)

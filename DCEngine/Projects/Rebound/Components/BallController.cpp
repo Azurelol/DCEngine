@@ -47,6 +47,8 @@ namespace DCEngine {
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
       }
+	  RigidBodyRef->setRestitution(Restitution);
+	  RigidBodyRef->setFriction(Friction);
     }
 
     void BallController::Serialize(Json::Value & root)
@@ -71,7 +73,7 @@ namespace DCEngine {
       {
         if (ControlScheme == ControlScheme::Connor)
         {
-          FreezeBall(event->Position);
+          FreezeBall();
         }
       }
       if (event->ButtonPressed == MouseButton::Left)
@@ -135,7 +137,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
         CurrentlyFired = false;
-        SpriteRef->Color = Vec4(0, 1, 0, 1);
+        SpriteRef->Color = NormalColor;
       }
     }
 
@@ -149,21 +151,18 @@ namespace DCEngine {
       {
         if (BallControllerTraceOn)
         {
-          DCTrace << "BallController::OnLogicUpdate :: F key pressed";
+			DCTrace << "BallController::OnLogicUpdate :: F key pressed";
         }
-        FreezeBall(Vec2(0, 0));
+        FreezeBall();
       }
-      if (CurrentlyFired)
-      {
-        if (ControlScheme == ControlScheme::Connor && Daisy->getMouse()->MouseDown(MouseButton::Left))
-        {
-          AttractBall();
-        }
-        if (ControlScheme == ControlScheme::John && Daisy->getMouse()->MouseDown(MouseButton::Right))
-        {
-          AttractBall();
-        }
-      }
+		if (ControlScheme == ControlScheme::Connor && Daisy->getMouse()->MouseDown(MouseButton::Left))
+		{
+			AttractBall();
+		}
+		if (ControlScheme == ControlScheme::John && Daisy->getMouse()->MouseDown(MouseButton::Right))
+		{
+			AttractBall();
+		}
       if (Charging)
       {
         CurrentCharge += event->Dt;
@@ -173,7 +172,7 @@ namespace DCEngine {
           CurrentCharge = MaxCharge;
         }
       }
-      //PrintVelocity();
+      PrintVelocity();
     }
 
     void BallController::ChangeColor()
@@ -208,20 +207,25 @@ namespace DCEngine {
 
     void BallController::AttractBall()
     {
+		if (BallControllerTraceOn)
+		{
+			DCTrace << "BallController::AttractBall :: Now attracting!";
+		}
       if (Frozen)
       {
         Frozen = false;
         RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+		SpriteRef->Color = NormalColor;
       }
       Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Components::Transform>()->Translation - TransformRef->Translation);
       if (CenteringVector.y > 0)
       {
-        CenteringVector.y *= 5;
+        CenteringVector.y *= AttractYBoost;
       }
-      RigidBodyRef->AddForce(CenteringVector * 200.0f);
+      RigidBodyRef->AddForce(CenteringVector * AttractPower);
     }
 
-    void BallController::FreezeBall(Vec2 mousePosition = Vec2(0, 0))
+    void BallController::FreezeBall()
     {
       if (Frozen || !FreezeEnabled)
       {
@@ -229,13 +233,15 @@ namespace DCEngine {
       }
 
       Frozen = true;
+	  SpriteRef->Color = FrozenColor;
       if (CurrentlyFired)
       {
-        RigidBodyRef->setVelocity(Vec3());
+        RigidBodyRef->setVelocity(Vec3(0,0,0));
         RigidBodyRef->setDynamicState(DynamicStateType::Static);
       }
       else
       {
+		  //deprecated
         //auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
         //Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
       }
