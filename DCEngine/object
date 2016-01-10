@@ -3,7 +3,11 @@
   "GameObject": 
   {
     "Name": "Sprite", 
+<<<<<<< HEAD
     "Archetype": "Ground", 
+=======
+    "Archetype": "Sprite", 
+>>>>>>> 54417f9c73104f426606a6a61a6dc3b6b49b0710
     "Components": 
     {
       "Transform": 
