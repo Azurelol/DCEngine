@@ -204,9 +204,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Exit()
     {
+      Deselect();
       // Save the currently-loaded level before exiting the editor
-      SaveCurrentLevel();
-
+      SaveCurrentLevel();      
       DispatchSystemEvents::EngineExit();
     }
 
