@@ -18,6 +18,7 @@
 #include <memory>
 #include <string>
 #include <map>
+#include <FMOD/fmod_studio.hpp>
 #include <FMOD/fmod.hpp>
 #include <FMOD/fmod_errors.h>
 
@@ -28,41 +29,43 @@
 namespace DCEngine {
   namespace Systems {
 
-    class AudioFMOD {
-
-      using FMODChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
+    class AudioFMOD {   
 
     friend class Audio;
     public:
-      AudioFMOD();
-      ~AudioFMOD();
-
+      // Interface
       void PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool bLoop = false);
       void ResumeSound(FMOD::Channel* channel);
       void PauseSound(FMOD::Channel* channel);
       void StopSound(FMOD::Channel* channel);
-      //void PlaySound(FMOD::Sound* soundPtr, bool bLoop = false);
-      //void StopSound(FMOD::Sound* channel);
-      void ReleaseSound(FMOD::Sound* soundPtr);
+      void ReleaseSound(FMOD::Sound* soundPtr);  
 
-      
+      AudioFMOD();
+      ~AudioFMOD();
 
+    private:
+      // Create
+      void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
+      void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
+      // Banks
+      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
+      FMOD::Studio::Bank* getBank(std::string handle);
+      using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;
+      BanksContainer ActiveBanks;
+      // Channels
+      using FMODChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
+      FMODChannelMap Channels;
+      FMOD::Channel* CurrentChannel;
+       // System
+      void ErrorCheck(FMOD_RESULT result);
+      void InitializeLowLevelAPI();
+      void InitializeStudioAPI();
       void Initialize();
       void Update(float dt);
       void Terminate();
-
-    private:
-      void ErrorCheck(FMOD_RESULT result);
-      void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
-      void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);
-
-      FMODSystemPtr system_; // Wrapper for the C-style pointer
-      FMOD_RESULT OperationResult;
+      FMODSystemPtr System;
+      // Settings
       unsigned int MaxChannels;
-      FMOD::Sound* MusicPtr;
-      FMODChannelMap Channels; //!< Every SoundPtr gets its own unique channel?
-      FMOD::Channel* CurrentChannel;
-
 
     };
 

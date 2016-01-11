@@ -38,37 +38,63 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Initialize() {
-      FMOD_RESULT operationResult;
 
+      // Initialize the low level API
+      InitializeLowLevelAPI();
+      // Initialize the Studio API
+      InitializeStudioAPI();
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Initializes FMOD's Low Level API.
+    */
+    /**************************************************************************/
+    void AudioFMOD::InitializeLowLevelAPI()
+    {
+      FMOD_RESULT operationResult;
       // Check if the version of the DLL is the same as the libraries compiled
       unsigned int version;
-      operationResult = system_.ptr->getVersion(&version);
-      ErrorCheck(operationResult);
+      operationResult = System.ptr->getVersion(&version);
       if (version < FMOD_VERSION)
         DCTrace << "AudioFMOD::Initialize - Error: Outdated version!\n";
 
       // Check the number of sound cards
       int driverCount = 0;
-      system_.ptr->getNumDrivers(&driverCount);
+      System.ptr->getNumDrivers(&driverCount);
 
-
-      
       // If there are no sound cards, disable output
       if (driverCount == 0) {
-        operationResult = system_.ptr->setOutput(FMOD_OUTPUTTYPE_NOSOUND);
+        operationResult = System.ptr->setOutput(FMOD_OUTPUTTYPE_NOSOUND);
         ErrorCheck(operationResult);
       }
       // If there is at least one sound card
       else {
         //FMOD_SPEAKERMODE speakermode;
-        //system_->getDriverInfo(0, &speakermode);
-        //result = system_->getDriverInfo(0, &)
+        //System->getDriverInfo(0, &speakermode);
+        //result = System->getDriverInfo(0, &)
       }
 
       // Initialize the instnace with 36 channels
-      operationResult = system_.ptr->init(MaxChannels, FMOD_INIT_NORMAL, NULL);
+      operationResult = System.ptr->init(MaxChannels, FMOD_INIT_NORMAL, NULL);
       ErrorCheck(operationResult);
+
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Initializes FMOD's Studio API.
+    */
+    /**************************************************************************/
+    void AudioFMOD::InitializeStudioAPI()
+    {
+      // Create the sound system
+      ErrorCheck(System->create(&System.Handle));
+      // Initialize it
+      ErrorCheck(System->initialize(MaxChannels, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr));
+
+    }
+
 
     /**************************************************************************/
     /*!
@@ -76,7 +102,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Update(float dt) {
-      system_.ptr->update();
+      // Update the low level API system
+      ErrorCheck(System.ptr->update());
+      // Update the 'Studio' API system
+      ErrorCheck(System->update());
     }
 
     /**************************************************************************/
@@ -85,8 +114,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Terminate() {
-      //system_.ptr->
-      //system_.ptr->getChannelsPlaying().
+      //System.ptr->
+      //System.ptr->getChannelsPlaying().
 
       //delete(MusicPtr);
       //delete CurrentChannel;
@@ -107,8 +136,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateSound: " <<  soundFile <<  "\n";
-      OperationResult = system_.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr);
-      ErrorCheck(OperationResult);
+      ErrorCheck(System.ptr->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr));
     }
 
     /**************************************************************************/
@@ -119,9 +147,45 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateStream \n";
-      OperationResult = system_.ptr->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr);
-      ErrorCheck(OperationResult);
+      ErrorCheck(System.ptr->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr));
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds a bank to the FMOD Studio system.
+    @param  handle The handle to be used to access the bank.
+    @param  path The filepath where the bank is located.
+    @return A pointer to the bank.
+    */
+    /**************************************************************************/
+    FMOD::Studio::Bank * AudioFMOD::LoadBankFromFile(std::string handle, std::string & path)
+    {
+      DCTrace << "AudioFMOD::LoadBankFromFile - Loading: '" << handle << "' from file: '"<< path << "'\n";
+      FMOD::Studio::Bank* newBank;
+      // Load the bank into the sound system
+      ErrorCheck(System->loadBankFile(path.c_str(), FMOD_STUDIO_LOAD_BANK_NORMAL, &newBank));
+      // Add it to the container of active banks
+      ActiveBanks.insert(std::pair<std::string, FMOD::Studio::Bank*>(handle, newBank));
+      return newBank;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Retrieves a pointer to a given sound bank.
+    @param  handle The name of the sound bank.
+    @return A pointer to the bank.
+    */
+    /**************************************************************************/
+    FMOD::Studio::Bank * AudioFMOD::getBank(std::string handle)
+    {
+      // If the bank could not be found
+      if (!ActiveBanks.count(handle))
+        return nullptr;
+      // If the bank could be found...
+      return ActiveBanks.at(handle);
+    }
+
+
 
     /**************************************************************************/
     /*!
@@ -142,9 +206,7 @@ namespace DCEngine {
       }
 
       //FMOD::Channel::
-
-      OperationResult = system_.ptr->playSound(soundPtr, NULL, 0, channel);
-      ErrorCheck(OperationResult);
+      ErrorCheck(System.ptr->playSound(soundPtr, NULL, 0, channel));
     }
 
     /**************************************************************************/
@@ -154,8 +216,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::ResumeSound(FMOD::Channel * channel)
     {
-      OperationResult = channel->setPaused(false);
-      ErrorCheck(OperationResult);
+      ErrorCheck(channel->setPaused(false));
     }
 
     /**************************************************************************/
@@ -165,8 +226,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::PauseSound(FMOD::Channel* channel)
     {
-      OperationResult = channel->setPaused(true);
-      ErrorCheck(OperationResult);
+      ErrorCheck(channel->setPaused(true));
     }
 
     /**************************************************************************/
@@ -176,8 +236,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::StopSound(FMOD::Channel* channel)
     {
-      OperationResult = channel->stop();
-      ErrorCheck(OperationResult);
+      ErrorCheck(channel->stop());
     }
     /**************************************************************************/
     /*!
@@ -185,8 +244,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::ReleaseSound(FMOD::Sound* soundPtr) {
-      OperationResult = soundPtr->release();
-      ErrorCheck(OperationResult);
+      ErrorCheck(soundPtr->release());
     }
 
 
