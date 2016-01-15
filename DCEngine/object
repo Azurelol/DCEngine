@@ -3,11 +3,7 @@
   "GameObject": 
   {
     "Name": "Sprite", 
-<<<<<<< HEAD
-    "Archetype": "Ground", 
-=======
-    "Archetype": "Sprite", 
->>>>>>> 54417f9c73104f426606a6a61a6dc3b6b49b0710
+    "Archetype": "", 
     "Components": 
     {
       "Transform": 
@@ -34,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 12.000000, 
-            "y": 2.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -47,9 +43,9 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
             "w": 1.000000
           }
         }, 
@@ -59,32 +55,6 @@
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 0
-      }, 
-      "BoxCollider": 
-      {
-        "PhysicsMaterial": "", 
-        "CollisionGroup": "Terrain", 
-        "Size": 
-        {
-          "Vec3": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000
-          }
-        }, 
-        "Offset": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Ghost": false, 
-        "SendsEvents": true, 
-        "IsDrawingCollider": false
       }
     }
   }
