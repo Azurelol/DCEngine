@@ -70,13 +70,13 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt) {
 			AnimationUpdate(sprite, dt);
-			this->SpriteShader->SetInteger("isTexture", 1);
+			SpriteShader->SetInteger("isTexture", 1);
 			//DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
 			//glEnable(GL_CULL_FACE);
 			//glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			this->SpriteShader->Use();
+			//this->SpriteShader->Use();
 
 			// Retrieve the 'SpriteSource' resource from the content system
 			auto spriteSrc = Daisy->getSystem<Content>()->getSpriteSrc(sprite.SpriteSource);
@@ -95,20 +95,20 @@ namespace DCEngine {
 				transform->Translation.z));
 			if (sprite.FlipX == true)
 			{
-				this->SpriteShader->SetInteger("flipx", 1);
+				SpriteShader->SetInteger("flipx", 1);
 			}
 			else
 			{
-				this->SpriteShader->SetInteger("flipx", 0);
+				SpriteShader->SetInteger("flipx", 0);
 			}
 
 			if (sprite.FlipY == true)
 			{
-				this->SpriteShader->SetInteger("flipy", 1);
+				SpriteShader->SetInteger("flipy", 1);
 			}
 			else
 			{
-				this->SpriteShader->SetInteger("flipy", 0);
+				SpriteShader->SetInteger("flipy", 0);
 			}
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
@@ -118,19 +118,19 @@ namespace DCEngine {
 
 
 			// Update the uniforms in the shader to this particular sprite's data 
-			this->SpriteShader->SetMatrix4("model", modelMatrix);
-			this->SpriteShader->SetVector4f("spriteColor", sprite.Color);
-			this->SpriteShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
-			this->SpriteShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
-			this->SpriteShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
-			this->SpriteShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+			SpriteShader->SetMatrix4("model", modelMatrix);
+			SpriteShader->SetVector4f("spriteColor", sprite.Color);
+			SpriteShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
+			SpriteShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
+			SpriteShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
+			SpriteShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
 
 
 			// Set the active texture
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			spriteSrc->getTexture().Bind();
 			//this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
-			DrawArrays(this->SpriteVAO, 6, GL_TRIANGLES);
+			DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
 		}
 
 		/**************************************************************************/
@@ -145,17 +145,14 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::DrawSpriteText(Components::SpriteText & st, Components::Camera & camera)
 		{
-			//return;
 			// Enable alpha blending for opacity.
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 			// Activate the SpriteText shader
-			this->SpriteTextShader->Use();
-			this->SpriteTextShader->SetVector4f("textColor", st.getColor());
-
+			//this->SpriteTextShader->Use();
+			SpriteTextShader->SetVector4f("textColor", st.getColor());
 			glActiveTexture(GL_TEXTURE0);
-			if (auto a = Debug::CheckOpenGLError())
+			if (Debug::CheckOpenGLError())
 				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			glBindVertexArray(SpriteTextVAO);
 			if (Debug::CheckOpenGLError())
@@ -166,8 +163,16 @@ namespace DCEngine {
 			auto font = Daisy->getSystem<Content>()->getFont(fontName);
 
 			// (!) This is used to advance cursors
-			GLfloat x = static_cast<GLfloat>(st.TransformComponent->Translation.x);
+			GLfloat x = 0;//static_cast<GLfloat>(st.TransformComponent->Translation.x);
 
+			auto transform = st.TransformComponent;
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
+			SpriteTextShader->SetMatrix4("model", modelMatrix);
 
 			// Iterate through all the characters
 			std::string::const_iterator c;
@@ -176,20 +181,20 @@ namespace DCEngine {
 				Character ch = font->Characters[*c];
 
 				// Calculate the origin position of the quad 
-				GLfloat xPos = x + ch.Bearing.x * st.getFontSize();
-				GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y) * st.getFontSize();
+				GLfloat xPos = x + ch.Bearing.x;
+				GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y);
 				// Calculate the quad's size
-				GLfloat w = ch.Size.x * static_cast<GLfloat>(st.getFontSize());
-				GLfloat h = ch.Size.y * static_cast<GLfloat>(st.getFontSize());
+				GLfloat w = ch.Size.x;
+				GLfloat h = ch.Size.y;
 				// Generate a set of 6 vertices to form the 2D quad
 				GLfloat vertices[6][4] = {
-				  { xPos    , yPos + h, 0.0, 0.0 },
-				  { xPos    , yPos    , 0.0, 1.0 },
-				  { xPos + w, yPos    , 1.0, 1.0 },
+					{ xPos    , yPos + h, 0.0, 0.0 },
+					{ xPos    , yPos    , 0.0, 1.0 },
+					{ xPos + w, yPos    , 1.0, 1.0 },
 
-				  { xPos    , yPos + h, 0.0, 0.0 },
-				  { xPos + w, yPos    , 1.0, 1.0 },
-				  { xPos + w, yPos + h, 1.0, 0.0 },
+					{ xPos    , yPos + h, 0.0, 0.0 },
+					{ xPos + w, yPos    , 1.0, 1.0 },
+					{ xPos + w, yPos + h, 1.0, 0.0 },
 				};
 
 				// Update glyph texture over quad
@@ -204,7 +209,7 @@ namespace DCEngine {
 				// Update quad
 				glDrawArrays(GL_TRIANGLES, 0, 6);
 				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
-				x += (ch.Advance >> 6) * st.getFontSize();
+				x += float(ch.Advance) / 64;// * st.getFontSize();
 			}
 
 			// Unbind
@@ -227,9 +232,10 @@ namespace DCEngine {
 
 			// (???) Sets the "image" uniform to 0
 			shader->SetInteger("image", 0);
+			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			// Set the view matrix
+			// Set the view matrix 
 			shader->SetMatrix4("view", camera.GetViewMatrix());
 		}
 
@@ -238,7 +244,8 @@ namespace DCEngine {
 		\**************************************************************************/
 		void GraphicsGL::SetSpriteShader(Components::Camera& camera)
 		{
-			SetShaderProjViewUniforms(this->SpriteShader, camera);
+			SpriteShader->Use();
+			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.
 		}
 
@@ -247,7 +254,8 @@ namespace DCEngine {
 		\**************************************************************************/
 		void GraphicsGL::SetSpriteTextShader(Components::Camera& camera)
 		{
-			SetShaderProjViewUniforms(this->SpriteTextShader, camera);
+			SpriteTextShader->Use();
+			SetShaderProjViewUniforms(SpriteTextShader, camera);
 		}
 
 		/**************************************************************************/
