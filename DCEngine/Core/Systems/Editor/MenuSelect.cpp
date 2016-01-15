@@ -175,6 +175,7 @@ namespace DCEngine {
         if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
           // Calculate the current mouse position
           auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
+					//auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
           // Move the object
           gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x, 
                                                                     mousePos.y, 

@@ -76,7 +76,7 @@ namespace DCEngine {
       auto angle = (float)(CameraObj->FieldOfView) / 2;
       auto PI = 3.1415926535897f;
 
-      auto distBetweenCameraAndPlane = 1;
+      auto distBetweenCameraAndPlane = CameraObj->TransformComponent->getTranslation().z;
       float height = tan(angle / 180 * PI) * distBetweenCameraAndPlane;
       height *= 2;
       float width = height * *CameraObj->ScreenWidth / *CameraObj->ScreenHeight;
@@ -104,7 +104,6 @@ namespace DCEngine {
       //.vecCenter = vecCenter.x * CameraObj->getSize();
 
       //DCTrace << " CameraViewport::ScreenToViewport - Size: " << CameraObj->getSize() << "\n";
-
       return Vec2(vecCenter.x, vecCenter.y);
     }
 
