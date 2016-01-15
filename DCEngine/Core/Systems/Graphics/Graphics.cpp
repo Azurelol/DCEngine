@@ -13,6 +13,7 @@
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
 #include "../../Engine/Engine.h"
+#include "../../Debug/DebugGraphics.h"
 
 namespace DCEngine {
 	namespace Systems {
@@ -82,7 +83,6 @@ namespace DCEngine {
 				// Do not update the space if no camera has been set
 				if (camera == nullptr)
 					continue;
-
 				// Update every 'Sprite'
 				GraphicsHandler->SetSpriteShader(*camera);
 
@@ -91,13 +91,13 @@ namespace DCEngine {
 					mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
 				}
 
-				for (unsigned i = 0; i < Settings.MaxDrawLayers; ++i)
+				for(auto&& drawList : mDrawList)
 				{
-					for (auto sprite : mDrawList[i])
+					for (Components::Sprite* sprite : drawList)
 					{
 						DrawSprite(*sprite, *camera, dt);
 					}
-					mDrawList[i].clear();
+					drawList.clear();
 				}
 
 				/* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
@@ -108,32 +108,6 @@ namespace DCEngine {
 				  DrawSpriteText(*spriteText, *camera);
 				}
 
-				//for (auto gameObj : gfxSpace->getSprites()) {
-				//	//draw list
-				//	++TotalObjNumG;
-				//	if (gameObj->SpriteSource == "Square")
-				//	{
-				//		if (gameObj->Color.a == 1)
-				//		{
-				//			NonTextureObjNontransp.push_back(gameObj);
-				//		}
-				//		else
-				//		{
-				//			NonTextureObjtransp.push_back(gameObj);
-				//		}
-				//	}
-				//	else
-				//	{
-				//		if (gameObj->Color.a == 1)
-				//		{
-				//			TextureObjNontransp.push_back(gameObj);
-				//		}
-				//		else
-				//		{
-				//			TextureObjtransp.push_back(gameObj);
-				//		}
-				//	}
-				//}
 				//sort
 				/*std::map<float, Sprite*> sorted;
 				for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
@@ -142,37 +116,10 @@ namespace DCEngine {
 				sorted[distance] = TransparentObj[i];
 				}*/
 
-
-
-				////Nontexture object draw first
-				//for (int i = 0; i < NonTextureObjNontransp.size(); ++i)
-				//{
-				//	DrawSprite(*(NonTextureObjNontransp[i]), *camera, dt);
-				//}
-				//
-				//for (int i = 0; i < TextureObjNontransp.size(); ++i)
-				//{
-				//	DrawSprite(*(TextureObjNontransp[i]), *camera, dt);
-				//}
-				//
-				//for (int i = 0; i < NonTextureObjtransp.size(); ++i)
-				//{
-				//	DrawSprite(*(NonTextureObjtransp[i]), *camera, dt);
-				//}
-				//
-				//for (int i = 0; i < TextureObjtransp.size(); ++i)
-				//{
-				//	DrawSprite(*(TextureObjtransp[i]), *camera, dt);
-				//}
-
 				/*for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
 				{
 				DrawSprite(*(it->second), *camera, dt);
 				}*/
-				NonTextureObjNontransp.clear();
-				TextureObjNontransp.clear();
-				NonTextureObjtransp.clear();
-				TextureObjtransp.clear();
 				/*/*sorted.clear();
 				TransparentObj.clear();*/
 
