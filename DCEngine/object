@@ -2,13 +2,8 @@
 {
   "GameObject": 
   {
-<<<<<<< HEAD
-    "Name": "Sprite", 
+    "Name": "Transform", 
     "Archetype": "", 
-=======
-    "Name": "SpriteText", 
-    "Archetype": "SpriteText", 
->>>>>>> 3c13f2c6771bb7ba00de50c24470701c7de97a6c
     "Components": 
     {
       "Transform": 
@@ -40,34 +35,6 @@
             "z": 1.000000
           }
         }
-      }, 
-      "SpriteText": 
-      {
-        "Visible": true, 
-        "Color": 
-        {
-          "Vec4": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
-          }
-        }, 
-<<<<<<< HEAD
-        "SpriteSource": "square", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
-=======
-        "Font": "", 
-        "FontSize": 12, 
-        "Text": "", 
-        "PixelsPerUnit": 64, 
-        "Smoothing": true
->>>>>>> 3c13f2c6771bb7ba00de50c24470701c7de97a6c
       }
     }
   }
