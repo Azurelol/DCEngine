@@ -37,6 +37,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Text);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, PixelsPerUnit);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Smoothing);
+			DCE_BINDING_DEFINE_PROPERTY(SpriteText, WordWrap);
     }
     #endif
 

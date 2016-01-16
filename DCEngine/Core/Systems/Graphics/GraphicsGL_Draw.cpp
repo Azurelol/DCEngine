@@ -146,6 +146,8 @@ namespace DCEngine {
 		/**************************************************************************/
 		static void StringWrap(std::string& string, unsigned lineSize)
 		{
+			if (lineSize == 0)
+				return;
 			for (unsigned index = lineSize; index < string.length(); index += lineSize)
 			{
 				unsigned tempIndex = index;
@@ -205,7 +207,7 @@ namespace DCEngine {
 			std::string::const_iterator c;
 			unsigned charCount = 0;
 			std::string text = st.getText();
-			StringWrap(text, 15);
+			StringWrap(text, st.getWordWrap());
 			for (c = text.begin(); c != text.end(); ++c)
 			{
 				if (*c == '\n')
