@@ -100,4 +100,46 @@ namespace DCEngine {
     os << "Vec3 - x: '" << vec.x << "', y: '" << vec.y << "', z: '" << vec.z << "' \n";
     return os;
   }
+
+  // interpolation funtions from here on //
+
+   Vec3 Math::lerp(Vec3 start, Vec3 end, float ratio)
+  {
+    return start + (end - start) * ratio;
+  }
+
+   Vec2 Math::lerp(Vec2 start, Vec2 end, float ratio)
+  {
+    return start + (end - start) * ratio;
+  }
+   float Math::lerp(float start, float end, float ratio)
+  {
+    return start + (end - start) * ratio;
+  }
+
+  Vec3  Math::interpsin(Vec3 start, Vec3 end, float ratio)
+  {
+    return start + (end - start) * sin(ratio);
+  }
+  Vec2  Math::interpsin(Vec2 start, Vec2 end, float ratio)
+  {
+    return start + (end - start) * sin(ratio);
+  }
+  float Math::interpsin(float start, float end, float ratio)
+  {
+    return start + (end - start) * sin(ratio);
+  }
+
+  Vec3  Math::interpcos(Vec3 start, Vec3 end, float ratio)
+  {
+    return start + (end - start) * cos(ratio);
+  }
+  Vec2  Math::interpcos(Vec2 start, Vec2 end, float ratio)
+  {
+    return start + (end - start) * cos(ratio);
+  }
+  float Math::interpcos(float start, float end, float ratio)
+  {
+    return start + (end - start) * cos(ratio);
+  }
 }
