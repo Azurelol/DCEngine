@@ -186,6 +186,8 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
+      // Draw the grid
+      DrawGrid();
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();
@@ -202,6 +204,9 @@ namespace DCEngine {
       WindowCollisionTableEditor();
       WindowSpriteLayerOrderEditor();
       WindowCommands();
+
+
+
     }
 
     /**************************************************************************/

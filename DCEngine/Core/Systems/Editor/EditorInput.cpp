@@ -275,6 +275,41 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Draws a grid on screen while the editor is enabled.
+    */
+    /**************************************************************************/
+    void Editor::DrawGrid()
+    {
+      if (!Settings.GridActive)
+        return;
+
+      Vec3& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
+      // The editor grid will always be in front of the camera.
+      Vec3 gridStartPos(cameraPos.x, cameraPos.y, cameraPos.z - 1);
+      Real edge = 500; // We want to make sure we draw 'very' from far away??
+      unsigned lines = 50;
+      // Start drawings from the center of the screen and outwards
+      for (unsigned int i = 0; i < lines; ++i) {
+        // Draw the horizontal lines
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x -edge, gridStartPos.y + i, gridStartPos.z),
+                                                                                 Vec3(gridStartPos.x + edge, gridStartPos.y + i, gridStartPos.z),
+                                                                                 Settings.GridColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y - i, gridStartPos.z),
+                                                                                 Vec3(gridStartPos.x + edge, gridStartPos.y - i, gridStartPos.z),
+                                                                                 Settings.GridColor);
+        // Draw the vertical lines
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x + i, gridStartPos.y - edge, gridStartPos.z),
+                                                                                 Vec3(gridStartPos.x + i, gridStartPos.y + edge, gridStartPos.z),
+                                                                                 Settings.GridColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - i, gridStartPos.y - edge, gridStartPos.z),
+                                                                                 Vec3(gridStartPos.x - i, gridStartPos.y + edge, gridStartPos.z),
+                                                                                 Settings.GridColor);
+      }      
+
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Pans the camera when the specified mouse-button is held.
     @param  event The current mouse position.
     */

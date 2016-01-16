@@ -39,6 +39,8 @@ namespace DCEngine {
     ProjectData* ProjectInfo;
     // Tools
     bool TransformTool_IsComponent = false;
+    bool GridActive = true;
+    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.5f);
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -208,6 +210,7 @@ namespace DCEngine {
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
       void PanCamera(Vec2);
+      void DrawGrid();
       // Create
       void CreateTransform();
       void CreateSprite();

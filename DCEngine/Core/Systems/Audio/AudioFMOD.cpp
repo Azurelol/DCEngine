@@ -105,7 +105,7 @@ namespace DCEngine {
       // Update the low level API system
       ErrorCheck(System.ptr->update());
       // Update the 'Studio' API system
-      ErrorCheck(System->update());
+      //ErrorCheck(System->update());
     }
 
     /**************************************************************************/

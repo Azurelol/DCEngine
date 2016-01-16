@@ -179,11 +179,11 @@ namespace DCEngine {
 			//this->SpriteTextShader->Use();
 			SpriteTextShader->SetVector4f("textColor", st.getColor());
 			glActiveTexture(GL_TEXTURE0);
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+			//if (Debug::CheckOpenGLError())
+			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			glBindVertexArray(SpriteTextVAO);
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
+			//if (Debug::CheckOpenGLError())
+			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
 			// Retrieve the Font resource from the content system
       auto fontName = st.getFont();

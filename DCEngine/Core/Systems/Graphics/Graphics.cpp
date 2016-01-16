@@ -101,11 +101,11 @@ namespace DCEngine {
 				}
 
 				// Update every 'SpriteText'
-				GraphicsHandler->SetSpriteTextShader(*camera);
-				for (auto spriteText : gfxSpace->getSpriteTextContainer()) 
-				{
-				  DrawSpriteText(*spriteText, *camera);
-				}
+				//GraphicsHandler->SetSpriteTextShader(*camera);
+				//for (auto spriteText : gfxSpace->getSpriteTextContainer()) 
+				//{
+				//  DrawSpriteText(*spriteText, *camera);
+				//}
 
 				//sort
 				/*std::map<float, Sprite*> sorted;
