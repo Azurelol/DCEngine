@@ -94,8 +94,6 @@ namespace DCEngine {
     private:
 
       void Register();
-      //Update
-      void UpdateFlip();
       //Animation subsystem
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;

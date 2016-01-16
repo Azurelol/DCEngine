@@ -42,6 +42,7 @@ namespace DCEngine {
       auto gameObjOwner = dynamic_cast<GameObject*>(Owner());
 
       // Access to the graphics system is already given
+
     }
   }
 

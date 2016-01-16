@@ -31,6 +31,7 @@ namespace DCEngine {
     \**************************************************************************/
     ParticleEmitter::ParticleEmitter(Entity & owner) : Component("BoxParticleEmitter", owner)
     {
+			SpaceRef->getComponent<Components::GraphicsSpace>()->AddParticleEmitter(*this);
     }
 
     /*!************************************************************************\

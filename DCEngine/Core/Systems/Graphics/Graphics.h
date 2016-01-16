@@ -85,10 +85,10 @@ namespace DCEngine {
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;			
 			std::vector<std::vector<Components::Sprite*>> mDrawList;
-			std::vector<Components::Sprite*>  NonTextureObjNontransp;
-			std::vector<Components::Sprite*>  TextureObjNontransp;
-			std::vector<Components::Sprite*> NonTextureObjtransp;
-			std::vector<Components::Sprite*> TextureObjtransp;
+			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
+			//std::vector<Components::Sprite*>  TextureObjNontransp;
+			//std::vector<Components::Sprite*> NonTextureObjtransp;
+			//std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 		};
 
