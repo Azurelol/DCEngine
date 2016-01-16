@@ -27,27 +27,39 @@ namespace DCEngine {
       // Or it could read the log file?
 
       ImGui::Text("Snapping");
-      if (ImGui::Checkbox("##snappingBool", &Settings.Snapping)) {
+      ImGui::Separator();
+      if (ImGui::Checkbox("Snap Active", &Settings.Snapping)) {
         DCTrace << "Editor::WindowTools - Snapping \n";
       }
-
-      ImGui::Text("Snap Distance");
-      if (ImGui::InputFloat("##Snapping", &Settings.SnapDistance, 0.5f)) {
-
+      if (ImGui::InputFloat("Snap Distance", &Settings.SnapDistance, 0.5f)) {
       }
+
+      ImGui::Separator();
+      ImGui::Text("Grid");
+      ImGui::Separator();
+      if (ImGui::Checkbox("Grid Active", &Settings.GridActive)) {}
+      if (ImGui::InputFloat("Grid Length", &Settings.GridLength, 0.5f)) {}
+      
+      auto& colorVec = Settings.GridColor;
+      float vec4f[4] = { colorVec.x, colorVec.y, colorVec.z, colorVec.w };
+      if (ImGui::InputFloat4(" Grid Color", vec4f)) {
+        Settings.GridColor = Vec4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]);
+      }
+      ImGui::Separator();
+
 
       if (ImGui::Button("Select")) {
         ActiveTool = EditorTool::Select;
       }
-
+      ImGui::SameLine();
       if (ImGui::Button("Translate")) {
         ActiveTool = EditorTool::Translate;
       }
-
+      ImGui::SameLine();
       if (ImGui::Button("Rotate")) {
         ActiveTool = EditorTool::Rotate;
       }
-
+      ImGui::SameLine();
       if (ImGui::Button("Scale")) {
         ActiveTool = EditorTool::Scale;
       }
