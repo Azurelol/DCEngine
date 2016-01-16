@@ -100,15 +100,29 @@ namespace DCEngine {
   /**************************************************************************/
   void SpriteLayerOrder::Move(SpriteLayerHandle spriteLayer, Direction direction)
   {
-    switch (direction) {
-    case Direction::Up:
+    // Find the position of the SpriteLayer
+    auto spriteLayerPos = std::find(List.begin(), List.end(), spriteLayer);
+    if (direction == Direction::Up) {
+      // If it is already at the front
+      if (spriteLayerPos == List.begin())
+        return;
+      // Look for the object before the current one
+      auto previousSpriteLayer = spriteLayerPos;
+      std::advance(previousSpriteLayer, -1);
+      // If there's an object before the current one
+      std::iter_swap(spriteLayerPos, previousSpriteLayer);
       DCTrace << Name() << "SpriteLayerOrder::Move: Moved '" << spriteLayer << "' towards the back! \n";
-      break;
-    case Direction::Down:
+    }
+    else if (direction == Direction::Down) {
+      // Check if it will go outside of bounds
+      if (spriteLayerPos == List.end())
+        return;
+      // Look for the object after this one
+      auto nextSpriteLayer = spriteLayerPos;
+      std::advance(nextSpriteLayer, 1);
+      // If there's an object after the current one
+      std::iter_swap(nextSpriteLayer, spriteLayerPos);
       DCTrace << Name() << "SpriteLayerOrder::Move: Moved '" << spriteLayer << "' towards the front! \n";
-      break;
-    default:
-      break;
     }
   }
 

@@ -37,8 +37,7 @@ namespace DCEngine {
   class Space : public Entity {
     friend class GameSession;
     friend class Systems::Factory;
-    friend class Systems::Editor;
-    
+    friend class Systems::Editor;    
   
   public:
 
