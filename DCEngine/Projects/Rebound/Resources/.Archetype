@@ -2,13 +2,8 @@
 {
   "GameObject": 
   {
-<<<<<<< HEAD
-    "Name": "Sprite", 
+    "Name": "Floor", 
     "Archetype": "", 
-=======
-    "Name": "SpriteText", 
-    "Archetype": "SpriteText", 
->>>>>>> 59b8fdf59f013e3e1faa3a252634c107b235a1b9
     "Components": 
     {
       "Transform": 
@@ -18,7 +13,7 @@
           "Vec3": 
           {
             "x": 1.000000, 
-            "y": 11.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -35,7 +30,7 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
+            "x": 1000.000000, 
             "y": 1.000000, 
             "z": 1.000000
           }
@@ -48,26 +43,44 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
             "w": 1.000000
           }
         }, 
-<<<<<<< HEAD
         "SpriteSource": "square", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 0
-=======
-        "Font": "", 
-        "FontSize": 12, 
-        "Text": "", 
-        "PixelsPerUnit": 64, 
-        "Smoothing": true
->>>>>>> 59b8fdf59f013e3e1faa3a252634c107b235a1b9
+      }, 
+      "BoxCollider": 
+      {
+        "PhysicsMaterial": "", 
+        "CollisionGroup": "Default", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
       }
     }
   }

@@ -35,6 +35,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, Text);
       DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
       DCE_DEFINE_PROPERTY(Boolean, Smoothing);
+			DCE_DEFINE_PROPERTY(Integer, WordWrap);
 
       SpriteText(Entity& owner);
       ~SpriteText();
@@ -51,7 +52,7 @@ namespace DCEngine {
       String Text = "";
       Integer PixelsPerUnit = 64;
       Boolean Smoothing = true;
-
+			Integer WordWrap;
 
 
     };

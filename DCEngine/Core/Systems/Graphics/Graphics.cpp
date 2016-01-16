@@ -100,7 +100,6 @@ namespace DCEngine {
 					drawList.clear();
 				}
 
-				/* IF DRAW SPRITE TEXT IS CALLED, BREAKS T_T */
 				// Update every 'SpriteText'
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				for (auto spriteText : gfxSpace->getSpriteTextContainer()) 

@@ -133,6 +133,33 @@ namespace DCEngine {
 			DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
 		}
 
+
+		/**************************************************************************/
+		/*!
+		@brief Inserts newlines based on specified lineSize
+		@param The string to edit
+		@param The max character count per line
+		@note  To render each character, we extract the corresponding Character
+		struct from the Characters map and calculate the quad dimensions
+		using the character's metrics.
+		*/
+		/**************************************************************************/
+		static void StringWrap(std::string& string, unsigned lineSize)
+		{
+			for (unsigned index = lineSize; index < string.length(); index += lineSize)
+			{
+				unsigned tempIndex = index;
+				while (string[tempIndex] != ' ')
+				{
+					tempIndex--;
+					if (tempIndex <= index - lineSize)
+						return;
+				}
+				index = tempIndex;
+				string.at(index) = '\n';
+			}
+		}
+
 		/**************************************************************************/
 		/*!
 		@brief Draws a SpriteText on screen.
@@ -164,6 +191,7 @@ namespace DCEngine {
 
 			// (!) This is used to advance cursors
 			GLfloat x = 0;//static_cast<GLfloat>(st.TransformComponent->Translation.x);
+			GLfloat y = 0;
 
 			auto transform = st.TransformComponent;
 			glm::mat4 modelMatrix;
@@ -173,19 +201,28 @@ namespace DCEngine {
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
 			SpriteTextShader->SetMatrix4("model", modelMatrix);
-
 			// Iterate through all the characters
 			std::string::const_iterator c;
-			for (c = st.getText().begin(); c != st.getText().end(); ++c) {
+			unsigned charCount = 0;
+			std::string text = st.getText();
+			StringWrap(text, 15);
+			for (c = text.begin(); c != text.end(); ++c)
+			{
+				if (*c == '\n')
+				{
+					x = 0;
+					y -= 45 * st.getFontSize() / 12;
+					continue;
+				}
 				// Access a character glyph from the characters map
 				Character ch = font->Characters[*c];
 
 				// Calculate the origin position of the quad 
 				GLfloat xPos = x + ch.Bearing.x;
-				GLfloat yPos = st.TransformComponent->Translation.y - (ch.Size.y - ch.Bearing.y);
+				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y);
 				// Calculate the quad's size
-				GLfloat w = ch.Size.x;
-				GLfloat h = ch.Size.y;
+				GLfloat w = ch.Size.x * st.getFontSize() / 12;
+				GLfloat h = ch.Size.y * st.getFontSize() / 12;
 				// Generate a set of 6 vertices to form the 2D quad
 				GLfloat vertices[6][4] = {
 					{ xPos    , yPos + h, 0.0, 0.0 },
@@ -199,8 +236,6 @@ namespace DCEngine {
 
 				// Update glyph texture over quad
 				glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind texture!\n";
 
 				// Update content of VBO memory
 				glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
@@ -209,9 +244,9 @@ namespace DCEngine {
 				// Update quad
 				glDrawArrays(GL_TRIANGLES, 0, 6);
 				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
-				x += float(ch.Advance) / 64;// * st.getFontSize();
-			}
+				x += float(ch.Advance) * st.getFontSize() / 12 / 64;
 
+			}
 			// Unbind
 			glBindVertexArray(0);
 			glBindTexture(GL_TEXTURE_2D, 0);
