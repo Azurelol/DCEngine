@@ -14,12 +14,24 @@
 namespace DCEngine {
   namespace Components
   {
-    void ParticleColorAnimator::Serialize(Json::Value & root)
-    {
+    /**************************************************************************/
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(ParticleColorAnimator, "ParticleColorAnimator", DCEngineCore, builder, type) {
+      // Constructor / Destructor
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ParticleColorAnimator);
+      // Properties
+      DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color0);
+      DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color1);
+      DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color2);
+      DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color3);
+      DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color4);
     }
-    void ParticleColorAnimator::Deserialize(Json::Value & root)
-    {
-    }
+    #endif
 
     /*!************************************************************************\
     @brief  Constructor for the ParticleColorAnimator
@@ -33,6 +45,8 @@ namespace DCEngine {
     \**************************************************************************/
     void ParticleColorAnimator::Initialize()
     {
+      // Store the reference to the object's particle system component
+      ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
     }
 
 

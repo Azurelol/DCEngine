@@ -33,8 +33,16 @@ namespace DCEngine {
 
       ImGui::Text("Snap Distance");
       if (ImGui::InputFloat("##Snapping", &Settings.SnapDistance, 0.5f)) {
-
       }
+
+      //ImGui::Separator();
+      //ImGui::Text("Grid");
+      //if (ImGui::InputFloat4("##GridColor", &Settings.GridColor, 0.5f)) {
+      //}
+      //ImGui::Text("Distance");
+      //if (ImGui::InputFloat("##Snapping", &Settings.GridActive, 0.5f)) {
+      //}
+
 
       if (ImGui::Button("Select")) {
         ActiveTool = EditorTool::Select;

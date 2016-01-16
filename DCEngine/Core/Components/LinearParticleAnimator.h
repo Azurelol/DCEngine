@@ -15,22 +15,27 @@
 namespace DCEngine {
   namespace Components
   {
+    class SpriteParticleSystem;
     class LinearParticleAnimator : public Component {
     public:
-
-      /* Properties */
+      // Properties
       Vec3 Force;
       Vec3 RandomForce;
       Real Torque;
       Real Growth;
       Real Dampening;
+      DCE_DEFINE_PROPERTY(Vec3, Force);
+      DCE_DEFINE_PROPERTY(Vec3, RandomForce);
+      DCE_DEFINE_PROPERTY(Real, Torque);
+      DCE_DEFINE_PROPERTY(Real, Growth);
+      DCE_DEFINE_PROPERTY(Real, Dampening);
 
+      ZilchDeclareDerivedType(LinearParticleAnimator, Component);
       LinearParticleAnimator(Entity& owner);
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
     private:
+      SpriteParticleSystem* ParticleSystem;
 
     };
   }
