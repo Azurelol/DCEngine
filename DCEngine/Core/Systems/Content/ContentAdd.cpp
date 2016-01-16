@@ -308,6 +308,10 @@ namespace DCEngine {
         // 2. Depending on the extension, add the specific resource:
         if (extension == SpriteSource::Extension())
           AddSpriteSource(resourceName, SpriteSourcePtr(new SpriteSource(resource)));
+        else if (extension == SpriteLayer::Extension())
+          AddSpriteLayer(resourceName, SpriteLayerPtr(new SpriteLayer(resource)));
+        else if (extension == SpriteLayerOrder::Extension())
+          AddSpriteLayerOrder(resourceName, SpriteLayerOrderPtr(new SpriteLayerOrder(resource)));
         else if (extension == Font::Extension())
           AddFont(resourceName, FontPtr(new Font(resource)));
         else if (extension == SoundCue::Extension())

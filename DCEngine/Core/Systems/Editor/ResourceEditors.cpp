@@ -57,11 +57,50 @@ namespace DCEngine {
         return;
 
       std::string title = "SpriteLayerOrder Editor - " + SelectedSpriteLayerOrder->Name();
-      ImGui::Begin(title.c_str(), &WindowSpriteLayerOrderEditorEnabled);
+      ImGui::SetNextWindowSize(ImVec2(400, 200));
+      ImGui::Begin(title.c_str(), &WindowSpriteLayerOrderEditorEnabled, ImGuiSetCond_FirstUseEver);
 
+
+      // Display all present SpriteLayers
+      static SpriteLayerHandle selectedSpriteLayer;
+      static bool selected;
+      for (auto& layer : SelectedSpriteLayerOrder->getList()) {
+        if (ImGui::Selectable(layer.c_str())) {
+          selectedSpriteLayer = layer;
+        }
+      }
+
+
+      // Add
+      if (ImGui::TreeNode("Add SpriteLayer...")) {
+        // Grab a list of all SpriteLayers
+        std::vector<SpriteLayerHandle> layers;
+        for (auto& layer : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
+          // If the layer is already present, skip it.
+          auto& layerName = layer.second->Name();
+          if (SelectedSpriteLayerOrder->Has(layerName))
+            continue;
+          // If not present, allow adding it!
+          if (ImGui::Selectable(layer.second->Name().c_str())) {
+            SelectedSpriteLayerOrder->Add(layerName);
+          }
+        }
+        ImGui::TreePop();
+      }
+
+      if (ImGui::Button("Back")) {
+        SelectedSpriteLayerOrder->Move(selectedSpriteLayer, Direction::Up);        
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Front")) {
+        SelectedSpriteLayerOrder->Move(selectedSpriteLayer, Direction::Down);
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Remove")) {
+        SelectedSpriteLayerOrder->Remove(selectedSpriteLayer);
+      }
 
       ImGui::End();
-
     }
 
 

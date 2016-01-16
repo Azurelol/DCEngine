@@ -180,7 +180,7 @@ namespace DCEngine {
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
-      ResourcePtr SelectedSpriteLayerOrder;
+      SpriteLayerOrderPtr SelectedSpriteLayerOrder;
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();

@@ -65,7 +65,7 @@ namespace DCEngine {
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Edit the selected SpriteLayerOrder
             DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
-            SelectedSpriteLayerOrder = resource.second.get();
+            SelectedSpriteLayerOrder = resource.second;
             WindowSpriteLayerOrderEditorEnabled = true;
             break;
           }

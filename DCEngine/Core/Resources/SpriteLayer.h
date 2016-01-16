@@ -10,6 +10,8 @@
 #pragma once
 #include "ResourceReference.h"
 
+#include <set>
+
 namespace DCEngine {
 
   class SpriteLayer;
@@ -43,6 +45,14 @@ namespace DCEngine {
   /**************************************************************************/
   class SpriteLayerOrder : public Resource {
   public:
+    using SpriteLayerList = std::list<SpriteLayerHandle>;
+    SpriteLayerList List;
+    DCE_DEFINE_PROPERTY(SpriteLayerList, List);
+    void Add(SpriteLayerHandle spriteLayer);
+    void Remove(SpriteLayerHandle spriteLayer);
+    void Move(SpriteLayerHandle spriteLayer, Direction direction);
+    bool Has(SpriteLayerHandle spriteLayer);
+
     ZilchDeclareDerivedType(SpriteLayerOrder, Resource);
     SpriteLayerOrder(std::string name);
     ~SpriteLayerOrder() {}
