@@ -83,6 +83,14 @@ namespace DCEngine {
 				// Do not update the space if no camera has been set
 				if (camera == nullptr)
 					continue;
+
+				GraphicsHandler->SetSpriteTextShader(*camera);
+				for (auto spriteText : gfxSpace->getSpriteTextContainer())
+				{
+					DrawSpriteText(*spriteText, *camera);
+				}
+
+
 				// Update every 'Sprite'
 				GraphicsHandler->SetSpriteShader(*camera);
 
@@ -101,11 +109,7 @@ namespace DCEngine {
 				}
 
 				// Update every 'SpriteText'
-				//GraphicsHandler->SetSpriteTextShader(*camera);
-				//for (auto spriteText : gfxSpace->getSpriteTextContainer()) 
-				//{
-				//  DrawSpriteText(*spriteText, *camera);
-				//}
+				
 
 				//sort
 				/*std::map<float, Sprite*> sorted;
