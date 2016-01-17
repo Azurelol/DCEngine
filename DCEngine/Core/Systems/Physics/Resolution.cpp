@@ -311,13 +311,13 @@ namespace DCEngine
 
   void Resolution::ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
   {
-    unsigned int iterationsRun = 0;
-    unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
-    while (iterationsRun < maxIterations)
-    {
+   // unsigned int iterationsRun = 0;
+   // unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
+   // while (iterationsRun < maxIterations)
+   // {
       // Find the contact with the largest closing velocity;
-      float maxVelocity = FLT_MAX;
-      unsigned int contactIndex = static_cast<unsigned int>(contactlist.size());
+    //  float maxVelocity = FLT_MAX;
+    //  unsigned int contactIndex = static_cast<unsigned int>(contactlist.size());
       for (unsigned i = 0; i < contactlist.size(); ++i)
       {
         if (!contactlist[i].rigid1 && !contactlist[i].rigid2)
@@ -325,25 +325,26 @@ namespace DCEngine
           continue;
         }
 
-        float sepVel = contactlist[i].CalculateSeparatingVelocity();
-        if (sepVel < 0 && sepVel < maxVelocity)
-        {
-          maxVelocity = sepVel;
-          contactIndex = i;
-        }
+        ResolveContactVelocity(dt, contactlist[i]);
+       // float sepVel = contactlist[i].CalculateSeparatingVelocity();
+       // if (sepVel < 0 && sepVel < maxVelocity)
+       // {
+       //   maxVelocity = sepVel;
+       //   contactIndex = i;
+       // }
       }
 
       // Do we have anything worth resolving?
-      if (contactIndex == contactlist.size())
+      /*if (contactIndex == contactlist.size())
       {
         break;
-      }
+      }*/
 
       // Resolve this contact velocity
-      ResolveContactVelocity(dt, contactlist[contactIndex]);
+      //ResolveContactVelocity(dt, contactlist[contactIndex]);
 
-      ++iterationsRun;
-    }
+      //++iterationsRun;
+    //}
   }
 
   void Resolution::ResolvePenetration(float dt, Manifold& c)
@@ -459,9 +460,9 @@ namespace DCEngine
     //just keeps poking the bodies until the penetrations are below the penetration slop epsilon. 
     //Better solutions involve building contact graphs, shock propagation and constraint based
     //solvers.
-    unsigned int iterationsRun = 0;
+    /*unsigned int iterationsRun = 0;
     unsigned int maxIterations = static_cast<unsigned int>(contactlist.size());
-    const float positionEpsilon = 0.00000001f;
+    const float positionEpsilon = 0.000000001f;
 
     while (iterationsRun < maxIterations)
     {
@@ -487,6 +488,11 @@ namespace DCEngine
       ResolvePenetration(dt, contactlist[contactIndex]);
 
       ++iterationsRun;
+    }*/
+
+    for (auto contact : contactlist)
+    {
+      ResolvePenetration(dt, contact);
     }
   }
 
