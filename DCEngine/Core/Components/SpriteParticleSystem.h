@@ -27,7 +27,8 @@ namespace DCEngine {
   {
     class Transform;
     class Camera;
-    class SpriteParticleSystem : public Component {
+    class SpriteParticleSystem : public Component 
+		{
     public:
 
       // Properties
@@ -48,9 +49,10 @@ namespace DCEngine {
       ZilchDeclareDerivedType(SpriteParticleSystem, Component);
       SpriteParticleSystem(Entity& owner);
       void Initialize();
+			Transform* TransformComponent;
 
     private:
-      Transform* TransformComponent;
+      
       Camera* CameraComponent;
 
     };

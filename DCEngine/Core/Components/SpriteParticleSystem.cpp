@@ -44,6 +44,9 @@ namespace DCEngine {
     \**************************************************************************/
     SpriteParticleSystem::SpriteParticleSystem(Entity & owner) : Component("SpriteParticleSystem", owner)
     {
+			TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+			// Register
+			SpaceRef->getComponent<Components::GraphicsSpace>()->AddParticleSystem(*this);
     }
 
     /*!************************************************************************\
@@ -59,6 +62,7 @@ namespace DCEngine {
       auto gameObjOwner = dynamic_cast<GameObject*>(Owner());
 
       // Access to the graphics system is already given
+
     }
   }
 

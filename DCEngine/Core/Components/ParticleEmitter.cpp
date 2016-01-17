@@ -51,6 +51,7 @@ namespace DCEngine {
     \**************************************************************************/
     ParticleEmitter::ParticleEmitter(Entity & owner) : Component("ParticleEmitter", owner)
     {
+
     }
 
     /*!************************************************************************\

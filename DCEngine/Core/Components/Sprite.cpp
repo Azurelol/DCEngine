@@ -105,74 +105,6 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \fn void DCEngine::Sprite::UpdateFlip()
-
-    \brief Updates the flip??
-
-    \return
-      None.
-
-    @todo   Delete this function. This function is not used anymore.
-    */
-
-    /**************************************************************************/
-    void Sprite::UpdateFlip()
-    {
-      Visible = true;
-      Color.x = 1;
-      Color.y = 1;
-      Color.z = 1;
-      BlendMode = BlendModeType::Alpha;
-      FlipX = false;
-      FlipY = false;
-      XFlipped = false;
-      YFlipped = false;
-
-      for (int i = 0; i < 4; i++)//Initialize the flip matrix
-      {
-        for (int j = 0; j < 4; j++) {
-          if (i == j) {
-            FlipMatrix[i][j] = 1;
-          }
-        }
-      }
-
-      if (FlipX == true)
-      {
-        if (XFlipped == false)
-        {
-          FlipMatrix[0][0] = -1;
-          XFlipped = true;
-        }
-      }
-      else
-      {
-        if (XFlipped == true)
-        {
-          FlipMatrix[0][0] = 1;
-          XFlipped = false;
-        }
-      }
-
-      if (FlipY == true)
-      {
-        if (YFlipped == false)
-        {
-          FlipMatrix[1][1] = 1;
-          YFlipped = true;
-        }
-      }
-      else
-      {
-        if (YFlipped == true)
-        {
-          FlipMatrix[1][1] = -1;
-          YFlipped = false;
-        }
-      }
-    }
-    /**************************************************************************/
-    /*!
     \fn void DCEngine::Sprite::SetColorUsing255(Vec3 newColor)
 
     \brief Sets the color using 255 as the max instead of 1. Preserves opacity.
@@ -208,7 +140,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Sprite::UpdateSprite()
     {
-      UpdateFlip();
+     
     }
 
   }
