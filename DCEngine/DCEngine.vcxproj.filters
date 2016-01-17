@@ -187,9 +187,6 @@
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Precompiled">
-      <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Menus">
       <UniqueIdentifier>{27b0b96e-1522-46e8-81aa-a7d0e8a1c246}</UniqueIdentifier>
     </Filter>
@@ -252,6 +249,9 @@
     </Filter>
     <Filter Include="Core\Components\Tools">
       <UniqueIdentifier>{87637a6f-7f0a-482d-84b0-e8faab81a238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Libraries\Precompiled">
+      <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -502,7 +502,7 @@
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
-      <Filter>Core\Precompiled</Filter>
+      <Filter>Core\Libraries\Precompiled</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
@@ -1032,7 +1032,7 @@
       <Filter>Core\Binding</Filter>
     </ClInclude>
     <ClInclude Include="Core\Precompiled\Precompiled.h">
-      <Filter>Core\Precompiled</Filter>
+      <Filter>Core\Libraries\Precompiled</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>

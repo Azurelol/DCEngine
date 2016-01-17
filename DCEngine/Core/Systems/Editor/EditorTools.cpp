@@ -121,11 +121,11 @@ namespace DCEngine {
         // Get the object's transform data
         auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 pos = transform->getTranslation();
-        Real width = transform->getScale().x *2.5;
+        Real radius = transform->getScale().x *2.5;
         Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
 
         // Draw a selected 'box' around the object
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, width, color);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, radius, color);
       }
 
     }
@@ -150,7 +150,7 @@ namespace DCEngine {
 
           // Draw a selected 'box' around the object
           CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
-            width, width, color);
+            width, height, color);
         }
       
     }
@@ -176,7 +176,13 @@ namespace DCEngine {
         auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 pos = transform->getTranslation();
         // Translate the object
-        gameObject->getComponent<Components::Transform>()->setTranslation(pos + direction);
+        auto TransCommand = new CommandObjectTransform(transform);
+        transform->setTranslation(pos + direction);
+        TransCommand->SaveNew(transform);
+        auto command = CommandPtr(TransCommand);
+        Settings.Commands.Add(command);
+        
+
       }
     }
 
@@ -201,7 +207,11 @@ namespace DCEngine {
         auto transform = gameObject->getComponent<Components::Transform>();
         Vec3 scale = transform->getScale();
         // Translate the object
-        gameObject->getComponent<Components::Transform>()->setScale(scale + scaleChange);
+        auto TransCommand = new CommandObjectTransform(transform);
+        transform->setScale(scale + scaleChange);
+        TransCommand->SaveNew(transform);
+        auto command = CommandPtr(TransCommand);
+        Settings.Commands.Add(command);
       }
 
     }
