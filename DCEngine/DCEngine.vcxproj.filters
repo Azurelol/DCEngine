@@ -684,6 +684,9 @@
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1178,6 +1181,9 @@
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1215,6 +1221,12 @@
     </None>
     <None Include="Core\Systems\Editor\Editor.tcc">
       <Filter>Core\Systems\Editor</Filter>
+    </None>
+    <None Include="ParticleShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="ParticleShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

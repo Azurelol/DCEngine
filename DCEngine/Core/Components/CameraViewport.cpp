@@ -67,10 +67,6 @@ namespace DCEngine {
       // starting X and Y position of our GL viewport along with the width and
       // height.
 
-      // We need to grab the current viewport. The information we need is the
-      // starting X and Y position of our GL viewport along with the width and
-      // height.
-
       auto screenCenter = Vec3(*CameraObj->ScreenWidth / 2, *CameraObj->ScreenHeight / 2, 0);
       auto vecCenter = Vec3(screenPoint, 0) - screenCenter;
       auto angle = (float)(CameraObj->FieldOfView) / 2;
@@ -85,6 +81,7 @@ namespace DCEngine {
       vecCenter.x = widthRatio * width + CameraObj->TransformComponent->Translation.x;
       vecCenter.y = CameraObj->TransformComponent->Translation.y - heightRatio * height;
 
+			DCTrace <<vecCenter.x << " " << vecCenter.y << "\n";
       /**********************************************
         1. Viewport Origin and Extent
       **********************************************/

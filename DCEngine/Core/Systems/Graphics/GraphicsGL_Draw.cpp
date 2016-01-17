@@ -254,6 +254,38 @@ namespace DCEngine {
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
+		void GraphicsGL::SetParticleSystemShader(Components::Camera & camera)
+		{
+			ParticleSystemShader->Use();
+			SetShaderProjViewUniforms(ParticleSystemShader, camera);
+		}
+
+
+		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
+		{
+			auto transform = particles.TransformComponent;
+			unsigned int spawnRate;
+			unsigned int lifetime;
+			unsigned int activeParticles;
+
+			
+			
+			std::vector<glm::mat4> modelMatrices;
+			for (unsigned i = 0; i < 5000; ++i)
+			{
+				glm::mat4 modelMatrix;
+				modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+					transform->Translation.y,
+					transform->Translation.z));
+				modelMatrix = glm::scale(modelMatrix,
+					glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
+				modelMatrices.push_back(modelMatrix);
+			}
+
+			glBindVertexArray(ParticleVAO);
+			glDrawElementsInstanced(GL_TRIANGLES, 4, GL_UNSIGNED_INT, 0, activeParticles);
+			glBindVertexArray(0);
+		}
 
 		/**************************************************************************/
 		/*!

@@ -328,7 +328,6 @@ namespace DCEngine {
            //Fill.filter = physpace->getTable().GetFilter(str1, str2);
          }
 
-
          pairs.push_back(Fill);
 				}
 			}
