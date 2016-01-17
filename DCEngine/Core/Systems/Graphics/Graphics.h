@@ -17,6 +17,7 @@ receives rendering requests and draws on the window.
 // OpenGL rendering
 #include "GraphicsGL.h"
 #include "../../Components/GraphicsSpace.h"
+#include "../../Components/SpriteParticleSystem.h"
 
 namespace DCEngine {
 	class Engine;
@@ -46,6 +47,7 @@ namespace DCEngine {
       // Draw
 			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
+			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera& cam, double dt);
 			void DrawModel(GameObject& gameObj);
 			void DrawDebug(DebugDrawObject& debugDraw);
 			// DebugDraw

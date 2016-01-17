@@ -67,6 +67,11 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Creates a GameObject with a default SpriteText.
+    */
+    /**************************************************************************/
     void Editor::CreateSpriteText()
     {
       // Create the SpriteText GameObject
@@ -80,6 +85,28 @@ namespace DCEngine {
       MoveToViewportCenter(spriteText);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
+                                    CommandObjectCreation::Setting::Create));
+      Settings.Commands.Add(command);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a GameObject with a default particle system.
+    */
+    /**************************************************************************/
+    void Editor::CreateParticleSystem()
+    {
+      // Create the ParticleSystem GameObject
+      auto psystem = CurrentSpace->CreateObject("ParticleEffect");
+      psystem->setObjectName("ParticleSystem");
+      // Add the Sprite component
+      //psystem->AddComponentByName(std::string("Particle System"), true);
+      DCTrace << "Editor::CreateParticleSystem - Created 'ParticleEffect' \n";
+      SelectedObject = psystem;
+      WindowPropertiesEnabled = true;
+      MoveToViewportCenter(psystem);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
       Settings.Commands.Add(command);
     }

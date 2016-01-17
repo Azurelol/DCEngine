@@ -18,19 +18,16 @@ namespace DCEngine {
   namespace Components
   {
     /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
       DCE_BINDING_DEFINE_ATTRIBUTE(SpriteSource);
-      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
-      //type->HandleManager = ZilchManagerId(Zilch::PointerManager);
       // Constructor / Destructor
-      //ZilchBindConstructor(builder, type, Sprite, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, Sprite);
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
       // Properties
       ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
       ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
@@ -42,7 +39,7 @@ namespace DCEngine {
       ZilchBindProperty(builder, type, &Sprite::getAnimationSpeed, &Sprite::setAnimationSpeed, "AnimationSpeed");
 			DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
     }
-#endif
+    #endif
 
 
     /**************************************************************************/

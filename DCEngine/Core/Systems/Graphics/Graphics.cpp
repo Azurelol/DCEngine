@@ -104,7 +104,13 @@ namespace DCEngine {
 					drawList.clear();
 				}
 
+
 				// update particles
+				//GraphicsHandler->SetParticleSystemShader(*camera);
+				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
+				//{
+				//	DrawParticles(*particleSystem, *camera, dt);
+				//}
 
 				// draw particles
 
@@ -171,6 +177,11 @@ namespace DCEngine {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
 			GraphicsHandler->DrawSpriteText(st, cam);
+		}
+
+		void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
+		{
+			GraphicsHandler->DrawParticles(particles, cam, dt);
 		}
 
 		/**************************************************************************/

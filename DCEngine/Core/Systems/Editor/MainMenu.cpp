@@ -70,7 +70,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Create Sprite")) { CreateSprite(); }
           if (ImGui::MenuItem("Create SpriteText")) { CreateSpriteText(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Particle System")) {}
+          if (ImGui::MenuItem("Create Particle System")) { CreateParticleSystem(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create from Archetype"))
             WindowCreateFromArchetypeEnabled = true;

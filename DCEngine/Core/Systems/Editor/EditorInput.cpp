@@ -27,6 +27,7 @@ namespace DCEngine {
 
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
+
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);
 

@@ -126,15 +126,15 @@ namespace DCEngine {
                                 SpriteTextContainer.end());
     }
 
-		void GraphicsSpace::AddParticleEmitter(ParticleEmitter & particleEmitter)
+		void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
 		{
-			ParticleEmitterContainer.push_back(&particleEmitter);
+			ParticleSystemContainer.push_back(&particleEmitter);
 		}
 
-		void GraphicsSpace::RemoveParticleEmitter(ParticleEmitter & particleEmitter)
+		void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
 		{
-			ParticleEmitterContainer.erase(std::remove(ParticleEmitterContainer.begin(),
-				ParticleEmitterContainer.end(), &particleEmitter), ParticleEmitterContainer.end());
+			ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
+				ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
 		}
 
 
@@ -176,9 +176,9 @@ namespace DCEngine {
       return SpriteTextContainer;
     }
 
-		std::vector<ParticleEmitter*> GraphicsSpace::getParticleEmitters()
+		std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
 		{
-			return ParticleEmitterContainer;
+			return ParticleSystemContainer;
 		}
 
   }

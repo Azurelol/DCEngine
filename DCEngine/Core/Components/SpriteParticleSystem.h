@@ -27,24 +27,32 @@ namespace DCEngine {
   {
     class Transform;
     class Camera;
-    class SpriteParticleSystem : public Component {
+    class SpriteParticleSystem : public Component 
+		{
     public:
 
-      /* Properties */
+      // Properties
       Boolean Visible;
       Vec4 Tint = Vec4(1, 1, 1, 1); //!< Color to tint/multiply all particles in the system.
-      String SpriteSource;
+      String Texture; // Allows the use of textures/spritesources
       Real VelocityScale = 1;
       Real LengthScale = 1;
       Vec3 SystemSize = Vec3(4, 4, 4);
+      DCE_DEFINE_PROPERTY(Boolean, Visible);
+      DCE_DEFINE_PROPERTY(Vec4, Tint);
+      DCE_DEFINE_PROPERTY(String, Texture);
+      DCE_DEFINE_PROPERTY(Real, VelocityScale);
+      DCE_DEFINE_PROPERTY(Real, LengthScale);
+      DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 
+
+      ZilchDeclareDerivedType(SpriteParticleSystem, Component);
       SpriteParticleSystem(Entity& owner);
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
+			Transform* TransformComponent;
 
     private:
-      Transform* TransformComponent;
+      
       Camera* CameraComponent;
 
     };

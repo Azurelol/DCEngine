@@ -18,7 +18,7 @@ engine's underlying graphics system.
 
 #include "../Components/Sprite.h"
 #include "../Components/SpriteText.h"
-#include "../Components/ParticleEmitter.h"
+#include "../Components/SpriteParticleSystem.h"
 
 namespace DCEngine {
 
@@ -56,8 +56,8 @@ namespace DCEngine {
       void RemoveSprite(Sprite& sprite);
       void AddSpriteText(SpriteText& spriteText);
       void RemoveSpriteText(SpriteText& spriteText);
-			void AddParticleEmitter(ParticleEmitter& particleEmitter);
-			void RemoveParticleEmitter(ParticleEmitter& particleEmitter);
+			void AddParticleSystem(SpriteParticleSystem& particleEmitter);
+			void RemoveParticleSystem(SpriteParticleSystem& particleEmitter);
 
       // Debug Drawing functions 
       void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
@@ -67,7 +67,7 @@ namespace DCEngine {
       /* Getters */
       SpriteContainer getSprites(); // Return the vector of sprites to be drawn
       SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
-			std::vector<ParticleEmitter*> getParticleEmitters(); // Returns the emission components
+			std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
@@ -78,9 +78,8 @@ namespace DCEngine {
       GameObjectRawVec models_;  //!< Container of models that need to be rendered
       SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
       SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
-			std::vector<ParticleEmitter*> ParticleEmitterContainer;
+			std::vector<SpriteParticleSystem*> ParticleSystemContainer;
       DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
-
     };
 
   }

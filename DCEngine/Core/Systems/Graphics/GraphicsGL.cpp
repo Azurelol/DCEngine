@@ -64,6 +64,10 @@ namespace DCEngine {
 			// Construct the SpriteText shader
 			SpriteTextShader = Daisy->getSystem<Content>()->getShader(std::string("SpriteTextShader"));
 			SpriteTextShader->Compile();
+			// Construct the ParticleSystem shader
+			//ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
+			//ParticleSystemShader->Compile();
+			//ConfigureParticleBuffers();
 			// Configure the SpriteText shader VAO
 			ConfigureSpriteTextVAO();
 
