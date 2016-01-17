@@ -23,14 +23,27 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSet::Clear()
   {
-    //ActiveActions.erase(
-    //  std::remove_if(ActiveActions.begin(), ActiveActions.end(),
+    //AllActions.erase(
+    //  std::remove_if(AllActions.begin(), AllActions.end(),
     //    // Lambdas, ho!
     //    [&](ActionPtr const& a) {
     //  return std::find(InactiveActions.cbegin(), InactiveActions.cend(), a.get())
-    //    != InactiveActions.end(); }), ActiveActions.end());
+    //    != InactiveActions.end(); }), AllActions.end());
     //// Now clear!
     InactiveActions.clear();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks whether there are any remaining actions in the ActionSet.
+          If there's no more remaining, the set is done.
+  */
+  /**************************************************************************/
+  bool ActionSet::Validate()
+  {
+    if (ActiveActions.empty())
+      IsFinished = true;
+    return IsFinished;
   }
 
   /*=======================*
@@ -49,7 +62,7 @@ namespace DCEngine {
     auto timeLeft = dt;
     for (auto& action : ActiveActions) {
       // Every action consume time in the time slice given.
-      timeLeft = action->Update(timeLeft);      
+      timeLeft -= action->Update(timeLeft);      
       // If the action was completed (Meaning there is time remaining after it was updated)
       // , then mark the action to be cleared.
       if (timeLeft >= 0) {
@@ -61,7 +74,9 @@ namespace DCEngine {
     }
     // Sweep all inactive actions
     Clear();
-    // The time was consumed while updating was the sum of all
+    // Validate for remaining actions
+    Validate();
+    // The time was consumed while updating...
     return dt - timeLeft;
   }
 
@@ -95,38 +110,18 @@ namespace DCEngine {
     }
 
     // Sweep all inactive actions
-    Clear();
+    Clear();    
+    // Validate for remaining actions
+    Validate();
     // The time consumed while updating was the maximum time it took
     return mostTimeElapsed;
   }
 
-  /*==============*
-  *     Call     *
-  *==============*/
-  Call::Call(ActionSet & sequence, EventDelegate * funcPtr) : FunctionPtr(funcPtr)
-  {
-  }
-  float Call::Update(float dt)
-  {
-    // Call the member functiom immediately
-    
-    return 0.0f;
-  }
 
-  /*==============*
-  *     Delay     *
-  *==============*/
-  float Delay::Update(float dt)
-  {
-    return 0.0f;
-  }
 
-  /*==============*
-  *   Property    *
-  *==============*/
-  float Property::Update(float dt)
-  {
-    return 0.0f;
-  }
+
+
+
+
 
 }

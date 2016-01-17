@@ -12,13 +12,10 @@
 /******************************************************************************/
 #pragma once
 
-#include "ActionList.h"
 #include "Delegate.h"
 
 namespace DCEngine {
-
-
-  
+    
   enum class Ease {
     Linear,
     QuadIn,
@@ -35,18 +32,28 @@ namespace DCEngine {
   class Action {
   public:
     virtual float Update(float dt) = 0;
-  private:    
+    bool Blocking() { return IsBlocking; }
+    bool Finished() { return IsFinished; }
+
+  protected:    
+    Real Elapsed = 0.0f;
+    Real Duration = 0.0f;
+    bool IsBlocking = false; // Whether the action blocks other actions behind it
+    bool IsFinished = false; // When finished, the action will be removed.
   };
   using ActionPtr = std::shared_ptr<Action>;
+  using ActionsContainer = std::vector<ActionPtr>;
 
   /*===================*
   *     ActionSet      *
   *===================*/  
   class ActionSet : public Action {
   public:
+    virtual float Update(float dt) = 0;
+    virtual bool Validate();
+  protected:
     std::vector<ActionPtr> ActiveActions;
     std::vector<ActionPtr> InactiveActions;
-    virtual float Update(float dt) = 0;
     void Clear();    
   };
   using ActionSetPtr = std::shared_ptr<ActionSet>;
@@ -56,50 +63,104 @@ namespace DCEngine {
     float Update(float dt);
   };
 
+
   class ActionSequence : public ActionSet {
   public:
     float Update(float dt);
   };
-  
+
+    
   /*===================*
   *     Actions        *
   *===================*/
-  class Call : public Action {
+  class ActionCall : public Action {
   public:
-    Call(ActionSet& sequence, EventDelegate* funcPtr);
+    ActionCall(ActionSet& sequence, Delegate* funcPtr);
     float Update(float dt);
-    EventDelegate* FunctionPtr;
+    Delegate* FunctionPtr;
   };
 
-  class Delay : public Action {
+  class ActionDelay : public Action {
   public:
+    ActionDelay(ActionSequence& sequence, Real duration);
     float Update(float dt);
   };
 
-  class Property : public Action {
+  template <typename PropertyType>
+  class ActionProperty : public Action {
   public:
     float Update(float dt);
+
+  private:
+    PropertyType property;
   };
 
   /*===================*
   *     Interface      *
   *===================*/
-  // Static class for constructing and using actions.
-  class Actions {
-    // Constructs an action sequence, adding it to 
-    static ActionSetPtr Sequence(ActionSet& owner);
-    static void Call(ActionSet& set, EventDelegate& fn);
-    static void Delay(ActionSet& set, Real duration);
-    template <typename Property, typename EndValue>
-    static void Property(ActionSequence& seq, Property prty, EndValue val, Ease ease);
+  class EntityActions : public ActionSet {
+  public:
+    float Update(float dt);
+    bool Validate();
+
+  private:
+    void Add(ActionPtr action);
+    ActionsContainer ActiveActions;
 
   };
 
+  // Static class for constructing and using actions.
+  class Actions {
+  public:
+    // Constructs an action sequence, adding it to 
+    static ActionSetPtr Sequence(ActionSet& owner);
+    static ActionSetPtr Group(ActionSet& owner);
+    static void Call(ActionSet& set, void* fn);
+    static void Delay(ActionSet& set, Real duration);
+    template <typename Property, typename EndValue>
+    static void Property(ActionSequence& seq, Property prty, EndValue val, Ease ease) {
+    }
+
+  private:
+
+  };
+
+  /*===================*
+  *     ActionSpace   *
+  *===================*/
+  class ActionSpace {
+  public:
+    void Add(ActionPtr action);
+    void Remove(ActionPtr action);
+    void Update(float dt);
+
+  private:
+    ActionsContainer AllActions;
+    ActionsContainer InactiveActions;
+    void Sweep();
+
+  };
 
   //template<typename Property, typename EndValue>
   //inline void Action::Property(ActionSequence & seq, Property prty, EndValue val, Ease ease)
   //{
   //
   //}
+
+
+  /*==============*
+  *   Property    *
+  *==============*/
+  /**************************************************************************/
+  /*!
+  @brief Updates this action.
+  @param dt The time slice given.
+  */
+  /**************************************************************************/
+  template<typename PropertyType>
+  inline float ActionProperty<PropertyType>::Update(float dt)
+  {
+    return 0.0f;
+  }
 
 }

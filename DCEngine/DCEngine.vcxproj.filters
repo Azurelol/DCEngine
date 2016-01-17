@@ -342,9 +342,6 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp">
       <Filter>Core\Systems\Content</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Delegate.cpp">
-      <Filter>Core\Engine\Event</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugMoveController.cpp">
       <Filter>Core\Components\Audio\Debug</Filter>
     </ClCompile>
@@ -687,6 +684,18 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Core\Systems\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Actions.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionSpace.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\EventDelegate.cpp">
+      <Filter>Core\Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Delegate.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -705,9 +714,6 @@
       <Filter>Core\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Action.h">
-      <Filter>Core\Engine\Action</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\ActionList.h">
       <Filter>Core\Engine\Action</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Window\Window.h">
@@ -852,9 +858,6 @@
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Event.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Delegate.h">
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugMoveController.h">
@@ -1183,6 +1186,12 @@
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
       <Filter>Core\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\EventDelegate.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Delegate.h">
+      <Filter>Core\Engine\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
