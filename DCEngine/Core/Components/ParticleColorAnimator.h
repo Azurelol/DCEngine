@@ -14,23 +14,26 @@
 namespace DCEngine {
   namespace Components
   {
-
+    class SpriteParticleSystem;
     class ParticleColorAnimator : public Component {
     public:
-
-      /* Properties */
+      // Properties
       Vec4 Color0;
       Vec4 Color1;
       Vec4 Color2;
       Vec4 Color3;
       Vec4 Color4;
+      DCE_DEFINE_PROPERTY(Vec4, Color0);
+      DCE_DEFINE_PROPERTY(Vec4, Color1);
+      DCE_DEFINE_PROPERTY(Vec4, Color2);
+      DCE_DEFINE_PROPERTY(Vec4, Color3);
+      DCE_DEFINE_PROPERTY(Vec4, Color4);
 
+      ZilchDeclareDerivedType(ParticleColorAnimator, Component);
       ParticleColorAnimator(Entity& owner);
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
-
     private:
+      SpriteParticleSystem* ParticleSystem;
 
     };
 

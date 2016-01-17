@@ -14,12 +14,24 @@
 namespace DCEngine {
   namespace Components
   {
-    void LinearParticleAnimator::Serialize(Json::Value & root)
-    {
+    /**************************************************************************/
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(LinearParticleAnimator, "LinearParticleAnimator", DCEngineCore, builder, type) {
+      // Constructor / Destructor
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(LinearParticleAnimator);
+      // Properties
+      DCE_BINDING_DEFINE_PROPERTY(LinearParticleAnimator, Force);
+      DCE_BINDING_DEFINE_PROPERTY(LinearParticleAnimator, RandomForce);
+      DCE_BINDING_DEFINE_PROPERTY(LinearParticleAnimator, Torque);
+      DCE_BINDING_DEFINE_PROPERTY(LinearParticleAnimator, Growth);
+      DCE_BINDING_DEFINE_PROPERTY(LinearParticleAnimator, Dampening);
     }
-    void LinearParticleAnimator::Deserialize(Json::Value & root)
-    {
-    }
+    #endif
 
     /*!************************************************************************\
     @brief  Constructor for the LinearParticleAnimator.
@@ -34,7 +46,8 @@ namespace DCEngine {
     \**************************************************************************/
     void LinearParticleAnimator::Initialize()
     {
-
+      // Store the reference to the object's particle system component
+      ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
     }
   }
 

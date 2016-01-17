@@ -40,7 +40,8 @@ namespace DCEngine {
     // Tools
     bool TransformTool_IsComponent = false;
     bool GridActive = true;
-    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.5f);
+    Real GridLength = 1.0f;
+    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -215,6 +216,7 @@ namespace DCEngine {
       void CreateTransform();
       void CreateSprite();
       void CreateSpriteText();
+      void CreateParticleSystem();
       void CreateFromArchetype(std::string&);
       void MoveToViewportCenter(GameObject* gameobject);
       /* Functions */
