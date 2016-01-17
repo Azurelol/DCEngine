@@ -266,24 +266,28 @@ namespace DCEngine {
 			auto transform = particles.TransformComponent;
 			unsigned int spawnRate;
 			unsigned int lifetime;
-			unsigned int activeParticles;
+			unsigned int activeParticles = 10;
 
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
+			SpriteTextShader->SetMatrix4("model", modelMatrix);
 			
-			
-			std::vector<glm::mat4> modelMatrices;
-			for (unsigned i = 0; i < 5000; ++i)
+			std::vector<glm::vec2> offset;
+			for (unsigned i = 0; i < 10; ++i)
 			{
-				glm::mat4 modelMatrix;
-				modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-					transform->Translation.y,
-					transform->Translation.z));
-				modelMatrix = glm::scale(modelMatrix,
-					glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
-				modelMatrices.push_back(modelMatrix);
+				offset.push_back(Vec2(i, i));
 			}
 
+			glBindBuffer(GL_ARRAY_BUFFER, ParticleInstanceVBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(glm::vec2) * offset.size(), offset.data());
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 			glBindVertexArray(ParticleVAO);
-			glDrawElementsInstanced(GL_TRIANGLES, 4, GL_UNSIGNED_INT, 0, activeParticles);
+			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, activeParticles);
 			glBindVertexArray(0);
 		}
 

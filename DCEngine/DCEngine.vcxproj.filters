@@ -1222,10 +1222,10 @@
     <None Include="Core\Systems\Editor\Editor.tcc">
       <Filter>Core\Systems\Editor</Filter>
     </None>
-    <None Include="ParticleShader.vs">
+    <None Include="Core\Assets\Shaders\ParticleShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="ParticleShader.frag">
+    <None Include="Core\Assets\Shaders\ParticleShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

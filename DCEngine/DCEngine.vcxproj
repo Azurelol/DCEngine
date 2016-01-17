@@ -568,14 +568,14 @@
   <ItemGroup>
     <None Include="Core\Assets\Shaders\GUIShader.frag" />
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
+    <None Include="Core\Assets\Shaders\ParticleShader.frag" />
+    <None Include="Core\Assets\Shaders\ParticleShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
     <None Include="Core\Systems\Editor\Editor.tcc" />
     <None Include="Daisy.cfg" />
-    <None Include="ParticleShader.frag" />
-    <None Include="ParticleShader.vs" />
     <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

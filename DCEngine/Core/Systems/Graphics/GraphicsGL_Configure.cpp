@@ -100,7 +100,7 @@ namespace DCEngine {
 				1.0f, -1.0f,
 			};
 
-			const unsigned MAX_PARTICLES = 10000;
+			const unsigned MAX_PARTICLES = 100;
 
 			/*
 			Next, we simply send the vertices to the GPU and configure the vertex attributes,
@@ -111,27 +111,18 @@ namespace DCEngine {
 			glGenBuffers(1, &ParticleInstanceVBO);
 
 			glBindBuffer(GL_ARRAY_BUFFER, ParticleVBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STREAM_DRAW);
 			glBindVertexArray(ParticleVAO);
 			glEnableVertexAttribArray(0);
-			glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
 			glBindBuffer(GL_ARRAY_BUFFER, ParticleInstanceVBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::mat4) * MAX_PARTICLES, NULL, GL_STATIC_DRAW);
-
+			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec2) * MAX_PARTICLES, NULL, GL_STREAM_DRAW);
+			
 			glEnableVertexAttribArray(1);
-			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (GLvoid*)0);
-			glEnableVertexAttribArray(2);
-			glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (GLvoid*)(sizeof(glm::vec4)));
-			glEnableVertexAttribArray(3);
-			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (GLvoid*)(2 * sizeof(glm::vec4)));
-			glEnableVertexAttribArray(4);
-			glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (GLvoid*)(3 * sizeof(glm::vec4)));
-
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
+			
 			glVertexAttribDivisor(1, 1);
-			glVertexAttribDivisor(2, 1);
-			glVertexAttribDivisor(3, 1);
-			glVertexAttribDivisor(4, 1);
 
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 			glBindVertexArray(0);
