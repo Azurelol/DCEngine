@@ -43,11 +43,14 @@
 #include "Components\DebugCollider.h"
 #include "Components\DebugAudio.h"
 #include "Components\DebugFade.h"
+#include "Components\DebugActions.h"
 // Project Components
 #include "../Projects/ProjectComponents.h"
 // Editor
 #include "Components\EditorCameraController.h"
 #include "Components\TransformTool.h"
+
+
 
 namespace DCEngine {
   

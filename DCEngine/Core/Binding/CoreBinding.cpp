@@ -84,7 +84,9 @@ namespace DCEngine {
     ZilchInitializeType(Components::SoundEmitter);
     // Tools
     ZilchInitializeType(Components::EditorCameraController);
-    ZilchInitializeType(Components::TransformTool);    
+    ZilchInitializeType(Components::TransformTool);   
+    // Debug
+    ZilchInitializeType(Components::DebugActions);
   }
   
   /**************************************************************************/

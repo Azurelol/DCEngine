@@ -24,7 +24,12 @@ namespace DCEngine {
   /**************************************************************************/
   ActionSetPtr Actions::Sequence(ActionSet & owner)
   {
-    return ActionSetPtr();
+    // Construct an action group
+    ActionSetPtr sequence(new ActionSequence());
+    // Add this action group to the set
+    owner.Add(sequence);
+    // Return a reference to this action group
+    return sequence;
   }
 
   /**************************************************************************/
@@ -34,8 +39,13 @@ namespace DCEngine {
   */
   /**************************************************************************/
   ActionSetPtr Actions::Group(ActionSet & owner)
-  {
-    return ActionSetPtr();
+  {    
+    // Construct an action group
+    ActionSetPtr group(new ActionGroup());
+    // Add this action group to the set
+    owner.Add(group);
+    // Return a reference to this action group
+    return group;
   }
 
   /**************************************************************************/
@@ -45,10 +55,10 @@ namespace DCEngine {
   @param fn A reference to the function that will be added.
   */
   /**************************************************************************/
-  void Actions::Call(ActionSet & set, void* fn)
+  void Actions::Call(ActionSetPtr set, void* fn)
   {
-    // Construct an action and add it to the action set
-    
+    // Construct the action call
+    //ActionPtr call(new ActionCall(set, fn));
   }
 
   /**************************************************************************/
@@ -58,9 +68,12 @@ namespace DCEngine {
   @param duration How long should the delay run for.
   */
   /**************************************************************************/
-  void Actions::Delay(ActionSet & set, Real duration)
+  void Actions::Delay(ActionSetPtr set, Real duration)
   {
     // Construct the action and add it to the action set
+    ActionPtr call(new ActionDelay(set, duration));
+    // Add it to the set
+    set->Add(call);
   }
 
   /*==============*
@@ -73,7 +86,7 @@ namespace DCEngine {
   @param funcPtr A pointer to the function that will need to be called.
   */
   /**************************************************************************/
-  ActionCall::ActionCall(ActionSet & sequence, Delegate* funcPtr) : FunctionPtr(funcPtr)
+  ActionCall::ActionCall(ActionSetPtr set, Delegate* funcPtr) : FunctionPtr(funcPtr)
   {
 
   }
@@ -82,10 +95,14 @@ namespace DCEngine {
   /*!
   @brief Updates this action.
   @param dt The time slice given.
+  @return How muc time was consumed.
   */
   /**************************************************************************/
   float ActionCall::Update(float dt)
   {
+    // Call the functiom immediately
+    
+    // No time was consumed
     return 0.0f;
   }
 
@@ -101,7 +118,7 @@ namespace DCEngine {
   @param dt The duration for this delay action.
   */
   /**************************************************************************/
-  ActionDelay::ActionDelay(ActionSequence & sequence, Real duration)
+  ActionDelay::ActionDelay(ActionSetPtr set, Real duration)
   {
     Duration = duration;
     IsBlocking = true;

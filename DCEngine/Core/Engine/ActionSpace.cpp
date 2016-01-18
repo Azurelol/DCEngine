@@ -18,7 +18,7 @@ namespace DCEngine {
   *================*/
   /**************************************************************************/
   /*!
-  @brief Adds an action onto the ActionSpace.
+  @brief Adds an action onto the ActionSpace so that it can be updated.
   @param action A pointer to the action.
   */
   /**************************************************************************/
@@ -48,7 +48,11 @@ namespace DCEngine {
   void ActionSpace::Update(float dt)
   {
     for (auto& action : AllActions) {
-      auto timeElapsed = action->Update(dt);
+      // If the space of the entity to which this action belongs to is paused
+      // do not update the action  
+
+      // Update the action
+      action->Update(dt);
     }
     // Clean up any inactive actions (finished, stopped)
     Sweep();
@@ -67,19 +71,8 @@ namespace DCEngine {
   }
 
   /*===================*
-  *   Entity Actions   *
+  *   ActionsOwner     *
   *====================*/
-  /**************************************************************************/
-  /*!
-  @brief Adds an action to this entity.
-  @param action A pointer to the action to be added.
-  */
-  /**************************************************************************/
-  void EntityActions::Add(ActionPtr action)
-  {
-    ActiveActions.push_back(action);
-  }
-
   /**************************************************************************/
   /*!
   @brief Updates an entity's actions. Updating all the actions one tier below
@@ -88,7 +81,7 @@ namespace DCEngine {
   @return How much time was consumed while updating.
   */
   /**************************************************************************/
-  float EntityActions::Update(float dt)
+  float ActionsOwner::Update(float dt)
   {
     float mostTimeElapsed = 0;
     // In an ActionGroup, every action is updated in parallel, given the same 
@@ -117,7 +110,7 @@ namespace DCEngine {
   @brief An entity's actions are never finished!
   */
   /**************************************************************************/
-  bool EntityActions::Validate()
+  bool ActionsOwner::Validate()
   {
     return false;
   }

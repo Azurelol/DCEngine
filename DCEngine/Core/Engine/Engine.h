@@ -20,6 +20,7 @@
 #include "Types.h"
 #include "Event.h"
 #include "Math.h"
+#include "Action.h"
 
 #include "../Objects/ObjectsInclude.h"
 #include "../Objects/Entities/EntitiesInclude.h"
@@ -70,7 +71,7 @@ namespace DCEngine {
 
   private:
 
-    bool PauseMenuEnabled = false; // @todo temp pause menu
+
     bool Paused;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
@@ -84,13 +85,18 @@ namespace DCEngine {
     std::string _defaultSpace = "Daisy World";
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
-    
+    ActionSpace ActionSpace; 
+
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
     //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
     bool LoadEngineConfig();
     void LoadDefaultSpace();
+    // Updates
     void Update(float dt);   
+    void DispatchUpdateEvents(float dt);    
+    void UpdateActions(float dt);
+    // Events
     void Subscribe();
     void OnWindowLostFocusEvent(Events::WindowLostFocus* event);
     void OnWindowGainedFocusEvent(Events::WindowGainedFocus* event);    
@@ -98,7 +104,7 @@ namespace DCEngine {
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
     void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
-    void DispatchUpdateEvents(float dt);    
+
 
   }; // Engine. Template definitions are found below.
 

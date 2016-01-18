@@ -442,7 +442,7 @@ namespace DCEngine {
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
-        selectedEntity->AddComponentByName(componentName, true);
+        selectedEntity->AddComponentByName(componentName, false);
         Scanned = false;
         // A component was added
         return true;

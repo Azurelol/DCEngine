@@ -25,6 +25,7 @@
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
 #include "../Engine/Types.h"
+#include "../Engine/Action.h"
 
 namespace DCEngine {
   
@@ -58,13 +59,11 @@ namespace DCEngine {
     // Properties
     void setArchetype(std::string);
     std::string getArchetype() const; 
-
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(std::string& name, bool initialize = false);
     bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
-
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
     bool HasComponent(std::string& name);
@@ -81,14 +80,15 @@ namespace DCEngine {
     void DispatchUp(Event* eventObj); 
     template <typename EventClass>
     void DispatchDown(Event* eventObj); 
-
     EntityType Type() { return type_; }
+    
+    // Actions
+    ActionsOwner Actions;
 
   protected:
 
     ComponentStrongVec ComponentsContainer; //!< The list of components attached to the entity.  
     ComponentHandleVec ComponentHandlesContainer; //!< The list of components created through Zilch attached to the entity.
-
     EntityType type_;
 
   private:
