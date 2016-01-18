@@ -376,7 +376,6 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
-    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -533,7 +532,6 @@
     <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />
     <ClInclude Include="Dependencies\include\IMGUI\imgui_internal.h" />
     <ClInclude Include="Libraries\Timer.h" />
-    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\CoreComponents.h" />
     <ClInclude Include="Projects\ProjectComponent.h" />

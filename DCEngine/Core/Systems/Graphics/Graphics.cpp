@@ -83,6 +83,7 @@ namespace DCEngine {
 				GraphicsHandler->SetParticleSystemShader(*camera);
 				for (auto&& particleSystem : gfxSpace->getParticleSystem())
 				{
+					particleSystem->Initialize();
 					DrawParticles(*particleSystem, *camera, dt);
 				}
 
