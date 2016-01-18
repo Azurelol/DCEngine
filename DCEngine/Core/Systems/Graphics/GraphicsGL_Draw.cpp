@@ -263,10 +263,12 @@ namespace DCEngine {
 
 		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
 		{
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			auto transform = particles.TransformComponent;
 			unsigned int spawnRate;
 			unsigned int lifetime;
-			unsigned int activeParticles = 10;
+			unsigned int activeParticles = 100;
 
 			glm::mat4 modelMatrix;
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
@@ -274,20 +276,31 @@ namespace DCEngine {
 				transform->Translation.z));
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
-			SpriteTextShader->SetMatrix4("model", modelMatrix);
-			
-			std::vector<glm::vec2> offset;
-			for (unsigned i = 0; i < 10; ++i)
+
+			particles.UpdateParticles(dt);
+			std::vector<glm::vec2> offset(particles.GetPositionData());
+			std::vector<float> scale(particles.GetScaleData());
+			std::vector<float> rotation(particles.GetRotationData());
+			std::vector<glm::mat4> transformData;
+			for (unsigned i = 0; i < particles.GetParticleCount(); ++i)
 			{
-				offset.push_back(Vec2(i, i));
+				glm::mat4 modelMatrix;
+				modelMatrix = glm::translate(modelMatrix, glm::vec3(
+					transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
+					transform->Translation.z));
+				modelMatrix = glm::rotate(modelMatrix, rotation[i], glm::vec3(0, 0, 1));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(
+					transform->Scale.x + scale[i], transform->Scale.y + scale[i], 0.0f));
+				transformData.push_back(modelMatrix);
 			}
 
 			glBindBuffer(GL_ARRAY_BUFFER, ParticleInstanceVBO);
-			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(glm::vec2) * offset.size(), offset.data());
+			glBufferSubData(GL_ARRAY_BUFFER, 0,
+				sizeof(glm::mat4) * particles.GetParticleCount(),transformData.data());
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			glBindVertexArray(ParticleVAO);
-			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, activeParticles);
+			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
 			glBindVertexArray(0);
 		}
 

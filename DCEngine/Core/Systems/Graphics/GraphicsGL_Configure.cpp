@@ -117,12 +117,21 @@ namespace DCEngine {
 			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
 			glBindBuffer(GL_ARRAY_BUFFER, ParticleInstanceVBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec2) * MAX_PARTICLES, NULL, GL_STREAM_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::mat4) * MAX_PARTICLES, NULL, GL_STREAM_DRAW);
 			
 			glEnableVertexAttribArray(1);
-			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), (GLvoid*)0);
+			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)0);
+			glEnableVertexAttribArray(2);
+			glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4)));
+			glEnableVertexAttribArray(3);
+			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4) * 2));
+			glEnableVertexAttribArray(4);
+			glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4) * 3));
 			
 			glVertexAttribDivisor(1, 1);
+			glVertexAttribDivisor(2, 1);
+			glVertexAttribDivisor(3, 1);
+			glVertexAttribDivisor(4, 1);
 
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 			glBindVertexArray(0);

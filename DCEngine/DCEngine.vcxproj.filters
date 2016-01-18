@@ -681,9 +681,6 @@
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>Core\Systems\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Engine\Actions.cpp">
       <Filter>Core\Engine\Action</Filter>
     </ClCompile>
@@ -1183,9 +1180,6 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
-      <Filter>Core\Systems\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\EventDelegate.h">
       <Filter>Core\Engine\Event</Filter>

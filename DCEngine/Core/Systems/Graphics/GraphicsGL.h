@@ -25,7 +25,6 @@
 // Graphics resources
 #include "..\..\Components\SpriteParticleSystem.h"
 #include "..\..\Resources\Shader.h"
-#include "ParticleSystem.h"
 // DebugDraw
 #include "../../Objects/DebugDraw.h"
 #include "../../Objects/DebugDraw/DebugDrawInclude.h"
