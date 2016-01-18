@@ -110,16 +110,17 @@ namespace DCEngine {
   /*!
   @brief Updates this action.
   @param dt The time slice given.
-  @return How much time is remaining
+  @return How much time was consumed during this action
   */
   /**************************************************************************/
   float ActionDelay::Update(float dt)
   {
+    auto timeLeft = Duration - Elapsed;
     Elapsed += dt;
     if (Elapsed >= Duration)
       IsFinished = true;
 
-    return std::max(0.0f, dt - Duration - Elapsed);
+    return std::max(0.0f, dt - timeLeft);
   }
 
 }
