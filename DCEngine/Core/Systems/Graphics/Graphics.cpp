@@ -80,6 +80,13 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
+				GraphicsHandler->SetParticleSystemShader(*camera);
+				for (auto&& particleSystem : gfxSpace->getParticleSystem())
+				{
+					particleSystem->Initialize();
+					DrawParticles(*particleSystem, *camera, dt);
+				}
+
 				//draw sprite text
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				for (auto spriteText : gfxSpace->getSpriteTextContainer())
@@ -106,11 +113,7 @@ namespace DCEngine {
 
 
 				// update particles
-				//GraphicsHandler->SetParticleSystemShader(*camera);
-				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
-				//{
-				//	DrawParticles(*particleSystem, *camera, dt);
-				//}
+
 
 				// draw particles
 

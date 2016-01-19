@@ -15,7 +15,7 @@
 /******************************************************************************/
 #pragma once
 #include "Types.h"
-#include "Delegate.h"
+#include "EventDelegate.h"
 
 namespace DCEngine {
 

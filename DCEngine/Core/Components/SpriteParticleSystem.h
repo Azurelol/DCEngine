@@ -27,6 +27,7 @@ namespace DCEngine {
   {
     class Transform;
     class Camera;
+		class ParticleEmitter;
     class SpriteParticleSystem : public Component 
 		{
     public:
@@ -51,8 +52,39 @@ namespace DCEngine {
       void Initialize();
 			Transform* TransformComponent;
 
+			//logic
+			void UpdateParticles(double);
+			void AddParticle(void);
+			std::vector<Vec2> GetPositionData(void);
+			std::vector<float> GetScaleData(void);
+			std::vector<float> GetRotationData(void);
+			unsigned GetParticleCount(void);
+
     private:
-      
+			class Particle
+			{
+			public:
+				Particle(double, const Vec2&, const Vec2&, float, float);
+				void Update(double);
+				double GetLifetime(void);
+				Vec2 GetPosition(void);
+				float GetScale(void);
+				float GetRotation(void);
+			private:
+				double mLifetime;
+				Vec2 mPosition;
+				Vec2 mVelocity;
+				float mScale;
+				float mRotation;
+				float mRotationRate;
+			};
+			std::vector<Particle> mParticleList;
+			double mParticleEmissionTimer;
+			unsigned mEmitCounter;
+			bool mActiveFlag;
+
+			ParticleEmitter* mParticleEmitter;
+
       Camera* CameraComponent;
 
     };

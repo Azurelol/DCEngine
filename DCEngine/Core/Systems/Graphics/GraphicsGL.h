@@ -25,7 +25,6 @@
 // Graphics resources
 #include "..\..\Components\SpriteParticleSystem.h"
 #include "..\..\Resources\Shader.h"
-#include "ParticleSystem.h"
 // DebugDraw
 #include "../../Objects/DebugDraw.h"
 #include "../../Objects/DebugDraw/DebugDrawInclude.h"
@@ -113,8 +112,6 @@ namespace DCEngine {
 	  //Draw List
 	  int TotalObjNum = 0;
 	  int TotalTranspObjNum = 0; //including semi-transparent objects
-
-		ParticleSystem mParticleSystem;
     };
   }
 }

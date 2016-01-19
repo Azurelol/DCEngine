@@ -47,6 +47,9 @@ namespace DCEngine {
       AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
         ShaderPath + "GUIShader.vs",
         ShaderPath + "GUIShader.frag")));
+			AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
+				ShaderPath + "ParticleShader.vs",
+				ShaderPath + "ParticleShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;

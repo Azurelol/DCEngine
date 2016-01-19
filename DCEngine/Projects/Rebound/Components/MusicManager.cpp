@@ -36,7 +36,8 @@ namespace DCEngine {
       Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
       Connect(Owner(), Events::PlayMusic, MusicManager::OnPlayMusicEvent);
       Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
-      play = true;
+      play = true;      
+
     }
 
     void MusicManager::OnKeyDownEvent(Events::KeyDown * event)

@@ -248,6 +248,7 @@
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
+    <ClCompile Include="Core\Components\DebugActions.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
@@ -279,8 +280,11 @@
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
     <ClCompile Include="Core\Engine\Action.cpp" />
+    <ClCompile Include="Core\Engine\Actions.cpp" />
+    <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
+    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
@@ -373,7 +377,6 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
-    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -401,6 +404,7 @@
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Collider.h" />
+    <ClInclude Include="Core\Components\DebugActions.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
     <ClInclude Include="Core\Components\TransformTool.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
@@ -434,9 +438,9 @@
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
-    <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Command.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
+    <ClInclude Include="Core\Engine\EventDelegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\Data.h" />
@@ -530,7 +534,6 @@
     <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />
     <ClInclude Include="Dependencies\include\IMGUI\imgui_internal.h" />
     <ClInclude Include="Libraries\Timer.h" />
-    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
     <ClInclude Include="Projects\CoreComponents.h" />
     <ClInclude Include="Projects\ProjectComponent.h" />
@@ -568,14 +571,14 @@
   <ItemGroup>
     <None Include="Core\Assets\Shaders\GUIShader.frag" />
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
+    <None Include="Core\Assets\Shaders\ParticleShader.frag" />
+    <None Include="Core\Assets\Shaders\ParticleShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
     <None Include="Core\Systems\Editor\Editor.tcc" />
     <None Include="Daisy.cfg" />
-    <None Include="ParticleShader.frag" />
-    <None Include="ParticleShader.vs" />
     <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
