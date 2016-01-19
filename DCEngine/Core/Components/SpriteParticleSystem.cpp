@@ -65,37 +65,92 @@ namespace DCEngine {
 
       // Access to the graphics system is already given
 			mParticleEmitter = Owner()->getComponent<Components::ParticleEmitter>();
-			
+			mColorAnimator = Owner()->getComponent<Components::ParticleColorAnimator>();
     }
 
 		SpriteParticleSystem::Particle::Particle(double lifetime,
-			const Vec2& position, const Vec2& velocity, float scale, float spin)
-			: mLifetime(lifetime), mPosition(position), mVelocity(velocity), mScale(scale),
-			mRotation(0), mRotationRate(spin)
+			const Vec2& position, const Vec2& velocity, float scale, float spin, const Vec4& color,
+			ParticleColorAnimator* colorAnimator)
+			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mScale(scale),
+			mRotation(0), mRotationRate(spin), mColor(color), mColorAnimator(colorAnimator)
 		{
 		}
+
+		//SpriteParticleSystem::Particle& SpriteParticleSystem::Particle::operator=(const Particle& rhs)
+		//{
+		//	mLifeleft = rhs.mLifetime;
+		//	mPosition = rhs.mPosition;
+		//	mScale = rhs.mScale;
+		//	mRotation = rhs.mRotation;
+		//	mColor = rhs.mColor;
+		//	return *this;
+		//}
 		void SpriteParticleSystem::Particle::Update(double dt)
 		{
-			mLifetime -= dt;
+			mLifeleft -= dt;
+			if (mLifeleft < 0)
+				mLifeleft = 0;
 			mPosition.x += mVelocity.x * dt;
 			mPosition.y += mVelocity.y * dt;
 			mRotation += mRotationRate * dt;
+
+			double percentLifeLeft = (mLifeleft / mLifetime) * 100;
+			if (percentLifeLeft <= 100 && percentLifeLeft >= 75)
+			{
+				double t = (percentLifeLeft - 75) / 25;
+				mColor.r = mColorAnimator->Color0.r * t + mColorAnimator->Color1.r * (1 - t);
+				mColor.g = mColorAnimator->Color0.g * t + mColorAnimator->Color1.g * (1 - t);
+				mColor.b = mColorAnimator->Color0.b * t + mColorAnimator->Color1.b * (1 - t);
+				mColor.a = mColorAnimator->Color0.a * t + mColorAnimator->Color1.a * (1 - t);
+			}
+			else if (percentLifeLeft <= 75 && percentLifeLeft >= 50)
+			{
+				double t = (percentLifeLeft - 50) / 25;
+				mColor.r = mColorAnimator->Color1.r * t + mColorAnimator->Color2.r * (1 - t);
+				mColor.g = mColorAnimator->Color1.g * t + mColorAnimator->Color2.g * (1 - t);
+				mColor.b = mColorAnimator->Color1.b * t + mColorAnimator->Color2.b * (1 - t);
+				mColor.a = mColorAnimator->Color1.a * t + mColorAnimator->Color2.a * (1 - t);
+			}
+			else if (percentLifeLeft <= 50 && percentLifeLeft >= 25)
+			{
+				double t = (percentLifeLeft - 25) / 25;
+				mColor.r = mColorAnimator->Color2.r * t + mColorAnimator->Color3.r * (1 - t);
+				mColor.g = mColorAnimator->Color2.g * t + mColorAnimator->Color3.g * (1 - t);
+				mColor.b = mColorAnimator->Color2.b * t + mColorAnimator->Color3.b * (1 - t);
+				mColor.a = mColorAnimator->Color2.a * t + mColorAnimator->Color3.a * (1 - t);
+			}
+			else if (percentLifeLeft <= 25 && percentLifeLeft >= 0)
+			{
+				double t = percentLifeLeft / 25;
+				mColor.r = mColorAnimator->Color3.r * t + mColorAnimator->Color4.r * (1 - t);
+				mColor.g = mColorAnimator->Color3.g * t + mColorAnimator->Color4.g * (1 - t);
+				mColor.b = mColorAnimator->Color3.b * t + mColorAnimator->Color4.b * (1 - t);
+				mColor.a = mColorAnimator->Color3.a * t + mColorAnimator->Color4.a * (1 - t);
+			}
 		}
-		double SpriteParticleSystem::Particle::GetLifetime(void)
+		double SpriteParticleSystem::Particle::GetLifetime(void) const
 		{
 			return mLifetime;
 		}
-		Vec2 SpriteParticleSystem::Particle::GetPosition(void)
+		double SpriteParticleSystem::Particle::GetLifeleft(void) const
+		{
+			return mLifeleft;
+		}
+		Vec2 SpriteParticleSystem::Particle::GetPosition(void) const
 		{
 			return mPosition;
 		}
-		float SpriteParticleSystem::Particle::GetScale(void)
+		float SpriteParticleSystem::Particle::GetScale(void) const
 		{
 			return mScale;
 		}
-		float SpriteParticleSystem::Particle::GetRotation(void)
+		float SpriteParticleSystem::Particle::GetRotation(void) const
 		{
 			return mRotation;
+		}
+		Vec4 SpriteParticleSystem::Particle::GetColor(void) const
+		{
+			return mColor;
 		}
 
 		void SpriteParticleSystem::UpdateParticles(double dt)
@@ -140,7 +195,9 @@ namespace DCEngine {
 				particle.Update(dt);
 			}
 			mParticleList.erase(std::remove_if(mParticleList.begin(), mParticleList.end(),
-				[](Particle& p) { return p.GetLifetime() <= 0; }), mParticleList.end());
+				[](const Particle& p) { return p.GetLifeleft() <= 0; }), mParticleList.end());
+			std::sort(mParticleList.begin(), mParticleList.end(),
+				[](const Particle& p1, const Particle& p2) { return p1.GetLifeleft() > p2.GetLifeleft(); });
 		}
 		void SpriteParticleSystem::AddParticle(void)
 		{
@@ -152,7 +209,8 @@ namespace DCEngine {
 						mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
 						mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50),
 					mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100,
-					mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100));
+					mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100,
+					mColorAnimator->Color0, mColorAnimator));
 			}
 		}
 		std::vector<Vec2> SpriteParticleSystem::GetPositionData(void)
@@ -181,6 +239,15 @@ namespace DCEngine {
 				rotation.push_back(particle.GetRotation());
 			}
 			return rotation;
+		}
+		std::vector<Vec4> SpriteParticleSystem::GetColorData(void)
+		{
+			std::vector<Vec4> color;
+			for (auto&& particle : mParticleList)
+			{
+				color.push_back(particle.GetColor());
+			}
+			return color;
 		}
 		unsigned SpriteParticleSystem::GetParticleCount(void)
 		{
