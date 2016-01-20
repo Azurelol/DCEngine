@@ -42,7 +42,7 @@ namespace DCEngine {
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Sprite, Component);
 #endif
-
+      
       // Variables
       String SpriteSource = "square";
       bool Visible = true;
@@ -58,8 +58,6 @@ namespace DCEngine {
       int StartRow = 0;//the number of first row is 0
       int CurrentColumn = 0;
       int CurrentRow = 0;
-
-
       // Properties
       DCE_DEFINE_PROPERTY(bool, Visible);
       DCE_DEFINE_PROPERTY(Vec4, Color);

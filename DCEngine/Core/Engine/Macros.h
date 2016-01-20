@@ -14,12 +14,16 @@
 
 namespace DCEngine {
 
-#define DEFER(X) X
+  #define DEFER(X) X
 
   /*===================*
   *     Components     *
   *===================*/
   // This macro declares a component..
+
+  // Adds a dependency
+  #define DCE_COMPONENT_DEPENDENCY(componentName) \
+  AddDependency(componentName)      
 
   /*===================*
   *     Properties     *

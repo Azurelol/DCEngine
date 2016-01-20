@@ -88,19 +88,18 @@ namespace DCEngine {
     ZilchDeclareDerivedType(Component, Object);
     #endif
 
-    Component(std::string name, Entity& owner);
-    // Derived component types need to be deallocated properly
-    virtual ~Component();
-    virtual void Initialize() = 0; // Every component needs to be initialized.
-    void Destroy();
-    void Serialize(Zilch::JsonBuilder& builder);
-    void Deserialize(Zilch::JsonValue* properties);
+    // Interface
+    static bool Exists(std::string componentName);
 
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
     const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
+    
+    // Dependencies
+    bool AddDependency(std::string componentName);    
+    bool CheckForDependencies();
 
     // Static member variables
     static unsigned int ComponentsCreated;
@@ -109,9 +108,18 @@ namespace DCEngine {
     static std::string ComponentLastCreated;
     static std::string ComponentLastDestroyed;
     static bool DiagnosticsEnabled;
+
+    Component(std::string name, Entity& owner);    
+    virtual ~Component(); // Derived component types need to be deallocated properly
+    virtual void Initialize() = 0; // Every component needs to be initialized.
+    void Destroy();
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
     
   protected:
 
+    using DependenciesContainer = std::vector<std::string>;
+    DependenciesContainer Dependencies;
     Space* SpaceRef;
     GameSession* GameSessionRef;
     std::vector<Entity*> ActiveDelegateHolders;
