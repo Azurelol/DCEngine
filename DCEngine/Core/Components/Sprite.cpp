@@ -17,6 +17,9 @@ in the world space through the drawing of sprites.
 namespace DCEngine {
   namespace Components
   {
+
+    //DependenciesContainer Sprite::Dependencies{ "Transform " };
+
     /**************************************************************************/
     /*!
     @brief Provides the definition of this class to Zilch.

@@ -20,10 +20,14 @@ namespace DCEngine {
   *     Components     *
   *===================*/
   // This macro declares a component..
+  using DependenciesContainer = std::vector<std::string>;
 
-  // Adds a dependency
-  #define DCE_COMPONENT_DEPENDENCY(componentName) \
-  AddDependency(componentName)      
+  // Declares dependencies for a component
+  #define DCE_COMPONENT_DECLARE_DEPENDENCIES \
+  static DependenciesContainer Dependencies    
+  #define DCE_COMPONENT_DEFINE_DEPENDENCIES(componentName, a, b, c, ...) \
+  DependenciesContainer componentName::Dependencies{ ##a, ##b, ##c, ... } 
+
 
   /*===================*
   *     Properties     *

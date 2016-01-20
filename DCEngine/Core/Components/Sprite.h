@@ -43,6 +43,7 @@ namespace DCEngine {
       ZilchDeclareDerivedType(Sprite, Component);
 #endif
       
+      DCE_COMPONENT_DECLARE_DEPENDENCIES;
       // Variables
       String SpriteSource = "square";
       bool Visible = true;

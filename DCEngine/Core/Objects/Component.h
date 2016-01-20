@@ -98,7 +98,7 @@ namespace DCEngine {
     const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
     
     // Dependencies
-    bool AddDependency(std::string componentName);    
+    //bool AddDependency(std::string componentName);    
     bool CheckForDependencies();
 
     // Static member variables
@@ -119,7 +119,7 @@ namespace DCEngine {
   protected:
 
     using DependenciesContainer = std::vector<std::string>;
-    DependenciesContainer Dependencies;
+    //static DependenciesContainer Dependencies;
     Space* SpaceRef;
     GameSession* GameSessionRef;
     std::vector<Entity*> ActiveDelegateHolders;

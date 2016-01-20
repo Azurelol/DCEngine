@@ -155,18 +155,18 @@ namespace DCEngine {
   @return The success of the operation.
   */
   /**************************************************************************/
-  bool Component::AddDependency(std::string componentName)
-  {
-    // Check if the component is a valid component name
-    if (!Exists(componentName)) {
-      DCTrace << "Component::AddDependency: '" << componentName << "' does not exist! \n";
-      return false;
-    }
-    // Check that it hasn't been already added
-    //if (Dependencies.find(componentName)
-
-    Dependencies.push_back(componentName);
-  }
+  //bool Component::AddDependency(std::string componentName)
+  //{
+  //  // Check if the component is a valid component name
+  //  if (!Exists(componentName)) {
+  //    DCTrace << "Component::AddDependency: '" << componentName << "' does not exist! \n";
+  //    return false;
+  //  }
+  //  // Check that it hasn't been already added
+  //  //if (Dependencies.find(componentName)
+  //
+  //  Dependencies.push_back(componentName);
+  //}
 
   /**************************************************************************/
   /*!
@@ -175,16 +175,16 @@ namespace DCEngine {
   @return Whether this component's dependencies have been fulfilled.
   */
   /**************************************************************************/
-  bool Component::CheckForDependencies()
-  {
-    // Look for every component dependency in this component's owner
-    for (auto& dependency : Dependencies) {
-      if (this->Owner()->HasComponent(dependency) == false)
-        return false;
-    }
-    // All dependencies were found
-    return true;
-  }
+  //bool Component::CheckForDependencies()
+  //{
+  //  // Look for every component dependency in this component's owner
+  //  for (auto& dependency : Dependencies) {
+  //    if (this->Owner()->HasComponent(dependency) == false)
+  //      return false;
+  //  }
+  //  // All dependencies were found
+  //  return true;
+  //}
 
   /**************************************************************************/
   /*!
