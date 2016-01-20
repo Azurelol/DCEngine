@@ -70,10 +70,10 @@ namespace DCEngine {
     }
 
 		SpriteParticleSystem::Particle::Particle(double lifetime,
-			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& color,
+			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
 			ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
 			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
-			mScale(scale),mRotation(0), mRotationRate(spin), mColor(color),
+			mScale(scale),mRotation(0), mRotationRate(spin), mTint(tint),
 			mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
 		{
 		}
@@ -106,38 +106,45 @@ namespace DCEngine {
 			mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
 			mRotationRate += mLinearAnimator->Torque * dt;
 
-			double percentLifeLeft = (mLifeleft / mLifetime) * 100;
-			if (percentLifeLeft <= 100 && percentLifeLeft >= 75)
+			if (mColorAnimator)
 			{
-				double t = (percentLifeLeft - 75) / 25;
-				mColor.r = mColorAnimator->Color0.r * t + mColorAnimator->Color1.r * (1 - t);
-				mColor.g = mColorAnimator->Color0.g * t + mColorAnimator->Color1.g * (1 - t);
-				mColor.b = mColorAnimator->Color0.b * t + mColorAnimator->Color1.b * (1 - t);
-				mColor.a = mColorAnimator->Color0.a * t + mColorAnimator->Color1.a * (1 - t);
+				double percentLifeLeft = (mLifeleft / mLifetime) * 100;
+				if (percentLifeLeft <= 100 && percentLifeLeft >= 75)
+				{
+					double t = (percentLifeLeft - 75) / 25;
+					mColor.r = mTint.r * (mColorAnimator->Color0.r * t + mColorAnimator->Color1.r * (1 - t));
+					mColor.g = mTint.g * (mColorAnimator->Color0.g * t + mColorAnimator->Color1.g * (1 - t));
+					mColor.b = mTint.b * (mColorAnimator->Color0.b * t + mColorAnimator->Color1.b * (1 - t));
+					mColor.a = mTint.a * (mColorAnimator->Color0.a * t + mColorAnimator->Color1.a * (1 - t));
+				}
+				else if (percentLifeLeft <= 75 && percentLifeLeft >= 50)
+				{
+					double t = (percentLifeLeft - 50) / 25;
+					mColor.r = mTint.r * mColorAnimator->Color1.r * t + mColorAnimator->Color2.r * (1 - t);
+					mColor.g = mTint.g * mColorAnimator->Color1.g * t + mColorAnimator->Color2.g * (1 - t);
+					mColor.b = mTint.b * mColorAnimator->Color1.b * t + mColorAnimator->Color2.b * (1 - t);
+					mColor.a = mTint.a * mColorAnimator->Color1.a * t + mColorAnimator->Color2.a * (1 - t);
+				}
+				else if (percentLifeLeft <= 50 && percentLifeLeft >= 25)
+				{
+					double t = (percentLifeLeft - 25) / 25;
+					mColor.r = mTint.r * mColorAnimator->Color2.r * t + mColorAnimator->Color3.r * (1 - t);
+					mColor.g = mTint.g * mColorAnimator->Color2.g * t + mColorAnimator->Color3.g * (1 - t);
+					mColor.b = mTint.b * mColorAnimator->Color2.b * t + mColorAnimator->Color3.b * (1 - t);
+					mColor.a = mTint.a * mColorAnimator->Color2.a * t + mColorAnimator->Color3.a * (1 - t);
+				}
+				else if (percentLifeLeft <= 25 && percentLifeLeft >= 0)
+				{
+					double t = percentLifeLeft / 25;
+					mColor.r = mTint.r * mColorAnimator->Color3.r * t + mColorAnimator->Color4.r * (1 - t);
+					mColor.g = mTint.g * mColorAnimator->Color3.g * t + mColorAnimator->Color4.g * (1 - t);
+					mColor.b = mTint.b * mColorAnimator->Color3.b * t + mColorAnimator->Color4.b * (1 - t);
+					mColor.a = mTint.a * mColorAnimator->Color3.a * t + mColorAnimator->Color4.a * (1 - t);
+				}
 			}
-			else if (percentLifeLeft <= 75 && percentLifeLeft >= 50)
+			else
 			{
-				double t = (percentLifeLeft - 50) / 25;
-				mColor.r = mColorAnimator->Color1.r * t + mColorAnimator->Color2.r * (1 - t);
-				mColor.g = mColorAnimator->Color1.g * t + mColorAnimator->Color2.g * (1 - t);
-				mColor.b = mColorAnimator->Color1.b * t + mColorAnimator->Color2.b * (1 - t);
-				mColor.a = mColorAnimator->Color1.a * t + mColorAnimator->Color2.a * (1 - t);
-			}
-			else if (percentLifeLeft <= 50 && percentLifeLeft >= 25)
-			{
-				double t = (percentLifeLeft - 25) / 25;
-				mColor.r = mColorAnimator->Color2.r * t + mColorAnimator->Color3.r * (1 - t);
-				mColor.g = mColorAnimator->Color2.g * t + mColorAnimator->Color3.g * (1 - t);
-				mColor.b = mColorAnimator->Color2.b * t + mColorAnimator->Color3.b * (1 - t);
-				mColor.a = mColorAnimator->Color2.a * t + mColorAnimator->Color3.a * (1 - t);
-			}
-			else if (percentLifeLeft <= 25 && percentLifeLeft >= 0)
-			{
-				double t = percentLifeLeft / 25;
-				mColor.r = mColorAnimator->Color3.r * t + mColorAnimator->Color4.r * (1 - t);
-				mColor.g = mColorAnimator->Color3.g * t + mColorAnimator->Color4.g * (1 - t);
-				mColor.b = mColorAnimator->Color3.b * t + mColorAnimator->Color4.b * (1 - t);
-				mColor.a = mColorAnimator->Color3.a * t + mColorAnimator->Color4.a * (1 - t);
+				mColor = mTint;
 			}
 		}
 		double SpriteParticleSystem::Particle::GetLifetime(void) const
@@ -224,7 +231,7 @@ namespace DCEngine {
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50),
 					mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100,
 					mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100,
-					mColorAnimator->Color0, mColorAnimator, mLinearAnimator));
+					Tint, mColorAnimator, mLinearAnimator));
 			}
 		}
 		std::vector<Vec2> SpriteParticleSystem::GetPositionData(void)

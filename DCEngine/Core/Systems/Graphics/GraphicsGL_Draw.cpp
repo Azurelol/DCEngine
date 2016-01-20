@@ -293,18 +293,21 @@ namespace DCEngine {
 				transformData.push_back(modelMatrix);
 			}
 
-			glBindBuffer(GL_ARRAY_BUFFER, ParticleColorInstanceVBO);
-			glBufferSubData(GL_ARRAY_BUFFER, 0,
-				sizeof(glm::vec4) * particles.GetParticleCount(), color.data());
+			if (particles.Visible)
+			{
+				glBindBuffer(GL_ARRAY_BUFFER, ParticleColorInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::vec4) * particles.GetParticleCount(), color.data());
 
-			glBindBuffer(GL_ARRAY_BUFFER, ParticleTransformInstanceVBO);
-			glBufferSubData(GL_ARRAY_BUFFER, 0,
-				sizeof(glm::mat4) * particles.GetParticleCount(),transformData.data());
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+				glBindBuffer(GL_ARRAY_BUFFER, ParticleTransformInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::mat4) * particles.GetParticleCount(), transformData.data());
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-			glBindVertexArray(ParticleVAO);
-			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
-			glBindVertexArray(0);
+				glBindVertexArray(ParticleVAO);
+				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
+				glBindVertexArray(0);
+			}
 		}
 
 		/**************************************************************************/

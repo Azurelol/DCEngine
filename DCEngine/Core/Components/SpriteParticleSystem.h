@@ -89,6 +89,7 @@ namespace DCEngine {
 				float mRotationRate;
 				float mTorque;
 				Vec4 mColor;
+				Vec4 mTint;
 				ParticleColorAnimator* mColorAnimator;
 				LinearParticleAnimator* mLinearAnimator;
 			};
