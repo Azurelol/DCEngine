@@ -24,11 +24,8 @@ namespace DCEngine {
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(SoundEmitter, Component);
 #endif
-
-
-
-
-      //DCE_DEFINE_PROPERTY(String, CurrentSoundCue);
+      
+            //DCE_DEFINE_PROPERTY(String, CurrentSoundCue);
       DCE_DEFINE_PROPERTY(SoundCueHandle, Cue);
       DCE_DEFINE_PROPERTY(Real, Volume);
       DCE_DEFINE_PROPERTY(Real, Pitch);

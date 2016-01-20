@@ -2,13 +2,8 @@
 {
   "GameObject": 
   {
-<<<<<<< HEAD
-    "Name": "Sprite", 
-    "Archetype": "", 
-=======
     "Name": "ParticleSystem", 
     "Archetype": "ParticleEffect", 
->>>>>>> 47a576d55c4b0cfef3315ded6dc83652dfc50e49
     "Components": 
     {
       "Transform": 
@@ -41,17 +36,10 @@
           }
         }
       }, 
-<<<<<<< HEAD
-      "Sprite": 
-      {
-        "Visible": true, 
-        "Color": 
-=======
       "SpriteParticleSystem": 
       {
         "Visible": false, 
         "Tint": 
->>>>>>> 47a576d55c4b0cfef3315ded6dc83652dfc50e49
         {
           "Vec4": 
           {
@@ -61,14 +49,6 @@
             "w": 1.000000
           }
         }, 
-<<<<<<< HEAD
-        "SpriteSource": "square", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
-=======
         "Texture": "", 
         "VelocityScale": 1.000000, 
         "LengthScale": 1.000000, 
@@ -189,7 +169,6 @@
             "w": 0.000000
           }
         }
->>>>>>> 47a576d55c4b0cfef3315ded6dc83652dfc50e49
       }
     }
   }

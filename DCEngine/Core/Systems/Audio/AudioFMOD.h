@@ -71,7 +71,7 @@ namespace DCEngine {
         FMOD_RESULT getVCA(std::string path, FMOD::Studio::VCA** vca) const;
         FMOD::Studio::VCA* getVCA(std::string path) const;
         // Event
-        FMOD_RESULT getEvent(std::string path, )
+        //FMOD_RESULT getEvent(std::string path, )
 
 
 
