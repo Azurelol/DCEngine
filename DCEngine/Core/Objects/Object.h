@@ -66,10 +66,12 @@ namespace DCEngine {
       void Deserialize(Zilch::JsonValue* properties);   
       #endif
 
+      DCE_DEFINE_PROPERTY(unsigned int, ObjectID);
+
     protected:
       std::string ObjectName;
       static unsigned int ObjectsCreated;
-      const unsigned int ObjectID;
+      unsigned int ObjectID;
       Object* ObjectOwner; //!< Should this be a smart pointer?      
 
   private:

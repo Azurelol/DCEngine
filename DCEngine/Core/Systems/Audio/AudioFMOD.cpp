@@ -185,6 +185,23 @@ namespace DCEngine {
       return ActiveBanks.at(handle);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Retrieves the bus.
+    @param  path The path to the bus.
+    @return 
+    */
+    /**************************************************************************/
+    FMOD::Studio::Bus * AudioFMOD::getBus(std::string path)
+    {
+      return nullptr;
+    }
+
+    FMOD_RESULT  AudioFMOD::getBus(std::string path, FMOD::Studio::Bus ** bus) const
+    {
+      return FMOD_RESULT();
+    }
+
 
 
     /**************************************************************************/
