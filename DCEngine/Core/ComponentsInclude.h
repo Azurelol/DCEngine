@@ -22,13 +22,14 @@
 #include "Components\Sprite.h"
 #include "Components\SpriteText.h"
 #include "Components\Reactive.h"
-// Audio
-#include "Components\SoundEmitter.h"
+#include "Components\Light.h"
 // Particles
 #include "Components\SpriteParticleSystem.h"
 #include "Components\ParticleEmitter.h"
 #include "Components\ParticleColorAnimator.h"
 #include "Components\LinearParticleAnimator.h"
+// Audio
+#include "Components\SoundEmitter.h"
 // Physics
 #include "Components\Transform.h"
 #include "Components\RigidBody.h"

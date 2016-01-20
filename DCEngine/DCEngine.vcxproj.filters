@@ -253,6 +253,9 @@
     <Filter Include="Core\Components\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\Graphics\Lightning">
+      <UniqueIdentifier>{9d5b0c53-c57e-4881-bb88-a4cdc291a225}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -695,6 +698,9 @@
     </ClCompile>
     <ClCompile Include="Core\Components\DebugActions.cpp">
       <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Light.cpp">
+      <Filter>Core\Components\Graphics\Lightning</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1192,6 +1198,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\DebugActions.h">
       <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Light.h">
+      <Filter>Core\Components\Graphics\Lightning</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

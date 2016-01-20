@@ -218,6 +218,7 @@ namespace DCEngine {
 			std::sort(mParticleList.begin(), mParticleList.end(),
 				[](const Particle& p1, const Particle& p2) { return p1.GetLifeleft() > p2.GetLifeleft(); });
 		}
+
 		void SpriteParticleSystem::AddParticle(void)
 		{
 			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);

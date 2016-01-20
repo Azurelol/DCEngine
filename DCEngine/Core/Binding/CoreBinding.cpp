@@ -79,6 +79,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::ParticleEmitter);
     ZilchInitializeType(Components::ParticleColorAnimator);
     ZilchInitializeType(Components::LinearParticleAnimator);    
+    ZilchInitializeType(Components::Light);
     ZilchInitializeType(Components::Reactive);
     // Audio
     ZilchInitializeType(Components::SoundEmitter);
