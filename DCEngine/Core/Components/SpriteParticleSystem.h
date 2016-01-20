@@ -28,6 +28,8 @@ namespace DCEngine {
     class Transform;
     class Camera;
 		class ParticleEmitter;
+		class ParticleColorAnimator;
+		class LinearParticleAnimator;
     class SpriteParticleSystem : public Component 
 		{
     public:
@@ -58,25 +60,38 @@ namespace DCEngine {
 			std::vector<Vec2> GetPositionData(void);
 			std::vector<float> GetScaleData(void);
 			std::vector<float> GetRotationData(void);
+			std::vector<Vec4> GetColorData(void);
 			unsigned GetParticleCount(void);
 
     private:
 			class Particle
 			{
 			public:
-				Particle(double, const Vec2&, const Vec2&, float, float);
+				Particle(double, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
+					ParticleColorAnimator*, LinearParticleAnimator*);
+				//Particle& operator=(const Particle&);
 				void Update(double);
-				double GetLifetime(void);
-				Vec2 GetPosition(void);
-				float GetScale(void);
-				float GetRotation(void);
+				double GetLifetime(void) const;
+				double GetLifeleft(void) const;
+				Vec2 GetPosition(void) const;
+				float GetScale(void) const;
+				float GetRotation(void) const;
+				Vec4 GetColor(void) const;
 			private:
 				double mLifetime;
+				double mLifeleft;
 				Vec2 mPosition;
 				Vec2 mVelocity;
+				Vec2 mAcceleration;
 				float mScale;
+				float mGrowth;
 				float mRotation;
 				float mRotationRate;
+				float mTorque;
+				Vec4 mColor;
+				Vec4 mTint;
+				ParticleColorAnimator* mColorAnimator;
+				LinearParticleAnimator* mLinearAnimator;
 			};
 			std::vector<Particle> mParticleList;
 			double mParticleEmissionTimer;
@@ -84,9 +99,10 @@ namespace DCEngine {
 			bool mActiveFlag;
 
 			ParticleEmitter* mParticleEmitter;
+			ParticleColorAnimator* mColorAnimator;
+			LinearParticleAnimator* mLinearAnimator;
 
       Camera* CameraComponent;
-
     };
   }
 

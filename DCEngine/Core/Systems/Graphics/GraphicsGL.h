@@ -87,7 +87,7 @@ namespace DCEngine {
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
       glm::ivec2 ViewportRatio;
       ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader;
-      GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleInstanceVBO;
+      GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
       OpenGLStateData GLState;
 
