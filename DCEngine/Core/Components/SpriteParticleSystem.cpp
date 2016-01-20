@@ -66,13 +66,15 @@ namespace DCEngine {
       // Access to the graphics system is already given
 			mParticleEmitter = Owner()->getComponent<Components::ParticleEmitter>();
 			mColorAnimator = Owner()->getComponent<Components::ParticleColorAnimator>();
+			mLinearAnimator = Owner()->getComponent<Components::LinearParticleAnimator>();
     }
 
 		SpriteParticleSystem::Particle::Particle(double lifetime,
-			const Vec2& position, const Vec2& velocity, float scale, float spin, const Vec4& color,
-			ParticleColorAnimator* colorAnimator)
-			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mScale(scale),
-			mRotation(0), mRotationRate(spin), mColor(color), mColorAnimator(colorAnimator)
+			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& color,
+			ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
+			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
+			mScale(scale),mRotation(0), mRotationRate(spin), mColor(color),
+			mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
 		{
 		}
 
@@ -90,9 +92,19 @@ namespace DCEngine {
 			mLifeleft -= dt;
 			if (mLifeleft < 0)
 				mLifeleft = 0;
-			mPosition.x += mVelocity.x * dt;
-			mPosition.y += mVelocity.y * dt;
-			mRotation += mRotationRate * dt;
+			
+			mVelocity.x += mAcceleration.x * dt;
+			mVelocity.y += mAcceleration.y * dt;
+
+			mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
+			mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
+
+			mPosition.x += mVelocity.x * dt - (mAcceleration.x * dt * dt) / 2;
+			mPosition.y += mVelocity.y * dt - (mAcceleration.y * dt * dt) / 2;
+
+			mScale += mLinearAnimator->Growth * dt;
+			mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
+			mRotationRate += mLinearAnimator->Torque * dt;
 
 			double percentLifeLeft = (mLifeleft / mLifetime) * 100;
 			if (percentLifeLeft <= 100 && percentLifeLeft >= 75)
@@ -208,9 +220,11 @@ namespace DCEngine {
 					mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100, Vec2(0, 0), Vec2(
 						mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
 						mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50),
+					Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
+						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50),
 					mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100,
 					mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100,
-					mColorAnimator->Color0, mColorAnimator));
+					mColorAnimator->Color0, mColorAnimator, mLinearAnimator));
 			}
 		}
 		std::vector<Vec2> SpriteParticleSystem::GetPositionData(void)
