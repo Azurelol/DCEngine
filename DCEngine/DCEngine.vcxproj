@@ -371,6 +371,7 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -519,6 +520,8 @@
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -533,6 +536,7 @@
     <ClInclude Include="Projects\ProjectComponents.h" />
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
