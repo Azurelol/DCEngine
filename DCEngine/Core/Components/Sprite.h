@@ -44,6 +44,7 @@ namespace DCEngine {
 #endif
       
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
+
       // Variables
       String SpriteSource = "square";
       bool Visible = true;

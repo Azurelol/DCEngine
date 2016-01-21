@@ -22,7 +22,9 @@
 
 namespace DCEngine {
 
+
   // Static member variables
+  DependenciesContainer Component::__Base_Dependencies = {};
   unsigned int Component::ComponentsCreated = 0;
   unsigned int Component::ComponentsDestroyed = 0;
   std::string Component::ComponentLastCreated;

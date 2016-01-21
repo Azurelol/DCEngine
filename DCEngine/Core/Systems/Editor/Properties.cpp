@@ -19,7 +19,6 @@ namespace DCEngine {
 
     void DisplayImage(Zilch::Property* property, ObjectPtr object);
     void PreviewSound(Zilch::Property* property, ObjectPtr object);
-
     
     /**************************************************************************/
     /*!
@@ -384,8 +383,6 @@ namespace DCEngine {
       return modified;
     }
 
-
-
     /**************************************************************************/
     /*!
     @brief  Allows the user to add a component to the entity.
@@ -442,6 +439,7 @@ namespace DCEngine {
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
+        auto& dependencies = Components::Sprite::mDependencies;
         selectedEntity->AddComponentByName(componentName, false);
         Scanned = false;
         // A component was added

@@ -23,10 +23,12 @@ namespace DCEngine {
   using DependenciesContainer = std::vector<std::string>;
 
   // Declares dependencies for a component
-  #define DCE_COMPONENT_DECLARE_DEPENDENCIES \
-  static DependenciesContainer Dependencies    
-  #define DCE_COMPONENT_DEFINE_DEPENDENCIES(componentName, a, b, c, ...) \
-  DependenciesContainer componentName::Dependencies{ ##a, ##b, ##c, ... } 
+#define DCE_COMPONENT_DECLARE_DEPENDENCIES \
+  static DependenciesContainer mDependencies; \
+  virtual DependenciesContainer& Dependencies() const noexcept override { return mDependencies; }
+  
+#define DCE_COMPONENT_DEFINE_DEPENDENCIES(componentName, ...) \
+  DependenciesContainer componentName::mDependencies = { __VA_ARGS__ } 
 
 
   /*===================*

@@ -18,6 +18,8 @@ namespace DCEngine {
   namespace Components
   {
 
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
+
     //DependenciesContainer Sprite::Dependencies{ "Transform " };
 
     /**************************************************************************/

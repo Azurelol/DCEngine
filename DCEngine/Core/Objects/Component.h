@@ -99,7 +99,7 @@ namespace DCEngine {
     
     // Dependencies
     //bool AddDependency(std::string componentName);    
-    bool CheckForDependencies();
+    virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies;  }
 
     // Static member variables
     static unsigned int ComponentsCreated;
@@ -119,13 +119,12 @@ namespace DCEngine {
   protected:
 
     using DependenciesContainer = std::vector<std::string>;
-    //static DependenciesContainer Dependencies;
     Space* SpaceRef;
     GameSession* GameSessionRef;
     std::vector<Entity*> ActiveDelegateHolders;
     
   private:
-
+    static DependenciesContainer __Base_Dependencies;
     EntityType OwnerClass;
     
     Component() = delete; // No default construction
