@@ -14,12 +14,22 @@
 
 namespace DCEngine {
 
-#define DEFER(X) X
+  #define DEFER(X) X
 
   /*===================*
   *     Components     *
   *===================*/
   // This macro declares a component..
+  using DependenciesContainer = std::vector<std::string>;
+
+  // Declares dependencies for a component
+#define DCE_COMPONENT_DECLARE_DEPENDENCIES \
+  static DependenciesContainer mDependencies; \
+  virtual DependenciesContainer& Dependencies() const noexcept override { return mDependencies; }
+  
+#define DCE_COMPONENT_DEFINE_DEPENDENCIES(componentName, ...) \
+  DependenciesContainer componentName::mDependencies = { __VA_ARGS__ } 
+
 
   /*===================*
   *     Properties     *

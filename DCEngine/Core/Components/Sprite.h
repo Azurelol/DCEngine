@@ -42,6 +42,8 @@ namespace DCEngine {
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Sprite, Component);
 #endif
+      
+      DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
       // Variables
       String SpriteSource = "square";
@@ -58,8 +60,6 @@ namespace DCEngine {
       int StartRow = 0;//the number of first row is 0
       int CurrentColumn = 0;
       int CurrentRow = 0;
-
-
       // Properties
       DCE_DEFINE_PROPERTY(bool, Visible);
       DCE_DEFINE_PROPERTY(Vec4, Color);
@@ -94,8 +94,6 @@ namespace DCEngine {
     private:
 
       void Register();
-      //Update
-      void UpdateFlip();
       //Animation subsystem
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;
