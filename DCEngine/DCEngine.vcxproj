@@ -388,6 +388,7 @@
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
@@ -552,6 +553,7 @@
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
+    <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
     <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h" />
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />

@@ -25,6 +25,7 @@ namespace DCEngine {
 
       bool Translation = true;
       bool Frozen = false;
+	  bool Locked = false;
       bool CurrentlyFired = false;
       Real MoveSpeed = 0.75;
       ControlScheme ControlScheme = ControlScheme::John;
