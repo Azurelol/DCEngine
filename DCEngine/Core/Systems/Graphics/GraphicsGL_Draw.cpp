@@ -73,7 +73,7 @@ namespace DCEngine {
 			SpriteShader->SetInteger("isTexture", 1);
 			//DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
 			//glEnable(GL_CULL_FACE);
-			//glEnable(GL_BLEND);
+			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			//this->SpriteShader->Use();
@@ -263,7 +263,7 @@ namespace DCEngine {
 
 		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
 		{
-			glDisable(GL_BLEND);
+			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			auto transform = particles.TransformComponent;
@@ -323,7 +323,6 @@ namespace DCEngine {
 			auto camTrans = camera.Owner()->getComponent<Components::Transform>();
 
 			// (???) Sets the "image" uniform to 0
-			shader->SetInteger("image", 0);
 			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera.GetProjectionMatrix());
@@ -337,6 +336,7 @@ namespace DCEngine {
 		void GraphicsGL::SetSpriteShader(Components::Camera& camera)
 		{
 			SpriteShader->Use();
+			SpriteShader->SetInteger("image", 0);
 			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.
 		}

@@ -51,7 +51,8 @@ namespace DCEngine {
       for (auto& object : *objects) {
         auto ObjectName = object->Name().c_str();
         // If the user has selected the GameObject.
-        if (ImGui::Selectable(ObjectName), SelectedObject && (SelectedObject->Name() == object->Name())) {
+        if (ImGui::Selectable(ObjectName)) {
+        //if (ImGui::Selectable(ObjectName), SelectedObject && (SelectedObject->Name() == object->Name())) {
         //if (ImGui::Selectable(ObjectName, &selected[i++])) {
         //if (ImGui::Button(ObjectName)) {
           SelectedObject = object;

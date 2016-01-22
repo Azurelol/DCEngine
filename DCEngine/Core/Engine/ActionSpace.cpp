@@ -11,11 +11,32 @@
 /******************************************************************************/
 #include "Action.h"
 
+#include "Engine.h"
+
 namespace DCEngine {
 
   /*================*
   *   ActionSpace   *
   *================*/
+  /**************************************************************************/
+  /*!
+  @brief ActionSpace constructor.
+  */
+  /**************************************************************************/
+  bool ActionSpace::PropagateUpdateDirectly = false;
+  ActionSpace::ActionSpace()
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief ActionSpace destructor.
+  */
+  /**************************************************************************/
+  ActionSpace::~ActionSpace()
+  {
+  }
+
   /**************************************************************************/
   /*!
   @brief Adds an action onto the ActionSpace so that it can be updated.
@@ -24,6 +45,8 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Add(ActionPtr action)
   {
+    if (DCE_TRACE_ACTIONS_ADD)
+      DCTrace << "ActionSpace::Add \n";
     AllActions.push_back(action);
   }
 
@@ -35,6 +58,8 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Remove(ActionPtr action)
   {
+    if (DCE_TRACE_ACTIONS_REMOVE)
+      DCTrace << "ActionSpace::Remove \n";
     auto actioniter = std::find(AllActions.begin(), AllActions.end(), action);
     AllActions.erase(actioniter);
   }
@@ -47,15 +72,42 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Update(float dt)
   {
-    for (auto& action : AllActions) {
-      // If the space of the entity to which this action belongs to is paused
-      // do not update the action  
-
-      // Update the action
-      action->Update(dt);
-    }
+    // Propagate updates directly to all actions.
+    if (PropagateUpdateDirectly)
+      PropagateDirectly(dt);
+    // Propagate updates through all entities
+    else
+      PropagateThroughOwners(dt);
     // Clean up any inactive actions (finished, stopped)
     Sweep();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Updates all actions
+  @param dt The time slice given.
+  */
+  /**************************************************************************/
+  void ActionSpace::PropagateDirectly(float dt)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Removes all inactive actions.
+  */
+  /**************************************************************************/
+  void ActionSpace::PropagateThroughOwners(float dt)
+  {    
+    for (auto& actionOwner : AllActionOwners) {
+
+      // If it's paused, do not update its actions
+      if (actionOwner->IsPaused())
+        continue;
+
+      // Update the action
+      actionOwner->Update(dt);
+    }
   }
 
   /**************************************************************************/
@@ -75,6 +127,16 @@ namespace DCEngine {
   *====================*/
   /**************************************************************************/
   /*!
+  @brief ActionsOwner constructor.
+  @param owner A reference to the owner of this ActionsOwner.
+  */
+  /**************************************************************************/
+  ActionsOwner::ActionsOwner(Entity & owner) : Owner(owner)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Updates an entity's actions. Updating all the actions one tier below
          in parallel.
   @param dt The time to be updated.
@@ -83,6 +145,8 @@ namespace DCEngine {
   /**************************************************************************/
   float ActionsOwner::Update(float dt)
   {
+    DCTrace << " updating!!! \n";
+
     float mostTimeElapsed = 0;
     // In an ActionGroup, every action is updated in parallel, given the same 
     // time slice.

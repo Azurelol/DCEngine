@@ -39,7 +39,7 @@ namespace DCEngine {
     ProjectData* ProjectInfo;
     // Tools
     bool TransformTool_IsComponent = false;
-    bool GridActive = false;
+    bool GridActive = true;
     Real GridLength = 1.0f;
     Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
     // Snapping
@@ -175,9 +175,11 @@ namespace DCEngine {
       ResourcePtr CreateFont(std::string& name, std::string& assetPath);
       ResourcePtr CreateSpriteLayer(std::string& name);
       ResourcePtr CreateSpriteLayerOrder(std::string& name);
+      bool SelectEnumeration(Zilch::Property*, ObjectPtr, unsigned int&);
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
       bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
+
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;

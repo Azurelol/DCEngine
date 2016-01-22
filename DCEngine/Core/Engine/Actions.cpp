@@ -11,6 +11,8 @@
 /******************************************************************************/
 #include "Action.h"
 
+#include "Engine.h"
+
 namespace DCEngine {
 
   /*==============*
@@ -120,6 +122,8 @@ namespace DCEngine {
   /**************************************************************************/
   ActionDelay::ActionDelay(ActionSetPtr set, Real duration)
   {
+    if (DCE_TRACE_ACTIONS_CTOR)
+      DCTrace << "ActionDelay::ActionDelay: Constructed! \n";
     Duration = duration;
     IsBlocking = true;
   }
@@ -137,6 +141,8 @@ namespace DCEngine {
     if (Elapsed >= Duration)
       IsFinished = true;
 
+    if (DCE_TRACE_ACTIONS_UPDATE)
+      DCTrace << "ActionDelay::Update: dt = '" << dt << "', timeLeft = '" << (dt - timeLeft) << "' \n";
     return std::max(0.0f, dt - timeLeft);
   }
 

@@ -31,6 +31,7 @@ namespace DCEngine {
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
       DCE_BINDING_DEFINE_ATTRIBUTE(SpriteSource);
+      //DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteSource);
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
       // Properties
