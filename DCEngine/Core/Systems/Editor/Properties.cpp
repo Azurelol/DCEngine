@@ -19,7 +19,6 @@ namespace DCEngine {
 
     void DisplayImage(Zilch::Property* property, ObjectPtr object);
     void PreviewSound(Zilch::Property* property, ObjectPtr object);
-
     
     /**************************************************************************/
     /*!
@@ -192,10 +191,17 @@ namespace DCEngine {
         if (property->HasAttribute("Sound")) {
           PreviewSound(property, object);
           continue;
-        }          
+        }
+        
+        // If the property is marked as an enumeration..
+        if (property->HasAttribute("Enumeration")) {
+          modified = SelectEnumeration(property, object, propertyID);
+          continue;
+        }
 
-        // If there's at least one attribute... 
-        if (!property->Attributes.empty()) {
+        // If it's a resource... 
+        if (property->HasAttribute("Resource")) {
+        //if (!property->Attributes.empty()) {
           modified = SelectResource(property, object, propertyID);
           continue;
         }
@@ -213,9 +219,39 @@ namespace DCEngine {
         getCall.SetHandleVirtual(Zilch::Call::This, object);        
         getCall.Invoke(report);        
                 
+        // Property: Enumeration
+        if (Zilch::Type::IsEnumType(property->PropertyType)) {
+          ImGui::PushID(propertyID++);
+          std::vector<const char *> enums;
+          auto enumType = Zilch::Type::GetBoundType(property->PropertyType);
+          for (auto& enumProperty : enumType->AllProperties) {;
+            enums.push_back(enumProperty->Name.c_str());            
+          }
+          // If the user selects an item... 
+          static int currentItem = 0;
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), enums.size())) {
+            // Set the selected item as the current resource
+            auto selectedEnum = enums.at(currentItem);
+            // Retrieve...
+            auto enumValue = enumType->GetStaticProperty(selectedEnum);
+            Zilch::Call retriever(enumValue->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+            retriever.Invoke(report);
+            auto valueSet = retriever.Get<Zilch::Integer>(Zilch::Call::Return);
+            // Set the property
+            Zilch::ExceptionReport report;
+            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
+            setCall.Set(0, valueSet);
+            setCall.Invoke(report);
+          }
+          //if (ImGui::Selectable)
+          ImGui::PopID();
+        }
+        
 
         // Property: Boolean
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
           // If the user modifies it
           ImGui::PushID(propertyID++);
@@ -245,13 +281,20 @@ namespace DCEngine {
           }
           ImGui::PopID();
         }
-
+        
         // Property: Integer
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
+            
+            // Unsigned
+            if (property->HasAttribute("Unsigned")) {
+              if (integer < 0)
+                integer = 0;
+            }
+
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, integer);
@@ -384,8 +427,6 @@ namespace DCEngine {
       return modified;
     }
 
-
-
     /**************************************************************************/
     /*!
     @brief  Allows the user to add a component to the entity.
@@ -442,7 +483,8 @@ namespace DCEngine {
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
-        selectedEntity->AddComponentByName(componentName, true);
+        auto& dependencies = Components::Sprite::mDependencies;
+        selectedEntity->AddComponentByName(componentName, false);
         Scanned = false;
         // A component was added
         return true;

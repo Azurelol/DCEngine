@@ -44,18 +44,21 @@ namespace DCEngine {
         1.0f, -1.0f,      1.0f, 0.0f
       };
 
+			const unsigned MAX_PARTICLES = 10000;
+
       /*
       Next, we simply send the vertices to the GPU and configure the vertex attributes,
       which in this case is a single vertex attribute.
       */
-      glGenVertexArrays(1, &this->SpriteVAO);
+      glGenVertexArrays(1, &SpriteVAO);
       glGenBuffers(1, &VBO);
 
       glBindBuffer(GL_ARRAY_BUFFER, VBO);
       glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-      glBindVertexArray(this->SpriteVAO);
+      glBindVertexArray(SpriteVAO);
       glEnableVertexAttribArray(0);
       glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+
       glBindBuffer(GL_ARRAY_BUFFER, 0);
       glBindVertexArray(0);
     }
@@ -83,6 +86,64 @@ namespace DCEngine {
       glBindBuffer(GL_ARRAY_BUFFER, 0);
       glBindVertexArray(0);
     }
+
+		void GraphicsGL::ConfigureParticleBuffers()
+		{
+			GLfloat vertices[]{
+				// Position,
+				-1.0f, 1.0f,
+				1.0f, -1.0f,
+				-1.0f, -1.0f,
+
+				-1.0f, 1.0f,
+				1.0f, 1.0f,
+				1.0f, -1.0f,
+			};
+
+			const unsigned MAX_PARTICLES = 10000;
+
+			/*
+			Next, we simply send the vertices to the GPU and configure the vertex attributes,
+			which in this case is a single vertex attribute.
+			*/
+			glGenVertexArrays(1, &ParticleVAO);
+			glGenBuffers(1, &ParticleVBO);
+			glGenBuffers(1, &ParticleColorInstanceVBO);
+			glGenBuffers(1, &ParticleTransformInstanceVBO);
+
+			glBindBuffer(GL_ARRAY_BUFFER, ParticleVBO);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STREAM_DRAW);
+			glBindVertexArray(ParticleVAO);
+			glEnableVertexAttribArray(0);
+			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
+
+			glBindBuffer(GL_ARRAY_BUFFER, ParticleColorInstanceVBO);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4) * MAX_PARTICLES, NULL, GL_STREAM_DRAW);
+
+			glEnableVertexAttribArray(1);
+			glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4), (GLvoid*)0);
+			glVertexAttribDivisor(1, 1);
+
+			glBindBuffer(GL_ARRAY_BUFFER, ParticleTransformInstanceVBO);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::mat4) * MAX_PARTICLES, NULL, GL_STREAM_DRAW);
+
+			glEnableVertexAttribArray(2);
+			glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)0);
+			glEnableVertexAttribArray(3);
+			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4)));
+			glEnableVertexAttribArray(4);
+			glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4) * 2));
+			glEnableVertexAttribArray(5);
+			glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4) * 4, (GLvoid*)(sizeof(glm::vec4) * 3));
+			
+			glVertexAttribDivisor(2, 1);
+			glVertexAttribDivisor(3, 1);
+			glVertexAttribDivisor(4, 1);
+			glVertexAttribDivisor(5, 1);
+
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			glBindVertexArray(0);
+		}
 
     /**************************************************************************/
     /*!

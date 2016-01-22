@@ -146,7 +146,6 @@ namespace DCEngine {
         //gameObjPtr->Deserialize(property->Value);
       }
 
-
       // 3. For each of its components..
       auto components = objectData->Value->GetMember("Components")->OrderedMembers.all();
       for (auto component : components) {
@@ -375,17 +374,20 @@ namespace DCEngine {
 
     }
 
-
+    /**************************************************************************/
+    /*!
+    @brief Destroys all marked spaces.
+    @todo  May not be working properly...
+    */
+    /**************************************************************************/
     void Factory::DestroySpaces()
     {
       for (auto& space : SpacesToBeDeleted) {
         space->GameSessionRef->RemoveSpace(space);        
       }
-
       SpacesToBeDeleted.clear();
     }
-
-
+    
     /**************************************************************************/
     /*!
     @brief Adds a component factory to the Factory system.
@@ -403,8 +405,7 @@ namespace DCEngine {
 
     /*===================*
     *  Object Management *
-    *===================*/
-    
+    *===================*/    
     /**************************************************************************/
     /*!
     @brief  Marks the GameObject to be destroyed.
@@ -455,19 +456,13 @@ namespace DCEngine {
         );
 
       GameObjectsToBeDeleted.clear();
-
     }
-
-
-
-
 
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {
       // Construct the object with defaults
       GameObjectPtr gameObj(new GameObject());
       // Open the input file
       return gameObj;
-
     }
 
   }

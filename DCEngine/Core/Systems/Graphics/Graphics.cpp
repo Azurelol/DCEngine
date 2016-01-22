@@ -68,12 +68,8 @@ namespace DCEngine {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::Update \n";
 
-			// Update the graphics system
-			//GraphicsHandler->ViewportUpdate();
-			
-
 			// For every Space with a 'GraphicsSpace' component...
-			for (auto gfxSpace : graphicsSpaces_) {
+			for (Components::GraphicsSpace* gfxSpace : graphicsSpaces_) {
         
 				int TotalObjNumG = 0, TotalObjTranspNumG = 0;
 
@@ -84,14 +80,21 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
+				GraphicsHandler->SetParticleSystemShader(*camera);
+				for (auto&& particleSystem : gfxSpace->getParticleSystem())
+				{
+					particleSystem->Initialize();
+					DrawParticles(*particleSystem, *camera, dt);
+				}
+
+				//draw sprite text
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				for (auto spriteText : gfxSpace->getSpriteTextContainer())
 				{
 					DrawSpriteText(*spriteText, *camera);
 				}
 
-
-				// Update every 'Sprite'
+				// draw sprites
 				GraphicsHandler->SetSpriteShader(*camera);
 
 				for (auto gameObj : gfxSpace->getSprites()) {
@@ -108,32 +111,8 @@ namespace DCEngine {
 					drawList.clear();
 				}
 
-				// Update every 'SpriteText'
-				
-
-				//sort
-				/*std::map<float, Sprite*> sorted;
-				for (GLuint i = 0; i < TransparentObj.size(); i++) // windows contains all window positions
-				{
-				GLfloat distance = glm::length(camera->TransformComponent->Translation - TransparentObj[i]->TransformComponent->Translation);
-				sorted[distance] = TransparentObj[i];
-				}*/
-
-				/*for (std::map<float, Sprite*>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it)
-				{
-				DrawSprite(*(it->second), *camera, dt);
-				}*/
-				/*/*sorted.clear();
-				TransparentObj.clear();*/
-
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
-
-				//Clean the counter
-				//TotalObjNumG = 0;
-				//TotalObjTranspNumG = 0;
-
 			}
-
 		}
 
 		/**************************************************************************/
@@ -195,6 +174,11 @@ namespace DCEngine {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
 			GraphicsHandler->DrawSpriteText(st, cam);
+		}
+
+		void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
+		{
+			GraphicsHandler->DrawParticles(particles, cam, dt);
 		}
 
 		/**************************************************************************/

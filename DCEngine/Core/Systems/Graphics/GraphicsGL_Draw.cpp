@@ -73,7 +73,7 @@ namespace DCEngine {
 			SpriteShader->SetInteger("isTexture", 1);
 			//DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
 			//glEnable(GL_CULL_FACE);
-			//glEnable(GL_BLEND);
+			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			//this->SpriteShader->Use();
@@ -254,6 +254,61 @@ namespace DCEngine {
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
+		void GraphicsGL::SetParticleSystemShader(Components::Camera & camera)
+		{
+			ParticleSystemShader->Use();
+			SetShaderProjViewUniforms(ParticleSystemShader, camera);
+		}
+
+
+		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
+		{
+			glDepthFunc(GL_LEQUAL);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			auto transform = particles.TransformComponent;
+
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
+
+			particles.UpdateParticles(dt);
+			std::vector<glm::vec2> offset(particles.GetPositionData());
+			std::vector<float> scale(particles.GetScaleData());
+			std::vector<float> rotation(particles.GetRotationData());
+			std::vector<glm::vec4> color(particles.GetColorData());
+			std::vector<glm::mat4> transformData;
+			for (unsigned i = 0; i < particles.GetParticleCount(); ++i)
+			{
+				glm::mat4 modelMatrix;
+				modelMatrix = glm::translate(modelMatrix, glm::vec3(
+					transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
+					transform->Translation.z));
+				modelMatrix = glm::rotate(modelMatrix, rotation[i], glm::vec3(0, 0, 1));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(
+					scale[i], scale[i], 0.0f));
+				transformData.push_back(modelMatrix);
+			}
+
+			if (particles.Visible)
+			{
+				glBindBuffer(GL_ARRAY_BUFFER, ParticleColorInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::vec4) * particles.GetParticleCount(), color.data());
+
+				glBindBuffer(GL_ARRAY_BUFFER, ParticleTransformInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::mat4) * particles.GetParticleCount(), transformData.data());
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+				glBindVertexArray(ParticleVAO);
+				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
+				glBindVertexArray(0);
+			}
+		}
 
 		/**************************************************************************/
 		/*!
@@ -268,7 +323,6 @@ namespace DCEngine {
 			auto camTrans = camera.Owner()->getComponent<Components::Transform>();
 
 			// (???) Sets the "image" uniform to 0
-			shader->SetInteger("image", 0);
 			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera.GetProjectionMatrix());
@@ -282,6 +336,7 @@ namespace DCEngine {
 		void GraphicsGL::SetSpriteShader(Components::Camera& camera)
 		{
 			SpriteShader->Use();
+			SpriteShader->SetInteger("image", 0);
 			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.
 		}

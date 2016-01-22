@@ -136,6 +136,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;x86\glew32s.lib;x86\glfw3.lib;x86\SOIL2.lib;x86\sfml-system-s-d.lib;x86\sfml-window-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -157,6 +158,7 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -214,7 +216,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
@@ -246,7 +248,9 @@
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
+    <ClCompile Include="Core\Components\DebugActions.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
+    <ClCompile Include="Core\Components\Light.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp" />
@@ -276,9 +280,15 @@
     <ClCompile Include="Core\Components\TransformTool.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
-    <ClCompile Include="Core\Engine\Action.cpp" />
+    <ClCompile Include="Core\Engine\ActionSet.cpp" />
+    <ClCompile Include="Core\Engine\ActionCall.cpp" />
+    <ClCompile Include="Core\Engine\ActionDelay.cpp" />
+    <ClCompile Include="Core\Engine\Actions.cpp" />
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp" />
+    <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
+    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
@@ -371,6 +381,7 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -381,11 +392,13 @@
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
@@ -398,7 +411,9 @@
     <ClInclude Include="Core\ComponentsInclude.h" />
     <ClInclude Include="Core\Components\BoxCollider.h" />
     <ClInclude Include="Core\Components\Collider.h" />
+    <ClInclude Include="Core\Components\DebugActions.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
+    <ClInclude Include="Core\Components\Light.h" />
     <ClInclude Include="Core\Components\TransformTool.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
     <ClInclude Include="Core\Components\ParticleEmitter.h" />
@@ -431,9 +446,9 @@
     <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\Debug\DebugGraphics.h" />
     <ClInclude Include="Core\Engine\Action.h" />
-    <ClInclude Include="Core\Engine\ActionList.h" />
     <ClInclude Include="Core\Engine\Command.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
+    <ClInclude Include="Core\Engine\EventDelegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
     <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\Data.h" />
@@ -519,6 +534,8 @@
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -533,6 +550,7 @@
     <ClInclude Include="Projects\ProjectComponents.h" />
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
@@ -543,11 +561,13 @@
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
+    <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
     <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h" />
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
+    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />
@@ -564,6 +584,8 @@
   <ItemGroup>
     <None Include="Core\Assets\Shaders\GUIShader.frag" />
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
+    <None Include="Core\Assets\Shaders\ParticleShader.frag" />
+    <None Include="Core\Assets\Shaders\ParticleShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />

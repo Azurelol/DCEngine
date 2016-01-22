@@ -23,6 +23,7 @@
 #include "..\..\..\Dependencies\include\GLM\gtc\matrix_transform.hpp"
 #include "..\..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
 // Graphics resources
+#include "..\..\Components\SpriteParticleSystem.h"
 #include "..\..\Resources\Shader.h"
 // DebugDraw
 #include "../../Objects/DebugDraw.h"
@@ -61,6 +62,10 @@ namespace DCEngine {
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Components::Camera& camera);
       void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
+			/* Particle System */
+			void ConfigureParticleBuffers();
+			void SetParticleSystemShader(Components::Camera& camera);
+			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & camera, double dt);
       /* Model */
       void DrawModel(GameObject& gameObj);
       /* DebugDraw */
@@ -81,8 +86,8 @@ namespace DCEngine {
       // TEMP: Change these two to const
       glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
       glm::ivec2 ViewportRatio;
-      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader;
-      GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO;
+      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader;
+      GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
       OpenGLStateData GLState;
 

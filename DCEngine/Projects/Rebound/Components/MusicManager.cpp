@@ -15,11 +15,11 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(MusicManager, "MusicManager", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(MusicManager);
-      DCE_BINDING_DEFINE_ATTRIBUTE(SoundCue);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SoundCue);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack); // ->Attributes.push_back(attributeSoundCue);
-      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCurrentTrack, attributeSoundCue);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCurrentTrack, attributeSoundCue);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack); // ->Attributes.push_back(attributeSoundCue);
-      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLastTrack, attributeSoundCue);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyLastTrack, attributeSoundCue);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
     }
@@ -36,7 +36,8 @@ namespace DCEngine {
       Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
       Connect(Owner(), Events::PlayMusic, MusicManager::OnPlayMusicEvent);
       Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
-      play = true;
+      play = true;      
+
     }
 
     void MusicManager::OnKeyDownEvent(Events::KeyDown * event)

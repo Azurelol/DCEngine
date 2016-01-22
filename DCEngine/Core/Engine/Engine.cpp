@@ -255,8 +255,10 @@ namespace DCEngine {
     getSystem<Systems::Graphics>()->StartFrame();
     getSystem<Systems::GUI>()->StartFrame();
 
-    // Dispatch the 'LogicUpdate' event
+    // Dispatch the update events
     DispatchUpdateEvents(dt);
+    // Update all actions
+    UpdateActions(dt);
 
     // Update all the sytems at the end of the frame, based on the order
     // they were added to the engine. (Or split it and do it individually?)
@@ -307,6 +309,42 @@ namespace DCEngine {
     delete logicUpdateEvent;
     delete frameUpdateEvent;
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Updates the action space, in turn updating all its active actions.
+  @param dt The delta time.
+  */
+  /**************************************************************************/
+  void Engine::UpdateActions(float dt)
+  {
+    if (this->Paused)
+      return;
+
+    this->ActionSpace.Update(dt);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Registers this Action to the engine's ActioNSpace.
+  @param A reference to the action.
+  */
+  /**************************************************************************/
+  void Engine::Register(Action& action)
+  {
+    this->ActionSpace.Add(ActionPtr(&action));
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deregisters this Action from the engine's ActionSpace.
+  @param A reference to the action.
+  */
+  /**************************************************************************/
+  void Engine::Deregister(Action & action)
+  {
+    this->ActionSpace.Remove(ActionPtr(&action));
   }
   
   /**************************************************************************/

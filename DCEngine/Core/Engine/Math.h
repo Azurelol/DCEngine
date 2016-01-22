@@ -20,7 +20,15 @@ namespace DCEngine {
     static Vec2 Snap(Vec2&, float snapDistance = 0.5f);
     static Vec3 Snap(Vec3&, float snapDistance = 0.5f);
     static float Modulus(float val, float divisor);
-
+    static Vec3  lerp(Vec3  start, Vec3  end, float ratio);
+    static Vec2  lerp(Vec2  start, Vec2  end, float ratio);
+    static float lerp(float start, float end, float ratio);
+    static Vec3  interpsin(Vec3 start, Vec3 end, float ratio);
+    static Vec2  interpsin(Vec2 start, Vec2 end, float ratio);
+    static float interpsin(float start, float end, float ratio);
+    static Vec3  interpcos(Vec3 start, Vec3 end, float ratio);
+    static Vec2  interpcos(Vec2 start, Vec2 end, float ratio);
+    static float interpcos(float start, float end, float ratio);
     friend std::ostream& operator<<(std::ostream& os, const Vec3& vec);
 
   private:

@@ -1,0 +1,87 @@
+
+{
+  "GameObject": 
+  {
+    "Name": "w9", 
+    "Archetype": "Ground", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": 205.000000, 
+            "y": 25.500000, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 7.000000, 
+            "y": 14.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "Sprite": 
+      {
+        "Visible": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "square", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 0
+      }, 
+      "BoxCollider": 
+      {
+        "PhysicsMaterial": "", 
+        "CollisionGroup": "Terrain", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }
+    }
+  }
+}

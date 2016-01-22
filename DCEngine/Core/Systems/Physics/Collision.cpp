@@ -930,10 +930,10 @@ namespace DCEngine
 
     point += transform->Translation;
 
-    float top = transform->Translation.y + 0.5f * height;
-    float left = transform->Translation.x - 0.5f * width;
-    float right = transform->Translation.x + 0.5f * width;
-    float bottom = transform->Translation.y - 0.5f * height;
+    float top = transform->Translation.y + height;
+    float left = transform->Translation.x - width;
+    float right = transform->Translation.x + width;
+    float bottom = transform->Translation.y - height;
 
     if (point.y > top)
     {

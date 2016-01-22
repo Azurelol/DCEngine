@@ -1,0 +1,52 @@
+fmod_studio.hpp
+	System
+	        FMOD_RESULT F_API getEvent(const char *path, EventDescription **event) const;
+        	FMOD_RESULT F_API getBus(const char *path, Bus **bus) const;
+	        FMOD_RESULT F_API getVCA(const char *path, VCA **vca) const;
+	        FMOD_RESULT F_API getBank(const char *path, Bank **bank) const;
+
+	EventDescription
+		FMOD_RESULT F_API createInstance(EventInstance **instance) const;
+
+	EventInstance
+	        FMOD_RESULT F_API start();
+        	FMOD_RESULT F_API stop(FMOD_STUDIO_STOP_MODE mode);
+
+	        FMOD_RESULT F_API getVolume(float *volume) const;
+	        FMOD_RESULT F_API setVolume(float volume);
+
+	        FMOD_RESULT F_API getPitch(float *pitch) const;
+        	FMOD_RESULT F_API setPitch(float pitch);
+
+	        FMOD_RESULT F_API getPaused(bool *paused) const;
+        	FMOD_RESULT F_API setPaused(bool paused);
+
+		FMOD_RESULT F_API getPlaybackState(FMOD_STUDIO_PLAYBACK_STATE *state) const;
+
+        	FMOD_RESULT F_API setParameterValue(const char *name, float value);
+	
+	Bus
+	        FMOD_RESULT F_API getFaderLevel(float *level) const;
+        	FMOD_RESULT F_API setFaderLevel(float level);
+
+	        FMOD_RESULT F_API getPaused(bool *paused) const;
+        	FMOD_RESULT F_API setPaused(bool paused);
+
+	        FMOD_RESULT F_API getMute(bool *paused) const;
+        	FMOD_RESULT F_API setMute(bool paused);
+
+	        FMOD_RESULT F_API stopAllEvents(FMOD_STUDIO_STOP_MODE mode);
+
+	VCA
+		// Playback control
+	        FMOD_RESULT F_API getFaderLevel(float *level) const;
+        	FMOD_RESULT F_API setFaderLevel(float level);
+
+	Bank
+		FMOD_RESULT F_API unload();
+        	FMOD_RESULT F_API getEventCount(int *count) const;
+	        FMOD_RESULT F_API getEventList(EventDescription **array, int capacity, int *count) const;
+        	FMOD_RESULT F_API getBusCount(int *count) const;
+	        FMOD_RESULT F_API getBusList(Bus **array, int capacity, int *count) const;
+        	FMOD_RESULT F_API getVCACount(int *count) const;
+	        FMOD_RESULT F_API getVCAList(VCA **array, int capacity, int *count) const;

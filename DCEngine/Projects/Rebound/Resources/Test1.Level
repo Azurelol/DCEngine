@@ -1,0 +1,97 @@
+
+{
+  "Level": 
+  {
+    "Name": "Test1", 
+    "GameObjects": 
+    {
+      "GameObject": 
+      {
+        "Name": "Camera", 
+        "Archetype": "Camera", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Camera": 
+          {
+            "FieldOfView": 250.000000, 
+            "NearPlane": 0.100000, 
+            "FarPlane": 100.000000, 
+            "Size": 90.000000, 
+            "Projection": "Perspective"
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ActionsTest", 
+        "Archetype": "ActionsTest", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "DebugActions": 
+          {
+          }
+        }
+      }
+    }
+  }
+}

@@ -40,7 +40,8 @@ namespace DCEngine {
     // Tools
     bool TransformTool_IsComponent = false;
     bool GridActive = true;
-    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.5f);
+    Real GridLength = 1.0f;
+    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -187,9 +188,11 @@ namespace DCEngine {
       ResourcePtr CreateFont(std::string& name, std::string& assetPath);
       ResourcePtr CreateSpriteLayer(std::string& name);
       ResourcePtr CreateSpriteLayerOrder(std::string& name);
+      bool SelectEnumeration(Zilch::Property*, ObjectPtr, unsigned int&);
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
       bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
+
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
@@ -228,6 +231,7 @@ namespace DCEngine {
       void CreateTransform();
       void CreateSprite();
       void CreateSpriteText();
+      void CreateParticleSystem();
       void CreateFromArchetype(std::string&);
       void MoveToViewportCenter(GameObject* gameobject);
       /* Functions */

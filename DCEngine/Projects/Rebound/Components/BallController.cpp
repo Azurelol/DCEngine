@@ -211,23 +211,36 @@ namespace DCEngine {
 		{
 			DCTrace << "BallController::AttractBall :: Now attracting!";
 		}
-      if (Frozen)
+      if (Frozen || Powering)
       {
         Frozen = false;
+		Powering = false;
         RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
 		SpriteRef->Color = NormalColor;
       }
       Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Components::Transform>()->Translation - TransformRef->Translation);
-      if (CenteringVector.y > 0)
-      {
-        CenteringVector.y *= AttractYBoost;
-      }
-      RigidBodyRef->AddForce(CenteringVector * AttractPower);
+
+	  if (Locked)
+	  {
+		  if (CenteringVector.y < 0)
+		  {
+			  CenteringVector.y *= AttractYBoost;
+		  }
+		  PlayerRef->getComponent<Components::RigidBody>()->AddForce(-CenteringVector * AttractPower);
+	  }
+	  else
+	  {
+		  if (CenteringVector.y > 0)
+		  {
+			  CenteringVector.y *= AttractYBoost;
+		  }
+		  RigidBodyRef->AddForce(CenteringVector * AttractPower);
+	  }
     }
 
     void BallController::FreezeBall()
     {
-      if (Frozen || !FreezeEnabled)
+      if (Frozen || Locked || !FreezeEnabled)
       {
         return;
       }
@@ -241,7 +254,7 @@ namespace DCEngine {
       }
       else
       {
-		  //deprecated
+		  //deprecated, leaving in place in case of control scheme change
         //auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
         //Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
       }

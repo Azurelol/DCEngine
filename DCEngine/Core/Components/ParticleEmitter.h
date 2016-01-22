@@ -18,8 +18,7 @@ namespace DCEngine {
     class SpriteParticleSystem;
     class ParticleEmitter : public Component {
     public:
-
-      /* Properties */
+      // Properties
       Boolean Active;
       Integer EmitCount; // Number of particles to emit per reset
       Integer EmitRate; // Rate that particles spawn per second
@@ -32,15 +31,26 @@ namespace DCEngine {
       Real SpinVariance; // How much speed per rad can the particle vary
       Vec3 StartVelocity; // Velocity of each particle at start
       Vec3 RandomVelocity; // Random velocity per particle
+      DCE_DEFINE_PROPERTY(Boolean, Active);
+      DCE_DEFINE_PROPERTY(Integer, EmitCount);
+      DCE_DEFINE_PROPERTY(Integer, EmitRate);
+      DCE_DEFINE_PROPERTY(Integer, EmitVariance);
+      DCE_DEFINE_PROPERTY(Real, Size);
+      DCE_DEFINE_PROPERTY(Real, SizeVariance);
+      DCE_DEFINE_PROPERTY(Real, Lifetime);
+      DCE_DEFINE_PROPERTY(Real, LifetimeVariance);
+      DCE_DEFINE_PROPERTY(Real, Spin);
+      DCE_DEFINE_PROPERTY(Real, SpinVariance);
+      DCE_DEFINE_PROPERTY(Vec3, StartVelocity);
+      DCE_DEFINE_PROPERTY(Vec3, RandomVelocity);
 
-      SpriteParticleSystem* ParticleSystem;
 
+      ZilchDeclareDerivedType(ParticleEmitter, Component);
       ParticleEmitter(Entity& owner);
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
     private:
+      SpriteParticleSystem* ParticleSystem;
 
     };
   }

@@ -17,6 +17,7 @@ receives rendering requests and draws on the window.
 // OpenGL rendering
 #include "GraphicsGL.h"
 #include "../../Components/GraphicsSpace.h"
+#include "../../Components/SpriteParticleSystem.h"
 
 namespace DCEngine {
 	class Engine;
@@ -46,6 +47,7 @@ namespace DCEngine {
       // Draw
 			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
+			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera& cam, double dt);
 			void DrawModel(GameObject& gameObj);
 			void DrawDebug(DebugDrawObject& debugDraw);
 			// DebugDraw
@@ -83,12 +85,12 @@ namespace DCEngine {
 
 			//2D draw list
 			//int TotalObjNumG = 0;
-			//int TotalObjTranspNumG = 0;			
+			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Sprite*>> mDrawList;
-			std::vector<Components::Sprite*>  NonTextureObjNontransp;
-			std::vector<Components::Sprite*>  TextureObjNontransp;
-			std::vector<Components::Sprite*> NonTextureObjtransp;
-			std::vector<Components::Sprite*> TextureObjtransp;
+			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
+			//std::vector<Components::Sprite*>  TextureObjNontransp;
+			//std::vector<Components::Sprite*> NonTextureObjtransp;
+			//std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 		};
 

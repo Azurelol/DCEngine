@@ -187,6 +187,9 @@
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Precompiled">
+      <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Systems\Editor\Menus">
       <UniqueIdentifier>{27b0b96e-1522-46e8-81aa-a7d0e8a1c246}</UniqueIdentifier>
     </Filter>
@@ -216,9 +219,6 @@
     </Filter>
     <Filter Include="Core\Systems\Editor\Select">
       <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Components\Audio\Debug">
-      <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Editor\Properties">
       <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
@@ -250,8 +250,11 @@
     <Filter Include="Core\Components\Tools">
       <UniqueIdentifier>{87637a6f-7f0a-482d-84b0-e8faab81a238}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Libraries\Precompiled">
-      <UniqueIdentifier>{89306b77-e439-472f-9834-c694f781a371}</UniqueIdentifier>
+    <Filter Include="Core\Components\Debug">
+      <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics\Lightning">
+      <UniqueIdentifier>{9d5b0c53-c57e-4881-bb88-a4cdc291a225}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -342,11 +345,8 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp">
       <Filter>Core\Systems\Content</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Delegate.cpp">
-      <Filter>Core\Engine\Event</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugMoveController.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\RigidBody.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -355,16 +355,16 @@
       <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugReport.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\BoxCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugCamera.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugCollider.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
@@ -373,7 +373,7 @@
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugAudio.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SoundEmitter.cpp">
       <Filter>Core\Components\Audio</Filter>
@@ -430,7 +430,7 @@
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\DebugFade.cpp">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp">
       <Filter>Core\Systems\FileSystem</Filter>
@@ -502,7 +502,7 @@
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
-      <Filter>Core\Libraries\Precompiled</Filter>
+      <Filter>Core\Precompiled</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
@@ -675,14 +675,45 @@
     <ClCompile Include="Core\Components\TransformTool.cpp">
       <Filter>Core\Components\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Action.cpp">
-      <Filter>Core\Engine\Action</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteLayer.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Actions.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionSpace.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\EventDelegate.cpp">
+      <Filter>Core\Engine\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Delegate.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\DebugActions.cpp">
+      <Filter>Core\Components\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Light.cpp">
+      <Filter>Core\Components\Graphics\Lightning</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LockField.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionDelay.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionCall.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionSet.cpp">
+      <Filter>Core\Engine\Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -702,9 +733,6 @@
       <Filter>Core\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Action.h">
-      <Filter>Core\Engine\Action</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\ActionList.h">
       <Filter>Core\Engine\Action</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Window\Window.h">
@@ -851,11 +879,8 @@
     <ClInclude Include="Core\Engine\Event.h">
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\Delegate.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\DebugMoveController.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\ComponentsInclude.h">
       <Filter>Core\Components</Filter>
@@ -864,10 +889,10 @@
       <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugReport.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCamera.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\DebugDraw.h">
       <Filter>Core\Object\DebugDraw</Filter>
@@ -891,7 +916,7 @@
       <Filter>Core\Events\Update</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugCollider.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\Font.h">
       <Filter>Core\Resources\Graphics</Filter>
@@ -900,7 +925,7 @@
       <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugAudio.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SoundEmitter.h">
       <Filter>Core\Components\Audio</Filter>
@@ -969,7 +994,7 @@
       <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugFade.h">
-      <Filter>Core\Components\Audio\Debug</Filter>
+      <Filter>Core\Components\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Filesystem\FileSystem.h">
       <Filter>Core\Systems\FileSystem</Filter>
@@ -1032,7 +1057,7 @@
       <Filter>Core\Binding</Filter>
     </ClInclude>
     <ClInclude Include="Core\Precompiled\Precompiled.h">
-      <Filter>Core\Libraries\Precompiled</Filter>
+      <Filter>Core\Precompiled</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>
@@ -1178,6 +1203,24 @@
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\EventDelegate.h">
+      <Filter>Core\Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Delegate.h">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\DebugActions.h">
+      <Filter>Core\Components\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\Light.h">
+      <Filter>Core\Components\Graphics\Lightning</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
+    <ClInclude Include="Projects\Rebound\Components\LockField.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1215,6 +1258,12 @@
     </None>
     <None Include="Core\Systems\Editor\Editor.tcc">
       <Filter>Core\Systems\Editor</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ParticleShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ParticleShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

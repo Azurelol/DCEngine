@@ -75,18 +75,21 @@ namespace DCEngine {
     ZilchInitializeType(Components::Sprite);
     ZilchInitializeType(Components::SpriteText);
     ZilchInitializeType(Components::Camera);
-    
+    ZilchInitializeType(Components::SpriteParticleSystem);
+    ZilchInitializeType(Components::ParticleEmitter);
+    ZilchInitializeType(Components::ParticleColorAnimator);
+    ZilchInitializeType(Components::LinearParticleAnimator);    
+    ZilchInitializeType(Components::Light);
     ZilchInitializeType(Components::Reactive);
     // Audio
     ZilchInitializeType(Components::SoundEmitter);
     // Tools
     ZilchInitializeType(Components::EditorCameraController);
-    ZilchInitializeType(Components::TransformTool);
-    
-
+    ZilchInitializeType(Components::TransformTool);   
+    // Debug
+    ZilchInitializeType(Components::DebugActions);
   }
-
-
+  
   /**************************************************************************/
   /*!
   @brief  Constructs a component factory for every bound component type.

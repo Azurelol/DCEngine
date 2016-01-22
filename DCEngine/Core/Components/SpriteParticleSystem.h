@@ -27,26 +27,82 @@ namespace DCEngine {
   {
     class Transform;
     class Camera;
-    class SpriteParticleSystem : public Component {
+		class ParticleEmitter;
+		class ParticleColorAnimator;
+		class LinearParticleAnimator;
+    class SpriteParticleSystem : public Component 
+		{
     public:
 
-      /* Properties */
+      // Properties
       Boolean Visible;
       Vec4 Tint = Vec4(1, 1, 1, 1); //!< Color to tint/multiply all particles in the system.
-      String SpriteSource;
+      String Texture; // Allows the use of textures/spritesources
       Real VelocityScale = 1;
       Real LengthScale = 1;
       Vec3 SystemSize = Vec3(4, 4, 4);
+      DCE_DEFINE_PROPERTY(Boolean, Visible);
+      DCE_DEFINE_PROPERTY(Vec4, Tint);
+      DCE_DEFINE_PROPERTY(String, Texture);
+      DCE_DEFINE_PROPERTY(Real, VelocityScale);
+      DCE_DEFINE_PROPERTY(Real, LengthScale);
+      DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 
+
+      ZilchDeclareDerivedType(SpriteParticleSystem, Component);
       SpriteParticleSystem(Entity& owner);
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
+			Transform* TransformComponent;
+
+			//logic
+			void UpdateParticles(double);
+			void AddParticle(void);
+			std::vector<Vec2> GetPositionData(void);
+			std::vector<float> GetScaleData(void);
+			std::vector<float> GetRotationData(void);
+			std::vector<Vec4> GetColorData(void);
+			unsigned GetParticleCount(void);
 
     private:
-      Transform* TransformComponent;
-      Camera* CameraComponent;
+			class Particle
+			{
+			public:
+				Particle(double, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
+					ParticleColorAnimator*, LinearParticleAnimator*);
+				//Particle& operator=(const Particle&);
+				void Update(double);
+				double GetLifetime(void) const;
+				double GetLifeleft(void) const;
+				Vec2 GetPosition(void) const;
+				float GetScale(void) const;
+				float GetRotation(void) const;
+				Vec4 GetColor(void) const;
+			private:
+				double mLifetime;
+				double mLifeleft;
+				Vec2 mPosition;
+				Vec2 mVelocity;
+				Vec2 mAcceleration;
+				float mScale;
+				float mGrowth;
+				float mRotation;
+				float mRotationRate;
+				float mTorque;
+				Vec4 mColor;
+				Vec4 mTint;
+				ParticleColorAnimator* mColorAnimator;
+				LinearParticleAnimator* mLinearAnimator;
+			};
+			std::vector<Particle> mParticleList;
+			double mParticleEmissionTimer;
+			unsigned mEmitCounter;
+			bool mActiveFlag;
 
+			ParticleEmitter* mParticleEmitter;
+			ParticleColorAnimator* mColorAnimator;
+			LinearParticleAnimator* mLinearAnimator;
+
+      Camera* CameraComponent;
     };
   }
 
