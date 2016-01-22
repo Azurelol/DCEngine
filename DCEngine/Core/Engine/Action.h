@@ -36,6 +36,7 @@ namespace DCEngine {
   /**************************************************************************/
   class Action {
   public:
+    Action() : Elapsed(0.0f), Duration(0.0f) {}
     virtual float Update(float dt) = 0;
     bool Blocking() { return IsBlocking; }
     bool Finished() { return IsFinished; }
@@ -65,12 +66,12 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionSet : public Action {
   public:
+    //virtual void Add(Action& action);
     virtual void Add(ActionSetPtr set);
     virtual void Add(ActionPtr action);
     virtual float Update(float dt) = 0;
     virtual bool Validate();
   protected:
-    std::vector<ActionSetPtr> Children;
     std::vector<ActionPtr> ActiveActions;
     std::vector<ActionPtr> InactiveActions;
     void Clear();    
@@ -147,10 +148,12 @@ namespace DCEngine {
     Ease Ease;
   };
 
-  /*===================*
-  *     Interface      *
-  *===================*/
-  // The ActionsOwner will know about the 
+  /**************************************************************************/
+  /*!
+  @class An ActionOwner is a container of all actions a particular entity
+         has. They propagate updates to all actions attached to it.
+  */
+  /**************************************************************************/
   class Entity;
   class ActionsOwner : public ActionSet {
   public:
@@ -160,10 +163,42 @@ namespace DCEngine {
     Entity& Owner;
 
   private:
+    void Register();
+    void Deregister();
+
   };
   using ActionsOwnerPtr = std::shared_ptr<ActionsOwner>;
   using ActionsOwnerContainer = std::vector<ActionsOwnerPtr>;
 
+  /**************************************************************************/
+  /*!
+  @class The ActionSpace is the class that manages the updating of all actions.
+  */
+  /**************************************************************************/
+  class ActionSpace {
+  public:
+    void Add(ActionPtr action);
+    void Remove(ActionPtr action);
+    void Update(float dt);
+    static bool PropagateUpdateDirectly;
+
+    ActionSpace();
+    ~ActionSpace();
+
+  private:
+    // Update methods
+    void PropagateDirectly(float dt);
+    void PropagateThroughOwners(float dt);
+
+    void Sweep();
+    ActionsOwnerContainer AllActionOwners;
+    ActionsContainer AllActions;
+    ActionsContainer InactiveActions;
+  };
+
+  /*===================*
+  *     Interface   *
+  *===================*/
   /**************************************************************************/
   /*!
   @class The ActionsClass is the interface class that the client will be using
@@ -184,34 +219,6 @@ namespace DCEngine {
 
   };
 
-  /*===================*
-  *     ActionSpace   *
-  *===================*/
-  /**************************************************************************/
-  /*!
-  @class The ActionSpace is the class that manages the updating of all actions.
-  */
-  /**************************************************************************/
-  class ActionSpace {
-  public:
-    void Add(ActionPtr action);
-    void Remove(ActionPtr action);
-    void Update(float dt);
-    
-    ActionSpace();
-    ~ActionSpace();
-
-  private:
-    // Update methods
-    static bool PropagateUpdateDirectly;
-    void PropagateDirectly(float dt);
-    void PropagateThroughOwners(float dt);
-
-    void Sweep();
-    ActionsOwnerContainer AllActionOwners;
-    ActionsContainer AllActions;
-    ActionsContainer InactiveActions;
-  };
 
   //template<typename Property, typename EndValue>
   //inline void Action::Property(ActionSequence & seq, Property prty, EndValue val, Ease ease)

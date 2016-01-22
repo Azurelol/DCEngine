@@ -675,9 +675,6 @@
     <ClCompile Include="Core\Components\TransformTool.cpp">
       <Filter>Core\Components\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Action.cpp">
-      <Filter>Core\Engine\Action</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteLayer.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
@@ -705,6 +702,18 @@
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LockField.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionDelay.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionCall.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionSet.cpp">
+      <Filter>Core\Engine\Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

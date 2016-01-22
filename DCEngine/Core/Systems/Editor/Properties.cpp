@@ -200,7 +200,8 @@ namespace DCEngine {
         }
 
         // If it's a resource... 
-        if (!property->Attributes.empty()) {
+        if (property->HasAttribute("Resource")) {
+        //if (!property->Attributes.empty()) {
           modified = SelectResource(property, object, propertyID);
           continue;
         }
@@ -287,6 +288,13 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
+            
+            // Unsigned
+            if (property->HasAttribute("Unsigned")) {
+              if (integer < 0)
+                integer = 0;
+            }
+
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, integer);

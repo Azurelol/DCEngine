@@ -280,8 +280,11 @@
     <ClCompile Include="Core\Components\TransformTool.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
-    <ClCompile Include="Core\Engine\Action.cpp" />
+    <ClCompile Include="Core\Engine\ActionSet.cpp" />
+    <ClCompile Include="Core\Engine\ActionCall.cpp" />
+    <ClCompile Include="Core\Engine\ActionDelay.cpp" />
     <ClCompile Include="Core\Engine\Actions.cpp" />
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp" />
     <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
