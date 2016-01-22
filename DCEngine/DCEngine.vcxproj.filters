@@ -250,19 +250,11 @@
     <Filter Include="Core\Components\Tools">
       <UniqueIdentifier>{87637a6f-7f0a-482d-84b0-e8faab81a238}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
-    <Filter Include="Core\Systems\StateMachine">
-      <UniqueIdentifier>{f686e127-a825-4cdc-a79f-23af60ca7a4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\Rebound\Components\AI">
-      <UniqueIdentifier>{669b9485-1d7d-46e1-a967-2da0acbb90d9}</UniqueIdentifier>
-=======
     <Filter Include="Core\Components\Debug">
       <UniqueIdentifier>{aaa9227d-c06a-4fad-a566-0d161cb62f89}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Components\Graphics\Lightning">
       <UniqueIdentifier>{9d5b0c53-c57e-4881-bb88-a4cdc291a225}</UniqueIdentifier>
->>>>>>> 8055a4614bd21692e168eb7f7efa91568c3d1bb4
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -692,10 +684,6 @@
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp">
-      <Filter>Projects\Rebound\Components\AI</Filter>
-=======
     <ClCompile Include="Core\Engine\Actions.cpp">
       <Filter>Core\Engine\Action</Filter>
     </ClCompile>
@@ -713,10 +701,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\Light.cpp">
       <Filter>Core\Components\Graphics\Lightning</Filter>
-    </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\LockField.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
->>>>>>> 8055a4614bd21692e168eb7f7efa91568c3d1bb4
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1206,16 +1190,6 @@
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Core\Systems\StateMachine\IState.h">
-      <Filter>Core\Systems\StateMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h">
-      <Filter>Core\Systems\StateMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h">
-      <Filter>Projects\Rebound\Components\AI</Filter>
-=======
     <ClInclude Include="Core\Engine\EventDelegate.h">
       <Filter>Core\Engine\Event</Filter>
     </ClInclude>
@@ -1227,10 +1201,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\Light.h">
       <Filter>Core\Components\Graphics\Lightning</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\LockField.h">
-      <Filter>Projects\Rebound\Components</Filter>
->>>>>>> 8055a4614bd21692e168eb7f7efa91568c3d1bb4
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
