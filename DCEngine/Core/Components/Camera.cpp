@@ -24,6 +24,7 @@ ZilchDefineExternalType(DCEngine::ProjectionMode, "ProjectionMode", DCEngine::DC
 
   ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Orthographic, "Orthographic");
   ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Perspective, "Perspective");
+  //DCE_BINDING_DEFINE_ENUM(DCEngine::ProjectionMode::Perspective, Orthographic);
 }
 
 
@@ -48,6 +49,7 @@ namespace DCEngine {
       ZilchBindProperty(builder, type, &Camera::getNearPlane, &Camera::setNearPlane, "NearPlane");
       ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
       ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
+      DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
     }
 #endif
 
@@ -86,8 +88,7 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Camera::Initialize() {
-
+    void Camera::Initialize() {      
     }
 
     /**************************************************************************/

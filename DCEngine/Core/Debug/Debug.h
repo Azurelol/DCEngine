@@ -50,7 +50,13 @@ namespace DCEngine
     #define TRACE_AUDIO 0
     
     #define DCE_EDITOR_TRACE_TOOLS 1
-
+    
+    // Actions
+    #define DCE_TRACE_ACTIONS_CTOR 1
+    #define DCE_TRACE_ACTIONS_DTOR 1
+    #define DCE_TRACE_ACTIONS_ADD 1
+    #define DCE_TRACE_ACTIONS_REMOVE 1
+    #define DCE_TRACE_ACTIONS_UPDATE 1
 
     class Trace {
     public:

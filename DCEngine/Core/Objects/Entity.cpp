@@ -26,7 +26,7 @@ namespace DCEngine {
   \brief  Entity constructor.
   */
   /**************************************************************************/
-  Entity::Entity(std::string name) : Object("Entity"), ArchetypeName("") {
+  Entity::Entity(std::string name) : Object("Entity"), ArchetypeName(""), Actions(*this) {
     ObjectName = name;
   }
 

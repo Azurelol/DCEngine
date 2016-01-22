@@ -216,7 +216,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
@@ -378,6 +378,7 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -529,6 +530,8 @@
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -543,6 +546,7 @@
     <ClInclude Include="Projects\ProjectComponents.h" />
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />

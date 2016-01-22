@@ -31,9 +31,10 @@ or windows resolution.
 namespace DCEngine {
 
 	enum class ProjectionMode {
-		Orthographic = 0,
+		Orthographic,
 		Perspective,
 	};
+
 
   namespace Components
   {

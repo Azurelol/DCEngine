@@ -86,8 +86,27 @@ namespace DCEngine {
   // This macro sets a Resource-specific attribute onto a property
 #define DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(property, attribute) \
   property->Attributes.push_back(attributeResource);                     \
-  property->Attributes.push_back(attribute)  
+  property->Attributes.push_back(attribute)
 
+  /*===================*
+  *     Enumerations   *
+  *===================*/
+#define DCE_DECLARE_ENUM(enumType, ...)   \
+enum class enumType {                             \
+  __VA_ARGS__                                     \
+}
+
+  // This macro defines a property to Zilch
+#define DCE_BINDING_DEFINE_ENUM(enumType, enumField)          \
+  auto property##enumField = ZilchBindEnumValue(builder, type, ##enumType::##enumField, "" #enumField) 
+
+//#define DCE_BINDING_DEFINE_ENUM(enumType, library, ...)    \
+//ZilchDefineExternalType(DCEngine::ProjectionMode, "ProjectionMode", DCEngine::DCEngineCore, builder, type) {
+//  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+//
+//  ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Orthographic, "Orthographic");
+//  ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Perspective, "Perspective");
+//  }
 
 }
 

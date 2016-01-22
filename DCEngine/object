@@ -2,8 +2,13 @@
 {
   "GameObject": 
   {
+<<<<<<< HEAD
     "Name": "g45", 
     "Archetype": "Ground", 
+=======
+    "Name": "Transform", 
+    "Archetype": "", 
+>>>>>>> d76e1b57cf651034b0a9dbd3694685ee4e595aa6
     "Components": 
     {
       "Transform": 
@@ -35,6 +40,7 @@
             "z": 1.000000
           }
         }
+<<<<<<< HEAD
       }, 
       "Sprite": 
       {
@@ -81,6 +87,8 @@
         "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
+=======
+>>>>>>> d76e1b57cf651034b0a9dbd3694685ee4e595aa6
       }
     }
   }
