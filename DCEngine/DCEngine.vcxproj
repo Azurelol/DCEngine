@@ -250,6 +250,7 @@
     <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\DebugActions.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
+    <ClCompile Include="Core\Components\Graphical.cpp" />
     <ClCompile Include="Core\Components\Light.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
@@ -413,6 +414,7 @@
     <ClInclude Include="Core\Components\Collider.h" />
     <ClInclude Include="Core\Components\DebugActions.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
+    <ClInclude Include="Core\Components\Graphical.h" />
     <ClInclude Include="Core\Components\Light.h" />
     <ClInclude Include="Core\Components\TransformTool.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />

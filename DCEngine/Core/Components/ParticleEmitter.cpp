@@ -49,7 +49,7 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Constructor for the ParticleEmitter.
     \**************************************************************************/
-    ParticleEmitter::ParticleEmitter(Entity & owner) : Component("ParticleEmitter", owner)
+    ParticleEmitter::ParticleEmitter(Entity & owner) : Graphical("ParticleEmitter", owner)
     {
 
     }

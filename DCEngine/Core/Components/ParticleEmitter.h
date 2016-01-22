@@ -10,13 +10,13 @@
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
 
 namespace DCEngine {
   namespace Components
   {
     class SpriteParticleSystem;
-    class ParticleEmitter : public Component {
+    class ParticleEmitter : public Graphical {
     public:
       // Properties
       Boolean Active;
@@ -45,7 +45,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec3, RandomVelocity);
 
 
-      ZilchDeclareDerivedType(ParticleEmitter, Component);
+      ZilchDeclareDerivedType(ParticleEmitter, Graphical);
       ParticleEmitter(Entity& owner);
       void Initialize();
 

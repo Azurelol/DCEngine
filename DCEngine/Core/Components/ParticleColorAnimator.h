@@ -9,13 +9,13 @@
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
 
 namespace DCEngine {
   namespace Components
   {
     class SpriteParticleSystem;
-    class ParticleColorAnimator : public Component {
+    class ParticleColorAnimator : public Graphical {
     public:
       // Properties
       Vec4 Color0;
@@ -29,7 +29,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, Color3);
       DCE_DEFINE_PROPERTY(Vec4, Color4);
 
-      ZilchDeclareDerivedType(ParticleColorAnimator, Component);
+      ZilchDeclareDerivedType(ParticleColorAnimator, Graphical);
       ParticleColorAnimator(Entity& owner);
       void Initialize();
     private:

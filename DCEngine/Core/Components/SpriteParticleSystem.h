@@ -9,7 +9,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
 #include "../Resources/SpriteSource.h"
 
 namespace DCEngine {
@@ -30,7 +30,7 @@ namespace DCEngine {
 		class ParticleEmitter;
 		class ParticleColorAnimator;
 		class LinearParticleAnimator;
-    class SpriteParticleSystem : public Component 
+    class SpriteParticleSystem : public Graphical 
 		{
     public:
 
@@ -49,7 +49,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 
 
-      ZilchDeclareDerivedType(SpriteParticleSystem, Component);
+      ZilchDeclareDerivedType(SpriteParticleSystem, Graphical);
       SpriteParticleSystem(Entity& owner);
       void Initialize();
 			Transform* TransformComponent;

@@ -43,7 +43,7 @@ namespace DCEngine {
     @brief  Constructor for the SpriteParticleSystem
     \**************************************************************************/
     SpriteParticleSystem::SpriteParticleSystem(Entity & owner)
-			: Component("SpriteParticleSystem", owner), mParticleEmissionTimer(0)
+			: Graphical("SpriteParticleSystem", owner), mParticleEmissionTimer(0)
     {
 			TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
 			// Register

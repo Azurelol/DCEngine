@@ -125,10 +125,7 @@ namespace DCEngine {
       // If the entity was modified or a componen was added, save the level
       if (modified || componentAdded)
         SaveCurrentLevel();
-
-
     }
-
 
     /**************************************************************************/
     /*!
@@ -451,7 +448,7 @@ namespace DCEngine {
 
           // Components to skip
           bool skip = false;
-          std::vector<std::string> skippableComponents{ "Component", "Collider" };
+          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical" };
           //skippableComponents.push_back(std::string("ZilchComponet"));
           for (auto& name : skippableComponents) {
             auto componentName = std::string(component->Name.c_str());
@@ -476,6 +473,9 @@ namespace DCEngine {
 
         Scanned = true;
       }
+
+      // Sort the component names alphabetically
+      
 
       int currentComponent = 0;
       ImGui::Separator();

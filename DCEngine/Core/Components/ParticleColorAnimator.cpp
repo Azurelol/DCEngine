@@ -36,7 +36,7 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Constructor for the ParticleColorAnimator
     \**************************************************************************/
-    ParticleColorAnimator::ParticleColorAnimator(Entity & owner) : Component("ParticleColorAnimator", owner)
+    ParticleColorAnimator::ParticleColorAnimator(Entity & owner) : Graphical("ParticleColorAnimator", owner)
     {
     }
 
