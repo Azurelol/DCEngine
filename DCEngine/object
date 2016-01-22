@@ -2,13 +2,8 @@
 {
   "GameObject": 
   {
-<<<<<<< HEAD
-    "Name": "Transform", 
-    "Archetype": "", 
-=======
     "Name": "ParticleSystem", 
     "Archetype": "ParticleEffect", 
->>>>>>> 2411841dec9cd9aeb8ff7f82e267624fd64694d2
     "Components": 
     {
       "Transform": 
@@ -40,8 +35,6 @@
             "z": 1.000000
           }
         }
-<<<<<<< HEAD
-=======
       }, 
       "SpriteParticleSystem": 
       {
@@ -176,7 +169,6 @@
             "w": 0.000000
           }
         }
->>>>>>> 2411841dec9cd9aeb8ff7f82e267624fd64694d2
       }
     }
   }

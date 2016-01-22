@@ -263,7 +263,7 @@ namespace DCEngine {
 
 		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
 		{
-			glDisable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			auto transform = particles.TransformComponent;
@@ -308,7 +308,6 @@ namespace DCEngine {
 				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
 				glBindVertexArray(0);
 			}
-			glEnable(GL_DEPTH_TEST);
 		}
 
 		/**************************************************************************/
