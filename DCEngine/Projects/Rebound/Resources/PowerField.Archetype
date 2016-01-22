@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Acid2", 
-    "Archetype": "Acid", 
+    "Name": "PowerField", 
+    "Archetype": "PowerField", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 202.500000, 
-            "y": -25.500000, 
+            "x": 19.000000, 
+            "y": 11.000000, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 8.000000, 
-            "y": 2.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -43,7 +43,7 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
+            "x": 1.000000, 
             "y": 1.000000, 
             "z": 0.000000, 
             "w": 1.000000
@@ -82,28 +82,9 @@
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }, 
-      "HazardArea": 
+      "PowerField": 
       {
-        "Damage": 3.000000, 
-        "DamageInterval": 1.000000
-      }, 
-      "Fade": 
-      {
-        "Timer": 0.000000, 
-        "FadeTime": 2.000000, 
-        "FadeTimeGrowth": 1.000000, 
-        "TargetColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.000000, 
-            "y": 0.700000, 
-            "z": 0.200000, 
-            "w": 1.000000
-          }
-        }, 
-        "Fading": true, 
-        "Pulse": true
+        "Target": ""
       }
     }
   }

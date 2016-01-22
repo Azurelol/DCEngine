@@ -46,15 +46,11 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::BallController>())
       {
-        auto ball = SpaceRef->FindObjectByName("Basketball");
-        if (ball)
-        {
-          auto wall = SpaceRef->FindObjectByName("Target");
+          auto wall = SpaceRef->FindObjectByName(Target);
           if (wall)
           {
             wall->getComponent<Components::MoveToLocation>()->setMoving(true);
           }
-        }
       }
     }
 

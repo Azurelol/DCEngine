@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-@file   LockField.h
+@file   PowerField.h
 @author Connor Tilley
 @par    email: connor.tilley\@digipen.edu
 @date   11/19/2015
@@ -11,23 +11,22 @@
 #include "ReboundComponent.h"
 
 namespace DCEngine {
-	namespace Components {
+	namespace Components
+	{
 		class Transform;
 		class RigidBody;
 		class Sprite;
-		class LockField : public Component {
+		class PowerField : public Component {
 
 		public:
 			Transform* TransformRef;
-			RigidBody* RigidBodyRef;
 			Sprite* SpriteRef;
-			GameObject* BallRef;
 
+			DCE_DEFINE_PROPERTY(String, Target);
 			// Properties
-			DCE_DEFINE_PROPERTY(Real, Timer);
 
 			// Methods
-			LockField(Entity& owner) : Component(std::string("LockField"), owner) {}
+			PowerField(Entity& owner) : Component(std::string("PowerField"), owner) {}
 			void Initialize();
 			void OnMouseDownEvent(Events::MouseDown* event);
 			void OnMouseUpEvent(Events::MouseUp* event);
@@ -35,16 +34,15 @@ namespace DCEngine {
 			void OnKeyUpEvent(Events::KeyDown* event);
 			void OnCollisionStartedEvent(Events::CollisionStarted* event);
 			void OnCollisionEndedEvent(Events::CollisionEnded* event);
-			void OnCollisionPersistedEvent(Events::CollisionPersisted * event);
 			void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-			ZilchDeclareDerivedType(LockField, Component);
+			ZilchDeclareDerivedType(PowerField, Component);
 #endif
 
 		private:
 			// Member variables
-			Real Timer = 0;
+			String Target;
 		};
 	}
 

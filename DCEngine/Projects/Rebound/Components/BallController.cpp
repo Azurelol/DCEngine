@@ -211,23 +211,29 @@ namespace DCEngine {
 		{
 			DCTrace << "BallController::AttractBall :: Now attracting!";
 		}
-      if (Frozen)
+      if (Frozen || Powering)
       {
         Frozen = false;
+		Powering = false;
         RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
 		SpriteRef->Color = NormalColor;
       }
       Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Components::Transform>()->Translation - TransformRef->Translation);
-      if (CenteringVector.y > 0)
-      {
-        CenteringVector.y *= AttractYBoost;
-      }
+
 	  if (Locked)
 	  {
+		  if (CenteringVector.y < 0)
+		  {
+			  CenteringVector.y *= AttractYBoost;
+		  }
 		  PlayerRef->getComponent<Components::RigidBody>()->AddForce(-CenteringVector * AttractPower);
 	  }
 	  else
 	  {
+		  if (CenteringVector.y > 0)
+		  {
+			  CenteringVector.y *= AttractYBoost;
+		  }
 		  RigidBodyRef->AddForce(CenteringVector * AttractPower);
 	  }
     }
