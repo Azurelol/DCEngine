@@ -111,12 +111,6 @@ namespace DCEngine {
 					drawList.clear();
 				}
 
-
-				// update particles
-
-
-				// draw particles
-
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 			}
 		}
