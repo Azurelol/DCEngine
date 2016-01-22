@@ -199,7 +199,7 @@ namespace DCEngine {
           continue;
         }
 
-        // If there's at least one attribute... 
+        // If it's a resource... 
         if (!property->Attributes.empty()) {
           modified = SelectResource(property, object, propertyID);
           continue;
@@ -280,7 +280,7 @@ namespace DCEngine {
           }
           ImGui::PopID();
         }
-
+        
         // Property: Integer
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
