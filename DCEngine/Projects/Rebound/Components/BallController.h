@@ -26,6 +26,7 @@ namespace DCEngine {
       bool Translation = true;
       bool Frozen = false;
 	  bool Locked = false;
+	  Boolean Powering = false;
       bool CurrentlyFired = false;
       Real MoveSpeed = 0.75;
       ControlScheme ControlScheme = ControlScheme::John;
@@ -41,6 +42,7 @@ namespace DCEngine {
 	  Real Friction = 0.1; //set from 0 to 1
 	  Real AttractPower = 400.0f;
 	  Real AttractYBoost = 3;
+	  
       Boolean Charging = false;
       Boolean FreezeEnabled = true;
       Vec4 FrozenColor = Vec4(1, 0, 1, 1);

@@ -30,6 +30,9 @@ namespace DCEngine {
 		void LockField::Initialize()
 		{
 			auto gameObj = dynamic_cast<GameObject*>(Owner());
+			Connect(gameObj, Events::CollisionStarted, LockField::OnCollisionStartedEvent);
+			Connect(gameObj, Events::CollisionPersisted, LockField::OnCollisionPersistedEvent);
+			Connect(gameObj, Events::CollisionEnded, LockField::OnCollisionEndedEvent);
 			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
 			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
 		}
@@ -48,16 +51,21 @@ namespace DCEngine {
 				BallRef->getComponent<Components::BallController>()->Locked = true;
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
 			}
-			if (event->OtherObject->getComponent<Components::PlayerController>() && BallRef)
-			{
-				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
-				BallRef->getComponent<Components::BallController>()->Locked = false;
-				BallRef = NULL;
-			}
 		}
 
 		void LockField::OnCollisionEndedEvent(Events::CollisionEnded * event)
 		{
+		}
+
+		void LockField::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
+		{
+			if (event->OtherObject->getComponent<Components::PlayerController>() && BallRef)
+			{
+				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
+				BallRef->getComponent<Components::BallController>()->Locked = false;
+				BallRef->getComponent<Components::Transform>()->setTranslation(event->OtherObject->getComponent<Components::Transform>()->getTranslation());
+				BallRef = NULL;
+			}
 		}
 
 		void LockField::OnMouseUpEvent(Events::MouseUp * event)
