@@ -222,12 +222,19 @@ namespace DCEngine {
       {
         CenteringVector.y *= AttractYBoost;
       }
-      RigidBodyRef->AddForce(CenteringVector * AttractPower);
+	  if (Locked)
+	  {
+		  PlayerRef->getComponent<Components::RigidBody>()->AddForce(-CenteringVector * AttractPower);
+	  }
+	  else
+	  {
+		  RigidBodyRef->AddForce(CenteringVector * AttractPower);
+	  }
     }
 
     void BallController::FreezeBall()
     {
-      if (Frozen || !FreezeEnabled)
+      if (Frozen || Locked || !FreezeEnabled)
       {
         return;
       }
@@ -241,7 +248,7 @@ namespace DCEngine {
       }
       else
       {
-		  //deprecated
+		  //deprecated, leaving in place in case of control scheme change
         //auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
         //Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
       }

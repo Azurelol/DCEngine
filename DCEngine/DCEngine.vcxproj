@@ -378,6 +378,7 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
     <ClCompile Include="Projects\Rebound\Components\CameraController.cpp" />
@@ -388,6 +389,7 @@
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MoveToLocation.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
@@ -528,6 +530,8 @@
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
@@ -542,6 +546,7 @@
     <ClInclude Include="Projects\ProjectComponents.h" />
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />
     <ClInclude Include="Projects\Rebound\Components\CameraController.h" />
@@ -552,6 +557,7 @@
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
+    <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
     <ClInclude Include="Projects\Rebound\Components\MoveToLocation.h" />
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
