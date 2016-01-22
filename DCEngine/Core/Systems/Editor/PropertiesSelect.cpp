@@ -104,9 +104,7 @@ namespace DCEngine {
           currentItem = spriteSourceNames.size() - 1;
       }
       // Start at the current item
-
-
-      
+            
       // If the user selects an item... 
       if (ImGui::Combo("##propertyID", &currentItem, spriteSourceNames.data(), spriteSourceNames.size())) {
         // Set the selected item as the current resource

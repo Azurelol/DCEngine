@@ -147,6 +147,16 @@ namespace DCEngine {
       {
         call.Set(0, value->AsFloat());
       }
+      // Type is an enum
+      else if (Zilch::Type::IsEnumType(namedProperty->PropertyType)) {
+        Zilch::BoundType* enumType = Zilch::Type::GetBoundType(namedProperty->PropertyType);
+        auto enumValue = enumType->GetStaticProperty(value->AsString());
+        // Convert the enum to its integer value
+        Zilch::Call getCall(enumValue->Get, state);
+        getCall.Invoke(report);
+        int enumAsInt = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
+        call.Set(0, enumAsInt);
+      }
       // Type is an int.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Integer)))
       {
@@ -254,6 +264,18 @@ namespace DCEngine {
       if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real)))
       {
         builder.Value(call.Get<Zilch::Real>(Zilch::Call::Return));
+      }
+      // Property: Enum
+      else if (Zilch::Type::IsEnumType(property->PropertyType)) {
+        Zilch::Call call(property->Get, state);
+        call.SetHandleVirtual(Zilch::Call::This, objectHandle);
+        Zilch::ExceptionReport reportForEnum;
+        call.Invoke(reportForEnum);
+        // Convert the enum to an integer
+        auto enumAsInt = call.Get<Zilch::Integer>(Zilch::Call::Return);
+        // Convert the enum to a string
+        Zilch::String enumAsStr = property->PropertyType->GenericToString((byte*)&enumAsInt);
+        builder.Value(enumAsStr);
       }
       // Property: Integer
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer)))

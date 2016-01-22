@@ -191,7 +191,13 @@ namespace DCEngine {
         if (property->HasAttribute("Sound")) {
           PreviewSound(property, object);
           continue;
-        }          
+        }
+        
+        // If the property is marked as an enumeration..
+        if (property->HasAttribute("Enumeration")) {
+          modified = SelectEnumeration(property, object, propertyID);
+          continue;
+        }
 
         // If there's at least one attribute... 
         if (!property->Attributes.empty()) {
@@ -212,9 +218,39 @@ namespace DCEngine {
         getCall.SetHandleVirtual(Zilch::Call::This, object);        
         getCall.Invoke(report);        
                 
+        // Property: Enumeration
+        if (Zilch::Type::IsEnumType(property->PropertyType)) {
+          ImGui::PushID(propertyID++);
+          std::vector<const char *> enums;
+          auto enumType = Zilch::Type::GetBoundType(property->PropertyType);
+          for (auto& enumProperty : enumType->AllProperties) {;
+            enums.push_back(enumProperty->Name.c_str());            
+          }
+          // If the user selects an item... 
+          static int currentItem = 0;
+          ImGui::Text(property->Name.c_str());
+          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), enums.size())) {
+            // Set the selected item as the current resource
+            auto selectedEnum = enums.at(currentItem);
+            // Retrieve...
+            auto enumValue = enumType->GetStaticProperty(selectedEnum);
+            Zilch::Call retriever(enumValue->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+            retriever.Invoke(report);
+            auto valueSet = retriever.Get<Zilch::Integer>(Zilch::Call::Return);
+            // Set the property
+            Zilch::ExceptionReport report;
+            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            setCall.SetHandleVirtual(Zilch::Call::This, object);
+            setCall.Set(0, valueSet);
+            setCall.Invoke(report);
+          }
+          //if (ImGui::Selectable)
+          ImGui::PopID();
+        }
+        
 
         // Property: Boolean
-        if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
+        else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
           // If the user modifies it
           ImGui::PushID(propertyID++);

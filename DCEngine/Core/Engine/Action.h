@@ -190,12 +190,13 @@ namespace DCEngine {
     void Add(ActionPtr action);
     void Remove(ActionPtr action);
     void Update(float dt);
+    
 
   private:
     ActionsContainer AllActions;
     ActionsContainer InactiveActions;
     void Sweep();
-
+//    static bool UpdateDirectly
   };
 
   //template<typename Property, typename EndValue>
