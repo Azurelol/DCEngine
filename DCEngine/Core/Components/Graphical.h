@@ -24,7 +24,7 @@ namespace DCEngine {
       ZilchDeclareDerivedType(Graphical, Component);
       Graphical(std::string graphicalComponent, Entity& owner);
       ~Graphical();
-      void Initialize();
+      virtual void Initialize();
 
     };
 

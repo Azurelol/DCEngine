@@ -475,7 +475,7 @@ namespace DCEngine {
       }
 
       // Sort the component names alphabetically
-      
+      std::sort(componentNames.begin(), componentNames.end());
 
       int currentComponent = 0;
       ImGui::Separator();

@@ -45,7 +45,7 @@ namespace DCEngine {
       // These should be private!
       Collider(Entity& owner, std::string colliderClass);
       ~Collider();
-      void Initialize();
+      virtual void Initialize();
       //Vec3 getColliderScale();
 
     private:
