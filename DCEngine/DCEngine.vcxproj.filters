@@ -702,6 +702,10 @@
     <ClCompile Include="Core\Components\Light.cpp">
       <Filter>Core\Components\Graphics\Lightning</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LockField.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1201,6 +1205,12 @@
     </ClInclude>
     <ClInclude Include="Core\Components\Light.h">
       <Filter>Core\Components\Graphics\Lightning</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\StateMachine\IState.h" />
+    <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
+    <ClInclude Include="Projects\Rebound\Components\LockField.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

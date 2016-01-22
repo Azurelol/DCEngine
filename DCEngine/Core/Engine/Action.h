@@ -150,12 +150,19 @@ namespace DCEngine {
   /*===================*
   *     Interface      *
   *===================*/
+  // The ActionsOwner will know about the 
+  class Entity;
   class ActionsOwner : public ActionSet {
   public:
+    ActionsOwner(Entity& owner);
     float Update(float dt);
     bool Validate();
+    Entity& Owner;
 
+  private:
   };
+  using ActionsOwnerPtr = std::shared_ptr<ActionsOwner>;
+  using ActionsOwnerContainer = std::vector<ActionsOwnerPtr>;
 
   /**************************************************************************/
   /*!
@@ -191,12 +198,19 @@ namespace DCEngine {
     void Remove(ActionPtr action);
     void Update(float dt);
     
+    ActionSpace();
+    ~ActionSpace();
 
   private:
+    // Update methods
+    static bool PropagateUpdateDirectly;
+    void PropagateDirectly(float dt);
+    void PropagateThroughOwners(float dt);
+
+    void Sweep();
+    ActionsOwnerContainer AllActionOwners;
     ActionsContainer AllActions;
     ActionsContainer InactiveActions;
-    void Sweep();
-//    static bool UpdateDirectly
   };
 
   //template<typename Property, typename EndValue>
