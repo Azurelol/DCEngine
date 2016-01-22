@@ -158,11 +158,13 @@ namespace DCEngine {
   class ActionsOwner : public ActionSet {
   public:
     ActionsOwner(Entity& owner);
+    ~ActionsOwner();
     float Update(float dt);
     bool Validate();
     Entity& Owner;
 
   private:
+    
     void Register();
     void Deregister();
 

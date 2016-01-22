@@ -32,6 +32,17 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief ActionsOwner destructor.
+  */
+  /**************************************************************************/
+  ActionsOwner::~ActionsOwner()
+  {
+    if (!ActionSpace::PropagateUpdateDirectly)
+      Deregister();
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Registers this ActionsOwner to the ActionSpace.
   */
   /**************************************************************************/
@@ -42,7 +53,7 @@ namespace DCEngine {
 
   void ActionsOwner::Deregister()
   {
-    Daisy->Deregister(*this);
+   // Daisy->Deregister(*this);
   }
 
   /**************************************************************************/
