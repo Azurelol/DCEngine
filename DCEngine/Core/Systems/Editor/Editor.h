@@ -171,7 +171,7 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void DragObject(Vec2);
-      void RotateObject(Vec2);
+      void RotateObject(Vec2, Vec3);
       void ScaleObject(Vec2 pos);
       void ReleaseObject();
       // Resources

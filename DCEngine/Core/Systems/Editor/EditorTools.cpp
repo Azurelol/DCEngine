@@ -123,6 +123,16 @@ namespace DCEngine {
         Vec3 pos = transform->getTranslation();
         Real radius = transform->getScale().x *2.5;
         Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
+        if (Settings.Rotating == true)
+        {
+          auto normal = Vec3(transform->getTranslation().y - Settings.OriginMousePos.y, -(transform->getTranslation().x - Settings.OriginMousePos.x), 0);
+          normal *= 10;
+          auto negNormal = -normal;
+          Vec4 colorR(1.0, 0.0, 0.0, 1.0); // Red
+          Vec4 colorG(0.0,1.0, 0.0, 1.0); // Red
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(transform->getTranslation().y - Settings.OriginMousePos.y), transform->getTranslation().x - Settings.OriginMousePos.x, 0) + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorG);
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorR);
+        }
 
         // Draw a selected 'box' around the object
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, radius, color);

@@ -210,7 +210,7 @@ namespace DCEngine {
       }
 
     }
-    void Editor::RotateObject(Vec2 pos)
+    void Editor::RotateObject(Vec2 pos, Vec3 PreviousRotation)
     {
       if (ActiveTool != EditorTool::Rotate)
         return;
@@ -218,19 +218,19 @@ namespace DCEngine {
       if (Settings.Rotating) {
         auto gameObject = dynamic_cast<GameObject*>(SelectedObject);
         auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-        Vec2 mouseRadius = mousePos - Vec2(gameObject->getComponent<Components::Transform>()->getTranslation().x, gameObject->getComponent<Components::Transform>()->getTranslation().y);
-        mouseRadius /= mouseRadius.length();
+        auto transform = gameObject->getComponent<Components::Transform>();
+        auto normal = Vec3(transform->getTranslation().y - Settings.OriginMousePos.y, -(transform->getTranslation().x - Settings.OriginMousePos.x), 0);
+        auto c = (normal.x * Settings.OriginMousePos.x + normal.y * Settings.OriginMousePos.y);
+        auto dist = (normal.x*mousePos.x + normal.y*mousePos.y - c) / sqrt(normal.x*normal.x + normal.y*normal.y);
+       
+        normal *= 1 / sqrt(normal.x*normal.x + normal.y*normal.y);
 
-        //Gets angle of rotation
-        float angle;
-        if (mouseRadius.x > 0)
-          angle = asin(mouseRadius.y);
-        else if (mouseRadius.x < 0 && mouseRadius.y < 0)
-          angle = -acos(mouseRadius.x);
-        else
-          angle = acos(mouseRadius.x);
+        Vec4 color(1.0, 0.0, 0.0, 1.0); // Red
+        Real radius = 1;
+        
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(dist*normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), radius, color);
 
-        //gameObject->getComponent<Components::Transform>()->setRotation(Vec3(gameObject->getComponent<Components::Transform>()->getRotation().x, gameObject->getComponent<Components::Transform>()->getRotation().y, angle));
+        transform->setRotation(Vec3(PreviousRotation.x, PreviousRotation.y, PreviousRotation.z + 360 * (static_cast<int>(dist)%360)/90 ));
       }
     }
     void Editor::ScaleObject(Vec2 pos)
@@ -255,9 +255,9 @@ namespace DCEngine {
           auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
           auto transform = gameObject->getComponent<Components::Transform>();
 
-          gameObject->getComponent<Components::Transform>()->setScale(Vec3(gameObject->getComponent<Components::Transform>()->getScale().x,
+          gameObject->getComponent<Components::Transform>()->setScale(Vec3(transform->getScale().x,
             Settings.OriginScale.y + Settings.OriginScale.y*((mousePos.y - Settings.OriginMousePos.y) / abs(Settings.OriginMousePos.y - transform->getTranslation().y)),
-            gameObject->getComponent<Components::Transform>()->getScale().z));
+            transform->getScale().z));
         }
       }
     }

@@ -94,9 +94,10 @@ namespace DCEngine {
               Real radius = transform->getScale().x *2.5;
               Real radiusSquared = radius*radius;
               Real distanceSquared = (mousePos.x - xPos)*(mousePos.x - xPos) + (mousePos.y - yPos)*(mousePos.y - yPos);
-              if (distanceSquared - radiusSquared < 0.25 && distanceSquared - radiusSquared > -0.25)
+              if (distanceSquared - radiusSquared < 1 && distanceSquared - radiusSquared > -1)
               {
                 Settings.Rotating = true;
+                Settings.OriginMousePos = mousePos;
                 TransCommand = new CommandObjectTransform(transform);
                 DCTrace << "Editor::OnMouseDownEvent - Rotating: '" << SelectedObject->getObjectName() << "'\n";
                 return;
@@ -221,10 +222,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
     {
-      DragObject(event->ScreenPosition);
-      RotateObject(event->ScreenPosition);
-      ScaleObject(event->ScreenPosition);
-      PanCamera(event->ScreenPosition);
+      if (TransCommand != NULL)
+      {
+        DragObject(event->ScreenPosition);
+        RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
+        ScaleObject(event->ScreenPosition);
+        PanCamera(event->ScreenPosition);
+      }
     }
 
 
