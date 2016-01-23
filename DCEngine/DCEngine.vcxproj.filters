@@ -722,6 +722,9 @@
     <ClCompile Include="Core\Components\Graphical.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\Bank.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1231,6 +1234,9 @@
     </ClInclude>
     <ClInclude Include="Core\Components\GraphicsSpace.h">
       <Filter>Core\Components\Graphics\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Bank.h">
+      <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Grabs a Bank resource.
+    @return Returns a pointer to the bank object.
+    */
+    /**************************************************************************/
+    BankPtr Content::getBank(std::string bankName)
+    {
+      return MapBank.at(bankName);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Grabs a shader resource.
     @return Returns a pointer to the shader object.
     */
@@ -189,6 +200,11 @@ namespace DCEngine {
     SoundCueMap * Content::AllSoundCues()
     {
       return &SoundCueMap;
+    }
+
+    BankMap * Content::AllBanks()
+    {
+      return &MapBank;
     }
 
     ShaderMap * Content::AllShaders()

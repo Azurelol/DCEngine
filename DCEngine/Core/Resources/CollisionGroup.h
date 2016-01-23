@@ -20,10 +20,7 @@ namespace DCEngine {
   class CollisionGroup : public Resource {
   public:
 
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(CollisionGroup, Resource);
-    #endif
-
     CollisionGroup(std::string name);
     ~CollisionGroup() {}
     static std::string Extension() { return ".CollisionGroup"; }

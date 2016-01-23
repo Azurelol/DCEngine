@@ -174,6 +174,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Adds a bank resource to the Bank resource map.
+    @param The name of the bank.
+    @param The pointer to the bank resource.
+    */
+    /**************************************************************************/
+    void Content::AddBank(std::string & bankName, BankPtr bankPtr)
+    {
+      AddResourceToMap<BankPtr, BankMap>(bankName, bankPtr, MapBank);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Adds a level resource to the Level resource map.
     @param The name of the level.
     @param The pointer to the level resource.
@@ -330,6 +342,8 @@ namespace DCEngine {
         else if (extension == PhysicsMaterial::Extension())
           AddPhysicsMaterial(resourceName, PhysicsMaterialPtr(new PhysicsMaterial(resource)));
         else if (extension == ZilchScript::Extension())
+          AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
+        else if (extension == Bank::Extension())
           AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
       }
     }
