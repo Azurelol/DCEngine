@@ -33,8 +33,7 @@ namespace DCEngine {
       }
 
       //FMOD::Channel::
-      ErrorCheck(System.LowLevel->playSound(soundPtr, NULL, 0, channel));
-
+      return ErrorCheck(System.LowLevel->playSound(soundPtr, NULL, 0, channel));
     }
 
     /**************************************************************************/
@@ -53,6 +52,8 @@ namespace DCEngine {
 
       }
       //ErrorCheck(System->getEvent(eventDescription.c_str()));
+
+      return true;
     }
 
     /**************************************************************************/

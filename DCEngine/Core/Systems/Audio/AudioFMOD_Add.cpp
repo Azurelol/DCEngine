@@ -20,9 +20,9 @@ namespace DCEngine {
     necessary.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
+    bool AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateSound: " << soundFile << "\n";
-      ErrorCheck(System.LowLevel->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr));
+      return ErrorCheck(System.LowLevel->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr));
     }
 
     /**************************************************************************/
@@ -31,9 +31,9 @@ namespace DCEngine {
     bufferred segment on the fly during playback.
     */
     /**************************************************************************/
-    void AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
+    bool AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateStream \n";
-      ErrorCheck(System.LowLevel->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr));
+      return ErrorCheck(System.LowLevel->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr));
     }
 
     /**************************************************************************/
@@ -52,7 +52,6 @@ namespace DCEngine {
       ErrorCheck(System->loadBankFile(path.c_str(), FMOD_STUDIO_LOAD_BANK_NORMAL, &newBank));
       // Now that the bank is finished loading, load its sample data
       ErrorCheck(newBank->loadSampleData());
-
       // Add it to the container of active banks
       ActiveBanks.insert(std::pair<std::string, FMOD::Studio::Bank*>(handle, newBank));
 

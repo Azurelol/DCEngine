@@ -518,7 +518,7 @@
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
-    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h" />
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />

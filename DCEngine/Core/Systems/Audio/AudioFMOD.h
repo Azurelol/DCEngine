@@ -23,23 +23,12 @@
 #include <FMOD/fmod_errors.h>
 
 // Headers
-#include "FMODSystemPtr.h"
+#include "AudioFMOD_Utilities.h"
 #include "..\..\..\Core\Debug\Debug.h"
 
 namespace DCEngine {
   namespace Systems {
-
-    // @todo Perhaps use this instead?
-    struct AudioFMODSettings {
-      unsigned MaxChannels;
-      unsigned Volume;
-      unsigned Pitch;
-      bool Paused;
-      float Level;
-      bool Muted;
-
-    };
-
+    
     class AudioFMOD {   
 
     friend class Audio;
@@ -82,26 +71,22 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, Paused);
       DCE_DEFINE_PROPERTY(float, Level);
       DCE_DEFINE_PROPERTY(bool, Muted);
-      // Create
-      void CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
-      void CreateSound(std::string& eventDescrption);
-      void CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
-      void ReleaseSound(FMOD::Sound* soundPtr);        
-      // Channels
-      using FMODChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
-      FMODChannelMap Channels;
-      FMOD::Channel* CurrentChannel;
-      // Banks
-      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
-      using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;
+      // Containers
       BanksContainer ActiveBanks;
-      // Events
-      using EventInstanceMap = std::map<std::string, FMOD::Studio::EventInstance*>;
-      using EventDescriptionMap = std::map<std::string, FMOD::Studio::EventDescription*>;
       EventInstanceMap AvailableEvents;
       EventDescriptionMap AvailableEventDescriptions;
+      GroupMap Groups;
+      ChannelMap Channels;
+      // Create
+      bool CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
+      bool CreateSound(std::string& eventDescrption);
+      bool CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
       FMOD::Studio::EventInstance* CreateEventInstance() const;
+      // Loading
+      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
+      // Release
+      void ReleaseSound(FMOD::Sound* soundPtr);       
       // Accesors
       FMOD_RESULT getEvent(const char *path, FMOD::Studio::EventDescription **event) const;
       FMOD_RESULT getVCA(const char *path, FMOD::Studio::VCA **vca) const;
