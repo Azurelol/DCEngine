@@ -26,6 +26,9 @@ namespace DCEngine {
   /**************************************************************************/
   ActionsOwner::ActionsOwner(Entity & owner) : Owner(owner)
   {
+    if (!DCE_ACTIONS_ENABLED)
+      return;
+
     if (!ActionSpace::PropagateUpdateDirectly)
       Register();
   }
@@ -37,6 +40,9 @@ namespace DCEngine {
   /**************************************************************************/
   ActionsOwner::~ActionsOwner()
   {
+    if (!DCE_ACTIONS_ENABLED)
+      return;
+
     if (!ActionSpace::PropagateUpdateDirectly)
       Deregister();
   }
@@ -53,7 +59,7 @@ namespace DCEngine {
 
   void ActionsOwner::Deregister()
   {
-   // Daisy->Deregister(*this);
+    Daisy->Deregister(*this);
   }
 
   /**************************************************************************/

@@ -1,19 +1,16 @@
 /******************************************************************************/
 /*!
-@file   Collider.cpp
-@author Blaine Reiner, Christian Sagel
+@file   Graphical.cpp
+@author William Mao, Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   9/23/2015
-@brief  The BoxCollider component gives a physical representation of a bounding
-box in world space so objects can experience collisions with one
-another. This component interacts directly with the physics system.
-@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+@date   1/22/2016
+@brief  The Graphical component is the base class from which all graphical
+components derive frm.
+
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-#include "Collider.h"
-#include "PhysicsSpace.h"
-#include "EngineReference.h"
-#include "DebugDrawReference.h"
+#include "Graphical.h"
 
 namespace DCEngine {
   namespace Components {
@@ -25,13 +22,13 @@ namespace DCEngine {
     */
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDefineType(Collider, "Collider", DCEngineCore, builder, type) {
-      //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    ZilchDefineType(Graphical, "Graphical", DCEngineCore, builder, type) {
       //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Collider);
       DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
       // Constructor / Destructor
-      ZilchBindConstructor(builder, type, Collider, "owner, colliderClass", Entity&, std::string);
-      ZilchBindDestructor(builder, type, Collider);
+      ZilchBindConstructor(builder, type, Graphical, "graphicalComponent, owner", std::string, Entity&);
+      ZilchBindDestructor(builder, type, Graphical);
+      //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Graphical);
       // Properties
 
     }
@@ -39,31 +36,32 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief Collider constructor.
+    @brief Graphical constructor.
     @param owner A reference to the Entity that owns this component.
-    @param graphicalComponent The name of the derived collider component.
+    @param graphicalComponent The name of the derived graphical component.
     */
     /**************************************************************************/
-    Collider::Collider(Entity & owner, std::string colliderClass) : Component(colliderClass, owner)
+    Graphical::Graphical(std::string graphicalComponent, Entity & owner) : Component(graphicalComponent, owner)
     {
     }
 
     /**************************************************************************/
     /*!
-    @brief Collider destructor.
+    @brief Graphical destructor.
     */
     /**************************************************************************/
-    Collider::~Collider()
+    Graphical::~Graphical()
     {
     }
 
     /**************************************************************************/
     /*!
-    @brief Collider initializer.
+    @brief Graphical initializer
     */
     /**************************************************************************/
-    void Collider::Initialize()
+    void Graphical::Initialize()
     {
+
     }
 
   }

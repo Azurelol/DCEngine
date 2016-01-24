@@ -9,7 +9,7 @@
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
 
 namespace DCEngine {
     
@@ -20,14 +20,10 @@ namespace DCEngine {
   namespace Components {
     class Transform;
 
-    class SpriteText : public Component {
+    class SpriteText : public Graphical {
       friend class GraphicsGL;
     public:
-
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(SpriteText, Component);
-#endif
-
+      
       DCE_DEFINE_PROPERTY(Boolean, Visible);
       DCE_DEFINE_PROPERTY(Vec4, Color);
       DCE_DEFINE_PROPERTY(String, Font);
@@ -37,6 +33,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Boolean, Smoothing);
 			DCE_DEFINE_PROPERTY(Integer, WordWrap);
 
+      ZilchDeclareDerivedType(SpriteText, Graphical);
       SpriteText(Entity& owner);
       ~SpriteText();
       void Register();

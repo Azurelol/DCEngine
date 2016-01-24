@@ -2,7 +2,7 @@
 {
   "GameObject": 
   {
-    "Name": "Sprite", 
+    "Name": "Transform", 
     "Archetype": "", 
     "Components": 
     {
@@ -35,26 +35,6 @@
             "z": 1.000000
           }
         }
-      }, 
-      "Sprite": 
-      {
-        "Visible": true, 
-        "Color": 
-        {
-          "Vec4": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "SpriteSource": "square", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
       }
     }
   }

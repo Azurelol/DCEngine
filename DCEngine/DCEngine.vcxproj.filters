@@ -256,6 +256,9 @@
     <Filter Include="Core\Components\Graphics\Lightning">
       <UniqueIdentifier>{9d5b0c53-c57e-4881-bb88-a4cdc291a225}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\Graphics\Space">
+      <UniqueIdentifier>{9b473cfa-f1b6-44b9-8fe4-a88e0d128fb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -314,9 +317,6 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp">
       <Filter>Core\Object\Entity\Mouse</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
-      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SoundSpace.cpp">
       <Filter>Core\Components\Audio</Filter>
@@ -715,6 +715,16 @@
     <ClCompile Include="Core\Engine\ActionSet.cpp">
       <Filter>Core\Engine\Action</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
+    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
+      <Filter>Core\Components\Graphics\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Graphical.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Bank.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -803,9 +813,6 @@
     </ClInclude>
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Components\GraphicsSpace.h">
-      <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ComponentReference.h">
       <Filter>Core\Components</Filter>
@@ -1220,6 +1227,16 @@
     <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\LockField.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
+    <ClInclude Include="Core\Components\Graphical.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GraphicsSpace.h">
+      <Filter>Core\Components\Graphics\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Bank.h">
+      <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

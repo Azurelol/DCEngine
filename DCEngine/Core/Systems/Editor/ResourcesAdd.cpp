@@ -33,7 +33,7 @@ namespace DCEngine {
       case ResourceType::Level:
         CreateLevel(name);
         break;
-
+        
       case ResourceType::CollisionGroup:
         CreateCollisionGroup(name);
         break;
@@ -92,21 +92,21 @@ namespace DCEngine {
       }
       // Grab the absolute path of the asset file selected
       std::string assetPath;      
-      //auto a = boost::filesystem::path(assetPath). - boost::filesystem::initial_path();
-      // Convert to the path relative to the executable
-      //boost::filesystem::
-
-      // DCTrace << "Editor::ResourceAddFromFile - From asset: " << FileSystem::FileNoExtension(assetPath) << "\n";
-      
       // Create the resource from file
       switch (type) {
         
+      case ResourceType::Bank:
+        assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string(".bank"));
+        if (assetPath.empty())
+          return;
+        CreateBank(FileSystem::FileNoExtension(assetPath), assetPath);
+        break;
+
       case ResourceType::SpriteSource:
         assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("png,jpg"));
         if (assetPath.empty())
           return;
         CreateSpriteSource(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSpriteSource(name, assetPath);
         break;
 
       case ResourceType::SoundCue:
@@ -114,7 +114,6 @@ namespace DCEngine {
         if (assetPath.empty())
           return;
         CreateSoundCue(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSoundCue(name, assetPath);
         break;
 
       case ResourceType::Font:
@@ -122,7 +121,6 @@ namespace DCEngine {
         if (assetPath.empty())
           return;
         CreateFont(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSoundCue(name, assetPath);
         break;
 
       }
@@ -155,7 +153,17 @@ namespace DCEngine {
       return true;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Creates a Bank on the currently selected project.
+    @param  The name of the bank to create.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreateBank(std::string & name, std::string& assetPath)
+    {
+      return ResourcePtr();
 
+    }
 
     /**************************************************************************/
     /*!

@@ -36,7 +36,7 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Constructor for the LinearParticleAnimator.
     \**************************************************************************/
-    LinearParticleAnimator::LinearParticleAnimator(Entity & owner) : Component("LinearParticleAnimator", owner)
+    LinearParticleAnimator::LinearParticleAnimator(Entity & owner) : Graphical("LinearParticleAnimator", owner)
     {
 
     }

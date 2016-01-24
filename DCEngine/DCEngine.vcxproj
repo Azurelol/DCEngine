@@ -250,6 +250,7 @@
     <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\DebugActions.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
+    <ClCompile Include="Core\Components\Graphical.cpp" />
     <ClCompile Include="Core\Components\Light.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
@@ -310,6 +311,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Production|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\Resources\Archetype.cpp" />
+    <ClCompile Include="Core\Resources\Bank.cpp" />
     <ClCompile Include="Core\Resources\CollisionGroup.cpp" />
     <ClCompile Include="Core\Resources\CollisionTable.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
@@ -413,6 +415,7 @@
     <ClInclude Include="Core\Components\Collider.h" />
     <ClInclude Include="Core\Components\DebugActions.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
+    <ClInclude Include="Core\Components\Graphical.h" />
     <ClInclude Include="Core\Components\Light.h" />
     <ClInclude Include="Core\Components\TransformTool.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
@@ -492,6 +495,7 @@
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
+    <ClInclude Include="Core\Resources\Bank.h" />
     <ClInclude Include="Core\Resources\CollisionGroup.h" />
     <ClInclude Include="Core\Resources\CollisionTable.h" />
     <ClInclude Include="Core\Resources\Font.h" />

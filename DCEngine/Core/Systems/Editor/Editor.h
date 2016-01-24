@@ -179,6 +179,7 @@ namespace DCEngine {
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
       bool CreateLevel(std::string&);
+      ResourcePtr CreateBank(std::string& name, std::string& assetPath);
       ResourcePtr CreateCollisionGroup(std::string& name);
       ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreatePhysicsMaterial(std::string& name);

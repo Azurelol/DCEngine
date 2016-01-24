@@ -29,11 +29,10 @@ namespace DCEngine {
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Visible);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Color);
-
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Font);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyFont, attributeFont);
-
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, FontSize);
+      DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyFontSize);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Text);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, PixelsPerUnit);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Smoothing);
@@ -46,7 +45,7 @@ namespace DCEngine {
     @brief SpriteText constructor.
     */
     /**************************************************************************/
-    SpriteText::SpriteText(Entity & owner) : Component(std::string("SpriteText"), owner)
+    SpriteText::SpriteText(Entity & owner) : Graphical(std::string("SpriteText"), owner)
     {
       Register();
     }

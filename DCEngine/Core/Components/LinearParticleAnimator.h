@@ -9,14 +9,15 @@
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
+
 #include "../Resources/SpriteSource.h"
 
 namespace DCEngine {
   namespace Components
   {
     class SpriteParticleSystem;
-    class LinearParticleAnimator : public Component {
+    class LinearParticleAnimator : public Graphical {
     public:
       // Properties
       Vec3 Force;
@@ -30,7 +31,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, Growth);
       DCE_DEFINE_PROPERTY(Real, Dampening);
 
-      ZilchDeclareDerivedType(LinearParticleAnimator, Component);
+      ZilchDeclareDerivedType(LinearParticleAnimator, Graphical);
       LinearParticleAnimator(Entity& owner);
       void Initialize();
 

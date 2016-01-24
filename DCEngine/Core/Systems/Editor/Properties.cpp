@@ -64,10 +64,11 @@ namespace DCEngine {
       ////////////////////////////////
       char name[32]; strcpy(name, SelectedObject->Name().c_str());
       // If the user has given input, change the name
+      ImGui::PushItemWidth(ImGui::GetWindowWidth() / 4.0f);
       if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
         SelectedObject->setObjectName(name);
       }
-
+      ImGui::PopItemWidth();
       /////////////////////////////////////
       // 2. Display the entity's archetype
       /////////////////////////////////////
@@ -125,10 +126,7 @@ namespace DCEngine {
       // If the entity was modified or a componen was added, save the level
       if (modified || componentAdded)
         SaveCurrentLevel();
-
-
     }
-
 
     /**************************************************************************/
     /*!
@@ -377,7 +375,7 @@ namespace DCEngine {
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
           // If the user has given input, set the property
-          if (ImGui::InputFloat2("##propertyID", vec2f)) {
+          if (ImGui::InputFloat2("##propertyID", vec2f,2)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec2f));
@@ -394,13 +392,19 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++); 
-          if (ImGui::InputFloat3("##propertyID", vec3f)) {
+
+          static bool thisModified = false;
+          if (ImGui::InputFloat3("##propertyID", vec3f,2) ) {
             //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec3f));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID(); 
         }        
@@ -451,7 +455,7 @@ namespace DCEngine {
 
           // Components to skip
           bool skip = false;
-          std::vector<std::string> skippableComponents{ "Component", "Collider" };
+          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical" };
           //skippableComponents.push_back(std::string("ZilchComponet"));
           for (auto& name : skippableComponents) {
             auto componentName = std::string(component->Name.c_str());
@@ -476,6 +480,13 @@ namespace DCEngine {
 
         Scanned = true;
       }
+
+      // Sort the component names alphabetically
+      std::sort(componentNames.begin(), componentNames.end(), 
+                [](const char* lhs, const char* rhs) -> bool
+                {
+                  return *lhs < *rhs;
+                });
 
       int currentComponent = 0;
       ImGui::Separator();

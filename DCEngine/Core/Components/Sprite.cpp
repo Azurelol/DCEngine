@@ -19,9 +19,7 @@ namespace DCEngine {
   {
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
-
-    //DependenciesContainer Sprite::Dependencies{ "Transform " };
-
+    
     /**************************************************************************/
     /*!
     @brief Provides the definition of this class to Zilch.
@@ -30,13 +28,10 @@ namespace DCEngine {
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
-      //DCE_BINDING_DEFINE_ATTRIBUTE(SpriteSource);
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteSource);
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
       // Properties
-      //ZilchBindProperty(builder, type, &Sprite::getVisible, &Sprite::setVisible, "Visible");
-      //ZilchBindProperty(builder, type, &Sprite::getColor, &Sprite::setColor, "Color");
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Visible);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Color);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, SpriteSource);
@@ -45,15 +40,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sprite, FlipY);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationActive);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationSpeed);
-      //ZilchBindProperty(builder, type, &Sprite::getFlipX, &Sprite::setFlipX, "FlipX");
-      //ZilchBindProperty(builder, type, &Sprite::getFlipY, &Sprite::setFlipY, "FlipY");
-      //ZilchBindProperty(builder, type, &Sprite::getAnimationActive, &Sprite::setAnimationActive, "AnimationActive");
-      //ZilchBindProperty(builder, type, &Sprite::getAnimationSpeed, &Sprite::setAnimationSpeed, "AnimationSpeed");
 			DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
       DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
     }
     #endif
-
 
     /**************************************************************************/
     /*!
@@ -68,7 +58,7 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Component(std::string("Sprite"), owner), DrawLayer(0) {
+    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
       Register();
