@@ -16,13 +16,13 @@
 
 class FMODSystemPtr {
 public:
-  FMOD::Studio::System* Handle;
-  FMOD::System* ptr;
-  FMODSystemPtr() : Handle(nullptr)
+  FMOD::Studio::System* Studio;
+  FMOD::System* LowLevel;
+  FMODSystemPtr() : Studio(nullptr)
   {
     // Create the low level API system
-    if (FMOD::System_Create(&ptr) != FMOD_OK) {
-      ptr = nullptr;
+    if (FMOD::System_Create(&LowLevel) != FMOD_OK) {
+      LowLevel = nullptr;
       //throw something;
     }
     // Create the Studio API system
@@ -35,10 +35,10 @@ public:
   FMODSystemPtr(const FMODSystemPtr&) = delete;
   FMODSystemPtr& operator=(const FMODSystemPtr&) = delete;
   FMOD::Studio::System* operator->() {
-    return Handle;
+    return Studio;
   }
   ~FMODSystemPtr() {
-    auto result = ptr->release();    
-    Handle->release();
+    auto result = LowLevel->release();
+    Studio->release();
   }
 }; 

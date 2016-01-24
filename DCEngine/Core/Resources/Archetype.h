@@ -23,7 +23,7 @@ namespace DCEngine {
     Archetype(std::string archetypeFile, std::string serializedData);
     ~Archetype();
     static std::string Extension() { return ".Archetype"; }
-    void Save(std::string& serializedData);
+    void Save();
     bool Load();
     const std::string& Get();
 

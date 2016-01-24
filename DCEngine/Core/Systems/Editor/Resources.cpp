@@ -37,7 +37,7 @@ namespace DCEngine {
         static ResourceType type = ResourceType::None;
         if (ImGui::Selectable("Bank")) {
           type = ResourceType::Bank;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewBank");
         }
         if (ImGui::Selectable("CollisionGroup")) {
           type = ResourceType::CollisionGroup;
@@ -49,7 +49,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("Font")) {
           type = ResourceType::Font;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewFont");
         }
         if (ImGui::Selectable("Level")) {
           type = ResourceType::Level;
@@ -65,7 +65,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("SoundCue")) {
           type = ResourceType::SoundCue;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewSoundCue");
         }
         if (ImGui::Selectable("SpriteLayer")) {
           type = ResourceType::SpriteLayer;
@@ -77,7 +77,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("SpriteSource")) {
           type = ResourceType::SpriteSource;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewSpriteSource");
         }
         if (ImGui::Selectable("SpriteLayer")) {
           type = ResourceType::SpriteLayer;

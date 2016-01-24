@@ -95,6 +95,9 @@ namespace DCEngine {
       // Get the current project's settings
       ProjectDataPtr& ProjectSettings();
 
+      // Maybe.. add the others too.
+      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
+
     private:
       
       // Data
@@ -130,7 +133,6 @@ namespace DCEngine {
       void AddArchetype(std::string& archetypeName, ArchetypePtr archetypePtr);
       void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
       void AddSpriteSource(std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
-      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
       void AddBank(std::string& bankName, BankPtr bankPtr);
       void AddLevel(std::string& levelName, LevelPtr levelPtr);
       void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);

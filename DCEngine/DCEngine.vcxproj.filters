@@ -725,6 +725,15 @@
     <ClCompile Include="Core\Resources\Bank.cpp">
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

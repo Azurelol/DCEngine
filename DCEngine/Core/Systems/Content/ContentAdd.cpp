@@ -330,7 +330,7 @@ namespace DCEngine {
         else if (extension == Font::Extension())
           AddFont(resourceName, FontPtr(new Font(resource)));
         else if (extension == SoundCue::Extension())
-          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource)));
+          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource, SoundCue::WhatType::File)));
         else if (extension == Level::Extension())
           AddLevel(resourceName, LevelPtr(new Level(resource)));        
         else if (extension == Archetype::Extension())
@@ -344,7 +344,7 @@ namespace DCEngine {
         else if (extension == ZilchScript::Extension())
           AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
         else if (extension == Bank::Extension())
-          AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
+          AddBank(resourceName, BankPtr(new Bank(resource)));
       }
     }
 
@@ -481,7 +481,7 @@ namespace DCEngine {
       }
       for (auto sound : soundCues) {
         auto soundName = FileSystem::FileNoExtension(sound);
-        auto soundCue = SoundCuePtr(new SoundCue(sound));
+        auto soundCue = SoundCuePtr(new SoundCue(sound, SoundCue::WhatType::File));
         soundCue->setAssetPath(sound);
         AddSoundCue(soundName, soundCue);
       }

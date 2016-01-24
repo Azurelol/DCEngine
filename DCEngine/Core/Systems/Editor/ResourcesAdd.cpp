@@ -96,7 +96,7 @@ namespace DCEngine {
       switch (type) {
         
       case ResourceType::Bank:
-        assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string(".bank"));
+        assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("bank"));
         if (assetPath.empty())
           return;
         CreateBank(FileSystem::FileNoExtension(assetPath), assetPath);
@@ -161,7 +161,18 @@ namespace DCEngine {
     /**************************************************************************/
     ResourcePtr Editor::CreateBank(std::string & name, std::string& assetPath)
     {
-      return ResourcePtr();
+      DCTrace << "Editor::CreateBank - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                                                    + name + Bank::Extension();
+      auto resource = BankPtr(new Bank(path));
+      // Save its asset path
+      resource->setAssetPath(assetPath);
+      Daisy->getSystem<Content>()->AddBank(name, resource);
+      // Serialize it and save it to file
+      resource->Build();
+      // Load its textures immediately
+      resource->Generate();
+      return resource.get();
 
     }
 
@@ -266,15 +277,15 @@ namespace DCEngine {
       DCTrace << "Editor::CreateSoundCue - Created '" << name << "' with asset: '" << assetPath << "' \n";
       // Create a SoundCue object
       auto soundCuePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SoundCue::Extension();
-      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath));
+      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath, SoundCue::WhatType::File));
       // Store the path of its asset
       soundCue->setAssetPath(assetPath);
       // Serialize it and save it to file
       auto data = soundCue->Build();
       // Add it to the content system
       Daisy->getSystem<Content>()->AddSoundCue(name, soundCue);
-      // Load its textures immediately
-      soundCue->GenerateSound();
+      // Generate the SoundCue immediately
+      soundCue->Generate();
 
       return soundCue.get();
     }
