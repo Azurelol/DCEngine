@@ -94,7 +94,7 @@ namespace DCEngine {
     @param  bankFile The name of the bank file.
     */
     /**************************************************************************/
-    void Audio::Add(std::string & bankFile, Bank::Data& data)
+    void Audio::Add(std::string & bankFile, Bank::BankData& data)
     {
       // Adds the bank to the FMOD Studio system
       data.Handle = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);

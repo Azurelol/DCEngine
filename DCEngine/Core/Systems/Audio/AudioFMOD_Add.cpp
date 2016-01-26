@@ -38,6 +38,26 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Creates an event instance from an event description and adds it
+            to the container of instantiated events.
+    @param  event The name of the event to instantiate.
+    */
+    /**************************************************************************/
+    FMOD::Studio::EventInstance * AudioFMOD::AddEventInstance(FMOD::Studio::EventDescription* event) const
+    {
+      DCTrace << "AudioFMOD::AddEventInstance: \n";
+      FMOD::Studio::EventInstance* eventInstance;
+      event->createInstance(&eventInstance);
+      
+      // Get the name of the event?
+      FMOD_GUID* id;
+      event->getID(id);
+
+      return eventInstance;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Adds a bank to the FMOD Studio system.
     @param  handle The handle to be used to access the bank.
     @param  path The filepath where the bank is located.
@@ -57,6 +77,33 @@ namespace DCEngine {
 
       return newBank;
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads all event descriptions from a bank, loading them onto memory
+            and adding their identifiers to the common map.
+    @param  bank A pointer to the bank.
+    */
+    /**************************************************************************/
+    void AudioFMOD::LoadEventDescriptions(FMOD::Studio::Bank * bank)
+    {
+      DCTrace << "AudioFMOD::LoadEventDescriptions - Loading event descriptions \n";
+
+      int eventCount = 0;
+      if (!bank->getEventCount(&eventCount)) {
+        DCTrace << "AudioFMOD::LoadEventDescriptions: No events found!\n";
+        return;
+      }
+
+      int eventsReturned = 0;
+      FMOD::Studio::EventDescription ** eventList = (FMOD::Studio::EventDescription **)malloc(eventCount * sizeof(void *));
+      if (!bank->getEventList(eventList, eventCount, &eventsReturned)) {
+        DCTrace << "AudioFMOD::LoadEventDescriptions: No events retrieved!\n";
+        return;
+      }
+
+    }      
+
 
   }
 }

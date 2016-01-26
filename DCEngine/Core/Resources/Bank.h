@@ -31,14 +31,14 @@ namespace DCEngine {
     static std::string Extension() { return ".Bank"; }
     static BankPtr Find(std::string);
 
-    struct Data {
+    struct BankData {
       FMOD::Studio::Bank* Handle;
       FMOD::Studio::Bank* operator->() { return Handle; }
     };
 
   private:
     std::string AssetPath;
-    Data mData;
+    BankData Data;
 
   };
 

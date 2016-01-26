@@ -24,6 +24,9 @@ namespace DCEngine {
     using ChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
     using GroupMap = std::map<std::string, FMOD::ChannelGroup*>;
 
+    // Aliases
+    using EventDescriptionHandle = std::string;
+
     // Settings 
     struct AudioFMODSettings {
       unsigned MaxChannels;

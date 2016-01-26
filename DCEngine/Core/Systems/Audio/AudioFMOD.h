@@ -38,10 +38,16 @@ namespace DCEngine {
 
       // Playback
       bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool bLoop = false);
-      bool PlaySound(std::string& eventDescription);
+      bool PlaySound(EventDescriptionHandle& eventHandle);
       void ResumeSound(FMOD::Channel* channel);
+      void ResumeSound(EventDescriptionHandle& eventHandle);
       void PauseSound(FMOD::Channel* channel);
+      void PauseSound(EventDescriptionHandle& eventHandle);
       void StopSound(FMOD::Channel* channel);
+      void StopSound(EventDescriptionHandle& eventHandle);
+      void StopAll();
+      void SetVolume(FMOD::Channel* soundPtr, float volume);
+      void SetVolume(EventDescriptionHandle& eventHandle, float volume);     
 
       // Accesors
       FMOD::Studio::Bank* getBank(std::string handle);
@@ -67,16 +73,11 @@ namespace DCEngine {
       bool Paused;
       float Level;
       bool Muted;
-      DCE_DEFINE_PROPERTY(unsigned, Volume);
-      DCE_DEFINE_PROPERTY(unsigned, Pitch);
-      DCE_DEFINE_PROPERTY(bool, Paused);
-      DCE_DEFINE_PROPERTY(float, Level);
-      DCE_DEFINE_PROPERTY(bool, Muted);
 
       // Containers
       BanksContainer ActiveBanks;
-      EventInstanceMap AvailableEvents;
-      EventDescriptionMap AvailableEventDescriptions;
+      EventInstanceMap InstantiatedEvents;
+      EventDescriptionMap AvailableEvents;
       GroupMap Groups;
       ChannelMap Channels;
 
@@ -85,10 +86,12 @@ namespace DCEngine {
       bool CreateSound(std::string& eventDescrption);
       bool CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
-      FMOD::Studio::EventInstance* CreateEventInstance() const;
+      FMOD::Studio::EventInstance* AddEventInstance(FMOD::Studio::EventDescription* event) const;
 
       // Loading
-      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
+      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);      
+      void Unload(FMOD::Studio::Bank* bank);
+      void LoadEventDescriptions(FMOD::Studio::Bank* bank);
 
       // Release
       void ReleaseSound(FMOD::Sound* soundPtr);       

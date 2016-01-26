@@ -45,15 +45,24 @@ namespace DCEngine {
     bool AudioFMOD::PlaySound(std::string & eventName)
     {
       // If the event has already been instantiated, use it.
-      if (AvailableEvents.count(eventName)) {
+      if (InstantiatedEvents.count(eventName)) {
+        InstantiatedEvents.at(eventName)->start();        
+        // Maybe release...
+        return true;
       }
+
       // Otherwise, create an instance of it.
       else {
-
+        if (AvailableEvents.count(eventName)) {
+          auto eventInstance = AddEventInstance(AvailableEvents.at(eventName));
+          eventInstance->start();
+          return true;
+        }
       }
-      //ErrorCheck(System->getEvent(eventDescription.c_str()));
 
-      return true;
+      // Event could not be found
+      DCTrace << "AudioFMOD::PlaySound: '" << eventName << "' could not be found!\n";
+      return false;
     }
 
     /**************************************************************************/
@@ -78,13 +87,35 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Stops a sound from playing through FMOD.
+    \brief  Stops a sound from playing through FMOD Low Level.
     */
     /**************************************************************************/
     void AudioFMOD::StopSound(FMOD::Channel* channel)
     {
       ErrorCheck(channel->stop());
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Stops a sound from playing through FMOD Studio.
+    */
+    /**************************************************************************/
+    void AudioFMOD::StopSound(EventDescriptionHandle & eventName)
+    {
+      DCTrace << "AudioFMOD::StopSound (Event) \n";
+
+      // If the event has already been instantiated, use it.
+      if (InstantiatedEvents.count(eventName)) {
+        // Get an iterator to the event in the map
+        InstantiatedEvents.at(eventName)->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);
+
+        //auto eventIter = InstantiatedEvents.find(eventName);
+        //eventIter->second->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);
+        // Maybe release...        
+      }
+
+    }
+
     /**************************************************************************/
     /*!
     \brief  Releases a sound from FMOD.
