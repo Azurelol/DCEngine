@@ -46,7 +46,7 @@ namespace DCEngine {
     void AudioFMOD::Initialize() {
 
       // Initialize the low level API
-      InitializeLowLevelAPI();
+      //InitializeLowLevelAPI();
       // Initialize the Studio API
       InitializeStudioAPI();
     }
@@ -94,8 +94,10 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::InitializeStudioAPI()
     {
-      // Create the sound system
+      // Create the FMOD Studio sound system
       ErrorCheck(System->create(&System.Studio));
+      // Set FMOD low level studio pointer
+      ErrorCheck(System->getLowLevelSystem(&System.LowLevel));
       // Initialize it
       ErrorCheck(System->initialize(MaxChannels, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr));
     }
