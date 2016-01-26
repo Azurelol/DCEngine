@@ -15,6 +15,10 @@ namespace DCEngine {
 
   namespace Components
   {
+		GLuint SpriteParticleSystem::mTransformInstanceVBO;
+		GLuint SpriteParticleSystem::mVAO;
+		GLuint SpriteParticleSystem::mColorInstanceVBO;
+		ShaderPtr SpriteParticleSystem::mShader;
     /**************************************************************************/
     /*!
     @brief Provides the definition of this class to Zilch.
@@ -47,9 +51,14 @@ namespace DCEngine {
     {
 			TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
 			// Register
-			SpaceRef->getComponent<Components::GraphicsSpace>()->AddParticleSystem(*this);
+			SpaceRef->getComponent<Components::GraphicsSpace>()->RegisterGraphicsComponent(this);
 			srand(time(NULL));
     }
+
+		SpriteParticleSystem::~SpriteParticleSystem(void)
+		{
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveGraphicsComponent(this);
+		}
 
     /*!************************************************************************\
     @brief  Initializes the SpriteParticleSystem.
@@ -69,6 +78,58 @@ namespace DCEngine {
 			mLinearAnimator = Owner()->getComponent<Components::LinearParticleAnimator>();
     }
 
+
+		void SpriteParticleSystem::Draw(Camera& camera)
+		{
+			mShader->Use();
+			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			mShader->SetMatrix4("view", camera.GetViewMatrix());
+
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			auto transform = TransformComponent;
+
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
+
+			//.Update(dt);
+			std::vector<glm::vec2> offset(GetPositionData());
+			std::vector<float> scale(GetScaleData());
+			std::vector<float> rotation(GetRotationData());
+			std::vector<glm::vec4> color(GetColorData());
+			std::vector<glm::mat4> transformData;
+			for (unsigned i = 0; i < GetParticleCount(); ++i)
+			{
+				glm::mat4 modelMatrix;
+				modelMatrix = glm::translate(modelMatrix, glm::vec3(
+					transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
+					transform->Translation.z));
+				modelMatrix = glm::rotate(modelMatrix, rotation[i], glm::vec3(0, 0, 1));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(
+					scale[i], scale[i], 0.0f));
+				transformData.push_back(modelMatrix);
+			}
+
+			if (Visible)
+			{
+				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::vec4) * GetParticleCount(), color.data());
+				glBindBuffer(GL_ARRAY_BUFFER, mTransformInstanceVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0,
+					sizeof(glm::mat4) * GetParticleCount(), transformData.data());
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+				glBindVertexArray(mVAO);
+				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
+				glBindVertexArray(0);
+			}
+		}
+
 		SpriteParticleSystem::Particle::Particle(double lifetime,
 			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
 			ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
@@ -78,15 +139,6 @@ namespace DCEngine {
 		{
 		}
 
-		//SpriteParticleSystem::Particle& SpriteParticleSystem::Particle::operator=(const Particle& rhs)
-		//{
-		//	mLifeleft = rhs.mLifetime;
-		//	mPosition = rhs.mPosition;
-		//	mScale = rhs.mScale;
-		//	mRotation = rhs.mRotation;
-		//	mColor = rhs.mColor;
-		//	return *this;
-		//}
 		void SpriteParticleSystem::Particle::Update(double dt)
 		{
 			mLifeleft -= dt;
@@ -96,16 +148,18 @@ namespace DCEngine {
 			mVelocity.x += mAcceleration.x * dt;
 			mVelocity.y += mAcceleration.y * dt;
 
-			mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
-			mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
+			if (mLinearAnimator)
+			{
+				mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
+				mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
 
-			mPosition.x += mVelocity.x * dt - (mAcceleration.x * dt * dt) / 2;
-			mPosition.y += mVelocity.y * dt - (mAcceleration.y * dt * dt) / 2;
+				mPosition.x += mVelocity.x * dt - (mAcceleration.x * dt * dt) / 2;
+				mPosition.y += mVelocity.y * dt - (mAcceleration.y * dt * dt) / 2;
 
-			mScale += mLinearAnimator->Growth * dt;
-			mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
-			mRotationRate += mLinearAnimator->Torque * dt;
-
+				mScale += mLinearAnimator->Growth * dt;
+				mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
+				mRotationRate += mLinearAnimator->Torque * dt;
+			}
 			if (mColorAnimator)
 			{
 				double percentLifeLeft = (mLifeleft / mLifetime) * 100;
@@ -172,51 +226,52 @@ namespace DCEngine {
 			return mColor;
 		}
 
-		void SpriteParticleSystem::UpdateParticles(double dt)
+		void SpriteParticleSystem::Update(double dt)
 		{
-			if (mActiveFlag)
+			if (mParticleEmitter)
 			{
-				if (mParticleEmitter->Active == false)
+				if (mActiveFlag)
 				{
-					mEmitCounter = 0;
-					mParticleEmissionTimer == 0;
-					mActiveFlag = false;
-				}
-				mParticleEmissionTimer -= dt;
-
-				if (mParticleEmitter->EmitRate > 0)
-				{
-					if (mParticleEmissionTimer <= 0)
+					if (mParticleEmitter->Active == false)
 					{
-						mParticleEmissionTimer += 1.f / float(mParticleEmitter->EmitRate);
-						if (mParticleEmitter->EmitCount > 0)
+						mEmitCounter = 0;
+						mParticleEmissionTimer == 0;
+						mActiveFlag = false;
+					}
+					mParticleEmissionTimer -= dt;
+
+					if (mParticleEmitter->EmitRate > 0)
+					{
+						if (mParticleEmissionTimer <= 0)
 						{
-							if (mParticleEmitter->EmitCount > mEmitCounter)
+							mParticleEmissionTimer += 1.f / float(mParticleEmitter->EmitRate);
+							if (mParticleEmitter->EmitCount > 0)
 							{
-								AddParticle();
-								++mEmitCounter;
+								if (mParticleEmitter->EmitCount > mEmitCounter)
+								{
+									AddParticle();
+									++mEmitCounter;
+								}
 							}
+							else
+								AddParticle();
 						}
-						else
-							AddParticle();
 					}
 				}
-			}
-			else
-			{
-				if (mParticleEmitter->Active)
+				else
 				{
-					mActiveFlag = true;
+					if (mParticleEmitter->Active)
+					{
+						mActiveFlag = true;
+					}
 				}
+				for (auto&& particle : mParticleList)
+				{
+					particle.Update(dt);
+				}
+				mParticleList.erase(std::remove_if(mParticleList.begin(), mParticleList.end(),
+					[](const Particle& p) { return p.GetLifeleft() <= 0; }), mParticleList.end());
 			}
-			for (auto&& particle : mParticleList)
-			{
-				particle.Update(dt);
-			}
-			mParticleList.erase(std::remove_if(mParticleList.begin(), mParticleList.end(),
-				[](const Particle& p) { return p.GetLifeleft() <= 0; }), mParticleList.end());
-			std::sort(mParticleList.begin(), mParticleList.end(),
-				[](const Particle& p1, const Particle& p2) { return p1.GetLifeleft() > p2.GetLifeleft(); });
 		}
 
 		void SpriteParticleSystem::AddParticle(void)

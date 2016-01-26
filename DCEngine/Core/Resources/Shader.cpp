@@ -103,10 +103,6 @@ namespace DCEngine {
     // Delete the shaders as they're now linked into the program and no longer necessary
     glDeleteShader(vertex);
     glDeleteShader(fragment);
-
-
-
-
   }
 
   /**************************************************************************/

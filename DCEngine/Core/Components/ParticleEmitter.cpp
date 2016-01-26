@@ -51,8 +51,12 @@ namespace DCEngine {
     \**************************************************************************/
     ParticleEmitter::ParticleEmitter(Entity & owner) : Graphical("ParticleEmitter", owner)
     {
-
+			Initialize();
     }
+
+		ParticleEmitter::~ParticleEmitter(void)
+		{
+		}
 
     /*!************************************************************************\
     @brief  Initializes the ParticleEmitter.
@@ -61,6 +65,7 @@ namespace DCEngine {
     {
       // Store the reference to the object's particle system component
       ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
+			ParticleSystem->mParticleEmitter = this;
     }
   }
 

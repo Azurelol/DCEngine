@@ -11,6 +11,8 @@
 /******************************************************************************/
 
 #include "GraphicsGL.h"
+#include "../../Components/Sprite.h"
+#include "../../Components/SpriteText.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -44,13 +46,12 @@ namespace DCEngine {
         1.0f, -1.0f,      1.0f, 0.0f
       };
 
-			const unsigned MAX_PARTICLES = 10000;
-
       /*
       Next, we simply send the vertices to the GPU and configure the vertex attributes,
       which in this case is a single vertex attribute.
       */
       glGenVertexArrays(1, &SpriteVAO);
+			Components::Sprite::mVAO = SpriteVAO;
       glGenBuffers(1, &VBO);
 
       glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -78,6 +79,8 @@ namespace DCEngine {
     {
       glGenVertexArrays(1, &SpriteTextVAO);
       glGenBuffers(1, &SpriteTextVBO);
+			Components::SpriteText::mVAO = SpriteTextVAO;
+			Components::SpriteText::mVBO = SpriteTextVBO;
       glBindVertexArray(SpriteTextVAO);
       glBindBuffer(GL_ARRAY_BUFFER, SpriteTextVBO);
       glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
@@ -110,6 +113,10 @@ namespace DCEngine {
 			glGenBuffers(1, &ParticleVBO);
 			glGenBuffers(1, &ParticleColorInstanceVBO);
 			glGenBuffers(1, &ParticleTransformInstanceVBO);
+			Components::SpriteParticleSystem::mVAO = ParticleVAO;
+			Components::SpriteParticleSystem::mColorInstanceVBO = ParticleColorInstanceVBO;
+			Components::SpriteParticleSystem::mTransformInstanceVBO = ParticleTransformInstanceVBO;
+
 
 			glBindBuffer(GL_ARRAY_BUFFER, ParticleVBO);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STREAM_DRAW);

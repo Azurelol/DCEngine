@@ -14,6 +14,8 @@
 
 namespace DCEngine {
   namespace Components {
+		ShaderPtr SpriteText::mShader;
+		GLuint SpriteText::mVAO, SpriteText::mVBO;
 
     /**************************************************************************/
     /*!
@@ -58,7 +60,7 @@ namespace DCEngine {
     SpriteText::~SpriteText()
     {
       // Deregister this component from the GraphicsSpace
-      SpaceRef->getComponent<GraphicsSpace>()->RemoveSpriteText(*this);
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveGraphicsComponent(this);
     }
 
     /**************************************************************************/
@@ -71,12 +73,120 @@ namespace DCEngine {
       // Store the reference to this owner's Transform component
       TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       // Subscribe this component to the graphics space
-      SpaceRef->getComponent<Components::GraphicsSpace>()->AddSpriteText(*this);
+			SpaceRef->getComponent<Components::GraphicsSpace>()->RegisterGraphicsComponent(this);
     }
 
     void SpriteText::Initialize()
     {
     }
+
+		void SpriteText::Update(double dt)
+		{
+		}
+
+		static void StringWrap(std::string& string, unsigned lineSize)
+		{
+			if (lineSize == 0)
+				return;
+			for (unsigned index = lineSize; index < string.length(); index += lineSize)
+			{
+				unsigned tempIndex = index;
+				while (string[tempIndex] != ' ')
+				{
+					tempIndex--;
+					if (tempIndex <= index - lineSize)
+						return;
+				}
+				index = tempIndex;
+				string.at(index) = '\n';
+			}
+		}
+
+		void SpriteText::Draw(Camera& camera)
+		{
+			//set shader uniforms
+			mShader->Use();
+			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			mShader->SetMatrix4("view", camera.GetProjectionMatrix());
+			// Enable alpha blending for opacity.
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			// Activate the SpriteText shader
+			//this->SpriteTextShader->Use();
+			mShader->SetVector4f("textColor", getColor());
+			glActiveTexture(GL_TEXTURE0);
+			//if (Debug::CheckOpenGLError())
+			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+			glBindVertexArray(mVAO);
+			//if (Debug::CheckOpenGLError())
+			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
+
+			// Retrieve the Font resource from the content system
+			auto fontName = getFont();
+			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
+
+			// (!) This is used to advance cursors
+			GLfloat x = 0;//static_cast<GLfloat>(TransformComponent->Translation.x);
+			GLfloat y = 0;
+
+			auto transform = TransformComponent;
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
+			mShader->SetMatrix4("model", modelMatrix);
+			// Iterate through all the characters
+			std::string::const_iterator c;
+			unsigned charCount = 0;
+			std::string text = getText();
+			StringWrap(text, getWordWrap());
+			for (c = text.begin(); c != text.end(); ++c)
+			{
+				if (*c == '\n')
+				{
+					x = 0;
+					y -= 45 * getFontSize() / 12;
+					continue;
+				}
+				// Access a character glyph from the characters map
+				Character ch = font->Characters[*c];
+
+				// Calculate the origin position of the quad 
+				GLfloat xPos = x + ch.Bearing.x;
+				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y);
+				// Calculate the quad's size
+				GLfloat w = ch.Size.x * getFontSize() / 12;
+				GLfloat h = ch.Size.y * getFontSize() / 12;
+				// Generate a set of 6 vertices to form the 2D quad
+				GLfloat vertices[6][4] = {
+					{ xPos    , yPos + h, 0.0, 0.0 },
+					{ xPos    , yPos    , 0.0, 1.0 },
+					{ xPos + w, yPos    , 1.0, 1.0 },
+
+					{ xPos    , yPos + h, 0.0, 0.0 },
+					{ xPos + w, yPos    , 1.0, 1.0 },
+					{ xPos + w, yPos + h, 1.0, 0.0 },
+				};
+
+				// Update glyph texture over quad
+				glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
+
+				// Update content of VBO memory
+				glBindBuffer(GL_ARRAY_BUFFER, mVBO);
+				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
+				// Update quad
+				glDrawArrays(GL_TRIANGLES, 0, 6);
+				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
+				x += float(ch.Advance) * getFontSize() / 12 / 64;
+
+			}
+			// Unbind
+			glBindVertexArray(0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 
   }
 

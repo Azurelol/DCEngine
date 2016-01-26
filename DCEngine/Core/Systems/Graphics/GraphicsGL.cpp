@@ -59,18 +59,18 @@ namespace DCEngine {
 			// Grab a reference to the Sprite shader
 			SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
 			SpriteShader->Compile();
-			// Configure the Sprite shader VAO
+			Components::Sprite::mShader = SpriteShader;
 			ConfigureSpriteVAO();
 			// Construct the SpriteText shader
 			SpriteTextShader = Daisy->getSystem<Content>()->getShader(std::string("SpriteTextShader"));
 			SpriteTextShader->Compile();
+			Components::SpriteText::mShader = SpriteTextShader;
+			ConfigureSpriteTextVAO();
 			// Construct the ParticleSystem shader
 			ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
 			ParticleSystemShader->Compile();
+			Components::SpriteParticleSystem::mShader = ParticleSystemShader;
 			ConfigureParticleBuffers();
-			// Configure the SpriteText shader VAO
-			ConfigureSpriteTextVAO();
-
 			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
 		}
 
@@ -106,10 +106,13 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::StartFrame() {
 			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
 			glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 			//glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			if (Debug::CheckOpenGLError())
+				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 		}
 
 		/**************************************************************************/

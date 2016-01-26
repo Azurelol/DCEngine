@@ -38,8 +38,12 @@ namespace DCEngine {
     \**************************************************************************/
     LinearParticleAnimator::LinearParticleAnimator(Entity & owner) : Graphical("LinearParticleAnimator", owner)
     {
-
+			Initialize();
     }
+
+		LinearParticleAnimator::~LinearParticleAnimator(void)
+		{
+		}
 
     /*!************************************************************************\
     @brief  Initializes the LinearParticleAnimator.
@@ -48,6 +52,7 @@ namespace DCEngine {
     {
       // Store the reference to the object's particle system component
       ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
+			ParticleSystem->mLinearAnimator = this;
     }
   }
 

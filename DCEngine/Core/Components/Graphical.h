@@ -12,6 +12,7 @@
 /******************************************************************************/
 #pragma once
 #include "ComponentReference.h"
+#include "Camera.h"
 
 namespace DCEngine {
   namespace Components {
@@ -19,12 +20,18 @@ namespace DCEngine {
     class Graphical : public Component {
 
       // Properties
-
-
+		public:
+			
       ZilchDeclareDerivedType(Graphical, Component);
       Graphical(std::string graphicalComponent, Entity& owner);
-      ~Graphical();
+      virtual ~Graphical();
       virtual void Initialize();
+			virtual void Update(double dt) {}
+			virtual void Draw(Camera&) {}
+
+			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
+		private:
+			unsigned DrawLayer;
 
     };
 

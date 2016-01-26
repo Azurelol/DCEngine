@@ -80,36 +80,55 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
-				GraphicsHandler->SetParticleSystemShader(*camera);
+				//GraphicsHandler->SetParticleSystemShader(*camera);
 				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
 				//{
-				//	particleSystem->Initialize();
 				//	DrawParticles(*particleSystem, *camera, dt);
 				//}
 
 				//draw sprite text
-				GraphicsHandler->SetSpriteTextShader(*camera);
-				for (auto spriteText : gfxSpace->getSpriteTextContainer())
-				{
-					DrawSpriteText(*spriteText, *camera);
-				}
+				//GraphicsHandler->SetSpriteTextShader(*camera);
+				//for (auto spriteText : gfxSpace->getSpriteTextContainer())
+				//{
+				//	DrawSpriteText(*spriteText, *camera);
+				//}
 
 				// draw sprites
-				GraphicsHandler->SetSpriteShader(*camera);
-
-				for (auto gameObj : gfxSpace->getSprites()) {
-					++TotalObjNumG;
-					mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
-				}
-
-				for(auto&& drawList : mDrawList)
+				//GraphicsHandler->SetSpriteShader(*camera);
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+				for (auto graphicalComponent : graphicalComponents)
 				{
-					for (Components::Sprite* sprite : drawList)
+					++TotalObjNumG;
+					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+				}
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+
+				for (auto&& drawList : mDrawList)
+				{
+					for (auto&& obj : drawList)
 					{
-						DrawSprite(*sprite, *camera, dt);
+						obj->Update(dt);
+						obj->Draw(*camera);
 					}
 					drawList.clear();
 				}
+
+				//for (auto gameObj : gfxSpace->getSprites()) {
+				//	++TotalObjNumG;
+				//	mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
+				//}
+
+				//for(auto&& drawList : mDrawList)
+				//{
+				//	for (Components::Sprite* sprite : drawList)
+				//	{
+				//		DrawSprite(*sprite, *camera, dt);
+				//	}
+				//	drawList.clear();
+				//}
 
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 			}

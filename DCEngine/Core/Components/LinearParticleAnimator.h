@@ -33,6 +33,7 @@ namespace DCEngine {
 
       ZilchDeclareDerivedType(LinearParticleAnimator, Graphical);
       LinearParticleAnimator(Entity& owner);
+			virtual ~LinearParticleAnimator(void);
       void Initialize();
 
     private:
