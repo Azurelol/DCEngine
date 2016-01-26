@@ -57,6 +57,7 @@ namespace DCEngine {
       //FMOD_RESULT StopAllEvents(FMOD_STUDIO_STOP_MODE mode);     
 
     private:
+
       // Settings
       FMODSystemPtr System;
       AudioFMODSettings Settings;
@@ -71,26 +72,32 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, Paused);
       DCE_DEFINE_PROPERTY(float, Level);
       DCE_DEFINE_PROPERTY(bool, Muted);
+
       // Containers
       BanksContainer ActiveBanks;
       EventInstanceMap AvailableEvents;
       EventDescriptionMap AvailableEventDescriptions;
       GroupMap Groups;
       ChannelMap Channels;
+
       // Create
       bool CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
       bool CreateSound(std::string& eventDescrption);
       bool CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
       FMOD::Studio::EventInstance* CreateEventInstance() const;
+
       // Loading
       FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
+
       // Release
       void ReleaseSound(FMOD::Sound* soundPtr);       
+
       // Accesors
       FMOD_RESULT getEvent(const char *path, FMOD::Studio::EventDescription **event) const;
       FMOD_RESULT getVCA(const char *path, FMOD::Studio::VCA **vca) const;
       FMOD_RESULT getBank(const char *path, FMOD::Studio::Bank **bank) const;
+
       // System
       bool ErrorCheck(FMOD_RESULT result);
       void InitializeLowLevelAPI();
