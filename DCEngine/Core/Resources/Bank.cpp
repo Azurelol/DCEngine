@@ -60,21 +60,28 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Audio>()->Add(AssetPath, mData);
     
     // Get the number of events in the bank
-    int eventNumber = 0;
-    mData.Handle->getEventCount(&eventNumber);
+    int capacity = 0;
+    int return_num = 0;
+    mData.Handle->getEventCount(&capacity);
     // Generate a container of "Event Descriptions"
-    std::vector<FMOD::Studio::EventDescription*> eventList;
-    eventList.reserve(100);
-    auto result = mData.Handle->getEventList(eventList.data(), eventList.capacity(), &eventNumber);
-    
+    //std::vector<FMOD::Studio::EventDescription*> eventList;
+    FMOD::Studio::EventDescription *eventList = nullptr;
+
+    //eventList.reserve(100);
+    auto result = mData.Handle->getEventList(&eventList, capacity, &return_num);
+
+    FMOD::Studio::EventInstance *instList = nullptr;
+
+    int instCount = 0;
+    result = eventList->getInstanceCount(&instCount);
+    result = eventList->getInstanceList(&instList, capacity, &instCount);
+
     // For every event description, generate a SoundCue
-    for (auto& event : eventList) {
+    //for (auto& event : eventList) {
 
-    }
+    //}
 
-
-
-    DCTrace << Name() << "::Bank::Generate: There were '" << eventNumber << "' events in the bank \n";
+    DCTrace << Name() << "::Bank::Generate: There were '" << capacity << "' events in the bank \n";
   }
 
 }
