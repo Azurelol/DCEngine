@@ -311,6 +311,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Production|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\Resources\Archetype.cpp" />
+    <ClCompile Include="Core\Resources\Bank.cpp" />
     <ClCompile Include="Core\Resources\CollisionGroup.cpp" />
     <ClCompile Include="Core\Resources\CollisionTable.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
@@ -325,6 +326,9 @@
     <ClCompile Include="Core\Resources\ZilchScript.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
@@ -494,6 +498,7 @@
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
+    <ClInclude Include="Core\Resources\Bank.h" />
     <ClInclude Include="Core\Resources\CollisionGroup.h" />
     <ClInclude Include="Core\Resources\CollisionTable.h" />
     <ClInclude Include="Core\Resources\Font.h" />
@@ -513,7 +518,7 @@
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
-    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h" />
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />

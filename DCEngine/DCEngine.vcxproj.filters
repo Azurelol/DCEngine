@@ -722,6 +722,18 @@
     <ClCompile Include="Core\Components\Graphical.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\Bank.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1045,9 +1057,6 @@
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
     </ClInclude>
@@ -1231,6 +1240,12 @@
     </ClInclude>
     <ClInclude Include="Core\Components\GraphicsSpace.h">
       <Filter>Core\Components\Graphics\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Bank.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

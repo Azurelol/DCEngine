@@ -14,6 +14,8 @@
 
 #include "Delegate.h"
 
+#define DCE_ACTIONS_ENABLED 0
+
 namespace DCEngine {
     
   enum class Ease {
@@ -36,7 +38,8 @@ namespace DCEngine {
   /**************************************************************************/
   class Action {
   public:
-    Action() : Elapsed(0.0f), Duration(0.0f) {}
+    Action();
+    ~Action();
     virtual float Update(float dt) = 0;
     bool Blocking() { return IsBlocking; }
     bool Finished() { return IsFinished; }
@@ -49,6 +52,10 @@ namespace DCEngine {
     bool IsBlocking = false; // Whether the action blocks other actions behind it
     bool IsFinished = false; // When finished, the action will be removed.    
     bool Paused = false;
+  private:
+    unsigned ID;
+    static unsigned ActionsCreated;
+    static unsigned ActionsDestroyed;
   };
   using ActionPtr = std::shared_ptr<Action>;
   using ActionsContainer = std::vector<ActionPtr>;
@@ -75,6 +82,7 @@ namespace DCEngine {
     std::vector<ActionPtr> ActiveActions;
     std::vector<ActionPtr> InactiveActions;
     void Clear();    
+  private:
   };
 
   /**************************************************************************/
@@ -218,7 +226,7 @@ namespace DCEngine {
     static void Property(ActionSequence& seq, Property& prty, Property val, Real duration, Ease ease);
 
   private:
-
+    
   };
 
 

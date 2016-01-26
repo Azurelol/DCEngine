@@ -53,8 +53,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "ActionsTest", 
-        "Archetype": "ActionsTest", 
+        "Name": "Transform", 
+        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -64,7 +64,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 11.000000, 
+                "y": 1.000000, 
                 "z": 0.000000
               }
             }, 
@@ -86,16 +86,18 @@
                 "z": 1.000000
               }
             }
-          }, 
-          "DebugActions": 
-          {
           }
         }
       }, 
       "GameObject": 
       {
+<<<<<<< HEAD
         "Name": "ParticleSystem", 
         "Archetype": "ParticleEffect", 
+=======
+        "Name": "SpriteText", 
+        "Archetype": "SpriteText", 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
         "Components": 
         {
           "Transform": 
@@ -104,8 +106,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 0.000000, 
                 "y": 0.000000, 
+=======
+                "x": 4.000000, 
+                "y": 2.000000, 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
                 "z": 0.000000
               }
             }, 
@@ -128,19 +135,24 @@
               }
             }
           }, 
+<<<<<<< HEAD
           "SpriteParticleSystem": 
+=======
+          "SpriteText": 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
           {
             "Visible": true, 
             "Tint": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
+<<<<<<< HEAD
             "Texture": "", 
             "VelocityScale": 1.000000, 
             "LengthScale": 1.000000, 
@@ -172,6 +184,31 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
+=======
+            "Font": "", 
+            "FontSize": 12, 
+            "Text": "Hello there. Ay", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ActionsTest", 
+        "Archetype": "ActionsTest", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.000000, 
+                "y": 29.000000, 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
                 "z": 0.000000
               }
             }, 
@@ -209,6 +246,7 @@
             "Growth": 0.000000, 
             "Dampening": 0.000000
           }, 
+<<<<<<< HEAD
           "ParticleColorAnimator": 
           {
             "Color0": 
@@ -261,6 +299,10 @@
                 "w": 0.300000
               }
             }
+=======
+          "DebugActions": 
+          {
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
           }
         }
       }, 
@@ -276,8 +318,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 0.000000, 
                 "y": 0.000000, 
+=======
+                "x": 10.000000, 
+                "y": 30.500000, 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
                 "z": 0.000000
               }
             }, 
@@ -287,15 +334,15 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": 52.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 6.564758, 
+                "y": 6.424280, 
                 "z": 1.000000
               }
             }
@@ -308,17 +355,26 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 1.500000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
+<<<<<<< HEAD
             "Font": "", 
             "FontSize": 12, 
             "Text": "Hello this is a test", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 17
+=======
+            "SpriteSource": "New World_Foreground", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
           }
         }
       }, 
@@ -334,8 +390,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 11.000000, 
+                "x": 6.500000, 
+                "y": 20.000000, 
                 "z": 0.000000
               }
             }, 
@@ -371,7 +427,183 @@
                 "w": 1.000000
               }
             }, 
+<<<<<<< HEAD
             "SpriteSource": "MonkeyStand", 
+=======
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -2.000000, 
+                "y": 19.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 15.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Sprite", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 19.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+>>>>>>> 4634d518777328ec8c1c941b012ecf2b8362763c
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 

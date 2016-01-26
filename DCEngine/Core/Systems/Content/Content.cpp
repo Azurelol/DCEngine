@@ -54,10 +54,15 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadAllResources()
     {
-      // Generate every SoundCue's sound
+      // Generate every SoundCue from file
       for (auto& soundCue : SoundCueMap) {
         soundCue.second->Load();
-        soundCue.second->GenerateSound();
+        soundCue.second->Generate();
+      }
+      // Generate every SoundCue from banks
+      for (auto& bank : MapBank) {
+        bank.second->Load();
+        bank.second->Generate();
       }
 
       // Load every SpriteSource's texture

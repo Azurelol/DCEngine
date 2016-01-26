@@ -87,6 +87,19 @@ namespace DCEngine {
         AudioHandler->Update(dt);    
 
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds an audio Bank to the audio system.
+    @param  bankFile The name of the bank file.
+    */
+    /**************************************************************************/
+    void Audio::Add(std::string & bankFile, Bank::Data& data)
+    {
+      // Adds the bank to the FMOD Studio system
+      data.Handle = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);
+    }
+
     /**************************************************************************/
     /*!
     @brief  Registers a SoundFile to be played through FMOD.
@@ -135,7 +148,12 @@ namespace DCEngine {
         return;
       }        
 
-      AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
+      // Depending on the type of SoundCue, play it through the low level API
+      // or as an event belonging to the Studip API
+      if (soundCue->Type == SoundCue::WhatType::File)
+        AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
+      else if (soundCue->Type == SoundCue::WhatType::Event)
+        AudioHandler->PlaySound(soundCueName);
     }
 
     /**************************************************************************/

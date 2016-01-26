@@ -171,7 +171,7 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void DragObject(Vec2);
-      void RotateObject(Vec2);
+      void RotateObject(Vec2, Vec3);
       void ScaleObject(Vec2 pos);
       void ReleaseObject();
       // Resources
@@ -179,6 +179,7 @@ namespace DCEngine {
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
       bool CreateLevel(std::string&);
+      ResourcePtr CreateBank(std::string& name, std::string& assetPath);
       ResourcePtr CreateCollisionGroup(std::string& name);
       ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreatePhysicsMaterial(std::string& name);

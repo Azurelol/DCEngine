@@ -42,30 +42,29 @@ namespace DCEngine {
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
-      // Print every name
+      // Display every object's name
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
-      
-      // Allocate a dynamically allocated array for selectable
-      //static std::vector<bool> selected(objects->size());
-      //int i = 0;
       for (auto& object : *objects) {
-        auto ObjectName = object->Name().c_str();
+        auto objectName = object->Name().c_str();   
         // If the user has selected the GameObject.
-        if (ImGui::Selectable(ObjectName)) {
-        //if (ImGui::Selectable(ObjectName), SelectedObject && (SelectedObject->Name() == object->Name())) {
-        //if (ImGui::Selectable(ObjectName, &selected[i++])) {
-        //if (ImGui::Button(ObjectName)) {
+        //if (ImGui::Selectable(objectName)) {
+        if (ImGui::Selectable(objectName, SelectedObject && SelectedObject->getObjectID() == object->GameObjectID)) {
           SelectedObject = object;
           WindowPropertiesEnabled = true;
         }          
-        //ImGui::Text(object->Name().c_str());
       }
-
       // Ends the window
       ImGui::End();
-
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Swaps the position of the currently selected GameObject.
+    @param object A pointer to the object.
+    @param dir The direction to which to move it.
+    @todo   Find a way to swap and parent objects to one another with dragging.
+    */
+    /**************************************************************************/
     void Editor::ObjectsListSwapPosition(GameObjectPtr object, Direction dir)
     {
       if (dir == Direction::Up) {

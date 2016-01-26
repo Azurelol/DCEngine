@@ -15,6 +15,28 @@
 
 namespace DCEngine {
 
+  unsigned Action::ActionsCreated = 0;
+  unsigned Action::ActionsDestroyed = 0;
+
+  /**************************************************************************/
+  /*!
+  @brief Action constructor
+  */
+  /**************************************************************************/
+  Action::Action() : Elapsed(0.0f), Duration(0.0f), ID(ActionsCreated++)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Action destructor
+  */
+  /**************************************************************************/
+  Action::~Action()
+  {
+    ActionsDestroyed++;
+  }
+
   /*==============*
   *     Actions   *
   *==============*/
