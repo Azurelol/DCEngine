@@ -44,6 +44,17 @@ namespace DCEngine {
         ImGui::TreePop();
       }
 
+      if (ImGui::TreeNode("Bank")) {
+        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
+        for (auto& resource : *Daisy->getSystem<Content>()->AllBanks()) {
+          if (ImGui::Selectable(resource.second->Name().c_str())) {
+            SelectedObject = resource.second.get();
+            WindowPropertiesEnabled = true;
+          }
+        }
+        ImGui::TreePop();
+      }
+
       if (ImGui::TreeNode("SpriteLayer")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {

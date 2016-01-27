@@ -250,6 +250,7 @@
     <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\DebugActions.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
+    <ClCompile Include="Core\Components\Graphical.cpp" />
     <ClCompile Include="Core\Components\Light.cpp" />
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp" />
     <ClCompile Include="Core\Components\ParticleEmitter.cpp" />
@@ -280,8 +281,11 @@
     <ClCompile Include="Core\Components\TransformTool.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
-    <ClCompile Include="Core\Engine\Action.cpp" />
+    <ClCompile Include="Core\Engine\ActionSet.cpp" />
+    <ClCompile Include="Core\Engine\ActionCall.cpp" />
+    <ClCompile Include="Core\Engine\ActionDelay.cpp" />
     <ClCompile Include="Core\Engine\Actions.cpp" />
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp" />
     <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
@@ -307,6 +311,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Production|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\Resources\Archetype.cpp" />
+    <ClCompile Include="Core\Resources\Bank.cpp" />
     <ClCompile Include="Core\Resources\CollisionGroup.cpp" />
     <ClCompile Include="Core\Resources\CollisionTable.cpp" />
     <ClCompile Include="Core\Resources\Font.cpp" />
@@ -321,6 +326,9 @@
     <ClCompile Include="Core\Resources\ZilchScript.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
@@ -364,6 +372,7 @@
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
+    <ClCompile Include="Core\Systems\Physics\PhysicsCasting.cpp" />
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
@@ -395,6 +404,7 @@
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
@@ -409,6 +419,7 @@
     <ClInclude Include="Core\Components\Collider.h" />
     <ClInclude Include="Core\Components\DebugActions.h" />
     <ClInclude Include="Core\Components\EditorCameraController.h" />
+    <ClInclude Include="Core\Components\Graphical.h" />
     <ClInclude Include="Core\Components\Light.h" />
     <ClInclude Include="Core\Components\TransformTool.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
@@ -485,9 +496,12 @@
     <ClInclude Include="Core\Objects\Entity.h" />
     <ClInclude Include="Core\Objects\Object.h" />
     <ClInclude Include="Core\Objects\ObjectsInclude.h" />
+    <ClInclude Include="Core\Objects\Ray\Ray.h" />
+    <ClInclude Include="Core\Objects\Ray\Raycasting.h" />
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
+    <ClInclude Include="Core\Resources\Bank.h" />
     <ClInclude Include="Core\Resources\CollisionGroup.h" />
     <ClInclude Include="Core\Resources\CollisionTable.h" />
     <ClInclude Include="Core\Resources\Font.h" />
@@ -507,7 +521,7 @@
     <ClInclude Include="Core\Systems\Audio\Audio.h" />
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h" />
     <ClInclude Include="Core\Systems\Audio\FMODPtrs.h" />
-    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h" />
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h" />
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
@@ -524,6 +538,8 @@
     <ClInclude Include="Core\Systems\Physics\Interpolation.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
+    <ClInclude Include="Core\Systems\Physics\Ray.h" />
+    <ClInclude Include="Core\Systems\Physics\Raycasting.h" />
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />
@@ -563,6 +579,7 @@
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
+    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />

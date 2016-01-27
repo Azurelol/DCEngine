@@ -35,6 +35,7 @@ namespace DCEngine {
 			void OnKeyUpEvent(Events::KeyDown* event);
 			void OnCollisionStartedEvent(Events::CollisionStarted* event);
 			void OnCollisionEndedEvent(Events::CollisionEnded* event);
+			void OnCollisionPersistedEvent(Events::CollisionPersisted * event);
 			void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)

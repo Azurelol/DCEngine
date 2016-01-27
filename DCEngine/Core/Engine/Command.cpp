@@ -217,6 +217,8 @@ namespace DCEngine {
   CommandObjectTransform::CommandObjectTransform(Components::Transform * transform) : Command("Transform"), 
                                                                                       TransformedObject(transform)
   {
+    SavePrevious(transform);
+    SaveNew(transform);
   }
 
 
@@ -240,12 +242,23 @@ namespace DCEngine {
     NewRotation = rotation;
     NewScale = scale;
   }
-
+  void CommandObjectTransform::SaveNew(Components::Transform * transform)
+  {
+    NewTranslation = transform->getTranslation();
+    NewRotation = transform->getRotation();
+    NewScale = transform->getScale();
+  }
   void CommandObjectTransform::SavePrevious(Vec3 transform, Vec3 rotation, Vec3 scale)
   {
     PreviousTranslation = transform;
     PreviousRotation = rotation;
     PreviousScale = scale;
+  }
+  void CommandObjectTransform::SavePrevious(Components::Transform * transform)
+  {
+    PreviousTranslation = transform->getTranslation();
+    PreviousRotation = transform->getRotation();
+    PreviousScale = transform->getScale();
   }
 
 

@@ -15,6 +15,28 @@
 
 namespace DCEngine {
 
+  unsigned Action::ActionsCreated = 0;
+  unsigned Action::ActionsDestroyed = 0;
+
+  /**************************************************************************/
+  /*!
+  @brief Action constructor
+  */
+  /**************************************************************************/
+  Action::Action() : Elapsed(0.0f), Duration(0.0f), ID(ActionsCreated++)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Action destructor
+  */
+  /**************************************************************************/
+  Action::~Action()
+  {
+    ActionsDestroyed++;
+  }
+
   /*==============*
   *     Actions   *
   *==============*/
@@ -78,72 +100,7 @@ namespace DCEngine {
     set->Add(call);
   }
 
-  /*==============*
-  *     Call     *
-  *==============*/
-  /**************************************************************************/
-  /*!
-  @brief Action Call constructor.
-  @param sequence A reference to the sequence that this action will be added to.
-  @param funcPtr A pointer to the function that will need to be called.
-  */
-  /**************************************************************************/
-  ActionCall::ActionCall(ActionSetPtr set, Delegate* funcPtr) : FunctionPtr(funcPtr)
-  {
-
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Updates this action.
-  @param dt The time slice given.
-  @return How muc time was consumed.
-  */
-  /**************************************************************************/
-  float ActionCall::Update(float dt)
-  {
-    // Call the functiom immediately
-    
-    // No time was consumed
-    return 0.0f;
-  }
 
 
-  /*==============*
-  *     Delay     *
-  *==============*/
-  /**************************************************************************/
-  /*!
-  @brief ActionDelay constructor.
-  @param sequence A reference to the sequence of actions this action
-  belongs to.
-  @param dt The duration for this delay action.
-  */
-  /**************************************************************************/
-  ActionDelay::ActionDelay(ActionSetPtr set, Real duration)
-  {
-    if (DCE_TRACE_ACTIONS_CTOR)
-      DCTrace << "ActionDelay::ActionDelay: Constructed! \n";
-    Duration = duration;
-    IsBlocking = true;
-  }
-  /**************************************************************************/
-  /*!
-  @brief Updates this action.
-  @param dt The time slice given.
-  @return How much time was consumed during this action
-  */
-  /**************************************************************************/
-  float ActionDelay::Update(float dt)
-  {
-    auto timeLeft = Duration - Elapsed;
-    Elapsed += dt;
-    if (Elapsed >= Duration)
-      IsFinished = true;
-
-    if (DCE_TRACE_ACTIONS_UPDATE)
-      DCTrace << "ActionDelay::Update: dt = '" << dt << "', timeLeft = '" << (dt - timeLeft) << "' \n";
-    return std::max(0.0f, dt - timeLeft);
-  }
 
 }

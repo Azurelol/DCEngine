@@ -23,7 +23,7 @@ namespace DCEngine {
   @param  archetypeFile The name of the archetype file.
   */
   /**************************************************************************/
-  Archetype::Archetype(std::string archetypeFile) : Resource("Archetype", FileSystem::FileNoExtension(archetypeFile), archetypeFile)                                                          
+  Archetype::Archetype(std::string archetypeFile) : Resource("Archetype", FileSystem::FileNoExtension(archetypeFile), archetypeFile)                                          
   {
     // Load the archetype from file immediately
     Load();
@@ -33,7 +33,8 @@ namespace DCEngine {
       : Resource("Archetype", FileSystem::FileNoExtension(archetypeFile), archetypeFile)
   {
     // Save the serialized data
-    Save(serializedData);
+    SerializedData = serializedData;
+    // Save(serializedData);
   }
 
   /**************************************************************************/
@@ -52,9 +53,8 @@ namespace DCEngine {
         the source file now that we have modified it.
  */
  /**************************************************************************/
- void Archetype::Save(std::string& serializedData)
+ void Archetype::Save()
  {
-   SerializedData = serializedData;
    FileSystem::FileWriteString(ResourcePath, SerializedData);
  }
 

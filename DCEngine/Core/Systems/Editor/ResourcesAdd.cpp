@@ -33,7 +33,7 @@ namespace DCEngine {
       case ResourceType::Level:
         CreateLevel(name);
         break;
-
+        
       case ResourceType::CollisionGroup:
         CreateCollisionGroup(name);
         break;
@@ -92,21 +92,21 @@ namespace DCEngine {
       }
       // Grab the absolute path of the asset file selected
       std::string assetPath;      
-      //auto a = boost::filesystem::path(assetPath). - boost::filesystem::initial_path();
-      // Convert to the path relative to the executable
-      //boost::filesystem::
-
-      // DCTrace << "Editor::ResourceAddFromFile - From asset: " << FileSystem::FileNoExtension(assetPath) << "\n";
-      
       // Create the resource from file
       switch (type) {
         
+      case ResourceType::Bank:
+        assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("bank"));
+        if (assetPath.empty())
+          return;
+        CreateBank(FileSystem::FileNoExtension(assetPath), assetPath);
+        break;
+
       case ResourceType::SpriteSource:
         assetPath = FileSystem::FileOpenDialog(resourcesPath, std::string("png,jpg"));
         if (assetPath.empty())
           return;
         CreateSpriteSource(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSpriteSource(name, assetPath);
         break;
 
       case ResourceType::SoundCue:
@@ -114,7 +114,6 @@ namespace DCEngine {
         if (assetPath.empty())
           return;
         CreateSoundCue(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSoundCue(name, assetPath);
         break;
 
       case ResourceType::Font:
@@ -122,7 +121,6 @@ namespace DCEngine {
         if (assetPath.empty())
           return;
         CreateFont(FileSystem::FileNoExtension(assetPath), assetPath);
-        //CreateSoundCue(name, assetPath);
         break;
 
       }
@@ -155,7 +153,28 @@ namespace DCEngine {
       return true;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Creates a Bank on the currently selected project.
+    @param  The name of the bank to create.
+    */
+    /**************************************************************************/
+    ResourcePtr Editor::CreateBank(std::string & name, std::string& assetPath)
+    {
+      DCTrace << "Editor::CreateBank - Creating " << name << "\n";
+      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+                                                    + name + Bank::Extension();
+      auto resource = BankPtr(new Bank(path));
+      // Save its asset path
+      resource->setAssetPath(assetPath);
+      Daisy->getSystem<Content>()->AddBank(name, resource);
+      // Serialize it and save it to file
+      resource->Build();
+      // Load its textures immediately
+      resource->Generate();
+      return resource.get();
 
+    }
 
     /**************************************************************************/
     /*!
@@ -258,15 +277,15 @@ namespace DCEngine {
       DCTrace << "Editor::CreateSoundCue - Created '" << name << "' with asset: '" << assetPath << "' \n";
       // Create a SoundCue object
       auto soundCuePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SoundCue::Extension();
-      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath));
+      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath, SoundCue::WhatType::File));
       // Store the path of its asset
       soundCue->setAssetPath(assetPath);
       // Serialize it and save it to file
       auto data = soundCue->Build();
       // Add it to the content system
       Daisy->getSystem<Content>()->AddSoundCue(name, soundCue);
-      // Load its textures immediately
-      soundCue->GenerateSound();
+      // Generate the SoundCue immediately
+      soundCue->Generate();
 
       return soundCue.get();
     }

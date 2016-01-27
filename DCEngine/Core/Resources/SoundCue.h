@@ -19,7 +19,7 @@ namespace DCEngine {
   class SoundCue;
   using SoundCuePtr = std::shared_ptr<SoundCue>;
   using SoundCueHandle = std::string;
-
+  
   enum class PlayMode {
     Single,
     Looping,
@@ -28,10 +28,11 @@ namespace DCEngine {
   class SoundCue : public Resource {
 
   public:
-
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
-    ZilchDeclareDerivedType(SoundCue, Resource);
-    #endif
+        
+    enum class WhatType {
+      File, // The SoundCue is generated from a a soun file.
+      Event // The SoundCue is generated from a sound Bank.
+    };
 
     // Member variables
     PlayMode PlayMode; // Add this later
@@ -40,6 +41,7 @@ namespace DCEngine {
     float Pitch = 1.0f;
     float PitchVariation = 0.0f;
     bool Loop = false;
+    WhatType Type;
     FMODSoundPtr Data;
     
     // Properties    
@@ -50,14 +52,17 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(float, PitchVariation);    
     DCE_DEFINE_PROPERTY(String, AssetPath);
 
+
     // Methods
-    SoundCue(std::string soundFile);
-    void GenerateSound();
+    ZilchDeclareDerivedType(SoundCue, Resource);
+    SoundCue(std::string soundFile, WhatType type);
+    void Generate();
     static std::string Extension() { return ".SoundCue"; }
     static SoundCuePtr Find(std::string);
 
   private:
     std::string AssetPath;
+
   };
 
 

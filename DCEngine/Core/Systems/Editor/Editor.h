@@ -48,6 +48,17 @@ namespace DCEngine {
     float SnapAngle = 15;
     // Dragging
     bool Dragging = false;
+    bool DraggingX = false;
+    bool DraggingY = false;
+    float DragOffset = 0;
+    // Rotating
+    bool Rotating = false;
+    // Scaling
+    bool ScalingY = false;
+    bool ScalingX = false;
+    Vec2 OriginMousePos;
+    Vec3 OriginScale;
+    //Panning
     bool Panning = false;
     Vec3 CamStartPos;
     Vec3 MouseStartPos;
@@ -160,12 +171,15 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void DragObject(Vec2);
+      void RotateObject(Vec2, Vec3);
+      void ScaleObject(Vec2 pos);
       void ReleaseObject();
       // Resources
       void WindowAddResource();
       void ResourceCreate(std::string& name, ResourceType type);
       void ResourceAddFromFile(std::string& name, ResourceType type);
       bool CreateLevel(std::string&);
+      ResourcePtr CreateBank(std::string& name, std::string& assetPath);
       ResourcePtr CreateCollisionGroup(std::string& name);
       ResourcePtr CreateCollisionTable(std::string& name);
       ResourcePtr CreatePhysicsMaterial(std::string& name);

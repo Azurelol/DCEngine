@@ -31,21 +31,22 @@ namespace DCEngine {
 
   extern std::unique_ptr<Engine> Daisy;
 
-  // Temporary, perhaps an entity that receives events for the engine.  
   class Engine : public Object {
     friend class EngineLauncher;
   public:
 
+    void Register(Action& action);
+    void Deregister(Action& action);
+
     Engine();
     Engine(std::string configFile);
     ~Engine();
-
     void Initialize();
     void Loop();
     void Terminate();
     auto Stop() { _active = false; }
     void LoadProject(std::string& filename);
-    void StartProject();
+    void StartProject();    
 
     Keyboard* getKeyboard() { return keyboard_.get(); }
     Mouse* getMouse() { return mouse_.get(); }
@@ -57,7 +58,6 @@ namespace DCEngine {
     // Component Events
     template <typename EventClass, typename Class, typename MemberFunction>
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
-
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
 
@@ -70,7 +70,6 @@ namespace DCEngine {
     template<typename T> std::shared_ptr<T> getSystem();
 
   private:
-
 
     bool Paused;
     EngineConfigPtr EngineConfiguration;
@@ -86,9 +85,7 @@ namespace DCEngine {
     SystemVec _systems; //!< Container for the engine's systems.   
     SpaceMap _spaces; //!< A map of spaces created by the engine.
     ActionSpace ActionSpace; 
-
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
-    //std::map<unsigned int, std::list<DCEngine::System*>> RemovalRegistry;
 
     bool LoadEngineConfig();
     void LoadDefaultSpace();

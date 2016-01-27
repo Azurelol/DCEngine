@@ -49,6 +49,7 @@ namespace DCEngine {
     *     Resources      *
     *===================*/
     ZilchInitializeType(SpriteSource);
+    ZilchInitializeType(Bank);
     ZilchInitializeType(SoundCue);
     ZilchInitializeType(CollisionGroup);
     ZilchInitializeType(CollisionTable);

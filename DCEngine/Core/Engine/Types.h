@@ -154,6 +154,7 @@ namespace DCEngine {
   enum class ResourceType {
     None,
     Archetype,
+    Bank,
     CollisionGroup,
     CollisionTable,
     Font,

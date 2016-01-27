@@ -29,3 +29,4 @@
 #include "Components\ErraticDoor.h"
 #include "Components\TutorialTextLogic.h"
 #include "Components\LockField.h"
+#include "Components\PowerField.h"

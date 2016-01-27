@@ -106,7 +106,9 @@ namespace DCEngine {
     void Execute();
     
     void SaveNew(Vec3 transform, Vec3 rotation, Vec3 scale);
+    void SaveNew(Components::Transform * transform);
     void SavePrevious(Vec3 transform, Vec3 rotation, Vec3 scale);
+    void SavePrevious(Components::Transform * transform);
     // Object that was transformed
     Components::Transform* TransformedObject;
     // New Transform

@@ -23,14 +23,21 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSet::Clear()
   {
-    //AllActions.erase(
-    //  std::remove_if(AllActions.begin(), AllActions.end(),
+    // Remove the action from the active actions!
+    //ActiveActions.erase(
+    //  std::remove_if(
+    //    ActiveActions.begin(), 
+    //    ActiveActions.end(),
     //    // Lambdas, ho!
-    //    [&](ActionPtr const& a) {
-    //  return std::find(InactiveActions.cbegin(), InactiveActions.cend(), a.get())
-    //    != InactiveActions.end(); }), AllActions.end());
-    //// Now clear!
-    InactiveActions.clear();
+    //    [&](ActionPtr& a) {
+    //  return std::find(
+    //    InactiveActions.cbegin(), 
+    //    InactiveActions.cend(), 
+    //    a.get())
+    //    != InactiveActions.end(); }), 
+    //  ActiveActions.end());
+    // Now clear!
+    //InactiveActions.clear();
   }
 
   /**************************************************************************/
@@ -39,21 +46,21 @@ namespace DCEngine {
   @param set A reference to the child set.
   */
   /**************************************************************************/
-  void ActionSet::Add(ActionSetPtr set)
-  {
-    Children.push_back(set);
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Adds an Action to this set, as one of its active actions.
-  @param action A pointer to the other action.
-  */
-  /**************************************************************************/
-  void ActionSet::Add(ActionPtr action)
-  {
-    ActiveActions.push_back(action);
-  }
+ void ActionSet::Add(ActionSetPtr set)
+ {
+   ActiveActions.push_back(set);
+ }
+ 
+ /**************************************************************************/
+ /*!
+ @brief  Adds an Action to this set, as one of its active actions.
+ @param action A pointer to the other action.
+ */
+ /**************************************************************************/
+ void ActionSet::Add(ActionPtr action)
+ {
+   ActiveActions.push_back(action);
+ }
 
   /**************************************************************************/
   /*!

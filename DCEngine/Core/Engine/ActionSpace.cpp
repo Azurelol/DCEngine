@@ -35,6 +35,7 @@ namespace DCEngine {
   /**************************************************************************/
   ActionSpace::~ActionSpace()
   {
+    AllActions.clear();
   }
 
   /**************************************************************************/
@@ -72,12 +73,26 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Update(float dt)
   {
+    
+
+    for (auto& action : AllActions) {
+
+      // If it's paused, do not update its actions
+      if (action->IsPaused())
+        continue;
+
+      // Update the action
+      action->Update(dt);
+    }
+
+
     // Propagate updates directly to all actions.
-    if (PropagateUpdateDirectly)
-      PropagateDirectly(dt);
-    // Propagate updates through all entities
-    else
-      PropagateThroughOwners(dt);
+    //if (PropagateUpdateDirectly)
+    //  PropagateDirectly(dt);
+    //// Propagate updates through all entities
+    //else
+    //  PropagateThroughOwners(dt);
+
     // Clean up any inactive actions (finished, stopped)
     Sweep();
   }
@@ -122,61 +137,8 @@ namespace DCEngine {
     }
   }
 
-  /*===================*
-  *   ActionsOwner     *
-  *====================*/
-  /**************************************************************************/
-  /*!
-  @brief ActionsOwner constructor.
-  @param owner A reference to the owner of this ActionsOwner.
-  */
-  /**************************************************************************/
-  ActionsOwner::ActionsOwner(Entity & owner) : Owner(owner)
-  {
-  }
 
-  /**************************************************************************/
-  /*!
-  @brief Updates an entity's actions. Updating all the actions one tier below
-         in parallel.
-  @param dt The time to be updated.
-  @return How much time was consumed while updating.
-  */
-  /**************************************************************************/
-  float ActionsOwner::Update(float dt)
-  {
-    DCTrace << " updating!!! \n";
 
-    float mostTimeElapsed = 0;
-    // In an ActionGroup, every action is updated in parallel, given the same 
-    // time slice.
-    for (auto& action : ActiveActions) {
-      auto timeElapsed = action->Update(dt);
-      // If this action took longer than the previous action, it is the new maximum
-      if (timeElapsed > mostTimeElapsed)
-        mostTimeElapsed = timeElapsed;
-      // If the action was completed (Meaning that it was completed in less time
-      // than the time slice given)
-      if (timeElapsed <= dt) {
-        // Mark the action to be cleared
-        InactiveActions.push_back(action);
-      }
-    }
 
-    // Sweep all inactive actions
-    Clear();
-    // The time consumed while updating was the maximum time it took
-    return mostTimeElapsed;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief An entity's actions are never finished!
-  */
-  /**************************************************************************/
-  bool ActionsOwner::Validate()
-  {
-    return false;
-  }
 
 }

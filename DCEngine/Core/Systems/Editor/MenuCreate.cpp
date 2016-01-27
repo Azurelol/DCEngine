@@ -153,7 +153,10 @@ namespace DCEngine {
       auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
                                                     + archetype + Archetype::Extension();
 
-      Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(SelectedObject));
+      // Create the archetype
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(SelectedObject));
+      // Save it
+      archetypePtr->Save();
       // Upload the latest archetype
 
       // Scan for archetypes again

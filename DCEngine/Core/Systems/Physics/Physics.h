@@ -11,16 +11,26 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
-#include "../../Components/PhysicsSpace.h"
 
+// GameObject
+#include "../../Objects/Entities/GameObject.h"
+// Components
+#include "../../Components/PhysicsSpace.h"
+// Resources
+#include "../../Resources/CollisionTable.h"
+// Packages
 #include "Manifold.h"
 #include "Collision.h"
-#include "../../Resources/CollisionTable.h"
-#include "../../Objects/Entities/GameObject.h"
-
+// PhysicsCasting
+#include "Raycasting.h"
 
 namespace DCEngine {
+
+  // Forward declarations
   class Engine;
+  namespace Components {
+    class Collider;
+  }
 
   struct CollisionData {
     GameObject* Object; //!< The object this event was sent to.
@@ -50,6 +60,18 @@ namespace DCEngine {
       GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
       void RegisterSpace(Components::PhysicsSpace& physicsSpace);
       void DeregisterSpace(Components::PhysicsSpace& physicsSpace);
+
+      // Physics Casting            
+      CastResult CastRay(Ray& ray);
+      CastResult CastRay(Ray& ray, CastFilter& filter);
+      CastResultsRange CastRay(Ray& ray, unsigned count);
+      CastResultsRange CastRay(Ray& ray, unsigned count, CastFilter& filter);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count, CastFilter& filter);
+      CastResultsRange CastAabb(Vec3& center, Vec3& size, unsigned count, CastFilter& filter);
+      CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter);
+      CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter);
+
 
     private:
 

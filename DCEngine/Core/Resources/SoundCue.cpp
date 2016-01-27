@@ -39,8 +39,8 @@ namespace DCEngine {
   @brief  SoundCue constructor.
   */
   /**************************************************************************/
-  SoundCue::SoundCue(std::string soundFile) : 
-                     Resource("SoundCue", FileSystem::FileNoExtension(soundFile), soundFile)
+  SoundCue::SoundCue(std::string soundFile, WhatType type) : 
+                     Resource("SoundCue", FileSystem::FileNoExtension(soundFile), soundFile), Type(type)
   {
   }
 
@@ -49,7 +49,7 @@ namespace DCEngine {
   @brief  Loads this Sound pointer by interfacing with the audio system.
   */
   /**************************************************************************/
-  void SoundCue::GenerateSound()
+  void SoundCue::Generate()
   {
     Daisy->getSystem<Systems::Audio>()->CreateSound(std::string(AssetPath), Data);
     DCTrace << "SoundCue::Load - Finished loading " << Name() << "!\n";
@@ -58,7 +58,7 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Returns the SoundCue resource to be used by the graphics system.
+  @brief  Returns the specified SoundCue resource.
   @return A reference to the SoundCue object.
   */
   /**************************************************************************/
@@ -66,5 +66,7 @@ namespace DCEngine {
   {
     return Daisy->getSystem<Systems::Content>()->getSoundCue(name);
   }
+
+
 
 }

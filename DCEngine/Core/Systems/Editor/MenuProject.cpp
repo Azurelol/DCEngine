@@ -150,14 +150,14 @@ namespace DCEngine {
         command = qm + executablePath + documentationPath + qm;
         //DCTrace << command2;
         std::string command2;
-        command2 = "chrome " "C:\\Development\\DCEngine\\DCEngine\\Documentation\\html\\index.html";
+        command2 = "C:\\Development\\DCEngine\\DCEngine\\Documentation\\html\\index.html";
         //std::stringstream ss;
         //ss << '"';
         //ss << command2;
         //ss << '"';
         //command2 = ss.str();
         //command2 = "notepad++";
-        FileSystem::Execute(command2);
+        FileSystem::Execute(command);
       }
     }
 

@@ -256,6 +256,27 @@
     <Filter Include="Core\Components\Graphics\Lightning">
       <UniqueIdentifier>{9d5b0c53-c57e-4881-bb88-a4cdc291a225}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Components\Graphics\Space">
+      <UniqueIdentifier>{9b473cfa-f1b6-44b9-8fe4-a88e0d128fb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Raycasting">
+      <UniqueIdentifier>{e66a76fe-7d84-4b8a-8366-b81445530ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Physics\Collision">
+      <UniqueIdentifier>{4f9d296b-00cd-4d2b-9ccd-b39b35910236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Physics\Resolution">
+      <UniqueIdentifier>{70ae97bd-4f40-4f9f-8a05-db97a5e6fbaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Physics\PhysicsCasting">
+      <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Physics\What">
+      <UniqueIdentifier>{10e870a3-ec25-4dd3-be62-a7efa2c29b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\PhysicsCasting">
+      <UniqueIdentifier>{57925c11-d2a5-479e-8d90-c0994501d503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -315,9 +336,6 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp">
       <Filter>Core\Object\Entity\Mouse</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\SoundSpace.cpp">
       <Filter>Core\Components\Audio</Filter>
     </ClCompile>
@@ -351,9 +369,6 @@
     <ClCompile Include="Core\Components\RigidBody.cpp">
       <Filter>Core\Components\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\Manifold.cpp">
-      <Filter>Core\Systems\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugReport.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
@@ -378,17 +393,11 @@
     <ClCompile Include="Core\Components\SoundEmitter.cpp">
       <Filter>Core\Components\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\Collision.cpp">
-      <Filter>Core\Systems\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteSource.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\CircleCollider.cpp">
       <Filter>Core\Components\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
-      <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Daisy.cpp">
       <Filter>Core</Filter>
@@ -518,9 +527,6 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
-      <Filter>Core\Systems\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
@@ -675,9 +681,6 @@
     <ClCompile Include="Core\Components\TransformTool.cpp">
       <Filter>Core\Components\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Action.cpp">
-      <Filter>Core\Engine\Action</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteLayer.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
@@ -705,6 +708,52 @@
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LockField.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionsOwner.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionDelay.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionCall.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionSet.cpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
+    <ClCompile Include="Core\Components\GraphicsSpace.cpp">
+      <Filter>Core\Components\Graphics\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\Graphical.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Bank.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Collision.cpp">
+      <Filter>Core\Systems\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Manifold.cpp">
+      <Filter>Core\Systems\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Resolution.cpp">
+      <Filter>Core\Systems\Physics\Resolution</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\PhysicsCasting.cpp">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
+      <Filter>Core\Systems\Physics\What</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -795,9 +844,6 @@
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\GraphicsSpace.h">
-      <Filter>Core\Components\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\ComponentReference.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
@@ -876,9 +922,6 @@
     <ClInclude Include="Core\ComponentsInclude.h">
       <Filter>Core\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Manifold.h">
-      <Filter>Core\Systems\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\DebugReport.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
@@ -921,14 +964,8 @@
     <ClInclude Include="Core\Components\SoundEmitter.h">
       <Filter>Core\Components\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Collision.h">
-      <Filter>Core\Systems\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\CircleCollider.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Resolution.h">
-      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Debug\DebugGraphics.h">
       <Filter>Core\Engine\Debug</Filter>
@@ -1032,9 +1069,6 @@
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Audio\FMODSystemPtr.h">
-      <Filter>Core\Systems\Audio\FMOD</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
     </ClInclude>
@@ -1052,9 +1086,6 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Interpolation.h">
-      <Filter>Core\Systems\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\Archetype.h">
       <Filter>Core\Resources\Serialization</Filter>
@@ -1211,6 +1242,43 @@
     <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
     <ClInclude Include="Projects\Rebound\Components\LockField.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
+    <ClInclude Include="Core\Components\Graphical.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\GraphicsSpace.h">
+      <Filter>Core\Components\Graphics\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\Bank.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Ray\Raycasting.h">
+      <Filter>Core\Engine\Raycasting</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Collision.h">
+      <Filter>Core\Systems\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Manifold.h">
+      <Filter>Core\Systems\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Resolution.h">
+      <Filter>Core\Systems\Physics\Resolution</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Interpolation.h">
+      <Filter>Core\Systems\Physics\What</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Ray\Ray.h">
+      <Filter>Core\Object\PhysicsCasting</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Raycasting.h">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\Ray.h">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

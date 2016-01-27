@@ -14,6 +14,7 @@
 namespace DCEngine {
   namespace Systems {
 
+    CommandObjectTransform* TransCommand = NULL;
     /**************************************************************************/
     /*!
     @brief  Receives a MouseDown event.
@@ -22,6 +23,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseDownEvent(Events::MouseDown* event)
     {
+      if (TransCommand != NULL)
+      {
+        delete TransCommand;
+        TransCommand = NULL;
+      }
+
       if (!Settings.EditorEnabled)
         return;
 
@@ -30,7 +37,108 @@ namespace DCEngine {
 
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);
-
+        
+        // If the 'Translate' tool is active...
+        if (ActiveTool == EditorTool::Translate) {
+          // And a valid GameObject was selected, start dragging it
+          if (SelectedObject && gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+            Settings.Dragging = true;
+            auto transform = gameObject->getComponent<Components::Transform>();
+            TransCommand = new CommandObjectTransform(transform);
+            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
+            return;
+          }
+          //if we have a valid Object selected still
+          else if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
+            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
+            //and it has a transform
+            if (transform != NULL)
+            {
+              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
+              auto xPos = transform->getTranslation().x;
+              auto yPos = transform->getTranslation().y;
+              //data for translate editor tools
+              Real radius = 8;
+              Real arrowTip = 1;
+              //if within horizontal tool, drag along x axis
+              if (mousePos.x > xPos && mousePos.x < xPos + radius && mousePos.y < yPos + arrowTip && mousePos.y > yPos - arrowTip)
+              {
+                Settings.DraggingX = true;
+                Settings.DragOffset = mousePos.x - xPos;
+                
+                TransCommand = new CommandObjectTransform(transform);
+                DCTrace << "Editor::OnMouseDownEvent - DraggingX: '" << SelectedObject->getObjectName() << "'\n";
+                return;
+              }
+              //if within vertical tool, drag along y axis
+              if (mousePos.x > xPos - arrowTip && mousePos.x < xPos + arrowTip && mousePos.y < yPos + radius && mousePos.y > yPos)
+              {
+                Settings.DraggingY = true;
+                Settings.DragOffset = mousePos.y - yPos;
+                TransCommand = new CommandObjectTransform(transform);
+                DCTrace << "Editor::OnMouseDownEvent - DraggingY: '" << SelectedObject->getObjectName() << "'\n";
+                return;
+              }
+            }
+          }
+        }
+        else if (ActiveTool == EditorTool::Rotate)
+        {
+          if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
+            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
+            if (transform != NULL)
+            {
+              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
+              auto xPos = transform->getTranslation().x;
+              auto yPos = transform->getTranslation().y;
+              Real radius = transform->getScale().x *2.5;
+              Real radiusSquared = radius*radius;
+              Real distanceSquared = (mousePos.x - xPos)*(mousePos.x - xPos) + (mousePos.y - yPos)*(mousePos.y - yPos);
+              if (distanceSquared - radiusSquared < 1 && distanceSquared - radiusSquared > -1)
+              {
+                Settings.Rotating = true;
+                Settings.OriginMousePos = mousePos;
+                TransCommand = new CommandObjectTransform(transform);
+                DCTrace << "Editor::OnMouseDownEvent - Rotating: '" << SelectedObject->getObjectName() << "'\n";
+                return;
+              }
+            }
+          }
+        }
+        else if (ActiveTool == EditorTool::Scale)
+        {
+          if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
+            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
+            if (transform != NULL)
+            {
+              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
+              auto xPos = transform->getTranslation().x;
+              auto yPos = transform->getTranslation().y;
+              Real width = transform->getScale().x *2.5;
+              Real height = transform->getScale().y *2.5;
+              Real distanceX = mousePos.x - xPos;
+              Real distanceY = mousePos.y - yPos;
+              if (distanceY - height/2 < 0.25 && distanceY - height/2 > -0.25 && mousePos.x > xPos-width/2 && mousePos.x < xPos + width / 2)
+              {
+                Settings.ScalingY = true;
+                Settings.OriginScale = transform->getScale();
+                Settings.OriginMousePos = mousePos;
+                TransCommand = new CommandObjectTransform(transform);
+                DCTrace << "Editor::OnMouseDownEvent - ScalingY: '" << SelectedObject->getObjectName() << "'\n";
+                return;
+              }
+              else if (distanceX - width / 2 < 0.25 && distanceX - width / 2 > -0.25 && mousePos.y > yPos - height / 2 && mousePos.y < yPos + height / 2)
+              {
+                Settings.ScalingX = true;
+                Settings.OriginScale = transform->getScale();
+                Settings.OriginMousePos = mousePos;
+                TransCommand = new CommandObjectTransform(transform);
+                DCTrace << "Editor::OnMouseDownEvent - ScalingX: '" << SelectedObject->getObjectName() << "'\n";
+                return;
+              }
+            }
+          }
+        }
         // If an object was found at that position, select it
         if (gameObject)
           SelectObjectFromSpace(gameObject);
@@ -42,14 +150,6 @@ namespace DCEngine {
         //if (ActiveTool == EditorTool::Select) {
           
         //}
-        // If the 'Translate' tool is active...
-        if (ActiveTool == EditorTool::Translate) {
-          // And a valid GameObject was selected, start dragging it
-          if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-            Settings.Dragging = true;
-            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
-          }
-        }
       }
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
@@ -77,9 +177,34 @@ namespace DCEngine {
         return;
 
       // Stop dragging
-      if (Settings.Dragging) {
+      if (Settings.Dragging || Settings.DraggingX || Settings.DraggingY) {
         ReleaseObject();
         Settings.Dragging = false;
+        Settings.DraggingX = false;
+        Settings.DraggingY = false;
+        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
+        auto command = CommandPtr(TransCommand);
+        Settings.Commands.Add(command);
+        TransCommand = NULL;
+      }
+      if (Settings.Rotating)
+      {
+        ReleaseObject();
+        Settings.Rotating = false;
+        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
+        auto command = CommandPtr(TransCommand);
+        Settings.Commands.Add(command);
+        TransCommand = NULL;
+      }
+      if (Settings.ScalingX || Settings.ScalingY)
+      {
+        ReleaseObject();
+        Settings.ScalingX = false;
+        Settings.ScalingY = false;
+        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
+        auto command = CommandPtr(TransCommand);
+        Settings.Commands.Add(command);
+        TransCommand = NULL;
       }
       // Stop panning
       if (Settings.Panning) {
@@ -97,8 +222,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
     {
-      DragObject(event->ScreenPosition);
-      PanCamera(event->ScreenPosition);
+      if (TransCommand != NULL)
+      {
+        DragObject(event->ScreenPosition);
+        RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
+        ScaleObject(event->ScreenPosition);
+        PanCamera(event->ScreenPosition);
+      }
     }
 
 

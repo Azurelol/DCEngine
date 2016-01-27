@@ -319,7 +319,32 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::UpdateActions(float dt)
   {
+    if (this->Paused)
+      return;
+
     this->ActionSpace.Update(dt);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Registers this Action to the engine's ActioNSpace.
+  @param A reference to the action.
+  */
+  /**************************************************************************/
+  void Engine::Register(Action& action)
+  {
+    this->ActionSpace.Add(ActionPtr(&action));
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deregisters this Action from the engine's ActionSpace.
+  @param A reference to the action.
+  */
+  /**************************************************************************/
+  void Engine::Deregister(Action & action)
+  {
+    this->ActionSpace.Remove(ActionPtr(&action));
   }
   
   /**************************************************************************/

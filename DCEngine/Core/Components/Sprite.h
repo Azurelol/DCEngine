@@ -11,7 +11,8 @@ in the world space through the drawing of sprites.
 */
 /******************************************************************************/
 #pragma once
-#include "ComponentReference.h"
+#include "Graphical.h"
+
 #include "../Resources/SpriteSource.h"
 
 //Note: 1. BlendMode and SpriteSource 0%
@@ -35,13 +36,9 @@ namespace DCEngine {
   namespace Components
   {
     class Transform;
-    class Sprite : public Component {
+    class Sprite : public Graphical {
     public:
-      friend class Graphics;
-
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(Sprite, Component);
-#endif
+      friend class Graphics;          
       
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
@@ -82,6 +79,8 @@ namespace DCEngine {
       void SetColorUsing255(Vec3 newColor);
 			//unsigned GetDrawLayer(void);
 
+      // Constructor
+      ZilchDeclareDerivedType(Sprite, Graphical);
       Sprite(Entity& owner);
       ~Sprite();
       void Initialize();

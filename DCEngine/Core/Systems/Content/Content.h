@@ -30,6 +30,7 @@ namespace DCEngine {
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
     using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
+    using BankMap = std::map<std::string, BankPtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
     using FontMap = std::map<std::string, FontPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
@@ -38,6 +39,7 @@ namespace DCEngine {
     using CollisionGroupMap = std::map<std::string, CollisionGroupPtr>;
     using PhysicsMaterialMap = std::map<std::string, PhysicsMaterialPtr>;    
     using ZilchScriptMap = std::map<std::string, ZilchScriptPtr>;
+
     
     class Content : public System {
       friend class Engine;
@@ -47,6 +49,7 @@ namespace DCEngine {
       void LoadProjectResources(); //!< Load resources from a project.
       
       // Individual getters
+      BankPtr getBank(std::string bankName);
       ShaderPtr getShader(std::string shaderName);
       FontPtr getFont(std::string& fontName);
       SpriteSourcePtr getSpriteSrc(std::string& spriteName);
@@ -64,6 +67,7 @@ namespace DCEngine {
       // Container getters
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
+      BankMap* AllBanks();
       ShaderMap* AllShaders();
       FontMap* AllFonts();
       ArchetypeMap* AllArchetypes();
@@ -90,6 +94,9 @@ namespace DCEngine {
       void ScanAndGenerateResources();
       // Get the current project's settings
       ProjectDataPtr& ProjectSettings();
+
+      // Maybe.. add the others too.
+      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
 
     private:
       
@@ -119,13 +126,14 @@ namespace DCEngine {
       PhysicsMaterialMap MapPhysicsMaterial;
       SpriteLayerMap MapSpriteLayer;
       SpriteLayerOrderMap MapSpriteLayerOrder;
+      BankMap MapBank;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
       void AddArchetype(std::string& archetypeName, ArchetypePtr archetypePtr);
       void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
       void AddSpriteSource(std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
-      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
+      void AddBank(std::string& bankName, BankPtr bankPtr);
       void AddLevel(std::string& levelName, LevelPtr levelPtr);
       void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
       void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);

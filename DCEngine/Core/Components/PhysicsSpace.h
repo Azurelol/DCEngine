@@ -14,9 +14,12 @@
 #pragma once
 #include "ComponentReference.h"
 
+// PhysicsCasting
+#include "../Systems/Physics/Raycasting.h"
+// Components
 #include "../Components/BoxCollider.h"
 #include "../Components/RigidBody.h"
-//#include "../Objects/Entities/GameObject.h"
+// Resources
 #include "../Resources/CollisionGroup.h"
 #include "../Resources/CollisionTable.h"
 
@@ -31,25 +34,35 @@ namespace DCEngine {
     class PhysicsSpace : public Component {
       friend class Physics;
     public:
+      
+      // Physics Casting            
+      CastResult CastRay(Ray& ray);
+      CastResult CastRay(Ray& ray, CastFilter& filter);
+      CastResultsRange CastRay(Ray& ray, unsigned count);
+      CastResultsRange CastRay(Ray& ray, unsigned count, CastFilter& filter);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count, CastFilter& filter);
+      CastResultsRange CastAabb(Vec3& center, Vec3& size, unsigned count, CastFilter& filter);
+      CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter);
+      CastResultsRange CastCollider(Vec3& offset, Collider& testCollider, CastFilter& filter);
 
-      #if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(PhysicsSpace, Component);
-      #endif
+      // Accessors      
+      RigidBodyContainer& AllRigidBodies();
+      ColliderContainer& AllColliders();
 
-      DCE_DEFINE_PROPERTY(CollisionTableHandle, CollisionTable);
-      DCE_DEFINE_PROPERTY(bool, AllowSleep);
-      DCE_DEFINE_PROPERTY(bool, Mode2D);
-      DCE_DEFINE_PROPERTY(bool, Deterministic);
-            
-      // Methods
+      // Add
       void AddRigidBody(RigidBody& rigidbody);
       void RemoveRigidBody(RigidBody& rigidbody);
       void AddCollider(Collider* collider);
       void RemoveCollider(Collider* collider);
 
-      RigidBodyContainer& AllRigidBodies();
-      ColliderContainer& AllColliders();
+      // Properties
+      DCE_DEFINE_PROPERTY(CollisionTableHandle, CollisionTable);
+      DCE_DEFINE_PROPERTY(bool, AllowSleep);
+      DCE_DEFINE_PROPERTY(bool, Mode2D);
+      DCE_DEFINE_PROPERTY(bool, Deterministic);
 
+      ZilchDeclareDerivedType(PhysicsSpace, Component);
       PhysicsSpace(Entity& owner);
       ~PhysicsSpace();
       void Initialize();

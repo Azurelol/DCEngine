@@ -15,6 +15,7 @@
 #include "SpriteSource.h"
 #include "SpriteLayer.h"
 #include "SoundCue.h"
+#include "Bank.h"
 #include "Level.h"
 #include "Mesh.h"
 #include "Texture.h"
@@ -24,9 +25,3 @@
 #include "CollisionTable.h"
 #include "ZilchScript.h"
 #include "PhysicsMaterial.h"
-
-namespace DCEngine {
-
-
-
-}

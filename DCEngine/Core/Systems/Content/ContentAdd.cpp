@@ -174,6 +174,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Adds a bank resource to the Bank resource map.
+    @param The name of the bank.
+    @param The pointer to the bank resource.
+    */
+    /**************************************************************************/
+    void Content::AddBank(std::string & bankName, BankPtr bankPtr)
+    {
+      AddResourceToMap<BankPtr, BankMap>(bankName, bankPtr, MapBank);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Adds a level resource to the Level resource map.
     @param The name of the level.
     @param The pointer to the level resource.
@@ -318,7 +330,7 @@ namespace DCEngine {
         else if (extension == Font::Extension())
           AddFont(resourceName, FontPtr(new Font(resource)));
         else if (extension == SoundCue::Extension())
-          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource)));
+          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource, SoundCue::WhatType::File)));
         else if (extension == Level::Extension())
           AddLevel(resourceName, LevelPtr(new Level(resource)));        
         else if (extension == Archetype::Extension())
@@ -331,6 +343,8 @@ namespace DCEngine {
           AddPhysicsMaterial(resourceName, PhysicsMaterialPtr(new PhysicsMaterial(resource)));
         else if (extension == ZilchScript::Extension())
           AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
+        else if (extension == Bank::Extension())
+          AddBank(resourceName, BankPtr(new Bank(resource)));
       }
     }
 
@@ -467,7 +481,7 @@ namespace DCEngine {
       }
       for (auto sound : soundCues) {
         auto soundName = FileSystem::FileNoExtension(sound);
-        auto soundCue = SoundCuePtr(new SoundCue(sound));
+        auto soundCue = SoundCuePtr(new SoundCue(sound, SoundCue::WhatType::File));
         soundCue->setAssetPath(sound);
         AddSoundCue(soundName, soundCue);
       }

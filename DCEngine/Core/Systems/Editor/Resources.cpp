@@ -35,6 +35,10 @@ namespace DCEngine {
         static char resourceName[32];
         // Resource Selection
         static ResourceType type = ResourceType::None;
+        if (ImGui::Selectable("Bank")) {
+          type = ResourceType::Bank;
+          strcpy(resourceName, "NewBank");
+        }
         if (ImGui::Selectable("CollisionGroup")) {
           type = ResourceType::CollisionGroup;
           strcpy(resourceName, "NewCollisionGroup");
@@ -45,7 +49,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("Font")) {
           type = ResourceType::Font;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewFont");
         }
         if (ImGui::Selectable("Level")) {
           type = ResourceType::Level;
@@ -61,7 +65,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("SoundCue")) {
           type = ResourceType::SoundCue;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewSoundCue");
         }
         if (ImGui::Selectable("SpriteLayer")) {
           type = ResourceType::SpriteLayer;
@@ -73,7 +77,7 @@ namespace DCEngine {
         }
         if (ImGui::Selectable("SpriteSource")) {
           type = ResourceType::SpriteSource;
-          strcpy(resourceName, "");
+          strcpy(resourceName, "NewSpriteSource");
         }
         if (ImGui::Selectable("SpriteLayer")) {
           type = ResourceType::SpriteLayer;
@@ -96,7 +100,8 @@ namespace DCEngine {
         }
         ImGui::SameLine();
         if (ImGui::Button("From File")) {
-          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue || type == ResourceType::Font)
+          if (type == ResourceType::SpriteSource || type == ResourceType::SoundCue 
+              || type == ResourceType::Font || type == ResourceType::Bank)
             ResourceAddFromFile(std::string(resourceName), type);
           else
             DCTrace << "Editor::WindowAddResource - That resource cannot be added from file! \n";

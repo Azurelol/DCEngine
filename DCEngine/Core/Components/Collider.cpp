@@ -24,7 +24,7 @@ namespace DCEngine {
     @note This can only go in the translational unit (.cpp)
     */
     /**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Collider, "Collider", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
       //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Collider);
@@ -33,18 +33,35 @@ namespace DCEngine {
       ZilchBindConstructor(builder, type, Collider, "owner, colliderClass", Entity&, std::string);
       ZilchBindDestructor(builder, type, Collider);
       // Properties
-      //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
-    }
-#endif
 
+    }
+    #endif
+
+    /**************************************************************************/
+    /*!
+    @brief Collider constructor.
+    @param owner A reference to the Entity that owns this component.
+    @param graphicalComponent The name of the derived collider component.
+    */
+    /**************************************************************************/
     Collider::Collider(Entity & owner, std::string colliderClass) : Component(colliderClass, owner)
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Collider destructor.
+    */
+    /**************************************************************************/
     Collider::~Collider()
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Collider initializer.
+    */
+    /**************************************************************************/
     void Collider::Initialize()
     {
     }
