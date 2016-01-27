@@ -1,0 +1,98 @@
+\hypertarget{Component_8h}{\section{Core/\-Objects/\-Component.h File Reference}
+\label{Component_8h}\index{Core/\-Objects/\-Component.\-h@{Core/\-Objects/\-Component.\-h}}
+}
+
+
+\hyperlink{classThe}{The}.  
+
+
+{\ttfamily \#include \char`\"{}Object.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Engine/\-Event.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Events\-Include.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Systems/\-Serialization/\-Serialization.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Component}{D\-C\-Engine\-::\-Component}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Component_8h_af7c7cf6fa7d7b3c2abbd12e9e2aabfc7}{\#define {\bfseries This\-Owner}~dynamic\-\_\-cast$<$Game\-Object$\ast$$>$(Owner())}\label{Component_8h_af7c7cf6fa7d7b3c2abbd12e9e2aabfc7}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_a368adc05af87f06e0df93cc805cda622}{using {\bfseries D\-C\-Engine\-::mask} = unsigned}\label{namespaceDCEngine_a368adc05af87f06e0df93cc805cda622}
+
+\item 
+\hypertarget{namespaceDCEngine_aab54ca02077851a2492239d81b873a54}{using {\bfseries D\-C\-Engine\-::\-Component\-Ptr} = Component $\ast$}\label{namespaceDCEngine_aab54ca02077851a2492239d81b873a54}
+
+\item 
+\hypertarget{namespaceDCEngine_a2e7f474eec165d1a7552f0b4473ee4cd}{using {\bfseries D\-C\-Engine\-::\-Component\-Vec} = std\-::vector$<$ Component\-Ptr $>$}\label{namespaceDCEngine_a2e7f474eec165d1a7552f0b4473ee4cd}
+
+\item 
+\hypertarget{namespaceDCEngine_a2fc7506f691f5c7a2d7f0fcce904100f}{using {\bfseries D\-C\-Engine\-::\-Component\-Strong\-Ptr} = std\-::unique\-\_\-ptr$<$ Component $>$}\label{namespaceDCEngine_a2fc7506f691f5c7a2d7f0fcce904100f}
+
+\item 
+\hypertarget{namespaceDCEngine_ad54b610d8788964be979d4f22fa88838}{using {\bfseries D\-C\-Engine\-::\-Component\-Strong\-Vec} = std\-::vector$<$ Component\-Strong\-Ptr $>$}\label{namespaceDCEngine_ad54b610d8788964be979d4f22fa88838}
+
+\item 
+\hypertarget{namespaceDCEngine_a4923810d797e7861321f57140768fbe9}{using {\bfseries D\-C\-Engine\-::\-Component\-Handle} = Zilch\-::\-Handle}\label{namespaceDCEngine_a4923810d797e7861321f57140768fbe9}
+
+\item 
+\hypertarget{namespaceDCEngine_a7275cd7945932366bf1286eb4017c181}{using {\bfseries D\-C\-Engine\-::\-Component\-Handle\-Vec} = std\-::vector$<$ Zilch\-::\-Handle $>$}\label{namespaceDCEngine_a7275cd7945932366bf1286eb4017c181}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Enumerated\-Component} \{ \\*
+{\bfseries None} = 0, 
+{\bfseries Transform} = 1, 
+{\bfseries Sprite} = 2, 
+{\bfseries Drawable} = 3, 
+\\*
+{\bfseries Time\-Space} = 10, 
+{\bfseries Graphics\-Space} = 11, 
+{\bfseries Physics\-Space} = 12, 
+{\bfseries Sound\-Space} = 13, 
+\\*
+{\bfseries Capacity}
+ \}
+\item 
+enum {\bfseries Bitfield\-Component} \{ \\*
+{\bfseries Alive} = 1, 
+{\bfseries Transform} = 1 $<$$<$ 1, 
+{\bfseries Sprite} = 1 $<$$<$ 2, 
+{\bfseries Drawable} = 1 $<$$<$ 3, 
+\\*
+{\bfseries Time\-Space} = 1 $<$$<$ 10, 
+{\bfseries Graphics\-Space} = 1 $<$$<$ 11, 
+{\bfseries Physics\-Space} = 1 $<$$<$ 12, 
+{\bfseries Sound\-Space} = 1 $<$$<$ 13, 
+\\*
+{\bfseries No\-Objects} = -\/1
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classThe}{The}. \begin{DoxyAuthor}{Author}
+Allan Deutsch, Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+8/2/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

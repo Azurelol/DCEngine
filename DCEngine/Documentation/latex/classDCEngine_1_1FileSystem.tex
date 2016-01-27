@@ -1,0 +1,958 @@
+\hypertarget{classDCEngine_1_1FileSystem}{\section{D\-C\-Engine\-:\-:File\-System Class Reference}
+\label{classDCEngine_1_1FileSystem}\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1FileSystem_a9bf1b81ba166486fb019c8d9399dd69c}{static bool {\bfseries Execute} (std\-::string command)}\label{classDCEngine_1_1FileSystem_a9bf1b81ba166486fb019c8d9399dd69c}
+
+\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_ab21e1879b3bd52feae5d9929e165d1c4}{File\-Open\-Dialog} (std\-::string \&default\-Path, std\-::string \&filters)
+\begin{DoxyCompactList}\small\item\em Opens a file dialog for opening a file. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a7c5c7794da2cf5dff25c500355cf5dd5}{File\-Save\-Dialog} (std\-::string \&default\-Path, std\-::string \&filters)
+\begin{DoxyCompactList}\small\item\em Opens a file dialog for saving a file. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_ac386b00e864763ada216c12465297904}{Exists} (filepath path)
+\begin{DoxyCompactList}\small\item\em Looks for a file or directory in a given path. \end{DoxyCompactList}\item 
+static std\-::time\-\_\-t \hyperlink{classDCEngine_1_1FileSystem_a11614d41a464e2557768e5d4cce34cbf}{Last\-Modified} (filepath path)
+\begin{DoxyCompactList}\small\item\em Finds out when a file was last modified. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a9f968596a575c9c8f5470f61adc8f491}{Delete} (filepath path)
+\begin{DoxyCompactList}\small\item\em Delets a file or directory (and all its contained files) \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a90f21540e3505323b65c25df71fe8228}{Correct\-Path} (std\-::string \&)
+\begin{DoxyCompactList}\small\item\em Fixes the current path in the string to be compatible with file dialogs. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a60005bd9d91bc2b01b3ff25fa8d15c84}{Relative\-Path} (const std\-::string \&path, const std\-::string \&path\-Relative\-To)
+\begin{DoxyCompactList}\small\item\em Translates an absolute path to a relative path, given the path to be translated as well as the path it should be relative to. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_acd990ef22480adf5f8492b906ae8e66a}{File\-Create} (filepath file\-Path)
+\begin{DoxyCompactList}\small\item\em Creates a file. \end{DoxyCompactList}\item 
+static int \hyperlink{classDCEngine_1_1FileSystem_a4b1e6554579c7fa6d1183489bf075734}{File\-Size} (filepath file\-Path)
+\begin{DoxyCompactList}\small\item\em Returns the size of the file, in bytes. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a07a72d17a10c817af65c84e54e3fa142}{File\-Rename} (filepath file\-Path, std\-::string new\-File\-Name)
+\begin{DoxyCompactList}\small\item\em Renames a file. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a3ca3e32fc7d6e58d2acb74ba566fe60c}{File\-Read\-To\-String} (filepath file\-Path, std\-::string \&output)
+\begin{DoxyCompactList}\small\item\em Extracts a file's contents into a single string. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_aaeb997a6b160141b00551e5f2be0ca77}{File\-Write\-String} (filepath file\-Path, std\-::string \&input, bool append=false)
+\begin{DoxyCompactList}\small\item\em Writes to a file. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a1b32740b97d9c01b41390a59b698a38a}{File\-No\-Extension} (filepath file\-Path)
+\begin{DoxyCompactList}\small\item\em get a file without its extension or preceeding path \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_af257ee220649aa361b08989c1c8bb146}{File\-Extension} (filepath file\-Path)
+\begin{DoxyCompactList}\small\item\em Returns a file's extension. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a0c5f3fcd6067e5aba46024c59c3d9375}{File\-Has\-Extension} (filepath file\-Path, std\-::string extension)
+\begin{DoxyCompactList}\small\item\em Returns whether a file has the given extension. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_afbdb31b4fa5520bf1c2e71ef465fa67c}{File\-No\-Path} (filepath file\-Path)
+\begin{DoxyCompactList}\small\item\em get a file without its extension \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a0679d28bbf8f0ab25213e0b7b7bd6ef7}{Directory\-Create} (filepath dir\-Path)
+\begin{DoxyCompactList}\small\item\em Creates a directory in the specified path. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a1d5fb901e937c49a4ef2953b766633ce}{Directory\-List\-Paths} (filepath dir\-Path, std\-::vector$<$ filepath $>$ \&paths)
+\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_aa25b2136e3fa62a49a0179829ca1bbd6}{Directory\-List\-Files} (filepath dir\-Path, std\-::vector$<$ filepath $>$ \&files)
+\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a04611e20dc329ba4bc94236f6521cd27}{Directory\-List\-File\-Names} (std\-::string dir\-Path, std\-::vector$<$ std\-::string $>$ \&file\-Names)
+\begin{DoxyCompactList}\small\item\em Scans a folder, given a path and extracts all the file names into a string vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a89725f228de12e219af24267db3d1441}{Directory\-List\-File\-Paths} (std\-::string dir\-Path, std\-::vector$<$ std\-::string $>$ \&file\-Paths)
+\begin{DoxyCompactList}\small\item\em Scans a folder, given a path and extracts all the file\-Paths into a string vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a4332cd751b54b3645835f5f01e037bf0}{Directory\-List\-File\-Paths} (std\-::string dir\-Path, std\-::vector$<$ std\-::string $>$ \&file\-Paths, std\-::string extension)
+\begin{DoxyCompactList}\small\item\em Scans a folder, given a path and extracts all the files paths with a given extension into a string vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a95ecb139e8779257c64162c3b553089a}{Directory\-List\-Dirs} (filepath dir\-Path, std\-::vector$<$ filepath $>$ \&dirs)
+\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_af72751722d81ba4ffe67ac6c73127bee}{Directory\-Contains\-File} (filepath dir\-Path, std\-::string file\-Name, std\-::string \&found\-Path)
+\begin{DoxyCompactList}\small\item\em Recursively scans a folder looking for a specific filename. If it finds it, it will return the filepath. \end{DoxyCompactList}\item 
+static unsigned int \hyperlink{classDCEngine_1_1FileSystem_a0ac0fa3a992625285807bb9b3fa3f18a}{Directory\-Count\-Files} (filepath dir\-Path)
+\begin{DoxyCompactList}\small\item\em Counts the number of files in a given directory. \end{DoxyCompactList}\item 
+static unsigned int \hyperlink{classDCEngine_1_1FileSystem_abf526a64be0232c378cc6b47724fcaba}{Directory\-Count\-Dirs} (filepath dir\-Path)
+\begin{DoxyCompactList}\small\item\em Counts the number of files in a given directory. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_af26e7adc1b151c8a3e021f0f9212109f}{File\-Found} (std\-::string file\-Path)
+\begin{DoxyCompactList}\small\item\em Looks for a file in the specified file path. \end{DoxyCompactList}\item 
+static unsigned int \hyperlink{classDCEngine_1_1FileSystem_ab09594bacb1caa0839c95769a480c407}{File\-Size} (std\-::string file\-Path)
+\begin{DoxyCompactList}\small\item\em Returns the size of the file, in bytes. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a4026bf77a0c276f3ba28d2091dd4cae0}{File\-Last\-Modified} (std\-::string file\-Path, std\-::string \&modify\-Data)
+\begin{DoxyCompactList}\small\item\em Finds out when a file was last modified. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a05b0b00e7ee58b64c6f6e8b801e1f6b5}{File\-Extract\-Extension} (std\-::string \&file\-Path)
+\begin{DoxyCompactList}\small\item\em Extracts the extension from a string containing a file path. \end{DoxyCompactList}\item 
+static std\-::string \hyperlink{classDCEngine_1_1FileSystem_a84d18126617852c9c80cab7e8e5bb641}{File\-Extract\-Without\-Extension} (std\-::string \&file\-Path)
+\begin{DoxyCompactList}\small\item\em Extracts the extension from a string containing a file path. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a46229a4c969c994d1bf9a9a4a58d344d}{File\-Rename} (std\-::string file\-Path, std\-::string new\-File\-Name)
+\begin{DoxyCompactList}\small\item\em Renames a file. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_acaefff93558af4dd5509311ebf0705d3}{File\-Create} (std\-::string file\-Path)
+\begin{DoxyCompactList}\small\item\em Creates a file. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_aca02529d544f0b818c78b835c414500c}{File\-Read\-To\-String} (std\-::string file\-Path, std\-::string \&output)
+\begin{DoxyCompactList}\small\item\em Extracts a file's contents into a single string. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a97035c3f02255c77cabf854e64eac0ec}{File\-Write\-String} (std\-::string file\-Path, std\-::string \&input)
+\begin{DoxyCompactList}\small\item\em Writes to a file. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a1203cfae04c881fb21339876ea08284b}{Directory\-Extract\-File\-Names} (std\-::string dir\-Path, std\-::vector$<$ std\-::string $>$ \&file\-Names)
+\begin{DoxyCompactList}\small\item\em Scans a folder, given a path and extracts all the file names into a string vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a7e04160eae671d108508d76493da583e}{Directory\-Extract\-File\-Paths} (std\-::string dir\-Path, std\-::vector$<$ std\-::string $>$ \&file\-Paths)
+\begin{DoxyCompactList}\small\item\em Scans a folder, given a path and extracts all the file\-Paths into a string vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_af34d54d8515dbda3f87bf14b12f2a7c8}{Directory\-Find\-File} (std\-::string file\-Name, std\-::string dir\-Path, std\-::string \&file\-Path)
+\begin{DoxyCompactList}\small\item\em Recursively scans a folder looking for a specific filename. If it finds it, it will return the filepath. Otherwise, it will return N\-U\-L\-L. \end{DoxyCompactList}\item 
+static unsigned int \hyperlink{classDCEngine_1_1FileSystem_a4992c4473108c21c9479f582a45ebe7a}{Directory\-Count\-Files} (std\-::string dir\-Path)
+\begin{DoxyCompactList}\small\item\em Counts the number of files in a given directory. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_aeed33884e522785ac4790cdd3ada0411}{Directory\-Found} (std\-::string dir\-Path)
+\begin{DoxyCompactList}\small\item\em Checks if the directory exists in the specified file path. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_aa77b2dfa910e148600eb3846160fa8bb}{Directory\-Create} (std\-::string dir\-Path)
+\begin{DoxyCompactList}\small\item\em Creates a directory in the specified path. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1FileSystem_a73d4c82469e01cc4af4df1ef7170753f}{Remove} (std\-::string path)
+\begin{DoxyCompactList}\small\item\em Removes a file or directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1FileSystem_a90f21540e3505323b65c25df71fe8228}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Correct\-Path@{Correct\-Path}}
+\index{Correct\-Path@{Correct\-Path}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Correct\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-Correct\-Path (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a90f21540e3505323b65c25df71fe8228}
+
+
+Fixes the current path in the string to be compatible with file dialogs. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em path} & \hyperlink{classThe}{The} file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} string containing the corrected path. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a9f968596a575c9c8f5470f61adc8f491}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Delete@{Delete}}
+\index{Delete@{Delete}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Delete}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Delete (
+\begin{DoxyParamCaption}
+\item[{filepath}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a9f968596a575c9c8f5470f61adc8f491}
+
+
+Delets a file or directory (and all its contained files) 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+{\em \hyperlink{classThe}{The}} & new filename. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_af72751722d81ba4ffe67ac6c73127bee}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Contains\-File@{Directory\-Contains\-File}}
+\index{Directory\-Contains\-File@{Directory\-Contains\-File}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Contains\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Contains\-File (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path, }
+\item[{std\-::string}]{file\-Name, }
+\item[{std\-::string \&}]{found\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_af72751722d81ba4ffe67ac6c73127bee}
+
+
+Recursively scans a folder looking for a specific filename. If it finds it, it will return the filepath. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file name. \\
+\hline
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} string containing the file path. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_abf526a64be0232c378cc6b47724fcaba}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Count\-Dirs@{Directory\-Count\-Dirs}}
+\index{Directory\-Count\-Dirs@{Directory\-Count\-Dirs}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Count\-Dirs}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int D\-C\-Engine\-::\-File\-System\-::\-Directory\-Count\-Dirs (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_abf526a64be0232c378cc6b47724fcaba}
+
+
+Counts the number of files in a given directory. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} number of files found. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a4992c4473108c21c9479f582a45ebe7a}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Count\-Files@{Directory\-Count\-Files}}
+\index{Directory\-Count\-Files@{Directory\-Count\-Files}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Count\-Files}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int D\-C\-Engine\-::\-File\-System\-::\-Directory\-Count\-Files (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a4992c4473108c21c9479f582a45ebe7a}
+
+
+Counts the number of files in a given directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} number of files found. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a0ac0fa3a992625285807bb9b3fa3f18a}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Count\-Files@{Directory\-Count\-Files}}
+\index{Directory\-Count\-Files@{Directory\-Count\-Files}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Count\-Files}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int D\-C\-Engine\-::\-File\-System\-::\-Directory\-Count\-Files (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a0ac0fa3a992625285807bb9b3fa3f18a}
+
+
+Counts the number of files in a given directory. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} number of files found. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_aa77b2dfa910e148600eb3846160fa8bb}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Create@{Directory\-Create}}
+\index{Directory\-Create@{Directory\-Create}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Create}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Create (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_aa77b2dfa910e148600eb3846160fa8bb}
+
+
+Creates a directory in the specified path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string containing the file's contents. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This operation is particularly useful for deserializing data. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_a0679d28bbf8f0ab25213e0b7b7bd6ef7}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Create@{Directory\-Create}}
+\index{Directory\-Create@{Directory\-Create}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Create}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Create (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a0679d28bbf8f0ab25213e0b7b7bd6ef7}
+
+
+Creates a directory in the specified path. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string containing the file's contents. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This operation is particularly useful for deserializing data. \textbackslash{} 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_a1203cfae04c881fb21339876ea08284b}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Extract\-File\-Names@{Directory\-Extract\-File\-Names}}
+\index{Directory\-Extract\-File\-Names@{Directory\-Extract\-File\-Names}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Extract\-File\-Names}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Extract\-File\-Names (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{file\-Names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a1203cfae04c881fb21339876ea08284b}
+
+
+Scans a folder, given a path and extracts all the file names into a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the file names. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a7e04160eae671d108508d76493da583e}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Extract\-File\-Paths@{Directory\-Extract\-File\-Paths}}
+\index{Directory\-Extract\-File\-Paths@{Directory\-Extract\-File\-Paths}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Extract\-File\-Paths}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Extract\-File\-Paths (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{file\-Paths}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a7e04160eae671d108508d76493da583e}
+
+
+Scans a folder, given a path and extracts all the file\-Paths into a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files paths. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_af34d54d8515dbda3f87bf14b12f2a7c8}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Find\-File@{Directory\-Find\-File}}
+\index{Directory\-Find\-File@{Directory\-Find\-File}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Find\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Find\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Name, }
+\item[{std\-::string}]{folder\-Path, }
+\item[{std\-::string \&}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_af34d54d8515dbda3f87bf14b12f2a7c8}
+
+
+Recursively scans a folder looking for a specific filename. If it finds it, it will return the filepath. Otherwise, it will return N\-U\-L\-L. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file name. \\
+\hline
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} string containing the file path. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_aeed33884e522785ac4790cdd3ada0411}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-Found@{Directory\-Found}}
+\index{Directory\-Found@{Directory\-Found}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-Found}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-Found (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_aeed33884e522785ac4790cdd3ada0411}
+
+
+Checks if the directory exists in the specified file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & directory path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean denoting whether the directory exists or not. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a95ecb139e8779257c64162c3b553089a}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-Dirs@{Directory\-List\-Dirs}}
+\index{Directory\-List\-Dirs@{Directory\-List\-Dirs}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-Dirs}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-Dirs (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path, }
+\item[{std\-::vector$<$ filepath $>$ \&}]{dirs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a95ecb139e8779257c64162c3b553089a}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a04611e20dc329ba4bc94236f6521cd27}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-File\-Names@{Directory\-List\-File\-Names}}
+\index{Directory\-List\-File\-Names@{Directory\-List\-File\-Names}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-File\-Names}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-File\-Names (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{file\-Names}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a04611e20dc329ba4bc94236f6521cd27}
+
+
+Scans a folder, given a path and extracts all the file names into a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the file names. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a89725f228de12e219af24267db3d1441}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-File\-Paths@{Directory\-List\-File\-Paths}}
+\index{Directory\-List\-File\-Paths@{Directory\-List\-File\-Paths}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-File\-Paths}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-File\-Paths (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{file\-Paths}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a89725f228de12e219af24267db3d1441}
+
+
+Scans a folder, given a path and extracts all the file\-Paths into a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files paths. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a4332cd751b54b3645835f5f01e037bf0}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-File\-Paths@{Directory\-List\-File\-Paths}}
+\index{Directory\-List\-File\-Paths@{Directory\-List\-File\-Paths}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-File\-Paths}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-File\-Paths (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{dir\-Path, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{file\-Paths, }
+\item[{std\-::string}]{extension}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a4332cd751b54b3645835f5f01e037bf0}
+
+
+Scans a folder, given a path and extracts all the files paths with a given extension into a string vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\-Path} & \hyperlink{classThe}{The} directory path. \\
+\hline
+{\em file\-Paths} & \hyperlink{classA}{A} vector containing all the file paths. \\
+\hline
+{\em extension} & \hyperlink{classThe}{The} extension which to extract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files paths. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_aa25b2136e3fa62a49a0179829ca1bbd6}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-Files@{Directory\-List\-Files}}
+\index{Directory\-List\-Files@{Directory\-List\-Files}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-Files}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-Files (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path, }
+\item[{std\-::vector$<$ filepath $>$ \&}]{files}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_aa25b2136e3fa62a49a0179829ca1bbd6}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a1d5fb901e937c49a4ef2953b766633ce}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Directory\-List\-Paths@{Directory\-List\-Paths}}
+\index{Directory\-List\-Paths@{Directory\-List\-Paths}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Directory\-List\-Paths}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Directory\-List\-Paths (
+\begin{DoxyParamCaption}
+\item[{filepath}]{dir\-Path, }
+\item[{std\-::vector$<$ filepath $>$ \&}]{paths}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a1d5fb901e937c49a4ef2953b766633ce}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & folder path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string vector, containing all the files. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_ac386b00e864763ada216c12465297904}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Exists@{Exists}}
+\index{Exists@{Exists}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Exists (
+\begin{DoxyParamCaption}
+\item[{filepath}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_ac386b00e864763ada216c12465297904}
+
+
+Looks for a file or directory in a given path. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & path of the file or directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the file or directory was found or not. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_acaefff93558af4dd5509311ebf0705d3}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Create@{File\-Create}}
+\index{File\-Create@{File\-Create}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Create}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Create (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_acaefff93558af4dd5509311ebf0705d3}
+
+
+Creates a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & new file, in its path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_acd990ef22480adf5f8492b906ae8e66a}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Create@{File\-Create}}
+\index{File\-Create@{File\-Create}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Create}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Create (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_acd990ef22480adf5f8492b906ae8e66a}
+
+
+Creates a file. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & new file, in its path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_af257ee220649aa361b08989c1c8bb146}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Extension@{File\-Extension}}
+\index{File\-Extension@{File\-Extension}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-Extension (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_af257ee220649aa361b08989c1c8bb146}
+
+
+Returns a file's extension. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} new string containing the extension's name. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a05b0b00e7ee58b64c6f6e8b801e1f6b5}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Extract\-Extension@{File\-Extract\-Extension}}
+\index{File\-Extract\-Extension@{File\-Extract\-Extension}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Extract\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-Extract\-Extension (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a05b0b00e7ee58b64c6f6e8b801e1f6b5}
+
+
+Extracts the extension from a string containing a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} new string without the extension. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000037}{Todo}]C\-U\-R\-R\-E\-N\-T\-L\-Y N\-O\-T D\-O\-I\-N\-G A\-S A\-D\-V\-E\-R\-T\-I\-S\-E\-D. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1FileSystem_a84d18126617852c9c80cab7e8e5bb641}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Extract\-Without\-Extension@{File\-Extract\-Without\-Extension}}
+\index{File\-Extract\-Without\-Extension@{File\-Extract\-Without\-Extension}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Extract\-Without\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-Extract\-Without\-Extension (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a84d18126617852c9c80cab7e8e5bb641}
+
+
+Extracts the extension from a string containing a file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} new string without the extension. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_af26e7adc1b151c8a3e021f0f9212109f}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Found@{File\-Found}}
+\index{File\-Found@{File\-Found}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Found}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Found (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_af26e7adc1b151c8a3e021f0f9212109f}
+
+
+Looks for a file in the specified file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the file was found or not. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+\hyperlink{classThe}{The} user needs to supply the file path relative to where the executable is placed. For V\-S projects, this will be the root folder. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_a0c5f3fcd6067e5aba46024c59c3d9375}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Has\-Extension@{File\-Has\-Extension}}
+\index{File\-Has\-Extension@{File\-Has\-Extension}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Has\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Has\-Extension (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path, }
+\item[{std\-::string}]{extension}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a0c5f3fcd6067e5aba46024c59c3d9375}
+
+
+Returns whether a file has the given extension. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the file has the specified extension or not. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a4026bf77a0c276f3ba28d2091dd4cae0}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Last\-Modified@{File\-Last\-Modified}}
+\index{File\-Last\-Modified@{File\-Last\-Modified}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Last\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Last\-Modified (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path, }
+\item[{std\-::string \&}]{modify\-Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a4026bf77a0c276f3ba28d2091dd4cae0}
+
+
+Finds out when a file was last modified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} last time the file was modified, an std\-::time\-\_\-t object. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a1b32740b97d9c01b41390a59b698a38a}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-No\-Extension@{File\-No\-Extension}}
+\index{File\-No\-Extension@{File\-No\-Extension}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-No\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-No\-Extension (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a1b32740b97d9c01b41390a59b698a38a}
+
+
+get a file without its extension or preceeding path 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} new string without the extension or path \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_afbdb31b4fa5520bf1c2e71ef465fa67c}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-No\-Path@{File\-No\-Path}}
+\index{File\-No\-Path@{File\-No\-Path}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-No\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-No\-Path (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_afbdb31b4fa5520bf1c2e71ef465fa67c}
+
+
+get a file without its extension 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} new string without the path \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_ab21e1879b3bd52feae5d9929e165d1c4}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Open\-Dialog@{File\-Open\-Dialog}}
+\index{File\-Open\-Dialog@{File\-Open\-Dialog}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Open\-Dialog}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-Open\-Dialog (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{default\-Path, }
+\item[{std\-::string \&}]{filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_ab21e1879b3bd52feae5d9929e165d1c4}
+
+
+Opens a file dialog for opening a file. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em openpath} & \hyperlink{classThe}{The} path from which to start. \\
+\hline
+{\em filters} & What filters to be used for the files. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} path of the selected file that will be opened. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Filters are of the format\-: \char`\"{}png,jpg;pdf\char`\"{} \hyperlink{classThe}{The} File\-Open\-Dialog is currently set to return a relative\-Path; \textbackslash{} 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_aca02529d544f0b818c78b835c414500c}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Read\-To\-String@{File\-Read\-To\-String}}
+\index{File\-Read\-To\-String@{File\-Read\-To\-String}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Read\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Read\-To\-String (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path, }
+\item[{std\-::string \&}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_aca02529d544f0b818c78b835c414500c}
+
+
+Extracts a file's contents into a single string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string containing the file's contents. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This operation is particularly useful for deserializing data. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_a3ca3e32fc7d6e58d2acb74ba566fe60c}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Read\-To\-String@{File\-Read\-To\-String}}
+\index{File\-Read\-To\-String@{File\-Read\-To\-String}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Read\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Read\-To\-String (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path, }
+\item[{std\-::string \&}]{output}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a3ca3e32fc7d6e58d2acb74ba566fe60c}
+
+
+Extracts a file's contents into a single string. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} string containing the file's contents. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This operation is particularly useful for deserializing data. \textbackslash{} 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_a46229a4c969c994d1bf9a9a4a58d344d}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Rename@{File\-Rename}}
+\index{File\-Rename@{File\-Rename}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Rename}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Rename (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path, }
+\item[{std\-::string}]{new\-File\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a46229a4c969c994d1bf9a9a4a58d344d}
+
+
+Renames a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+{\em \hyperlink{classThe}{The}} & new filename. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a07a72d17a10c817af65c84e54e3fa142}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Rename@{File\-Rename}}
+\index{File\-Rename@{File\-Rename}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Rename}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Rename (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path, }
+\item[{std\-::string}]{new\-File\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a07a72d17a10c817af65c84e54e3fa142}
+
+
+Renames a file. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+{\em \hyperlink{classThe}{The}} & new filename. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a7c5c7794da2cf5dff25c500355cf5dd5}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Save\-Dialog@{File\-Save\-Dialog}}
+\index{File\-Save\-Dialog@{File\-Save\-Dialog}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Save\-Dialog}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-File\-Save\-Dialog (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{default\-Path, }
+\item[{std\-::string \&}]{filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a7c5c7794da2cf5dff25c500355cf5dd5}
+
+
+Opens a file dialog for saving a file. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em openpath} & \hyperlink{classThe}{The} path from which to start. \\
+\hline
+{\em filters} & What filters to be used for the files. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} path of the selected file that will be saved. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Filters are of the format\-: \char`\"{}png,jpg;pdf\char`\"{} \textbackslash{} 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1FileSystem_ab09594bacb1caa0839c95769a480c407}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Size@{File\-Size}}
+\index{File\-Size@{File\-Size}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int D\-C\-Engine\-::\-File\-System\-::\-File\-Size (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_ab09594bacb1caa0839c95769a480c407}
+
+
+Returns the size of the file, in bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} size of the file in bytes, an unsigned integer. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a4b1e6554579c7fa6d1183489bf075734}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Size@{File\-Size}}
+\index{File\-Size@{File\-Size}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int D\-C\-Engine\-::\-File\-System\-::\-File\-Size (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a4b1e6554579c7fa6d1183489bf075734}
+
+
+Returns the size of the file, in bytes. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} size of the file in bytes, an unsigned integer. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a97035c3f02255c77cabf854e64eac0ec}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Write\-String@{File\-Write\-String}}
+\index{File\-Write\-String@{File\-Write\-String}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Write\-String}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Write\-String (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path, }
+\item[{std\-::string \&}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a97035c3f02255c77cabf854e64eac0ec}
+
+
+Writes to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & new file, in its path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_aaeb997a6b160141b00551e5f2be0ca77}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!File\-Write\-String@{File\-Write\-String}}
+\index{File\-Write\-String@{File\-Write\-String}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{File\-Write\-String}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-File\-Write\-String (
+\begin{DoxyParamCaption}
+\item[{filepath}]{file\-Path, }
+\item[{std\-::string \&}]{input, }
+\item[{bool}]{append = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_aaeb997a6b160141b00551e5f2be0ca77}
+
+
+Writes to a file. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & new file, in its path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a11614d41a464e2557768e5d4cce34cbf}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Last\-Modified@{Last\-Modified}}
+\index{Last\-Modified@{Last\-Modified}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Last\-Modified}]{\setlength{\rightskip}{0pt plus 5cm}std\-::time\-\_\-t D\-C\-Engine\-::\-File\-System\-::\-Last\-Modified (
+\begin{DoxyParamCaption}
+\item[{filepath}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a11614d41a464e2557768e5d4cce34cbf}
+
+
+Finds out when a file was last modified. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} last time the file was modified, an std\-::time\-\_\-t object. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a60005bd9d91bc2b01b3ff25fa8d15c84}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Relative\-Path@{Relative\-Path}}
+\index{Relative\-Path@{Relative\-Path}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Relative\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-File\-System\-::\-Relative\-Path (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{input\-Path, }
+\item[{const std\-::string \&}]{path\-Relative\-To}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a60005bd9d91bc2b01b3ff25fa8d15c84}
+
+
+Translates an absolute path to a relative path, given the path to be translated as well as the path it should be relative to. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em path} & \hyperlink{classThe}{The} file path. \\
+\hline
+{\em path\-Relative\-To} & \hyperlink{classThe}{The} file path relative to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} relative path. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1FileSystem_a73d4c82469e01cc4af4df1ef7170753f}{\index{D\-C\-Engine\-::\-File\-System@{D\-C\-Engine\-::\-File\-System}!Remove@{Remove}}
+\index{Remove@{Remove}!DCEngine::FileSystem@{D\-C\-Engine\-::\-File\-System}}
+\subsubsection[{Remove}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-File\-System\-::\-Remove (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1FileSystem_a73d4c82469e01cc4af4df1ef7170753f}
+
+
+Removes a file or directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & file path. \\
+\hline
+{\em \hyperlink{classThe}{The}} & new filename. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} boolean determining the success of the operation. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Filesystem/File\-System.\-h\item 
+Core/\-Systems/\-Filesystem/File\-System.\-cpp\end{DoxyCompactItemize}

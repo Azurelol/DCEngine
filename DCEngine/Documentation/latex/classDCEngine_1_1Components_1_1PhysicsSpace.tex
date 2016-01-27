@@ -1,0 +1,396 @@
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace}{\section{D\-C\-Engine\-:\-:Components\-:\-:Physics\-Space Class Reference}
+\label{classDCEngine_1_1Components_1_1PhysicsSpace}\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Components\-:\-:Physics\-Space\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Components_1_1PhysicsSpace}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDCEngine_1_1CastResult}{Cast\-Result} \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a42e3b94c357b78e64b8af16227b146e1}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em Performs a ray cast and returns the first object that is collided with. \end{DoxyCompactList}\item 
+\hyperlink{structDCEngine_1_1CastResult}{Cast\-Result} \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_acec2ad99286f0db2cc310649bcc6c544}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Performs a filtered ray cast and returns the first object that is collided with. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a1a297028d7d96a291cb6858c3436b836}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, unsigned count)
+\begin{DoxyCompactList}\small\item\em Returns the results of the ray cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a4361d35f5b4246f0ba200b9b62a35e05}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered ray cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a05ba128f98610ecc986856909dc7c69e}{Cast\-Segment} (Vec3 \&start, Vec3 \&end, unsigned count)
+\begin{DoxyCompactList}\small\item\em Returns the results of the segment cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_aeec86778252fdad28106c9c67bd6a455}{Cast\-Segment} (Vec3 \&start, Vec3 \&end, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered segment cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a90d4050da54d553942a6364ad7639c7a}{Cast\-Aabb} (Vec3 \&center, Vec3 \&size, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered Aabb cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a042e74d04a2849229d01e62a222d6e0b}{Cast\-Sphere} (Vec3 \&center, float radius, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered sphere cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a3f659d999f3d8bb108ab6b79d2acd6d8}{Cast\-Collider} (Vec3 \&offset, \hyperlink{classDCEngine_1_1Components_1_1Collider}{Collider} \&test\-Collider, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Cast out a collider to see whats it's colliding with. \end{DoxyCompactList}\item 
+Rigid\-Body\-Container \& \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a88177dacf87c8e402b79b69b3fa6656d}{All\-Rigid\-Bodies} ()
+\begin{DoxyCompactList}\small\item\em Returns the container of active Rigid\-Bodies. \end{DoxyCompactList}\item 
+Collider\-Container \& \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_ade290d5a9c8813dd000a33c3ad26d9bb}{All\-Colliders} ()
+\begin{DoxyCompactList}\small\item\em Returns the container of active Colliders. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_af67fcaafccaa698642250dd726e708ae}{Add\-Rigid\-Body} (\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body} \&rigidbody)
+\begin{DoxyCompactList}\small\item\em Adds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a419e695863bc3c5c20cb19a607246ed3}{Remove\-Rigid\-Body} (\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body} \&rigidbody)
+\begin{DoxyCompactList}\small\item\em Remvoes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a8bcda83c46e1bc3ceeabd81aa2d1b601}{Add\-Collider} (\hyperlink{classDCEngine_1_1Components_1_1Collider}{Collider} $\ast$collider)
+\begin{DoxyCompactList}\small\item\em Adds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1BoxCollider}{Box\-Collider}' component. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_ac796bba9a65f292f4d13c98ff5cbbc2a}{Remove\-Collider} (\hyperlink{classDCEngine_1_1Components_1_1Collider}{Collider} $\ast$collider)
+\begin{DoxyCompactList}\small\item\em Removes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a59a83217019dec4a8b167cabbd26ba55}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (Collision\-Table\-Handle, \hyperlink{classDCEngine_1_1CollisionTable}{Collision\-Table})}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a59a83217019dec4a8b167cabbd26ba55}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a7788905dacd0218921bbfb2880d80d17}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (bool, Allow\-Sleep)}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a7788905dacd0218921bbfb2880d80d17}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a8f5515dfb2ed69318115b9ea764f05ea}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (bool, Mode2\-D)}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a8f5515dfb2ed69318115b9ea764f05ea}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a174128bab40cca2a5350811c60b447d2}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (bool, Deterministic)}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a174128bab40cca2a5350811c60b447d2}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_ae17addb30579cbf9cc1599f654ab1976}{{\bfseries Zilch\-Declare\-Derived\-Type} (\hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace}{Physics\-Space}, \hyperlink{classDCEngine_1_1Component}{Component})}\label{classDCEngine_1_1Components_1_1PhysicsSpace_ae17addb30579cbf9cc1599f654ab1976}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_adb56e6bde89306a445e26f35ce14f4e7}{\hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_adb56e6bde89306a445e26f35ce14f4e7}{Physics\-Space} (\hyperlink{classDCEngine_1_1Entity}{Entity} \&owner)}\label{classDCEngine_1_1Components_1_1PhysicsSpace_adb56e6bde89306a445e26f35ce14f4e7}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace}{Physics\-Space} constructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a35fcb9e62534b49aa790a65dfc3f1960}{\hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a35fcb9e62534b49aa790a65dfc3f1960}{$\sim$\-Physics\-Space} ()}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a35fcb9e62534b49aa790a65dfc3f1960}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace}{Physics\-Space} destructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a4541ca3b5f09373a1f28b87bd45f944c}{void \hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace_a4541ca3b5f09373a1f28b87bd45f944c}{Initialize} ()}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a4541ca3b5f09373a1f28b87bd45f944c}
+
+\begin{DoxyCompactList}\small\item\em Initializes the Physics \hyperlink{classDCEngine_1_1Space}{Space}. \hyperlink{classThe}{The} presence of a physis space component signals to the Physics system that the space requires physics resolution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a2bfcbae6c8e1d7af93c5ac1200b1535c}{class {\bfseries Physics}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a2bfcbae6c8e1d7af93c5ac1200b1535c}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a8bcda83c46e1bc3ceeabd81aa2d1b601}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Add\-Collider@{Add\-Collider}}
+\index{Add\-Collider@{Add\-Collider}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Add\-Collider}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Add\-Collider (
+\begin{DoxyParamCaption}
+\item[{{\bf Collider} $\ast$}]{collider}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a8bcda83c46e1bc3ceeabd81aa2d1b601}
+
+
+Adds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1BoxCollider}{Box\-Collider}' component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the '\hyperlink{classDCEngine_1_1GameObject}{Game\-Object}' \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_af67fcaafccaa698642250dd726e708ae}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Add\-Rigid\-Body@{Add\-Rigid\-Body}}
+\index{Add\-Rigid\-Body@{Add\-Rigid\-Body}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Add\-Rigid\-Body}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Add\-Rigid\-Body (
+\begin{DoxyParamCaption}
+\item[{{\bf Rigid\-Body} \&}]{rigidbody}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_af67fcaafccaa698642250dd726e708ae}
+
+
+Adds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the '\hyperlink{classDCEngine_1_1GameObject}{Game\-Object}' \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_ade290d5a9c8813dd000a33c3ad26d9bb}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!All\-Colliders@{All\-Colliders}}
+\index{All\-Colliders@{All\-Colliders}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{All\-Colliders}]{\setlength{\rightskip}{0pt plus 5cm}Collider\-Container \& D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-All\-Colliders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_ade290d5a9c8813dd000a33c3ad26d9bb}
+
+
+Returns the container of active Colliders. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} container of Game\-Objects. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a88177dacf87c8e402b79b69b3fa6656d}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!All\-Rigid\-Bodies@{All\-Rigid\-Bodies}}
+\index{All\-Rigid\-Bodies@{All\-Rigid\-Bodies}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{All\-Rigid\-Bodies}]{\setlength{\rightskip}{0pt plus 5cm}Rigid\-Body\-Container \& D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-All\-Rigid\-Bodies (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a88177dacf87c8e402b79b69b3fa6656d}
+
+
+Returns the container of active Rigid\-Bodies. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} container of Game\-Objects. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a90d4050da54d553942a6364ad7639c7a}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Aabb@{Cast\-Aabb}}
+\index{Cast\-Aabb@{Cast\-Aabb}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Aabb}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Aabb (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{center, }
+\item[{Vec3 \&}]{size, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a90d4050da54d553942a6364ad7639c7a}
+
+
+Returns the results of the filtered Aabb cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \hyperlink{classThe}{The} origin. \\
+\hline
+{\em size} & \hyperlink{classThe}{The} dimensions of the shape. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a3f659d999f3d8bb108ab6b79d2acd6d8}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Collider@{Cast\-Collider}}
+\index{Cast\-Collider@{Cast\-Collider}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Collider}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Collider (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{offset, }
+\item[{{\bf Collider} \&}]{test\-Collider, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a3f659d999f3d8bb108ab6b79d2acd6d8}
+
+
+Cast out a collider to see whats it's colliding with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & How much to offset the collider from its current position. \\
+\hline
+{\em test\-Collider} & \hyperlink{classA}{A} reference to the collider. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a42e3b94c357b78e64b8af16227b146e1}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cast\-Result} D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a42e3b94c357b78e64b8af16227b146e1}
+
+
+Performs a ray cast and returns the first object that is collided with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_acec2ad99286f0db2cc310649bcc6c544}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cast\-Result} D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_acec2ad99286f0db2cc310649bcc6c544}
+
+
+Performs a filtered ray cast and returns the first object that is collided with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em filter} & \hyperlink{classA}{A} filter... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a1a297028d7d96a291cb6858c3436b836}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{unsigned}]{count}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a1a297028d7d96a291cb6858c3436b836}
+
+
+Returns the results of the ray cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a4361d35f5b4246f0ba200b9b62a35e05}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a4361d35f5b4246f0ba200b9b62a35e05}
+
+
+Returns the results of the filtered ray cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a05ba128f98610ecc986856909dc7c69e}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Segment@{Cast\-Segment}}
+\index{Cast\-Segment@{Cast\-Segment}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Segment (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{start, }
+\item[{Vec3 \&}]{end, }
+\item[{unsigned}]{count}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a05ba128f98610ecc986856909dc7c69e}
+
+
+Returns the results of the segment cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \hyperlink{classThe}{The} starting point of the segment. \\
+\hline
+{\em end} & \hyperlink{classThe}{The} ending point of the segment. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_aeec86778252fdad28106c9c67bd6a455}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Segment@{Cast\-Segment}}
+\index{Cast\-Segment@{Cast\-Segment}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Segment (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{start, }
+\item[{Vec3 \&}]{end, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_aeec86778252fdad28106c9c67bd6a455}
+
+
+Returns the results of the filtered segment cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \hyperlink{classThe}{The} starting point of the segment. \\
+\hline
+{\em end} & \hyperlink{classThe}{The} ending point of the segment. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a042e74d04a2849229d01e62a222d6e0b}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Cast\-Sphere@{Cast\-Sphere}}
+\index{Cast\-Sphere@{Cast\-Sphere}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Cast\-Sphere}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Cast\-Sphere (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{center, }
+\item[{float}]{radius, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a042e74d04a2849229d01e62a222d6e0b}
+
+
+Returns the results of the filtered sphere cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \hyperlink{classThe}{The} origin. \\
+\hline
+{\em radius} & \hyperlink{classThe}{The} radius of the sphere. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_ac796bba9a65f292f4d13c98ff5cbbc2a}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Remove\-Collider@{Remove\-Collider}}
+\index{Remove\-Collider@{Remove\-Collider}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Remove\-Collider}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Remove\-Collider (
+\begin{DoxyParamCaption}
+\item[{{\bf Collider} $\ast$}]{collider}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_ac796bba9a65f292f4d13c98ff5cbbc2a}
+
+
+Removes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the '\hyperlink{classDCEngine_1_1GameObject}{Game\-Object}' \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Components_1_1PhysicsSpace_a419e695863bc3c5c20cb19a607246ed3}{\index{D\-C\-Engine\-::\-Components\-::\-Physics\-Space@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}!Remove\-Rigid\-Body@{Remove\-Rigid\-Body}}
+\index{Remove\-Rigid\-Body@{Remove\-Rigid\-Body}!DCEngine::Components::PhysicsSpace@{D\-C\-Engine\-::\-Components\-::\-Physics\-Space}}
+\subsubsection[{Remove\-Rigid\-Body}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Physics\-Space\-::\-Remove\-Rigid\-Body (
+\begin{DoxyParamCaption}
+\item[{{\bf Rigid\-Body} \&}]{rigidbody}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1PhysicsSpace_a419e695863bc3c5c20cb19a607246ed3}
+
+
+Remvoes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with a '\hyperlink{classDCEngine_1_1Components_1_1RigidBody}{Rigid\-Body}' component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the '\hyperlink{classDCEngine_1_1GameObject}{Game\-Object}' \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Components/Physics\-Space.\-h\item 
+Core/\-Components/Physics\-Space.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,209 @@
+\hypertarget{classDCEngine_1_1Component}{\section{D\-C\-Engine\-:\-:Component Class Reference}
+\label{classDCEngine_1_1Component}\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Component\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classDCEngine_1_1Component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_a1d463d431a354f09864b0eb6dbce8ef2}{{\bfseries Zilch\-Declare\-Derived\-Type} (\hyperlink{classDCEngine_1_1Component}{Component}, \hyperlink{classDCEngine_1_1Object}{Object})}\label{classDCEngine_1_1Component_a1d463d431a354f09864b0eb6dbce8ef2}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a450b904300903683f54b2a2da772c485}{{\footnotesize template$<$typename Entity\-Class $>$ }\\Entity\-Class $\ast$ {\bfseries get\-Owner} ()}\label{classDCEngine_1_1Component_a450b904300903683f54b2a2da772c485}
+
+\item 
+\hyperlink{classDCEngine_1_1Entity}{Entity} $\ast$ \hyperlink{classDCEngine_1_1Component_ac294dc4c0ae2a6399bac40eef58287f7}{Owner} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \hyperlink{classDCEngine_1_1Entity}{Entity} that owns this component. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Component_a42de2ed8b4f78dbed97ef84ae84dbb8d}{const \hyperlink{classDCEngine_1_1Space}{Space} \& {\bfseries This\-Space} () const }\label{classDCEngine_1_1Component_a42de2ed8b4f78dbed97ef84ae84dbb8d}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_ac236b6a79ede3fccdcbcd7774d6979f0}{const \hyperlink{classDCEngine_1_1GameSession}{Game\-Session} \& {\bfseries This\-Game\-Session} () const }\label{classDCEngine_1_1Component_ac236b6a79ede3fccdcbcd7774d6979f0}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a1b038e80a5b7786e8d3f4805351d56fc}{virtual Dependencies\-Container \& {\bfseries Dependencies} () const noexcept}\label{classDCEngine_1_1Component_a1b038e80a5b7786e8d3f4805351d56fc}
+
+\item 
+\hyperlink{classDCEngine_1_1Component_a74bd2d9c7b69be0c75322bc2ba496f88}{Component} (std\-::string name, \hyperlink{classDCEngine_1_1Entity}{Entity} \&owner)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Component}{Component} constructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Component_ac00f58512f2e5afa33f14007fd9c622e}{virtual \hyperlink{classDCEngine_1_1Component_ac00f58512f2e5afa33f14007fd9c622e}{$\sim$\-Component} ()}\label{classDCEngine_1_1Component_ac00f58512f2e5afa33f14007fd9c622e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Component}{Component} destructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Component_a462cf1947b7d3f709c4825281623f05e}{virtual void {\bfseries Initialize} ()=0}\label{classDCEngine_1_1Component_a462cf1947b7d3f709c4825281623f05e}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_af474d59bd4fe62ebff3fd2f308295a86}{void \hyperlink{classDCEngine_1_1Component_af474d59bd4fe62ebff3fd2f308295a86}{Destroy} ()}\label{classDCEngine_1_1Component_af474d59bd4fe62ebff3fd2f308295a86}
+
+\begin{DoxyCompactList}\small\item\em Destroys the component at the beginning of the next frame. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Component_a528b4171754da2aaf5ae2893c5fead7d}{Serialize} (Zilch\-::\-Json\-Builder \&builder)
+\begin{DoxyCompactList}\small\item\em Serializes a \hyperlink{classDCEngine_1_1Component}{Component}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Component_ad1d066b15f0cf6094ff24fe53dea4ab7}{Deserialize} (Zilch\-::\-Json\-Value $\ast$properties)
+\begin{DoxyCompactList}\small\item\em Deserializes a \hyperlink{classDCEngine_1_1Component}{Component}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classDCEngine_1_1Component_ac77fdca1c287921f639bcd93d43dc4c8}{Exists} (std\-::string component\-Name)
+\begin{DoxyCompactList}\small\item\em Checks whether the component exists among the list of active components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_acdff26be1980d868761e54f32eea6219}{const unsigned int {\bfseries Component\-I\-D}}\label{classDCEngine_1_1Component_acdff26be1980d868761e54f32eea6219}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_a175738e900b11233bf516905797c23c7}{static unsigned int {\bfseries Components\-Created} = 0}\label{classDCEngine_1_1Component_a175738e900b11233bf516905797c23c7}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_afe67576bb93cce3a053b1f8bb25e38ef}{static unsigned int {\bfseries Components\-Destroyed} = 0}\label{classDCEngine_1_1Component_afe67576bb93cce3a053b1f8bb25e38ef}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a839bb8cffb519b1570422772c791c26a}{static std\-::string {\bfseries Component\-Last\-Created}}\label{classDCEngine_1_1Component_a839bb8cffb519b1570422772c791c26a}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a9afe9259d705affe8d816d2f80407993}{static std\-::string {\bfseries Component\-Last\-Destroyed}}\label{classDCEngine_1_1Component_a9afe9259d705affe8d816d2f80407993}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a0d8174578805a0f8486a72d3cba36fb7}{static bool {\bfseries Diagnostics\-Enabled} = true}\label{classDCEngine_1_1Component_a0d8174578805a0f8486a72d3cba36fb7}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_a7d6a7f58beccc0453b39d113f00f37c2}{using {\bfseries Dependencies\-Container} = std\-::vector$<$ std\-::string $>$}\label{classDCEngine_1_1Component_a7d6a7f58beccc0453b39d113f00f37c2}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_a677bd02b725010574d579ff06082b08e}{\hyperlink{classDCEngine_1_1Space}{Space} $\ast$ {\bfseries Space\-Ref}}\label{classDCEngine_1_1Component_a677bd02b725010574d579ff06082b08e}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a5d0b8fc5b9696dba92667550fe3baa2e}{\hyperlink{classDCEngine_1_1GameSession}{Game\-Session} $\ast$ {\bfseries Game\-Session\-Ref}}\label{classDCEngine_1_1Component_a5d0b8fc5b9696dba92667550fe3baa2e}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_ad1c8d9740f167555fd95004a8da73ac4}{std\-::vector$<$ \hyperlink{classDCEngine_1_1Entity}{Entity} $\ast$ $>$ {\bfseries Active\-Delegate\-Holders}}\label{classDCEngine_1_1Component_ad1c8d9740f167555fd95004a8da73ac4}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Component_a614439ccac0344926adc4c0165d64060}{class {\bfseries Entity}}\label{classDCEngine_1_1Component_a614439ccac0344926adc4c0165d64060}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a00df87c957d8f7ee0fc51f07a0542f4a}{class {\bfseries Game\-Object}}\label{classDCEngine_1_1Component_a00df87c957d8f7ee0fc51f07a0542f4a}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a160097cc252ed86c269b6147933a7806}{class {\bfseries Systems\-::\-Factory}}\label{classDCEngine_1_1Component_a160097cc252ed86c269b6147933a7806}
+
+\item 
+\hypertarget{classDCEngine_1_1Component_a3e1914489e4bed4f9f23cdeab34a43dc}{class {\bfseries Engine}}\label{classDCEngine_1_1Component_a3e1914489e4bed4f9f23cdeab34a43dc}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1Component_a74bd2d9c7b69be0c75322bc2ba496f88}{\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}!Component@{Component}}
+\index{Component@{Component}!DCEngine::Component@{D\-C\-Engine\-::\-Component}}
+\subsubsection[{Component}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Component\-::\-Component (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{{\bf Entity} \&}]{owner}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Component_a74bd2d9c7b69be0c75322bc2ba496f88}
+
+
+\hyperlink{classDCEngine_1_1Component}{Component} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the \hyperlink{classDCEngine_1_1Component}{Component} class. \\
+\hline
+{\em owner} & \hyperlink{classA}{A} reference to the \hyperlink{classDCEngine_1_1Entity}{Entity} that owns this component. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Component_ad1d066b15f0cf6094ff24fe53dea4ab7}{\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!DCEngine::Component@{D\-C\-Engine\-::\-Component}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Component\-::\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Value $\ast$}]{properties}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Component_ad1d066b15f0cf6094ff24fe53dea4ab7}
+
+
+Deserializes a \hyperlink{classDCEngine_1_1Component}{Component}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} pointer to the object containing the properties. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will deserialize the \hyperlink{classDCEngine_1_1Component}{Component}'s properties. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Component_ac77fdca1c287921f639bcd93d43dc4c8}{\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}!Exists@{Exists}}
+\index{Exists@{Exists}!DCEngine::Component@{D\-C\-Engine\-::\-Component}}
+\subsubsection[{Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Component\-::\-Exists (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{component\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Component_ac77fdca1c287921f639bcd93d43dc4c8}
+
+
+Checks whether the component exists among the list of active components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component\-Name} & \hyperlink{classThe}{The} name of the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the component exists among the list of created components. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Component_ac294dc4c0ae2a6399bac40eef58287f7}{\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}!Owner@{Owner}}
+\index{Owner@{Owner}!DCEngine::Component@{D\-C\-Engine\-::\-Component}}
+\subsubsection[{Owner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} $\ast$ D\-C\-Engine\-::\-Component\-::\-Owner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Component_ac294dc4c0ae2a6399bac40eef58287f7}
+
+
+Returns a pointer to the \hyperlink{classDCEngine_1_1Entity}{Entity} that owns this component. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} entity pointer. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Component_a528b4171754da2aaf5ae2893c5fead7d}{\index{D\-C\-Engine\-::\-Component@{D\-C\-Engine\-::\-Component}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!DCEngine::Component@{D\-C\-Engine\-::\-Component}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Component\-::\-Serialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Builder \&}]{builder}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Component_a528b4171754da2aaf5ae2893c5fead7d}
+
+
+Serializes a \hyperlink{classDCEngine_1_1Component}{Component}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will serialize the component and all its properties. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Objects/\hyperlink{Component_8h}{Component.\-h}\item 
+Core/\-Objects/Component.\-cpp\end{DoxyCompactItemize}

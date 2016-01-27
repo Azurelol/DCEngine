@@ -157,7 +157,6 @@ namespace DCEngine {
       void LoadProject(std::string& path);
       void SaveProject();
       void SaveCurrentLevel();
-      void ShowProjectFolder();
       void PlayGame();
       void StopGame();
       void ExportGame();
@@ -235,6 +234,10 @@ namespace DCEngine {
       void CreateParticleSystem();
       void CreateFromArchetype(std::string&);
       void MoveToViewportCenter(GameObject* gameobject);
+      // Processes      
+      void LaunchProjectFolder();
+      void LaunchDocumentation();
+
       /* Functions */
       Editor(EditorConfig settings);
       void Initialize();

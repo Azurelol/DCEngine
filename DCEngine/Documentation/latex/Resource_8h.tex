@@ -1,0 +1,44 @@
+\hypertarget{Resource_8h}{\section{Core/\-Objects/\-Resource.h File Reference}
+\label{Resource_8h}\index{Core/\-Objects/\-Resource.\-h@{Core/\-Objects/\-Resource.\-h}}
+}
+
+
+Resources are the source data of a game. They are assets such as textures, sounds, levels, scripts. They are the resources found in a library window.  
+
+
+{\ttfamily \#include \char`\"{}Object.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Systems/\-Filesystem/\-File\-System.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Resource}{D\-C\-Engine\-::\-Resource}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_ac2ff348e5b42025cf6840040fd81b280}{using {\bfseries D\-C\-Engine\-::\-Resource\-Ptr} = Resource $\ast$}\label{namespaceDCEngine_ac2ff348e5b42025cf6840040fd81b280}
+
+\item 
+\hypertarget{namespaceDCEngine_a15096c8dd2b828aff8676650ecfc496a}{using {\bfseries D\-C\-Engine\-::\-Resource\-Strong\-Ptr} = std\-::shared\-\_\-ptr$<$ Resource $>$}\label{namespaceDCEngine_a15096c8dd2b828aff8676650ecfc496a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Resources are the source data of a game. They are assets such as textures, sounds, levels, scripts. They are the resources found in a library window. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+8/5/2015 Each resource is assigned an unique id when created, allowing objects and archetypes to refer to resources and not break their connection even if the name of the resource is changed. 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

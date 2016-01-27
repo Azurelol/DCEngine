@@ -1,0 +1,47 @@
+\hypertarget{Font_8h}{\section{Core/\-Resources/\-Font.h File Reference}
+\label{Font_8h}\index{Core/\-Resources/\-Font.\-h@{Core/\-Resources/\-Font.\-h}}
+}
+
+
+\hyperlink{classThe}{The} Font resource handles the loading and processing of a True\-Type font from file. It uses the 'Freetype' library to do so. Freetype loads these fonts and for each glyph generates a bitmap image and caculates several metrics. We can extract these bitmap images for generating textures and position each character glyph appropiately using the loading metrics.  
+
+
+{\ttfamily \#include \char`\"{}Resource\-Reference.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$ft2build.\-h$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDCEngine_1_1Character}{D\-C\-Engine\-::\-Character}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} struct containing generated data about a specific character that will be used whenever it needs to be rendered. \end{DoxyCompactList}\item 
+class \hyperlink{classDCEngine_1_1Font}{D\-C\-Engine\-::\-Font}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_aaa5af82525fcd7a4ffad07078fefa6b8}{using {\bfseries D\-C\-Engine\-::\-Font\-Ptr} = std\-::shared\-\_\-ptr$<$ Font $>$}\label{namespaceDCEngine_aaa5af82525fcd7a4ffad07078fefa6b8}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classThe}{The} Font resource handles the loading and processing of a True\-Type font from file. It uses the 'Freetype' library to do so. Freetype loads these fonts and for each glyph generates a bitmap image and caculates several metrics. We can extract these bitmap images for generating textures and position each character glyph appropiately using the loading metrics. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+9/30/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+\char`\"{}http\-://learnopengl.\-com/\#!\-In-\/\-Practice/\-Text-\/\-Rendering\char`\"{} 
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

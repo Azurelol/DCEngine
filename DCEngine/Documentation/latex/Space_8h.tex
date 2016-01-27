@@ -1,0 +1,52 @@
+\hypertarget{Space_8h}{\section{Core/\-Objects/\-Entities/\-Space.h File Reference}
+\label{Space_8h}\index{Core/\-Objects/\-Entities/\-Space.\-h@{Core/\-Objects/\-Entities/\-Space.\-h}}
+}
+
+
+Spaces are containers for game objects. When a level is loaded into a space, all the game objects from that level are put into the space. Each space has its own instances of the core systems of the engine.  
+
+
+{\ttfamily \#include \char`\"{}..\textbackslash{}\-Entity.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$unordered\-\_\-map$>$}\\*
+{\ttfamily \#include \char`\"{}..\textbackslash{}..\textbackslash{}\-Systems\textbackslash{}\-System.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}..\textbackslash{}..\textbackslash{}\-Resources\textbackslash{}\-Level.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Game\-Object.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}..\textbackslash{}..\textbackslash{}\-Resources\textbackslash{}\-Archetype.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Space}{D\-C\-Engine\-::\-Space}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_acb43045fbe3e8b58659b15567ee6ea81}{using {\bfseries D\-C\-Engine\-::\-Space\-Ptr} = Space $\ast$}\label{namespaceDCEngine_acb43045fbe3e8b58659b15567ee6ea81}
+
+\item 
+\hypertarget{namespaceDCEngine_a82728633ab6c1f05aaa73360fa6966b4}{using {\bfseries D\-C\-Engine\-::\-Space\-Strong\-Ptr} = std\-::shared\-\_\-ptr$<$ Space $>$}\label{namespaceDCEngine_a82728633ab6c1f05aaa73360fa6966b4}
+
+\item 
+\hypertarget{namespaceDCEngine_a4e791d1e5562a071a54b4d0f4b139d1e}{using {\bfseries D\-C\-Engine\-::\-Space\-Map} = std\-::unordered\-\_\-map$<$ std\-::string, Space\-Strong\-Ptr $>$}\label{namespaceDCEngine_a4e791d1e5562a071a54b4d0f4b139d1e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Spaces are containers for game objects. When a level is loaded into a space, all the game objects from that level are put into the space. Each space has its own instances of the core systems of the engine. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+7/30/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

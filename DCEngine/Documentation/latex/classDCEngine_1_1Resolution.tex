@@ -1,0 +1,69 @@
+\hypertarget{classDCEngine_1_1Resolution}{\section{D\-C\-Engine\-:\-:Resolution Class Reference}
+\label{classDCEngine_1_1Resolution}\index{D\-C\-Engine\-::\-Resolution@{D\-C\-Engine\-::\-Resolution}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classDCEngine_1_1Resolution_a10bb03544c36f48117ffa750681908cc}{Resolve} (float dt, std\-::vector$<$ \hyperlink{classDCEngine_1_1Manifold}{Manifold} $>$ \&contactlist)
+\begin{DoxyCompactList}\small\item\em send the data to other resolution functions. \end{DoxyCompactList}\item 
+static void \hyperlink{classDCEngine_1_1Resolution_aa9c4825154a9a8d0ebc1ede07172a9ad}{Resolve\-Contact\-Velocity} (float dt, \hyperlink{classDCEngine_1_1Manifold}{Manifold} \&c)
+\begin{DoxyCompactList}\small\item\em resolve the velocity of this contact. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Resolution_a10e6a42071ad8e4263451040c4a68488}{static void {\bfseries Resolve\-Velocities} (float dt, std\-::vector$<$ \hyperlink{classDCEngine_1_1Manifold}{Manifold} $>$ \&contactlist)}\label{classDCEngine_1_1Resolution_a10e6a42071ad8e4263451040c4a68488}
+
+\item 
+\hypertarget{classDCEngine_1_1Resolution_ab7740b36274653c45ec4304be62bc9b3}{static void {\bfseries Resolve\-Positions} (float dt, std\-::vector$<$ \hyperlink{classDCEngine_1_1Manifold}{Manifold} $>$ \&contactlist)}\label{classDCEngine_1_1Resolution_ab7740b36274653c45ec4304be62bc9b3}
+
+\item 
+\hypertarget{classDCEngine_1_1Resolution_a55f884029c97176deb0393948065d657}{static void {\bfseries Resolve\-Penetration} (float dt, \hyperlink{classDCEngine_1_1Manifold}{Manifold} \&c)}\label{classDCEngine_1_1Resolution_a55f884029c97176deb0393948065d657}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Resolution_a10bb03544c36f48117ffa750681908cc}{\index{D\-C\-Engine\-::\-Resolution@{D\-C\-Engine\-::\-Resolution}!Resolve@{Resolve}}
+\index{Resolve@{Resolve}!DCEngine::Resolution@{D\-C\-Engine\-::\-Resolution}}
+\subsubsection[{Resolve}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Resolution\-::\-Resolve (
+\begin{DoxyParamCaption}
+\item[{float}]{dt, }
+\item[{std\-::vector$<$ {\bf Manifold} $>$ \&}]{contactlist}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Resolution_a10bb03544c36f48117ffa750681908cc}
+
+
+send the data to other resolution functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \hyperlink{classThe}{The} length of the last frame. \\
+\hline
+{\em contactlist} & an array of the manifolds. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Resolution_aa9c4825154a9a8d0ebc1ede07172a9ad}{\index{D\-C\-Engine\-::\-Resolution@{D\-C\-Engine\-::\-Resolution}!Resolve\-Contact\-Velocity@{Resolve\-Contact\-Velocity}}
+\index{Resolve\-Contact\-Velocity@{Resolve\-Contact\-Velocity}!DCEngine::Resolution@{D\-C\-Engine\-::\-Resolution}}
+\subsubsection[{Resolve\-Contact\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Resolution\-::\-Resolve\-Contact\-Velocity (
+\begin{DoxyParamCaption}
+\item[{float}]{dt, }
+\item[{{\bf Manifold} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Resolution_aa9c4825154a9a8d0ebc1ede07172a9ad}
+
+
+resolve the velocity of this contact. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \hyperlink{classThe}{The} length of the last frame. \\
+\hline
+{\em c} & a specific manifold. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Physics/\hyperlink{Resolution_8h}{Resolution.\-h}\item 
+Core/\-Systems/\-Physics/\hyperlink{Resolution_8cpp}{Resolution.\-cpp}\end{DoxyCompactItemize}

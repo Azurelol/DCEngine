@@ -128,38 +128,8 @@ namespace DCEngine {
       }
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Opens the folder where the project is stored.
-    */
-    /**************************************************************************/
-    void Editor::ShowProjectFolder()
-    {
-      // Open the projects path
-      auto executablePath = boost::filesystem::initial_path().string();
-      auto documentationPath = "\\Documentation\\html\\index.html";
-      //auto documentationPath = executablePath + "\\Documentation\\html\\index.html";
-      // If the projects directory doesn't exist, start from the executable      
-      if (FileSystem::Exists(executablePath + documentationPath)) {        
-        std::string qm = "\"";
-        //std::stringstream command;
-        //command << qm << executablePath << documentationPath << qm;
-        //FileSystem::Execute(command.str());
 
-        std::string command;
-        command = qm + executablePath + documentationPath + qm;
-        //DCTrace << command2;
-        std::string command2;
-        command2 = "C:\\Development\\DCEngine\\DCEngine\\Documentation\\html\\index.html";
-        //std::stringstream ss;
-        //ss << '"';
-        //ss << command2;
-        //ss << '"';
-        //command2 = ss.str();
-        //command2 = "notepad++";
-        FileSystem::Execute(command);
-      }
-    }
+
 
     /**************************************************************************/
     /*!

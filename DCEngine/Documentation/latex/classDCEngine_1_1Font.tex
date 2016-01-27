@@ -1,0 +1,104 @@
+\hypertarget{classDCEngine_1_1Font}{\section{D\-C\-Engine\-:\-:Font Class Reference}
+\label{classDCEngine_1_1Font}\index{D\-C\-Engine\-::\-Font@{D\-C\-Engine\-::\-Font}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Font\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Font}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Font_a808e5898a864bf8dde296b72a7dd55cb}{{\bfseries Zilch\-Declare\-Derived\-Type} (\hyperlink{classDCEngine_1_1Font}{Font}, \hyperlink{classDCEngine_1_1Resource}{Resource})}\label{classDCEngine_1_1Font_a808e5898a864bf8dde296b72a7dd55cb}
+
+\item 
+\hypertarget{classDCEngine_1_1Font_ae67be56ee6372d34c46c5d07f103cce8}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (String, Asset\-Path)}\label{classDCEngine_1_1Font_ae67be56ee6372d34c46c5d07f103cce8}
+
+\item 
+\hyperlink{classDCEngine_1_1Font_a7626d069cfcc066d35a3d123b83b403f}{Font} (std\-::string font\-File)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classDCEngine_1_1SpriteSource}{Sprite\-Source} resource. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Font_a5c50f31b7bfbcc1ecf568882a6b1719c}{Generate\-Characters} (F\-T\-\_\-\-Face face)
+\begin{DoxyCompactList}\small\item\em Generates a map of character textures given the (font) face. \end{DoxyCompactList}\item 
+bool \hyperlink{classDCEngine_1_1Font_ae677105844515ccb2857abf68dc13af6}{Load} ()
+\begin{DoxyCompactList}\small\item\em Loads a font from file into the \hyperlink{classDCEngine_1_1Font}{Font} resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Font_aac4f4aab90d4a8b50a0156b47f3776bd}{static std\-::string {\bfseries Extension} ()}\label{classDCEngine_1_1Font_aac4f4aab90d4a8b50a0156b47f3776bd}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Font_ad4ded75349c9caa50952e61f9d746c69}{std\-::map$<$ G\-Lchar, \hyperlink{structDCEngine_1_1Character}{Character} $>$ {\bfseries Characters}}\label{classDCEngine_1_1Font_ad4ded75349c9caa50952e61f9d746c69}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1Font_a7626d069cfcc066d35a3d123b83b403f}{\index{D\-C\-Engine\-::\-Font@{D\-C\-Engine\-::\-Font}!Font@{Font}}
+\index{Font@{Font}!DCEngine::Font@{D\-C\-Engine\-::\-Font}}
+\subsubsection[{Font}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Font\-::\-Font (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{font\-File}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Font_a7626d069cfcc066d35a3d123b83b403f}
+
+
+Constructor for the \hyperlink{classDCEngine_1_1SpriteSource}{Sprite\-Source} resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the font file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Font_a5c50f31b7bfbcc1ecf568882a6b1719c}{\index{D\-C\-Engine\-::\-Font@{D\-C\-Engine\-::\-Font}!Generate\-Characters@{Generate\-Characters}}
+\index{Generate\-Characters@{Generate\-Characters}!DCEngine::Font@{D\-C\-Engine\-::\-Font}}
+\subsubsection[{Generate\-Characters}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Font\-::\-Generate\-Characters (
+\begin{DoxyParamCaption}
+\item[{F\-T\-\_\-\-Face}]{face}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Font_a5c50f31b7bfbcc1ecf568882a6b1719c}
+
+
+Generates a map of character textures given the (font) face. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the font file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Currently only generating the first 128 characters of the A\-S\-C\-I\-I character set. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Font_ae677105844515ccb2857abf68dc13af6}{\index{D\-C\-Engine\-::\-Font@{D\-C\-Engine\-::\-Font}!Load@{Load}}
+\index{Load@{Load}!DCEngine::Font@{D\-C\-Engine\-::\-Font}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Font\-::\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Font_ae677105844515ccb2857abf68dc13af6}
+
+
+Loads a font from file into the \hyperlink{classDCEngine_1_1Font}{Font} resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the font file. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classDCEngine_1_1Resource_a99b06ae1da559efdc71edb528cac7caa}{D\-C\-Engine\-::\-Resource}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Resources/\hyperlink{Font_8h}{Font.\-h}\item 
+Core/\-Resources/\hyperlink{Font_8cpp}{Font.\-cpp}\end{DoxyCompactItemize}

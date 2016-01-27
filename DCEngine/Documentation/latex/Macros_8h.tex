@@ -1,0 +1,208 @@
+\hypertarget{Macros_8h}{\section{Core/\-Engine/\-Macros.h File Reference}
+\label{Macros_8h}\index{Core/\-Engine/\-Macros.\-h@{Core/\-Engine/\-Macros.\-h}}
+}
+
+
+\hyperlink{classA}{A} collection of macros to alleviate rote code writing!  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Macros_8h_a1d118c7ae115c533db5e5be78757072c}{\#define {\bfseries D\-E\-F\-E\-R}(X)~X}\label{Macros_8h_a1d118c7ae115c533db5e5be78757072c}
+
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}
+\item 
+\hypertarget{Macros_8h_a2486124aca38a017265ab7a6ccdffa45}{\#define {\bfseries D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}(component\-Name,...)~Dependencies\-Container component\-Name\-::m\-Dependencies = \{ \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\- \}}\label{Macros_8h_a2486124aca38a017265ab7a6ccdffa45}
+
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y}(property\-Type, property\-Name)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T}(C\-O\-M\-P)
+\item 
+\hypertarget{Macros_8h_aefcd4a3c1ad5493641a9b38882491f89}{\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-R\-I\-V\-E\-D\-\_\-\-T\-Y\-P\-E}(derived\-Class, base\-Class)~Zilch\-Declare\-Derived\-Type(derived\-Class, base\-Class)}\label{Macros_8h_aefcd4a3c1ad5493641a9b38882491f89}
+
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}(component\-Name)
+\item 
+\hypertarget{Macros_8h_aa93ed27a8edb91bd5a715acb0306ec10}{\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y}(class\-Name, property\-Name)~auto property\#\#property\-Name = Zilch\-Bind\-Property(builder, type, \&class\-Name\-::get\#\#property\-Name, \&class\-Name\-::set\#\#property\-Name, \char`\"{}\char`\"{} \#property\-Name)}\label{Macros_8h_aa93ed27a8edb91bd5a715acb0306ec10}
+
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}(name)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}(property, attribute)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}(resource)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}(property, attribute)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D}(property)
+\item 
+\#define {\bfseries D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M}(enum\-Type,...)
+\item 
+\hypertarget{Macros_8h_a0309a32baa7cf54859e4e284df1415c1}{\#define {\bfseries D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-E\-N\-U\-M}(enum\-Type, enum\-Field)~auto property\#\#enum\-Field = Zilch\-Bind\-Enum\-Value(builder, type, \#\#enum\-Type\-::\#\#enum\-Field, \char`\"{}\char`\"{} \#enum\-Field)}\label{Macros_8h_a0309a32baa7cf54859e4e284df1415c1}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_a296ff859cad2cc4039d29c128d83d64a}{using {\bfseries D\-C\-Engine\-::\-Dependencies\-Container} = std\-::vector$<$ std\-::string $>$}\label{namespaceDCEngine_a296ff859cad2cc4039d29c128d83d64a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classA}{A} collection of macros to alleviate rote code writing! \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+11/14/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+M\-A\-C\-R\-O\-S. 
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Macros_8h_a97048a1ac9efcea03a0b2cd5d50581a4}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{component\-Name}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a97048a1ac9efcea03a0b2cd5d50581a4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+ZilchBindConstructor(builder, type, componentName, \textcolor{stringliteral}{"owner"}, Entity&);  \(\backslash\)
+  ZilchBindDestructor(builder, type, componentName)
+\end{DoxyCode}
+\hypertarget{Macros_8h_a56326ab244ead33c2ff75cd08d5cca45}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a56326ab244ead33c2ff75cd08d5cca45}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+Zilch::Attribute attribute##name; \(\backslash\)
+  attribute##name.Name = \textcolor{stringliteral}{""} #name
+\end{DoxyCode}
+\hypertarget{Macros_8h_af1c282d174fec2a858b83cf0e09dce8e}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{resource}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_af1c282d174fec2a858b83cf0e09dce8e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+Zilch::Attribute attributeResource;                     \(\backslash\)
+  attributeResource.Name = \textcolor{stringliteral}{"Resource"};                    \(\backslash\)
+  Zilch::Attribute attribute##resource;                   \(\backslash\)
+  attribute##resource.Name = \textcolor{stringliteral}{""} #resource
+\end{DoxyCode}
+\hypertarget{Macros_8h_a41371173e6f008299f1ead57504be0f6}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{property, }
+\item[{}]{attribute}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a41371173e6f008299f1ead57504be0f6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{property}->Attributes.push\_back(attribute);                       \(\backslash\)
+  property->Attributes.push\_back(attributeResource)
+\end{DoxyCode}
+\hypertarget{Macros_8h_a1944210a46cfe02d8e338c639e9f0f9a}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{property, }
+\item[{}]{attribute}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a1944210a46cfe02d8e338c639e9f0f9a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{property}->Attributes.push\_back(attributeResource);                     \(\backslash\)
+  property->Attributes.push\_back(attribute)
+\end{DoxyCode}
+\hypertarget{Macros_8h_aa5770e7d1d1ca953a1f1851186c57d96}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D}}
+\index{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D@{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-B\-I\-N\-D\-I\-N\-G\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y\-\_\-\-S\-E\-T\-\_\-\-U\-N\-S\-I\-G\-N\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{property}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_aa5770e7d1d1ca953a1f1851186c57d96}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+Zilch::Attribute attributeUnsigned;                                    \(\backslash\)
+  attributeUnsigned.Name = \textcolor{stringliteral}{"Unsigned"};                                   \(\backslash\)
+  property->Attributes.push\_back(attributeUnsigned)
+\end{DoxyCode}
+\hypertarget{Macros_8h_a2a3c0eade619eb9fb0d9ae0dee5efe63}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S@{D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}}
+\index{D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S@{D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-D\-E\-P\-E\-N\-D\-E\-N\-C\-I\-E\-S}}\label{Macros_8h_a2a3c0eade619eb9fb0d9ae0dee5efe63}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} DependenciesContainer mDependencies; \(\backslash\)
+  virtual DependenciesContainer& Dependencies() const noexcept\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} mDependencies; \}
+\end{DoxyCode}
+\hypertarget{Macros_8h_a5d3542cf77c70b5ca1c27ed9b11fbd56}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T@{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T}}
+\index{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T@{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{C\-O\-M\-P}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a5d3542cf77c70b5ca1c27ed9b11fbd56}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }COMP;                                   \(\backslash\)
+  class COMP : \textcolor{keyword}{public} Component  \{              \(\backslash\)
+    public:                                     \(\backslash\)
+  ZilchDeclareDerivedType(COMP, Component)
+\end{DoxyCode}
+\hypertarget{Macros_8h_ab8b1ced28653a94a36ac6531a2643132}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M@{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M}}
+\index{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M@{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-N\-U\-M(
+\begin{DoxyParamCaption}
+\item[{}]{enum\-Type, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_ab8b1ced28653a94a36ac6531a2643132}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{enum class} enumType \{                             \(\backslash\)
+  \_\_VA\_ARGS\_\_                                     \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{Macros_8h_a41b969095da6789ffbd8e77fd47e0ad4}{\index{Macros.\-h@{Macros.\-h}!D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y@{D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y}}
+\index{D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y@{D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y}!Macros.h@{Macros.\-h}}
+\subsubsection[{D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{property\-Type, }
+\item[{}]{property\-Name}
+\end{DoxyParamCaption}
+)}}\label{Macros_8h_a41b969095da6789ffbd8e77fd47e0ad4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{const} propertyType& \textcolor{keyword}{get}##propertyName()\textcolor{keyword}{ const }\{                                 \(\backslash\)
+    return propertyName;                                                          \(\backslash\)
+  \}                                                                               \(\backslash\)
+  void set##propertyName(propertyType \textcolor{keyword}{const}& value) \{                             \(\backslash\)
+    propertyName = value;                                                         \(\backslash\)
+  \}
+\end{DoxyCode}

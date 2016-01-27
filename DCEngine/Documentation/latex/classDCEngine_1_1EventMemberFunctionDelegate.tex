@@ -1,0 +1,63 @@
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate}{\section{D\-C\-Engine\-:\-:Event\-Member\-Function\-Delegate$<$ Class, Event\-Class $>$ Class Template Reference}
+\label{classDCEngine_1_1EventMemberFunctionDelegate}\index{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate$<$ Class, Event\-Class $>$@{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate$<$ Class, Event\-Class $>$}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Event\-Member\-Function\-Delegate$<$ Class, Event\-Class $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDCEngine_1_1EventMemberFunctionDelegate}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate_a2577ea290c6f4ba32a19998c3b250f85}{typedef void(Class\-::$\ast$ {\bfseries Event\-Fn} )(Event\-Class $\ast$event)}\label{classDCEngine_1_1EventMemberFunctionDelegate_a2577ea290c6f4ba32a19998c3b250f85}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classDCEngine_1_1EventMemberFunctionDelegate_a3ddc33b677eb96d0c7927473ab64ee0e}{Call} (\hyperlink{classDCEngine_1_1Event}{Event} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Calls the member function given an event. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate_a56b86bde8882c46860269ad78eba9191}{virtual \hyperlink{classDCEngine_1_1Object}{Object} $\ast$ {\bfseries Get\-Observer} ()}\label{classDCEngine_1_1EventMemberFunctionDelegate_a56b86bde8882c46860269ad78eba9191}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate_ab70cd4ee83d0297af84c3fa72be99068}{Event\-Fn {\bfseries Func\-Ptr}}\label{classDCEngine_1_1EventMemberFunctionDelegate_ab70cd4ee83d0297af84c3fa72be99068}
+
+\item 
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate_a6dca529dea0b4e6d8f166b005b5c1c10}{Class $\ast$ {\bfseries Inst}}\label{classDCEngine_1_1EventMemberFunctionDelegate_a6dca529dea0b4e6d8f166b005b5c1c10}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1EventMemberFunctionDelegate_a3ddc33b677eb96d0c7927473ab64ee0e}{\index{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate@{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate}!Call@{Call}}
+\index{Call@{Call}!DCEngine::EventMemberFunctionDelegate@{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate}}
+\subsubsection[{Call}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Class , typename Event\-Class $>$ virtual bool {\bf D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate}$<$ Class, Event\-Class $>$\-::Call (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classDCEngine_1_1EventMemberFunctionDelegate_a3ddc33b677eb96d0c7927473ab64ee0e}
+
+
+Calls the member function given an event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the event object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the \hyperlink{classDCEngine_1_1Object}{Object} instance is no longer valid (such as if the object was destroyed, this will return false) 
+\end{DoxyNote}
+
+
+Implements \hyperlink{classDCEngine_1_1EventDelegate}{D\-C\-Engine\-::\-Event\-Delegate}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Engine/\hyperlink{EventDelegate_8h}{Event\-Delegate.\-h}\end{DoxyCompactItemize}

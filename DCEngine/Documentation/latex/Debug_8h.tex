@@ -1,0 +1,127 @@
+\hypertarget{Debug_8h}{\section{Core/\-Debug/\-Debug.h File Reference}
+\label{Debug_8h}\index{Core/\-Debug/\-Debug.\-h@{Core/\-Debug/\-Debug.\-h}}
+}
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Debug_1_1Trace}{D\-C\-Engine\-::\-Debug\-::\-Trace}
+\item 
+class \hyperlink{classDCEngine_1_1Debug_1_1Exception}{D\-C\-Engine\-::\-Debug\-::\-Exception}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Debug_8h_a2d6c9d27d6270987b801d9ba0689930a}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-G\-A\-M\-E\-O\-B\-J\-E\-C\-T\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}~0}\label{Debug_8h_a2d6c9d27d6270987b801d9ba0689930a}
+
+\item 
+\hypertarget{Debug_8h_ad76c0c35221e32a90227eb54ad4238ea}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}~0}\label{Debug_8h_ad76c0c35221e32a90227eb54ad4238ea}
+
+\item 
+\hypertarget{Debug_8h_a3e494b674e2d792a0ee93d766ef787b9}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-M\-A\-P}~1}\label{Debug_8h_a3e494b674e2d792a0ee93d766ef787b9}
+
+\item 
+\hypertarget{Debug_8h_ac7f9a5537bcd1972b0830ac9176dd6d7}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-R\-E\-S\-O\-U\-R\-C\-E\-\_\-\-A\-D\-D}~0}\label{Debug_8h_ac7f9a5537bcd1972b0830ac9176dd6d7}
+
+\item 
+\hypertarget{Debug_8h_a047013f5273eccbbfc0a08db5975f544}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-O\-N}~1}\label{Debug_8h_a047013f5273eccbbfc0a08db5975f544}
+
+\item 
+\hypertarget{Debug_8h_a75ac2a9808bcf4ca6f6460877ba26a43}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E}~1}\label{Debug_8h_a75ac2a9808bcf4ca6f6460877ba26a43}
+
+\item 
+\hypertarget{Debug_8h_af41f275893ea305edab83c45a08a1231}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-U\-P\-D\-A\-T\-E}~0}\label{Debug_8h_af41f275893ea305edab83c45a08a1231}
+
+\item 
+\hypertarget{Debug_8h_a1f64d9e555e9473eb97d75b6fbbe8cf9}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}~0}\label{Debug_8h_a1f64d9e555e9473eb97d75b6fbbe8cf9}
+
+\item 
+\hypertarget{Debug_8h_acca4cdfee5b40fb712c8dea663d5808e}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-R\-E\-G\-I\-S\-T\-E\-R}~1}\label{Debug_8h_acca4cdfee5b40fb712c8dea663d5808e}
+
+\item 
+\hypertarget{Debug_8h_a09dc00e30b96dd8c6945d6a6ec2d9a08}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T}~0}\label{Debug_8h_a09dc00e30b96dd8c6945d6a6ec2d9a08}
+
+\item 
+\hypertarget{Debug_8h_a615cfd8e0335470af6b1d10639c61470}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-D\-I\-S\-P\-A\-T\-C\-H}~0}\label{Debug_8h_a615cfd8e0335470af6b1d10639c61470}
+
+\item 
+\hypertarget{Debug_8h_ad30da3d0e5a53d7dc935d60a1d2f7c9d}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-G\-A\-M\-E\-O\-B\-J\-E\-C\-T\-\_\-\-A\-D\-D}~0}\label{Debug_8h_ad30da3d0e5a53d7dc935d60a1d2f7c9d}
+
+\item 
+\hypertarget{Debug_8h_a89d4a9bb7b2705fc6923627a7e9d9a58}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-G\-A\-M\-E\-O\-B\-J\-E\-C\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E}~0}\label{Debug_8h_a89d4a9bb7b2705fc6923627a7e9d9a58}
+
+\item 
+\hypertarget{Debug_8h_a86613bb310987d0c98cfd0729b85f35d}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R}~0}\label{Debug_8h_a86613bb310987d0c98cfd0729b85f35d}
+
+\item 
+\hypertarget{Debug_8h_a6cd5992dbe7100c5f12bf6e533f36657}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-A\-D\-D}~0}\label{Debug_8h_a6cd5992dbe7100c5f12bf6e533f36657}
+
+\item 
+\hypertarget{Debug_8h_af0e1e14078527ee5c775a89cd8b21386}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E}~1}\label{Debug_8h_af0e1e14078527ee5c775a89cd8b21386}
+
+\item 
+\hypertarget{Debug_8h_a14a02c1c6e6830d3e0639257e589062f}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-G\-A\-M\-E\-O\-B\-J\-E\-C\-T\-\_\-\-D\-E\-S\-T\-R\-U\-C\-T\-O\-R}~0}\label{Debug_8h_a14a02c1c6e6830d3e0639257e589062f}
+
+\item 
+\hypertarget{Debug_8h_a7f04186cd0f9e13e60ea56967d7c224f}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-C\-O\-M\-P\-O\-N\-E\-N\-T\-\_\-\-D\-E\-S\-T\-R\-U\-C\-T\-O\-R}~0}\label{Debug_8h_a7f04186cd0f9e13e60ea56967d7c224f}
+
+\item 
+\hypertarget{Debug_8h_aab37f0327ca38213f429959d7defa447}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-P\-H\-Y\-S\-I\-C\-S}~0}\label{Debug_8h_aab37f0327ca38213f429959d7defa447}
+
+\item 
+\hypertarget{Debug_8h_a4f7583286a06dc382c1398daab420fca}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-G\-R\-A\-P\-H\-I\-C\-S}~0}\label{Debug_8h_a4f7583286a06dc382c1398daab420fca}
+
+\item 
+\hypertarget{Debug_8h_a5b3898b18f666307c4c79e663df06699}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-S\-H\-A\-D\-E\-R}~0}\label{Debug_8h_a5b3898b18f666307c4c79e663df06699}
+
+\item 
+\hypertarget{Debug_8h_a6a8a38f0ad1ccbdc027f90e8b99afecb}{\#define {\bfseries T\-R\-A\-C\-E\-\_\-\-A\-U\-D\-I\-O}~0}\label{Debug_8h_a6a8a38f0ad1ccbdc027f90e8b99afecb}
+
+\item 
+\hypertarget{Debug_8h_ad8461d521b6ed1ab59a93d5d6467d6bc}{\#define {\bfseries D\-C\-E\-\_\-\-E\-D\-I\-T\-O\-R\-\_\-\-T\-R\-A\-C\-E\-\_\-\-T\-O\-O\-L\-S}~1}\label{Debug_8h_ad8461d521b6ed1ab59a93d5d6467d6bc}
+
+\item 
+\hypertarget{Debug_8h_a02f7e3a43966927f571c9dd1629b40c3}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-A\-C\-T\-I\-O\-N\-S\-\_\-\-C\-T\-O\-R}~1}\label{Debug_8h_a02f7e3a43966927f571c9dd1629b40c3}
+
+\item 
+\hypertarget{Debug_8h_aed42a69f22431ee4f379ca3383eec236}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-A\-C\-T\-I\-O\-N\-S\-\_\-\-D\-T\-O\-R}~1}\label{Debug_8h_aed42a69f22431ee4f379ca3383eec236}
+
+\item 
+\hypertarget{Debug_8h_a8df89b68a2b600d32ac45d6cb8e7d13f}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-A\-C\-T\-I\-O\-N\-S\-\_\-\-A\-D\-D}~1}\label{Debug_8h_a8df89b68a2b600d32ac45d6cb8e7d13f}
+
+\item 
+\hypertarget{Debug_8h_aeaab0e2e78fc3b142c48388f2ea5ff91}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-A\-C\-T\-I\-O\-N\-S\-\_\-\-R\-E\-M\-O\-V\-E}~1}\label{Debug_8h_aeaab0e2e78fc3b142c48388f2ea5ff91}
+
+\item 
+\hypertarget{Debug_8h_aa79c2ad941b1fed953cff99b3f84b5dc}{\#define {\bfseries D\-C\-E\-\_\-\-T\-R\-A\-C\-E\-\_\-\-A\-C\-T\-I\-O\-N\-S\-\_\-\-U\-P\-D\-A\-T\-E}~1}\label{Debug_8h_aa79c2ad941b1fed953cff99b3f84b5dc}
+
+\item 
+\hypertarget{Debug_8h_a6b2e3d5e52d74174bb1215d99f8b7de8}{\#define {\bfseries D\-C\-Trace}~($\ast$\-::D\-C\-Engine\-::\-Debug\-::trace\-Obj)}\label{Debug_8h_a6b2e3d5e52d74174bb1215d99f8b7de8}
+
+\item 
+\hypertarget{Debug_8h_aa91b4dd81828080298d1896fa2787fd6}{\#define {\bfseries D\-C\-Exception}(string)~Debug\-::\-Exception(\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, string)}\label{Debug_8h_aa91b4dd81828080298d1896fa2787fd6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+7/30/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

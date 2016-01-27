@@ -1,0 +1,40 @@
+\hypertarget{ComponentFactoryMap_8cpp}{\section{Core/\-Systems/\-Factory/\-Component\-Factory\-Map.cpp File Reference}
+\label{ComponentFactoryMap_8cpp}\index{Core/\-Systems/\-Factory/\-Component\-Factory\-Map.\-cpp@{Core/\-Systems/\-Factory/\-Component\-Factory\-Map.\-cpp}}
+}
+
+
+Constructs a component factory for every bound component class in the engine. This allows them to be created at runtime through reflection.  
+
+
+{\ttfamily \#include \char`\"{}Factory.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Engine/\-Engine.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Components\-Include.\-h\char`\"{}}\\*
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{ComponentFactoryMap_8cpp_acf61ea6f3cdd331b754b54bdb3f90b47}{\#define {\bfseries D\-C\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-C\-R\-E\-A\-T\-E\-C\-O\-M\-P\-O\-N\-E\-N\-T\-F\-A\-C\-T\-O\-R\-Y}(component\-Name)~Add\-Component\-Factory(component\-Name\-::\-Zilch\-Get\-Static\-Type(), std\-::make\-\_\-unique$<$Component\-Factory$<$component\-Name$>$$>$())}\label{ComponentFactoryMap_8cpp_acf61ea6f3cdd331b754b54bdb3f90b47}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Constructs a component factory for every bound component class in the engine. This allows them to be created at runtime through reflection. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: blaine.reiner@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Digi\-Pen login\-: blaine.reiner}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+11/20/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

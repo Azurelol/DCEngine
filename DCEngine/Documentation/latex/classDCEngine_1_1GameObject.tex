@@ -1,0 +1,316 @@
+\hypertarget{classDCEngine_1_1GameObject}{\section{D\-C\-Engine\-:\-:Game\-Object Class Reference}
+\label{classDCEngine_1_1GameObject}\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Game\-Object\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1GameObject}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDCEngine_1_1GameObject_aade54d989806df1add8dc744841b495d}{Game\-Object} (std\-::string name, \hyperlink{classDCEngine_1_1Space}{Space} \&space, \hyperlink{classDCEngine_1_1GameSession}{Game\-Session} \&gamesession)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classDCEngine_1_1GameObject_ab4e9139765017f41b461033bdb76dad0}{Game\-Object} ()
+\begin{DoxyCompactList}\small\item\em Default \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classDCEngine_1_1GameObject_a6adc0ce3ed11ea55f6e562299932eab8}{$\sim$\-Game\-Object} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} destructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1GameObject_ad87573ab7f84e3af0678e3e01904a105}{void \hyperlink{classDCEngine_1_1GameObject_ad87573ab7f84e3af0678e3e01904a105}{Destroy} ()}\label{classDCEngine_1_1GameObject_ad87573ab7f84e3af0678e3e01904a105}
+
+\begin{DoxyCompactList}\small\item\em Marks the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to be destroyed. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1GameObject_a7e952fe2f1df80d8fa7a967005e91e48}{\hyperlink{classDCEngine_1_1Space}{Space} $\ast$ \hyperlink{classDCEngine_1_1GameObject_a7e952fe2f1df80d8fa7a967005e91e48}{Get\-Space} ()}\label{classDCEngine_1_1GameObject_a7e952fe2f1df80d8fa7a967005e91e48}
+
+\begin{DoxyCompactList}\small\item\em Grabs a pointer to the \hyperlink{classDCEngine_1_1Space}{Space} this \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} resides on. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1GameObject_a857ecbb16eb7fcbe66e09aa0f197e83b}{\hyperlink{classDCEngine_1_1GameSession}{Game\-Session} $\ast$ \hyperlink{classDCEngine_1_1GameObject_a857ecbb16eb7fcbe66e09aa0f197e83b}{Get\-Game\-Session} ()}\label{classDCEngine_1_1GameObject_a857ecbb16eb7fcbe66e09aa0f197e83b}
+
+\begin{DoxyCompactList}\small\item\em Grabs a pointer to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session} this \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} resides on. \end{DoxyCompactList}\item 
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1GameObject_a6b3783fd91fd5f7fd44ffe29b5205a87}{Find\-Child\-By\-Name} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Grab a reference to a specific child of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+Game\-Object\-Vec \hyperlink{classDCEngine_1_1GameObject_a312b2539d0b52daa8ad421cccefcc8b7}{Find\-All\-Children\-By\-Name} (std\-::string name)
+\begin{DoxyCompactList}\small\item\em Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s children that have the specified name. \end{DoxyCompactList}\item 
+Game\-Object\-Vec \& \hyperlink{classDCEngine_1_1GameObject_a3a933b7b073cc210a8d170103cb5f85e}{Children} ()
+\begin{DoxyCompactList}\small\item\em Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s children. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1GameObject_ae2a505c62a9724b6442e53a6c90e401d}{Attach\-To} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} parent)
+\begin{DoxyCompactList}\small\item\em Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1GameObject_ac871b9774ba28ab7a6520c9df41c5d46}{Attach\-To\-Relative} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} parent)
+\begin{DoxyCompactList}\small\item\em Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} and computes a new transform so that the objects are relative. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1GameObject_a0282811bdb3c33b3538eef2357b17b4b}{Detach} ()
+\begin{DoxyCompactList}\small\item\em Detaches from a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1GameObject_a97349cfe35109c94b2994de3d14df09c}{Detach\-Relative} ()
+\begin{DoxyCompactList}\small\item\em Detaches from a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} and computes a new transform so that the objects are relative. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1GameObject_a270b3fd2736f75a68962800379a1e65b}{\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} {\bfseries Parent} ()}\label{classDCEngine_1_1GameObject_a270b3fd2736f75a68962800379a1e65b}
+
+\item 
+void \hyperlink{classDCEngine_1_1GameObject_aeeee6e87e8502429522865bd31fcb717}{Serialize} (Zilch\-::\-Json\-Builder \&builder)
+\begin{DoxyCompactList}\small\item\em Serializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1GameObject_a0cb1588a3f505a98ec40fb811888d1c1}{Deserialize} (Zilch\-::\-Json\-Value $\ast$properties)
+\begin{DoxyCompactList}\small\item\em Deserializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a13b46ccfa313b8c5ce18617a1aa21731}{static unsigned int {\bfseries Game\-Objects\-Created} = 0}\label{classDCEngine_1_1GameObject_a13b46ccfa313b8c5ce18617a1aa21731}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a982dc1ac649f447dfa7fa3828f6864d2}{static unsigned int {\bfseries Game\-Objects\-Destroyed} = 0}\label{classDCEngine_1_1GameObject_a982dc1ac649f447dfa7fa3828f6864d2}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a0b53fcbb71e1dee22ff99fd177784f4a}{static std\-::string {\bfseries Game\-Object\-Last\-Created}}\label{classDCEngine_1_1GameObject_a0b53fcbb71e1dee22ff99fd177784f4a}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_ac162481c14367cd07ebb104ec7136796}{static std\-::string {\bfseries Game\-Object\-Last\-Destroyed}}\label{classDCEngine_1_1GameObject_ac162481c14367cd07ebb104ec7136796}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a8901dd7e844e71bf9345ad0ed0489ba8}{static bool {\bfseries Diagnostics\-Enabled} = true}\label{classDCEngine_1_1GameObject_a8901dd7e844e71bf9345ad0ed0489ba8}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a2129e6c0ac73536a2ac4f681dae16947}{class {\bfseries Space}}\label{classDCEngine_1_1GameObject_a2129e6c0ac73536a2ac4f681dae16947}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a328c093d609680cca505905c6d49901a}{class {\bfseries Factory}}\label{classDCEngine_1_1GameObject_a328c093d609680cca505905c6d49901a}
+
+\item 
+\hypertarget{classDCEngine_1_1GameObject_a809f949c3297e4dc5c8c8c68503ca017}{class {\bfseries Systems\-::\-Editor}}\label{classDCEngine_1_1GameObject_a809f949c3297e4dc5c8c8c68503ca017}
+
+\item 
+std\-::ostream \& \hyperlink{classDCEngine_1_1GameObject_af3d89fc6bb1904979a18794bff4a57d1}{operator$<$$<$} (std\-::ostream \&, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} const \&)
+\begin{DoxyCompactList}\small\item\em Deregisters a child onto the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1GameObject_aade54d989806df1add8dc744841b495d}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Game\-Object@{Game\-Object}}
+\index{Game\-Object@{Game\-Object}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Game\-Object\-::\-Game\-Object (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{{\bf Space} \&}]{space, }
+\item[{{\bf Game\-Session} \&}]{gamesession}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_aade54d989806df1add8dc744841b495d}
+
+
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
+\hline
+{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1GameObject_ab4e9139765017f41b461033bdb76dad0}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Game\-Object@{Game\-Object}}
+\index{Game\-Object@{Game\-Object}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Game\-Object\-::\-Game\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_ab4e9139765017f41b461033bdb76dad0}
+
+
+Default \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
+\hline
+{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1GameObject_a6adc0ce3ed11ea55f6e562299932eab8}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!$\sim$\-Game\-Object@{$\sim$\-Game\-Object}}
+\index{$\sim$\-Game\-Object@{$\sim$\-Game\-Object}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{$\sim$\-Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Game\-Object\-::$\sim$\-Game\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a6adc0ce3ed11ea55f6e562299932eab8}
+
+
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} destructor. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Remove all the children in a more intelligent way. \end{DoxyRefDesc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1GameObject_ae2a505c62a9724b6442e53a6c90e401d}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Attach\-To@{Attach\-To}}
+\index{Attach\-To@{Attach\-To}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Attach\-To}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Attach\-To (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object\-Ptr}}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_ae2a505c62a9724b6442e53a6c90e401d}
+
+
+Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1GameObject_ac871b9774ba28ab7a6520c9df41c5d46}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Attach\-To\-Relative@{Attach\-To\-Relative}}
+\index{Attach\-To\-Relative@{Attach\-To\-Relative}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Attach\-To\-Relative}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Attach\-To\-Relative (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object\-Ptr}}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_ac871b9774ba28ab7a6520c9df41c5d46}
+
+
+Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} and computes a new transform so that the objects are relative. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1GameObject_a3a933b7b073cc210a8d170103cb5f85e}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Children@{Children}}
+\index{Children@{Children}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Children}]{\setlength{\rightskip}{0pt plus 5cm}Game\-Object\-Vec \& D\-C\-Engine\-::\-Game\-Object\-::\-Children (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a3a933b7b073cc210a8d170103cb5f85e}
+
+
+Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s children. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} reference to the container. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1GameObject_a0cb1588a3f505a98ec40fb811888d1c1}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Value $\ast$}]{properties}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a0cb1588a3f505a98ec40fb811888d1c1}
+
+
+Deserializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} pointer to the object containing the properties. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will deserialize the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s properties, then its components. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1GameObject_a0282811bdb3c33b3538eef2357b17b4b}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Detach@{Detach}}
+\index{Detach@{Detach}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Detach}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a0282811bdb3c33b3538eef2357b17b4b}
+
+
+Detaches from a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+\begin{DoxyNote}{Note}
+This function will set the space back as the parent object. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1GameObject_a97349cfe35109c94b2994de3d14df09c}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Detach\-Relative@{Detach\-Relative}}
+\index{Detach\-Relative@{Detach\-Relative}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Detach\-Relative}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Detach\-Relative (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a97349cfe35109c94b2994de3d14df09c}
+
+
+Detaches from a parent \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} and computes a new transform so that the objects are relative. 
+
+\begin{DoxyNote}{Note}
+This function will set the space back as the parent object. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1GameObject_a312b2539d0b52daa8ad421cccefcc8b7}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Find\-All\-Children\-By\-Name@{Find\-All\-Children\-By\-Name}}
+\index{Find\-All\-Children\-By\-Name@{Find\-All\-Children\-By\-Name}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Find\-All\-Children\-By\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Game\-Object\-Vec D\-C\-Engine\-::\-Game\-Object\-::\-Find\-All\-Children\-By\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a312b2539d0b52daa8ad421cccefcc8b7}
+
+
+Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s children that have the specified name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the children. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} reference to the container. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1GameObject_a6b3783fd91fd5f7fd44ffe29b5205a87}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Find\-Child\-By\-Name@{Find\-Child\-By\-Name}}
+\index{Find\-Child\-By\-Name@{Find\-Child\-By\-Name}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Find\-Child\-By\-Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Object\-Ptr} D\-C\-Engine\-::\-Game\-Object\-::\-Find\-Child\-By\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_a6b3783fd91fd5f7fd44ffe29b5205a87}
+
+
+Grab a reference to a specific child of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} reference to the child. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1GameObject_aeeee6e87e8502429522865bd31fcb717}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Game\-Object\-::\-Serialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Builder \&}]{builder}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1GameObject_aeeee6e87e8502429522865bd31fcb717}
+
+
+Serializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will serialize the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+\end{DoxyNote}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classDCEngine_1_1GameObject_af3d89fc6bb1904979a18794bff4a57d1}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{{\bf Game\-Object} const \&}]{game\-Object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classDCEngine_1_1GameObject_af3d89fc6bb1904979a18794bff4a57d1}
+
+
+Deregisters a child onto the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to a child. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Objects/\-Entities/\hyperlink{GameObject_8h}{Game\-Object.\-h}\item 
+Core/\-Objects/\-Entities/\hyperlink{GameObject_8cpp}{Game\-Object.\-cpp}\end{DoxyCompactItemize}

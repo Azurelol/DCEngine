@@ -755,6 +755,9 @@
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp">
       <Filter>Core\Systems\Physics\What</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

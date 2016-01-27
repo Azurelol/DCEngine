@@ -1,0 +1,348 @@
+\hypertarget{classDCEngine_1_1Systems_1_1Physics}{\section{D\-C\-Engine\-:\-:Systems\-:\-:Physics Class Reference}
+\label{classDCEngine_1_1Systems_1_1Physics}\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Systems\-:\-:Physics\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Systems_1_1Physics}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Physics_a786d02f2a6521108c37ac5918865f552}{Find\-Object\-At\-Position} (Vec3 pos, \hyperlink{classDCEngine_1_1Space}{Space} \&space)
+\begin{DoxyCompactList}\small\item\em Checks for collision between the target position and an object within the space. It will return the first object hit. \end{DoxyCompactList}\item 
+Game\-Object\-Vec \hyperlink{classDCEngine_1_1Systems_1_1Physics_accee13b6fdc523a6bcf346b3ce50e0bb}{Find\-All\-Objects\-At\-Position} (Vec3 pos, \hyperlink{classDCEngine_1_1Space}{Space} \&space)
+\begin{DoxyCompactList}\small\item\em Checks for any Game\-Objects within the target position in the space. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Physics_a728b4c64d2f7e9a371c7618745fab814}{Register\-Space} (\hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace}{Components\-::\-Physics\-Space} \&physics\-Space)
+\begin{DoxyCompactList}\small\item\em Registers a space to this system. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Physics_ab0e5409ce0a9b929d435ca59944db2cc}{Deregister\-Space} (\hyperlink{classDCEngine_1_1Components_1_1PhysicsSpace}{Components\-::\-Physics\-Space} \&physics\-Space)
+\begin{DoxyCompactList}\small\item\em Deregisters a space to this system. \end{DoxyCompactList}\item 
+\hyperlink{structDCEngine_1_1CastResult}{Cast\-Result} \hyperlink{classDCEngine_1_1Systems_1_1Physics_a78eeead3cd3e5befab70292b27d06cb7}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em Performs a ray cast and returns the first object that is collided with. \end{DoxyCompactList}\item 
+\hyperlink{structDCEngine_1_1CastResult}{Cast\-Result} \hyperlink{classDCEngine_1_1Systems_1_1Physics_a0d08cbe2430fe1b685897f64292e51b8}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Performs a filtered ray cast and returns the first object that is collided with. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_a0fdbbf6cd3836a5684bbee34e03cac45}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, unsigned count)
+\begin{DoxyCompactList}\small\item\em Returns the results of the ray cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_a71c3da317accdb31821da671b4a9c8ce}{Cast\-Ray} (\hyperlink{structDCEngine_1_1Ray}{Ray} \&ray, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered ray cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_ae016fa032c636564fa3790361005cd05}{Cast\-Segment} (Vec3 \&start, Vec3 \&end, unsigned count)
+\begin{DoxyCompactList}\small\item\em Returns the results of the segment cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_a7ec37a2458485c7fbdf727db7b075e94}{Cast\-Segment} (Vec3 \&start, Vec3 \&end, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered segment cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_afb1520219f87fc75feb74f24031a5e26}{Cast\-Aabb} (Vec3 \&center, Vec3 \&size, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered Aabb cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_af47dc05f13852672453541f6ccf7a6e5}{Cast\-Sphere} (Vec3 \&center, float radius, unsigned count, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Returns the results of the filtered sphere cast. \end{DoxyCompactList}\item 
+Cast\-Results\-Range \hyperlink{classDCEngine_1_1Systems_1_1Physics_a0c0a655d338e25d5c4c120b368f26452}{Cast\-Collider} (Vec3 \&offset, \hyperlink{classDCEngine_1_1Components_1_1Collider}{Components\-::\-Collider} \&test\-Collider, \hyperlink{structDCEngine_1_1CastFilter}{Cast\-Filter} \&filter)
+\begin{DoxyCompactList}\small\item\em Cast out a collider to see whats it's colliding with. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a3e1914489e4bed4f9f23cdeab34a43dc}{class {\bfseries Engine}}\label{classDCEngine_1_1Systems_1_1Physics_a3e1914489e4bed4f9f23cdeab34a43dc}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_afb1520219f87fc75feb74f24031a5e26}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Aabb@{Cast\-Aabb}}
+\index{Cast\-Aabb@{Cast\-Aabb}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Aabb}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Aabb (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{center, }
+\item[{Vec3 \&}]{size, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_afb1520219f87fc75feb74f24031a5e26}
+
+
+Returns the results of the filtered Aabb cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \hyperlink{classThe}{The} origin. \\
+\hline
+{\em size} & \hyperlink{classThe}{The} dimensions of the shape. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a0c0a655d338e25d5c4c120b368f26452}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Collider@{Cast\-Collider}}
+\index{Cast\-Collider@{Cast\-Collider}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Collider}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Collider (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{offset, }
+\item[{{\bf Components\-::\-Collider} \&}]{test\-Collider, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a0c0a655d338e25d5c4c120b368f26452}
+
+
+Cast out a collider to see whats it's colliding with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & How much to offset the collider from its current position. \\
+\hline
+{\em test\-Collider} & \hyperlink{classA}{A} reference to the collider. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a78eeead3cd3e5befab70292b27d06cb7}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cast\-Result} D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a78eeead3cd3e5befab70292b27d06cb7}
+
+
+Performs a ray cast and returns the first object that is collided with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a0d08cbe2430fe1b685897f64292e51b8}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cast\-Result} D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a0d08cbe2430fe1b685897f64292e51b8}
+
+
+Performs a filtered ray cast and returns the first object that is collided with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em filter} & \hyperlink{classA}{A} filter... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a0fdbbf6cd3836a5684bbee34e03cac45}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{unsigned}]{count}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a0fdbbf6cd3836a5684bbee34e03cac45}
+
+
+Returns the results of the ray cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a71c3da317accdb31821da671b4a9c8ce}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Ray@{Cast\-Ray}}
+\index{Cast\-Ray@{Cast\-Ray}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Ray (
+\begin{DoxyParamCaption}
+\item[{{\bf Ray} \&}]{ray, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a71c3da317accdb31821da671b4a9c8ce}
+
+
+Returns the results of the filtered ray cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_ae016fa032c636564fa3790361005cd05}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Segment@{Cast\-Segment}}
+\index{Cast\-Segment@{Cast\-Segment}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Segment (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{start, }
+\item[{Vec3 \&}]{end, }
+\item[{unsigned}]{count}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_ae016fa032c636564fa3790361005cd05}
+
+
+Returns the results of the segment cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \hyperlink{classThe}{The} starting point of the segment. \\
+\hline
+{\em end} & \hyperlink{classThe}{The} ending point of the segment. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a7ec37a2458485c7fbdf727db7b075e94}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Segment@{Cast\-Segment}}
+\index{Cast\-Segment@{Cast\-Segment}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Segment (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{start, }
+\item[{Vec3 \&}]{end, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a7ec37a2458485c7fbdf727db7b075e94}
+
+
+Returns the results of the filtered segment cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \hyperlink{classThe}{The} starting point of the segment. \\
+\hline
+{\em end} & \hyperlink{classThe}{The} ending point of the segment. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_af47dc05f13852672453541f6ccf7a6e5}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Cast\-Sphere@{Cast\-Sphere}}
+\index{Cast\-Sphere@{Cast\-Sphere}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Cast\-Sphere}]{\setlength{\rightskip}{0pt plus 5cm}Cast\-Results\-Range D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Cast\-Sphere (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{center, }
+\item[{float}]{radius, }
+\item[{unsigned}]{count, }
+\item[{{\bf Cast\-Filter} \&}]{filter}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_af47dc05f13852672453541f6ccf7a6e5}
+
+
+Returns the results of the filtered sphere cast. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \hyperlink{classThe}{The} origin. \\
+\hline
+{\em radius} & \hyperlink{classThe}{The} radius of the sphere. \\
+\hline
+{\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
+\hline
+{\em filter} & \hyperlink{classThe}{The} filter object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} object containing the results from the cast. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_ab0e5409ce0a9b929d435ca59944db2cc}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Deregister\-Space@{Deregister\-Space}}
+\index{Deregister\-Space@{Deregister\-Space}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Deregister\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Deregister\-Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Physics\-Space} \&}]{physics\-Space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_ab0e5409ce0a9b929d435ca59944db2cc}
+
+
+Deregisters a space to this system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics\-Space} & \hyperlink{classA}{A} reference to the Physics\-Space. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_accee13b6fdc523a6bcf346b3ce50e0bb}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Find\-All\-Objects\-At\-Position@{Find\-All\-Objects\-At\-Position}}
+\index{Find\-All\-Objects\-At\-Position@{Find\-All\-Objects\-At\-Position}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Find\-All\-Objects\-At\-Position}]{\setlength{\rightskip}{0pt plus 5cm}Game\-Object\-Vec D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Find\-All\-Objects\-At\-Position (
+\begin{DoxyParamCaption}
+\item[{Vec3}]{pos, }
+\item[{{\bf Space} \&}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_accee13b6fdc523a6bcf346b3ce50e0bb}
+
+
+Checks for any Game\-Objects within the target position in the space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \hyperlink{classThe}{The} position in the space. \\
+\hline
+{\em space} & \hyperlink{classA}{A} reference to the space. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} container of all objects within the position. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a786d02f2a6521108c37ac5918865f552}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Find\-Object\-At\-Position@{Find\-Object\-At\-Position}}
+\index{Find\-Object\-At\-Position@{Find\-Object\-At\-Position}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Find\-Object\-At\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Object\-Ptr} D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Find\-Object\-At\-Position (
+\begin{DoxyParamCaption}
+\item[{Vec3}]{pos, }
+\item[{{\bf Space} \&}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a786d02f2a6521108c37ac5918865f552}
+
+
+Checks for collision between the target position and an object within the space. It will return the first object hit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & delta time. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a728b4c64d2f7e9a371c7618745fab814}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Register\-Space@{Register\-Space}}
+\index{Register\-Space@{Register\-Space}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Register\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Register\-Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Physics\-Space} \&}]{physics\-Space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a728b4c64d2f7e9a371c7618745fab814}
+
+
+Registers a space to this system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em physics\-Space} & \hyperlink{classA}{A} reference to the Physics\-Space. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Physics/\hyperlink{Physics_8h}{Physics.\-h}\item 
+Core/\-Systems/\-Physics/\hyperlink{Physics_8cpp}{Physics.\-cpp}\item 
+Core/\-Systems/\-Physics/Physics\-Casting.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,96 @@
+\hypertarget{classDCEngine_1_1Actions}{\section{D\-C\-Engine\-:\-:Actions Class Reference}
+\label{classDCEngine_1_1Actions}\index{D\-C\-Engine\-::\-Actions@{D\-C\-Engine\-::\-Actions}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Action\-Set\-Ptr \hyperlink{classDCEngine_1_1Actions_a9c1cfb84ef8a34a9e40824c21d09bf11}{Sequence} (\hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} \&owner)
+\begin{DoxyCompactList}\small\item\em Creates an action sequence. \end{DoxyCompactList}\item 
+static Action\-Set\-Ptr \hyperlink{classDCEngine_1_1Actions_a45126cc19656693474c2c3ed90bd4ed1}{Group} (\hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} \&owner)
+\begin{DoxyCompactList}\small\item\em Creates an action sequence. \end{DoxyCompactList}\item 
+static void \hyperlink{classDCEngine_1_1Actions_a8c098c5645c80d97234ae97299b3d426}{Call} (Action\-Set\-Ptr set, void $\ast$fn)
+\begin{DoxyCompactList}\small\item\em Creates an \hyperlink{classDCEngine_1_1ActionCall}{Action\-Call}. \end{DoxyCompactList}\item 
+static void \hyperlink{classDCEngine_1_1Actions_a6c4528212320eba1bc7e13417ce458b2}{Delay} (Action\-Set\-Ptr set, Real duration)
+\begin{DoxyCompactList}\small\item\em Creates an \hyperlink{classDCEngine_1_1ActionDelay}{Action\-Delay}. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Actions_aa94bbf255d175be5c62d44424daf7d47}{{\footnotesize template$<$typename Property $>$ }\\static void {\bfseries Property} (\hyperlink{classDCEngine_1_1ActionSequence}{Action\-Sequence} \&seq, Property \&prty, Property val, Real duration, Ease ease)}\label{classDCEngine_1_1Actions_aa94bbf255d175be5c62d44424daf7d47}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Actions_a8c098c5645c80d97234ae97299b3d426}{\index{D\-C\-Engine\-::\-Actions@{D\-C\-Engine\-::\-Actions}!Call@{Call}}
+\index{Call@{Call}!DCEngine::Actions@{D\-C\-Engine\-::\-Actions}}
+\subsubsection[{Call}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Actions\-::\-Call (
+\begin{DoxyParamCaption}
+\item[{Action\-Set\-Ptr}]{set, }
+\item[{void $\ast$}]{fn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Actions_a8c098c5645c80d97234ae97299b3d426}
+
+
+Creates an \hyperlink{classDCEngine_1_1ActionCall}{Action\-Call}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & \hyperlink{classA}{A} reference to the \hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} that this action belongs to. \\
+\hline
+{\em fn} & \hyperlink{classA}{A} reference to the function that will be added. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Actions_a6c4528212320eba1bc7e13417ce458b2}{\index{D\-C\-Engine\-::\-Actions@{D\-C\-Engine\-::\-Actions}!Delay@{Delay}}
+\index{Delay@{Delay}!DCEngine::Actions@{D\-C\-Engine\-::\-Actions}}
+\subsubsection[{Delay}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Actions\-::\-Delay (
+\begin{DoxyParamCaption}
+\item[{Action\-Set\-Ptr}]{set, }
+\item[{Real}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Actions_a6c4528212320eba1bc7e13417ce458b2}
+
+
+Creates an \hyperlink{classDCEngine_1_1ActionDelay}{Action\-Delay}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & \hyperlink{classA}{A} reference to the \hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} that this action belongs to. \\
+\hline
+{\em duration} & How long should the delay run for. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Actions_a45126cc19656693474c2c3ed90bd4ed1}{\index{D\-C\-Engine\-::\-Actions@{D\-C\-Engine\-::\-Actions}!Group@{Group}}
+\index{Group@{Group}!DCEngine::Actions@{D\-C\-Engine\-::\-Actions}}
+\subsubsection[{Group}]{\setlength{\rightskip}{0pt plus 5cm}Action\-Set\-Ptr D\-C\-Engine\-::\-Actions\-::\-Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Action\-Set} \&}]{owner}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Actions_a45126cc19656693474c2c3ed90bd4ed1}
+
+
+Creates an action sequence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \hyperlink{classA}{A} reference to the owner of this action sequence. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Actions_a9c1cfb84ef8a34a9e40824c21d09bf11}{\index{D\-C\-Engine\-::\-Actions@{D\-C\-Engine\-::\-Actions}!Sequence@{Sequence}}
+\index{Sequence@{Sequence}!DCEngine::Actions@{D\-C\-Engine\-::\-Actions}}
+\subsubsection[{Sequence}]{\setlength{\rightskip}{0pt plus 5cm}Action\-Set\-Ptr D\-C\-Engine\-::\-Actions\-::\-Sequence (
+\begin{DoxyParamCaption}
+\item[{{\bf Action\-Set} \&}]{owner}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Actions_a9c1cfb84ef8a34a9e40824c21d09bf11}
+
+
+Creates an action sequence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \hyperlink{classA}{A} reference to the owner of this action sequence. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Engine/\hyperlink{Action_8h}{Action.\-h}\item 
+Core/\-Engine/\hyperlink{Actions_8cpp}{Actions.\-cpp}\end{DoxyCompactItemize}

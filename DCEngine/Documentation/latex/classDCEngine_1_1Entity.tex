@@ -1,0 +1,215 @@
+\hypertarget{classDCEngine_1_1Entity}{\section{D\-C\-Engine\-:\-:Entity Class Reference}
+\label{classDCEngine_1_1Entity}\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Entity\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.817610cm]{classDCEngine_1_1Entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Entity_a694fa17c410e8a544c387774c1ee439d}{{\bfseries Zilch\-Declare\-Derived\-Type} (\hyperlink{classDCEngine_1_1Entity}{Entity}, \hyperlink{classDCEngine_1_1Object}{Object})}\label{classDCEngine_1_1Entity_a694fa17c410e8a544c387774c1ee439d}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a82afa978d172a7a1d3563697dc3688fe}{{\bfseries Entity} (std\-::string name)}\label{classDCEngine_1_1Entity_a82afa978d172a7a1d3563697dc3688fe}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_adfe6c0677a8f71c91caeddd87c8b5994}{void {\bfseries Initialize} ()}\label{classDCEngine_1_1Entity_adfe6c0677a8f71c91caeddd87c8b5994}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_ae1b42ae4dcfd7ffa712925d5594504af}{void {\bfseries Terminate} ()}\label{classDCEngine_1_1Entity_ae1b42ae4dcfd7ffa712925d5594504af}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_ad5b6558ae33d3f7ec2a89d8c84a37512}{void {\bfseries Serialize} (Zilch\-::\-Json\-Builder \&builder)}\label{classDCEngine_1_1Entity_ad5b6558ae33d3f7ec2a89d8c84a37512}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_acecb90a5603641e76ad14c852b539133}{void {\bfseries Deserialize} (Zilch\-::\-Json\-Value $\ast$properties)}\label{classDCEngine_1_1Entity_acecb90a5603641e76ad14c852b539133}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a8828d9d483e7fc7d91b1a4c0da46a720}{void {\bfseries set\-Archetype} (std\-::string)}\label{classDCEngine_1_1Entity_a8828d9d483e7fc7d91b1a4c0da46a720}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a443a66a28ab9e1b925cbfd6c850ff11f}{std\-::string {\bfseries get\-Archetype} () const }\label{classDCEngine_1_1Entity_a443a66a28ab9e1b925cbfd6c850ff11f}
+
+\item 
+{\footnotesize template$<$typename Component\-Class $>$ }\\bool \hyperlink{classDCEngine_1_1Entity_adf9dfdc2e7a53ff3cc50886cd1252938}{Add\-Component} (bool initialize=false)
+\begin{DoxyCompactList}\small\item\em Adds a given component to the \hyperlink{classDCEngine_1_1Entity}{Entity}. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_a75fe27665785153e86b47cf6250346d3}{\hyperlink{classDCEngine_1_1Component}{Component\-Ptr} {\bfseries Add\-Component\-By\-Name} (std\-::string \&name, bool initialize=false)}\label{classDCEngine_1_1Entity_a75fe27665785153e86b47cf6250346d3}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a0b8453f3082bf3d66132856dd248cb5e}{bool {\bfseries Add\-Component\-By\-Type} (Zilch\-::\-Bound\-Type $\ast$bound\-Type, bool initialize=false)}\label{classDCEngine_1_1Entity_a0b8453f3082bf3d66132856dd248cb5e}
+
+\item 
+{\footnotesize template$<$typename Component\-Class $>$ }\\Component\-Class $\ast$ \hyperlink{classDCEngine_1_1Entity_a2863c1f74f11065f459ad12593fff42c}{get\-Component} ()
+\begin{DoxyCompactList}\small\item\em Finds a component belonging to the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Component\-Class $>$ }\\bool \hyperlink{classDCEngine_1_1Entity_ae1a11262398d52087ffbae4325a81201}{Has\-Component} ()
+\begin{DoxyCompactList}\small\item\em Finds a component belonging to the entity. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_a41931919f1b2ae48b0b039db5b0c7abd}{bool {\bfseries Has\-Component} (std\-::string \&name)}\label{classDCEngine_1_1Entity_a41931919f1b2ae48b0b039db5b0c7abd}
+
+\item 
+{\footnotesize template$<$typename Component\-Class $>$ }\\void \hyperlink{classDCEngine_1_1Entity_a8baf9eb881b22d81f9c3be329ad06a3b}{Remove\-Component\-By\-Name} ()
+\begin{DoxyCompactList}\small\item\em Finds a component belonging to the entity and removes it. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_a38dc9bc71dad1e4b6f296d6de9a47cbe}{void {\bfseries Remove\-Component\-By\-Name} (std\-::string component\-Name)}\label{classDCEngine_1_1Entity_a38dc9bc71dad1e4b6f296d6de9a47cbe}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a3f6f5c2dbd1bb46a469f81d91ca352c8}{void {\bfseries Remove\-Component} (\hyperlink{classDCEngine_1_1Component}{Component\-Ptr} component)}\label{classDCEngine_1_1Entity_a3f6f5c2dbd1bb46a469f81d91ca352c8}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a7b0665d08563328853a31aa791a92db3}{Component\-Vec {\bfseries All\-Components} ()}\label{classDCEngine_1_1Entity_a7b0665d08563328853a31aa791a92db3}
+
+\item 
+{\footnotesize template$<$typename Event\-Class $>$ }\\void \hyperlink{classDCEngine_1_1Entity_acee7d3dbacbabb3650057603e88b9908}{Dispatch} (\hyperlink{classDCEngine_1_1Event}{Event} $\ast$event\-Obj)
+\begin{DoxyCompactList}\small\item\em Dispatches an event to the object. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_a5d6ec6a2c23947fdb12004c1c3052cc3}{{\footnotesize template$<$typename Event\-Class $>$ }\\void {\bfseries Dispatch\-Up} (\hyperlink{classDCEngine_1_1Event}{Event} $\ast$event\-Obj)}\label{classDCEngine_1_1Entity_a5d6ec6a2c23947fdb12004c1c3052cc3}
+
+\item 
+{\footnotesize template$<$typename Event\-Class $>$ }\\void \hyperlink{classDCEngine_1_1Entity_aa007d2d5c680e1c34807aea628459530}{Dispatch\-Down} (\hyperlink{classDCEngine_1_1Event}{Event} $\ast$event\-Obj)
+\begin{DoxyCompactList}\small\item\em Dispatches an event to the object itself and down to each children recursively. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_abe0c3598c08c9c2314398da96cfa9179}{Entity\-Type {\bfseries Type} ()}\label{classDCEngine_1_1Entity_abe0c3598c08c9c2314398da96cfa9179}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Entity_a214de3d4cde2f95ac63b7d1c3d80af7d}{\hyperlink{classDCEngine_1_1ActionsOwner}{Actions\-Owner} {\bfseries Actions}}\label{classDCEngine_1_1Entity_a214de3d4cde2f95ac63b7d1c3d80af7d}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Entity_ae50a77dace42749e37323c34b4f09be0}{Component\-Strong\-Vec \hyperlink{classDCEngine_1_1Entity_ae50a77dace42749e37323c34b4f09be0}{Components\-Container}}\label{classDCEngine_1_1Entity_ae50a77dace42749e37323c34b4f09be0}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classThe}{The} list of components attached to the entity. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_af5401234eb4da2aeab70dee69a92b14f}{Component\-Handle\-Vec \hyperlink{classDCEngine_1_1Entity_af5401234eb4da2aeab70dee69a92b14f}{Component\-Handles\-Container}}\label{classDCEngine_1_1Entity_af5401234eb4da2aeab70dee69a92b14f}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classThe}{The} list of components created through Zilch attached to the entity. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Entity_a7583c9a51a4c1a032c818d300f9b6ff1}{Entity\-Type {\bfseries type\-\_\-}}\label{classDCEngine_1_1Entity_a7583c9a51a4c1a032c818d300f9b6ff1}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Entity_a3e1914489e4bed4f9f23cdeab34a43dc}{class {\bfseries Engine}}\label{classDCEngine_1_1Entity_a3e1914489e4bed4f9f23cdeab34a43dc}
+
+\item 
+\hypertarget{classDCEngine_1_1Entity_a2129e6c0ac73536a2ac4f681dae16947}{class {\bfseries Space}}\label{classDCEngine_1_1Entity_a2129e6c0ac73536a2ac4f681dae16947}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Entity_adf9dfdc2e7a53ff3cc50886cd1252938}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!Add\-Component@{Add\-Component}}
+\index{Add\-Component@{Add\-Component}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{Add\-Component}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Component\-Class $>$ bool D\-C\-Engine\-::\-Entity\-::\-Add\-Component (
+\begin{DoxyParamCaption}
+\item[{bool}]{initialize = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1Entity_adf9dfdc2e7a53ff3cc50886cd1252938}
+
+
+Adds a given component to the \hyperlink{classDCEngine_1_1Entity}{Entity}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Component\-Class} & \hyperlink{classThe}{The} component class. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+\hyperlink{classThe}{The} component gets initialized after being added, since this method is called at runtime. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]Have the Factory construct the component \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Entity_acee7d3dbacbabb3650057603e88b9908}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!Dispatch@{Dispatch}}
+\index{Dispatch@{Dispatch}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{Dispatch}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Event\-Class $>$ void D\-C\-Engine\-::\-Entity\-::\-Dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event\-Obj}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Entity_acee7d3dbacbabb3650057603e88b9908}
+
+
+Dispatches an event to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & event class \\
+\hline
+{\em \hyperlink{classThe}{The}} & event object that is being passed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Entity_aa007d2d5c680e1c34807aea628459530}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!Dispatch\-Down@{Dispatch\-Down}}
+\index{Dispatch\-Down@{Dispatch\-Down}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{Dispatch\-Down}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Event\-Class $>$ void D\-C\-Engine\-::\-Entity\-::\-Dispatch\-Down (
+\begin{DoxyParamCaption}
+\item[{{\bf Event} $\ast$}]{event\-Obj}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Entity_aa007d2d5c680e1c34807aea628459530}
+
+
+Dispatches an event to the object itself and down to each children recursively. 
+
+\begin{DoxyReturn}{Returns}
+True if the component has every specified component. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Entity_a2863c1f74f11065f459ad12593fff42c}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!get\-Component@{get\-Component}}
+\index{get\-Component@{get\-Component}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{get\-Component}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Component\-Class $>$ Component\-Class $\ast$ D\-C\-Engine\-::\-Entity\-::get\-Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Entity_a2863c1f74f11065f459ad12593fff42c}
+
+
+Finds a component belonging to the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & component class. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If a match was found, a pointer to the component. If not, N\-U\-L\-L. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Entity_ae1a11262398d52087ffbae4325a81201}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!Has\-Component@{Has\-Component}}
+\index{Has\-Component@{Has\-Component}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{Has\-Component}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Component\-Class $>$ bool D\-C\-Engine\-::\-Entity\-::\-Has\-Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1Entity_ae1a11262398d52087ffbae4325a81201}
+
+
+Finds a component belonging to the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & component class. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If a match was found, true. Otherwise, false. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Entity_a8baf9eb881b22d81f9c3be329ad06a3b}{\index{D\-C\-Engine\-::\-Entity@{D\-C\-Engine\-::\-Entity}!Remove\-Component\-By\-Name@{Remove\-Component\-By\-Name}}
+\index{Remove\-Component\-By\-Name@{Remove\-Component\-By\-Name}!DCEngine::Entity@{D\-C\-Engine\-::\-Entity}}
+\subsubsection[{Remove\-Component\-By\-Name}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Component\-Class $>$ void D\-C\-Engine\-::\-Entity\-::\-Remove\-Component\-By\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1Entity_a8baf9eb881b22d81f9c3be329ad06a3b}
+
+
+Finds a component belonging to the entity and removes it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & component class. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Objects/\hyperlink{Entity_8h}{Entity.\-h}\end{DoxyCompactItemize}

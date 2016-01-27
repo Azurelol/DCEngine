@@ -1,0 +1,62 @@
+\hypertarget{CoreBindingObjects_8cpp}{\section{Core/\-Binding/\-Core\-Binding\-Objects.cpp File Reference}
+\label{CoreBindingObjects_8cpp}\index{Core/\-Binding/\-Core\-Binding\-Objects.\-cpp@{Core/\-Binding/\-Core\-Binding\-Objects.\-cpp}}
+}
+
+
+Binds the Object class and its inherited classes used in the engine to the Daisy Chain Engine core library 'D\-C\-Engine\-Core'.  
+
+
+{\ttfamily \#include \char`\"{}Precompiled.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Core\-Binding\-Objects.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Core\-Binding.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Core\-Binding\-Types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Objects/\-Object.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Objects/\-Entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Objects/\-Resource.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Objects/\-Component.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Objects/\-Entities/\-Entities\-Include.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\-Resources/\-Resources\-Include.\-h\char`\"{}}\\*
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine_a329111a922e14ea87ebb459646b6e3dd}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Object,\char`\"{}Object\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em Provides the definiton of this class to the Zilch library.  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a73824777eee63ffabcbff604d0223e7c}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Entity,\char`\"{}Entity\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Entity}{Entity} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a7510ef1bad1ec634e48f03ecf6a5214d}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Resource,\char`\"{}Resource\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Resource}{Resource} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_af3d5499e43b5081cd78cb2c4749d0f10}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Mouse,\char`\"{}Mouse\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Keyboard}{Keyboard} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a3cde4c8626f889d4a5fedc7b776addfb}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Game\-Session,\char`\"{}Game\-Session\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1GameSession}{Game\-Session} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a5850299cede5dfdf265b616f4f32bf69}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Space,\char`\"{}Space\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Space}{Space} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_ac72cd208fbb43218809aca31ea95108d}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Game\-Object,\char`\"{}Game\-Object\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a7a0613c0a700671c6172fddff3ee9f04}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Component,\char`\"{}Component\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Component}{Component} Definition  \end{DoxyCompactList}\item 
+\hyperlink{namespaceDCEngine_a154116616894dba1b2a9709abf969845}{D\-C\-Engine\-::\-Zilch\-Define\-Type} (Zilch\-Component,\char`\"{}Zilch\-Component\char`\"{}, D\-C\-Engine\-Core, builder, type)
+\begin{DoxyCompactList}\small\item\em Zilch \hyperlink{classDCEngine_1_1Component}{Component} Definition  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Binds the Object class and its inherited classes used in the engine to the Daisy Chain Engine core library 'D\-C\-Engine\-Core'. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+11/7/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+We include all the headers of the classes we are defining to Zilch here since we have decided to defne them all in a single, unified file rather than individually in each of their definition files. Perhaps I do not need to bind C\-T\-O\-R/\-D\-T\-O\-Rs for my classes if I don't plan on constructing them through Zilch. 
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

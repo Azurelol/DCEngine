@@ -1,0 +1,69 @@
+\hypertarget{classDCEngine_1_1Debug_1_1Exception}{\section{D\-C\-Engine\-:\-:Debug\-:\-:Exception Class Reference}
+\label{classDCEngine_1_1Debug_1_1Exception}\index{D\-C\-Engine\-::\-Debug\-::\-Exception@{D\-C\-Engine\-::\-Debug\-::\-Exception}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDCEngine_1_1Debug_1_1Exception_a7c92a37c071270ee0bea6a09af59d454}{Exception} (std\-::string file, int line, const std\-::string message)
+\begin{DoxyCompactList}\small\item\em Specific constructor for the exception, where a 'string' message is provided for the object to carry back it up as it unwinds through the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classDCEngine_1_1Debug_1_1Exception_ae03163ea6dbc941ee54dfda754c33060}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classDCEngine_1_1Debug_1_1Exception}{Exception} ex)
+\begin{DoxyCompactList}\small\item\em Friendly ostream operator prints the exception message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1Debug_1_1Exception_a7c92a37c071270ee0bea6a09af59d454}{\index{D\-C\-Engine\-::\-Debug\-::\-Exception@{D\-C\-Engine\-::\-Debug\-::\-Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!DCEngine::Debug::Exception@{D\-C\-Engine\-::\-Debug\-::\-Exception}}
+\subsubsection[{Exception}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Debug\-::\-Exception\-::\-Exception (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file, }
+\item[{int}]{line, }
+\item[{const std\-::string}]{message}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Debug_1_1Exception_a7c92a37c071270ee0bea6a09af59d454}
+
+
+Specific constructor for the exception, where a 'string' message is provided for the object to carry back it up as it unwinds through the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \hyperlink{classThe}{The} filename. \\
+\hline
+{\em line} & \hyperlink{classThe}{The} line number at which the exception occurred. \\
+\hline
+{\em message} & \hyperlink{classThe}{The} specified message. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classDCEngine_1_1Debug_1_1Exception_ae03163ea6dbc941ee54dfda754c33060}{\index{D\-C\-Engine\-::\-Debug\-::\-Exception@{D\-C\-Engine\-::\-Debug\-::\-Exception}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DCEngine::Debug::Exception@{D\-C\-Engine\-::\-Debug\-::\-Exception}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf Exception}}]{ex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classDCEngine_1_1Debug_1_1Exception_ae03163ea6dbc941ee54dfda754c33060}
+
+
+Friendly ostream operator prints the exception message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \hyperlink{classA}{A} reference to the ostream object to insert the message into. \\
+\hline
+{\em \hyperlink{classThe}{The}} & exception that is being printed out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} reference to the ostream, allowing for chaining the insertion operator. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Debug/\hyperlink{Debug_8h}{Debug.\-h}\item 
+Core/\-Debug/\hyperlink{Debug_8cpp}{Debug.\-cpp}\end{DoxyCompactItemize}

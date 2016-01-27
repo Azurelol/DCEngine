@@ -57,7 +57,7 @@ namespace DCEngine {
   {
     DCTrace << Name() << "::Bank::Generate \n";
     // Add the bank to the audio system
-    Daisy->getSystem<Systems::Audio>()->Add(AssetPath, mData);
+    Daisy->getSystem<Systems::Audio>()->Add(AssetPath, Data);
     
     // Get the number of events in the bank
     //int capacity = 0;
