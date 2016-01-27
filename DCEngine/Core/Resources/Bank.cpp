@@ -20,11 +20,11 @@ namespace DCEngine {
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
-  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Bank, "Bank", DCEngineCore, builder, type) {
     DCE_BINDING_DEFINE_PROPERTY(Bank, AssetPath);
   }
-  #endif
+#endif
 
   /**************************************************************************/
   /*!
@@ -32,7 +32,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Bank::Bank(std::string bankFile) : Resource("Bank", FileSystem::FileNoExtension(bankFile),
-    bankFile)
+                                              bankFile)
   {
   }
 
@@ -57,63 +57,31 @@ namespace DCEngine {
   {
     DCTrace << Name() << "::Bank::Generate \n";
     // Add the bank to the audio system
-    Daisy->getSystem<Systems::Audio>()->Add(AssetPath, Data);
-
-    int result = 0;
-    // Get the number of events in the bank
-    int eventCount = 0;
-    result = Data.Handle->getEventCount(&eventCount);
-    // Generate a container of "Event Descriptions"
-    //FMOD::Studio::EventDescription *eventList = nullptr;
-    //auto result = mData.Handle->getEventList(&eventList, eventCount, &eventsReturned);
-
-    if (result != FMOD_OK) {
-      DCTrace << Name() << "::Bank::Generate: No events found!\n";
-      return;
-    }
-
-    int eventsReturned = 0;
-    FMOD::Studio::EventDescription ** eventList = (FMOD::Studio::EventDescription **)malloc(eventCount * sizeof(void *));
-    result = Data->getEventList(eventList, eventCount, &eventsReturned);
-
-    if (result != FMOD_OK) {
-      DCTrace << Name() << "::Bank::Generate: Failed to retrieve EventDescriptions from the bank!\n";
-      return;
-    }
+    Daisy->getSystem<Systems::Audio>()->Add(AssetPath, mData);
     
-    for (int i = 0; i < eventCount; ++i)
-    {
-      int buff_sz = 0;
-      char path[256] = { 0 };
-      FMOD_GUID* what;
-      result = eventList[i]->getID(what);
-      result = eventList[i]->getPath(path, 255, &buff_sz);
-      printf("%s\n", path);
-    }
-
-    //std::string name;
-    //for (unsigned i = 0; i < eventCount; ++i) {
-    //  result = eventList[i]->getPath(name., 255, &eventsReturned);
-    //  DCTrace << "lol";
-    //}
-
-
-    free(eventList);
-
-
-    //eventList.reserve(100);
+    // Get the number of events in the bank
+    //int capacity = 0;
+    //int return_num = 0;
+    //mData.Handle->getEventCount(&capacity);
+    //// Generate a container of "Event Descriptions"
+    ////std::vector<FMOD::Studio::EventDescription*> eventList;
     //FMOD::Studio::EventDescription *eventList = nullptr;
-    //auto result = mData.Handle->getEventList(&eventList, eventCount, &eventsReturned);
+
+    ////eventList.reserve(100);
+    //auto result = mData.Handle->getEventList(&eventList, capacity, &return_num);
+
     //FMOD::Studio::EventInstance *instList = nullptr;
+
     //int instCount = 0;
     //result = eventList->getInstanceCount(&instCount);
-    //result = eventList->getInstanceList(&instList, eventCount, &instCount);
+    //result = eventList->getInstanceList(&instList, capacity, &instCount);
 
     // For every event description, generate a SoundCue
     //for (auto& event : eventList) {
+
     //}
 
-    DCTrace << Name() << "::Bank::Generate: There were '" << eventCount << "' events in the bank \n";
+    //DCTrace << Name() << "::Bank::Generate: There were '" << capacity << "' events in the bank \n";
   }
 
 }

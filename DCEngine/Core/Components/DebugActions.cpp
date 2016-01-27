@@ -34,6 +34,18 @@ namespace DCEngine {
       auto& a = Owner()->Actions;
     }
 
+    void DebugActions::TestRayCasting()
+    {
+      // Create the ray
+      auto ray = Ray();
+      ray.Direction = Owner()->getComponent<Components::Transform>()->getTranslation();
+      ray.Origin = Vec3(0, 0, 0);
+      // Cast the the ray
+      auto results = SpaceRef->getComponent<Components::PhysicsSpace>()->CastRay(ray);
+      
+
+    }
+
     void DebugActions::DebugDraw()
     {
       auto ownerName = Owner()->Name();

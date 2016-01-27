@@ -26,9 +26,15 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       String PlayerName = "Player";
+      float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
+      float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
+      bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
 
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
+      DCE_DEFINE_PROPERTY(float, IdleRange);
+      DCE_DEFINE_PROPERTY(float, PatrolDistance);
+      DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
@@ -44,24 +50,41 @@ namespace DCEngine {
     private:
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
-      float IdleRange;
+      Vec3 startingPosition;
 
       class Idle : public IState<Grunt>
       {
-        void Enter(Grunt *owner)
-        {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
+      };
 
-        }
+      class PatrolRight : public IState<Grunt>
+      {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
+      };
 
-        void Update(Grunt *owner)
-        {
-          //Vec2 distanceToPlayer = player->getComponent<Components::Transform>()->Translation
-        }
+      class PatrolLeft : public IState<Grunt>
+      {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
+      };
 
-        void Exit(Grunt *owner)
-        {
+      class Attack : public IState<Grunt>
+      {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
+      };
 
-        }
+      class Die : public IState<Grunt>
+      {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
       };
     };
   }

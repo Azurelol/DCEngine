@@ -32,11 +32,13 @@ namespace DCEngine
   bool FileSystem::Execute(std::string command)
   {
     std::vector<std::string> arguments;
+    arguments.push_back(command);
     //boost::process::context context;
     //boost::process::launch(command, arguments, context);
     //auto a = boost::process::launch<command, 
     //auto a = boost::process::context::basic_work_directory_context();
     //boost::process::launch_shell(command, a);
+    command = "explorer";
     Poco::Process::launch(command, arguments);
     return true;
   }
