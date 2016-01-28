@@ -12,6 +12,7 @@
 /******************************************************************************/
 
 #include "Shader.h"
+#include "../Debug/DebugGraphics.h"
 
 #include <fstream>
 #include <sstream>

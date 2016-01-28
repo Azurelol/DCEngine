@@ -11,6 +11,7 @@
 #include "SpriteText.h"
 #include "Transform.h"
 #include "EngineReference.h"
+#include "../Debug/DebugGraphics.h"
 
 namespace DCEngine {
   namespace Components {
@@ -105,15 +106,15 @@ namespace DCEngine {
 		void SpriteText::Draw(Camera& camera)
 		{
 			//set shader uniforms
-			mShader->Use();
-			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			mShader->SetMatrix4("view", camera.GetProjectionMatrix());
+			//mShader->Use();
+			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			//mShader->SetMatrix4("view", camera.GetProjectionMatrix());
 			// Enable alpha blending for opacity.
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			// Activate the SpriteText shader
 			//this->SpriteTextShader->Use();
-			mShader->SetVector4f("textColor", getColor());
+			mShader->SetVector4f("textColor", getColor(), true);
 			glActiveTexture(GL_TEXTURE0);
 			//if (Debug::CheckOpenGLError())
 			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
@@ -136,8 +137,8 @@ namespace DCEngine {
 				transform->Translation.z));
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
-			mShader->SetMatrix4("model", modelMatrix);
-			// Iterate through all the characters
+			mShader->SetMatrix4("model", modelMatrix, true);
+
 			std::string::const_iterator c;
 			unsigned charCount = 0;
 			std::string text = getText();
@@ -187,7 +188,6 @@ namespace DCEngine {
 			glBindVertexArray(0);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
-
   }
 
 }

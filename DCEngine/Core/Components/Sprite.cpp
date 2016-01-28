@@ -207,8 +207,8 @@ namespace DCEngine {
 		void Sprite::Draw(Camera& camera)
 		{
 			mShader->SetInteger("isTexture", 1);
-			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			mShader->SetMatrix4("view", camera.GetProjectionMatrix());
+			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			//mShader->SetMatrix4("view", camera.GetProjectionMatrix());
 			//DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
 			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);

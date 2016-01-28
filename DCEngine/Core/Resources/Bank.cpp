@@ -55,6 +55,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Bank::Generate()
   {
+		return;
     DCTrace << Name() << "::Bank::Generate \n";
     // Add the bank to the audio system
     Daisy->getSystem<Systems::Audio>()->Add(AssetPath, mData);

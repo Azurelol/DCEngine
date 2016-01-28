@@ -87,24 +87,21 @@ namespace DCEngine {
 				//}
 
 				//draw sprite text
-				//GraphicsHandler->SetSpriteTextShader(*camera);
+				GraphicsHandler->SetSpriteTextShader(*camera);
 				//for (auto spriteText : gfxSpace->getSpriteTextContainer())
 				//{
-				//	DrawSpriteText(*spriteText, *camera);
+					//DrawSpriteText(*spriteText, *camera);
 				//}
 
 				// draw sprites
-				//GraphicsHandler->SetSpriteShader(*camera);
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+				GraphicsHandler->SetSpriteShader(*camera);
+				
 				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
 				for (auto graphicalComponent : graphicalComponents)
 				{
 					++TotalObjNumG;
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 				}
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 
 				for (auto&& drawList : mDrawList)
 				{
@@ -115,6 +112,8 @@ namespace DCEngine {
 					}
 					drawList.clear();
 				}
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 
 				//for (auto gameObj : gfxSpace->getSprites()) {
 				//	++TotalObjNumG;
@@ -131,6 +130,8 @@ namespace DCEngine {
 				//}
 
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			}
 		}
 

@@ -10,6 +10,7 @@
 /******************************************************************************/
 #include "SpriteParticleSystem.h"
 #include "EngineReference.h"
+#include "../Debug/DebugGraphics.h"
 
 namespace DCEngine {
 
@@ -81,6 +82,8 @@ namespace DCEngine {
 
 		void SpriteParticleSystem::Draw(Camera& camera)
 		{
+			if (Debug::CheckOpenGLError())
+				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			mShader->Use();
 			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
 			mShader->SetMatrix4("view", camera.GetViewMatrix());
@@ -128,6 +131,8 @@ namespace DCEngine {
 				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
 				glBindVertexArray(0);
 			}
+			if (Debug::CheckOpenGLError())
+				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 		}
 
 		SpriteParticleSystem::Particle::Particle(double lifetime,
