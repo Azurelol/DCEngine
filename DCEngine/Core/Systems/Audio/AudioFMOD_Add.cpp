@@ -74,7 +74,8 @@ namespace DCEngine {
       ErrorCheck(newBank->loadSampleData());
       // Add it to the container of active banks
       ActiveBanks.insert(std::pair<std::string, FMOD::Studio::Bank*>(handle, newBank));
-
+      
+      LoadEventDescriptions(newBank);
       return newBank;
     }
 
@@ -89,18 +90,44 @@ namespace DCEngine {
     {
       DCTrace << "AudioFMOD::LoadEventDescriptions - Loading event descriptions \n";
 
+      FMOD_RESULT result;
       int eventCount = 0;
-      if (!bank->getEventCount(&eventCount)) {
-        DCTrace << "AudioFMOD::LoadEventDescriptions: No events found!\n";
-        return;
-      }
+      result = bank->getEventCount(&eventCount);
+      //if () {
+      //  DCTrace << "AudioFMOD::LoadEventDescriptions: No events found!\n";
+      //  return;
+      //}
 
       int eventsReturned = 0;
       FMOD::Studio::EventDescription ** eventList = (FMOD::Studio::EventDescription **)malloc(eventCount * sizeof(void *));
-      if (!bank->getEventList(eventList, eventCount, &eventsReturned)) {
-        DCTrace << "AudioFMOD::LoadEventDescriptions: No events retrieved!\n";
-        return;
+      result = bank->getEventList(eventList, eventCount, &eventsReturned);
+      auto a = 1;
+      
+     
+      if (result == FMOD_OK)
+      {
+        for (int i = 0; i < eventsReturned; ++i)
+        {
+          int buff_sz = 0;
+          char path[256] = { 0 };
+          FMOD_GUID guid;
+          std::memset(&guid, 0, sizeof(guid));
+          result = eventList[i]->getID(&guid);
+          result = eventList[i]->getPath(path, 255, &buff_sz);
+          printf("%s\n", path);
+        }
       }
+
+      free(eventList);
+
+
+
+      //if (!bank->getEventList(eventList, eventCount, &eventsReturned)) {
+      //  DCTrace << "AudioFMOD::LoadEventDescriptions: No events retrieved!\n";
+      //  return;
+      //}
+
+
 
     }      
 
