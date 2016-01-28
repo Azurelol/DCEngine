@@ -117,8 +117,8 @@ namespace DCEngine {
           printf("%s\n", path);
 
           // Does not compile!
-          FMOD::Studio::EventInstance *test = nullptr;
-          test->setParameterValue(some float);
+          //FMOD::Studio::EventInstance *test = nullptr;
+          //test->setParameterValue(some float);
         }
       }
 
