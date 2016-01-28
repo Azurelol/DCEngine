@@ -21,9 +21,11 @@ namespace DCEngine {
   using BankPtr = std::shared_ptr<Bank>;
   class Bank : public Resource {
   public:
-       
+      
+    // Properties
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
-    void Generate();
+
+    void Add();
 
     ZilchDeclareDerivedType(Bank, Resource);
     Bank(std::string name);
@@ -31,14 +33,14 @@ namespace DCEngine {
     static std::string Extension() { return ".Bank"; }
     static BankPtr Find(std::string);
 
-    struct Data {
+    struct BankData {
       FMOD::Studio::Bank* Handle;
       FMOD::Studio::Bank* operator->() { return Handle; }
     };
 
   private:
     std::string AssetPath;
-    Data mData;
+    BankData Data;
 
   };
 

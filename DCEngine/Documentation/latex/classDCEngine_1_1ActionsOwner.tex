@@ -1,0 +1,80 @@
+\hypertarget{classDCEngine_1_1ActionsOwner}{\section{D\-C\-Engine\-:\-:Actions\-Owner Class Reference}
+\label{classDCEngine_1_1ActionsOwner}\index{D\-C\-Engine\-::\-Actions\-Owner@{D\-C\-Engine\-::\-Actions\-Owner}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Actions\-Owner\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDCEngine_1_1ActionsOwner}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDCEngine_1_1ActionsOwner_a153d50a0c2e46d09d5896a21312e8f9f}{Actions\-Owner} (\hyperlink{classDCEngine_1_1Entity}{Entity} \&owner)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1ActionsOwner}{Actions\-Owner} constructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1ActionsOwner_ab79db9c50826b66f606ed06d115bc331}{\hyperlink{classDCEngine_1_1ActionsOwner_ab79db9c50826b66f606ed06d115bc331}{$\sim$\-Actions\-Owner} ()}\label{classDCEngine_1_1ActionsOwner_ab79db9c50826b66f606ed06d115bc331}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1ActionsOwner}{Actions\-Owner} destructor. \end{DoxyCompactList}\item 
+float \hyperlink{classDCEngine_1_1ActionsOwner_a65b0bc92323729657f1e4071f0300031}{Update} (float dt)
+\begin{DoxyCompactList}\small\item\em Updates an entity's actions. Updating all the actions one tier below in parallel. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1ActionsOwner_aeee0d8a5f5a7daf8e3c781d88d82259e}{bool \hyperlink{classDCEngine_1_1ActionsOwner_aeee0d8a5f5a7daf8e3c781d88d82259e}{Validate} ()}\label{classDCEngine_1_1ActionsOwner_aeee0d8a5f5a7daf8e3c781d88d82259e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classAn}{An} entity's actions are never finished! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1ActionsOwner_a014a5f6b480286524d24047b37bd8e50}{\hyperlink{classDCEngine_1_1Entity}{Entity} \& {\bfseries Owner}}\label{classDCEngine_1_1ActionsOwner_a014a5f6b480286524d24047b37bd8e50}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1ActionsOwner_a153d50a0c2e46d09d5896a21312e8f9f}{\index{D\-C\-Engine\-::\-Actions\-Owner@{D\-C\-Engine\-::\-Actions\-Owner}!Actions\-Owner@{Actions\-Owner}}
+\index{Actions\-Owner@{Actions\-Owner}!DCEngine::ActionsOwner@{D\-C\-Engine\-::\-Actions\-Owner}}
+\subsubsection[{Actions\-Owner}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Actions\-Owner\-::\-Actions\-Owner (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} \&}]{owner}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1ActionsOwner_a153d50a0c2e46d09d5896a21312e8f9f}
+
+
+\hyperlink{classDCEngine_1_1ActionsOwner}{Actions\-Owner} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \hyperlink{classA}{A} reference to the owner of this \hyperlink{classDCEngine_1_1ActionsOwner}{Actions\-Owner}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1ActionsOwner_a65b0bc92323729657f1e4071f0300031}{\index{D\-C\-Engine\-::\-Actions\-Owner@{D\-C\-Engine\-::\-Actions\-Owner}!Update@{Update}}
+\index{Update@{Update}!DCEngine::ActionsOwner@{D\-C\-Engine\-::\-Actions\-Owner}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}float D\-C\-Engine\-::\-Actions\-Owner\-::\-Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1ActionsOwner_a65b0bc92323729657f1e4071f0300031}
+
+
+Updates an entity's actions. Updating all the actions one tier below in parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \hyperlink{classThe}{The} time to be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+How much time was consumed while updating. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDCEngine_1_1ActionSet}{D\-C\-Engine\-::\-Action\-Set}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Engine/\hyperlink{Action_8h}{Action.\-h}\item 
+Core/\-Engine/\hyperlink{ActionsOwner_8cpp}{Actions\-Owner.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,304 @@
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL}{\section{D\-C\-Engine\-:\-:Systems\-:\-:Graphics\-G\-L Class Reference}
+\label{classDCEngine_1_1Systems_1_1GraphicsGL}\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a00f71aa67801d3266d86ac02aa021245}{Set\-Shader\-Proj\-View\-Uniforms} (Shader\-Ptr shader, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera)
+\begin{DoxyCompactList}\small\item\em Sets the shader's camera projection matrix and view uniforms. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_afb01f98dc0066583641c8abd0dfe5806}{Configure\-Sprite\-V\-A\-O} ()
+\begin{DoxyCompactList}\small\item\em Configures the Quad\-V\-A\-O, used for drawing sprites. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_aa95e1290ceecd1d01deed36f21522613}{Set\-Sprite\-Shader} (\hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera)
+\begin{DoxyCompactList}\small\item\em Sets the Sprite's Shaders Uniforms.  \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a431bfb80d5ec91de3c1e3f1a2c9c27ab}{Draw\-Sprite} (\hyperlink{classDCEngine_1_1Components_1_1Sprite}{Components\-::\-Sprite} \&sprite, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera, float dt)
+\begin{DoxyCompactList}\small\item\em Draws a sprite on screen. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a05cb70091e1c5038a24c5abe887239d3}{Animation\-Update} (\hyperlink{classDCEngine_1_1Components_1_1Sprite}{Components\-::\-Sprite} \&sprite, float dt)
+\begin{DoxyCompactList}\small\item\em Runs the current animation update. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a50d6fe6205e5533ceed8eb13b580d9fc}{int {\bfseries Is\-Next\-Frame} (\hyperlink{classDCEngine_1_1Components_1_1Sprite}{Components\-::\-Sprite} \&sprite)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a50d6fe6205e5533ceed8eb13b580d9fc}
+
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_ad76646900d9d276d5e23de98561654a1}{Configure\-Sprite\-Text\-V\-A\-O} ()
+\begin{DoxyCompactList}\small\item\em Configures the V\-A\-O used for Sprite\-Text. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_aa2cc15a6f58c1a5081f5ace32b2a8ce4}{Set\-Sprite\-Text\-Shader} (\hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera)
+\begin{DoxyCompactList}\small\item\em Sets the Sprite\-Text's \hyperlink{classDCEngine_1_1Shader}{Shader} Uniforms.  \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_ab4e1b5fbc5b43c6670a441ccd1e5338d}{Draw\-Sprite\-Text} (\hyperlink{classDCEngine_1_1Components_1_1SpriteText}{D\-C\-Engine\-::\-Components\-::\-Sprite\-Text} \&st, \hyperlink{classDCEngine_1_1Components_1_1Camera}{D\-C\-Engine\-::\-Components\-::\-Camera} \&camera)
+\begin{DoxyCompactList}\small\item\em Draws a Sprite\-Text on screen. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_aa2e63f43ed95a11125c36dd4b1be5bf1}{void {\bfseries Configure\-Particle\-Buffers} ()}\label{classDCEngine_1_1Systems_1_1GraphicsGL_aa2e63f43ed95a11125c36dd4b1be5bf1}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a4d61856ec34482a96a005f043fef6a8b}{void {\bfseries Set\-Particle\-System\-Shader} (\hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a4d61856ec34482a96a005f043fef6a8b}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ab388e3a4dbcc67dc3d1bfd9935f4971c}{void {\bfseries Draw\-Particles} (\hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Components\-::\-Sprite\-Particle\-System} \&particles, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera, double dt)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ab388e3a4dbcc67dc3d1bfd9935f4971c}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_aaa6db66af536b63b3090f32340f3f07f}{void {\bfseries Draw\-Model} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} \&game\-Obj)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_aaa6db66af536b63b3090f32340f3f07f}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_af12047cd30c853b0e157d4e3694827a1}{void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_af12047cd30c853b0e157d4e3694827a1}{Configure\-Line\-V\-A\-O} ()}\label{classDCEngine_1_1Systems_1_1GraphicsGL_af12047cd30c853b0e157d4e3694827a1}
+
+\begin{DoxyCompactList}\small\item\em Configures the Debug\-Draw Line V\-A\-O. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a525ab06577dfcd88cc4fd1b598d217d5}{void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a525ab06577dfcd88cc4fd1b598d217d5}{Configure\-Circle\-V\-A\-O} ()}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a525ab06577dfcd88cc4fd1b598d217d5}
+
+\begin{DoxyCompactList}\small\item\em Configures the Debug\-Draw Circle V\-A\-O. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a10131138d8272527603e970c44909999}{void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a10131138d8272527603e970c44909999}{Configure\-Rectangle\-V\-A\-O} ()}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a10131138d8272527603e970c44909999}
+
+\begin{DoxyCompactList}\small\item\em Configures the Debug\-Draw Rectangle V\-A\-O. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a20653843925b2566b0d74f22c36e552f}{void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a20653843925b2566b0d74f22c36e552f}{Set\-Debug\-Draw\-Shader\-Proj\-View\-Uniform} (\hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&camera)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a20653843925b2566b0d74f22c36e552f}
+
+\begin{DoxyCompactList}\small\item\em Sets the Debug\-Draw projection and view uniforms from the camera. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a76e1459d66f578a6b09c7851dd5e2cbc}{Draw\-Debug} (\hyperlink{classDCEngine_1_1DebugDrawObject}{Debug\-Draw\-Object} \&debug\-Draw\-Obj, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+\begin{DoxyCompactList}\small\item\em Takes a Draw\-Debug object and draws depending on. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_af5c535a45be89c8b17ba3c586f23ae81}{void {\bfseries Draw\-Circle} (\hyperlink{classDCEngine_1_1DrawCircleObj}{Draw\-Circle\-Obj} \&obj)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_af5c535a45be89c8b17ba3c586f23ae81}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a9b47ccc34dc750b32f8ae71172811dc9}{void {\bfseries Draw\-Rectangle} (\hyperlink{classDCEngine_1_1DrawRectObj}{Draw\-Rect\-Obj} \&obj)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a9b47ccc34dc750b32f8ae71172811dc9}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ad3a3f9b771e8752591c336fd329fb98f}{void {\bfseries Draw\-Line\-Segment} (\hyperlink{classDCEngine_1_1DrawLineObj}{Draw\-Line\-Obj} \&obj)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ad3a3f9b771e8752591c336fd329fb98f}
+
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}{Draw\-Rectangle} (Vec3 \&pos, Real \&width, Real \&height, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+\begin{DoxyCompactList}\small\item\em Draws a rectangle on screen. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}{Draw\-Circle} (Vec3 \&pos, Real \&radius, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+\begin{DoxyCompactList}\small\item\em Draws a circle on screen. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededfcea7f259}{Draw\-Line\-Segment} (Vec3 \&start\-Pos, Vec3 \&end\-Pos, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+\begin{DoxyCompactList}\small\item\em Draws a line segment on screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ae5cfe0c0e0b06d536d5814bd1ff4818f}{class {\bfseries Graphics}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ae5cfe0c0e0b06d536d5814bd1ff4818f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a05cb70091e1c5038a24c5abe887239d3}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Animation\-Update@{Animation\-Update}}
+\index{Animation\-Update@{Animation\-Update}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Animation\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Animation\-Update (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Sprite} \&}]{sprite, }
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a05cb70091e1c5038a24c5abe887239d3}
+
+
+Runs the current animation update. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000039}{Todo}]Currently hard-\/coded the Column\-Count. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ad76646900d9d276d5e23de98561654a1}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Configure\-Sprite\-Text\-V\-A\-O@{Configure\-Sprite\-Text\-V\-A\-O}}
+\index{Configure\-Sprite\-Text\-V\-A\-O@{Configure\-Sprite\-Text\-V\-A\-O}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Configure\-Sprite\-Text\-V\-A\-O}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Configure\-Sprite\-Text\-V\-A\-O (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ad76646900d9d276d5e23de98561654a1}
+
+
+Configures the V\-A\-O used for Sprite\-Text. 
+
+\begin{DoxyNote}{Note}
+We reserve enough memory when initiating the V\-B\-O so that we can later update the V\-B\-O's memory when rendering characters. T\-He 2\-D quad requries 6 vertices of 4 floats each so we reserve 6 $\ast$ 4 floats of memory. Because we will be updating the content of the V\-B\-O's memory quite often, we allocate with G\-L\-\_\-\-D\-Y\-N\-A\-M\-I\-C\-\_\-\-D\-R\-A\-W. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_afb01f98dc0066583641c8abd0dfe5806}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Configure\-Sprite\-V\-A\-O@{Configure\-Sprite\-V\-A\-O}}
+\index{Configure\-Sprite\-V\-A\-O@{Configure\-Sprite\-V\-A\-O}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Configure\-Sprite\-V\-A\-O}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Configure\-Sprite\-V\-A\-O (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_afb01f98dc0066583641c8abd0dfe5806}
+
+
+Configures the Quad\-V\-A\-O, used for drawing sprites. 
+
+\begin{DoxyNote}{Note}
+Because all sprites share the same vertex data, we only have to define a single V\-A\-O. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Circle@{Draw\-Circle}}
+\index{Draw\-Circle@{Draw\-Circle}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Circle}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Circle (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{pos, }
+\item[{Real \&}]{radius, }
+\item[{Vec4 \&}]{color, }
+\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}
+
+
+Draws a circle on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & position of the center of the circle. \\
+\hline
+{\em \hyperlink{classThe}{The}} & radius of the circle. \\
+\hline
+{\em \hyperlink{classThe}{The}} & color of the circle. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a76e1459d66f578a6b09c7851dd5e2cbc}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Debug@{Draw\-Debug}}
+\index{Draw\-Debug@{Draw\-Debug}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Debug}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Debug (
+\begin{DoxyParamCaption}
+\item[{{\bf Debug\-Draw\-Object} \&}]{debug\-Draw\-Obj, }
+\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a76e1459d66f578a6b09c7851dd5e2cbc}
+
+
+Takes a Draw\-Debug object and draws depending on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the drawdebug object.  \hyperlink{classA}{A} reference to the space's camera. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededfcea7f259}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Line\-Segment@{Draw\-Line\-Segment}}
+\index{Draw\-Line\-Segment@{Draw\-Line\-Segment}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Line\-Segment}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Line\-Segment (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{start\-Pos, }
+\item[{Vec3 \&}]{end\-Pos, }
+\item[{Vec4 \&}]{color, }
+\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededfcea7f259}
+
+
+Draws a line segment on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & starting position of the line segment. \\
+\hline
+{\em \hyperlink{classThe}{The}} & ending position of the line segment. \\
+\hline
+{\em \hyperlink{classThe}{The}} & length of the line segment. \\
+\hline
+{\em \hyperlink{classThe}{The}} & color of the line segment. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Rectangle@{Draw\-Rectangle}}
+\index{Draw\-Rectangle@{Draw\-Rectangle}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Rectangle (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{pos, }
+\item[{Real \&}]{width, }
+\item[{Real \&}]{height, }
+\item[{Vec4 \&}]{color, }
+\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}
+
+
+Draws a rectangle on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & position of the center of the rectangle. \\
+\hline
+{\em \hyperlink{classThe}{The}} & length of the rectangle. \\
+\hline
+{\em \hyperlink{classThe}{The}} & height of the rectangle. \\
+\hline
+{\em \hyperlink{classThe}{The}} & color of the rectangle. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a431bfb80d5ec91de3c1e3f1a2c9c27ab}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Sprite@{Draw\-Sprite}}
+\index{Draw\-Sprite@{Draw\-Sprite}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Sprite} \&}]{sprite, }
+\item[{{\bf Components\-::\-Camera} \&}]{camera, }
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a431bfb80d5ec91de3c1e3f1a2c9c27ab}
+
+
+Draws a sprite on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with the sprite component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ab4e1b5fbc5b43c6670a441ccd1e5338d}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Sprite\-Text@{Draw\-Sprite\-Text}}
+\index{Draw\-Sprite\-Text@{Draw\-Sprite\-Text}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Draw\-Sprite\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Sprite\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf D\-C\-Engine\-::\-Components\-::\-Sprite\-Text} \&}]{st, }
+\item[{{\bf D\-C\-Engine\-::\-Components\-::\-Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ab4e1b5fbc5b43c6670a441ccd1e5338d}
+
+
+Draws a Sprite\-Text on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the Sprite\-Text component. \\
+\hline
+{\em \hyperlink{classA}{A}} & reference to the space's viewport camera. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+To render each character, we extract the corresponding \hyperlink{structDCEngine_1_1Character}{Character} struct from the Characters map and calculate the quad dimensions using the character's metrics. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a00f71aa67801d3266d86ac02aa021245}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Set\-Shader\-Proj\-View\-Uniforms@{Set\-Shader\-Proj\-View\-Uniforms}}
+\index{Set\-Shader\-Proj\-View\-Uniforms@{Set\-Shader\-Proj\-View\-Uniforms}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Set\-Shader\-Proj\-View\-Uniforms}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Set\-Shader\-Proj\-View\-Uniforms (
+\begin{DoxyParamCaption}
+\item[{Shader\-Ptr}]{shader, }
+\item[{{\bf Components\-::\-Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a00f71aa67801d3266d86ac02aa021245}
+
+
+Sets the shader's camera projection matrix and view uniforms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & (smart) pointer to the shader object. \\
+\hline
+{\em \hyperlink{classA}{A}} & reference to camera object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_aa95e1290ceecd1d01deed36f21522613}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Set\-Sprite\-Shader@{Set\-Sprite\-Shader}}
+\index{Set\-Sprite\-Shader@{Set\-Sprite\-Shader}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Set\-Sprite\-Shader}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Set\-Sprite\-Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_aa95e1290ceecd1d01deed36f21522613}
+
+
+Sets the Sprite's Shaders Uniforms.  
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} \hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_aa2cc15a6f58c1a5081f5ace32b2a8ce4}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Set\-Sprite\-Text\-Shader@{Set\-Sprite\-Text\-Shader}}
+\index{Set\-Sprite\-Text\-Shader@{Set\-Sprite\-Text\-Shader}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
+\subsubsection[{Set\-Sprite\-Text\-Shader}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Set\-Sprite\-Text\-Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_aa2cc15a6f58c1a5081f5ace32b2a8ce4}
+
+
+Sets the Sprite\-Text's \hyperlink{classDCEngine_1_1Shader}{Shader} Uniforms.  
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Graphics/\hyperlink{GraphicsGL_8h}{Graphics\-G\-L.\-h}\item 
+Core/\-Systems/\-Graphics/\hyperlink{GraphicsGL_8cpp}{Graphics\-G\-L.\-cpp}\item 
+Core/\-Systems/\-Graphics/\hyperlink{GraphicsGL__Configure_8cpp}{Graphics\-G\-L\-\_\-\-Configure.\-cpp}\item 
+Core/\-Systems/\-Graphics/\hyperlink{GraphicsGL__Debug_8cpp}{Graphics\-G\-L\-\_\-\-Debug.\-cpp}\item 
+Core/\-Systems/\-Graphics/\hyperlink{GraphicsGL__Draw_8cpp}{Graphics\-G\-L\-\_\-\-Draw.\-cpp}\end{DoxyCompactItemize}

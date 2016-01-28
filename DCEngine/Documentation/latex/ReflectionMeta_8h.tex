@@ -1,0 +1,54 @@
+\hypertarget{ReflectionMeta_8h}{\section{Core/\-Systems/\-Reflection/\-Reflection\-Meta.h File Reference}
+\label{ReflectionMeta_8h}\index{Core/\-Systems/\-Reflection/\-Reflection\-Meta.\-h@{Core/\-Systems/\-Reflection/\-Reflection\-Meta.\-h}}
+}
+
+
+\hyperlink{classThe}{The} reflection system provides a way to store data about class and data types at runtime that the compiler usually discards.  
+
+
+{\ttfamily \#include \char`\"{}Meta\-Data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Variant.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Ref\-Variant.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}String\-Wrapper.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Engine/\-Types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Debug/\-Debug.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1MetaManager}{D\-C\-Engine\-::\-Meta\-Manager}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classThe}{The} \hyperlink{classDCEngine_1_1MetaManager}{Meta\-Manager} is a non-\/templated class that contains all of the created \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} instances, and can perform search operations on them to find specific types. We use a map of strings to instances so we can search by string identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_ad026ffe481e698f2af8aee4f0810c5b3}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\void \hyperlink{namespaceDCEngine_ad026ffe481e698f2af8aee4f0810c5b3}{D\-C\-Engine\-::\-Print\-Type} (const char $\ast$type)}\label{namespaceDCEngine_ad026ffe481e698f2af8aee4f0810c5b3}
+
+\begin{DoxyCompactList}\small\item\em Prints the member variables of a given object. \end{DoxyCompactList}\item 
+\hypertarget{namespaceDCEngine_a10e521135488a4132ebc8e49b04bbc0a}{{\footnotesize template$<$typename T\-Y\-P\-E $>$ }\\void \hyperlink{namespaceDCEngine_a10e521135488a4132ebc8e49b04bbc0a}{D\-C\-Engine\-::\-Print\-Members} (const char $\ast$type)}\label{namespaceDCEngine_a10e521135488a4132ebc8e49b04bbc0a}
+
+\begin{DoxyCompactList}\small\item\em Prints the member variables of a given object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classThe}{The} reflection system provides a way to store data about class and data types at runtime that the compiler usually discards. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+10/16/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+\hyperlink{classThe}{The} credit to this implementation of a Reflection system goes the following Digi\-Pen alumni\-:
+\begin{DoxyItemize}
+\item Randy Gaul
+\item Sean Reilly
+\item Treb Connell
+\end{DoxyItemize}
+\end{DoxyNote}
+Randy Gaul's C++ Reflection\-: Type-\/\-Meta\-Data tutorial series\-: \href{http://www.randygaul.net/2012/10/01/c-reflection-type-metadata-introduction/}{\tt http\-://www.\-randygaul.\-net/2012/10/01/c-\/reflection-\/type-\/metadata-\/introduction/} 

@@ -1,0 +1,38 @@
+\hypertarget{classDCEngine_1_1MetaManager}{\section{D\-C\-Engine\-:\-:Meta\-Manager Class Reference}
+\label{classDCEngine_1_1MetaManager}\index{D\-C\-Engine\-::\-Meta\-Manager@{D\-C\-Engine\-::\-Meta\-Manager}}
+}
+
+
+\hyperlink{classThe}{The} \hyperlink{classDCEngine_1_1MetaManager}{Meta\-Manager} is a non-\/templated class that contains all of the created \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} instances, and can perform search operations on them to find specific types. We use a map of strings to instances so we can search by string identifier.  
+
+
+
+
+{\ttfamily \#include $<$Reflection\-Meta.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1MetaManager_a562b47d9f1618a39fdb9130688823dbd}{using \hyperlink{classDCEngine_1_1MetaManager_a562b47d9f1618a39fdb9130688823dbd}{Meta\-Map} = std\-::map$<$ std\-::string, const \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} $\ast$ $>$}\label{classDCEngine_1_1MetaManager_a562b47d9f1618a39fdb9130688823dbd}
+
+\begin{DoxyCompactList}\small\item\em Inserts a \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} into a map of objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1MetaManager_ac6471165d47b8f56cd25e40352496fe2}{static void \hyperlink{classDCEngine_1_1MetaManager_ac6471165d47b8f56cd25e40352496fe2}{Register\-Meta} (const \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} $\ast$instance)}\label{classDCEngine_1_1MetaManager_ac6471165d47b8f56cd25e40352496fe2}
+
+\begin{DoxyCompactList}\small\item\em Retrieves a \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} instance by string name from the map of \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data}. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1MetaManager_a1898766bbb3ad85503a584621c9f1464}{static const \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} $\ast$ \hyperlink{classDCEngine_1_1MetaManager_a1898766bbb3ad85503a584621c9f1464}{Get} (std\-::string name)}\label{classDCEngine_1_1MetaManager_a1898766bbb3ad85503a584621c9f1464}
+
+\begin{DoxyCompactList}\small\item\em Safe and easy singleton for a map of \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} objects. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1MetaManager_adf668b5808bd3491d3c8b360f0bb73ac}{static \hyperlink{classDCEngine_1_1MetaManager_a562b47d9f1618a39fdb9130688823dbd}{Meta\-Map} \& {\bfseries Get\-Map} ()}\label{classDCEngine_1_1MetaManager_adf668b5808bd3491d3c8b360f0bb73ac}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classThe}{The} \hyperlink{classDCEngine_1_1MetaManager}{Meta\-Manager} is a non-\/templated class that contains all of the created \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} instances, and can perform search operations on them to find specific types. We use a map of strings to instances so we can search by string identifier. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Reflection/\hyperlink{ReflectionMeta_8h}{Reflection\-Meta.\-h}\end{DoxyCompactItemize}

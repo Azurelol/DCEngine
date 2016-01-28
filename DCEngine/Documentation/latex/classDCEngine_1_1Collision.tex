@@ -1,0 +1,142 @@
+\hypertarget{classDCEngine_1_1Collision}{\section{D\-C\-Engine\-:\-:Collision Class Reference}
+\label{classDCEngine_1_1Collision}\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classDCEngine_1_1Collision_a2e374e9c140f0fd3e48a08c7f692ba57}{Boxto\-Box} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$obj1, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$obj2, \hyperlink{classDCEngine_1_1Manifold}{Manifold} \&result)
+\begin{DoxyCompactList}\small\item\em This function determines if two 'Game\-Objects' with the 'Box\-Collider' component are colliding. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1Collision_a9fe2558f3a401204c2dfd5379314d4a2}{Circleto\-Box} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$objrect, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$objcircle, \hyperlink{classDCEngine_1_1Manifold}{Manifold} \&result)
+\begin{DoxyCompactList}\small\item\em This function determines if two 'Game\-Objects', one with a 'Box\-Collider' component and the other with a 'Sphere\-Collider' component are colliding. \end{DoxyCompactList}\item 
+static std\-::vector\\*
+$<$ std\-::vector$<$ float $>$ $>$ \hyperlink{classDCEngine_1_1Collision_ae9e4320d7b1593a637fdbe165d6ab60f}{Project\-On\-To} (std\-::vector$<$ glm\-::vec3 $>$ \&verts1, std\-::vector$<$ glm\-::vec3 $>$ \&verts2, glm\-::vec3 \&Axis)
+\begin{DoxyCompactList}\small\item\em This function projects an objects verts on to a vector. \end{DoxyCompactList}\item 
+static bool \hyperlink{classDCEngine_1_1Collision_a45759dcb29a1d71b00aa5554809bb681}{Circleto\-Circle} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$obj1, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$obj2, \hyperlink{classDCEngine_1_1Manifold}{Manifold} \&result)
+\begin{DoxyCompactList}\small\item\em This function determines if two 'Game\-Objects' with the 'Sphere\-Collider' component are colliding. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Collision_aecbf391f9fbb54baeefc67e1bc45a4a4}{static bool {\bfseries Point\-To\-Circle} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$circle, glm\-::vec3 point)}\label{classDCEngine_1_1Collision_aecbf391f9fbb54baeefc67e1bc45a4a4}
+
+\item 
+static bool \hyperlink{classDCEngine_1_1Collision_a576bb4eb8f34b8b7c9e48de0444fee19}{Point\-To\-Rectangle} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$rect, glm\-::vec3 point)
+\begin{DoxyCompactList}\small\item\em Provides the definition of this class to Zilch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Collision_a2e374e9c140f0fd3e48a08c7f692ba57}{\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}!Boxto\-Box@{Boxto\-Box}}
+\index{Boxto\-Box@{Boxto\-Box}!DCEngine::Collision@{D\-C\-Engine\-::\-Collision}}
+\subsubsection[{Boxto\-Box}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Collision\-::\-Boxto\-Box (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object} $\ast$}]{obj1, }
+\item[{{\bf Game\-Object} $\ast$}]{obj2, }
+\item[{{\bf Manifold} \&}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Collision_a2e374e9c140f0fd3e48a08c7f692ba57}
+
+
+This function determines if two 'Game\-Objects' with the 'Box\-Collider' component are colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the first object. \\
+\hline
+{\em \hyperlink{classA}{A}} & pointer to the second object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a collision was detected, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Collision_a9fe2558f3a401204c2dfd5379314d4a2}{\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}!Circleto\-Box@{Circleto\-Box}}
+\index{Circleto\-Box@{Circleto\-Box}!DCEngine::Collision@{D\-C\-Engine\-::\-Collision}}
+\subsubsection[{Circleto\-Box}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Collision\-::\-Circleto\-Box (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object} $\ast$}]{objrect, }
+\item[{{\bf Game\-Object} $\ast$}]{objcircle, }
+\item[{{\bf Manifold} \&}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Collision_a9fe2558f3a401204c2dfd5379314d4a2}
+
+
+This function determines if two 'Game\-Objects', one with a 'Box\-Collider' component and the other with a 'Sphere\-Collider' component are colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the first object with the 'Box\-Collider'. \\
+\hline
+{\em \hyperlink{classA}{A}} & pointer to the second object with the 'Sphere\-Collider'. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a collision was detected, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Collision_a45759dcb29a1d71b00aa5554809bb681}{\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}!Circleto\-Circle@{Circleto\-Circle}}
+\index{Circleto\-Circle@{Circleto\-Circle}!DCEngine::Collision@{D\-C\-Engine\-::\-Collision}}
+\subsubsection[{Circleto\-Circle}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Collision\-::\-Circleto\-Circle (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object} $\ast$}]{obj1, }
+\item[{{\bf Game\-Object} $\ast$}]{obj2, }
+\item[{{\bf Manifold} \&}]{result}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Collision_a45759dcb29a1d71b00aa5554809bb681}
+
+
+This function determines if two 'Game\-Objects' with the 'Sphere\-Collider' component are colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the first object. \\
+\hline
+{\em \hyperlink{classA}{A}} & pointer to the second object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a collision was detected, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Collision_a576bb4eb8f34b8b7c9e48de0444fee19}{\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}!Point\-To\-Rectangle@{Point\-To\-Rectangle}}
+\index{Point\-To\-Rectangle@{Point\-To\-Rectangle}!DCEngine::Collision@{D\-C\-Engine\-::\-Collision}}
+\subsubsection[{Point\-To\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Collision\-::\-Point\-To\-Rectangle (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object} $\ast$}]{rect, }
+\item[{glm\-::vec3}]{point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Collision_a576bb4eb8f34b8b7c9e48de0444fee19}
+
+
+Provides the definition of this class to Zilch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em @param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000048}{Todo}]Look at the comment. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Collision_ae9e4320d7b1593a637fdbe165d6ab60f}{\index{D\-C\-Engine\-::\-Collision@{D\-C\-Engine\-::\-Collision}!Project\-On\-To@{Project\-On\-To}}
+\index{Project\-On\-To@{Project\-On\-To}!DCEngine::Collision@{D\-C\-Engine\-::\-Collision}}
+\subsubsection[{Project\-On\-To}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::vector$<$ float $>$ $>$ D\-C\-Engine\-::\-Collision\-::\-Project\-On\-To (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ glm\-::vec3 $>$ \&}]{verts1, }
+\item[{std\-::vector$<$ glm\-::vec3 $>$ \&}]{verts2, }
+\item[{glm\-::vec3 \&}]{Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classDCEngine_1_1Collision_ae9e4320d7b1593a637fdbe165d6ab60f}
+
+
+This function projects an objects verts on to a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec-\/} & the vector we are projecting. \\
+\hline
+{\em Axis-\/} & the axis we are projecting on to. \\
+\hline
+{\em result-\/} & where to store the result. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Physics/\hyperlink{Collision_8h}{Collision.\-h}\item 
+Core/\-Systems/\-Physics/\hyperlink{Collision_8cpp}{Collision.\-cpp}\end{DoxyCompactItemize}

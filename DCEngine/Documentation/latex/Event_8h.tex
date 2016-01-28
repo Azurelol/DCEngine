@@ -1,0 +1,44 @@
+\hypertarget{Event_8h}{\section{Core/\-Engine/\-Event.h File Reference}
+\label{Event_8h}\index{Core/\-Engine/\-Event.\-h@{Core/\-Engine/\-Event.\-h}}
+}
+
+
+Events are the main way that objects and components communicate with one another in the engine. When a component has data it wants to share, the easiest way is to package the information into an Event, then broadcast it. Then any component that wants to have that information can listen to it by 'Connecting' a member function to the event.  
+
+
+{\ttfamily \#include \char`\"{}Types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Event\-Delegate.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Event}{D\-C\-Engine\-::\-Event}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_a2f893e17483e3faed67f5705ce6c2158}{using {\bfseries D\-C\-Engine\-::\-Event\-Ptr} = std\-::shared\-\_\-ptr$<$ Event $>$}\label{namespaceDCEngine_a2f893e17483e3faed67f5705ce6c2158}
+
+\item 
+\hypertarget{namespaceDCEngine_a6e1d160a641b4328c8105ce0265e2d7d}{using {\bfseries D\-C\-Engine\-::\-Event\-Vec} = std\-::vector$<$ Event\-Ptr $>$}\label{namespaceDCEngine_a6e1d160a641b4328c8105ce0265e2d7d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Events are the main way that objects and components communicate with one another in the engine. When a component has data it wants to share, the easiest way is to package the information into an Event, then broadcast it. Then any component that wants to have that information can listen to it by 'Connecting' a member function to the event. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+8/17/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

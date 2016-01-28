@@ -1,0 +1,81 @@
+\hypertarget{Content_8h}{\section{Core/\-Systems/\-Content/\-Content.h File Reference}
+\label{Content_8h}\index{Core/\-Systems/\-Content/\-Content.\-h@{Core/\-Systems/\-Content/\-Content.\-h}}
+}
+
+
+\hyperlink{classThe}{The} Content system handles the loading of all content data required for a project. It stores references to the names of these resources as well as their file locations. \hyperlink{classThe}{The} deserialization of these files is handled by the factory system.  
+
+
+{\ttfamily \#include \char`\"{}../\-System.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Resources/\-Resources\-Include.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\-Engine/\-Data.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1Systems_1_1Content}{D\-C\-Engine\-::\-Systems\-::\-Content}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a9ff3ef9a09672c5ebe5155858e1d5065}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Resource\-Map} = std\-::map$<$ std\-::string, std\-::string $>$}\label{namespaceDCEngine_1_1Systems_a9ff3ef9a09672c5ebe5155858e1d5065}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a2cc72228ef8f1bcbad4f3881d5f56cee}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Sprite\-Source\-Map} = std\-::map$<$ std\-::string, Sprite\-Source\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a2cc72228ef8f1bcbad4f3881d5f56cee}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a49727f6da3590c6516c34e55126e9a26}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Sprite\-Layer\-Map} = std\-::map$<$ std\-::string, Sprite\-Layer\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a49727f6da3590c6516c34e55126e9a26}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a1b1d615747f6bdfacd5812dac8c19fe5}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Sprite\-Layer\-Order\-Map} = std\-::map$<$ std\-::string, Sprite\-Layer\-Order\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a1b1d615747f6bdfacd5812dac8c19fe5}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_ac7bff7daedc6f0ddb50f7fd43e9be790}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Sound\-Cue\-Map} = std\-::map$<$ std\-::string, Sound\-Cue\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_ac7bff7daedc6f0ddb50f7fd43e9be790}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_aa3597647a32db42af36760c9fe15ac11}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Bank\-Map} = std\-::map$<$ std\-::string, Bank\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_aa3597647a32db42af36760c9fe15ac11}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a9e4fe16a5e59231372d10ba57f14533b}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Shader\-Map} = std\-::map$<$ std\-::string, Shader\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a9e4fe16a5e59231372d10ba57f14533b}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a1100297e34331dbf76d7bb1969f54316}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Font\-Map} = std\-::map$<$ std\-::string, Font\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a1100297e34331dbf76d7bb1969f54316}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a4b6f39bd041b2cd26089574e04688455}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Archetype\-Map} = std\-::map$<$ std\-::string, Archetype\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a4b6f39bd041b2cd26089574e04688455}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a0fd1e3773cc7ca3701aea179d61657b5}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Level\-Map} = std\-::map$<$ std\-::string, Level\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a0fd1e3773cc7ca3701aea179d61657b5}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a7911380864a32fc052647c7203c63cdb}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Collision\-Table\-Map} = std\-::map$<$ std\-::string, Collision\-Table\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a7911380864a32fc052647c7203c63cdb}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a01e7119b721615bec2a2e8a19149356b}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Collision\-Group\-Map} = std\-::map$<$ std\-::string, Collision\-Group\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a01e7119b721615bec2a2e8a19149356b}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a2703681262f48e7e67a0cdce298fb0e8}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Physics\-Material\-Map} = std\-::map$<$ std\-::string, Physics\-Material\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a2703681262f48e7e67a0cdce298fb0e8}
+
+\item 
+\hypertarget{namespaceDCEngine_1_1Systems_a673b2f7f32efe866f8d79498b12fa041}{using {\bfseries D\-C\-Engine\-::\-Systems\-::\-Zilch\-Script\-Map} = std\-::map$<$ std\-::string, Zilch\-Script\-Ptr $>$}\label{namespaceDCEngine_1_1Systems_a673b2f7f32efe866f8d79498b12fa041}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classThe}{The} Content system handles the loading of all content data required for a project. It stores references to the names of these resources as well as their file locations. \hyperlink{classThe}{The} deserialization of these files is handled by the factory system. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+9/20/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

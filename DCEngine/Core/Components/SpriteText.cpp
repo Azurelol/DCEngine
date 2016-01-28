@@ -28,6 +28,7 @@ namespace DCEngine {
     ZilchDefineType(SpriteText, "SpriteText", DCEngineCore, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(SpriteText);
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Font);
+      DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
       DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE;
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Visible);

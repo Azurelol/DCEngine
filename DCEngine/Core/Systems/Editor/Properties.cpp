@@ -356,8 +356,15 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
-          if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
-          //if (ImGui::InputFloat(property->Name.c_str(), &real, 1.0f)) {
+          //if (ImGui::SliderFloat(property->Name.c_str(), &real, 1.0f)) {
+          if (ImGui::InputFloat(property->Name.c_str(), &real, 0.1f, 0.5f, 3)) {
+
+            // Unsigned
+            if (property->HasAttribute("Unsigned")) {
+              if (real < 0.0f)
+                real = 0.0f;
+            }
+
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             auto set = property->Set;
             setCall.SetHandleVirtual(Zilch::Call::This, object);
@@ -375,7 +382,7 @@ namespace DCEngine {
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
           // If the user has given input, set the property
-          if (ImGui::InputFloat2("##propertyID", vec2f,2)) {
+          if (ImGui::InputFloat2("##propertyID", vec2f, 3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec2f));
@@ -394,7 +401,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++); 
 
           static bool thisModified = false;
-          if (ImGui::InputFloat3("##propertyID", vec3f,2) ) {
+          if (ImGui::InputFloat3("##propertyID", vec3f, 3) ) {
             //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
@@ -416,7 +423,7 @@ namespace DCEngine {
           // If the user has given input, set the property          
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
-          if (ImGui::InputFloat4("##propertyID", vec4f)) {
+          if (ImGui::InputFloat4("##propertyID", vec4f, 3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));

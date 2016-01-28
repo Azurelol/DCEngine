@@ -43,6 +43,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Generates audio resources from all currently loaded banks.
+    */
+    /**************************************************************************/
+    void Audio::Generate()
+    {
+      DCTrace << "Audio::Generate: Generating audio resources from all loaded banks! \n";
+      AudioHandler->GenerateResources();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Registers a space into the Audio system.
     @param  soundSpace The 'SoundSpace' component of the space.
     */
@@ -94,7 +105,7 @@ namespace DCEngine {
     @param  bankFile The name of the bank file.
     */
     /**************************************************************************/
-    void Audio::Add(std::string & bankFile, Bank::Data& data)
+    void Audio::Add(std::string & bankFile, Bank::BankData& data)
     {
       // Adds the bank to the FMOD Studio system
       data.Handle = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);
@@ -109,11 +120,11 @@ namespace DCEngine {
             file size.
     */
     /**************************************************************************/
-    void Audio::CreateSound(std::string & soundFile, FMODSoundPtr& soundPtr)
+    void Audio::CreateSound(std::string & soundFile, FMODSoundHandle& soundPtr)
     {
       //std::string resourceLocation("Core/Resources/Sounds/");
 
-      //AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
+      //AudioHandler->CreateSound(soundFile, &soundPtr.Handle);
 
       // 1. Check the size of the file on disk
       auto Kilo = 1000;
@@ -122,12 +133,12 @@ namespace DCEngine {
       // 2.A If the file size was larger than 'x' (such as a music file)
       //     we will create the sound from a stream.
       if (soundFileSize > 1) {
-        AudioHandler->CreateStream(soundFile, &soundPtr.SoundPtr);
+        AudioHandler->CreateStream(soundFile, &soundPtr.Handle);
       }
       // 2.B If the file size was not that big, load the whole sound file
       //     at once.
       else {
-        AudioHandler->CreateSound(soundFile, &soundPtr.SoundPtr);
+        AudioHandler->CreateSound(soundFile, &soundPtr.Handle);
       }
       
 
@@ -140,20 +151,29 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Audio::PlaySound(std::string& soundCueName) {
+
       DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
-      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      auto& soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       // Do not attempt to play if the soundcue could not be found
       if (!soundCue) {
         DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
         return;
       }        
 
+      // Package the playback settings...
+      PlaybackSettings settings;
+      settings.Loop = soundCue->Loop;
+      settings.Volume = soundCue->Volume;
+      settings.VolumeVariation = soundCue->VolumeVariation;
+      settings.Pitch = soundCue->Pitch;
+      settings.PitchVariation = soundCue->PitchVariation;
+
       // Depending on the type of SoundCue, play it through the low level API
       // or as an event belonging to the Studip API
       if (soundCue->Type == SoundCue::WhatType::File)
-        AudioHandler->PlaySound(soundCue->Data.SoundPtr, &soundCue->Data.Channel, soundCue->Loop);
+        AudioHandler->PlaySound(soundCue->Data.Handle, &soundCue->Data.Channel, settings);
       else if (soundCue->Type == SoundCue::WhatType::Event)
-        AudioHandler->PlaySound(soundCueName);
+        AudioHandler->PlaySound(soundCueName, settings);
     }
 
     /**************************************************************************/
@@ -214,7 +234,7 @@ namespace DCEngine {
     /**************************************************************************/
     //void Audio::ReleaseSound(std::string& soundCueName) {
     //  auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-    //  AudioHandler->ReleaseSound(soundCue->Data.SoundPtr);
+    //  AudioHandler->ReleaseSound(soundCue->Data.Handle);
     //}
 
     /**************************************************************************/

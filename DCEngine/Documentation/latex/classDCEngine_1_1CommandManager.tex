@@ -1,0 +1,57 @@
+\hypertarget{classDCEngine_1_1CommandManager}{\section{D\-C\-Engine\-:\-:Command\-Manager Class Reference}
+\label{classDCEngine_1_1CommandManager}\index{D\-C\-Engine\-::\-Command\-Manager@{D\-C\-Engine\-::\-Command\-Manager}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1CommandManager_ad3b0f61d5c1a06107f77d04b1b33d5a2}{\hyperlink{classDCEngine_1_1CommandManager_ad3b0f61d5c1a06107f77d04b1b33d5a2}{Command\-Manager} ()}\label{classDCEngine_1_1CommandManager_ad3b0f61d5c1a06107f77d04b1b33d5a2}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1CommandManager}{Command\-Manager} constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1CommandManager_a46efd76d37bc0754ec51aa835a810863}{Add} (Command\-Ptr command)
+\begin{DoxyCompactList}\small\item\em Adds the latest command. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1CommandManager_a67d0955255042f2185788896503da1ef}{void \hyperlink{classDCEngine_1_1CommandManager_a67d0955255042f2185788896503da1ef}{Undo} ()}\label{classDCEngine_1_1CommandManager_a67d0955255042f2185788896503da1ef}
+
+\begin{DoxyCompactList}\small\item\em Undoes the last command. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}{void \hyperlink{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}{Redo} ()}\label{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}
+
+\begin{DoxyCompactList}\small\item\em Redoes the last command. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1CommandManager_a16405d660e327349e83a43d7624e9424}{void {\bfseries Copy} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$)}\label{classDCEngine_1_1CommandManager_a16405d660e327349e83a43d7624e9424}
+
+\item 
+\hypertarget{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}{void {\bfseries Paste} (\hyperlink{classDCEngine_1_1Space}{Space} $\ast$)}\label{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1CommandManager_a13b8ee1d816cca143d83adcbbd1e62fd}{std\-::deque$<$ Command\-Ptr $>$ {\bfseries Commands\-Current}}\label{classDCEngine_1_1CommandManager_a13b8ee1d816cca143d83adcbbd1e62fd}
+
+\item 
+\hypertarget{classDCEngine_1_1CommandManager_af0b0ea345851210427f08970ac1a309f}{std\-::deque$<$ Command\-Ptr $>$ {\bfseries Commands\-Undo}}\label{classDCEngine_1_1CommandManager_af0b0ea345851210427f08970ac1a309f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1CommandManager_a46efd76d37bc0754ec51aa835a810863}{\index{D\-C\-Engine\-::\-Command\-Manager@{D\-C\-Engine\-::\-Command\-Manager}!Add@{Add}}
+\index{Add@{Add}!DCEngine::CommandManager@{D\-C\-Engine\-::\-Command\-Manager}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Command\-Manager\-::\-Add (
+\begin{DoxyParamCaption}
+\item[{Command\-Ptr}]{command}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1CommandManager_a46efd76d37bc0754ec51aa835a810863}
+
+
+Adds the latest command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \hyperlink{classA}{A} pointer to the latest command. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Engine/\hyperlink{Command_8h}{Command.\-h}\item 
+Core/\-Engine/\hyperlink{Command_8cpp}{Command.\-cpp}\end{DoxyCompactItemize}

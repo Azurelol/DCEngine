@@ -1,0 +1,83 @@
+\hypertarget{classDCEngine_1_1StateMachine}{\section{D\-C\-Engine\-:\-:State\-Machine$<$ entity\-\_\-type $>$ Class Template Reference}
+\label{classDCEngine_1_1StateMachine}\index{D\-C\-Engine\-::\-State\-Machine$<$ entity\-\_\-type $>$@{D\-C\-Engine\-::\-State\-Machine$<$ entity\-\_\-type $>$}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1StateMachine_a9513b61c28c25a13298a883359c8854d}{\hyperlink{classDCEngine_1_1StateMachine_a9513b61c28c25a13298a883359c8854d}{State\-Machine} (entity\-\_\-type $\ast$owner)}\label{classDCEngine_1_1StateMachine_a9513b61c28c25a13298a883359c8854d}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1StateMachine}{State\-Machine} Constructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_a97cb682ab1085dff428dbe66fae2748e}{\hyperlink{classDCEngine_1_1StateMachine_a97cb682ab1085dff428dbe66fae2748e}{$\sim$\-State\-Machine} ()}\label{classDCEngine_1_1StateMachine_a97cb682ab1085dff428dbe66fae2748e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1StateMachine}{State\-Machine} destructor. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_a798b345be88494a6a8649cb98ab413f8}{void \hyperlink{classDCEngine_1_1StateMachine_a798b345be88494a6a8649cb98ab413f8}{Set\-Current\-State} (\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$state)}\label{classDCEngine_1_1StateMachine_a798b345be88494a6a8649cb98ab413f8}
+
+\begin{DoxyCompactList}\small\item\em Sets the current state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_acb8dc8477aeeee273f308355ed318c10}{void \hyperlink{classDCEngine_1_1StateMachine_acb8dc8477aeeee273f308355ed318c10}{Set\-Global\-State} (\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$state)}\label{classDCEngine_1_1StateMachine_acb8dc8477aeeee273f308355ed318c10}
+
+\begin{DoxyCompactList}\small\item\em Sets the global state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_a5470dc74a0e1430f71854020d97be75c}{void \hyperlink{classDCEngine_1_1StateMachine_a5470dc74a0e1430f71854020d97be75c}{Set\-Previous\-State} (\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$state)}\label{classDCEngine_1_1StateMachine_a5470dc74a0e1430f71854020d97be75c}
+
+\begin{DoxyCompactList}\small\item\em Sets the previous state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_abbd522072a86d3a4f2d76f88893d7138}{void \hyperlink{classDCEngine_1_1StateMachine_abbd522072a86d3a4f2d76f88893d7138}{Update} () const }\label{classDCEngine_1_1StateMachine_abbd522072a86d3a4f2d76f88893d7138}
+
+\begin{DoxyCompactList}\small\item\em Updates the global and current state. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1StateMachine_ab73e7a9bd5f09f6b6a91eddaad4deb74}{Change\-State} (\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$new\-State)
+\begin{DoxyCompactList}\small\item\em Changes to a new state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_a5d7c133e380ee786be068543700d52ea}{void \hyperlink{classDCEngine_1_1StateMachine_a5d7c133e380ee786be068543700d52ea}{Revert\-To\-Previous\-State} ()}\label{classDCEngine_1_1StateMachine_a5d7c133e380ee786be068543700d52ea}
+
+\begin{DoxyCompactList}\small\item\em Reverts to the previous state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1StateMachine_a878a14d22a23ee871b1c7c4478b949ae}{\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$ {\bfseries Current\-State} () const }\label{classDCEngine_1_1StateMachine_a878a14d22a23ee871b1c7c4478b949ae}
+
+\item 
+\hypertarget{classDCEngine_1_1StateMachine_a339c07bdd23cb30ef67603e440d6773a}{\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$ {\bfseries Global\-State} () const }\label{classDCEngine_1_1StateMachine_a339c07bdd23cb30ef67603e440d6773a}
+
+\item 
+\hypertarget{classDCEngine_1_1StateMachine_a25386fabc8c5e64c1d9680ef11ad5f7e}{\hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ $\ast$ {\bfseries Previous\-State} () const }\label{classDCEngine_1_1StateMachine_a25386fabc8c5e64c1d9680ef11ad5f7e}
+
+\item 
+bool \hyperlink{classDCEngine_1_1StateMachine_a55f37f597af6e466df5c0f308382c261}{is\-In\-State} (const \hyperlink{classDCEngine_1_1IState}{I\-State}$<$ entity\-\_\-type $>$ \&state) const 
+\begin{DoxyCompactList}\small\item\em Compares type of state with current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1StateMachine_ab73e7a9bd5f09f6b6a91eddaad4deb74}{\index{D\-C\-Engine\-::\-State\-Machine@{D\-C\-Engine\-::\-State\-Machine}!Change\-State@{Change\-State}}
+\index{Change\-State@{Change\-State}!DCEngine::StateMachine@{D\-C\-Engine\-::\-State\-Machine}}
+\subsubsection[{Change\-State}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class entity\-\_\-type$>$ void {\bf D\-C\-Engine\-::\-State\-Machine}$<$ entity\-\_\-type $>$\-::Change\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-State}$<$ entity\-\_\-type $>$ $\ast$}]{new\-State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1StateMachine_ab73e7a9bd5f09f6b6a91eddaad4deb74}
+
+
+Changes to a new state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & new state \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1StateMachine_a55f37f597af6e466df5c0f308382c261}{\index{D\-C\-Engine\-::\-State\-Machine@{D\-C\-Engine\-::\-State\-Machine}!is\-In\-State@{is\-In\-State}}
+\index{is\-In\-State@{is\-In\-State}!DCEngine::StateMachine@{D\-C\-Engine\-::\-State\-Machine}}
+\subsubsection[{is\-In\-State}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class entity\-\_\-type$>$ bool {\bf D\-C\-Engine\-::\-State\-Machine}$<$ entity\-\_\-type $>$\-::is\-In\-State (
+\begin{DoxyParamCaption}
+\item[{const {\bf I\-State}$<$ entity\-\_\-type $>$ \&}]{state}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1StateMachine_a55f37f597af6e466df5c0f308382c261}
+
+
+Compares type of state with current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the types are the same 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-State\-Machine/\hyperlink{StateMachine_8h}{State\-Machine.\-h}\end{DoxyCompactItemize}

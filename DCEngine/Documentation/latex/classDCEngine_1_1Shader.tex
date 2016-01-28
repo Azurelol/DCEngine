@@ -1,0 +1,198 @@
+\hypertarget{classDCEngine_1_1Shader}{\section{D\-C\-Engine\-:\-:Shader Class Reference}
+\label{classDCEngine_1_1Shader}\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Shader\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Shader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Shader_ad0d7f5935e1cb3495d2fe3e062928cfb}{{\bfseries Shader} (std\-::string \&shader\-Name, std\-::string vertex\-Path, std\-::string fragment\-Path)}\label{classDCEngine_1_1Shader_ad0d7f5935e1cb3495d2fe3e062928cfb}
+
+\item 
+bool \hyperlink{classDCEngine_1_1Shader_a2c47c302081a2308f65e7771f13d3185}{Load} ()
+\begin{DoxyCompactList}\small\item\em Loads the shaders from their source files, then stores them. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Shader_a20064de5a8890488fccce1d28ab4bd94}{std\-::string {\bfseries Extension} ()}\label{classDCEngine_1_1Shader_a20064de5a8890488fccce1d28ab4bd94}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_adaf51ad219535e947d34e40787bd34c1}{void \hyperlink{classDCEngine_1_1Shader_adaf51ad219535e947d34e40787bd34c1}{Compile} ()}\label{classDCEngine_1_1Shader_adaf51ad219535e947d34e40787bd34c1}
+
+\begin{DoxyCompactList}\small\item\em Creates the shaders from their sources, then links them. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Shader_ac898d312f2783c0bbe65443fdfb66a3f}{\hyperlink{classDCEngine_1_1Shader}{Shader} \& \hyperlink{classDCEngine_1_1Shader_ac898d312f2783c0bbe65443fdfb66a3f}{Use} ()}\label{classDCEngine_1_1Shader_ac898d312f2783c0bbe65443fdfb66a3f}
+
+\begin{DoxyCompactList}\small\item\em Activates the shader program. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Shader_a813b9fcde13eb0324b05523f8ec32939}{\hyperlink{classDCEngine_1_1Shader}{Shader} \& {\bfseries Unbind} ()}\label{classDCEngine_1_1Shader_a813b9fcde13eb0324b05523f8ec32939}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a755c9c0efbdc7ae7b298b107675aa43a}{G\-Luint {\bfseries Get} ()}\label{classDCEngine_1_1Shader_a755c9c0efbdc7ae7b298b107675aa43a}
+
+\item 
+bool \hyperlink{classDCEngine_1_1Shader_adc273977ddcfdf04a4043cc8603a97cd}{Add\-Uniform} (const std\-::string \&uniform\-Name)
+\begin{DoxyCompactList}\small\item\em Searches for and adds the uniform to the shader's map. This map is used later by the template Update\-Uniforms function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classDCEngine_1_1Shader_a85c6543d87072cff462d7d13a04b5b8c}{Update\-Uniforms} (const std\-::string \&uniform\-Name, const T \&data)
+\begin{DoxyCompactList}\small\item\em Updates the uniform in the shader. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Shader_aebbd137fba4e64fa15bcb0276f594aa5}{Load\-Shader\-Uniform} (const G\-Lint location, const G\-Lint \&data)
+\begin{DoxyCompactList}\small\item\em Utility functions to send shader uniform data to the G\-P\-U. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Shader_ae52625488ce63327dd5a6a3134dfaeb1}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const G\-Luint \&data)}\label{classDCEngine_1_1Shader_ae52625488ce63327dd5a6a3134dfaeb1}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_ad84c1fc97964c3b98f09be6d78d50cb4}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const G\-Lfloat \&data)}\label{classDCEngine_1_1Shader_ad84c1fc97964c3b98f09be6d78d50cb4}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a3073fb18cf992047ca52671de296261b}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const glm\-::vec2 \&data)}\label{classDCEngine_1_1Shader_a3073fb18cf992047ca52671de296261b}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_afed41b84bb96ddc6bcff93ca803c27d4}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const glm\-::vec3 \&data)}\label{classDCEngine_1_1Shader_afed41b84bb96ddc6bcff93ca803c27d4}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_aa367e7da3c16f680f724191c47402006}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const glm\-::vec4 \&data)}\label{classDCEngine_1_1Shader_aa367e7da3c16f680f724191c47402006}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a289d3bf025e0c379194d87b2b4367c5d}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const glm\-::mat3x3 \&data)}\label{classDCEngine_1_1Shader_a289d3bf025e0c379194d87b2b4367c5d}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a4275762c247c9725c5f39e3952cc1702}{void {\bfseries Load\-Shader\-Uniform} (const G\-Lint location, const glm\-::mat4x4 \&data)}\label{classDCEngine_1_1Shader_a4275762c247c9725c5f39e3952cc1702}
+
+\item 
+void \hyperlink{classDCEngine_1_1Shader_ac73777b24c59ba0ede0f70fc7d0867db}{Set\-Float} (const G\-Lchar $\ast$name, G\-Lfloat value, G\-Lboolean use\-Shader=false)
+\begin{DoxyCompactList}\small\item\em Utility functions to quickly set unfirom values. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Shader_ab682d78bce3ea82de6d7be446c7cb568}{void {\bfseries Set\-Integer} (const G\-Lchar $\ast$name, G\-Lint value, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_ab682d78bce3ea82de6d7be446c7cb568}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a791bae089e94d974033db14387822e6c}{void {\bfseries Set\-Vector2f} (const G\-Lchar $\ast$name, G\-Lfloat x, G\-Lfloat y, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a791bae089e94d974033db14387822e6c}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a50a2fd2e5e483ac4e0bc6d4a7857d795}{void {\bfseries Set\-Vector2f} (const G\-Lchar $\ast$name, const glm\-::vec2 \&value, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a50a2fd2e5e483ac4e0bc6d4a7857d795}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a7c49da245808e081210a5e76ed7427ce}{void {\bfseries Set\-Vector3f} (const G\-Lchar $\ast$name, G\-Lfloat x, G\-Lfloat y, G\-Lfloat z, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a7c49da245808e081210a5e76ed7427ce}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a7e2d3a0a3806bb5bf9ad51aa9d36a086}{void {\bfseries Set\-Vector3f} (const G\-Lchar $\ast$name, const glm\-::vec3 \&value, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a7e2d3a0a3806bb5bf9ad51aa9d36a086}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a66638f158c3928d461a1e38ec5b4bc92}{void {\bfseries Set\-Vector4f} (const G\-Lchar $\ast$name, G\-Lfloat x, G\-Lfloat y, G\-Lfloat z, G\-Lfloat w, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a66638f158c3928d461a1e38ec5b4bc92}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_a05574ee49e549676190c912ee7154aa3}{void {\bfseries Set\-Vector4f} (const G\-Lchar $\ast$name, const glm\-::vec4 \&value, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_a05574ee49e549676190c912ee7154aa3}
+
+\item 
+\hypertarget{classDCEngine_1_1Shader_aadb05a18caf7b702e228dd4e57e8d312}{void {\bfseries Set\-Matrix4} (const G\-Lchar $\ast$name, const glm\-::mat4 \&matrix, G\-Lboolean use\-Shader=false)}\label{classDCEngine_1_1Shader_aadb05a18caf7b702e228dd4e57e8d312}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Shader_adc273977ddcfdf04a4043cc8603a97cd}{\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}!Add\-Uniform@{Add\-Uniform}}
+\index{Add\-Uniform@{Add\-Uniform}!DCEngine::Shader@{D\-C\-Engine\-::\-Shader}}
+\subsubsection[{Add\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Shader\-::\-Add\-Uniform (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{uniform\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Shader_adc273977ddcfdf04a4043cc8603a97cd}
+
+
+Searches for and adds the uniform to the shader's map. This map is used later by the template Update\-Uniforms function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the uniform \\
+\hline
+{\em \hyperlink{classA}{A}} & bool to decide whether to start using the shader program. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Shader_a2c47c302081a2308f65e7771f13d3185}{\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}!Load@{Load}}
+\index{Load@{Load}!DCEngine::Shader@{D\-C\-Engine\-::\-Shader}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Shader\-::\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Shader_a2c47c302081a2308f65e7771f13d3185}
+
+
+Loads the shaders from their source files, then stores them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & path of the vertex shader. \\
+\hline
+{\em \hyperlink{classThe}{The}} & path of the fragment shader. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classDCEngine_1_1Resource_a99b06ae1da559efdc71edb528cac7caa}{D\-C\-Engine\-::\-Resource}.
+
+\hypertarget{classDCEngine_1_1Shader_aebbd137fba4e64fa15bcb0276f594aa5}{\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}!Load\-Shader\-Uniform@{Load\-Shader\-Uniform}}
+\index{Load\-Shader\-Uniform@{Load\-Shader\-Uniform}!DCEngine::Shader@{D\-C\-Engine\-::\-Shader}}
+\subsubsection[{Load\-Shader\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Shader\-::\-Load\-Shader\-Uniform (
+\begin{DoxyParamCaption}
+\item[{const G\-Lint}]{location, }
+\item[{const G\-Lint \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Shader_aebbd137fba4e64fa15bcb0276f594aa5}
+
+
+Utility functions to send shader uniform data to the G\-P\-U. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & location of the handle of the shader. \\
+\hline
+{\em \hyperlink{classThe}{The}} & uniform data. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Shader_ac73777b24c59ba0ede0f70fc7d0867db}{\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}!Set\-Float@{Set\-Float}}
+\index{Set\-Float@{Set\-Float}!DCEngine::Shader@{D\-C\-Engine\-::\-Shader}}
+\subsubsection[{Set\-Float}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Shader\-::\-Set\-Float (
+\begin{DoxyParamCaption}
+\item[{const G\-Lchar $\ast$}]{name, }
+\item[{G\-Lfloat}]{value, }
+\item[{G\-Lboolean}]{use\-Shader = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Shader_ac73777b24c59ba0ede0f70fc7d0867db}
+
+
+Utility functions to quickly set unfirom values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the uniform \\
+\hline
+{\em \hyperlink{classThe}{The}} & value(s) to set. \\
+\hline
+{\em \hyperlink{classA}{A}} & bool to decide whether to start using the shader program. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Shader_a85c6543d87072cff462d7d13a04b5b8c}{\index{D\-C\-Engine\-::\-Shader@{D\-C\-Engine\-::\-Shader}!Update\-Uniforms@{Update\-Uniforms}}
+\index{Update\-Uniforms@{Update\-Uniforms}!DCEngine::Shader@{D\-C\-Engine\-::\-Shader}}
+\subsubsection[{Update\-Uniforms}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void D\-C\-Engine\-::\-Shader\-::\-Update\-Uniforms (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{uniform\-Name, }
+\item[{const T \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1Shader_a85c6543d87072cff462d7d13a04b5b8c}
+
+
+Updates the uniform in the shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classThe}{The}} & name of the uniform with which to update. \\
+\hline
+{\em \hyperlink{classThe}{The}} & data to set into the uniform. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function is templatized in order to streamline the variety of uniform functions to be called. So you call this function, which will handle deciding which other functions to call. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Resources/\hyperlink{Shader_8h}{Shader.\-h}\item 
+Core/\-Resources/\hyperlink{Shader_8cpp}{Shader.\-cpp}\end{DoxyCompactItemize}

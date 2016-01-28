@@ -37,8 +37,7 @@ namespace DCEngine {
             OpenProject();
           if (ImGui::MenuItem("Save Project"))
             SaveProject();
-          if (ImGui::MenuItem("Show Project Folder"))
-            ShowProjectFolder();
+          if (ImGui::MenuItem("Show Project Folder")) LaunchProjectFolder();
           ImGui::Separator();
           if (ImGui::MenuItem("Play Game", "F5"))
             PlayGame();
@@ -142,7 +141,7 @@ namespace DCEngine {
 
         // Help
         if (ImGui::BeginMenu("Help")) {
-          if (ImGui::MenuItem("Documentation")) {}
+          if (ImGui::MenuItem("Documentation")) { LaunchDocumentation(); }
           if (ImGui::MenuItem("Report Bug", false)) {}  // Disabled item
           if (ImGui::MenuItem("Controls", false)) {}  // Disabled item
           ImGui::Separator();

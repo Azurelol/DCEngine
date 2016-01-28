@@ -151,6 +151,7 @@
       <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ForcedIncludeFiles>Precompiled.h</ForcedIncludeFiles>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,6 +161,9 @@
       <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>true</Profile>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -329,6 +333,7 @@
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Add.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Get.cpp" />
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Playback.cpp" />
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Utilities.cpp" />
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
@@ -336,6 +341,7 @@
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp" />
@@ -372,6 +378,7 @@
     <ClCompile Include="Core\Systems\Physics\Interpolation.cpp" />
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
+    <ClCompile Include="Core\Systems\Physics\PhysicsCasting.cpp" />
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
@@ -495,6 +502,7 @@
     <ClInclude Include="Core\Objects\Entity.h" />
     <ClInclude Include="Core\Objects\Object.h" />
     <ClInclude Include="Core\Objects\ObjectsInclude.h" />
+    <ClInclude Include="Core\Objects\Ray\Ray.h" />
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />
@@ -535,6 +543,8 @@
     <ClInclude Include="Core\Systems\Physics\Interpolation.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
+    <ClInclude Include="Core\Systems\Physics\Ray.h" />
+    <ClInclude Include="Core\Systems\Physics\Raycasting.h" />
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />

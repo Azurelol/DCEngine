@@ -1,0 +1,163 @@
+\hypertarget{classDCEngine_1_1Systems_1_1Audio}{\section{D\-C\-Engine\-:\-:Systems\-:\-:Audio Class Reference}
+\label{classDCEngine_1_1Systems_1_1Audio}\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Systems\-:\-:Audio\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Systems_1_1Audio}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a72be5cf056ad0d270796be33a3010fd1}{Add} (std\-::string \&bank\-File, \hyperlink{structDCEngine_1_1Bank_1_1BankData}{Bank\-::\-Bank\-Data} \&data)
+\begin{DoxyCompactList}\small\item\em Adds an audio \hyperlink{classDCEngine_1_1Bank}{Bank} to the audio system. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}{Create\-Sound} (std\-::string \&sound\-File, \hyperlink{classDCEngine_1_1FMODSoundPtr}{F\-M\-O\-D\-Sound\-Ptr} \&sound\-Ptr)
+\begin{DoxyCompactList}\small\item\em Registers a Sound\-File to be played through F\-M\-O\-D. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a990c57ddc737fd6152bf2f193c41bf46}{Play\-Sound} (std\-::string \&sound\-Cue\-Name)
+\begin{DoxyCompactList}\small\item\em Plays a sound cue. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a25cef2ad0d520f38089854092caa488e}{Resume\-Sound} (std\-::string \&sound\-Cue\-Name)
+\begin{DoxyCompactList}\small\item\em Resumes the playing of a sound. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a3cacbad9590e1eb47a8835c342e86742}{Pause\-Sound} (std\-::string \&sound\-Cue\-Name)
+\begin{DoxyCompactList}\small\item\em Pauses a sound cue. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_aaf100dab7a69eb0e1a5068efff6b2774}{Stop\-Sound} (std\-::string \&sound\-Cue\-Name)
+\begin{DoxyCompactList}\small\item\em Stops a sound cue. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a839f8b25f202211e0828a8bc210d090e}{Register} (\hyperlink{classDCEngine_1_1Components_1_1SoundSpace}{Components\-::\-Sound\-Space} \&sound\-Space)
+\begin{DoxyCompactList}\small\item\em Registers a space into the \hyperlink{classDCEngine_1_1Systems_1_1Audio}{Audio} system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a3e1914489e4bed4f9f23cdeab34a43dc}{class {\bfseries Engine}}\label{classDCEngine_1_1Systems_1_1Audio_a3e1914489e4bed4f9f23cdeab34a43dc}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_ac6e482d683d1941c834af32656429557}{class {\bfseries Sound\-Space}}\label{classDCEngine_1_1Systems_1_1Audio_ac6e482d683d1941c834af32656429557}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a72be5cf056ad0d270796be33a3010fd1}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Add@{Add}}
+\index{Add@{Add}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Add (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{bank\-File, }
+\item[{{\bf Bank\-::\-Bank\-Data} \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a72be5cf056ad0d270796be33a3010fd1}
+
+
+Adds an audio \hyperlink{classDCEngine_1_1Bank}{Bank} to the audio system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank\-File} & \hyperlink{classThe}{The} name of the bank file. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Create\-Sound@{Create\-Sound}}
+\index{Create\-Sound@{Create\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Create\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Create\-Sound (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{sound\-File, }
+\item[{{\bf F\-M\-O\-D\-Sound\-Ptr} \&}]{sound\-Ptr}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}
+
+
+Registers a Sound\-File to be played through F\-M\-O\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-File} & \hyperlink{classThe}{The} name of the sound file. \\
+\hline
+{\em sound\-Ptr} & \hyperlink{classA}{A} pointer to the F\-M\-O\-D\-Sound pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000014}{Todo}]Use different functions to create (sound/stream) depending on the file size. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a3cacbad9590e1eb47a8835c342e86742}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Pause\-Sound@{Pause\-Sound}}
+\index{Pause\-Sound@{Pause\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Pause\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Pause\-Sound (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{sound\-Cue\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a3cacbad9590e1eb47a8835c342e86742}
+
+
+Pauses a sound cue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-Cue\-Name} & \hyperlink{classThe}{The} name (string) of the sound in the content system. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a990c57ddc737fd6152bf2f193c41bf46}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Play\-Sound@{Play\-Sound}}
+\index{Play\-Sound@{Play\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Play\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Play\-Sound (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{sound\-Cue\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a990c57ddc737fd6152bf2f193c41bf46}
+
+
+Plays a sound cue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-Cue\-Name} & \hyperlink{classThe}{The} name (string) of the sound in the content system. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a839f8b25f202211e0828a8bc210d090e}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Register@{Register}}
+\index{Register@{Register}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Register}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Register (
+\begin{DoxyParamCaption}
+\item[{{\bf Components\-::\-Sound\-Space} \&}]{sound\-Space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a839f8b25f202211e0828a8bc210d090e}
+
+
+Registers a space into the \hyperlink{classDCEngine_1_1Systems_1_1Audio}{Audio} system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-Space} & \hyperlink{classThe}{The} 'Sound\-Space' component of the space. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a25cef2ad0d520f38089854092caa488e}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Resume\-Sound@{Resume\-Sound}}
+\index{Resume\-Sound@{Resume\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Resume\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Resume\-Sound (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{sound\-Cue\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a25cef2ad0d520f38089854092caa488e}
+
+
+Resumes the playing of a sound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-Cue\-Name} & \hyperlink{classThe}{The} name (string) of the sound in the content system. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_aaf100dab7a69eb0e1a5068efff6b2774}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Stop\-Sound@{Stop\-Sound}}
+\index{Stop\-Sound@{Stop\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
+\subsubsection[{Stop\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Stop\-Sound (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{sound\-Cue\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_aaf100dab7a69eb0e1a5068efff6b2774}
+
+
+Stops a sound cue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\-Cue\-Name} & \hyperlink{classThe}{The} name (string) of the sound in the content system. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Audio/\hyperlink{Audio_8h}{Audio.\-h}\item 
+Core/\-Systems/\-Audio/\hyperlink{Audio_8cpp}{Audio.\-cpp}\end{DoxyCompactItemize}

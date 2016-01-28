@@ -1,0 +1,379 @@
+\hypertarget{classDCEngine_1_1Systems_1_1Factory}{\section{D\-C\-Engine\-:\-:Systems\-:\-:Factory Class Reference}
+\label{classDCEngine_1_1Systems_1_1Factory}\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Systems\-:\-:Factory\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classDCEngine_1_1Systems_1_1Factory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Factory_a22fd77962343649289f07d50fe27cbea}{Create\-Game\-Object} (std\-::string name, \hyperlink{classDCEngine_1_1Space}{Space} \&space, bool init)
+\begin{DoxyCompactList}\small\item\em Creates a game object with default components. \end{DoxyCompactList}\item 
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Factory_a3cc34e680424f1982f719da99282765b}{Create\-Game\-Object} (Archetype\-Ptr archetype, \hyperlink{classDCEngine_1_1Space}{Space} \&space, bool init)
+\begin{DoxyCompactList}\small\item\em Creates a game object from an \hyperlink{classDCEngine_1_1Archetype}{Archetype}. \end{DoxyCompactList}\item 
+\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Factory_af6ded32c3d92e2cfa32dc7511df268da}{Build\-Game\-Object} (Serialized\-Member $\ast$object\-Data, \hyperlink{classDCEngine_1_1Space}{Space} \&space)
+\begin{DoxyCompactList}\small\item\em Builds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} from serialized data. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_a9e4faddb629e938db6e42476ae2ea078}{Mark\-Game\-Object} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} \&game\-Obj)
+\begin{DoxyCompactList}\small\item\em Marks the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to be destroyed. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_a6e50585ce35fbf1871a1c826e609a8b4}{Destroy\-Game\-Objects} ()
+\begin{DoxyCompactList}\small\item\em Destroys all Active\-Game\-Objects in the Game\-Objects\-To\-Be\-Deleted list. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_abc681a94c6698de0deb529db472c35ac}{void {\bfseries Mark\-Space} (\hyperlink{classDCEngine_1_1Space}{Space} \&)}\label{classDCEngine_1_1Systems_1_1Factory_abc681a94c6698de0deb529db472c35ac}
+
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_a7856a2fa567887c4721c81c9cbb9d54e}{Destroy\-Spaces} ()
+\begin{DoxyCompactList}\small\item\em Destroys all marked spaces. \end{DoxyCompactList}\item 
+bool \hyperlink{classDCEngine_1_1Systems_1_1Factory_ac39685b8d9e7aeb3d560f59026cbdada}{Build\-From\-Level} (Level\-Ptr level, \hyperlink{classDCEngine_1_1Space}{Space} \&)
+\begin{DoxyCompactList}\small\item\em Builds all the Game\-Objects from a level into a space. \end{DoxyCompactList}\item 
+Level\-Ptr \hyperlink{classDCEngine_1_1Systems_1_1Factory_a62cdcbce294027e60c0dc88d6aef3a7a}{Build\-Level} (std\-::string name, \hyperlink{classDCEngine_1_1Space}{Space} \&)
+\begin{DoxyCompactList}\small\item\em Builds a level from a \hyperlink{classDCEngine_1_1Space}{Space}. \end{DoxyCompactList}\item 
+Archetype\-Ptr \hyperlink{classDCEngine_1_1Systems_1_1Factory_a2fc0899e367302961da9c5af68dd583d}{Build\-Archetype} (std\-::string, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr})
+\begin{DoxyCompactList}\small\item\em Builds an \hyperlink{classDCEngine_1_1Archetype}{Archetype}. \end{DoxyCompactList}\item 
+Component\-Strong\-Ptr \hyperlink{classDCEngine_1_1Systems_1_1Factory_a53b017cb3c1800fff673fb190e852161}{Create\-Component\-By\-Name} (std\-::string \&name, \hyperlink{classDCEngine_1_1Entity}{Entity} \&entity)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classDCEngine_1_1Component}{Component} by a given name. \end{DoxyCompactList}\item 
+Component\-Handle \hyperlink{classDCEngine_1_1Systems_1_1Factory_a2658241174aad502a5d1d867c79f97f2}{Create\-Component\-By\-Name\-From\-Zilch} (std\-::string \&name, \hyperlink{classDCEngine_1_1Entity}{Entity} \&entity)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classDCEngine_1_1Component}{Component} by a given name through Zilch. \end{DoxyCompactList}\item 
+Component\-Strong\-Ptr \hyperlink{classDCEngine_1_1Systems_1_1Factory_a171fdb103300147c65a630c56a90e2c4}{Create\-Component\-By\-Type} (Zilch\-::\-Bound\-Type $\ast$bound\-Type, \hyperlink{classDCEngine_1_1Entity}{Entity} \&entity)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classDCEngine_1_1Component}{Component} from a Bound\-Type through the use of an instance of that component's factory. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Component\-Class $>$ }\\\hyperlink{classDCEngine_1_1Component}{Component\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Factory_aa01437192debb3aecadbd13ac72720bb}{Create\-Component} (\hyperlink{classDCEngine_1_1Entity}{Entity} \&owner, bool init)
+\begin{DoxyCompactList}\small\item\em Creates a component and returns it. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_a579fd600e622509e1f1e7e8bd6bb46ba}{Mark\-Component} (\hyperlink{classDCEngine_1_1Component}{Component} \&component)
+\begin{DoxyCompactList}\small\item\em Marks the component for deletion on the next frame. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_a776cd6cdc54459b710a07d16acd9872f}{Destroy\-Components} ()
+\begin{DoxyCompactList}\small\item\em Destroys all marked components. This removes them from the entities they are attached to. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a1216b79d2a0f6aa412175c9839a497ac}{Resource\-Strong\-Ptr {\bfseries Create\-Resource} (const std\-::string \&resource\-Name, bool init)}\label{classDCEngine_1_1Systems_1_1Factory_a1216b79d2a0f6aa412175c9839a497ac}
+
+\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1Factory_ae7d84fb37d278aa315a76b2798a44347}{Add\-Component\-Factory} (Zilch\-::\-Bound\-Type $\ast$, std\-::unique\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1Systems_1_1AbstractComponentFactory}{Abstract\-Component\-Factory} $>$)
+\begin{DoxyCompactList}\small\item\em Adds a component factory to the \hyperlink{classDCEngine_1_1Systems_1_1Factory}{Factory} system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a3e1914489e4bed4f9f23cdeab34a43dc}{class {\bfseries Engine}}\label{classDCEngine_1_1Systems_1_1Factory_a3e1914489e4bed4f9f23cdeab34a43dc}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_ae7d84fb37d278aa315a76b2798a44347}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Add\-Component\-Factory@{Add\-Component\-Factory}}
+\index{Add\-Component\-Factory@{Add\-Component\-Factory}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Add\-Component\-Factory}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Add\-Component\-Factory (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Bound\-Type $\ast$}]{type, }
+\item[{std\-::unique\-\_\-ptr$<$ {\bf Abstract\-Component\-Factory} $>$}]{factory}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_ae7d84fb37d278aa315a76b2798a44347}
+
+
+Adds a component factory to the \hyperlink{classDCEngine_1_1Systems_1_1Factory}{Factory} system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \hyperlink{classA}{A} pointer to the component Bound\-Type. \\
+\hline
+{\em factory} & \hyperlink{classA}{A} strong pointer to the component factory. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a2fc0899e367302961da9c5af68dd583d}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Build\-Archetype@{Build\-Archetype}}
+\index{Build\-Archetype@{Build\-Archetype}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Build\-Archetype}]{\setlength{\rightskip}{0pt plus 5cm}Archetype\-Ptr D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Build\-Archetype (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{archetype, }
+\item[{{\bf Game\-Object\-Ptr}}]{game\-Obj}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a2fc0899e367302961da9c5af68dd583d}
+
+
+Builds an \hyperlink{classDCEngine_1_1Archetype}{Archetype}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em archetype} & \hyperlink{classThe}{The} name of the \hyperlink{classDCEngine_1_1Archetype}{Archetype}. \\
+\hline
+{\em game\-Obj} & \hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1Archetype}{Archetype} resource. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_ac39685b8d9e7aeb3d560f59026cbdada}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Build\-From\-Level@{Build\-From\-Level}}
+\index{Build\-From\-Level@{Build\-From\-Level}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Build\-From\-Level}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Build\-From\-Level (
+\begin{DoxyParamCaption}
+\item[{Level\-Ptr}]{level, }
+\item[{{\bf Space} \&}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_ac39685b8d9e7aeb3d560f59026cbdada}
+
+
+Builds all the Game\-Objects from a level into a space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em serialized\-Data} & \hyperlink{classA}{A} pointer to the serialized data for the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+{\em space} & \hyperlink{classA}{A} referene to the \hyperlink{classDCEngine_1_1Space}{Space} the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} will be created on/ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} created on the space. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_af6ded32c3d92e2cfa32dc7511df268da}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Build\-Game\-Object@{Build\-Game\-Object}}
+\index{Build\-Game\-Object@{Build\-Game\-Object}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Build\-Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Object\-Ptr} D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Build\-Game\-Object (
+\begin{DoxyParamCaption}
+\item[{Serialized\-Member $\ast$}]{object\-Data, }
+\item[{{\bf Space} \&}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_af6ded32c3d92e2cfa32dc7511df268da}
+
+
+Builds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} from serialized data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em serialized\-Data} & \hyperlink{classA}{A} pointer to the serialized data for the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+{\em space} & \hyperlink{classA}{A} referene to the \hyperlink{classDCEngine_1_1Space}{Space} the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} will be created on/ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} created on the space. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000034}{Todo}]Refactor how it's done.. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a62cdcbce294027e60c0dc88d6aef3a7a}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Build\-Level@{Build\-Level}}
+\index{Build\-Level@{Build\-Level}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Build\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Level\-Ptr D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Build\-Level (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{level, }
+\item[{{\bf Space} \&}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a62cdcbce294027e60c0dc88d6aef3a7a}
+
+
+Builds a level from a \hyperlink{classDCEngine_1_1Space}{Space}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name for the level resource. \\
+\hline
+{\em space} & \hyperlink{classA}{A} referene to the \hyperlink{classDCEngine_1_1Space}{Space} the \hyperlink{classDCEngine_1_1Level}{Level} will take objects from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the created \hyperlink{classDCEngine_1_1Level}{Level} resource. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_aa01437192debb3aecadbd13ac72720bb}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Component@{Create\-Component}}
+\index{Create\-Component@{Create\-Component}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Component}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Component\-Class $>$ {\bf Component\-Ptr} D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Component (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} \&}]{owner, }
+\item[{bool}]{init}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDCEngine_1_1Systems_1_1Factory_aa01437192debb3aecadbd13ac72720bb}
+
+
+Creates a component and returns it. 
+
+T\-E\-M\-P\-L\-A\-T\-E\-S \hypertarget{classDCEngine_1_1Systems_1_1Factory_a53b017cb3c1800fff673fb190e852161}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Component\-By\-Name@{Create\-Component\-By\-Name}}
+\index{Create\-Component\-By\-Name@{Create\-Component\-By\-Name}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Component\-By\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Component\-Strong\-Ptr D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Component\-By\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{name, }
+\item[{{\bf Entity} \&}]{entity}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a53b017cb3c1800fff673fb190e852161}
+
+
+Creates a \hyperlink{classDCEngine_1_1Component}{Component} by a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the component. \\
+\hline
+{\em entity} & \hyperlink{classA}{A} reference to the entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a component by strong pointer. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a2658241174aad502a5d1d867c79f97f2}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Component\-By\-Name\-From\-Zilch@{Create\-Component\-By\-Name\-From\-Zilch}}
+\index{Create\-Component\-By\-Name\-From\-Zilch@{Create\-Component\-By\-Name\-From\-Zilch}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Component\-By\-Name\-From\-Zilch}]{\setlength{\rightskip}{0pt plus 5cm}Component\-Handle D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Component\-By\-Name\-From\-Zilch (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{name, }
+\item[{{\bf Entity} \&}]{entity}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a2658241174aad502a5d1d867c79f97f2}
+
+
+Creates a \hyperlink{classDCEngine_1_1Component}{Component} by a given name through Zilch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the component. \\
+\hline
+{\em entity} & \hyperlink{classA}{A} reference to the entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a component by strong pointer. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a171fdb103300147c65a630c56a90e2c4}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Component\-By\-Type@{Create\-Component\-By\-Type}}
+\index{Create\-Component\-By\-Type@{Create\-Component\-By\-Type}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Component\-By\-Type}]{\setlength{\rightskip}{0pt plus 5cm}Component\-Strong\-Ptr D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Component\-By\-Type (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Bound\-Type $\ast$}]{bound\-Type, }
+\item[{{\bf Entity} \&}]{entity}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a171fdb103300147c65a630c56a90e2c4}
+
+
+Creates a \hyperlink{classDCEngine_1_1Component}{Component} from a Bound\-Type through the use of an instance of that component's factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bound\-Type} & \hyperlink{classA}{A} pointer to the component's Bound\-Type. \\
+\hline
+{\em entity} & \hyperlink{classA}{A} reference to the entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a component by strong pointer. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a22fd77962343649289f07d50fe27cbea}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Game\-Object@{Create\-Game\-Object}}
+\index{Create\-Game\-Object@{Create\-Game\-Object}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Object\-Ptr} D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Game\-Object (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{{\bf Space} \&}]{space, }
+\item[{bool}]{init}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a22fd77962343649289f07d50fe27cbea}
+
+
+Creates a game object with default components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the space where the object will be constructed on. \\
+\hline
+{\em Whether} & the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} should be initialized right away. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} created on the space. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+\hyperlink{classThe}{The} factory owns a container of strong pointers of all active Game\-Objects. Everyone else just has raw pointers, which do not have ownership. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a3cc34e680424f1982f719da99282765b}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Create\-Game\-Object@{Create\-Game\-Object}}
+\index{Create\-Game\-Object@{Create\-Game\-Object}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Create\-Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Object\-Ptr} D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Create\-Game\-Object (
+\begin{DoxyParamCaption}
+\item[{Archetype\-Ptr}]{archetype, }
+\item[{{\bf Space} \&}]{space, }
+\item[{bool}]{init}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a3cc34e680424f1982f719da99282765b}
+
+
+Creates a game object from an \hyperlink{classDCEngine_1_1Archetype}{Archetype}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em archetype} & \hyperlink{classThe}{The} archetype from which to construct this object from. \\
+\hline
+{\em space} & \hyperlink{classA}{A} reference to the space where the object will be constructed on. \\
+\hline
+{\em init} & Whether the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} should be initialized right away. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} created on the space. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000033}{Todo}]Refactor this so it uses some J\-S\-O\-N interface class rather than .. this. \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a776cd6cdc54459b710a07d16acd9872f}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Destroy\-Components@{Destroy\-Components}}
+\index{Destroy\-Components@{Destroy\-Components}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Destroy\-Components}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Destroy\-Components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a776cd6cdc54459b710a07d16acd9872f}
+
+
+Destroys all marked components. This removes them from the entities they are attached to. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000035}{Todo}]May have to do different logic if multiple components from the same object are asked to be removed on the same frame... \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a6e50585ce35fbf1871a1c826e609a8b4}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Destroy\-Game\-Objects@{Destroy\-Game\-Objects}}
+\index{Destroy\-Game\-Objects@{Destroy\-Game\-Objects}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Destroy\-Game\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Destroy\-Game\-Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a6e50585ce35fbf1871a1c826e609a8b4}
+
+
+Destroys all Active\-Game\-Objects in the Game\-Objects\-To\-Be\-Deleted list. 
+
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a7856a2fa567887c4721c81c9cbb9d54e}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Destroy\-Spaces@{Destroy\-Spaces}}
+\index{Destroy\-Spaces@{Destroy\-Spaces}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Destroy\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Destroy\-Spaces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a7856a2fa567887c4721c81c9cbb9d54e}
+
+
+Destroys all marked spaces. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000036}{Todo}]May not be working properly... \end{DoxyRefDesc}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a579fd600e622509e1f1e7e8bd6bb46ba}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Mark\-Component@{Mark\-Component}}
+\index{Mark\-Component@{Mark\-Component}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Mark\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Mark\-Component (
+\begin{DoxyParamCaption}
+\item[{{\bf Component} \&}]{component}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a579fd600e622509e1f1e7e8bd6bb46ba}
+
+
+Marks the component for deletion on the next frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & \hyperlink{classA}{A} reference to the component. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Factory_a9e4faddb629e938db6e42476ae2ea078}{\index{D\-C\-Engine\-::\-Systems\-::\-Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}!Mark\-Game\-Object@{Mark\-Game\-Object}}
+\index{Mark\-Game\-Object@{Mark\-Game\-Object}!DCEngine::Systems::Factory@{D\-C\-Engine\-::\-Systems\-::\-Factory}}
+\subsubsection[{Mark\-Game\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Factory\-::\-Mark\-Game\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Object} \&}]{game\-Obj}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Factory_a9e4faddb629e938db6e42476ae2ea078}
+
+
+Marks the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to be destroyed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\-Obj} & \hyperlink{classA}{A} reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Factory/\hyperlink{Factory_8h}{Factory.\-h}\item 
+Core/\-Binding/\hyperlink{CoreBinding_8cpp}{Core\-Binding.\-cpp}\item 
+Core/\-Systems/\-Factory/\hyperlink{Factory_8cpp}{Factory.\-cpp}\end{DoxyCompactItemize}

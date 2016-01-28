@@ -37,11 +37,17 @@ namespace DCEngine {
       ~AudioFMOD();
 
       // Playback
-      bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool bLoop = false);
-      bool PlaySound(std::string& eventDescription);
+      bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, PlaybackSettings& settings);
+      bool PlaySound(EventDescriptionHandle& eventHandle, PlaybackSettings& settings);
       void ResumeSound(FMOD::Channel* channel);
+      void ResumeSound(EventDescriptionHandle& eventHandle);
       void PauseSound(FMOD::Channel* channel);
+      void PauseSound(EventDescriptionHandle& eventHandle);
       void StopSound(FMOD::Channel* channel);
+      void StopSound(EventDescriptionHandle& eventHandle);
+      void StopAll();
+      void SetVolume(FMOD::Channel* soundPtr, float volume);
+      void SetVolume(EventDescriptionHandle& eventHandle, float volume);     
 
       // Accesors
       FMOD::Studio::Bank* getBank(std::string handle);
@@ -51,12 +57,17 @@ namespace DCEngine {
       FMOD::Studio::VCA* getVCA(std::string path) const;
       FMOD_RESULT getVCA(std::string path, FMOD::Studio::VCA** vca) const;
       
+      // Generate
+      void GenerateResources();
+      void GenerateSoundCues();
+
       //FMOD_RESULT Start();
       //FMOD_RESULT Stop(FMOD_STUDIO_STOP_MODE mode);
       //FMOD_RESULT Unload();
       //FMOD_RESULT StopAllEvents(FMOD_STUDIO_STOP_MODE mode);     
 
     private:
+
       // Settings
       FMODSystemPtr System;
       AudioFMODSettings Settings;
@@ -66,31 +77,36 @@ namespace DCEngine {
       bool Paused;
       float Level;
       bool Muted;
-      DCE_DEFINE_PROPERTY(unsigned, Volume);
-      DCE_DEFINE_PROPERTY(unsigned, Pitch);
-      DCE_DEFINE_PROPERTY(bool, Paused);
-      DCE_DEFINE_PROPERTY(float, Level);
-      DCE_DEFINE_PROPERTY(bool, Muted);
+
       // Containers
       BanksContainer ActiveBanks;
-      EventInstanceMap AvailableEvents;
-      EventDescriptionMap AvailableEventDescriptions;
+      EventInstanceMap InstantiatedEvents;
+      EventDescriptionMap AvailableEvents;
       GroupMap Groups;
       ChannelMap Channels;
+
       // Create
       bool CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
       bool CreateSound(std::string& eventDescrption);
       bool CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
-      FMOD::Studio::EventInstance* CreateEventInstance() const;
+      FMOD::Studio::EventInstance* AddEventInstance(FMOD::Studio::EventDescription* event) const;
+
       // Loading
-      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);
+      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);      
+      void LoadEventDescriptions(FMOD::Studio::Bank* bank);
+      void LoadVCAs(FMOD::Studio::Bank* bank);
+      void LoadChannelGroups(FMOD::Studio::Bank* bank);
+
       // Release
+      void Unload(FMOD::Studio::Bank* bank);
       void ReleaseSound(FMOD::Sound* soundPtr);       
+
       // Accesors
       FMOD_RESULT getEvent(const char *path, FMOD::Studio::EventDescription **event) const;
       FMOD_RESULT getVCA(const char *path, FMOD::Studio::VCA **vca) const;
       FMOD_RESULT getBank(const char *path, FMOD::Studio::Bank **bank) const;
+
       // System
       bool ErrorCheck(FMOD_RESULT result);
       void InitializeLowLevelAPI();
@@ -99,7 +115,9 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-
+      // Diagnostics
+      static unsigned EventInstancesCreated;
+      
     };
 
 

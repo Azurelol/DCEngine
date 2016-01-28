@@ -1,0 +1,202 @@
+\hypertarget{Types_8h}{\section{Core/\-Engine/\-Types.h File Reference}
+\label{Types_8h}\index{Core/\-Engine/\-Types.\-h@{Core/\-Engine/\-Types.\-h}}
+}
+
+
+Saves the types used in the Daisy Chain engine.  
+
+
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$typeinfo$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$G\-L\-M\textbackslash{}glm.\-hpp$>$}\\*
+{\ttfamily \#include $<$G\-L\-M\textbackslash{}matrix.\-hpp$>$}\\*
+{\ttfamily \#include $<$G\-L\-M\textbackslash{}gtc\textbackslash{}type\-\_\-ptr.\-hpp$>$}\\*
+{\ttfamily \#include $<$G\-L\-M\textbackslash{}gtc\textbackslash{}matrix\-\_\-transform.\-hpp$>$}\\*
+{\ttfamily \#include $<$G\-L\-E\-W\textbackslash{}glew.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDCEngine_1_1OpenGLStateData}{D\-C\-Engine\-::\-Open\-G\-L\-State\-Data}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_a19eb2c9748fb95ede3cb4d48e64ba3f7}{using {\bfseries D\-C\-Engine\-::\-String} = std\-::string}\label{namespaceDCEngine_a19eb2c9748fb95ede3cb4d48e64ba3f7}
+
+\item 
+\hypertarget{namespaceDCEngine_aea92d510917d38732798d51238ba0068}{using {\bfseries D\-C\-Engine\-::\-Boolean} = bool}\label{namespaceDCEngine_aea92d510917d38732798d51238ba0068}
+
+\item 
+\hypertarget{namespaceDCEngine_ade4d197c8bc1c91df766a7774104f932}{using {\bfseries D\-C\-Engine\-::\-Integer} = int}\label{namespaceDCEngine_ade4d197c8bc1c91df766a7774104f932}
+
+\item 
+\hypertarget{namespaceDCEngine_ac6036335e7433d3887d8dd39cbc860d8}{using {\bfseries D\-C\-Engine\-::\-Real} = float}\label{namespaceDCEngine_ac6036335e7433d3887d8dd39cbc860d8}
+
+\item 
+\hypertarget{namespaceDCEngine_a665a3eb8eea4d6bdb5c54133409aad29}{using {\bfseries D\-C\-Engine\-::\-Vec2} = glm\-::vec2}\label{namespaceDCEngine_a665a3eb8eea4d6bdb5c54133409aad29}
+
+\item 
+\hypertarget{namespaceDCEngine_a01daba425800ce769f7bed214ef1929d}{using {\bfseries D\-C\-Engine\-::\-Vec3} = glm\-::vec3}\label{namespaceDCEngine_a01daba425800ce769f7bed214ef1929d}
+
+\item 
+\hypertarget{namespaceDCEngine_a389870cef94af54de4029458caa4912e}{using {\bfseries D\-C\-Engine\-::\-Vec4} = glm\-::vec4}\label{namespaceDCEngine_a389870cef94af54de4029458caa4912e}
+
+\item 
+\hypertarget{namespaceDCEngine_a0a72bc192e4169d86998f6a22aaf8ed3}{using {\bfseries D\-C\-Engine\-::\-Mat3} = glm\-::mat3}\label{namespaceDCEngine_a0a72bc192e4169d86998f6a22aaf8ed3}
+
+\item 
+\hypertarget{namespaceDCEngine_abd3cf275160d58a148e29d8904293dbd}{using {\bfseries D\-C\-Engine\-::\-Mat4} = glm\-::mat4}\label{namespaceDCEngine_abd3cf275160d58a148e29d8904293dbd}
+
+\item 
+\hypertarget{namespaceDCEngine_af60a29cbc852ec7dd8bd3525d82bade6}{using {\bfseries D\-C\-Engine\-::\-String\-Vec} = std\-::vector$<$ std\-::string $>$}\label{namespaceDCEngine_af60a29cbc852ec7dd8bd3525d82bade6}
+
+\item 
+\hypertarget{namespaceDCEngine_a19390f41f7f1e455e196c07cfa9aa5c8}{using {\bfseries D\-C\-Engine\-::\-Collision\-Group\-Handle} = std\-::string}\label{namespaceDCEngine_a19390f41f7f1e455e196c07cfa9aa5c8}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Direction} \{ \\*
+{\bfseries None}, 
+{\bfseries Up}, 
+{\bfseries Down}, 
+{\bfseries Left}, 
+\\*
+{\bfseries Right}
+ \}
+\item 
+enum {\bfseries Keys} \{ \\*
+{\bfseries None}, 
+{\bfseries Tilde}, 
+{\bfseries Tab}, 
+{\bfseries Escape}, 
+\\*
+{\bfseries Space}, 
+{\bfseries Return}, 
+{\bfseries Backspace}, 
+{\bfseries Delete}, 
+\\*
+{\bfseries L\-Control}, 
+{\bfseries R\-Control}, 
+{\bfseries L\-Shift}, 
+{\bfseries R\-Shift}, 
+\\*
+{\bfseries Up}, 
+{\bfseries Down}, 
+{\bfseries Left}, 
+{\bfseries Right}, 
+\\*
+{\bfseries Q}, 
+{\bfseries W}, 
+{\bfseries E}, 
+{\bfseries R}, 
+\\*
+{\bfseries T}, 
+{\bfseries Y}, 
+{\bfseries U}, 
+{\bfseries I}, 
+\\*
+{\bfseries O}, 
+{\bfseries P}, 
+{\bfseries A}, 
+{\bfseries S}, 
+\\*
+{\bfseries D}, 
+{\bfseries F}, 
+{\bfseries G}, 
+{\bfseries H}, 
+\\*
+{\bfseries J}, 
+{\bfseries K}, 
+{\bfseries L}, 
+{\bfseries Z}, 
+\\*
+{\bfseries X}, 
+{\bfseries C}, 
+{\bfseries V}, 
+{\bfseries B}, 
+\\*
+{\bfseries N}, 
+{\bfseries M}, 
+{\bfseries Num1}, 
+{\bfseries Num2}, 
+\\*
+{\bfseries Num3}, 
+{\bfseries Num4}, 
+{\bfseries Num5}, 
+{\bfseries Num6}, 
+\\*
+{\bfseries Num7}, 
+{\bfseries Num8}, 
+{\bfseries Num9}, 
+{\bfseries Add}, 
+\\*
+{\bfseries Subtract}, 
+{\bfseries F1}, 
+{\bfseries F2}, 
+{\bfseries F3}, 
+\\*
+{\bfseries F4}, 
+{\bfseries F5}, 
+{\bfseries F6}, 
+{\bfseries F7}, 
+\\*
+{\bfseries F8}, 
+{\bfseries F9}, 
+{\bfseries F10}, 
+{\bfseries F11}, 
+\\*
+{\bfseries F12}
+ \}
+\item 
+enum {\bfseries Mouse\-Button} \{ {\bfseries Left}, 
+{\bfseries Middle}, 
+{\bfseries Right}
+ \}
+\item 
+enum {\bfseries Resource\-Type} \{ \\*
+{\bfseries None}, 
+{\bfseries Archetype}, 
+{\bfseries Bank}, 
+{\bfseries Collision\-Group}, 
+\\*
+{\bfseries Collision\-Table}, 
+{\bfseries Font}, 
+{\bfseries Level}, 
+{\bfseries Material}, 
+\\*
+{\bfseries Physics\-Material}, 
+{\bfseries Sound\-Cue}, 
+{\bfseries Sprite\-Source}, 
+{\bfseries Sprite\-Layer}, 
+\\*
+{\bfseries Sprite\-Layer\-Order}, 
+{\bfseries Zilch\-Script}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Saves the types used in the Daisy Chain engine. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+10/02/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

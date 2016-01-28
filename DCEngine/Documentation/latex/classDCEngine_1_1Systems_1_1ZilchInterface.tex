@@ -1,0 +1,319 @@
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface}{\section{D\-C\-Engine\-:\-:Systems\-:\-:Zilch\-Interface Class Reference}
+\label{classDCEngine_1_1Systems_1_1ZilchInterface}\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_ae7e9d4d1c2b2d8936c57637db64eef5c}{\hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_ae7e9d4d1c2b2d8936c57637db64eef5c}{$\sim$\-Zilch\-Interface} ()}\label{classDCEngine_1_1Systems_1_1ZilchInterface_ae7e9d4d1c2b2d8936c57637db64eef5c}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_abd2d3363810d7e81b5b9180d9b6bbb57}{Add\-Script\-File} (std\-::string file\-Name)
+\begin{DoxyCompactList}\small\item\em Adds a Zilch script to the Zilch interface. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a9aa2aecd29d915d0f1c59128eefb5797}{void {\bfseries Add\-Script} (std\-::string code, std\-::string origin)}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a9aa2aecd29d915d0f1c59128eefb5797}
+
+\item 
+bool \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_ab709e035827ec5b8c9bdfbefb929b7c9}{Add\-Code\-From\-File} (std\-::string file\-Name, Zilch\-::\-Project \&project)
+\begin{DoxyCompactList}\small\item\em Adds a Zilch script to a Zilch Project. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_ae8560eb639946d466c360ca2b431aa85}{Add\-Code\-From\-String} (std\-::string code, std\-::string origin, Zilch\-::\-Project \&project)
+\begin{DoxyCompactList}\small\item\em Adds a Zilch script to a Zilch Project. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a540669ec1c67f6b1dc58549ae98c9b3d}{Add\-Library} (Zilch\-::\-Library\-Ref \&library)
+\begin{DoxyCompactList}\small\item\em Adds a Zilch library to the interface's dependencies module. It links together all core libraries, along our own libraries. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a51bcecc50c205bc30e1bf25ba297b994}{Compile\-Scripts} ()
+\begin{DoxyCompactList}\small\item\em Compiles all our scripts into a single Zilch library. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_adec2c50d02ca2fd24d9d37b20abc0d95}{Build} ()
+\begin{DoxyCompactList}\small\item\em Compiles and links all the libraries into one executable state. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a11626a4d551335ebf5152b68c512b848}{void \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a11626a4d551335ebf5152b68c512b848}{Clean} ()}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a11626a4d551335ebf5152b68c512b848}
+
+\begin{DoxyCompactList}\small\item\em Clears the interface's Zilch 'state' as well as the 'dependencies' module. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a7db5f3f72aee9143d62284b4244b9c1b}{Zilch\-::\-Json\-Value {\bfseries Parse\-J\-S\-O\-N} (std\-::string \&string)}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a7db5f3f72aee9143d62284b4244b9c1b}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a498ccf75b315c5124acefd40f40f0d2d}{{\footnotesize template$<$typename Object\-Ptr $>$ }\\Zilch\-::\-Call {\bfseries Construct\-Get\-Caller} (Zilch\-::\-Property $\ast$property, \hyperlink{classDCEngine_1_1Object}{Object\-Ptr} object)}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a498ccf75b315c5124acefd40f40f0d2d}
+
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a3967de2558bb9b555df4c1dc19cdbf36}{{\footnotesize template$<$typename Value , typename Object\-Ptr $>$ }\\bool {\bfseries Set\-Property} (Value val, Zilch\-::\-Property $\ast$property, \hyperlink{classDCEngine_1_1Object}{Object\-Ptr} object)}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a3967de2558bb9b555df4c1dc19cdbf36}
+
+\item 
+Zilch\-::\-Executable\-State $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a1eec68a61415a13f1c8df1b189978b95}{get\-State} ()
+\begin{DoxyCompactList}\small\item\em Grabs a reference to the executable state. \end{DoxyCompactList}\item 
+Zilch\-::\-Bound\-Type $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a4d5a0042f6cacc16b448d1c6e27d0ff9}{get\-Bound\-Type} (std\-::string name, Zilch\-::\-Library\-Ref library)
+\begin{DoxyCompactList}\small\item\em Grabs a reference to the Boundtype of the specified object from the specified Zilch library. \end{DoxyCompactList}\item 
+Zilch\-::\-Function $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a72ee662c1b90dfd59258b5bdd512cb96}{get\-Function} (std\-::string name, Zilch\-::\-Bound\-Type $\ast$type, const Zilch\-::\-Array$<$ Zilch\-::\-Type $\ast$ $>$ \&parameters, Zilch\-::\-Type $\ast$return\-Type, Zilch\-::\-Find\-Member\-Options\-::\-Flags options)
+\begin{DoxyCompactList}\small\item\em Grabs a reference to the specified function on the object. \end{DoxyCompactList}\item 
+Zilch\-::\-Field $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a797b92d38f0a9be452bd21a00faadb63}{get\-Instance\-Field} (std\-::string name, Zilch\-::\-Bound\-Type $\ast$type)
+\begin{DoxyCompactList}\small\item\em Grabs a reference to the specified instance field of the specified Bound\-Type. \end{DoxyCompactList}\item 
+std\-::vector$<$ Zilch\-::\-Bound\-Type $\ast$ $>$ \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_a4ba8ff5009cf4dba14710d2b2dfd674f}{Get\-Types} ()
+\begin{DoxyCompactList}\small\item\em Gets all the currently bound types. \end{DoxyCompactList}\item 
+Zilch\-::\-Handle \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_ab36bdffb60cf41097bbf51f33cbf2c6f}{Allocate\-Default\-Constructed\-Heap\-Object} (Zilch\-::\-Bound\-Type $\ast$type, Zilch\-::\-Heap\-Flags\-::\-Enum)
+\begin{DoxyCompactList}\small\item\em Invokes the function. \end{DoxyCompactList}\item 
+Zilch\-::\-Call $\ast$const \hyperlink{classDCEngine_1_1Systems_1_1ZilchInterface_add604139ad585afeac73f4710bde2447}{Call} (Zilch\-::\-Function $\ast$function) const 
+\begin{DoxyCompactList}\small\item\em Creates a function object, which methods that can invoke it, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_aefab11bf9fc3a66a8bd7d5eaa5923a1b}{class {\bfseries Reflection}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_aefab11bf9fc3a66a8bd7d5eaa5923a1b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_ab709e035827ec5b8c9bdfbefb929b7c9}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Add\-Code\-From\-File@{Add\-Code\-From\-File}}
+\index{Add\-Code\-From\-File@{Add\-Code\-From\-File}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Add\-Code\-From\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Add\-Code\-From\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Name, }
+\item[{Zilch\-::\-Project \&}]{project}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_ab709e035827ec5b8c9bdfbefb929b7c9}
+
+
+Adds a Zilch script to a Zilch Project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\-Name} & \hyperlink{classThe}{The} name of the file containing the code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_ae8560eb639946d466c360ca2b431aa85}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Add\-Code\-From\-String@{Add\-Code\-From\-String}}
+\index{Add\-Code\-From\-String@{Add\-Code\-From\-String}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Add\-Code\-From\-String}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Add\-Code\-From\-String (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{code, }
+\item[{std\-::string}]{display\-Name, }
+\item[{Zilch\-::\-Project \&}]{project}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_ae8560eb639946d466c360ca2b431aa85}
+
+
+Adds a Zilch script to a Zilch Project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \hyperlink{classThe}{The} string containing the code. \\
+\hline
+{\em display\-Name} & \hyperlink{classThe}{The} display name of the code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a540669ec1c67f6b1dc58549ae98c9b3d}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Add\-Library@{Add\-Library}}
+\index{Add\-Library@{Add\-Library}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Add\-Library}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Add\-Library (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Library\-Ref \&}]{library}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a540669ec1c67f6b1dc58549ae98c9b3d}
+
+
+Adds a Zilch library to the interface's dependencies module. It links together all core libraries, along our own libraries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em library} & \hyperlink{classA}{A} reference to the library to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_abd2d3363810d7e81b5b9180d9b6bbb57}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Add\-Script\-File@{Add\-Script\-File}}
+\index{Add\-Script\-File@{Add\-Script\-File}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Add\-Script\-File}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Add\-Script\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-Name}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_abd2d3363810d7e81b5b9180d9b6bbb57}
+
+
+Adds a Zilch script to the Zilch interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\-Name} & \hyperlink{classThe}{The} name of the file containing the code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_ab36bdffb60cf41097bbf51f33cbf2c6f}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Allocate\-Default\-Constructed\-Heap\-Object@{Allocate\-Default\-Constructed\-Heap\-Object}}
+\index{Allocate\-Default\-Constructed\-Heap\-Object@{Allocate\-Default\-Constructed\-Heap\-Object}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Allocate\-Default\-Constructed\-Heap\-Object}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Handle D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Allocate\-Default\-Constructed\-Heap\-Object (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Bound\-Type $\ast$}]{type, }
+\item[{Zilch\-::\-Heap\-Flags\-::\-Enum}]{flag}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_ab36bdffb60cf41097bbf51f33cbf2c6f}
+
+
+Invokes the function. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} Exception\-Error object which contains data regarding the script. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_adec2c50d02ca2fd24d9d37b20abc0d95}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Build@{Build}}
+\index{Build@{Build}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Build}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Build (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_adec2c50d02ca2fd24d9d37b20abc0d95}
+
+
+Compiles and links all the libraries into one executable state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & reference to the current Zilch project object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_add604139ad585afeac73f4710bde2447}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Call@{Call}}
+\index{Call@{Call}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Call}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Call $\ast$const D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Call (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Function $\ast$}]{function}
+\end{DoxyParamCaption}
+) const}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_add604139ad585afeac73f4710bde2447}
+
+
+Creates a function object, which methods that can invoke it, etc. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classA}{A}} & pointer to the function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classAn}{An} Exception\-Error object which contains data regarding the script. \textbackslash{} 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a51bcecc50c205bc30e1bf25ba297b994}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Compile\-Scripts@{Compile\-Scripts}}
+\index{Compile\-Scripts@{Compile\-Scripts}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Compile\-Scripts}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Compile\-Scripts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a51bcecc50c205bc30e1bf25ba297b994}
+
+
+Compiles all our scripts into a single Zilch library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em library} & \hyperlink{classThe}{The} name of the Library. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a4d5a0042f6cacc16b448d1c6e27d0ff9}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!get\-Bound\-Type@{get\-Bound\-Type}}
+\index{get\-Bound\-Type@{get\-Bound\-Type}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{get\-Bound\-Type}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Bound\-Type $\ast$ D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::get\-Bound\-Type (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{type\-Name, }
+\item[{Zilch\-::\-Library\-Ref}]{library}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a4d5a0042f6cacc16b448d1c6e27d0ff9}
+
+
+Grabs a reference to the Boundtype of the specified object from the specified Zilch library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\-Name} & \hyperlink{classThe}{The} name of the type. \\
+\hline
+{\em library} & \hyperlink{classA}{A} reference to the library. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the bound type. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a72ee662c1b90dfd59258b5bdd512cb96}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!get\-Function@{get\-Function}}
+\index{get\-Function@{get\-Function}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{get\-Function}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Function $\ast$ D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::get\-Function (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{Zilch\-::\-Bound\-Type $\ast$}]{type, }
+\item[{const Zilch\-::\-Array$<$ Zilch\-::\-Type $\ast$ $>$ \&}]{parameters, }
+\item[{Zilch\-::\-Type $\ast$}]{return\-Type, }
+\item[{Zilch\-::\-Find\-Member\-Options\-::\-Flags}]{options}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a72ee662c1b90dfd59258b5bdd512cb96}
+
+
+Grabs a reference to the specified function on the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\-Name} & \hyperlink{classThe}{The} name of the function. \\
+\hline
+{\em type} & \hyperlink{classThe}{The} Bound\-Type. \\
+\hline
+{\em parameters} & \hyperlink{classAn}{An} array specifying the arguments of the function. \\
+\hline
+{\em return\-Type} & \hyperlink{classThe}{The} return type of the function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the function. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a797b92d38f0a9be452bd21a00faadb63}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!get\-Instance\-Field@{get\-Instance\-Field}}
+\index{get\-Instance\-Field@{get\-Instance\-Field}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{get\-Instance\-Field}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Field $\ast$ D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::get\-Instance\-Field (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{Zilch\-::\-Bound\-Type $\ast$}]{type}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a797b92d38f0a9be452bd21a00faadb63}
+
+
+Grabs a reference to the specified instance field of the specified Bound\-Type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\-Name} & \hyperlink{classThe}{The} name of the instnace. \\
+\hline
+{\em type} & \hyperlink{classThe}{The} Bound\-Type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} pointer to the function. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a1eec68a61415a13f1c8df1b189978b95}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!get\-State@{get\-State}}
+\index{get\-State@{get\-State}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{get\-State}]{\setlength{\rightskip}{0pt plus 5cm}Zilch\-::\-Executable\-State $\ast$ D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::get\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a1eec68a61415a13f1c8df1b189978b95}
+
+
+Grabs a reference to the executable state. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} exclusive executable state for the interface. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Systems_1_1ZilchInterface_a4ba8ff5009cf4dba14710d2b2dfd674f}{\index{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}!Get\-Types@{Get\-Types}}
+\index{Get\-Types@{Get\-Types}!DCEngine::Systems::ZilchInterface@{D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface}}
+\subsubsection[{Get\-Types}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ Zilch\-::\-Bound\-Type $\ast$ $>$ D\-C\-Engine\-::\-Systems\-::\-Zilch\-Interface\-::\-Get\-Types (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1ZilchInterface_a4ba8ff5009cf4dba14710d2b2dfd674f}
+
+
+Gets all the currently bound types. 
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} \begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} vector containing all the bound types. \textbackslash{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Systems/\-Reflection/\hyperlink{ZilchInterface_8h}{Zilch\-Interface.\-h}\item 
+Core/\-Systems/\-Reflection/\hyperlink{ZilchInterface_8cpp}{Zilch\-Interface.\-cpp}\item 
+Core/\-Systems/\-Reflection/Zilch\-Interface\-\_\-\-Library.\-cpp\end{DoxyCompactItemize}

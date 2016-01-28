@@ -1,0 +1,186 @@
+\hypertarget{classDCEngine_1_1Resource}{\section{D\-C\-Engine\-:\-:Resource Class Reference}
+\label{classDCEngine_1_1Resource}\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Resource\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classDCEngine_1_1Resource}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Resource_abdc8f2f4cb6dacff7adae08d0aea3826}{{\bfseries Zilch\-Declare\-Derived\-Type} (\hyperlink{classDCEngine_1_1Resource}{Resource}, \hyperlink{classDCEngine_1_1Object}{Object})}\label{classDCEngine_1_1Resource_abdc8f2f4cb6dacff7adae08d0aea3826}
+
+\item 
+\hypertarget{classDCEngine_1_1Resource_a819369e5a22a4edadbeec0e13c3ae3fc}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (std\-::string, Resource\-Path)}\label{classDCEngine_1_1Resource_a819369e5a22a4edadbeec0e13c3ae3fc}
+
+\item 
+\hyperlink{classDCEngine_1_1Resource_a356bff47df31f5b50b2f2e03bec84633}{Resource} (std\-::string type, std\-::string name, std\-::string resource\-Path)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Resource}{Resource} constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Resource_ac526446e7c78d54a68ec3860317c4777}{Serialize} (Zilch\-::\-Json\-Builder \&builder)
+\begin{DoxyCompactList}\small\item\em Serializes a \hyperlink{classDCEngine_1_1Resource}{Resource}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Resource_ae1e6e6d4bf05bf0e910c645a0a41e068}{Deserialize} (Zilch\-::\-Json\-Value $\ast$properties)
+\begin{DoxyCompactList}\small\item\em Deserializes a \hyperlink{classDCEngine_1_1Resource}{Resource}. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classDCEngine_1_1Resource_ab683dd19451258a2ec4ce7147d2c738e}{Build} ()
+\begin{DoxyCompactList}\small\item\em Builds a resource's serialized data. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classDCEngine_1_1Resource_a3136e195284064d3e21a903f16663d6f}{Save} (std\-::string \&serialized\-Data)
+\begin{DoxyCompactList}\small\item\em Saves the \hyperlink{classDCEngine_1_1Resource}{Resource} serialized data to file. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classDCEngine_1_1Resource_a99b06ae1da559efdc71edb528cac7caa}{Load} ()
+\begin{DoxyCompactList}\small\item\em Deserializes the binary cache the serialized data definition of a resource into a string that can be parsed by the engine's serializer. \end{DoxyCompactList}\item 
+bool \hyperlink{classDCEngine_1_1Resource_ad83db948d25c70d4bc335b7ebab53663}{Destroy} ()
+\begin{DoxyCompactList}\small\item\em Removes the resource from the Content system, as well as deleting its serialized file from disk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Resource_abeea66bbf9c9c74f7f18bc329d7f8cec}{std\-::string {\bfseries Resource\-Type}}\label{classDCEngine_1_1Resource_abeea66bbf9c9c74f7f18bc329d7f8cec}
+
+\item 
+\hypertarget{classDCEngine_1_1Resource_a6c6b6f07fa5d4210de0e2789dc74d3c1}{std\-::string {\bfseries Resource\-Path}}\label{classDCEngine_1_1Resource_a6c6b6f07fa5d4210de0e2789dc74d3c1}
+
+\item 
+\hypertarget{classDCEngine_1_1Resource_a37393c21899e1a5232d89065798558a7}{std\-::string {\bfseries Serialized\-Data}}\label{classDCEngine_1_1Resource_a37393c21899e1a5232d89065798558a7}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDCEngine_1_1Resource_a356bff47df31f5b50b2f2e03bec84633}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}D\-C\-Engine\-::\-Resource\-::\-Resource (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{resource\-Type, }
+\item[{std\-::string}]{name, }
+\item[{std\-::string}]{resource\-Path}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Resource_a356bff47df31f5b50b2f2e03bec84633}
+
+
+\hyperlink{classDCEngine_1_1Resource}{Resource} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the \hyperlink{classDCEngine_1_1Resource}{Resource}. \\
+\hline
+{\em resource\-Path} & \hyperlink{classThe}{The} path of the file containing the resource on disk. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Resource_ab683dd19451258a2ec4ce7147d2c738e}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Build@{Build}}
+\index{Build@{Build}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Build}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string D\-C\-Engine\-::\-Resource\-::\-Build (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Resource_ab683dd19451258a2ec4ce7147d2c738e}
+
+
+Builds a resource's serialized data. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classA}{A} string containing the serialized data of the resource. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+After the resource's serialized data is built, it will be saved to file through the class' 'Save' method. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Resource_ae1e6e6d4bf05bf0e910c645a0a41e068}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Deserialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Resource\-::\-Deserialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Value $\ast$}]{properties}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Resource_ae1e6e6d4bf05bf0e910c645a0a41e068}
+
+
+Deserializes a \hyperlink{classDCEngine_1_1Resource}{Resource}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will deserialize the resource and all its properties. 
+\end{DoxyNote}
+\hypertarget{classDCEngine_1_1Resource_ad83db948d25c70d4bc335b7ebab53663}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Destroy}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Resource\-::\-Destroy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Resource_ad83db948d25c70d4bc335b7ebab53663}
+
+
+Removes the resource from the Content system, as well as deleting its serialized file from disk. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classThe}{The} success of the operation. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Resource_a99b06ae1da559efdc71edb528cac7caa}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Load@{Load}}
+\index{Load@{Load}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Resource\-::\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Resource_a99b06ae1da559efdc71edb528cac7caa}
+
+
+Deserializes the binary cache the serialized data definition of a resource into a string that can be parsed by the engine's serializer. 
+
+\begin{DoxyNote}{Note}
+\hyperlink{classThe}{The} name of the resource is currently being set as its filename. 
+\end{DoxyNote}
+
+
+Reimplemented in \hyperlink{classDCEngine_1_1Font_ae677105844515ccb2857abf68dc13af6}{D\-C\-Engine\-::\-Font}, \hyperlink{classDCEngine_1_1Archetype_ae8d40719f79ca2a5ec7ec40c6a7da65c}{D\-C\-Engine\-::\-Archetype}, \hyperlink{classDCEngine_1_1Level_a7c6442a36ea6cc6825c5ce238e0ab3aa}{D\-C\-Engine\-::\-Level}, \hyperlink{classDCEngine_1_1Shader_a2c47c302081a2308f65e7771f13d3185}{D\-C\-Engine\-::\-Shader}, and \hyperlink{classDCEngine_1_1ZilchScript_afc162c3e0cf290bfba3705bfceb39a39}{D\-C\-Engine\-::\-Zilch\-Script}.
+
+\hypertarget{classDCEngine_1_1Resource_a3136e195284064d3e21a903f16663d6f}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Save@{Save}}
+\index{Save@{Save}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Save}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Resource\-::\-Save (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{serialized\-Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Resource_a3136e195284064d3e21a903f16663d6f}
+
+
+Saves the \hyperlink{classDCEngine_1_1Resource}{Resource} serialized data to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classThe}{The} name of the \hyperlink{classDCEngine_1_1Resource}{Resource}. \\
+\hline
+{\em resource\-Path} & \hyperlink{classThe}{The} path of the file containing the resource on disk. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classDCEngine_1_1ZilchScript_aa7fb583c57c5b439efc79f79f418dc35}{D\-C\-Engine\-::\-Zilch\-Script}.
+
+\hypertarget{classDCEngine_1_1Resource_ac526446e7c78d54a68ec3860317c4777}{\index{D\-C\-Engine\-::\-Resource@{D\-C\-Engine\-::\-Resource}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!DCEngine::Resource@{D\-C\-Engine\-::\-Resource}}
+\subsubsection[{Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Resource\-::\-Serialize (
+\begin{DoxyParamCaption}
+\item[{Zilch\-::\-Json\-Builder \&}]{builder}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Resource_ac526446e7c78d54a68ec3860317c4777}
+
+
+Serializes a \hyperlink{classDCEngine_1_1Resource}{Resource}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This will serialize the resource and all its properties. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Objects/\hyperlink{Resource_8h}{Resource.\-h}\item 
+Core/\-Objects/\hyperlink{Resource_8cpp}{Resource.\-cpp}\end{DoxyCompactItemize}

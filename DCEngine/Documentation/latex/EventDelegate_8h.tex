@@ -1,0 +1,49 @@
+\hypertarget{EventDelegate_8h}{\section{Core/\-Engine/\-Event\-Delegate.h File Reference}
+\label{EventDelegate_8h}\index{Core/\-Engine/\-Event\-Delegate.\-h@{Core/\-Engine/\-Event\-Delegate.\-h}}
+}
+
+
+\hyperlink{classA}{A} delegate is a class that wraps a pointer or reference to an object instance, a member method of that object's class to be called on that object instance, and provides a method to trigger that call.  
+
+
+{\ttfamily \#include $<$list$>$}\\*
+{\ttfamily \#include $<$functional$>$}\\*
+{\ttfamily \#include $<$typeindex$>$}\\*
+{\ttfamily \#include $<$typeinfo$>$}\\*
+{\ttfamily \#include \char`\"{}..\textbackslash{}\-Engine\textbackslash{}\-Types.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDCEngine_1_1EventDelegate}{D\-C\-Engine\-::\-Event\-Delegate}
+\item 
+class \hyperlink{classDCEngine_1_1EventMemberFunctionDelegate}{D\-C\-Engine\-::\-Event\-Member\-Function\-Delegate$<$ Class, Event\-Class $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classA}{A} delegate is a class that wraps a pointer or reference to an object instance, a member method of that object's class to be called on that object instance, and provides a method to trigger that call. \begin{DoxyAuthor}{Author}
+Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+9/9/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+I am too inexperienced a programmer to have been able to come up with the implementation on my own. Thus, I researched and ended up reading through several implementations\-:
+\end{DoxyNote}
+\href{http://allenchou.net/2012/04/easy-c-delegates/}{\tt http\-://allenchou.\-net/2012/04/easy-\/c-\/delegates/} \href{http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible}{\tt http\-://www.\-codeproject.\-com/\-Articles/7150/\-Member-\/\-Function-\/\-Pointers-\/and-\/the-\/\-Fastest-\/\-Possible} \href{http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates}{\tt http\-://www.\-codeproject.\-com/\-Articles/11015/\-The-\/\-Impossibly-\/\-Fast-\/\-C-\/\-Delegates} \href{http://www.codeguru.com/cpp/cpp/cpp_mfc/pointers/article.php/c4135/DELEGATES-and-C.htm}{\tt http\-://www.\-codeguru.\-com/cpp/cpp/cpp\-\_\-mfc/pointers/article.\-php/c4135/\-D\-E\-L\-E\-G\-A\-T\-E\-S-\/and-\/\-C.\-htm} \href{http://codereview.stackexchange.com/questions/14730/impossibly-fast-delegate-in-c11}{\tt http\-://codereview.\-stackexchange.\-com/questions/14730/impossibly-\/fast-\/delegate-\/in-\/c11}
+
+I also got a lot of help from one of my mentors, Arend Danielek, after he walked me through the way he implemented the event system in his Junior game, \char`\"{}\-Coffee Break\char`\"{}.
+
+9/11/2015\-: I finally finished the delegate implementation, in no small measure thanks to Gab and Arend.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

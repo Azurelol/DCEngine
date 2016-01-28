@@ -1,0 +1,78 @@
+\hypertarget{classDCEngine_1_1ActionSet}{\section{D\-C\-Engine\-:\-:Action\-Set Class Reference}
+\label{classDCEngine_1_1ActionSet}\index{D\-C\-Engine\-::\-Action\-Set@{D\-C\-Engine\-::\-Action\-Set}}
+}
+Inheritance diagram for D\-C\-Engine\-:\-:Action\-Set\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDCEngine_1_1ActionSet}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classDCEngine_1_1ActionSet_a5e63f68a0161b788d218ca5f5bcbe0bd}{Add} (Action\-Set\-Ptr set)
+\begin{DoxyCompactList}\small\item\em Adds an \hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} to this set, as a child set. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classDCEngine_1_1ActionSet_ad8b8b1480f6f99da48b5b5d4188eaac9}{Add} (Action\-Ptr action)
+\begin{DoxyCompactList}\small\item\em Adds an \hyperlink{classDCEngine_1_1Action}{Action} to this set, as one of its active actions. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1ActionSet_aa231dcf08d43ad1ebad7aaa7fe1b420f}{virtual float {\bfseries Update} (float dt)=0}\label{classDCEngine_1_1ActionSet_aa231dcf08d43ad1ebad7aaa7fe1b420f}
+
+\item 
+\hypertarget{classDCEngine_1_1ActionSet_afa7f0f31e3d469c0696cc74aa1e534f4}{virtual bool \hyperlink{classDCEngine_1_1ActionSet_afa7f0f31e3d469c0696cc74aa1e534f4}{Validate} ()}\label{classDCEngine_1_1ActionSet_afa7f0f31e3d469c0696cc74aa1e534f4}
+
+\begin{DoxyCompactList}\small\item\em Checks whether there are any remaining actions in the \hyperlink{classDCEngine_1_1ActionSet}{Action\-Set}. If there's no more remaining, the set is done. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1ActionSet_ad098f7230dc65f29c2a3ec2f91d0ea64}{void \hyperlink{classDCEngine_1_1ActionSet_ad098f7230dc65f29c2a3ec2f91d0ea64}{Clear} ()}\label{classDCEngine_1_1ActionSet_ad098f7230dc65f29c2a3ec2f91d0ea64}
+
+\begin{DoxyCompactList}\small\item\em Clears all inactive actions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1ActionSet_ac12fecfc720a5438329bcee88cbf1f7d}{std\-::vector$<$ Action\-Ptr $>$ {\bfseries Active\-Actions}}\label{classDCEngine_1_1ActionSet_ac12fecfc720a5438329bcee88cbf1f7d}
+
+\item 
+\hypertarget{classDCEngine_1_1ActionSet_a5e6fdd39967bc7d4a81c0cbdaccf466c}{std\-::vector$<$ Action\-Ptr $>$ {\bfseries Inactive\-Actions}}\label{classDCEngine_1_1ActionSet_a5e6fdd39967bc7d4a81c0cbdaccf466c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1ActionSet_a5e63f68a0161b788d218ca5f5bcbe0bd}{\index{D\-C\-Engine\-::\-Action\-Set@{D\-C\-Engine\-::\-Action\-Set}!Add@{Add}}
+\index{Add@{Add}!DCEngine::ActionSet@{D\-C\-Engine\-::\-Action\-Set}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Action\-Set\-::\-Add (
+\begin{DoxyParamCaption}
+\item[{Action\-Set\-Ptr}]{set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1ActionSet_a5e63f68a0161b788d218ca5f5bcbe0bd}
+
+
+Adds an \hyperlink{classDCEngine_1_1ActionSet}{Action\-Set} to this set, as a child set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & \hyperlink{classA}{A} reference to the child set. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1ActionSet_ad8b8b1480f6f99da48b5b5d4188eaac9}{\index{D\-C\-Engine\-::\-Action\-Set@{D\-C\-Engine\-::\-Action\-Set}!Add@{Add}}
+\index{Add@{Add}!DCEngine::ActionSet@{D\-C\-Engine\-::\-Action\-Set}}
+\subsubsection[{Add}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Action\-Set\-::\-Add (
+\begin{DoxyParamCaption}
+\item[{Action\-Ptr}]{action}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1ActionSet_ad8b8b1480f6f99da48b5b5d4188eaac9}
+
+
+Adds an \hyperlink{classDCEngine_1_1Action}{Action} to this set, as one of its active actions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & \hyperlink{classA}{A} pointer to the other action. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Core/\-Engine/\hyperlink{Action_8h}{Action.\-h}\item 
+Core/\-Engine/Action\-Set.\-cpp\end{DoxyCompactItemize}

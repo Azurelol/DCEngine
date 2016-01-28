@@ -59,11 +59,12 @@ namespace DCEngine {
         soundCue.second->Load();
         soundCue.second->Generate();
       }
-      // Generate every SoundCue from banks
+      // Load all banks from file, then add them to audio system
       for (auto& bank : MapBank) {
-        bank.second->Load();
-        bank.second->Generate();
+        bank.second->Load();        
+        bank.second->Add();
       }
+      Daisy->getSystem<Audio>()->Generate();
 
       // Load every SpriteSource's texture
       for (auto& spriteSource : SpriteSourceMap) {

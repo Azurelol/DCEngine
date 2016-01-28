@@ -35,13 +35,14 @@ namespace DCEngine {
       friend class SoundSpace;
     public:
 
-      void Add(std::string& bankFile, Bank::Data& data);
-      void CreateSound(std::string& soundFile, FMODSoundPtr& soundPtr);
+      void Add(std::string& bankFile, Bank::BankData& data);
+      void CreateSound(std::string& soundFile, FMODSoundHandle& soundPtr);
       void PlaySound(std::string& soundCueName);
       void ResumeSound(std::string& soundCueName);
       void PauseSound(std::string& soundCueName);
       void StopSound(std::string& soundCueName);
       void Register(Components::SoundSpace& soundSpace);
+      void Generate();
 
     private:
 

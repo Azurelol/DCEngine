@@ -1,0 +1,59 @@
+\hypertarget{CollisionTable_8h}{\section{Core/\-Resources/\-Collision\-Table.h File Reference}
+\label{CollisionTable_8h}\index{Core/\-Resources/\-Collision\-Table.\-h@{Core/\-Resources/\-Collision\-Table.\-h}}
+}
+
+
+Collision Tables are used to specify what kinds of objects can/can’t collide with each other. Tables can also be used to send specific events to one of the objects when a collision happens between a pair. Collision groups are used as a tag to identify an object in the table.  
+
+
+{\ttfamily \#include \char`\"{}Resource\-Reference.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Collision\-Group.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDCEngine_1_1CollisionBlock}{D\-C\-Engine\-::\-Collision\-Block}
+\item 
+struct \hyperlink{structDCEngine_1_1CollisionFilter}{D\-C\-Engine\-::\-Collision\-Filter}
+\item 
+class \hyperlink{classDCEngine_1_1CollisionTable}{D\-C\-Engine\-::\-Collision\-Table}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceDCEngine}{D\-C\-Engine}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceDCEngine_a02782c70cca59817f21b4f4597519db6}{using {\bfseries D\-C\-Engine\-::\-Collision\-Table\-Ptr} = std\-::shared\-\_\-ptr$<$ Collision\-Table $>$}\label{namespaceDCEngine_a02782c70cca59817f21b4f4597519db6}
+
+\item 
+\hypertarget{namespaceDCEngine_aef29afa34cb406bd9d7e212bb1a5f361}{using {\bfseries D\-C\-Engine\-::\-Collision\-Table\-Handle} = std\-::string}\label{namespaceDCEngine_aef29afa34cb406bd9d7e212bb1a5f361}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Collision\-Flag} \{ {\bfseries Skip\-Detecting}, 
+{\bfseries Skip\-Resolution}, 
+{\bfseries Resolve}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Collision Tables are used to specify what kinds of objects can/can’t collide with each other. Tables can also be used to send specific events to one of the objects when a collision happens between a pair. Collision groups are used as a tag to identify an object in the table. \begin{DoxyAuthor}{Author}
+Blaine Reiner, Christian Sagel 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{email\-: c.sagel@digipen.edu, blaine.reiner@digipen.edu}
+
+\end{DoxyParagraph}
+\begin{DoxyDate}{Date}
+11/19/2015 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+Reference and inspiration\-: \href{http://zero.digipen.edu/ZeroManual/Physics/Collision/CollisionTables.html?highlight=collision%20table}{\tt http\-://zero.\-digipen.\-edu/\-Zero\-Manual/\-Physics/\-Collision/\-Collision\-Tables.\-html?highlight=collision\%20table} 
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015, Digi\-Pen Institute of Technology. All rights reserved. 
+\end{DoxyCopyright}

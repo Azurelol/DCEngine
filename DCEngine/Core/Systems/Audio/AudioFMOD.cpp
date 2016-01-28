@@ -25,6 +25,7 @@ namespace DCEngine {
     \brief  Constructor for the AudioFMOD class.
     */
     /**************************************************************************/
+    unsigned AudioFMOD::EventInstancesCreated = 0;
     AudioFMOD::AudioFMOD() {
       MaxChannels = 36;
     }
@@ -121,6 +122,12 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void AudioFMOD::Terminate() {
+
+      // Unload all banks
+      for (auto& bank : ActiveBanks) {
+        Unload(bank.second);
+      }
+
       //System.LowLevel->
       //System.LowLevel->getChannelsPlaying().
 

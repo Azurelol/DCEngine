@@ -17,12 +17,31 @@
 namespace DCEngine {
   namespace Systems {
 
+    struct PlaybackSettings {
+      float Volume = 1.0f;
+      float VolumeVariation = 0.0f;
+      float Pitch = 1.0f;
+      float PitchVariation = 0.0f;
+      bool Loop = false;
+    };
+
+    class EventInstanceInfo {
+    public:
+      EventInstanceInfo(unsigned id, FMOD::Studio::EventInstance* handle);
+      unsigned ID; 
+      FMOD::Studio::EventInstance* Handle;
+    };
+    using EventInstanceHandle = std::shared_ptr<EventInstanceInfo>;
+
     // Containers
     using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;
     using EventInstanceMap = std::map<std::string, FMOD::Studio::EventInstance*>;
     using EventDescriptionMap = std::map<std::string, FMOD::Studio::EventDescription*>;
     using ChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
     using GroupMap = std::map<std::string, FMOD::ChannelGroup*>;
+
+    // Aliases
+    using EventDescriptionHandle = std::string;
 
     // Settings 
     struct AudioFMODSettings {
@@ -59,7 +78,7 @@ namespace DCEngine {
         return Studio;
       }
       ~FMODSystemPtr() {
-        auto result = LowLevel->release();
+        //auto result = LowLevel->release();
         Studio->release();
       }
     };
