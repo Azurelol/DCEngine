@@ -35,16 +35,17 @@ namespace DCEngine {
     };
 
     // Member variables
-    PlayMode PlayMode; // Add this later
+    PlayMode Mode; // Add this later
     float Volume = 1.0f;
     float VolumeVariation = 0.0f;
     float Pitch = 1.0f;
     float PitchVariation = 0.0f;
     bool Loop = false;
     WhatType Type;
-    FMODSoundPtr Data;
+    FMODSoundHandle Data;
     
     // Properties    
+    DCE_DEFINE_PROPERTY(PlayMode, Mode);
     DCE_DEFINE_PROPERTY(bool, Loop);
     DCE_DEFINE_PROPERTY(float, Volume);
     DCE_DEFINE_PROPERTY(float, VolumeVariation);
@@ -63,8 +64,7 @@ namespace DCEngine {
   private:
     std::string AssetPath;
 
-  };
-
-
- 
+  }; 
 }
+
+ZilchDeclareExternalBaseType(DCEngine::PlayMode, Zilch::TypeCopyMode::ValueType);

@@ -70,7 +70,6 @@ namespace DCEngine {
         }
       }
 
-
       // Add
       if (ImGui::TreeNode("Add SpriteLayer...")) {
         // Grab a list of all SpriteLayers

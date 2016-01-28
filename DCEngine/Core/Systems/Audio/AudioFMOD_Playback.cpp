@@ -22,18 +22,20 @@ namespace DCEngine {
     @param  loop Whether the sound should be played in a loop.
     */
     /**************************************************************************/
-    bool AudioFMOD::PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool loop) {
+    bool AudioFMOD::PlaySound(FMOD::Sound* handle, FMOD::Channel** channel, PlaybackSettings& settings) {
       DCTrace << "AudioFMOD::PlaySound \n";
-      if (loop) {
-        soundPtr->setMode(FMOD_LOOP_NORMAL);
-        soundPtr->setLoopCount(-1);
+      if (settings.Loop) {
+        handle->setMode(FMOD_LOOP_NORMAL);
+        handle->setLoopCount(-1);
       }
       else {
-        soundPtr->setMode(FMOD_LOOP_OFF);
+        handle->setMode(FMOD_LOOP_OFF);
       }
-
-      //FMOD::Channel::
-      return ErrorCheck(System.LowLevel->playSound(soundPtr, NULL, 0, channel));
+      // Configure it
+      auto check = ErrorCheck(System.LowLevel->playSound(handle, NULL, 0, channel));
+      (*channel)->setVolume(settings.Volume);
+      (*channel)->setPitch(settings.Pitch);
+      return check;
     }
 
     /**************************************************************************/
@@ -42,7 +44,7 @@ namespace DCEngine {
     @param  eventDescription The event which to play.
     */
     /**************************************************************************/
-    bool AudioFMOD::PlaySound(std::string & eventName)
+    bool AudioFMOD::PlaySound(EventDescriptionHandle & eventName, PlaybackSettings& settings)
     {
       // If the event has already been instantiated, use it.
       if (InstantiatedEvents.count(eventName)) {
@@ -55,7 +57,13 @@ namespace DCEngine {
       else {
         if (AvailableEvents.count(eventName)) {
           auto eventInstance = AddEventInstance(AvailableEvents.at(eventName));
+          // Configure it
+          eventInstance->setVolume(settings.Volume);
+          eventInstance->setPitch(settings.Pitch);          
+          // One-shot sound
           eventInstance->start();
+          // Release will clean up the instance when it completes
+          eventInstance->release();
           return true;
         }
       }
@@ -107,13 +115,19 @@ namespace DCEngine {
       // If the event has already been instantiated, use it.
       if (InstantiatedEvents.count(eventName)) {
         // Get an iterator to the event in the map
-        InstantiatedEvents.at(eventName)->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);
-
-        //auto eventIter = InstantiatedEvents.find(eventName);
-        //eventIter->second->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);
-        // Maybe release...        
+        InstantiatedEvents.at(eventName)->stop(FMOD_STUDIO_STOP_MODE::FMOD_STUDIO_STOP_ALLOWFADEOUT);  
       }
 
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Releases a sound from FMOD.
+    */
+    /**************************************************************************/
+    void AudioFMOD::Unload(FMOD::Studio::Bank * bank)
+    {
+      bank->unload();
     }
 
     /**************************************************************************/

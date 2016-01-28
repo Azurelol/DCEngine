@@ -16,25 +16,26 @@
 
 namespace DCEngine {
   
-  class FMODSoundPtr {
+  class FMODSoundHandle {
   
   public:
 
     FMOD::Channel* Channel;
-    FMOD::Sound* SoundPtr;
+    FMOD::Sound* Handle;
 
-    FMODSoundPtr() {}
+    FMODSoundHandle() {}
+    FMOD::Sound* operator->() { return Handle; }
     // What do these do, again? 
-    //FMODSoundPtr(FMODSoundPtr&&) = default;
-    //FMODSoundPtr& operator=(FMODSoundPtr&&) = default;
+    //FMODSoundHandle(FMODSoundHandle&&) = default;
+    //FMODSoundHandle& operator=(FMODSoundHandle&&) = default;
     
-    //FMODSoundPtr(const FMODSoundPtr&) = delete;
-    //FMODSoundPtr& operator=(const FMODSoundPtr&) = delete;
+    //FMODSoundHandle(const FMODSoundHandle&) = delete;
+    //FMODSoundHandle& operator=(const FMODSoundHandle&) = delete;
 
-    ~FMODSoundPtr() {
+    ~FMODSoundHandle() {
 
       // WHY DOTH YOU CRASH
-      //auto result = SoundPtr->release();
+      //auto result = Handle->release();
     }
   };
 

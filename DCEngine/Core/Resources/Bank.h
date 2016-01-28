@@ -21,9 +21,11 @@ namespace DCEngine {
   using BankPtr = std::shared_ptr<Bank>;
   class Bank : public Resource {
   public:
-       
+      
+    // Properties
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
-    void Generate();
+
+    void Add();
 
     ZilchDeclareDerivedType(Bank, Resource);
     Bank(std::string name);

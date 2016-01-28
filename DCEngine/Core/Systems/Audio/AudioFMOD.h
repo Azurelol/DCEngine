@@ -37,8 +37,8 @@ namespace DCEngine {
       ~AudioFMOD();
 
       // Playback
-      bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, bool bLoop = false);
-      bool PlaySound(EventDescriptionHandle& eventHandle);
+      bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, PlaybackSettings& settings);
+      bool PlaySound(EventDescriptionHandle& eventHandle, PlaybackSettings& settings);
       void ResumeSound(FMOD::Channel* channel);
       void ResumeSound(EventDescriptionHandle& eventHandle);
       void PauseSound(FMOD::Channel* channel);
@@ -57,6 +57,10 @@ namespace DCEngine {
       FMOD::Studio::VCA* getVCA(std::string path) const;
       FMOD_RESULT getVCA(std::string path, FMOD::Studio::VCA** vca) const;
       
+      // Generate
+      void GenerateResources();
+      void GenerateSoundCues();
+
       //FMOD_RESULT Start();
       //FMOD_RESULT Stop(FMOD_STUDIO_STOP_MODE mode);
       //FMOD_RESULT Unload();
@@ -90,10 +94,12 @@ namespace DCEngine {
 
       // Loading
       FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);      
-      void Unload(FMOD::Studio::Bank* bank);
       void LoadEventDescriptions(FMOD::Studio::Bank* bank);
+      void LoadVCAs(FMOD::Studio::Bank* bank);
+      void LoadChannelGroups(FMOD::Studio::Bank* bank);
 
       // Release
+      void Unload(FMOD::Studio::Bank* bank);
       void ReleaseSound(FMOD::Sound* soundPtr);       
 
       // Accesors
@@ -109,7 +115,9 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
 
-
+      // Diagnostics
+      static unsigned EventInstancesCreated;
+      
     };
 
 

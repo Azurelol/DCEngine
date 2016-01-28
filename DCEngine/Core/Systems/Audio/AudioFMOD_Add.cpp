@@ -11,6 +11,8 @@
 /******************************************************************************/
 #include "AudioFMOD.h"
 
+#include "../../Engine/Engine.h"
+
 namespace DCEngine {
   namespace Systems {
 
@@ -45,13 +47,11 @@ namespace DCEngine {
     /**************************************************************************/
     FMOD::Studio::EventInstance * AudioFMOD::AddEventInstance(FMOD::Studio::EventDescription* event) const
     {
-      DCTrace << "AudioFMOD::AddEventInstance: \n";
-      FMOD::Studio::EventInstance* eventInstance;
+      //DCTrace << "AudioFMOD::AddEventInstance: \n";
+
+      FMOD::Studio::EventInstance* eventInstance;      
       event->createInstance(&eventInstance);
-      
-      // Get the name of the event?
-      FMOD_GUID* id;
-      event->getID(id);
+      //EventInstanceHandle newEvent(new EventInstanceInfo(EventInstancesCreated++, eventInstance));
 
       return eventInstance;
     }
@@ -74,8 +74,7 @@ namespace DCEngine {
       ErrorCheck(newBank->loadSampleData());
       // Add it to the container of active banks
       ActiveBanks.insert(std::pair<std::string, FMOD::Studio::Bank*>(handle, newBank));
-      
-      LoadEventDescriptions(newBank);
+
       return newBank;
     }
 
@@ -89,51 +88,80 @@ namespace DCEngine {
     void AudioFMOD::LoadEventDescriptions(FMOD::Studio::Bank * bank)
     {
       DCTrace << "AudioFMOD::LoadEventDescriptions - Loading event descriptions \n";
-
+      
       FMOD_RESULT result;
+
       int eventCount = 0;
       result = bank->getEventCount(&eventCount);
-      //if () {
-      //  DCTrace << "AudioFMOD::LoadEventDescriptions: No events found!\n";
-      //  return;
-      //}
+      if (result != FMOD_OK) {
+        DCTrace << "AudioFMOD::LoadEventDescriptions: No events found!\n";
+        return;
+      }
 
       int eventsReturned = 0;
       FMOD::Studio::EventDescription ** eventList = (FMOD::Studio::EventDescription **)malloc(eventCount * sizeof(void *));
       result = bank->getEventList(eventList, eventCount, &eventsReturned);
-      auto a = 1;
-      
-     
-      if (result == FMOD_OK)
-      {
-        for (int i = 0; i < eventsReturned; ++i)
-        {
-          int buff_sz = 0;
-          char path[256] = { 0 };
-          FMOD_GUID guid;
-          std::memset(&guid, 0, sizeof(guid));
-          result = eventList[i]->getID(&guid);
-          result = eventList[i]->getPath(path, 255, &buff_sz);
-          printf("%s\n", path);
-
-          // Does not compile!
-          //FMOD::Studio::EventInstance *test = nullptr;
-          //test->setParameterValue(some float);
-        }
+      if (result != FMOD_OK) {
+        DCTrace << "AudioFMOD::LoadEventDescriptions: No events retrieved!\n";
+        return;
       }
 
-      free(eventList);
+      for (int i = 0; i < eventsReturned; ++i)
+      {
+        int buff_sz = 0;
+        char path[256] = { 0 };
+        result = eventList[i]->getPath(path, 255, &buff_sz);
+        printf("%s\n", path);
+        
+        // Create an event description and add it to the map of available events
+        //FMOD::Studio::EventInstance* eventInstance;
+        //eventList[i]->createInstance(&eventInstance);
+        
+        //EventDescriptionHandle eventDescription = EventDescriptionHandle(new EventDescriptionInfo(FileSystem::FileNoExtension(path), path));
+        auto name = FileSystem::FileNoExtension(path);
+        AvailableEvents.insert(std::pair<std::string, FMOD::Studio::EventDescription*>(name, eventList[i]));
+      }
+
+      //free(eventList);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads all VCAs from the bank.
+    @param  bank A pointer to the bank.
+    */
+    /**************************************************************************/
+    void AudioFMOD::LoadVCAs(FMOD::Studio::Bank * bank)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads all channel groups from the bank.
+    @param  bank A pointer to the bank.
+    */
+    /**************************************************************************/
+    void AudioFMOD::LoadChannelGroups(FMOD::Studio::Bank * bank)
+    {
+    }
 
 
+    /**************************************************************************/
+    /*!
+    @brief  Generates SoundCues from all existing events (EventDescriptions).
+    */
+    /**************************************************************************/
+    void AudioFMOD::GenerateSoundCues()
+    {
+      for (auto& event : AvailableEvents) {
+        // Create the SoundCue
+        auto soundCue = SoundCuePtr(new SoundCue(event.first, SoundCue::WhatType::Event));
+        // Add it to the Content system
+        Daisy->getSystem<Content>()->AddSoundCue(std::string(event.first), soundCue);
 
-      //if (!bank->getEventList(eventList, eventCount, &eventsReturned)) {
-      //  DCTrace << "AudioFMOD::LoadEventDescriptions: No events retrieved!\n";
-      //  return;
-      //}
+      }
+    }
 
-
-
-    }      
 
 
   }

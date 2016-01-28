@@ -92,9 +92,11 @@ namespace DCEngine {
   property->Attributes.push_back(attributeResource);                     \
   property->Attributes.push_back(attribute)
 
-  #define DCE_BINDING_PROPERTY_SET_UNSIGNED(property)                    \
+  #define DCE_BINDING_PROPERTY_DEFINE_UNSIGNED                           \
   Zilch::Attribute attributeUnsigned;                                    \
-  attributeUnsigned.Name = "Unsigned";                                   \
+  attributeUnsigned.Name = "Unsigned"                                    
+
+  #define DCE_BINDING_PROPERTY_SET_UNSIGNED(property)                    \
   property->Attributes.push_back(attributeUnsigned)
 
   /*===================*
