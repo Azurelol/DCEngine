@@ -115,6 +115,10 @@ namespace DCEngine {
           result = eventList[i]->getID(&guid);
           result = eventList[i]->getPath(path, 255, &buff_sz);
           printf("%s\n", path);
+
+          // Does not compile!
+          FMOD::Studio::EventInstance *test = nullptr;
+          test->setParameterValue(some float);
         }
       }
 
