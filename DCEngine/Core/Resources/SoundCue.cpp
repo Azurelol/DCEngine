@@ -13,6 +13,17 @@
 #include "../../Core/Engine/Engine.h"
 //#include "../Components/EngineReference.h"
 
+/**************************************************************************/
+/*!
+@brief Binds the PlayMode enum class.
+*/
+/**************************************************************************/
+ZilchDefineExternalType(DCEngine::PlayMode, "PlayMode", DCEngine::DCEngineCore, builder, type) {
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+  ZilchBindEnumValue(builder, type, DCEngine::PlayMode::Single, "Single");
+  ZilchBindEnumValue(builder, type, DCEngine::PlayMode::Looping, "Looping");
+}
+
 namespace DCEngine {
   
   /**************************************************************************/
@@ -22,15 +33,20 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(SoundCue, "SoundCue", DCEngineCore, builder, type) {
+    DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;  
     DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Sound);
+    //DCE_BINDING_DEFINE_PROPERTY(SoundCue, Mode);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Loop);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Volume);
+    DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyVolume);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, VolumeVariation);
+    DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyVolumeVariation);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Pitch);
+    DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyPitch);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, PitchVariation);
+    DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyPitchVariation);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, AssetPath);
-    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeSound);
-    
+    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeSound);    
   }
   #endif
 

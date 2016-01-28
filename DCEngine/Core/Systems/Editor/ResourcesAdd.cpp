@@ -171,7 +171,7 @@ namespace DCEngine {
       // Serialize it and save it to file
       resource->Build();
       // Load its textures immediately
-      resource->Generate();
+      resource->Add();
       return resource.get();
 
     }

@@ -53,9 +53,9 @@ namespace DCEngine {
   @brief  Generates a list of SoundCues for every Event in the bank.
   */
   /**************************************************************************/
-  void Bank::Generate()
+  void Bank::Add()
   {
-    DCTrace << Name() << "::Bank::Generate \n";
+    DCTrace << Name() << "::Bank::Add \n";
     // Add the bank to the audio system
     Daisy->getSystem<Systems::Audio>()->Add(AssetPath, Data);
     

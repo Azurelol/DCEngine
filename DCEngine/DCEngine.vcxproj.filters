@@ -259,9 +259,6 @@
     <Filter Include="Core\Components\Graphics\Space">
       <UniqueIdentifier>{9b473cfa-f1b6-44b9-8fe4-a88e0d128fb7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Engine\Raycasting">
-      <UniqueIdentifier>{e66a76fe-7d84-4b8a-8366-b81445530ef4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Physics\Collision">
       <UniqueIdentifier>{4f9d296b-00cd-4d2b-9ccd-b39b35910236}</UniqueIdentifier>
     </Filter>
@@ -757,6 +754,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Audio\AudioFMOD_Utilities.cpp">
+      <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1258,9 +1258,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD_Utilities.h">
       <Filter>Core\Systems\Audio\FMOD</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Ray\Raycasting.h">
-      <Filter>Core\Engine\Raycasting</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Collision.h">
       <Filter>Core\Systems\Physics\Collision</Filter>

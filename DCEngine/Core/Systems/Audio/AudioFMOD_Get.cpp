@@ -48,6 +48,29 @@ namespace DCEngine {
       return FMOD_RESULT();
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Generates audio resources from all currently loaded banks.
+    */
+    /**************************************************************************/
+    void AudioFMOD::GenerateResources()
+    {
+      for (auto bank : ActiveBanks) {
+        DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
+        // Load event descriptions
+        LoadEventDescriptions(bank.second);
+        // Load channel groups
+        LoadChannelGroups(bank.second);
+        // Load VCAs
+        LoadVCAs(bank.second);
+      }
+
+      // Generate SoundCues
+      GenerateSoundCues();
+
+    }
+
+
 
 
   }
