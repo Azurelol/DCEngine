@@ -29,15 +29,20 @@ namespace DCEngine {
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
+      float MoveSpeed;
+      float Epsilon = 0.01;
 
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
+      DCE_DEFINE_PROPERTY(float, MoveSpeed);
+      DCE_DEFINE_PROPERTY(float, Epsilon);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
+      ~Grunt();
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnCollisionEndedEvent(Events::CollisionEnded* event);
@@ -51,6 +56,14 @@ namespace DCEngine {
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
       Vec3 startingPosition;
+      Vec3 endPosition;
+
+      class Global : public IState<Grunt>
+      {
+        void Enter(Grunt *owner);
+        void Update(Grunt *owner);
+        void Exit(Grunt *owner);
+      };
 
       class Idle : public IState<Grunt>
       {

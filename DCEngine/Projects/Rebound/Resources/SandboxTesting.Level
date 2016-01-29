@@ -119,7 +119,7 @@
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": false, 
+            "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "AutoPlayTimer": 2.000000
@@ -367,15 +367,14 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "EnemyController": 
+          "Grunt": 
           {
-            "MoveSpeed": 5.000000, 
-            "JumpPowerY": 20.000000, 
-            "JumpPowerX": 3.000000, 
-            "JumpInterval": 2.000000, 
-            "PatrolRange": 15.000000, 
-            "Timer": 109.912415, 
-            "AutoPlay": true
+            "PlayerName": "Player", 
+            "IdleRange": 10.000000, 
+            "PatrolDistance": 5.000000, 
+            "IsPatrolRight": true, 
+            "MoveSpeed": 1.000000, 
+            "Epsilon": 0.010000
           }
         }
       }, 

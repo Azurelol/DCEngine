@@ -38,6 +38,7 @@ namespace DCEngine {
 	  ZilchInitializeType(Components::TutorialTextLogic);
 	  ZilchInitializeType(Components::LockField);
 	  ZilchInitializeType(Components::PowerField);
+    ZilchInitializeType(Components::Grunt);
   }
 
   void ReboundComponentsAddToFactory() {
@@ -62,6 +63,7 @@ namespace DCEngine {
 	  factory->AddComponentFactory(Components::TutorialTextLogic::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::TutorialTextLogic>>());
 	  factory->AddComponentFactory(Components::LockField::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::LockField>>());
 	  factory->AddComponentFactory(Components::PowerField::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::PowerField>>());
+    factory->AddComponentFactory(Components::Grunt::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Grunt>>());
   }
 
 

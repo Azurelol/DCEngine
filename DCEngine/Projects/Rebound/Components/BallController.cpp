@@ -172,7 +172,7 @@ namespace DCEngine {
           CurrentCharge = MaxCharge;
         }
       }
-      PrintVelocity();
+      //PrintVelocity();
     }
 
     void BallController::ChangeColor()
