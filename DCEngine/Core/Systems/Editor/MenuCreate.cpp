@@ -97,7 +97,11 @@ namespace DCEngine {
     void Editor::CreateParticleSystem()
     {
       // Create the ParticleSystem GameObject
-      auto psystem = CurrentSpace->CreateObject("ParticleEffect");
+      auto psystem = CurrentSpace->CreateObject();
+      psystem->AddComponentByName(std::string("SpriteParticleSystem"), false);
+      psystem->AddComponentByName(std::string("ParticleEmitter"), false);
+      psystem->AddComponentByName(std::string("LinearParticleAnimator"), false);
+      //auto psystem = CurrentSpace->CreateObject("ParticleEffect");
       psystem->setObjectName("ParticleSystem");
       // Add the Sprite component
       //psystem->AddComponentByName(std::string("Particle System"), true);

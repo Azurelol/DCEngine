@@ -7,7 +7,7 @@
     {
       "GameObject": 
       {
-        "Name": "Transform", 
+        "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
         {
@@ -17,8 +17,66 @@
             {
               "Vec3": 
               {
+                "x": 9.000000, 
+                "y": 17.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
                 "x": 1.000000, 
-                "y": 11.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ParticleSystem", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.610423, 
+                "y": 12.789358, 
                 "z": 0.000000
               }
             }, 
@@ -70,13 +128,13 @@
           "ParticleEmitter": 
           {
             "Active": true, 
-            "EmitCount": -1, 
+            "EmitCount": 0, 
             "EmitRate": 10, 
-            "EmitVariance": 10, 
+            "EmitVariance": 0, 
             "Size": 1.000000, 
             "SizeVariance": 1.000000, 
-            "Lifetime": 10.000000, 
-            "LifetimeVariance": 5.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
             "Spin": 100.000000, 
             "SpinVariance": 100.000000, 
             "StartVelocity": 
@@ -98,58 +156,29 @@
               }
             }
           }, 
-          "ParticleColorAnimator": 
+          "LinearParticleAnimator": 
           {
-            "Color0": 
+            "Force": 
             {
-              "Vec4": 
+              "Vec3": 
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
+                "z": 0.000000
               }
             }, 
-            "Color1": 
+            "RandomForce": 
             {
-              "Vec4": 
+              "Vec3": 
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
+                "z": 0.000000
               }
             }, 
-            "Color2": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }, 
-            "Color3": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }, 
-            "Color4": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
           }
         }
       }

@@ -115,7 +115,8 @@ namespace DCEngine {
       Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
       GameObjectPtr TransformTool = nullptr;
-      Object* SelectedObject = nullptr;
+      ObjectPtr SelectedObject = nullptr;
+      ObjectContainer SelectedObjects;
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
@@ -169,9 +170,9 @@ namespace DCEngine {
       void Deselect();
       void SelectSpace();
       void CenterSelected();
-      void DragObject(Vec2);
-      void RotateObject(Vec2, Vec3);
-      void ScaleObject(Vec2 pos);
+      void DragObject(Vec2&);
+      void RotateObject(Vec2&);
+      void ScaleObject(Vec2&);
       void ReleaseObject();
       // Resources
       void WindowAddResource();
@@ -192,7 +193,6 @@ namespace DCEngine {
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
       bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
-
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
@@ -210,10 +210,12 @@ namespace DCEngine {
       void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
-      void DuplicateObject();
       // Tools
-      void UseTool();
       void ShowSelection();
+      void DisplayTool();
+      void UseTool(GameObjectPtr gameObject, Vec2& position);
+      void ReleaseTool();
+      bool IsToolRegion(GameObjectPtr);
       void TranslateTool();
       void RotateTool();
       void ScaleTool();

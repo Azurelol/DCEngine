@@ -271,6 +271,12 @@
     <Filter Include="Core\Object\PhysicsCasting">
       <UniqueIdentifier>{57925c11-d2a5-479e-8d90-c0994501d503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Camera">
+      <UniqueIdentifier>{b96ada2b-2ce9-4c95-a791-bbcf40fe6593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Input">
+      <UniqueIdentifier>{bec2abf2-633a-4dec-80f0-57595d8587fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -534,9 +540,6 @@
     <ClCompile Include="Core\Resources\Level.cpp">
       <Filter>Core\Resources\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
-      <Filter>Core\Systems\Editor\Configuration</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp">
       <Filter>Core\Systems\Editor\Configuration</Filter>
     </ClCompile>
@@ -751,6 +754,15 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Utilities.cpp">
       <Filter>Core\Systems\Audio\FMOD</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\CameraControl.cpp">
+      <Filter>Core\Systems\Editor\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

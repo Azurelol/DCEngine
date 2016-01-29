@@ -12,9 +12,8 @@
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
-  namespace Systems {
-
-    CommandObjectTransform* TransCommand = NULL;
+  namespace Systems {    
+    
     /**************************************************************************/
     /*!
     @brief  Receives a MouseDown event.
@@ -23,146 +22,32 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseDownEvent(Events::MouseDown* event)
     {
-      if (TransCommand != NULL)
-      {
-        delete TransCommand;
-        TransCommand = NULL;
-      }
-
       if (!Settings.EditorEnabled)
         return;
 
+      // LEFT MOUSE BUTTON
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
-
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-        auto gameObject = FindObjectFromSpace(posOnSpace);
+        auto gameObject = FindObjectFromSpace(posOnSpace);        
+        if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+          UseTool(gameObject, event->Position);
+        }    
         
-        // If the 'Translate' tool is active...
-        if (ActiveTool == EditorTool::Translate) {
-          // And a valid GameObject was selected, start dragging it
-          if (SelectedObject && gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-            Settings.Dragging = true;
-            auto transform = gameObject->getComponent<Components::Transform>();
-            TransCommand = new CommandObjectTransform(transform);
-            DCTrace << "Editor::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
-            return;
-          }
-          //if we have a valid Object selected still
-          else if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
-            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
-            //and it has a transform
-            if (transform != NULL)
-            {
-              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-              auto xPos = transform->getTranslation().x;
-              auto yPos = transform->getTranslation().y;
-              //data for translate editor tools
-              Real radius = 8;
-              Real arrowTip = 1;
-              //if within horizontal tool, drag along x axis
-              if (mousePos.x > xPos && mousePos.x < xPos + radius && mousePos.y < yPos + arrowTip && mousePos.y > yPos - arrowTip)
-              {
-                Settings.DraggingX = true;
-                Settings.DragOffset = mousePos.x - xPos;
-                
-                TransCommand = new CommandObjectTransform(transform);
-                DCTrace << "Editor::OnMouseDownEvent - DraggingX: '" << SelectedObject->getObjectName() << "'\n";
-                return;
-              }
-              //if within vertical tool, drag along y axis
-              if (mousePos.x > xPos - arrowTip && mousePos.x < xPos + arrowTip && mousePos.y < yPos + radius && mousePos.y > yPos)
-              {
-                Settings.DraggingY = true;
-                Settings.DragOffset = mousePos.y - yPos;
-                TransCommand = new CommandObjectTransform(transform);
-                DCTrace << "Editor::OnMouseDownEvent - DraggingY: '" << SelectedObject->getObjectName() << "'\n";
-                return;
-              }
-            }
-          }
-        }
-        else if (ActiveTool == EditorTool::Rotate)
-        {
-          if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
-            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
-            if (transform != NULL)
-            {
-              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-              auto xPos = transform->getTranslation().x;
-              auto yPos = transform->getTranslation().y;
-              Real radius = transform->getScale().x *2.5;
-              Real radiusSquared = radius*radius;
-              Real distanceSquared = (mousePos.x - xPos)*(mousePos.x - xPos) + (mousePos.y - yPos)*(mousePos.y - yPos);
-              if (distanceSquared - radiusSquared < 1 && distanceSquared - radiusSquared > -1)
-              {
-                Settings.Rotating = true;
-                Settings.OriginMousePos = mousePos;
-                TransCommand = new CommandObjectTransform(transform);
-                DCTrace << "Editor::OnMouseDownEvent - Rotating: '" << SelectedObject->getObjectName() << "'\n";
-                return;
-              }
-            }
-          }
-        }
-        else if (ActiveTool == EditorTool::Scale)
-        {
-          if (SelectedObject && SelectedObject->getObjectName() != std::string("EditorCamera")) {
-            auto transform = dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>();
-            if (transform != NULL)
-            {
-              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-              auto xPos = transform->getTranslation().x;
-              auto yPos = transform->getTranslation().y;
-              Real width = transform->getScale().x *2.5;
-              Real height = transform->getScale().y *2.5;
-              Real distanceX = mousePos.x - xPos;
-              Real distanceY = mousePos.y - yPos;
-              if (distanceY - height/2 < 0.25 && distanceY - height/2 > -0.25 && mousePos.x > xPos-width/2 && mousePos.x < xPos + width / 2)
-              {
-                Settings.ScalingY = true;
-                Settings.OriginScale = transform->getScale();
-                Settings.OriginMousePos = mousePos;
-                TransCommand = new CommandObjectTransform(transform);
-                DCTrace << "Editor::OnMouseDownEvent - ScalingY: '" << SelectedObject->getObjectName() << "'\n";
-                return;
-              }
-              else if (distanceX - width / 2 < 0.25 && distanceX - width / 2 > -0.25 && mousePos.y > yPos - height / 2 && mousePos.y < yPos + height / 2)
-              {
-                Settings.ScalingX = true;
-                Settings.OriginScale = transform->getScale();
-                Settings.OriginMousePos = mousePos;
-                TransCommand = new CommandObjectTransform(transform);
-                DCTrace << "Editor::OnMouseDownEvent - ScalingX: '" << SelectedObject->getObjectName() << "'\n";
-                return;
-              }
-            }
-          }
-        }
         // If an object was found at that position, select it
         if (gameObject)
           SelectObjectFromSpace(gameObject);
-        // If no object was found, deselect
-        else
+        // If no object was found, deselect the current object if no tool's region overlaps the selected area
+        else if (!IsToolRegion(gameObject))
           Deselect();
-
-        // If the 'Select' tool is active, attempt to pick it
-        //if (ActiveTool == EditorTool::Select) {
-          
-        //}
       }
+
+      // RIGHT MOUSE BUTTON
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
         Settings.CamStartPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
         Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
       }
-
-		  //if (Settings.Panning == false)
-		  //{
-			 // //Settings.PositionRecord = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-		  //}
-    //    Settings.Panning = true;        
-    //  }
     }
 
     /**************************************************************************/
@@ -176,42 +61,12 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
-      // Stop dragging
-      if (Settings.Dragging || Settings.DraggingX || Settings.DraggingY) {
-        ReleaseObject();
-        Settings.Dragging = false;
-        Settings.DraggingX = false;
-        Settings.DraggingY = false;
-        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
-        auto command = CommandPtr(TransCommand);
-        Settings.Commands.Add(command);
-        TransCommand = NULL;
-      }
-      if (Settings.Rotating)
-      {
-        ReleaseObject();
-        Settings.Rotating = false;
-        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
-        auto command = CommandPtr(TransCommand);
-        Settings.Commands.Add(command);
-        TransCommand = NULL;
-      }
-      if (Settings.ScalingX || Settings.ScalingY)
-      {
-        ReleaseObject();
-        Settings.ScalingX = false;
-        Settings.ScalingY = false;
-        TransCommand->SaveNew(dynamic_cast<GameObject*>(SelectedObject)->getComponent<Components::Transform>());
-        auto command = CommandPtr(TransCommand);
-        Settings.Commands.Add(command);
-        TransCommand = NULL;
-      }
+      ReleaseTool();
+
       // Stop panning
       if (Settings.Panning) {
         Settings.Panning = false;
       }
-
-      //DCTrace << "Editor::OnMouseUpEvent - \n";
     }
 
     /**************************************************************************/
@@ -222,15 +77,18 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
     {
-      if (TransCommand != NULL)
-      {
-        DragObject(event->ScreenPosition);
-        RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
-        ScaleObject(event->ScreenPosition);
-        PanCamera(event->ScreenPosition);
-      }
-    }
+      PanCamera(event->ScreenPosition);
+      DragObject(event->ScreenPosition);
+      RotateObject(event->ScreenPosition);
+      ScaleObject(event->ScreenPosition);
 
+      //if (TransCommand != NULL)
+      //{
+      //  DragObject(event->ScreenPosition);
+      //  RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
+      //  ScaleObject(event->ScreenPosition);
+      //}
+    }
 
     /**************************************************************************/
     /*!
@@ -362,81 +220,9 @@ namespace DCEngine {
         ScaleObject(Vec3(Settings.SnapDistance, 0, 0));
         break;
 
-      //case Keys::Escape:
-      //  ActiveTool = EditorTool::None;
-      //  break;
-
-
-
       default:
-        //ActiveTool = EditorTool::None;
         break;
-
       }
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Pans the camera when the specified mouse-button is held.
-    @param  event The current mouse position.
-    */
-    /**************************************************************************/
-    void Editor::PanCamera(Vec2 mousePosition)
-    {
-      if (Settings.Panning) {
-        // Get the mouse position
-        auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(mousePosition), 0);
-        auto camPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
-        //auto offset = Vec3(mousePos.x - camPos.x, mousePos.y - camPos.y, camPos.z);
-
-        Vec3 cameraDiff = camPos - Settings.CamStartPos;
-        Vec3 mouseDiff = mousePos - Settings.MouseStartPos;        
-
-        //float width = 5;
-        //CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(mousePos, width, width, Vec4(1, 0, 0, 1));
-
-        // Set the camera's position
-        EditorCamera->getComponent<Components::Transform>()->setTranslation(Settings.CamStartPos + cameraDiff - mouseDiff);
-
-      }
-      
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Draws a grid on screen while the editor is enabled.
-    */
-    /**************************************************************************/
-    void Editor::DrawGrid()
-    {
-      if (!Settings.GridActive)
-        return;
-
-      Vec3& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
-      // The editor grid will always be in front of the camera.
-      Vec3 gridStartPos(cameraPos.x, cameraPos.y, cameraPos.z - 1);
-      Real edge = 500; // We want to make sure we draw 'very' from far away??
-      unsigned lines = 100;
-      // Start drawings from the center of the screen and outwards
-      for (unsigned int i = 0; i < lines; ++i) {
-        // Draw the horizontal lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x -edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
-                                                                                 Vec3(gridStartPos.x + edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
-                                                                                 Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
-                                                                                 Vec3(gridStartPos.x + edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
-                                                                                 Settings.GridColor);
-        // Draw the vertical lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
-                                                                                 Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
-                                                                                 Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
-                                                                                 Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
-                                                                                 Settings.GridColor);
-      }      
-
     }
 
     /**************************************************************************/

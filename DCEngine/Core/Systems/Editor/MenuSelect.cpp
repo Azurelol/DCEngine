@@ -20,9 +20,6 @@ namespace DCEngine {
     /*!
     @brief  Checks if there's an object at the current position in the space.
     @param  pos The position of the mouse relative to world space.
-    @todo   Not have the camera's current direction vector hardcoded?
-    Find the camera's forward through an orientation component.
-    Use std::sort rather than some hacky algorithm.
     */
     /**************************************************************************/
     void Editor::SelectObjectFromSpace(GameObject* object)
@@ -156,137 +153,7 @@ namespace DCEngine {
       EditorCamera->getComponent<Components::Transform>()->setTranslation(Vec3(objectPos.x, objectPos.y, cameraPos.z));
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Drags the object
-    @param  The mouse's current position.
-    */
-    /**************************************************************************/
-    void Editor::DragObject(Vec2 pos)
-    {
-      // Only drag GameObjects in the Space while in translate mode
-      if (ActiveTool != EditorTool::Translate)
-        return;
-
-      // If the mouse is currently being dragged
-      if (Settings.Dragging) {
-        //DCTrace << "Dragging! \n ";
-        // If the selected object is a GameObject on the space
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-          // Move the object
-          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x,
-            mousePos.y,
-            gameObject->getComponent<Components::Transform>()->getTranslation().z));
-        }
-      }
-      if (Settings.DraggingX) {
-        //DCTrace << "Dragging! \n ";
-        // If the selected object is a GameObject on the space
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-          // Move the object
-          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x-Settings.DragOffset,
-            gameObject->getComponent<Components::Transform>()->getTranslation().y,
-            gameObject->getComponent<Components::Transform>()->getTranslation().z));
-        }
-      }
-          if (Settings.DraggingY) {
-            //DCTrace << "Dragging! \n ";
-            // If the selected object is a GameObject on the space
-            if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-              // Calculate the current mouse position
-              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-              //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-              // Move the object
-              gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(gameObject->getComponent<Components::Transform>()->getTranslation().x,
-                mousePos.y- Settings.DragOffset,
-                gameObject->getComponent<Components::Transform>()->getTranslation().z));
-            }
-      }
-
-    }
-    void Editor::RotateObject(Vec2 pos, Vec3 PreviousRotation)
-    {
-      if (ActiveTool != EditorTool::Rotate)
-        return;
-
-      if (Settings.Rotating) {
-        auto gameObject = dynamic_cast<GameObject*>(SelectedObject);
-        auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-        auto transform = gameObject->getComponent<Components::Transform>();
-        auto normal = Vec3(transform->getTranslation().y - Settings.OriginMousePos.y, -(transform->getTranslation().x - Settings.OriginMousePos.x), 0);
-        auto c = (normal.x * Settings.OriginMousePos.x + normal.y * Settings.OriginMousePos.y);
-        auto dist = (normal.x*mousePos.x + normal.y*mousePos.y - c) / sqrt(normal.x*normal.x + normal.y*normal.y);
-       
-        normal *= 1 / sqrt(normal.x*normal.x + normal.y*normal.y);
-
-        Vec4 color(1.0, 0.0, 0.0, 1.0); // Red
-        Real radius = 1;
-        
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(dist*normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), radius, color);
-
-        transform->setRotation(Vec3(PreviousRotation.x, PreviousRotation.y, PreviousRotation.z + 360 * (static_cast<int>(dist)%360)/90 ));
-      }
-    }
-    void Editor::ScaleObject(Vec2 pos)
-    {
-      if (ActiveTool != EditorTool::Scale)
-        return;
-
-      if (Settings.ScalingX) {
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          auto transform = gameObject->getComponent<Components::Transform>();
-          
-          gameObject->getComponent<Components::Transform>()->setScale(Vec3(Settings.OriginScale.x + Settings.OriginScale.x*((mousePos.x-Settings.OriginMousePos.x)/abs(Settings.OriginMousePos.x - transform->getTranslation().x)),
-            gameObject->getComponent<Components::Transform>()->getScale().y,
-            gameObject->getComponent<Components::Transform>()->getScale().z));
-        }
-      }
-      if (Settings.ScalingY) {
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          auto transform = gameObject->getComponent<Components::Transform>();
-
-          gameObject->getComponent<Components::Transform>()->setScale(Vec3(transform->getScale().x,
-            Settings.OriginScale.y + Settings.OriginScale.y*((mousePos.y - Settings.OriginMousePos.y) / abs(Settings.OriginMousePos.y - transform->getTranslation().y)),
-            transform->getScale().z));
-        }
-      }
-    }
-    /**************************************************************************/
-    /*!
-    @brief  Releases the object at the current dragged position.    
-    */
-    /**************************************************************************/
-    void Editor::ReleaseObject()
-    {
-      if (!SelectedObject)
-        return;
-
-      if (Settings.Dragging || Settings.DraggingX || Settings.DraggingY) {       
-
-        // Snap the object to the nearest (x,y) snapDistance      
-        if (Settings.Snapping) {
-          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->getTranslation();
-          auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
-          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
-
-          DCTrace << "Editor::ReleaseObject - Releasing '" << SelectedObject->getObjectName() << "' at: \n"
-            << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";
-        }
-
-      }
-        
-    }
-
+    
 
 
   }

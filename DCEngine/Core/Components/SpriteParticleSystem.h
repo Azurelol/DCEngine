@@ -48,7 +48,6 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, LengthScale);
       DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 
-
       ZilchDeclareDerivedType(SpriteParticleSystem, Graphical);
       SpriteParticleSystem(Entity& owner);
 			virtual ~SpriteParticleSystem(void);
@@ -79,7 +78,8 @@ namespace DCEngine {
 				Particle(double, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
 					ParticleColorAnimator*, LinearParticleAnimator*);
 				//Particle& operator=(const Particle&);
-				void Update(double);
+				void Update(double);        
+
 				double GetLifetime(void) const;
 				double GetLifeleft(void) const;
 				Vec2 GetPosition(void) const;

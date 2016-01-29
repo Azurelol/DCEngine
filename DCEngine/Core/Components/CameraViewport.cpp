@@ -81,26 +81,6 @@ namespace DCEngine {
       vecCenter.x = widthRatio * width + CameraObj->TransformComponent->Translation.x;
       vecCenter.y = CameraObj->TransformComponent->Translation.y - heightRatio * height;
 
-			DCTrace <<vecCenter.x << " " << vecCenter.y << "\n";
-      /**********************************************
-        1. Viewport Origin and Extent
-      **********************************************/
-      //// Retrieve the viewport values (X, Y, Width, Height)
-      //GLfloat pixelDepth;
-      //glReadPixels(screenPoint.x, screenPoint.y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &pixelDepth);
-
-      ////auto viewport = glm::vec4(0.0f, 0.0f, CameraObj->WindowWidth, CameraObj->WindowHeight);
-      //GLint viewport[4];
-      //glGetIntegerv(GL_VIEWPORT, viewport);
-      //auto screenPos = glm::vec3(screenPoint.x, viewport[3] - screenPoint.y, pixelDepth);
-      //auto view = CameraObj->GetViewMatrix();
-      //auto proj = CameraObj->GetProjectionMatrix();
-
-      //auto pos = glm::unProject(screenPos, view, proj, glm::vec4(0, 0, viewport[2], viewport[3]));
-
-      //.vecCenter = vecCenter.x * CameraObj->getSize();
-
-      //DCTrace << " CameraViewport::ScreenToViewport - Size: " << CameraObj->getSize() << "\n";
       return Vec2(vecCenter.x, vecCenter.y);
     }
 
