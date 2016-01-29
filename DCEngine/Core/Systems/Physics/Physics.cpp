@@ -184,15 +184,15 @@ namespace DCEngine {
 
 				BroadPhaseDetection(physpace, pairs);
 
+        Integrate(dt, physpace);
+
         NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
-        Integrate(dt, physpace);
-
 				PublishResults(physpace);
 
-        UpdateTransforms(physpace);
+        //UpdateTransforms(physpace);
 			}
 
 
@@ -316,7 +316,7 @@ namespace DCEngine {
 			
       if (list.size() == listsize)
       {
-        return;
+        //return;
       }
 			
       listsize = list.size();

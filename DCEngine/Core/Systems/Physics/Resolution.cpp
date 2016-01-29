@@ -160,7 +160,7 @@ namespace DCEngine
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        c.Object1->getComponent<Components::RigidBody>()->setVelocity(impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
@@ -168,7 +168,7 @@ namespace DCEngine
     {
       if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
@@ -176,18 +176,19 @@ namespace DCEngine
     {
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        c.Object1->getComponent<Components::RigidBody>()->setVelocity(impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
 
       if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        c.Object2->getComponent<Components::RigidBody>()->setVelocity(impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
 
     // this is the code that handles friction
+    /*  
     if (c.rigid1 != false && c.rigid2 == false)
     {
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
@@ -306,7 +307,7 @@ namespace DCEngine
         c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
-
+    */
   }
 
   void Resolution::ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
