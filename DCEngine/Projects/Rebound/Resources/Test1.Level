@@ -70,13 +70,13 @@
           "ParticleEmitter": 
           {
             "Active": true, 
-            "EmitCount": 0, 
+            "EmitCount": -1, 
             "EmitRate": 10, 
-            "EmitVariance": 0, 
+            "EmitVariance": 10, 
             "Size": 1.000000, 
             "SizeVariance": 1.000000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
+            "Lifetime": 10.000000, 
+            "LifetimeVariance": 5.000000, 
             "Spin": 100.000000, 
             "SpinVariance": 100.000000, 
             "StartVelocity": 
