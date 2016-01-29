@@ -180,7 +180,7 @@ namespace DCEngine {
           continue;
 
 				std::vector<Manifold> contactlist;
-        std::vector<DetectionPairing> pairs;
+        static std::vector<DetectionPairing> pairs;
 
 				BroadPhaseDetection(physpace, pairs);
 
@@ -274,65 +274,115 @@ namespace DCEngine {
 		/**************************************************************************/
     void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
-			// For all gameobjects with a 'Collider' component
-			auto& list = physpace->AllColliders();
+      // For all gameobjects with a 'Collider' component
+      auto& list = physpace->AllColliders();
+
+      static int listsize = 0;
+
+      if (list.size() == listsize)
+      {
+        return;
+      }
+
+      listsize = list.size();
 
       pairs.clear();
 
+      Components::BoxCollider*    box1 = NULL;
+      Components::BoxCollider*    box2 = NULL;
+      Components::CircleCollider* cir1 = NULL;
+      Components::CircleCollider* cir2 = NULL;
+      int count = 0;
+
+      bool rigid1 = false, rigid2 = false;
+
+      std::string str1, str2;
+
       DetectionPairing Fill;
 
-			for (int i = 0; i < list.size(); ++i)
-			{
-				for (int j = i + 1; j < list.size(); ++j)
-				{
-          auto box1 = dynamic_cast<Components::BoxCollider*>(list[i]);
-          auto box2 = dynamic_cast<Components::BoxCollider*>(list[j]);
-          auto cir1 = dynamic_cast<Components::CircleCollider*>(list[i]);
-          auto cir2 = dynamic_cast<Components::CircleCollider*>(list[j]);
+      //pairs.resize(list.size() * list.size());
 
-         //auto box1 = list[i]->getComponent<BoxCollider>();
-         //auto box2 = list[j]->getComponent<BoxCollider>();
-         //auto cir1 = list[i]->getComponent<CircleCollider>();
-         //auto cir2 = list[j]->getComponent<CircleCollider>();
-         std::string str1, str2;
+      for (int i = 0; i < list.size(); ++i)
+      {
+        for (int j = i + 1; j < list.size(); ++j)
+        {
+          Fill.obj1 = static_cast<GameObjectPtr>(list[i]->Owner());
+          Fill.obj2 = static_cast<GameObjectPtr>(list[j]->Owner());
 
-         
+          auto rigidbody1 = Fill.obj1->getComponent<Components::RigidBody>();
+          auto rigidbody2 = Fill.obj2->getComponent<Components::RigidBody>();
 
-         Fill.obj1 = dynamic_cast<GameObjectPtr>(list[i]->Owner());
-         Fill.obj2 = dynamic_cast<GameObjectPtr>(list[j]->Owner());
+          if (rigidbody1 == NULL)
+          {
+            rigid1 = false;
+          }
+          else
+          {
+            rigid1 = true;
 
-         if (box1)
-         {
-           str1 = box1->getCollisionGroup();
-         }
-         else
-         {
-           str1 = cir1->getCollisionGroup();
-         }
+            if (rigidbody1->getDynamicState() == DynamicStateType::Static)
+            {
+              rigid1 = false;
+            }
+          }
 
-         if (box2)
-         {
-           str2 = box2->getCollisionGroup();
-         }
-         else
-         {
-           str2 = cir2->getCollisionGroup();
-         }
+          if (rigidbody2 == NULL)
+          {
+            rigid2 = false;
+          }
+          else
+          {
+            rigid2 = true;
 
-         if (str1 == str2)
-         {
-           Fill.filter = CollisionFilter();
-         }
-         else
-         {
-           // need to access the collision table and get info from it
-           //auto& a = physpace->getTable().GetFilter(str1, str2);
-           //Fill.filter = physpace->getTable().GetFilter(str1, str2);
-         }
+            if (rigidbody2->getDynamicState() == DynamicStateType::Static)
+            {
+              rigid2 = false;
+            }
+          }
 
-         pairs.push_back(Fill);
-				}
-			}
+          if (!rigid1 && !rigid2)
+          {
+            continue;
+          }
+
+          box1 = Fill.obj1->getComponent<Components::BoxCollider>();
+          box2 = Fill.obj2->getComponent<Components::BoxCollider>();
+          cir1 = Fill.obj1->getComponent<Components::CircleCollider>();
+          cir2 = Fill.obj2->getComponent<Components::CircleCollider>();
+
+          if (box1)
+          {
+            str1 = box1->getCollisionGroup();
+          }
+          else
+          {
+            str1 = cir1->getCollisionGroup();
+          }
+
+          if (box2)
+          {
+            str2 = box2->getCollisionGroup();
+          }
+          else
+          {
+            str2 = cir2->getCollisionGroup();
+          }
+
+          if (str1 == str2)
+          {
+            Fill.filter = CollisionFilter();
+          }
+          else
+          {
+            // need to access the collision table and get info from it
+            //Fill.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
+          }
+
+          pairs.push_back(Fill);
+        }
+      }
+
+
 		}
 
 		/**************************************************************************/

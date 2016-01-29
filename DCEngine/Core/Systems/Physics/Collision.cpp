@@ -52,43 +52,6 @@ namespace DCEngine
     auto rigidbody2 = obj2->getComponent<Components::RigidBody>();
 
 
-    if (rigidbody1 == NULL)
-    {
-      result.rigid1 = false;
-    }
-    else
-    {
-      result.rigid1 = true;
-    }
-
-    if (rigidbody2 == NULL)
-    {
-      result.rigid2 = false;
-    }
-    else
-    {
-      result.rigid2 = true;
-    }
-
-    if (!result.rigid1 && !result.rigid2)
-    {
-      return false;
-    }
-    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
-    {
-      return false;
-    }
-    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
-    {
-      return false;
-    }
-    else if (result.rigid1 && result.rigid2)
-    {
-      if ((obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
-      {
-        return false;
-      }
-    }
 
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<Components::BoxCollider>();
