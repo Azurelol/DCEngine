@@ -661,7 +661,7 @@ ImGuiStyle::ImGuiStyle()
     Colors[ImGuiCol_FrameBg]                = ImVec4(0.80f, 0.80f, 0.80f, 0.50f); // Background of checkbox, radio button, plot, slider, text input
     Colors[ImGuiCol_FrameBgHovered]         = ImVec4(0.90f, 0.80f, 0.80f, 0.40f);
     Colors[ImGuiCol_FrameBgActive]          = ImVec4(0.90f, 0.65f, 0.65f, 0.45f);
-    Colors[ImGuiCol_TitleBg]                = ImVec4(0.95f, 1.00f, 0.45f, 0.50f); // Window title text background
+    Colors[ImGuiCol_TitleBg]                = ImVec4(1.00f, 1.00f, 0.50f, 0.50f); // Window title text background
     Colors[ImGuiCol_TitleBgCollapsed]       = ImVec4(0.40f, 0.40f, 0.80f, 0.20f);
     Colors[ImGuiCol_TitleBgActive]          = ImVec4(0.00f, 0.80f, 0.70f, 0.50f); // Window title text when active
     Colors[ImGuiCol_MenuBarBg]              = ImVec4(0.30f, 0.30f, 0.30f, 0.90f);
