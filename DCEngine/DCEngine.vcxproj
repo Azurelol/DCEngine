@@ -420,8 +420,10 @@
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
+    <ClCompile Include="QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
     <ClInclude Include="Core\Binding\CoreBindingObjects.h" />

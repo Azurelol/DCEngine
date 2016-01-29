@@ -235,7 +235,7 @@ namespace DCEngine {
 				Vec2 force = Vec2(0, 0);
 				if (mLinearAnimator)
 				{
-					Vec2 force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
+					force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
 				}
 				mParticleList.push_back(Particle(

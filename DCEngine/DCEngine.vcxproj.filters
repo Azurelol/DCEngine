@@ -764,6 +764,9 @@
     <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Core\Systems\Physics\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1282,6 +1285,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Ray.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>Core\Systems\Physics\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

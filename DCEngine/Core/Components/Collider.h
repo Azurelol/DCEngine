@@ -48,6 +48,8 @@ namespace DCEngine {
       virtual void Initialize();
       //Vec3 getColliderScale();
 
+			std::vector<Collider*>* bucket;
+
     private:
 
       // Transform* TransformComponent;
@@ -55,6 +57,9 @@ namespace DCEngine {
       // // The group is a tag used for filter out collisions. The rules
       // // for filtering are on the CollisionFilter that is on the running space.
       CollisionGroupHandle CollisionGroup = String("Default");
+
+			//for quad trees
+			
 
       /* Events */
       //void OnLogicUpdateEvent(Events::LogicUpdate* event);
