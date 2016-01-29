@@ -26,20 +26,20 @@ namespace DCEngine
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
-  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(CollisionTable, "CollisionTable", DCEngineCore, builder, type) {
   }
-  #endif
-  
+#endif
+
   /**************************************************************************/
   /*!
   @brief CollisionTable constructor.
   */
   /**************************************************************************/
-  CollisionTable::CollisionTable(std::string collisionTableFile) : 
-                                  Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
+  CollisionTable::CollisionTable(std::string collisionTableFile) :
+    Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
   {
-    Groups.push_back(CollisionGroup("Default"));
+    AddGroup(CollisionGroup("Default"));
   }
 
   /**************************************************************************/
@@ -50,7 +50,7 @@ namespace DCEngine
   /**************************************************************************/
   CollisionTable::CollisionTable(void) : Resource("CollisionTable", "CollisionTable", "NoFile")
   {
-    Groups.push_back(CollisionGroup("Default"));
+    AddGroup(CollisionGroup("Default"));
   }
 
 
@@ -85,10 +85,12 @@ namespace DCEngine
     {
       if (Group.Name() == group.Name())
       {
-        DCTrace << "CollisionTable::AddGroup - Tried to add a group that already exists" << group.Name() << "\n";
+        //DCTrace << "CollisionTable::AddGroup - Tried to add a group that already exists" << group.Name() << "\n";
         return false;
       }
     }
+    Groups.push_back(group);
+
 
     CollisionFilter filter;
     filter.Pairing.first = group.Name();
@@ -109,10 +111,12 @@ namespace DCEngine
     {
       if (Group.Name() == group)
       {
-        DCTrace << "CollisionTable::AddGroup - Tried to add a group that exists" << group << "\n";
+        //DCTrace << "CollisionTable::AddGroup - Tried to add a group that already exists" << group.Name() << "\n";
         return false;
       }
     }
+    Groups.push_back(group);
+
 
     CollisionFilter filter;
     filter.Pairing.first = group;
@@ -139,7 +143,7 @@ namespace DCEngine
     }
 
 
-    DCTrace << "CollisionTable::SetResolve - Tried to change resolution of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
+    //DCTrace << "CollisionTable::SetResolve - Tried to change resolution of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
   }
 
