@@ -19,17 +19,9 @@ namespace DCEngine {
     {
       glm::mat4 cleanup;
       glm::vec4 colorclean;
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       this->SpriteShader->SetMatrix4("model", cleanup, true);
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       this->SpriteShader->SetVector4f("color", colorclean, true);
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
       this->SpriteShader->SetInteger("isTexture", 0, true);
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
     }
 
     /**************************************************************************/

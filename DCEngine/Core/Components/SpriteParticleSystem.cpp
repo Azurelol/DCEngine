@@ -48,7 +48,7 @@ namespace DCEngine {
     @brief  Constructor for the SpriteParticleSystem
     \**************************************************************************/
     SpriteParticleSystem::SpriteParticleSystem(Entity & owner)
-			: Graphical("SpriteParticleSystem", owner), mParticleEmissionTimer(0)
+			: Graphical("SpriteParticleSystem", owner), mParticleEmissionTimer(0), Visible(true)
     {
 			TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
 			// Register
@@ -85,8 +85,8 @@ namespace DCEngine {
 			if (Debug::CheckOpenGLError())
 				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			mShader->Use();
-			mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			mShader->SetMatrix4("view", camera.GetViewMatrix());
+			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			//mShader->SetMatrix4("view", camera.GetViewMatrix());
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -157,14 +157,13 @@ namespace DCEngine {
 			{
 				mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
 				mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
-
-				mPosition.x += mVelocity.x * dt - (mAcceleration.x * dt * dt) / 2;
-				mPosition.y += mVelocity.y * dt - (mAcceleration.y * dt * dt) / 2;
-
 				mScale += mLinearAnimator->Growth * dt;
 				mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
 				mRotationRate += mLinearAnimator->Torque * dt;
 			}
+			mPosition.x += mVelocity.x * dt - (mAcceleration.x * dt * dt) / 2;
+			mPosition.y += mVelocity.y * dt - (mAcceleration.y * dt * dt) / 2;
+
 			if (mColorAnimator)
 			{
 				double percentLifeLeft = (mLifeleft / mLifetime) * 100;
@@ -284,15 +283,19 @@ namespace DCEngine {
 			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
+				double lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
+				Vec2 velocity = Vec2(mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
+					mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50);
+				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100;
+				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100;
+				Vec2 force = Vec2(0, 0);
+				if (mLinearAnimator)
+				{
+					Vec2 force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
+						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
+				}
 				mParticleList.push_back(Particle(
-					mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100, Vec2(0, 0), Vec2(
-						mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
-						mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50),
-					Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
-						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50),
-					mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100,
-					mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100,
-					Tint, mColorAnimator, mLinearAnimator));
+					lifetime, Vec2(0, 0), velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
 			}
 		}
 		std::vector<Vec2> SpriteParticleSystem::GetPositionData(void)

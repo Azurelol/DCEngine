@@ -49,7 +49,9 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Constructor for the ParticleEmitter.
     \**************************************************************************/
-    ParticleEmitter::ParticleEmitter(Entity & owner) : Graphical("ParticleEmitter", owner)
+    ParticleEmitter::ParticleEmitter(Entity & owner) : Graphical("ParticleEmitter", owner),
+			Active(true), EmitRate(10), EmitVariance(0), Size(1), SizeVariance(1), Lifetime(1),
+			LifetimeVariance(1), Spin(100), SpinVariance(100), StartVelocity(Vec3(0,0,0)), RandomVelocity(Vec3(5,5,0))
     {
 			Initialize();
     }

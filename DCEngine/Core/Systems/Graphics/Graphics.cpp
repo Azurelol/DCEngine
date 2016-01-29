@@ -80,7 +80,7 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
-				//GraphicsHandler->SetParticleSystemShader(*camera);
+				GraphicsHandler->SetParticleSystemShader(*camera);
 				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
 				//{
 				//	DrawParticles(*particleSystem, *camera, dt);

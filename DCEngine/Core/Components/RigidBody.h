@@ -54,6 +54,7 @@ namespace DCEngine
       DCE_DEFINE_PROPERTY(Real, Mass);
       DCE_DEFINE_PROPERTY(Boolean, RotationLocked);
       DCE_DEFINE_PROPERTY(DynamicStateType, DynamicState);
+			//DCE_DEFINE_PROPERTY(Vec3, Velocity);
 
       Vec3 getVelocity(void);
       void setVelocity(Vec3 vel);

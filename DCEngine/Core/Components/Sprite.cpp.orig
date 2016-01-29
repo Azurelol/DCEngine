@@ -22,8 +22,11 @@ in the world space through the drawing of sprites.
 namespace DCEngine {
   namespace Components
   {
+<<<<<<< HEAD
 		ShaderPtr Sprite::mShader;
 		GLuint Sprite::mVAO;
+=======
+>>>>>>> c64b1113efd9df60bcbabd9cd2f4d24e0bb32b20
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
     
     /**************************************************************************/
@@ -208,6 +211,9 @@ namespace DCEngine {
 		void Sprite::Draw(Camera& camera)
 		{
 			mShader->SetInteger("isTexture", 1);
+			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
+			//mShader->SetMatrix4("view", camera.GetProjectionMatrix());
+			//DCTrace << "GraphicsGL::DrawSprite - Drawing " << gameObj.Name() << "\n";
 			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

@@ -7,182 +7,8 @@
     {
       "GameObject": 
       {
-        "Name": "SpriteText", 
-        "Archetype": "SpriteText", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "", 
-            "FontSize": 12, 
-            "Text": "Tes Test", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
+        "Name": "Transform", 
         "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "PlayerRun", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 2.000000, 
-            "DrawLayer": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "SpriteText", 
-        "Archetype": "SpriteText", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "", 
-            "FontSize": 12, 
-            "Text": "Hello THis is a tes", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "ParticleSystem", 
-        "Archetype": "ParticleEffect", 
         "Components": 
         {
           "Transform": 
@@ -245,12 +71,12 @@
           {
             "Active": true, 
             "EmitCount": 0, 
-            "EmitRate": 3, 
-            "EmitVariance": 3, 
-            "Size": 2.000000, 
+            "EmitRate": 10, 
+            "EmitVariance": 0, 
+            "Size": 1.000000, 
             "SizeVariance": 1.000000, 
-            "Lifetime": 4.000000, 
-            "LifetimeVariance": 2.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
             "Spin": 100.000000, 
             "SpinVariance": 100.000000, 
             "StartVelocity": 
@@ -272,30 +98,6 @@
               }
             }
           }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": 0.000000, 
-            "Dampening": 0.000000
-          }, 
           "ParticleColorAnimator": 
           {
             "Color0": 
@@ -305,7 +107,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.100000
+                "w": 0.500000
               }
             }, 
             "Color1": 
@@ -315,7 +117,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.200000
+                "w": 0.500000
               }
             }, 
             "Color2": 
@@ -325,7 +127,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.300000
+                "w": 0.500000
               }
             }, 
             "Color3": 
@@ -335,7 +137,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.400000
+                "w": 0.500000
               }
             }, 
             "Color4": 
