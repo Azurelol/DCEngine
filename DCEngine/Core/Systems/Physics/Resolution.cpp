@@ -144,7 +144,7 @@ namespace DCEngine
 
 
     // Calculate the impulse to apply
-    float impulse = ((1.0f + c.Restitution) *(deltaVelocity)) / totalInverseMass;
+    float impulse = (1.0f + c.Restitution) *(deltaVelocity) / totalInverseMass;
 
     c.ContactImpulse = impulse;
 
