@@ -27,6 +27,10 @@ namespace DCEngine {
       ZilchDeclareDerivedType(Collider, Component);
 #endif
 
+      static unsigned Created;
+      static unsigned Destroyed;
+      static unsigned Active;
+
       /* Variables */
       //Vec3 Size = Vec3(1, 1, 1);
       //Vec3 Offset = Vec3(0, 0, 0);

@@ -18,9 +18,9 @@ another. This component interacts directly with the physics system.
 namespace DCEngine {
   namespace Components {
 
-    unsigned Collider::CollidersCreated = 0;
-    unsigned Collider::CollidersDestroyed = 0;
-    unsigned Collider::CollidersActive = 0;
+    unsigned Collider::Created = 0;
+    unsigned Collider::Destroyed = 0;
+    unsigned Collider::Active = 0;
 
     /**************************************************************************/
     /*!
@@ -50,8 +50,8 @@ namespace DCEngine {
     /**************************************************************************/
     Collider::Collider(Entity & owner, std::string colliderClass) : Component(colliderClass, owner)
     {
-      CollidersCreated++;
-      CollidersActive++;
+      Created++;
+      Active++;
     }
 
     /**************************************************************************/
@@ -61,8 +61,8 @@ namespace DCEngine {
     /**************************************************************************/
     Collider::~Collider()
     {
-      CollidersDestroyed++;
-      CollidersActive--;
+      Destroyed++;
+      Active--;
     }
 
     /**************************************************************************/

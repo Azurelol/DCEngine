@@ -48,27 +48,45 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Editor::ShowSelection()
-    {      
+    {
       if (!SelectedObject())
         return;
 
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
+      if (IsSelectableGameObject(SelectedObject())) {
 
-        // Do nothing if the GameObject does not have a transform.
-        if (!gameObject->HasComponent(std::string("Transform")))
-          return;
+        // Find the values for the boundary box composed of all selected objects
+        Vec3 topLeft;
+        Vec3 topRight;
 
-        // Get the object's position
-        auto transform = gameObject->getComponent<Components::Transform>();
+        for (auto& object : SelectedObjects) {
+          
+          auto gameObject = dynamic_cast<GameObjectPtr>(object);
+          // Do nothing if the GameObject does not have a transform.
+          if (!gameObject->HasComponent(std::string("Transform")))
+            continue;
 
-        // Draw a selected 'box' around the object
-        Vec3 pos = transform->getTranslation();
-        Real width = transform->getScale().x * 2;
-        Real height = transform->getScale().y * 2;
-        Vec4 color(1.0, 0, 0, 1.0);
+          // Get the object's position
+          auto transform = gameObject->getComponent<Components::Transform>();
+          auto& translation = transform->getTranslation();
+          auto& scale = transform->getScale();
 
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
-          width, height, color);
+          if (transform->getTranslation().x + transform< topLeft.x) {
+
+          }
+
+          // Draw a selected 'box' around the object
+          Vec3 pos = transform->getTranslation();
+          Real width = transform->getScale().x * 2;
+          Real height = transform->getScale().y * 2;
+          Vec4 color(1.0f, 0.0f, 0.0f, 1.0f);
+
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
+                                                                   width, height, color);
+        }
+
+        // Draw a selected 'box' encompassing all selected objects
+
+
       }
 
     }

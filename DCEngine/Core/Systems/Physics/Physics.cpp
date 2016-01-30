@@ -140,7 +140,10 @@ namespace DCEngine {
     /**************************************************************************/
     bool Physics::IsObjectWithinBoundingArea(Vec3 & center, float width, float height, GameObjectPtr gameObject)
     {
-      return false;
+      auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
+      auto& scale = gameObject->getComponent<Components::Transform>()->getScale();
+      auto& rotation = gameObject->getComponent<Components::Transform>()->getRotation();
+      return Collision::SelectiontoBox(center, width, height, translation, scale, rotation.z);
     }
 
     /**************************************************************************/

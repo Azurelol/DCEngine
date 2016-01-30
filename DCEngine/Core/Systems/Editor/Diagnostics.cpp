@@ -131,13 +131,13 @@ namespace DCEngine {
          COLLIDERS
       ============*/
       auto collidersActive = std::string("Colliders Active: ") +
-        std::to_string(Components::Collider::CollidersActive);
+        std::to_string(Components::Collider::Active);
       ImGui::Text(collidersActive.c_str());
       auto collidersCreated = std::string("Colliders allocated: ") +
-        std::to_string(Components::Collider::CollidersCreated);
+        std::to_string(Components::Collider::Created);
       ImGui::Text(collidersCreated.c_str());
       auto collidersDestroyed = std::string("Colliders deleted: ") +
-        std::to_string(Components::Collider::CollidersDestroyed);
+        std::to_string(Components::Collider::Destroyed);
       ImGui::Text(collidersDestroyed.c_str());
 
       ImGui::Separator();

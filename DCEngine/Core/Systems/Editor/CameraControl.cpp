@@ -1,5 +1,7 @@
 #include "Editor.h"
 
+#include "..\..\Engine\Engine.h"
+
 namespace DCEngine {
   namespace Systems {
 
@@ -56,7 +58,7 @@ namespace DCEngine {
       // Check for objects within the selected area. Perform a bounding box check.
       for (auto& gameObject : CurrentSpace->GameObjectContainer) {
         // If the object lies within the bounding area..
-        if (0) {
+        if (Daisy->getSystem<Physics>()->IsObjectWithinBoundingArea(midpoint, bounding.x, bounding.y, gameObject)) {
           SelectedObjects.push_back(gameObject);
         }
       }

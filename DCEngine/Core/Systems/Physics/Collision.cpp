@@ -953,9 +953,8 @@ namespace DCEngine
   }
 
 
-  bool Collision::SelectiontoBox(glm::vec3 posSel, float w, float h, glm::vec3 posItem, glm::vec3 scale, float rot)
-  {
-  
+  bool Collision::SelectiontoBox(Vec3& posSel, float w, float h, Vec3& posItem, Vec3& scale, float rot)
+  {  
     glm::vec3 topL1;
     glm::vec3 topR1;
     glm::vec3 botL1;
