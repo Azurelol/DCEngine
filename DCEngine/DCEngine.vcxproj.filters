@@ -780,6 +780,9 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1042,9 +1045,6 @@
     </ClInclude>
     <ClInclude Include="Dependencies\include\IMGUI\imconfig.h">
       <Filter>Libraries\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\Editor.h">
-      <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\DebugFade.h">
       <Filter>Core\Components\Debug</Filter>
@@ -1309,6 +1309,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\StateMachine\IState.h">
       <Filter>Core\Systems\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Editor.h">
+      <Filter>Core\Systems\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorUtilities.h">
+      <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

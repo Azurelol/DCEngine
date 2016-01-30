@@ -353,6 +353,7 @@
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp" />
@@ -429,6 +430,7 @@
     <ClCompile Include="QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
     <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />

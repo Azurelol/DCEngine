@@ -83,7 +83,7 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      ShowSelection();
+      DrawSelection();
       DisplayEditor();
       DisplayTool();
       
