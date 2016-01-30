@@ -107,6 +107,12 @@ namespace DCEngine {
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
       WindowPropertiesEnabled = true;
+      
+      // Save its boundaries
+      Settings.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
+      Settings.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
+      Settings.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+
       Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
@@ -180,8 +186,122 @@ namespace DCEngine {
     }
 
 
+    /**************************************************************************/
+    /*!
+    @brief  Attempts to select any objects within the boundary drawn
+            by the mouse cursor.
+    @param  event The current mouse position.
+    */
+    /**************************************************************************/
+    void Editor::SelectMultiple(Vec2 & mousePosition)
+    {
+      if (!Settings.MultiSelectDragging)
+        return;
+      
+      // Get the current mouse position.
+      auto endPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(mousePosition), 0);
+      auto& startPos = Settings.MultiSelectStartPos;
+      // Calculate the bounding box created between the endpoints (where the selection started, 
+      // and the currnent mouse position)
+      Settings.MultiSelectArea = endPos - startPos;
+      Settings.MultiSelectMidpoint = Vec3((endPos.x + startPos.x) / 2,
+                                          (endPos.y + startPos.y) / 2,
+                                          (endPos.y + startPos.y) / 2);
 
-    
+      
+      // Check for objects within the selected area. Perform a bounding box check.
+      SelectedObjects.clear();
+      for (auto& gameObject : CurrentSpace->GameObjectContainer) {
+
+        // Do nothing if it has a camera component
+        if (gameObject->HasComponent(std::string("Camera")))
+          continue;
+
+        // If the object lies within the bounding area..
+        if (Daisy->getSystem<Physics>()->IsObjectWithinBoundingArea(Settings.MultiSelectMidpoint, Settings.MultiSelectArea.x, Settings.MultiSelectArea.y, gameObject)) {
+          SelectedObjects.push_back(gameObject);
+        }
+      }
+    }
+    /**************************************************************************/
+    /*!
+    @brief  Calculates the bounding area of the currently selected objects.
+    */
+    /**************************************************************************/
+    void Editor::CalculateMultipleSelectedBounding()
+    {
+      if (!IsSelectableGameObject(SelectedObject()))
+        return;
+
+      // Find the values for the boundary box composed of all selected objects
+      float xMin = 0.0f;
+      float xMax = 0.0f;
+      float yMin = 0.0f;
+      float yMax = 0.0f;
+
+      // First time: EWWWWWWWWWWWWW
+      auto transform = dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>();
+      auto& translation = transform->getTranslation();
+      auto& scale = transform->getScale();
+      // Calculate the four boundaries of the object
+      xMin = (translation.x - (scale.x / 2));
+      xMax = (translation.x + (scale.x / 2));
+      yMax = (translation.y + (scale.y / 2));
+      yMin = (translation.y - (scale.y / 2));
+
+      for (auto& object : SelectedObjects) {
+
+        auto gameObject = dynamic_cast<GameObjectPtr>(object);
+        // Do nothing if the GameObject does not have a transform.
+        if (!gameObject->HasComponent(std::string("Transform")))
+          continue;
+
+        // Get the object's position
+        auto transform = gameObject->getComponent<Components::Transform>();
+        auto& translation = transform->getTranslation();
+        auto& scale = transform->getScale();
+
+        // Calculate the four boundaries of the object
+        auto objLeftBoundary = (translation.x - (scale.x / 2));
+        auto objRightBoundary = (translation.x + (scale.x / 2));
+        auto objTopBoundary = (translation.y + (scale.y / 2));
+        auto objBottomBoundary = (translation.y - (scale.y / 2));
+
+        // Left
+        if (objLeftBoundary < xMin)
+          xMin = objLeftBoundary;
+        if (objRightBoundary > xMax)
+          xMax = objRightBoundary;
+        if (objBottomBoundary < yMin)
+          yMin = objBottomBoundary;
+        if (objTopBoundary > yMax)
+          yMax = objTopBoundary;
+      }
+
+      // Calculate the midpoint between 2 opposite corners to find the center
+      // of the rectangle        
+      Settings.SelectedBoundingWidth = std::abs(xMax - xMin);
+      Settings.SelectedBoundingHeight = std::abs(yMax - yMin);
+      Settings.SelectedBoundingCenter = Vec3((xMin + xMax) / 2.0f,
+                                             (yMin + yMax) / 2.0f,
+                                             0.0f);
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Draws the multi-selection bounding area.
+    */
+    /**************************************************************************/
+    void Editor::DrawMultiSelect()
+    {
+      if (!Settings.MultiSelectDragging)
+        return;
+
+      // Draw the bounding rectangle
+      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Settings.MultiSelectMidpoint,
+        Settings.MultiSelectArea.x, Settings.MultiSelectArea.y, Settings.MultiSelectColor);
+    }
 
 
   }

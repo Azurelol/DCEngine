@@ -28,13 +28,13 @@ namespace DCEngine {
         //ShowSelection();
         break;
       case EditorTool::Translate:
-        TranslateTool();
+        DrawTranslateTool();
         break;
       case EditorTool::Rotate:
-        RotateTool();
+        DrawRotateTool();
         break;
       case EditorTool::Scale:
-        ScaleTool();
+        DrawScaleTool();
         break;
       default:
         break;
@@ -54,39 +54,18 @@ namespace DCEngine {
 
       if (IsSelectableGameObject(SelectedObject())) {
 
-        // Find the values for the boundary box composed of all selected objects
-        Vec3 topLeft;
-        Vec3 topRight;
+        // If drawing only 1 object, draw the bounding box larger so it can be seen!
+        auto& width = Settings.SelectedBoundingWidth;
+        auto& height = Settings.SelectedBoundingHeight;
 
-        for (auto& object : SelectedObjects) {
-          
-          auto gameObject = dynamic_cast<GameObjectPtr>(object);
-          // Do nothing if the GameObject does not have a transform.
-          if (!gameObject->HasComponent(std::string("Transform")))
-            continue;
-
-          // Get the object's position
-          auto transform = gameObject->getComponent<Components::Transform>();
-          auto& translation = transform->getTranslation();
-          auto& scale = transform->getScale();
-
-          if (transform->getTranslation().x + transform< topLeft.x) {
-
-          }
-
-          // Draw a selected 'box' around the object
-          Vec3 pos = transform->getTranslation();
-          Real width = transform->getScale().x * 2;
-          Real height = transform->getScale().y * 2;
-          Vec4 color(1.0f, 0.0f, 0.0f, 1.0f);
-
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
-                                                                   width, height, color);
+        if (SelectedObjects.size() == 1) {
+          width *= 2;
+          height *= 2;
         }
 
         // Draw a selected 'box' encompassing all selected objects
-
-
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Settings.SelectedBoundingCenter,
+                                                                               width, height, Vec4(1,0,0,1));
       }
 
     }
@@ -416,28 +395,31 @@ namespace DCEngine {
     @brief  The translate tool allows the user to move an object on screen.
     */
     /**************************************************************************/
-    void Editor::TranslateTool()
+    void Editor::DrawTranslateTool()
     {
       if (!SelectedObject())
         return;
 
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
+      if (IsSelectableGameObject(SelectedObject())) {
         
-        // Get the object's transform data
-        auto transform = gameObject->getComponent<Components::Transform>();
-        Vec3 pos = transform->getTranslation();
+        Vec3& pos = Settings.SelectedBoundingCenter;
         Real radius = 8;
-        Real arrowTip = 1;
+        Real tip = 1;
         Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
         Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
                                          // X-axis
+
+
+        // Bounding rectangle
+
+        // X-Axis Arrow
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, -arrowTip, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-arrowTip, arrowTip, 0), xColor);
-        // Y-axis
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-tip, -tip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-tip, tip, 0), xColor);
+        // Y-axis Arrow
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-arrowTip, -arrowTip, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(arrowTip, -arrowTip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-tip, -tip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(tip, -tip, 0), yColor);
       }
       
       // Create thin box-colliders on every line
@@ -449,27 +431,34 @@ namespace DCEngine {
     @brief  The rotate tool allows the user to rotate an object.
     */
     /**************************************************************************/
-    void Editor::RotateTool()
+    void Editor::DrawRotateTool()
     {
       if (!SelectedObject())
         return;
 
       if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
 
-        // Get the object's transform data
-        auto transform = gameObject->getComponent<Components::Transform>();
-        Vec3 pos = transform->getTranslation();
-        Real radius = transform->getScale().x *2.5;
+        Vec3& pos = Settings.SelectedBoundingCenter;
+        Real radius = Settings.SelectedBoundingWidth;
+
+        if (SelectedObjects.size() == 1) {
+          radius *= 2;
+        }
+
         Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
+
         if (Settings.Rotating == true)
         {
-          auto normal = Vec3(transform->getTranslation().y - Settings.OriginMousePos.y, -(transform->getTranslation().x - Settings.OriginMousePos.x), 0);
+          auto normal = Vec3(Settings.SelectedBoundingCenter.y - Settings.OriginMousePos.y, -(Settings.SelectedBoundingCenter.x - Settings.OriginMousePos.x), 0);
           normal *= 10;
           auto negNormal = -normal;
           Vec4 colorR(1.0, 0.0, 0.0, 1.0); // Red
           Vec4 colorG(0.0,1.0, 0.0, 1.0); // Red
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(transform->getTranslation().y - Settings.OriginMousePos.y), transform->getTranslation().x - Settings.OriginMousePos.x, 0) + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorG);
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorR);
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(Settings.SelectedBoundingCenter.y - Settings.OriginMousePos.y), 
+            Settings.SelectedBoundingCenter.x - Settings.OriginMousePos.x, 0) + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), 
+            Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorG);
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), 
+            normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorR);
         }
 
         // Draw a selected 'box' around the object
@@ -483,18 +472,24 @@ namespace DCEngine {
     @brief  The scale tool allows the user to scale an object.
     */
     /**************************************************************************/
-    void Editor::ScaleTool()
+    void Editor::DrawScaleTool()
     {
       if (!SelectedObject())
         return;
 
         if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
+
           // Get the object's transform data
-          auto transform = gameObject->getComponent<Components::Transform>();
-          Vec3 pos = transform->getTranslation();
-          Real width = transform->getScale().x *2.5;
-          Real height = transform->getScale().y *2.5;
+          Vec3& pos = Settings.SelectedBoundingCenter;
+          Real width = Settings.SelectedBoundingWidth;
+          Real height = Settings.SelectedBoundingHeight;
           Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
+
+          if (SelectedObjects.size() == 1) {
+            width *= 2;
+            height *= 2;
+          }
+
 
           // Draw a selected 'box' around the object
           CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
@@ -517,20 +512,24 @@ namespace DCEngine {
       if (ActiveTool != EditorTool::Translate)
         return;
 
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
-        
-        DCTrace << "Editor::MoveObject - Moving '" << SelectedObject()->Name() << "' \n";
-        // Get the object's transform data
-        auto transform = gameObject->getComponent<Components::Transform>();
-        Vec3 pos = transform->getTranslation();
-        // Translate the object
-        auto TransCommand = new CommandObjectTransform(transform);
-        transform->setTranslation(pos + direction);
-        TransCommand->SaveNew(transform);
-        auto command = CommandPtr(TransCommand);
-        Settings.Commands.Add(command);
-        
+      // If the first entry is at least a valid GameObject, the rest will be....
+      if (IsSelectableGameObject(SelectedObject())) {
+        // For every currently selected GameObject
+        for (auto& object : SelectedObjects) {
+          auto gameObject = IsSelectableGameObject(object);
 
+          DCTrace << "Editor::MoveObject - Moving '" << SelectedObject()->Name() << "' \n";
+          // Get the object's transform data
+          auto transform = gameObject->getComponent<Components::Transform>();
+          Vec3 pos = transform->getTranslation();
+          // Translate the object
+          auto TransCommand = new CommandObjectTransform(transform);
+          transform->setTranslation(pos + direction);
+          TransCommand->SaveNew(transform);
+          auto command = CommandPtr(TransCommand);
+          Settings.Commands.Add(command);
+
+        }
       }
     }
 

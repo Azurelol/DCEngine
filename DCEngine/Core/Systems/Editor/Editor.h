@@ -45,8 +45,13 @@ namespace DCEngine {
     // Multi-selection
     bool MultiSelectDragging = false;
     Vec4 MultiSelectColor = Vec4(0.3, 0.7, 0.3f, 0.5f);
+    Vec3 MultiSelectMidpoint;
     Vec3 MultiSelectStartPos;
-    Vec3 MultiSelectEndPos;
+    Vec3 MultiSelectArea;
+
+    Vec3  SelectedBoundingCenter;
+    float SelectedBoundingWidth;
+    float SelectedBoundingHeight;
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -177,6 +182,8 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void SelectMultiple(Vec2&);
+      void CalculateMultipleSelectedBounding();
+      void DrawMultiSelect();
       void DragObject(Vec2&);
       void RotateObject(Vec2&);
       void ScaleObject(Vec2&);
@@ -223,9 +230,9 @@ namespace DCEngine {
       void UseTool(GameObjectPtr gameObject, Vec2& position);
       void ReleaseTool();
       bool IsToolRegion(GameObjectPtr);
-      void TranslateTool();
-      void RotateTool();
-      void ScaleTool();
+      void DrawTranslateTool();
+      void DrawRotateTool();
+      void DrawScaleTool();
       // Actions
       void MoveObject(Vec3);
       void ScaleObject(Vec3);

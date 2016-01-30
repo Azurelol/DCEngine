@@ -98,7 +98,7 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam)
+    void GraphicsGL::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam, bool fill)
     {
 			CleanBuffer();
 			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
@@ -126,7 +126,7 @@ namespace DCEngine {
     \param The color of the circle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam)
+    void GraphicsGL::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam, bool fill)
     {
       // Do your magic here Chen
       CleanBuffer();

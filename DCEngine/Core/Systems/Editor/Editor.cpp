@@ -189,8 +189,8 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
-      // Draw the grid
       DrawGrid();
+      DrawMultiSelect();
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();

@@ -72,8 +72,10 @@ namespace DCEngine {
         Settings.Panning = false;
 
       // Stop dragging for multiple selection
-      if (Settings.MultiSelectDragging)
+      if (Settings.MultiSelectDragging) {
+        CalculateMultipleSelectedBounding();
         Settings.MultiSelectDragging = false;
+      }
     }
 
     /**************************************************************************/
