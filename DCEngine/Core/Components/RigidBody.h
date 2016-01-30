@@ -40,7 +40,10 @@ namespace DCEngine
       ZilchDeclareDerivedType(RigidBody, Component);
 #endif
 
-      RigidBody(Entity& owner) : Component(std::string("RigidBody"), owner) {}
+      static unsigned Created;
+      static unsigned Destroyed;
+      static unsigned Active;
+      RigidBody(Entity& owner);
       ~RigidBody();
       void Initialize();
       void AddForce(Vec3 force);
@@ -48,13 +51,11 @@ namespace DCEngine
       void PublishResults(void);
 
       // Properties
-      /* It's possible that we want to use a mass-override component instead */
-      
+      /* It's possible that we want to use a mass-override component instead */      
       DCE_DEFINE_PROPERTY(Vec3, AngularVelocity);
       DCE_DEFINE_PROPERTY(Real, Mass);
       DCE_DEFINE_PROPERTY(Boolean, RotationLocked);
       DCE_DEFINE_PROPERTY(DynamicStateType, DynamicState);
-			//DCE_DEFINE_PROPERTY(Vec3, Velocity);
 
       Vec3 getVelocity(void);
       void setVelocity(Vec3 vel);

@@ -107,9 +107,35 @@ namespace DCEngine {
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
       WindowPropertiesEnabled = true;
-      SelectedObject = obj;      
+      Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Returns the currently selected object.
+    */
+    /**************************************************************************/
+    ObjectPtr Editor::SelectedObject()
+    {
+      // Return the first object 
+      if (!SelectedObjects.empty())
+        return SelectedObjects.front();
+
+      // If no objects are selected..
+      return nullptr;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Selects the specified object.
+    */
+    /**************************************************************************/
+    void Editor::Select(ObjectPtr object)
+    {
+      SelectedObjects.clear();
+      SelectedObjects.push_back(object);
     }
 
     /**************************************************************************/
@@ -120,7 +146,7 @@ namespace DCEngine {
     void Editor::Deselect()
     {
       DCTrace << "Editor::Deselect \n";
-      SelectedObject = nullptr;
+      SelectedObjects.clear();
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Deselect();
     }
@@ -132,7 +158,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectSpace()
     {
-      SelectedObject = CurrentSpace;
+      Select(CurrentSpace);
       WindowPropertiesEnabled = true;
     }
 
@@ -143,15 +169,17 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::CenterSelected()
     {
-      if (!SelectedObject)
+      if (!SelectedObject())
         return;
 
       // Translate the camera to be centered on the object.
-      auto& objectPos = dynamic_cast<GameObjectPtr>(SelectedObject)
+      auto& objectPos = dynamic_cast<GameObjectPtr>(SelectedObject())
                        ->getComponent<Components::Transform>()->getTranslation();
       auto& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       EditorCamera->getComponent<Components::Transform>()->setTranslation(Vec3(objectPos.x, objectPos.y, cameraPos.z));
     }
+
+
 
     
 

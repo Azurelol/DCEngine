@@ -33,12 +33,12 @@ namespace DCEngine {
       
       ImGui::SameLine();
       if (ImGui::Button("Up")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Up);
       }
       ImGui::SameLine();
       if (ImGui::Button("Down")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
@@ -48,8 +48,8 @@ namespace DCEngine {
         auto objectName = object->Name().c_str();   
         // If the user has selected the GameObject.
         //if (ImGui::Selectable(objectName)) {
-        if (ImGui::Selectable(objectName, SelectedObject && SelectedObject->getObjectID() == object->GameObjectID)) {
-          SelectedObject = object;
+        if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->GameObjectID)) {
+          Select(object);
           WindowPropertiesEnabled = true;
         }          
       }

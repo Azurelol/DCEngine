@@ -171,20 +171,15 @@ namespace DCEngine {
       return getResource<SpriteLayerMap, SpriteLayerPtr>(name, MapSpriteLayer, DefaultSpriteLayer);
     }
 
+    TexturePtr Content::getTexture(std::string & name)
+    {
+      return getResource<TextureMap, TexturePtr>(name, MapTextures, DefaultTexture);
+    }
+
     SpriteLayerOrderPtr Content::getSpriteLayerOrder(std::string & name)
     {
       return getResource<SpriteLayerOrderMap, SpriteLayerOrderPtr>(name, MapSpriteLayerOrder, DefaultSpriteLayerOrder);
     }
-
-
-
-
-
-
-
-
-
-
 
     /**************************************************************************/
     /*!
@@ -192,6 +187,11 @@ namespace DCEngine {
     @return Returns a pointer to the SoundCue object.
     */
     /**************************************************************************/
+    TextureMap * Content::AllTextures()
+    {
+      return &MapTextures;
+    }
+
     SpriteSourceMap * Content::AllSpriteSources()
     {
       return &SpriteSourceMap;

@@ -42,6 +42,11 @@ namespace DCEngine {
     bool GridActive = true;
     Real GridLength = 1.0f;
     Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
+    // Multi-selection
+    bool MultiSelectDragging = false;
+    Vec4 MultiSelectColor = Vec4(0.3, 0.7, 0.3f, 0.5f);
+    Vec3 MultiSelectStartPos;
+    Vec3 MultiSelectEndPos;
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -102,7 +107,7 @@ namespace DCEngine {
       bool WidgetObjectsEnabled = false;
       bool WindowPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
-      bool WidgetDiagnosticsEnabled = false;
+      bool WindowDiagnosticsEnabled = false;
       bool WindowSaveLevelEnabled = false;
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
@@ -115,7 +120,6 @@ namespace DCEngine {
       Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
       GameObjectPtr TransformTool = nullptr;
-      ObjectPtr SelectedObject = nullptr;
       ObjectContainer SelectedObjects;
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
@@ -142,7 +146,7 @@ namespace DCEngine {
       // Library
       void WindowLibrary();
       //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
-      void WidgetDiagnostics();
+      void WindowDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
@@ -167,9 +171,12 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
+      ObjectPtr SelectedObject();
+      void Select(ObjectPtr);
       void Deselect();
       void SelectSpace();
       void CenterSelected();
+      void SelectMultiple(Vec2&);
       void DragObject(Vec2&);
       void RotateObject(Vec2&);
       void ScaleObject(Vec2&);
@@ -227,7 +234,7 @@ namespace DCEngine {
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
-      void PanCamera(Vec2);
+      void PanCamera(Vec2&);
       void DrawGrid();
       // Create
       void CreateTransform();
@@ -239,14 +246,13 @@ namespace DCEngine {
       // Processes      
       void LaunchProjectFolder();
       void LaunchDocumentation();
-
-      /* Functions */
+      // CTOR
       Editor(EditorConfig settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);
       void Terminate();
-      /* Events */
+      // Events
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);
@@ -266,7 +272,7 @@ namespace DCEngine {
     //  if (ImGui::TreeNode(resourceName.c_str())) {
     //    for (auto& resource : resourceMap) {
     //      if (ImGui::Selectable(resource.second->Name().c_str())) {
-    //        SelectedObject = resource.second.get();
+    //        SelectedObject() = resource.second.get();
     //        WindowPropertiesEnabled = true;
     //      }
     //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {

@@ -183,6 +183,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayEditor()
     {
+      // Allow diagnostics even without the editor!
+      WindowDiagnostics();
+
       if (!Settings.EditorEnabled)
         return;
 
@@ -194,7 +197,6 @@ namespace DCEngine {
       WindowObjects();
       WindowLibrary();
       WindowProperties();
-      WidgetDiagnostics();
       WindowSaveLevel();
       WindowLoadLevel();    
       WindowConsole();
@@ -204,9 +206,6 @@ namespace DCEngine {
       WindowCollisionTableEditor();
       WindowSpriteLayerOrderEditor();
       WindowCommands();
-
-
-
     }
 
     /**************************************************************************/

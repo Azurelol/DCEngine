@@ -56,6 +56,7 @@ namespace DCEngine {
     {
       friend class Engine;
     public:
+      bool IsObjectWithinBoundingArea(Vec3& center, float width, float height, GameObjectPtr gameobject);
       GameObjectPtr FindObjectAtPosition(Vec3 pos, Space& space);
       GameObjectVec FindAllObjectsAtPosition(Vec3 pos, Space& space);
       void RegisterSpace(Components::PhysicsSpace& physicsSpace);

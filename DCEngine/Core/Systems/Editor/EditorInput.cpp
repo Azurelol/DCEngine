@@ -32,14 +32,18 @@ namespace DCEngine {
         auto gameObject = FindObjectFromSpace(posOnSpace);        
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
           UseTool(gameObject, event->Position);
-        }    
-        
+        }            
         // If an object was found at that position, select it
         if (gameObject)
           SelectObjectFromSpace(gameObject);
         // If no object was found, deselect the current object if no tool's region overlaps the selected area
-        else if (!IsToolRegion(gameObject))
+        // and attempt to select multiple objects
+        else if (!IsToolRegion(gameObject)) {
           Deselect();
+          Settings.MultiSelectDragging = true;
+          Settings.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
+          SelectMultiple(event->Position);
+        }
       }
 
       // RIGHT MOUSE BUTTON
@@ -64,9 +68,12 @@ namespace DCEngine {
       ReleaseTool();
 
       // Stop panning
-      if (Settings.Panning) {
+      if (Settings.Panning)
         Settings.Panning = false;
-      }
+
+      // Stop dragging for multiple selection
+      if (Settings.MultiSelectDragging)
+        Settings.MultiSelectDragging = false;
     }
 
     /**************************************************************************/
@@ -77,6 +84,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
     {
+      SelectMultiple(event->ScreenPosition);
       PanCamera(event->ScreenPosition);
       DragObject(event->ScreenPosition);
       RotateObject(event->ScreenPosition);
@@ -160,7 +168,8 @@ namespace DCEngine {
         PlayGame();
         break;
 
-      case Keys::F8:
+      case Keys::F4:
+        WindowDiagnosticsEnabled = !WindowDiagnosticsEnabled;
         break;
 
       case Keys::Tab:

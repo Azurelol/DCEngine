@@ -103,7 +103,7 @@
     <LibraryPath>$(ProjectDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(ProjectDir)\Dependencies\include;$(ProjectDir)\Core\Precompiled;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\Dependencies\lib\MSVC;$(LibraryPath)</LibraryPath>
@@ -146,7 +146,6 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;SFML_STATIC;POCO_STATIC;_DISABLE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/MP /bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -156,6 +155,8 @@
       <ForcedIncludeFiles>Precompiled.h</ForcedIncludeFiles>
       <BrowseInformation>true</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,6 +168,9 @@
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -332,6 +336,7 @@
     <ClCompile Include="Core\Resources\SoundCue.cpp" />
     <ClCompile Include="Core\Resources\SpriteLayer.cpp" />
     <ClCompile Include="Core\Resources\SpriteSource.cpp" />
+    <ClCompile Include="Core\Resources\Texture.cpp" />
     <ClCompile Include="Core\Resources\Texture2D.cpp" />
     <ClCompile Include="Core\Resources\ZilchScript.cpp" />
     <ClCompile Include="Core\Systems\Audio\Audio.cpp" />
@@ -508,7 +513,6 @@
     <ClInclude Include="Core\Objects\Entity.h" />
     <ClInclude Include="Core\Objects\Object.h" />
     <ClInclude Include="Core\Objects\ObjectsInclude.h" />
-    <ClInclude Include="Core\Objects\Ray\Ray.h" />
     <ClInclude Include="Core\Objects\Resource.h" />
     <ClInclude Include="Core\Precompiled\Precompiled.h" />
     <ClInclude Include="Core\Resources\Archetype.h" />

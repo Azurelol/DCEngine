@@ -16,6 +16,14 @@
 namespace DCEngine {
   namespace Systems {
 
+    GameObjectRawVec ObjectPtrsToGameObjectPtrs(ObjectContainer objects) {
+      GameObjectRawVec gameObjects;
+      for (auto& objectPtr : objects) {
+        gameObjects.push_back(dynamic_cast<GameObjectPtr>(objectPtr));
+      }
+      return gameObjects;
+    }
+
     /**************************************************************************/
     /*!
     @brief  Displays the Command stack.
@@ -53,9 +61,10 @@ namespace DCEngine {
       // If undoing a creation, delesect the object
       if (Settings.Commands.CommandsCurrent.empty()) // ew
         return;
+
       auto lastCommand = Settings.Commands.CommandsCurrent.back();
       if (auto creationCommand = dynamic_cast<CommandObjectCreation*>(lastCommand.get()) ) {
-        if (SelectedObject == creationCommand->GameObjectRef)
+        if (!creationCommand->GameObjectReferences.empty() && SelectedObject() == creationCommand->GameObjectReferences.front()) // what
           Deselect();
       }
 
@@ -82,7 +91,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Cut()
     {
-      Settings.Commands.Copy( dynamic_cast<GameObjectPtr>(SelectedObject));
+      GameObjectRawVec gameObjects;
+      Settings.Commands.Copy(ObjectPtrsToGameObjectPtrs(SelectedObjects));
       DeleteObject();
       DCTrace << "Editor::Cut \n";
     }
@@ -94,7 +104,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Copy()
     {
-      Settings.Commands.Copy(dynamic_cast<GameObjectPtr>(SelectedObject));
+      Settings.Commands.Copy(ObjectPtrsToGameObjectPtrs(SelectedObjects));
       DCTrace << "Editor::Copy \n";
     }
 
@@ -116,7 +126,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Duplicate()
     {
-      Settings.Commands.Copy(dynamic_cast<GameObjectPtr>(SelectedObject));      
+      Settings.Commands.Copy(ObjectPtrsToGameObjectPtrs(SelectedObjects));
       Settings.Commands.Paste(CurrentSpace);
       DCTrace << "Editor::Duplicate \n";
     }
@@ -129,12 +139,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DeleteObject()
     {
-      if (!SelectedObject) {
+      if (!SelectedObject()) {
         DCTrace << "Editor::DeleteObject - No object selected! \n";
         return;
       }
       
-      if (SelectedObject->Name() == "EditorCamera") {        
+      if (SelectedObject()->Name() == "EditorCamera") {        
         DCTrace << "Editor::DeleteObject - Cannot delete the editor camera! Y-y-you trying to crash or sumthin?? \n";
         return;        
       }
@@ -151,33 +161,34 @@ namespace DCEngine {
       //  
       //}
 
-
-      // Destroy the currently selected GameObject
-      if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
+      // Destroy the currently selected GameObjects
+      if (dynamic_cast<GameObjectPtr>(SelectedObject())) {
         // Save the command
-        auto deleteCommand = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace, 
-                                            CommandObjectCreation::Setting::Destroy));
+        auto deleteCommand = CommandPtr(new CommandObjectCreation(ObjectPtrsToGameObjectPtrs(SelectedObjects), CurrentSpace,
+                                        CommandObjectCreation::Setting::Destroy));
         deleteCommand->Execute();
         Settings.Commands.Add(deleteCommand);
 
         // Destroy the object
-        //gameObject->Destroy();
-        DCTrace << "Editor::DeleteObject - Deleting gameobject: " << SelectedObject->Name() << "\n";
+        DCTrace << "Editor::DeleteObject - Deleting gameobject: " << SelectedObject()->Name() << "\n";
         Deselect();
       }
-
       // Destroy the currently selected Resource
-      if (auto resource = dynamic_cast<Resource*>(SelectedObject)) {               
+      if (auto resource = dynamic_cast<Resource*>(SelectedObject())) {               
         DeleteResource(resource);
         Deselect();
       }
 
       // Turn off the Properties window
       WindowPropertiesEnabled = false;
-
-
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Deletes the currently selected Resource.
+    @todo
+    */
+    /**************************************************************************/
     void Editor::DeleteResource(ResourcePtr resource)
     {
       DCTrace << "Editor::DeleteResource - Deleting resource: " << resource->Name() << "\n";

@@ -30,7 +30,7 @@ namespace DCEngine {
       transform->setObjectName("Transform");
       //transform->setArchetype = "Transform";
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
-      SelectedObject = transform;
+      Select(transform);
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(transform);
 
@@ -57,7 +57,7 @@ namespace DCEngine {
       // Add the Sprite component
       sprite->AddComponentByName(std::string("Sprite"), true);
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
-      SelectedObject = sprite;
+      Select(sprite);
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(sprite);
       // Save the command
@@ -80,7 +80,7 @@ namespace DCEngine {
       // Add the Sprite component
       spriteText->AddComponentByName(std::string("SpriteText"), true);
       DCTrace << "Editor::CreateSpriteText - Created 'SpriteText' \n";
-      SelectedObject = spriteText;
+      Select(spriteText);
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(spriteText);
       // Save the command
@@ -106,7 +106,7 @@ namespace DCEngine {
       // Add the Sprite component
       //psystem->AddComponentByName(std::string("Particle System"), true);
       DCTrace << "Editor::CreateParticleSystem - Created 'ParticleEffect' \n";
-      SelectedObject = psystem;
+      Select(psystem);
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(psystem);
       // Save the command
@@ -125,7 +125,7 @@ namespace DCEngine {
     void Editor::CreateFromArchetype(std::string & archetype)
     {
       auto gameObject = CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
-      SelectedObject = gameObject;
+      Select(gameObject);
       WindowPropertiesEnabled = true;
       MoveToViewportCenter(gameObject);
       // Save the command
@@ -158,7 +158,7 @@ namespace DCEngine {
                                                     + archetype + Archetype::Extension();
 
       // Create the archetype
-      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(SelectedObject));
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(SelectedObject()));
       // Save it
       archetypePtr->Save();
       // Upload the latest archetype

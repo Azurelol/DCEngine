@@ -19,18 +19,15 @@ namespace DCEngine
   namespace Components
   {
     /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(RigidBody, "RigidBody", DCEngineCore, builder, type) {
-
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(RigidBody);
-      //ZilchBindConstructor(builder, type, RigidBody, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, RigidBody);
       // Fields
       ZilchBindField(builder, type, &RigidBody::Mass, "Mass", Zilch::PropertyBinding::Get);
       // Properties
@@ -38,13 +35,23 @@ namespace DCEngine
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, AngularVelocity);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, Mass);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, RotationLocked);
-      
-      //ZilchBindProperty(builder, type, &RigidBody::getVelocity, &RigidBody::setVelocity, "Velocity");
-      //ZilchBindProperty(builder, type, &RigidBody::getAngularVelocity, &RigidBody::setAngularVelocity, "Angular Velocity");
-      //ZilchBindProperty(builder, type, &RigidBody::getRotationLocked, &RigidBody::setRotationLocked, "Rotation Locked");
-      //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
-#endif
+    #endif
+
+    unsigned RigidBody::Created = 0;
+    unsigned RigidBody::Destroyed = 0;
+    unsigned RigidBody::Active = 0;
+
+    /**************************************************************************/
+    /*!
+    @brief RigidBody constructor
+    */
+    /**************************************************************************/
+    RigidBody::RigidBody(Entity & owner) : Component(std::string("RigidBody"), owner)
+    {
+      Created++;
+      Active++;
+    }
 
     /**************************************************************************/
     /*!
@@ -53,6 +60,8 @@ namespace DCEngine
     /**************************************************************************/
     RigidBody::~RigidBody()
     {
+      Destroyed++;
+      Active--;
       SpaceRef->getComponent<PhysicsSpace>()->RemoveRigidBody(*this);
     }
 

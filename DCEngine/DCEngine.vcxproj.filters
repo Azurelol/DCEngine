@@ -268,9 +268,6 @@
     <Filter Include="Core\Systems\Physics\PhysicsCasting">
       <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Object\PhysicsCasting">
-      <UniqueIdentifier>{57925c11-d2a5-479e-8d90-c0994501d503}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Camera">
       <UniqueIdentifier>{b96ada2b-2ce9-4c95-a791-bbcf40fe6593}</UniqueIdentifier>
     </Filter>
@@ -763,6 +760,9 @@
     </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
       <Filter>Core\Components\Graphics\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\Texture.cpp">
+      <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1273,9 +1273,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Resolution.h">
       <Filter>Core\Systems\Physics\Resolution</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Ray\Ray.h">
-      <Filter>Core\Object\PhysicsCasting</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Raycasting.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>

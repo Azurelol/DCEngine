@@ -29,6 +29,8 @@ namespace DCEngine {
 
   // Forward declarations
   class GameObject;
+  using GameObjectPtr = GameObject*;
+  using GameObjectRawVec = std::vector<GameObjectPtr>;
   class Space;
   class Archetype;
   /*===================*
@@ -41,7 +43,7 @@ namespace DCEngine {
     void Undo();
     void Redo();
 
-    void Copy(GameObject*);
+    void Copy(GameObjectRawVec);
     void Paste(Space*);
         
     std::deque<CommandPtr> CommandsCurrent;
@@ -49,11 +51,8 @@ namespace DCEngine {
 
   private:
     unsigned int Maximum;
-    ArchetypePtr ObjectCopyData;
+    ArchetypeContainer ObjectCopyData;
   };
-
-
-
 
   /*===================*
   *     Creation    *
@@ -66,8 +65,9 @@ namespace DCEngine {
       Destroy,
     };
 
-    CommandObjectCreation(GameObject* gameObject, Space* space, Setting setting);    
-    CommandObjectCreation(ArchetypePtr copyData, Space* space);
+    CommandObjectCreation(GameObjectPtr gameObject, Space* space, Setting setting);
+    CommandObjectCreation(GameObjectRawVec gameObjects, Space* space, Setting setting);    
+    CommandObjectCreation(ArchetypeContainer copyData, Space* space);
     void Undo();
     void Execute();
 
@@ -77,9 +77,9 @@ namespace DCEngine {
     void Copy();
 
     Setting CurrentSetting;
-    GameObject* GameObjectRef;
     Space* SpaceRef;
-    ArchetypePtr GameObjectData;
+    GameObjectRawVec GameObjectReferences;
+    ArchetypeContainer GameObjectData;
   };  
 
   class ObjectCopy {
@@ -88,7 +88,7 @@ namespace DCEngine {
     void Duplicate();
 
   private:
-    GameObject* GameObjectRef;
+    GameObject* GameObjectReferences;
     Space* SpaceRef;
     ArchetypePtr GameObjectData;
   };

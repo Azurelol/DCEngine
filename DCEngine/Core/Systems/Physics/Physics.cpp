@@ -130,6 +130,21 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Checks if the GameObject is within the bounding area.
+    @param center The center of the bounding box.
+    @param width The width of the bounding box.
+    @param height The height of the bounding box.
+    @param gameObject The specified GameObject.
+    @return Whether the GameObject was found within the bounding area.
+    */
+    /**************************************************************************/
+    bool Physics::IsObjectWithinBoundingArea(Vec3 & center, float width, float height, GameObjectPtr gameObject)
+    {
+      return false;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Checks for collision between the target position and an object
            within the space. It will return the first object hit.
     @param The delta time.

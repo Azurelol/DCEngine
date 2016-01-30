@@ -34,14 +34,14 @@ namespace DCEngine {
       ImGui::Begin("Properties", &WindowPropertiesEnabled);
 
       // If there's an object selected, display its properties.
-      if (SelectedObject != nullptr) {
+      if (SelectedObject() != nullptr) {
 
         // If the object is an entity
-        if (dynamic_cast<EntityPtr>(SelectedObject)) {
+        if (dynamic_cast<EntityPtr>(SelectedObject())) {
           DisplayEntityProperties();
         }
         // If the object is a resource
-        else if (dynamic_cast<ResourcePtr>(SelectedObject)) {
+        else if (dynamic_cast<ResourcePtr>(SelectedObject())) {
           DisplayResourceProperties();
         }
       }
@@ -57,16 +57,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayEntityProperties()
     {
-      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject);
+      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject());
 
       ////////////////////////////////
       // 1. Display the object's name
       ////////////////////////////////
-      char name[32]; strcpy(name, SelectedObject->Name().c_str());
+      char name[32]; strcpy(name, SelectedObject()->Name().c_str());
       // If the user has given input, change the name
       ImGui::PushItemWidth(ImGui::GetWindowWidth() / 4.0f);
       if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
-        SelectedObject->setObjectName(name);
+        SelectedObject()->setObjectName(name);
       }
       ImGui::PopItemWidth();
       /////////////////////////////////////
@@ -135,7 +135,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayResourceProperties()
     {
-      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject);
+      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject());
 
       // 1. Display the Resource's name
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");

@@ -87,10 +87,10 @@ namespace DCEngine {
         // Whether the editor's transform tool is a component
         if (Settings.TransformTool_IsComponent)
           editorCamera->AddComponent<Components::TransformTool>(true);
-        editorCamera->AddComponent<Components::DebugAudio>(true);
+        //editorCamera->AddComponent<Components::DebugAudio>(true);
         // Camera properties      
-        editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
-        editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
+        //editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
+        //editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
         editorCamera->getComponent<Components::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
         editorCamera->getComponent<Components::Camera>()->Size = 70;
         editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
