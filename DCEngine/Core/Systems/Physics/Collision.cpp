@@ -24,7 +24,7 @@ namespace DCEngine
   // the problem is that the values in min and max are wrong
   float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
-    return 	std::max(a.getRestitution(), b.getRestitution());
+    return 	std::min(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(float a, float b)
@@ -51,7 +51,33 @@ namespace DCEngine
     auto rigidbody1 = obj1->getComponent<Components::RigidBody>();
     auto rigidbody2 = obj2->getComponent<Components::RigidBody>();
 
+    if (rigidbody1 == NULL)
+    {
+      result.rigid1 = false;
+    }
+    else
+    {
+      result.rigid1 = true;
 
+      if (rigidbody1->getDynamicState() == DynamicStateType::Static)
+      {
+        result.rigid1 = false;
+      }
+    }
+
+    if (rigidbody2 == NULL)
+    {
+      result.rigid2 = false;
+    }
+    else
+    {
+      result.rigid2 = true;
+
+      if (rigidbody2->getDynamicState() == DynamicStateType::Static)
+      {
+        result.rigid2 = false;
+      }
+    }
 
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<Components::BoxCollider>();

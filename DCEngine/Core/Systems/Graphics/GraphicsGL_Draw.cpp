@@ -257,6 +257,7 @@ namespace DCEngine {
 		void GraphicsGL::SetParticleSystemShader(Components::Camera & camera)
 		{
 			ParticleSystemShader->Use();
+			ParticleSystemShader->SetInteger("image", 0);
 			SetShaderProjViewUniforms(ParticleSystemShader, camera);
 		}
 

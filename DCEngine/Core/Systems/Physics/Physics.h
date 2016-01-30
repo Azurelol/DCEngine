@@ -72,6 +72,17 @@ namespace DCEngine {
       CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter);
       CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter);
 
+			
+			//class Bucket
+			//{
+			//public:
+			//	Bucket(Vec3 position, Vec3 scale);
+			//	Split
+			//private:
+			//	std::vector<Components::Collider*> bucket;
+			//};
+			//std::vector<Bucket> bucketList;
+			//static const unsigned MAX_BUCKET_SIZE = 4;
 
     private:
 
@@ -98,6 +109,8 @@ namespace DCEngine {
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);
       void DispatchCollisionPersisted(CollisionData& collisionData);
+
+			float minX, maxX, minY, maxY;
 
     };
 

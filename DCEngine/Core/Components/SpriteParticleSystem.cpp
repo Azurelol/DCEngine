@@ -163,15 +163,14 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::Draw(Camera& camera)
 		{
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			mShader->Use();
-			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			//mShader->SetMatrix4("view", camera.GetViewMatrix());
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			auto transform = TransformComponent;
+
+			SpriteSourcePtr src = Daisy->getSystem<Systems::Content>()->getSpriteSrc(Texture);
+
+			Components::Transform* transform = TransformComponent;
 
 			glm::mat4 modelMatrix;
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
@@ -197,6 +196,14 @@ namespace DCEngine {
 					scale[i], scale[i], 0.0f));
 				transformData.push_back(modelMatrix);
 			}
+
+			//texture info
+			mShader->SetFloat("CutMinX", (float)src->MinX / src->PicWidth);
+			mShader->SetFloat("CutMaxX", (float)src->MaxX / src->PicWidth);
+			mShader->SetFloat("CutMinY", (float)src->MinY / src->PicHeight);
+			mShader->SetFloat("CutMaxY", (float)src->MaxY / src->PicHeight);
+			glActiveTexture(GL_TEXTURE0); // Used for 3D???
+			src->getTexture().Bind();
 
 			if (Visible)
 			{
@@ -235,7 +242,7 @@ namespace DCEngine {
 				Vec2 force = Vec2(0, 0);
 				if (mLinearAnimator)
 				{
-					Vec2 force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
+					force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
 				}
 				mParticleList.push_back(Particle(
