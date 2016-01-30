@@ -122,8 +122,8 @@ namespace DCEngine {
         << collider->Owner()->Name() << "\n";
       //BoxCollider* ptr = collider;
       CollidersContainer.erase(std::remove(CollidersContainer.begin(),
-        CollidersContainer.end(), collider),
-        CollidersContainer.end());
+        CollidersContainer.end(), collider)  ); // ,
+        //CollidersContainer.end());
     }
 
     /**************************************************************************/

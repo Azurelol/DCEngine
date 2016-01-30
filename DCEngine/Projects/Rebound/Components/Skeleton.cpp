@@ -32,6 +32,7 @@ namespace DCEngine {
       auto gameObj = dynamic_cast<GameObject*>(Owner());
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+	  Connect(SpaceRef, Events::LogicUpdate, Skeleton::OnLogicUpdateEvent);
     }
 
     void Skeleton::OnMouseDownEvent(Events::MouseDown * event)

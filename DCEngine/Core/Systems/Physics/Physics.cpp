@@ -199,15 +199,15 @@ namespace DCEngine {
 
 				BroadPhaseDetection(physpace, pairs);
 
+        Integrate(dt, physpace);
+
         NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
-        Integrate(dt, physpace);
-
 				PublishResults(physpace);
 
-        UpdateTransforms(physpace);
+        //UpdateTransforms(physpace);
 			}
 
 
@@ -290,43 +290,78 @@ namespace DCEngine {
     void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
       // For all gameobjects with a 'Collider' component
-      auto& list = physpace->AllColliders();
 
+      Components::ColliderContainer& list = physpace->AllColliders();
+			//std::vector<Components::Collider*> tempBucket;
+			//
+			//for (auto collider : list)
+			//{
+			//	Components::Transform* transform = collider->getOwner<GameObject>()->getComponent<Components::Transform>();
+			//	Vec3 position = transform->getTranslation(), scale = transform->getScale();
+			//	float value = position.x - scale.x;
+			//	if (minX < value)
+			//		minX = value;
+			//	value = position.x + scale.x;
+			//	if (maxX > value)
+			//		maxX = value;
+			//	value = position.y - scale.y;
+			//	if (minY < value)
+			//		minY = value;
+			//	value = position.y + scale.y;
+			//	if (maxY > value)
+			//		maxY = value;
+			//	tempBucket.push_back(collider);
+			//}
+			//bucketList.push_back(tempBucket);
+			//
+			//bucketList.push_back(tempBucket);
+			//for (unsigned i = 0; i < bucketList.size(); ++i)
+			//{
+			//	//while the bucket has more than 4 elements
+			//	while (bucketList[i].size() > MAX_BUCKET_SIZE)
+			//	{
+			//		//split the bucket
+			//
+			//			//make four more buckets
+			//			//put the things in the big bucket into the small buckets
+			//	}
+			//}
+			
       static int listsize = 0;
-
+			
       if (list.size() == listsize)
       {
-        return;
+        //return;
       }
-
+			
       listsize = list.size();
-
+			
       pairs.clear();
-
+			
       Components::BoxCollider*    box1 = NULL;
       Components::BoxCollider*    box2 = NULL;
       Components::CircleCollider* cir1 = NULL;
       Components::CircleCollider* cir2 = NULL;
       int count = 0;
-
+			
       bool rigid1 = false, rigid2 = false;
-
+			
       std::string str1, str2;
-
+			
       DetectionPairing Fill;
-
+			
       //pairs.resize(list.size() * list.size());
-
+			
       for (int i = 0; i < list.size(); ++i)
       {
         for (int j = i + 1; j < list.size(); ++j)
         {
           Fill.obj1 = static_cast<GameObjectPtr>(list[i]->Owner());
           Fill.obj2 = static_cast<GameObjectPtr>(list[j]->Owner());
-
+			
           auto rigidbody1 = Fill.obj1->getComponent<Components::RigidBody>();
           auto rigidbody2 = Fill.obj2->getComponent<Components::RigidBody>();
-
+			
           if (rigidbody1 == NULL)
           {
             rigid1 = false;
@@ -334,13 +369,13 @@ namespace DCEngine {
           else
           {
             rigid1 = true;
-
+			
             if (rigidbody1->getDynamicState() == DynamicStateType::Static)
             {
               rigid1 = false;
             }
           }
-
+			
           if (rigidbody2 == NULL)
           {
             rigid2 = false;
@@ -348,23 +383,23 @@ namespace DCEngine {
           else
           {
             rigid2 = true;
-
+			
             if (rigidbody2->getDynamicState() == DynamicStateType::Static)
             {
               rigid2 = false;
             }
           }
-
+			
           if (!rigid1 && !rigid2)
           {
             continue;
           }
-
+			
           box1 = Fill.obj1->getComponent<Components::BoxCollider>();
           box2 = Fill.obj2->getComponent<Components::BoxCollider>();
           cir1 = Fill.obj1->getComponent<Components::CircleCollider>();
           cir2 = Fill.obj2->getComponent<Components::CircleCollider>();
-
+			
           if (box1)
           {
             str1 = box1->getCollisionGroup();
@@ -373,7 +408,7 @@ namespace DCEngine {
           {
             str1 = cir1->getCollisionGroup();
           }
-
+			
           if (box2)
           {
             str2 = box2->getCollisionGroup();
@@ -382,7 +417,7 @@ namespace DCEngine {
           {
             str2 = cir2->getCollisionGroup();
           }
-
+			
           if (str1 == str2)
           {
             Fill.filter = CollisionFilter();
@@ -392,12 +427,9 @@ namespace DCEngine {
             // need to access the collision table and get info from it
             //Fill.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
           }
-
           pairs.push_back(Fill);
         }
       }
-
-
 		}
 
 		/**************************************************************************/

@@ -14,24 +14,18 @@ another. This component interacts directly with the physics system.
 #include "ComponentReference.h"
 #include "../Resources/PhysicsMaterial.h"
 
-namespace DCEngine  {
-
-  namespace Systems {
-    class Editor;
-  }
-
+namespace DCEngine {
   namespace Components {
 
     class Transform;
     class Physics;
-
     class Collider : public Component {
     public:
       friend class Physics;
 
-      static unsigned CollidersCreated;
-      static unsigned CollidersDestroyed;
-      static unsigned CollidersActive;
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Collider, Component);
+#endif
 
       /* Variables */
       //Vec3 Size = Vec3(1, 1, 1);
@@ -49,11 +43,12 @@ namespace DCEngine  {
       //void setCollisionGroup(String);
 
       // These should be private!
-      ZilchDeclareDerivedType(Collider, Component);
       Collider(Entity& owner, std::string colliderClass);
       ~Collider();
       virtual void Initialize();
+      //Vec3 getColliderScale();
 
+			std::vector<Collider*>* bucket;
 
     private:
 
@@ -63,7 +58,8 @@ namespace DCEngine  {
       // // for filtering are on the CollisionFilter that is on the running space.
       CollisionGroupHandle CollisionGroup = String("Default");
 
-
+			//for quad trees
+			
 
       /* Events */
       //void OnLogicUpdateEvent(Events::LogicUpdate* event);
