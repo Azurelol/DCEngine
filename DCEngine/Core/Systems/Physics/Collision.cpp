@@ -24,7 +24,7 @@ namespace DCEngine
   // the problem is that the values in min and max are wrong
   float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
-    return 	std::max(a.getRestitution(), b.getRestitution());
+    return 	std::min(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(float a, float b)
