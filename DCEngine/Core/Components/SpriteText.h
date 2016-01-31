@@ -10,6 +10,7 @@
 /******************************************************************************/
 #pragma once
 #include "Graphical.h"
+#include "Camera.h"
 
 namespace DCEngine {
     
@@ -35,10 +36,15 @@ namespace DCEngine {
 
       ZilchDeclareDerivedType(SpriteText, Graphical);
       SpriteText(Entity& owner);
-      ~SpriteText();
+      virtual ~SpriteText();
       void Register();
       void Initialize();
+			void Update(double dt);
+			void Draw(Camera& camera);
       Transform* TransformComponent;
+
+			static ShaderPtr mShader;
+			static GLuint mVAO, mVBO;
 
     private:
 

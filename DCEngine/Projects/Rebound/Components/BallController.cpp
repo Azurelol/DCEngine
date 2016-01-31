@@ -10,7 +10,7 @@
 /******************************************************************************/
 #include "BallController.h"
 #include "../../CoreComponents.h"
-#include "../../../Core/Systems/Physics/Interpolation.h"
+
 
 namespace DCEngine {
   
@@ -100,11 +100,15 @@ namespace DCEngine {
     {
       if (event->ButtonReleased == MouseButton::Left)
       {
-        if (!CurrentlyFired)
+		  auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(event->Position));
+		  auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Components::Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Components::Transform>()->Translation.y, 0));
+		if (CurrentlyFired)
+	    {
+			RigidBodyRef->AddForce(MouseVector * SlamPower);
+		}
+		else
         {
-          auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(event->Position));
-          auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Components::Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Components::Transform>()->Translation.y, 0));
-          if (CurrentCharge < MinCharge)
+           if (CurrentCharge < MinCharge)
           {
             CurrentCharge = MinCharge;
           }

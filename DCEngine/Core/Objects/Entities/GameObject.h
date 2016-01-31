@@ -65,6 +65,7 @@ namespace DCEngine {
     // Static member variables
     static unsigned int GameObjectsCreated;
     static unsigned int GameObjectsDestroyed;
+    static unsigned int GameObjectsActive;
     static std::string GameObjectLastCreated;
     static std::string GameObjectLastDestroyed;
     static bool DiagnosticsEnabled;

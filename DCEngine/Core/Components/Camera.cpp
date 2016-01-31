@@ -190,7 +190,7 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    glm::mat4 Camera::GetProjectionMatrix() {
+    glm::mat4 Camera::GetProjectionMatrix(){
       if (Projection == ProjectionMode::Orthographic) {
 
         //First parameter: left coordinate second: right coordinate third: bottom coordinate fourth: top coordinate fifth: near plane sixthL far plane

@@ -46,6 +46,10 @@ namespace DCEngine
   /**************************************************************************/
   void Resolution::ResolveContactVelocity(float dt, Manifold &c)
   {
+    auto rigid1 = c.Object1->getComponent<Components::RigidBody>();
+    auto rigid2 = c.Object2->getComponent<Components::RigidBody>();
+
+
      //Find the velocity of the two object along the contact normal
     float separatingVelocity = c.CalculateSeparatingVelocity();
 
@@ -63,7 +67,7 @@ namespace DCEngine
     //needs to be reduced.
     //This technique uses the combined restitution to determine what percentage
     //of the energy along the collision normal is conserved
-    float newSepVelocity = -separatingVelocity * c.Restitution;
+    float newSepVelocity = -separatingVelocity;
 
     const bool AccelerationBuildUp = true;
     //When an object is resting on the ground it is constantly falling
@@ -82,17 +86,17 @@ namespace DCEngine
 
       if (c.rigid1 != false && c.rigid2 == false)
       {
-        accCausedVelocity = c.Object1->getComponent<Components::RigidBody>()->getAcceleration();
+        accCausedVelocity = rigid1->getAcceleration();
       }
 
       if (c.rigid1 == false && c.rigid2 != false)
       {
-        accCausedVelocity = -c.Object2->getComponent<Components::RigidBody>()->getAcceleration();
+        accCausedVelocity = rigid2->getAcceleration();
       }
 
       if (c.rigid1 != false && c.rigid2 != false)
       {
-        accCausedVelocity = c.Object1->getComponent<Components::RigidBody>()->getAcceleration() - c.Object2->getComponent<Components::RigidBody>()->getAcceleration();
+        accCausedVelocity = rigid1->getAcceleration() - rigid2->getAcceleration();
       }
 
 
@@ -102,7 +106,7 @@ namespace DCEngine
       // remove it from the new separating velocity
       if (accCausedSepVelocity < 0)
       {
-        newSepVelocity += c.Restitution * accCausedSepVelocity;
+        newSepVelocity += accCausedSepVelocity;
 
         // Make sure we haven't removed more than was
         // there to remove.
@@ -125,22 +129,22 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = rigid1->getInvMass();
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = rigid2->getInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass() + c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = rigid1->getInvMass() + rigid2->getInvMass();
     }
 
 
     // Calculate the impulse to apply
-    float impulse = deltaVelocity / totalInverseMass;
+    float impulse = (1.0f + c.Restitution) *(deltaVelocity) / totalInverseMass;
 
     c.ContactImpulse = impulse;
 
@@ -157,37 +161,38 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (rigid1->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (rigid2->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (rigid1->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<Components::RigidBody>()->setVelocity(c.Object1->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
 
-      if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
+      if (rigid2->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + impulsePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * c.Object2->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
 
     // this is the code that handles friction
+    /*  
     if (c.rigid1 != false && c.rigid2 == false)
     {
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
@@ -306,7 +311,7 @@ namespace DCEngine
         c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
-
+    */
   }
 
   void Resolution::ResolveVelocities(float dt, std::vector<Manifold> &contactlist)

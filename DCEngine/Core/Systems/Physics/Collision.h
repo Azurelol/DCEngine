@@ -28,6 +28,7 @@ namespace DCEngine
     static bool CircletoCircle(GameObject *obj1, GameObject *obj2, Manifold &result);
     static bool PointToCircle(GameObject *circle, glm::vec3 point);
     static bool PointToRectangle(GameObject *rect, glm::vec3 point);
+    static bool SelectiontoBox(Vec3& center, float width, float height, Vec3& translation, Vec3& scale, float rot);
   };
 
 }

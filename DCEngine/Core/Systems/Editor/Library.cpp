@@ -33,11 +33,11 @@ namespace DCEngine {
       if (ImGui::TreeNode("Archetype")) {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
-            SelectedObject = archetype.second.get();
+            Select(archetype.second.get());
             WindowPropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
-            CreateFromArchetype(std::string(SelectedObject->Name()));
+            CreateFromArchetype(std::string(SelectedObject()->Name()));
             break;
           }
         }
@@ -48,7 +48,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllBanks()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -59,7 +59,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -70,7 +70,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayerOrders()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
@@ -89,7 +89,7 @@ namespace DCEngine {
       if (ImGui::TreeNode("SpriteSource")) {
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
           if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
-            SelectedObject = spriteSrc.second.get();
+            Select(spriteSrc.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -98,7 +98,7 @@ namespace DCEngine {
       if (ImGui::TreeNode("Font")) {
         for (auto& font : *Daisy->getSystem<Content>()->AllFonts()) {
           if (ImGui::Selectable(font.second->Name().c_str())) {
-            SelectedObject = font.second.get();
+            Select(font.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -108,7 +108,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
         for (auto& soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
           if (ImGui::Selectable(soundCue.second->Name().c_str())) {
-            SelectedObject = soundCue.second.get();
+            Select(soundCue.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -118,7 +118,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& shader : *Daisy->getSystem<Content>()->AllShaders()) {
           if (ImGui::Selectable(shader.second->Name().c_str())) {
-            SelectedObject = shader.second.get();
+            Select(shader.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -129,7 +129,7 @@ namespace DCEngine {
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           auto levelName = level.second->Name().c_str();
           if (ImGui::Selectable(levelName) ) {
-            SelectedObject = level.second.get();
+            Select(level.second.get());
             WindowPropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
@@ -148,7 +148,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionGroups()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -159,7 +159,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionTables()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
@@ -179,7 +179,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *Daisy->getSystem<Content>()->AllPhysicsMaterials()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
-            SelectedObject = resource.second.get();
+            Select(resource.second.get());
             WindowPropertiesEnabled = true;
           }
         }
@@ -191,7 +191,7 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& script : *Daisy->getSystem<Content>()->AllZilchScripts()) {
           if (ImGui::Selectable(script.second->Name().c_str())) {
-            SelectedObject = script.second.get();
+            Select(script.second.get());
             WindowPropertiesEnabled = true;
           }
         }

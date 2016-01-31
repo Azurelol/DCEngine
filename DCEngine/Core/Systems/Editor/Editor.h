@@ -12,8 +12,9 @@
 #pragma once
 #include "../System.h"
 
-#include "../../Engine/Data.h"
-#include "../../Engine/Command.h"
+#include "EditorUtilities.h"
+
+
 
 #include "../../Objects/Object.h"
 #include "../../Objects/ObjectsInclude.h"
@@ -26,45 +27,7 @@ namespace DCEngine {
   class Engine;
   class Space;
 
-  /**************************************************************************/
-  /*!
-  @struct Configuration data for the Editor system.
-  */
-  /**************************************************************************/
-  struct EditorConfig {
-    // Project
-    bool EditorEnabled = false;
-    std::string ProjectsPath;
-    std::string RecentProject;
-    ProjectData* ProjectInfo;
-    // Tools
-    bool TransformTool_IsComponent = false;
-    bool GridActive = true;
-    Real GridLength = 1.0f;
-    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
-    // Snapping
-    bool Snapping = true;
-    float SnapDistance = 1.0;
-    float SnapAngle = 15;
-    // Dragging
-    bool Dragging = false;
-    bool DraggingX = false;
-    bool DraggingY = false;
-    float DragOffset = 0;
-    // Rotating
-    bool Rotating = false;
-    // Scaling
-    bool ScalingY = false;
-    bool ScalingX = false;
-    Vec2 OriginMousePos;
-    Vec3 OriginScale;
-    //Panning
-    bool Panning = false;
-    Vec3 CamStartPos;
-    Vec3 MouseStartPos;
-    // Commands
-    CommandManager Commands;
-  };
+
 
   namespace Systems {
 
@@ -93,6 +56,8 @@ namespace DCEngine {
       //  Settings 
       ////////////////
       EditorConfig Settings;
+      SelectionData Selection;
+      TransformToolData TransformData;
       void setEnabled(bool);
       std::string RecentProject;
       bool ShowTestWindow = false;
@@ -102,7 +67,7 @@ namespace DCEngine {
       bool WidgetObjectsEnabled = false;
       bool WindowPropertiesEnabled = false;
       bool WidgetLibraryEnabled = false;
-      bool WidgetDiagnosticsEnabled = false;
+      bool WindowDiagnosticsEnabled = false;
       bool WindowSaveLevelEnabled = false;
       bool WindowLoadLevelEnabled = false;
       bool WindowConsoleEnabled = false;
@@ -115,7 +80,7 @@ namespace DCEngine {
       Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
       GameObjectPtr TransformTool = nullptr;
-      Object* SelectedObject = nullptr;
+      ObjectContainer SelectedObjects;
       EditorTool ActiveTool = EditorTool::None;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
@@ -141,7 +106,7 @@ namespace DCEngine {
       // Library
       void WindowLibrary();
       //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
-      void WidgetDiagnostics();
+      void WindowDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
@@ -166,12 +131,17 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
+      ObjectPtr SelectedObject();
+      void Select(ObjectPtr);
       void Deselect();
       void SelectSpace();
       void CenterSelected();
-      void DragObject(Vec2);
-      void RotateObject(Vec2, Vec3);
-      void ScaleObject(Vec2 pos);
+      void SelectMultiple(Vec2&);
+      void CalculateSelectionBounding();
+      void DrawMultiSelect();
+      void DragObject(Vec2&);
+      void RotateObject(Vec2&);
+      void ScaleObject(Vec2&);
       void ReleaseObject();
       // Resources
       void WindowAddResource();
@@ -192,7 +162,6 @@ namespace DCEngine {
       bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
       template <typename ResourceMap>
       bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
-
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
@@ -210,13 +179,15 @@ namespace DCEngine {
       void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
-      void DuplicateObject();
       // Tools
-      void UseTool();
-      void ShowSelection();
-      void TranslateTool();
-      void RotateTool();
-      void ScaleTool();
+      void DrawSelection();
+      void DisplayTool();
+      void UseTool(GameObjectPtr gameObject, Vec2& position);
+      void ReleaseTool();
+      bool IsToolRegion(GameObjectPtr);
+      void DrawTranslateTool();
+      void DrawRotateTool();
+      void DrawScaleTool();
       // Actions
       void MoveObject(Vec3);
       void ScaleObject(Vec3);
@@ -225,7 +196,7 @@ namespace DCEngine {
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
-      void PanCamera(Vec2);
+      void PanCamera(Vec2&);
       void DrawGrid();
       // Create
       void CreateTransform();
@@ -237,14 +208,13 @@ namespace DCEngine {
       // Processes      
       void LaunchProjectFolder();
       void LaunchDocumentation();
-
-      /* Functions */
+      // CTOR
       Editor(EditorConfig settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);
       void Terminate();
-      /* Events */
+      // Events
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);
@@ -264,7 +234,7 @@ namespace DCEngine {
     //  if (ImGui::TreeNode(resourceName.c_str())) {
     //    for (auto& resource : resourceMap) {
     //      if (ImGui::Selectable(resource.second->Name().c_str())) {
-    //        SelectedObject = resource.second.get();
+    //        SelectedObject() = resource.second.get();
     //        WindowPropertiesEnabled = true;
     //      }
     //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {

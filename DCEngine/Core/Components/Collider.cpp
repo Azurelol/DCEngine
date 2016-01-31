@@ -18,6 +18,10 @@ another. This component interacts directly with the physics system.
 namespace DCEngine {
   namespace Components {
 
+    unsigned Collider::Created = 0;
+    unsigned Collider::Destroyed = 0;
+    unsigned Collider::Active = 0;
+
     /**************************************************************************/
     /*!
     @brief Provides the definition of this class to Zilch.
@@ -46,6 +50,8 @@ namespace DCEngine {
     /**************************************************************************/
     Collider::Collider(Entity & owner, std::string colliderClass) : Component(colliderClass, owner)
     {
+      Created++;
+      Active++;
     }
 
     /**************************************************************************/
@@ -55,6 +61,8 @@ namespace DCEngine {
     /**************************************************************************/
     Collider::~Collider()
     {
+      Destroyed++;
+      Active--;
     }
 
     /**************************************************************************/

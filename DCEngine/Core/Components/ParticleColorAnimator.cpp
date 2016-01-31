@@ -36,9 +36,16 @@ namespace DCEngine {
     /*!************************************************************************\
     @brief  Constructor for the ParticleColorAnimator
     \**************************************************************************/
-    ParticleColorAnimator::ParticleColorAnimator(Entity & owner) : Graphical("ParticleColorAnimator", owner)
+    ParticleColorAnimator::ParticleColorAnimator(Entity & owner) : Graphical("ParticleColorAnimator", owner),
+			Color0(Vec4(0,0,0,.5)), Color1(Vec4(0, 0, 0, .5)), Color2(Vec4(0, 0, 0, .5)),
+			Color3(Vec4(0, 0, 0, .5)), Color4(Vec4(0, 0, 0, .5))
     {
+			Initialize();
     }
+
+		ParticleColorAnimator::~ParticleColorAnimator(void)
+		{
+		}
 
     /*!************************************************************************\
     @brief  Initializes the ParticleColorAnimator
@@ -47,6 +54,8 @@ namespace DCEngine {
     {
       // Store the reference to the object's particle system component
       ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
+			if(ParticleSystem)
+				ParticleSystem->mColorAnimator = this;
     }
 
 

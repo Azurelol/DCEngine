@@ -71,71 +71,83 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->Register(*this);
     }
 
+		void GraphicsSpace::RegisterGraphicsComponent(Graphical * graphicsComponent)
+		{
+			GraphicsComponents.push_back(graphicsComponent);
+		}
+
+		void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
+		{
+			GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
+				GraphicsComponents.end(), graphicsComponent),
+				GraphicsComponents.end());
+		}
+
     /**************************************************************************/
     /*!
     \brief Registers a SpriteText into the GraphicsSpace
     */
     /**************************************************************************/
-    void GraphicsSpace::AddSpriteText(SpriteText& spriteText)
-    {
-      SpriteTextContainer.push_back(&spriteText);
-      //DCTrace << "GraphicsSpace::AddSpriteText - "
-      //  << spriteText.Owner()->Name() << "\n";
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Registers a Sprite into the GraphicsSpace
-    @param  A reference to an instance of the 'Sprite' component.
-    */
-    /**************************************************************************/
-    void GraphicsSpace::AddSprite(Sprite & sprite)
-    {
-      SpriteContainer.push_back(&sprite);
-      //DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
-      //        << sprite.Owner()->Name() << "\n";
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Deregisters a Sprite from the GraphicsSpace
-    @param  A reference to an instance of the 'Sprite' component.
-    */
-    /**************************************************************************/
-    void GraphicsSpace::RemoveSprite(Sprite & sprite)
-    {
-      //DCTrace << Owner()->Name() <<"::GraphicsSpace::RemoveSprite - "
-      //        << sprite.Owner()->Name() << "\n";
-      Sprite* spritePtr = &sprite;
-      SpriteContainer.erase(std::remove(SpriteContainer.begin(),
-        SpriteContainer.end(), spritePtr),
-        SpriteContainer.end());
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Deregisters a SpriteText from the GraphicsSpace
-    @param  A reference to an instance of the 'SpriteText' component.
-    */
-    /**************************************************************************/
-    void GraphicsSpace::RemoveSpriteText(SpriteText & spriteText)
-    {
-      SpriteText* spriteTextPtr = &spriteText;
-      SpriteTextContainer.erase(std::remove(SpriteTextContainer.begin(),
-                                SpriteTextContainer.end(), spriteTextPtr),
-                                SpriteTextContainer.end());
-    }
-
-		void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
-		{
-			ParticleSystemContainer.push_back(&particleEmitter);
-		}
-
-		void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
-		{
-			ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
-				ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
-		}
+    //void GraphicsSpace::AddSpriteText(SpriteText& spriteText)
+    //{
+    //  SpriteTextContainer.push_back(&spriteText);
+    //  //DCTrace << "GraphicsSpace::AddSpriteText - "
+    //  //  << spriteText.Owner()->Name() << "\n";
+    //}
+		//
+    ///**************************************************************************/
+    ///*!
+    //@brief  Registers a Sprite into the GraphicsSpace
+    //@param  A reference to an instance of the 'Sprite' component.
+    //*/
+    ///**************************************************************************/
+    //void GraphicsSpace::AddSprite(Sprite & sprite)
+    //{
+    //  SpriteContainer.push_back(&sprite);
+    //  //DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
+    //  //        << sprite.Owner()->Name() << "\n";
+    //}
+		//
+    ///**************************************************************************/
+    ///*!
+    //@brief  Deregisters a Sprite from the GraphicsSpace
+    //@param  A reference to an instance of the 'Sprite' component.
+    //*/
+    ///**************************************************************************/
+    //void GraphicsSpace::RemoveSprite(Sprite & sprite)
+    //{
+    //  //DCTrace << Owner()->Name() <<"::GraphicsSpace::RemoveSprite - "
+    //  //        << sprite.Owner()->Name() << "\n";
+    //  Sprite* spritePtr = &sprite;
+    //  SpriteContainer.erase(std::remove(SpriteContainer.begin(),
+    //    SpriteContainer.end(), spritePtr),
+    //    SpriteContainer.end());
+    //}
+		//
+    ///**************************************************************************/
+    ///*!
+    //@brief  Deregisters a SpriteText from the GraphicsSpace
+    //@param  A reference to an instance of the 'SpriteText' component.
+    //*/
+    ///**************************************************************************/
+    //void GraphicsSpace::RemoveSpriteText(SpriteText & spriteText)
+    //{
+    //  SpriteText* spriteTextPtr = &spriteText;
+    //  SpriteTextContainer.erase(std::remove(SpriteTextContainer.begin(),
+    //                            SpriteTextContainer.end(), spriteTextPtr),
+    //                            SpriteTextContainer.end());
+    //}
+		//
+		//void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
+		//{
+		//	ParticleSystemContainer.push_back(&particleEmitter);
+		//}
+		//
+		//void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
+		//{
+		//	ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
+		//		ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
+		//}
 
 
     /**************************************************************************/
@@ -143,13 +155,13 @@ namespace DCEngine {
     \brief Passes a call requesting a DebugDraw call on to the Graphics System.
     */
     /**************************************************************************/
-    void GraphicsSpace::DrawCircle(Vec3& pos, Real& radius, Vec4& color)
+    void GraphicsSpace::DrawCircle(Vec3& pos, Real radius, Vec4& color)
     {
       auto cam = CameraViewportComponent->getCamera();
       Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam);
     }
 
-    void GraphicsSpace::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color)
+    void GraphicsSpace::DrawRectangle(Vec3& pos, Real width, Real height, Vec4& color)
     {
       auto cam = CameraViewportComponent->getCamera();
       Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam);
@@ -161,25 +173,30 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
     }
 
+		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
+		{
+			return GraphicsComponents;
+		}
+
     /**************************************************************************/
     /*!
     \brief  Returns the container of Sprite pointers.
     \return A container of Sprite pointers.
     */
     /**************************************************************************/
-    std::vector<Sprite*> GraphicsSpace::getSprites() {
-      return SpriteContainer;
-    }
-
-    SpriteTextContainer GraphicsSpace::getSpriteTextContainer()
-    {
-      return SpriteTextContainer;
-    }
-
-		std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
-		{
-			return ParticleSystemContainer;
-		}
+    //std::vector<Sprite*> GraphicsSpace::getSprites() {
+    //  return SpriteContainer;
+    //}
+		//
+    //SpriteTextContainer GraphicsSpace::getSpriteTextContainer()
+    //{
+    //  return SpriteTextContainer;
+    //}
+		//
+		//std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
+		//{
+		//	return ParticleSystemContainer;
+		//}
 
   }
 }

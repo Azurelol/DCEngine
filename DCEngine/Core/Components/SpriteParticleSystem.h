@@ -48,20 +48,28 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, LengthScale);
       DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 
-
       ZilchDeclareDerivedType(SpriteParticleSystem, Graphical);
       SpriteParticleSystem(Entity& owner);
+			virtual ~SpriteParticleSystem(void);
       void Initialize();
+			void Update(double);
+			void Draw(Camera& camera);
 			Transform* TransformComponent;
 
 			//logic
-			void UpdateParticles(double);
 			void AddParticle(void);
 			std::vector<Vec2> GetPositionData(void);
 			std::vector<float> GetScaleData(void);
 			std::vector<float> GetRotationData(void);
 			std::vector<Vec4> GetColorData(void);
 			unsigned GetParticleCount(void);
+
+			ParticleEmitter* mParticleEmitter;
+			ParticleColorAnimator* mColorAnimator;
+			LinearParticleAnimator* mLinearAnimator;
+
+			static GLuint mVAO, mColorInstanceVBO, mTransformInstanceVBO;
+			static ShaderPtr mShader;
 
     private:
 			class Particle
@@ -70,7 +78,8 @@ namespace DCEngine {
 				Particle(double, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
 					ParticleColorAnimator*, LinearParticleAnimator*);
 				//Particle& operator=(const Particle&);
-				void Update(double);
+				void Update(double);        
+
 				double GetLifetime(void) const;
 				double GetLifeleft(void) const;
 				Vec2 GetPosition(void) const;
@@ -97,11 +106,6 @@ namespace DCEngine {
 			double mParticleEmissionTimer;
 			unsigned mEmitCounter;
 			bool mActiveFlag;
-
-			ParticleEmitter* mParticleEmitter;
-			ParticleColorAnimator* mColorAnimator;
-			LinearParticleAnimator* mLinearAnimator;
-
       Camera* CameraComponent;
     };
   }

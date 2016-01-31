@@ -32,6 +32,7 @@ namespace DCEngine {
     // Containers
     using SpriteTextContainer = std::vector<SpriteText*>;
     using SpriteContainer = std::vector<Sprite*>;
+		using GraphicsComponentContainer = std::vector<Graphical*>;
 
     class GraphicsSpace : public Component {
       friend class Graphics;
@@ -52,22 +53,27 @@ namespace DCEngine {
       ~GraphicsSpace();
       void Initialize();
 
-      void AddSprite(Sprite& sprite);
-      void RemoveSprite(Sprite& sprite);
-      void AddSpriteText(SpriteText& spriteText);
-      void RemoveSpriteText(SpriteText& spriteText);
-			void AddParticleSystem(SpriteParticleSystem& particleEmitter);
-			void RemoveParticleSystem(SpriteParticleSystem& particleEmitter);
+			void RegisterGraphicsComponent(Graphical* graphicsComponent);
+			void RemoveGraphicsComponent(Graphical* graphicsComponent);
+
+      //void AddSprite(Sprite& sprite);
+      //void RemoveSprite(Sprite& sprite);
+      //void AddSpriteText(SpriteText& spriteText);
+      //void RemoveSpriteText(SpriteText& spriteText);
+			//void AddParticleSystem(SpriteParticleSystem& particleEmitter);
+			//void RemoveParticleSystem(SpriteParticleSystem& particleEmitter);
 
       // Debug Drawing functions 
-      void DrawCircle(Vec3& pos, Real& radius, Vec4& color);
-      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color);
+      void DrawCircle(Vec3& pos, Real radius, Vec4& color);
+      void DrawRectangle(Vec3& pos, Real width, Real height, Vec4& color);
       void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color);
 
       /* Getters */
-      SpriteContainer getSprites(); // Return the vector of sprites to be drawn
-      SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
-			std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
+      //SpriteContainer getSprites(); // Return the vector of sprites to be drawn
+      //SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
+			//std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
+
+			GraphicsComponentContainer getGraphicsComponents(void);
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
@@ -79,6 +85,7 @@ namespace DCEngine {
       SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
       SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
 			std::vector<SpriteParticleSystem*> ParticleSystemContainer;
+			GraphicsComponentContainer GraphicsComponents;
       DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
     };
 

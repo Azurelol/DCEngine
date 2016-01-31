@@ -83,9 +83,9 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      ShowSelection();
+      DrawSelection();
       DisplayEditor();
-      UseTool();
+      DisplayTool();
       
     }
 
@@ -183,18 +183,20 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayEditor()
     {
+      // Allow diagnostics even without the editor!
+      WindowDiagnostics();
+
       if (!Settings.EditorEnabled)
         return;
 
-      // Draw the grid
       DrawGrid();
+      DrawMultiSelect();
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();
       WindowObjects();
       WindowLibrary();
       WindowProperties();
-      WidgetDiagnostics();
       WindowSaveLevel();
       WindowLoadLevel();    
       WindowConsole();
@@ -204,9 +206,6 @@ namespace DCEngine {
       WindowCollisionTableEditor();
       WindowSpriteLayerOrderEditor();
       WindowCommands();
-
-
-
     }
 
     /**************************************************************************/

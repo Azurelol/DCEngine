@@ -13,10 +13,17 @@ in the world space through the drawing of sprites.
 
 #include "Sprite.h"
 #include "EngineReference.h"
+#include <GLM\gtc\matrix_transform.hpp>
+#include "../Engine/Engine.h"
+#include "../Systems/Content/Content.h"
+#include "../Systems/Graphics/GraphicsGL.h"
+#include "../Debug/DebugGraphics.h"
 
 namespace DCEngine {
   namespace Components
   {
+		ShaderPtr Sprite::mShader;
+		GLuint Sprite::mVAO;
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
     
     /**************************************************************************/
@@ -77,7 +84,7 @@ namespace DCEngine {
     Sprite::~Sprite()
     {
       // Deregister this component from the GraphicsSpace
-      SpaceRef->getComponent<GraphicsSpace>()->RemoveSprite(*this);
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveGraphicsComponent(this);
     }
 
     /**************************************************************************/
@@ -103,7 +110,7 @@ namespace DCEngine {
       // Store the reference to this owner's Transform component
       TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       // Register
-      SpaceRef->getComponent<Components::GraphicsSpace>()->AddSprite(*this);
+      SpaceRef->getComponent<Components::GraphicsSpace>()->RegisterGraphicsComponent(this);
     }
 
     /**************************************************************************/
@@ -125,6 +132,143 @@ namespace DCEngine {
       Color = Vec4(newColor.x / 255.0f, newColor.y / 255.0f, newColor.z / 255.0f, Color.w);
       DCTrace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
     }
+
+		void Sprite::Update(double dt)
+		{
+			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+			//Animation update
+			mShader->Use();
+			mShader->SetInteger("isAnimaitonActivated", 0);
+			HaveAnimation = AnimationActive;
+			if (HaveAnimation == true)//Check whether it has animation
+			{
+				if (spriteSrc->ColumnCount == 0 || spriteSrc->RowCount == 0)//Check whether the number of frames if 0
+				{
+					if (spriteSrc->ColumnCount == 0)
+					{
+						DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
+					}
+					else
+					{
+						DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
+					}
+				}
+				else
+				{
+					if (UpdateAnimationSpeed())//Check whether the animation speed is 0
+					{
+						if (CheckAnimationIntialized() == false)
+						{
+							mShader->SetInteger("isAnimaitonActivated", 1);
+							mShader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
+							mShader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
+							mShader->SetInteger("currentColumn", StartColumn);
+							mShader->SetInteger("currentRow", StartRow);
+						}
+						else
+						{
+							if (AnimationActive == true)
+							{
+								IncreaseAnimationCounter(dt);
+								if (GetAnimationSpeedFPSCounter() >= GetAnimationSpeedFPS())
+								{
+									ResetSpeedCounter();
+									CurrentColumn++;
+									//Check whether it reaches the next line.
+									if (CurrentColumn >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount)
+									{
+										CurrentRow++;
+										CurrentColumn = 0;
+										if (CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->RowCount)
+										{
+											CurrentRow = 0;
+										}
+									}
+									//Check If it is go into void frame
+									if ((Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame != 0) &&
+										(CurrentColumn + Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount * CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame))
+									{
+										CurrentColumn = 0;
+										CurrentRow = 0;
+									}
+									//Current frame started from 0
+								}
+							}
+							mShader->SetInteger("isAnimaitonActivated", 1);
+							mShader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
+							mShader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
+							mShader->SetInteger("currentColumn", CurrentColumn);
+							mShader->SetInteger("currentRow", CurrentRow);
+						}
+					}
+				}
+			}
+		}
+
+		void Sprite::Draw(Camera& camera)
+		{
+			mShader->SetInteger("isTexture", 1);
+			glEnable(GL_BLEND);
+			//glEnable(GL_TEXTURE_2D);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+			// Retrieve the 'SpriteSource' resource from the content system
+			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+
+			// We use transform data for drawing:
+			auto transform = TransformComponent;
+
+			// Create the matrix of the transform
+			GLfloat verticesOffset = 0.5f;
+			glm::mat4 modelMatrix;
+
+			// Matrices
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			if (FlipX == true)
+			{
+				mShader->SetInteger("flipx", 1);
+			}
+			else
+			{
+				mShader->SetInteger("flipx", 0);
+			}
+
+			if (FlipY == true)
+			{
+				mShader->SetInteger("flipy", 1);
+			}
+			else
+			{
+				mShader->SetInteger("flipy", 0);
+			}
+			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
+				transform->Scale.y,
+				0.0f));
+
+
+			// Update the uniforms in the shader to this particular sprite's data 
+			mShader->SetMatrix4("model", modelMatrix);
+			mShader->SetVector4f("spriteColor", Color);
+			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
+			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
+			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
+			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+
+
+			// Set the active texture
+			glActiveTexture(GL_TEXTURE0); // Used for 3D???
+			spriteSrc->getTexture().Bind();
+			//this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
+			glBindVertexArray(mVAO);
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+			glBindVertexArray(0);
+
+			//DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
+		}
 
 		//unsigned Sprite::GetDrawLayer(void)
 		//{

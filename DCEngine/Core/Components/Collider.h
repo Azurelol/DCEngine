@@ -27,6 +27,10 @@ namespace DCEngine {
       ZilchDeclareDerivedType(Collider, Component);
 #endif
 
+      static unsigned Created;
+      static unsigned Destroyed;
+      static unsigned Active;
+
       /* Variables */
       //Vec3 Size = Vec3(1, 1, 1);
       //Vec3 Offset = Vec3(0, 0, 0);
@@ -55,6 +59,9 @@ namespace DCEngine {
       // // The group is a tag used for filter out collisions. The rules
       // // for filtering are on the CollisionFilter that is on the running space.
       CollisionGroupHandle CollisionGroup = String("Default");
+
+			//for quad trees
+			
 
       /* Events */
       //void OnLogicUpdateEvent(Events::LogicUpdate* event);

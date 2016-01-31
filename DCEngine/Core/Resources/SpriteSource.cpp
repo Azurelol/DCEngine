@@ -40,7 +40,6 @@ namespace DCEngine {
   @brief Constructor for the SpriteSource resource.
   @param The name of the image (texture) file.
   */
-
   /**************************************************************************/
   SpriteSource::SpriteSource(std::string spriteFile) : 
                              Resource("SpriteSource", FileSystem::FileNoExtension(spriteFile), spriteFile) {

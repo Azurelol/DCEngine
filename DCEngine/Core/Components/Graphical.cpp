@@ -30,7 +30,7 @@ namespace DCEngine {
       ZilchBindDestructor(builder, type, Graphical);
       //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Graphical);
       // Properties
-
+			DCE_BINDING_DEFINE_PROPERTY(Graphical, DrawLayer);
     }
     #endif
 
@@ -41,7 +41,8 @@ namespace DCEngine {
     @param graphicalComponent The name of the derived graphical component.
     */
     /**************************************************************************/
-    Graphical::Graphical(std::string graphicalComponent, Entity & owner) : Component(graphicalComponent, owner)
+		Graphical::Graphical(std::string graphicalComponent, Entity & owner) : Component(graphicalComponent, owner),
+			DrawLayer(0)
     {
     }
 

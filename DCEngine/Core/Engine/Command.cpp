@@ -26,7 +26,7 @@ namespace DCEngine {
   @brief  CommandManager constructor
   */
   /**************************************************************************/
-  CommandManager::CommandManager() : Maximum(10), ObjectCopyData(nullptr)
+  CommandManager::CommandManager() : Maximum(10)
   {
   }
 
@@ -90,23 +90,36 @@ namespace DCEngine {
       CommandsCurrent.pop_front();
   }
 
-  void CommandManager::Copy(GameObject * gameObject)
+  /**************************************************************************/
+  /*!
+  @brief  Copies the selected GameObjects.
+  @param  A container containing all the game objects to copy.
+  */
+  /**************************************************************************/
+  void CommandManager::Copy(GameObjectRawVec gameObjects)
   {
-    auto copyName = gameObject->Name() + " Copy";
-    ObjectCopyData = Daisy->getSystem<Systems::Factory>()->BuildArchetype(copyName, gameObject);
+    for (auto& gameObj : gameObjects) {
+      auto copyName = gameObj->Name() + " Copy";
+      ObjectCopyData.push_back(Daisy->getSystem<Systems::Factory>()->BuildArchetype(copyName, gameObj));
+    }
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Pastes the selected GameObjects.
+  @todo   Need to create all at once!
+  */
+  /**************************************************************************/
   void CommandManager::Paste(Space * space)
   {
-    if (ObjectCopyData) {
+    if (!ObjectCopyData.empty()) {
       auto createCommand = CommandPtr(new CommandObjectCreation(ObjectCopyData, space));
       // Recreate the object on the current space
       createCommand->Execute();
       // Add this command to the stack
       Add(createCommand);
-    }
+    }    
   }
-
 
   /*===================*
   *     Creation       *
@@ -116,17 +129,27 @@ namespace DCEngine {
   @brief  CommandObjectCreation constructor.
   */
   /**************************************************************************/
-  CommandObjectCreation::CommandObjectCreation(GameObject * object, Space* space, Setting setting) 
-                                               : Command("Creation - " + object->Name()), 
-                                                 GameObjectRef(object), SpaceRef(space), CurrentSetting(setting)
-  {    
-    // Save the data of the selected GameObject
+  CommandObjectCreation::CommandObjectCreation(GameObjectPtr gameObject, Space * space, Setting setting)
+                                              : Command("Creation - " + gameObject->Name()),
+                                               SpaceRef(space), CurrentSetting(setting)
+  {
+    GameObjectReferences.push_back(gameObject);
     Copy();
-    DCTrace << "CommandObjectCreation - GameObject: " << object->Name() << "\n";
+    DCTrace << "CommandObjectCreation - GameObject: " << GameObjectReferences.front()->Name() << "\n";
   }
 
-  CommandObjectCreation::CommandObjectCreation(ArchetypePtr copyData, Space * space) 
-                                               : Command("Creation - " + copyData->Name()),
+
+  CommandObjectCreation::CommandObjectCreation(GameObjectRawVec objects, Space* space, Setting setting) 
+                                               : Command("Creation - " + objects.front()->Name()), 
+                                                GameObjectReferences(objects), SpaceRef(space), CurrentSetting(setting)
+  {
+    // Save the data of the selected GameObject
+    Copy();
+    DCTrace << "CommandObjectCreation - GameObject: " << GameObjectReferences.front()->Name() << "\n";
+  }
+
+  CommandObjectCreation::CommandObjectCreation(ArchetypeContainer copyData, Space * space)
+                                               : Command("Creation - " + copyData.front()->Name()),
                                                  GameObjectData(copyData), SpaceRef(space), CurrentSetting(Setting::Create)
   {
   }
@@ -173,42 +196,45 @@ namespace DCEngine {
     }
   }
 
-
-
   /**************************************************************************/
   /*!
-  @brief (Re)creates the GameObject.
+  @brief (Re)creates the GameObject(s).
   */
   /**************************************************************************/
   void CommandObjectCreation::Create()
   {
-    auto a = GameObjectData;
-    GameObjectRef = SpaceRef->CreateObject(ArchetypePtr(GameObjectData));
-    
-    DCTrace << "CommandObjectDelete::Create - Created GameObject: " << GameObjectRef->Name() << "\n";
+    for (auto& gameObjectData : GameObjectData) {
+      GameObjectReferences.push_back(SpaceRef->CreateObject(ArchetypePtr(gameObjectData)));
+      DCTrace << "CommandObjectDelete::Create - Created GameObject: " << gameObjectData->Name() << "\n";
+    }    
   }
 
   /**************************************************************************/
   /*!
-  @brief Destroys the GameObject.
+  @brief Destroys the GameObjects.
   */
   /**************************************************************************/
   void CommandObjectCreation::Destroy()
   {
-    DCTrace << "CommandObjectDelete::Destroy - Deleted GameObject: " << GameObjectRef->Name() << "\n";
-    GameObjectRef->Destroy();
-    GameObjectRef = nullptr;
+    for (auto& gameObj : GameObjectReferences) {
+      DCTrace << "CommandObjectDelete::Destroy - Deleted GameObject: " << gameObj->Name() << "\n";
+      gameObj->Destroy();
+    }
+
+    GameObjectReferences.clear();
 
   }
 
   /**************************************************************************/
   /*!
-  @brief Copies the GameObject's data into an Archeteype.
+  @brief Copies the GameObject's data into an Archtype.
   */
   /**************************************************************************/
   void CommandObjectCreation::Copy()
   {
-    GameObjectData = Daisy->getSystem<Systems::Factory>()->BuildArchetype("object", GameObjectRef);
+    for (auto& gameObj : GameObjectReferences) {
+      GameObjectData.push_back(Daisy->getSystem<Systems::Factory>()->BuildArchetype("object", gameObj));
+    }    
   }
 
   /*===================*

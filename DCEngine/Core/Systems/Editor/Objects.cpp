@@ -33,25 +33,36 @@ namespace DCEngine {
       
       ImGui::SameLine();
       if (ImGui::Button("Up")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Up);
       }
       ImGui::SameLine();
       if (ImGui::Button("Down")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
       // Display every object's name
+      unsigned objID = 0;
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
       for (auto& object : *objects) {
+        ImGui::PushID(objID++);
         auto objectName = object->Name().c_str();   
         // If the user has selected the GameObject.
         //if (ImGui::Selectable(objectName)) {
-        if (ImGui::Selectable(objectName, SelectedObject && SelectedObject->getObjectID() == object->GameObjectID)) {
-          SelectedObject = object;
+        //auto selectedObject = SelectedObject();
+        //static unsigned selectedObjectID = 0;
+        //if (selectedObject)
+        //  selectedObjectID = selectedObject->getObjectID();
+        //unsigned objectID = object->getObjectID();
+        //if (ImGui::Selectable(objectName, selectedObjectID == objectID)) {
+
+
+        if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
+          SelectObject(object);
           WindowPropertiesEnabled = true;
-        }          
+        }
+        ImGui::PopID();
       }
       // Ends the window
       ImGui::End();

@@ -47,6 +47,7 @@ namespace DCEngine {
 
       ZilchDeclareDerivedType(ParticleEmitter, Graphical);
       ParticleEmitter(Entity& owner);
+			virtual ~ParticleEmitter(void);
       void Initialize();
 
     private:

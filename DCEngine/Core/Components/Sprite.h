@@ -12,6 +12,7 @@ in the world space through the drawing of sprites.
 /******************************************************************************/
 #pragma once
 #include "Graphical.h"
+#include "Camera.h"
 
 #include "../Resources/SpriteSource.h"
 
@@ -77,18 +78,22 @@ namespace DCEngine {
       float GetAnimationSpeedFPS(void);
       void ResetSpeedCounter(void);
       void SetColorUsing255(Vec3 newColor);
+			virtual void Update(double dt);
+			virtual void Draw(Camera& camera);
 			//unsigned GetDrawLayer(void);
 
       // Constructor
       ZilchDeclareDerivedType(Sprite, Graphical);
       Sprite(Entity& owner);
-      ~Sprite();
+      virtual ~Sprite();
       void Initialize();
       void UpdateSprite();
       Transform* TransformComponent;
       glm::mat4 FlipMatrix;
       bool XFlipped = false;
       bool YFlipped = false;
+			static ShaderPtr mShader;
+			static GLuint mVAO;
 
     private:
 

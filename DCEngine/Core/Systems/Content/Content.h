@@ -61,10 +61,12 @@ namespace DCEngine {
       ZilchScriptPtr getZilchScript(std::string& scriptName);
       PhysicsMaterialPtr getPhysicsMaterial(std::string& materialName);
       SpriteLayerPtr getSpriteLayer(std::string& name);
+      TexturePtr getTexture(std::string& name);
       SpriteLayerOrderPtr getSpriteLayerOrder(std::string& name);
       template <typename ResourceMap, typename ResourcePtr>
       ResourcePtr getResource(std::string& resourceName, ResourceMap map, std::string& defaultResource);
       // Container getters
+      TextureMap* AllTextures();
       SpriteSourceMap* AllSpriteSources();
       SoundCueMap* AllSoundCues();
       BankMap* AllBanks();
@@ -78,6 +80,7 @@ namespace DCEngine {
       PhysicsMaterialMap* AllPhysicsMaterials();
       SpriteLayerMap* AllSpriteLayers();
       SpriteLayerOrderMap* AllSpriteLayerOrders();
+
       // Remove resource.
       void RemoveResource(ResourcePtr);      
       // Scanners
@@ -112,6 +115,7 @@ namespace DCEngine {
       std::string DefaultSpriteLayer = "DefaultSpriteLayer";
       std::string DefaultSpriteLayerOrder = SpriteLayerOrder::Default();
       std::string DefaultSound = "Beep";
+      std::string DefaultTexture = "SampleTexture";
 
       // Resource maps      
       std::map<std::string, ShaderPtr> ShaderMap;
@@ -127,6 +131,7 @@ namespace DCEngine {
       SpriteLayerMap MapSpriteLayer;
       SpriteLayerOrderMap MapSpriteLayerOrder;
       BankMap MapBank;
+      TextureMap MapTextures;
 
       // Map functions
       void AddFont(std::string& fontName, FontPtr fontPtr);
@@ -141,6 +146,7 @@ namespace DCEngine {
       void AddZilchScript(std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
       void AddSpriteLayer(std::string& name, SpriteLayerPtr ptr);
       void AddSpriteLayerOrder(std::string& name, SpriteLayerOrderPtr ptr);
+      void AddTexture(std::string& name, TexturePtr ptr);
       template <typename ResourcePtr, typename ResourceMap>
       void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
 

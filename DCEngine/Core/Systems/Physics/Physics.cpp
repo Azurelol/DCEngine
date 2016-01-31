@@ -20,6 +20,7 @@
 #include "../../Components/CircleCollider.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
+#include "../../Systems/Physics/QuadTree.h"
 // Custom physics libraries
 
 #include "Resolution.h"
@@ -32,7 +33,8 @@ namespace DCEngine {
 		\brief Constructor for the Physics system.
 		*/
 		/**************************************************************************/
-		Physics::Physics() : System(std::string("PhysicsSystem"), EnumeratedSystem::Physics) {
+		Physics::Physics() : System(std::string("PhysicsSystem"), EnumeratedSystem::Physics),
+			minX(10000), minY(10000), maxX(-10000), maxY(-10000) {
 		}
 
 		/**************************************************************************/
@@ -130,6 +132,24 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Checks if the GameObject is within the bounding area.
+    @param center The center of the bounding box.
+    @param width The width of the bounding box.
+    @param height The height of the bounding box.
+    @param gameObject The specified GameObject.
+    @return Whether the GameObject was found within the bounding area.
+    */
+    /**************************************************************************/
+    bool Physics::IsObjectWithinBoundingArea(Vec3 & center, float width, float height, GameObjectPtr gameObject)
+    {
+      auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
+      auto& scale = gameObject->getComponent<Components::Transform>()->getScale();
+      auto& rotation = gameObject->getComponent<Components::Transform>()->getRotation();
+      return Collision::SelectiontoBox(center, width, height, translation, scale, rotation.z);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Checks for collision between the target position and an object
            within the space. It will return the first object hit.
     @param The delta time.
@@ -180,19 +200,19 @@ namespace DCEngine {
           continue;
 
 				std::vector<Manifold> contactlist;
-        std::vector<DetectionPairing> pairs;
+        static std::vector<DetectionPairing> pairs;
 
 				BroadPhaseDetection(physpace, pairs);
+
+        Integrate(dt, physpace);
 
         NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
-        Integrate(dt, physpace);
-
 				PublishResults(physpace);
 
-        UpdateTransforms(physpace);
+        //UpdateTransforms(physpace);
 			}
 
 
@@ -274,65 +294,147 @@ namespace DCEngine {
 		/**************************************************************************/
     void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
-			// For all gameobjects with a 'Collider' component
-			auto& list = physpace->AllColliders();
+      // For all gameobjects with a 'Collider' component
 
-      pairs.clear();
+      Components::ColliderContainer& list = physpace->AllColliders();
 
-      DetectionPairing Fill;
-
-			for (int i = 0; i < list.size(); ++i)
+			//find extent of all objects
+			for (auto collider : list)
 			{
-				for (int j = i + 1; j < list.size(); ++j)
+				Vec3 min;
+				Vec3 max;
+				Components::Transform* transform = collider->Owner()->getComponent<Components::Transform>();
+				Components::BoxCollider* box = collider->Owner()->getComponent<Components::BoxCollider>();
+				if (box)
 				{
-          auto box1 = dynamic_cast<Components::BoxCollider*>(list[i]);
-          auto box2 = dynamic_cast<Components::BoxCollider*>(list[j]);
-          auto cir1 = dynamic_cast<Components::CircleCollider*>(list[i]);
-          auto cir2 = dynamic_cast<Components::CircleCollider*>(list[j]);
-
-         //auto box1 = list[i]->getComponent<BoxCollider>();
-         //auto box2 = list[j]->getComponent<BoxCollider>();
-         //auto cir1 = list[i]->getComponent<CircleCollider>();
-         //auto cir2 = list[j]->getComponent<CircleCollider>();
-         std::string str1, str2;
-
-         
-
-         Fill.obj1 = dynamic_cast<GameObjectPtr>(list[i]->Owner());
-         Fill.obj2 = dynamic_cast<GameObjectPtr>(list[j]->Owner());
-
-         if (box1)
-         {
-           str1 = box1->getCollisionGroup();
-         }
-         else
-         {
-           str1 = cir1->getCollisionGroup();
-         }
-
-         if (box2)
-         {
-           str2 = box2->getCollisionGroup();
-         }
-         else
-         {
-           str2 = cir2->getCollisionGroup();
-         }
-
-         if (str1 == str2)
-         {
-           Fill.filter = CollisionFilter();
-         }
-         else
-         {
-           // need to access the collision table and get info from it
-           //auto& a = physpace->getTable().GetFilter(str1, str2);
-           //Fill.filter = physpace->getTable().GetFilter(str1, str2);
-         }
-
-         pairs.push_back(Fill);
+					min = transform->Translation - box->getColliderScale() + box->Offset;
+					max = transform->Translation + box->getColliderScale() + box->Offset;
 				}
+				else
+				{
+					Components::CircleCollider* circle = collider->Owner()->getComponent<Components::CircleCollider>();
+					if (circle)
+					{
+						min = transform->Translation - transform->Scale * circle->Radius + box->Offset;
+						max = transform->Translation - transform->Scale * circle->Radius + box->Offset;
+					}
+				}
+				if (min.x < minX)
+					minX = min.x;
+				if (min.y < minY)
+					minY = min.y;
+				if (max.x > maxX)
+					maxX = max.x;
+				if (max.y > maxY)
+					maxY = max.y;
+
 			}
+
+			QuadTree qt(list, Vec2(minX, minY), Vec2(maxX, maxY), QuadTreeBucketSize);
+			pairs = qt.CreatePairs();
+      //static int listsize = 0;
+			//
+      //if (list.size() == listsize)
+      //{
+      //  //return;
+      //}
+			//
+      //listsize = list.size();
+			//
+      //pairs.clear();
+			//
+      //Components::BoxCollider*    box1 = NULL;
+      //Components::BoxCollider*    box2 = NULL;
+      //Components::CircleCollider* cir1 = NULL;
+      //Components::CircleCollider* cir2 = NULL;
+      //int count = 0;
+			//
+      //bool rigid1 = false, rigid2 = false;
+			//
+      //std::string str1, str2;
+			//
+      //DetectionPairing Fill;
+			//
+      ////pairs.resize(list.size() * list.size());
+			//
+      //for (int i = 0; i < list.size(); ++i)
+      //{
+      //  for (int j = i + 1; j < list.size(); ++j)
+      //  {
+      //    Fill.obj1 = static_cast<GameObjectPtr>(list[i]->Owner());
+      //    Fill.obj2 = static_cast<GameObjectPtr>(list[j]->Owner());
+			//
+      //    auto rigidbody1 = Fill.obj1->getComponent<Components::RigidBody>();
+      //    auto rigidbody2 = Fill.obj2->getComponent<Components::RigidBody>();
+			//
+      //    if (rigidbody1 == NULL)
+      //    {
+      //      rigid1 = false;
+      //    }
+      //    else
+      //    {
+      //      rigid1 = true;
+			//
+      //      if (rigidbody1->getDynamicState() == DynamicStateType::Static)
+      //      {
+      //        rigid1 = false;
+      //      }
+      //    }
+			//
+      //    if (rigidbody2 == NULL)
+      //    {
+      //      rigid2 = false;
+      //    }
+      //    else
+      //    {
+      //      rigid2 = true;
+			//
+      //      if (rigidbody2->getDynamicState() == DynamicStateType::Static)
+      //      {
+      //        rigid2 = false;
+      //      }
+      //    }
+			//
+      //    if (!rigid1 && !rigid2)
+      //    {
+      //      continue;
+      //    }
+			//
+      //    box1 = Fill.obj1->getComponent<Components::BoxCollider>();
+      //    box2 = Fill.obj2->getComponent<Components::BoxCollider>();
+      //    cir1 = Fill.obj1->getComponent<Components::CircleCollider>();
+      //    cir2 = Fill.obj2->getComponent<Components::CircleCollider>();
+			//
+      //    if (box1)
+      //    {
+      //      str1 = box1->getCollisionGroup();
+      //    }
+      //    else
+      //    {
+      //      str1 = cir1->getCollisionGroup();
+      //    }
+			//
+      //    if (box2)
+      //    {
+      //      str2 = box2->getCollisionGroup();
+      //    }
+      //    else
+      //    {
+      //      str2 = cir2->getCollisionGroup();
+      //    }
+			//
+      //    if (str1 == str2)
+      //    {
+      //      Fill.filter = CollisionFilter();
+      //    }
+      //    else
+      //    {
+      //      // need to access the collision table and get info from it
+      //      //Fill.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
+      //    }
+      //    pairs.push_back(Fill);
+      //  }
+      //}
 		}
 
 		/**************************************************************************/

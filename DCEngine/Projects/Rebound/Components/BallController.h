@@ -42,6 +42,7 @@ namespace DCEngine {
 	  Real Friction = 0.1; //set from 0 to 1
 	  Real AttractPower = 400.0f;
 	  Real AttractYBoost = 3;
+	  Real SlamPower = ChargeFactor * MaxCharge;
 	  
       Boolean Charging = false;
       Boolean FreezeEnabled = true;

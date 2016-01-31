@@ -257,13 +257,14 @@ namespace DCEngine {
 		void GraphicsGL::SetParticleSystemShader(Components::Camera & camera)
 		{
 			ParticleSystemShader->Use();
+			ParticleSystemShader->SetInteger("image", 0);
 			SetShaderProjViewUniforms(ParticleSystemShader, camera);
 		}
 
 
 		void GraphicsGL::DrawParticles(Components::SpriteParticleSystem & particles, Components::Camera & camera, double dt)
 		{
-			glDepthFunc(GL_LEQUAL);
+			//glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			auto transform = particles.TransformComponent;
@@ -275,7 +276,7 @@ namespace DCEngine {
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
 
-			particles.UpdateParticles(dt);
+			//particles.Update(dt);
 			std::vector<glm::vec2> offset(particles.GetPositionData());
 			std::vector<float> scale(particles.GetScaleData());
 			std::vector<float> rotation(particles.GetRotationData());

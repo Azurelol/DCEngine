@@ -79,6 +79,7 @@ namespace DCEngine {
   };
 
   using ObjectPtr = Object*;
+  using ObjectContainer = std::vector<ObjectPtr>;
 
   /*===================*
   *     Templates      *

@@ -20,9 +20,6 @@ namespace DCEngine {
     /*!
     @brief  Checks if there's an object at the current position in the space.
     @param  pos The position of the mouse relative to world space.
-    @todo   Not have the camera's current direction vector hardcoded?
-    Find the camera's forward through an orientation component.
-    Use std::sort rather than some hacky algorithm.
     */
     /**************************************************************************/
     void Editor::SelectObjectFromSpace(GameObject* object)
@@ -110,9 +107,41 @@ namespace DCEngine {
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
       WindowPropertiesEnabled = true;
-      SelectedObject = obj;      
+      
+      // Save its boundaries
+      Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
+      Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
+      Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+
+      Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Returns the currently selected object.
+    */
+    /**************************************************************************/
+    ObjectPtr Editor::SelectedObject()
+    {
+      // Return the first object 
+      if (!SelectedObjects.empty())
+        return SelectedObjects.front();
+
+      // If no objects are selected..
+      return nullptr;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Selects the specified object.
+    */
+    /**************************************************************************/
+    void Editor::Select(ObjectPtr object)
+    {
+      SelectedObjects.clear();
+      SelectedObjects.push_back(object);
     }
 
     /**************************************************************************/
@@ -123,7 +152,7 @@ namespace DCEngine {
     void Editor::Deselect()
     {
       DCTrace << "Editor::Deselect \n";
-      SelectedObject = nullptr;
+      SelectedObjects.clear();
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Deselect();
     }
@@ -135,7 +164,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectSpace()
     {
-      SelectedObject = CurrentSpace;
+      Select(CurrentSpace);
       WindowPropertiesEnabled = true;
     }
 
@@ -146,147 +175,69 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::CenterSelected()
     {
-      if (!SelectedObject)
+      if (!SelectedObject())
         return;
 
       // Translate the camera to be centered on the object.
-      auto& objectPos = dynamic_cast<GameObjectPtr>(SelectedObject)
+      auto& objectPos = dynamic_cast<GameObjectPtr>(SelectedObject())
                        ->getComponent<Components::Transform>()->getTranslation();
       auto& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       EditorCamera->getComponent<Components::Transform>()->setTranslation(Vec3(objectPos.x, objectPos.y, cameraPos.z));
     }
 
+
     /**************************************************************************/
     /*!
-    @brief  Drags the object
-    @param  The mouse's current position.
+    @brief  Attempts to select any objects within the boundary drawn
+            by the mouse cursor.
+    @param  event The current mouse position.
     */
     /**************************************************************************/
-    void Editor::DragObject(Vec2 pos)
+    void Editor::SelectMultiple(Vec2 & mousePosition)
     {
-      // Only drag GameObjects in the Space while in translate mode
-      if (ActiveTool != EditorTool::Translate)
+      if (!Settings.MultiSelectDragging)
         return;
+      
+      // Get the current mouse position.
+      auto endPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(mousePosition), 0);
+      auto& startPos = Selection.MultiSelectStartPos;
+      // Calculate the bounding box created between the endpoints (where the selection started, 
+      // and the currnent mouse position)
+      Selection.MultiSelectArea = endPos - startPos;
+      Selection.MultiSelectMidpoint = Vec3((endPos.x + startPos.x) / 2,
+                                          (endPos.y + startPos.y) / 2,
+                                          (endPos.y + startPos.y) / 2);
 
-      // If the mouse is currently being dragged
-      if (Settings.Dragging) {
-        //DCTrace << "Dragging! \n ";
-        // If the selected object is a GameObject on the space
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-          // Move the object
-          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x,
-            mousePos.y,
-            gameObject->getComponent<Components::Transform>()->getTranslation().z));
-        }
-      }
-      if (Settings.DraggingX) {
-        //DCTrace << "Dragging! \n ";
-        // If the selected object is a GameObject on the space
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-          // Move the object
-          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x-Settings.DragOffset,
-            gameObject->getComponent<Components::Transform>()->getTranslation().y,
-            gameObject->getComponent<Components::Transform>()->getTranslation().z));
-        }
-      }
-          if (Settings.DraggingY) {
-            //DCTrace << "Dragging! \n ";
-            // If the selected object is a GameObject on the space
-            if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-              // Calculate the current mouse position
-              auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-              //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
-              // Move the object
-              gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(gameObject->getComponent<Components::Transform>()->getTranslation().x,
-                mousePos.y- Settings.DragOffset,
-                gameObject->getComponent<Components::Transform>()->getTranslation().z));
-            }
-      }
+      
+      // Check for objects within the selected area. Perform a bounding box check.
+      SelectedObjects.clear();
+      for (auto& gameObject : CurrentSpace->GameObjectContainer) {
 
-    }
-    void Editor::RotateObject(Vec2 pos, Vec3 PreviousRotation)
-    {
-      if (ActiveTool != EditorTool::Rotate)
-        return;
+        // Do nothing if it has a camera component
+        if (gameObject->HasComponent(std::string("Camera")))
+          continue;
 
-      if (Settings.Rotating) {
-        auto gameObject = dynamic_cast<GameObject*>(SelectedObject);
-        auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-        auto transform = gameObject->getComponent<Components::Transform>();
-        auto normal = Vec3(transform->getTranslation().y - Settings.OriginMousePos.y, -(transform->getTranslation().x - Settings.OriginMousePos.x), 0);
-        auto c = (normal.x * Settings.OriginMousePos.x + normal.y * Settings.OriginMousePos.y);
-        auto dist = (normal.x*mousePos.x + normal.y*mousePos.y - c) / sqrt(normal.x*normal.x + normal.y*normal.y);
-       
-        normal *= 1 / sqrt(normal.x*normal.x + normal.y*normal.y);
-
-        Vec4 color(1.0, 0.0, 0.0, 1.0); // Red
-        Real radius = 1;
-        
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(dist*normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), radius, color);
-
-        transform->setRotation(Vec3(PreviousRotation.x, PreviousRotation.y, PreviousRotation.z + 360 * (static_cast<int>(dist)%360)/90 ));
-      }
-    }
-    void Editor::ScaleObject(Vec2 pos)
-    {
-      if (ActiveTool != EditorTool::Scale)
-        return;
-
-      if (Settings.ScalingX) {
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          auto transform = gameObject->getComponent<Components::Transform>();
-          
-          gameObject->getComponent<Components::Transform>()->setScale(Vec3(Settings.OriginScale.x + Settings.OriginScale.x*((mousePos.x-Settings.OriginMousePos.x)/abs(Settings.OriginMousePos.x - transform->getTranslation().x)),
-            gameObject->getComponent<Components::Transform>()->getScale().y,
-            gameObject->getComponent<Components::Transform>()->getScale().z));
-        }
-      }
-      if (Settings.ScalingY) {
-        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject)) {
-          // Calculate the current mouse position
-          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
-          auto transform = gameObject->getComponent<Components::Transform>();
-
-          gameObject->getComponent<Components::Transform>()->setScale(Vec3(transform->getScale().x,
-            Settings.OriginScale.y + Settings.OriginScale.y*((mousePos.y - Settings.OriginMousePos.y) / abs(Settings.OriginMousePos.y - transform->getTranslation().y)),
-            transform->getScale().z));
+        // If the object lies within the bounding area..
+        if (Daisy->getSystem<Physics>()->IsObjectWithinBoundingArea(Selection.MultiSelectMidpoint, Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, gameObject)) {
+          SelectedObjects.push_back(gameObject);
         }
       }
     }
+
     /**************************************************************************/
     /*!
-    @brief  Releases the object at the current dragged position.    
+    @brief  Draws the multi-selection bounding area.
     */
     /**************************************************************************/
-    void Editor::ReleaseObject()
+    void Editor::DrawMultiSelect()
     {
-      if (!SelectedObject)
+      if (!Settings.MultiSelectDragging)
         return;
 
-      if (Settings.Dragging || Settings.DraggingX || Settings.DraggingY) {       
-
-        // Snap the object to the nearest (x,y) snapDistance      
-        if (Settings.Snapping) {
-          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->getTranslation();
-          auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
-          dynamic_cast<GameObjectPtr>(SelectedObject)->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
-
-          DCTrace << "Editor::ReleaseObject - Releasing '" << SelectedObject->getObjectName() << "' at: \n"
-            << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";
-        }
-
-      }
-        
+      // Draw the bounding rectangle
+      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
+        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Settings.MultiSelectColor);
     }
-
 
 
   }

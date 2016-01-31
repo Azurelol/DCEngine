@@ -125,7 +125,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Tools"))
             WindowToolsEnabled = !WindowToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
-            WidgetDiagnosticsEnabled = !WidgetDiagnosticsEnabled;
+            WindowDiagnosticsEnabled = !WindowDiagnosticsEnabled;
           if (ImGui::MenuItem("Commands"))
             WindowCommandsEnabled = !WindowCommandsEnabled;
           if (ImGui::MenuItem("Console", "~"))

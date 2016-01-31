@@ -31,6 +31,7 @@ namespace DCEngine {
 
       ZilchDeclareDerivedType(ParticleColorAnimator, Graphical);
       ParticleColorAnimator(Entity& owner);
+			virtual ~ParticleColorAnimator(void);
       void Initialize();
     private:
       SpriteParticleSystem* ParticleSystem;

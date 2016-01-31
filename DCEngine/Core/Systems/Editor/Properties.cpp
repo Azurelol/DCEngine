@@ -34,14 +34,14 @@ namespace DCEngine {
       ImGui::Begin("Properties", &WindowPropertiesEnabled);
 
       // If there's an object selected, display its properties.
-      if (SelectedObject != nullptr) {
+      if (SelectedObject() != nullptr) {
 
         // If the object is an entity
-        if (dynamic_cast<EntityPtr>(SelectedObject)) {
+        if (dynamic_cast<EntityPtr>(SelectedObject())) {
           DisplayEntityProperties();
         }
         // If the object is a resource
-        else if (dynamic_cast<ResourcePtr>(SelectedObject)) {
+        else if (dynamic_cast<ResourcePtr>(SelectedObject())) {
           DisplayResourceProperties();
         }
       }
@@ -57,16 +57,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayEntityProperties()
     {
-      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject);
+      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject());
 
       ////////////////////////////////
       // 1. Display the object's name
       ////////////////////////////////
-      char name[32]; strcpy(name, SelectedObject->Name().c_str());
+      char name[32]; strcpy(name, SelectedObject()->Name().c_str());
       // If the user has given input, change the name
       ImGui::PushItemWidth(ImGui::GetWindowWidth() / 4.0f);
       if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
-        SelectedObject->setObjectName(name);
+        SelectedObject()->setObjectName(name);
       }
       ImGui::PopItemWidth();
       /////////////////////////////////////
@@ -135,7 +135,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayResourceProperties()
     {
-      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject);
+      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject());
 
       // 1. Display the Resource's name
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
@@ -228,6 +228,7 @@ namespace DCEngine {
           // If the user selects an item... 
           static int currentItem = 0;
           ImGui::Text(property->Name.c_str());
+          static bool thisModified = false;
           if (ImGui::Combo("##propertyID", &currentItem, enums.data(), enums.size())) {
             // Set the selected item as the current resource
             auto selectedEnum = enums.at(currentItem);
@@ -243,6 +244,11 @@ namespace DCEngine {
             setCall.Set(0, valueSet);
             setCall.Invoke(report);
           }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
+            modified = true;
+            thisModified = false;
+          }
           //if (ImGui::Selectable)
           ImGui::PopID();
         }
@@ -251,6 +257,8 @@ namespace DCEngine {
         // Property: Boolean
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
+
+          static bool thisModified = false;
           // If the user modifies it
           ImGui::PushID(propertyID++);
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
@@ -258,7 +266,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, boolean);
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -268,6 +280,8 @@ namespace DCEngine {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[128];
           strcpy(buf, string.c_str());          
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputText(property->Name.c_str(), buf, IM_ARRAYSIZE(buf))) {
@@ -275,7 +289,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::String(buf));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -283,6 +301,8 @@ namespace DCEngine {
         // Property: Integer
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt(property->Name.c_str(), &integer)) {
@@ -297,7 +317,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, integer);
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -306,6 +330,8 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer2))) {
           auto integer2 = getCall.Get<Zilch::Integer2>(Zilch::Call::Return);
           int int2[2] = { integer2.x, integer2.y };
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt2(property->Name.c_str(), int2)) {
@@ -313,7 +339,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer2(int2[0], int2[1]));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -322,6 +352,8 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer3))) {
           auto integer3 = getCall.Get<Zilch::Integer3>(Zilch::Call::Return);
           int int3[3] = { integer3.x, integer3.y, integer3.z };
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt3(property->Name.c_str(), int3)) {
@@ -329,7 +361,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer3(int3[0], int3[1], int3[2]));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -338,6 +374,8 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer4))) {
           auto integer4 = getCall.Get<Zilch::Integer4>(Zilch::Call::Return);
           int int4[4] = { integer4.x, integer4.y, integer4.z, integer4.w};
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           if (ImGui::InputInt4(property->Name.c_str(), int4)) {
@@ -345,8 +383,13 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
             setCall.Invoke(report);    
-            modified = true;
           }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
+            modified = true;
+            thisModified = false;
+          }
+
           ImGui::PopID();
         }
 
@@ -356,7 +399,8 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
-          //if (ImGui::SliderFloat(property->Name.c_str(), &real, 1.0f)) {
+          
+          static bool thisModified = false;
           if (ImGui::InputFloat(property->Name.c_str(), &real, 0.1f, 0.5f, 3)) {
 
             // Unsigned
@@ -370,7 +414,11 @@ namespace DCEngine {
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, real);
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -381,13 +429,19 @@ namespace DCEngine {
           float vec2f[2] = { vec2.x, vec2.y };
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
+
+          static bool thisModified = false;
           // If the user has given input, set the property
           if (ImGui::InputFloat2("##propertyID", vec2f, 3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real3(vec2f));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -423,12 +477,18 @@ namespace DCEngine {
           // If the user has given input, set the property          
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
+
+          static bool thisModified = false;
           if (ImGui::InputFloat4("##propertyID", vec4f, 3)) {
             Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
             setCall.SetHandleVirtual(Zilch::Call::This, object);
             setCall.Set(0, Zilch::Real4(vec4f[0], vec4f[1], vec4f[2], vec4f[3]));
             setCall.Invoke(report);
+          }
+          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
+          {
             modified = true;
+            thisModified = false;
           }
           ImGui::PopID();
         }

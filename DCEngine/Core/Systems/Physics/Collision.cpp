@@ -24,7 +24,7 @@ namespace DCEngine
   // the problem is that the values in min and max are wrong
   float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
-    return 	std::max(a.getRestitution(), b.getRestitution());
+    return 	std::min(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(float a, float b)
@@ -51,7 +51,6 @@ namespace DCEngine
     auto rigidbody1 = obj1->getComponent<Components::RigidBody>();
     auto rigidbody2 = obj2->getComponent<Components::RigidBody>();
 
-
     if (rigidbody1 == NULL)
     {
       result.rigid1 = false;
@@ -59,6 +58,11 @@ namespace DCEngine
     else
     {
       result.rigid1 = true;
+
+      if (rigidbody1->getDynamicState() == DynamicStateType::Static)
+      {
+        result.rigid1 = false;
+      }
     }
 
     if (rigidbody2 == NULL)
@@ -68,25 +72,10 @@ namespace DCEngine
     else
     {
       result.rigid2 = true;
-    }
 
-    if (!result.rigid1 && !result.rigid2)
-    {
-      return false;
-    }
-    else if ((result.rigid1 && !result.rigid2) && (obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
-    {
-      return false;
-    }
-    else if ((!result.rigid1 && result.rigid2) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
-    {
-      return false;
-    }
-    else if (result.rigid1 && result.rigid2)
-    {
-      if ((obj1->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static) && (obj2->getComponent<Components::RigidBody>()->DynamicState == DynamicStateType::Static))
+      if (rigidbody2->getDynamicState() == DynamicStateType::Static)
       {
-        return false;
+        result.rigid2 = false;
       }
     }
 
@@ -963,5 +952,107 @@ namespace DCEngine
     return true;
   }
 
-}
 
+  bool Collision::SelectiontoBox(Vec3& posSel, float w, float h, Vec3& posItem, Vec3& scale, float rot)
+  {  
+    glm::vec3 topL1;
+    glm::vec3 topR1;
+    glm::vec3 botL1;
+    glm::vec3 botR1;
+  
+    glm::vec3 topL2;
+    glm::vec3 topR2;
+    glm::vec3 botL2;
+    glm::vec3 botR2;
+  
+  
+    glm::vec3 Axis1;
+    glm::vec3 Axis2;
+    glm::vec3 Axis3;
+    glm::vec3 Axis4;
+  
+    float Height0 = h;
+    float Height1 = scale.y;
+  
+    float Width0 = w;
+    float Width1 = scale.x;
+  
+    float rot0 = 0.0f;
+    float rot1 = rot;
+  
+    std::vector<glm::vec3> verts1;
+    std::vector<glm::vec3> verts2;
+  
+    topL1.x = posSel.x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    topL1.y = posSel.y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+  
+    verts1.push_back(topL1);
+  
+    topR1.x = posSel.x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    topR1.y = posSel.y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+  
+    verts1.push_back(topR1);
+  
+    botL1.x = posSel.x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    botL1.y = posSel.y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+  
+    verts1.push_back(botL1);
+  
+    botR1.x = posSel.x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    botR1.y = posSel.y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+  
+    verts1.push_back(botR1);
+  
+    /*
+    */
+    topL2.x = posItem.x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    topL2.y = posItem.y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+  
+    verts2.push_back(topL2);
+  
+    topR2.x = posItem.x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    topR2.y = posItem.y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+  
+    verts2.push_back(topR2);
+  
+    botL2.x = posItem.x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    botL2.y = posItem.y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+  
+    verts2.push_back(botL2);
+  
+    botR2.x = posItem.x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    botR2.y = posItem.y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+  
+    verts2.push_back(botR2);
+  
+    /* this block of math above calculates the veracities of the rectangles */
+    std::vector<glm::vec3> Axes;
+  
+    Axes.push_back(glm::normalize(topR1 - topL1));
+    Axes.push_back(glm::normalize(topR1 - botR1));
+  
+    Axes.push_back(glm::normalize(botL2 - topL2));
+    Axes.push_back(glm::normalize(topL2 - topR2));
+  
+    /* this ^ calculates the 4 axis I will be using to determine collision */
+  
+    std::vector<std::vector<float>> MinMax;
+  
+    /* project onto each axis */
+    for (int i = 0; i < Axes.size(); ++i)
+    {
+      MinMax = ProjectOnTo(verts1, verts2, Axes[i]);
+  
+      /* check the two non overlap results */
+      if (MinMax[0][0] > MinMax[1][1] || MinMax[0][1] < MinMax[1][0])
+      {
+        return false;
+      }
+    }
+  
+    /* collision is true */
+  
+    return true;
+  }
+
+}

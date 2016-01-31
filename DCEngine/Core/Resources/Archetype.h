@@ -34,6 +34,7 @@ namespace DCEngine {
   };
 
   using ArchetypePtr = std::shared_ptr<Archetype>;
+  using ArchetypeContainer = std::vector<ArchetypePtr>;
 
 }
 

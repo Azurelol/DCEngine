@@ -83,35 +83,55 @@ namespace DCEngine {
 				GraphicsHandler->SetParticleSystemShader(*camera);
 				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
 				//{
-				//	particleSystem->Initialize();
 				//	DrawParticles(*particleSystem, *camera, dt);
 				//}
 
 				//draw sprite text
 				GraphicsHandler->SetSpriteTextShader(*camera);
-				for (auto spriteText : gfxSpace->getSpriteTextContainer())
-				{
-					DrawSpriteText(*spriteText, *camera);
-				}
+				//for (auto spriteText : gfxSpace->getSpriteTextContainer())
+				//{
+					//DrawSpriteText(*spriteText, *camera);
+				//}
 
 				// draw sprites
 				GraphicsHandler->SetSpriteShader(*camera);
-
-				for (auto gameObj : gfxSpace->getSprites()) {
+				
+				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+				for (auto graphicalComponent : graphicalComponents)
+				{
 					++TotalObjNumG;
-					mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
+					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 				}
 
-				for(auto&& drawList : mDrawList)
+				for (auto&& drawList : mDrawList)
 				{
-					for (Components::Sprite* sprite : drawList)
+					for (auto&& obj : drawList)
 					{
-						DrawSprite(*sprite, *camera, dt);
+						obj->Update(dt);
+						obj->Draw(*camera);
 					}
 					drawList.clear();
 				}
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+
+				//for (auto gameObj : gfxSpace->getSprites()) {
+				//	++TotalObjNumG;
+				//	mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
+				//}
+
+				//for(auto&& drawList : mDrawList)
+				//{
+				//	for (Components::Sprite* sprite : drawList)
+				//	{
+				//		DrawSprite(*sprite, *camera, dt);
+				//	}
+				//	drawList.clear();
+				//}
 
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
+				if (Debug::CheckOpenGLError())
+					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			}
 		}
 

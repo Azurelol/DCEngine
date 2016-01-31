@@ -5,9 +5,8 @@
     "Name": "eventA", 
     "Properties": 
     {
-      "Mode": "-842150451", 
       "Loop": false, 
-      "Volume": 0.100000, 
+      "Volume": 1.000000, 
       "VolumeVariation": 0.000000, 
       "Pitch": 1.000000, 
       "PitchVariation": 0.000000, 
