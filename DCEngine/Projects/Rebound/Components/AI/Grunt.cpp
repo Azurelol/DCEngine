@@ -29,7 +29,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, MoveSpeed);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, Epsilon);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthX);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthY);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpFrequency);
     }
 #endif
 
@@ -50,26 +52,29 @@ namespace DCEngine {
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
     
       stateMachine = new StateMachine<Grunt>(this);
+      startingPosition = TransformRef->Translation;
+      endPosition = startingPosition;
+
       if (IsPatrolRight)
       {
-        endPosition = startingPosition + PatrolDistance;
-        stateMachine->ChangeState(new PatrolRight());
+        endPosition.x = startingPosition.x + PatrolDistance;
+        stateMachine->ChangeState(PatrolRight::Instance());
       }
       else
       {
-        endPosition = startingPosition - PatrolDistance;
-        stateMachine->ChangeState(new PatrolLeft());
+        endPosition.x = startingPosition.x - PatrolDistance;
+        stateMachine->ChangeState(PatrolLeft::Instance());
       }
 
-      stateMachine->SetGlobalState(new Global());
+      stateMachine->SetGlobalState(Global::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
-      startingPosition = TransformRef->Translation;
     }
 
     void Grunt::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
       stateMachine->Update();
+      dt = event->Dt;
     }
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -80,6 +85,18 @@ namespace DCEngine {
     {
     }
 
+    // Direction should be 1 (right) or -1 (left). 
+    void Grunt::Jump(int direction)
+    {
+      if (jumpTimer > JumpFrequency)
+      {
+        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(JumpStrengthX *  direction, JumpStrengthY, 0));
+        jumpTimer = 0;
+      }
+
+      jumpTimer += dt;
+    }
+
 #pragma region Global State
     void Grunt::Global::Enter(Grunt *owner)
     {
@@ -88,18 +105,23 @@ namespace DCEngine {
 
     void Grunt::Global::Update(Grunt *owner)
     {
-      DCTrace << "Grunt Global Update\n";
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
       
-      if (distanceFromPlayer > owner->IdleRange && !owner->stateMachine->isInState<Idle>())
-        owner->stateMachine->ChangeState(new Idle());
+      if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
+        owner->stateMachine->ChangeState(Idle::Instance());
     }
 
     void Grunt::Global::Exit(Grunt *owner)
     {
 
+    }
+
+    Grunt::Global* Grunt::Global::Instance()
+    {
+      static Global instance;
+      return &instance;
     }
 #pragma endregion Global State
 
@@ -111,7 +133,6 @@ namespace DCEngine {
 
     void Grunt::Idle::Update(Grunt *owner)
     {
-      DCTrace << "Grunt Idle Update\n";
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
@@ -124,33 +145,49 @@ namespace DCEngine {
     {
 
     }
+
+    Grunt::Idle* Grunt::Idle::Instance()
+    {
+      static Idle instance;
+      return &instance;
+    }
 #pragma endregion Idle State
 
 #pragma region Right State
     void Grunt::PatrolRight::Enter(Grunt *owner)
     {
+      owner->jumpTimer = 0;
       DCTrace << "Grunt PatrolRight Enter\n";
-      owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, 0, 0));
+      DCTrace << "StartPosition: " << owner->startingPosition.x << ", " << owner->startingPosition.y << ", " << owner->startingPosition.z << "\n";
+      DCTrace << "EndPosition: " << owner->endPosition.x << ", " << owner->endPosition.y << ", " << owner->endPosition.z << "\n";
     }
 
     void Grunt::PatrolRight::Update(Grunt *owner)
     {
-      DCTrace << "Grunt PatrolRight Update\n";
       Vec3 ownerPosition = owner->TransformRef->Translation;
-      float distanceFromEnd;
-
-      if (owner->IsPatrolRight)
-        distanceFromEnd = glm::distance(ownerPosition, owner->endPosition);
-      else
-        distanceFromEnd = glm::distance(ownerPosition, owner->startingPosition);
+      owner->Jump(1);
       
-      if (distanceFromEnd < owner->Epsilon)
-        owner->stateMachine->ChangeState(new PatrolLeft());
+      if (owner->IsPatrolRight)
+      {
+        if(ownerPosition.x > owner->endPosition.x)
+          owner->stateMachine->ChangeState(PatrolLeft::Instance());
+      }
+      else
+      {
+        if(ownerPosition.x > owner->startingPosition.x)
+          owner->stateMachine->ChangeState(PatrolLeft::Instance());
+      }        
     }
 
     void Grunt::PatrolRight::Exit(Grunt *owner)
     {
       owner->RigidBodyRef->setVelocity(Vec3());
+    }
+
+    Grunt::PatrolRight* Grunt::PatrolRight::Instance()
+    {
+      static PatrolRight instance;
+      return &instance;
     }
 #pragma endregion Right State
 
@@ -158,27 +195,36 @@ namespace DCEngine {
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
       DCTrace << "Grunt PatrolLeft Enter\n";
-      owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, 0, 0));
+      DCTrace << "StartPosition: " << owner->startingPosition.x << ", " << owner->startingPosition.y << ", " << owner->startingPosition.z << "\n";
+      DCTrace << "EndPosition: " << owner->endPosition.x << ", " << owner->endPosition.y << ", " << owner->endPosition.z << "\n";
     }
 
     void Grunt::PatrolLeft::Update(Grunt *owner)
     {
-      DCTrace << "Grunt PatrolLeft Update\n";
       Vec3 ownerPosition = owner->TransformRef->Translation;
-      float distanceFromEnd;
+      owner->Jump(-1);
 
       if (owner->IsPatrolRight)
-        distanceFromEnd = glm::distance(ownerPosition, owner->startingPosition);
+      {
+        if (ownerPosition.x < owner->startingPosition.x)
+          owner->stateMachine->ChangeState(PatrolRight::Instance());
+      }
       else
-        distanceFromEnd = glm::distance(ownerPosition, owner->endPosition);
-
-      if (distanceFromEnd < owner->Epsilon)
-        owner->stateMachine->ChangeState(new PatrolRight());
+      {
+        if (ownerPosition.x < owner->endPosition.x)
+          owner->stateMachine->ChangeState(PatrolRight::Instance());
+      }
     }
 
     void Grunt::PatrolLeft::Exit(Grunt *owner)
     {
       owner->RigidBodyRef->setVelocity(Vec3());
+    }
+
+    Grunt::PatrolLeft* Grunt::PatrolLeft::Instance()
+    {
+      static PatrolLeft instance;
+      return &instance;
     }
 #pragma endregion Left State
 
@@ -197,6 +243,12 @@ namespace DCEngine {
     {
 
     }
+
+    Grunt::Attack* Grunt::Attack::Instance()
+    {
+      static Attack instance;
+      return &instance;
+    }
 #pragma endregion Attack State
 
 #pragma region Die State
@@ -213,6 +265,12 @@ namespace DCEngine {
     void Grunt::Die::Exit(Grunt *owner)
     {
 
+    }
+
+    Grunt::Die* Grunt::Die::Instance()
+    {
+      static Die instance;
+      return &instance;
     }
 #pragma endregion Die State
 

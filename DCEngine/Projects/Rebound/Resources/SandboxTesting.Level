@@ -274,7 +274,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.702860, 
+                "y": 1.783000, 
                 "z": 0.000000
               }
             }, 
@@ -370,11 +370,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "IdleRange": 10.000000, 
-            "PatrolDistance": 5.000000, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 1.000000, 
-            "Epsilon": 0.010000
+            "MoveSpeed": 5.000000, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpFrequency": 2.000000
           }
         }
       }, 
