@@ -430,9 +430,11 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Systems\Editor\Editor.hpp" />
+<<<<<<< HEAD
+=======
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
     <ClInclude Include="QuadTree.h" />
+>>>>>>> 169253c8b8d485f8920ca675028f03c112aabdb6
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
     <ClInclude Include="Core\Binding\CoreBindingObjects.h" />
@@ -624,6 +626,7 @@
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
+    <None Include="Core\Systems\Editor\Editor.tcc" />
     <None Include="Daisy.cfg" />
     <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>
