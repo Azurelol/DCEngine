@@ -65,7 +65,7 @@ namespace DCEngine {
       static SpriteLayerHandle selectedSpriteLayer;
       static bool selected;
       for (auto& layer : SelectedSpriteLayerOrder->getList()) {
-        if (ImGui::Selectable(layer.c_str(),selectedSpriteLayer == layer)) {
+        if (ImGui::Selectable(layer.c_str(), selectedSpriteLayer == layer)) {
           selectedSpriteLayer = layer;
         }
       }

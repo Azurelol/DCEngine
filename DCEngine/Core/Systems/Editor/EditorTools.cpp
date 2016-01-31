@@ -25,7 +25,7 @@ namespace DCEngine {
       switch (ActiveTool) {
 
       case EditorTool::Select:
-        //ShowSelection();
+        //DrawSelection();
         break;
       case EditorTool::Translate:
         DrawTranslateTool();
@@ -40,34 +40,6 @@ namespace DCEngine {
         break;
 
       }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  The select tool allows the user to select an object on screen.
-    */
-    /**************************************************************************/
-    void Editor::ShowSelection()
-    {
-      if (!SelectedObject())
-        return;
-
-      if (IsSelectableGameObject(SelectedObject())) {
-
-        // If drawing only 1 object, draw the bounding box larger so it can be seen!
-        auto& width = Settings.SelectedBoundingWidth;
-        auto& height = Settings.SelectedBoundingHeight;
-
-        if (SelectedObjects.size() == 1) {
-          width *= 2;
-          height *= 2;
-        }
-
-        // Draw a selected 'box' encompassing all selected objects
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Settings.SelectedBoundingCenter,
-                                                                               width, height, Vec4(1,0,0,1));
-      }
-
     }
 
     /**************************************************************************/
@@ -390,113 +362,7 @@ namespace DCEngine {
       return false;
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  The translate tool allows the user to move an object on screen.
-    */
-    /**************************************************************************/
-    void Editor::DrawTranslateTool()
-    {
-      if (!SelectedObject())
-        return;
 
-      if (IsSelectableGameObject(SelectedObject())) {
-        
-        Vec3& pos = Settings.SelectedBoundingCenter;
-        Real radius = 8;
-        Real tip = 1;
-        Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
-        Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
-                                         // X-axis
-
-
-        // Bounding rectangle
-
-        // X-Axis Arrow
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(radius, 0, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-tip, -tip, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(radius, 0, 0), pos - Vec3(-tip, tip, 0), xColor);
-        // Y-axis Arrow
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(0, radius, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(-tip, -tip, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos + Vec3(0, radius, 0), pos - Vec3(tip, -tip, 0), yColor);
-      }
-      
-      // Create thin box-colliders on every line
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  The rotate tool allows the user to rotate an object.
-    */
-    /**************************************************************************/
-    void Editor::DrawRotateTool()
-    {
-      if (!SelectedObject())
-        return;
-
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
-
-        Vec3& pos = Settings.SelectedBoundingCenter;
-        Real radius = Settings.SelectedBoundingWidth;
-
-        if (SelectedObjects.size() == 1) {
-          radius *= 2;
-        }
-
-        Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
-
-        if (Settings.Rotating == true)
-        {
-          auto normal = Vec3(Settings.SelectedBoundingCenter.y - Settings.OriginMousePos.y, -(Settings.SelectedBoundingCenter.x - Settings.OriginMousePos.x), 0);
-          normal *= 10;
-          auto negNormal = -normal;
-          Vec4 colorR(1.0, 0.0, 0.0, 1.0); // Red
-          Vec4 colorG(0.0,1.0, 0.0, 1.0); // Red
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(Settings.SelectedBoundingCenter.y - Settings.OriginMousePos.y), 
-            Settings.SelectedBoundingCenter.x - Settings.OriginMousePos.x, 0) + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), 
-            Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorG);
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), 
-            normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorR);
-        }
-
-        // Draw a selected 'box' around the object
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, radius, color);
-      }
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  The scale tool allows the user to scale an object.
-    */
-    /**************************************************************************/
-    void Editor::DrawScaleTool()
-    {
-      if (!SelectedObject())
-        return;
-
-        if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
-
-          // Get the object's transform data
-          Vec3& pos = Settings.SelectedBoundingCenter;
-          Real width = Settings.SelectedBoundingWidth;
-          Real height = Settings.SelectedBoundingHeight;
-          Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
-
-          if (SelectedObjects.size() == 1) {
-            width *= 2;
-            height *= 2;
-          }
-
-
-          // Draw a selected 'box' around the object
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
-            width, height, color);
-        }
-      
-    }
 
     /**************************************************************************/
     /*!

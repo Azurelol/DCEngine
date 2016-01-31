@@ -12,8 +12,9 @@
 #pragma once
 #include "../System.h"
 
-#include "../../Engine/Data.h"
-#include "../../Engine/Command.h"
+#include "EditorUtilities.h"
+
+
 
 #include "../../Objects/Object.h"
 #include "../../Objects/ObjectsInclude.h"
@@ -26,55 +27,7 @@ namespace DCEngine {
   class Engine;
   class Space;
 
-  /**************************************************************************/
-  /*!
-  @struct Configuration data for the Editor system.
-  */
-  /**************************************************************************/
-  struct EditorConfig {
-    // Project
-    bool EditorEnabled = false;
-    std::string ProjectsPath;
-    std::string RecentProject;
-    ProjectData* ProjectInfo;
-    // Tools
-    bool TransformTool_IsComponent = false;
-    bool GridActive = true;
-    Real GridLength = 1.0f;
-    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
-    // Multi-selection
-    bool MultiSelectDragging = false;
-    Vec4 MultiSelectColor = Vec4(0.3, 0.7, 0.3f, 0.5f);
-    Vec3 MultiSelectMidpoint;
-    Vec3 MultiSelectStartPos;
-    Vec3 MultiSelectArea;
 
-    Vec3  SelectedBoundingCenter;
-    float SelectedBoundingWidth;
-    float SelectedBoundingHeight;
-    // Snapping
-    bool Snapping = true;
-    float SnapDistance = 1.0;
-    float SnapAngle = 15;
-    // Dragging
-    bool Dragging = false;
-    bool DraggingX = false;
-    bool DraggingY = false;
-    float DragOffset = 0;
-    // Rotating
-    bool Rotating = false;
-    // Scaling
-    bool ScalingY = false;
-    bool ScalingX = false;
-    Vec2 OriginMousePos;
-    Vec3 OriginScale;
-    //Panning
-    bool Panning = false;
-    Vec3 CamStartPos;
-    Vec3 MouseStartPos;
-    // Commands
-    CommandManager Commands;
-  };
 
   namespace Systems {
 
@@ -103,6 +56,7 @@ namespace DCEngine {
       //  Settings 
       ////////////////
       EditorConfig Settings;
+      SelectionData Selection;
       void setEnabled(bool);
       std::string RecentProject;
       bool ShowTestWindow = false;
@@ -225,7 +179,7 @@ namespace DCEngine {
       void DeleteObject();
       void DeleteResource(ResourcePtr);
       // Tools
-      void ShowSelection();
+      void DrawSelection();
       void DisplayTool();
       void UseTool(GameObjectPtr gameObject, Vec2& position);
       void ReleaseTool();

@@ -41,7 +41,7 @@ namespace DCEngine {
         else if (!IsToolRegion(gameObject)) {
           Deselect();
           Settings.MultiSelectDragging = true;
-          Settings.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
+          Selection.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
           SelectMultiple(event->Position);
         }
       }

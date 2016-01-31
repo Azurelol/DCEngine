@@ -109,9 +109,9 @@ namespace DCEngine {
       WindowPropertiesEnabled = true;
       
       // Save its boundaries
-      Settings.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
-      Settings.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
-      Settings.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+      Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
+      Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
+      Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
 
       Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
@@ -200,11 +200,11 @@ namespace DCEngine {
       
       // Get the current mouse position.
       auto endPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(mousePosition), 0);
-      auto& startPos = Settings.MultiSelectStartPos;
+      auto& startPos = Selection.MultiSelectStartPos;
       // Calculate the bounding box created between the endpoints (where the selection started, 
       // and the currnent mouse position)
-      Settings.MultiSelectArea = endPos - startPos;
-      Settings.MultiSelectMidpoint = Vec3((endPos.x + startPos.x) / 2,
+      Selection.MultiSelectArea = endPos - startPos;
+      Selection.MultiSelectMidpoint = Vec3((endPos.x + startPos.x) / 2,
                                           (endPos.y + startPos.y) / 2,
                                           (endPos.y + startPos.y) / 2);
 
@@ -218,7 +218,7 @@ namespace DCEngine {
           continue;
 
         // If the object lies within the bounding area..
-        if (Daisy->getSystem<Physics>()->IsObjectWithinBoundingArea(Settings.MultiSelectMidpoint, Settings.MultiSelectArea.x, Settings.MultiSelectArea.y, gameObject)) {
+        if (Daisy->getSystem<Physics>()->IsObjectWithinBoundingArea(Selection.MultiSelectMidpoint, Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, gameObject)) {
           SelectedObjects.push_back(gameObject);
         }
       }
@@ -280,9 +280,9 @@ namespace DCEngine {
 
       // Calculate the midpoint between 2 opposite corners to find the center
       // of the rectangle        
-      Settings.SelectedBoundingWidth = std::abs(xMax - xMin);
-      Settings.SelectedBoundingHeight = std::abs(yMax - yMin);
-      Settings.SelectedBoundingCenter = Vec3((xMin + xMax) / 2.0f,
+      Selection.SelectedBoundingWidth = std::abs(xMax - xMin);
+      Selection.SelectedBoundingHeight = std::abs(yMax - yMin);
+      Selection.SelectedBoundingCenter = Vec3((xMin + xMax) / 2.0f,
                                              (yMin + yMax) / 2.0f,
                                              0.0f);
 
@@ -299,8 +299,8 @@ namespace DCEngine {
         return;
 
       // Draw the bounding rectangle
-      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Settings.MultiSelectMidpoint,
-        Settings.MultiSelectArea.x, Settings.MultiSelectArea.y, Settings.MultiSelectColor);
+      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
+        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Settings.MultiSelectColor);
     }
 
 
