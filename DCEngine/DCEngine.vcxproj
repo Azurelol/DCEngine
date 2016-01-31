@@ -390,6 +390,7 @@
     <ClCompile Include="Core\Systems\Physics\Manifold.cpp" />
     <ClCompile Include="Core\Systems\Physics\Physics.cpp" />
     <ClCompile Include="Core\Systems\Physics\PhysicsCasting.cpp" />
+    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp" />
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
@@ -426,10 +427,8 @@
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
-    <ClCompile Include="QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
     <ClInclude Include="Core\Binding\CoreBindingObjects.h" />
@@ -555,6 +554,7 @@
     <ClInclude Include="Core\Systems\Physics\Collision.h" />
     <ClInclude Include="Core\Systems\Physics\Manifold.h" />
     <ClInclude Include="Core\Systems\Physics\Physics.h" />
+    <ClInclude Include="Core\Systems\Physics\QuadTree.h" />
     <ClInclude Include="Core\Systems\Physics\Ray.h" />
     <ClInclude Include="Core\Systems\Physics\Raycasting.h" />
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />

@@ -52,8 +52,6 @@ namespace DCEngine {
       virtual void Initialize();
       //Vec3 getColliderScale();
 
-			std::vector<Collider*>* bucket;
-
     private:
 
       // Transform* TransformComponent;

@@ -88,6 +88,7 @@ namespace DCEngine {
     private:
 
       bool Paused = false;
+			unsigned QuadTreeBucketSize = 6;
       std::vector<Components::PhysicsSpace*> physicsSpaces_;
       std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
 
