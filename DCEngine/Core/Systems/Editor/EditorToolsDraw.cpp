@@ -37,7 +37,6 @@ namespace DCEngine {
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.SelectedBoundingCenter,
           width, height, Vec4(1, 0, 0, 1));
       }
-
     }
 
     /**************************************************************************/
@@ -53,30 +52,21 @@ namespace DCEngine {
       if (IsSelectableGameObject(SelectedObject())) {
 
         Vec3& pos = Selection.SelectedBoundingCenter;
-        Real radius = 5;
         Real tip = 0.5;
         Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
         Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
                                          // X-axis
 
-                                         // Bounding rectangle
+        // Bounding rectangle
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
-        // X-Axis Arrow
-        auto xAxisArrowEnd = pos + Vec3(radius, 0, 0);
-        auto xMidpoint = Vec3((pos.x + xAxisArrowEnd.x) / 2,
-          (pos.y + xAxisArrowEnd.y) / 2,
-          (pos.z + xAxisArrowEnd.z) / 2);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, xAxisArrowEnd, xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(xAxisArrowEnd, xMidpoint - Vec3(-tip, -tip, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(xAxisArrowEnd, xMidpoint - Vec3(-tip, tip, 0), xColor);
-        // Y-axis Arrow
-        auto yAxisArrowEnd = pos + Vec3(0, radius, 0);
-        auto yMidpoint = Vec3((pos.x + yAxisArrowEnd.x) / 2,
-          (pos.y + yAxisArrowEnd.y) / 2,
-          (pos.z + yAxisArrowEnd.z) / 2);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, yAxisArrowEnd, yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(yAxisArrowEnd, yMidpoint - Vec3(-tip, -tip, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(yAxisArrowEnd, yMidpoint - Vec3(tip, -tip, 0), yColor);
+        // X-axis
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, TransformData.XAxisBoundaryEnd, xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.XAxisBoundaryEnd, TransformData.XAxisMidpoint - Vec3(-tip, -tip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.XAxisBoundaryEnd, TransformData.XAxisMidpoint - Vec3(-tip, tip, 0), xColor);
+
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, TransformData.YAxisBoundaryEnd, yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.YAxisBoundaryEnd, TransformData.YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.YAxisBoundaryEnd, TransformData.YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
       }
 
       // Create thin box-colliders on every line
@@ -134,23 +124,38 @@ namespace DCEngine {
       if (!SelectedObject())
         return;
 
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
+      if (IsSelectableGameObject(SelectedObject())) {
 
-        // Get the object's transform data
         Vec3& pos = Selection.SelectedBoundingCenter;
-        Real width = Selection.SelectedBoundingWidth;
-        Real height = Selection.SelectedBoundingHeight;
-        Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
+        Real radius = 5;
+        Real tip = 0.5;
+        Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
+        Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
+                                         // X-axis
 
-        if (SelectedObjects.size() == 1) {
-          width *= 2;
-          height *= 2;
-        }
+        // Bounding rectangle
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
 
-
-        // Draw a selected 'box' around the object
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos,
-          width, height, color);
+        // X-Axis Arrow
+        auto xAxisArrowEnd = pos + Vec3(radius, 0, 0);
+        auto xMidpoint = Vec3((pos.x + xAxisArrowEnd.x) / 2,
+                              (pos.y + xAxisArrowEnd.y) / 2,
+                              (pos.z + xAxisArrowEnd.z) / 2);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, xAxisArrowEnd, xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(xAxisArrowEnd, 
+                                                                               Selection.SelectedBoundingWidth / 8, 
+                                                                               Selection.SelectedBoundingWidth / 8, 
+                                                                               xColor);
+        // Y-axis Arrow
+        auto yAxisArrowEnd = pos + Vec3(0, radius, 0);
+        auto yMidpoint = Vec3((pos.x + yAxisArrowEnd.x) / 2,
+                              (pos.y + yAxisArrowEnd.y) / 2,
+                              (pos.z + yAxisArrowEnd.z) / 2);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, yAxisArrowEnd, yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(yAxisArrowEnd, 
+                                                                               Selection.SelectedBoundingWidth / 8, 
+                                                                               Selection.SelectedBoundingWidth / 8, 
+                                                                               yColor);
       }
 
     }

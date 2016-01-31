@@ -73,7 +73,7 @@ namespace DCEngine {
 
       // Stop dragging for multiple selection
       if (Settings.MultiSelectDragging) {
-        CalculateMultipleSelectedBounding();
+        CalculateSelectionBounding();
         Settings.MultiSelectDragging = false;
       }
     }
@@ -91,6 +91,8 @@ namespace DCEngine {
       DragObject(event->ScreenPosition);
       RotateObject(event->ScreenPosition);
       ScaleObject(event->ScreenPosition);
+
+      CalculateSelectionBounding();
 
       //if (TransCommand != NULL)
       //{

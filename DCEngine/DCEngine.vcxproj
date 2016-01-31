@@ -430,6 +430,7 @@
     <ClCompile Include="QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Systems\Editor\Editor.hpp" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
     <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Core\Binding.h" />
@@ -622,7 +623,6 @@
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
-    <None Include="Core\Systems\Editor\Editor.tcc" />
     <None Include="Daisy.cfg" />
     <None Include="Projects\Rebound.dceproj" />
   </ItemGroup>
