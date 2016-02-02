@@ -171,8 +171,9 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "train", 
+            "CurrentTrack": "HighPriceVictory", 
             "LastTrack": "HighThud", 
+            "Volume": 0.000000, 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
           }

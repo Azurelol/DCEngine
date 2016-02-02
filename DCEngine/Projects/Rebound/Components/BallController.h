@@ -25,8 +25,8 @@ namespace DCEngine {
 
       bool Translation = true;
       bool Frozen = false;
-	  bool Locked = false;
-	  Boolean Powering = false;
+      bool Locked = false;
+      Boolean Powering = false;
       bool CurrentlyFired = false;
       Real MoveSpeed = 0.75;
       ControlScheme ControlScheme = ControlScheme::John;
@@ -38,12 +38,12 @@ namespace DCEngine {
       Real MaxCharge = 2;
       Real MinCharge = 0.5f;
       Real ChargeFactor = 30 * 1000;
-	  Real Restitution = 0.7; //set from 0 to 1
-	  Real Friction = 0.1; //set from 0 to 1
-	  Real AttractPower = 400.0f;
-	  Real AttractYBoost = 3;
-	  Real SlamPower = ChargeFactor * MaxCharge;
-	  
+      Real Restitution = 0.1; //set from 0 to 1
+      Real Friction = 0.1; //set from 0 to 1
+      Real AttractPower = 400.0f;
+      Real AttractYBoost = 3;
+      Real SlamPower = ChargeFactor * MaxCharge;
+
       Boolean Charging = false;
       Boolean FreezeEnabled = true;
       Vec4 FrozenColor = Vec4(1, 0, 1, 1);

@@ -280,6 +280,9 @@
     <Filter Include="Core\Systems\AI">
       <UniqueIdentifier>{4401930f-4a9d-47e6-bddb-c0192ea100af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Projects\Rebound\Scripts">
+      <UniqueIdentifier>{89011df5-235f-42f4-9796-4ee5eb811e4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">

@@ -20,6 +20,7 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCurrentTrack, attributeSoundCue);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack); // ->Attributes.push_back(attributeSoundCue);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyLastTrack, attributeSoundCue);
+      DCE_BINDING_DEFINE_PROPERTY(MusicManager, Volume);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
     }

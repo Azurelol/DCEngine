@@ -142,7 +142,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::Transform>()->getTranslation().y + event->OtherObject->getComponent<Components::Transform>()->getScale().y / 2 < TransformRef->getTranslation().y)
       {
         Grounded = true;
-        this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
+        //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
@@ -279,7 +279,7 @@ namespace DCEngine {
         Jumping = false;
         JumpFramesApplied = 0;
       }
-      this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
+      //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
     }
 
     void PlayerController::TakeDamage(int damage)

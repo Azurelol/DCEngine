@@ -192,6 +192,8 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Step(float dt)
 		{
+      dt = 0.0166;
+
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
