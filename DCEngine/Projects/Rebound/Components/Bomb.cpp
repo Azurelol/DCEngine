@@ -37,7 +37,14 @@ namespace DCEngine {
 
 		void Bomb::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+			if (TimerStarted)
+			{
+				Timer -= event->Dt;
+			}
+			if (Timer <= 0)
+			{
 
+			}
 		}
 
 		void Bomb::OnMouseDownEvent(Events::MouseDown * event)
@@ -48,12 +55,12 @@ namespace DCEngine {
 		void Bomb::OnCollisionStartedEvent(Events::CollisionStarted * event)
 		{
 
-			if (event->OtherObject->getComponent<Components::BallController>())
-			{
-				auto gameObj = dynamic_cast<GameObject*>(Owner());
-				gameObj->AttachTo(event->OtherObject);
-
-			}
+			//if (event->OtherObject->getComponent<Components::BallController>() && TimerStarted = false)
+			//{
+			//	auto gameObj = dynamic_cast<GameObject*>(Owner());
+			//	gameObj->AttachTo(event->OtherObject);
+			//	TimerStarted = true;
+			//}
 		}
 
 		void Bomb::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -77,6 +84,10 @@ namespace DCEngine {
 		{
 		}
 
+		void Bomb::Explode()
+		{
+			TransformRef->Scale *= 5;
+		}
 
 	}
 }

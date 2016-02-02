@@ -103,7 +103,6 @@
     <LibraryPath>$(ProjectDir)\Dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(ProjectDir)\Dependencies\include;$(ProjectDir)\Core\Precompiled;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\Dependencies\lib\MSVC;$(LibraryPath)</LibraryPath>

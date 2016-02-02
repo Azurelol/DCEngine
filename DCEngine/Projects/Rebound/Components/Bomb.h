@@ -22,10 +22,12 @@ namespace DCEngine {
 			RigidBody* RigidBodyRef;
 			Sprite* SpriteRef;
 			Real FuseLength = 5;
+			Boolean TimerStarted = false;
 
 			// Properties
 			DCE_DEFINE_PROPERTY(Real, Timer);
 			DCE_DEFINE_PROPERTY(Real, FuseLength);
+
 
 
 			// Methods
@@ -39,6 +41,7 @@ namespace DCEngine {
 			void OnCollisionEndedEvent(Events::CollisionEnded* event);
 			void OnCollisionPersistedEvent(Events::CollisionPersisted * event);
 			void OnLogicUpdateEvent(Events::LogicUpdate * event);
+			void Explode();
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
 			ZilchDeclareDerivedType(Bomb, Component);
