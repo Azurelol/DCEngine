@@ -140,6 +140,7 @@ namespace DCEngine {
       RigidBodyRef->setGravityRatio(1.0f);
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
+        
         CurrentlyFired = false;
         SpriteRef->Color = NormalColor;
       }
