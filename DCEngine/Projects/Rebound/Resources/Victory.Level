@@ -46,7 +46,8 @@
             "FieldOfView": 175.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
-            "Size": 70.000000
+            "Size": 70.000000, 
+            "Projection": "Perspective"
           }, 
           "CameraController": 
           {
@@ -108,7 +109,8 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
         }
       }, 
@@ -165,7 +167,8 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }, 
           "RigidBody": 
           {
@@ -179,7 +182,7 @@
                 "z": 0.000000
               }
             }, 
-            "Angular_Velocity": 
+            "AngularVelocity": 
             {
               "Vec3": 
               {
@@ -188,10 +191,13 @@
                 "z": 0.000000
               }
             }, 
-            "Rotation_Locked": true
+            "Mass": 10.000000, 
+            "RotationLocked": true
           }, 
           "BoxCollider": 
           {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -327,7 +333,8 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }, 
           "Reactive": 
           {
@@ -339,7 +346,6 @@
           {
             "NextLevel": "MainMenu", 
             "LoadingTime": 1.000000, 
-            "Timer": 1.000000, 
             "TimerStarted": false
           }
         }

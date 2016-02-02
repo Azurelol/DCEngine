@@ -432,7 +432,6 @@
   <ItemGroup>
     <ClInclude Include="Core\Systems\Editor\Editor.hpp" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
-    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
     <ClInclude Include="Core\Binding\CoreBindingObjects.h" />

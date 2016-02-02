@@ -23,7 +23,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(LevelManager, NextLevel); //->Attributes.push_back(attributeLevel);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyNextLevel, attributeLevel);
       DCE_BINDING_DEFINE_PROPERTY(LevelManager, LoadingTime);
-      DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
+      //DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
       DCE_BINDING_DEFINE_PROPERTY(LevelManager, TimerStarted);
     }
 #endif

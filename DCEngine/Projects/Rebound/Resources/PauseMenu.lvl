@@ -2,12 +2,246 @@
 {
   "Level": 
   {
-    "Name": "MainMenu", 
+    "Name": "PauseMenu", 
     "GameObjects": 
     {
       "GameObject": 
       {
-        "Name": "ExitButton", 
+        "Name": "Camera", 
+        "Archetype": "Camera", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 6.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Camera": 
+          {
+            "FieldOfView": 175.000000, 
+            "NearPlane": 0.100000, 
+            "FarPlane": 100.000000, 
+            "Size": 70.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ButtonResume", 
+        "Archetype": "Button", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 17.000000, 
+                "z": 0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonResume", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ButtonHelp", 
+        "Archetype": "Button", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 12.500000, 
+                "z": 0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonHTP", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ButtonCredits", 
+        "Archetype": "Button", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 8.000000, 
+                "z": 0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 1.520000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonCredits", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "SpriteQuit", 
         "Archetype": "", 
         "Components": 
         {
@@ -18,8 +252,8 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 7.500000, 
-                "z": 0.000000
+                "y": 3.500000, 
+                "z": 0.010000
               }
             }, 
             "Rotation": 
@@ -58,8 +292,7 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "AnimationSpeed": 1.000000
           }, 
           "Reactive": 
           {
@@ -71,7 +304,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "FullScreen", 
+        "Name": "Background", 
         "Archetype": "", 
         "Components": 
         {
@@ -82,8 +315,8 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 2.000000, 
-                "z": 0.000000
+                "y": 11.000000, 
+                "z": 0.010000
               }
             }, 
             "Rotation": 
@@ -99,7 +332,64 @@
             {
               "Vec3": 
               {
-                "x": 6.000000, 
+                "x": 14.000000, 
+                "y": 14.000000, 
+                "z": -0.100000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "BackgroundPause", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "ButtonConfirm", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.000000, 
+                "y": 8.000000, 
+                "z": 0.110000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -118,12 +408,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ButtonFullscreen", 
+            "SpriteSource": "ButtonYes", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "AnimationSpeed": 1.000000
           }, 
           "Reactive": 
           {
@@ -135,7 +424,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "MusicManager", 
+        "Name": "ButtonCancel", 
         "Archetype": "", 
         "Components": 
         {
@@ -145,9 +434,9 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 10.500000, 
-                "z": 0.000000
+                "x": 6.000000, 
+                "y": 8.000000, 
+                "z": 0.110000
               }
             }, 
             "Rotation": 
@@ -163,24 +452,42 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 4.000000, 
+                "y": 1.750000, 
                 "z": 1.000000
               }
             }
           }, 
-          "MusicManager": 
+          "Sprite": 
           {
-            "CurrentTrack": "train", 
-            "LastTrack": "HighThud", 
-            "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ButtonNo", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }
         }
       }, 
       "GameObject": 
       {
-        "Name": "ConfirmButton", 
+        "Name": "ConfirmationSprite", 
         "Archetype": "", 
         "Components": 
         {
@@ -208,72 +515,8 @@
             {
               "Vec3": 
               {
-                "x": 6.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "ButtonYes", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "NewGameButton", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 8.000000, 
-                "y": 1.500000, 
+                "x": 15.000000, 
+                "y": 5.000000, 
                 "z": 1.000000
               }
             }
@@ -291,353 +534,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ButtonNewGame", 
+            "SpriteSource": "ConfirmationSprite", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Camera", 
-        "Archetype": "Camera", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.500000, 
-                "y": 8.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Camera": 
-          {
-            "FieldOfView": 175.000000, 
-            "NearPlane": 0.100000, 
-            "FarPlane": 100.000000, 
-            "Size": 70.000000, 
-            "Projection": "Perspective"
-          }, 
-          "CameraController": 
-          {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.040000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "CancelButton", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 4.000000, 
-                "z": 0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 6.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "ButtonNo", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Reactive": 
-          {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "MainMenuManager", 
-        "Archetype": "MainMenuManager", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -34.500000, 
-                "y": -5.500000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "MainMenuManager": 
-          {
-            "LevelNewGame": "Level1", 
-            "LevelHelp": "HowToPlay", 
-            "LevelCredits": "Victory", 
-            "LevelCrunk": "Whammu", 
-            "TransitionTime": 1.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "PreAlpha", 
-        "Archetype": "SpriteText", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -25.000000, 
-                "y": -7.000000, 
-                "z": 0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "VerdanaBold", 
-            "FontSize": 14, 
-            "Text": "PRE-ALPHA", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "ReboundTitle", 
-        "Archetype": "SpriteText", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -23.500000, 
-                "y": 25.000000, 
-                "z": 0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "VerdanaBold", 
-            "FontSize": 30, 
-            "Text": "REBOUND", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 1
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "BackgroundSky", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -111.000000, 
-                "y": 7.000000, 
-                "z": -0.200000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 150.000000, 
-                "y": 100.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Oldworld_Background_1", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "AnimationSpeed": 1.000000
           }
         }
       }

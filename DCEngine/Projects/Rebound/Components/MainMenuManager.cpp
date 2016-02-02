@@ -34,6 +34,17 @@ namespace DCEngine {
       ButtonCancel = SpaceRef->FindObjectByName("CancelButton");
 
       // Connect to their events
+      if (ButtonConfirm)
+        Connect(ButtonConfirm, Events::MouseClickedOn, MainMenuManager::OnConfirmQuitClicked);
+      else
+        DCTrace << "MainMenuManager::Initialize - Failed to find ButtonConfirm! \n";
+
+      if (ButtonCancel)
+        Connect(ButtonCancel, Events::MouseClickedOn, MainMenuManager::OnCancelQuitClicked);
+      else
+        DCTrace << "MainMenuManager::Initialize - Failed to find ButtonCancel! \n";
+
+
       if (ButtonNewGame)
         Connect(ButtonNewGame, Events::MouseClickedOn, MainMenuManager::OnNewGameClicked);
       else
@@ -64,15 +75,6 @@ namespace DCEngine {
       else
         DCTrace << "MainMenuManager::Initialize - Failed to find ButtonFullScreen! \n";
 
-      if (ButtonConfirm)
-        Connect(ButtonConfirm, Events::MouseClickedOn, MainMenuManager::OnConfirmQuitClicked);
-      else
-        DCTrace << "MainMenuManager::Initialize - Failed to find ButtonConfirm! \n";
-
-      if (ButtonCancel)
-        Connect(ButtonCancel, Events::MouseClickedOn, MainMenuManager::OnCancelQuitClicked);
-      else
-        DCTrace << "MainMenuManager::Initialize - Failed to find ButtonCancel! \n";
 
       DisplayConfirmQuit(false);
 

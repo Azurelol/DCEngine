@@ -164,6 +164,7 @@ namespace DCEngine {
       //DCTrace << "PlayerController::OnCollisionPersistedEvent - \n";
     }
 
+
     void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
       if (glm::abs(RigidBodyRef->getVelocity().x) > VelocityXCap)
@@ -207,6 +208,7 @@ namespace DCEngine {
       //DCTrace << "Grounded =" << Grounded << "\n";
       if (!Grounded)
       {
+        
         SpriteComponent->SpriteSource = JumpAnimation;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
