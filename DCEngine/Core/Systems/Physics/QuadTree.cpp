@@ -46,6 +46,15 @@ namespace DCEngine
 			}
 		}
 	}
+
+	static bool operator==(Systems::DetectionPairing& p1, Systems::DetectionPairing& p2)
+	{
+		if (p1.obj1 == p2.obj1 && p1.obj2 == p2.obj2)
+			return true;
+		else if (p1.obj1 == p2.obj2 && p1.obj2 == p2.obj1)
+			return true;
+		else return false;
+	}
 	std::vector<Systems::DetectionPairing> QuadTree::CreatePairs(void)
 	{
 		std::vector<Systems::DetectionPairing> pairs;
@@ -73,7 +82,17 @@ namespace DCEngine
 								pair.obj1 = dynamic_cast<GameObject*>(bucket.mBucket[i]->Owner());
 								pair.obj2 = dynamic_cast<GameObject*>(bucket.mBucket[j]->Owner());
 								//filter uninitialized because i don't know what it is or what it does
-								pairs.push_back(pair);
+								bool addpair = true;
+								for (auto p : pairs)
+								{
+									if (p == pair)
+									{
+										addpair = false;
+										break;
+									}
+								}
+								if(addpair)
+									pairs.push_back(pair);
 							}
 						}
 					}
