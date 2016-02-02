@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_ccd22ab865ff2af3d3f3099759fed8b8.html">Components</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_ac12d270287e15a6adc1cf50e609988f.html">Components</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -94,34 +94,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/******************************************************************************/</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="ComponentReference_8h.html">ComponentReference.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>DCEngine {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">namespace </span>Components {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classDCEngine_1_1Components_1_1Graphical.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Component.html">Component</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="comment">// Properties</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>, <a class="code" href="classDCEngine_1_1Component.html">Component</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>(std::string graphicalComponent, <a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      ~<a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> Initialize();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Camera_8h.html">Camera.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>DCEngine {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">namespace </span>Components {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classDCEngine_1_1Components_1_1Graphical.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Component.html">Component</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <span class="comment">// Properties</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>, <a class="code" href="classDCEngine_1_1Component.html">Component</a>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html#ac2840dc004a9beac1ec9f68900371bdd">Graphical</a>(std::string graphicalComponent, <a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html#a5d2c3c5274e0e8fb3ae13ce3290f4ae6">~Graphical</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html#aacb128f93226ca975acde29d9b2741ba">Initialize</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update(<span class="keywordtype">double</span> dt) {}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> Draw(<a class="code" href="classDCEngine_1_1Components_1_1Camera.html">Camera</a>&amp;) {}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html">DCEngine::Components::Graphical</a></div><div class="ttdef"><b>Definition:</b> Graphical.h:19</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            DCE_DEFINE_PROPERTY(<span class="keywordtype">unsigned</span>, DrawLayer);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">unsigned</span> DrawLayer;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html">DCEngine::Components::Graphical</a></div><div class="ttdef"><b>Definition:</b> Graphical.h:20</div></div>
+<div class="ttc" id="Camera_8h_html"><div class="ttname"><a href="Camera_8h.html">Camera.h</a></div><div class="ttdoc">The camera class. </div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html_aacb128f93226ca975acde29d9b2741ba"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html#aacb128f93226ca975acde29d9b2741ba">DCEngine::Components::Graphical::Initialize</a></div><div class="ttdeci">virtual void Initialize()</div><div class="ttdoc">Graphical initializer. </div><div class="ttdef"><b>Definition:</b> Graphical.cpp:63</div></div>
 <div class="ttc" id="classDCEngine_1_1Component_html"><div class="ttname"><a href="classDCEngine_1_1Component.html">DCEngine::Component</a></div><div class="ttdef"><b>Definition:</b> Component.h:79</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Camera_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Camera.html">DCEngine::Components::Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:43</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html_a5d2c3c5274e0e8fb3ae13ce3290f4ae6"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html#a5d2c3c5274e0e8fb3ae13ce3290f4ae6">DCEngine::Components::Graphical::~Graphical</a></div><div class="ttdeci">virtual ~Graphical()</div><div class="ttdoc">Graphical destructor. </div><div class="ttdef"><b>Definition:</b> Graphical.cpp:54</div></div>
 <div class="ttc" id="ComponentReference_8h_html"><div class="ttname"><a href="ComponentReference_8h.html">ComponentReference.h</a></div></div>
 <div class="ttc" id="classDCEngine_1_1Entity_html"><div class="ttname"><a href="classDCEngine_1_1Entity.html">DCEngine::Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:42</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html_ac2840dc004a9beac1ec9f68900371bdd"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html#ac2840dc004a9beac1ec9f68900371bdd">DCEngine::Components::Graphical::Graphical</a></div><div class="ttdeci">Graphical(std::string graphicalComponent, Entity &amp;owner)</div><div class="ttdoc">Graphical constructor. </div><div class="ttdef"><b>Definition:</b> Graphical.cpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:09 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:44 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

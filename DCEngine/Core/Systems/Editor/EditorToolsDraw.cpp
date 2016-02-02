@@ -48,7 +48,7 @@ namespace DCEngine {
     {
       if (!SelectedObject())
         return;
-
+      
       if (IsSelectableGameObject(SelectedObject())) {
 
         Vec3& pos = Selection.SelectedBoundingCenter;

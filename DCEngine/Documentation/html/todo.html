@@ -81,65 +81,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000048"></a>Member <a class="el" href="classDCEngine_1_1Collision.html#a576bb4eb8f34b8b7c9e48de0444fee19">DCEngine::Collision::PointToRectangle</a>  (GameObject *rect, glm::vec3 point)</dt>
+<dt><a class="anchor" id="_todo000049"></a>Member <a class="el" href="classDCEngine_1_1Collision.html#a576bb4eb8f34b8b7c9e48de0444fee19">DCEngine::Collision::PointToRectangle</a>  (GameObject *rect, glm::vec3 point)</dt>
 <dd>Look at the comment.  </dd>
-<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="classDCEngine_1_1CollisionTable.html#aa39e1b48c029c14459fe545bb97004ed">DCEngine::CollisionTable::CollisionTable</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000009"></a>Member <a class="el" href="classDCEngine_1_1CollisionTable.html#aa39e1b48c029c14459fe545bb97004ed">DCEngine::CollisionTable::CollisionTable</a>  (void)</dt>
 <dd>What? Remove it.  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="classDCEngine_1_1CommandManager.html#ac9dfe330808b732d110001c243f7df78">DCEngine::CommandManager::Paste</a>  (Space *)</dt>
+<dd>Need to create all at once!  </dd>
 <dt><a class="anchor" id="_todo000001"></a>Member <a class="el" href="classDCEngine_1_1Components_1_1CircleCollider.html#a531609803e58204df4bd0ae87cbb2a6c">DCEngine::Components::CircleCollider::~CircleCollider</a>  ()</dt>
 <dd>This could be done in the base collider class instead.  </dd>
-<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="classDCEngine_1_1Entity.html#adf9dfdc2e7a53ff3cc50886cd1252938">DCEngine::Entity::AddComponent</a>  (bool initialize=false)</dt>
+<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classDCEngine_1_1Entity.html#adf9dfdc2e7a53ff3cc50886cd1252938">DCEngine::Entity::AddComponent</a>  (bool initialize=false)</dt>
 <dd>Have the Factory construct the component  </dd>
-<dt><a class="anchor" id="_todo000037"></a>Member <a class="el" href="classDCEngine_1_1FileSystem.html#a05b0b00e7ee58b64c6f6e8b801e1f6b5">DCEngine::FileSystem::FileExtractExtension</a>  (std::string &amp;filePath)</dt>
+<dt><a class="anchor" id="_todo000038"></a>Member <a class="el" href="classDCEngine_1_1FileSystem.html#a05b0b00e7ee58b64c6f6e8b801e1f6b5">DCEngine::FileSystem::FileExtractExtension</a>  (std::string &amp;filePath)</dt>
 <dd>CURRENTLY NOT DOING AS ADVERTISED.  </dd>
-<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="classDCEngine_1_1GameObject.html#a6adc0ce3ed11ea55f6e562299932eab8">DCEngine::GameObject::~GameObject</a>  ()</dt>
+<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="classDCEngine_1_1GameObject.html#a6adc0ce3ed11ea55f6e562299932eab8">DCEngine::GameObject::~GameObject</a>  ()</dt>
 <dd>Remove all the children in a more intelligent way.  </dd>
-<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="classDCEngine_1_1Object.html#a5eb060c5cf4f91e5d83413a8ccd0ed4d">DCEngine::Object::DeserializeByType</a>  (Zilch::JsonValue *properties, Zilch::ExecutableState *state, ObjectHandle objectHandle, Zilch::BoundType *boundType)</dt>
+<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="classDCEngine_1_1Object.html#a5eb060c5cf4f91e5d83413a8ccd0ed4d">DCEngine::Object::DeserializeByType</a>  (Zilch::JsonValue *properties, Zilch::ExecutableState *state, ObjectHandle objectHandle, Zilch::BoundType *boundType)</dt>
 <dd>Factor out the code to convert from Values!  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classDCEngine_1_1Object.html#a77d4c41334c102e53196d3a6d7cf7215">DCEngine::Object::Serialize</a>  (Zilch::JsonBuilder &amp;builder)</dt>
+<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="classDCEngine_1_1Object.html#a77d4c41334c102e53196d3a6d7cf7215">DCEngine::Object::Serialize</a>  (Zilch::JsonBuilder &amp;builder)</dt>
 <dd>Serialize by type for Object is currently not working.  </dd>
-<dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="classDCEngine_1_1SpriteSource.html#ab6e4b6ab4e014b9fe0b5c7e29a4297d1">DCEngine::SpriteSource::LoadTexture</a>  ()</dt>
+<dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="classDCEngine_1_1SpriteSource.html#ab6e4b6ab4e014b9fe0b5c7e29a4297d1">DCEngine::SpriteSource::LoadTexture</a>  ()</dt>
 <dd>Replace the bool alpha.  </dd>
-<dt><a class="anchor" id="_todo000014"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Audio.html#a23e10ddebd31ba775a0f1891cc9506b2">DCEngine::Systems::Audio::CreateSound</a>  (std::string &amp;soundFile, FMODSoundPtr &amp;soundPtr)</dt>
+<dt><a class="anchor" id="_todo000015"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Audio.html#a91b9a87f44307937d5f7a597456e1e96">DCEngine::Systems::Audio::CreateSound</a>  (std::string &amp;soundFile, FMODSoundHandle &amp;soundPtr)</dt>
 <dd>Use different functions to create (sound/stream) depending on the file size.  </dd>
-<dt><a class="anchor" id="_todo000017"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Content.html#a12d79aa3afbd0ee1d48bcc885de355b7">DCEngine::Systems::Content::ScanAndGenerateResources</a>  ()</dt>
+<dt><a class="anchor" id="_todo000018"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Content.html#a12d79aa3afbd0ee1d48bcc885de355b7">DCEngine::Systems::Content::ScanAndGenerateResources</a>  ()</dt>
 <dd>Make it scan recursively.  </dd>
-<dt><a class="anchor" id="_todo000018"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Editor.html#a4d530af60faddb7e243bcdd21e58d973">DCEngine::Systems::Editor::ToggleTest</a>  ()</dt>
+<dt><a class="anchor" id="_todo000019"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Editor.html#a4d530af60faddb7e243bcdd21e58d973">DCEngine::Systems::Editor::ToggleTest</a>  ()</dt>
 <dd>Switch to using a stack of active windows rather than this hackery.  </dd>
-<dt><a class="anchor" id="_todo000034"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#af6ded32c3d92e2cfa32dc7511df268da">DCEngine::Systems::Factory::BuildGameObject</a>  (SerializedMember *objectData, Space &amp;space)</dt>
+<dt><a class="anchor" id="_todo000035"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#af6ded32c3d92e2cfa32dc7511df268da">DCEngine::Systems::Factory::BuildGameObject</a>  (SerializedMember *objectData, Space &amp;space)</dt>
 <dd>Refactor how it's done..  </dd>
-<dt><a class="anchor" id="_todo000033"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a3cc34e680424f1982f719da99282765b">DCEngine::Systems::Factory::CreateGameObject</a>  (ArchetypePtr archetype, Space &amp;space, bool init)</dt>
+<dt><a class="anchor" id="_todo000034"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a3cc34e680424f1982f719da99282765b">DCEngine::Systems::Factory::CreateGameObject</a>  (ArchetypePtr archetype, Space &amp;space, bool init)</dt>
 <dd>Refactor this so it uses some JSON interface class rather than .. this.  </dd>
-<dt><a class="anchor" id="_todo000035"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a776cd6cdc54459b710a07d16acd9872f">DCEngine::Systems::Factory::DestroyComponents</a>  ()</dt>
+<dt><a class="anchor" id="_todo000036"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a776cd6cdc54459b710a07d16acd9872f">DCEngine::Systems::Factory::DestroyComponents</a>  ()</dt>
 <dd>May have to do different logic if multiple components from the same object are asked to be removed on the same frame...  </dd>
-<dt><a class="anchor" id="_todo000036"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a7856a2fa567887c4721c81c9cbb9d54e">DCEngine::Systems::Factory::DestroySpaces</a>  ()</dt>
+<dt><a class="anchor" id="_todo000037"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1Factory.html#a7856a2fa567887c4721c81c9cbb9d54e">DCEngine::Systems::Factory::DestroySpaces</a>  ()</dt>
 <dd>May not be working properly...  </dd>
-<dt><a class="anchor" id="_todo000039"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1GraphicsGL.html#a05cb70091e1c5038a24c5abe887239d3">DCEngine::Systems::GraphicsGL::AnimationUpdate</a>  (Components::Sprite &amp;sprite, float dt)</dt>
+<dt><a class="anchor" id="_todo000040"></a>Member <a class="el" href="classDCEngine_1_1Systems_1_1GraphicsGL.html#a05cb70091e1c5038a24c5abe887239d3">DCEngine::Systems::GraphicsGL::AnimationUpdate</a>  (Components::Sprite &amp;sprite, float dt)</dt>
 <dd>Currently hard-coded the ColumnCount.  </dd>
-<dt><a class="anchor" id="_todo000012"></a>Member <a class="el" href="classDCEngine_1_1ZilchScript.html#a50442417ca9814ed60d4935b92d17951">DCEngine::ZilchScript::BuildDefaultFromTemplate</a>  ()</dt>
+<dt><a class="anchor" id="_todo000013"></a>Member <a class="el" href="classDCEngine_1_1ZilchScript.html#a50442417ca9814ed60d4935b92d17951">DCEngine::ZilchScript::BuildDefaultFromTemplate</a>  ()</dt>
 <dd>In the future, perhaps take an argument for what template to use from the editor.  </dd>
-<dt><a class="anchor" id="_todo000013"></a>Member <a class="el" href="classDCEngine_1_1ZilchScript.html#a7d939b8e5652a98ea0f593a1a6c136e8">DCEngine::ZilchScript::IncludeScript</a>  ()</dt>
+<dt><a class="anchor" id="_todo000014"></a>Member <a class="el" href="classDCEngine_1_1ZilchScript.html#a7d939b8e5652a98ea0f593a1a6c136e8">DCEngine::ZilchScript::IncludeScript</a>  ()</dt>
 <dd>May be unnecessary.  </dd>
-<dt><a class="anchor" id="_todo000044"></a>File <a class="el" href="Input_8cpp.html">Input.cpp</a>  </dt>
+<dt><a class="anchor" id="_todo000045"></a>File <a class="el" href="Input_8cpp.html">Input.cpp</a>  </dt>
 <dd>Find another way to pass the event object to the GUI? <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015, DigiPen Institute of Technology. All rights reserved.  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000045"></a>File <a class="el" href="Input_8h.html">Input.h</a>  </dt>
+<dt><a class="anchor" id="_todo000046"></a>File <a class="el" href="Input_8h.html">Input.h</a>  </dt>
 <dd>Find another way to pass the event object to the GUI? <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015, DigiPen Institute of Technology. All rights reserved.  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000049"></a>File <a class="el" href="Serialization_8cpp.html">Serialization.cpp</a>  </dt>
+<dt><a class="anchor" id="_todo000050"></a>File <a class="el" href="Serialization_8cpp.html">Serialization.cpp</a>  </dt>
 <dd>May need to use different implementation for serialization so we don't have to write our own serialization functions for every individual component. <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015, DigiPen Institute of Technology. All rights reserved.  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000050"></a>File <a class="el" href="Serialization_8h.html">Serialization.h</a>  </dt>
+<dt><a class="anchor" id="_todo000051"></a>File <a class="el" href="Serialization_8h.html">Serialization.h</a>  </dt>
 <dd>May need to use different implementation for serialization so we don't have to write our own serialization functions for every individual component. <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015, DigiPen Institute of Technology. All rights reserved.  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000009"></a>File <a class="el" href="Shader_8cpp.html">Shader.cpp</a>  </dt>
+<dt><a class="anchor" id="_todo000010"></a>File <a class="el" href="Shader_8cpp.html">Shader.cpp</a>  </dt>
 <dd>Should shaders be a resource?  </dd>
-<dt><a class="anchor" id="_todo000011"></a>File <a class="el" href="Texture2D_8h.html">Texture2D.h</a>  </dt>
+<dt><a class="anchor" id="_todo000012"></a>File <a class="el" href="Texture2D_8h.html">Texture2D.h</a>  </dt>
 <dd>Remove the Find method. Texture2D shoudln't derive from Resource?</dd>
 </dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:12 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:48 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

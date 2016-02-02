@@ -16,7 +16,7 @@ Inheritance diagram for D\-C\-Engine\-:\-:Components\-:\-:Sprite\-Particle\-Syst
 \hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab7ceddb81c29aabeb45731d7705fc890}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (Vec4, \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a954d23019fe5a86cadefa39db22fde62}{Tint})}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab7ceddb81c29aabeb45731d7705fc890}
 
 \item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3c19fb87fd51bb200c9ecbd5483ca359}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (String, \hyperlink{classDCEngine_1_1Texture}{Texture})}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3c19fb87fd51bb200c9ecbd5483ca359}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3c19fb87fd51bb200c9ecbd5483ca359}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (String, Texture)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3c19fb87fd51bb200c9ecbd5483ca359}
 
 \item 
 \hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a11dfa4f0524606ef2d646fbfe2156387}{{\bfseries D\-C\-E\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-P\-R\-O\-P\-E\-R\-T\-Y} (Real, Velocity\-Scale)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a11dfa4f0524606ef2d646fbfe2156387}
@@ -32,30 +32,29 @@ Inheritance diagram for D\-C\-Engine\-:\-:Components\-:\-:Sprite\-Particle\-Syst
 
 \item 
 \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a9cf33773928923beabac294606b9120e}{Sprite\-Particle\-System} (\hyperlink{classDCEngine_1_1Entity}{Entity} \&owner)
-\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}  \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System} default constructor  \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3830c4ed11e42c85a146772b25c94e8e}{virtual \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3830c4ed11e42c85a146772b25c94e8e}{$\sim$\-Sprite\-Particle\-System} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3830c4ed11e42c85a146772b25c94e8e}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System} destructor. \end{DoxyCompactList}\item 
 void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f398536c7f84f4af7883352d349beeb}{Initialize} ()
 \begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}.  \end{DoxyCompactList}\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a30960709dd9e7056f3ada6214364e639}{void {\bfseries Update\-Particles} (double)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a30960709dd9e7056f3ada6214364e639}
+void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_ae70c8f93ee45eaceb29e1f31820b7fae}{Update} (double)
+\begin{DoxyCompactList}\small\item\em Updates the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_afb8fcbe940f9515e82ac13eb2675ac9c}{Draw} (\hyperlink{classDCEngine_1_1Components_1_1Camera}{Camera} \&camera)
+\begin{DoxyCompactList}\small\item\em Draws all active particles. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e5588a439763dffeae1d4f9acac17b5}{void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e5588a439763dffeae1d4f9acac17b5}{Add\-Particle} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e5588a439763dffeae1d4f9acac17b5}
 
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e5588a439763dffeae1d4f9acac17b5}{void {\bfseries Add\-Particle} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e5588a439763dffeae1d4f9acac17b5}
-
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e2b856558ec5e207d4d1f753946f70d}{std\-::vector$<$ Vec2 $>$ {\bfseries Get\-Position\-Data} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e2b856558ec5e207d4d1f753946f70d}
-
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a410e6afc89e9bf3de7d132ef6c6d38e4}{std\-::vector$<$ float $>$ {\bfseries Get\-Scale\-Data} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a410e6afc89e9bf3de7d132ef6c6d38e4}
-
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_abfdd68579627beec5c675a357d2fd730}{std\-::vector$<$ float $>$ {\bfseries Get\-Rotation\-Data} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_abfdd68579627beec5c675a357d2fd730}
-
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab5722569dddd32cfe43fa413a1bd84ea}{std\-::vector$<$ Vec4 $>$ {\bfseries Get\-Color\-Data} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab5722569dddd32cfe43fa413a1bd84ea}
-
-\item 
-\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a18561a7c7b2c4aadb6718f71ece0206f}{unsigned {\bfseries Get\-Particle\-Count} (void)}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a18561a7c7b2c4aadb6718f71ece0206f}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generates a particle. \end{DoxyCompactList}\item 
+std\-::vector$<$ Vec2 $>$ \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e2b856558ec5e207d4d1f753946f70d}{Get\-Position\-Data} (void)
+\begin{DoxyCompactList}\small\item\em Grabs the position data of all active particles in the system. \end{DoxyCompactList}\item 
+std\-::vector$<$ float $>$ \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a410e6afc89e9bf3de7d132ef6c6d38e4}{Get\-Scale\-Data} (void)
+\begin{DoxyCompactList}\small\item\em Grabs the scale data of all active particles in the system. \end{DoxyCompactList}\item 
+std\-::vector$<$ float $>$ \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_abfdd68579627beec5c675a357d2fd730}{Get\-Rotation\-Data} (void)
+\begin{DoxyCompactList}\small\item\em Grabs the rotation data of all active particles in the system. \end{DoxyCompactList}\item 
+std\-::vector$<$ Vec4 $>$ \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab5722569dddd32cfe43fa413a1bd84ea}{Get\-Color\-Data} (void)
+\begin{DoxyCompactList}\small\item\em Grabs the color data of all active particles in the system. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a18561a7c7b2c4aadb6718f71ece0206f}{Get\-Particle\-Count} (void)
+\begin{DoxyCompactList}\small\item\em Returns the number of active particles in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -79,6 +78,30 @@ void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f398536c7f
 \item 
 \hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_aa545b92f74d18d70c834c05ca448cc4a}{\hyperlink{classDCEngine_1_1Components_1_1Transform}{Transform} $\ast$ {\bfseries Transform\-Component}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_aa545b92f74d18d70c834c05ca448cc4a}
 
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1144200d030a05aaf1435d27e99614cd}{\hyperlink{classDCEngine_1_1Components_1_1ParticleEmitter}{Particle\-Emitter} $\ast$ {\bfseries m\-Particle\-Emitter}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1144200d030a05aaf1435d27e99614cd}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3cc7264137534c695255e1072358cd37}{\hyperlink{classDCEngine_1_1Components_1_1ParticleColorAnimator}{Particle\-Color\-Animator} $\ast$ {\bfseries m\-Color\-Animator}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a3cc7264137534c695255e1072358cd37}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f458bb8321f80a016072a5906d19b03}{\hyperlink{classDCEngine_1_1Components_1_1LinearParticleAnimator}{Linear\-Particle\-Animator} $\ast$ {\bfseries m\-Linear\-Animator}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f458bb8321f80a016072a5906d19b03}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a4e3643366cb9aadf99d332b06c296fb1}{static G\-Luint {\bfseries m\-V\-A\-O}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a4e3643366cb9aadf99d332b06c296fb1}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a2888f0ad6f2849a5b529a584f7983d14}{static G\-Luint {\bfseries m\-Color\-Instance\-V\-B\-O}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a2888f0ad6f2849a5b529a584f7983d14}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a9a83e540a929603871101abf43ca1835}{static G\-Luint {\bfseries m\-Transform\-Instance\-V\-B\-O}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a9a83e540a929603871101abf43ca1835}
+
+\item 
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1829d28c40a4f6cf03ab3e2d1d1fa897}{static Shader\-Ptr {\bfseries m\-Shader}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1829d28c40a4f6cf03ab3e2d1d1fa897}
+
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -93,11 +116,101 @@ void \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f398536c7f
 )}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a9cf33773928923beabac294606b9120e}
 
 
-Constructor for the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}  
+\hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System} default constructor  
 
 $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
 
 \subsection{Member Function Documentation}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_afb8fcbe940f9515e82ac13eb2675ac9c}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Draw@{Draw}}
+\index{Draw@{Draw}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Draw (
+\begin{DoxyParamCaption}
+\item[{{\bf Camera} \&}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_afb8fcbe940f9515e82ac13eb2675ac9c}
+
+
+Draws all active particles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & Reference to the current camera in the space. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classDCEngine_1_1Components_1_1Graphical}{D\-C\-Engine\-::\-Components\-::\-Graphical}.
+
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab5722569dddd32cfe43fa413a1bd84ea}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Get\-Color\-Data@{Get\-Color\-Data}}
+\index{Get\-Color\-Data@{Get\-Color\-Data}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Get\-Color\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ Vec4 $>$ D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Get\-Color\-Data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_ab5722569dddd32cfe43fa413a1bd84ea}
+
+
+Grabs the color data of all active particles in the system. 
+
+\begin{DoxyReturn}{Returns}
+A container containing the color data. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a18561a7c7b2c4aadb6718f71ece0206f}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Get\-Particle\-Count@{Get\-Particle\-Count}}
+\index{Get\-Particle\-Count@{Get\-Particle\-Count}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Get\-Particle\-Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Get\-Particle\-Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a18561a7c7b2c4aadb6718f71ece0206f}
+
+
+Returns the number of active particles in the system. 
+
+\begin{DoxyReturn}{Returns}
+A count of all active particles. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e2b856558ec5e207d4d1f753946f70d}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Get\-Position\-Data@{Get\-Position\-Data}}
+\index{Get\-Position\-Data@{Get\-Position\-Data}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Get\-Position\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ Vec2 $>$ D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Get\-Position\-Data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a5e2b856558ec5e207d4d1f753946f70d}
+
+
+Grabs the position data of all active particles in the system. 
+
+\begin{DoxyReturn}{Returns}
+A container containing the position data. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_abfdd68579627beec5c675a357d2fd730}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Get\-Rotation\-Data@{Get\-Rotation\-Data}}
+\index{Get\-Rotation\-Data@{Get\-Rotation\-Data}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Get\-Rotation\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ float $>$ D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Get\-Rotation\-Data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_abfdd68579627beec5c675a357d2fd730}
+
+
+Grabs the rotation data of all active particles in the system. 
+
+\begin{DoxyReturn}{Returns}
+A container containing the rotation data. 
+\end{DoxyReturn}
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a410e6afc89e9bf3de7d132ef6c6d38e4}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Get\-Scale\-Data@{Get\-Scale\-Data}}
+\index{Get\-Scale\-Data@{Get\-Scale\-Data}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Get\-Scale\-Data}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ float $>$ D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Get\-Scale\-Data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_a410e6afc89e9bf3de7d132ef6c6d38e4}
+
+
+Grabs the scale data of all active particles in the system. 
+
+\begin{DoxyReturn}{Returns}
+A container containing the scale data. 
+\end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_a1f398536c7f84f4af7883352d349beeb}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Initialize@{Initialize}}
 \index{Initialize@{Initialize}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
 \subsubsection[{Initialize}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Initialize (
@@ -110,6 +223,26 @@ $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\
 Initializes the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}.  
 
 $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\textbackslash{} 
+
+Reimplemented from \hyperlink{classDCEngine_1_1Components_1_1Graphical_aacb128f93226ca975acde29d9b2741ba}{D\-C\-Engine\-::\-Components\-::\-Graphical}.
+
+\hypertarget{classDCEngine_1_1Components_1_1SpriteParticleSystem_ae70c8f93ee45eaceb29e1f31820b7fae}{\index{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}!Update@{Update}}
+\index{Update@{Update}!DCEngine::Components::SpriteParticleSystem@{D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Components\-::\-Sprite\-Particle\-System\-::\-Update (
+\begin{DoxyParamCaption}
+\item[{double}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDCEngine_1_1Components_1_1SpriteParticleSystem_ae70c8f93ee45eaceb29e1f31820b7fae}
+
+
+Updates the \hyperlink{classDCEngine_1_1Components_1_1SpriteParticleSystem}{Sprite\-Particle\-System}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \hyperlink{classThe}{The} delta time. \\
+\hline
+\end{DoxyParams}
+
 
 Reimplemented from \hyperlink{classDCEngine_1_1Components_1_1Graphical}{D\-C\-Engine\-::\-Components\-::\-Graphical}.
 

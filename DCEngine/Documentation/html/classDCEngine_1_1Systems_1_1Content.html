@@ -149,6 +149,9 @@ ZilchScriptPtr&#160;</td><td class="memItemRight" valign="bottom"><b>getZilchScr
 <tr class="memitem:af7acb2056cd63a6df488ee7376df1ce2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7acb2056cd63a6df488ee7376df1ce2"></a>
 SpriteLayerPtr&#160;</td><td class="memItemRight" valign="bottom"><b>getSpriteLayer</b> (std::string &amp;name)</td></tr>
 <tr class="separator:af7acb2056cd63a6df488ee7376df1ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4655de95ae1c0453eda26aefd78b845c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4655de95ae1c0453eda26aefd78b845c"></a>
+TexturePtr&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> (std::string &amp;name)</td></tr>
+<tr class="separator:a4655de95ae1c0453eda26aefd78b845c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43f242646a99a40b9749293795601477"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43f242646a99a40b9749293795601477"></a>
 SpriteLayerOrderPtr&#160;</td><td class="memItemRight" valign="bottom"><b>getSpriteLayerOrder</b> (std::string &amp;name)</td></tr>
 <tr class="separator:a43f242646a99a40b9749293795601477"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,8 +159,11 @@ SpriteLayerOrderPtr&#160;</td><td class="memItemRight" valign="bottom"><b>getSpr
 <tr class="memitem:a92df7e4fd77e9e4fc4204d9c880c8248"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classDCEngine_1_1Resource.html">ResourcePtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1Systems_1_1Content.html#a92df7e4fd77e9e4fc4204d9c880c8248">getResource</a> (std::string &amp;resourceName, ResourceMap map, std::string &amp;defaultResource)</td></tr>
 <tr class="memdesc:a92df7e4fd77e9e4fc4204d9c880c8248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grabs a resource from the specified resource map.  <a href="#a92df7e4fd77e9e4fc4204d9c880c8248">More...</a><br/></td></tr>
 <tr class="separator:a92df7e4fd77e9e4fc4204d9c880c8248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50cfd9d9a15fcf6fe711eb59d63e03c4"><td class="memItemLeft" align="right" valign="top">SpriteSourceMap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1Systems_1_1Content.html#a50cfd9d9a15fcf6fe711eb59d63e03c4">AllSpriteSources</a> ()</td></tr>
-<tr class="memdesc:a50cfd9d9a15fcf6fe711eb59d63e03c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to the content maps.  <a href="#a50cfd9d9a15fcf6fe711eb59d63e03c4">More...</a><br/></td></tr>
+<tr class="memitem:a42db625bcbfb6f7ef78ec9021b87d67f"><td class="memItemLeft" align="right" valign="top">TextureMap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1Systems_1_1Content.html#a42db625bcbfb6f7ef78ec9021b87d67f">AllTextures</a> ()</td></tr>
+<tr class="memdesc:a42db625bcbfb6f7ef78ec9021b87d67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointers to the content maps.  <a href="#a42db625bcbfb6f7ef78ec9021b87d67f">More...</a><br/></td></tr>
+<tr class="separator:a42db625bcbfb6f7ef78ec9021b87d67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50cfd9d9a15fcf6fe711eb59d63e03c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50cfd9d9a15fcf6fe711eb59d63e03c4"></a>
+SpriteSourceMap *&#160;</td><td class="memItemRight" valign="bottom"><b>AllSpriteSources</b> ()</td></tr>
 <tr class="separator:a50cfd9d9a15fcf6fe711eb59d63e03c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f876b92447ff49b6d7907f0c2e362b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f876b92447ff49b6d7907f0c2e362b4"></a>
 SoundCueMap *&#160;</td><td class="memItemRight" valign="bottom"><b>AllSoundCues</b> ()</td></tr>
@@ -360,12 +366,12 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 
 </div>
 </div>
-<a class="anchor" id="a50cfd9d9a15fcf6fe711eb59d63e03c4"></a>
+<a class="anchor" id="a42db625bcbfb6f7ef78ec9021b87d67f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SpriteSourceMap * DCEngine::Systems::Content::AllSpriteSources </td>
+          <td class="memname">TextureMap * DCEngine::Systems::Content::AllTextures </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -558,7 +564,7 @@ template&lt;typename ResourceMap , typename ResourcePtr &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classA.html">A</a> pointer of the resource type in question. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer of the resource type in question. </dd></dl>
 
 </div>
 </div>
@@ -636,7 +642,7 @@ template&lt;typename ResourceMap , typename ResourcePtr &gt; </div>
 <p>Removes the specified resource from the <a class="el" href="classDCEngine_1_1Systems_1_1Content.html">Content</a> system. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">resource</td><td><a class="el" href="classA.html">A</a> pointer to the specified resource. </td></tr>
+    <tr><td class="paramname">resource</td><td>A pointer to the specified resource. </td></tr>
   </table>
   </dd>
 </dl>
@@ -658,7 +664,7 @@ template&lt;typename ResourceMap , typename ResourcePtr &gt; </div>
 </div><div class="memdoc">
 
 <p>Scans the engine's asset path for resources to generate and add to the engine. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Make it scan recursively. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Make it scan recursively. </dd></dl>
 
 </div>
 </div>
@@ -671,7 +677,7 @@ template&lt;typename ResourceMap , typename ResourcePtr &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:16 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:53 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

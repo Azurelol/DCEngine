@@ -58,9 +58,9 @@ void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a76e1459d66f578a6b09c7851
 \hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ad3a3f9b771e8752591c336fd329fb98f}{void {\bfseries Draw\-Line\-Segment} (\hyperlink{classDCEngine_1_1DrawLineObj}{Draw\-Line\-Obj} \&obj)}\label{classDCEngine_1_1Systems_1_1GraphicsGL_ad3a3f9b771e8752591c336fd329fb98f}
 
 \item 
-void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}{Draw\-Rectangle} (Vec3 \&pos, Real \&width, Real \&height, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a2dc7dd32141a9a89aa3430387399cc16}{Draw\-Rectangle} (Vec3 \&pos, Real \&width, Real \&height, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam, bool fill=false)
 \begin{DoxyCompactList}\small\item\em Draws a rectangle on screen. \end{DoxyCompactList}\item 
-void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}{Draw\-Circle} (Vec3 \&pos, Real \&radius, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
+void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a545d24e11bee7f002b490b46b4ee46f2}{Draw\-Circle} (Vec3 \&pos, Real \&radius, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam, bool fill=false)
 \begin{DoxyCompactList}\small\item\em Draws a circle on screen. \end{DoxyCompactList}\item 
 void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededfcea7f259}{Draw\-Line\-Segment} (Vec3 \&start\-Pos, Vec3 \&end\-Pos, Vec4 \&color, \hyperlink{classDCEngine_1_1Components_1_1Camera}{Components\-::\-Camera} \&cam)
 \begin{DoxyCompactList}\small\item\em Draws a line segment on screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -86,7 +86,7 @@ void \hyperlink{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededf
 Runs the current animation update. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000039}{Todo}]Currently hard-\/coded the Column\-Count. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000040}{Todo}]Currently hard-\/coded the Column\-Count. \end{DoxyRefDesc}
 \hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_ad76646900d9d276d5e23de98561654a1}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Configure\-Sprite\-Text\-V\-A\-O@{Configure\-Sprite\-Text\-V\-A\-O}}
 \index{Configure\-Sprite\-Text\-V\-A\-O@{Configure\-Sprite\-Text\-V\-A\-O}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
 \subsubsection[{Configure\-Sprite\-Text\-V\-A\-O}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Configure\-Sprite\-Text\-V\-A\-O (
@@ -115,16 +115,17 @@ Configures the Quad\-V\-A\-O, used for drawing sprites.
 \begin{DoxyNote}{Note}
 Because all sprites share the same vertex data, we only have to define a single V\-A\-O. 
 \end{DoxyNote}
-\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Circle@{Draw\-Circle}}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a545d24e11bee7f002b490b46b4ee46f2}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Circle@{Draw\-Circle}}
 \index{Draw\-Circle@{Draw\-Circle}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
 \subsubsection[{Draw\-Circle}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Circle (
 \begin{DoxyParamCaption}
 \item[{Vec3 \&}]{pos, }
 \item[{Real \&}]{radius, }
 \item[{Vec4 \&}]{color, }
-\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\item[{{\bf Components\-::\-Camera} \&}]{cam, }
+\item[{bool}]{fill = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a55134ce31477c1f6071d7c0ac9d99e46}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a545d24e11bee7f002b490b46b4ee46f2}
 
 
 Draws a circle on screen. 
@@ -152,7 +153,7 @@ Takes a Draw\-Debug object and draws depending on.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & reference to the drawdebug object.  \hyperlink{classA}{A} reference to the space's camera. \\
+{\em A} & reference to the drawdebug object.  A reference to the space's camera. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a2c49099c6b0dcf7b2c4ededfcea7f259}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Line\-Segment@{Draw\-Line\-Segment}}
@@ -180,7 +181,7 @@ Draws a line segment on screen.
 {\em \hyperlink{classThe}{The}} & color of the line segment. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Rectangle@{Draw\-Rectangle}}
+\hypertarget{classDCEngine_1_1Systems_1_1GraphicsGL_a2dc7dd32141a9a89aa3430387399cc16}{\index{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}!Draw\-Rectangle@{Draw\-Rectangle}}
 \index{Draw\-Rectangle@{Draw\-Rectangle}!DCEngine::Systems::GraphicsGL@{D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L}}
 \subsubsection[{Draw\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Graphics\-G\-L\-::\-Draw\-Rectangle (
 \begin{DoxyParamCaption}
@@ -188,9 +189,10 @@ Draws a line segment on screen.
 \item[{Real \&}]{width, }
 \item[{Real \&}]{height, }
 \item[{Vec4 \&}]{color, }
-\item[{{\bf Components\-::\-Camera} \&}]{cam}
+\item[{{\bf Components\-::\-Camera} \&}]{cam, }
+\item[{bool}]{fill = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_abfb20b4ea47d2643f330b760b05cf18e}
+)}}\label{classDCEngine_1_1Systems_1_1GraphicsGL_a2dc7dd32141a9a89aa3430387399cc16}
 
 
 Draws a rectangle on screen. 
@@ -221,7 +223,7 @@ Draws a sprite on screen.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with the sprite component. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} with the sprite component. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -241,9 +243,9 @@ Draws a Sprite\-Text on screen.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & reference to the Sprite\-Text component. \\
+{\em A} & reference to the Sprite\-Text component. \\
 \hline
-{\em \hyperlink{classA}{A}} & reference to the space's viewport camera. \\
+{\em A} & reference to the space's viewport camera. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -263,9 +265,9 @@ Sets the shader's camera projection matrix and view uniforms.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & (smart) pointer to the shader object. \\
+{\em A} & (smart) pointer to the shader object. \\
 \hline
-{\em \hyperlink{classA}{A}} & reference to camera object. \\
+{\em A} & reference to camera object. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}

@@ -109,7 +109,7 @@
           }, 
           "LevelManager": 
           {
-            "NextLevel": "MainMenu", 
+            "NextLevel": "MoonwardLogo", 
             "LoadingTime": 5.000000, 
             "TimerStarted": true
           }, 

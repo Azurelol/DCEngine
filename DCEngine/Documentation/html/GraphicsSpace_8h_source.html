@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_ccd22ab865ff2af3d3f3099759fed8b8.html">Components</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_ac12d270287e15a6adc1cf50e609988f.html">Components</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -113,81 +113,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Containers</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">using</span> SpriteTextContainer = std::vector&lt;SpriteText*&gt;;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">using</span> SpriteContainer = std::vector&lt;Sprite*&gt;;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">GraphicsSpace</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Component.html">Component</a> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>Graphics;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">      #if (DCE_USE_ZILCH_INTERNAL_BINDING)</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span>      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">GraphicsSpace</a>, <a class="code" href="classDCEngine_1_1Component.html">Component</a>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">      #endif</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      SpriteLayerOrderHandle <a class="code" href="classDCEngine_1_1SpriteLayerOrder.html">SpriteLayerOrder</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordtype">bool</span> Active = <span class="keyword">true</span>; <span class="comment">// Prevent visibility, particle system and render updates</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      DCE_DEFINE_PROPERTY(<span class="keywordtype">bool</span>, Active);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      DCE_DEFINE_PROPERTY(SpriteLayerOrderHandle, <a class="code" href="classDCEngine_1_1SpriteLayerOrder.html">SpriteLayerOrder</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#adc3dfe81fa608dfcb7528d2571016350">GraphicsSpace</a>(<a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a677ad38c43b7f135a15f5816a47f1d75">~GraphicsSpace</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ab9aa5cb173fc1a216301e5633a8d97fd">Initialize</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a2e85cafcdd8d4f319304efd7e2428ba6">AddSprite</a>(<a class="code" href="classDCEngine_1_1Components_1_1Sprite.html">Sprite</a>&amp; sprite);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#afdfd96b23b80491dcb79770fbb34662c">RemoveSprite</a>(<a class="code" href="classDCEngine_1_1Components_1_1Sprite.html">Sprite</a>&amp; sprite);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ad5613e661932c45ab28d970b2f392963">AddSpriteText</a>(<a class="code" href="classDCEngine_1_1Components_1_1SpriteText.html">SpriteText</a>&amp; spriteText);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a94c0a07a95c67e92e4b5719ae8b58750">RemoveSpriteText</a>(<a class="code" href="classDCEngine_1_1Components_1_1SpriteText.html">SpriteText</a>&amp; spriteText);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordtype">void</span> AddParticleSystem(<a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">SpriteParticleSystem</a>&amp; particleEmitter);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordtype">void</span> RemoveParticleSystem(<a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">SpriteParticleSystem</a>&amp; particleEmitter);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">// Debug Drawing functions </span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ad4c45ab72c90dc9c58244a827087ac87">DrawCircle</a>(Vec3&amp; pos, Real&amp; radius, Vec4&amp; color);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordtype">void</span> DrawRectangle(Vec3&amp; pos, Real&amp; width, Real&amp; height, Vec4&amp; color);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordtype">void</span> DrawLineSegment(Vec3&amp; startPos, Vec3&amp; endPos, Vec4&amp; color);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="comment">/* Getters */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      SpriteContainer <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a062c59988ae8a5eabaee8fa937eb0829">getSprites</a>(); <span class="comment">// Return the vector of sprites to be drawn</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      SpriteTextContainer getSpriteTextContainer(); <span class="comment">// Returns the container of SpriteText to be drawn</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::vector&lt;SpriteParticleSystem*&gt; getParticleSystem(); <span class="comment">// Returns the emission components</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordtype">void</span> OnLogicUpdate(<a class="code" href="classDCEngine_1_1Events_1_1LogicUpdate.html">Events::LogicUpdate</a>* updateEvent);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">using</span> GraphicsComponentContainer = std::vector&lt;Graphical*&gt;;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">GraphicsSpace</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Component.html">Component</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>Graphics;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">      #if (DCE_USE_ZILCH_INTERNAL_BINDING)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span>      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html">GraphicsSpace</a>, <a class="code" href="classDCEngine_1_1Component.html">Component</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">      #endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      SpriteLayerOrderHandle <a class="code" href="classDCEngine_1_1SpriteLayerOrder.html">SpriteLayerOrder</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordtype">bool</span> Active = <span class="keyword">true</span>; <span class="comment">// Prevent visibility, particle system and render updates</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      DCE_DEFINE_PROPERTY(<span class="keywordtype">bool</span>, Active);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      DCE_DEFINE_PROPERTY(SpriteLayerOrderHandle, <a class="code" href="classDCEngine_1_1SpriteLayerOrder.html">SpriteLayerOrder</a>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#adc3dfe81fa608dfcb7528d2571016350">GraphicsSpace</a>(<a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a677ad38c43b7f135a15f5816a47f1d75">~GraphicsSpace</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ab9aa5cb173fc1a216301e5633a8d97fd">Initialize</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">void</span> RegisterGraphicsComponent(<a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>* graphicsComponent);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">void</span> RemoveGraphicsComponent(<a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>* graphicsComponent);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">//void AddSprite(Sprite&amp; sprite);</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="comment">//void RemoveSprite(Sprite&amp; sprite);</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">//void AddSpriteText(SpriteText&amp; spriteText);</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">//void RemoveSpriteText(SpriteText&amp; spriteText);</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">//void AddParticleSystem(SpriteParticleSystem&amp; particleEmitter);</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment">//void RemoveParticleSystem(SpriteParticleSystem&amp; particleEmitter);</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="comment">// Debug Drawing functions </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a879de24d73804a3e72a17ac6366e0d32">DrawCircle</a>(Vec3&amp; pos, Real radius, Vec4&amp; color);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordtype">void</span> DrawRectangle(Vec3&amp; pos, Real width, Real height, Vec4&amp; color);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordtype">void</span> DrawLineSegment(Vec3&amp; startPos, Vec3&amp; endPos, Vec4&amp; color);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">/* Getters */</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="comment">//SpriteContainer getSprites(); // Return the vector of sprites to be drawn</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="comment">//SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">//std::vector&lt;SpriteParticleSystem*&gt; getParticleSystem(); // Returns the emission components</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      Graphics* GraphicsSystem;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1CameraViewport.html">CameraViewport</a>* CameraViewportComponent;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      GameObjectRawVec models_;  </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      SpriteContainer SpriteContainer; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      SpriteTextContainer SpriteTextContainer;  </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            std::vector&lt;SpriteParticleSystem*&gt; ParticleSystemContainer;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      DebugDrawObjVec DebugDrawObjContainer; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">DCEngine::Components::SpriteParticleSystem</a></div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.h:33</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_afdfd96b23b80491dcb79770fbb34662c"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#afdfd96b23b80491dcb79770fbb34662c">DCEngine::Components::GraphicsSpace::RemoveSprite</a></div><div class="ttdeci">void RemoveSprite(Sprite &amp;sprite)</div><div class="ttdoc">Deregisters a Sprite from the GraphicsSpace. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:105</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html">DCEngine::Components::GraphicsSpace</a></div><div class="ttdef"><b>Definition:</b> GraphicsSpace.h:36</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_a94c0a07a95c67e92e4b5719ae8b58750"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a94c0a07a95c67e92e4b5719ae8b58750">DCEngine::Components::GraphicsSpace::RemoveSpriteText</a></div><div class="ttdeci">void RemoveSpriteText(SpriteText &amp;spriteText)</div><div class="ttdoc">Deregisters a SpriteText from the GraphicsSpace. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:121</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1Sprite_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Sprite.html">DCEngine::Components::Sprite</a></div><div class="ttdef"><b>Definition:</b> Sprite.h:39</div></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            GraphicsComponentContainer getGraphicsComponents(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordtype">void</span> OnLogicUpdate(<a class="code" href="classDCEngine_1_1Events_1_1LogicUpdate.html">Events::LogicUpdate</a>* updateEvent);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      Graphics* GraphicsSystem;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1CameraViewport.html">CameraViewport</a>* CameraViewportComponent;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      GameObjectRawVec models_;  </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      SpriteContainer SpriteContainer; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      SpriteTextContainer SpriteTextContainer;  </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            std::vector&lt;SpriteParticleSystem*&gt; ParticleSystemContainer;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            GraphicsComponentContainer GraphicsComponents;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      DebugDrawObjVec DebugDrawObjContainer; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html">DCEngine::Components::Graphical</a></div><div class="ttdef"><b>Definition:</b> Graphical.h:20</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html">DCEngine::Components::GraphicsSpace</a></div><div class="ttdef"><b>Definition:</b> GraphicsSpace.h:37</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_a677ad38c43b7f135a15f5816a47f1d75"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a677ad38c43b7f135a15f5816a47f1d75">DCEngine::Components::GraphicsSpace::~GraphicsSpace</a></div><div class="ttdeci">~GraphicsSpace()</div><div class="ttdoc">Default GraphicsSpace destructor. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:57</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_ad4c45ab72c90dc9c58244a827087ac87"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ad4c45ab72c90dc9c58244a827087ac87">DCEngine::Components::GraphicsSpace::DrawCircle</a></div><div class="ttdeci">void DrawCircle(Vec3 &amp;pos, Real &amp;radius, Vec4 &amp;color)</div><div class="ttdoc">Passes a call requesting a DebugDraw call on to the Graphics System. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:146</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_a062c59988ae8a5eabaee8fa937eb0829"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a062c59988ae8a5eabaee8fa937eb0829">DCEngine::Components::GraphicsSpace::getSprites</a></div><div class="ttdeci">SpriteContainer getSprites()</div><div class="ttdoc">Returns the container of Sprite pointers. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:170</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_a879de24d73804a3e72a17ac6366e0d32"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a879de24d73804a3e72a17ac6366e0d32">DCEngine::Components::GraphicsSpace::DrawCircle</a></div><div class="ttdeci">void DrawCircle(Vec3 &amp;pos, Real radius, Vec4 &amp;color)</div><div class="ttdoc">Registers a SpriteText into the GraphicsSpace. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:158</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1CameraViewport_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1CameraViewport.html">DCEngine::Components::CameraViewport</a></div><div class="ttdef"><b>Definition:</b> CameraViewport.h:21</div></div>
 <div class="ttc" id="classDCEngine_1_1Component_html"><div class="ttname"><a href="classDCEngine_1_1Component.html">DCEngine::Component</a></div><div class="ttdef"><b>Definition:</b> Component.h:79</div></div>
 <div class="ttc" id="classDCEngine_1_1Events_1_1LogicUpdate_html"><div class="ttname"><a href="classDCEngine_1_1Events_1_1LogicUpdate.html">DCEngine::Events::LogicUpdate</a></div><div class="ttdef"><b>Definition:</b> UpdateEvents.h:17</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_a2e85cafcdd8d4f319304efd7e2428ba6"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#a2e85cafcdd8d4f319304efd7e2428ba6">DCEngine::Components::GraphicsSpace::AddSprite</a></div><div class="ttdeci">void AddSprite(Sprite &amp;sprite)</div><div class="ttdoc">Registers a Sprite into the GraphicsSpace. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:92</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteText_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteText.html">DCEngine::Components::SpriteText</a></div><div class="ttdef"><b>Definition:</b> SpriteText.h:23</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_ab9aa5cb173fc1a216301e5633a8d97fd"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ab9aa5cb173fc1a216301e5633a8d97fd">DCEngine::Components::GraphicsSpace::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdoc">Initializes the GraphicsSpace component. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:67</div></div>
 <div class="ttc" id="classDCEngine_1_1SpriteLayerOrder_html"><div class="ttname"><a href="classDCEngine_1_1SpriteLayerOrder.html">DCEngine::SpriteLayerOrder</a></div><div class="ttdef"><b>Definition:</b> SpriteLayer.h:46</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_ad5613e661932c45ab28d970b2f392963"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#ad5613e661932c45ab28d970b2f392963">DCEngine::Components::GraphicsSpace::AddSpriteText</a></div><div class="ttdeci">void AddSpriteText(SpriteText &amp;spriteText)</div><div class="ttdoc">Registers a SpriteText into the GraphicsSpace. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:79</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1GraphicsSpace_html_adc3dfe81fa608dfcb7528d2571016350"><div class="ttname"><a href="classDCEngine_1_1Components_1_1GraphicsSpace.html#adc3dfe81fa608dfcb7528d2571016350">DCEngine::Components::GraphicsSpace::GraphicsSpace</a></div><div class="ttdeci">GraphicsSpace(Entity &amp;owner)</div><div class="ttdoc">Default GraphicsSpace constructor. </div><div class="ttdef"><b>Definition:</b> GraphicsSpace.cpp:46</div></div>
 <div class="ttc" id="ComponentReference_8h_html"><div class="ttname"><a href="ComponentReference_8h.html">ComponentReference.h</a></div></div>
 <div class="ttc" id="classDCEngine_1_1Entity_html"><div class="ttname"><a href="classDCEngine_1_1Entity.html">DCEngine::Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:09 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:44 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

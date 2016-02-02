@@ -17,10 +17,13 @@ enum {\bfseries Setting} \{ {\bfseries Create},
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classDCEngine_1_1CommandObjectCreation_a051a84a121676fbffa9cfb7c24e64713}{\hyperlink{classDCEngine_1_1CommandObjectCreation_a051a84a121676fbffa9cfb7c24e64713}{Command\-Object\-Creation} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$game\-Object, \hyperlink{classDCEngine_1_1Space}{Space} $\ast$space, Setting setting)}\label{classDCEngine_1_1CommandObjectCreation_a051a84a121676fbffa9cfb7c24e64713}
+\hypertarget{classDCEngine_1_1CommandObjectCreation_aa6e8e01f3ea70b2257a319a7465e4839}{\hyperlink{classDCEngine_1_1CommandObjectCreation_aa6e8e01f3ea70b2257a319a7465e4839}{Command\-Object\-Creation} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} game\-Object, \hyperlink{classDCEngine_1_1Space}{Space} $\ast$space, Setting setting)}\label{classDCEngine_1_1CommandObjectCreation_aa6e8e01f3ea70b2257a319a7465e4839}
 
 \begin{DoxyCompactList}\small\item\em \hyperlink{classDCEngine_1_1CommandObjectCreation}{Command\-Object\-Creation} constructor. \end{DoxyCompactList}\item 
-\hypertarget{classDCEngine_1_1CommandObjectCreation_a7c015ee6e98f47e5bcb185816d9c66a0}{{\bfseries Command\-Object\-Creation} (Archetype\-Ptr copy\-Data, \hyperlink{classDCEngine_1_1Space}{Space} $\ast$space)}\label{classDCEngine_1_1CommandObjectCreation_a7c015ee6e98f47e5bcb185816d9c66a0}
+\hypertarget{classDCEngine_1_1CommandObjectCreation_a31ab1c485ccf5b416b1bf92f53d5521f}{{\bfseries Command\-Object\-Creation} (Game\-Object\-Raw\-Vec game\-Objects, \hyperlink{classDCEngine_1_1Space}{Space} $\ast$space, Setting setting)}\label{classDCEngine_1_1CommandObjectCreation_a31ab1c485ccf5b416b1bf92f53d5521f}
+
+\item 
+\hypertarget{classDCEngine_1_1CommandObjectCreation_a485481332df600dca540bcd11594be63}{{\bfseries Command\-Object\-Creation} (Archetype\-Container copy\-Data, \hyperlink{classDCEngine_1_1Space}{Space} $\ast$space)}\label{classDCEngine_1_1CommandObjectCreation_a485481332df600dca540bcd11594be63}
 
 \item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_af0a957acc7f80c247f26ea8421e5eb2f}{void \hyperlink{classDCEngine_1_1CommandObjectCreation_af0a957acc7f80c247f26ea8421e5eb2f}{Undo} ()}\label{classDCEngine_1_1CommandObjectCreation_af0a957acc7f80c247f26ea8421e5eb2f}
@@ -31,26 +34,26 @@ enum {\bfseries Setting} \{ {\bfseries Create},
 \begin{DoxyCompactList}\small\item\em Undoes the last Creation command, specific to the setting set. \end{DoxyCompactList}\item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_ad76e4f90f29fe4bef214c624d2775dc9}{void \hyperlink{classDCEngine_1_1CommandObjectCreation_ad76e4f90f29fe4bef214c624d2775dc9}{Create} ()}\label{classDCEngine_1_1CommandObjectCreation_ad76e4f90f29fe4bef214c624d2775dc9}
 
-\begin{DoxyCompactList}\small\item\em (Re)creates the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em (Re)creates the Game\-Object(s). \end{DoxyCompactList}\item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_aa12c1f9d71af2b76f6959129b74ea848}{void \hyperlink{classDCEngine_1_1CommandObjectCreation_aa12c1f9d71af2b76f6959129b74ea848}{Destroy} ()}\label{classDCEngine_1_1CommandObjectCreation_aa12c1f9d71af2b76f6959129b74ea848}
 
-\begin{DoxyCompactList}\small\item\em Destroys the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destroys the Game\-Objects. \end{DoxyCompactList}\item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_ab54719033edf413729904e89a2bfacc1}{void \hyperlink{classDCEngine_1_1CommandObjectCreation_ab54719033edf413729904e89a2bfacc1}{Copy} ()}\label{classDCEngine_1_1CommandObjectCreation_ab54719033edf413729904e89a2bfacc1}
 
-\begin{DoxyCompactList}\small\item\em Copies the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s data into an Archeteype. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Copies the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s data into an Archtype. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_a89067b099fcda02f3c2e6363df151f4e}{Setting {\bfseries Current\-Setting}}\label{classDCEngine_1_1CommandObjectCreation_a89067b099fcda02f3c2e6363df151f4e}
 
 \item 
-\hypertarget{classDCEngine_1_1CommandObjectCreation_a1e2aeb29abedc520ded47357cafc19aa}{\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$ {\bfseries Game\-Object\-Ref}}\label{classDCEngine_1_1CommandObjectCreation_a1e2aeb29abedc520ded47357cafc19aa}
-
-\item 
 \hypertarget{classDCEngine_1_1CommandObjectCreation_a50e2a97172026832eed0c7ff22595e00}{\hyperlink{classDCEngine_1_1Space}{Space} $\ast$ {\bfseries Space\-Ref}}\label{classDCEngine_1_1CommandObjectCreation_a50e2a97172026832eed0c7ff22595e00}
 
 \item 
-\hypertarget{classDCEngine_1_1CommandObjectCreation_a9829c69701dc89e92054fa42e0b961a6}{Archetype\-Ptr {\bfseries Game\-Object\-Data}}\label{classDCEngine_1_1CommandObjectCreation_a9829c69701dc89e92054fa42e0b961a6}
+\hypertarget{classDCEngine_1_1CommandObjectCreation_aa05e09aa8d81824ba2e00c1ad370043c}{Game\-Object\-Raw\-Vec {\bfseries Game\-Object\-References}}\label{classDCEngine_1_1CommandObjectCreation_aa05e09aa8d81824ba2e00c1ad370043c}
+
+\item 
+\hypertarget{classDCEngine_1_1CommandObjectCreation_a42c5414e7e6f75a54d9c2a800f4a7e9b}{Archetype\-Container {\bfseries Game\-Object\-Data}}\label{classDCEngine_1_1CommandObjectCreation_a42c5414e7e6f75a54d9c2a800f4a7e9b}
 
 \end{DoxyCompactItemize}
 

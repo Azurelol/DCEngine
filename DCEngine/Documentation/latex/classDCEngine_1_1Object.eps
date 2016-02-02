@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 329.896907
+%%BoundingBox: 0 0 500 336.769759
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 1.515625 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 1.484694 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 48 def
+/rows 49 def
 /cols 10 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -181,6 +181,7 @@ boxfont setfont
 (DCEngine::Resource) cw
 (DCEngine::System) cw
 (DCEngine::Components::BallController) cw
+(DCEngine::Components::Bomb) cw
 (DCEngine::Components::Button) cw
 (DCEngine::Components::Camera) cw
 (DCEngine::Components::CameraController) cw
@@ -268,14 +269,15 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (DCEngine::Object) 4.000000 46.000000 box
- (IZilchObject) 4.000000 47.000000 box
- (DCEngine::Component) 0.000000 45.000000 box
- (DCEngine::DebugDrawObject) 2.000000 45.000000 box
- (DCEngine::Entity) 4.000000 45.000000 box
- (DCEngine::Resource) 6.000000 45.000000 box
- (DCEngine::System) 8.000000 45.000000 box
- (DCEngine::Components::BallController) 1.000000 44.000000 box
+ (DCEngine::Object) 4.000000 47.000000 box
+ (IZilchObject) 4.000000 48.000000 box
+ (DCEngine::Component) 0.000000 46.000000 box
+ (DCEngine::DebugDrawObject) 2.000000 46.000000 box
+ (DCEngine::Entity) 4.000000 46.000000 box
+ (DCEngine::Resource) 6.000000 46.000000 box
+ (DCEngine::System) 8.000000 46.000000 box
+ (DCEngine::Components::BallController) 1.000000 45.000000 box
+ (DCEngine::Components::Bomb) 1.000000 44.000000 box
  (DCEngine::Components::Button) 1.000000 43.000000 box
  (DCEngine::Components::Camera) 1.000000 42.000000 box
  (DCEngine::Components::CameraController) 1.000000 41.000000 box
@@ -322,70 +324,72 @@ boundx scalefactor div boundy scalefactor div scale
  (DCEngine::Components::TransformTool) 1.000000 2.000000 box
  (DCEngine::Components::TutorialTextLogic) 1.000000 1.000000 box
  (DCEngine::ZilchComponent) 1.000000 0.000000 box
- (DCEngine::DrawCircleObj) 3.000000 44.000000 box
- (DCEngine::DrawLineObj) 3.000000 43.000000 box
- (DCEngine::DrawRectObj) 3.000000 42.000000 box
- (DCEngine::GameObject) 5.000000 44.000000 box
- (DCEngine::GameSession) 5.000000 43.000000 box
- (DCEngine::Keyboard) 5.000000 42.000000 box
- (DCEngine::Mouse) 5.000000 41.000000 box
- (DCEngine::Space) 5.000000 40.000000 box
- (DCEngine::Archetype) 7.000000 44.000000 box
- (DCEngine::Bank) 7.000000 43.000000 box
- (DCEngine::CollisionGroup) 7.000000 42.000000 box
- (DCEngine::CollisionTable) 7.000000 41.000000 box
- (DCEngine::Font) 7.000000 40.000000 box
- (DCEngine::Level) 7.000000 39.000000 box
-7.000000 39.000000 mark
- (DCEngine::Material) 7.000000 38.000000 box
- (DCEngine::PhysicsMaterial) 7.000000 37.000000 box
- (DCEngine::Shader) 7.000000 36.000000 box
- (DCEngine::SoundCue) 7.000000 35.000000 box
- (DCEngine::SpriteLayer) 7.000000 34.000000 box
- (DCEngine::SpriteLayerOrder) 7.000000 33.000000 box
- (DCEngine::SpriteSource) 7.000000 32.000000 box
- (DCEngine::ZilchScript) 7.000000 31.000000 box
- (DCEngine::Systems::Audio) 9.000000 44.000000 box
- (DCEngine::Systems::Content) 9.000000 43.000000 box
- (DCEngine::Systems::Editor) 9.000000 42.000000 box
- (DCEngine::Systems::Factory) 9.000000 41.000000 box
- (DCEngine::Systems::Graphics) 9.000000 40.000000 box
- (DCEngine::Systems::GUI) 9.000000 39.000000 box
- (DCEngine::Systems::Input) 9.000000 38.000000 box
- (DCEngine::Systems::Physics) 9.000000 37.000000 box
- (DCEngine::Systems::Reflection) 9.000000 36.000000 box
- (DCEngine::Systems::Window) 9.000000 35.000000 box
+ (DCEngine::DrawCircleObj) 3.000000 45.000000 box
+ (DCEngine::DrawLineObj) 3.000000 44.000000 box
+ (DCEngine::DrawRectObj) 3.000000 43.000000 box
+ (DCEngine::GameObject) 5.000000 45.000000 box
+ (DCEngine::GameSession) 5.000000 44.000000 box
+ (DCEngine::Keyboard) 5.000000 43.000000 box
+ (DCEngine::Mouse) 5.000000 42.000000 box
+ (DCEngine::Space) 5.000000 41.000000 box
+ (DCEngine::Archetype) 7.000000 45.000000 box
+ (DCEngine::Bank) 7.000000 44.000000 box
+ (DCEngine::CollisionGroup) 7.000000 43.000000 box
+ (DCEngine::CollisionTable) 7.000000 42.000000 box
+ (DCEngine::Font) 7.000000 41.000000 box
+ (DCEngine::Level) 7.000000 40.000000 box
+7.000000 40.000000 mark
+ (DCEngine::Material) 7.000000 39.000000 box
+ (DCEngine::PhysicsMaterial) 7.000000 38.000000 box
+ (DCEngine::Shader) 7.000000 37.000000 box
+ (DCEngine::SoundCue) 7.000000 36.000000 box
+ (DCEngine::SpriteLayer) 7.000000 35.000000 box
+ (DCEngine::SpriteLayerOrder) 7.000000 34.000000 box
+ (DCEngine::SpriteSource) 7.000000 33.000000 box
+ (DCEngine::ZilchScript) 7.000000 32.000000 box
+ (DCEngine::Systems::Audio) 9.000000 45.000000 box
+ (DCEngine::Systems::Content) 9.000000 44.000000 box
+ (DCEngine::Systems::Editor) 9.000000 43.000000 box
+ (DCEngine::Systems::Factory) 9.000000 42.000000 box
+ (DCEngine::Systems::Graphics) 9.000000 41.000000 box
+ (DCEngine::Systems::GUI) 9.000000 40.000000 box
+ (DCEngine::Systems::Input) 9.000000 39.000000 box
+ (DCEngine::Systems::Physics) 9.000000 38.000000 box
+ (DCEngine::Systems::Reflection) 9.000000 37.000000 box
+ (DCEngine::Systems::Window) 9.000000 36.000000 box
 
 % ----- relations -----
 
 solid
-0 4.000000 46.000000 out
+0 4.000000 47.000000 out
 solid
-1 4.000000 47.000000 in
+1 4.000000 48.000000 in
+solid
+1 4.000000 46.250000 out
+solid
+0.000000 8.000000 47.000000 conn
+solid
+0 0.000000 46.750000 in
+solid
+1 0.000000 45.250000 out
+solid
+0 2.000000 46.750000 in
+solid
+1 2.000000 45.250000 out
+solid
+0 4.000000 46.750000 in
 solid
 1 4.000000 45.250000 out
 solid
-0.000000 8.000000 46.000000 conn
+0 6.000000 46.750000 in
 solid
-0 0.000000 45.750000 in
+1 6.000000 45.250000 out
 solid
-1 0.000000 44.250000 out
+0 8.000000 46.750000 in
 solid
-0 2.000000 45.750000 in
+1 8.000000 45.250000 out
 solid
-1 2.000000 44.250000 out
-solid
-0 4.000000 45.750000 in
-solid
-1 4.000000 44.250000 out
-solid
-0 6.000000 45.750000 in
-solid
-1 6.000000 44.250000 out
-solid
-0 8.000000 45.750000 in
-solid
-1 8.000000 44.250000 out
+0 0.000000 45.500000 hedge
 solid
 0 0.000000 44.500000 hedge
 solid
@@ -477,15 +481,17 @@ solid
 solid
 0 0.000000 0.500000 hedge
 solid
-0.000000 45.000000 0.500000 vedge
+0.000000 46.000000 0.500000 vedge
+solid
+0 2.000000 45.500000 hedge
 solid
 0 2.000000 44.500000 hedge
 solid
 0 2.000000 43.500000 hedge
 solid
-0 2.000000 42.500000 hedge
+2.000000 46.000000 43.500000 vedge
 solid
-2.000000 45.000000 42.500000 vedge
+0 4.000000 45.500000 hedge
 solid
 0 4.000000 44.500000 hedge
 solid
@@ -495,9 +501,9 @@ solid
 solid
 0 4.000000 41.500000 hedge
 solid
-0 4.000000 40.500000 hedge
+4.000000 46.000000 41.500000 vedge
 solid
-4.000000 45.000000 40.500000 vedge
+0 6.000000 45.500000 hedge
 solid
 0 6.000000 44.500000 hedge
 solid
@@ -525,9 +531,9 @@ solid
 solid
 0 6.000000 32.500000 hedge
 solid
-0 6.000000 31.500000 hedge
+6.000000 46.000000 32.500000 vedge
 solid
-6.000000 45.000000 31.500000 vedge
+0 8.000000 45.500000 hedge
 solid
 0 8.000000 44.500000 hedge
 solid
@@ -547,6 +553,4 @@ solid
 solid
 0 8.000000 36.500000 hedge
 solid
-0 8.000000 35.500000 hedge
-solid
-8.000000 45.000000 35.500000 vedge
+8.000000 46.000000 36.500000 vedge

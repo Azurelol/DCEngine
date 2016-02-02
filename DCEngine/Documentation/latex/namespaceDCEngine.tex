@@ -95,7 +95,7 @@ struct \hyperlink{structDCEngine_1_1CollisionFilter}{Collision\-Filter}
 class \hyperlink{classDCEngine_1_1CollisionTable}{Collision\-Table}
 \item 
 struct \hyperlink{structDCEngine_1_1Character}{Character}
-\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} struct containing generated data about a specific character that will be used whenever it needs to be rendered. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct containing generated data about a specific character that will be used whenever it needs to be rendered. \end{DoxyCompactList}\item 
 class \hyperlink{classDCEngine_1_1Font}{Font}
 \item 
 class \hyperlink{classDCEngine_1_1Level}{Level}
@@ -118,15 +118,17 @@ class \hyperlink{classDCEngine_1_1SpriteLayerOrder}{Sprite\-Layer\-Order}
 \item 
 class \hyperlink{classDCEngine_1_1SpriteSource}{Sprite\-Source}
 \item 
-class \hyperlink{classDCEngine_1_1Texture}{Texture}
-\item 
 class \hyperlink{classDCEngine_1_1Texture2D}{Texture2\-D}
 \item 
 class \hyperlink{classDCEngine_1_1ZilchScript}{Zilch\-Script}
 \item 
-class \hyperlink{classDCEngine_1_1FMODSoundPtr}{F\-M\-O\-D\-Sound\-Ptr}
+class \hyperlink{classDCEngine_1_1FMODSoundHandle}{F\-M\-O\-D\-Sound\-Handle}
 \item 
 struct \hyperlink{structDCEngine_1_1EditorConfig}{Editor\-Config}
+\item 
+struct \hyperlink{structDCEngine_1_1SelectionData}{Selection\-Data}
+\item 
+struct \hyperlink{structDCEngine_1_1TransformToolData}{Transform\-Tool\-Data}
 \item 
 class \hyperlink{classDCEngine_1_1FileSystem}{File\-System}
 \item 
@@ -138,7 +140,9 @@ class \hyperlink{classDCEngine_1_1Manifold}{Manifold}
 \item 
 struct \hyperlink{structDCEngine_1_1CollisionData}{Collision\-Data}
 \item 
-struct \hyperlink{structDCEngine_1_1Ray}{Ray}
+class \hyperlink{classDCEngine_1_1QuadTree}{Quad\-Tree}
+\item 
+class \hyperlink{structDCEngine_1_1Ray}{Ray}
 \item 
 class \hyperlink{structDCEngine_1_1CastResult}{Cast\-Result}
 \item 
@@ -149,7 +153,7 @@ class \hyperlink{classDCEngine_1_1Resolution}{Resolution}
 class \hyperlink{classDCEngine_1_1Member}{Member}
 \item 
 class \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data}
-\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object is a non-\/templated class, allowing them to be stored in a data structure. There is one \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object for each type of data registered to the system, and the \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object of a corresponding type is a representation of that type. It stores information about whether or not it is a plain old data type (P\-O\-D), the size of the type, its members, methods, and name. Inheritance information can be stored along with multiple inheritance information (though the latter is not implemented). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object is a non-\/templated class, allowing them to be stored in a data structure. There is one \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object for each type of data registered to the system, and the \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} object of a corresponding type is a representation of that type. It stores information about whether or not it is a plain old data type (P\-O\-D), the size of the type, its members, methods, and name. Inheritance information can be stored along with multiple inheritance information (though the latter is not implemented). \end{DoxyCompactList}\item 
 class \hyperlink{classDCEngine_1_1MetaCreator}{Meta\-Creator}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThe}{The} \hyperlink{classDCEngine_1_1MetaCreator}{Meta\-Creator} is a templated class that manages the creation of a single unique \hyperlink{classDCEngine_1_1MetaData}{Meta\-Data} instance. It then adds its instance into the \hyperlink{classDCEngine_1_1MetaManager}{Meta\-Manager} which contains it in some sort of map. \end{DoxyCompactList}\item 
 class \hyperlink{classDCEngine_1_1MetaManager}{Meta\-Manager}
@@ -223,6 +227,12 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 
 \item 
 \hypertarget{namespaceDCEngine_a0b369931802e2018ee1f083dd2ea426c}{using {\bfseries Command\-Ptr} = std\-::shared\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1Command}{Command} $>$}\label{namespaceDCEngine_a0b369931802e2018ee1f083dd2ea426c}
+
+\item 
+\hypertarget{namespaceDCEngine_a79a8be802832f343d6b0ae7178f6b5a7}{using {\bfseries Game\-Object\-Ptr} = \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$}\label{namespaceDCEngine_a79a8be802832f343d6b0ae7178f6b5a7}
+
+\item 
+\hypertarget{namespaceDCEngine_a543d3c0e1e3db988bd5c48c1e12f5ad9}{using {\bfseries Game\-Object\-Raw\-Vec} = std\-::vector$<$ \hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} $>$}\label{namespaceDCEngine_a543d3c0e1e3db988bd5c48c1e12f5ad9}
 
 \item 
 \hypertarget{namespaceDCEngine_ac11900ad7484b1dc5cf052ddc3919264}{using {\bfseries Engine\-Config\-Ptr} = std\-::unique\-\_\-ptr$<$ \hyperlink{structDCEngine_1_1EngineConfig}{Engine\-Config} $>$}\label{namespaceDCEngine_ac11900ad7484b1dc5cf052ddc3919264}
@@ -303,9 +313,6 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 \hypertarget{namespaceDCEngine_af0b53770d00cac4bbe402ee2195bf46d}{using {\bfseries Debug\-Draw\-Obj\-Vec} = std\-::vector$<$ Debug\-Draw\-Obj\-Ptr $>$}\label{namespaceDCEngine_af0b53770d00cac4bbe402ee2195bf46d}
 
 \item 
-\hypertarget{namespaceDCEngine_a0f936955e1167135b01811ecfc08c688}{using {\bfseries Game\-Object\-Ptr} = \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$}\label{namespaceDCEngine_a0f936955e1167135b01811ecfc08c688}
-
-\item 
 \hypertarget{namespaceDCEngine_a7ace5d7fd290adf80b89e0cb41717fe5}{using {\bfseries Game\-Object\-Vec} = std\-::vector$<$ \hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} $>$}\label{namespaceDCEngine_a7ace5d7fd290adf80b89e0cb41717fe5}
 
 \item 
@@ -313,9 +320,6 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 
 \item 
 \hypertarget{namespaceDCEngine_a3a151a58507d3068a1a826c3d3d70c9d}{using {\bfseries Game\-Object\-Strong\-Vec} = std\-::vector$<$ Game\-Object\-Strong\-Ptr $>$}\label{namespaceDCEngine_a3a151a58507d3068a1a826c3d3d70c9d}
-
-\item 
-\hypertarget{namespaceDCEngine_acc1ecd59ba4e13f29e179558683b6c84}{using {\bfseries Game\-Object\-Raw\-Vec} = std\-::vector$<$ \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$ $>$}\label{namespaceDCEngine_acc1ecd59ba4e13f29e179558683b6c84}
 
 \item 
 \hypertarget{namespaceDCEngine_a1e0f9c97553be5cc609af82c337294e7}{using {\bfseries Game\-Session\-Ptr} = std\-::unique\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1GameSession}{Game\-Session} $>$}\label{namespaceDCEngine_a1e0f9c97553be5cc609af82c337294e7}
@@ -345,6 +349,9 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 \hypertarget{namespaceDCEngine_a7dd0d927ce60f5d94af00b97af97c317}{using {\bfseries Object\-Ptr} = \hyperlink{classDCEngine_1_1Object}{Object} $\ast$}\label{namespaceDCEngine_a7dd0d927ce60f5d94af00b97af97c317}
 
 \item 
+\hypertarget{namespaceDCEngine_a63dd9b4d05157d8d409876b69586040a}{using {\bfseries Object\-Container} = std\-::vector$<$ \hyperlink{classDCEngine_1_1Object}{Object\-Ptr} $>$}\label{namespaceDCEngine_a63dd9b4d05157d8d409876b69586040a}
+
+\item 
 \hypertarget{namespaceDCEngine_ac2ff348e5b42025cf6840040fd81b280}{using {\bfseries Resource\-Ptr} = \hyperlink{classDCEngine_1_1Resource}{Resource} $\ast$}\label{namespaceDCEngine_ac2ff348e5b42025cf6840040fd81b280}
 
 \item 
@@ -352,6 +359,9 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 
 \item 
 \hypertarget{namespaceDCEngine_ab84eebc929136e1a814d40427475038b}{using {\bfseries Archetype\-Ptr} = std\-::shared\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1Archetype}{Archetype} $>$}\label{namespaceDCEngine_ab84eebc929136e1a814d40427475038b}
+
+\item 
+\hypertarget{namespaceDCEngine_aa43434dafb709d2ce485003ad34f14ee}{using {\bfseries Archetype\-Container} = std\-::vector$<$ Archetype\-Ptr $>$}\label{namespaceDCEngine_aa43434dafb709d2ce485003ad34f14ee}
 
 \item 
 \hypertarget{namespaceDCEngine_a2989333eff6e62b82ef5fc6b8a837dce}{using {\bfseries Bank\-Handle} = std\-::string}\label{namespaceDCEngine_a2989333eff6e62b82ef5fc6b8a837dce}
@@ -412,9 +422,6 @@ class \hyperlink{classDCEngine_1_1DerivedObject}{Derived\-Object}
 
 \item 
 \hypertarget{namespaceDCEngine_a557e7662165a9e23d463e3933f610bca}{using {\bfseries Sprite\-Source\-Ptr} = std\-::shared\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1SpriteSource}{Sprite\-Source} $>$}\label{namespaceDCEngine_a557e7662165a9e23d463e3933f610bca}
-
-\item 
-\hypertarget{namespaceDCEngine_a89a2bd1962b8c3b0b0b50860cfb7e5ff}{using {\bfseries Texture\-Vec} = std\-::vector$<$ \hyperlink{classDCEngine_1_1Texture}{Texture} $>$}\label{namespaceDCEngine_a89a2bd1962b8c3b0b0b50860cfb7e5ff}
 
 \item 
 \hypertarget{namespaceDCEngine_a6b79e53733bdb4f0e3b630b16f4a3266}{using {\bfseries Zilch\-Script\-Ptr} = std\-::shared\-\_\-ptr$<$ \hyperlink{classDCEngine_1_1ZilchScript}{Zilch\-Script} $>$}\label{namespaceDCEngine_a6b79e53733bdb4f0e3b630b16f4a3266}
@@ -753,9 +760,6 @@ std\-::ostream \& \hyperlink{namespaceDCEngine_acf2dcaa0c82450236c61561c7576a080
 \hypertarget{namespaceDCEngine_a11f716282f71ca8b2386356c182b7d13}{float {\bfseries Determine\-Friction} (float a, float b)}\label{namespaceDCEngine_a11f716282f71ca8b2386356c182b7d13}
 
 \item 
-\hypertarget{namespaceDCEngine_a6ca73acb8bf27a76bb6f3f35ad4b1986}{{\footnotesize template$<$typename T $>$ }\\T {\bfseries Interpolate} (const T \&start, const T \&end, float ratio)}\label{namespaceDCEngine_a6ca73acb8bf27a76bb6f3f35ad4b1986}
-
-\item 
 \hypertarget{namespaceDCEngine_a91d765b8b565c71355d1f958dd70003f}{void {\bfseries Padding} (std\-::ostream \&os)}\label{namespaceDCEngine_a91d765b8b565c71355d1f958dd70003f}
 
 \item 
@@ -828,7 +832,7 @@ std\-::ostream \& \hyperlink{namespaceDCEngine_acf2dcaa0c82450236c61561c7576a080
 
 
 \subsection{Detailed Description}
-$<$ Components need to access events. \hyperlink{classA}{A} list of events that can be added. 
+$<$ Components need to access events. A list of events that can be added. 
 
 \subsection{Function Documentation}
 \hypertarget{namespaceDCEngine_ad50079f85b713abb3cf4b0d0fb3cfc6a}{\index{D\-C\-Engine@{D\-C\-Engine}!operator$<$$<$@{operator$<$$<$}}
@@ -845,7 +849,7 @@ Deregisters a child onto the \hyperlink{classDCEngine_1_1GameObject}{Game\-Objec
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & pointer to a child. \\
+{\em A} & pointer to a child. \\
 \hline
 \end{DoxyParams}
 \hypertarget{namespaceDCEngine_acf2dcaa0c82450236c61561c7576a080}{\index{D\-C\-Engine@{D\-C\-Engine}!operator$<$$<$@{operator$<$$<$}}
@@ -862,13 +866,13 @@ Friendly ostream operator, prints the contents of the space into stdout.
 
 
 \begin{DoxyParams}{Parameters}
-{\em out} & \hyperlink{classA}{A} reference to the ostream operator. \\
+{\em out} & A reference to the ostream operator. \\
 \hline
-{\em space} & \hyperlink{classA}{A} reference to the array. \\
+{\em space} & A reference to the array. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the ostream operator. 
+A reference to the ostream operator. 
 \end{DoxyReturn}
 \hypertarget{namespaceDCEngine_a329111a922e14ea87ebb459646b6e3dd}{\index{D\-C\-Engine@{D\-C\-Engine}!Zilch\-Define\-Type@{Zilch\-Define\-Type}}
 \index{Zilch\-Define\-Type@{Zilch\-Define\-Type}!DCEngine@{D\-C\-Engine}}

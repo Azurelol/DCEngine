@@ -15,12 +15,10 @@ void \hyperlink{classDCEngine_1_1CommandManager_a46efd76d37bc0754ec51aa835a81086
 \hypertarget{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}{void \hyperlink{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}{Redo} ()}\label{classDCEngine_1_1CommandManager_afc5a4b8a89b9472bd2359cb023adc60a}
 
 \begin{DoxyCompactList}\small\item\em Redoes the last command. \end{DoxyCompactList}\item 
-\hypertarget{classDCEngine_1_1CommandManager_a16405d660e327349e83a43d7624e9424}{void {\bfseries Copy} (\hyperlink{classDCEngine_1_1GameObject}{Game\-Object} $\ast$)}\label{classDCEngine_1_1CommandManager_a16405d660e327349e83a43d7624e9424}
-
-\item 
-\hypertarget{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}{void {\bfseries Paste} (\hyperlink{classDCEngine_1_1Space}{Space} $\ast$)}\label{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}
-
-\end{DoxyCompactItemize}
+void \hyperlink{classDCEngine_1_1CommandManager_a2bd0b1747529360a06ce2cf5cf8ec81e}{Copy} (Game\-Object\-Raw\-Vec)
+\begin{DoxyCompactList}\small\item\em Copies the selected Game\-Objects. \end{DoxyCompactList}\item 
+void \hyperlink{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}{Paste} (\hyperlink{classDCEngine_1_1Space}{Space} $\ast$)
+\begin{DoxyCompactList}\small\item\em Pastes the selected Game\-Objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,9 +44,38 @@ Adds the latest command.
 
 
 \begin{DoxyParams}{Parameters}
-{\em command} & \hyperlink{classA}{A} pointer to the latest command. \\
+{\em command} & A pointer to the latest command. \\
 \hline
 \end{DoxyParams}
+\hypertarget{classDCEngine_1_1CommandManager_a2bd0b1747529360a06ce2cf5cf8ec81e}{\index{D\-C\-Engine\-::\-Command\-Manager@{D\-C\-Engine\-::\-Command\-Manager}!Copy@{Copy}}
+\index{Copy@{Copy}!DCEngine::CommandManager@{D\-C\-Engine\-::\-Command\-Manager}}
+\subsubsection[{Copy}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Command\-Manager\-::\-Copy (
+\begin{DoxyParamCaption}
+\item[{Game\-Object\-Raw\-Vec}]{game\-Objects}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1CommandManager_a2bd0b1747529360a06ce2cf5cf8ec81e}
+
+
+Copies the selected Game\-Objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & container containing all the game objects to copy. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}{\index{D\-C\-Engine\-::\-Command\-Manager@{D\-C\-Engine\-::\-Command\-Manager}!Paste@{Paste}}
+\index{Paste@{Paste}!DCEngine::CommandManager@{D\-C\-Engine\-::\-Command\-Manager}}
+\subsubsection[{Paste}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Command\-Manager\-::\-Paste (
+\begin{DoxyParamCaption}
+\item[{{\bf Space} $\ast$}]{space}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1CommandManager_ac9dfe330808b732d110001c243f7df78}
+
+
+Pastes the selected Game\-Objects. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Need to create all at once! \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
