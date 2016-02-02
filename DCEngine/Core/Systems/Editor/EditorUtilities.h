@@ -24,6 +24,7 @@ namespace DCEngine {
     // Multi-selection
     bool MultiSelectDragging = false;
     Vec4 MultiSelectColor = Vec4(0.3, 0.7, 0.3f, 0.5f);
+
     // Snapping
     bool Snapping = true;
     float SnapDistance = 1.0;
@@ -56,8 +57,16 @@ namespace DCEngine {
     Vec3  SelectedBoundingCenter;
     float SelectedBoundingWidth;
     float SelectedBoundingHeight;
+  };
 
-
+  struct TransformToolData {
+    float Radius = 5;
+    Vec3 XAxisBoundaryEnd;
+    Vec3 XAxisMidpoint;
+    Vec3 YAxisBoundaryEnd;
+    Vec3 YAxisMidpoint;
+    Vec3 ZAxisBoundaryEnd;
+    Vec3 ZAxisMidpoint;
   };
 
   namespace Systems {

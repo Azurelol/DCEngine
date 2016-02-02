@@ -778,7 +778,10 @@
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
-      <Filter>Core\Systems\Editor</Filter>
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
+      <Filter>Core\Systems\Physics\Broadphase</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
       <Filter>Core\Systems\Physics\Broadphase</Filter>
@@ -1307,10 +1310,13 @@
     <ClInclude Include="Core\Systems\StateMachine\IState.h">
       <Filter>Core\Systems\AI</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\Editor.h">
-      <Filter>Core\Systems\Factory</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Editor.h">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Editor.hpp">
       <Filter>Core\Systems\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\QuadTree.h">
@@ -1350,9 +1356,6 @@
     <None Include="Daisy.cfg" />
     <None Include="Projects\Rebound.dceproj">
       <Filter>Projects\Rebound</Filter>
-    </None>
-    <None Include="Core\Systems\Editor\Editor.tcc">
-      <Filter>Core\Systems\Editor</Filter>
     </None>
     <None Include="Core\Assets\Shaders\ParticleShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>

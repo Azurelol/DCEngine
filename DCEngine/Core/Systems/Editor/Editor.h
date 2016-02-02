@@ -57,6 +57,7 @@ namespace DCEngine {
       ////////////////
       EditorConfig Settings;
       SelectionData Selection;
+      TransformToolData TransformData;
       void setEnabled(bool);
       std::string RecentProject;
       bool ShowTestWindow = false;
@@ -136,7 +137,7 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void SelectMultiple(Vec2&);
-      void CalculateMultipleSelectedBounding();
+      void CalculateSelectionBounding();
       void DrawMultiSelect();
       void DragObject(Vec2&);
       void RotateObject(Vec2&);

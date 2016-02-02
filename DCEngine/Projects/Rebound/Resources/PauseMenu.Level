@@ -46,7 +46,8 @@
             "FieldOfView": 175.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
-            "Size": 70.000000
+            "Size": 70.000000, 
+            "Projection": "Perspective"
           }
         }
       }, 
@@ -355,7 +356,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Wow", 
+            "SpriteSource": "BackgroundPause", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -541,7 +542,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Circle", 
+            "SpriteSource": "ButtonQuit", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 

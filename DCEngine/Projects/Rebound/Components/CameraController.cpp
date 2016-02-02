@@ -80,7 +80,9 @@ namespace DCEngine {
         PlayerRef = SpaceRef->FindObjectByName(TargetName);
         return;
       }
-      DoScreenShake = PlayerRef->getComponent<Components::PlayerController>()->Dead;
+
+      //if (PlayerRef->HasComponent<Components::PlayerController>() )
+      //  DoScreenShake = PlayerRef->getComponent<Components::PlayerController>()->Dead;
 
       auto TargetPos = PlayerRef->getComponent<Components::Transform>()->Translation - TransformRef->Translation;
       if (CameraControllerTraceOn)

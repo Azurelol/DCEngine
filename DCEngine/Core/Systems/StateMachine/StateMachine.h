@@ -44,12 +44,6 @@ namespace DCEngine
     /**************************************************************************/
     ~StateMachine()
     {
-      if (previousState != currentState && previousState)
-        delete previousState;
-      if (currentState)
-        delete currentState;
-      if (globalState)
-        delete globalState;
     }
 
     /**************************************************************************/
@@ -109,15 +103,8 @@ namespace DCEngine
       if (newState == NULL)
         throw DCException("<StateMachine::ChangeState>: Trying to change to a null state");
 
-      if (previousState)
-        delete previousState;
-
       // Keep a record of the previous state
       previousState = currentState;
-
-      // Call the exit method of the existing state, if it exists
-      if (currentState != NULL)
-        currentState->Exit(owner);
 
       // Change the state to the new state
       currentState = newState;
@@ -134,6 +121,12 @@ namespace DCEngine
     void RevertToPreviousState()
     {
       ChangeState(previousState);
+      //if (currentState == previousState)
+      //  return;
+      //
+      //currentState->Exit(owner);
+      //currentState = previousState;
+      //currentState->Enter(owner);
     }
 
     // Accessors
@@ -160,9 +153,9 @@ namespace DCEngine
     \return True if the types are the same
     */
     /**************************************************************************/
-    bool isInState(const IState<entity_type>& state) const
+    bool isInState(IState<entity_type>* state) const
     {
-      return TypeOf(currentState) == TypeOf(state);
+      return state == currentState;
     }
   };
 }

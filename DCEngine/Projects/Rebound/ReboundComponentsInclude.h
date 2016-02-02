@@ -30,3 +30,4 @@
 #include "Components\TutorialTextLogic.h"
 #include "Components\LockField.h"
 #include "Components\PowerField.h"
+#include "Components\AI\Grunt.h"

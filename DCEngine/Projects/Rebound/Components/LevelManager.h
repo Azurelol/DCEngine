@@ -38,7 +38,7 @@ namespace DCEngine {
 #endif
 
     private:
-      String NextLevel = "NO LEVEL SELECTED";
+      String NextLevel;
       Real LoadingTime = 1;
       Real Timer = 1;
       Fade* FadeRef;

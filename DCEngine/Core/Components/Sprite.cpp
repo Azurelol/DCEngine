@@ -207,6 +207,10 @@ namespace DCEngine {
 
 		void Sprite::Draw(Camera& camera)
 		{
+      // Skip drawing if visible is false...
+      if (!this->Visible)
+        return;
+
 			mShader->SetInteger("isTexture", 1);
 			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
