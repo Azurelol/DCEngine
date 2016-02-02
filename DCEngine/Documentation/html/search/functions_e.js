@@ -13,8 +13,6 @@ var searchData=
   ['removeobject',['RemoveObject',['../classDCEngine_1_1Space.html#a774faf01e4cd56c8349228920fb674c3',1,'DCEngine::Space']]],
   ['removeresource',['RemoveResource',['../classDCEngine_1_1Systems_1_1Content.html#a85636619434d7d8b6bea0266bccac31c',1,'DCEngine::Systems::Content']]],
   ['removerigidbody',['RemoveRigidBody',['../classDCEngine_1_1Components_1_1PhysicsSpace.html#a419e695863bc3c5c20cb19a607246ed3',1,'DCEngine::Components::PhysicsSpace']]],
-  ['removesprite',['RemoveSprite',['../classDCEngine_1_1Components_1_1GraphicsSpace.html#afdfd96b23b80491dcb79770fbb34662c',1,'DCEngine::Components::GraphicsSpace']]],
-  ['removespritetext',['RemoveSpriteText',['../classDCEngine_1_1Components_1_1GraphicsSpace.html#a94c0a07a95c67e92e4b5719ae8b58750',1,'DCEngine::Components::GraphicsSpace']]],
   ['resolve',['Resolve',['../classDCEngine_1_1Resolution.html#a10bb03544c36f48117ffa750681908cc',1,'DCEngine::Resolution']]],
   ['resolvecontactvelocity',['ResolveContactVelocity',['../classDCEngine_1_1Resolution.html#aa9c4825154a9a8d0ebc1ede07172a9ad',1,'DCEngine::Resolution']]],
   ['resource',['Resource',['../classDCEngine_1_1Resource.html#a356bff47df31f5b50b2f2e03bec84633',1,'DCEngine::Resource']]],

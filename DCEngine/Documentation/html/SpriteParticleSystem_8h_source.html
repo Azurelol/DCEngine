@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_ccd22ab865ff2af3d3f3099759fed8b8.html">Components</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_ac12d270287e15a6adc1cf50e609988f.html">Components</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -121,93 +121,105 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="comment">// Properties</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      Boolean Visible;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a954d23019fe5a86cadefa39db22fde62">   39</a></span>&#160;      Vec4 <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a954d23019fe5a86cadefa39db22fde62">Tint</a> = Vec4(1, 1, 1, 1); </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      String <a class="code" href="classDCEngine_1_1Texture.html">Texture</a>; <span class="comment">// Allows the use of textures/spritesources</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      String Texture; <span class="comment">// Allows the use of textures/spritesources</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      Real VelocityScale = 1;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      Real LengthScale = 1;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      Vec3 SystemSize = Vec3(4, 4, 4);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      DCE_DEFINE_PROPERTY(Boolean, Visible);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      DCE_DEFINE_PROPERTY(Vec4, <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a954d23019fe5a86cadefa39db22fde62">Tint</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      DCE_DEFINE_PROPERTY(String, <a class="code" href="classDCEngine_1_1Texture.html">Texture</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      DCE_DEFINE_PROPERTY(String, Texture);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      DCE_DEFINE_PROPERTY(Real, VelocityScale);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      DCE_DEFINE_PROPERTY(Real, LengthScale);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      DCE_DEFINE_PROPERTY(Vec3, SystemSize);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">SpriteParticleSystem</a>, <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a9cf33773928923beabac294606b9120e">SpriteParticleSystem</a>(<a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">SpriteParticleSystem</a>, <a class="code" href="classDCEngine_1_1Components_1_1Graphical.html">Graphical</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a9cf33773928923beabac294606b9120e">SpriteParticleSystem</a>(<a class="code" href="classDCEngine_1_1Entity.html">Entity</a>&amp; owner);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a3830c4ed11e42c85a146772b25c94e8e">~SpriteParticleSystem</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a1f398536c7f84f4af7883352d349beeb">Initialize</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1Transform.html">Transform</a>* TransformComponent;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">//logic</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordtype">void</span> UpdateParticles(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordtype">void</span> AddParticle(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::vector&lt;Vec2&gt; GetPositionData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::vector&lt;float&gt; GetScaleData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::vector&lt;float&gt; GetRotationData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::vector&lt;Vec4&gt; GetColorData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">unsigned</span> GetParticleCount(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">class </span>Particle</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                Particle(<span class="keywordtype">double</span>, <span class="keyword">const</span> Vec2&amp;, <span class="keyword">const</span> Vec2&amp;, <span class="keyword">const</span> Vec2&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>, <span class="keyword">const</span> Vec4&amp;,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>*, <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>*);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="comment">//Particle&amp; operator=(const Particle&amp;);</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">void</span> Update(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordtype">double</span> GetLifetime(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordtype">double</span> GetLifeleft(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                Vec2 GetPosition(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordtype">float</span> GetScale(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">float</span> GetRotation(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                Vec4 GetColor(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">double</span> mLifetime;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordtype">double</span> mLifeleft;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                Vec2 mPosition;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                Vec2 mVelocity;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                Vec2 mAcceleration;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">float</span> mScale;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">float</span> mGrowth;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordtype">float</span> mRotation;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordtype">float</span> mRotationRate;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordtype">float</span> mTorque;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                Vec4 mColor;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                Vec4 mTint;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>* mColorAnimator;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>* mLinearAnimator;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            };</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            std::vector&lt;Particle&gt; mParticleList;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordtype">double</span> mParticleEmissionTimer;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordtype">unsigned</span> mEmitCounter;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordtype">bool</span> mActiveFlag;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1ParticleEmitter.html">ParticleEmitter</a>* mParticleEmitter;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>* mColorAnimator;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>* mLinearAnimator;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1Camera.html">Camera</a>* CameraComponent;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    };</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html">DCEngine::Components::Graphical</a></div><div class="ttdef"><b>Definition:</b> Graphical.h:19</div></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#ae70c8f93ee45eaceb29e1f31820b7fae">Update</a>(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#afb8fcbe940f9515e82ac13eb2675ac9c">Draw</a>(<a class="code" href="classDCEngine_1_1Components_1_1Camera.html">Camera</a>&amp; camera);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1Transform.html">Transform</a>* TransformComponent;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">//logic</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a5e5588a439763dffeae1d4f9acac17b5">AddParticle</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::vector&lt;Vec2&gt; <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a5e2b856558ec5e207d4d1f753946f70d">GetPositionData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::vector&lt;float&gt; <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a410e6afc89e9bf3de7d132ef6c6d38e4">GetScaleData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::vector&lt;float&gt; <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#abfdd68579627beec5c675a357d2fd730">GetRotationData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::vector&lt;Vec4&gt; <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#ab5722569dddd32cfe43fa413a1bd84ea">GetColorData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">unsigned</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a18561a7c7b2c4aadb6718f71ece0206f">GetParticleCount</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1ParticleEmitter.html">ParticleEmitter</a>* mParticleEmitter;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>* mColorAnimator;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>* mLinearAnimator;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keyword">static</span> GLuint mVAO, mColorInstanceVBO, mTransformInstanceVBO;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keyword">static</span> ShaderPtr mShader;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">class </span>Particle</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                Particle(<span class="keywordtype">double</span>, <span class="keyword">const</span> Vec2&amp;, <span class="keyword">const</span> Vec2&amp;, <span class="keyword">const</span> Vec2&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>, <span class="keyword">const</span> Vec4&amp;,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>*, <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>*);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="comment">//Particle&amp; operator=(const Particle&amp;);</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#ae70c8f93ee45eaceb29e1f31820b7fae">Update</a>(<span class="keywordtype">double</span>);        </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">double</span> GetLifetime(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">double</span> GetLifeleft(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                Vec2 GetPosition(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">float</span> GetScale(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">float</span> GetRotation(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                Vec4 GetColor(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordtype">double</span> mLifetime;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordtype">double</span> mLifeleft;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                Vec2 mPosition;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                Vec2 mVelocity;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                Vec2 mAcceleration;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">float</span> mScale;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">float</span> mGrowth;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">float</span> mRotation;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordtype">float</span> mRotationRate;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">float</span> mTorque;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                Vec4 mColor;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                Vec4 mTint;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <a class="code" href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">ParticleColorAnimator</a>* mColorAnimator;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <a class="code" href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">LinearParticleAnimator</a>* mLinearAnimator;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            std::vector&lt;Particle&gt; mParticleList;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordtype">double</span> mParticleEmissionTimer;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordtype">unsigned</span> mEmitCounter;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordtype">bool</span> mActiveFlag;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <a class="code" href="classDCEngine_1_1Components_1_1Camera.html">Camera</a>* CameraComponent;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_afb8fcbe940f9515e82ac13eb2675ac9c"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#afb8fcbe940f9515e82ac13eb2675ac9c">DCEngine::Components::SpriteParticleSystem::Draw</a></div><div class="ttdeci">void Draw(Camera &amp;camera)</div><div class="ttdoc">Draws all active particles. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:164</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1Graphical_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Graphical.html">DCEngine::Components::Graphical</a></div><div class="ttdef"><b>Definition:</b> Graphical.h:20</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html">DCEngine::Components::SpriteParticleSystem</a></div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.h:33</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a1f398536c7f84f4af7883352d349beeb"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a1f398536c7f84f4af7883352d349beeb">DCEngine::Components::SpriteParticleSystem::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdoc">Initializes the SpriteParticleSystem.  </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:57</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a1f398536c7f84f4af7883352d349beeb"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a1f398536c7f84f4af7883352d349beeb">DCEngine::Components::SpriteParticleSystem::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdoc">Initializes the SpriteParticleSystem.  </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:89</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_ab5722569dddd32cfe43fa413a1bd84ea"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#ab5722569dddd32cfe43fa413a1bd84ea">DCEngine::Components::SpriteParticleSystem::GetColorData</a></div><div class="ttdeci">std::vector&lt; Vec4 &gt; GetColorData(void)</div><div class="ttdoc">Grabs the color data of all active particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:307</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a18561a7c7b2c4aadb6718f71ece0206f"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a18561a7c7b2c4aadb6718f71ece0206f">DCEngine::Components::SpriteParticleSystem::GetParticleCount</a></div><div class="ttdeci">unsigned GetParticleCount(void)</div><div class="ttdoc">Returns the number of active particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:323</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_abfdd68579627beec5c675a357d2fd730"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#abfdd68579627beec5c675a357d2fd730">DCEngine::Components::SpriteParticleSystem::GetRotationData</a></div><div class="ttdeci">std::vector&lt; float &gt; GetRotationData(void)</div><div class="ttdoc">Grabs the rotation data of all active particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:291</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1ParticleEmitter_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1ParticleEmitter.html">DCEngine::Components::ParticleEmitter</a></div><div class="ttdef"><b>Definition:</b> ParticleEmitter.h:19</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1ParticleColorAnimator_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1ParticleColorAnimator.html">DCEngine::Components::ParticleColorAnimator</a></div><div class="ttdef"><b>Definition:</b> ParticleColorAnimator.h:18</div></div>
-<div class="ttc" id="classDCEngine_1_1Texture_html"><div class="ttname"><a href="classDCEngine_1_1Texture.html">DCEngine::Texture</a></div><div class="ttdef"><b>Definition:</b> Texture.h:18</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a5e2b856558ec5e207d4d1f753946f70d"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a5e2b856558ec5e207d4d1f753946f70d">DCEngine::Components::SpriteParticleSystem::GetPositionData</a></div><div class="ttdeci">std::vector&lt; Vec2 &gt; GetPositionData(void)</div><div class="ttdoc">Grabs the position data of all active particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:259</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a410e6afc89e9bf3de7d132ef6c6d38e4"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a410e6afc89e9bf3de7d132ef6c6d38e4">DCEngine::Components::SpriteParticleSystem::GetScaleData</a></div><div class="ttdeci">std::vector&lt; float &gt; GetScaleData(void)</div><div class="ttdoc">Grabs the scale data of all active particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:275</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1Camera_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Camera.html">DCEngine::Components::Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.h:43</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a954d23019fe5a86cadefa39db22fde62"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a954d23019fe5a86cadefa39db22fde62">DCEngine::Components::SpriteParticleSystem::Tint</a></div><div class="ttdeci">Vec4 Tint</div><div class="ttdoc">Color to tint/multiply all particles in the system. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.h:39</div></div>
-<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a9cf33773928923beabac294606b9120e"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a9cf33773928923beabac294606b9120e">DCEngine::Components::SpriteParticleSystem::SpriteParticleSystem</a></div><div class="ttdeci">SpriteParticleSystem(Entity &amp;owner)</div><div class="ttdoc">Constructor for the SpriteParticleSystem  </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:45</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a9cf33773928923beabac294606b9120e"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a9cf33773928923beabac294606b9120e">DCEngine::Components::SpriteParticleSystem::SpriteParticleSystem</a></div><div class="ttdeci">SpriteParticleSystem(Entity &amp;owner)</div><div class="ttdoc">SpriteParticleSystem default constructor  </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:51</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1Transform_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Transform.html">DCEngine::Components::Transform</a></div><div class="ttdef"><b>Definition:</b> Transform.h:21</div></div>
 <div class="ttc" id="Graphical_8h_html"><div class="ttname"><a href="Graphical_8h.html">Graphical.h</a></div><div class="ttdoc">The Graphical component is the base class from which all graphical components derive frm...</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1LinearParticleAnimator_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1LinearParticleAnimator.html">DCEngine::Components::LinearParticleAnimator</a></div><div class="ttdef"><b>Definition:</b> LinearParticleAnimator.h:20</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_ae70c8f93ee45eaceb29e1f31820b7fae"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#ae70c8f93ee45eaceb29e1f31820b7fae">DCEngine::Components::SpriteParticleSystem::Update</a></div><div class="ttdeci">void Update(double)</div><div class="ttdoc">Updates the SpriteParticleSystem. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:110</div></div>
 <div class="ttc" id="classDCEngine_1_1Entity_html"><div class="ttname"><a href="classDCEngine_1_1Entity.html">DCEngine::Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:42</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a5e5588a439763dffeae1d4f9acac17b5"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a5e5588a439763dffeae1d4f9acac17b5">DCEngine::Components::SpriteParticleSystem::AddParticle</a></div><div class="ttdeci">void AddParticle(void)</div><div class="ttdoc">Generates a particle. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:232</div></div>
+<div class="ttc" id="classDCEngine_1_1Components_1_1SpriteParticleSystem_html_a3830c4ed11e42c85a146772b25c94e8e"><div class="ttname"><a href="classDCEngine_1_1Components_1_1SpriteParticleSystem.html#a3830c4ed11e42c85a146772b25c94e8e">DCEngine::Components::SpriteParticleSystem::~SpriteParticleSystem</a></div><div class="ttdeci">virtual ~SpriteParticleSystem(void)</div><div class="ttdoc">SpriteParticleSystem destructor. </div><div class="ttdef"><b>Definition:</b> SpriteParticleSystem.cpp:81</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:09 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:44 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

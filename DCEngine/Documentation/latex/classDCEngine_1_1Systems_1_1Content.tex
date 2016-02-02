@@ -39,13 +39,19 @@ Physics\-Material\-Ptr \hyperlink{classDCEngine_1_1Systems_1_1Content_a430e2a8d3
 \hypertarget{classDCEngine_1_1Systems_1_1Content_af7acb2056cd63a6df488ee7376df1ce2}{Sprite\-Layer\-Ptr {\bfseries get\-Sprite\-Layer} (std\-::string \&name)}\label{classDCEngine_1_1Systems_1_1Content_af7acb2056cd63a6df488ee7376df1ce2}
 
 \item 
+\hypertarget{classDCEngine_1_1Systems_1_1Content_a4655de95ae1c0453eda26aefd78b845c}{Texture\-Ptr {\bfseries get\-Texture} (std\-::string \&name)}\label{classDCEngine_1_1Systems_1_1Content_a4655de95ae1c0453eda26aefd78b845c}
+
+\item 
 \hypertarget{classDCEngine_1_1Systems_1_1Content_a43f242646a99a40b9749293795601477}{Sprite\-Layer\-Order\-Ptr {\bfseries get\-Sprite\-Layer\-Order} (std\-::string \&name)}\label{classDCEngine_1_1Systems_1_1Content_a43f242646a99a40b9749293795601477}
 
 \item 
 {\footnotesize template$<$typename Resource\-Map , typename Resource\-Ptr $>$ }\\\hyperlink{classDCEngine_1_1Resource}{Resource\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Content_a92df7e4fd77e9e4fc4204d9c880c8248}{get\-Resource} (std\-::string \&resource\-Name, Resource\-Map map, std\-::string \&default\-Resource)
 \begin{DoxyCompactList}\small\item\em Grabs a resource from the specified resource map. \end{DoxyCompactList}\item 
-Sprite\-Source\-Map $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1Content_a50cfd9d9a15fcf6fe711eb59d63e03c4}{All\-Sprite\-Sources} ()
+Texture\-Map $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1Content_a42db625bcbfb6f7ef78ec9021b87d67f}{All\-Textures} ()
 \begin{DoxyCompactList}\small\item\em Returns pointers to the content maps. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Content_a50cfd9d9a15fcf6fe711eb59d63e03c4}{Sprite\-Source\-Map $\ast$ {\bfseries All\-Sprite\-Sources} ()}\label{classDCEngine_1_1Systems_1_1Content_a50cfd9d9a15fcf6fe711eb59d63e03c4}
+
+\item 
 \hypertarget{classDCEngine_1_1Systems_1_1Content_a7f876b92447ff49b6d7907f0c2e362b4}{Sound\-Cue\-Map $\ast$ {\bfseries All\-Sound\-Cues} ()}\label{classDCEngine_1_1Systems_1_1Content_a7f876b92447ff49b6d7907f0c2e362b4}
 
 \item 
@@ -156,13 +162,13 @@ Adds a soundcue resource to the soundcue resource map.
 {\em \hyperlink{classThe}{The}} & pointer to the soundcue resource. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classDCEngine_1_1Systems_1_1Content_a50cfd9d9a15fcf6fe711eb59d63e03c4}{\index{D\-C\-Engine\-::\-Systems\-::\-Content@{D\-C\-Engine\-::\-Systems\-::\-Content}!All\-Sprite\-Sources@{All\-Sprite\-Sources}}
-\index{All\-Sprite\-Sources@{All\-Sprite\-Sources}!DCEngine::Systems::Content@{D\-C\-Engine\-::\-Systems\-::\-Content}}
-\subsubsection[{All\-Sprite\-Sources}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\-Source\-Map $\ast$ D\-C\-Engine\-::\-Systems\-::\-Content\-::\-All\-Sprite\-Sources (
+\hypertarget{classDCEngine_1_1Systems_1_1Content_a42db625bcbfb6f7ef78ec9021b87d67f}{\index{D\-C\-Engine\-::\-Systems\-::\-Content@{D\-C\-Engine\-::\-Systems\-::\-Content}!All\-Textures@{All\-Textures}}
+\index{All\-Textures@{All\-Textures}!DCEngine::Systems::Content@{D\-C\-Engine\-::\-Systems\-::\-Content}}
+\subsubsection[{All\-Textures}]{\setlength{\rightskip}{0pt plus 5cm}Texture\-Map $\ast$ D\-C\-Engine\-::\-Systems\-::\-Content\-::\-All\-Textures (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1Content_a50cfd9d9a15fcf6fe711eb59d63e03c4}
+)}}\label{classDCEngine_1_1Systems_1_1Content_a42db625bcbfb6f7ef78ec9021b87d67f}
 
 
 Returns pointers to the content maps. 
@@ -287,7 +293,7 @@ Grabs a resource from the specified resource map.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer of the resource type in question. 
+A pointer of the resource type in question. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Systems_1_1Content_adc5229d03f74e7b3134f35e22341368e}{\index{D\-C\-Engine\-::\-Systems\-::\-Content@{D\-C\-Engine\-::\-Systems\-::\-Content}!get\-Shader@{get\-Shader}}
 \index{get\-Shader@{get\-Shader}!DCEngine::Systems::Content@{D\-C\-Engine\-::\-Systems\-::\-Content}}
@@ -344,7 +350,7 @@ Removes the specified resource from the \hyperlink{classDCEngine_1_1Systems_1_1C
 
 
 \begin{DoxyParams}{Parameters}
-{\em resource} & \hyperlink{classA}{A} pointer to the specified resource. \\
+{\em resource} & A pointer to the specified resource. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -362,7 +368,7 @@ Removes the specified resource from the \hyperlink{classDCEngine_1_1Systems_1_1C
 Scans the engine's asset path for resources to generate and add to the engine. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000017}{Todo}]Make it scan recursively. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000018}{Todo}]Make it scan recursively. \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

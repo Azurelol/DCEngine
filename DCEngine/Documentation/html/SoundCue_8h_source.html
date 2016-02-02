@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_255daf528a081f78ee14672962768370.html">Resources</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_161e9ee5ebb65e925f32c760ffaa9edd.html">Resources</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -118,51 +118,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Member variables</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    PlayMode PlayMode; <span class="comment">// Add this later</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    PlayMode Mode; <span class="comment">// Add this later</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">float</span> Volume = 1.0f;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">float</span> VolumeVariation = 0.0f;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">float</span> Pitch = 1.0f;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">float</span> PitchVariation = 0.0f;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> Loop = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    WhatType Type;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classDCEngine_1_1FMODSoundPtr.html">FMODSoundPtr</a> Data;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classDCEngine_1_1FMODSoundHandle.html">FMODSoundHandle</a> Data;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Properties    </span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">bool</span>, Loop);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, Volume);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, VolumeVariation);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, Pitch);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, PitchVariation);    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    DCE_DEFINE_PROPERTY(String, AssetPath);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    DCE_DEFINE_PROPERTY(PlayMode, Mode);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">bool</span>, Loop);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, Volume);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, VolumeVariation);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, Pitch);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    DCE_DEFINE_PROPERTY(<span class="keywordtype">float</span>, PitchVariation);    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    DCE_DEFINE_PROPERTY(String, AssetPath);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Methods</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1SoundCue.html">SoundCue</a>, <a class="code" href="classDCEngine_1_1Resource.html">Resource</a>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classDCEngine_1_1SoundCue.html#a56e5b51227528be7eea916cf75f19f93">SoundCue</a>(std::string soundFile, WhatType type);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1SoundCue.html#abb049f82fa2457c82a9d63d5be30f23a">Generate</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> std::string Extension() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;.SoundCue&quot;</span>; }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> SoundCuePtr <a class="code" href="classDCEngine_1_1SoundCue.html#a023a76d96d9a6a383fa12d5e3d0e97f5">Find</a>(std::string);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::string AssetPath;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1SoundCue_html_a023a76d96d9a6a383fa12d5e3d0e97f5"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#a023a76d96d9a6a383fa12d5e3d0e97f5">DCEngine::SoundCue::Find</a></div><div class="ttdeci">static SoundCuePtr Find(std::string)</div><div class="ttdoc">Returns the specified SoundCue resource. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:65</div></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// Methods</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ZilchDeclareDerivedType(<a class="code" href="classDCEngine_1_1SoundCue.html">SoundCue</a>, <a class="code" href="classDCEngine_1_1Resource.html">Resource</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classDCEngine_1_1SoundCue.html#a56e5b51227528be7eea916cf75f19f93">SoundCue</a>(std::string soundFile, WhatType type);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1SoundCue.html#abb049f82fa2457c82a9d63d5be30f23a">Generate</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> std::string Extension() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;.SoundCue&quot;</span>; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> SoundCuePtr <a class="code" href="classDCEngine_1_1SoundCue.html#a023a76d96d9a6a383fa12d5e3d0e97f5">Find</a>(std::string);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::string AssetPath;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;ZilchDeclareExternalBaseType(DCEngine::PlayMode, Zilch::TypeCopyMode::ValueType);</div>
+<div class="ttc" id="classDCEngine_1_1FMODSoundHandle_html"><div class="ttname"><a href="classDCEngine_1_1FMODSoundHandle.html">DCEngine::FMODSoundHandle</a></div><div class="ttdef"><b>Definition:</b> FMODPtrs.h:19</div></div>
+<div class="ttc" id="classDCEngine_1_1SoundCue_html_a023a76d96d9a6a383fa12d5e3d0e97f5"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#a023a76d96d9a6a383fa12d5e3d0e97f5">DCEngine::SoundCue::Find</a></div><div class="ttdeci">static SoundCuePtr Find(std::string)</div><div class="ttdoc">Returns the specified SoundCue resource. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:81</div></div>
 <div class="ttc" id="ResourceReference_8h_html"><div class="ttname"><a href="ResourceReference_8h.html">ResourceReference.h</a></div></div>
-<div class="ttc" id="classDCEngine_1_1SoundCue_html_a56e5b51227528be7eea916cf75f19f93"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#a56e5b51227528be7eea916cf75f19f93">DCEngine::SoundCue::SoundCue</a></div><div class="ttdeci">SoundCue(std::string soundFile, WhatType type)</div><div class="ttdoc">SoundCue constructor. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:42</div></div>
+<div class="ttc" id="classDCEngine_1_1SoundCue_html_a56e5b51227528be7eea916cf75f19f93"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#a56e5b51227528be7eea916cf75f19f93">DCEngine::SoundCue::SoundCue</a></div><div class="ttdeci">SoundCue(std::string soundFile, WhatType type)</div><div class="ttdoc">SoundCue constructor. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:58</div></div>
 <div class="ttc" id="classDCEngine_1_1Resource_html"><div class="ttname"><a href="classDCEngine_1_1Resource.html">DCEngine::Resource</a></div><div class="ttdef"><b>Definition:</b> Resource.h:24</div></div>
-<div class="ttc" id="classDCEngine_1_1FMODSoundPtr_html"><div class="ttname"><a href="classDCEngine_1_1FMODSoundPtr.html">DCEngine::FMODSoundPtr</a></div><div class="ttdef"><b>Definition:</b> FMODPtrs.h:19</div></div>
 <div class="ttc" id="classDCEngine_1_1Event_html"><div class="ttname"><a href="classDCEngine_1_1Event.html">DCEngine::Event</a></div><div class="ttdef"><b>Definition:</b> Event.h:22</div></div>
 <div class="ttc" id="classDCEngine_1_1SoundCue_html"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html">DCEngine::SoundCue</a></div><div class="ttdef"><b>Definition:</b> SoundCue.h:28</div></div>
-<div class="ttc" id="classDCEngine_1_1SoundCue_html_abb049f82fa2457c82a9d63d5be30f23a"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#abb049f82fa2457c82a9d63d5be30f23a">DCEngine::SoundCue::Generate</a></div><div class="ttdeci">void Generate()</div><div class="ttdoc">Loads this Sound pointer by interfacing with the audio system. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:52</div></div>
+<div class="ttc" id="classDCEngine_1_1SoundCue_html_abb049f82fa2457c82a9d63d5be30f23a"><div class="ttname"><a href="classDCEngine_1_1SoundCue.html#abb049f82fa2457c82a9d63d5be30f23a">DCEngine::SoundCue::Generate</a></div><div class="ttdeci">void Generate()</div><div class="ttdoc">Loads this Sound pointer by interfacing with the audio system. </div><div class="ttdef"><b>Definition:</b> SoundCue.cpp:68</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:09 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:45 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

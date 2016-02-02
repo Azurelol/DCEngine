@@ -10,6 +10,8 @@ Inheritance diagram for D\-C\-Engine\-:\-:Systems\-:\-:Physics\-:\begin{figure}[
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+bool \hyperlink{classDCEngine_1_1Systems_1_1Physics_a3daa73f077ed81bb74ac7e19a2143921}{Is\-Object\-Within\-Bounding\-Area} (Vec3 \&center, float width, float height, \hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} gameobject)
+\begin{DoxyCompactList}\small\item\em Checks if the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} is within the bounding area. \end{DoxyCompactList}\item 
 \hyperlink{classDCEngine_1_1GameObject}{Game\-Object\-Ptr} \hyperlink{classDCEngine_1_1Systems_1_1Physics_a786d02f2a6521108c37ac5918865f552}{Find\-Object\-At\-Position} (Vec3 pos, \hyperlink{classDCEngine_1_1Space}{Space} \&space)
 \begin{DoxyCompactList}\small\item\em Checks for collision between the target position and an object within the space. It will return the first object hit. \end{DoxyCompactList}\item 
 Game\-Object\-Vec \hyperlink{classDCEngine_1_1Systems_1_1Physics_accee13b6fdc523a6bcf346b3ce50e0bb}{Find\-All\-Objects\-At\-Position} (Vec3 pos, \hyperlink{classDCEngine_1_1Space}{Space} \&space)
@@ -91,7 +93,7 @@ Cast out a collider to see whats it's colliding with.
 \begin{DoxyParams}{Parameters}
 {\em offset} & How much to offset the collider from its current position. \\
 \hline
-{\em test\-Collider} & \hyperlink{classA}{A} reference to the collider. \\
+{\em test\-Collider} & A reference to the collider. \\
 \hline
 {\em filter} & \hyperlink{classThe}{The} filter object. \\
 \hline
@@ -112,7 +114,7 @@ Performs a ray cast and returns the first object that is collided with.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+{\em ray} & A reference to the ray. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -132,9 +134,9 @@ Performs a filtered ray cast and returns the first object that is collided with.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+{\em ray} & A reference to the ray. \\
 \hline
-{\em filter} & \hyperlink{classA}{A} filter... \\
+{\em filter} & A filter... \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -154,7 +156,7 @@ Returns the results of the ray cast.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+{\em ray} & A reference to the ray. \\
 \hline
 {\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
 \hline
@@ -177,7 +179,7 @@ Returns the results of the filtered ray cast.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ray} & \hyperlink{classA}{A} reference to the ray. \\
+{\em ray} & A reference to the ray. \\
 \hline
 {\em count} & \hyperlink{classThe}{The} number of objects returned is based on the count passed in. \\
 \hline
@@ -281,7 +283,7 @@ Deregisters a space to this system.
 
 
 \begin{DoxyParams}{Parameters}
-{\em physics\-Space} & \hyperlink{classA}{A} reference to the Physics\-Space. \\
+{\em physics\-Space} & A reference to the Physics\-Space. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1Systems_1_1Physics_accee13b6fdc523a6bcf346b3ce50e0bb}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Find\-All\-Objects\-At\-Position@{Find\-All\-Objects\-At\-Position}}
@@ -300,11 +302,11 @@ Checks for any Game\-Objects within the target position in the space.
 \begin{DoxyParams}{Parameters}
 {\em pos} & \hyperlink{classThe}{The} position in the space. \\
 \hline
-{\em space} & \hyperlink{classA}{A} reference to the space. \\
+{\em space} & A reference to the space. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} container of all objects within the position. 
+A container of all objects within the position. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Systems_1_1Physics_a786d02f2a6521108c37ac5918865f552}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Find\-Object\-At\-Position@{Find\-Object\-At\-Position}}
 \index{Find\-Object\-At\-Position@{Find\-Object\-At\-Position}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
@@ -323,6 +325,34 @@ Checks for collision between the target position and an object within the space.
 {\em \hyperlink{classThe}{The}} & delta time. \\
 \hline
 \end{DoxyParams}
+\hypertarget{classDCEngine_1_1Systems_1_1Physics_a3daa73f077ed81bb74ac7e19a2143921}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Is\-Object\-Within\-Bounding\-Area@{Is\-Object\-Within\-Bounding\-Area}}
+\index{Is\-Object\-Within\-Bounding\-Area@{Is\-Object\-Within\-Bounding\-Area}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
+\subsubsection[{Is\-Object\-Within\-Bounding\-Area}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Is\-Object\-Within\-Bounding\-Area (
+\begin{DoxyParamCaption}
+\item[{Vec3 \&}]{center, }
+\item[{float}]{width, }
+\item[{float}]{height, }
+\item[{{\bf Game\-Object\-Ptr}}]{game\-Object}
+\end{DoxyParamCaption}
+)}}\label{classDCEngine_1_1Systems_1_1Physics_a3daa73f077ed81bb74ac7e19a2143921}
+
+
+Checks if the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} is within the bounding area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \hyperlink{classThe}{The} center of the bounding box. \\
+\hline
+{\em width} & \hyperlink{classThe}{The} width of the bounding box. \\
+\hline
+{\em height} & \hyperlink{classThe}{The} height of the bounding box. \\
+\hline
+{\em game\-Object} & \hyperlink{classThe}{The} specified \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} was found within the bounding area. 
+\end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Systems_1_1Physics_a728b4c64d2f7e9a371c7618745fab814}{\index{D\-C\-Engine\-::\-Systems\-::\-Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}!Register\-Space@{Register\-Space}}
 \index{Register\-Space@{Register\-Space}!DCEngine::Systems::Physics@{D\-C\-Engine\-::\-Systems\-::\-Physics}}
 \subsubsection[{Register\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Physics\-::\-Register\-Space (
@@ -336,7 +366,7 @@ Registers a space to this system.
 
 
 \begin{DoxyParams}{Parameters}
-{\em physics\-Space} & \hyperlink{classA}{A} reference to the Physics\-Space. \\
+{\em physics\-Space} & A reference to the Physics\-Space. \\
 \hline
 \end{DoxyParams}
 

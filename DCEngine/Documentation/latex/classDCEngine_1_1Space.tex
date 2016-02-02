@@ -90,7 +90,7 @@ std\-::ostream \& \hyperlink{classDCEngine_1_1Space_a5b896e0710ebf511cedd62356ea
 Returns a container containing pointers to all the Game\-Objects in the space. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the container of active \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+A reference to the container of active \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Space_ad3873ec6def36b0ae9de18883233136d}{\index{D\-C\-Engine\-::\-Space@{D\-C\-Engine\-::\-Space}!Create\-Object@{Create\-Object}}
 \index{Create\-Object@{Create\-Object}!DCEngine::Space@{D\-C\-Engine\-::\-Space}}
@@ -104,7 +104,7 @@ Returns a container containing pointers to all the Game\-Objects in the space.
 Creates a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}, adds it to the space. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. 
+A pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 This function requests the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to be created through the object factory. 
@@ -127,7 +127,7 @@ archetype\-Name \hyperlink{classThe}{The} name of the archetype.
 This function requests the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to be created through the object factory. 
 \end{DoxyNote}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
+A pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Space_a3fea748f5ee97ee31c0f9840543990cc}{\index{D\-C\-Engine\-::\-Space@{D\-C\-Engine\-::\-Space}!Create\-Object@{Create\-Object}}
 \index{Create\-Object@{Create\-Object}!DCEngine::Space@{D\-C\-Engine\-::\-Space}}
@@ -141,7 +141,7 @@ This function requests the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}
 Creates a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} from an \hyperlink{classDCEngine_1_1Archetype}{Archetype} and adds it to the space. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. 
+A pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 This function requests the entity to be created through the object factory. 
@@ -159,7 +159,7 @@ Deserializes the space.
 
 
 \begin{DoxyParams}{Parameters}
-{\em properties} & \hyperlink{classA}{A} pointer to the object containing the properties. \\
+{\em properties} & A pointer to the object containing the properties. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -191,7 +191,7 @@ Destroy all the objects in the space.
 Finds a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} in the current space and returns a pointer to it. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. N\-U\-L\-L if the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} was not found. 
+A pointer to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} that was added. N\-U\-L\-L if the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} was not found. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Space_a2a04964a03c83b13541488d4017c46dd}{\index{D\-C\-Engine\-::\-Space@{D\-C\-Engine\-::\-Space}!Load\-Level@{Load\-Level}}
 \index{Load\-Level@{Load\-Level}!DCEngine::Space@{D\-C\-Engine\-::\-Space}}
@@ -206,7 +206,7 @@ Loads a level, a container for entities, into the space.
 
 
 \begin{DoxyParams}{Parameters}
-{\em level} & \hyperlink{classA}{A} handle to the level resource. \\
+{\em level} & A handle to the level resource. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1Space_a774faf01e4cd56c8349228920fb674c3}{\index{D\-C\-Engine\-::\-Space@{D\-C\-Engine\-::\-Space}!Remove\-Object@{Remove\-Object}}
@@ -222,7 +222,7 @@ Removes the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} from the \hype
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1Space_a956b2a069ca52797a8456d5fac944ead}{\index{D\-C\-Engine\-::\-Space@{D\-C\-Engine\-::\-Space}!Serialize@{Serialize}}
@@ -238,7 +238,7 @@ Serializes a \hyperlink{classDCEngine_1_1Space}{Space}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+{\em builder} & A reference to the J\-S\-O\-N builder. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -261,13 +261,13 @@ Friendly ostream operator, prints the contents of the space into stdout.
 
 
 \begin{DoxyParams}{Parameters}
-{\em out} & \hyperlink{classA}{A} reference to the ostream operator. \\
+{\em out} & A reference to the ostream operator. \\
 \hline
-{\em space} & \hyperlink{classA}{A} reference to the array. \\
+{\em space} & A reference to the array. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the ostream operator. 
+A reference to the ostream operator. 
 \end{DoxyReturn}
 
 

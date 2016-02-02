@@ -55,6 +55,9 @@ void \hyperlink{classDCEngine_1_1GameObject_a0cb1588a3f505a98ec40fb811888d1c1}{D
 \hypertarget{classDCEngine_1_1GameObject_a982dc1ac649f447dfa7fa3828f6864d2}{static unsigned int {\bfseries Game\-Objects\-Destroyed} = 0}\label{classDCEngine_1_1GameObject_a982dc1ac649f447dfa7fa3828f6864d2}
 
 \item 
+\hypertarget{classDCEngine_1_1GameObject_a1e481fa39d141fc5bed16485fb9ce21d}{static unsigned int {\bfseries Game\-Objects\-Active} = 0}\label{classDCEngine_1_1GameObject_a1e481fa39d141fc5bed16485fb9ce21d}
+
+\item 
 \hypertarget{classDCEngine_1_1GameObject_a0b53fcbb71e1dee22ff99fd177784f4a}{static std\-::string {\bfseries Game\-Object\-Last\-Created}}\label{classDCEngine_1_1GameObject_a0b53fcbb71e1dee22ff99fd177784f4a}
 
 \item 
@@ -99,9 +102,9 @@ std\-::ostream \& \hyperlink{classDCEngine_1_1GameObject_af3d89fc6bb1904979a1879
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{classThe}{The}} & name of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
 \hline
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
 \hline
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1GameObject_ab4e9139765017f41b461033bdb76dad0}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Game\-Object@{Game\-Object}}
@@ -117,9 +120,9 @@ Default \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1Space}{Space}. \\
 \hline
-{\em \hyperlink{classA}{A}} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
+{\em A} & reference to the \hyperlink{classDCEngine_1_1GameSession}{Game\-Session}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1GameObject_a6adc0ce3ed11ea55f6e562299932eab8}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!$\sim$\-Game\-Object@{$\sim$\-Game\-Object}}
@@ -134,7 +137,7 @@ Default \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} constructor.
 \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} destructor. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000003}{Todo}]Remove all the children in a more intelligent way. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000004}{Todo}]Remove all the children in a more intelligent way. \end{DoxyRefDesc}
 
 
 \subsection{Member Function Documentation}
@@ -151,7 +154,7 @@ Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hype
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+{\em A} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1GameObject_ac871b9774ba28ab7a6520c9df41c5d46}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Attach\-To\-Relative@{Attach\-To\-Relative}}
@@ -167,7 +170,7 @@ Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hype
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
+{\em A} & pointer to a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{classDCEngine_1_1GameObject_a3a933b7b073cc210a8d170103cb5f85e}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Children@{Children}}
@@ -182,7 +185,7 @@ Attach a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object} to a parent \hype
 Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}'s children. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the container. 
+A reference to the container. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1GameObject_a0cb1588a3f505a98ec40fb811888d1c1}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Deserialize@{Deserialize}}
 \index{Deserialize@{Deserialize}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
@@ -197,7 +200,7 @@ Deserializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em builder} & \hyperlink{classA}{A} pointer to the object containing the properties. \\
+{\em builder} & A pointer to the object containing the properties. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -248,7 +251,7 @@ Grab a reference to the container of all of the \hyperlink{classDCEngine_1_1Game
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the container. 
+A reference to the container. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1GameObject_a6b3783fd91fd5f7fd44ffe29b5205a87}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Find\-Child\-By\-Name@{Find\-Child\-By\-Name}}
 \index{Find\-Child\-By\-Name@{Find\-Child\-By\-Name}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
@@ -267,7 +270,7 @@ Grab a reference to a specific child of the \hyperlink{classDCEngine_1_1GameObje
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} reference to the child. 
+A reference to the child. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1GameObject_aeeee6e87e8502429522865bd31fcb717}{\index{D\-C\-Engine\-::\-Game\-Object@{D\-C\-Engine\-::\-Game\-Object}!Serialize@{Serialize}}
 \index{Serialize@{Serialize}!DCEngine::GameObject@{D\-C\-Engine\-::\-Game\-Object}}
@@ -282,7 +285,7 @@ Serializes a \hyperlink{classDCEngine_1_1GameObject}{Game\-Object}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em builder} & \hyperlink{classA}{A} reference to the J\-S\-O\-N builder. \\
+{\em builder} & A reference to the J\-S\-O\-N builder. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -305,7 +308,7 @@ Deregisters a child onto the \hyperlink{classDCEngine_1_1GameObject}{Game\-Objec
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{classA}{A}} & pointer to a child. \\
+{\em A} & pointer to a child. \\
 \hline
 \end{DoxyParams}
 

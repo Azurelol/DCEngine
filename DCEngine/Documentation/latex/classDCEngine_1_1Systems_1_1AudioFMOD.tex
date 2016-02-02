@@ -4,15 +4,12 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a3a8be3ba9ed7e0c0b7115537050f21fd}{\hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_a3a8be3ba9ed7e0c0b7115537050f21fd}{Audio\-F\-M\-O\-D} ()}\label{classDCEngine_1_1Systems_1_1AudioFMOD_a3a8be3ba9ed7e0c0b7115537050f21fd}
-
-\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD}{Audio\-F\-M\-O\-D} class. \end{DoxyCompactList}\item 
 \hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_ab67b73b6e40b905d950877d1488eb818}{\hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_ab67b73b6e40b905d950877d1488eb818}{$\sim$\-Audio\-F\-M\-O\-D} ()}\label{classDCEngine_1_1Systems_1_1AudioFMOD_ab67b73b6e40b905d950877d1488eb818}
 
 \begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD}{Audio\-F\-M\-O\-D} class. \end{DoxyCompactList}\item 
-bool \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_aa358e0e8578e3b97657fc3e403ee743f}{Play\-Sound} (F\-M\-O\-D\-::\-Sound $\ast$sound\-Ptr, F\-M\-O\-D\-::\-Channel $\ast$$\ast$channel, bool b\-Loop=false)
+bool \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_ab5869328256aa9429c8b486a2de9bc5e}{Play\-Sound} (F\-M\-O\-D\-::\-Sound $\ast$sound\-Ptr, F\-M\-O\-D\-::\-Channel $\ast$$\ast$channel, \hyperlink{structDCEngine_1_1Systems_1_1PlaybackSettings}{Playback\-Settings} \&settings)
 \begin{DoxyCompactList}\small\item\em Plays a sound through F\-M\-O\-D Low\-Level A\-P\-I. \end{DoxyCompactList}\item 
-bool \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_a98a45e720b40a3dfa75846b368fa5b4e}{Play\-Sound} (Event\-Description\-Handle \&event\-Handle)
+bool \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_a0b753ebc1c4591f15892fdf065f0b2f3}{Play\-Sound} (Event\-Description\-Handle \&event\-Handle, \hyperlink{structDCEngine_1_1Systems_1_1PlaybackSettings}{Playback\-Settings} \&settings)
 \begin{DoxyCompactList}\small\item\em Plays a sound through F\-M\-O\-D Studio A\-P\-I. \end{DoxyCompactList}\item 
 \hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a117772d95e7b83324a03f83e5e4b5b40}{void \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_a117772d95e7b83324a03f83e5e4b5b40}{Resume\-Sound} (F\-M\-O\-D\-::\-Channel $\ast$channel)}\label{classDCEngine_1_1Systems_1_1AudioFMOD_a117772d95e7b83324a03f83e5e4b5b40}
 
@@ -56,7 +53,13 @@ F\-M\-O\-D\-::\-Studio\-::\-Bus $\ast$ \hyperlink{classDCEngine_1_1Systems_1_1Au
 \item 
 \hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a68e5d11a5762f20017d45c583f42f9ad}{F\-M\-O\-D\-\_\-\-R\-E\-S\-U\-L\-T {\bfseries get\-V\-C\-A} (std\-::string path, F\-M\-O\-D\-::\-Studio\-::\-V\-C\-A $\ast$$\ast$vca) const }\label{classDCEngine_1_1Systems_1_1AudioFMOD_a68e5d11a5762f20017d45c583f42f9ad}
 
-\end{DoxyCompactItemize}
+\item 
+\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_aa14e87341a443a510872681f9536cf64}{void \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_aa14e87341a443a510872681f9536cf64}{Generate\-Resources} ()}\label{classDCEngine_1_1Systems_1_1AudioFMOD_aa14e87341a443a510872681f9536cf64}
+
+\begin{DoxyCompactList}\small\item\em Generates audio resources from all currently loaded banks. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a6c00642a03dc8a2733ad6671ff982e92}{void \hyperlink{classDCEngine_1_1Systems_1_1AudioFMOD_a6c00642a03dc8a2733ad6671ff982e92}{Generate\-Sound\-Cues} ()}\label{classDCEngine_1_1Systems_1_1AudioFMOD_a6c00642a03dc8a2733ad6671ff982e92}
+
+\begin{DoxyCompactList}\small\item\em Generates Sound\-Cues from all existing events (Event\-Descriptions). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -83,7 +86,7 @@ Retrieves a pointer to a given sound bank.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\hyperlink{classA}{A} pointer to the bank. 
+A pointer to the bank. 
 \end{DoxyReturn}
 \hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a6a258f8de2af79c25ce96642a03e6851}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}!get\-Bus@{get\-Bus}}
 \index{get\-Bus@{get\-Bus}!DCEngine::Systems::AudioFMOD@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}}
@@ -104,35 +107,36 @@ Retrieves the bus.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_aa358e0e8578e3b97657fc3e403ee743f}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}!Play\-Sound@{Play\-Sound}}
+\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_ab5869328256aa9429c8b486a2de9bc5e}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}!Play\-Sound@{Play\-Sound}}
 \index{Play\-Sound@{Play\-Sound}!DCEngine::Systems::AudioFMOD@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}}
 \subsubsection[{Play\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D\-::\-Play\-Sound (
 \begin{DoxyParamCaption}
-\item[{F\-M\-O\-D\-::\-Sound $\ast$}]{sound\-Ptr, }
+\item[{F\-M\-O\-D\-::\-Sound $\ast$}]{handle, }
 \item[{F\-M\-O\-D\-::\-Channel $\ast$$\ast$}]{channel, }
-\item[{bool}]{loop = {\ttfamily false}}
+\item[{{\bf Playback\-Settings} \&}]{settings}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1AudioFMOD_aa358e0e8578e3b97657fc3e403ee743f}
+)}}\label{classDCEngine_1_1Systems_1_1AudioFMOD_ab5869328256aa9429c8b486a2de9bc5e}
 
 
 Plays a sound through F\-M\-O\-D Low\-Level A\-P\-I. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em sound\-Ptr} & \hyperlink{classA}{A} pointer to the Sound data. \\
+{\em sound\-Ptr} & A pointer to the Sound data. \\
 \hline
-{\em channel} & \hyperlink{classA}{A} pointer to the Channel handle. \\
+{\em channel} & A pointer to the Channel handle. \\
 \hline
 {\em loop} & Whether the sound should be played in a loop. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a98a45e720b40a3dfa75846b368fa5b4e}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}!Play\-Sound@{Play\-Sound}}
+\hypertarget{classDCEngine_1_1Systems_1_1AudioFMOD_a0b753ebc1c4591f15892fdf065f0b2f3}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}!Play\-Sound@{Play\-Sound}}
 \index{Play\-Sound@{Play\-Sound}!DCEngine::Systems::AudioFMOD@{D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D}}
 \subsubsection[{Play\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}bool D\-C\-Engine\-::\-Systems\-::\-Audio\-F\-M\-O\-D\-::\-Play\-Sound (
 \begin{DoxyParamCaption}
-\item[{Event\-Description\-Handle \&}]{event\-Handle}
+\item[{Event\-Description\-Handle \&}]{event\-Name, }
+\item[{{\bf Playback\-Settings} \&}]{settings}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1AudioFMOD_a98a45e720b40a3dfa75846b368fa5b4e}
+)}}\label{classDCEngine_1_1Systems_1_1AudioFMOD_a0b753ebc1c4591f15892fdf065f0b2f3}
 
 
 Plays a sound through F\-M\-O\-D Studio A\-P\-I. 

@@ -12,7 +12,7 @@ Inheritance diagram for D\-C\-Engine\-:\-:Systems\-:\-:Audio\-:\begin{figure}[H]
 \item 
 void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a72be5cf056ad0d270796be33a3010fd1}{Add} (std\-::string \&bank\-File, \hyperlink{structDCEngine_1_1Bank_1_1BankData}{Bank\-::\-Bank\-Data} \&data)
 \begin{DoxyCompactList}\small\item\em Adds an audio \hyperlink{classDCEngine_1_1Bank}{Bank} to the audio system. \end{DoxyCompactList}\item 
-void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}{Create\-Sound} (std\-::string \&sound\-File, \hyperlink{classDCEngine_1_1FMODSoundPtr}{F\-M\-O\-D\-Sound\-Ptr} \&sound\-Ptr)
+void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a91b9a87f44307937d5f7a597456e1e96}{Create\-Sound} (std\-::string \&sound\-File, \hyperlink{classDCEngine_1_1FMODSoundHandle}{F\-M\-O\-D\-Sound\-Handle} \&sound\-Ptr)
 \begin{DoxyCompactList}\small\item\em Registers a Sound\-File to be played through F\-M\-O\-D. \end{DoxyCompactList}\item 
 void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a990c57ddc737fd6152bf2f193c41bf46}{Play\-Sound} (std\-::string \&sound\-Cue\-Name)
 \begin{DoxyCompactList}\small\item\em Plays a sound cue. \end{DoxyCompactList}\item 
@@ -23,7 +23,10 @@ void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a3cacbad9590e1eb47a8835c342e86
 void \hyperlink{classDCEngine_1_1Systems_1_1Audio_aaf100dab7a69eb0e1a5068efff6b2774}{Stop\-Sound} (std\-::string \&sound\-Cue\-Name)
 \begin{DoxyCompactList}\small\item\em Stops a sound cue. \end{DoxyCompactList}\item 
 void \hyperlink{classDCEngine_1_1Systems_1_1Audio_a839f8b25f202211e0828a8bc210d090e}{Register} (\hyperlink{classDCEngine_1_1Components_1_1SoundSpace}{Components\-::\-Sound\-Space} \&sound\-Space)
-\begin{DoxyCompactList}\small\item\em Registers a space into the \hyperlink{classDCEngine_1_1Systems_1_1Audio}{Audio} system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Registers a space into the \hyperlink{classDCEngine_1_1Systems_1_1Audio}{Audio} system. \end{DoxyCompactList}\item 
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_ac2234c4cff171af0edcb047b6fdf4841}{void \hyperlink{classDCEngine_1_1Systems_1_1Audio_ac2234c4cff171af0edcb047b6fdf4841}{Generate} ()}\label{classDCEngine_1_1Systems_1_1Audio_ac2234c4cff171af0edcb047b6fdf4841}
+
+\begin{DoxyCompactList}\small\item\em Generates audio resources from all currently loaded banks. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,14 +57,14 @@ Adds an audio \hyperlink{classDCEngine_1_1Bank}{Bank} to the audio system.
 {\em bank\-File} & \hyperlink{classThe}{The} name of the bank file. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Create\-Sound@{Create\-Sound}}
+\hypertarget{classDCEngine_1_1Systems_1_1Audio_a91b9a87f44307937d5f7a597456e1e96}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Create\-Sound@{Create\-Sound}}
 \index{Create\-Sound@{Create\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
 \subsubsection[{Create\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Create\-Sound (
 \begin{DoxyParamCaption}
 \item[{std\-::string \&}]{sound\-File, }
-\item[{{\bf F\-M\-O\-D\-Sound\-Ptr} \&}]{sound\-Ptr}
+\item[{{\bf F\-M\-O\-D\-Sound\-Handle} \&}]{sound\-Ptr}
 \end{DoxyParamCaption}
-)}}\label{classDCEngine_1_1Systems_1_1Audio_a23e10ddebd31ba775a0f1891cc9506b2}
+)}}\label{classDCEngine_1_1Systems_1_1Audio_a91b9a87f44307937d5f7a597456e1e96}
 
 
 Registers a Sound\-File to be played through F\-M\-O\-D. 
@@ -70,11 +73,11 @@ Registers a Sound\-File to be played through F\-M\-O\-D.
 \begin{DoxyParams}{Parameters}
 {\em sound\-File} & \hyperlink{classThe}{The} name of the sound file. \\
 \hline
-{\em sound\-Ptr} & \hyperlink{classA}{A} pointer to the F\-M\-O\-D\-Sound pointer. \\
+{\em sound\-Ptr} & A pointer to the F\-M\-O\-D\-Sound pointer. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000014}{Todo}]Use different functions to create (sound/stream) depending on the file size. \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000015}{Todo}]Use different functions to create (sound/stream) depending on the file size. \end{DoxyRefDesc}
 \hypertarget{classDCEngine_1_1Systems_1_1Audio_a3cacbad9590e1eb47a8835c342e86742}{\index{D\-C\-Engine\-::\-Systems\-::\-Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}!Pause\-Sound@{Pause\-Sound}}
 \index{Pause\-Sound@{Pause\-Sound}!DCEngine::Systems::Audio@{D\-C\-Engine\-::\-Systems\-::\-Audio}}
 \subsubsection[{Pause\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void D\-C\-Engine\-::\-Systems\-::\-Audio\-::\-Pause\-Sound (

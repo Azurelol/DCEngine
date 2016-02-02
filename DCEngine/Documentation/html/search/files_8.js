@@ -8,7 +8,5 @@ var searchData=
   ['inputsfml_2ecpp',['InputSFML.cpp',['../InputSFML_8cpp.html',1,'']]],
   ['inputsfml_2eh',['InputSFML.h',['../InputSFML_8h.html',1,'']]],
   ['inputsfml_5fmouse_2ecpp',['InputSFML_Mouse.cpp',['../InputSFML__Mouse_8cpp.html',1,'']]],
-  ['interpolation_2ecpp',['Interpolation.cpp',['../Interpolation_8cpp.html',1,'']]],
-  ['interpolation_2eh',['Interpolation.h',['../Interpolation_8h.html',1,'']]],
   ['istate_2eh',['IState.h',['../IState_8h.html',1,'']]]
 ];

@@ -14,6 +14,7 @@ var searchData=
   ['erraticdoor',['ErraticDoor',['../classDCEngine_1_1Components_1_1ErraticDoor.html',1,'DCEngine::Components']]],
   ['event',['Event',['../classDCEngine_1_1Event.html',1,'DCEngine']]],
   ['eventdelegate',['EventDelegate',['../classDCEngine_1_1EventDelegate.html',1,'DCEngine']]],
+  ['eventinstanceinfo',['EventInstanceInfo',['../classDCEngine_1_1Systems_1_1EventInstanceInfo.html',1,'DCEngine::Systems']]],
   ['eventmemberfunctiondelegate',['EventMemberFunctionDelegate',['../classDCEngine_1_1EventMemberFunctionDelegate.html',1,'DCEngine']]],
   ['every',['Every',['../classEvery.html',1,'']]],
   ['exception',['Exception',['../classDCEngine_1_1Debug_1_1Exception.html',1,'DCEngine::Debug']]]

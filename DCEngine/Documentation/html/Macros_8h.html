@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_e76d094ac09c75ffff9efd918a86f7f3.html">Engine</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_e36ee9e07b6a2e5a810cd897781527da.html">Engine</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classA.html">A</a> collection of macros to alleviate rote code writing!  
+<p>A collection of macros to alleviate rote code writing!  
 <a href="#details">More...</a></p>
 
 <p><a href="Macros_8h_source.html">Go to the source code of this file.</a></p>
@@ -135,7 +135,10 @@ Macros</h2></td></tr>
 <tr class="separator:af1c282d174fec2a858b83cf0e09dce8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1944210a46cfe02d8e338c639e9f0f9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE</b>(property, attribute)</td></tr>
 <tr class="separator:a1944210a46cfe02d8e338c639e9f0f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5770e7d1d1ca953a1f1851186c57d96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DCE_BINDING_PROPERTY_SET_UNSIGNED</b>(property)</td></tr>
+<tr class="memitem:af05871e4b0355dba3f8e5f68eb451628"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DCE_BINDING_PROPERTY_DEFINE_UNSIGNED</b></td></tr>
+<tr class="separator:af05871e4b0355dba3f8e5f68eb451628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5770e7d1d1ca953a1f1851186c57d96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5770e7d1d1ca953a1f1851186c57d96"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DCE_BINDING_PROPERTY_SET_UNSIGNED</b>(property)&#160;&#160;&#160;property-&gt;Attributes.push_back(attributeUnsigned)</td></tr>
 <tr class="separator:aa5770e7d1d1ca953a1f1851186c57d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8b1ced28653a94a36ac6531a2643132"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DCE_DECLARE_ENUM</b>(enumType,...)</td></tr>
 <tr class="separator:ab8b1ced28653a94a36ac6531a2643132"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +153,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DCEngine::Dependenci
 <tr class="separator:a296ff859cad2cc4039d29c128d83d64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classA.html">A</a> collection of macros to alleviate rote code writing! </p>
+<div class="textblock"><p>A collection of macros to alleviate rote code writing! </p>
 <dl class="section author"><dt>Author</dt><dd>Christian Sagel </dd></dl>
 <dl class="section user"><dt>email: c.sagel@digipen.edu</dt><dd></dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/14/2015 </dd></dl>
@@ -213,6 +216,20 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DCEngine::Dependenci
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="af05871e4b0355dba3f8e5f68eb451628"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DCE_BINDING_PROPERTY_DEFINE_UNSIGNED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">Zilch::Attribute attributeUnsigned;                                    \</div>
+<div class="line">  attributeUnsigned.Name = <span class="stringliteral">&quot;Unsigned&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a41371173e6f008299f1ead57504be0f6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -266,25 +283,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DCEngine::Dependenci
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">property</span>-&gt;Attributes.push_back(attributeResource);                     \</div>
 <div class="line">  property-&gt;Attributes.push_back(attribute)</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="aa5770e7d1d1ca953a1f1851186c57d96"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DCE_BINDING_PROPERTY_SET_UNSIGNED</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">property</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">Zilch::Attribute attributeUnsigned;                                    \</div>
-<div class="line">  attributeUnsigned.Name = <span class="stringliteral">&quot;Unsigned&quot;</span>;                                   \</div>
-<div class="line">  property-&gt;Attributes.push_back(attributeUnsigned)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,7 +384,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DCEngine::Dependenci
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:11 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:46 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

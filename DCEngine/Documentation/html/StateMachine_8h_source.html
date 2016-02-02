@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_fe668d5cd09d2bbbf859ed70956fcb20.html">Systems</a></li><li class="navelem"><a class="el" href="dir_7b8d939ac8bc24de719f8f57ceaa746a.html">StateMachine</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_f0816fb2569068af6283ed76a19baf72.html">Systems</a></li><li class="navelem"><a class="el" href="dir_10ae9bafa40940b06d8372593b4779f3.html">StateMachine</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -122,120 +122,113 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a97cb682ab1085dff428dbe66fae2748e">   45</a></span>&#160;    <a class="code" href="classDCEngine_1_1StateMachine.html#a97cb682ab1085dff428dbe66fae2748e">~StateMachine</a>()</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">if</span> (previousState != currentState &amp;&amp; previousState)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">delete</span> previousState;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">if</span> (currentState)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">delete</span> currentState;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">if</span> (globalState)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">delete</span> globalState;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">   54</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">SetCurrentState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      currentState = state;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">   60</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">SetCurrentState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      currentState = state;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">   64</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">SetGlobalState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      globalState = state;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">   70</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">SetGlobalState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      globalState = state;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">SetPreviousState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      previousState = state;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">   80</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">SetPreviousState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *state)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      previousState = state;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">   90</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">Update</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="comment">// If a global state exists, call its update method</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">if</span> (globalState)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        globalState-&gt;Update(owner);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="comment">// Same for the current state</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keywordflow">if</span> (currentState)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        currentState-&gt;Update(owner);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">  107</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">ChangeState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *newState)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keywordflow">if</span> (newState == NULL)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">throw</span> DCException(<span class="stringliteral">&quot;&lt;StateMachine::ChangeState&gt;: Trying to change to a null state&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">   84</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">Update</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">// If a global state exists, call its update method</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">if</span> (globalState)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        globalState-&gt;Update(owner);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="comment">// Same for the current state</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keywordflow">if</span> (currentState)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        currentState-&gt;Update(owner);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">  101</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">ChangeState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *newState)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">if</span> (newState == NULL)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">throw</span> DCException(<span class="stringliteral">&quot;&lt;StateMachine::ChangeState&gt;: Trying to change to a null state&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Keep a record of the previous state</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      previousState = currentState;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// Change the state to the new state</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      currentState = newState;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">if</span> (previousState)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">delete</span> previousState;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="comment">// Keep a record of the previous state</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      previousState = currentState;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="comment">// Call the exit method of the existing state, if it exists</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">if</span> (currentState != NULL)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        currentState-&gt;Exit(owner);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="comment">// Change the state to the new state</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      currentState = newState;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="comment">// Call the entry method of the new state</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      currentState-&gt;Enter(owner);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">  134</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">RevertToPreviousState</a>()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <a class="code" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">ChangeState</a>(previousState);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">// Accessors</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *CurrentState()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keywordflow">return</span> currentState;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    IState&lt;entity_type&gt; *GlobalState()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">return</span> globalState;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    IState&lt;entity_type&gt; *PreviousState()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="keywordflow">return</span> previousState;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">// Returns true if the current state&#39;s type is equal to the type of the classed passed as a parameter</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a55f37f597af6e466df5c0f308382c261">  163</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a55f37f597af6e466df5c0f308382c261">isInState</a>(<span class="keyword">const</span> <a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a>&amp; state)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keywordflow">return</span> TypeOf(currentState) == TypeOf(state);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  };</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_a798b345be88494a6a8649cb98ab413f8"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">DCEngine::StateMachine::SetCurrentState</a></div><div class="ttdeci">void SetCurrentState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:60</div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_abbd522072a86d3a4f2d76f88893d7138"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">DCEngine::StateMachine::Update</a></div><div class="ttdeci">void Update() const </div><div class="ttdoc">Updates the global and current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:90</div></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="comment">// Call the entry method of the new state</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      currentState-&gt;Enter(owner);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">  121</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">RevertToPreviousState</a>()</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <a class="code" href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">ChangeState</a>(previousState);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="comment">//if (currentState == previousState)</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="comment">//  return;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="comment">//currentState-&gt;Exit(owner);</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="comment">//currentState = previousState;</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="comment">//currentState-&gt;Enter(owner);</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment">// Accessors</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a> *CurrentState()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordflow">return</span> currentState;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    IState&lt;entity_type&gt; *GlobalState()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">return</span> globalState;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    IState&lt;entity_type&gt; *PreviousState()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keywordflow">return</span> previousState;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">// Returns true if the current state&#39;s type is equal to the type of the classed passed as a parameter</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classDCEngine_1_1StateMachine.html#a1a2b73f552721ef05ef32c0bf9444930">  156</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDCEngine_1_1StateMachine.html#a1a2b73f552721ef05ef32c0bf9444930">isInState</a>(<a class="code" href="classDCEngine_1_1IState.html">IState&lt;entity_type&gt;</a>* state)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">return</span> state == currentState;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  };</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_a798b345be88494a6a8649cb98ab413f8"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a798b345be88494a6a8649cb98ab413f8">DCEngine::StateMachine::SetCurrentState</a></div><div class="ttdeci">void SetCurrentState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:54</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_abbd522072a86d3a4f2d76f88893d7138"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#abbd522072a86d3a4f2d76f88893d7138">DCEngine::StateMachine::Update</a></div><div class="ttdeci">void Update() const </div><div class="ttdoc">Updates the global and current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:84</div></div>
 <div class="ttc" id="classDCEngine_1_1StateMachine_html_a97cb682ab1085dff428dbe66fae2748e"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a97cb682ab1085dff428dbe66fae2748e">DCEngine::StateMachine::~StateMachine</a></div><div class="ttdeci">~StateMachine()</div><div class="ttdoc">StateMachine destructor. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:45</div></div>
 <div class="ttc" id="classDCEngine_1_1StateMachine_html"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html">DCEngine::StateMachine</a></div><div class="ttdef"><b>Definition:</b> StateMachine.h:17</div></div>
 <div class="ttc" id="classDCEngine_1_1StateMachine_html_a9513b61c28c25a13298a883359c8854d"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a9513b61c28c25a13298a883359c8854d">DCEngine::StateMachine::StateMachine</a></div><div class="ttdeci">StateMachine(entity_type *owner)</div><div class="ttdoc">StateMachine Constructor. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:38</div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_a5470dc74a0e1430f71854020d97be75c"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">DCEngine::StateMachine::SetPreviousState</a></div><div class="ttdeci">void SetPreviousState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the previous state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:80</div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_ab73e7a9bd5f09f6b6a91eddaad4deb74"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">DCEngine::StateMachine::ChangeState</a></div><div class="ttdeci">void ChangeState(IState&lt; entity_type &gt; *newState)</div><div class="ttdoc">Changes to a new state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:107</div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_a5d7c133e380ee786be068543700d52ea"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">DCEngine::StateMachine::RevertToPreviousState</a></div><div class="ttdeci">void RevertToPreviousState()</div><div class="ttdoc">Reverts to the previous state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:134</div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_acb8dc8477aeeee273f308355ed318c10"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">DCEngine::StateMachine::SetGlobalState</a></div><div class="ttdeci">void SetGlobalState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the global state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:70</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_a5470dc74a0e1430f71854020d97be75c"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a5470dc74a0e1430f71854020d97be75c">DCEngine::StateMachine::SetPreviousState</a></div><div class="ttdeci">void SetPreviousState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the previous state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:74</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_a1a2b73f552721ef05ef32c0bf9444930"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a1a2b73f552721ef05ef32c0bf9444930">DCEngine::StateMachine::isInState</a></div><div class="ttdeci">bool isInState(IState&lt; entity_type &gt; *state) const </div><div class="ttdoc">Compares type of state with current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:156</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_ab73e7a9bd5f09f6b6a91eddaad4deb74"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#ab73e7a9bd5f09f6b6a91eddaad4deb74">DCEngine::StateMachine::ChangeState</a></div><div class="ttdeci">void ChangeState(IState&lt; entity_type &gt; *newState)</div><div class="ttdoc">Changes to a new state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:101</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_a5d7c133e380ee786be068543700d52ea"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a5d7c133e380ee786be068543700d52ea">DCEngine::StateMachine::RevertToPreviousState</a></div><div class="ttdeci">void RevertToPreviousState()</div><div class="ttdoc">Reverts to the previous state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:121</div></div>
+<div class="ttc" id="classDCEngine_1_1StateMachine_html_acb8dc8477aeeee273f308355ed318c10"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#acb8dc8477aeeee273f308355ed318c10">DCEngine::StateMachine::SetGlobalState</a></div><div class="ttdeci">void SetGlobalState(IState&lt; entity_type &gt; *state)</div><div class="ttdoc">Sets the global state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:64</div></div>
 <div class="ttc" id="classDCEngine_1_1IState_html"><div class="ttname"><a href="classDCEngine_1_1IState.html">DCEngine::IState</a></div><div class="ttdef"><b>Definition:</b> IState.h:16</div></div>
 <div class="ttc" id="IState_8h_html"><div class="ttname"><a href="IState_8h.html">IState.h</a></div><div class="ttdoc">Base class for States. </div></div>
-<div class="ttc" id="classDCEngine_1_1StateMachine_html_a55f37f597af6e466df5c0f308382c261"><div class="ttname"><a href="classDCEngine_1_1StateMachine.html#a55f37f597af6e466df5c0f308382c261">DCEngine::StateMachine::isInState</a></div><div class="ttdeci">bool isInState(const IState&lt; entity_type &gt; &amp;state) const </div><div class="ttdoc">Compares type of state with current state. </div><div class="ttdef"><b>Definition:</b> StateMachine.h:163</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:10 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:45 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

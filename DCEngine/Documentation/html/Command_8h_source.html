@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_188ca97c3b8b0c7c0dffa1c84b15a475.html">Core</a></li><li class="navelem"><a class="el" href="dir_e76d094ac09c75ffff9efd918a86f7f3.html">Engine</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a583e326ad01aa907a6332262f6c0f59.html">Core</a></li><li class="navelem"><a class="el" href="dir_e36ee9e07b6a2e5a810cd897781527da.html">Engine</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -111,45 +111,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Forward declarations</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Space.html">Space</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Archetype.html">Archetype</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">/*===================*</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  *     Manager       *</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  *===================*/</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classDCEngine_1_1CommandManager.html">   37</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1CommandManager.html">CommandManager</a> {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classDCEngine_1_1CommandManager.html#ad3b0f61d5c1a06107f77d04b1b33d5a2">CommandManager</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#a46efd76d37bc0754ec51aa835a810863">Add</a>(CommandPtr command);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#a67d0955255042f2185788896503da1ef">Undo</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#afc5a4b8a89b9472bd2359cb023adc60a">Redo</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> Copy(<a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>*);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> Paste(<a class="code" href="classDCEngine_1_1Space.html">Space</a>*);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::deque&lt;CommandPtr&gt; CommandsCurrent;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::deque&lt;CommandPtr&gt; CommandsUndo;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Maximum;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ArchetypePtr ObjectCopyData;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">using</span> <a class="code" href="classDCEngine_1_1GameObject.html">GameObjectPtr</a> = <a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>*;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">using</span> GameObjectRawVec = std::vector&lt;GameObjectPtr&gt;;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Space.html">Space</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1Archetype.html">Archetype</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">/*===================*</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  *     Manager       *</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  *===================*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classDCEngine_1_1CommandManager.html">   39</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1CommandManager.html">CommandManager</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classDCEngine_1_1CommandManager.html#ad3b0f61d5c1a06107f77d04b1b33d5a2">CommandManager</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#a46efd76d37bc0754ec51aa835a810863">Add</a>(CommandPtr command);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#a67d0955255042f2185788896503da1ef">Undo</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#afc5a4b8a89b9472bd2359cb023adc60a">Redo</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#a2bd0b1747529360a06ce2cf5cf8ec81e">Copy</a>(GameObjectRawVec);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandManager.html#ac9dfe330808b732d110001c243f7df78">Paste</a>(<a class="code" href="classDCEngine_1_1Space.html">Space</a>*);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::deque&lt;CommandPtr&gt; CommandsCurrent;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::deque&lt;CommandPtr&gt; CommandsUndo;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Maximum;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ArchetypeContainer ObjectCopyData;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">/*===================*</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  *     Creation    *</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  *===================*/</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classDCEngine_1_1CommandObjectCreation.html">   61</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1CommandObjectCreation.html">CommandObjectCreation</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Command.html">Command</a> {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">enum class</span> Setting {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      Create,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      Destroy,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#a051a84a121676fbffa9cfb7c24e64713">CommandObjectCreation</a>(<a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>* gameObject, <a class="code" href="classDCEngine_1_1Space.html">Space</a>* space, Setting setting);    </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#a051a84a121676fbffa9cfb7c24e64713">CommandObjectCreation</a>(ArchetypePtr copyData, <a class="code" href="classDCEngine_1_1Space.html">Space</a>* space);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">/*===================*</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  *     Creation    *</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  *===================*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classDCEngine_1_1CommandObjectCreation.html">   60</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1CommandObjectCreation.html">CommandObjectCreation</a> : <span class="keyword">public</span> <a class="code" href="classDCEngine_1_1Command.html">Command</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">enum class</span> Setting {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      Create,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      Destroy,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#aa6e8e01f3ea70b2257a319a7465e4839">CommandObjectCreation</a>(<a class="code" href="classDCEngine_1_1GameObject.html">GameObjectPtr</a> gameObject, <a class="code" href="classDCEngine_1_1Space.html">Space</a>* space, Setting setting);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#aa6e8e01f3ea70b2257a319a7465e4839">CommandObjectCreation</a>(GameObjectRawVec gameObjects, <a class="code" href="classDCEngine_1_1Space.html">Space</a>* space, Setting setting);    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#aa6e8e01f3ea70b2257a319a7465e4839">CommandObjectCreation</a>(ArchetypeContainer copyData, <a class="code" href="classDCEngine_1_1Space.html">Space</a>* space);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#af0a957acc7f80c247f26ea8421e5eb2f">Undo</a>();</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#aea823e7c160e8a09fb393459d7e2ff5d">Execute</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
@@ -159,9 +159,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDCEngine_1_1CommandObjectCreation.html#ab54719033edf413729904e89a2bfacc1">Copy</a>();</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Setting CurrentSetting;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>* GameObjectRef;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classDCEngine_1_1Space.html">Space</a>* SpaceRef;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    ArchetypePtr GameObjectData;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classDCEngine_1_1Space.html">Space</a>* SpaceRef;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    GameObjectRawVec GameObjectReferences;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    ArchetypeContainer GameObjectData;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  };  </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classDCEngine_1_1ObjectCopy.html">   85</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classDCEngine_1_1ObjectCopy.html">ObjectCopy</a> {</div>
@@ -170,7 +170,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> Duplicate();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>* GameObjectRef;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classDCEngine_1_1GameObject.html">GameObject</a>* GameObjectReferences;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classDCEngine_1_1Space.html">Space</a>* SpaceRef;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    ArchetypePtr GameObjectData;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  };</div>
@@ -210,29 +210,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html">DCEngine::CommandObjectCreation</a></div><div class="ttdef"><b>Definition:</b> Command.h:61</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_ad76e4f90f29fe4bef214c624d2775dc9"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#ad76e4f90f29fe4bef214c624d2775dc9">DCEngine::CommandObjectCreation::Create</a></div><div class="ttdeci">void Create()</div><div class="ttdoc">(Re)creates the GameObject. </div><div class="ttdef"><b>Definition:</b> Command.cpp:183</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html">DCEngine::CommandObjectCreation</a></div><div class="ttdef"><b>Definition:</b> Command.h:60</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_ad76e4f90f29fe4bef214c624d2775dc9"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#ad76e4f90f29fe4bef214c624d2775dc9">DCEngine::CommandObjectCreation::Create</a></div><div class="ttdeci">void Create()</div><div class="ttdoc">(Re)creates the GameObject(s). </div><div class="ttdef"><b>Definition:</b> Command.cpp:204</div></div>
 <div class="ttc" id="classDCEngine_1_1GameObject_html"><div class="ttname"><a href="classDCEngine_1_1GameObject.html">DCEngine::GameObject</a></div><div class="ttdef"><b>Definition:</b> GameObject.h:34</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_af0a957acc7f80c247f26ea8421e5eb2f"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#af0a957acc7f80c247f26ea8421e5eb2f">DCEngine::CommandObjectCreation::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Undoes the last Creation command, specific to the setting set. </div><div class="ttdef"><b>Definition:</b> Command.cpp:139</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_aea823e7c160e8a09fb393459d7e2ff5d"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#aea823e7c160e8a09fb393459d7e2ff5d">DCEngine::CommandObjectCreation::Execute</a></div><div class="ttdeci">void Execute()</div><div class="ttdoc">Undoes the last Creation command, specific to the setting set. </div><div class="ttdef"><b>Definition:</b> Command.cpp:160</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_af0a957acc7f80c247f26ea8421e5eb2f"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#af0a957acc7f80c247f26ea8421e5eb2f">DCEngine::CommandObjectCreation::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Undoes the last Creation command, specific to the setting set. </div><div class="ttdef"><b>Definition:</b> Command.cpp:162</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandManager_html_ac9dfe330808b732d110001c243f7df78"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#ac9dfe330808b732d110001c243f7df78">DCEngine::CommandManager::Paste</a></div><div class="ttdeci">void Paste(Space *)</div><div class="ttdoc">Pastes the selected GameObjects. </div><div class="ttdef"><b>Definition:</b> Command.cpp:113</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_aea823e7c160e8a09fb393459d7e2ff5d"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#aea823e7c160e8a09fb393459d7e2ff5d">DCEngine::CommandObjectCreation::Execute</a></div><div class="ttdeci">void Execute()</div><div class="ttdoc">Undoes the last Creation command, specific to the setting set. </div><div class="ttdef"><b>Definition:</b> Command.cpp:183</div></div>
 <div class="ttc" id="classDCEngine_1_1CommandManager_html_a67d0955255042f2185788896503da1ef"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#a67d0955255042f2185788896503da1ef">DCEngine::CommandManager::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Undoes the last command. </div><div class="ttdef"><b>Definition:</b> Command.cpp:54</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandManager_html_a2bd0b1747529360a06ce2cf5cf8ec81e"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#a2bd0b1747529360a06ce2cf5cf8ec81e">DCEngine::CommandManager::Copy</a></div><div class="ttdeci">void Copy(GameObjectRawVec)</div><div class="ttdoc">Copies the selected GameObjects. </div><div class="ttdef"><b>Definition:</b> Command.cpp:99</div></div>
 <div class="ttc" id="classDCEngine_1_1Archetype_html"><div class="ttname"><a href="classDCEngine_1_1Archetype.html">DCEngine::Archetype</a></div><div class="ttdef"><b>Definition:</b> Archetype.h:20</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_a051a84a121676fbffa9cfb7c24e64713"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#a051a84a121676fbffa9cfb7c24e64713">DCEngine::CommandObjectCreation::CommandObjectCreation</a></div><div class="ttdeci">CommandObjectCreation(GameObject *gameObject, Space *space, Setting setting)</div><div class="ttdoc">CommandObjectCreation constructor. </div><div class="ttdef"><b>Definition:</b> Command.cpp:119</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_aa12c1f9d71af2b76f6959129b74ea848"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#aa12c1f9d71af2b76f6959129b74ea848">DCEngine::CommandObjectCreation::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroys the GameObject. </div><div class="ttdef"><b>Definition:</b> Command.cpp:196</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_aa12c1f9d71af2b76f6959129b74ea848"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#aa12c1f9d71af2b76f6959129b74ea848">DCEngine::CommandObjectCreation::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdoc">Destroys the GameObjects. </div><div class="ttdef"><b>Definition:</b> Command.cpp:217</div></div>
 <div class="ttc" id="classDCEngine_1_1CommandObjectTransform_html"><div class="ttname"><a href="classDCEngine_1_1CommandObjectTransform.html">DCEngine::CommandObjectTransform</a></div><div class="ttdef"><b>Definition:</b> Command.h:102</div></div>
 <div class="ttc" id="classDCEngine_1_1Space_html"><div class="ttname"><a href="classDCEngine_1_1Space.html">DCEngine::Space</a></div><div class="ttdef"><b>Definition:</b> Space.h:37</div></div>
 <div class="ttc" id="classDCEngine_1_1CommandManager_html_afc5a4b8a89b9472bd2359cb023adc60a"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#afc5a4b8a89b9472bd2359cb023adc60a">DCEngine::CommandManager::Redo</a></div><div class="ttdeci">void Redo()</div><div class="ttdoc">Redoes the last command. </div><div class="ttdef"><b>Definition:</b> Command.cpp:76</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_ab54719033edf413729904e89a2bfacc1"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#ab54719033edf413729904e89a2bfacc1">DCEngine::CommandObjectCreation::Copy</a></div><div class="ttdeci">void Copy()</div><div class="ttdoc">Copies the GameObject&#39;s data into an Archeteype. </div><div class="ttdef"><b>Definition:</b> Command.cpp:209</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_ab54719033edf413729904e89a2bfacc1"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#ab54719033edf413729904e89a2bfacc1">DCEngine::CommandObjectCreation::Copy</a></div><div class="ttdeci">void Copy()</div><div class="ttdoc">Copies the GameObject&#39;s data into an Archtype. </div><div class="ttdef"><b>Definition:</b> Command.cpp:233</div></div>
 <div class="ttc" id="classDCEngine_1_1CommandManager_html_a46efd76d37bc0754ec51aa835a810863"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#a46efd76d37bc0754ec51aa835a810863">DCEngine::CommandManager::Add</a></div><div class="ttdeci">void Add(CommandPtr command)</div><div class="ttdoc">Adds the latest command. </div><div class="ttdef"><b>Definition:</b> Command.cpp:39</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandObjectCreation_html_aa6e8e01f3ea70b2257a319a7465e4839"><div class="ttname"><a href="classDCEngine_1_1CommandObjectCreation.html#aa6e8e01f3ea70b2257a319a7465e4839">DCEngine::CommandObjectCreation::CommandObjectCreation</a></div><div class="ttdeci">CommandObjectCreation(GameObjectPtr gameObject, Space *space, Setting setting)</div><div class="ttdoc">CommandObjectCreation constructor. </div><div class="ttdef"><b>Definition:</b> Command.cpp:132</div></div>
 <div class="ttc" id="classDCEngine_1_1Command_html"><div class="ttname"><a href="classDCEngine_1_1Command.html">DCEngine::Command</a></div><div class="ttdef"><b>Definition:</b> Command.h:20</div></div>
-<div class="ttc" id="classDCEngine_1_1CommandManager_html"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html">DCEngine::CommandManager</a></div><div class="ttdef"><b>Definition:</b> Command.h:37</div></div>
+<div class="ttc" id="classDCEngine_1_1CommandManager_html"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html">DCEngine::CommandManager</a></div><div class="ttdef"><b>Definition:</b> Command.h:39</div></div>
 <div class="ttc" id="classDCEngine_1_1Components_1_1Transform_html"><div class="ttname"><a href="classDCEngine_1_1Components_1_1Transform.html">DCEngine::Components::Transform</a></div><div class="ttdef"><b>Definition:</b> Transform.h:21</div></div>
 <div class="ttc" id="classDCEngine_1_1CommandManager_html_ad3b0f61d5c1a06107f77d04b1b33d5a2"><div class="ttname"><a href="classDCEngine_1_1CommandManager.html#ad3b0f61d5c1a06107f77d04b1b33d5a2">DCEngine::CommandManager::CommandManager</a></div><div class="ttdeci">CommandManager()</div><div class="ttdoc">CommandManager constructor. </div><div class="ttdef"><b>Definition:</b> Command.cpp:29</div></div>
 <div class="ttc" id="classDCEngine_1_1ObjectCopy_html"><div class="ttname"><a href="classDCEngine_1_1ObjectCopy.html">DCEngine::ObjectCopy</a></div><div class="ttdef"><b>Definition:</b> Command.h:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:09 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:44 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -283,6 +283,9 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GameOb
 <tr class="memitem:a982dc1ac649f447dfa7fa3828f6864d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a982dc1ac649f447dfa7fa3828f6864d2"></a>
 static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GameObjectsDestroyed</b> = 0</td></tr>
 <tr class="separator:a982dc1ac649f447dfa7fa3828f6864d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e481fa39d141fc5bed16485fb9ce21d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e481fa39d141fc5bed16485fb9ce21d"></a>
+static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GameObjectsActive</b> = 0</td></tr>
+<tr class="separator:a1e481fa39d141fc5bed16485fb9ce21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b53fcbb71e1dee22ff99fd177784f4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b53fcbb71e1dee22ff99fd177784f4a"></a>
 static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GameObjectLastCreated</b></td></tr>
 <tr class="separator:a0b53fcbb71e1dee22ff99fd177784f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -377,8 +380,8 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="classThe.html">The</a></td><td>name of the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>reference to the <a class="el" href="classDCEngine_1_1Space.html">Space</a>. </td></tr>
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>reference to the <a class="el" href="classDCEngine_1_1GameSession.html">GameSession</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>reference to the <a class="el" href="classDCEngine_1_1Space.html">Space</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>reference to the <a class="el" href="classDCEngine_1_1GameSession.html">GameSession</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -401,8 +404,8 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Default <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>reference to the <a class="el" href="classDCEngine_1_1Space.html">Space</a>. </td></tr>
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>reference to the <a class="el" href="classDCEngine_1_1GameSession.html">GameSession</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>reference to the <a class="el" href="classDCEngine_1_1Space.html">Space</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>reference to the <a class="el" href="classDCEngine_1_1GameSession.html">GameSession</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -423,7 +426,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 </div><div class="memdoc">
 
 <p><a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> destructor. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Remove all the children in a more intelligent way. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Remove all the children in a more intelligent way. </dd></dl>
 
 </div>
 </div>
@@ -445,7 +448,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Attach a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> to a parent <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>pointer to a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>pointer to a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -469,7 +472,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Attach a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> to a parent <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> and computes a new transform so that the objects are relative. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>pointer to a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
+    <tr><td class="paramname">A</td><td>pointer to a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -490,7 +493,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 </div><div class="memdoc">
 
 <p>Grab a reference to the container of all of the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>'s children. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classA.html">A</a> reference to the container. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the container. </dd></dl>
 
 </div>
 </div>
@@ -511,7 +514,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Deserializes a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">builder</td><td><a class="el" href="classA.html">A</a> pointer to the object containing the properties. </td></tr>
+    <tr><td class="paramname">builder</td><td>A pointer to the object containing the properties. </td></tr>
   </table>
   </dd>
 </dl>
@@ -576,7 +579,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classA.html">A</a> reference to the container. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the container. </dd></dl>
 
 </div>
 </div>
@@ -601,7 +604,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classA.html">A</a> reference to the child. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the child. </dd></dl>
 
 </div>
 </div>
@@ -622,7 +625,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Serializes a <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">builder</td><td><a class="el" href="classA.html">A</a> reference to the JSON builder. </td></tr>
+    <tr><td class="paramname">builder</td><td>A reference to the JSON builder. </td></tr>
   </table>
   </dd>
 </dl>
@@ -666,7 +669,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Deregisters a child onto the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classA.html">A</a></td><td>pointer to a child. </td></tr>
+    <tr><td class="paramname">A</td><td>pointer to a child. </td></tr>
   </table>
   </dd>
 </dl>
@@ -680,7 +683,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:13 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:49 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

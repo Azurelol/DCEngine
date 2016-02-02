@@ -114,11 +114,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1CommandManager.html#afc5a4b8a89b9472bd2359cb023adc60a">Redo</a> ()</td></tr>
 <tr class="memdesc:afc5a4b8a89b9472bd2359cb023adc60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redoes the last command. <br/></td></tr>
 <tr class="separator:afc5a4b8a89b9472bd2359cb023adc60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16405d660e327349e83a43d7624e9424"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16405d660e327349e83a43d7624e9424"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Copy</b> (<a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> *)</td></tr>
-<tr class="separator:a16405d660e327349e83a43d7624e9424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9dfe330808b732d110001c243f7df78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9dfe330808b732d110001c243f7df78"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Paste</b> (<a class="el" href="classDCEngine_1_1Space.html">Space</a> *)</td></tr>
+<tr class="memitem:a2bd0b1747529360a06ce2cf5cf8ec81e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1CommandManager.html#a2bd0b1747529360a06ce2cf5cf8ec81e">Copy</a> (GameObjectRawVec)</td></tr>
+<tr class="memdesc:a2bd0b1747529360a06ce2cf5cf8ec81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the selected GameObjects.  <a href="#a2bd0b1747529360a06ce2cf5cf8ec81e">More...</a><br/></td></tr>
+<tr class="separator:a2bd0b1747529360a06ce2cf5cf8ec81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9dfe330808b732d110001c243f7df78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1CommandManager.html#ac9dfe330808b732d110001c243f7df78">Paste</a> (<a class="el" href="classDCEngine_1_1Space.html">Space</a> *)</td></tr>
+<tr class="memdesc:ac9dfe330808b732d110001c243f7df78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pastes the selected GameObjects.  <a href="#ac9dfe330808b732d110001c243f7df78">More...</a><br/></td></tr>
 <tr class="separator:ac9dfe330808b732d110001c243f7df78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -148,10 +148,53 @@ std::deque&lt; CommandPtr &gt;&#160;</td><td class="memItemRight" valign="bottom
 <p>Adds the latest command. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td><a class="el" href="classA.html">A</a> pointer to the latest command. </td></tr>
+    <tr><td class="paramname">command</td><td>A pointer to the latest command. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a2bd0b1747529360a06ce2cf5cf8ec81e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCEngine::CommandManager::Copy </td>
+          <td>(</td>
+          <td class="paramtype">GameObjectRawVec&#160;</td>
+          <td class="paramname"><em>gameObjects</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies the selected GameObjects. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>container containing all the game objects to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac9dfe330808b732d110001c243f7df78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DCEngine::CommandManager::Paste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDCEngine_1_1Space.html">Space</a> *&#160;</td>
+          <td class="paramname"><em>space</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pastes the selected GameObjects. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Need to create all at once! </dd></dl>
 
 </div>
 </div>
@@ -162,7 +205,7 @@ std::deque&lt; CommandPtr &gt;&#160;</td><td class="memItemRight" valign="bottom
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:13 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:48 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

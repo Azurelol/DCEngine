@@ -1,7 +1,6 @@
 var searchData=
 [
   ['testing_2eh',['Testing.h',['../Testing_8h.html',1,'']]],
-  ['texture_2eh',['Texture.h',['../Texture_8h.html',1,'']]],
   ['texture2d_2ecpp',['Texture2D.cpp',['../Texture2D_8cpp.html',1,'']]],
   ['texture2d_2eh',['Texture2D.h',['../Texture2D_8h.html',1,'']]],
   ['timespace_2ecpp',['TimeSpace.cpp',['../TimeSpace_8cpp.html',1,'']]],

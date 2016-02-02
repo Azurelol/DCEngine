@@ -109,6 +109,9 @@ Inheritance diagram for DCEngine::Systems::Physics:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3daa73f077ed81bb74ac7e19a2143921"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1Systems_1_1Physics.html#a3daa73f077ed81bb74ac7e19a2143921">IsObjectWithinBoundingArea</a> (Vec3 &amp;center, float width, float height, <a class="el" href="classDCEngine_1_1GameObject.html">GameObjectPtr</a> gameobject)</td></tr>
+<tr class="memdesc:a3daa73f077ed81bb74ac7e19a2143921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> is within the bounding area.  <a href="#a3daa73f077ed81bb74ac7e19a2143921">More...</a><br/></td></tr>
+<tr class="separator:a3daa73f077ed81bb74ac7e19a2143921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786d02f2a6521108c37ac5918865f552"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDCEngine_1_1GameObject.html">GameObjectPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDCEngine_1_1Systems_1_1Physics.html#a786d02f2a6521108c37ac5918865f552">FindObjectAtPosition</a> (Vec3 pos, <a class="el" href="classDCEngine_1_1Space.html">Space</a> &amp;space)</td></tr>
 <tr class="memdesc:a786d02f2a6521108c37ac5918865f552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collision between the target position and an object within the space. It will return the first object hit.  <a href="#a786d02f2a6521108c37ac5918865f552">More...</a><br/></td></tr>
 <tr class="separator:a786d02f2a6521108c37ac5918865f552"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,7 +311,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">offset</td><td>How much to offset the collider from its current position. </td></tr>
-    <tr><td class="paramname">testCollider</td><td><a class="el" href="classA.html">A</a> reference to the collider. </td></tr>
+    <tr><td class="paramname">testCollider</td><td>A reference to the collider. </td></tr>
     <tr><td class="paramname">filter</td><td><a class="el" href="classThe.html">The</a> filter object. </td></tr>
   </table>
   </dd>
@@ -334,7 +337,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Performs a ray cast and returns the first object that is collided with. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ray</td><td><a class="el" href="classA.html">A</a> reference to the ray. </td></tr>
+    <tr><td class="paramname">ray</td><td>A reference to the ray. </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,8 +372,8 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Performs a filtered ray cast and returns the first object that is collided with. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ray</td><td><a class="el" href="classA.html">A</a> reference to the ray. </td></tr>
-    <tr><td class="paramname">filter</td><td><a class="el" href="classA.html">A</a> filter... </td></tr>
+    <tr><td class="paramname">ray</td><td>A reference to the ray. </td></tr>
+    <tr><td class="paramname">filter</td><td>A filter... </td></tr>
   </table>
   </dd>
 </dl>
@@ -405,7 +408,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Returns the results of the ray cast. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ray</td><td><a class="el" href="classA.html">A</a> reference to the ray. </td></tr>
+    <tr><td class="paramname">ray</td><td>A reference to the ray. </td></tr>
     <tr><td class="paramname">count</td><td><a class="el" href="classThe.html">The</a> number of objects returned is based on the count passed in. </td></tr>
   </table>
   </dd>
@@ -447,7 +450,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Returns the results of the filtered ray cast. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ray</td><td><a class="el" href="classA.html">A</a> reference to the ray. </td></tr>
+    <tr><td class="paramname">ray</td><td>A reference to the ray. </td></tr>
     <tr><td class="paramname">count</td><td><a class="el" href="classThe.html">The</a> number of objects returned is based on the count passed in. </td></tr>
     <tr><td class="paramname">filter</td><td><a class="el" href="classThe.html">The</a> filter object. </td></tr>
   </table>
@@ -617,7 +620,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Deregisters a space to this system. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physicsSpace</td><td><a class="el" href="classA.html">A</a> reference to the PhysicsSpace. </td></tr>
+    <tr><td class="paramname">physicsSpace</td><td>A reference to the PhysicsSpace. </td></tr>
   </table>
   </dd>
 </dl>
@@ -652,11 +655,11 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pos</td><td><a class="el" href="classThe.html">The</a> position in the space. </td></tr>
-    <tr><td class="paramname">space</td><td><a class="el" href="classA.html">A</a> reference to the space. </td></tr>
+    <tr><td class="paramname">space</td><td>A reference to the space. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classA.html">A</a> container of all objects within the position. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A container of all objects within the position. </dd></dl>
 
 </div>
 </div>
@@ -694,6 +697,56 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 
 </div>
 </div>
+<a class="anchor" id="a3daa73f077ed81bb74ac7e19a2143921"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DCEngine::Systems::Physics::IsObjectWithinBoundingArea </td>
+          <td>(</td>
+          <td class="paramtype">Vec3 &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDCEngine_1_1GameObject.html">GameObjectPtr</a>&#160;</td>
+          <td class="paramname"><em>gameObject</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> is within the bounding area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">center</td><td><a class="el" href="classThe.html">The</a> center of the bounding box. </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classThe.html">The</a> width of the bounding box. </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classThe.html">The</a> height of the bounding box. </td></tr>
+    <tr><td class="paramname">gameObject</td><td><a class="el" href="classThe.html">The</a> specified <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the <a class="el" href="classDCEngine_1_1GameObject.html">GameObject</a> was found within the bounding area. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a728b4c64d2f7e9a371c7618745fab814"></a>
 <div class="memitem">
 <div class="memproto">
@@ -711,7 +764,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 <p>Registers a space to this system. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physicsSpace</td><td><a class="el" href="classA.html">A</a> reference to the PhysicsSpace. </td></tr>
+    <tr><td class="paramname">physicsSpace</td><td>A reference to the PhysicsSpace. </td></tr>
   </table>
   </dd>
 </dl>
@@ -726,7 +779,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>Object
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 26 2016 20:58:17 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 2 2016 11:51:53 for Daisy Chain Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

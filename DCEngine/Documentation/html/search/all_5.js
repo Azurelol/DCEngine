@@ -31,7 +31,7 @@ var searchData=
   ['findobjectatposition',['FindObjectAtPosition',['../classDCEngine_1_1Systems_1_1Physics.html#a786d02f2a6521108c37ac5918865f552',1,'DCEngine::Systems::Physics']]],
   ['findobjectbyname',['FindObjectByName',['../classDCEngine_1_1Space.html#acc12518e2782e5982ca1ac0d7f46ed21',1,'DCEngine::Space']]],
   ['fmodptrs_2eh',['FMODPtrs.h',['../FMODPtrs_8h.html',1,'']]],
-  ['fmodsoundptr',['FMODSoundPtr',['../classDCEngine_1_1FMODSoundPtr.html',1,'DCEngine']]],
+  ['fmodsoundhandle',['FMODSoundHandle',['../classDCEngine_1_1FMODSoundHandle.html',1,'DCEngine']]],
   ['fmodsystemptr',['FMODSystemPtr',['../classDCEngine_1_1Systems_1_1FMODSystemPtr.html',1,'DCEngine::Systems']]],
   ['font',['Font',['../classDCEngine_1_1Font.html#a7626d069cfcc066d35a3d123b83b403f',1,'DCEngine::Font']]],
   ['font',['Font',['../classDCEngine_1_1Font.html',1,'DCEngine']]],
