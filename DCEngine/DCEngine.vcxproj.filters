@@ -765,9 +765,6 @@
     <ClCompile Include="Core\Resources\Texture.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="QuadTree.cpp">
-      <Filter>Core\Systems\Physics\Broadphase</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
@@ -782,6 +779,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
       <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
+      <Filter>Core\Systems\Physics\Broadphase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1292,9 +1292,6 @@
     <ClInclude Include="Core\Systems\Physics\Ray.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
-    <ClInclude Include="QuadTree.h">
-      <Filter>Core\Systems\Physics\Broadphase</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
@@ -1315,6 +1312,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h">
       <Filter>Core\Systems\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\QuadTree.h">
+      <Filter>Core\Systems\Physics\Broadphase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
