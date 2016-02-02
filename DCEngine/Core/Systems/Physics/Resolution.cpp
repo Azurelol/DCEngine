@@ -50,10 +50,10 @@ namespace DCEngine
     auto rigid2 = c.Object2->getComponent<Components::RigidBody>();
 
 
-     //Find the velocity of the two object along the contact normal
+    //Find the velocity of the two object along the contact normal
     float separatingVelocity = c.CalculateSeparatingVelocity();
 
-    if (separatingVelocity > 0)
+    if (separatingVelocity >= 0)
     {
       //The objects are no longer moving towards each other
       //or the contact they are stationary
@@ -91,7 +91,7 @@ namespace DCEngine
 
       if (c.rigid1 == false && c.rigid2 != false)
       {
-        accCausedVelocity = rigid2->getAcceleration();
+        accCausedVelocity = -rigid2->getAcceleration();
       }
 
       if (c.rigid1 != false && c.rigid2 != false)
@@ -100,7 +100,7 @@ namespace DCEngine
       }
 
 
-      float accCausedSepVelocity = glm::dot(accCausedVelocity, c.ContactNormal) * dt;
+      float accCausedSepVelocity = glm::dot(accCausedVelocity, c.ContactNormal);
 
       // If we've got a closing velocity due to acceleration build-up,
       // remove it from the new separating velocity
@@ -124,7 +124,7 @@ namespace DCEngine
 
     if (c.rigid1 == false && c.rigid2 == false)
     {
-      totalInverseMass = 0.000000000000000001f;
+      totalInverseMass = 0;
     }
 
     if (c.rigid1 != false && c.rigid2 == false)
@@ -144,7 +144,7 @@ namespace DCEngine
 
 
     // Calculate the impulse to apply
-    float impulse = (1.0f + c.Restitution) *(deltaVelocity) / totalInverseMass;
+    float impulse = (((1 + c.Restitution) * (deltaVelocity)) / totalInverseMass);
 
     c.ContactImpulse = impulse;
 
@@ -192,7 +192,7 @@ namespace DCEngine
 
 
     // this is the code that handles friction
-    /*  
+     
     if (c.rigid1 != false && c.rigid2 == false)
     {
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
@@ -311,7 +311,7 @@ namespace DCEngine
         c.Object2->getComponent<Components::RigidBody>()->setVelocity(c.Object2->getComponent<Components::RigidBody>()->getVelocity() + friction);
       }
     }
-    */
+
   }
 
   void Resolution::ResolveVelocities(float dt, std::vector<Manifold> &contactlist)
