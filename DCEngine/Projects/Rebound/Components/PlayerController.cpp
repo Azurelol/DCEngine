@@ -279,7 +279,7 @@ namespace DCEngine {
         Jumping = false;
         JumpFramesApplied = 0;
       }
-      this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
+      //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
     }
 
     void PlayerController::TakeDamage(int damage)

@@ -128,45 +128,65 @@ namespace DCEngine
     std::vector<glm::vec3> verts1;
     std::vector<glm::vec3> verts2;
 
-    topL1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
-    topL1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+    glm::vec3 Translation1, Translation2;
+
+    if (result.rigid1)
+    {
+      Translation1 = rigidbody1->Position;
+    }
+    else
+    {
+      Translation1 = transform1->Translation;
+    }
+
+    if (result.rigid2)
+    {
+      Translation2 = rigidbody2->Position;
+    }
+    else
+    {
+      Translation2 = transform2->Translation;
+    }
+
+    topL1.x = Translation1.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    topL1.y = Translation1.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
     verts1.push_back(topL1);
 
-    topR1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
-    topR1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+    topR1.x = Translation1.x + boxcollider1->getOffset().x + ((0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    topR1.y = Translation1.y + boxcollider1->getOffset().y + ((0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
 
     verts1.push_back(topR1);
 
-    botL1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
-    botL1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
+    botL1.x = Translation1.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((-0.5f * Width0) * cos(rot0));
+    botL1.y = Translation1.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((-0.5f * Width0) * sin(rot0));
 
     verts1.push_back(botL1);
 
-    botR1.x = transform1->Translation.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
-    botR1.y = transform1->Translation.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
+    botR1.x = Translation1.x + boxcollider1->getOffset().x + ((-0.5f * Height0) * -sin(rot0)) + ((0.5f * Width0) * cos(rot0));
+    botR1.y = Translation1.y + boxcollider1->getOffset().y + ((-0.5f * Height0) * cos(rot0)) + ((0.5f * Width0) * sin(rot0));
 
     verts1.push_back(botR1);
 
     /*
     */
-    topL2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
-    topL2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+    topL2.x = Translation2.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    topL2.y = Translation2.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
     verts2.push_back(topL2);
 
-    topR2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
-    topR2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+    topR2.x = Translation2.x + boxcollider2->getOffset().x + ((0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    topR2.y = Translation2.y + boxcollider2->getOffset().y + ((0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
 
     verts2.push_back(topR2);
 
-    botL2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
-    botL2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
+    botL2.x = Translation2.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((-0.5f * Width1) * cos(rot1));
+    botL2.y = Translation2.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((-0.5f * Width1) * sin(rot1));
 
     verts2.push_back(botL2);
 
-    botR2.x = transform2->Translation.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
-    botR2.y = transform2->Translation.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
+    botR2.x = Translation2.x + boxcollider2->getOffset().x + ((-0.5f * Height1) * -sin(rot1)) + ((0.5f * Width1) * cos(rot1));
+    botR2.y = Translation2.y + boxcollider2->getOffset().y + ((-0.5f * Height1) * cos(rot1)) + ((0.5f * Width1) * sin(rot1));
 
     verts2.push_back(botR2);
 

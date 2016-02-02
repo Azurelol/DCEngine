@@ -20,22 +20,17 @@ namespace DCEngine {
   {
     class SoundEmitter : public Component {
     public:
-
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(SoundEmitter, Component);
-#endif
-      
-            //DCE_DEFINE_PROPERTY(String, CurrentSoundCue);
+            
       DCE_DEFINE_PROPERTY(SoundCueHandle, Cue);
       DCE_DEFINE_PROPERTY(Real, Volume);
       DCE_DEFINE_PROPERTY(Real, Pitch);
       DCE_DEFINE_PROPERTY(Boolean, IsPlaying);
 
-
       void PlayCue(String soundCue);
       void Stop();
 
       /* Initialize */
+      ZilchDeclareDerivedType(SoundEmitter, Component);
       SoundEmitter(Entity& owner) : Component(std::string("SoundEmitter"), owner) {}
       void Initialize();
 

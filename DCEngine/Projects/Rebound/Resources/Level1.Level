@@ -68,8 +68,8 @@
             {
               "Vec3": 
               {
-                "x": -22.500000, 
-                "y": 27.000000, 
+                "x": -26.000000, 
+                "y": 15.500000, 
                 "z": 0.000000
               }
             }, 
@@ -8438,7 +8438,7 @@
               "Vec3": 
               {
                 "x": 366.000000, 
-                "y": -127.500000, 
+                "y": -127.000000, 
                 "z": -0.200000
               }
             }, 
@@ -8837,6 +8837,52 @@
             "JumpStrengthX": 10.000000, 
             "JumpStrengthY": 6.000000, 
             "JumpFrequency": 0.500000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Settings", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -16.744476, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "MusicManager": 
+          {
+            "CurrentTrack": "Sole Groove", 
+            "LastTrack": "NO TRACK SET", 
+            "Volume": 0.000000, 
+            "FadeInTime": 0.000000, 
+            "FadeOutTime": 0.000000
           }
         }
       }

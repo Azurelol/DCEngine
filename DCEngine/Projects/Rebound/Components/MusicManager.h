@@ -20,6 +20,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, LastTrack);
       DCE_DEFINE_PROPERTY(Real, FadeInTime);
       DCE_DEFINE_PROPERTY(Real, FadeOutTime);
+      DCE_DEFINE_PROPERTY(Real, Volume);
       // Methods
       MusicManager(Entity& owner) : Component(std::string("MusicManager"), owner) {}
       ~MusicManager();
@@ -42,6 +43,7 @@ namespace DCEngine {
     private:
       String CurrentTrack = "NO TRACK SET";
       String LastTrack = "NO TRACK SET";
+      Real Volume;
       Real FadeInTime = 0;
       Real FadeOutTime = 0;
       int play = 0;
