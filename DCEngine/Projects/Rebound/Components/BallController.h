@@ -37,7 +37,7 @@ namespace DCEngine {
       Real CurrentCharge = 0;
       Real MaxCharge = 2;
       Real MinCharge = 0.5f;
-      Real ChargeFactor = 30 * 1000;
+      Real ChargeFactor = 15 * 1000;
       Real Restitution = 0.1; //set from 0 to 1
       Real Friction = 0.1; //set from 0 to 1
       Real AttractPower = 400.0f;
