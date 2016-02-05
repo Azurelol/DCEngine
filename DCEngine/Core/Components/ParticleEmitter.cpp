@@ -30,11 +30,16 @@ namespace DCEngine {
     ZilchDefineType(ParticleEmitter, "ParticleEmitter", DCEngineCore, builder, type) {
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ParticleEmitter);
+      DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, Active);
+			DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, ResetCount);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitCount);
+      DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyEmitCount);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitRate);
+      DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyEmitRate);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitVariance);
+      DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyEmitVariance);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, Size);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, SizeVariance);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, Lifetime);

@@ -77,9 +77,9 @@ namespace DCEngine {
       void DrawCircle(DrawCircleObj& obj);
       void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
-      void DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam, bool fill = false);
-      void DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam, bool fill = false);
-      void DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam);
+      void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
+      void DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill = false);
+      void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
       /* Viewport */
       
     private:

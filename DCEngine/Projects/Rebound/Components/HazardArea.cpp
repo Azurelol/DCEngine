@@ -46,7 +46,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
         TouchingPlayer = true;
-        PlayerRef->getComponent<Components::RigidBody>()->setGravity(0.5);
+        PlayerRef->getComponent<Components::RigidBody>()->setGravity(true);
         auto vel = PlayerRef->getComponent<Components::RigidBody>()->getVelocity();
         PlayerRef->getComponent<Components::RigidBody>()->setVelocity(Vec3(vel.x / 2, vel.y / 2, 0));
         if (HazardAreaTraceOn)
@@ -83,7 +83,7 @@ namespace DCEngine {
         {
           DCTrace << "HazardArea::OnLogicUpdate - Timer Above " << DamageInterval << ", Timer =" << Timer << ", Dt = " << event->Dt << "\n";
           Timer = 0;
-          PlayerRef->getComponent<Components::PlayerController>()->TakeDamage(Damage);
+          PlayerRef->getComponent<Components::PlayerController>()->TakeDamage(static_cast<int>(Damage));
         }
       }
     }

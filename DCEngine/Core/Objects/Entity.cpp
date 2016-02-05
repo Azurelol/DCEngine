@@ -165,7 +165,7 @@ namespace DCEngine {
   @todo   Do this dynamically rather than using string->class mapping.
   */
   /**************************************************************************/
-  ComponentPtr Entity::AddComponentByName(std::string & name, bool initialize)
+  ComponentPtr Entity::AddComponentByName(const std::string & name, bool initialize)
   { 
     // If the entity already has the component, do nothing.
     if (auto a = this->HasComponent(name)) {
@@ -233,7 +233,7 @@ namespace DCEngine {
   @return Whether it has the component attached to it already.
   */
   /**************************************************************************/
-  bool Entity::HasComponent(std::string & name)
+  bool Entity::HasComponent(const std::string & name)
   {    
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == name) {

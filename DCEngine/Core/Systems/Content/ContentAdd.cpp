@@ -403,7 +403,7 @@ namespace DCEngine {
     @brief  Scans the Level Path for level files.
     */
     /**************************************************************************/
-    void Content::ScanForLevels(std::string& levelPath)
+    void Content::ScanForLevels(std::string levelPath)
     {
       DCTrace << "Content::ScanForLevels - Scanning for levels on the current project at: " << levelPath << "\n";
       //std::string LevelPath("Projects/Rebound/Resources/Levels/");
@@ -425,7 +425,7 @@ namespace DCEngine {
     @brief  Scans the specified path for archetype files.
     */
     /**************************************************************************/
-    void Content::ScanForArchetypes(std::string& archetypePath)
+    void Content::ScanForArchetypes(std::string archetypePath)
     {
       DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
       //std::string ArchetypePath("Projects/Rebound/Resources/Archetypes/");
@@ -447,7 +447,7 @@ namespace DCEngine {
     @brief  Scans the specified path for SpriteSource files.
     */
     /**************************************************************************/
-    void Content::ScanForSpriteSources(std::string & spriteSourcePath)
+    void Content::ScanForSpriteSources(std::string  spriteSourcePath)
     {
       DCTrace << "Content::ScanForSpriteSources - Scanning for spritesources on the current project \n";
 
@@ -471,7 +471,7 @@ namespace DCEngine {
     @brief  Scans the specified path for SoundCue files.
     */
     /**************************************************************************/
-    void Content::ScanForSoundCues(std::string & soundCuePath)
+    void Content::ScanForSoundCues(std::string soundCuePath)
     {
       // Load sound files
       std::vector<std::string> soundCues;
@@ -492,7 +492,7 @@ namespace DCEngine {
     @brief  Scans the specified path for Font files.
     */
     /**************************************************************************/
-    void Content::ScanForFonts(std::string & fontPath)
+    void Content::ScanForFonts(std::string fontPath)
     {
       DCTrace << "Content::ScanForFonts - Scanning the current project \n";
 

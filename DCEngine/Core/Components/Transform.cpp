@@ -129,36 +129,6 @@ namespace DCEngine {
     /**************************************************************************/
     /*                          Properties                                    */
     /**************************************************************************/
-    Vec3 Transform::getTranslation()
-    {
-      return Translation;
-    }
-
-    void Transform::setTranslation(Vec3 translation)
-    {
-      Translation = translation;
-    }
-
-    Vec3 Transform::getRotation()
-    {
-      return Rotation;
-    }
-
-    void Transform::setRotation(Vec3 rotation)
-    {
-      Rotation = rotation;
-    }
-
-    Vec3 Transform::getScale()
-    {
-      return Scale;
-    }
-
-    void Transform::setScale(Vec3 scale)
-    {
-      Scale = scale;
-    }
-
     Vec3 Transform::RotatePoint(Vec3 point, Vec3 rotation, float angle)
     {
       point -= rotation;

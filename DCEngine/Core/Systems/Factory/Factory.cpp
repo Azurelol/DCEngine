@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  Default constructor for the Factory system.
     */
     /**************************************************************************/
-    Factory::Factory() : System(std::string("FactorySystem"), EnumeratedSystem::Factory) {
+    Factory::Factory() : System("FactorySystem", EnumeratedSystem::Factory) {
     }
 
     /**************************************************************************/
@@ -286,7 +286,7 @@ namespace DCEngine {
     @return Returns a component by strong pointer.
     */
     /**************************************************************************/
-    ComponentStrongPtr Factory::CreateComponentByName(std::string & name, Entity & entity)
+    ComponentStrongPtr Factory::CreateComponentByName(const std::string & name, Entity & entity)
     { 
       // Look up the component by name among all boundtypes      
       for (auto componentType : Component::AllComponents()) {
@@ -309,7 +309,7 @@ namespace DCEngine {
     @return Returns a component by strong pointer.
     */
     /**************************************************************************/
-    ComponentHandle Factory::CreateComponentByNameFromZilch(std::string & name, Entity & entity)
+    ComponentHandle Factory::CreateComponentByNameFromZilch(const std::string & name, Entity & entity)
     {      
       auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
       Zilch::ExceptionReport report;

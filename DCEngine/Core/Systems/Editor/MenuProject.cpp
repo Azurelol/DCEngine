@@ -70,7 +70,7 @@ namespace DCEngine {
     @param  path The path of the project.
     */
     /**************************************************************************/
-    void Editor::LoadProject(std::string& path)
+    void Editor::LoadProject(std::string path)
     {
 
       // Load the project's data into the Content system. This will

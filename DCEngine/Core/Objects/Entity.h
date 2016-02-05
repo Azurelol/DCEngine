@@ -61,12 +61,12 @@ namespace DCEngine {
     std::string getArchetype() const; 
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
-    ComponentPtr AddComponentByName(std::string& name, bool initialize = false);
+    ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);
     bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
     //template <typename ComponentClass> bool AddComponent(bool initialize = false);
     template <typename ComponentClass> ComponentClass* getComponent();    
     template <typename ComponentClass> bool HasComponent();
-    bool HasComponent(std::string& name);
+    bool HasComponent(const std::string& name);
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);    

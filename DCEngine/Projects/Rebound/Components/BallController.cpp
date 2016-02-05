@@ -125,7 +125,7 @@ namespace DCEngine {
           CurrentCharge = 0;
           CurrentlyFired = true;
           SpriteRef->Color = Vec4(1, 0, 0, 1);
-          RigidBodyRef->setGravityRatio(0.1);
+          RigidBodyRef->setGravityRatio(0.1f);
 
           if (BallControllerTraceOn)
           {

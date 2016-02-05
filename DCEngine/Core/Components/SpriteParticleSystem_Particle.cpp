@@ -23,7 +23,7 @@ namespace DCEngine {
     @param dt The delta time.
     */
     /**************************************************************************/
-    void SpriteParticleSystem::Particle::Update(double dt)
+    void SpriteParticleSystem::Particle::Update(float dt)
     {
       mLifeleft -= dt;
       if (mLifeleft < 0)
@@ -45,10 +45,10 @@ namespace DCEngine {
 
       if (mColorAnimator)
       {
-        double percentLifeLeft = (mLifeleft / mLifetime) * 100;
+        float percentLifeLeft = (mLifeleft / mLifetime) * 100;
         if (percentLifeLeft <= 100 && percentLifeLeft >= 75)
         {
-          double t = (percentLifeLeft - 75) / 25;
+          float t = (percentLifeLeft - 75) / 25;
           mColor.r = mTint.r * (mColorAnimator->Color0.r * t + mColorAnimator->Color1.r * (1 - t));
           mColor.g = mTint.g * (mColorAnimator->Color0.g * t + mColorAnimator->Color1.g * (1 - t));
           mColor.b = mTint.b * (mColorAnimator->Color0.b * t + mColorAnimator->Color1.b * (1 - t));
@@ -56,7 +56,7 @@ namespace DCEngine {
         }
         else if (percentLifeLeft <= 75 && percentLifeLeft >= 50)
         {
-          double t = (percentLifeLeft - 50) / 25;
+          float t = (percentLifeLeft - 50) / 25;
           mColor.r = mTint.r * mColorAnimator->Color1.r * t + mColorAnimator->Color2.r * (1 - t);
           mColor.g = mTint.g * mColorAnimator->Color1.g * t + mColorAnimator->Color2.g * (1 - t);
           mColor.b = mTint.b * mColorAnimator->Color1.b * t + mColorAnimator->Color2.b * (1 - t);
@@ -64,7 +64,7 @@ namespace DCEngine {
         }
         else if (percentLifeLeft <= 50 && percentLifeLeft >= 25)
         {
-          double t = (percentLifeLeft - 25) / 25;
+          float t = (percentLifeLeft - 25) / 25;
           mColor.r = mTint.r * mColorAnimator->Color2.r * t + mColorAnimator->Color3.r * (1 - t);
           mColor.g = mTint.g * mColorAnimator->Color2.g * t + mColorAnimator->Color3.g * (1 - t);
           mColor.b = mTint.b * mColorAnimator->Color2.b * t + mColorAnimator->Color3.b * (1 - t);
@@ -72,7 +72,7 @@ namespace DCEngine {
         }
         else if (percentLifeLeft <= 25 && percentLifeLeft >= 0)
         {
-          double t = percentLifeLeft / 25;
+          float t = percentLifeLeft / 25;
           mColor.r = mTint.r * mColorAnimator->Color3.r * t + mColorAnimator->Color4.r * (1 - t);
           mColor.g = mTint.g * mColorAnimator->Color3.g * t + mColorAnimator->Color4.g * (1 - t);
           mColor.b = mTint.b * mColorAnimator->Color3.b * t + mColorAnimator->Color4.b * (1 - t);
@@ -88,11 +88,11 @@ namespace DCEngine {
     /*===================
           ACCESSORS
     ===================*/
-    double SpriteParticleSystem::Particle::GetLifetime(void) const
+    float SpriteParticleSystem::Particle::GetLifetime(void) const
     {
       return mLifetime;
     }
-    double SpriteParticleSystem::Particle::GetLifeleft(void) const
+    float SpriteParticleSystem::Particle::GetLifeleft(void) const
     {
       return mLifeleft;
     }

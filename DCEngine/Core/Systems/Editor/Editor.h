@@ -119,7 +119,7 @@ namespace DCEngine {
       void ArchiveProject();
       void OpenProject();
       void OpenRecentProject();
-      void LoadProject(std::string& path);
+      void LoadProject(std::string path);
       void SaveProject();
       void SaveCurrentLevel();
       void PlayGame();
@@ -257,11 +257,11 @@ namespace DCEngine {
         // Push the name of it into the vector of strings
         resources.push_back(resource.second->Name().c_str());
         if (resource.second->getObjectName() == resourceValue)
-          currentItem = resources.size() - 1;
+          currentItem = static_cast<int>(resources.size()) - 1;
       }
 
       // If the user selects an item... 
-      if (ImGui::Combo("##propertyID", &currentItem, resources.data(), resources.size())) {
+      if (ImGui::Combo("##propertyID", &currentItem, resources.data(), static_cast<int>(resources.size()))) {
         // Set the selected item as the current resource
         auto selectedResource = resources.at(currentItem);
         Zilch::ExceptionReport report;
