@@ -89,11 +89,11 @@ namespace DCEngine {
       void ScanForArchetypes();
       void ScanForSpriteSources();
       void ScanForSoundCues();
-      void ScanForLevels(std::string& levelPath);
-      void ScanForArchetypes(std::string& archetypePath);
-      void ScanForSpriteSources(std::string& spriteSourcePath);
-      void ScanForSoundCues(std::string& soundCuePath);
-      void ScanForFonts(std::string& fontPath);
+      void ScanForLevels(std::string levelPath);
+      void ScanForArchetypes(std::string archetypePath);
+      void ScanForSpriteSources(std::string spriteSourcePath);
+      void ScanForSoundCues(std::string soundCuePath);
+      void ScanForFonts(std::string fontPath);
       void ScanAndGenerateResources();
       // Get the current project's settings
       ProjectDataPtr& ProjectSettings();

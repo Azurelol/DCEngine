@@ -101,7 +101,7 @@ namespace DCEngine {
         // Push the name of it into the vector of strings
         spriteSourceNames.push_back(spriteSource.second->Name().c_str());
         if (spriteSource.second->getObjectName() == resourceValue)
-          currentItem = spriteSourceNames.size() - 1;
+          currentItem = static_cast<int>(spriteSourceNames.size()) - 1;
       }
       // Start at the current item
             

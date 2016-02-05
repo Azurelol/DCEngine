@@ -26,7 +26,7 @@ namespace DCEngine {
       if (!Settings.GridActive)
         return;
 
-      Vec3& cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
+      auto cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       // The editor grid will always be in front of the camera.
       Vec3 gridStartPos(cameraPos.x, cameraPos.y, cameraPos.z - 1);
       Real edge = 500; // We want to make sure we draw 'very' from far away??

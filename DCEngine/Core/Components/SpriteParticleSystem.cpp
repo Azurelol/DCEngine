@@ -54,7 +54,7 @@ namespace DCEngine {
 			TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
 			// Register
 			SpaceRef->getComponent<Components::GraphicsSpace>()->RegisterGraphicsComponent(this);
-			srand(time(NULL));
+			srand(static_cast<unsigned>(time(NULL)));
     }
 
 
@@ -216,7 +216,7 @@ namespace DCEngine {
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 				glBindVertexArray(mVAO);
-				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
+				glDrawArraysInstanced(GL_TRIANGLES, 0, 6,  static_cast<GLsizei>(offset.size()));
 				glBindVertexArray(0);
 			}
 			if (Debug::CheckOpenGLError())

@@ -216,17 +216,17 @@ namespace DCEngine {
 		// DEBUG DRAW
 		///////////////
 
-		void Graphics::DrawCircle(Vec3& pos, Real& radius, Vec4& color, Components::Camera& cam)
+		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawCircle(pos, radius, color, cam);
 		}
 
-		void Graphics::DrawRectangle(Vec3& pos, Real& width, Real& height, Vec4& color, Components::Camera& cam)
+		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawRectangle(pos, width, height, color, cam);
 		}
 
-		void Graphics::DrawLineSegment(Vec3& startPos, Vec3& endPos, Vec4& color, Components::Camera& cam)
+		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)
 		{
 			GraphicsHandler->DrawLineSegment(startPos, endPos, color, cam);
 		}

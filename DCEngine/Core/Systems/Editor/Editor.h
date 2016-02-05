@@ -119,7 +119,7 @@ namespace DCEngine {
       void ArchiveProject();
       void OpenProject();
       void OpenRecentProject();
-      void LoadProject(std::string& path);
+      void LoadProject(std::string path);
       void SaveProject();
       void SaveCurrentLevel();
       void PlayGame();

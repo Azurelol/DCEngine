@@ -175,8 +175,8 @@ namespace DCEngine {
     void TransformTool::DrawTranslate()
     {
       auto pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
-      Real arrowTip = 1;
-      Real dragRectRadius = Radius / 4;
+      Real arrowTip = 1.0f;
+      Real dragRectRadius = Radius / 4.0f;
 
       // Draw a "dragging" rectangle
       SpaceRef->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, dragRectRadius, dragRectRadius, ColorX);
