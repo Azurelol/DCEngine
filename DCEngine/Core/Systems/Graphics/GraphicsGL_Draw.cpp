@@ -223,8 +223,8 @@ namespace DCEngine {
 				GLfloat xPos = x + ch.Bearing.x;
 				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y);
 				// Calculate the quad's size
-				GLfloat w = ch.Size.x * st.getFontSize() / 12;
-				GLfloat h = ch.Size.y * st.getFontSize() / 12;
+				GLfloat w = ch.Size.x * st.getFontSize() / 12.f;
+				GLfloat h = ch.Size.y * st.getFontSize() / 12.f;
 				// Generate a set of 6 vertices to form the 2D quad
 				GLfloat vertices[6][4] = {
 					{ xPos    , yPos + h, 0.0, 0.0 },
