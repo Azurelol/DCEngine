@@ -82,7 +82,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::ViewportUpdate() {
 			// Tells OpenGL the current size of the rendering window
-			auto& windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
+			auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
       auto& viewportScale = Daisy->getSystem<Graphics>()->ViewportScale;
 			glViewport(0, 0, static_cast<GLsizei>(windowDim.x * viewportScale.x),
                        static_cast<GLsizei>(windowDim.y * viewportScale.y));

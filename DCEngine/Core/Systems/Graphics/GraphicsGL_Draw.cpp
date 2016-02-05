@@ -306,7 +306,7 @@ namespace DCEngine {
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 				glBindVertexArray(ParticleVAO);
-				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offset.size());
+				glDrawArraysInstanced(GL_TRIANGLES, 0, 6, GLsizei(offset.size()));
 				glBindVertexArray(0);
 			}
 		}
