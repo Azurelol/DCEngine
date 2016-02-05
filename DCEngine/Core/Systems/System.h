@@ -48,7 +48,7 @@ namespace DCEngine {
   class System : public Object {
 
   public:
-    System(std::string& name, ESys type) : SysName(name), _type(type) {
+    System(std::string name, ESys type) : SysName(name), _type(type) {
       //trace << _name << "::Constructor \n";
     }
     ~System();

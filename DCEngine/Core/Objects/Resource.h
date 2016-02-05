@@ -35,6 +35,7 @@ namespace DCEngine {
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
     std::string Build();
+    virtual void Save() {}
     virtual void Save(std::string& serializedData);
     virtual bool Load();
     bool Destroy();

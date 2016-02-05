@@ -41,7 +41,7 @@ namespace DCEngine {
       //RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
       MTLRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::MoveToLocation>();
-      RandomDelay = (rand() % 10 + 1) / 3;
+      RandomDelay = static_cast<Real>((rand() % 10 + 1) / 3);
     }
 
     void ErraticDoor::OnMouseDownEvent(Events::MouseDown * event)
@@ -78,7 +78,7 @@ namespace DCEngine {
       Timer += event->Dt;
       if (Timer > RandomDelay)
       {
-        RandomDelay = (rand() % 10 + 1) / 3;
+        RandomDelay = static_cast<Real>((rand() % 10 + 1) / 3);
         MTLRef->setMoving(true);
         Timer = 0;
       }

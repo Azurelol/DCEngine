@@ -174,9 +174,9 @@ namespace DCEngine {
     /**************************************************************************/
     void TransformTool::DrawTranslate()
     {
-      auto& pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
-      Real arrowTip = 1;
-      Real dragRectRadius = Radius / 4;
+      auto pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
+      Real arrowTip = 1.0f;
+      Real dragRectRadius = Radius / 4.0f;
 
       // Draw a "dragging" rectangle
       SpaceRef->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, dragRectRadius, dragRectRadius, ColorX);
@@ -198,7 +198,7 @@ namespace DCEngine {
     void TransformTool::DrawRotate()
     {
       // Get the object's transform data
-      auto& pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
+      auto pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
       // Draw the Z-axis rotation
       SpaceRef->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, Radius, ColorZ);
     }
@@ -211,7 +211,7 @@ namespace DCEngine {
     /**************************************************************************/
     void TransformTool::DrawScale()
     {
-      auto& pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
+      auto pos = SelectedObject->getComponent<Components::Transform>()->getTranslation();
       // Draws the x-Axis
       SpaceRef->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, pos + Vec3(Radius, 0, 0), ColorX);
       // Draws the y-axis

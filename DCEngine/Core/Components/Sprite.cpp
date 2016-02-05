@@ -133,7 +133,7 @@ namespace DCEngine {
       DCTrace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
     }
 
-		void Sprite::Update(double dt)
+		void Sprite::Update(float dt)
 		{
 			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			//Animation update

@@ -49,8 +49,8 @@ namespace DCEngine {
       // Archetypes
       ArchetypePtr BuildArchetype(std::string, GameObjectPtr);
       // Components
-      ComponentStrongPtr CreateComponentByName(std::string& name, Entity& entity);
-      ComponentHandle CreateComponentByNameFromZilch(std::string& name, Entity& entity);
+      ComponentStrongPtr CreateComponentByName(const std::string& name, Entity& entity);
+      ComponentHandle CreateComponentByNameFromZilch(const std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
       void MarkComponent(Component& component);

@@ -54,7 +54,7 @@ namespace DCEngine {
       SpriteParticleSystem(Entity& owner);
 			virtual ~SpriteParticleSystem(void);
       void Initialize();
-			void Update(double);
+			void Update(float);
 			void Draw(Camera& camera);
 			Transform* TransformComponent;
 
@@ -77,20 +77,20 @@ namespace DCEngine {
 			class Particle
 			{
 			public:
-				Particle(double, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
+				Particle(float, const Vec2&, const Vec2&, const Vec2&, float, float, const Vec4&,
 					ParticleColorAnimator*, LinearParticleAnimator*);
 				//Particle& operator=(const Particle&);
-				void Update(double);        
+				void Update(float);
 
-				double GetLifetime(void) const;
-				double GetLifeleft(void) const;
+        float GetLifetime(void) const;
+        float GetLifeleft(void) const;
 				Vec2 GetPosition(void) const;
 				float GetScale(void) const;
 				float GetRotation(void) const;
 				Vec4 GetColor(void) const;
 			private:
-				double mLifetime;
-				double mLifeleft;
+        float mLifetime;
+        float mLifeleft;
 				Vec2 mPosition;
 				Vec2 mVelocity;
 				Vec2 mAcceleration;
@@ -105,7 +105,7 @@ namespace DCEngine {
 				LinearParticleAnimator* mLinearAnimator;
 			};
 			std::vector<Particle> mParticleList;
-			double mParticleEmissionTimer;
+      float mParticleEmissionTimer;
 			unsigned mEmitCounter;
 			bool mActiveFlag;
       Camera* CameraComponent;

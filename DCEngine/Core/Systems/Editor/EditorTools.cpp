@@ -189,7 +189,7 @@ namespace DCEngine {
             auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(position);
             auto xPos = transform->getTranslation().x;
             auto yPos = transform->getTranslation().y;
-            Real radius = transform->getScale().x *2.5;
+            Real radius = transform->getScale().x *2.5f;
             Real radiusSquared = radius*radius;
             Real distanceSquared = (mousePos.x - xPos)*(mousePos.x - xPos) + (mousePos.y - yPos)*(mousePos.y - yPos);
             if (distanceSquared - radiusSquared < 1 && distanceSquared - radiusSquared > -1)
@@ -214,11 +214,11 @@ namespace DCEngine {
             auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(position);
             auto xPos = transform->getTranslation().x;
             auto yPos = transform->getTranslation().y;
-            Real width = transform->getScale().x *2.5;
-            Real height = transform->getScale().y *2.5;
+            Real width = transform->getScale().x * 2.5f;
+            Real height = transform->getScale().y * 2.5f;
             Real distanceX = mousePos.x - xPos;
             Real distanceY = mousePos.y - yPos;
-            if (distanceY - height / 2 < 0.25 && distanceY - height / 2 > -0.25 && mousePos.x > xPos - width / 2 && mousePos.x < xPos + width / 2)
+            if (distanceY - height / 2 < 0.25f && distanceY - height / 2 > -0.25f && mousePos.x > xPos - width / 2 && mousePos.x < xPos + width / 2)
             {
               Settings.ScalingY = true;
               Settings.OriginScale = transform->getScale();

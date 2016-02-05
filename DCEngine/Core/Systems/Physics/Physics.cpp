@@ -186,13 +186,13 @@ namespace DCEngine {
 		/*!
 		@brief The function that actually goes through the spaces and updates objects
 		@param The delta time.
-		@note  For every space, we update the objects in the following manner:
-		1.
+		@todo Pass the desired FPS to the Physics system in a struct.
 		*/
 		/**************************************************************************/
 		void Physics::Step(float dt)
 		{
-      dt = 0.0166;
+      // Hardcode dt temporarily
+      dt = 0.0166f;
 
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
