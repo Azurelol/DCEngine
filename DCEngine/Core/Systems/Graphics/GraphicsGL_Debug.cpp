@@ -103,19 +103,26 @@ namespace DCEngine {
 			CleanBuffer();
 			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
 			//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
-			glBegin(GL_LINE_LOOP);
+			if (fill)
+			{
+				glBegin(GL_LINE_LOOP);
+			}
+			else
+				glBegin(GL_TRIANGLE_FAN);
+
 			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-			auto Position1 = PositionOrigin + glm::vec4(width / 2.0f , height / 2.0f, 0.0f, 0.0f);
-			auto Position2 = PositionOrigin + glm::vec4(width / 2.0f , height / -2.0f, 0.0f, 0.0f);
-			auto Position3 = PositionOrigin + glm::vec4(width / -2.0f , height / -2.0f, 0.0f, 0.0f);
-			auto Position4 = PositionOrigin + glm::vec4(width / -2.0f , height / 2.0f, 0.0f, 0.0f);
-			
+			auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
+			auto Position2 = PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
+			auto Position3 = PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
+			auto Position4 = PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
+
 			glVertex3f(Position1.x, Position1.y, Position1.z);
 			glVertex3f(Position2.x, Position2.y, Position2.z);
 			glVertex3f(Position3.x, Position3.y, Position3.z);
 			glVertex3f(Position4.x, Position4.y, Position4.z);
-			
+
 			glEnd();
+			
 			CleanBuffer();
     }
     /**************************************************************************/
