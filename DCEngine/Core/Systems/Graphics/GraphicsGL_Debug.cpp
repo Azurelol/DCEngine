@@ -104,9 +104,7 @@ namespace DCEngine {
 			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
 			//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
 			if (fill)
-			{
 				glBegin(GL_LINE_LOOP);
-			}
 			else
 				glBegin(GL_TRIANGLE_FAN);
 
@@ -138,7 +136,11 @@ namespace DCEngine {
       // Do your magic here Chen
       CleanBuffer();
       this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
-      glBegin(GL_LINE_LOOP);
+
+			if (fill)
+				glBegin(GL_TRIANGLE_FAN);
+			else
+				glBegin(GL_LINE_LOOP);
 			
       double M_PI = 3.1415926535;
       static double PointsNumber = 128;
