@@ -32,6 +32,7 @@ namespace DCEngine {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ParticleEmitter);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, Active);
+			DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, ResetCount);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitCount);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitRate);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmitVariance);
