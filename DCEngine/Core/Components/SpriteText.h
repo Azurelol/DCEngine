@@ -39,7 +39,7 @@ namespace DCEngine {
       virtual ~SpriteText();
       void Register();
       void Initialize();
-			void Update(double dt);
+			void Update(float dt);
 			void Draw(Camera& camera);
       Transform* TransformComponent;
 

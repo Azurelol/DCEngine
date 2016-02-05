@@ -64,7 +64,7 @@ namespace DCEngine {
     @param camera Reference to the current camera in the space.
     */
     /**************************************************************************/
-    SpriteParticleSystem::Particle::Particle(double lifetime,
+    SpriteParticleSystem::Particle::Particle(float lifetime,
       const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
       ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
       : mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
@@ -107,7 +107,7 @@ namespace DCEngine {
     @param dt The delta time.
     */
     /**************************************************************************/
-    void SpriteParticleSystem::Update(double dt)
+    void SpriteParticleSystem::Update(float dt)
     {
       if (mParticleEmitter)
       {
@@ -116,7 +116,7 @@ namespace DCEngine {
           if (mParticleEmitter->Active == false)
           {
             mEmitCounter = 0;
-            mParticleEmissionTimer == 0;
+            mParticleEmissionTimer = 0;
             mActiveFlag = false;
           }
           mParticleEmissionTimer -= dt;
@@ -128,7 +128,7 @@ namespace DCEngine {
               mParticleEmissionTimer += 1.f / float(mParticleEmitter->EmitRate);
               if (mParticleEmitter->EmitCount > 0)
               {
-                if (mParticleEmitter->EmitCount > mEmitCounter)
+                if (mParticleEmitter->EmitCount > static_cast<int>(mEmitCounter))
                 {
                   AddParticle();
                   ++mEmitCounter;
@@ -234,7 +234,7 @@ namespace DCEngine {
 			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
-				double lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
+				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
 				Vec2 velocity = Vec2(mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
 					mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50);
 				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100;
@@ -322,7 +322,7 @@ namespace DCEngine {
     /**************************************************************************/
 		unsigned SpriteParticleSystem::GetParticleCount(void)
 		{
-			return mParticleList.size();
+			return static_cast<unsigned>(mParticleList.size());
 		}
   }
 }

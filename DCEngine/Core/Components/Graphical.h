@@ -26,7 +26,7 @@ namespace DCEngine {
       Graphical(std::string graphicalComponent, Entity& owner);
       virtual ~Graphical();
       virtual void Initialize();
-			virtual void Update(double dt) {}
+			virtual void Update(float dt) {}
 			virtual void Draw(Camera&) {}
 
 			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);

@@ -82,7 +82,7 @@ namespace DCEngine {
     {
     }
 
-		void SpriteText::Update(double dt)
+		void SpriteText::Update(float dt)
 		{
 		}
 

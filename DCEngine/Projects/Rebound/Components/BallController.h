@@ -28,20 +28,20 @@ namespace DCEngine {
       bool Locked = false;
       Boolean Powering = false;
       bool CurrentlyFired = false;
-      Real MoveSpeed = 0.75;
+      Real MoveSpeed = 0.75f;
       ControlScheme ControlScheme = ControlScheme::John;
-      Real RotSpeed = 15;
+      Real RotSpeed = 15.0f;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
-      Real CurrentCharge = 0;
-      Real MaxCharge = 2;
+      Real CurrentCharge = 0.0f;
+      Real MaxCharge = 2.0f;
       Real MinCharge = 0.5f;
-      Real ChargeFactor = 30 * 1000;
-      Real Restitution = 0.1; //set from 0 to 1
-      Real Friction = 0.1; //set from 0 to 1
+      Real ChargeFactor = 30.0f * 1000.0f;
+      Real Restitution = 0.1f; //set from 0 to 1
+      Real Friction = 0.1f; //set from 0 to 1
       Real AttractPower = 400.0f;
-      Real AttractYBoost = 3;
+      Real AttractYBoost = 3.0f;
       Real SlamPower = ChargeFactor * MaxCharge;
 
       Boolean Charging = false;

@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  Default constructor for the Factory system.
     */
     /**************************************************************************/
-    Factory::Factory() : System(std::string("FactorySystem"), EnumeratedSystem::Factory) {
+    Factory::Factory() : System("FactorySystem", EnumeratedSystem::Factory) {
     }
 
     /**************************************************************************/

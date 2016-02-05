@@ -144,11 +144,11 @@ namespace DCEngine {
         // Push the name of it into the vector of strings
         soundCueNames.push_back(soundCue.second->Name().c_str());
         if (soundCue.second->Name() == resourceValue)
-          currentItem = soundCueNames.size() - 1;
+          currentItem = static_cast<int>(soundCueNames.size()) - 1;
       }
 
       // If the user selects an item... 
-      if (ImGui::Combo("##propertyID", &currentItem, soundCueNames.data(), soundCueNames.size())) {
+      if (ImGui::Combo("##propertyID", &currentItem, soundCueNames.data(), static_cast<int>(soundCueNames.size()))) {
         // Set the selected item as the current resource
         auto selectedSoundCue = soundCueNames.at(currentItem);
         Zilch::ExceptionReport report;
@@ -179,11 +179,11 @@ namespace DCEngine {
         levelNames.push_back(level.second->Name().c_str());
         // Start at the current item
         if (level.second->Name() == resourceValue)
-          currentItem = levelNames.size() - 1;
+          currentItem = static_cast<int>(levelNames.size()) - 1;
       }
 
       // If the user selects an item... 
-      if (ImGui::Combo("##propertyID", &currentItem, levelNames.data(), levelNames.size())) {
+      if (ImGui::Combo("##propertyID", &currentItem, levelNames.data(), static_cast<int>(levelNames.size()))) {
         // Set the selected item as the current resource
         auto selectedLevel = levelNames.at(currentItem);
         Zilch::ExceptionReport report;

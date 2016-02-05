@@ -81,7 +81,7 @@ namespace DCEngine
 
   bool CollisionTable::AddGroup(CollisionGroup group)
   {
-    for (auto Group : Groups)
+    for (auto& Group : Groups)
     {
       if (Group.Name() == group.Name())
       {
@@ -95,7 +95,7 @@ namespace DCEngine
     CollisionFilter filter;
     filter.Pairing.first = group.Name();
 
-    for (auto Group : Groups)
+    for (auto& Group : Groups)
     {
       filter.Pairing.second = Group.Name();
 
@@ -107,7 +107,7 @@ namespace DCEngine
 
   bool CollisionTable::AddGroup(std::string group)
   {
-    for (auto Group : Groups)
+    for (auto& Group : Groups)
     {
       if (Group.Name() == group)
       {
@@ -121,7 +121,7 @@ namespace DCEngine
     CollisionFilter filter;
     filter.Pairing.first = group;
 
-    for (auto Group : Groups)
+    for (auto& Group : Groups)
     {
       filter.Pairing.second = Group.Name();
 
@@ -133,7 +133,7 @@ namespace DCEngine
 
   bool CollisionTable::SetResolve(std::string const &group1, std::string const &group2, CollisionFlag state)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -149,7 +149,7 @@ namespace DCEngine
 
   CollisionFlag &CollisionTable::GetResolve(std::string const &group1, std::string const &group2)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -165,7 +165,7 @@ namespace DCEngine
 
   bool CollisionTable::SetStartBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -181,7 +181,7 @@ namespace DCEngine
 
   CollisionBlock &CollisionTable::GetStartBlock(std::string const &group1, std::string const &group2)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -197,7 +197,7 @@ namespace DCEngine
 
   bool CollisionTable::SetEndBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -213,7 +213,7 @@ namespace DCEngine
 
   CollisionBlock &CollisionTable::GetEndBlock(std::string const &group1, std::string const &group2)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -229,7 +229,7 @@ namespace DCEngine
 
   bool CollisionTable::SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {
@@ -245,7 +245,7 @@ namespace DCEngine
 
   CollisionBlock &CollisionTable::GetPreSolveBlock(std::string const &group1, std::string const &group2)
   {
-    for (auto Pair : Pairs)
+    for (auto& Pair : Pairs)
     {
       if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
       {

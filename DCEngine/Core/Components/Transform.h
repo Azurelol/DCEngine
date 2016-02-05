@@ -27,18 +27,12 @@ namespace DCEngine {
 #endif
 
       // Properties
-
-      /* Properties*/
-      Vec3 getTranslation();
-      void setTranslation(Vec3);
-      Vec3 getRotation();
-      void setRotation(Vec3);
-      Vec3 getScale();
-      void setScale(Vec3);
-
       Vec3 Translation = Vec3(0.0f, 0.0f, 0.0f);
       Vec3 Rotation = Vec3(0.0f, 0.0f, 0.0f);
       Vec3 Scale = Vec3(1.0f, 1.0f, 1.0f);
+      DCE_DEFINE_PROPERTY(Vec3, Translation);
+      DCE_DEFINE_PROPERTY(Vec3, Rotation);
+      DCE_DEFINE_PROPERTY(Vec3, Scale);
       // Relative to the world
       Vec3 WorldTranslation = Translation;
       Vec3 WorldRotation = Rotation;
