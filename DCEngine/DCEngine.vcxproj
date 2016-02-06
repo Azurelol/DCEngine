@@ -166,7 +166,7 @@
       <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ForcedIncludeFiles>Precompiled.h</ForcedIncludeFiles>
-      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
@@ -387,6 +387,8 @@
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
+    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
@@ -394,6 +396,8 @@
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp" />
+    <ClCompile Include="Core\Systems\Editor\TransformTool.cpp" />
+    <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp" />
@@ -454,7 +458,15 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Systems\Editor\Editor.hpp" />
+    <ClInclude Include="Core\Systems\Editor\Editor.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
@@ -569,6 +581,9 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
+    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h" />
+    <ClInclude Include="Core\Systems\Editor\Selector.h" />
+    <ClInclude Include="Core\Systems\Editor\TransformTool.h" />
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Filesystem\FileSystem.h" />

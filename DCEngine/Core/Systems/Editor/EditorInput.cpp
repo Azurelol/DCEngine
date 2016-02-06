@@ -113,11 +113,11 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::Escape:
-        ActiveTool = EditorTool::None;
+        SwitchTool(EditorTool::None);
         break;
 
       case Keys::Return:
-        ActiveTool = EditorTool::None;
+        SwitchTool(EditorTool::None);
         break;
 
       case Keys::Tilde:
@@ -182,8 +182,7 @@ namespace DCEngine {
 
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
-          DCTrace << "Editor::SelectTool \n";
-        ActiveTool = EditorTool::Select;
+          DCTrace << "Editor::Select \n";
         break;
 
       // If the editor's transform tool is not a component, we will perform
@@ -192,19 +191,19 @@ namespace DCEngine {
           case Keys::Num2:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::TranslateTool \n";
-            ActiveTool = EditorTool::Translate;
+            SwitchTool(EditorTool::Translate);
             break;
 
           case Keys::Num3:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::RotateTool \n";
-            ActiveTool = EditorTool::Rotate;
+            SwitchTool(EditorTool::Rotate);
             break;
 
           case Keys::Num4:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::ScaleTool \n";
-            ActiveTool = EditorTool::Scale;
+            SwitchTool(EditorTool::Scale);
             break;
         }
 

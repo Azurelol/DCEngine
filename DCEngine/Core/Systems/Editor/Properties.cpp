@@ -229,7 +229,7 @@ namespace DCEngine {
           static int currentItem = 0;
           ImGui::Text(property->Name.c_str());
           static bool thisModified = false;
-          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), enums.size())) {
+          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), static_cast<int>(enums.size()))) {
             // Set the selected item as the current resource
             auto selectedEnum = enums.at(currentItem);
             // Retrieve...
