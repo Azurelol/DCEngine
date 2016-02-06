@@ -334,6 +334,91 @@ namespace DCEngine {
 
 			QuadTree qt(list, Vec2(minX, minY), Vec2(maxX, maxY), QuadTreeBucketSize);
 			pairs = qt.CreatePairs();
+
+      Components::BoxCollider*    box1 = NULL;
+      Components::BoxCollider*    box2 = NULL;
+      Components::CircleCollider* cir1 = NULL;
+      Components::CircleCollider* cir2 = NULL;
+
+      bool rigid1 = false, rigid2 = false;
+      
+      std::string str1, str2;
+
+
+      for (auto pair : pairs)
+      {
+     
+         auto rigidbody1 = pair.obj1->getComponent<Components::RigidBody>();
+         auto rigidbody2 = pair.obj2->getComponent<Components::RigidBody>();
+     
+         if (rigidbody1 == NULL)
+         {
+           rigid1 = false;
+         }
+         else
+         {
+           rigid1 = true;
+     
+           if (rigidbody1->getDynamicState() == DynamicStateType::Static)
+           {
+             rigid1 = false;
+           }
+         }
+     
+         if (rigidbody2 == NULL)
+         {
+           rigid2 = false;
+         }
+         else
+         {
+           rigid2 = true;
+     
+           if (rigidbody2->getDynamicState() == DynamicStateType::Static)
+           {
+             rigid2 = false;
+           }
+         }
+     
+         if (!rigid1 && !rigid2)
+         {
+           continue;
+         }
+     
+         box1 = pair.obj1->getComponent<Components::BoxCollider>();
+         box2 = pair.obj2->getComponent<Components::BoxCollider>();
+         cir1 = pair.obj1->getComponent<Components::CircleCollider>();
+         cir2 = pair.obj2->getComponent<Components::CircleCollider>();
+     
+         if (box1)
+         {
+           str1 = box1->getCollisionGroup();
+         }
+         else
+         {
+           str1 = cir1->getCollisionGroup();
+         }
+     
+         if (box2)
+         {
+           str2 = box2->getCollisionGroup();
+         }
+         else
+         {
+           str2 = cir2->getCollisionGroup();
+         }
+     
+         if (str1 == str2)
+         {
+           pair.filter = CollisionFilter();
+         }
+         else
+         {
+           // need to access the collision table and get info from it
+           pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
+         }
+      }
+
+
       //static int listsize = 0;
 			//
       //if (list.size() == listsize)

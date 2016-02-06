@@ -42,6 +42,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, VelocityScale);
       DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, LengthScale);
       DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, SystemSize);
+
+			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, Additive);
     }
     #endif
 
@@ -119,6 +121,12 @@ namespace DCEngine {
             mParticleEmissionTimer = 0;
             mActiveFlag = false;
           }
+					if (mParticleEmitter->ResetCount)
+					{
+						mEmitCounter = 0;
+						mParticleEmissionTimer = 0;
+						mParticleEmitter->ResetCount = false;
+					}
           mParticleEmissionTimer -= dt;
 
           if (mParticleEmitter->EmitRate > 0)
@@ -145,6 +153,10 @@ namespace DCEngine {
           {
             mActiveFlag = true;
           }
+					if (mParticleEmitter->ResetCount)
+					{
+						mParticleEmitter->ResetCount = false;
+					}
         }
         for (auto&& particle : mParticleList)
         {
@@ -166,7 +178,10 @@ namespace DCEngine {
 			mShader->Use();
 
 			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			if(getAdditive())
+				glBlendFunc(GL_ONE, GL_ONE);
+			else
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 			SpriteSourcePtr src = Daisy->getSystem<Systems::Content>()->getSpriteSrc(Texture);
 
@@ -219,8 +234,7 @@ namespace DCEngine {
 				glDrawArraysInstanced(GL_TRIANGLES, 0, 6,  static_cast<GLsizei>(offset.size()));
 				glBindVertexArray(0);
 			}
-			if (Debug::CheckOpenGLError())
-				DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		}
 
 

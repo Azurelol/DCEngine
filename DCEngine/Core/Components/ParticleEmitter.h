@@ -20,6 +20,7 @@ namespace DCEngine {
     public:
       // Properties
       Boolean Active;
+			Boolean ResetCount;
       Integer EmitCount; // Number of particles to emit per reset
       Integer EmitRate; // Rate that particles spawn per second
       Integer EmitVariance; // How much emit can vary per sample    
@@ -32,6 +33,7 @@ namespace DCEngine {
       Vec3 StartVelocity; // Velocity of each particle at start
       Vec3 RandomVelocity; // Random velocity per particle
       DCE_DEFINE_PROPERTY(Boolean, Active);
+			DCE_DEFINE_PROPERTY(Boolean, ResetCount);
       DCE_DEFINE_PROPERTY(Integer, EmitCount);
       DCE_DEFINE_PROPERTY(Integer, EmitRate);
       DCE_DEFINE_PROPERTY(Integer, EmitVariance);
