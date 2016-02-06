@@ -84,8 +84,12 @@ namespace DCEngine {
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
       DrawSelection();
-      DisplayEditor();
-      DisplayTool();
+      DisplayEditor(); 
+      //DisplayTool();      
+
+      // If there's an active tool, display it
+      if (this->ActiveTool)
+        ActiveTool->Display();
       
     }
 
@@ -174,6 +178,34 @@ namespace DCEngine {
     {
       ShowTestWindow = !ShowTestWindow;
       DCTrace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Switches to a new editor tool.
+    @todo   ool The tool to switch to.
+    */
+    /**************************************************************************/
+    void Editor::SwitchTool(EditorTool tool)
+    {
+      switch (tool) {
+
+      case EditorTool::None:
+        break;
+
+      case EditorTool::Translate:
+        break;
+
+      case EditorTool::Rotate:
+        break;
+
+      case EditorTool::Scale:
+        break;
+
+      }
+
+      //ActiveTool.reset();
+      //ActiveTool = tool;
     }
 
     /**************************************************************************/
