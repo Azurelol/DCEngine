@@ -74,7 +74,8 @@ namespace DCEngine {
       void DrawScaleTool();
       ObjectContainer SelectedObjects;
       void MoveObject(const Vec3&);
-      void DragObject(Vec2&);
+      void TransformStartDragging();
+      void TransformDrag(Vec2&);
       void ReleaseObject();
 
       // Settings
@@ -138,6 +139,7 @@ namespace DCEngine {
       void SelectSpace();
       void CenterSelected();
       void SelectMultiple(Vec2&);
+      bool IsSelected(GameObjectPtr);
       void CalculateSelectionBounding();
       void DrawMultiSelect();
       // Resources

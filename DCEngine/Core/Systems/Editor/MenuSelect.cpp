@@ -240,6 +240,23 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Checks if the object is currently selected.
+    @param gameObject A pointer to the GameObject.
+    @return Whether the object is currently being selected or not.
+    */
+    /**************************************************************************/
+    bool Editor::IsSelected(GameObjectPtr gameObject)
+    {
+      for (auto& object : SelectedObjects) {
+        if (gameObject->getObjectID() == object->getObjectID())
+          return true;
+      }
+
+      return false;
+    }
+
 
 
 

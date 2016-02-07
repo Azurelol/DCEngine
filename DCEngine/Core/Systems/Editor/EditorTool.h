@@ -58,7 +58,7 @@ namespace DCEngine {
       void DrawRotateTool();
       void DrawScaleTool();
 
-      //void DragObject(Vec2&);
+      //void TransformDrag(Vec2&);
       //void MoveObject(Vec3);
       //void RotateObject(Vec2&);
       //void ScaleObject(Vec2&);

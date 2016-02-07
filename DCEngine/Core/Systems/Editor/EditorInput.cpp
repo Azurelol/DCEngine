@@ -25,15 +25,28 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
+      // Update the mouse's starting position
+      Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
+
       //==================
       // LEFT MOUSE BUTTON 
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-        auto gameObject = FindObjectFromSpace(posOnSpace);        
-        // If an object was found at that position, select it and start using the selected tool
+        auto gameObject = FindObjectFromSpace(posOnSpace);
+
+        // If an object was found at that position...
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-          SelectObjectFromSpace(gameObject);
+
+          // If we have selected multiple objects already, the object at the position is one of them
+          if (IsSelected(gameObject)) {
+          }
+          // if the object is not currently selected..
+          else {
+            SelectObjectFromSpace(gameObject);
+          }
+
+          // Start using the current tool
           UseTool(gameObject, event->Position);
         }         
         // If no object was found, deselect the current object if no tool's region overlaps the selected area
@@ -50,7 +63,6 @@ namespace DCEngine {
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
         Settings.CamStartPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
-        Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
       }
     }
 
@@ -64,7 +76,7 @@ namespace DCEngine {
     {
       SelectMultiple(event->ScreenPosition);
       PanCamera(event->ScreenPosition);
-      DragObject(event->ScreenPosition);
+      TransformDrag(event->ScreenPosition);
       CalculateSelectionBounding();
     }
 
