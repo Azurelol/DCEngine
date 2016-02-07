@@ -334,10 +334,43 @@ namespace DCEngine {
 		/*!************************************************************************\
 		@brief  Sets the Sprite's Shaders Uniforms.
 		\**************************************************************************/
-		void GraphicsGL::SetSpriteShader(Components::Camera& camera)
+		void GraphicsGL::SetSpriteShader(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents)
 		{
 			SpriteShader->Use();
 			SpriteShader->SetInteger("image", 0);
+			SpriteShader->SetInteger("numLights", lightComponents.size());
+			std::string var;
+			for (unsigned i = 0; i < lightComponents.size(); ++i)
+			{
+				if (i >= 20)
+					break;
+				std::stringstream sStream;
+				sStream << "Lights[" << i << "].";
+				var = sStream.str() + "Visible";
+				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getVisible());
+				var = sStream.str() + "VisibilityCulling";
+				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getVisibilityCulling());
+				var = sStream.str() + "VisibilityEvents";
+				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getVisibilityEvents());
+				var = sStream.str() + "CastShadows";
+				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getCastShadows());
+				//var = sStream.str() + "LightType";
+				//SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getLightType());
+				var = sStream.str() + "Color";
+				SpriteShader->SetVector4f(var.c_str(), lightComponents[i]->getColor());
+				var = sStream.str() + "Intensity";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getIntensity());
+				var = sStream.str() + "Range";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getRange());
+				var = sStream.str() + "Falloff";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getFalloff());
+				var = sStream.str() + "Angle";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getAngle());
+				var = sStream.str() + "Size";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getSize());
+				var = sStream.str() + "Position";
+				SpriteShader->SetVector3f(var.c_str(), lightComponents[i]->Owner()->getComponent<Components::Transform>()->Translation);
+			}
 			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.
 		}

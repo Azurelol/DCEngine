@@ -56,6 +56,7 @@ namespace DCEngine {
       void Initialize();
 
     private:
+			//NOTE: these variables must match the light struct in the sprite shader
       bool Visible; 
       bool VisibilityCulling;
       bool VisibilityEvents; 

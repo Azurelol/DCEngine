@@ -87,6 +87,7 @@ namespace DCEngine {
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Graphical*>> mDrawList;
+			std::vector<Components::Light*> mLightList;
 			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
 			//std::vector<Components::Sprite*>  TextureObjNontransp;
 			//std::vector<Components::Sprite*> NonTextureObjtransp;

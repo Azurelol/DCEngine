@@ -80,28 +80,22 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
-				GraphicsHandler->SetParticleSystemShader(*camera);
-				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
-				//{
-				//	DrawParticles(*particleSystem, *camera, dt);
-				//}
-
-				//draw sprite text
-				GraphicsHandler->SetSpriteTextShader(*camera);
-				//for (auto spriteText : gfxSpace->getSpriteTextContainer())
-				//{
-					//DrawSpriteText(*spriteText, *camera);
-				//}
-
-				// draw sprites
-				GraphicsHandler->SetSpriteShader(*camera);
-				
 				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
 				for (auto graphicalComponent : graphicalComponents)
 				{
 					++TotalObjNumG;
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 				}
+
+				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
+				for (auto lightComponent : lightComponents)
+				{
+					mLightList.push_back(lightComponent);
+				}
+
+				GraphicsHandler->SetParticleSystemShader(*camera);
+				GraphicsHandler->SetSpriteTextShader(*camera);
+				GraphicsHandler->SetSpriteShader(*camera, lightComponents);
 
 				for (auto&& drawList : mDrawList)
 				{

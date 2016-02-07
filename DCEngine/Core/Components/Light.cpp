@@ -10,6 +10,8 @@
 */
 /******************************************************************************/
 #include "Light.h"
+#include "../Objects/Entities/Space.h"
+#include "GraphicsSpace.h"
 
 namespace DCEngine {
   namespace Components {
@@ -48,6 +50,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::Light(Entity & owner) : Component(std::string("Light"), owner)
     {
+			Initialize();
     }
 
     /**************************************************************************/
@@ -57,6 +60,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::~Light()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveLightComponent(this);
     }
 
     /**************************************************************************/
@@ -66,6 +70,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Light::Initialize()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
     }
 
   }
