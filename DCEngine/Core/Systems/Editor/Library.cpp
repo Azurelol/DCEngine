@@ -24,17 +24,17 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowLibrary()
     {
-      if (!WidgetLibraryEnabled)
+      if (!Windows.LibraryEnabled)
         return;
       
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Library", &WidgetLibraryEnabled);
+      ImGui::Begin("Library", &Windows.LibraryEnabled);
       
       if (ImGui::TreeNode("Archetype")) {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
             Select(archetype.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
             CreateFromArchetype(std::string(SelectedObject()->Name()));
@@ -49,7 +49,7 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllBanks()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -60,7 +60,7 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -71,13 +71,13 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayerOrders()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Edit the selected SpriteLayerOrder
             DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
             SelectedSpriteLayerOrder = resource.second;
-            WindowSpriteLayerOrderEditorEnabled = true;
+            Windows.SpriteLayerOrderEditorEnabled = true;
             break;
           }
 
@@ -90,7 +90,7 @@ namespace DCEngine {
         for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
           if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
             Select(spriteSrc.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -99,7 +99,7 @@ namespace DCEngine {
         for (auto& font : *Daisy->getSystem<Content>()->AllFonts()) {
           if (ImGui::Selectable(font.second->Name().c_str())) {
             Select(font.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -109,7 +109,7 @@ namespace DCEngine {
         for (auto& soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
           if (ImGui::Selectable(soundCue.second->Name().c_str())) {
             Select(soundCue.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -119,7 +119,7 @@ namespace DCEngine {
         for (auto& shader : *Daisy->getSystem<Content>()->AllShaders()) {
           if (ImGui::Selectable(shader.second->Name().c_str())) {
             Select(shader.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -130,7 +130,7 @@ namespace DCEngine {
           auto levelName = level.second->Name().c_str();
           if (ImGui::Selectable(levelName) ) {
             Select(level.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Load the selected level
@@ -149,7 +149,7 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionGroups()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -160,13 +160,13 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionTables()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Edit the selected collision table
             DCTrace << "Editor::WidgetLibrary - Editing: " << resource.second->Name() << "\n";
             SelectedCollisionTable = resource.second.get();
-            WindowCollisionTableEditorEnabled = true;
+            Windows.CollisionTableEditorEnabled = true;
             break;
           }
 
@@ -180,7 +180,7 @@ namespace DCEngine {
         for (auto& resource : *Daisy->getSystem<Content>()->AllPhysicsMaterials()) {
           if (ImGui::Selectable(resource.second->Name().c_str())) {
             Select(resource.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();
@@ -192,7 +192,7 @@ namespace DCEngine {
         for (auto& script : *Daisy->getSystem<Content>()->AllZilchScripts()) {
           if (ImGui::Selectable(script.second->Name().c_str())) {
             Select(script.second.get());
-            WindowPropertiesEnabled = true;
+            Windows.PropertiesEnabled = true;
           }
         }
         ImGui::TreePop();

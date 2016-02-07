@@ -7,33 +7,32 @@ namespace DCEngine {
   namespace Systems {
 
     //EditorTool::EditorTool()
-    EditorTool::EditorTool(Systems::Editor & editor) : Editor(editor)
-    {
-    }
+    //EditorTool::EditorTool(Systems::Editor & editor) : EditorRef(editor)
+    //{
+    //}
 
-    ObjectPtr EditorTool::SelectedObject()
+    //ObjectPtr EditorTool::SelectedObject()
+    //{
+    //  return EditorRef.SelectedObject();
+    //}
 
-    {
-      return Editor.SelectedObject();
-    }
 
-
-    /**************************************************************************/
-    /*!
-    @brief  Checks if the object is a valid selectable GameObject. That is,
-    one with an active transform component.
-    @param  object An Object*
-    */
-    /**************************************************************************/
-    GameObjectPtr EditorTool::IsSelectable(ObjectPtr object)
-    {
-      if (auto gameObject = dynamic_cast<GameObjectPtr>(object)) {
-        if (gameObject->HasComponent(std::string("Transform"))) {
-          return gameObject;
-        }
-      }
-      return nullptr;
-    }
+    ///**************************************************************************/
+    ///*!
+    //@brief  Checks if the object is a valid selectable GameObject. That is,
+    //one with an active transform component.
+    //@param  object An Object*
+    //*/
+    ///**************************************************************************/
+    //GameObjectPtr EditorTool::IsSelectable(ObjectPtr object)
+    //{
+    //  if (auto gameObject = dynamic_cast<GameObjectPtr>(object)) {
+    //    if (gameObject->HasComponent(std::string("Transform"))) {
+    //      return gameObject;
+    //    }
+    //  }
+    //  return nullptr;
+    //}
 
   }
 }

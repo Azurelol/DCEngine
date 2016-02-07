@@ -30,9 +30,11 @@ namespace DCEngine {
         // Look for an object that matches the translation
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);        
+
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-          UseTool(gameObject, event->Position);
+          //UseTool(gameObject, event->Position);
         }            
+
         // If an object was found at that position, select it
         if (gameObject)
           SelectObjectFromSpace(gameObject);
@@ -40,7 +42,7 @@ namespace DCEngine {
         // and attempt to select multiple objects
         else if (!IsToolRegion(gameObject)) {
           Deselect();
-          Settings.MultiSelectDragging = true;
+          Selection.MultiSelectDragging = true;
           Selection.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
           SelectMultiple(event->Position);
         }
@@ -64,17 +66,15 @@ namespace DCEngine {
     {
       if (!Settings.EditorEnabled)
         return;
-
-      ReleaseTool();
-
+      
       // Stop panning
       if (Settings.Panning)
         Settings.Panning = false;
 
       // Stop dragging for multiple selection
-      if (Settings.MultiSelectDragging) {
+      if (Selection.MultiSelectDragging) {
         CalculateSelectionBounding();
-        Settings.MultiSelectDragging = false;
+        Selection.MultiSelectDragging = false;
       }
     }
 
@@ -89,8 +89,6 @@ namespace DCEngine {
       SelectMultiple(event->ScreenPosition);
       PanCamera(event->ScreenPosition);
       DragObject(event->ScreenPosition);
-      RotateObject(event->ScreenPosition);
-      ScaleObject(event->ScreenPosition);
 
       CalculateSelectionBounding();
 
@@ -121,7 +119,7 @@ namespace DCEngine {
         break;
 
       case Keys::Tilde:
-        WindowConsoleEnabled = !WindowConsoleEnabled;
+        Windows.ConsoleEnabled = !Windows.ConsoleEnabled;
         break;
 
       case Keys::Z:
@@ -165,7 +163,7 @@ namespace DCEngine {
 
       case Keys::N:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
-          WindowAddResourceEnabled = true;
+          Windows.AddResourceEnabled = true;
         break;
 
       case Keys::F5:        
@@ -173,11 +171,11 @@ namespace DCEngine {
         break;
 
       case Keys::F4:
-        WindowDiagnosticsEnabled = !WindowDiagnosticsEnabled;
+        Windows.DiagnosticsEnabled = !Windows.DiagnosticsEnabled;
         break;
 
       case Keys::Tab:
-        WindowToolsEnabled = !WindowToolsEnabled;
+        Windows.ToolsEnabled = !Windows.ToolsEnabled;
         break;
 
       case Keys::Num1:
@@ -214,22 +212,18 @@ namespace DCEngine {
 
       case Keys::Up:
         MoveObject(Vec3(0, Settings.SnapDistance, 0));
-        ScaleObject(Vec3(0, Settings.SnapDistance, 0));
         break;
 
       case Keys::Down:
         MoveObject(Vec3(0, -Settings.SnapDistance, 0));
-        ScaleObject(Vec3(0, -Settings.SnapDistance, 0));
         break;
 
       case Keys::Left:
         MoveObject(Vec3(-Settings.SnapDistance, 0,0));
-        ScaleObject(Vec3(-Settings.SnapDistance, 0, 0));
         break;
 
       case Keys::Right:
         MoveObject(Vec3(Settings.SnapDistance, 0, 0));
-        ScaleObject(Vec3(Settings.SnapDistance, 0, 0));
         break;
 
       default:

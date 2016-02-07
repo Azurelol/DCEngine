@@ -88,8 +88,8 @@ namespace DCEngine {
       //DisplayTool();      
 
       // If there's an active tool, display it
-      if (this->ActiveTool)
-        ActiveTool->Display();
+      //if (this->ActiveTool)
+      //  ActiveTool->Display();
       
     }
 
@@ -149,8 +149,8 @@ namespace DCEngine {
         // Reload the level
         ReloadLevel();
         // Toggle the widgets
-        WidgetLibraryEnabled = true;
-        WidgetObjectsEnabled = true;
+        Windows.LibraryEnabled = true;
+        Windows.ObjectsEnabled = true;
       }
       // Editor OFF
       else {
@@ -194,6 +194,17 @@ namespace DCEngine {
 
       //ActiveTool.reset();
       //ActiveTool = tool;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Checks whether the object falls within the boundary of the currently
+           active tool.
+    */
+    /**************************************************************************/
+    bool Editor::IsToolRegion(GameObjectPtr)
+    {
+      return false;
     }
 
     /**************************************************************************/

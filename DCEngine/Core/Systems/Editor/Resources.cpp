@@ -26,11 +26,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowAddResource()
     {
-      if (!WindowAddResourceEnabled)
+      if (!Windows.AddResourceEnabled)
         return;
             
         ImGui::SetNextWindowSize(ImVec2(300, 500), ImGuiWindowFlags_AlwaysAutoResize);
-        ImGui::Begin("Add a Resource", &WindowAddResourceEnabled);
+        ImGui::Begin("Add a Resource", &Windows.AddResourceEnabled);
 
         static char resourceName[32];
         // Resource Selection
@@ -108,7 +108,7 @@ namespace DCEngine {
         }
         ImGui::SameLine();
         if (ImGui::Button("Cancel")) {
-          WindowAddResourceEnabled = false;
+          Windows.AddResourceEnabled = false;
         }
 
         ImGui::End();

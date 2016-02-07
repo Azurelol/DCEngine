@@ -47,6 +47,7 @@ namespace DCEngine {
 
     private:
 
+      // Tools
       enum class EditorTools {
         None,
         Translate,
@@ -54,57 +55,36 @@ namespace DCEngine {
         Scale,
         Tilemap,
       };
-
-      ObjectContainer SelectedObjects;
-      // Tools
-      //TransformToolPtr TransformTool;
-      EditorToolPtr ActiveTool;
       void SwitchTool(EditorTools tool);
-      // Tools
-      void DrawSelection();
-      void UseTool(GameObjectPtr gameObject, Vec2& position);
-      void ReleaseTool();
+      EditorTools ActiveTool;
       bool IsToolRegion(GameObjectPtr);
+
+      //TransformToolPtr TransformTool;
+      //EditorToolPtr ActiveTool;
+      
+      // Selection
+      void DrawSelection();
+      void DrawTranslateTool();
+      void DrawRotateTool();
+      void DrawScaleTool();
+      ObjectContainer SelectedObjects;
+      void MoveObject(const Vec3&);
       void DragObject(Vec2&);
-      void RotateObject(Vec2&);
-      void ScaleObject(Vec2&);
       void ReleaseObject();
 
-      // Actions
-      void MoveObject(Vec3);
-      void ScaleObject(Vec3);
-
-      /////////////////
-      //  Settings 
-      ////////////////
+      // Settings
       EditorConfig Settings;
-      TransformToolData TransformData;
-      void setEnabled(bool);
-      std::string RecentProject;
-      bool WidgetMenuBarEnabled = false;
-      bool WidgetLevelEnabled = false;
-      bool WindowAddResourceEnabled = false;
-      bool WidgetObjectsEnabled = false;
-      bool WindowPropertiesEnabled = false;
-      bool WidgetLibraryEnabled = false;
-      bool WindowDiagnosticsEnabled = false;
-      bool WindowSaveLevelEnabled = false;
-      bool WindowLoadLevelEnabled = false;
-      bool WindowConsoleEnabled = false;
-      bool WindowToolsEnabled = false;
-      bool WindowCreateFromArchetypeEnabled = false;
-      bool WindowCollisionTableEditorEnabled = false;
-      bool WindowSpriteLayerOrderEditorEnabled = false;
-      bool WindowCommandsEnabled = false;
+      EditorWindows Windows;
+      TransformToolData Transformation;
+
+      // Objects
+      SpacePtr CurrentSpace;
       SystemPtr ReflectionSystem;
-      Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
       //GameObjectPtr TransformTool = nullptr;
-      Vec2 ViewportResize = Vec2(0.75, 0.75);
-
-      /////////////////
-      //  Methods 
-      ////////////////
+      
+      // Editor
+      void setEnabled(bool);
       void DisplayEditor();
       // Windows
       void DisplayMainMenuBar();

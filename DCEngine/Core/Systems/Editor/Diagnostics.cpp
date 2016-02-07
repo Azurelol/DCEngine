@@ -29,11 +29,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowDiagnostics()
     {
-      if (!WindowDiagnosticsEnabled)
+      if (!Windows.DiagnosticsEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Diagnostics", &WindowDiagnosticsEnabled);
+      ImGui::Begin("Diagnostics", &Windows.DiagnosticsEnabled);
 
       if (ImGui::TreeNode("GameObjects")) {        
         DiagnosticsGameObjects();

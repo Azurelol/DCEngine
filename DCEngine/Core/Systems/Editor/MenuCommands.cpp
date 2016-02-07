@@ -31,11 +31,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowCommands()
     {
-      if (!WindowCommandsEnabled)
+      if (!Windows.CommandsEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Commands", &WindowCommandsEnabled);
+      ImGui::Begin("Commands", &Windows.CommandsEnabled);
 
       ImGui::TextColored(ImVec4(1, 0, 0, 1), "Current");
       for (auto& command : Settings.Commands.CommandsCurrent) {
@@ -180,7 +180,7 @@ namespace DCEngine {
       }
 
       // Turn off the Properties window
-      WindowPropertiesEnabled = false;
+      Windows.PropertiesEnabled = false;
     }
 
     /**************************************************************************/

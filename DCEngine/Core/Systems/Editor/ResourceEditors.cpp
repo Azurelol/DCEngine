@@ -20,11 +20,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowCollisionTableEditor()
     {
-      if (!WindowCollisionTableEditorEnabled)
+      if (!Windows.CollisionTableEditorEnabled)
         return;
 
       std::string title = "CollisionTable Editor - " + SelectedCollisionTable->Name();
-      ImGui::Begin(title.c_str(), &WindowCollisionTableEditorEnabled);
+      ImGui::Begin(title.c_str(), &Windows.CollisionTableEditorEnabled);
       
       // Create an array from all available collision groups (so that we have random access)
       std::vector<CollisionGroupPtr> groups;
@@ -53,12 +53,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowSpriteLayerOrderEditor()
     {
-      if (!WindowSpriteLayerOrderEditorEnabled)
+      if (!Windows.SpriteLayerOrderEditorEnabled)
         return;
 
       std::string title = "SpriteLayerOrder Editor - " + SelectedSpriteLayerOrder->Name();
       ImGui::SetNextWindowSize(ImVec2(400, 200));
-      ImGui::Begin(title.c_str(), &WindowSpriteLayerOrderEditorEnabled, ImGuiSetCond_FirstUseEver);
+      ImGui::Begin(title.c_str(), &Windows.SpriteLayerOrderEditorEnabled, ImGuiSetCond_FirstUseEver);
 
 
       // Display all present SpriteLayers

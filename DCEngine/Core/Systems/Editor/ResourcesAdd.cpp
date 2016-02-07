@@ -64,7 +64,7 @@ namespace DCEngine {
       }
 
       // Close the "Add Resource" window if the resource was successfully created.
-      WindowAddResourceEnabled = false;
+      Windows.AddResourceEnabled = false;
 
     }
 
@@ -126,7 +126,7 @@ namespace DCEngine {
       }
 
       // Close the "Add Resource" window if the resource was successfully created.
-      WindowAddResourceEnabled = false;
+      Windows.AddResourceEnabled = false;
 
     }
 

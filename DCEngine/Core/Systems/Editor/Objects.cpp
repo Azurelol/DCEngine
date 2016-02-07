@@ -23,13 +23,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowObjects()
     {
-      if (!WidgetObjectsEnabled)
+      if (!Windows.ObjectsEnabled)
         return;
 
       // Set the position of the window
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
       // Title
-      ImGui::Begin("Objects", &WidgetObjectsEnabled);
+      ImGui::Begin("Objects", &Windows.ObjectsEnabled);
       
       ImGui::SameLine();
       if (ImGui::Button("Up")) {
@@ -60,7 +60,7 @@ namespace DCEngine {
 
         if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
           SelectObject(object);
-          WindowPropertiesEnabled = true;
+          Windows.PropertiesEnabled = true;
         }
         ImGui::PopID();
       }

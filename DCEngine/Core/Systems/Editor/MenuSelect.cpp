@@ -106,7 +106,7 @@ namespace DCEngine {
     void Editor::SelectObject(GameObject* obj)
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       
       // Save its boundaries
       Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
@@ -181,7 +181,7 @@ namespace DCEngine {
     void Editor::SelectSpace()
     {
       Select(CurrentSpace);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
     }
 
     /**************************************************************************/
@@ -211,7 +211,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectMultiple(Vec2 & mousePosition)
     {
-      if (!Settings.MultiSelectDragging)
+      if (!Selection.MultiSelectDragging)
         return;
       
       // Get the current mouse position.
@@ -247,12 +247,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DrawMultiSelect()
     {
-      if (!Settings.MultiSelectDragging)
+      if (!Selection.MultiSelectDragging)
         return;
 
       // Draw the bounding rectangle
       CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
-        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Settings.MultiSelectColor);
+        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Selection.MultiSelectColor);
     }
 
 

@@ -27,11 +27,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowProperties()
     {
-      if (!WindowPropertiesEnabled)
+      if (!Windows.PropertiesEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Properties", &WindowPropertiesEnabled);
+      ImGui::Begin("Properties", &Windows.PropertiesEnabled);
 
       // If there's an object selected, display its properties.
       if (SelectedObject() != nullptr) {

@@ -105,11 +105,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowSaveLevel()
     {
-      if (!WindowSaveLevelEnabled)
+      if (!Windows.SaveLevelEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Save Level", &WindowSaveLevelEnabled);
+      ImGui::Begin("Save Level", &Windows.SaveLevelEnabled);
 
       // Query the Content system for the current list of levels
       static bool ScannedForLevels;
@@ -143,7 +143,7 @@ namespace DCEngine {
         else {
             DCTrace << "Editor::WindowSaveLevel - Saving new level! \n";
             SaveLevel(filename);
-            WindowSaveLevelEnabled = false;
+            Windows.SaveLevelEnabled = false;
             ScannedForLevels = false;
           }
         }
@@ -157,7 +157,7 @@ namespace DCEngine {
         if (ImGui::Button("OK", ImVec2(120, 0))) {
           DCTrace << "Editor::WindowSaveLevel - Overwriting level! \n";
           SaveLevel(filename);
-          WindowSaveLevelEnabled = false;
+          Windows.SaveLevelEnabled = false;
           ScannedForLevels = false;
           ImGui::CloseCurrentPopup();
         }
@@ -173,7 +173,7 @@ namespace DCEngine {
         // Button: Cancel
         ImGui::SameLine();
         if (ImGui::Button("Cancel")) {
-          WindowSaveLevelEnabled = false;
+          Windows.SaveLevelEnabled = false;
           ScannedForLevels = false;
         }
 
@@ -189,12 +189,12 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowLoadLevel()
     {
-      if (!WindowLoadLevelEnabled)
+      if (!Windows.LoadLevelEnabled)
         return;
 
       
       ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiWindowFlags_AlwaysAutoResize);
-      ImGui::Begin("Load Level", &WindowLoadLevelEnabled);
+      ImGui::Begin("Load Level", &Windows.LoadLevelEnabled);
            
       // Request the content system to scan for levels everytime the window is opened
       static bool ScannedForLevels;
@@ -220,14 +220,14 @@ namespace DCEngine {
       // Load the selected level
       if (ImGui::Button("Load")) {
         LoadLevel(filename);
-        WindowLoadLevelEnabled = !WindowLoadLevelEnabled;
+        Windows.LoadLevelEnabled = !Windows.LoadLevelEnabled;
         ScannedForLevels = false;
       }
       ImGui::SameLine();  
 
       // Close the window
       if (ImGui::Button("Cancel")) {
-        WindowLoadLevelEnabled = !WindowLoadLevelEnabled;
+        Windows.LoadLevelEnabled = !Windows.LoadLevelEnabled;
         ScannedForLevels = false;
       }
       ImGui::End();

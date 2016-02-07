@@ -79,18 +79,133 @@ namespace DCEngine {
                                                0.0f);
 
       // Calculate the endpoints of the 3 axes boundaries
-      TransformData.XAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(TransformData.Radius, 0, 0);
-      TransformData.YAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(0, TransformData.Radius, 0);
-      TransformData.ZAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(0, 0, TransformData.Radius);
+      Transformation.XAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(Transformation.Radius, 0, 0);
+      Transformation.YAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(0, Transformation.Radius, 0);
+      Transformation.ZAxisBoundaryEnd = Selection.SelectedBoundingCenter + Vec3(0, 0, Transformation.Radius);
       // Calculate the midpoints of the 3 axes boundaries
-      TransformData.XAxisMidpoint = Vec3((Selection.SelectedBoundingCenter.x + TransformData.XAxisBoundaryEnd.x) / 2,
-                                         (Selection.SelectedBoundingCenter.y + TransformData.XAxisBoundaryEnd.y) / 2,
-                                         (Selection.SelectedBoundingCenter.z + TransformData.XAxisBoundaryEnd.z) / 2);
-      TransformData.YAxisMidpoint = Vec3((Selection.SelectedBoundingCenter.x + TransformData.YAxisBoundaryEnd.x) / 2,
-                                         (Selection.SelectedBoundingCenter.y + TransformData.YAxisBoundaryEnd.y) / 2,
-                                         (Selection.SelectedBoundingCenter.z + TransformData.YAxisBoundaryEnd.z) / 2);
+      Transformation.XAxisMidpoint = Vec3((Selection.SelectedBoundingCenter.x + Transformation.XAxisBoundaryEnd.x) / 2,
+                                         (Selection.SelectedBoundingCenter.y + Transformation.XAxisBoundaryEnd.y) / 2,
+                                         (Selection.SelectedBoundingCenter.z + Transformation.XAxisBoundaryEnd.z) / 2);
+      Transformation.YAxisMidpoint = Vec3((Selection.SelectedBoundingCenter.x + Transformation.YAxisBoundaryEnd.x) / 2,
+                                         (Selection.SelectedBoundingCenter.y + Transformation.YAxisBoundaryEnd.y) / 2,
+                                         (Selection.SelectedBoundingCenter.z + Transformation.YAxisBoundaryEnd.z) / 2);
 
     }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Drags the object
+    @param  The mouse's current position.
+    */
+    /**************************************************************************/
+    void Editor::DragObject(Vec2& pos)
+    {
+      // Only drag GameObjects in the Space while in translate mode
+      if (ActiveTool != EditorTools::Translate)
+        return;
+
+      // If the mouse is currently being dragged
+      if (Transformation.Dragging) {
+        //DCTrace << "Dragging! \n ";
+        // If the selected object is a GameObject on the space
+        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject())) {
+          // Calculate the current mouse position
+          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
+          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
+          // Move the object
+          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x,
+            mousePos.y,
+            gameObject->getComponent<Components::Transform>()->getTranslation().z));
+        }
+      }
+      if (Transformation.DraggingX) {
+        //DCTrace << "Dragging! \n ";
+        // If the selected object is a GameObject on the space
+        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject())) {
+          // Calculate the current mouse position
+          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
+          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
+          // Move the object
+          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(mousePos.x - Transformation.DragOffset,
+            gameObject->getComponent<Components::Transform>()->getTranslation().y,
+            gameObject->getComponent<Components::Transform>()->getTranslation().z));
+        }
+      }
+      if (Transformation.DraggingY) {
+        //DCTrace << "Dragging! \n ";
+        // If the selected object is a GameObject on the space
+        if (auto gameObject = dynamic_cast<GameObject*>(SelectedObject())) {
+          // Calculate the current mouse position
+          auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos);
+          //auto mvtScale = EditorCamera->getComponent<Components::Camera>()->TransformComponent->getTranslation().z;
+          // Move the object
+          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(gameObject->getComponent<Components::Transform>()->getTranslation().x,
+            mousePos.y - Transformation.DragOffset,
+            gameObject->getComponent<Components::Transform>()->getTranslation().z));
+        }
+      }
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Moves an object by translation by the specified direction vector.
+    @param  direction A vector.
+    */
+    /**************************************************************************/
+    void Editor::MoveObject(const Vec3& direction)
+    {
+      if (!SelectedObject())
+        return;
+
+      // If the first entry is at least a valid GameObject, the rest will be....
+      if (IsSelectableGameObject(SelectedObject())) {
+        // For every currently selected GameObject
+        for (auto& object : SelectedObjects) {
+          auto gameObject = IsSelectableGameObject(object);
+
+          DCTrace << "EditorRef::MoveObject - Moving '" << SelectedObject()->Name() << "' \n";
+          // Get the object's transform data
+          auto transform = gameObject->getComponent<Components::Transform>();
+          Vec3 pos = transform->getTranslation();
+          // Translate the object
+          auto TransCommand = new CommandObjectTransform(transform);
+          transform->setTranslation(pos + direction);
+          TransCommand->SaveNew(transform);
+          auto command = CommandPtr(TransCommand);
+          Add(command);
+
+        }
+      }
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Releases the selected object at the current dragged position.
+    */
+    /**************************************************************************/
+    void Editor::ReleaseObject()
+    {
+      if (!SelectedObject())
+        return;
+
+      if (Transformation.Dragging || Transformation.DraggingX || Transformation.DraggingY) {
+
+        // Snap the object to the nearest (x,y) snapDistance      
+        if (Settings.Snapping) {
+          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->getTranslation();
+          auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
+          dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
+
+          DCTrace << "EditorRef::ReleaseObject - Releasing '" << SelectedObject()->getObjectName() << "' at: \n"
+            << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";
+        }
+      }
+    }
+
+
 
 
 

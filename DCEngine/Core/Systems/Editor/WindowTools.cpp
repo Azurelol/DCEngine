@@ -18,11 +18,11 @@ namespace DCEngine {
     
     void Editor::WindowTools()
     {
-      if (!WindowToolsEnabled)
+      if (!Windows.ToolsEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(300, 200), ImGuiWindowFlags_AlwaysAutoResize);
-      ImGui::Begin("Tools", &WindowToolsEnabled);
+      ImGui::Begin("Tools", &Windows.ToolsEnabled);
       // The console needs to read the DCTrace lines while active.
       // Or it could read the log file?
 
@@ -49,18 +49,15 @@ namespace DCEngine {
 
       ImGui::SameLine();
       if (ImGui::Button("Translate")) {
-        ActiveTool = TransformTool;
-        TransformTool->ActiveMode = EditorToolTransform::Mode::Translate;
+        SwitchTool(EditorTools::Translate);
       }
       ImGui::SameLine();
       if (ImGui::Button("Rotate")) {
-        ActiveTool = TransformTool;
-        TransformTool->ActiveMode = EditorToolTransform::Mode::Rotate;
+        SwitchTool(EditorTools::Rotate);
       }
       ImGui::SameLine();
       if (ImGui::Button("Scale")) {
-        ActiveTool = TransformTool;
-        TransformTool->ActiveMode = EditorToolTransform::Mode::Scale;
+        SwitchTool(EditorTools::Scale);
       }
       //if (ImGui::Button()
       //

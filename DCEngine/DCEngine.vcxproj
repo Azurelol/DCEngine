@@ -312,7 +312,7 @@
     <ClCompile Include="Core\Components\SpriteText.cpp" />
     <ClCompile Include="Core\Components\TimeSpace.cpp" />
     <ClCompile Include="Core\Components\Transform.cpp" />
-    <ClCompile Include="Core\Components\TransformTool.cpp" />
+    <ClCompile Include="Core\Components\TransformToolComponent.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
     <ClCompile Include="Core\Engine\ActionSet.cpp" />
@@ -476,7 +476,7 @@
     <ClInclude Include="Core\Components\EditorCameraController.h" />
     <ClInclude Include="Core\Components\Graphical.h" />
     <ClInclude Include="Core\Components\Light.h" />
-    <ClInclude Include="Core\Components\TransformTool.h" />
+    <ClInclude Include="Core\Components\TransformToolComponent.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
     <ClInclude Include="Core\Components\ParticleEmitter.h" />
     <ClInclude Include="Core\Components\Camera.h" />
@@ -578,6 +578,7 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorWindow.h" />
     <ClInclude Include="Core\Systems\Editor\ResourceEditor.h" />
     <ClInclude Include="Core\Systems\Editor\Selector.h" />
     <ClInclude Include="Core\Systems\Editor\TransformTool.h" />
@@ -647,6 +648,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Core\Debug\CallStackResearch.txt" />
+    <Text Include="Core\Systems\Editor\ToolsDeprecated.txt" />
     <Text Include="Core\Systems\Physics\PhysicsNotes.txt" />
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>

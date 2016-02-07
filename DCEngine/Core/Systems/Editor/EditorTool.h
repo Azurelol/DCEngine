@@ -15,26 +15,27 @@
 
 namespace DCEngine {
   namespace Systems {
+    
+    //class Editor;
+    //   
+    //class EditorTool {
+    //public:
+    //  EditorTool(Editor& editor);
+    //  ObjectPtr SelectedObject();
+    //  GameObjectPtr IsSelectable(ObjectPtr);
+    //  virtual void Display() = 0;
+    //  virtual bool WithinRegion(const Vec3&) = 0;
 
-    class Editor;
-    class EditorTool {
-    public:
-      EditorTool(Editor& editor);
-      ObjectPtr SelectedObject();
-      GameObjectPtr IsSelectable(ObjectPtr);
-      virtual void Display() = 0;
-      virtual bool WithinRegion(const Vec3&) = 0;
+    //protected:
 
-    protected:
+    //  bool Snapping;
 
-      bool Snapping;
+    //  // References
+    //  Editor& EditorRef;
+    //  SpacePtr CurrentSpace;
 
-      // References
-      Editor& Editor;
-      SpacePtr CurrentSpace;
-
-    };
-    using EditorToolPtr = std::shared_ptr<EditorTool>;
+    //};
+    //using EditorToolPtr = std::shared_ptr<EditorTool>;
 
   }
 }
