@@ -74,11 +74,11 @@ void main()
   {
     Tmpcolor = vec4(spriteColor);
   }
-
-	vec3 lightValue = GenerateIlluminationValues();
   if(Tmpcolor.a < 0.1)
     discard;
 
+	vec3 lightValue = GenerateIlluminationValues();
+	clamp(lightValue, 0, 1);
   color = vec4(
 	Tmpcolor.x * lightValue.x,
 	Tmpcolor.y * lightValue.y,
