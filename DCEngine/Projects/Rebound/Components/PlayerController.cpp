@@ -49,6 +49,11 @@ namespace DCEngine {
       SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
 	  
 	 // ColliderRef->	 
+	  auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
+	  CollisionTableRef->AddGroup("Player");
+	  auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+	  ColliderRef->setCollisionGroup("Player");
+	  RigidBodyRef->setGravity(false);
     }
 
     void PlayerController::Serialize(Json::Value & root)

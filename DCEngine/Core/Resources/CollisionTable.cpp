@@ -68,7 +68,7 @@ namespace DCEngine
   {
     for (auto &Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+      if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair;
       }
@@ -135,7 +135,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionFlag = state;
         return true;
@@ -151,7 +151,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionFlag;
       }
@@ -167,7 +167,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionStartBlock = state;
         return true;
@@ -183,7 +183,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionStartBlock;
       }
@@ -198,7 +198,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionEndBlock = state;
         return true;
@@ -214,7 +214,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionEndBlock;
       }
@@ -229,7 +229,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.PreSolveBlock = state;
         return true;
@@ -245,7 +245,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.PreSolveBlock;
       }
