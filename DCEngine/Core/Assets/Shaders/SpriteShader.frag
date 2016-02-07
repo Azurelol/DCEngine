@@ -37,8 +37,8 @@ out vec4 color;
 float distance(vec2 pointA, vec2 pointB)
 {
 	float a = pointB.x - pointA.x;
-	float b = pointB.y = pointA.y;
-	return sqrt(a * a + b * b);
+	float b = pointB.y - pointA.y;
+	return sqrt((a * a) + (b * b));
 }
 
 vec3 GenerateIlluminationValues(void)
@@ -51,11 +51,13 @@ vec3 GenerateIlluminationValues(void)
 		if(distance <= Lights[i].Range)
 		{
 			if(Lights[i].Falloff > 0)
-				diffI = (distance/Lights[i].Range) * (Lights[i].Falloff);
+				diffI = (1 - distance/Lights[i].Range) * (1 - Lights[i].Falloff);
 			else
-				diffI = 0;
+				diffI = 1;
 		}
-		coefficients += Lights[i].Color.xyz * diffI * Lights[i].Intensity;
+		coefficients.x += Lights[i].Color.x * diffI * Lights[i].Intensity;
+		coefficients.y += Lights[i].Color.y * diffI * Lights[i].Intensity;
+		coefficients.z += Lights[i].Color.z * diffI * Lights[i].Intensity;
 	}
 	return coefficients;
 }
@@ -77,5 +79,9 @@ void main()
   if(Tmpcolor.a < 0.1)
     discard;
 
-  color = vec4(Tmpcolor.x * lightValue.x, Tmpcolor.y * lightValue.y, Tmpcolor.z * lightValue.z, Tmpcolor.w);
+  color = vec4(
+	Tmpcolor.x * lightValue.x,
+	Tmpcolor.y * lightValue.y,
+	Tmpcolor.z * lightValue.z,
+	Tmpcolor.w);
 }
