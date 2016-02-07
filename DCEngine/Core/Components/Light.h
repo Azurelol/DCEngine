@@ -13,14 +13,16 @@
 #include "ComponentReference.h"
 
 namespace DCEngine {
-  namespace Components {
 
-    enum class LightType {
-      Point,
-      Spot,
-      Directional,
-      Box
-    };
+  enum class LightType {
+    Point,
+    Spot,
+    Ambient,
+    Directional,
+    Box
+  };
+
+  namespace Components {
 
     class Light : public Component {
     public:
@@ -37,7 +39,9 @@ namespace DCEngine {
       // If the object is rendered to shadow maps
       DCE_DEFINE_PROPERTY(bool, CastShadows);
       // The type of the light (Point, Spot, Directional, etc...)
-			DCE_DEFINE_PROPERTY(int, Type);
+      DCE_DEFINE_PROPERTY(LightType, Type);
+      int getTypeAsInt();
+      //DCE_DEFINE_PROPERTY(int, Type);
 
       // The color of the light.
       DCE_DEFINE_PROPERTY(Vec4, Color);
@@ -63,7 +67,8 @@ namespace DCEngine {
       bool VisibilityCulling;
       bool VisibilityEvents; 
       bool CastShadows;
-      int Type;
+      LightType Type;
+      //int Type;
       Vec4 Color;
       float Intensity;
       float Range;
@@ -76,3 +81,5 @@ namespace DCEngine {
 
   }
 }
+
+ZilchDeclareExternalBaseType(DCEngine::LightType, Zilch::TypeCopyMode::ValueType);

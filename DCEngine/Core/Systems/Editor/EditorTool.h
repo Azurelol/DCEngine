@@ -16,13 +16,13 @@
 namespace DCEngine {
   namespace Systems {
 
-    class Editor;    //   
+    class Editor;
 
-                     /**************************************************************************/
-                     /*!
-                     @class EditorTool The base class from which all editor tools derive from.
-                     */
-                     /**************************************************************************/
+    /**************************************************************************/
+    /*!
+    @class EditorTool The base class from which all editor tools derive from.
+    */
+    /**************************************************************************/
     class EditorTool {
     public:
       //EditorTool();

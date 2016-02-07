@@ -365,7 +365,8 @@ namespace DCEngine {
 				var = sStream.str() + "CastShadows";
 				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getCastShadows());
 				var = sStream.str() + "LightType";
-				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getType());
+        SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getTypeAsInt());
+        //SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getType());
 				var = sStream.str() + "Color";
 				SpriteShader->SetVector4f(var.c_str(), lightComponents[i]->getColor());
 				var = sStream.str() + "Intensity";

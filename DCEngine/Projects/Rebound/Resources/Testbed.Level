@@ -179,8 +179,8 @@
             {
               "Vec3": 
               {
-                "x": 6.368066, 
-                "y": 9.031698, 
+                "x": 7.859198, 
+                "y": 8.793118, 
                 "z": 0.000000
               }
             }, 
@@ -237,7 +237,7 @@
             {
               "Vec3": 
               {
-                "x": -8.841477, 
+                "x": -14.477957, 
                 "y": 7.301975, 
                 "z": 0.000000
               }
@@ -255,8 +255,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 5.000000, 
+                "y": 5.000000, 
                 "z": 1.000000
               }
             }
@@ -325,7 +325,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Type": 0, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -365,8 +365,8 @@
             {
               "Vec3": 
               {
-                "x": -4.025104, 
-                "y": 2.590021, 
+                "x": -9.870343, 
+                "y": 4.975827, 
                 "z": 0.000000
               }
             }, 
@@ -395,7 +395,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Type": 0, 
+            "Type": "Spot", 
             "Color": 
             {
               "Vec4": 
@@ -407,19 +407,19 @@
               }
             }, 
             "Intensity": 0.700000, 
-            "Range": 6.199996, 
+            "Range": 6.299996, 
             "Falloff": 0.000000, 
             "DirectionVector": 
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 5.000000, 
+                "y": 5.000000, 
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
+            "InnerAngle": 45.000000, 
+            "OuterAngle": 103.499794
           }
         }
       }
