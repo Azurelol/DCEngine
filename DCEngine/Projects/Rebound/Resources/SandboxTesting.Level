@@ -252,10 +252,17 @@
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 5.000000, 
             "JumpStrengthX": 5.000000, 
             "JumpStrengthY": 25.000000, 
-            "JumpFrequency": 2.000000
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 0.500000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 1, 
+            "StartingHealth": 1
           }
         }
       }, 
@@ -1143,7 +1150,8 @@
                 "y": 4.000000, 
                 "z": 4.000000
               }
-            }
+            }, 
+            "Additive": false
           }, 
           "ParticleEmitter": 
           {

@@ -28,10 +28,12 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthX);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthY);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpFrequency);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpPeriod);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthX);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthY);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpPeriod);
     }
 #endif
 
@@ -44,13 +46,15 @@ namespace DCEngine {
     void Grunt::Initialize()
     {
       DCTrace << "Grunt Initialize\n";
-      auto gameObj = dynamic_cast<GameObject*>(Owner());
+      gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Grunt::OnLogicUpdateEvent);
+      Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
 
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); 
       RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-    
+      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+
       stateMachine = new StateMachine<Grunt>(this);
       startingPosition = TransformRef->Translation;
       endPosition = startingPosition;
@@ -79,6 +83,10 @@ namespace DCEngine {
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
+      if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        HealthRef->ModifyHealth(-1);
+      }
     }
 
     void Grunt::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -86,11 +94,11 @@ namespace DCEngine {
     }
 
     // Direction should be 1 (right) or -1 (left). 
-    void Grunt::Jump(int direction)
+    void Grunt::Jump(int direction, float period, float strengthX, float strengthY)
     {
-      if (jumpTimer > JumpFrequency)
+      if (jumpTimer > period)
       {
-        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(JumpStrengthX *  direction, JumpStrengthY, 0));
+        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(strengthX *  direction, strengthY, 0));
         jumpTimer = 0;
       }
 
@@ -98,10 +106,7 @@ namespace DCEngine {
     }
 
 #pragma region Global State
-    void Grunt::Global::Enter(Grunt *owner)
-    {
-
-    }
+    void Grunt::Global::Enter(Grunt *owner){}
 
     void Grunt::Global::Update(Grunt *owner)
     {
@@ -111,12 +116,12 @@ namespace DCEngine {
       
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());
+
+      if (owner->HealthRef->GetHealth() == 0)
+        owner->stateMachine->ChangeState(Die::Instance());
     }
 
-    void Grunt::Global::Exit(Grunt *owner)
-    {
-
-    }
+    void Grunt::Global::Exit(Grunt *owner){}
 
     Grunt::Global* Grunt::Global::Instance()
     {
@@ -128,7 +133,7 @@ namespace DCEngine {
 #pragma region Idle State
     void Grunt::Idle::Enter(Grunt *owner)
     {
-      DCTrace << "Grunt Idle Enter\n";
+      //DCTrace << "Grunt Idle Enter\n";
     }
 
     void Grunt::Idle::Update(Grunt *owner)
@@ -157,24 +162,27 @@ namespace DCEngine {
     void Grunt::PatrolRight::Enter(Grunt *owner)
     {
       owner->jumpTimer = 0;
-      DCTrace << "Grunt PatrolRight Enter\n";
-      DCTrace << "StartPosition: " << owner->startingPosition.x << ", " << owner->startingPosition.y << ", " << owner->startingPosition.z << "\n";
-      DCTrace << "EndPosition: " << owner->endPosition.x << ", " << owner->endPosition.y << ", " << owner->endPosition.z << "\n";
+      //DCTrace << "Grunt PatrolRight Enter\n";
     }
 
     void Grunt::PatrolRight::Update(Grunt *owner)
     {
       Vec3 ownerPosition = owner->TransformRef->Translation;
-      owner->Jump(1);
+      Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
+      owner->Jump(1, owner->JumpPeriod, owner->JumpStrengthX, owner->JumpStrengthY);
       
       if (owner->IsPatrolRight)
       {
-        if(ownerPosition.x > owner->endPosition.x)
+        if (playerPosition.x > owner->startingPosition.x && playerPosition.x < owner->endPosition.x)
+          owner->stateMachine->ChangeState(Attack::Instance());
+        else if(ownerPosition.x > owner->endPosition.x)
           owner->stateMachine->ChangeState(PatrolLeft::Instance());
       }
       else
       {
-        if(ownerPosition.x > owner->startingPosition.x)
+        if (playerPosition.x < owner->startingPosition.x && playerPosition.x > owner->endPosition.x)
+          owner->stateMachine->ChangeState(Attack::Instance());
+        else if(ownerPosition.x > owner->startingPosition.x)
           owner->stateMachine->ChangeState(PatrolLeft::Instance());
       }        
     }
@@ -194,24 +202,27 @@ namespace DCEngine {
 #pragma region Left State
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
-      DCTrace << "Grunt PatrolLeft Enter\n";
-      DCTrace << "StartPosition: " << owner->startingPosition.x << ", " << owner->startingPosition.y << ", " << owner->startingPosition.z << "\n";
-      DCTrace << "EndPosition: " << owner->endPosition.x << ", " << owner->endPosition.y << ", " << owner->endPosition.z << "\n";
+      //DCTrace << "Grunt PatrolLeft Enter\n";
     }
 
     void Grunt::PatrolLeft::Update(Grunt *owner)
     {
       Vec3 ownerPosition = owner->TransformRef->Translation;
-      owner->Jump(-1);
+      Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
+      owner->Jump(-1, owner->JumpPeriod, owner->JumpStrengthX, owner->JumpStrengthY);
 
       if (owner->IsPatrolRight)
       {
-        if (ownerPosition.x < owner->startingPosition.x)
+        if (playerPosition.x > owner->startingPosition.x && playerPosition.x < owner->endPosition.x)
+          owner->stateMachine->ChangeState(Attack::Instance());
+        else if (ownerPosition.x < owner->startingPosition.x)
           owner->stateMachine->ChangeState(PatrolRight::Instance());
       }
       else
       {
-        if (ownerPosition.x < owner->endPosition.x)
+        if (playerPosition.x < owner->startingPosition.x && playerPosition.x > owner->endPosition.x)
+          owner->stateMachine->ChangeState(Attack::Instance());
+        else if (ownerPosition.x < owner->endPosition.x)
           owner->stateMachine->ChangeState(PatrolRight::Instance());
       }
     }
@@ -231,12 +242,29 @@ namespace DCEngine {
 #pragma region Attack State
     void Grunt::Attack::Enter(Grunt *owner)
     {
-
+      //DCTrace << "Grunt Attack Enter\n";
     }
 
     void Grunt::Attack::Update(Grunt *owner)
     {
+      Vec3 ownerPosition = owner->TransformRef->Translation;
+      Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
+      Vec3 direction = playerPosition - ownerPosition;
+      if (direction.x < 0)
+        owner->Jump(-1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
+      else
+        owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
 
+      if (owner->IsPatrolRight)
+      {
+        if (playerPosition.x < owner->startingPosition.x || playerPosition.x > owner->endPosition.x)
+          owner->stateMachine->RevertToPreviousState();
+      }
+      else
+      {
+        if (playerPosition.x > owner->startingPosition.x || playerPosition.x < owner->endPosition.x)
+          owner->stateMachine->RevertToPreviousState();
+      }
     }
 
     void Grunt::Attack::Exit(Grunt *owner)
@@ -254,17 +282,24 @@ namespace DCEngine {
 #pragma region Die State
     void Grunt::Die::Enter(Grunt *owner)
     {
+      //DCTrace << "Grunt Die Enter\n";
 
+      owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+
+      // Death sound?
     }
 
     void Grunt::Die::Update(Grunt *owner)
     {
+      // Timer for death animation?
 
+      Exit(owner);
     }
 
     void Grunt::Die::Exit(Grunt *owner)
     {
-
+      // Destroy grunt
+      owner->gameObj->Destroy();
     }
 
     Grunt::Die* Grunt::Die::Instance()
