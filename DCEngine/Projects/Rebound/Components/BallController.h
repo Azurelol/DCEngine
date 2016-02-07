@@ -18,6 +18,7 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
+	//class CircleCollider;
     enum class ControlScheme { John, Connor };
     class BallController : public Component {
 
@@ -34,6 +35,8 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
+	  CollisionTablePtr CollisionTableRef;
+	  //CircleCollider* ColliderRef;
       Real CurrentCharge = 0.0f;
       Real MaxCharge = 2.0f;
       Real MinCharge = 0.5f;

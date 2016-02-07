@@ -42,7 +42,12 @@ namespace DCEngine {
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
       RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+	  //ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::CircleCollider>();
+	  CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
+	  CollisionTableRef->AddGroup("Ball");
+	  CollisionTableRef->AddGroup("Player");
       PlayerRef = SpaceRef->FindObjectByName(PlayerName);
+
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
@@ -229,6 +234,7 @@ namespace DCEngine {
         RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         SpriteRef->Color = NormalColor;
       }
+
       Vec3 CenteringVector = glm::normalize(PlayerRef->getComponent<Components::Transform>()->Translation - TransformRef->Translation);
 
       if (Locked)
