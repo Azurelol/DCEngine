@@ -77,8 +77,12 @@ void main()
   if(Tmpcolor.a < 0.1)
     discard;
 
-	vec3 lightValue = GenerateIlluminationValues();
-	clamp(lightValue, 0, 1);
+	vec3 lightValue = vec3(1.0);
+	if(numLights != 0)
+	{
+		lightValue = GenerateIlluminationValues();
+		clamp(lightValue, 0, 1);
+	}
   color = vec4(
 	Tmpcolor.x * lightValue.x,
 	Tmpcolor.y * lightValue.y,
