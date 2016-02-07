@@ -7,7 +7,7 @@
 layout (location = 0) in vec4 vertex; // <vec2 position, vec2 TexCoords>
 
 out vec2 TexCoords;
-out vec2 WorldCoords; 
+out vec3 WorldCoords; 
 
 //basic
 uniform mat4 model;
@@ -92,7 +92,7 @@ void main() {
     
   gl_Position = projection * view * model * vec4(vertex.xy, 0.0, 1.0);
 	vec4 temp = model * vec4(vertex.xy, 0.0, 1.0);
-	WorldCoords = temp.xy;
+	WorldCoords = temp.xyz;
 
   // Flipping the texture vertically, due to SOIL2 not providing this functionality... 
   //TexCoords = vec2(texCoords.x, 1.0 - texCoords.y);

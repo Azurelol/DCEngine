@@ -344,7 +344,17 @@ namespace DCEngine {
 			{
 				if (i >= 20)
 					break;
+				Components::Transform* lightTransform = lightComponents[i]->Owner()->getComponent<Components::Transform>();
 				std::stringstream sStream;
+				glm::mat4 modelMatrix;
+				modelMatrix = glm::translate(modelMatrix, glm::vec3(lightTransform->Translation.x,
+					lightTransform->Translation.y,
+					lightTransform->Translation.z));
+				modelMatrix = glm::rotate(modelMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+				//modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(lightTransform->Scale.x,
+					lightTransform->Scale.y, 0.0f));
+				
 				sStream << "Lights[" << i << "].";
 				var = sStream.str() + "Visible";
 				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getVisible());
@@ -354,8 +364,8 @@ namespace DCEngine {
 				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getVisibilityEvents());
 				var = sStream.str() + "CastShadows";
 				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getCastShadows());
-				//var = sStream.str() + "LightType";
-				//SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getLightType());
+				var = sStream.str() + "LightType";
+				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getType());
 				var = sStream.str() + "Color";
 				SpriteShader->SetVector4f(var.c_str(), lightComponents[i]->getColor());
 				var = sStream.str() + "Intensity";
@@ -364,12 +374,16 @@ namespace DCEngine {
 				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getRange());
 				var = sStream.str() + "Falloff";
 				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getFalloff());
-				var = sStream.str() + "Angle";
-				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getAngle());
-				var = sStream.str() + "Size";
-				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getSize());
+				var = sStream.str() + "Direction";
+				SpriteShader->SetVector3f(var.c_str(), lightComponents[i]->getDirectionVector());
+				var = sStream.str() + "InnerAngle";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getInnerAngle());
+				var = sStream.str() + "OuterAngle";
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getOuterAngle());
 				var = sStream.str() + "Position";
-				SpriteShader->SetVector3f(var.c_str(), lightComponents[i]->Owner()->getComponent<Components::Transform>()->Translation);
+				SpriteShader->SetVector3f(var.c_str(), lightTransform->Translation);
+				var = sStream.str() + "Model";
+				SpriteShader->SetMatrix4(var.c_str(), modelMatrix);
 			}
 			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.

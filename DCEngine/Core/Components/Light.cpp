@@ -31,6 +31,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityCulling);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityEvents);
       DCE_BINDING_DEFINE_PROPERTY(Light, CastShadows);
+			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       //DCE_BINDING_DEFINE_PROPERTY(Light, LightType);
 
@@ -38,8 +39,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);
       DCE_BINDING_DEFINE_PROPERTY(Light, Falloff);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Angle);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Size);
+      DCE_BINDING_DEFINE_PROPERTY(Light, DirectionVector);
+			DCE_BINDING_DEFINE_PROPERTY(Light, InnerAngle);
+			DCE_BINDING_DEFINE_PROPERTY(Light, OuterAngle);
     }
     #endif
 

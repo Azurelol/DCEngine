@@ -2,7 +2,7 @@
 {
   "Level": 
   {
-    "Name": "YouWon", 
+    "Name": "Victory", 
     "GameObjects": 
     {
       "GameObject": 
@@ -275,6 +275,7 @@
           {
             "CurrentTrack": "HighPriceVictory", 
             "LastTrack": "NO TRACK SET", 
+            "Volume": 0.000000, 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
           }
