@@ -82,24 +82,27 @@ vec3 GenerateIlluminationValues(void)
 	for(int i = 0; i < numLights; ++i)
 	{
 		Light light = Lights[i];
-		float diffI = 0;
-		switch(light.LightType)
+		if(light.Visible)
 		{
-		case 0:
-			diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
-			break;
-		case 1:
-			diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
-				light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
-			break;
-		default:
-			diffI = 1;
-			break;
+			float diffI = 0;
+			switch(light.LightType)
+			{
+			case 0:
+				diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
+				break;
+			case 1:
+				diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
+					light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
+				break;
+			default:
+				diffI = 1;
+				break;
+			}
+			diffI *= light.Intensity;
+			coefficients.x += light.Color.x * diffI;
+			coefficients.y += light.Color.y * diffI;
+			coefficients.z += light.Color.z * diffI;
 		}
-		diffI *= light.Intensity;
-		coefficients.x += light.Color.x * diffI;
-		coefficients.y += light.Color.y * diffI;
-		coefficients.z += light.Color.z * diffI;
 	}
 	return coefficients;
 }

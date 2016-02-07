@@ -96,7 +96,6 @@ namespace DCEngine {
 			static GLuint mVAO;
 
     private:
-
       void Register();
       //Animation subsystem
       bool AnimationInitialized = false;
