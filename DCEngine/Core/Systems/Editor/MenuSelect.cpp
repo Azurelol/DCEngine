@@ -240,20 +240,7 @@ namespace DCEngine {
       }
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Draws the multi-selection bounding area.
-    */
-    /**************************************************************************/
-    void Editor::DrawMultiSelect()
-    {
-      if (!Selection.Dragging)
-        return;
 
-      // Draw the bounding rectangle
-      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
-        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Selection.MultiSelectColor);
-    }
 
 
   }

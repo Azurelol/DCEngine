@@ -83,7 +83,6 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      DrawSelection();
       DisplayEditor(); 
       DisplayTool();     
 
@@ -220,6 +219,7 @@ namespace DCEngine {
         return;
 
       DrawGrid();
+      DrawSelection();
       DrawMultiSelect();
       // Display all known editor windows
       DisplayMainMenuBar();

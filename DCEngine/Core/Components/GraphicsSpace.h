@@ -64,8 +64,8 @@ namespace DCEngine {
 			//void RemoveParticleSystem(SpriteParticleSystem& particleEmitter);
 
       // Debug Drawing functions 
-      void DrawCircle(const Vec3& pos, Real radius, const Vec4& color) const;
-      void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color) const;
+      void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false) const;
+      void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill = false) const;
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const;
 
       /* Getters */

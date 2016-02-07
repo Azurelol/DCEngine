@@ -21,24 +21,33 @@ namespace DCEngine {
     {
       if (!SelectedObject())
         return;
-
-      return;
-
+      
       if (IsSelectableGameObject(SelectedObject())) {
 
-        // If drawing only 1 object, draw the bounding box larger so it can be seen!
-        auto& width = Selection.SelectedBoundingWidth;
-        auto& height = Selection.SelectedBoundingHeight;
+        auto width = 2.1;
 
-        if (SelectedObjects.size() == 1) {
-          width *= 2;
-          height *= 2;
+        // Draw a border around every selected object
+        for (auto object : SelectedObjects) {          
+          auto transform = dynamic_cast<GameObjectPtr>(object)->getComponent<Components::Transform>();
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(transform->getTranslation(),
+                                            transform->getScale().x * width, transform->getScale().y * width, Vec4(1, 0, 0, 1), false);
         }
-
-        // Draw a selected 'box' encompassing all selected objects
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.SelectedBoundingCenter,
-          width, height, Vec4(1, 0, 0, 1));
       }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Draws the multi-selection bounding area.
+    */
+    /**************************************************************************/
+    void Editor::DrawMultiSelect()
+    {
+      if (!Selection.Dragging)
+        return;
+
+      // Draw the bounding rectangle
+      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
+        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Selection.MultiSelectColor);
     }
 
     /**************************************************************************/
@@ -54,9 +63,7 @@ namespace DCEngine {
 
       if (!IsSelectableGameObject(SelectedObject()))
         return;
-
-      return;
-
+      
       //if (ActiveToolHandle)
       //  ActiveToolHandle->Display();
 
