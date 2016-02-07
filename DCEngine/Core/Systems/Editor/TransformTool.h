@@ -4,12 +4,10 @@
 namespace DCEngine {
   namespace Systems {
 
-    // Forward declarations    
-    
-    class Editor;
+    // Forward declarations  
     class EditorToolTransform : public EditorTool {
     public:
-      EditorToolTransform(DCEngine::Systems::Editor& editor);
+      EditorToolTransform(Systems::Editor& editor);
       void Display();
       bool WithinRegion(const Vec3&);
 

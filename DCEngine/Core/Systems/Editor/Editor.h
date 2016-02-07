@@ -57,10 +57,9 @@ namespace DCEngine {
 
       ObjectContainer SelectedObjects;
       // Tools
-      TransformToolPtr TransformTool;
+      //TransformToolPtr TransformTool;
       EditorToolPtr ActiveTool;
       void SwitchTool(EditorTools tool);
-      //EditorTool ActiveTool = EditorTool::None;
       // Tools
       void DrawSelection();
       void UseTool(GameObjectPtr gameObject, Vec2& position);

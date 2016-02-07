@@ -22,8 +22,8 @@ namespace DCEngine {
       EditorTool(Editor& editor);
       ObjectPtr SelectedObject();
       GameObjectPtr IsSelectable(ObjectPtr);
-      virtual void Display() {};
-      virtual bool WithinRegion(const Vec3&) {};
+      virtual void Display() = 0;
+      virtual bool WithinRegion(const Vec3&) = 0;
 
     protected:
 
