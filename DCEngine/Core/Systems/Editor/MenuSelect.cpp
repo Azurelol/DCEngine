@@ -211,7 +211,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectMultiple(Vec2 & mousePosition)
     {
-      if (!Selection.MultiSelectDragging)
+      if (!Selection.Dragging)
         return;
       
       // Get the current mouse position.
@@ -247,7 +247,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DrawMultiSelect()
     {
-      if (!Selection.MultiSelectDragging)
+      if (!Selection.Dragging)
         return;
 
       // Draw the bounding rectangle

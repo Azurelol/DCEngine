@@ -25,35 +25,47 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
-      // LEFT MOUSE BUTTON
+      //==================
+      // LEFT MOUSE BUTTON 
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
         auto gameObject = FindObjectFromSpace(posOnSpace);        
-
+        // If an object was found at that position, select it and start using the selected tool
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-          //UseTool(gameObject, event->Position);
-        }            
-
-        // If an object was found at that position, select it
-        if (gameObject)
           SelectObjectFromSpace(gameObject);
+          UseTool(gameObject, event->Position);
+        }         
         // If no object was found, deselect the current object if no tool's region overlaps the selected area
         // and attempt to select multiple objects
         else if (!IsToolRegion(gameObject)) {
           Deselect();
-          Selection.MultiSelectDragging = true;
+          Selection.Dragging = true;
           Selection.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
           SelectMultiple(event->Position);
         }
       }
-
+      //===================
       // RIGHT MOUSE BUTTON
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
         Settings.CamStartPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
         Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
       }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives a MouseUpdate event.
+    @param  event The MouseUpdate event.
+    */
+    /**************************************************************************/
+    void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
+    {
+      SelectMultiple(event->ScreenPosition);
+      PanCamera(event->ScreenPosition);
+      DragObject(event->ScreenPosition);
+      CalculateSelectionBounding();
     }
 
     /**************************************************************************/
@@ -71,33 +83,15 @@ namespace DCEngine {
       if (Settings.Panning)
         Settings.Panning = false;
 
-      // Stop dragging for multiple selection
-      if (Selection.MultiSelectDragging) {
+      // Stop dragging for selection tool
+      if (Selection.Dragging) {
+        Selection.Dragging = false;
         CalculateSelectionBounding();
-        Selection.MultiSelectDragging = false;
       }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives a MouseUpdate event.
-    @param  event The MouseUpdate event.
-    */
-    /**************************************************************************/
-    void Editor::OnMouseUpdateEvent(Events::MouseUpdate * event)
-    {
-      SelectMultiple(event->ScreenPosition);
-      PanCamera(event->ScreenPosition);
-      DragObject(event->ScreenPosition);
-
-      CalculateSelectionBounding();
-
-      //if (TransCommand != NULL)
-      //{
-      //  DragObject(event->ScreenPosition);
-      //  RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
-      //  ScaleObject(event->ScreenPosition);
-      //}
+      // Stop dragging for transformation tool
+      if (Transformation.Dragging) {
+        Transformation.Dragging = false;
+      }
     }
 
     /**************************************************************************/
@@ -181,6 +175,7 @@ namespace DCEngine {
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
           DCTrace << "Editor::Select \n";
+        SwitchTool(EditorTools::None);
         break;
 
       // If the editor's transform tool is not a component, we will perform

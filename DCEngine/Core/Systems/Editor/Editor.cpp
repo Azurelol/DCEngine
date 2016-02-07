@@ -168,17 +168,19 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Switches to a new editor tool.
-    @todo   ool The tool to switch to.
+    @todo   Change this to the new tool system.
     */
     /**************************************************************************/
     void Editor::SwitchTool(EditorTools tool)
     {
-      switch (tool) {
+      ActiveTool = tool;
+      return;
 
+      switch (tool) {
       case EditorTools::None:
         break;
 
-      case EditorTools::Translate:
+      case EditorTools::Translate:        
         break;
 
       case EditorTools::Rotate:

@@ -15,14 +15,14 @@
 
 namespace DCEngine {
   namespace Systems {
-    
+
     class Editor;    //   
 
-    /**************************************************************************/
-    /*!
-    @class EditorTool The base class from which all editor tools derive from.
-    */
-    /**************************************************************************/
+                     /**************************************************************************/
+                     /*!
+                     @class EditorTool The base class from which all editor tools derive from.
+                     */
+                     /**************************************************************************/
     class EditorTool {
     public:
       //EditorTool();
@@ -30,7 +30,7 @@ namespace DCEngine {
       virtual void Display() = 0;
       virtual bool WithinRegion(const Vec3& translation, const Vec3& scale) = 0;
       virtual ~EditorTool() {}
-      ObjectPtr SelectedObject();      
+      ObjectPtr SelectedObject();
       GameObjectPtr IsSelectable(ObjectPtr);
       SpacePtr CurrentSpace();
 

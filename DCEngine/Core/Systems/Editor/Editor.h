@@ -68,6 +68,7 @@ namespace DCEngine {
       // Selection
       void DrawSelection();
       void DisplayTool();
+      void UseTool(GameObjectPtr gameObject, Vec2& position);
       void DrawTranslateTool();
       void DrawRotateTool();
       void DrawScaleTool();

@@ -1355,9 +1355,6 @@
     <ClInclude Include="Core\Systems\Editor\ResourceEditor.h">
       <Filter>Core\Systems\Editor\Modules\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\EditorTool.h">
-      <Filter>Core\Systems\Editor\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h">
       <Filter>Core\Systems\Editor\Modules</Filter>
     </ClInclude>
@@ -1375,6 +1372,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\SoundInstance.h">
       <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorTool.h">
+      <Filter>Core\Systems\Editor\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

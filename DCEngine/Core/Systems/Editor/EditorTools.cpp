@@ -92,6 +92,69 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief The translate tool allows the user to move an object on screen.
+    @param The GameObject to which to apply the tool on.
+    */
+    /**************************************************************************/
+    CommandObjectTransform* TransCommand = NULL;
+    void Editor::UseTool(GameObjectPtr gameObject, Vec2& position)
+    {
+      if (TransCommand != NULL)
+      {
+        delete TransCommand;
+        TransCommand = NULL;
+      }
+
+      // If the 'Translate' tool is active...
+      if (ActiveTool == EditorTools::Translate) {
+
+        // And a valid GameObject was selected, start dragging it
+        if (SelectedObject() && gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+          Transformation.Dragging = true;
+          auto transform = gameObject->getComponent<Components::Transform>();
+          TransCommand = new CommandObjectTransform(transform);
+          DCTrace << "EditorRef::OnMouseDownEvent - Dragging: '" << gameObject->getObjectName() << "'\n";
+          return;
+        }
+
+        //if we have a valid Object selected still
+        else if (SelectedObject() && SelectedObject()->getObjectName() != std::string("EditorCamera")) {
+          auto transform = dynamic_cast<GameObject*>(SelectedObject())->getComponent<Components::Transform>();
+          //and it has a transform
+          if (transform != NULL)
+          {
+            auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(position);
+            auto xPos = transform->getTranslation().x;
+            auto yPos = transform->getTranslation().y;
+            //data for translate editor tools
+            Real radius = 8;
+            Real arrowTip = 1;
+            //if within horizontal tool, drag along x axis
+            if (mousePos.x > xPos && mousePos.x < xPos + radius && mousePos.y < yPos + arrowTip && mousePos.y > yPos - arrowTip)
+            {
+              Transformation.DraggingX = true;
+              Transformation.DragOffset = mousePos.x - xPos;
+
+              TransCommand = new CommandObjectTransform(transform);
+              DCTrace << "EditorRef::OnMouseDownEvent - DraggingX: '" << SelectedObject()->getObjectName() << "'\n";
+              return;
+            }
+            //if within vertical tool, drag along y axis
+            if (mousePos.x > xPos - arrowTip && mousePos.x < xPos + arrowTip && mousePos.y < yPos + radius && mousePos.y > yPos)
+            {
+              Transformation.DraggingY = true;
+              Transformation.DragOffset = mousePos.y - yPos;
+              TransCommand = new CommandObjectTransform(transform);
+              DCTrace << "EditorRef::OnMouseDownEvent - DraggingY: '" << SelectedObject()->getObjectName() << "'\n";
+              return;
+            }
+          }
+        }
+      }
+    }
+
 
     /**************************************************************************/
     /*!

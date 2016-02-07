@@ -22,6 +22,8 @@ namespace DCEngine {
       if (!SelectedObject())
         return;
 
+      return;
+
       if (IsSelectableGameObject(SelectedObject())) {
 
         // If drawing only 1 object, draw the bounding box larger so it can be seen!
@@ -39,6 +41,12 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Displays the currently selected tool.
+    @todo   Currently broken!
+    */
+    /**************************************************************************/
     void Editor::DisplayTool()
     {
       if (!SelectedObject())
@@ -46,6 +54,8 @@ namespace DCEngine {
 
       if (!IsSelectableGameObject(SelectedObject()))
         return;
+
+      return;
 
       //if (ActiveToolHandle)
       //  ActiveToolHandle->Display();

@@ -43,7 +43,7 @@ namespace DCEngine {
   /**************************************************************************/
   struct SelectionData {
     // Multi-selection
-    bool MultiSelectDragging = false;
+    bool Dragging = false;
     Vec4 MultiSelectColor = Vec4(0.3, 0.7, 0.3f, 0.5f);
 
     Vec3 MultiSelectMidpoint;
