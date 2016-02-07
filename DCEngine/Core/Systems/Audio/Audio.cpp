@@ -105,7 +105,7 @@ namespace DCEngine {
     @param  bankFile The name of the bank file.
     */
     /**************************************************************************/
-    void Audio::Add(std::string & bankFile, Bank::BankData& data)
+    void Audio::Add(const std::string & bankFile, Bank::BankData& data)
     {
       // Adds the bank to the FMOD Studio system
       data.Handle = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);
@@ -120,9 +120,9 @@ namespace DCEngine {
             file size.
     */
     /**************************************************************************/
-    void Audio::CreateSound(std::string & soundFile, FMODSoundHandle& soundPtr)
+    void Audio::CreateSound(const std::string & soundFile, FMODSoundHandle& soundPtr)
     {
-      //std::string resourceLocation("Core/Resources/Sounds/");
+      //const std::string resourceLocation("Core/Resources/Sounds/");
 
       //AudioHandler->CreateSound(soundFile, &soundPtr.Handle);
 
@@ -150,10 +150,10 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::PlaySound(std::string& soundCueName) {
+    void Audio::PlaySound(const std::string& soundCueName) {
 
       DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
-      auto& soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       // Do not attempt to play if the soundcue could not be found
       if (!soundCue) {
         DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
@@ -182,7 +182,7 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::ResumeSound(std::string & soundCueName)
+    void Audio::ResumeSound(const std::string & soundCueName)
     {
       DCTrace << "Audio::ResumeSound - Resuming SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
@@ -199,7 +199,7 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::PauseSound(std::string & soundCueName)
+    void Audio::PauseSound(const std::string & soundCueName)
     {
       DCTrace << "Audio::PlaySound - Pausing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
@@ -216,7 +216,7 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    void Audio::StopSound(std::string & soundCueName)
+    void Audio::StopSound(const std::string & soundCueName)
     {
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       if (!soundCue) {
@@ -232,8 +232,8 @@ namespace DCEngine {
     @param  soundCueName The name (string) of the sound in the content system.
     */
     /**************************************************************************/
-    //void Audio::ReleaseSound(std::string& soundCueName) {
-    //  auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+    //void Audio::ReleaseSound(const std::string& soundCueName) {
+    //  auto soundCue = Daisy->getSystem<Content>()->getSoundCue(const std::string(soundCueName));
     //  AudioHandler->ReleaseSound(soundCue->Data.Handle);
     //}
 

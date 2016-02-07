@@ -85,11 +85,8 @@ namespace DCEngine {
         DCTrace << "Editor::Update \n";
       DrawSelection();
       DisplayEditor(); 
-      //DisplayTool();      
+      DisplayTool();     
 
-      // If there's an active tool, display it
-      //if (this->ActiveTool)
-      //  ActiveTool->Display();
       
     }
 

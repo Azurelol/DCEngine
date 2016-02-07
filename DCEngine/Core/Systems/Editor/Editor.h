@@ -17,6 +17,7 @@
 // Modules
 #include "EditorModulesInclude.h"
 // Tools
+//#include "EditorTool.h"
 #include "EditorToolsInclude.h"
 // Engine
 #include "../../Objects/Object.h"
@@ -44,6 +45,7 @@ namespace DCEngine {
       bool IsEnabled();
       void ToggleEditor();
       void ToggleEditor(bool);
+      SpacePtr CurrentSpace;
 
     private:
 
@@ -55,15 +57,17 @@ namespace DCEngine {
         Scale,
         Tilemap,
       };
+
       void SwitchTool(EditorTools tool);
       EditorTools ActiveTool;
       bool IsToolRegion(GameObjectPtr);
-
-      //TransformToolPtr TransformTool;
-      //EditorToolPtr ActiveTool;
+           
+      //EditorToolPtr ActiveToolHandle;
+      //TransformToolPtr TransformToolHandle;
       
       // Selection
       void DrawSelection();
+      void DisplayTool();
       void DrawTranslateTool();
       void DrawRotateTool();
       void DrawScaleTool();
@@ -78,7 +82,6 @@ namespace DCEngine {
       TransformToolData Transformation;
 
       // Objects
-      SpacePtr CurrentSpace;
       SystemPtr ReflectionSystem;
       GameObjectPtr EditorCamera = nullptr;
       //GameObjectPtr TransformTool = nullptr;

@@ -38,6 +38,35 @@ namespace DCEngine {
           width, height, Vec4(1, 0, 0, 1));
       }
     }
+
+    void Editor::DisplayTool()
+    {
+      if (!SelectedObject())
+        return;
+
+      if (!IsSelectableGameObject(SelectedObject()))
+        return;
+
+      //if (ActiveToolHandle)
+      //  ActiveToolHandle->Display();
+
+      switch (ActiveTool) {
+
+      case EditorTools::Translate:
+        DrawTranslateTool();
+        break;
+
+      case EditorTools::Rotate:
+        DrawRotateTool();
+        break;
+
+      case EditorTools::Scale:
+        DrawScaleTool();
+        break;
+      }
+
+
+    }
     
     /**************************************************************************/
     /*!
@@ -45,11 +74,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Editor::DrawTranslateTool()
-    {
-      if (!SelectedObject())
-        return;
-      
-      if ((SelectedObject())) {
+    { 
 
         Vec3& pos = Selection.SelectedBoundingCenter;
         Real tip = 0.5;
@@ -68,7 +93,7 @@ namespace DCEngine {
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, Transformation.YAxisBoundaryEnd, yColor);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
-      }
+      
 
       // Create thin box-colliders on every line
 
@@ -81,9 +106,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DrawRotateTool()
     {
-      if (!SelectedObject())
-        return;
-
       if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
 
         Vec3& pos = Selection.SelectedBoundingCenter;
@@ -98,7 +120,7 @@ namespace DCEngine {
         if (Transformation.Rotating == true)
         {
           auto normal = Vec3(Selection.SelectedBoundingCenter.y - Transformation.OriginMousePos.y,
-                      -(Selection.SelectedBoundingCenter.x - Transformation.OriginMousePos.x), 0);
+            -(Selection.SelectedBoundingCenter.x - Transformation.OriginMousePos.x), 0);
           normal *= 10;
           auto negNormal = -normal;
           Vec4 colorR(1.0, 0.0, 0.0, 1.0); // Red
@@ -113,6 +135,7 @@ namespace DCEngine {
         // Draw a selected 'box' around the object
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawCircle(pos, radius, color);
       }
+      
 
     }
 
@@ -123,9 +146,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DrawScaleTool()
     {
-      if (!SelectedObject())
-        return;
-
       if (IsSelectableGameObject(SelectedObject())) {
 
         Vec3& pos = Selection.SelectedBoundingCenter;

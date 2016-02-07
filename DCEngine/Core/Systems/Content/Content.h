@@ -49,22 +49,22 @@ namespace DCEngine {
       void LoadProjectResources(); //!< Load resources from a project.
       
       // Individual getters
-      BankPtr getBank(std::string bankName);
-      ShaderPtr getShader(std::string shaderName);
-      FontPtr getFont(std::string& fontName);
-      SpriteSourcePtr getSpriteSrc(std::string& spriteName);
-      SoundCuePtr getSoundCue(std::string& soundCueName);
-      ArchetypePtr getArchetype(std::string& archetypeName);
-      LevelPtr getLevel(std::string& levelName);
-      CollisionGroupPtr getCollisionGroup(std::string& groupName);
-      CollisionTablePtr getCollisionTable(std::string& tableName);
-      ZilchScriptPtr getZilchScript(std::string& scriptName);
-      PhysicsMaterialPtr getPhysicsMaterial(std::string& materialName);
-      SpriteLayerPtr getSpriteLayer(std::string& name);
-      TexturePtr getTexture(std::string& name);
-      SpriteLayerOrderPtr getSpriteLayerOrder(std::string& name);
+      BankPtr getBank                           (const std::string bankName);
+      ShaderPtr getShader                       (const std::string shaderName);
+      FontPtr getFont                           (const std::string& fontName);
+      SpriteSourcePtr getSpriteSrc              (const std::string& spriteName);
+      SoundCuePtr getSoundCue                   (const std::string& soundCueName);
+      ArchetypePtr getArchetype                 (const std::string& archetypeName);
+      LevelPtr getLevel                         (const std::string& levelName);
+      CollisionGroupPtr getCollisionGroup       (const std::string& groupName);
+      CollisionTablePtr getCollisionTable       (const std::string& tableName);
+      ZilchScriptPtr getZilchScript             (const std::string& scriptName);
+      PhysicsMaterialPtr getPhysicsMaterial     (const std::string& materialName);
+      SpriteLayerPtr getSpriteLayer             (const std::string& name);
+      TexturePtr getTexture                     (const std::string& name);
+      SpriteLayerOrderPtr getSpriteLayerOrder   (const std::string& name);
       template <typename ResourceMap, typename ResourcePtr>
-      ResourcePtr getResource(std::string& resourceName, ResourceMap map, std::string& defaultResource);
+      ResourcePtr getResource(const std::string& resourceName, ResourceMap map, std::string& defaultResource);
       // Container getters
       TextureMap* AllTextures();
       SpriteSourceMap* AllSpriteSources();
@@ -134,21 +134,21 @@ namespace DCEngine {
       TextureMap MapTextures;
 
       // Map functions
-      void AddFont(std::string& fontName, FontPtr fontPtr);
-      void AddArchetype(std::string& archetypeName, ArchetypePtr archetypePtr);
-      void AddShader(std::string& shaderName, ShaderPtr shaderPtr);
-      void AddSpriteSource(std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
-      void AddBank(std::string& bankName, BankPtr bankPtr);
-      void AddLevel(std::string& levelName, LevelPtr levelPtr);
-      void AddCollisionGroup(std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
-      void AddCollisionTable(std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
-      void AddPhysicsMaterial(std::string& physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr);
-      void AddZilchScript(std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
-      void AddSpriteLayer(std::string& name, SpriteLayerPtr ptr);
-      void AddSpriteLayerOrder(std::string& name, SpriteLayerOrderPtr ptr);
-      void AddTexture(std::string& name, TexturePtr ptr);
+      void AddFont(const std::string& fontName, FontPtr fontPtr);
+      void AddArchetype(const std::string& archetypeName, ArchetypePtr archetypePtr);
+      void AddShader(const std::string& shaderName, ShaderPtr shaderPtr);
+      void AddSpriteSource(const std::string& spriteSourceName, SpriteSourcePtr spriteSourcePtr);
+      void AddBank(const std::string& bankName, BankPtr bankPtr);
+      void AddLevel(const std::string& levelName, LevelPtr levelPtr);
+      void AddCollisionGroup(const std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
+      void AddCollisionTable(const std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
+      void AddPhysicsMaterial(const std::string& physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr);
+      void AddZilchScript(const std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
+      void AddSpriteLayer(const std::string& name, SpriteLayerPtr ptr);
+      void AddSpriteLayerOrder(const std::string& name, SpriteLayerOrderPtr ptr);
+      void AddTexture(const std::string& name, TexturePtr ptr);
       template <typename ResourcePtr, typename ResourceMap>
-      void AddResourceToMap(std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
+      void AddResourceToMap(const std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
 
       // Core functions
       Content(std::string& coreAssetsPath);
@@ -157,11 +157,11 @@ namespace DCEngine {
       void Terminate();
       // Loading functions
       void LoadCoreAssets(); //!< Load default content files for the engine.   
-      void LoadProject(std::string projectDataPath);
+      void LoadProject(const std::string& projectDataPath);
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
       void LoadAllResources();
-      void LoadProjectData(std::string&); //!<             
+      void LoadProjectData(const std::string&); //!<             
     };
 
 
@@ -175,7 +175,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     template<typename ResourcePtr, typename ResourceMap>
-    inline void Content::AddResourceToMap(std::string & resourceName, ResourcePtr ptr, ResourceMap& map)
+    inline void Content::AddResourceToMap(const std::string & resourceName, ResourcePtr ptr, ResourceMap& map)
     {
       // Prevent duplicates
       if (map.count(resourceName)) {
@@ -199,7 +199,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     template<typename ResourceMap, typename ResourcePtr>
-    inline ResourcePtr Content::getResource(std::string & resourceName, ResourceMap map, std::string& defaultResource)
+    inline ResourcePtr Content::getResource(const std::string & resourceName, ResourceMap map, std::string& defaultResource)
     {
       // Check if the resource is present in the map
       if (!map.count(resourceName)) {
