@@ -417,7 +417,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
-            "Type": 0, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -805,7 +805,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
-            "Type": 1, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -958,7 +958,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
-            "Type": 0, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -1106,7 +1106,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
-            "Type": 2, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
