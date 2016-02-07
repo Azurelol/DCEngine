@@ -1,12 +1,40 @@
+/******************************************************************************/
+/*!
+@file   EditorTool.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   2/6/2016
+@brief  The base class from which all editor tools derive from.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #pragma once
 
+// Engine
+#include "../../Objects/Entities/EntitiesInclude.h"
+
 namespace DCEngine {
+  namespace Systems {
 
-  class EditorTool {
-  public:
-    virtual void Display() = 0;
-  };
+    class Editor;
+    class EditorTool {
+    public:
+      EditorTool(Editor& editor);
+      ObjectPtr SelectedObject();
+      GameObjectPtr IsSelectable(ObjectPtr);
+      virtual void Display() {};
+      virtual bool WithinRegion(const Vec3&) {};
 
-  using EditorToolPtr = std::shared_ptr<EditorTool>;
+    protected:
 
+      bool Snapping;
+
+      // References
+      Editor& Editor;
+      SpacePtr CurrentSpace;
+
+    };
+    using EditorToolPtr = std::shared_ptr<EditorTool>;
+
+  }
 }

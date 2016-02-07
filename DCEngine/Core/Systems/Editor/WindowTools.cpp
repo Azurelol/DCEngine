@@ -47,21 +47,20 @@ namespace DCEngine {
       }
       ImGui::Separator();
 
-
-      if (ImGui::Button("Select")) {
-        ActiveTool = EditorTool::Select;
-      }
       ImGui::SameLine();
       if (ImGui::Button("Translate")) {
-        ActiveTool = EditorTool::Translate;
+        ActiveTool = TransformTool;
+        TransformTool->ActiveMode = EditorToolTransform::Mode::Translate;
       }
       ImGui::SameLine();
       if (ImGui::Button("Rotate")) {
-        ActiveTool = EditorTool::Rotate;
+        ActiveTool = TransformTool;
+        TransformTool->ActiveMode = EditorToolTransform::Mode::Rotate;
       }
       ImGui::SameLine();
       if (ImGui::Button("Scale")) {
-        ActiveTool = EditorTool::Scale;
+        ActiveTool = TransformTool;
+        TransformTool->ActiveMode = EditorToolTransform::Mode::Scale;
       }
       //if (ImGui::Button()
       //

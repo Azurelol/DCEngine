@@ -118,6 +118,7 @@ namespace DCEngine {
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
     }
 
+
     /**************************************************************************/
     /*!
     @brief  Returns the currently selected object.
@@ -131,6 +132,21 @@ namespace DCEngine {
 
       // If no objects are selected..
       return nullptr;
+    }
+
+    ObjectContainer& Editor::AllSelectedObjects()
+    {
+      return SelectedObjects;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds a command to the editor's command stack.
+    */
+    /**************************************************************************/
+    void Editor::Add(CommandPtr command)
+    {
+      Settings.Commands.Add(command);
     }
 
     /**************************************************************************/

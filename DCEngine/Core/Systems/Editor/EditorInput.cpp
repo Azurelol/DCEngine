@@ -113,11 +113,11 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::Escape:
-        SwitchTool(EditorTool::None);
+        SwitchTool(EditorTools::None);
         break;
 
       case Keys::Return:
-        SwitchTool(EditorTool::None);
+        SwitchTool(EditorTools::None);
         break;
 
       case Keys::Tilde:
@@ -191,19 +191,19 @@ namespace DCEngine {
           case Keys::Num2:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::TranslateTool \n";
-            SwitchTool(EditorTool::Translate);
+            SwitchTool(EditorTools::Translate);
             break;
 
           case Keys::Num3:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::RotateTool \n";
-            SwitchTool(EditorTool::Rotate);
+            SwitchTool(EditorTools::Rotate);
             break;
 
           case Keys::Num4:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::ScaleTool \n";
-            SwitchTool(EditorTool::Scale);
+            SwitchTool(EditorTools::Scale);
             break;
         }
 

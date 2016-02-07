@@ -44,29 +44,29 @@ namespace DCEngine {
     @brief  The translate tool allows the user to move an object on screen.
     */
     /**************************************************************************/
-    void Editor::DrawTranslateTool()
+    void EditorToolTransform::DrawTranslateTool()
     {
       if (!SelectedObject())
         return;
       
-      if (IsSelectableGameObject(SelectedObject())) {
+      if ((SelectedObject())) {
 
-        Vec3& pos = Selection.SelectedBoundingCenter;
+        Vec3& pos = Editor.Selection.SelectedBoundingCenter;
         Real tip = 0.5;
         Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
         Vec4 yColor(0.0, 1.0, 0.0, 1.0); // Green
                                          // X-axis
 
         // Bounding rectangle
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Editor.Selection.SelectedBoundingWidth / 8, Editor.Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
         // X-axis
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, TransformData.XAxisBoundaryEnd, xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.XAxisBoundaryEnd, TransformData.XAxisMidpoint - Vec3(-tip, -tip, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.XAxisBoundaryEnd, TransformData.XAxisMidpoint - Vec3(-tip, tip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, XAxisBoundaryEnd, xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(XAxisBoundaryEnd, XAxisMidpoint - Vec3(-tip, -tip, 0), xColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(XAxisBoundaryEnd, XAxisMidpoint - Vec3(-tip, tip, 0), xColor);
 
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, TransformData.YAxisBoundaryEnd, yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.YAxisBoundaryEnd, TransformData.YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(TransformData.YAxisBoundaryEnd, TransformData.YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, YAxisBoundaryEnd, yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(YAxisBoundaryEnd, YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(YAxisBoundaryEnd, YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
       }
 
       // Create thin box-colliders on every line
@@ -78,34 +78,34 @@ namespace DCEngine {
     @brief  The rotate tool allows the user to rotate an object.
     */
     /**************************************************************************/
-    void Editor::DrawRotateTool()
+    void EditorToolTransform::DrawRotateTool()
     {
       if (!SelectedObject())
         return;
 
-      if (auto gameObject = IsSelectableGameObject(SelectedObject())) {
+      if (auto gameObject = IsSelectable(SelectedObject())) {
 
-        Vec3& pos = Selection.SelectedBoundingCenter;
-        Real radius = Selection.SelectedBoundingWidth;
+        Vec3& pos = Editor.Selection.SelectedBoundingCenter;
+        Real radius = Editor.Selection.SelectedBoundingWidth;
 
-        if (SelectedObjects.size() == 1) {
+        if (Editor.AllSelectedObjects().size() == 1) {
           radius *= 2;
         }
 
         Vec4 color(0.0f, 0.0f, 1.0f, 1.0);
 
-        if (Settings.Rotating == true)
+        if (Rotating == true)
         {
-          auto normal = Vec3(Selection.SelectedBoundingCenter.y - Settings.OriginMousePos.y, -(Selection.SelectedBoundingCenter.x - Settings.OriginMousePos.x), 0);
+          auto normal = Vec3(Editor.Selection.SelectedBoundingCenter.y - OriginMousePos.y, -(Editor.Selection.SelectedBoundingCenter.x - OriginMousePos.x), 0);
           normal *= 10;
           auto negNormal = -normal;
           Vec4 colorR(1.0, 0.0, 0.0, 1.0); // Red
           Vec4 colorG(0.0, 1.0, 0.0, 1.0); // Red
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(Selection.SelectedBoundingCenter.y - Settings.OriginMousePos.y),
-            Selection.SelectedBoundingCenter.x - Settings.OriginMousePos.x, 0) + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0),
-            Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorG);
-          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0),
-            normal + Vec3(Settings.OriginMousePos.x, Settings.OriginMousePos.y, 0), colorR);
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(-(Editor.Selection.SelectedBoundingCenter.y - OriginMousePos.y),
+            Editor.Selection.SelectedBoundingCenter.x - OriginMousePos.x, 0) + Vec3(OriginMousePos.x, OriginMousePos.y, 0),
+            Vec3(OriginMousePos.x, OriginMousePos.y, 0), colorG);
+          CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(negNormal + Vec3(OriginMousePos.x, OriginMousePos.y, 0),
+            normal + Vec3(OriginMousePos.x, OriginMousePos.y, 0), colorR);
         }
 
         // Draw a selected 'box' around the object
@@ -119,14 +119,14 @@ namespace DCEngine {
     @brief  The scale tool allows the user to scale an object.
     */
     /**************************************************************************/
-    void Editor::DrawScaleTool()
+    void EditorToolTransform::DrawScaleTool()
     {
       if (!SelectedObject())
         return;
 
-      if (IsSelectableGameObject(SelectedObject())) {
+      if (IsSelectable(SelectedObject())) {
 
-        Vec3& pos = Selection.SelectedBoundingCenter;
+        Vec3& pos = Editor.Selection.SelectedBoundingCenter;
         Real radius = 5;
         Real tip = 0.5;
         Vec4 xColor(1.0, 0.0, 0.0, 1.0); // Red
@@ -134,7 +134,7 @@ namespace DCEngine {
                                          // X-axis
 
         // Bounding rectangle
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Editor.Selection.SelectedBoundingWidth / 8, Editor.Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
 
         // X-Axis Arrow
         auto xAxisArrowEnd = pos + Vec3(radius, 0, 0);
@@ -143,8 +143,8 @@ namespace DCEngine {
                               (pos.z + xAxisArrowEnd.z) / 2);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, xAxisArrowEnd, xColor);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(xAxisArrowEnd, 
-                                                                               Selection.SelectedBoundingWidth / 8, 
-                                                                               Selection.SelectedBoundingWidth / 8, 
+          Editor.Selection.SelectedBoundingWidth / 8,
+          Editor.Selection.SelectedBoundingWidth / 8,
                                                                                xColor);
         // Y-axis Arrow
         auto yAxisArrowEnd = pos + Vec3(0, radius, 0);
@@ -153,8 +153,8 @@ namespace DCEngine {
                               (pos.z + yAxisArrowEnd.z) / 2);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, yAxisArrowEnd, yColor);
         CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(yAxisArrowEnd, 
-                                                                               Selection.SelectedBoundingWidth / 8, 
-                                                                               Selection.SelectedBoundingWidth / 8, 
+          Editor.Selection.SelectedBoundingWidth / 8,
+          Editor.Selection.SelectedBoundingWidth / 8,
                                                                                yColor);
       }
 

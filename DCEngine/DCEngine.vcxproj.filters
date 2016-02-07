@@ -546,9 +546,6 @@
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
-      <Filter>Core\Systems\Editor\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -690,9 +687,6 @@
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\TransformTool.cpp">
-      <Filter>Core\Components\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteLayer.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
@@ -807,11 +801,20 @@
     <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp">
       <Filter>Core\Systems\Editor\Modules\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp">
+      <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTool.cpp">
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\TransformTool.cpp">
       <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp">
-      <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
+    <ClCompile Include="Core\Components\TransformTool.cpp">
+      <Filter>Core\Components\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

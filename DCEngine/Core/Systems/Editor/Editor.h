@@ -37,25 +37,29 @@ namespace DCEngine {
 
     public:
 
-      enum class EditorTool {
+      SelectionData Selection;
+      ObjectPtr SelectedObject();      
+      ObjectContainer& AllSelectedObjects();
+      void Add(CommandPtr command);
+      bool IsEnabled();
+      void ToggleEditor();
+      void ToggleEditor(bool);
+
+    private:
+
+      enum class EditorTools {
         None,
         Translate,
         Rotate,
         Scale,
-
+        Tilemap,
       };
 
-      bool IsEnabled();
-      void ToggleEditor();
-      void ToggleEditor(bool);
-      void ToggleTest();
-
-    private:
-
+      ObjectContainer SelectedObjects;
       // Tools
+      TransformToolPtr TransformTool;
       EditorToolPtr ActiveTool;
-      void SwitchTool(EditorTool tool);
-      //TransformTool TransformTool;
+      void SwitchTool(EditorTools tool);
       //EditorTool ActiveTool = EditorTool::None;
       // Tools
       void DrawSelection();
@@ -67,15 +71,17 @@ namespace DCEngine {
       void ScaleObject(Vec2&);
       void ReleaseObject();
 
+      // Actions
+      void MoveObject(Vec3);
+      void ScaleObject(Vec3);
+
       /////////////////
       //  Settings 
       ////////////////
       EditorConfig Settings;
-      SelectionData Selection;
       TransformToolData TransformData;
       void setEnabled(bool);
       std::string RecentProject;
-      bool ShowTestWindow = false;
       bool WidgetMenuBarEnabled = false;
       bool WidgetLevelEnabled = false;
       bool WindowAddResourceEnabled = false;
@@ -94,8 +100,7 @@ namespace DCEngine {
       SystemPtr ReflectionSystem;
       Space* CurrentSpace;
       GameObjectPtr EditorCamera = nullptr;
-      GameObjectPtr TransformTool = nullptr;
-      ObjectContainer SelectedObjects;
+      //GameObjectPtr TransformTool = nullptr;
       Vec2 ViewportResize = Vec2(0.75, 0.75);
 
       /////////////////
@@ -145,7 +150,6 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
-      ObjectPtr SelectedObject();
       void Select(ObjectPtr);
       void Deselect();
       void SelectSpace();
@@ -189,9 +193,6 @@ namespace DCEngine {
       void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
-      // Actions
-      void MoveObject(Vec3);
-      void ScaleObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);

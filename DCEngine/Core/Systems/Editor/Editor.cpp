@@ -170,36 +170,24 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Toggles the ImGui Test Window on and off.
-    @todo   Switch to using a stack of active windows rather than this hackery.
-    */
-    /**************************************************************************/
-    void Editor::ToggleTest()
-    {
-      ShowTestWindow = !ShowTestWindow;
-      DCTrace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
-    }
-
-    /**************************************************************************/
-    /*!
     @brief  Switches to a new editor tool.
     @todo   ool The tool to switch to.
     */
     /**************************************************************************/
-    void Editor::SwitchTool(EditorTool tool)
+    void Editor::SwitchTool(EditorTools tool)
     {
       switch (tool) {
 
-      case EditorTool::None:
+      case EditorTools::None:
         break;
 
-      case EditorTool::Translate:
+      case EditorTools::Translate:
         break;
 
-      case EditorTool::Rotate:
+      case EditorTools::Rotate:
         break;
 
-      case EditorTool::Scale:
+      case EditorTools::Scale:
         break;
 
       }

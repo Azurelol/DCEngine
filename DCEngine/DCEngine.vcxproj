@@ -373,6 +373,7 @@
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
