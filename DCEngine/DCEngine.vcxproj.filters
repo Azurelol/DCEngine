@@ -283,6 +283,9 @@
     <Filter Include="Projects\Rebound\Scripts">
       <UniqueIdentifier>{89011df5-235f-42f4-9796-4ee5eb811e4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Projects\Rebound\Components\AI">
+      <UniqueIdentifier>{4bea847f-4c03-41ec-ac54-a077c67e16c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -768,9 +771,6 @@
     <ClCompile Include="Core\Resources\Texture.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\PowerField.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
@@ -788,6 +788,12 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
       <Filter>Core\Systems\Physics\Broadphase</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\HealthController.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp">
+      <Filter>Projects\Rebound\Components\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1298,9 +1304,6 @@
     <ClInclude Include="Core\Systems\Physics\Ray.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\StateMachine\StateMachine.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
@@ -1324,6 +1327,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Physics\QuadTree.h">
       <Filter>Core\Systems\Physics\Broadphase</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\HealthController.h">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h">
+      <Filter>Projects\Rebound\Components\AI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
