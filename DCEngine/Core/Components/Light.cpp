@@ -10,6 +10,8 @@
 */
 /******************************************************************************/
 #include "Light.h"
+#include "../Objects/Entities/Space.h"
+#include "GraphicsSpace.h"
 
 namespace DCEngine {
   namespace Components {
@@ -29,6 +31,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityCulling);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityEvents);
       DCE_BINDING_DEFINE_PROPERTY(Light, CastShadows);
+			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       //DCE_BINDING_DEFINE_PROPERTY(Light, LightType);
 
@@ -36,8 +39,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);
       DCE_BINDING_DEFINE_PROPERTY(Light, Falloff);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Angle);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Size);
+      DCE_BINDING_DEFINE_PROPERTY(Light, DirectionVector);
+			DCE_BINDING_DEFINE_PROPERTY(Light, InnerAngle);
+			DCE_BINDING_DEFINE_PROPERTY(Light, OuterAngle);
     }
     #endif
 
@@ -48,6 +52,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::Light(Entity & owner) : Component(std::string("Light"), owner)
     {
+			Initialize();
     }
 
     /**************************************************************************/
@@ -57,6 +62,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::~Light()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveLightComponent(this);
     }
 
     /**************************************************************************/
@@ -66,6 +72,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Light::Initialize()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
     }
 
   }

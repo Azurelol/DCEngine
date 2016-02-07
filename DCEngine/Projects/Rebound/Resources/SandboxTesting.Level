@@ -103,7 +103,7 @@
               {
                 "x": 1.000000, 
                 "y": 0.000000, 
-                "z": 1.000000
+                "z": 10.000000
               }
             }, 
             "Rotation": 
@@ -127,7 +127,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 200.000000, 
+            "FieldOfView": 128.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -252,10 +252,17 @@
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 5.000000, 
             "JumpStrengthX": 5.000000, 
             "JumpStrengthY": 25.000000, 
-            "JumpFrequency": 2.000000
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 0.500000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 1, 
+            "StartingHealth": 1
           }
         }
       }, 
@@ -403,6 +410,38 @@
               }
             }, 
             "FreezeEnabled": true
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": 0, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 3.000000, 
+            "Range": 10.000000, 
+            "Falloff": 0.900000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 0.000000
           }
         }
       }, 
@@ -759,6 +798,38 @@
             }, 
             "MoveToLocationTime": 1.000000, 
             "Moving": false
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": 1, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 1.000000, 
+            "Range": 20.000000, 
+            "Falloff": 0.400000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": -0.700000, 
+            "OuterAngle": 0.500000
           }
         }
       }, 
@@ -880,6 +951,38 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "AutoPlayTimer": 2.000000
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": 0, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.400000, 
+            "Range": 5.000000, 
+            "Falloff": 0.300000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 0.000000
           }
         }
       }, 
@@ -996,6 +1099,38 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": 2, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.200000, 
+            "Range": 0.000000, 
+            "Falloff": 0.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 0.600000
           }
         }
       }, 

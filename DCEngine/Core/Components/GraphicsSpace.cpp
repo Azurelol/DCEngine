@@ -75,12 +75,30 @@ namespace DCEngine {
 		{
 			GraphicsComponents.push_back(graphicsComponent);
 		}
-
 		void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
 		{
 			GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
-				GraphicsComponents.end(), graphicsComponent),
-				GraphicsComponents.end());
+				GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
+		}
+		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
+		{
+			return GraphicsComponents;
+		}
+
+		void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
+		{
+			LightComponents.push_back(lightComponent);
+		}
+
+		void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
+		{
+			LightComponents.erase(std::remove(LightComponents.begin(),
+				LightComponents.end(), lightComponent), LightComponents.end());
+		}
+
+		LightComponentContainer GraphicsSpace::getLightComponents(void)
+		{
+			return LightComponents;
 		}
 
     /**************************************************************************/
@@ -173,10 +191,7 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
     }
 
-		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
-		{
-			return GraphicsComponents;
-		}
+		
 
     /**************************************************************************/
     /*!

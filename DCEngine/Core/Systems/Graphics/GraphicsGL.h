@@ -24,6 +24,7 @@
 #include "..\..\..\Dependencies\include\GLM\gtc\type_ptr.hpp"
 // Graphics resources
 #include "..\..\Components\SpriteParticleSystem.h"
+#include "..\..\Components\Light.h"
 #include "..\..\Resources\Shader.h"
 // DebugDraw
 #include "../../Objects/DebugDraw.h"
@@ -38,6 +39,7 @@ namespace DCEngine {
     class Camera;
     class Sprite;
     class SpriteText;
+		class Light;
   }
   
 
@@ -54,7 +56,7 @@ namespace DCEngine {
 
       /* Sprite */
       void ConfigureSpriteVAO();      
-      void SetSpriteShader(Components::Camera& camera);
+      void SetSpriteShader(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
       void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 	    void AnimationUpdate(Components::Sprite& sprite, float dt);
 	    int IsNextFrame(Components::Sprite& sprite);
