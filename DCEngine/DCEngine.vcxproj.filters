@@ -283,6 +283,18 @@
     <Filter Include="Projects\Rebound\Scripts">
       <UniqueIdentifier>{89011df5-235f-42f4-9796-4ee5eb811e4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules">
+      <UniqueIdentifier>{a28e5ef2-de24-4104-902a-54bf8d02c48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Selector">
+      <UniqueIdentifier>{31fea31c-c72f-4919-a237-e14f10c83bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Resources">
+      <UniqueIdentifier>{60bc15e7-e3de-4a21-933f-935d07ea6bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Tools\TransformTool">
+      <UniqueIdentifier>{1cd4b666-0334-4327-b4aa-53e571683fa2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -534,9 +546,6 @@
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
-      <Filter>Core\Systems\Editor\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -678,9 +687,6 @@
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Components\TransformTool.cpp">
-      <Filter>Core\Components\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Resources\SpriteLayer.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
@@ -780,14 +786,35 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
+      <Filter>Core\Systems\Physics\Broadphase</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
+      <Filter>Core\Systems\Physics\Broadphase</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\Selector.cpp">
+      <Filter>Core\Systems\Editor\Modules\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp">
+      <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTool.cpp">
       <Filter>Core\Systems\Editor\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
-      <Filter>Core\Systems\Physics\Broadphase</Filter>
+    <ClCompile Include="Core\Systems\Editor\TransformTool.cpp">
+      <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Physics\QuadTree.cpp">
-      <Filter>Core\Systems\Physics\Broadphase</Filter>
+    <ClCompile Include="Core\Components\TransformToolComponent.cpp">
+      <Filter>Core\Components\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1250,9 +1277,6 @@
     <ClInclude Include="Core\Engine\Command.h">
       <Filter>Core\Engine\Command</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Components\TransformTool.h">
-      <Filter>Core\Components\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
     </ClInclude>
@@ -1325,6 +1349,33 @@
     <ClInclude Include="Core\Systems\Physics\QuadTree.h">
       <Filter>Core\Systems\Physics\Broadphase</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Selector.h">
+      <Filter>Core\Systems\Editor\Modules\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h">
+      <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h">
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorWindow.h">
+      <Filter>Core\Systems\Editor\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\TransformToolComponent.h">
+      <Filter>Core\Components\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\TransformTool.h">
+      <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SoundInstance.h">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorTool.h">
+      <Filter>Core\Systems\Editor\Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1335,6 +1386,9 @@
     </Text>
     <Text Include="Core\Debug\CallStackResearch.txt">
       <Filter>Core\Engine\Debug</Filter>
+    </Text>
+    <Text Include="Core\Systems\Editor\ToolsDeprecated.txt">
+      <Filter>Core\Systems\Editor</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

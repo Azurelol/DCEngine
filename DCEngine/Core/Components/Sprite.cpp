@@ -215,6 +215,7 @@ namespace DCEngine {
 			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glDepthFunc(GL_LEQUAL);
 
 			// Retrieve the 'SpriteSource' resource from the content system
 			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
@@ -250,8 +251,7 @@ namespace DCEngine {
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
-				transform->Scale.y,
-				0.0f));
+				transform->Scale.y, 0.0f));
 
 
 			// Update the uniforms in the shader to this particular sprite's data 

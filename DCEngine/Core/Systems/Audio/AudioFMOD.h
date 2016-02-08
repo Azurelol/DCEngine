@@ -50,12 +50,12 @@ namespace DCEngine {
       void SetVolume(EventDescriptionHandle& eventHandle, float volume);     
 
       // Accesors
-      FMOD::Studio::Bank* getBank(std::string handle);
-      FMOD_RESULT getBank(std::string path, FMOD::Studio::Bank** bank);
-      FMOD::Studio::Bus* getBus(std::string path);
-      FMOD_RESULT getBus(std::string path, FMOD::Studio::Bus **bus) const;
-      FMOD::Studio::VCA* getVCA(std::string path) const;
-      FMOD_RESULT getVCA(std::string path, FMOD::Studio::VCA** vca) const;
+      FMOD::Studio::Bank* getBank(const std::string handle);
+      FMOD_RESULT getBank(const std::string path, FMOD::Studio::Bank** bank);
+      FMOD::Studio::Bus* getBus(const std::string path);
+      FMOD_RESULT getBus(const std::string path, FMOD::Studio::Bus **bus) const;
+      FMOD::Studio::VCA* getVCA(const std::string path) const;
+      FMOD_RESULT getVCA(const std::string path, FMOD::Studio::VCA** vca) const;
       
       // Generate
       void GenerateResources();
@@ -86,14 +86,14 @@ namespace DCEngine {
       ChannelMap Channels;
 
       // Create
-      bool CreateSound(std::string& soundFile, FMOD::Sound** soundPtr);
-      bool CreateSound(std::string& eventDescrption);
-      bool CreateStream(std::string& soundFile, FMOD::Sound** soundPtr);      
+      bool CreateSound(const std::string& soundFile, FMOD::Sound** soundPtr);
+      bool CreateSound(const std::string& eventDescrption);
+      bool CreateStream(const std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
       FMOD::Studio::EventInstance* AddEventInstance(FMOD::Studio::EventDescription* event) const;
 
       // Loading
-      FMOD::Studio::Bank* LoadBankFromFile(std::string handle, std::string& path);      
+      FMOD::Studio::Bank* LoadBankFromFile(const std::string handle, const std::string& path);      
       void LoadEventDescriptions(FMOD::Studio::Bank* bank);
       void LoadVCAs(FMOD::Studio::Bank* bank);
       void LoadChannelGroups(FMOD::Studio::Bank* bank);

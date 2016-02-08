@@ -19,10 +19,10 @@ namespace DCEngine {
 
     void Editor::WindowConsole()
     {
-      if (!WindowConsoleEnabled)
+      if (!Windows.ConsoleEnabled)
         return;
 
-      ImGui::Begin("Console", &WindowConsoleEnabled);
+      ImGui::Begin("Console", &Windows.ConsoleEnabled);
       // The console needs to read the DCTrace lines while active.
       // Or it could read the log file?
       

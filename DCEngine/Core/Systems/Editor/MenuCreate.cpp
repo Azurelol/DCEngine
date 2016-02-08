@@ -31,7 +31,7 @@ namespace DCEngine {
       //transform->setArchetype = "Transform";
       DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
       Select(transform);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       MoveToViewportCenter(transform);
 
       // Save the command
@@ -58,7 +58,7 @@ namespace DCEngine {
       sprite->AddComponentByName(std::string("Sprite"), true);
       DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
       Select(sprite);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       MoveToViewportCenter(sprite);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
@@ -81,7 +81,7 @@ namespace DCEngine {
       spriteText->AddComponentByName(std::string("SpriteText"), true);
       DCTrace << "Editor::CreateSpriteText - Created 'SpriteText' \n";
       Select(spriteText);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       MoveToViewportCenter(spriteText);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
@@ -107,7 +107,7 @@ namespace DCEngine {
       //psystem->AddComponentByName(std::string("Particle System"), true);
       DCTrace << "Editor::CreateParticleSystem - Created 'ParticleEffect' \n";
       Select(psystem);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       MoveToViewportCenter(psystem);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
@@ -126,7 +126,7 @@ namespace DCEngine {
     {
       auto gameObject = CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetype));
       Select(gameObject);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       MoveToViewportCenter(gameObject);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace,

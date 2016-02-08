@@ -86,7 +86,7 @@ namespace DCEngine {
     component.
     */
     /**************************************************************************/
-    void Content::AddFont(std::string & fontName, FontPtr fontPtr)
+    void Content::AddFont(const std::string & fontName, FontPtr fontPtr)
     {
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
       if (DCE_TRACE_FACTORY_RESOURCE_ADD)
@@ -102,7 +102,7 @@ namespace DCEngine {
     other resources.
     */
     /**************************************************************************/
-    void Content::AddArchetype(std::string & archetypeName, ArchetypePtr archetypePtr)
+    void Content::AddArchetype(const std::string & archetypeName, ArchetypePtr archetypePtr)
     {
       // Overwrite archetypes
       if (ArchetypeMap.count(archetypeName)) {
@@ -112,7 +112,7 @@ namespace DCEngine {
         //return;
       }
 
-      ArchetypeMap.insert(std::pair<std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      ArchetypeMap.insert(std::pair<const std::string, ArchetypePtr>(archetypeName, archetypePtr));
       if (DCE_TRACE_FACTORY_RESOURCE_ADD)
         DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";              
     }
@@ -124,7 +124,7 @@ namespace DCEngine {
     @param The pointer to the shader resource.
     */
     /**************************************************************************/
-    void Content::AddShader(std::string & shaderName, ShaderPtr shaderPtr)
+    void Content::AddShader(const std::string & shaderName, ShaderPtr shaderPtr)
     {
       ShaderMap.insert(std::pair<std::string, ShaderPtr>(shaderName, shaderPtr));
       DCTrace << "Content::AddShader - " << shaderName << " was added.\n";
@@ -137,7 +137,7 @@ namespace DCEngine {
     @param The pointer to the spritesource resource.
     */
     /**************************************************************************/
-    void Content::AddSpriteSource(std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
+    void Content::AddSpriteSource(const std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
     {
       // Prevent duplicates
       if (SpriteSourceMap.count(spriteSourceName)) {
@@ -179,7 +179,7 @@ namespace DCEngine {
     @param The pointer to the bank resource.
     */
     /**************************************************************************/
-    void Content::AddBank(std::string & bankName, BankPtr bankPtr)
+    void Content::AddBank(const std::string & bankName, BankPtr bankPtr)
     {
       AddResourceToMap<BankPtr, BankMap>(bankName, bankPtr, MapBank);
     }
@@ -191,7 +191,7 @@ namespace DCEngine {
     @param The pointer to the level resource.
     */
     /**************************************************************************/
-    void Content::AddLevel(std::string & levelName, LevelPtr levelPtr)
+    void Content::AddLevel(const std::string & levelName, LevelPtr levelPtr)
     {
       // Prevent duplicates
       if (LevelMap.count(levelName)) {
@@ -214,7 +214,7 @@ namespace DCEngine {
     @param The pointer to the CollisionGroup resource.
     */
     /**************************************************************************/
-    void Content::AddCollisionGroup(std::string & collisionGroupName, CollisionGroupPtr collisionGroupPtr)
+    void Content::AddCollisionGroup(const std::string & collisionGroupName, CollisionGroupPtr collisionGroupPtr)
     {
       AddResourceToMap<CollisionGroupPtr, CollisionGroupMap>(collisionGroupName, collisionGroupPtr, MapCollisionGroup);
     }
@@ -226,12 +226,12 @@ namespace DCEngine {
     @param The pointer to the CollisionTable resource.
     */
     /**************************************************************************/
-    void Content::AddCollisionTable(std::string & collisionTableName, CollisionTablePtr collisionTablePtr)
+    void Content::AddCollisionTable(const std::string & collisionTableName, CollisionTablePtr collisionTablePtr)
     {
       AddResourceToMap<CollisionTablePtr, CollisionTableMap>(collisionTableName, collisionTablePtr, MapCollisionTable);
     }
 
-    void Content::AddPhysicsMaterial(std::string & physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr)
+    void Content::AddPhysicsMaterial(const std::string & physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr)
     {
       AddResourceToMap<PhysicsMaterialPtr, PhysicsMaterialMap>(physicsMaterialName, physicsMaterialPtr, MapPhysicsMaterial);
     }
@@ -243,19 +243,19 @@ namespace DCEngine {
     @param The pointer to the ZilchScript resource.
     */
     /**************************************************************************/
-    void Content::AddZilchScript(std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
+    void Content::AddZilchScript(const  std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
     {
       AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
       // Recompile scripts again so it can be used immediately.
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
     }
 
-    void Content::AddSpriteLayer(std::string & name, SpriteLayerPtr ptr)
+    void Content::AddSpriteLayer(const std::string & name, SpriteLayerPtr ptr)
     {
       AddResourceToMap<SpriteLayerPtr, SpriteLayerMap>(name, ptr, MapSpriteLayer);
     }
 
-    void Content::AddSpriteLayerOrder(std::string & name, SpriteLayerOrderPtr ptr)
+    void Content::AddSpriteLayerOrder(const std::string & name, SpriteLayerOrderPtr ptr)
     {
       AddResourceToMap<SpriteLayerOrderPtr, SpriteLayerOrderMap>(name, ptr, MapSpriteLayerOrder);
     }

@@ -128,6 +128,7 @@ namespace DCEngine {
       Zilch::JsonReader reader;
       Zilch::CompilationErrors errors;
       Zilch::JsonValue* data = reader.ReadIntoTreeFromString(errors, SerializedData.c_str(), "Resource", nullptr);
+      
 
       // If the data could not read
       if (!data) {

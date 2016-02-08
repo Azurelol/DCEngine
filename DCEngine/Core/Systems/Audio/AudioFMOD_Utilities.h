@@ -41,7 +41,7 @@ namespace DCEngine {
     using GroupMap = std::map<std::string, FMOD::ChannelGroup*>;
 
     // Aliases
-    using EventDescriptionHandle = std::string;
+    using EventDescriptionHandle = const std::string&;
 
     // Settings 
     struct AudioFMODSettings {

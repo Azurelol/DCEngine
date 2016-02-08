@@ -177,7 +177,6 @@
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Profile>false</Profile>
-      <AdditionalOptions>/IGNORE:4204 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -241,7 +240,6 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/IGNORE:4204 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
@@ -267,7 +265,6 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/IGNORE:4204 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">
@@ -277,7 +274,6 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/IGNORE:4204 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -316,7 +312,7 @@
     <ClCompile Include="Core\Components\SpriteText.cpp" />
     <ClCompile Include="Core\Components\TimeSpace.cpp" />
     <ClCompile Include="Core\Components\Transform.cpp" />
-    <ClCompile Include="Core\Components\TransformTool.cpp" />
+    <ClCompile Include="Core\Components\TransformToolComponent.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
     <ClCompile Include="Core\Engine\ActionSet.cpp" />
@@ -377,6 +373,7 @@
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
@@ -387,6 +384,8 @@
     <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
+    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
@@ -394,6 +393,8 @@
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp" />
+    <ClCompile Include="Core\Systems\Editor\TransformTool.cpp" />
+    <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp" />
@@ -441,6 +442,7 @@
     <ClCompile Include="Projects\Rebound\Components\Fade.cpp" />
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\HealthController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
@@ -454,7 +456,16 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Systems\Editor\Editor.hpp" />
+    <ClInclude Include="Core\Resources\SoundInstance.h" />
+    <ClInclude Include="Core\Systems\Editor\Editor.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
     <ClInclude Include="Core\Binding.h" />
     <ClInclude Include="Core\Binding\CoreBinding.h" />
@@ -467,7 +478,7 @@
     <ClInclude Include="Core\Components\EditorCameraController.h" />
     <ClInclude Include="Core\Components\Graphical.h" />
     <ClInclude Include="Core\Components\Light.h" />
-    <ClInclude Include="Core\Components\TransformTool.h" />
+    <ClInclude Include="Core\Components\TransformToolComponent.h" />
     <ClInclude Include="Core\Components\ParticleColorAnimator.h" />
     <ClInclude Include="Core\Components\ParticleEmitter.h" />
     <ClInclude Include="Core\Components\Camera.h" />
@@ -569,6 +580,10 @@
     <ClInclude Include="Core\Systems\Content\Content.h" />
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorWindow.h" />
+    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h" />
+    <ClInclude Include="Core\Systems\Editor\Selector.h" />
+    <ClInclude Include="Core\Systems\Editor\TransformTool.h" />
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h" />
     <ClInclude Include="Core\Systems\Factory\Factory.h" />
     <ClInclude Include="Core\Systems\Filesystem\FileSystem.h" />
@@ -617,6 +632,7 @@
     <ClInclude Include="Projects\Rebound\Components\Fade.h" />
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
+    <ClInclude Include="Projects\Rebound\Components\HealthController.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
     <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
@@ -635,6 +651,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Core\Debug\CallStackResearch.txt" />
+    <Text Include="Core\Systems\Editor\ToolsDeprecated.txt" />
     <Text Include="Core\Systems\Physics\PhysicsNotes.txt" />
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>

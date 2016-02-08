@@ -31,3 +31,4 @@
 #include "Components\LockField.h"
 #include "Components\PowerField.h"
 #include "Components\AI\Grunt.h"
+#include "Components\HealthController.h"

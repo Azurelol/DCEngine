@@ -29,10 +29,13 @@ namespace DCEngine {
     class Camera;
     class CameraViewport;
 
+		class Light;
+
     // Containers
     using SpriteTextContainer = std::vector<SpriteText*>;
     using SpriteContainer = std::vector<Sprite*>;
 		using GraphicsComponentContainer = std::vector<Graphical*>;
+		using LightComponentContainer = std::vector<Light*>;
 
     class GraphicsSpace : public Component {
       friend class Graphics;
@@ -55,6 +58,11 @@ namespace DCEngine {
 
 			void RegisterGraphicsComponent(Graphical* graphicsComponent);
 			void RemoveGraphicsComponent(Graphical* graphicsComponent);
+			GraphicsComponentContainer getGraphicsComponents(void);
+
+			void RegisterLightComponent(Light* lightComponent);
+			void RemoveLightComponent(Light* lightComponent);
+			LightComponentContainer getLightComponents(void);
 
       //void AddSprite(Sprite& sprite);
       //void RemoveSprite(Sprite& sprite);
@@ -64,8 +72,8 @@ namespace DCEngine {
 			//void RemoveParticleSystem(SpriteParticleSystem& particleEmitter);
 
       // Debug Drawing functions 
-      void DrawCircle(const Vec3& pos, Real radius, const Vec4& color) const;
-      void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color) const;
+      void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false) const;
+      void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill = false) const;
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const;
 
       /* Getters */
@@ -73,7 +81,7 @@ namespace DCEngine {
       //SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
 			//std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
 
-			GraphicsComponentContainer getGraphicsComponents(void);
+			
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 
@@ -82,10 +90,11 @@ namespace DCEngine {
       Graphics* GraphicsSystem;
       CameraViewport* CameraViewportComponent;
       GameObjectRawVec models_;  //!< Container of models that need to be rendered
-      SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
-      SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
-			std::vector<SpriteParticleSystem*> ParticleSystemContainer;
+      //SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    
+      //SpriteTextContainer SpriteTextContainer;  //!< Container of models that need to be rendered
+			//std::vector<SpriteParticleSystem*> ParticleSystemContainer;
 			GraphicsComponentContainer GraphicsComponents;
+			LightComponentContainer LightComponents;
       DebugDrawObjVec DebugDrawObjContainer; //!< Container of debug draw objects to be drawn this frame.
     };
 

@@ -75,12 +75,30 @@ namespace DCEngine {
 		{
 			GraphicsComponents.push_back(graphicsComponent);
 		}
-
 		void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
 		{
 			GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
-				GraphicsComponents.end(), graphicsComponent),
-				GraphicsComponents.end());
+				GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
+		}
+		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
+		{
+			return GraphicsComponents;
+		}
+
+		void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
+		{
+			LightComponents.push_back(lightComponent);
+		}
+
+		void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
+		{
+			LightComponents.erase(std::remove(LightComponents.begin(),
+				LightComponents.end(), lightComponent), LightComponents.end());
+		}
+
+		LightComponentContainer GraphicsSpace::getLightComponents(void)
+		{
+			return LightComponents;
 		}
 
     /**************************************************************************/
@@ -155,16 +173,16 @@ namespace DCEngine {
     \brief Passes a call requesting a DebugDraw call on to the Graphics System.
     */
     /**************************************************************************/
-    void GraphicsSpace::DrawCircle(const Vec3& pos, Real radius, const Vec4& color) const
+    void GraphicsSpace::DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill) const
     {
       auto cam = CameraViewportComponent->getCamera();
-      Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam);
+      Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam, fill);
     }
 
-    void GraphicsSpace::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color) const
+    void GraphicsSpace::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill) const
     {
       auto cam = CameraViewportComponent->getCamera();
-      Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam);
+      Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam, fill);
     }
 
     void GraphicsSpace::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const
@@ -173,10 +191,7 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
     }
 
-		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
-		{
-			return GraphicsComponents;
-		}
+		
 
     /**************************************************************************/
     /*!

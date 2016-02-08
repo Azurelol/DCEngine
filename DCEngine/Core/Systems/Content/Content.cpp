@@ -92,7 +92,7 @@ namespace DCEngine {
     @brief Deserializes a ProjectData file for project data settings.
     */
     /**************************************************************************/
-    void Content::LoadProjectData(std::string& projectData)
+    void Content::LoadProjectData(const std::string& projectData)
     {
       // Load the loaded project's assets
       LoadProjectAssets();
@@ -108,7 +108,7 @@ namespace DCEngine {
     @param  A string containing the path of the project data file.
     */
     /**************************************************************************/
-    void Content::LoadProject(std::string projectDataPath)
+    void Content::LoadProject(const std::string& projectDataPath)
     {
       // Deserialize the project data
       ProjectInfo.reset(new ProjectData);

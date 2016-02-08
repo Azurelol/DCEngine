@@ -70,7 +70,7 @@ namespace DCEngine {
       GLfloat BaseRollVal = 90.0f;
       //Projection Mode
       ProjectionMode Projection = ProjectionMode::Perspective;
-      GLfloat FieldOfView = 250;
+      GLfloat FieldOfView = 90;
       GLfloat WindowWidth = 8;
       GLfloat WindowHeight = 6;
       GLfloat Size = 90; // Size of th orthographic projection. 

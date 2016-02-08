@@ -2,7 +2,7 @@
 {
   "SpriteSource": 
   {
-    "Name": "Smoke2", 
+    "Name": "ShockWave", 
     "Properties": 
     {
       "FrameRate": 0.000000, 
@@ -13,7 +13,7 @@
       "Looping": false, 
       "Fill": false, 
       "TotalFrame": 0, 
-      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Smoke2.png"
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Particles\\ShockWave.png"
     }
   }
 }

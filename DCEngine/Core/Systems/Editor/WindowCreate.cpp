@@ -23,11 +23,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowCreateFromArchetype()
     {
-      if (!WindowCreateFromArchetypeEnabled)
+      if (!Windows.CreateFromArchetypeEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Create from Archetype", &WindowCreateFromArchetypeEnabled);
+      ImGui::Begin("Create from Archetype", &Windows.CreateFromArchetypeEnabled);
       {
         // Display a list of all available archetypes
           // Query the Content system for the current list of archetypes
@@ -49,11 +49,11 @@ namespace DCEngine {
 
           if (ImGui::Button("Create")) {
             CreateFromArchetype(std::string(archetypeName));
-            WindowCreateFromArchetypeEnabled = false;
+            Windows.CreateFromArchetypeEnabled = false;
           }
           ImGui::SameLine();
           if (ImGui::Button("Cancel")) {
-            WindowCreateFromArchetypeEnabled = false;
+            Windows.CreateFromArchetypeEnabled = false;
           }
 
       }      

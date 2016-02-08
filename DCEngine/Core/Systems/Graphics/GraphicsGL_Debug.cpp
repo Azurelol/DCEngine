@@ -104,9 +104,9 @@ namespace DCEngine {
 			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
 			//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
 			if (fill)
-				glBegin(GL_LINE_LOOP);
-			else
 				glBegin(GL_TRIANGLE_FAN);
+			else
+				glBegin(GL_LINE_LOOP);
 
 			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
 			auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);

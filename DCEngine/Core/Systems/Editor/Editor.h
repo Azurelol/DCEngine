@@ -12,10 +12,14 @@
 #pragma once
 #include "../System.h"
 
+// Utilities
 #include "EditorUtilities.h"
-
-
-
+// Modules
+#include "EditorModulesInclude.h"
+// Tools
+//#include "EditorTool.h"
+#include "EditorToolsInclude.h"
+// Engine
 #include "../../Objects/Object.h"
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
@@ -23,11 +27,9 @@
 
 namespace DCEngine {
 
-  /* Forward declarations*/
+  // Forward declarations
   class Engine;
   class Space;
-
-
 
   namespace Systems {
 
@@ -36,57 +38,58 @@ namespace DCEngine {
 
     public:
 
-      enum class EditorTool {
-        None,
-        Select,
-        Translate,
-        Rotate,
-        Scale,
-
-      };
-
+      SelectionData Selection;
+      ObjectPtr SelectedObject();      
+      ObjectContainer& AllSelectedObjects();
+      void Add(CommandPtr command);
       bool IsEnabled();
       void ToggleEditor();
       void ToggleEditor(bool);
-      void ToggleTest();
+      SpacePtr CurrentSpace;
 
     private:
 
-      /////////////////
-      //  Settings 
-      ////////////////
-      EditorConfig Settings;
-      SelectionData Selection;
-      TransformToolData TransformData;
-      void setEnabled(bool);
-      std::string RecentProject;
-      bool ShowTestWindow = false;
-      bool WidgetMenuBarEnabled = false;
-      bool WidgetLevelEnabled = false;
-      bool WindowAddResourceEnabled = false;
-      bool WidgetObjectsEnabled = false;
-      bool WindowPropertiesEnabled = false;
-      bool WidgetLibraryEnabled = false;
-      bool WindowDiagnosticsEnabled = false;
-      bool WindowSaveLevelEnabled = false;
-      bool WindowLoadLevelEnabled = false;
-      bool WindowConsoleEnabled = false;
-      bool WindowToolsEnabled = false;
-      bool WindowCreateFromArchetypeEnabled = false;
-      bool WindowCollisionTableEditorEnabled = false;
-      bool WindowSpriteLayerOrderEditorEnabled = false;
-      bool WindowCommandsEnabled = false;
-      SystemPtr ReflectionSystem;
-      Space* CurrentSpace;
-      GameObjectPtr EditorCamera = nullptr;
-      GameObjectPtr TransformTool = nullptr;
-      ObjectContainer SelectedObjects;
-      EditorTool ActiveTool = EditorTool::None;
-      Vec2 ViewportResize = Vec2(0.75, 0.75);
+      // Tools
+      enum class EditorTools {
+        None,
+        Translate,
+        Rotate,
+        Scale,
+        Tilemap,
+      };
 
-      /////////////////
-      //  Methods 
-      ////////////////
+      void SwitchTool(EditorTools tool);
+      EditorTools ActiveTool;
+      bool IsToolRegion(GameObjectPtr);
+           
+      //EditorToolPtr ActiveToolHandle;
+      //TransformToolPtr TransformToolHandle;
+      
+      // Selection
+      void DrawSelection();
+      void DisplayTool();
+      void UseTool(GameObjectPtr gameObject, Vec2& position);
+      void DrawTranslateTool();
+      void DrawRotateTool();
+      void DrawScaleTool();
+      ObjectContainer SelectedObjects;
+      void MoveObject(const Vec3&);
+      void TransformStartDragging();
+      void TransformDrag(Vec2&);
+      void ReleaseObject();
+
+      // Settings
+      EditorConfig Settings;
+      EditorWindows Windows;
+      TransformToolData Transformation;
+
+      // Objects
+      SystemPtr ReflectionSystem;
+      GameObjectPtr EditorCamera = nullptr;
+      //GameObjectPtr TransformTool = nullptr;
+      
+      // Editor
+      void setEnabled(bool);
       void DisplayEditor();
       // Windows
       void DisplayMainMenuBar();
@@ -131,18 +134,14 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
-      ObjectPtr SelectedObject();
       void Select(ObjectPtr);
       void Deselect();
       void SelectSpace();
       void CenterSelected();
       void SelectMultiple(Vec2&);
+      bool IsSelected(GameObjectPtr);
       void CalculateSelectionBounding();
       void DrawMultiSelect();
-      void DragObject(Vec2&);
-      void RotateObject(Vec2&);
-      void ScaleObject(Vec2&);
-      void ReleaseObject();
       // Resources
       void WindowAddResource();
       void ResourceCreate(std::string& name, ResourceType type);
@@ -179,18 +178,6 @@ namespace DCEngine {
       void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
-      // Tools
-      void DrawSelection();
-      void DisplayTool();
-      void UseTool(GameObjectPtr gameObject, Vec2& position);
-      void ReleaseTool();
-      bool IsToolRegion(GameObjectPtr);
-      void DrawTranslateTool();
-      void DrawRotateTool();
-      void DrawScaleTool();
-      // Actions
-      void MoveObject(Vec3);
-      void ScaleObject(Vec3);
       // Window, Input
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);
@@ -222,61 +209,8 @@ namespace DCEngine {
       void OnMouseUpdateEvent(Events::MouseUpdate* event);
 
     };
-
-    //#include "Editor.tcc"
-
-    /////////////
-    // Templates
-    /////////////
-    //template<typename ResourceMap>
-    //inline void Editor::DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, EventDelegate* delegate)
-    //{
-    //  if (ImGui::TreeNode(resourceName.c_str())) {
-    //    for (auto& resource : resourceMap) {
-    //      if (ImGui::Selectable(resource.second->Name().c_str())) {
-    //        SelectedObject() = resource.second.get();
-    //        WindowPropertiesEnabled = true;
-    //      }
-    //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
-    //        
-    //        break;
-    //      }
-    //    }
-    //    ImGui::TreePop();
-    //  }
-    //}
-
-    template<typename ResourceMap>
-    inline bool Editor::SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID)
-    {
-      // Get a container of all active resources
-      std::vector<const char *> resources;
-      auto resourceValue = Reflection::PropertyAsString(resource, component);
-      static int currentItem = 0;
-      for (auto resource : *map) {
-        // Push the name of it into the vector of strings
-        resources.push_back(resource.second->Name().c_str());
-        if (resource.second->getObjectName() == resourceValue)
-          currentItem = static_cast<int>(resources.size()) - 1;
-      }
-
-      // If the user selects an item... 
-      if (ImGui::Combo("##propertyID", &currentItem, resources.data(), static_cast<int>(resources.size()))) {
-        // Set the selected item as the current resource
-        auto selectedResource = resources.at(currentItem);
-        Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-        setCall.SetHandleVirtual(Zilch::Call::This, component);
-        setCall.Set(0, Zilch::String(selectedResource));
-        setCall.Invoke(report);
-        // Property was modified..
-        return true;
-      }
-      // Property was not modified
-      return false;
-    }
-
+    
   }
-
-
 }
+
+#include "Editor.hpp"

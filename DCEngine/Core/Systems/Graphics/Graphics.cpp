@@ -80,28 +80,22 @@ namespace DCEngine {
 				if (camera == nullptr)
 					continue;
 
-				GraphicsHandler->SetParticleSystemShader(*camera);
-				//for (auto&& particleSystem : gfxSpace->getParticleSystem())
-				//{
-				//	DrawParticles(*particleSystem, *camera, dt);
-				//}
-
-				//draw sprite text
-				GraphicsHandler->SetSpriteTextShader(*camera);
-				//for (auto spriteText : gfxSpace->getSpriteTextContainer())
-				//{
-					//DrawSpriteText(*spriteText, *camera);
-				//}
-
-				// draw sprites
-				GraphicsHandler->SetSpriteShader(*camera);
-				
 				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
 				for (auto graphicalComponent : graphicalComponents)
 				{
 					++TotalObjNumG;
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 				}
+
+				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
+				for (auto lightComponent : lightComponents)
+				{
+					mLightList.push_back(lightComponent);
+				}
+
+				GraphicsHandler->SetParticleSystemShader(*camera);
+				GraphicsHandler->SetSpriteTextShader(*camera);
+				GraphicsHandler->SetSpriteShader(*camera, lightComponents);
 
 				for (auto&& drawList : mDrawList)
 				{
@@ -216,14 +210,14 @@ namespace DCEngine {
 		// DEBUG DRAW
 		///////////////
 
-		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam)
+		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawCircle(pos, radius, color, cam);
+			GraphicsHandler->DrawCircle(pos, radius, color, cam, fill);
 		}
 
-		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam)
+		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawRectangle(pos, width, height, color, cam);
+			GraphicsHandler->DrawRectangle(pos, width, height, color, cam, fill);
 		}
 
 		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)

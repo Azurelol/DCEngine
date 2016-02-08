@@ -63,8 +63,8 @@ namespace DCEngine {
         viewportResize->viewportScale.y = 1;
       }
       else {
-        viewportResize->viewportScale.x = ViewportResize.x;
-        viewportResize->viewportScale.y = ViewportResize.y;
+        viewportResize->viewportScale.x = Settings.ViewportResize.x;
+        viewportResize->viewportScale.y = Settings.ViewportResize.y;
       }
       Daisy->Dispatch<Events::ResizeViewportEvent>(viewportResize);
       delete viewportResize;

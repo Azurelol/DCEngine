@@ -25,56 +25,44 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
-      // LEFT MOUSE BUTTON
+      // Update the mouse's starting position
+      Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
+
+      //==================
+      // LEFT MOUSE BUTTON 
       if (event->ButtonPressed == MouseButton::Left) {
         // Look for an object that matches the translation
         auto posOnSpace = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position);
-        auto gameObject = FindObjectFromSpace(posOnSpace);        
+        auto gameObject = FindObjectFromSpace(posOnSpace);
+
+        // If an object was found at that position...
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
+
+          // If we have selected multiple objects already, the object at the position is one of them
+          if (IsSelected(gameObject)) {
+          }
+          // if the object is not currently selected..
+          else {
+            SelectObjectFromSpace(gameObject);
+          }
+
+          // Start using the current tool
           UseTool(gameObject, event->Position);
-        }            
-        // If an object was found at that position, select it
-        if (gameObject)
-          SelectObjectFromSpace(gameObject);
+        }         
         // If no object was found, deselect the current object if no tool's region overlaps the selected area
         // and attempt to select multiple objects
         else if (!IsToolRegion(gameObject)) {
           Deselect();
-          Settings.MultiSelectDragging = true;
+          Selection.Dragging = true;
           Selection.MultiSelectStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
           SelectMultiple(event->Position);
         }
       }
-
+      //===================
       // RIGHT MOUSE BUTTON
       else if (event->ButtonPressed == MouseButton::Right) {
         Settings.Panning = true;
         Settings.CamStartPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
-        Settings.MouseStartPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->Position), 0);
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives a MouseUp event.
-    @param  event The MouseUp event.
-    */
-    /**************************************************************************/
-    void Editor::OnMouseUpEvent(Events::MouseUp* event)
-    {
-      if (!Settings.EditorEnabled)
-        return;
-
-      ReleaseTool();
-
-      // Stop panning
-      if (Settings.Panning)
-        Settings.Panning = false;
-
-      // Stop dragging for multiple selection
-      if (Settings.MultiSelectDragging) {
-        CalculateSelectionBounding();
-        Settings.MultiSelectDragging = false;
       }
     }
 
@@ -88,18 +76,34 @@ namespace DCEngine {
     {
       SelectMultiple(event->ScreenPosition);
       PanCamera(event->ScreenPosition);
-      DragObject(event->ScreenPosition);
-      RotateObject(event->ScreenPosition);
-      ScaleObject(event->ScreenPosition);
-
+      TransformDrag(event->ScreenPosition);
       CalculateSelectionBounding();
+    }
 
-      //if (TransCommand != NULL)
-      //{
-      //  DragObject(event->ScreenPosition);
-      //  RotateObject(event->ScreenPosition, TransCommand->PreviousRotation);
-      //  ScaleObject(event->ScreenPosition);
-      //}
+    /**************************************************************************/
+    /*!
+    @brief  Receives a MouseUp event.
+    @param  event The MouseUp event.
+    */
+    /**************************************************************************/
+    void Editor::OnMouseUpEvent(Events::MouseUp* event)
+    {
+      if (!Settings.EditorEnabled)
+        return;
+      
+      // Stop panning
+      if (Settings.Panning)
+        Settings.Panning = false;
+
+      // Stop dragging for selection tool
+      if (Selection.Dragging) {
+        Selection.Dragging = false;
+        CalculateSelectionBounding();
+      }
+      // Stop dragging for transformation tool
+      if (Transformation.Dragging) {
+        Transformation.Dragging = false;
+      }
     }
 
     /**************************************************************************/
@@ -113,15 +117,15 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::Escape:
-        ActiveTool = EditorTool::None;
+        SwitchTool(EditorTools::None);
         break;
 
       case Keys::Return:
-        ActiveTool = EditorTool::None;
+        SwitchTool(EditorTools::None);
         break;
 
       case Keys::Tilde:
-        WindowConsoleEnabled = !WindowConsoleEnabled;
+        Windows.ConsoleEnabled = !Windows.ConsoleEnabled;
         break;
 
       case Keys::Z:
@@ -165,7 +169,7 @@ namespace DCEngine {
 
       case Keys::N:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
-          WindowAddResourceEnabled = true;
+          Windows.AddResourceEnabled = true;
         break;
 
       case Keys::F5:        
@@ -173,17 +177,17 @@ namespace DCEngine {
         break;
 
       case Keys::F4:
-        WindowDiagnosticsEnabled = !WindowDiagnosticsEnabled;
+        Windows.DiagnosticsEnabled = !Windows.DiagnosticsEnabled;
         break;
 
       case Keys::Tab:
-        WindowToolsEnabled = !WindowToolsEnabled;
+        Windows.ToolsEnabled = !Windows.ToolsEnabled;
         break;
 
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
-          DCTrace << "Editor::SelectTool \n";
-        ActiveTool = EditorTool::Select;
+          DCTrace << "Editor::Select \n";
+        SwitchTool(EditorTools::None);
         break;
 
       // If the editor's transform tool is not a component, we will perform
@@ -192,19 +196,19 @@ namespace DCEngine {
           case Keys::Num2:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::TranslateTool \n";
-            ActiveTool = EditorTool::Translate;
+            SwitchTool(EditorTools::Translate);
             break;
 
           case Keys::Num3:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::RotateTool \n";
-            ActiveTool = EditorTool::Rotate;
+            SwitchTool(EditorTools::Rotate);
             break;
 
           case Keys::Num4:
             if (DCE_EDITOR_TRACE_TOOLS)
               DCTrace << "Editor::ScaleTool \n";
-            ActiveTool = EditorTool::Scale;
+            SwitchTool(EditorTools::Scale);
             break;
         }
 
@@ -215,22 +219,18 @@ namespace DCEngine {
 
       case Keys::Up:
         MoveObject(Vec3(0, Settings.SnapDistance, 0));
-        ScaleObject(Vec3(0, Settings.SnapDistance, 0));
         break;
 
       case Keys::Down:
         MoveObject(Vec3(0, -Settings.SnapDistance, 0));
-        ScaleObject(Vec3(0, -Settings.SnapDistance, 0));
         break;
 
       case Keys::Left:
         MoveObject(Vec3(-Settings.SnapDistance, 0,0));
-        ScaleObject(Vec3(-Settings.SnapDistance, 0, 0));
         break;
 
       case Keys::Right:
         MoveObject(Vec3(Settings.SnapDistance, 0, 0));
-        ScaleObject(Vec3(Settings.SnapDistance, 0, 0));
         break;
 
       default:

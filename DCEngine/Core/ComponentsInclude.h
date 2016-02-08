@@ -49,8 +49,7 @@
 #include "../Projects/ProjectComponents.h"
 // Editor
 #include "Components\EditorCameraController.h"
-#include "Components\TransformTool.h"
-
+#include "Components\TransformToolComponent.h"
 
 
 namespace DCEngine {

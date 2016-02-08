@@ -21,7 +21,7 @@ namespace DCEngine {
     @return Returns a pointer to the bank object.
     */
     /**************************************************************************/
-    BankPtr Content::getBank(std::string bankName)
+    BankPtr Content::getBank(const std::string bankName)
     {
       return MapBank.at(bankName);
     }
@@ -32,7 +32,7 @@ namespace DCEngine {
     @return Returns a pointer to the shader object.
     */
     /**************************************************************************/
-    ShaderPtr Content::getShader(std::string shaderName)
+    ShaderPtr Content::getShader(const std::string shaderName)
     {
       return ShaderMap.at(shaderName);
     }
@@ -43,7 +43,7 @@ namespace DCEngine {
     @return Returns a pointer to the font object.
     */
     /**************************************************************************/
-    FontPtr Content::getFont(std::string & fontName)
+    FontPtr Content::getFont(const std::string & fontName)
     {
       // Check if the resource is present in the map
       if (!FontMap.count(fontName)) {
@@ -60,7 +60,7 @@ namespace DCEngine {
     @return Returns a pointer to the spritesource object.
     */
     /**************************************************************************/
-    SpriteSourcePtr Content::getSpriteSrc(std::string & spriteName)
+    SpriteSourcePtr Content::getSpriteSrc(const std::string & spriteName)
     {
       // Check if the resource is present in the map
       if (!SpriteSourceMap.count(spriteName)) {
@@ -81,7 +81,7 @@ namespace DCEngine {
     @return Returns a pointer to the SoundCue object.
     */
     /**************************************************************************/
-    SoundCuePtr Content::getSoundCue(std::string & soundCueName)
+    SoundCuePtr Content::getSoundCue(const std::string & soundCueName)
     {
       // Check if the resource is present in the map
       if (!SoundCueMap.count(soundCueName)) {
@@ -99,7 +99,7 @@ namespace DCEngine {
     @return Returns a pointer to the Archetype object.
     */
     /**************************************************************************/
-    ArchetypePtr Content::getArchetype(std::string & archetypeName)
+    ArchetypePtr Content::getArchetype(const std::string & archetypeName)
     {
       return ArchetypeMap.at(archetypeName);
     }
@@ -110,7 +110,7 @@ namespace DCEngine {
     @return Returns a pointer to the Level object.
     */
     /**************************************************************************/
-    LevelPtr Content::getLevel(std::string & levelName)
+    LevelPtr Content::getLevel(const std::string & levelName)
     {
       // Check if the resource is present in the map
       if (!LevelMap.count(levelName)) {
@@ -129,7 +129,7 @@ namespace DCEngine {
     @return Returns a pointer to the CollisionGroup object.
     */
     /**************************************************************************/
-    CollisionGroupPtr Content::getCollisionGroup(std::string & groupName)
+    CollisionGroupPtr Content::getCollisionGroup(const std::string & groupName)
     {
       // Check if the resource is present in the map
       if (!MapCollisionGroup.count(groupName)) {
@@ -145,7 +145,7 @@ namespace DCEngine {
     @return Returns a pointer to the CollisionTable object.
     */
     /**************************************************************************/
-    CollisionTablePtr Content::getCollisionTable(std::string & table)
+    CollisionTablePtr Content::getCollisionTable(const std::string & table)
     {
       // Check if the resource is present in the map
       if (!MapCollisionTable.count(table)) {
@@ -161,22 +161,22 @@ namespace DCEngine {
     @return Returns a pointer to the PhysicsMaterial object.
     */
     /**************************************************************************/
-    PhysicsMaterialPtr Content::getPhysicsMaterial(std::string & materialName)
+    PhysicsMaterialPtr Content::getPhysicsMaterial(const std::string & materialName)
     {
       return getResource<PhysicsMaterialMap, PhysicsMaterialPtr>(materialName, MapPhysicsMaterial, DefaultPhysicsMaterial);
     }
 
-    SpriteLayerPtr Content::getSpriteLayer(std::string & name)
+    SpriteLayerPtr Content::getSpriteLayer(const std::string & name)
     {
       return getResource<SpriteLayerMap, SpriteLayerPtr>(name, MapSpriteLayer, DefaultSpriteLayer);
     }
 
-    TexturePtr Content::getTexture(std::string & name)
+    TexturePtr Content::getTexture(const std::string & name)
     {
       return getResource<TextureMap, TexturePtr>(name, MapTextures, DefaultTexture);
     }
 
-    SpriteLayerOrderPtr Content::getSpriteLayerOrder(std::string & name)
+    SpriteLayerOrderPtr Content::getSpriteLayerOrder(const std::string & name)
     {
       return getResource<SpriteLayerOrderMap, SpriteLayerOrderPtr>(name, MapSpriteLayerOrder, DefaultSpriteLayerOrder);
     }

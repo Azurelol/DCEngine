@@ -27,11 +27,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::WindowProperties()
     {
-      if (!WindowPropertiesEnabled)
+      if (!Windows.PropertiesEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Properties", &WindowPropertiesEnabled);
+      ImGui::Begin("Properties", &Windows.PropertiesEnabled);
 
       // If there's an object selected, display its properties.
       if (SelectedObject() != nullptr) {
@@ -229,7 +229,7 @@ namespace DCEngine {
           static int currentItem = 0;
           ImGui::Text(property->Name.c_str());
           static bool thisModified = false;
-          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), enums.size())) {
+          if (ImGui::Combo("##propertyID", &currentItem, enums.data(), static_cast<int>(enums.size()))) {
             // Set the selected item as the current resource
             auto selectedEnum = enums.at(currentItem);
             // Retrieve...

@@ -155,12 +155,10 @@ namespace DCEngine
       {
         return Pair.CollisionFlag;
       }
-    }
-
-    CollisionFlag temp = CollisionFlag::Resolve;
+    }   
 
     throw DCException(std::string("CollisionTable::GetResolve - Tried to get resolution of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
-    return temp;
+    
   }
 
   bool CollisionTable::SetStartBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
@@ -189,9 +187,8 @@ namespace DCEngine
       }
     }
 
-    CollisionBlock temp;
     throw DCException(std::string("CollisionTable::GetStartBlock - Tried to get start block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
-    return temp;
+
   }
 
   bool CollisionTable::SetEndBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
@@ -204,7 +201,6 @@ namespace DCEngine
         return true;
       }
     }
-
 
     DCTrace << "CollisionTable::SetEndBlock - Tried to change end block of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
@@ -220,9 +216,8 @@ namespace DCEngine
       }
     }
 
-    CollisionBlock temp;
     throw DCException(std::string("CollisionTable::GetEndBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
-    return temp;
+
   }
 
   bool CollisionTable::SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state)
@@ -251,9 +246,7 @@ namespace DCEngine
       }
     }
 
-    CollisionBlock temp;
     throw DCException(std::string("CollisionTable::GetPreSolveBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
-    return temp;
   }
 
   /**************************************************************************/

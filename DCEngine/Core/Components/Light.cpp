@@ -10,6 +10,21 @@
 */
 /******************************************************************************/
 #include "Light.h"
+#include "../Objects/Entities/Space.h"
+#include "GraphicsSpace.h"
+
+/**************************************************************************/
+/*!
+@brief Binds the ProjectionMode enum class.
+*/
+/**************************************************************************/
+ZilchDefineExternalType(DCEngine::LightType, "LightType", DCEngine::DCEngineCore, builder, type) {
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+
+  ZilchBindEnumValue(builder, type, DCEngine::LightType::Point, "Point");
+  ZilchBindEnumValue(builder, type, DCEngine::LightType::Spot, "Spot");
+  ZilchBindEnumValue(builder, type, DCEngine::LightType::Ambient, "Ambient");
+}
 
 namespace DCEngine {
   namespace Components {
@@ -22,22 +37,22 @@ namespace DCEngine {
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Light, "Light", DCEngineCore, builder, type) {
-      // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Light);
       // Properties
+      DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
       DCE_BINDING_DEFINE_PROPERTY(Light, Visible);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityCulling);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityEvents);
       DCE_BINDING_DEFINE_PROPERTY(Light, CastShadows);
-
-      //DCE_BINDING_DEFINE_PROPERTY(Light, LightType);
+			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Color);
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);
       DCE_BINDING_DEFINE_PROPERTY(Light, Falloff);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Angle);
-      DCE_BINDING_DEFINE_PROPERTY(Light, Size);
+      DCE_BINDING_DEFINE_PROPERTY(Light, DirectionVector);
+			DCE_BINDING_DEFINE_PROPERTY(Light, InnerAngle);
+			DCE_BINDING_DEFINE_PROPERTY(Light, OuterAngle);
     }
     #endif
 
@@ -48,6 +63,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::Light(Entity & owner) : Component(std::string("Light"), owner)
     {
+			Initialize();
     }
 
     /**************************************************************************/
@@ -57,6 +73,7 @@ namespace DCEngine {
     /**************************************************************************/
     Light::~Light()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RemoveLightComponent(this);
     }
 
     /**************************************************************************/
@@ -66,6 +83,26 @@ namespace DCEngine {
     /**************************************************************************/
     void Light::Initialize()
     {
+			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
+    }
+
+    int Light::getTypeAsInt()
+    {
+      switch (Type) {
+      case LightType::Point:
+        return 0;
+        break;
+
+      case LightType::Spot:
+        return 1;
+        break;
+
+      case LightType::Ambient:
+        return 2;
+        break;
+
+
+      }
     }
 
   }

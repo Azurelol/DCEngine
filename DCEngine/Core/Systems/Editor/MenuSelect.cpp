@@ -106,7 +106,7 @@ namespace DCEngine {
     void Editor::SelectObject(GameObject* obj)
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
       
       // Save its boundaries
       Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
@@ -117,6 +117,7 @@ namespace DCEngine {
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
     }
+
 
     /**************************************************************************/
     /*!
@@ -131,6 +132,21 @@ namespace DCEngine {
 
       // If no objects are selected..
       return nullptr;
+    }
+
+    ObjectContainer& Editor::AllSelectedObjects()
+    {
+      return SelectedObjects;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds a command to the editor's command stack.
+    */
+    /**************************************************************************/
+    void Editor::Add(CommandPtr command)
+    {
+      Settings.Commands.Add(command);
     }
 
     /**************************************************************************/
@@ -165,7 +181,7 @@ namespace DCEngine {
     void Editor::SelectSpace()
     {
       Select(CurrentSpace);
-      WindowPropertiesEnabled = true;
+      Windows.PropertiesEnabled = true;
     }
 
     /**************************************************************************/
@@ -195,7 +211,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SelectMultiple(Vec2 & mousePosition)
     {
-      if (!Settings.MultiSelectDragging)
+      if (!Selection.Dragging)
         return;
       
       // Get the current mouse position.
@@ -226,18 +242,22 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Draws the multi-selection bounding area.
+    @brief Checks if the object is currently selected.
+    @param gameObject A pointer to the GameObject.
+    @return Whether the object is currently being selected or not.
     */
     /**************************************************************************/
-    void Editor::DrawMultiSelect()
+    bool Editor::IsSelected(GameObjectPtr gameObject)
     {
-      if (!Settings.MultiSelectDragging)
-        return;
+      for (auto& object : SelectedObjects) {
+        if (gameObject->getObjectID() == object->getObjectID())
+          return true;
+      }
 
-      // Draw the bounding rectangle
-      CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
-        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Settings.MultiSelectColor);
+      return false;
     }
+
+
 
 
   }

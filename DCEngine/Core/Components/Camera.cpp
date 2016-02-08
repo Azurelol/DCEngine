@@ -24,7 +24,6 @@ ZilchDefineExternalType(DCEngine::ProjectionMode, "ProjectionMode", DCEngine::DC
 
   ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Orthographic, "Orthographic");
   ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Perspective, "Perspective");
-  //DCE_BINDING_DEFINE_ENUM(DCEngine::ProjectionMode::Perspective, Orthographic);
 }
 
 

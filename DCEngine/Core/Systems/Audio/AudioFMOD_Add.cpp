@@ -22,7 +22,7 @@ namespace DCEngine {
     necessary.
     */
     /**************************************************************************/
-    bool AudioFMOD::CreateSound(std::string& soundFile, FMOD::Sound** soundPtr) {
+    bool AudioFMOD::CreateSound(const std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateSound: " << soundFile << "\n";
       return ErrorCheck(System.LowLevel->createSound(soundFile.c_str(), FMOD_CREATESAMPLE, 0, soundPtr));
     }
@@ -33,7 +33,7 @@ namespace DCEngine {
     bufferred segment on the fly during playback.
     */
     /**************************************************************************/
-    bool AudioFMOD::CreateStream(std::string& soundFile, FMOD::Sound** soundPtr) {
+    bool AudioFMOD::CreateStream(const std::string& soundFile, FMOD::Sound** soundPtr) {
       DCTrace << "AudioFMOD::CreateStream \n";
       return ErrorCheck(System.LowLevel->createStream(soundFile.c_str(), FMOD_DEFAULT, 0, soundPtr));
     }
@@ -64,7 +64,7 @@ namespace DCEngine {
     @return A pointer to the bank.
     */
     /**************************************************************************/
-    FMOD::Studio::Bank * AudioFMOD::LoadBankFromFile(std::string handle, std::string & path)
+    FMOD::Studio::Bank * AudioFMOD::LoadBankFromFile(const std::string handle, const std::string & path)
     {
       DCTrace << "AudioFMOD::LoadBankFromFile - Loading: '" << handle << "' from file: '" << path << "'\n";
       FMOD::Studio::Bank* newBank;
@@ -73,7 +73,7 @@ namespace DCEngine {
       // Now that the bank is finished loading, load its sample data
       ErrorCheck(newBank->loadSampleData());
       // Add it to the container of active banks
-      ActiveBanks.insert(std::pair<std::string, FMOD::Studio::Bank*>(handle, newBank));
+      ActiveBanks.insert(std::pair<const std::string, FMOD::Studio::Bank*>(handle, newBank));
 
       return newBank;
     }
@@ -119,7 +119,7 @@ namespace DCEngine {
         
         //EventDescriptionHandle eventDescription = EventDescriptionHandle(new EventDescriptionInfo(FileSystem::FileNoExtension(path), path));
         auto name = FileSystem::FileNoExtension(path);
-        AvailableEvents.insert(std::pair<std::string, FMOD::Studio::EventDescription*>(name, eventList[i]));
+        AvailableEvents.insert(std::pair<const std::string, FMOD::Studio::EventDescription*>(name, eventList[i]));
       }
 
       //free(eventList);

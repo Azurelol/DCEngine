@@ -18,31 +18,38 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
+    class HealthController;
     class Grunt : public Component 
     {
 
     public:
+      GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
+      HealthController* HealthRef;
       String PlayerName = "Player";
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
-      float MoveSpeed;
       float JumpStrengthX;
       float JumpStrengthY;
-      float JumpFrequency;
+      float JumpPeriod;
+      float AttackJumpStrengthX;
+      float AttackJumpStrengthY;
+      float AttackJumpPeriod;
 
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
-      DCE_DEFINE_PROPERTY(float, MoveSpeed);
       DCE_DEFINE_PROPERTY(float, JumpStrengthX);
       DCE_DEFINE_PROPERTY(float, JumpStrengthY);
-      DCE_DEFINE_PROPERTY(float, JumpFrequency);
+      DCE_DEFINE_PROPERTY(float, JumpPeriod);
+      DCE_DEFINE_PROPERTY(float, AttackJumpStrengthX);
+      DCE_DEFINE_PROPERTY(float, AttackJumpStrengthY);
+      DCE_DEFINE_PROPERTY(float, AttackJumpPeriod);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
@@ -64,7 +71,7 @@ namespace DCEngine {
       float jumpTimer = 0;
       float dt;
 
-      void Jump(int direction);
+      void Jump(int direction, float period, float strengthX, float strengthY);
 
       class Global : public IState<Grunt>
       {

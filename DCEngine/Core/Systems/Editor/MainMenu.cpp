@@ -72,7 +72,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Create Particle System")) { CreateParticleSystem(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create from Archetype"))
-            WindowCreateFromArchetypeEnabled = true;
+            Windows.CreateFromArchetypeEnabled = true;
           ImGui::EndMenu();
         }
 
@@ -98,13 +98,13 @@ namespace DCEngine {
         // Resources
         if (ImGui::BeginMenu("Resources")) {
           if (ImGui::MenuItem("Add", "Ctrl+N")) {
-            WindowAddResourceEnabled = !WindowAddResourceEnabled;
+            Windows.AddResourceEnabled = !Windows.AddResourceEnabled;
           }
           ImGui::Separator();
           if (ImGui::MenuItem("Load Level"))
-            WindowLoadLevelEnabled = !WindowLoadLevelEnabled;
+            Windows.LoadLevelEnabled = !Windows.LoadLevelEnabled;
           if (ImGui::MenuItem("Save Level"))
-            WindowSaveLevelEnabled = !WindowSaveLevelEnabled;
+            Windows.SaveLevelEnabled = !Windows.SaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))
             ReloadLevel();
           //ImGui::Separator();
@@ -114,24 +114,24 @@ namespace DCEngine {
           ImGui::EndMenu();
         }
 
-        // Windows
-        if (ImGui::BeginMenu("Windows")) {
+        // Windows.s
+        if (ImGui::BeginMenu("Windows.s")) {
           if (ImGui::MenuItem("Properties"))
-            WindowPropertiesEnabled = !WindowPropertiesEnabled;
+            Windows.PropertiesEnabled = !Windows.PropertiesEnabled;
           if (ImGui::MenuItem("Library"))
-            WidgetLibraryEnabled = !WidgetLibraryEnabled;
+            Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))
-            WidgetObjectsEnabled = !WidgetObjectsEnabled;
+            Windows.ObjectsEnabled = !Windows.ObjectsEnabled;
           if (ImGui::MenuItem("Tools"))
-            WindowToolsEnabled = !WindowToolsEnabled;
+            Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
-            WindowDiagnosticsEnabled = !WindowDiagnosticsEnabled;
+            Windows.DiagnosticsEnabled = !Windows.DiagnosticsEnabled;
           if (ImGui::MenuItem("Commands"))
-            WindowCommandsEnabled = !WindowCommandsEnabled;
+            Windows.CommandsEnabled = !Windows.CommandsEnabled;
           if (ImGui::MenuItem("Console", "~"))
-            WindowConsoleEnabled = !WindowConsoleEnabled;
+            Windows.ConsoleEnabled = !Windows.ConsoleEnabled;
 		  ImGui::Separator();
-		  if (ImGui::MenuItem("Full Screen/Window mode"))
+		  if (ImGui::MenuItem("Full Screen/Windows. mode"))
 		  {
 			  IsFullScreenTriggered = true;
 		  }

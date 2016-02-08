@@ -83,9 +83,9 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      DrawSelection();
-      DisplayEditor();
-      DisplayTool();
+      DisplayEditor(); 
+      DisplayTool();     
+
       
     }
 
@@ -145,8 +145,8 @@ namespace DCEngine {
         // Reload the level
         ReloadLevel();
         // Toggle the widgets
-        WidgetLibraryEnabled = true;
-        WidgetObjectsEnabled = true;
+        Windows.LibraryEnabled = true;
+        Windows.ObjectsEnabled = true;
       }
       // Editor OFF
       else {
@@ -166,14 +166,43 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Toggles the ImGui Test Window on and off.
-    @todo   Switch to using a stack of active windows rather than this hackery.
+    @brief  Switches to a new editor tool.
+    @todo   Change this to the new tool system.
     */
     /**************************************************************************/
-    void Editor::ToggleTest()
+    void Editor::SwitchTool(EditorTools tool)
     {
-      ShowTestWindow = !ShowTestWindow;
-      DCTrace << "Editor::ToggleTest : " << ShowTestWindow << "\n";
+      ActiveTool = tool;
+      return;
+
+      switch (tool) {
+      case EditorTools::None:
+        break;
+
+      case EditorTools::Translate:        
+        break;
+
+      case EditorTools::Rotate:
+        break;
+
+      case EditorTools::Scale:
+        break;
+
+      }
+
+      //ActiveTool.reset();
+      //ActiveTool = tool;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Checks whether the object falls within the boundary of the currently
+           active tool.
+    */
+    /**************************************************************************/
+    bool Editor::IsToolRegion(GameObjectPtr)
+    {
+      return false;
     }
 
     /**************************************************************************/
@@ -190,6 +219,7 @@ namespace DCEngine {
         return;
 
       DrawGrid();
+      DrawSelection();
       DrawMultiSelect();
       // Display all known editor windows
       DisplayMainMenuBar();
