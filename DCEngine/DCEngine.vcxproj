@@ -372,6 +372,7 @@
     <ClCompile Include="Core\Systems\Editor\CameraControl.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
@@ -463,6 +464,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorCreator.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
     <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h" />

@@ -38,9 +38,15 @@ namespace DCEngine {
         // If an object was found at that position...
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
 
-          // If we have selected multiple objects already, the object at the position is one of them
-          if (IsSelected(gameObject)) {
-          }
+
+            // If the [CTRL] key is being held down, add it (or remove it if already there)
+            if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+              SelectionAddOrRemoveToMultiple(gameObject);
+
+          // If we have selected multiple objects already and the object at the position is one of them
+          //if (IsSelected(gameObject)) {
+          //}
+
           // if the object is not currently selected..
           else {
             SelectObjectFromSpace(gameObject);

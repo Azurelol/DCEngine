@@ -37,7 +37,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
                                           CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
 
     }
 
@@ -63,7 +63,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
 
     }
 
@@ -86,7 +86,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/
@@ -112,7 +112,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/
@@ -131,7 +131,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/

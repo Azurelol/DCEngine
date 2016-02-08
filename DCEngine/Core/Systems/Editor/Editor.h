@@ -64,22 +64,23 @@ namespace DCEngine {
            
       //EditorToolPtr ActiveToolHandle;
       //TransformToolPtr TransformToolHandle;
-      
-      // Selection
-      void DrawSelection();
       void DisplayTool();
       void UseTool(GameObjectPtr gameObject, Vec2& position);
       void DrawTranslateTool();
       void DrawRotateTool();
       void DrawScaleTool();
-      ObjectContainer SelectedObjects;
       void MoveObject(const Vec3&);
       void TransformStartDragging();
       void TransformDrag(Vec2&);
       void ReleaseObject();
+      
 
+      
       // Settings
       EditorConfig Settings;
+      // Modules
+      EditorCreator Creator;
+
       EditorWindows Windows;
       TransformToolData Transformation;
 
@@ -130,11 +131,14 @@ namespace DCEngine {
       void ExportGame();
       void Exit();
       // Select
+      ObjectContainer SelectedObjects;
+      void DrawSelection();
       void SelectObjectFromSpace(GameObject*);
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
       void Select(ObjectPtr);
+      void SelectionAddOrRemoveToMultiple(GameObjectPtr);
       void Deselect();
       void SelectSpace();
       void CenterSelected();

@@ -17,8 +17,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -4.161458, 
+                "y": -2.019532, 
                 "z": 1.000000
               }
             }, 
@@ -53,7 +53,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "Light2", 
         "Archetype": "", 
         "Components": 
         {
@@ -63,8 +63,8 @@
             {
               "Vec3": 
               {
-                "x": -312.376526, 
-                "y": -533.949158, 
+                "x": -9.870343, 
+                "y": 4.975827, 
                 "z": 0.000000
               }
             }, 
@@ -87,25 +87,37 @@
               }
             }
           }, 
-          "Sprite": 
+          "Light": 
           {
             "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Spot", 
             "Color": 
             {
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "Intensity": 0.700000, 
+            "Range": 6.299996, 
+            "Falloff": 0.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 45.000000, 
+            "OuterAngle": 103.499794
           }
         }
       }, 
@@ -153,122 +165,6 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "MonkeyJump1", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -14.477957, 
-                "y": 7.301975, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 5.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.500000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
@@ -355,7 +251,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Light2", 
+        "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
         {
@@ -365,8 +261,66 @@
             {
               "Vec3": 
               {
-                "x": -9.870343, 
-                "y": 4.975827, 
+                "x": -14.477957, 
+                "y": 7.301975, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.500000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Sprite", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.078121, 
+                "y": -2.484373, 
                 "z": 0.000000
               }
             }, 
@@ -389,37 +343,25 @@
               }
             }
           }, 
-          "Light": 
+          "Sprite": 
           {
             "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Spot", 
             "Color": 
             {
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "Intensity": 0.700000, 
-            "Range": 6.299996, 
-            "Falloff": 0.000000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 45.000000, 
-            "OuterAngle": 103.499794
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
         }
       }

@@ -21,7 +21,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                                          Settings(settings)
+                                                          Settings(settings), Creator(*this)
     {      
     }
 

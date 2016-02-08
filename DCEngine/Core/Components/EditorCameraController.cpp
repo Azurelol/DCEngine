@@ -119,10 +119,10 @@ namespace DCEngine {
     {
       // Scroll up
       if (event->Delta > 0)
-        TransformComponent->Translation.z -= MoveSpeed / 4;
+        TransformComponent->Translation.z -= MoveSpeed / 2;
       // Scroll down
       else if (event->Delta < 0)
-        TransformComponent->Translation.z += MoveSpeed / 4;
+        TransformComponent->Translation.z += MoveSpeed / 2;
     }
 
 
