@@ -206,15 +206,15 @@ namespace DCEngine {
 
 				BroadPhaseDetection(physpace, pairs);
 
-        Integrate(dt, physpace);
+	    Integrate(dt, physpace);
 
-        NarrowPhaseDetection(pairs, contactlist);
+		  NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
 				PublishResults(physpace);
 
-        //UpdateTransforms(physpace);
+				UpdateTransforms(physpace);
 			}
 
 
@@ -409,7 +409,7 @@ namespace DCEngine {
      
          if (str1 == str2)
          {
-           pair.filter = CollisionFilter();
+           //pair.filter = CollisionFilter();
          }
          else
          {
