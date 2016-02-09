@@ -53,7 +53,7 @@ namespace DCEngine {
 	  CollisionTableRef->AddGroup("Player");
 	  auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
 	  ColliderRef->setCollisionGroup("Player");
-	  RigidBodyRef->setGravity(false);
+	  //RigidBodyRef->setGravity(false);
     }
 
     void PlayerController::Serialize(Json::Value & root)
