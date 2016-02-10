@@ -74,8 +74,6 @@ namespace DCEngine {
       void TransformDrag(Vec2&);
       void ReleaseObject();
       
-
-      
       // Settings
       EditorConfig Settings;
       // Modules

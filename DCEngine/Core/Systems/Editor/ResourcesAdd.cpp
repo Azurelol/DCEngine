@@ -277,7 +277,7 @@ namespace DCEngine {
       DCTrace << "Editor::CreateSoundCue - Created '" << name << "' with asset: '" << assetPath << "' \n";
       // Create a SoundCue object
       auto soundCuePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SoundCue::Extension();
-      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath, SoundCue::WhatType::File));
+      auto soundCue = SoundCuePtr(new SoundCue(soundCuePath, SoundCue::SoundCueType::File));
       // Store the path of its asset
       soundCue->setAssetPath(assetPath);
       // Serialize it and save it to file

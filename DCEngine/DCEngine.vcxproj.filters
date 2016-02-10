@@ -405,9 +405,6 @@
     <ClCompile Include="Core\Resources\Font.cpp">
       <Filter>Core\Resources\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Resources\SoundCue.cpp">
-      <Filter>Core\Resources\Audio</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\DebugAudio.cpp">
       <Filter>Core\Components\Debug</Filter>
     </ClCompile>
@@ -823,6 +820,12 @@
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp">
       <Filter>Core\Systems\Editor\Modules\Creator</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Resources\SoundInstance.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Resources\SoundCue.cpp">
+      <Filter>Core\Resources\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -941,9 +944,6 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Object.h">
       <Filter>Core\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Resources\SoundCue.h">
-      <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Core\Resources\Texture2D.h">
       <Filter>Core\Resources\Graphics</Filter>
@@ -1386,6 +1386,9 @@
     <ClInclude Include="Projects\Rebound\Components\HealthController.h" />
     <ClInclude Include="Core\Systems\Editor\EditorCreator.h">
       <Filter>Core\Systems\Editor\Modules\Creator</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\SoundCue.h">
+      <Filter>Core\Resources\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

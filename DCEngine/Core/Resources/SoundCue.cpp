@@ -55,7 +55,7 @@ namespace DCEngine {
   @brief  SoundCue constructor.
   */
   /**************************************************************************/
-  SoundCue::SoundCue(std::string soundFile, WhatType type) : 
+  SoundCue::SoundCue(std::string soundFile, SoundCueType type) : 
                      Resource("SoundCue", FileSystem::FileNoExtension(soundFile), soundFile), Type(type)
   {
   }

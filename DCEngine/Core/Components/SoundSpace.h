@@ -11,6 +11,8 @@
 #pragma once
 #include "ComponentReference.h"
 
+#include "../Resources/SoundInstance.h"
+
 namespace DCEngine {
     class Entity;
     class SoundCue;
@@ -32,7 +34,7 @@ namespace DCEngine {
         DCE_DEFINE_PROPERTY(Real, Pitch);
         DCE_DEFINE_PROPERTY(Boolean, Pause);
 
-        void PlayCue(std::string soundCueName);
+        SoundInstanceHandle PlayCue(std::string soundCueName);
         void PlayCueAt(std::string soundCueName);
         void PauseCue(std::string soundCueName);
         void ResumeCue(std::string soundCueName);
