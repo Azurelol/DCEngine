@@ -14,12 +14,13 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
+#include <sstream>
 
 #undef DCException
 
 namespace DCEngine
 {
-
+  
   // Factory
   #define DCE_TRACE_FACTORY_GAMEOBJECT_CONSTRUCTION 0
   #define DCE_TRACE_FACTORY_COMPONENT_CONSTRUCTION 0
@@ -69,12 +70,14 @@ namespace DCEngine
       #ifndef _PRODUCTION
         std::cout << data;
         _file << data;
+        stream << data;
         return *this;
       #else
         return *this;
       #endif
         
       }
+      std::stringstream stream;
 
     private:
       std::ofstream _file;
@@ -89,6 +92,7 @@ namespace DCEngine
       std::string ExceptionMessage;
       int LineNumber;
       std::string FileName;
+
     };
 
     extern std::unique_ptr<Trace> traceObj;

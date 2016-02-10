@@ -13,8 +13,13 @@
 
 #include "Editor.h"
 #include "../../Engine/Engine.h"
+#include <sstream>
+#include <climits>
+
 
 namespace DCEngine {
+  
+
   namespace Systems {
 
     void Editor::WindowConsole()
@@ -23,17 +28,23 @@ namespace DCEngine {
         return;
 
       ImGui::Begin("Console", &Windows.ConsoleEnabled);
-      // The console needs to read the DCTrace lines while active.
-      // Or it could read the log file?
+
+      consoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
+
+      ImGuiTextBuffer log;
+      log.append(DCEngine::Debug::traceObj->stream.str().c_str());
+      ImGui::TextUnformatted(log.begin(), log.end());
       
-      ImGui::Text("Console text here");
-      
+      if (consoleWindowStringLength > oldConsoleWindowStringLength)
+      {
+        ImGui::SetScrollY(INT_MAX);
+        oldConsoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
+      }
+     
       ImGui::End();
       
 
 
     }
-
-
   }
 }

@@ -212,6 +212,8 @@ namespace DCEngine {
       void OnMouseUpEvent(Events::MouseUp* event);
       void OnMouseUpdateEvent(Events::MouseUpdate* event);
 
+      int consoleWindowStringLength = 0;
+      int oldConsoleWindowStringLength = 0;
     };
     
   }
