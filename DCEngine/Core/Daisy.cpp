@@ -24,7 +24,7 @@ namespace DCEngine {
 @return If there's an error, 1, otherwise 0.
 */
 /**************************************************************************/
-int main(int argc, char* argv[]) {
+int WinMain(int argc, char* argv[]) {
 
   // Temporary:
   std::string configFile = "Daisy.cfg";

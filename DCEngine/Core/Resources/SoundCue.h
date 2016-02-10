@@ -29,7 +29,7 @@ namespace DCEngine {
 
   public:
         
-    enum class WhatType {
+    enum class SoundCueType {
       File, // The SoundCue is generated from a a soun file.
       Event // The SoundCue is generated from a sound Bank.
     };
@@ -41,7 +41,7 @@ namespace DCEngine {
     float Pitch = 1.0f;
     float PitchVariation = 0.0f;
     bool Loop = false;
-    WhatType Type;
+    SoundCueType Type;
     FMODSoundHandle Data;
     
     // Properties    
@@ -56,7 +56,7 @@ namespace DCEngine {
 
     // Methods
     ZilchDeclareDerivedType(SoundCue, Resource);
-    SoundCue(std::string soundFile, WhatType type);
+    SoundCue(std::string soundFile, SoundCueType type);
     void Generate();
     static std::string Extension() { return ".SoundCue"; }
     static SoundCuePtr Find(std::string);

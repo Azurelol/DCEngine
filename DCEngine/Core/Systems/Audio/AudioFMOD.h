@@ -25,6 +25,7 @@
 // Headers
 #include "AudioFMOD_Utilities.h"
 #include "..\..\..\Core\Debug\Debug.h"
+#include "..\..\Resources\SoundInstance.h"
 
 namespace DCEngine {
   namespace Systems {

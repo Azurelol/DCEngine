@@ -155,7 +155,7 @@ namespace DCEngine {
     {
       for (auto& event : AvailableEvents) {
         // Create the SoundCue
-        auto soundCue = SoundCuePtr(new SoundCue(event.first, SoundCue::WhatType::Event));
+        auto soundCue = SoundCuePtr(new SoundCue(event.first, SoundCue::SoundCueType::Event));
         // Add it to the Content system
         Daisy->getSystem<Content>()->AddSoundCue(std::string(event.first), soundCue);
 
