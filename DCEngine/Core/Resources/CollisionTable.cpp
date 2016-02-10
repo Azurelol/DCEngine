@@ -39,7 +39,8 @@ namespace DCEngine
   CollisionTable::CollisionTable(std::string collisionTableFile) :
     Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
   {
-    AddGroup(CollisionGroup("Default"));
+    ScanForGroups();
+    //AddGroup(CollisionGroup("Default"));
   }
 
   /**************************************************************************/
@@ -50,16 +51,17 @@ namespace DCEngine
   /**************************************************************************/
   CollisionTable::CollisionTable(void) : Resource("CollisionTable", "CollisionTable", "NoFile")
   {
-    AddGroup(CollisionGroup("Default"));
+    ScanForGroups();
+    //AddGroup(CollisionGroup("Default"));
   }
 
 
-  std::vector<CollisionGroup> const &CollisionTable::GetGroups(void) const
+  std::vector<CollisionGroup> &CollisionTable::GetGroups(void)
   {
     return Groups;
   }
 
-  std::vector<CollisionFilter> const & CollisionTable::GetPairs(void) const
+  std::vector<CollisionFilter>  & CollisionTable::GetPairs(void)
   {
     return Pairs;
   }
@@ -271,6 +273,14 @@ namespace DCEngine
     Pairs = rhs.Pairs;
 
     return *this;
+  }
+
+  void CollisionTable::ScanForGroups(void)
+  {
+    for (auto& group : *Daisy->getSystem<Systems::Content>()->AllCollisionGroups())
+    {
+      AddGroup(*group.second);
+    }
   }
 
 }

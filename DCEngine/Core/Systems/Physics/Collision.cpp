@@ -304,7 +304,7 @@ namespace DCEngine
 
     return true;
     //Check X
-    glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
+    glm::vec3 positionDelta = Translation1 - Translation2;
     float xDiff = boxcollider1->getColliderScale().x / 2.0f + boxcollider2->getColliderScale().x / 2.0f - fabs(positionDelta.x);
 
     //Boxes overlapping on x-axis?

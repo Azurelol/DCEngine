@@ -48,10 +48,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastFilter {
-    CollisionGroup CollisionGroup;
-    bool IgnoreStatic;
-    bool IgnoreDynamic;
-    bool IgnoreGhost;
+    bool IncludeExclude = false;
+    std::vector<CollisionGroup> CollisionGroup;
+    bool IgnoreStatic = false;
+    bool IgnoreDynamic = false;
+    bool IgnoreGhost = false;
     //GameObject* IgnoreObject;     
   };
 

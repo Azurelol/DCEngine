@@ -79,8 +79,9 @@ namespace DCEngine {
 
     bool AddGroup(CollisionGroup group);
     bool AddGroup(std::string group);
-    std::vector<CollisionGroup> const &GetGroups(void) const;
-    std::vector<CollisionFilter> const &GetPairs(void) const;
+    std::vector<CollisionGroup> &GetGroups(void);
+    std::vector<CollisionFilter> &GetPairs(void);
+    void ScanForGroups(void);
     CollisionFilter &GetFilter(std::string const &group1, std::string const &group2);
     bool SetResolve(std::string const &group1, std::string const &group2, CollisionFlag state);
     CollisionFlag &GetResolve(std::string const &group1, std::string const &group2);
