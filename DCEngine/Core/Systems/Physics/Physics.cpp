@@ -206,9 +206,9 @@ namespace DCEngine {
 
 				BroadPhaseDetection(physpace, pairs);
 
-	    Integrate(dt, physpace);
+	      Integrate(dt, physpace);
 
-		  NarrowPhaseDetection(pairs, contactlist);
+		    NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
@@ -345,7 +345,7 @@ namespace DCEngine {
       std::string str1, str2;
 
 
-      for (auto pair : pairs)
+      for (auto &pair : pairs)
       {
      
          auto rigidbody1 = pair.obj1->getComponent<Components::RigidBody>();
@@ -406,16 +406,8 @@ namespace DCEngine {
          {
            str2 = cir2->getCollisionGroup();
          }
-     
-         if (str1 == str2)
-         {
-           //pair.filter = CollisionFilter();
-         }
-         else
-         {
-           // need to access the collision table and get info from it
-           pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
-         }
+
+         pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
       }
 
 
