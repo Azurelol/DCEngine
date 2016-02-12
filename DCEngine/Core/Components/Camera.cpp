@@ -37,18 +37,18 @@ namespace DCEngine {
     */
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDefineType(Camera, "Camera", DCEngineCore, builder, type) {
-      // Constructor / Destructor
-      //ZilchBindConstructor(builder, type, Camera, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, Camera);
+    ZilchDefineType(Camera, "Camera", DCEngineCore, builder, type) {      
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Camera);
       // Properties
-      //DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
-      ZilchBindProperty(builder, type, &Camera::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");
-      ZilchBindProperty(builder, type, &Camera::getNearPlane, &Camera::setNearPlane, "NearPlane");
-      ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
-      ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
+      DCE_BINDING_DEFINE_PROPERTY(Camera, FieldOfView);
+      DCE_BINDING_DEFINE_PROPERTY(Camera, NearPlane);
+      DCE_BINDING_DEFINE_PROPERTY(Camera, FarPlane);
+      DCE_BINDING_DEFINE_PROPERTY(Camera, Size);
       DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
+      //ZilchBindProperty(builder, type, &Camera::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");
+      //ZilchBindProperty(builder, type, &Camera::getNearPlane, &Camera::setNearPlane, "NearPlane");
+      //ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
+      //ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
     }
 #endif
 
@@ -224,51 +224,6 @@ namespace DCEngine {
       // Throw exception here. return 0;
       return glm::mat4();
 
-    }
-
-    /**************************************************************************/
-    /**************************************************************************!
-                                       PROPERTIES
-
-    /**************************************************************************/
-    Real Camera::getFieldOfView() const
-    {
-      return this->FieldOfView;
-    }
-
-    void Camera::setFieldOfView(Real fov)
-    {
-      this->FieldOfView = fov;
-    }
-
-    Real Camera::getNearPlane() const
-    {
-      return this->NearPlane;
-    }
-
-    void Camera::setNearPlane(Real plane)
-    {
-      this->NearPlane = plane;
-    }
-
-    Real Camera::getFarPlane() const
-    {
-      return this->FarPlane;
-    }
-
-    void Camera::setFarPlane(Real plane)
-    {
-      this->FarPlane = plane;
-    }
-
-    Real Camera::getSize() const
-    {
-      return this->Size;
-    }
-
-    void Camera::setSize(Real size)
-    {
-      this->Size = size;
     }
   }
 

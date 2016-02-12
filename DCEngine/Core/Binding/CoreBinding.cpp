@@ -89,6 +89,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::TransformTool);   
     // Debug
     ZilchInitializeType(Components::DebugActions);
+    ZilchInitializeType(Components::DebugAudio);
   }
   
   /**************************************************************************/

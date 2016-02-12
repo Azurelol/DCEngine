@@ -30,6 +30,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Audio system destructor.
+    */
+    /**************************************************************************/
+    Audio::~Audio()
+    {
+      // Now that the Audio system is being destroyed, prevent sound instances
+      // from attempting to release sounds.
+      SoundInstance::ReleaseOnDestroyed = false;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Registers a space into the Audio system.
     @param  soundSpace The 'SoundSpace' component of the space.
     */
@@ -125,16 +137,17 @@ namespace DCEngine {
       // Pulls the data from the SoundCue and save it on the instance.
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
       instance->Type = soundCue->Type;      
-      // Playback settings
-      instance->Volume = soundCue->Volume;
-      instance->VolumeVariation = soundCue->VolumeVariation;
-      instance->Pitch = soundCue->Pitch;
-      instance->PitchVariation = soundCue->PitchVariation;      
+      // Copy the Playback settings
+      instance->Settings.Mode = soundCue->Mode;
+      instance->Settings.Volume = soundCue->Volume;
+      instance->Settings.VolumeVariation = soundCue->VolumeVariation;
+      instance->Settings.Pitch = soundCue->Pitch;
+      instance->Settings.PitchVariation = soundCue->PitchVariation;      
       // Copy different things depending on what type of SoundCue we are instantiating from:
       if (soundCue->Type == SoundCue::SoundCueType::Event)
         instance->StudioEventName = soundCue->Name();
       else if (soundCue->Type == SoundCue::SoundCueType::File)
-        instance->LowLevelSoundHandle.Handle = soundCue->Data.Handle; 
+        instance->SoundHandle.Handle = soundCue->Data.Handle; 
 
       /* NOTE: For LL, we only copy the handle to the underlying FMOD::Sound* since we want
                to be using an unique channel to the instance. */
@@ -188,21 +201,36 @@ namespace DCEngine {
 
       // Create an unique SoundInstance for this SoundCue
       SoundInstanceHandle instance = CreateSoundInstance(soundCueName);
-
       // Package the playback settings...
-      PlaybackSettings settings;
-      settings.Loop = soundCue->Loop;
-      settings.Volume = soundCue->Volume;
-      settings.VolumeVariation = soundCue->VolumeVariation;
-      settings.Pitch = soundCue->Pitch;
-      settings.PitchVariation = soundCue->PitchVariation;
-
+      //PlaybackSettings settings;
+      //settings.Loop = instance->Loop;
+      //settings.Volume = instance->Volume;
+      //settings.VolumeVariation = instance->VolumeVariation;
+      //settings.Pitch = instance->Pitch;
+      //settings.PitchVariation = instance->PitchVariation;
       // Depending on the type of SoundCue, play it through the low level API
       // or as an event belonging to the Studip API
       if (soundCue->Type == SoundCue::SoundCueType::File)
-        AudioHandler->PlaySound(soundCue->Data.Handle, &soundCue->Data.Channel, settings);
+        AudioHandler->PlaySound(instance->SoundHandle.Handle, &instance->SoundHandle.Channel, instance->Settings);
       else if (soundCue->Type == SoundCue::SoundCueType::Event)
-        AudioHandler->PlaySound(soundCueName, settings);
+        AudioHandler->PlaySound(instance->StudioEventName, &instance->SoundHandle.EventInstance, instance->Settings);
+
+
+      // One-shot??
+      //// Package the playback settings...
+      //PlaybackSettings settings;
+      //settings.Loop = soundCue->Loop;
+      //settings.Volume = soundCue->Volume;
+      //settings.VolumeVariation = soundCue->VolumeVariation;
+      //settings.Pitch = soundCue->Pitch;
+      //settings.PitchVariation = soundCue->PitchVariation;
+
+      //// Depending on the type of SoundCue, play it through the low level API
+      //// or as an event belonging to the Studip API
+      //if (soundCue->Type == SoundCue::SoundCueType::File)
+      //  AudioHandler->PlaySound(soundCue->Data.Handle, &soundCue->Data.Channel, settings);
+      //else if (soundCue->Type == SoundCue::SoundCueType::Event)
+      //  AudioHandler->PlaySound(soundCueName, settings);
 
       // Return a handle to the SoundInstance
       return instance;

@@ -22,14 +22,40 @@ namespace DCEngine {
 
   unsigned SoundInstance::Created = 0;
   unsigned SoundInstance::Destroyed = 0;
+  bool SoundInstance::ReleaseOnDestroyed = true;
+  bool SoundInstance::StopOnDestroyed = false;
 
   /**************************************************************************/
   /*!
   @brief  SoundInstance constructor.
   */
   /**************************************************************************/
-  SoundInstance::SoundInstance() : SoundInstanceID(Created++)
+  SoundInstance::SoundInstance() : Paused(false), SoundInstanceID(Created++)
   {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  SoundInstance destructor.
+  */
+  /**************************************************************************/
+  SoundInstance::~SoundInstance()
+  {
+    // Switched on and off when transitioning between Play into Editor mode
+    if (StopOnDestroyed)
+      this->Stop();    
+
+    // If the engine's audio system is not active, do not attempt to release.
+    // Reference: http://www.fmod.org/questions/question/forum-40474/
+    if (!ReleaseOnDestroyed)
+      return;
+
+    // Studio
+    if (SoundHandle.EventInstance)
+      SoundHandle.EventInstance->release();
+    // Low Level: We don't release the sound pointer!!!
+    //if (SoundHandle.Channel)
+    //  SoundHandle.Channel->
   }
 
   /**************************************************************************/
@@ -42,6 +68,11 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::InterpolateVolume(Real newVolume, Real time)
   {
+    Settings.Volume = newVolume;
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
+      SoundHandle.EventInstance->setVolume(newVolume);
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
+      SoundHandle.Channel->setVolume(newVolume);
   }
 
   /**************************************************************************/
@@ -54,6 +85,7 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::InterpolatePitch(Real newPitch, Real time)
   {
+
   }
 
   /**************************************************************************/
@@ -63,7 +95,12 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::Resume()
   {
-    Daisy->getSystem<Systems::Audio>()->ResumeSound(*this);
+    //Daisy->getSystem<Systems::Audio>()->ResumeSound(*this);
+
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
+      SoundHandle.EventInstance->setPaused(false);
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
+      SoundHandle.Channel->setPaused(false);
   }
 
   /**************************************************************************/
@@ -73,7 +110,10 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::Pause()
   {
-    
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
+      SoundHandle.EventInstance->setPaused(true);
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
+      SoundHandle.Channel->setPaused(true);
   }
 
   /**************************************************************************/
@@ -83,6 +123,10 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::Stop()
   {
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
+      SoundHandle.EventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel) 
+      SoundHandle.Channel->stop();
   }
 
   /**************************************************************************/

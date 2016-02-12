@@ -15,6 +15,7 @@
 #include "SpriteSource.h"
 #include "SpriteLayer.h"
 #include "SoundCue.h"
+#include "SoundInstance.h"
 #include "Bank.h"
 #include "Level.h"
 #include "Mesh.h"

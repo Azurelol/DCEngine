@@ -826,6 +826,9 @@
     <ClCompile Include="Core\Resources\SoundCue.cpp">
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp">
+      <Filter>Core\Systems\Editor\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1389,6 +1392,9 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\SoundCue.h">
       <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Engine.hpp">
+      <Filter>Core\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
