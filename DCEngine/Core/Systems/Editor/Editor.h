@@ -102,6 +102,7 @@ namespace DCEngine {
       // Properties
       void WindowProperties();
       bool DisplayProperties(ObjectPtr);
+      //template <typename PropertyType, typename InputFunction, typename SetValue> bool DisplayProperty(Zilch::Property* property, SetValue value)
       void DisplayEntityProperties();
       void DisplayResourceProperties();
       bool AddComponent(EntityPtr);
