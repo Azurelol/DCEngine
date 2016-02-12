@@ -14,7 +14,7 @@
 
 #include "Delegate.h"
 
-#define DCE_ACTIONS_ENABLED 0
+#define DCE_ACTIONS_ENABLED 1
 
 namespace DCEngine {
     

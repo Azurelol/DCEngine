@@ -1396,6 +1396,9 @@
     <ClInclude Include="Core\Engine\Engine.hpp">
       <Filter>Core\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Objects\Entity.hpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
