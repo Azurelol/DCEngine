@@ -18,6 +18,7 @@ namespace DCEngine {
   namespace Systems {
 
     void DisplayImage(Zilch::Property* property, ObjectPtr object);
+    static SoundInstanceHandle EditorSoundPreview;    
     void PreviewSound(Zilch::Property* property, ObjectPtr object);
     
     /**************************************************************************/
@@ -622,6 +623,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PreviewSound(Zilch::Property * property, ObjectPtr object)
     {
+      static bool playedOnce = false;
+
       // Create an exception report object
       Zilch::ExceptionReport report;
       Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
@@ -634,11 +637,17 @@ namespace DCEngine {
       auto soundCue = dynamic_cast<SoundCue*>(object);
 
       if (ImGui::Button("Preview")) {
-        Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
+        // If it's loaded, call it to stop first
+        if (playedOnce)
+          EditorSoundPreview->Stop();
+
+        EditorSoundPreview = Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
+        playedOnce = true;
       }
       ImGui::SameLine();
-      if (ImGui::Button("Stop Preview")) {
-        Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
+      if (ImGui::Button("Stop Preview") && EditorSoundPreview) {
+        EditorSoundPreview->Stop();
+        //Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
       }
 
     }

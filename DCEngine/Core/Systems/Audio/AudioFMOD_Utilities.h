@@ -16,15 +16,7 @@
 
 namespace DCEngine {
   namespace Systems {
-
-    struct PlaybackSettings {
-      float Volume = 1.0f;
-      float VolumeVariation = 0.0f;
-      float Pitch = 1.0f;
-      float PitchVariation = 0.0f;
-      bool Loop = false;
-    };
-
+    
     class EventInstanceInfo {
     public:
       EventInstanceInfo(unsigned id, FMOD::Studio::EventInstance* handle);

@@ -263,7 +263,8 @@ namespace DCEngine {
       
     // If a NULL ptr was passed
 
-
+    // Make sure all sounds are stopped when loading a level
+    SoundInstance::StopOnDestroyed = true;
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level
@@ -306,6 +307,7 @@ namespace DCEngine {
   {
     // First, destroy all current objects in the space
     // DestroyAll();
+    
     // Load the level again
     if (CurrentLevel != nullptr)
       LoadLevel(CurrentLevel);

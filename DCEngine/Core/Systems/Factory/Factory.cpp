@@ -456,6 +456,10 @@ namespace DCEngine {
         );
 
       GameObjectsToBeDeleted.clear();
+
+      // This is set back to default, from 'Space::LoadLevel'
+      SoundInstance::StopOnDestroyed = false;
+
     }
 
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {

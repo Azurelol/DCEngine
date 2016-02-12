@@ -17,6 +17,20 @@ projection matrix.
 namespace DCEngine {
   namespace Components
   {
+
+    ZilchDefineType(DebugAudio, "DebugAudio", DCEngineCore, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(DebugAudio);
+      DCE_BINDING_DEFINE_PROPERTY(DebugAudio, Track1);
+      DCE_BINDING_DEFINE_PROPERTY(DebugAudio, Track2);
+      DCE_BINDING_DEFINE_PROPERTY(DebugAudio, Track3);
+    }
+
+    DebugAudio::~DebugAudio()
+    {
+      //if (this->MyJam)
+      //  this->MyJam->Stop();
+    }
+
     void DebugAudio::Initialize()
     {
       Connect(Daisy->getKeyboard(), Events::KeyDown, DebugAudio::OnKeyDownEvent);
@@ -25,8 +39,6 @@ namespace DCEngine {
 
     void DebugAudio::OnKeyDownEvent(Events::KeyDown * event)
     {
-
-
       switch (event->Key) {
 
       case Keys::F1:
@@ -36,9 +48,18 @@ namespace DCEngine {
         ChangeTrack(Track2);
         break;
       case Keys::F3:
+        Pause(true);
         break;
       case Keys::F4:
+        Pause(false);
         break;
+      case Keys::Add:
+        ChangeVolume(0.1f);
+        break;
+      case Keys::Subtract:
+        ChangeVolume(-0.1f);
+        break;
+        
       }
     }
 
@@ -53,21 +74,37 @@ namespace DCEngine {
       if (CurrentSoundCue == track)
         return;
 
-      auto SoundSpaceRef = SpaceRef->getComponent<Components::SoundSpace>();
-      SoundSpaceRef->StopCue(CurrentSoundCue);
-      CurrentSoundCue = track;
-      SoundSpaceRef->PlayCue(CurrentSoundCue);
+      if (this->MyJam)
+        this->MyJam->Stop();
+      this->MyJam = SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(track);
+
+
+      //auto SoundSpaceRef = SpaceRef->getComponent<Components::SoundSpace>();
+      //SoundSpaceRef->StopCue(CurrentSoundCue);
+      //CurrentSoundCue = track;
+      //SoundSpaceRef->PlayCue(CurrentSoundCue);
+    }
+
+    void DebugAudio::ChangeVolume(float increment)
+    {
+      if (!this->MyJam)
+        return;
+
+      this->MyJam->InterpolateVolume(this->MyJam->Settings.Volume + increment, 0);
+    }
+
+    void DebugAudio::Pause(bool paused)
+    {
+      if (!this->MyJam)
+        return;
+      
+      if (paused)
+        this->MyJam->Pause();
+      else
+        this->MyJam->Resume();
     }
 
     void DebugAudio::OnKeyUpEvent(Events::KeyUp * event)
-    {
-    }
-
-    void DebugAudio::Serialize(Json::Value & root)
-    {
-    }
-
-    void DebugAudio::Deserialize(Json::Value & root)
     {
     }
 

@@ -40,8 +40,9 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Plays a sound through FMOD Studio API.
-    @param  eventDescription The event which to play.
+    @brief Plays a sound through FMOD Studio API once.
+    @param eventDescription The name of the event which to play.
+    @param settings A struct containing playback settings.
     */
     /**************************************************************************/
     bool AudioFMOD::PlaySound(EventDescriptionHandle & eventName, PlaybackSettings& settings)
@@ -75,7 +76,30 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Resumes the playing of a sound through FMOD.
+    @brief Plays a sound through FMOD Studio API.
+    @param event A pointer to the instance pointer.
+    @param settings A struct containing playback settings.
+    */
+    /**************************************************************************/
+    bool AudioFMOD::PlaySound(EventDescriptionHandle& eventHandle, FMOD::Studio::EventInstance ** instance, PlaybackSettings & settings)
+    {
+      // If the event is found in the map of available events, create it
+      if (AvailableEvents.count(eventHandle)) {
+        *instance = AddEventInstance(AvailableEvents.at(eventHandle));
+        // Configure it
+        (*instance)->setVolume(settings.Volume);
+        (*instance)->setPitch(settings.Pitch);
+        // One-shot sound
+        (*instance)->start();
+        return true;
+      }
+      return false;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Resumes the playing of a sound through FMOD Low Level.
+    @param channel A pointer to the channel.
     */
     /**************************************************************************/
     void AudioFMOD::ResumeSound(FMOD::Channel * channel)
@@ -85,12 +109,45 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Stops a sound from playing through FMOD.
+    @brief Resumes the playing of a sound through FMOD Studio.
+    @param eventHandle A reference to the name of the event.
+    */
+    /**************************************************************************/
+    void AudioFMOD::ResumeSound(EventDescriptionHandle & eventHandle)
+    {      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Resumes the playing of a sound through FMOD Studio.
+    @param eventInstance A reference to the EventInstance object.
+    */
+    /**************************************************************************/
+    void AudioFMOD::ResumeSound(FMOD::Studio::EventInstance & eventInstance)
+    {
+      eventInstance.setPaused(false);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Stops a sound from playing through FMOD.
+    @param channel A pointer to the channel.
     */
     /**************************************************************************/
     void AudioFMOD::PauseSound(FMOD::Channel* channel)
     {
       ErrorCheck(channel->setPaused(true));
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Stops a sound from playing through FMOD.
+    @param eventInstance A reference to the event instance.
+    */
+    /**************************************************************************/
+    void AudioFMOD::PauseSound(FMOD::Studio::EventInstance & eventInstance)
+    {
+      eventInstance.setPaused(true);
     }
 
     /**************************************************************************/
@@ -101,6 +158,16 @@ namespace DCEngine {
     void AudioFMOD::StopSound(FMOD::Channel* channel)
     {
       ErrorCheck(channel->stop());
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Stops a sound from playing through FMOD Studio's EventInstance.
+    */
+    /**************************************************************************/
+    void AudioFMOD::StopSound(FMOD::Studio::EventInstance * instance)
+    {
+      ErrorCheck(instance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT));
     }
 
     /**************************************************************************/

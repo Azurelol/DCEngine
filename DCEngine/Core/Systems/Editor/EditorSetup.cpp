@@ -91,8 +91,9 @@ namespace DCEngine {
         // Camera properties      
         //editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
         //editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
-        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
-        editorCamera->getComponent<Components::Camera>()->Size = 70;
+        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(0.0f, 0.0f, 40.0f);
+        editorCamera->getComponent<Components::Camera>()->setSize(70);
+        editorCamera->getComponent<Components::Camera>()->setFarPlane(500);
         editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
         // Add the camera to the current space
         CurrentSpace->AddObject(editorCamera);

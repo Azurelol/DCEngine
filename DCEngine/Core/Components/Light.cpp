@@ -86,6 +86,12 @@ namespace DCEngine {
 			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Returns the light's current type as an integer rather than an enum.
+    @return The light type, as an integer.
+    */
+    /**************************************************************************/
     int Light::getTypeAsInt()
     {
       switch (Type) {
@@ -100,9 +106,9 @@ namespace DCEngine {
       case LightType::Ambient:
         return 2;
         break;
-
-
       }
+
+      return -1;
     }
 
   }

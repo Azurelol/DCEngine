@@ -309,7 +309,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "AudioTest", 
         "Archetype": "", 
         "Components": 
         {
@@ -362,6 +362,12 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "DebugAudio": 
+          {
+            "Track1": "train", 
+            "Track2": "WoofWoof", 
+            "Track3": ""
           }
         }
       }

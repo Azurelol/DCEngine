@@ -19,12 +19,34 @@ namespace DCEngine {
   class SoundCue;
   using SoundCuePtr = std::shared_ptr<SoundCue>;
   using SoundCueHandle = std::string;
-  
+
   enum class PlayMode {
     Single,
     Looping,
   };
 
+  /**************************************************************************/
+  /*!
+  @class PlaybackSettings A collection of audio playback settings.
+  */
+  /**************************************************************************/
+  struct PlaybackSettings {
+    PlaybackSettings() : Volume(1.0f), VolumeVariation(0.0f),
+                         Pitch(1.0f), PitchVariation(0.0f),
+                         Loop(false) {}
+    PlayMode Mode;
+    float Volume = 1.0f;
+    float VolumeVariation = 0.0f;
+    float Pitch = 1.0f;
+    float PitchVariation = 0.0f;
+    bool Loop = false;
+  };
+
+  /**************************************************************************/
+  /*!
+  @class SoundCue Encapsulates sound data.
+  */
+  /**************************************************************************/
   class SoundCue : public Resource {
 
   public:
