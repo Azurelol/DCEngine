@@ -45,17 +45,25 @@ namespace DCEngine {
   {
     //if (this->IsFinished)
     //  return 0.0f;
-
-    auto timeLeft = Duration - Elapsed;
+    
     Elapsed += dt;
+    auto timeLeft = Duration - Elapsed;
     if (Elapsed >= Duration) {
       if (DCE_TRACE_ACTIONS_UPDATE)
         DCTrace << "ActionDelay::Update: Finished! \n";
       IsFinished = true;
-    } else if (DCE_TRACE_ACTIONS_UPDATE)
+    } 
+    else if (DCE_TRACE_ACTIONS_UPDATE)
       DCTrace << "ActionDelay::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
 
-    return std::max(0.0f, dt - timeLeft);
+    // Return the time consumed from this action. 
+    auto timeConsumed = 0.0f;
+    if (timeLeft < dt)
+      timeConsumed = dt;
+    else
+      timeConsumed = timeLeft;
+
+    return timeConsumed;
   }
 
 }

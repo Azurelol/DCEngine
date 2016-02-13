@@ -38,6 +38,7 @@ namespace DCEngine {
   /**************************************************************************/
   float ActionCall::Update(float dt)
   {
+    DCTrace << "ActionCall::Update: dt = '" << dt << "'\n";
     // Call the functiom immediately
     FunctionPtr->Call();
     // No time was consumed

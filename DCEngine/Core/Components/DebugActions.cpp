@@ -34,6 +34,8 @@ namespace DCEngine {
       auto seq = Actions::Sequence(Owner()->Actions);
       Actions::Delay(seq, 1.5f);
       Actions::Call(seq, &DebugActions::Boop, this);  
+      Actions::Delay(seq, 1.0f);
+      Actions::Call(seq, &DebugActions::Boop, this);
       //Actions::Call(seq, &DebugActions::Boop);
 
     }

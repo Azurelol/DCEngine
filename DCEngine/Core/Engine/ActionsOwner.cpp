@@ -65,7 +65,7 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief Updates an entity's actions. Updating all the actions one tier below
-  in parallel.
+         in parallel.
   @param dt The time to be updated.
   @return How much time was consumed while updating.
   */
@@ -84,7 +84,7 @@ namespace DCEngine {
         mostTimeElapsed = timeElapsed;
       // If the action was completed (Meaning that it was completed in less time
       // than the time slice given)
-      if (timeElapsed <= dt) {
+      if (timeElapsed <= dt && action->Finished()) {
         // Mark the action to be cleared
         InactiveActions.push_back(action);
       }

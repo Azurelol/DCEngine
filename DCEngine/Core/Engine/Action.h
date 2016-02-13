@@ -79,7 +79,7 @@ namespace DCEngine {
   class ActionSet : public Action {
   public:
     //virtual void Add(Action& action);
-    ActionSet(std::string type) : Action("ActionSet") {}
+    ActionSet(std::string type = "ActionSet") : Action(type) {}
     virtual void Add(ActionSetPtr set);
     virtual void Add(ActionPtr action);
     virtual float Update(float dt) = 0;

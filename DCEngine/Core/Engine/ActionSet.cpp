@@ -40,7 +40,7 @@ namespace DCEngine {
       ActiveActions.end());
     // Now clear!
     if (DCE_TRACE_ACTIONS_REMOVE) {
-      DCTrace << "ActionSet::Clear - Removed '" << InactiveActions.size() << "' actions: \n";
+      DCTrace << Type << "::Clear - Removed '" << InactiveActions.size() << "' actions: \n";
       for (auto& action : InactiveActions) {
         DCTrace << " - " << action->Type << "\n";
       }
