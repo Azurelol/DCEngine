@@ -18,6 +18,8 @@
 namespace DCEngine {
 	namespace Systems {
 
+		std::unique_ptr<GraphicsGL> Graphics::GraphicsHandler;
+
 		/**************************************************************************/
 		/*!
 		\brief Default constructor for the Graphics System.
@@ -109,20 +111,24 @@ namespace DCEngine {
 				if (Debug::CheckOpenGLError())
 					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 
-				//for (auto gameObj : gfxSpace->getSprites()) {
-				//	++TotalObjNumG;
-				//	mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
-				//}
+				glDisable(GL_BLEND);
+				GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
 
-				//for(auto&& drawList : mDrawList)
-				//{
-				//	for (Components::Sprite* sprite : drawList)
-				//	{
-				//		DrawSprite(*sprite, *camera, dt);
-				//	}
-				//	drawList.clear();
-				//}
-
+				for (const auto& debugObj : mDebugLineList)
+				{
+					debugObj.Draw();
+				}
+				for (const auto& debugObj : mDebugRectangleList)
+				{
+					debugObj.Draw();
+				}
+				for (const auto& debugObj : mDebugCircleList)
+				{
+					debugObj.Draw();
+				}
+				mDebugLineList.clear();
+				mDebugRectangleList.clear();
+				mDebugCircleList.clear();
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 				if (Debug::CheckOpenGLError())
 					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
@@ -212,17 +218,17 @@ namespace DCEngine {
 
 		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawCircle(pos, radius, color, cam, fill);
+			mDebugCircleList.push_back(DebugCircle(color, pos, radius));
 		}
 
 		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawRectangle(pos, width, height, color, cam, fill);
+			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height)));
 		}
 
 		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)
 		{
-			GraphicsHandler->DrawLineSegment(startPos, endPos, color, cam);
+			mDebugLineList.push_back(DebugLine(color, startPos, endPos));
 		}
 
 		/////////////////
