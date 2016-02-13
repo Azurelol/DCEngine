@@ -32,25 +32,28 @@ namespace DCEngine {
       auto &Pairs = Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->GetPairs();
       // Create an array from all available collision groups (so that we have random access)
 
+      static char GroupName[64];
 
       for (auto& group : Groups)
       {
-        ImGui::Text(group.Name().c_str());
+        Math::ClampString(group.Name().c_str(), GroupName, 4);
+        ImGui::Text(GroupName);
         ImGui::SameLine();
       }
 
       ImGui::Text(" ");
 
-     static CollisionFilter *Selection = &(Pairs[0]);
+     static CollisionFilter *Selection = &(Pairs[1]);
 
       for (auto& group : Groups) 
       {
-        ImGui::Text(group.Name().c_str());
-        ImGui::SameLine();
+        Math::ClampString(group.Name().c_str(), GroupName, 4);
+        ImGui::Text(GroupName);
         for (auto &pair : Pairs)
         {
           if (pair.Pairing.first == group.Name() || pair.Pairing.second == group.Name())
           {
+            ImGui::SameLine();
             if (ImGui::Button(" "))
             {
               Selection = &pair;
@@ -60,6 +63,12 @@ namespace DCEngine {
       }
 
       ImGui::Separator();
+
+      ImGui::Text("Pairing: ");
+
+      ImGui::SameLine();
+
+      ImGui::Text((Selection->Pairing.first + std::string(" and ") + Selection->Pairing.second).c_str());
 
       ImGui::Text("Resolution:");
 
@@ -93,7 +102,7 @@ namespace DCEngine {
         Selection->CollisionFlag = CollisionFlag::SkipDetecting;
       }
 
-      /*
+      
       ImGui::Text("Collision Started Event:");
 
       ImGui::SameLine();
@@ -121,7 +130,7 @@ namespace DCEngine {
       if (ImGui::Button("Skip Detection"))
       {
         Selection->CollisionFlag = CollisionFlag::SkipDetecting;
-      }*/
+      }
 
       ImGui::End();
 

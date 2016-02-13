@@ -19,27 +19,29 @@
 
 namespace DCEngine {
 
+  namespace Systems {
+    class Audio;
+  }
+
   class SoundInstance {
+    friend class Systems::Audio;
   public:
 
     // Member variables
     SoundCue::SoundCueType Type;
     std::string StudioEventName;
-    FMODSoundHandle LowLevelSoundHandle;
-    PlayMode Mode;
-    float Volume = 1.0f;
-    float VolumeVariation = 0.0f;
-    float Pitch = 1.0f;
-    float PitchVariation = 0.0f;
-    bool Loop = false;
+    FMODSoundHandle SoundHandle;    
+    PlaybackSettings Settings;
+
+    //PlayMode Mode;
+    //float Volume = 1.0f;
+    //float VolumeVariation = 0.0f;
+    //float Pitch = 1.0f;
+    //float PitchVariation = 0.0f;
+    //bool Loop = false;
     bool Paused = false;
     SoundCueHandle SoundCue;
-    DCE_DEFINE_PROPERTY(PlayMode, Mode);
-    DCE_DEFINE_PROPERTY(bool, Loop);
-    DCE_DEFINE_PROPERTY(float, Volume);
-    DCE_DEFINE_PROPERTY(float, VolumeVariation);
-    DCE_DEFINE_PROPERTY(float, Pitch);
-    DCE_DEFINE_PROPERTY(float, PitchVariation);    
+    //DCE_DEFINE_PROPERTY(PlayMode, Mode);  
     // Methods
     void InterpolateVolume(Real newVolume, Real time);
     void InterpolatePitch(Real newPitch, Real time);
@@ -47,15 +49,17 @@ namespace DCEngine {
     void Pause();
     void Stop();
     bool IsPlaying();
-    // Constructor
+    // CTOR
     SoundInstance();
+    ~SoundInstance();
 
+    static bool StopOnDestroyed;
   private:
-
 
     unsigned SoundInstanceID;
     static unsigned Created;
     static unsigned Destroyed;
+    static bool ReleaseOnDestroyed;
   };
 
   using SoundInstanceHandle = std::shared_ptr<SoundInstance>;

@@ -142,4 +142,14 @@ namespace DCEngine {
   {
     return start + (end - start) * cos(ratio);
   }
+
+  void Math::ClampString(const char * input, char * output, int length)
+  {
+    for (int i = 0; i < length; ++i)
+    {
+      output[i] = input[i];
+    }
+
+    output[length] = 0;
+  }
 }

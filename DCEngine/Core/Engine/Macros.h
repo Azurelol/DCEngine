@@ -93,22 +93,31 @@ namespace DCEngine {
   property->Attributes.push_back(attribute)
 
   #define DCE_BINDING_PROPERTY_DEFINE_UNSIGNED                           \
-  Zilch::Attribute attributeUnsigned;                                    \
-  attributeUnsigned.Name = "Unsigned"                                    
+    Zilch::Attribute attributeUnsigned;                                  \
+    attributeUnsigned.Name = "Unsigned"                                    
 
   #define DCE_BINDING_PROPERTY_SET_UNSIGNED(property)                    \
-  property->Attributes.push_back(attributeUnsigned)
+    property->Attributes.push_back(attributeUnsigned)
+
+  #define DCE_BINDING_PROPERTY_DEFINE_RANGE                             \
+    Zilch::Attribute attributeRange;                                    \
+    attributeRange.Name = "Range";                                      \
+    Zilch::AttributeParameter minRange, maxRange;                       \
+    minRange.NumberValue = 0;                                           \
+    maxRange.NumberValue = 0;                                           \
+    attributeRange.Parameters.push_back(minRange);                      \
+    attributeRange.Parameters.push_back(maxRange)
 
   /*===================*
   *     Enumerations   *
   *===================*/
-#define DCE_DECLARE_ENUM(enumType, ...)   \
-enum class enumType {                             \
+  #define DCE_DECLARE_ENUM(enumType, ...)   \
+  enum class enumType {                             \
   __VA_ARGS__                                     \
-}
+  }
 
   // This macro defines a property to Zilch
-#define DCE_BINDING_DEFINE_ENUM(enumType, enumField)          \
+  #define DCE_BINDING_DEFINE_ENUM(enumType, enumField)          \
   auto property##enumField = ZilchBindEnumValue(builder, type, ##enumType::##enumField, "" #enumField) 
 
 //#define DCE_BINDING_DEFINE_ENUM(enumType, library, ...)    \
@@ -119,7 +128,7 @@ enum class enumType {                             \
 //  ZilchBindEnumValue(builder, type, DCEngine::ProjectionMode::Perspective, "Perspective");
 //  }
 
-}
+  }
 
 
-    
+

@@ -8306,64 +8306,6 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sky", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 366.000000, 
-                "y": -126.500000, 
-                "z": -0.200000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 400.000000, 
-                "y": 400.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Sky", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
         "Name": "Scrapper3", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -8474,10 +8416,12 @@
             "IdleRange": 200.000000, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 30.000000, 
             "JumpStrengthX": 25.000000, 
             "JumpStrengthY": 20.000000, 
-            "JumpFrequency": 1.000000
+            "JumpPeriod": 0.000000, 
+            "AttackJumpStrengthX": 0.000000, 
+            "AttackJumpStrengthY": 0.000000, 
+            "AttackJumpPeriod": 0.000000
           }
         }
       }, 
@@ -8593,10 +8537,12 @@
             "IdleRange": 200.000000, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 30.000000, 
             "JumpStrengthX": 25.000000, 
             "JumpStrengthY": 20.000000, 
-            "JumpFrequency": 1.000000
+            "JumpPeriod": 0.000000, 
+            "AttackJumpStrengthX": 0.000000, 
+            "AttackJumpStrengthY": 0.000000, 
+            "AttackJumpPeriod": 0.000000
           }
         }
       }, 
@@ -8712,10 +8658,12 @@
             "IdleRange": 10.000000, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": true, 
-            "MoveSpeed": 10.000000, 
             "JumpStrengthX": 10.000000, 
             "JumpStrengthY": 6.000000, 
-            "JumpFrequency": 0.500000
+            "JumpPeriod": 0.000000, 
+            "AttackJumpStrengthX": 0.000000, 
+            "AttackJumpStrengthY": 0.000000, 
+            "AttackJumpPeriod": 0.000000
           }
         }
       }, 

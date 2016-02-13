@@ -826,7 +826,9 @@
     <ClCompile Include="Core\Resources\SoundCue.cpp">
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
+    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp">
+      <Filter>Core\Systems\Editor\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1390,6 +1392,18 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\SoundCue.h">
       <Filter>Core\Resources\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Engine.hpp">
+      <Filter>Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Entity.hpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Actions.hpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Ease.h">
+      <Filter>Core\Engine\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -21,17 +21,48 @@ namespace DCEngine {
     }
     void DebugActions::Initialize() {
 
+      SpriteComponent = Owner()->getComponent<Components::Sprite>();
       TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
       Connect(SpaceRef, Events::LogicUpdate, DebugActions::OnLogicUpdateEvent);
-      
-      TestActionSequence();
+      Connect(Daisy->getKeyboard(), Events::KeyDown, DebugActions::OnKeyDownEvent);  
+      DefaultColor = SpriteComponent->getColor();
     }
 
     void DebugActions::TestActionSequence()
     {
+      ResetValues();
+
+      DCTrace << "DebugActions::TestActionSequence: \n";
       auto seq = Actions::Sequence(Owner()->Actions);
       Actions::Delay(seq, 1.5f);
-      auto& a = Owner()->Actions;
+      Actions::Call(seq, &DebugActions::Boop, this);  
+      Actions::Delay(seq, 1.0f);
+      Actions::Call(seq, &DebugActions::Boop, this);      
+      Actions::Call(seq, &DebugActions::ReportPropertyValue, this);
+      Actions::Property(seq, this->TestValue, 1.0f, 1.0f, Ease::Linear);
+      // Test sprite color
+      auto newColor = Vec4(0.0f, 1.0f, 0.0f, 1.0f);
+      Actions::Property(seq, SpriteComponent->Color, newColor, 2.0f, Ease::Linear);
+      Actions::Call(seq, &DebugActions::ReportPropertyValue, this);
+      //Actions::Call(seq, &DebugActions::ResetValues, this);
+      
+      //Actions::Call(seq, &DebugActions::Boop);
+    }
+
+    void DebugActions::Boop()
+    {
+      DCTrace << "Boop! \n";
+    }
+
+    void DebugActions::ReportPropertyValue()
+    {
+      DCTrace << "TestValue is at = " << TestValue << "\n";
+    }
+
+    void DebugActions::ResetValues()
+    {
+      TestValue = 5;
+      SpriteComponent->setColor(DefaultColor);
     }
 
     void DebugActions::TestRayCasting()
@@ -60,6 +91,8 @@ namespace DCEngine {
 
     void DebugActions::OnKeyDownEvent(Events::KeyDown * event)
     {
+      if (event->Key == Keys::F) 
+        TestActionSequence();
     }
 
     void DebugActions::OnKeyUpEvent(Events::KeyUp * event)
