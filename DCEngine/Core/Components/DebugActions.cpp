@@ -23,15 +23,24 @@ namespace DCEngine {
 
       TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
       Connect(SpaceRef, Events::LogicUpdate, DebugActions::OnLogicUpdateEvent);
+      Connect(Daisy->getKeyboard(), Events::KeyDown, DebugActions::OnKeyDownEvent);
       
-      TestActionSequence();
+      
     }
 
     void DebugActions::TestActionSequence()
     {
+      DCTrace << "DebugActions::TestActionSequence: \n";
       auto seq = Actions::Sequence(Owner()->Actions);
       Actions::Delay(seq, 1.5f);
-      auto& a = Owner()->Actions;
+      Actions::Call(seq, &DebugActions::Boop, this);  
+      //Actions::Call(seq, &DebugActions::Boop);
+
+    }
+
+    void DebugActions::Boop()
+    {
+      DCTrace << "Boop! \n";
     }
 
     void DebugActions::TestRayCasting()
@@ -60,6 +69,8 @@ namespace DCEngine {
 
     void DebugActions::OnKeyDownEvent(Events::KeyDown * event)
     {
+      if (event->Key == Keys::F) 
+        TestActionSequence();
     }
 
     void DebugActions::OnKeyUpEvent(Events::KeyUp * event)

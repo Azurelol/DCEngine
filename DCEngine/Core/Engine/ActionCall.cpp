@@ -23,9 +23,10 @@ namespace DCEngine {
   @param funcPtr A pointer to the function that will need to be called.
   */
   /**************************************************************************/
-  ActionCall::ActionCall(ActionSetPtr set, Delegate* funcPtr) : FunctionPtr(funcPtr)
+  ActionCall::ActionCall(ActionSetPtr set, Delegate* funcPtr) : Action("ActionCall"), FunctionPtr(funcPtr)
   {
-
+    if (DCE_TRACE_ACTIONS_CTOR)
+      DCTrace << "ActionCall::ActionCall: Constructed! \n";
   }
 
   /**************************************************************************/
@@ -38,9 +39,13 @@ namespace DCEngine {
   float ActionCall::Update(float dt)
   {
     // Call the functiom immediately
-
+    FunctionPtr->Call();
     // No time was consumed
+    if (DCE_TRACE_ACTIONS_UPDATE)
+      DCTrace << "ActionCall::Update: Finished! \n";
+    this->IsFinished = true;
     return 0.0f;
+
   }
 
 }

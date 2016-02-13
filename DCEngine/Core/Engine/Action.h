@@ -12,7 +12,7 @@
 /******************************************************************************/
 #pragma once
 
-#include "Delegate.h"
+#include "Delegate.h" // Used by ActionCall
 
 #define DCE_ACTIONS_ENABLED 1
 
@@ -38,13 +38,17 @@ namespace DCEngine {
   /**************************************************************************/
   class Action {
   public:
-    Action();
+    Action(std::string type = "Action");
     ~Action();
     virtual float Update(float dt) = 0;
     bool Blocking() { return IsBlocking; }
     bool Finished() { return IsFinished; }
     void Pause() { Paused = !Paused; }
     bool IsPaused() { return Paused; }
+
+    static unsigned Created;
+    static unsigned Destroyed;
+    std::string Type;
 
   protected:    
     Real Elapsed = 0.0f;
@@ -54,17 +58,18 @@ namespace DCEngine {
     bool Paused = false;
   private:
     unsigned ID;
-    static unsigned ActionsCreated;
-    static unsigned ActionsDestroyed;
   };
-  using ActionPtr = std::shared_ptr<Action>;
+  
+  using ActionPtr = Action*;
+  //using ActionPtr = std::shared_ptr<Action>;
   using ActionsContainer = std::vector<ActionPtr>;
 
   /*===================*
   *     ActionSet      *
   *===================*/  
   class ActionSet;
-  using ActionSetPtr = std::shared_ptr<ActionSet>;
+  using ActionSetPtr = ActionSet*;
+  //using ActionSetPtr = std::shared_ptr<ActionSet>;
   /**************************************************************************/
   /*!
   @class The ActionSet is the base class from which all other sets derive.
@@ -74,6 +79,7 @@ namespace DCEngine {
   class ActionSet : public Action {
   public:
     //virtual void Add(Action& action);
+    ActionSet(std::string type) : Action("ActionSet") {}
     virtual void Add(ActionSetPtr set);
     virtual void Add(ActionPtr action);
     virtual float Update(float dt) = 0;
@@ -93,6 +99,7 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionGroup : public ActionSet {
   public:
+    ActionGroup() : ActionSet("ActionGroup") {}
     float Update(float dt);
   };
 
@@ -105,6 +112,7 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionSequence : public ActionSet {
   public:
+    ActionSequence() : ActionSet("ActionSequence") {}
     float Update(float dt);
   };
     
@@ -220,7 +228,28 @@ namespace DCEngine {
     // Constructs an action sequence, adding it to 
     static ActionSetPtr Sequence(ActionSet& owner);
     static ActionSetPtr Group(ActionSet& owner);
-    static void Call(ActionSetPtr set, void* fn);
+    static void Call(ActionSetPtr set, std::function<void(void)> fn);
+
+    //template <typename Class> 
+
+    //template <typename Class> std::function<void(void)> Call(ActionSetPtr set, void(Class::*Func)(), Class* object) {
+    //}
+
+    /*template <typename Class, typename... Args> static std::function<void(void)> Call(ActionSetPtr set, void(Class::*Func)(Args...), Class* object, Args...) {
+      return
+    }*/
+
+    template <typename Class, typename... Args> static void Call(ActionSetPtr set, void(Class::*func)(Args...), Class* object, Args...)
+    {
+      auto a = std::bind(std::mem_fun(func), object, Args...);
+      auto deleg = new MemberFunctionDelegate<Class>(object, func);
+
+      // Construct an ActionCall object
+      ActionPtr call(new ActionCall(set, deleg));
+      // Add it to the set
+      set->Add(call);      
+    }
+
     static void Delay(ActionSetPtr set, Real duration);
     template <typename Property>
     static void Property(ActionSequence& seq, Property& prty, Property val, Real duration, Ease ease);

@@ -26,7 +26,7 @@ namespace DCEngine {
   @param dt The duration for this delay action.
   */
   /**************************************************************************/
-  ActionDelay::ActionDelay(ActionSetPtr set, Real duration)
+  ActionDelay::ActionDelay(ActionSetPtr set, Real duration) : Action("ActionDelay")
   {
     if (DCE_TRACE_ACTIONS_CTOR)
       DCTrace << "ActionDelay::ActionDelay: Constructed! \n";
@@ -43,8 +43,8 @@ namespace DCEngine {
   /**************************************************************************/
   float ActionDelay::Update(float dt)
   {
-    if (IsFinished)
-      return 0.0f;
+    //if (this->IsFinished)
+    //  return 0.0f;
 
     auto timeLeft = Duration - Elapsed;
     Elapsed += dt;

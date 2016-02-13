@@ -15,15 +15,15 @@
 
 namespace DCEngine {
 
-  unsigned Action::ActionsCreated = 0;
-  unsigned Action::ActionsDestroyed = 0;
+  unsigned Action::Created = 0;
+  unsigned Action::Destroyed = 0;
 
   /**************************************************************************/
   /*!
   @brief Action constructor
   */
   /**************************************************************************/
-  Action::Action() : Elapsed(0.0f), Duration(0.0f), ID(ActionsCreated++)
+  Action::Action(std::string type) : Type(type), Elapsed(0.0f), Duration(0.0f), ID(Created++)
   {
   }
 
@@ -34,7 +34,7 @@ namespace DCEngine {
   /**************************************************************************/
   Action::~Action()
   {
-    ActionsDestroyed++;
+    Destroyed++;
   }
 
   /*==============*
@@ -79,8 +79,9 @@ namespace DCEngine {
   @param fn A reference to the function that will be added.
   */
   /**************************************************************************/
-  void Actions::Call(ActionSetPtr set, void* fn)
+  void Actions::Call(ActionSetPtr set, std::function<void(void)> fn)
   {
+    //&fn();
     // Construct the action call
     //ActionPtr call(new ActionCall(set, fn));
   }

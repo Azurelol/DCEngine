@@ -81,6 +81,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Engine::~Engine() {
+    
     //Terminate();
   }
 
@@ -99,22 +100,22 @@ namespace DCEngine {
     DCTrace << "\n[Engine::Initialize] \n";
 
     // Autowolves, howl out!
-    _active = true;
+    Active = true;
 
     // Construct the input interface objects
-    keyboard_.reset(new Keyboard());
-    mouse_.reset(new Mouse());
+    KeyboardHandle.reset(new Keyboard());
+    MouseHandle.reset(new Mouse());
 
     // Systems are added to to the engine's systems container, and configurations passed on.
-    _systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
-    _systems.push_back(SystemPtr(new Systems::Reflection));
-    _systems.push_back(SystemPtr(new Systems::Factory));
-    _systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
+    Systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
+    Systems.push_back(SystemPtr(new Systems::Reflection));
+    Systems.push_back(SystemPtr(new Systems::Factory));
+    Systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
                                                      EngineConfiguration->Framerate,
                                                      EngineConfiguration->ResolutionWidth,
                                                      EngineConfiguration->ResolutionHeight,
                                                      EngineConfiguration->IsFullScreen)));
-    _systems.push_back(SystemPtr(new Systems::Input));
+    Systems.push_back(SystemPtr(new Systems::Input));
 
     // Editor configuration
     EditorConfig editorConfig;
@@ -126,11 +127,11 @@ namespace DCEngine {
     graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
 
     // Add the systems to the engine's systems container
-    _systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
-    _systems.push_back(SystemPtr(new Systems::Physics));
-    _systems.push_back(SystemPtr(new Systems::Audio));
-    _systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
-    _systems.push_back(SystemPtr(new Systems::GUI));        
+    Systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
+    Systems.push_back(SystemPtr(new Systems::Physics));
+    Systems.push_back(SystemPtr(new Systems::Audio));
+    Systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
+    Systems.push_back(SystemPtr(new Systems::GUI));        
 
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
     CurrentGameSession.reset(new GameSession(_projectName));
@@ -138,7 +139,7 @@ namespace DCEngine {
     LoadDefaultSpace();
 
     // Initialize all internal engine systems
-    for (auto sys : _systems) {
+    for (auto sys : Systems) {
       sys->Initialize();
     }  
 
@@ -262,7 +263,7 @@ namespace DCEngine {
 
     // Update all the sytems at the end of the frame, based on the order
     // they were added to the engine. (Or split it and do it individually?)
-    for (auto system : _systems)
+    for (auto system : Systems)
       system->Update(dt);
 
     //if (PauseMenuEnabled)
@@ -331,9 +332,9 @@ namespace DCEngine {
   @param A reference to the action.
   */
   /**************************************************************************/
-  void Engine::Register(Action& action)
+  void Engine::Register(ActionPtr action)
   {
-    this->ActionSpace.Add(ActionPtr(&action));
+    this->ActionSpace.Add(action);
   }
 
   /**************************************************************************/
@@ -342,9 +343,9 @@ namespace DCEngine {
   @param A reference to the action.
   */
   /**************************************************************************/
-  void Engine::Deregister(Action & action)
+  void Engine::Deregister(ActionPtr action)
   {
-    this->ActionSpace.Remove(ActionPtr(&action));
+    this->ActionSpace.Remove(action);
   }
   
   /**************************************************************************/
@@ -412,6 +413,14 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Terminate() {
+
+    // Release
+    MouseHandle.release();
+    KeyboardHandle.release();
+    //CurrentGameSession.release();
+
+    //return;
+
     DCTrace << "\n[Engine::Terminate] \n";
     // Clear every Space
     for (auto space : CurrentGameSession->ActiveSpaces) {
@@ -421,11 +430,12 @@ namespace DCEngine {
     getSystem<Systems::Factory>()->ActiveGameObjects.clear();
     // Clear the GameSession
     CurrentGameSession->ActiveSpaces.clear();
+    CurrentGameSession.release();
 
     // Terminates all systems.
-    for (auto sys : _systems)
+    for (auto sys : Systems)
       sys->Terminate();
-    _systems.clear();
+    Systems.clear();
 
     Daisy.reset();
   }
@@ -438,7 +448,7 @@ namespace DCEngine {
   void Engine::Loop() {
     dt = 1.0f / EngineConfiguration->Framerate;
 
-    while (_active) {
+    while (Active) {
       ScopeTimer frameTimer(&dt);
       Update(dt);
     }

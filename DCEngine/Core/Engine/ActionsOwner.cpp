@@ -24,7 +24,7 @@ namespace DCEngine {
   @param owner A reference to the owner of this ActionsOwner.
   */
   /**************************************************************************/
-  ActionsOwner::ActionsOwner(Entity & owner) : Owner(owner)
+  ActionsOwner::ActionsOwner(Entity & owner) : ActionSet("ActionsOwner"), Owner(owner)
   {
     if (!DCE_ACTIONS_ENABLED)
       return;
@@ -54,12 +54,12 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionsOwner::Register()
   {
-    Daisy->Register(*this);
+    Daisy->Register(this);
   }
 
   void ActionsOwner::Deregister()
   {
-    Daisy->Deregister(*this);
+    Daisy->Deregister(this);
   }
 
   /**************************************************************************/

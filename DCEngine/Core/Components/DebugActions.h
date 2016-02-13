@@ -28,6 +28,7 @@ namespace DCEngine {
       void OnLogicUpdateEvent(Events::LogicUpdate* event);
       // Tests
       void TestActionSequence();
+      void Boop();
       void TestRayCasting();
       void DebugDraw();
 

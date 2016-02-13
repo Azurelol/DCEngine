@@ -218,6 +218,7 @@ namespace DCEngine {
     {
       // Allow diagnostics even without the editor!
       WindowDiagnostics();
+      WindowConsole();
 
       if (!Settings.EditorEnabled)
         return;
@@ -233,7 +234,6 @@ namespace DCEngine {
       WindowProperties();
       WindowSaveLevel();
       WindowLoadLevel();    
-      WindowConsole();
       WindowCreateFromArchetype();
       WindowTools();
       WindowAddResource();

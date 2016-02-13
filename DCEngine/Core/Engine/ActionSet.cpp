@@ -11,6 +11,8 @@
 /******************************************************************************/
 #include "Action.h"
 
+#include "Engine.h"
+
 namespace DCEngine {
 
   /*=======================*
@@ -23,21 +25,28 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSet::Clear()
   {
+    if (InactiveActions.empty())
+      return;
+
     // Remove the action from the active actions!
-    //ActiveActions.erase(
-    //  std::remove_if(
-    //    ActiveActions.begin(), 
-    //    ActiveActions.end(),
-    //    // Lambdas, ho!
-    //    [&](ActionPtr& a) {
-    //  return std::find(
-    //    InactiveActions.cbegin(), 
-    //    InactiveActions.cend(), 
-    //    a.get())
-    //    != InactiveActions.end(); }), 
-    //  ActiveActions.end());
+    ActiveActions.erase(
+      std::remove_if(ActiveActions.begin(), ActiveActions.end(),
+        [&](ActionPtr& a) {
+      return std::find(
+        InactiveActions.cbegin(), 
+        InactiveActions.cend(), 
+        a)
+        != InactiveActions.end(); }), 
+      ActiveActions.end());
     // Now clear!
-    //InactiveActions.clear();
+    if (DCE_TRACE_ACTIONS_REMOVE) {
+      DCTrace << "ActionSet::Clear - Removed '" << InactiveActions.size() << "' actions: \n";
+      for (auto& action : InactiveActions) {
+        DCTrace << " - " << action->Type << "\n";
+      }
+    }
+      
+    InactiveActions.clear();
   }
 
   /**************************************************************************/
