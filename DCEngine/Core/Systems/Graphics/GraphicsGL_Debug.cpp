@@ -175,7 +175,7 @@ namespace DCEngine {
 			float magnitude = Math::Normalize(&Math::Vector3(vector.x, vector.y, vector.z));
 			glm::mat4x4 model;
 			model = glm::translate(model, Vec3(startPos.x + vector.x / 2, startPos.y + vector.y / 2, startPos.z + vector.z / 2));
-			model = glm::scale(model, Vec3(magnitude, magnitude, magnitude));
+			model = glm::scale(model, Vec3(magnitude, magnitude, 0));
 			SpriteShader->SetMatrix4("model", model, true);
 
 			float mag1 = Math::Normalize(&Math::Vector2(startPos.x, startPos.y)),
@@ -188,9 +188,5 @@ namespace DCEngine {
 
 			CleanBuffer();
     }
-
-
-
-
   }
 }
