@@ -72,19 +72,6 @@ namespace DCEngine {
     return group;
   }
 
-  /**************************************************************************/
-  /*!
-  @brief Creates an ActionCall.
-  @param set A reference to the ActionSet that this action belongs to.
-  @param fn A reference to the function that will be added.
-  */
-  /**************************************************************************/
-  void Actions::Call(ActionSetPtr set, std::function<void(void)> fn)
-  {
-    //&fn();
-    // Construct the action call
-    //ActionPtr call(new ActionCall(set, fn));
-  }
 
   /**************************************************************************/
   /*!

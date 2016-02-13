@@ -1399,6 +1399,12 @@
     <ClInclude Include="Core\Objects\Entity.hpp">
       <Filter>Core\Object\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Actions.hpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Ease.h">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

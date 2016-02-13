@@ -7,12 +7,14 @@
 @brief     An action...           
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 @note      Reference: http://gamedevelopment.tutsplus.com/tutorials/the-action-list-data-structure-good-for-ui-ai-animations-and-more--gamedev-9264
-
+@todo      For some reason I am passing the set to each action's constructor.
+           Why am I doing that?
 */
 /******************************************************************************/
 #pragma once
 
 #include "Delegate.h" // Used by ActionCall
+#include "Ease.h"
 
 #define DCE_ACTIONS_ENABLED 1
 
@@ -154,14 +156,19 @@ namespace DCEngine {
   template <typename PropertyType>
   class ActionProperty : public Action {
   public:
-    ActionProperty(ActionSet& sequence, PropertyType& prop, Real duration, Ease ease);
+    ActionProperty(ActionSetPtr set, PropertyType& prop, PropertyType value, Real duration, Ease ease);
     float Update(float dt);
 
   private:
     PropertyType& Property;
-    PropertyType& Value;
+    PropertyType Difference;
+    PropertyType InitialValue;
+    PropertyType EndValue;
     Real Duration;
-    Ease Ease;
+    Ease Ease_;
+
+    Real CalculateEase(Real t);
+
   };
 
   /**************************************************************************/
@@ -228,72 +235,14 @@ namespace DCEngine {
     // Constructs an action sequence, adding it to 
     static ActionSetPtr Sequence(ActionSet& owner);
     static ActionSetPtr Group(ActionSet& owner);
-    static void Call(ActionSetPtr set, std::function<void(void)> fn);
-
-    //template <typename Class> 
-
-    //template <typename Class> std::function<void(void)> Call(ActionSetPtr set, void(Class::*Func)(), Class* object) {
-    //}
-
-    /*template <typename Class, typename... Args> static std::function<void(void)> Call(ActionSetPtr set, void(Class::*Func)(Args...), Class* object, Args...) {
-      return
-    }*/
-
-    template <typename Class, typename... Args> static void Call(ActionSetPtr set, void(Class::*func)(Args...), Class* object, Args...)
-    {
-      auto a = std::bind(std::mem_fun(func), object, Args...);
-      auto deleg = new MemberFunctionDelegate<Class>(object, func);
-
-      // Construct an ActionCall object
-      ActionPtr call(new ActionCall(set, deleg));
-      // Add it to the set
-      set->Add(call);      
-    }
-
+    template <typename Class, typename... Args> static void Call(ActionSetPtr set, void(Class::*func)(Args...), Class* object, Args...);
     static void Delay(ActionSetPtr set, Real duration);
-    template <typename Property>
-    static void Property(ActionSequence& seq, Property& prty, Property val, Real duration, Ease ease);
+    template <typename Property> static void Property(ActionSetPtr set, Property& prty, Property val, Real duration, Ease ease);
 
   private:
     
   };
 
-
-  //template<typename Property, typename EndValue>
-  //inline void Action::Property(ActionSequence & seq, Property prty, EndValue val, Ease ease)
-  //{
-  //
-  //}
-
-
-  /*==============*
-  *   Property    *
-  *==============*/
-  /**************************************************************************/
-  /*!
-  @brief ActionProperty constructor.
-  @param PropertyType The POD or class type of the property;
-  @param set A reference to the set this property is part of.
-  @param property A reference to the property to be modified.
-  @param duration How long this property runs for.
-  @param ease What ease this property uses to calculate the interpolation.
-  */
-  /**************************************************************************/
-
-  /**************************************************************************/
-  /*!
-  @brief Updates the property.
-  @param dt The time slice given.
-  */
-  /**************************************************************************/
-  template<typename PropertyType>
-  inline float ActionProperty<PropertyType>::Update(float dt)
-  {
-    return 0.0f;
-  }
-
-  /*==============*
-  *   Actions     *
-  *==============*/
-
 }
+
+#include "Actions.hpp"
