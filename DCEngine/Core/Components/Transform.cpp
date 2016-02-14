@@ -65,11 +65,11 @@ namespace DCEngine {
         return;
       }
 
-      //auto physpace = this->Owner()->getComponent<Components::PhysicsSpace>();
+      //auto physpace = this->ObjectOwner-> //->getComponent<Components::PhysicsSpace>();
 
       //if (Translation.x > physpace->MaxX)
       {
-       // physpace->MaxX = Translation.x;
+        //physpace->MaxX = Translation.x;
       }
 
 

@@ -329,7 +329,6 @@
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
-    <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
     <ClCompile Include="Core\Events\DispatchGameEvents.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Components\ZilchComponent.cpp" />
@@ -474,16 +473,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
-=======
     <ClInclude Include="Core\Objects\Entity.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
->>>>>>> a03624507218e3d0660b7bbd9248b13a6d8bc3dc
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">
