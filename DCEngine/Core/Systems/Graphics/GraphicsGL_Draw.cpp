@@ -321,7 +321,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
 
-			auto camTrans = camera.Owner()->getComponent<Components::Transform>();
+			//auto camTrans = camera.Owner()->getComponent<Components::Transform>();
 
 			// (???) Sets the "image" uniform to 0
 			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
