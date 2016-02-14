@@ -65,7 +65,7 @@ namespace DCEngine {
       //void RotateObject(Vec2&);
       //void ScaleObject(Vec2&);
       //void ScaleObject(Vec3);
-      //void ReleaseObject();
+      //void TransformDragRelease();
       //void UseTool(GameObjectPtr gameObject, Vec2& position);
       //void ReleaseTool();
 

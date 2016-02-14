@@ -124,38 +124,38 @@ namespace DCEngine {
 
         // CODE FOR DRAGGING X/Y ??
         //if we have a valid Object selected still
-        if (SelectedObject() && SelectedObject()->getObjectName() != std::string("EditorCamera")) {
-          auto transform = dynamic_cast<GameObject*>(SelectedObject())->getComponent<Components::Transform>();
-          //and it has a transform
-          if (transform != NULL)
-          {
-            auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(position);
-            auto xPos = transform->getTranslation().x;
-            auto yPos = transform->getTranslation().y;
-            //data for translate editor tools
-            Real radius = 8;
-            Real arrowTip = 1;
-            //if within horizontal tool, drag along x axis
-            if (mousePos.x > xPos && mousePos.x < xPos + radius && mousePos.y < yPos + arrowTip && mousePos.y > yPos - arrowTip)
-            {
-              Transformation.DraggingX = true;
-              Transformation.DragOffset = mousePos.x - xPos;
+        //if (SelectedObject() && SelectedObject()->getObjectName() != std::string("EditorCamera")) {
+        //  auto transform = dynamic_cast<GameObject*>(SelectedObject())->getComponent<Components::Transform>();
+        //  //and it has a transform
+        //  if (transform != NULL)
+        //  {
+        //    auto mousePos = CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(position);
+        //    auto xPos = transform->getTranslation().x;
+        //    auto yPos = transform->getTranslation().y;
+        //    //data for translate editor tools
+        //    Real radius = 8;
+        //    Real arrowTip = 1;
+        //    //if within horizontal tool, drag along x axis
+        //    if (mousePos.x > xPos && mousePos.x < xPos + radius && mousePos.y < yPos + arrowTip && mousePos.y > yPos - arrowTip)
+        //    {
+        //      Transformation.DraggingX = true;
+        //      Transformation.DragOffset = mousePos.x - xPos;
 
-              TransCommand = new CommandObjectTransform(transform);
-              DCTrace << "EditorRef::OnMouseDownEvent - DraggingX: '" << SelectedObject()->getObjectName() << "'\n";
-              return;
-            }
-            //if within vertical tool, drag along y axis
-            if (mousePos.x > xPos - arrowTip && mousePos.x < xPos + arrowTip && mousePos.y < yPos + radius && mousePos.y > yPos)
-            {
-              Transformation.DraggingY = true;
-              Transformation.DragOffset = mousePos.y - yPos;
-              TransCommand = new CommandObjectTransform(transform);
-              DCTrace << "EditorRef::OnMouseDownEvent - DraggingY: '" << SelectedObject()->getObjectName() << "'\n";
-              return;
-            }
-          }
-        }
+        //      TransCommand = new CommandObjectTransform(transform);
+        //      DCTrace << "EditorRef::OnMouseDownEvent - DraggingX: '" << SelectedObject()->getObjectName() << "'\n";
+        //      return;
+        //    }
+        //    //if within vertical tool, drag along y axis
+        //    if (mousePos.x > xPos - arrowTip && mousePos.x < xPos + arrowTip && mousePos.y < yPos + radius && mousePos.y > yPos)
+        //    {
+        //      Transformation.DraggingY = true;
+        //      Transformation.DragOffset = mousePos.y - yPos;
+        //      TransCommand = new CommandObjectTransform(transform);
+        //      DCTrace << "EditorRef::OnMouseDownEvent - DraggingY: '" << SelectedObject()->getObjectName() << "'\n";
+        //      return;
+        //    }
+        //  }
+        //}
       }
     }
 
@@ -167,13 +167,15 @@ namespace DCEngine {
     void Editor::TransformStartDragging()
     {
       // Clear the currently saved positions
-      Transformation.InitialGameObjectPositions.clear();
+      Transformation.InitialGameObjectTransforms.clear();
       // For every selected GameObject, record its initial position      
       for (auto& object : SelectedObjects) {
         auto gameObject = dynamic_cast<GameObjectPtr>(object);
-        auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
-
-        Transformation.InitialGameObjectPositions.push_back(TransformToolData::GameObjectInitialPosition(gameObject, translation));
+        auto transform = gameObject->getComponent<Components::Transform>();
+        // Grab the transform data for the component (translation, rotation, scale)
+        auto data = transform->getTransformDataPair();
+        // Add it tothe container of all transformation data for every object that was transformed
+        Transformation.InitialGameObjectTransforms.push_back(data);
         DCTrace << "EditorRef::TransformStartDragging - Dragging: '" << gameObject->getObjectName() << "'\n";
       }
 
@@ -202,16 +204,20 @@ namespace DCEngine {
 
      // Calculate the current mouse position
      auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos), 0);     
-     auto mouseDiff = mousePos - Settings.MouseStartPos;
+     dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(mousePos);
 
+     
      // Drag all selected objects
+/*     auto mouseDiff = mousePos - Settings.MouseStartPos;
      for (auto& gameObject : Transformation.InitialGameObjectPositions) {
        auto& objectCurrentPos = gameObject.first->getComponent<Components::Transform>()->getTranslation();
        auto& objectStartPos = gameObject.second;
        auto objectDiff = objectCurrentPos - objectStartPos;
 
        gameObject.first->getComponent<Components::Transform>()->setTranslation(objectStartPos - objectDiff + mouseDiff);
-     }      
+     }   */  
+
+     
       
       //if (Transformation.DraggingX) {
       //  //DCTrace << "Dragging! \n ";
@@ -264,11 +270,12 @@ namespace DCEngine {
           auto transform = gameObject->getComponent<Components::Transform>();
           Vec3 pos = transform->getTranslation();
           // Translate the object
-          auto TransCommand = new CommandObjectTransform(transform);
           transform->setTranslation(pos + direction);
-          TransCommand->SaveNew(transform);
-          auto command = CommandPtr(TransCommand);
-          Add(command);
+
+          //auto TransCommand = new CommandObjectTransform(transform);
+          //TransCommand->SaveNew(transform);
+          //auto command = CommandPtr(TransCommand);
+          //Add(command);
 
         }
       }
@@ -278,31 +285,48 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Releases the selected object at the current dragged position.
+    @todo   Perhaps it needs to snap all selected objects, mmm?
     */
     /**************************************************************************/
-    void Editor::ReleaseObject()
+    void Editor::TransformDragRelease()
     {
       if (!SelectedObject())
         return;
+            
+      // Record all of the object's current transformations    
+      TransformDataPairVec currentTransforms;
+      for (auto& object : SelectedObjects) {
+        auto gameObject = dynamic_cast<GameObjectPtr>(object);
+        auto transform = gameObject->getComponent<Components::Transform>();
+        // Grab the transform data for the component (translation, rotation, scale)
+        auto data = transform->getTransformDataPair();
+        // Add it to the container of all transformation data for every object that was transformed
+        currentTransforms.push_back(data);        
+      }
 
-      if (Transformation.Dragging || Transformation.DraggingX || Transformation.DraggingY) {
+      // Now that we are done moving, create the transform command
+      auto command = CommandPtr(new CommandObjectTransform(
+                                    Transformation.InitialGameObjectTransforms, 
+                                    currentTransforms));
+      Add(command);
+      return;
 
-        // Snap the object to the nearest (x,y) snapDistance      
-        if (Settings.Snapping) {
-          auto& translation = dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->getTranslation();
+      // Snap the object to the nearest (x,y) snapDistance      
+      if (Settings.Snapping) {
+
+
+        for (auto& object : SelectedObjects) {
+          auto gameObject = dynamic_cast<GameObjectPtr>(object);
+          auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
           auto snappedPos = Math::Snap(Vec2(translation.x, translation.y));
-          dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
-
-          DCTrace << "EditorRef::ReleaseObject - Releasing '" << SelectedObject()->getObjectName() << "' at: \n"
+          gameObject->getComponent<Components::Transform>()->setTranslation(Vec3(snappedPos.x, snappedPos.y, translation.z));
+          
+          DCTrace << "EditorRef::TransformDragRelease - Releasing '" << SelectedObject()->getObjectName() << "' at: \n"
             << "x: " << snappedPos.x << ", y: " << snappedPos.y << "\n";
         }
-      }
+
+      }      
     }
-
-
-
-
-
 
   }
 }

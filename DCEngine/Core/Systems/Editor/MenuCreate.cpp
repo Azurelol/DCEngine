@@ -137,6 +137,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Moves the object to the viewport's center.
+    @param  A pointer to the GameObject.
     */
     /**************************************************************************/
     void Editor::MoveToViewportCenter(GameObject* gameobject)
@@ -148,6 +149,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Saves a GameObject's configuration into an Archetype to file.
+    @param  archetype The name of the archetype.
     @todo   Refactor how the path is pulled.
     */
     /**************************************************************************/

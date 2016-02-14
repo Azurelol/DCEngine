@@ -36,6 +36,16 @@ namespace DCEngine {
     }
 #endif
 
+    TransformDataPair Transform::getTransformDataPair()
+    {
+      TransformDataPair data;
+      data.first = this;
+      data.second.Translation = Translation;
+      data.second.Rotation = Rotation;
+      data.second.Scale = Scale;
+      return data;
+    }
+
     /**************************************************************************/
     /*!
     @brief Initializes the GameObject.

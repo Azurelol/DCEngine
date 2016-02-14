@@ -15,7 +15,7 @@ namespace DCEngine {
 
   namespace Components
   {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
@@ -29,7 +29,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
     }
-#endif
+    #endif
 
     void PlayerController::Initialize()
     {
@@ -44,16 +44,16 @@ namespace DCEngine {
       //Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-	  RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-	  ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+      ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
       SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-	  
-	 // ColliderRef->	 
-	  auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
-	  CollisionTableRef->AddGroup("Player");
-	  auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
-	  ColliderRef->setCollisionGroup("Player");
-	  //RigidBodyRef->setGravity(false);
+
+      // ColliderRef->	 
+      auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
+      //CollisionTableRef->AddGroup("Player");
+      auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      //ColliderRef->setCollisionGroup("Player");
+      //RigidBodyRef->setGravity(false);
     }
 
     void PlayerController::Serialize(Json::Value & root)
@@ -213,7 +213,7 @@ namespace DCEngine {
       //DCTrace << "Grounded =" << Grounded << "\n";
       if (!Grounded)
       {
-        
+
         SpriteComponent->SpriteSource = JumpAnimation;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;

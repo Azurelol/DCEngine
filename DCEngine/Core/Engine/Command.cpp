@@ -240,52 +240,48 @@ namespace DCEngine {
   /*===================*
   *     Transform     *
   *===================*/ 
-  CommandObjectTransform::CommandObjectTransform(Components::Transform * transform) : Command("Transform"), 
-                                                                                      TransformedObject(transform)
+  CommandObjectTransform::CommandObjectTransform(TransformDataPairVec & previous, TransformDataPairVec & current)
+    : Command("Transform"), PreviousTransforms(previous), CurrentTransforms(current)
   {
-    SavePrevious(transform);
-    SaveNew(transform);
   }
 
-
+  /**************************************************************************/
+  /*!
+  @brief  Undoes the last Transform command, reverting transformations.
+  */
+  /**************************************************************************/
   void CommandObjectTransform::Undo()
   { 
-    TransformedObject->setTranslation(PreviousTranslation);
-    TransformedObject->setRotation(PreviousRotation);
-    TransformedObject->setScale(PreviousScale);
+    ApplyTransform(PreviousTransforms);
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Executes the Transform command.
+  */
+  /**************************************************************************/
   void CommandObjectTransform::Execute()
   {
-    TransformedObject->setTranslation(NewTranslation);
-    TransformedObject->setRotation(NewRotation);
-    TransformedObject->setScale(NewScale);
+    ApplyTransform(CurrentTransforms);
   }
 
-  void CommandObjectTransform::SaveNew(Vec3 transform, Vec3 rotation, Vec3 scale)
+  /**************************************************************************/
+  /*!
+  @brief Applies the currently-stored transforms to each transform component
+         on the pair.
+  @param transforms A container of transform component-transform data pairs.
+  */
+  /**************************************************************************/
+  void CommandObjectTransform::ApplyTransform(TransformDataPairVec & transforms)
   {
-    NewTranslation = transform;
-    NewRotation = rotation;
-    NewScale = scale;
+    for (auto& transform : transforms) {
+      transform.first->setTranslation(transform.second.Translation);
+      transform.first->setRotation(transform.second.Rotation);
+      transform.first->setScale(transform.second.Scale);
+    }
   }
-  void CommandObjectTransform::SaveNew(Components::Transform * transform)
-  {
-    NewTranslation = transform->getTranslation();
-    NewRotation = transform->getRotation();
-    NewScale = transform->getScale();
-  }
-  void CommandObjectTransform::SavePrevious(Vec3 transform, Vec3 rotation, Vec3 scale)
-  {
-    PreviousTranslation = transform;
-    PreviousRotation = rotation;
-    PreviousScale = scale;
-  }
-  void CommandObjectTransform::SavePrevious(Components::Transform * transform)
-  {
-    PreviousTranslation = transform->getTranslation();
-    PreviousRotation = transform->getRotation();
-    PreviousScale = transform->getScale();
-  }
+
+
 
 
 

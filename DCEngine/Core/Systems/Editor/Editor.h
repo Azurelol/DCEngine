@@ -72,7 +72,7 @@ namespace DCEngine {
       void MoveObject(const Vec3&);
       void TransformStartDragging();
       void TransformDrag(Vec2&);
-      void ReleaseObject();
+      void TransformDragRelease();
       
       // Settings
       EditorConfig Settings;

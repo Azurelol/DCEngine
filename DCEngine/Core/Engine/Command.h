@@ -88,7 +88,7 @@ namespace DCEngine {
     void Duplicate();
 
   private:
-    GameObject* GameObjectReferences;
+    GameObjectRawVec GameObjectReferences;
     Space* SpaceRef;
     ArchetypePtr GameObjectData;
   };
@@ -96,29 +96,22 @@ namespace DCEngine {
   /*===================*
   *     Transform     *
   *===================*/
-  namespace Components {
-    class Transform;
-  }  
+  //namespace Components {
+  //  class Transform;
+  //}  
+  //#include "../Components/Transform.h"
   class CommandObjectTransform : public Command {
   public:
-    CommandObjectTransform(Components::Transform* transform);
+
+    CommandObjectTransform(TransformDataPairVec& previous, TransformDataPairVec& current);
     void Undo();
     void Execute();
-    
-    void SaveNew(Vec3 transform, Vec3 rotation, Vec3 scale);
-    void SaveNew(Components::Transform * transform);
-    void SavePrevious(Vec3 transform, Vec3 rotation, Vec3 scale);
-    void SavePrevious(Components::Transform * transform);
-    // Object that was transformed
-    Components::Transform* TransformedObject;
-    // New Transform
-    Vec3 NewTranslation;
-    Vec3 NewRotation;
-    Vec3 NewScale;
-    // Previous Transform
-    Vec3 PreviousTranslation;
-    Vec3 PreviousRotation;
-    Vec3 PreviousScale;
+    void ApplyTransform(TransformDataPairVec& transformData);   
+
+
+    // Containers of pairs of Transform components and their transform data
+    TransformDataPairVec PreviousTransforms;
+    TransformDataPairVec CurrentTransforms;    
   };
 
 
