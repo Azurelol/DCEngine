@@ -596,12 +596,20 @@ namespace DCEngine {
       ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
+        auto component = selectedEntity->AddComponentByName(componentName, false);
+        
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
-        auto& dependencies = Components::Sprite::mDependencies;
-        selectedEntity->AddComponentByName(componentName, false);
-        Scanned = false;
+        //auto& dependencies = Components::Sprite::mDependencies;
+        //auto& dependencies = component->Dependencies();
+        for (auto& dependency : component->Dependencies()) {
+          if (!selectedEntity->HasComponent(dependency))
+            return false;
+          DCTrace << componentName << " needs '" << dependency << "'\n";
+        }
+
         // A component was added
         return true;
+        Scanned = false;
       }
 
       // No component was added
