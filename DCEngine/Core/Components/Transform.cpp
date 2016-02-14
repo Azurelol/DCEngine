@@ -61,9 +61,17 @@ namespace DCEngine {
 
       if (firstloop)
       {
-        PrevRotation = Rotation;
+        PrevTranslation = Translation;
         return;
       }
+
+      //auto physpace = this->Owner()->getComponent<Components::PhysicsSpace>();
+
+      //if (Translation.x > physpace->MaxX)
+      {
+       // physpace->MaxX = Translation.x;
+      }
+
 
       if (dynamic_cast<GameObject*>(this->Owner()))
       {

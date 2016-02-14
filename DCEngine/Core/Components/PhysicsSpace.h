@@ -67,6 +67,11 @@ namespace DCEngine {
       ~PhysicsSpace();
       void Initialize();
 
+      float MinX = 0;
+      float MaxX = 0;
+      float MinY = 0;
+      float MaxY = 0;
+
     private:
 
       bool AllowSleep = false;
