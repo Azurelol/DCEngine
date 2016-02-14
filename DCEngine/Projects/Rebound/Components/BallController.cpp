@@ -10,6 +10,7 @@
 /******************************************************************************/
 #include "BallController.h"
 #include "../../CoreComponents.h"
+#include "../../../Core/Engine/SteeringBehaviors.h"
 
 
 namespace DCEngine {
@@ -28,6 +29,9 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
 		}
 #endif
 
@@ -272,12 +276,16 @@ namespace DCEngine {
 			}
 			else
 			{
-				if (CenteringVector.y > 0)
-				{
-					CenteringVector.y *= AttractYBoost;
-				}
-				RigidBodyRef->AddForce(CenteringVector * AttractPower);
-			}
+        // JJ- Using steering behaviors for more natural looking movement
+				//if (CenteringVector.y > 0)
+				//{
+				//	CenteringVector.y *= AttractYBoost;
+				//}
+				//RigidBodyRef->AddForce(CenteringVector * AttractPower);
+        //Vec3 seekForce = SteeringBehaviors::GetSeekVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce);
+        Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance);
+        RigidBodyRef->ApplyLinearVelocity(arriveForce);
+      }
 		}
 
 		void BallController::FreezeBall()
