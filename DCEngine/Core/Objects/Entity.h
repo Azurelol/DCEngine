@@ -69,12 +69,9 @@ namespace DCEngine {
     void RemoveComponent(ComponentPtr component);  
     ComponentVec AllComponents();
     // Events
-    template <typename EventClass>
-    void Dispatch(Event* eventObj); 
-    template <typename EventClass>
-    void DispatchUp(Event* eventObj); 
-    template <typename EventClass>
-    void DispatchDown(Event* eventObj); 
+    template <typename EventClass> void Dispatch(Event* eventObj); 
+    template <typename EventClass> void DispatchUp(Event* eventObj); 
+    template <typename EventClass> void DispatchDown(Event* eventObj); 
     EntityType Type() { return type_; }    
     // Actions
     ActionsOwner Actions;
