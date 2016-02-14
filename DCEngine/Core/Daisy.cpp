@@ -45,6 +45,20 @@ int WinMain(int argc, char* argv[]) {
   }
   catch (Debug::Exception exception) 
   {
+    ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
+    ImGui::Begin("ExceptionWindow");
+    ImGui::OpenPopup("Exception");
+    if (ImGui::BeginPopupModal("Exception")) {
+
+      ImGui::Text("The engine has found an exception!");
+      if (ImGui::Button("I am sorry...")) {
+        ImGui::CloseCurrentPopup();
+      }
+    }
+    ImGui::EndPopup();
+    ImGui::End;
+
+
     DCTrace << exception << "\n";
     // Poor Daisy cannot afford a nice GUI
     std::cout << "Press any key to leave her... :(\n";

@@ -16,6 +16,7 @@
 #include "ImGuiSFML.h"
 
 namespace DCEngine {
+
   class Engine;
   namespace Systems {
         
@@ -27,8 +28,18 @@ namespace DCEngine {
       friend class Engine;
       friend class Editor;
       friend class InputSFML;
+    
     public:
-		void ReloadVAO() { GUIHandler->ReloadVAO(); }
+
+      struct PopUpData {
+        std::string Title;
+        std::string Message;
+        std::string Confirmation;
+      };
+    
+    public:
+    	void ReloadVAO() { GUIHandler->ReloadVAO(); }
+      static void PopUp(PopUpData& data);
     
     private:
             
@@ -44,6 +55,9 @@ namespace DCEngine {
       std::unique_ptr<ImGuiSFML> GUIHandler;
       sf::Event* EventObj;
       std::string DefaultFont;
+
+    
+      
 
     };
 

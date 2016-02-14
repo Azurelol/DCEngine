@@ -832,7 +832,11 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp">
+<<<<<<< HEAD
       <Filter>Core\Libraries</Filter>
+=======
+      <Filter>Core\Systems\AI</Filter>
+>>>>>>> d9e5065484b9d14feb4fdffe3ec46e357bdaebd3
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1413,7 +1417,11 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\SteeringBehaviors.h">
+<<<<<<< HEAD
       <Filter>Core\Libraries</Filter>
+=======
+      <Filter>Core\Systems\AI</Filter>
+>>>>>>> d9e5065484b9d14feb4fdffe3ec46e357bdaebd3
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

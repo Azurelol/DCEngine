@@ -36,6 +36,16 @@ namespace DCEngine {
     }
 #endif
 
+    TransformDataPair Transform::getTransformDataPair()
+    {
+      TransformDataPair data;
+      data.first = this;
+      data.second.Translation = Translation;
+      data.second.Rotation = Rotation;
+      data.second.Scale = Scale;
+      return data;
+    }
+
     /**************************************************************************/
     /*!
     @brief Initializes the GameObject.
@@ -61,9 +71,17 @@ namespace DCEngine {
 
       if (firstloop)
       {
-        PrevRotation = Rotation;
+        PrevTranslation = Translation;
         return;
       }
+
+      //auto physpace = this->ObjectOwner-> //->getComponent<Components::PhysicsSpace>();
+
+      //if (Translation.x > physpace->MaxX)
+      {
+        //physpace->MaxX = Translation.x;
+      }
+
 
       if (dynamic_cast<GameObject*>(this->Owner()))
       {

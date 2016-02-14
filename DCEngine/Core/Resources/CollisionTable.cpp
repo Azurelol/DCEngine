@@ -38,7 +38,7 @@ namespace DCEngine
   /**************************************************************************/
   CollisionTable::CollisionTable(std::string collisionTableFile) :
     Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
-  {
+  {    
     AddGroup(CollisionGroup("Default"));
     ScanForGroups();
   }
@@ -75,6 +75,10 @@ namespace DCEngine
         return Pair;
       }
     }
+
+    ScanForGroups();
+
+    return GetFilter(group1, group2);
 
     throw DCException(std::string("CollisionTable::GetFilter - Tried to get filter of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
     return Pairs[0];
@@ -158,6 +162,11 @@ namespace DCEngine
       }
     }   
 
+    ScanForGroups();
+
+    return GetResolve(group1, group2);
+
+
     throw DCException(std::string("CollisionTable::GetResolve - Tried to get resolution of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
     
   }
@@ -188,6 +197,10 @@ namespace DCEngine
       }
     }
 
+    ScanForGroups();
+
+    return GetStartBlock(group1, group2);
+
     throw DCException(std::string("CollisionTable::GetStartBlock - Tried to get start block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
 
   }
@@ -216,6 +229,10 @@ namespace DCEngine
         return Pair.CollisionEndBlock;
       }
     }
+
+    ScanForGroups();
+
+    return GetEndBlock(group1, group2);
 
     throw DCException(std::string("CollisionTable::GetEndBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
 
@@ -247,6 +264,10 @@ namespace DCEngine
       }
     }
 
+    ScanForGroups();
+
+    return GetPreSolveBlock(group1, group2);
+
     throw DCException(std::string("CollisionTable::GetPreSolveBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
   }
 
@@ -276,9 +297,12 @@ namespace DCEngine
 
   void CollisionTable::ScanForGroups(void)
   {
-    for (auto& group : *Daisy->getSystem<Systems::Content>()->AllCollisionGroups())
+    DCTrace << "Scanning lol \n";
+    auto Groups = Daisy->getSystem<Systems::Content>()->AllCollisionGroups();
+
+    for (auto group : *Groups)
     {
-      AddGroup(*group.second);
+      AddGroup(group.first);
     }
   }
 

@@ -103,5 +103,22 @@ namespace DCEngine {
       GUIHandler->Terminate();
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Displays a PopUp.
+    */
+    /**************************************************************************/
+    void GUI::PopUp(PopUpData & data)
+    {
+      ImGui::BeginPopup(data.Title.c_str());
+      if (ImGui::BeginPopupModal(data.Title.c_str())) {
+        ImGui::Text(data.Message.c_str());
+        if (ImGui::Button(data.Confirmation.c_str())) {
+          ImGui::CloseCurrentPopup();
+        }
+        ImGui::EndPopup();
+      }
+    }
+
   }
 }

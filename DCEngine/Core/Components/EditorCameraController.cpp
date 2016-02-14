@@ -117,12 +117,34 @@ namespace DCEngine {
 
     void EditorCameraController::OnMouseScrollEvent(Events::MouseScroll * event)
     {
-      // Scroll up
-      if (event->Delta > 0)
-        TransformComponent->Translation.z -= MoveSpeed / 2;
-      // Scroll down
-      else if (event->Delta < 0)
-        TransformComponent->Translation.z += MoveSpeed / 2;
+      // Decide how much zoom to apply depending on how far away from 
+      auto distanceFromZ = std::abs(TransformComponent->getTranslation().z);
+
+      if (CameraComponent->getProjection() == ProjectionMode::Perspective) {
+        // Scroll up
+        if (event->Delta > 0)
+          TransformComponent->Translation.z -= MoveSpeed + distanceFromZ * ZoomRatio;
+        // Scroll down
+        else if (event->Delta < 0)
+          TransformComponent->Translation.z += MoveSpeed + distanceFromZ * ZoomRatio;
+      }
+
+      if (CameraComponent->getProjection() == ProjectionMode::Orthographic) {
+        auto& currentSize = CameraComponent->getSize();
+        // Scroll up
+        if (event->Delta > 0)
+          CameraComponent->setSize(currentSize + this->ZoomSpeed);
+          // Scroll down
+        else if (event->Delta < 0)
+          CameraComponent->setSize(currentSize - this->ZoomSpeed);
+      }
+
+
+
+
+
+
+
     }
 
 
