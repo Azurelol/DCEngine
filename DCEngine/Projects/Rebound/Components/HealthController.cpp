@@ -62,7 +62,8 @@ namespace DCEngine {
       if (health == 0)
       {
         Events::DeathEvent *e;
-        Owner()->Dispatch<Events::DeathEvent>(e);
+        // Causes exception in EventDelegat.h
+        //Owner()->Dispatch<Events::DeathEvent>(e);
       }
 
       if (oldHealth == health)
