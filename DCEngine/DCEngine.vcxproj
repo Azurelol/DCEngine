@@ -38,7 +38,7 @@
     <ProjectGuid>{87A7B4D2-1185-4853-8F06-9B6E1ED94CAF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>DCEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>7</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -461,13 +461,29 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Engine\Actions.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Ease.h" />
     <ClInclude Include="Core\Engine\Engine.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
+=======
+    <ClInclude Include="Core\Objects\Entity.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+>>>>>>> a03624507218e3d0660b7bbd9248b13a6d8bc3dc
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">

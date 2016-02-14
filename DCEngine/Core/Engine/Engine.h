@@ -41,8 +41,8 @@ namespace DCEngine {
     friend class EngineLauncher;
   public:
 
-    void Register(Action& action);
-    void Deregister(Action& action);
+    void Register(ActionPtr action);
+    void Deregister(ActionPtr action);
 
     Engine();
     Engine(std::string configFile);
@@ -50,12 +50,12 @@ namespace DCEngine {
     void Initialize();
     void Loop();
     void Terminate();
-    auto Stop() { _active = false; }
+    auto Stop() { Active = false; }
     void LoadProject(std::string& filename);
     void StartProject();    
 
-    Keyboard* getKeyboard() { return keyboard_.get(); }
-    Mouse* getMouse() { return mouse_.get(); }
+    Keyboard* getKeyboard() { return KeyboardHandle.get(); }
+    Mouse* getMouse() { return MouseHandle.get(); }
     Systems::Factory& getFactory() {
       return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
     }
@@ -66,7 +66,6 @@ namespace DCEngine {
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
-
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
@@ -80,16 +79,16 @@ namespace DCEngine {
     bool Paused;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
-    KeyboardPtr keyboard_;
-    MousePtr mouse_;
+    KeyboardPtr KeyboardHandle;
+    MousePtr MouseHandle;
     float dt; //!< Delta time. 
-    float _framerate = 60.0f; //!< The target frame rate.
-    float _runtime; //!< How long the engine has been running.
-    bool _active; //!< Whether the engine is active or not.      
+    float Framerate = 60.0f; //!< The target frame rate.
+    float Runtime; //!< How long the engine has been running.
+    bool Active; //!< Whether the engine is active or not.      
     std::string _projectName = "Daisy Project"; //!< The current project.
     std::string _defaultSpace = "Daisy World";
-    SystemVec _systems; //!< Container for the engine's systems.   
-    SpaceMap _spaces; //!< A map of spaces created by the engine.
+    SystemVec Systems; //!< Container for the engine's systems.   
+    SpaceMap Spaces; //!< A map of spaces created by the engine.
     ActionSpace ActionSpace; 
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
 

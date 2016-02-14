@@ -1,4 +1,4 @@
 #pragma once
 
-//#include "TransformTool.h"
-#include "EditorTool.h"
+#include "TransformTool.h"
+//#include "EditorTool.h"

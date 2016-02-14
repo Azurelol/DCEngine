@@ -27,6 +27,7 @@ namespace DCEngine {
   SpriteLayer::SpriteLayer(std::string spriteLayerFile) : Resource("SpriteLayer", FileSystem::FileNoExtension(spriteLayerFile),
                                                                                   spriteLayerFile)
   {
+    
   }
 
   /**************************************************************************/

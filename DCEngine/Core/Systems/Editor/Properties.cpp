@@ -310,8 +310,7 @@ namespace DCEngine {
 
           // If using slider
           if (property->HasAttribute("Range")) {
-            //auto wat = property->Attributes.find_pointer("Range");
-
+            //auto range = property->Attributes.find_pointer("Range");
             //auto& min = range->Parameters.front().NumberValue;
             //auto& max = range->Parameters.back().NumberValue;
             //if (ImGui::SliderInt(property->Name.c_str(), &integer, static_cast<int>(min), static_cast<int>(max))) {

@@ -29,6 +29,7 @@ namespace DCEngine {
     static Vec3  interpcos(Vec3 start, Vec3 end, float ratio);
     static Vec2  interpcos(Vec2 start, Vec2 end, float ratio);
     static float interpcos(float start, float end, float ratio);
+    static void ClampString(const char * input, char * output, int length);
     friend std::ostream& operator<<(std::ostream& os, const Vec3& vec);
 
   private:

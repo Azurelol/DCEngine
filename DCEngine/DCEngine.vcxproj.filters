@@ -1397,6 +1397,7 @@
     <ClInclude Include="Core\Engine\Engine.hpp">
       <Filter>Core\Engine</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Core\Systems\StateMachine\StateMachine.h">
       <Filter>Core\Systems\AI</Filter>
     </ClInclude>
@@ -1405,6 +1406,16 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\HealthController.h">
       <Filter>Projects\Rebound\Components</Filter>
+=======
+    <ClInclude Include="Core\Objects\Entity.hpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Actions.hpp">
+      <Filter>Core\Engine\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Ease.h">
+      <Filter>Core\Engine\Action</Filter>
+>>>>>>> a03624507218e3d0660b7bbd9248b13a6d8bc3dc
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

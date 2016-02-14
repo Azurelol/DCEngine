@@ -115,7 +115,7 @@ namespace DCEngine {
   /**************************************************************************/
   template<typename SystemClass>
   inline std::shared_ptr<SystemClass> Engine::getSystem() {
-    for (auto systemPtr : _systems) {
+    for (auto systemPtr : Systems) {
       if (std::type_index(typeid(*systemPtr.get())) == std::type_index(typeid(SystemClass)))
         return std::static_pointer_cast<SystemClass>(systemPtr);
     }

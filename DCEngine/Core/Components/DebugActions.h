@@ -15,6 +15,7 @@ namespace DCEngine {
   namespace Components
   {
     class Transform;
+    class Sprite;
     class DebugActions : public Component {
 
     public:
@@ -28,6 +29,9 @@ namespace DCEngine {
       void OnLogicUpdateEvent(Events::LogicUpdate* event);
       // Tests
       void TestActionSequence();
+      void Boop();
+      void ReportPropertyValue();
+      void ResetValues();
       void TestRayCasting();
       void DebugDraw();
 
@@ -37,6 +41,11 @@ namespace DCEngine {
       Vec3 Offset = Vec3(0, 0, 0);
       Vec4 Color = Vec4(0.5, 0.5, 0.5, 1);
       Transform* TransformComponent;
+      Sprite* SpriteComponent;
+
+      // ActionTesting
+      Vec4 DefaultColor;
+      Real TestValue = 5.0f;
 
     };
 
