@@ -115,7 +115,7 @@ namespace DCEngine {
         }
 
         // Windows.s
-        if (ImGui::BeginMenu("Windows.s")) {
+        if (ImGui::BeginMenu("Windows")) {
           if (ImGui::MenuItem("Properties"))
             Windows.PropertiesEnabled = !Windows.PropertiesEnabled;
           if (ImGui::MenuItem("Library"))

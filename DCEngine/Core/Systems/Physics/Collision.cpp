@@ -917,6 +917,9 @@ namespace DCEngine
     Components::BoxCollider *collider = rect->getComponent<Components::BoxCollider>();
     Components::Transform *transform = rect->getComponent<Components::Transform>();
 
+    if (!transform)
+      return false;
+
     float height, width;
 
     height = transform->Scale.y;

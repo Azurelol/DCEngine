@@ -601,31 +601,20 @@ namespace DCEngine {
         
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
 
-        auto missingDependency = component->HasDependencies();
         // If there's a missing dependency...
-        if (!missingDependency.empty()) {
+        if (!component->HasDependencies()) {
+          auto missingDependency = component->MissingDependencies();
           // Send a popup!
-          GUI::PopUpData message;
-          message.Title = "Missing Dependency!";
-          message.Message = " - " + missingDependency;
-          message.Confirmation = "I am sorry...";
-          GUI::PopUp(message);
+          Windows::PopUpData data;
+          data.Title = "Missing Dependency";
+          data.Message = "- " + missingDependency;
+          data.Confirmation = "I am sorry...";
+          auto popUp = WindowPtr(new Windows::PopUp(data));
+          GUI::Add(popUp);
           // Remove the component
           component->Destroy();
           return false;
         }
-
-
-        //auto& dependencies = Components::Sprite::mDependencies;
-        //auto& dependencies = component->Dependencies();
-        for (auto& dependency : component->Dependencies()) {
-          if (!selectedEntity->HasComponent(dependency)) {
-
-            return false;
-          }
-          DCTrace << componentName << " needs '" << dependency << "'\n";
-        }
-
         // A component was added
         return true;
         Scanned = false;

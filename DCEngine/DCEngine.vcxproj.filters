@@ -298,6 +298,9 @@
     <Filter Include="Core\Systems\Editor\Modules\Creator">
       <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\GUI\Windows">
+      <UniqueIdentifier>{9c2e3d16-4ccc-4648-8b94-ae244817f6f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -833,6 +836,9 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp">
       <Filter>Core\Systems\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\GUI\Windows.cpp">
+      <Filter>Core\Systems\GUI\Windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1414,6 +1420,9 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\SteeringBehaviors.h">
       <Filter>Core\Systems\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\GUI\Windows.h">
+      <Filter>Core\Systems\GUI\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
