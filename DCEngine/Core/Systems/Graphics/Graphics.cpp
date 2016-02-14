@@ -76,7 +76,7 @@ namespace DCEngine {
 				int TotalObjNumG = 0, TotalObjTranspNumG = 0;
 
 				// Get the default camera from the 'CameraViewport' component
-				auto camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+				Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
 				// Do not update the space if no camera has been set
 				if (camera == nullptr)
@@ -90,49 +90,117 @@ namespace DCEngine {
 				}
 
 				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
-				for (auto lightComponent : lightComponents)
-				{
-					mLightList.push_back(lightComponent);
-				}
 
 				GraphicsHandler->SetParticleSystemShader(*camera);
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				GraphicsHandler->SetSpriteShader(*camera, lightComponents);
 
-				for (auto&& drawList : mDrawList)
+
+				for (auto& drawList : mDrawList)
 				{
 					for (auto&& obj : drawList)
 					{
-						obj->Update(dt);
-						obj->Draw(*camera);
+						std::sort(drawList.begin(), drawList.end(),
+							[](Components::Graphical* a, Components::Graphical* b)
+						{
+							return a->Owner()->getComponent<Components::Transform>()->Translation.z
+								< b->Owner()->getComponent<Components::Transform>()->Translation.z;
+						});
 					}
+					//drawList.clear();
+				}
+
+				//RenderDepths(dt, camera);
+
+				//glEnable(GL_STENCIL_TEST);
+
+				//RenderShadows(dt, camera, lightComponents);
+
+				RenderScene(dt, camera);
+
+				//glDisable(GL_STENCIL_TEST);
+
+				DrawDebug();
+				
+				for (auto&& drawList : mDrawList)
+				{
 					drawList.clear();
 				}
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 
-				glDisable(GL_BLEND);
-				GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
-
-				for (const auto& debugObj : mDebugLineList)
-				{
-					debugObj.Draw();
-				}
-				for (const auto& debugObj : mDebugRectangleList)
-				{
-					debugObj.Draw();
-				}
-				for (const auto& debugObj : mDebugCircleList)
-				{
-					debugObj.Draw();
-				}
-				mDebugLineList.clear();
-				mDebugRectangleList.clear();
-				mDebugCircleList.clear();
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			}
+		}
+
+		void Graphics::RenderDepths(float dt, Components::Camera* camera)
+		{
+			glDrawBuffer(GL_NONE);
+			RenderObjects(dt, camera);
+		}
+
+		void Graphics::RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents)
+		{
+			GraphicsHandler->SetShadowingShaders(*camera, lightComponents);
+
+			for (auto&& drawList : mDrawList)
+			{
+				for (auto&& obj : drawList)
+				{
+					if(dynamic_cast<Components::Sprite*>(obj))
+						obj->Draw(*camera);
+				}
+			}
+
+			// Restore local stuff
+			glDisable(GL_DEPTH_CLAMP);
+			glEnable(GL_CULL_FACE);
+		}
+
+		void Graphics::RenderScene(float dt, Components::Camera* camera)
+		{
+			glDrawBuffer(GL_BACK);
+
+			// Draw only if the corresponding stencil value is zero
+			glStencilFunc(GL_EQUAL, 0x0, 0xFF);
+
+			// prevent update to the stencil buffer
+			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
+
+			RenderObjects(dt, camera);
+		}
+
+		void Graphics::RenderObjects(float dt, Components::Camera* camera)
+		{
+			for (auto&& drawList : mDrawList)
+			{
+				for (auto&& obj : drawList)
+				{
+					obj->Update(dt);
+					obj->Draw(*camera);
+				}
+				//drawList.clear();
+			}
+		}
+
+		void Graphics::DrawDebug()
+		{
+			glDisable(GL_BLEND);
+			GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
+
+			for (const auto& debugObj : mDebugLineList)
+			{
+				debugObj.Draw();
+			}
+			for (const auto& debugObj : mDebugRectangleList)
+			{
+				debugObj.Draw();
+			}
+			for (const auto& debugObj : mDebugCircleList)
+			{
+				debugObj.Draw();
+			}
+			mDebugLineList.clear();
+			mDebugRectangleList.clear();
+			mDebugCircleList.clear();
 		}
 
 		/**************************************************************************/

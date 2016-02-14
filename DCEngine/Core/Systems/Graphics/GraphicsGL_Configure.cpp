@@ -90,6 +90,11 @@ namespace DCEngine {
       glBindVertexArray(0);
     }
 
+		void GraphicsGL::ConfigureShadowBuffers(void)
+		{
+			
+		}
+
 		void GraphicsGL::ConfigureParticleBuffers()
 		{
 			GLfloat vertices[]{

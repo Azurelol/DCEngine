@@ -97,7 +97,7 @@ vec3 GenerateIlluminationValues(void)
 			break;
 		}
 		diffI *= light.Intensity;
-		coefficients.x += light.Color.x * diffI;
+		coefficients.x += light.Color.x * diffI; 
 		coefficients.y += light.Color.y * diffI;
 		coefficients.z += light.Color.z * diffI;
 	}

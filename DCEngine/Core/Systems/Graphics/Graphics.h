@@ -69,6 +69,9 @@ namespace DCEngine {
 			Mat4 ViewProjMatrix;
 			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
 
+			
+			
+
 			// Base methods
 			void StartFrame();
 			void EndFrame();
@@ -81,14 +84,21 @@ namespace DCEngine {
 			Graphics(GraphicsConfig settings);
 			void Initialize();
 			void Subscribe();
+
+			//Main Methods
 			void Update(float dt);
+			void RenderDepths(float dt, Components::Camera* camera);
+			void RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents);
+			void RenderScene(float dt, Components::Camera* camera);
+			void RenderObjects(float dt, Components::Camera* camera);
+			void DrawDebug();
 			void Terminate();
 
 			//2D draw list
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Graphical*>> mDrawList;
-			std::vector<Components::Light*> mLightList;
+			//std::vector<Components::Light*> mLightList;
 			
 			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
 			//std::vector<Components::Sprite*>  TextureObjNontransp;

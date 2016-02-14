@@ -829,6 +829,9 @@
     <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp">
       <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1447,6 +1450,15 @@
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Core\Assets\Shaders\ParticleShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.geo">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
