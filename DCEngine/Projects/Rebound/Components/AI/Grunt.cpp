@@ -49,6 +49,7 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Grunt::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
+      Connect(gameObj, Events::DamageEvent, Grunt::OnDeathEvent);
 
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); 
       RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
@@ -89,9 +90,10 @@ namespace DCEngine {
       }
     }
 
-    void Grunt::OnCollisionEndedEvent(Events::CollisionEnded * event)
+    void Grunt::OnDeathEvent(Events::DeathEvent * event)
     {
-    }
+      stateMachine->ChangeState(Die::Instance());
+    };
 
     // Direction should be 1 (right) or -1 (left). 
     void Grunt::Jump(int direction, float period, float strengthX, float strengthY)
@@ -116,9 +118,6 @@ namespace DCEngine {
       
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());
-
-      if (owner->HealthRef->GetHealth() == 0)
-        owner->stateMachine->ChangeState(Die::Instance());
     }
 
     void Grunt::Global::Exit(Grunt *owner){}
