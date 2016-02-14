@@ -12,6 +12,7 @@
 #pragma once
 #include "../ReboundComponent.h"
 #include "../../../../Core/Systems/StateMachine/StateMachine.h"
+#include "../../ReboundEvents.h"
 
 namespace DCEngine {
   namespace Components {
@@ -56,8 +57,8 @@ namespace DCEngine {
       ~Grunt();
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
-      void OnCollisionEndedEvent(Events::CollisionEnded* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      void OnDeathEvent(Events::DeathEvent * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Grunt, Component);

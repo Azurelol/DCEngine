@@ -9,6 +9,7 @@
 /******************************************************************************/
 #include "HealthController.h"
 #include "../../CoreComponents.h"
+#include "../ReboundEvents.h"
 
 namespace DCEngine {
   namespace Components {
@@ -56,6 +57,12 @@ namespace DCEngine {
           health = maxHealth;
         if (health < 0)
           health = 0;
+      }
+
+      if (health == 0)
+      {
+        Events::DeathEvent *e;
+        Owner()->Dispatch<Events::DeathEvent>(e);
       }
 
       if (oldHealth == health)
