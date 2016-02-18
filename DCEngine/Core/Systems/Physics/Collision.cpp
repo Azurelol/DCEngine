@@ -79,6 +79,11 @@ namespace DCEngine
       }
     }
 
+    if (!result.rigid1 && !result.rigid2)
+    {
+      return false;
+    }
+
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<Components::BoxCollider>();
     auto boxcollider2 = obj2->getComponent<Components::BoxCollider>();
@@ -911,6 +916,9 @@ namespace DCEngine
   {
     Components::BoxCollider *collider = rect->getComponent<Components::BoxCollider>();
     Components::Transform *transform = rect->getComponent<Components::Transform>();
+
+    if (!transform)
+      return false;
 
     float height, width;
 

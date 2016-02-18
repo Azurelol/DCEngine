@@ -142,6 +142,9 @@ namespace DCEngine {
     /**************************************************************************/
     bool Physics::IsObjectWithinBoundingArea(Vec3 & center, float width, float height, GameObjectPtr gameObject)
     {
+      if (!gameObject->HasComponent("Transform"))
+        return false;
+
       auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
       auto& scale = gameObject->getComponent<Components::Transform>()->getScale();
       auto& rotation = gameObject->getComponent<Components::Transform>()->getRotation();
@@ -274,7 +277,7 @@ namespace DCEngine {
     /*!
     @brief Iterate through all the objects with a 'Transform' component and
     update transforms based on parenting.
-    @param A pointer to the 'PhysicsSpace' component.
+    @param physpace A pointer to the 'PhysicsSpace' component.
     */
     /**************************************************************************/
     void Physics::UpdateTransforms(Components::PhysicsSpace *physpace)
@@ -283,6 +286,10 @@ namespace DCEngine {
 
       for (auto current : *objects)
       {
+        // If it doesn't have a transform...
+        if (!current->HasComponent("Transform"))
+          continue;
+
         current->getComponent<Components::Transform>()->UpdateTranslation();
         current->getComponent<Components::Transform>()->UpdateRotation();
       }

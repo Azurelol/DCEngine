@@ -109,9 +109,11 @@ namespace DCEngine {
       Windows.PropertiesEnabled = true;
       
       // Save its boundaries
-      Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
-      Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
-      Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+      if (obj->HasComponent("Transform")) {
+        Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
+        Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
+        Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+      }
 
       Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)

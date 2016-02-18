@@ -18,8 +18,30 @@ and so on.
 #include "Physics.h"
 #pragma once
 
-namespace DCEngine {
-  namespace Systems {
+namespace DCEngine
+{
+  namespace Systems 
+  {
+
+    Vec3 GenerateSegment(Ray &ray)
+    {
+      // r = ray, s = segment.
+      /*
+      Vec3 Sstart = ray.Space->
+
+      Vec3 v1 = ray.Origin – s.start;
+      Vec3 v2 = s.end – s.start;
+      Vec3 v3;
+      if ((s.dir).cross(r.dir) > 0)
+        v3 = r.dir.getRPerp(); // Vec2(y, -x);
+      else
+        v3 = r.dir.getPerp(); // Vec2(-y, x);
+      float t1 = abs(v2.cross(v1)) / v2.dot(v3);
+      float t2 = v1.dot(v3) / v2.dot(v3);
+      if (t1 0 && t2 < 1) return make_pair(true, Vec2(r.start + r.dir * t1));
+      return make_pair(false, Vec2::ZERO);*/
+      return Vec3();
+    }
 
     /**************************************************************************/
     /*!

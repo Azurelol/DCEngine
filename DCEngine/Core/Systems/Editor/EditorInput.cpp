@@ -109,6 +109,7 @@ namespace DCEngine {
       // Stop dragging for transformation tool
       if (Transformation.Dragging) {
         Transformation.Dragging = false;
+        TransformDragRelease();
       }
     }
 
