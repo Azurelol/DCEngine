@@ -24,6 +24,7 @@
 #include <functional>
 #include <chrono>
 #include <utility>
+#include <algorithm>
 
 /**************************************************************************/
 /*!

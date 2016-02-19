@@ -175,15 +175,16 @@ namespace DCEngine {
   @return Whether this component's dependencies have been fulfilled.
   */
   /**************************************************************************/
-  std::string Component::MissingDependencies()
+  std::vector<std::string> Component::MissingDependencies()
   {
+    std::vector<std::string> dependencies;
     // Look for every component dependency in this component's owner
     for (auto& dependency : Dependencies()) {
       if (this->Owner()->HasComponent(dependency) == false)
-        return dependency;
+        dependencies.push_back(dependency);
     }
     // All dependencies were found
-    return std::string();
+    return dependencies;
   }
   
   /**************************************************************************/
