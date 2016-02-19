@@ -30,7 +30,7 @@ namespace DCEngine {
       HealthController* HealthRef;
       String PlayerName = "Player";
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
-      String shieldArchetypeName = "Sentinel Shield";
+      float MoveSpeed;
 
       // Dependancies
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -38,7 +38,7 @@ namespace DCEngine {
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
-      DCE_DEFINE_PROPERTY(String, shieldArchetypeName);
+      DCE_DEFINE_PROPERTY(float, MoveSpeed);
 
 
       // Methods
@@ -83,7 +83,16 @@ namespace DCEngine {
         Idle() {};
       };
 
-      
+      class Attack : public IState<Sentinel>
+      {
+      public:
+        static Attack* Instance();
+        void Enter(Sentinel *owner);
+        void Update(Sentinel *owner);
+        void Exit(Sentinel *owner);
+      private:
+        Attack() {};
+      };
 
       class Die : public IState<Sentinel>
       {

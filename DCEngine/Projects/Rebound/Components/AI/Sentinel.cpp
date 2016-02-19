@@ -25,11 +25,11 @@ namespace DCEngine {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sentinel);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, PlayerName);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, IdleRange);
-      DCE_BINDING_DEFINE_PROPERTY(Sentinel, shieldArchetypeName);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, MoveSpeed);
 
     }
 
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "Rigidbody", "Sprite", "HealthController");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite", "HealthController");
 #endif
 
     Sentinel::~Sentinel()
@@ -54,8 +54,11 @@ namespace DCEngine {
       stateMachine = new StateMachine<Sentinel>(this);
 
       stateMachine->SetGlobalState(Global::Instance());
+      stateMachine->SetCurrentState(Idle::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
+
+      CreateShield();
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -79,8 +82,9 @@ namespace DCEngine {
 
     void Sentinel::CreateShield()
     {
-      //shield = gameObj->GetSpace()->CreateObject(shieldArchetypeName);
-      //shield->AttachTo()
+      //shield = SpaceRef->CreateObject(shieldArchetype);
+      //shield->AttachTo(gameObj);
+      //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
     }
 
 
@@ -95,6 +99,7 @@ namespace DCEngine {
 
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());
+
     }
 
     void Sentinel::Global::Exit(Sentinel *owner) {}
@@ -119,7 +124,7 @@ namespace DCEngine {
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
 
       if (distanceFromPlayer < owner->IdleRange)
-        owner->stateMachine->RevertToPreviousState();
+        owner->stateMachine->ChangeState(Attack::Instance());
     }
 
     void Sentinel::Idle::Exit(Sentinel *owner)
@@ -134,7 +139,39 @@ namespace DCEngine {
     }
 #pragma endregion Idle State
 
+#pragma region Attack State
+    void Sentinel::Attack::Enter(Sentinel *owner)
+    {
 
+    }
+
+    void Sentinel::Attack::Update(Sentinel *owner)
+    {
+      Vec3 ownerPosition = owner->TransformRef->Translation;
+      Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
+      Vec3 direction = playerPosition - ownerPosition;
+      if (direction.x < 0)
+        owner->RigidBodyRef->setVelocity(Vec3(-owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+      else
+        owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+
+      float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
+      if (distanceFromPlayer > owner->IdleRange)
+        owner->stateMachine->ChangeState(Idle::Instance());
+    }
+
+    void Sentinel::Attack::Exit(Sentinel *owner)
+    {
+      owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+    }
+
+    Sentinel::Attack* Sentinel::Attack::Instance()
+    {
+      static Attack instance;
+      return &instance;
+    }
+
+#pragma endregion Attack State
 
 #pragma region Die State
     void Sentinel::Die::Enter(Sentinel *owner)
