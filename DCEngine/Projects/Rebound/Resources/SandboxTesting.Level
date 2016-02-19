@@ -1999,7 +1999,7 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": ""
+            "ShieldArchetype": "Sentinel Shield"
           }
         }
       }, 
