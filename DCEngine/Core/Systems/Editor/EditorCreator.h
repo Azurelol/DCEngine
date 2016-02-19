@@ -7,10 +7,10 @@ namespace DCEngine {
     class EditorCreator {
     public:
       EditorCreator(Editor& editor);
+      void CreateLight();
 
     private:
       Editor& EditorRef;
-      void CreateLight();
 
     };
 

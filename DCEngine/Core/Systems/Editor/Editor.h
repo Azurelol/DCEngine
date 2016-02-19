@@ -35,6 +35,8 @@ namespace DCEngine {
 
     class Editor : public System {
       friend class Engine;
+      // Modules. @toodo I would prefer not to friend all my modules to give them private access.
+      friend class EditorCreator;
 
     public:
 

@@ -17,19 +17,20 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorCreator::CreateLight()
     {
-      // Create the empty transform
-      //auto transform = EditorRef.CurrentSpace->CreateObject();
-      //transform->setObjectName("Transform");
-      ////transform->setArchetype = "Transform";
-      //DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
-      //EditorRef.Select(transform);
-      //Windows.PropertiesEnabled = true;
-      //MoveToViewportCenter(transform);
+      // Create the light
+      auto light = EditorRef.CurrentSpace->CreateObject();
+      light->AddComponentByName("Light");
+      light->setObjectName("Light");
+      //light->setArchetype = "Transform";
+      DCTrace << "Editor::CreateTransform - Created 'Light' \n";
+      EditorRef.Select(light);
+      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.MoveToViewportCenter(light);
 
-      //// Save the command
-      //auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
-      //  CommandObjectCreation::Setting::Create));
-      //EditorRef.Add(command);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(light, EditorRef.CurrentSpace,
+                                CommandObjectCreation::Setting::Create));
+      EditorRef.Add(command);
     }
 
   }

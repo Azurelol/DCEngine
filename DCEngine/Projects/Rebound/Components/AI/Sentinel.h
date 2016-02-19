@@ -10,8 +10,10 @@
 /******************************************************************************/
 #pragma once
 #include "../ReboundComponent.h"
-#include "../../../../Core/Systems/StateMachine/StateMachine.h"
 #include "../../ReboundEvents.h"
+
+// AI
+#include "../../../../Core/Systems/StateMachine/StateMachine.h"
 
 namespace DCEngine {
   namespace Components {
@@ -23,25 +25,20 @@ namespace DCEngine {
     {
 
     public:
-      GameObject* gameObj;
-      Transform* TransformRef;
-      RigidBody* RigidBodyRef;
-      Sprite* SpriteRef;
-      HealthController* HealthRef;
-      String PlayerName = "Player";
-      float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
-      float MoveSpeed;
-
-      // Dependancies
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
       // Properties
+      String PlayerName = "Player";
+      float IdleRange; // Past this range, the grunt will be idle, within the range, it will patrol
+      float MoveSpeed;
+      ArchetypeHandle ShieldArchetype;
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, MoveSpeed);
-
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
 
       // Methods
+      ZilchDeclareDerivedType(Sentinel, Component);
       Sentinel(Entity& owner) : Component(std::string("Sentinel"), owner) {}
       ~Sentinel();
       void Initialize();
@@ -50,15 +47,16 @@ namespace DCEngine {
       void OnDeathEvent(Events::DeathEvent * event);
       void CreateShield();
 
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(Sentinel, Component);
-#endif
-
     private:
       StateMachine<Sentinel> *stateMachine;
       GameObject *player;
       float dt;
       GameObjectPtr shield;
+      GameObject* gameObj;
+      Transform* TransformRef;
+      RigidBody* RigidBodyRef;
+      Sprite* SpriteRef;
+      HealthController* HealthRef;
      
       class Global : public IState<Sentinel>
       {

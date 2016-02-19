@@ -26,7 +26,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, PlayerName);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, MoveSpeed);
-
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite", "HealthController");
