@@ -836,7 +836,7 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
@@ -853,7 +853,7 @@
             }, 
             "Intensity": 1.000000, 
             "Range": 20.000000, 
-            "Falloff": 0.000000, 
+            "Falloff": 0.100000, 
             "DirectionVector": 
             {
               "Vec3": 
@@ -863,8 +863,8 @@
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 0.600000, 
-            "OuterAngle": 0.800000
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 90.000000
           }
         }
       }, 

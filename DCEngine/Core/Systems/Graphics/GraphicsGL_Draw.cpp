@@ -384,9 +384,9 @@ namespace DCEngine {
 				var = sStream.str() + "Direction";
 				shader->SetVector3f(var.c_str(), lightComponents[i]->getDirectionVector());
 				var = sStream.str() + "InnerAngle";
-				shader->SetFloat(var.c_str(), lightComponents[i]->getInnerAngle());
+				shader->SetFloat(var.c_str(), lightComponents[i]->getInnerAngle() * 3.1415926 / 360);
 				var = sStream.str() + "OuterAngle";
-				shader->SetFloat(var.c_str(), lightComponents[i]->getOuterAngle());
+				shader->SetFloat(var.c_str(), lightComponents[i]->getOuterAngle() * 3.1415926 / 360);
 				var = sStream.str() + "Position";
 				shader->SetVector3f(var.c_str(), lightTransform->Translation);
 				var = sStream.str() + "Model";
