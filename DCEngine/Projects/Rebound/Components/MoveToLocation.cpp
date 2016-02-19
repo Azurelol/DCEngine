@@ -20,7 +20,6 @@ namespace DCEngine {
     @note This can only go in the translational unit (.cpp)
     */
     /**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(MoveToLocation, "MoveToLocation", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(MoveToLocation);
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, Timer);
@@ -28,8 +27,6 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, MoveToLocationTime);
       DCE_BINDING_DEFINE_PROPERTY(MoveToLocation, Moving);
     }
-#endif
-
 
     void MoveToLocation::Initialize()
     {

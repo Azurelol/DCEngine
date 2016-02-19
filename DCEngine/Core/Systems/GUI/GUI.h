@@ -14,24 +14,36 @@
 
 // ImGui with SFML backend
 #include "ImGuiSFML.h"
+#include "Windows.h"
 
 namespace DCEngine {
+
   class Engine;
   namespace Systems {
         
     static bool GUI_ENABLED = true;
 
     class InputSFML;
+    class WindowSFML;
     class Editor;
     class GUI : public System {
       friend class Engine;
       friend class Editor;
       friend class InputSFML;
+      friend class WindowSFML;
+      friend class Windows;
+
     public:
-		void ReloadVAO() { GUIHandler->ReloadVAO(); }
+    
+    public:
+      static void PopUp(Windows::PopUpData& data);
+      static void Add(WindowPtr window);
     
     private:
-            
+                        
+      void Remove(WindowPtr Window);
+      void ClearInactive();
+    	void ReloadVAO() { GUIHandler->ReloadVAO(); }
       void Initialize();
       void StartFrame();
       void Render();
@@ -42,8 +54,13 @@ namespace DCEngine {
       void Terminate();
       
       std::unique_ptr<ImGuiSFML> GUIHandler;
+      std::vector<WindowPtr> ActiveWindows;
+      std::vector<WindowPtr> InactiveWindows;
       sf::Event* EventObj;
       std::string DefaultFont;
+
+    
+      
 
     };
 

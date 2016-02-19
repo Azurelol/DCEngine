@@ -124,14 +124,12 @@ namespace DCEngine {
   using Real = float;
   using Vec2 = glm::vec2;
   using Vec3 = glm::vec3;
-  using Vec4 = glm::vec4;
-  
+  using Vec4 = glm::vec4;  
   using Mat3 = glm::mat3;
   using Mat4 = glm::mat4;
 
   // Common Containers
-  using StringVec = std::vector<std::string>;
-  
+  using StringVec = std::vector<std::string>;  
   // Handles
   using CollisionGroupHandle = std::string;
 
@@ -167,5 +165,17 @@ namespace DCEngine {
     SpriteLayerOrder,
     ZilchScript,
   };
+
+  struct TransformData {
+    Vec3 Translation;
+    Vec3 Rotation;
+    Vec3 Scale;
+  };
+  namespace Components {
+    class Transform;
+  }
+  using TransformDataPair = std::pair<Components::Transform*, TransformData>;
+  using TransformDataPairVec = std::vector<TransformDataPair>;
+
 
 }

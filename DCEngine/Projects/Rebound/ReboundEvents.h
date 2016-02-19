@@ -27,14 +27,16 @@ namespace DCEngine {
       String NextLevel;
     };
 
-	class DamageEvent : public Event {
-	public:
-		Real Damage;
-	};
+	  class DamageEvent : public Event {
+	  public:
+	  	Real Damage;
+
+	  };
+
+    class DeathEvent : public Event {
+    public:
+    };
 
   }
-
-
-
 }
 

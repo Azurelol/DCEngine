@@ -329,6 +329,7 @@
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
+    <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
     <ClCompile Include="Core\Events\DispatchGameEvents.cpp" />
     <ClCompile Include="Core\Objects\Component.cpp" />
     <ClCompile Include="Core\Objects\Components\ZilchComponent.cpp" />
@@ -413,6 +414,7 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
+    <ClCompile Include="Core\Systems\GUI\Windows.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp" />
@@ -474,6 +476,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
@@ -615,6 +618,7 @@
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
     <ClInclude Include="Core\Systems\GUI\GUI.h" />
+    <ClInclude Include="Core\Systems\GUI\Windows.h" />
     <ClInclude Include="Core\Systems\GUI\ImGuiSFML.h" />
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />

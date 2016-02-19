@@ -38,7 +38,7 @@ namespace DCEngine
   /**************************************************************************/
   CollisionTable::CollisionTable(std::string collisionTableFile) :
     Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
-  {
+  {    
     AddGroup(CollisionGroup("Default"));
     ScanForGroups();
   }
@@ -297,6 +297,7 @@ namespace DCEngine
 
   void CollisionTable::ScanForGroups(void)
   {
+    DCTrace << "Scanning lol \n";
     auto Groups = Daisy->getSystem<Systems::Content>()->AllCollisionGroups();
 
     for (auto group : *Groups)

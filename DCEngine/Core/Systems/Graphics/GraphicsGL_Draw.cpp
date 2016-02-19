@@ -405,14 +405,7 @@ namespace DCEngine {
 
 		void GraphicsGL::SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents)
 		{
-			glDepthMask(GL_FALSE);
-			glEnable(GL_DEPTH_CLAMP);
-			glDisable(GL_CULL_FACE);
-
-			glStencilFunc(GL_ALWAYS, 0, 0xff);
-
-			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR_WRAP, GL_KEEP);
-			glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_DECR_WRAP, GL_KEEP);
+			
 
 			SetLightUniforms(ShadowingShader, lightComponents);
 			SetShaderProjViewUniforms(ShadowingShader, camera);

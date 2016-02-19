@@ -100,6 +100,8 @@ namespace DCEngine {
     // Dependencies
     //bool AddDependency(std::string componentName);    
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies;  }
+    bool HasDependencies();
+    std::string MissingDependencies();
 
     // Static member variables
     static unsigned int ComponentsCreated;

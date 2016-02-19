@@ -91,6 +91,9 @@ namespace DCEngine {
 
 				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
 
+				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+					[] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
+
 				GraphicsHandler->SetParticleSystemShader(*camera);
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				GraphicsHandler->SetSpriteShader(*camera, lightComponents);
@@ -139,14 +142,26 @@ namespace DCEngine {
 
 		void Graphics::RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents)
 		{
+			//glDepthMask(GL_FALSE);
+			glEnable(GL_DEPTH_CLAMP);
+			glDisable(GL_CULL_FACE);
+
+			glStencilFunc(GL_ALWAYS, 0, 0xff);
+
+			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR_WRAP, GL_KEEP);
+			glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_DECR_WRAP, GL_KEEP);
+
 			GraphicsHandler->SetShadowingShaders(*camera, lightComponents);
 
 			for (auto&& drawList : mDrawList)
 			{
 				for (auto&& obj : drawList)
 				{
-					if(dynamic_cast<Components::Sprite*>(obj))
+					if (dynamic_cast<Components::Sprite*>(obj))
+					{
+						obj->SetModelMatrix();
 						obj->Draw(*camera);
+					}
 				}
 			}
 
@@ -166,6 +181,8 @@ namespace DCEngine {
 			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
 
 			RenderObjects(dt, camera);
+
+			glDepthMask(GL_TRUE);
 		}
 
 		void Graphics::RenderObjects(float dt, Components::Camera* camera)
@@ -175,6 +192,7 @@ namespace DCEngine {
 				for (auto&& obj : drawList)
 				{
 					obj->Update(dt);
+					obj->SetModelMatrix();
 					obj->Draw(*camera);
 				}
 				//drawList.clear();
@@ -185,7 +203,7 @@ namespace DCEngine {
 		{
 			glDisable(GL_BLEND);
 			GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
-
+			GraphicsHandler->SpriteShader->Use();
 			for (const auto& debugObj : mDebugLineList)
 			{
 				debugObj.Draw();

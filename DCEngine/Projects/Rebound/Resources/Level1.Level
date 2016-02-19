@@ -8422,6 +8422,11 @@
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
             "AttackJumpPeriod": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 0, 
+            "StartingHealth": 0
           }
         }
       }, 
@@ -8543,6 +8548,11 @@
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
             "AttackJumpPeriod": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 0, 
+            "StartingHealth": 0
           }
         }
       }, 
@@ -8664,6 +8674,11 @@
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
             "AttackJumpPeriod": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 0, 
+            "StartingHealth": 0
           }
         }
       }, 
@@ -8856,7 +8871,10 @@
                 "w": 1.000000
               }
             }, 
-            "FreezeEnabled": true
+            "FreezeEnabled": true, 
+            "MaxAttractSpeed": 100.000000, 
+            "MaxAttractForce": 100.000000, 
+            "AttractArriveDistance": 200.000000
           }
         }
       }, 
@@ -8978,6 +8996,11 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "AutoPlayTimer": 2.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 10, 
+            "StartingHealth": 15
           }
         }
       }
