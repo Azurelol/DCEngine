@@ -40,6 +40,10 @@ namespace DCEngine {
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
 
+      
+
+      DCE_COMPONENT_DECLARE_DEPENDENCIES;
+
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);

@@ -42,7 +42,6 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(LightType, Type);
       int getTypeAsInt();
       //DCE_DEFINE_PROPERTY(int, Type);
-
       // The color of the light.
       DCE_DEFINE_PROPERTY(Vec4, Color);
       // The intensity of the light

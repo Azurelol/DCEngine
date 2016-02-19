@@ -70,6 +70,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Create SpriteText")) { CreateSpriteText(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create Particle System")) { CreateParticleSystem(); }
+          if (ImGui::MenuItem("Create Light")) { Creator.CreateLight(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create from Archetype"))
             Windows.CreateFromArchetypeEnabled = true;
