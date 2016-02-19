@@ -438,6 +438,7 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Sentinel.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Bomb.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
@@ -650,6 +651,7 @@
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
     <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Sentinel.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Bomb.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />

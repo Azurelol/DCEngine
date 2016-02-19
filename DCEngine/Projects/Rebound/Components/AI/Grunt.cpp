@@ -35,6 +35,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpPeriod);
     }
+
+    // Dependancies
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite", "HealthController");
 #endif
 
     Grunt::~Grunt()
@@ -49,7 +52,7 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Grunt::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
-      Connect(gameObj, Events::DamageEvent, Grunt::OnDeathEvent);
+      Connect(gameObj, Events::DeathEvent, Grunt::OnDeathEvent);
 
       TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); 
       RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
