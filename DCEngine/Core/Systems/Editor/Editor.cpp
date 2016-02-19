@@ -147,8 +147,9 @@ namespace DCEngine {
         // Toggle the widgets
         Windows.LibraryEnabled = true;
         Windows.ObjectsEnabled = true;
-
-
+        // Clear previous commands
+        Settings.Commands.CommandsCurrent.clear();
+        Settings.Commands.CommandsUndo.clear();
       }
       // Editor OFF
       else {

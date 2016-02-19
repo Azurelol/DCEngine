@@ -413,6 +413,7 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
+    <ClCompile Include="Core\Systems\GUI\Windows.cpp" />
     <ClCompile Include="Core\Systems\Input\Input.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML.cpp" />
     <ClCompile Include="Core\Systems\Input\InputSFML_Keyboard.cpp" />
@@ -437,6 +438,8 @@
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependencies\include\ZILCH\Zilch.cpp" />
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Lancer.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\AI\Sentinel.cpp" />
     <ClCompile Include="Projects\Rebound\Components\BallController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Bomb.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Button.cpp" />
@@ -616,6 +619,7 @@
     <ClInclude Include="Core\Systems\Graphics\Graphics.h" />
     <ClInclude Include="Core\Systems\Graphics\GraphicsGL.h" />
     <ClInclude Include="Core\Systems\GUI\GUI.h" />
+    <ClInclude Include="Core\Systems\GUI\Windows.h" />
     <ClInclude Include="Core\Systems\GUI\ImGuiSFML.h" />
     <ClInclude Include="Core\Systems\Input\Input.h" />
     <ClInclude Include="Core\Systems\Input\InputSFML.h" />
@@ -648,6 +652,8 @@
     <ClInclude Include="Projects\ProjectEvent.h" />
     <ClInclude Include="Projects\ProjectEvents.h" />
     <ClInclude Include="Projects\Rebound\Components\AI\Grunt.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Lancer.h" />
+    <ClInclude Include="Projects\Rebound\Components\AI\Sentinel.h" />
     <ClInclude Include="Projects\Rebound\Components\BallController.h" />
     <ClInclude Include="Projects\Rebound\Components\Bomb.h" />
     <ClInclude Include="Projects\Rebound\Components\Button.h" />

@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Enemy", 
-    "Archetype": "Scrapper", 
+    "Name": "Shield", 
+    "Archetype": "Sentinel Shield", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 12.243136, 
-            "y": 2.581553, 
+            "x": 10.000000, 
+            "y": 10.000000, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 0.500000, 
+            "y": 1.500000, 
             "z": 1.000000
           }
         }
@@ -43,9 +43,9 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
+            "x": 1.000000, 
             "y": 0.000000, 
-            "z": 1.000000, 
+            "z": 0.000000, 
             "w": 1.000000
           }
         }, 
@@ -105,24 +105,6 @@
         }, 
         "Mass": 10.000000, 
         "RotationLocked": true
-      }, 
-      "Grunt": 
-      {
-        "PlayerName": "Player", 
-        "IdleRange": 100.000000, 
-        "PatrolDistance": 20.000000, 
-        "IsPatrolRight": true, 
-        "JumpStrengthX": 5.000000, 
-        "JumpStrengthY": 25.000000, 
-        "JumpPeriod": 2.000000, 
-        "AttackJumpStrengthX": 10.000000, 
-        "AttackJumpStrengthY": 15.000000, 
-        "AttackJumpPeriod": 0.500000
-      }, 
-      "HealthController": 
-      {
-        "MaxHealth": 1, 
-        "StartingHealth": 1
       }
     }
   }

@@ -24,7 +24,7 @@ namespace DCEngine {
   {
 		ShaderPtr Sprite::mShader;
 		GLuint Sprite::mVAO;
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform");
     
     /**************************************************************************/
     /*!
@@ -68,7 +68,9 @@ namespace DCEngine {
     Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
-      Register();
+
+      if (this->HasDependencies())
+        Register();
     }
 
     /**************************************************************************/

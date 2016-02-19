@@ -594,22 +594,27 @@ namespace DCEngine {
       int currentComponent = 0;
       ImGui::Separator();
       ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
-      // If the user attempts tries to add a component..
+
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
-        auto component = selectedEntity->AddComponentByName(componentName, false);        
+        auto component = selectedEntity->AddComponentByName(componentName, false);
+        
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
 
-
-        // Check for dependencies
-        for (auto& dependency : component->Dependencies()) {
-          if (!selectedEntity->HasComponent(dependency)) {
-
-          }
-            
-          DCTrace << componentName << " needs '" << dependency << "'\n";
+        // If there's a missing dependency...
+        if (!component->HasDependencies()) {
+          auto missingDependency = component->MissingDependencies();
+          // Send a popup!
+          Windows::PopUpData data;
+          data.Title = "Missing Dependency";
+          data.Message = "- " + missingDependency;
+          data.Confirmation = "I am sorry...";
+          auto popUp = WindowPtr(new Windows::PopUp(data));
+          GUI::Add(popUp);
+          // Remove the component
+          component->Destroy();
+          return false;
         }
-
         // A component was added
         return true;
         Scanned = false;

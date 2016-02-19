@@ -326,6 +326,7 @@ namespace DCEngine {
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject("Transform", *this, true);
     GameObjectContainer.push_back(gameObject);
     return gameObject;
+
   }
 
   /**************************************************************************/
