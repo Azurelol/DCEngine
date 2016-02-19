@@ -35,6 +35,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpPeriod);
     }
+
+    // Dependancies
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite", "HealthController");
 #endif
 
     Grunt::~Grunt()

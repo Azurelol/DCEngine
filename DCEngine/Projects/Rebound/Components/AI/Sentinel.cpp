@@ -1,0 +1,170 @@
+/******************************************************************************/
+/*!
+@file   Sentinel.h
+@author Jason Jorgenson
+@par    email: Jason.Jorgenson\@digipen.edu
+@date   2/18/2016
+@brief  An AI with a shield that blocks head-on attacks
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+#include "Sentinel.h"
+#include "../../../CoreComponents.h"
+
+namespace DCEngine {
+  namespace Components {
+
+    /**************************************************************************/
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(Sentinel, "Sentinel", Rebound, builder, type) {
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sentinel);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, PlayerName);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, IdleRange);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, shieldArchetypeName);
+
+    }
+
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "Rigidbody", "Sprite", "HealthController");
+#endif
+
+    Sentinel::~Sentinel()
+    {
+      delete stateMachine;
+    }
+
+
+    void Sentinel::Initialize()
+    {
+      DCTrace << "Sentinel Initialize\n";
+      gameObj = dynamic_cast<GameObject*>(Owner());
+      Connect(SpaceRef, Events::LogicUpdate, Sentinel::OnLogicUpdateEvent);
+      Connect(gameObj, Events::CollisionStarted, Sentinel::OnCollisionStartedEvent);
+      Connect(gameObj, Events::DeathEvent, Sentinel::OnDeathEvent);
+
+      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
+      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+
+      stateMachine = new StateMachine<Sentinel>(this);
+
+      stateMachine->SetGlobalState(Global::Instance());
+
+      player = SpaceRef->FindObjectByName(PlayerName);
+    }
+
+    void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
+    {
+      stateMachine->Update();
+      dt = event->Dt;
+    }
+
+    void Sentinel::OnCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+      if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        HealthRef->ModifyHealth(-1);
+      }
+    }
+
+    void Sentinel::OnDeathEvent(Events::DeathEvent * event)
+    {
+      stateMachine->ChangeState(Die::Instance());
+    };
+
+    void Sentinel::CreateShield()
+    {
+      //shield = gameObj->GetSpace()->CreateObject(shieldArchetypeName);
+      //shield->AttachTo()
+    }
+
+
+#pragma region Global State
+    void Sentinel::Global::Enter(Sentinel *owner) {}
+
+    void Sentinel::Global::Update(Sentinel *owner)
+    {
+      Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
+      Vec3 ownerPosition = owner->TransformRef->Translation;
+      float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
+
+      if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
+        owner->stateMachine->ChangeState(Idle::Instance());
+    }
+
+    void Sentinel::Global::Exit(Sentinel *owner) {}
+
+    Sentinel::Global* Sentinel::Global::Instance()
+    {
+      static Global instance;
+      return &instance;
+    }
+#pragma endregion Global State
+
+#pragma region Idle State
+    void Sentinel::Idle::Enter(Sentinel *owner)
+    {
+      //DCTrace << "Sentinel Idle Enter\n";
+    }
+
+    void Sentinel::Idle::Update(Sentinel *owner)
+    {
+      Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
+      Vec3 ownerPosition = owner->TransformRef->Translation;
+      float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
+
+      if (distanceFromPlayer < owner->IdleRange)
+        owner->stateMachine->RevertToPreviousState();
+    }
+
+    void Sentinel::Idle::Exit(Sentinel *owner)
+    {
+
+    }
+
+    Sentinel::Idle* Sentinel::Idle::Instance()
+    {
+      static Idle instance;
+      return &instance;
+    }
+#pragma endregion Idle State
+
+
+
+#pragma region Die State
+    void Sentinel::Die::Enter(Sentinel *owner)
+    {
+      //DCTrace << "Sentinel Die Enter\n";
+
+      owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+
+      // Death sound?
+    }
+
+    void Sentinel::Die::Update(Sentinel *owner)
+    {
+      // Timer for death animation?
+
+      Exit(owner);
+    }
+
+    void Sentinel::Die::Exit(Sentinel *owner)
+    {
+      // Destroy grunt
+      owner->gameObj->Destroy();
+    }
+
+    Sentinel::Die* Sentinel::Die::Instance()
+    {
+      static Die instance;
+      return &instance;
+    }
+#pragma endregion Die State
+
+  }
+}
