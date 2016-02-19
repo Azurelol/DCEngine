@@ -192,7 +192,7 @@ namespace DCEngine {
 
     void Sentinel::Die::Exit(Sentinel *owner)
     {
-      // Destroy grunt
+      // Destroy sentinel
       owner->gameObj->Destroy();
     }
 

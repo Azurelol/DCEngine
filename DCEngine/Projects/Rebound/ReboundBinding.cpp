@@ -41,6 +41,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::Grunt);
     ZilchInitializeType(Components::HealthController);
     ZilchInitializeType(Components::Sentinel);
+    ZilchInitializeType(Components::Lancer);
   }
 
   void ReboundComponentsAddToFactory() {
@@ -68,6 +69,7 @@ namespace DCEngine {
     factory->AddComponentFactory(Components::Grunt            ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Grunt            >>());
     factory->AddComponentFactory(Components::HealthController ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::HealthController >>());
     factory->AddComponentFactory(Components::Sentinel         ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Sentinel         >>());
+    factory->AddComponentFactory(Components::Lancer           ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Lancer           >>());
   }
 
 
