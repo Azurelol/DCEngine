@@ -65,8 +65,10 @@ namespace DCEngine {
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-      stateMachine->Update();
+      //stateMachine->Update();
       dt = event->Dt;
+
+      TransformRef->setTranslation(Vec3(TransformRef->Translation.x + 1, TransformRef->Translation.y, TransformRef->Translation.z));
     }
 
     void Sentinel::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -87,6 +89,9 @@ namespace DCEngine {
       //shield = SpaceRef->CreateObject(shieldArchetype);
       //shield->AttachTo(gameObj);
       //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
+
+      //shield = SpaceRef->CreateObject();
+      
     }
 
 
