@@ -93,6 +93,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct EditorWindows {
+    bool SplashScreenEnabled = true;
     bool MenuBarEnabled = false;
     bool LevelEnabled = false;
     bool AddResourceEnabled = false;
