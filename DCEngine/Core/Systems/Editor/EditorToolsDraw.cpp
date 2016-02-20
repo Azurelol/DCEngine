@@ -100,16 +100,17 @@ namespace DCEngine {
                                          // X-axis
 
         // Bounding rectangle
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, 
+				auto space = CurrentSpace->getComponent<Components::GraphicsSpace>();
+        space->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, 
                       Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
         // X-axis
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, Transformation.XAxisBoundaryEnd, xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.XAxisBoundaryEnd, Transformation.XAxisMidpoint - Vec3(-tip, -tip, 0), xColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.XAxisBoundaryEnd, Transformation.XAxisMidpoint - Vec3(-tip, tip, 0), xColor);
+        space->DrawLineSegment(pos, Transformation.XAxisBoundaryEnd, xColor);
+        space->DrawLineSegment(Transformation.XAxisBoundaryEnd, Transformation.XAxisMidpoint - Vec3(-tip, -tip, 0), xColor);
+        space->DrawLineSegment(Transformation.XAxisBoundaryEnd, Transformation.XAxisMidpoint - Vec3(-tip, tip, 0), xColor);
 
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(pos, Transformation.YAxisBoundaryEnd, yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
+        space->DrawLineSegment(pos, Transformation.YAxisBoundaryEnd, yColor);
+        space->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(-tip, -tip, 0), yColor);
+        space->DrawLineSegment(Transformation.YAxisBoundaryEnd, Transformation.YAxisMidpoint - Vec3(tip, -tip, 0), yColor);
       
 
       // Create thin box-colliders on every line
