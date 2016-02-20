@@ -97,11 +97,10 @@ namespace DCEngine {
     const Space& ThisSpace() const { return  *SpaceRef; }
     const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
     
-    // Dependencies
-    //bool AddDependency(std::string componentName);    
+    // Dependencies  
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies;  }
     bool HasDependencies();
-    std::string MissingDependencies();
+    std::vector<std::string> MissingDependencies();
 
     // Static member variables
     static unsigned int ComponentsCreated;

@@ -169,6 +169,7 @@ namespace DCEngine {
   { 
     // If the entity already has the component, do nothing.
     if (auto a = this->HasComponent(name)) {
+      DCTrace << ObjectName << "::AddComponentByName - " << name << " is already present!\n";
       return nullptr;
     }
 
@@ -330,6 +331,20 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Moves a component to the back of the entity's components container.
+  @param component A reference to the component.
+  */
+  /**************************************************************************/
+  void Entity::SwapToBack(ComponentPtr component)
+  {
+    auto handle = GetComponentHandle(component);
+    auto handleIter = std::find(ComponentHandlesContainer.begin(), ComponentHandlesContainer.end(), handle);
+    // Shift every element on the way to the back
+    std::rotate(handleIter, handleIter + 1, ComponentHandlesContainer.end());
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a reference to the container of all the components this
           Entity has.
   @return A reference to the container of all components.
@@ -342,6 +357,26 @@ namespace DCEngine {
 
 
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a handle to the component given a pointer to it.
+  @param component A reference to the component.
+  @return A handle to the component.
+  */
+  /**************************************************************************/
+  ComponentHandle Entity::GetComponentHandle(ComponentPtr component)
+  {
+    // Find the handle to this component since we internally we have a
+    // container of handles to it since Zilch is managing them.
+    ComponentHandle componentHandle;
+    for (auto& handle : ComponentHandlesContainer) {
+      // Once the component has been found
+      if (reinterpret_cast<Component*>(handle.Dereference())->Name() == component->Name()) {
+        componentHandle = handle;
+        return componentHandle;
+      }
+    }
+  }
 
   /**************************************************************************/
   /*!

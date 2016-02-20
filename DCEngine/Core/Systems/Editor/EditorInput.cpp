@@ -38,7 +38,6 @@ namespace DCEngine {
         // If an object was found at that position...
         if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
 
-
             // If the [CTRL] key is being held down, add it (or remove it if already there)
             if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
               SelectionAddOrRemoveToMultiple(gameObject);
