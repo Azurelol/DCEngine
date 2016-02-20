@@ -69,9 +69,6 @@ namespace DCEngine {
 			// Construct the ParticleSystem shader
 			ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
 			ParticleSystemShader->Compile();
-			// Construct the Shadowing shader
-			ShadowingShader = Daisy->getSystem<Content>()->getShader(std::string("ShadowingShader"));
-			ShadowingShader->Compile();
 			Components::SpriteParticleSystem::mShader = ParticleSystemShader;
 			ConfigureParticleBuffers();
 			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
@@ -113,8 +110,7 @@ namespace DCEngine {
 			ViewportUpdate();
 			glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 			//glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
-			glStencilMask(~0);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
 		/**************************************************************************/

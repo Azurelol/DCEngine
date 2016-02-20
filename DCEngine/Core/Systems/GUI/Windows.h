@@ -15,8 +15,6 @@
 #include "ImGuiSFML.h"
 
 namespace DCEngine {
-  class Component;
-
   namespace Systems {
 
     class Windows {
@@ -24,7 +22,6 @@ namespace DCEngine {
       struct PopUpData {
         std::string Title;
         std::string Message;
-        std::vector<std::string> List;
         std::string Confirmation;
       };
 
@@ -33,16 +30,6 @@ namespace DCEngine {
         virtual ~Window();
         virtual void Display() = 0;        
         void Remove();
-      };
-
-      class PopUpComponentDependencies : public Window {
-      public:
-        PopUpComponentDependencies(PopUpData data, Component* component) : Data(data), ComponentRef(component) {}
-        void Display();
-      private:
-        Component* ComponentRef;
-
-        PopUpData Data;
       };
 
       class PopUp : public Window {

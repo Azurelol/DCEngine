@@ -7,5 +7,5 @@ out vec4 OutColor;
 void main()
 {
 
-    OutColor = FragColor * texture(Texture, FragUV.st);
+    OutColor = FragColor * texture( Texture, FragUV.st);
 }

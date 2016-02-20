@@ -11,7 +11,6 @@
 #include "Sentinel.h"
 #include "../../../CoreComponents.h"
 
-
 namespace DCEngine {
   namespace Components {
 
@@ -85,7 +84,7 @@ namespace DCEngine {
 
     void Sentinel::CreateShield()
     {
-      //shield = SpaceRef->CreateObject(Daisy->getSystem<Systems::Content>()->getArchetype(ShieldArchetype));
+      //shield = SpaceRef->CreateObject(shieldArchetype);
       //shield->AttachTo(gameObj);
       //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
     }

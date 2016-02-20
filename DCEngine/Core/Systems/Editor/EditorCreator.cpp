@@ -17,31 +17,20 @@ namespace DCEngine {
 
     void EditorCreator::CreateTransform()
     {
-      std::vector<std::string> components;
-      Create("Transform", components);
+      std::vector<std::string> vec;
+      Create("Transform", vec);
     }
 
     void EditorCreator::CreateSprite()
     {
-      std::vector<std::string> components;
-      components.push_back("Sprite");
-      Create("Sprite", components);
     }
 
     void EditorCreator::CreateSpriteText()
     {
-      std::vector<std::string> components;
-      components.push_back("SpriteText");
-      Create("SpriteText", components);
     }
 
     void EditorCreator::CreateParticleSystem()
     {
-      std::vector<std::string> components;
-      components.push_back("SpriteParticleSystem");
-      components.push_back("ParticleEmitter");
-      components.push_back("LinearParticleAnimator");
-      Create("Sprite", components);
     }
 
     /**************************************************************************/

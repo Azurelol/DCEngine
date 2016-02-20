@@ -603,16 +603,16 @@ namespace DCEngine {
 
         // If there's a missing dependency...
         if (!component->HasDependencies()) {
-          auto missingDependencies = component->MissingDependencies();
+          auto missingDependency = component->MissingDependencies();
           // Send a popup!
           Windows::PopUpData data;
-          data.Title = "Missing Dependencies";          
-          data.List = missingDependencies;
-          data.Confirmation = "Back";
-          auto popUp = WindowPtr(new Windows::PopUpComponentDependencies(data, component));
+          data.Title = "Missing Dependency";
+          data.Message = "- " + missingDependency;
+          data.Confirmation = "I am sorry...";
+          auto popUp = WindowPtr(new Windows::PopUp(data));
           GUI::Add(popUp);
           // Remove the component
-          //component->Destroy();
+          component->Destroy();
           return false;
         }
         // A component was added

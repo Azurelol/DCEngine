@@ -68,9 +68,6 @@ namespace DCEngine {
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);  
     ComponentVec AllComponents();
-    void Swap(ComponentPtr, Direction);
-    void SwapToBack(ComponentPtr);
-    
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj); 
     template <typename EventClass> void DispatchUp(Event* eventObj); 
@@ -94,10 +91,10 @@ namespace DCEngine {
     bool IsInitialized = false;
 
     // Methods
-    ComponentHandle GetComponentHandle(ComponentPtr component);
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
-    template <typename Class> void DeregisterObserver(Class* observer);
+    template <typename Class>
+    void DeregisterObserver(Class* observer);
     void InformObserversOfDeath();
 
   };
