@@ -27,11 +27,11 @@ namespace DCEngine {
     bool Snapping = true;
     float SnapDistance = 1.0;
     float SnapAngle = 15;
-
     //Panning
     bool Panning = false;
     Vec3 CamStartPos;
     Vec3 MouseStartPos;
+    Vec3 MouseLastPos;
     // Commands
     CommandManager Commands;
   };
@@ -66,8 +66,11 @@ namespace DCEngine {
     bool DraggingX = false;
     bool DraggingY = false;
     float DragOffset = 0;
+<<<<<<< HEAD
         
 	Vec3 LastMousePos;
+=======
+>>>>>>> 3ada9233a4a565375c6d281bfe3816c19a30331c
     TransformDataPairVec InitialGameObjectTransforms;
     // Rotating
     bool Rotating = false;

@@ -90,8 +90,8 @@ void main() {
 	}
   }
     
-  gl_Position = projection * view * model * vec4(vertex.xy, 0.0, 1.0);
 	vec4 temp = model * vec4(vertex.xy, 0.0, 1.0);
+  gl_Position = projection * view * temp;
 	WorldCoords = temp.xyz;
 
   // Flipping the texture vertically, due to SOIL2 not providing this functionality... 

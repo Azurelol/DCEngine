@@ -202,6 +202,7 @@ namespace DCEngine {
       if (!IsSelectableGameObject(SelectedObject()))
         return;
 
+<<<<<<< HEAD
      // Calculate the current mouse position
      auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos), 0);     
      //dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(mousePos);
@@ -220,6 +221,23 @@ namespace DCEngine {
 		 transformComponent->setTranslation(objectCurrentPos + mouseDiff);
 		 //transformComponent->setTranslation(mousePos);
 	 }
+=======
+      // Calculate the current mouse position
+      auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos), 0);
+      //dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(mousePos);     // Drag all selected objects
+      auto mouseDiff = mousePos - Settings.MouseLastPos;
+      //mouseDiff *= 2;
+
+      for (auto& transformData : Transformation.InitialGameObjectTransforms) {
+        auto transformComponent = transformData.first;
+        auto objectCurrentPos = transformComponent->getTranslation();
+        auto& objectStartPos = transformData.second.Translation;
+        auto objectDiff = objectCurrentPos - objectStartPos;
+
+        transformComponent->setTranslation(objectCurrentPos + mouseDiff);
+        //transformComponent->setTranslation(mousePos);
+      }
+>>>>>>> 3ada9233a4a565375c6d281bfe3816c19a30331c
 
      
       

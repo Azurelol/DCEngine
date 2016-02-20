@@ -144,9 +144,11 @@ namespace DCEngine
 
 
     // Calculate the impulse to apply
-    float impulse = (((1 + c.Restitution) * (deltaVelocity)) / totalInverseMass);
+    float impulse = ((1 + c.Restitution) * deltaVelocity) / totalInverseMass;
 
     c.ContactImpulse = impulse;
+		if(impulse > 600)
+			DCTrace << impulse << '\n';
 
     // Find the amount of impulse per unit of inverse mass
     glm::vec3 impulsePerIMass = c.ContactNormal * impulse;
@@ -164,7 +166,8 @@ namespace DCEngine
       if (rigid1->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass *
+					c.Object1->getComponent<Components::RigidBody>()->getInvMass());
       }
     }
 
