@@ -321,7 +321,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
 
-			auto camTrans = camera.Owner()->getComponent<Components::Transform>();
+			//auto camTrans = camera.Owner()->getComponent<Components::Transform>();
 
 			// (???) Sets the "image" uniform to 0
 			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
@@ -338,7 +338,17 @@ namespace DCEngine {
 		{
 			SpriteShader->Use();
 			SpriteShader->SetInteger("image", 0);
+
+			SetLightUniforms(SpriteShader, lightComponents);
+			SetShaderProjViewUniforms(SpriteShader, camera);
+			// Enable alpha blending for opacity.
+		}
+		void GraphicsGL::SetLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents)
+		{
+			shader->SetInteger("numLights", lightComponents.size());
+
 			SpriteShader->SetInteger("numLights", lightComponents.size());
+
 			std::string var;
 			for (unsigned i = 0; i < lightComponents.size(); ++i)
 			{
@@ -378,16 +388,15 @@ namespace DCEngine {
 				var = sStream.str() + "Direction";
 				SpriteShader->SetVector3f(var.c_str(), lightComponents[i]->getDirectionVector());
 				var = sStream.str() + "InnerAngle";
-				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getInnerAngle());
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getInnerAngle() * 3.141593 / 360);
 				var = sStream.str() + "OuterAngle";
-				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getOuterAngle());
+				SpriteShader->SetFloat(var.c_str(), lightComponents[i]->getOuterAngle() * 3.141593 / 360);
 				var = sStream.str() + "Position";
 				SpriteShader->SetVector3f(var.c_str(), lightTransform->Translation);
 				var = sStream.str() + "Model";
 				SpriteShader->SetMatrix4(var.c_str(), modelMatrix);
 			}
-			SetShaderProjViewUniforms(SpriteShader, camera);
-			// Enable alpha blending for opacity.
+
 		}
 
 		/*!************************************************************************\
@@ -397,6 +406,13 @@ namespace DCEngine {
 		{
 			SpriteTextShader->Use();
 			SetShaderProjViewUniforms(SpriteTextShader, camera);
+		}
+
+
+		void GraphicsGL::SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents)
+		{
+			SetLightUniforms(ShadowingShader, lightComponents);
+			SetShaderProjViewUniforms(ShadowingShader, camera);
 		}
 
 		/**************************************************************************/

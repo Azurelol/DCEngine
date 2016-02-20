@@ -263,7 +263,7 @@ namespace DCEngine {
       Selection.MultiSelectArea = endPos - startPos;
       Selection.MultiSelectMidpoint = Vec3((endPos.x + startPos.x) / 2,
                                           (endPos.y + startPos.y) / 2,
-                                          (endPos.y + startPos.y) / 2);
+                                          0);
 
       
       // Check for objects within the selected area. Perform a bounding box check.
