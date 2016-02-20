@@ -64,12 +64,12 @@ namespace DCEngine {
 
         // Create
         if (ImGui::BeginMenu("Create")) {
-          if (ImGui::MenuItem("Create Transform")) { CreateTransform(); }
+          if (ImGui::MenuItem("Create Transform")) { Creator.CreateTransform(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Sprite")) { CreateSprite(); }
-          if (ImGui::MenuItem("Create SpriteText")) { CreateSpriteText(); }
+          if (ImGui::MenuItem("Create Sprite")) { Creator.CreateSprite(); }
+          if (ImGui::MenuItem("Create SpriteText")) { Creator.CreateSpriteText(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Particle System")) { CreateParticleSystem(); }
+          if (ImGui::MenuItem("Create Particle System")) { Creator.CreateParticleSystem(); }
           if (ImGui::MenuItem("Create Light")) { Creator.CreateLight(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create from Archetype"))

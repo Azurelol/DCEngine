@@ -44,9 +44,8 @@ namespace DCEngine {
 						SelectionAddOrRemoveToMultiple(gameObject);
 
 					// If we have selected multiple objects already and the object at the position is one of them
-					//if (IsSelected(gameObject)) {
-					//}
-
+					if (IsSelected(gameObject)) {
+					}
 					// if the object is not currently selected..
 					else {
 						SelectObjectFromSpace(gameObject);

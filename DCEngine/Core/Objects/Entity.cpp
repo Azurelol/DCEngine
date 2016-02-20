@@ -61,7 +61,7 @@ namespace DCEngine {
     if (IsInitialized) {
       DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
       return;
-    }         
+    }
 
     // Initialize factory-created components
     for (auto &component : ComponentsContainer)
@@ -109,7 +109,7 @@ namespace DCEngine {
     SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType);
     // Serialize all of its components
     builder.Key("Components");
-    builder.Begin(Zilch::JsonType::Object);           
+    builder.Begin(Zilch::JsonType::Object);
     // Factory-created components
     for (auto& component : ComponentsContainer) {
       component->Serialize(builder);
@@ -166,9 +166,10 @@ namespace DCEngine {
   */
   /**************************************************************************/
   ComponentPtr Entity::AddComponentByName(const std::string & name, bool initialize)
-  { 
+  {
     // If the entity already has the component, do nothing.
     if (auto a = this->HasComponent(name)) {
+      DCTrace << ObjectName << "::AddComponentByName - " << name << " is already present!\n";
       return nullptr;
     }
 
@@ -210,12 +211,12 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  Adds a component onto the entity by Zilch::BoundType. This is a
-          pointer data about the bound component.
+  pointer data about the bound component.
   @param  boundType A pointer to the component's BoundType.
   */
   /**************************************************************************/
   bool Entity::AddComponentByType(Zilch::BoundType * boundType, bool initialize)
-  {    
+  {
     auto Factory = Daisy->getSystem<Systems::Factory>();
     ComponentsContainer.emplace_back(std::move(Factory->CreateComponentByType(boundType, *this)));
     if (DCE_TRACE_COMPONENT_ADD)
@@ -234,21 +235,21 @@ namespace DCEngine {
   */
   /**************************************************************************/
   bool Entity::HasComponent(const std::string & name)
-  {    
+  {
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == name) {
         return true;
-      }        
+      }
     }
     for (auto& component : ComponentHandlesContainer) {
-      if (reinterpret_cast<Component*>(component.Dereference() )-> getObjectName() == name) {
+      if (reinterpret_cast<Component*>(component.Dereference())->getObjectName() == name) {
         return true;
       }
     }
 
 
-   // DCTrace << ObjectName << "::HasComponent - '" << name
-   //   << "' is not present. \n";
+    // DCTrace << ObjectName << "::HasComponent - '" << name
+    //   << "' is not present. \n";
     return false;
   }
 
@@ -264,9 +265,9 @@ namespace DCEngine {
     // Factory-owned components
     for (auto& component : ComponentsContainer) {
       if (component->getObjectName() == componentName) {
-        DCTrace << "Entity::RemoveComponentByName - Removing " << componentName <<  "\n";
+        DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
         // Check for dependencies
-        
+
         // Remove it
         std::swap(component, ComponentsContainer.back());
         ComponentsContainer.pop_back();
@@ -312,7 +313,7 @@ namespace DCEngine {
   @brief  Returns a container of pointers to the components this entity owns.
   @return A container of component pointers.
   @todo   Perhaps just pass the container of handles since this means
-          this container is being constructed every frame.
+  this container is being constructed every frame.
   */
   /**************************************************************************/
   ComponentVec Entity::AllComponents()
@@ -330,8 +331,22 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Moves a component to the back of the entity's components container.
+  @param component A reference to the component.
+  */
+  /**************************************************************************/
+  void Entity::SwapToBack(ComponentPtr component)
+  {
+    auto handle = GetComponentHandle(component);
+    auto handleIter = std::find(ComponentHandlesContainer.begin(), ComponentHandlesContainer.end(), handle);
+    // Shift every element on the way to the back
+    std::rotate(handleIter, handleIter + 1, ComponentHandlesContainer.end());
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a reference to the container of all the components this
-          Entity has.
+  Entity has.
   @return A reference to the container of all components.
   */
   /**************************************************************************/
@@ -342,12 +357,32 @@ namespace DCEngine {
 
 
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a handle to the component given a pointer to it.
+  @param component A reference to the component.
+  @return A handle to the component.
+  */
+  /**************************************************************************/
+  ComponentHandle Entity::GetComponentHandle(ComponentPtr component)
+  {
+    // Find the handle to this component since we internally we have a
+    // container of handles to it since Zilch is managing them.
+    ComponentHandle componentHandle;
+    for (auto& handle : ComponentHandlesContainer) {
+      // Once the component has been found
+      if (reinterpret_cast<Component*>(handle.Dereference())->Name() == component->Name()) {
+        componentHandle = handle;
+        return componentHandle;
+      }
+    }
+  }
 
   /**************************************************************************/
   /*!
   @brief  Informs all active observers of this entity's death. This allows
-          them to remove this entity from their list of active delegate holders.
-          Otherwise, CRASH!
+  them to remove this entity from their list of active delegate holders.
+  Otherwise, CRASH!
   */
   /**************************************************************************/
   void Entity::InformObserversOfDeath()
@@ -355,14 +390,14 @@ namespace DCEngine {
     // For every event in the map of events this entity is receiving...
     for (auto& event : ObserverRegistry) {
       // For every delegate in the list of delegates for each event... 
-      for (auto it = event.second.begin(); it != event.second.end(); ++it) {        
-        
+      for (auto it = event.second.begin(); it != event.second.end(); ++it) {
+
         // Component: Inform each observer this object is being destroyed
         auto observer = (*it)->GetObserver();
         if (!observer)
           continue;
 
-        if (auto component = dynamic_cast<ComponentPtr>(observer)) {          
+        if (auto component = dynamic_cast<ComponentPtr>(observer)) {
           // Look in its container of active delegates for the pointer to this
           // entity, then remove it.
           for (auto& publisher : component->ActiveDelegateHolders) {

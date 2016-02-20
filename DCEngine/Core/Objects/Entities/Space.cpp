@@ -119,6 +119,8 @@ namespace DCEngine {
   void Space::Update(float dt) {
     if (TRACE_ON && TRACE_UPDATE)
       DCTrace << ObjectName << "::Update \n";
+
+    MigrateRecentlyAdded();
   }
 
   /**************************************************************************/
@@ -181,7 +183,23 @@ namespace DCEngine {
     return Daisy->getSystem<Systems::Factory>()->BuildLevel(level, *this);
   }
 
- /**************************************************************************/
+  /**************************************************************************/
+  /*!
+  @brief Migrates recently created GameObjects onto the main container.
+  @note  This is done because if created GameObjects were added directly
+         onto the main container on the same frame, that container would be
+         invalidated during that frame as operations are being done on it.
+  */
+  /**************************************************************************/
+  void Space::MigrateRecentlyAdded()
+  {
+    for (auto gameObject : RecentlyCreatedGameObjects) {
+      GameObjectContainer.push_back(gameObject);
+    }
+    RecentlyCreatedGameObjects.clear();
+  }
+
+  /**************************************************************************/
  /*!
  @brief Swaps the position of a GameObject in the space's gameobject list.
  @param object A pointer to the GameObject
@@ -277,8 +295,10 @@ namespace DCEngine {
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
     if (!editorEnabled) {
-      for (auto& gameObject : GameObjectContainer)
+      for (auto& gameObject : GameObjectContainer) {
+        DCTrace << "Initializing " << gameObject->Name() << "\n";
         gameObject->Initialize();    
+      }
     }
 
   }
@@ -315,27 +335,31 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
-  @brief  Creates a GameObject, adds it to the space.
+  @brief  Creates a GameObject, adds it to the space.  
   @return A pointer to the GameObject that was added.
   @note   This function requests the GameObject to be created through
-          the object factory.
+          the object factory. GameObjects added through this method
+          are added on the next frame.
   */
   /**************************************************************************/
   GameObjectPtr Space::CreateObject() {
     // Calls the object factory to create the object from an archetype
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject("Transform", *this, true);
     GameObjectContainer.push_back(gameObject);
-    return gameObject;
+    // Add it to the recently-created GameObjects container
+    RecentlyCreatedGameObjects.push_back(gameObject);
 
+    return gameObject;
   }
 
   /**************************************************************************/
   /*!
   @brief  Creates a GameObject, adds it to the space.
-  @return archetypeName The name of the archetype.
-  @note   This function requests the GameObject to be created through
-          the object factory.  
+  @param  archetypeName The name of the archetype.
   @return A pointer to the GameObject.
+  @note   This function requests the GameObject to be created through
+          the object factory. GameObjects added through this method
+          are added on the next frame. 
   */
   /**************************************************************************/
   GameObjectPtr Space::CreateObject(std::string archetypeName)
@@ -347,12 +371,16 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    // Add it to the recently-created GameObjects container
+    RecentlyCreatedGameObjects.push_back(gameObject);
+
     return gameObject;
   }
 
   /**************************************************************************/
   /*!
   @brief  Creates a GameObject from an Archetype and adds it to the space.
+  @param  A pointer to the Archetype resource.
   @return A pointer to the GameObject that was added.
   \note   This function requests the entity to be created through
   the object factory.
@@ -367,7 +395,9 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Space::CreateObject - Could not create the GameObject! \n";
       return nullptr;
     }
-    //GameObjectContainer.push_back(gameObject);
+    // Add it to the recently-created GameObjects container
+    RecentlyCreatedGameObjects.push_back(gameObject);
+
     return gameObject;
   }
 

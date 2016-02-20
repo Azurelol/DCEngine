@@ -84,9 +84,10 @@ namespace DCEngine {
 
     void Sentinel::CreateShield()
     {
-      //shield = SpaceRef->CreateObject(shieldArchetype);
+      shield = SpaceRef->CreateObject(ShieldArchetype);
       //shield->AttachTo(gameObj);
       //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
+      DCTrace << "Created shield archetype! \n";
     }
 
 

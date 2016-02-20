@@ -17,20 +17,31 @@ namespace DCEngine {
 
     void EditorCreator::CreateTransform()
     {
-      std::vector<std::string> vec;
-      Create("Transform", vec);
+      std::vector<std::string> components;
+      Create("Transform", components);
     }
 
     void EditorCreator::CreateSprite()
     {
+      std::vector<std::string> components;
+      components.push_back("Sprite");
+      Create("Sprite", components);
     }
 
     void EditorCreator::CreateSpriteText()
     {
+      std::vector<std::string> components;
+      components.push_back("SpriteText");
+      Create("SpriteText", components);
     }
 
     void EditorCreator::CreateParticleSystem()
     {
+      std::vector<std::string> components;
+      components.push_back("SpriteParticleSystem");
+      components.push_back("ParticleEmitter");
+      components.push_back("LinearParticleAnimator");
+      Create("Sprite", components);
     }
 
     /**************************************************************************/
@@ -43,7 +54,7 @@ namespace DCEngine {
       std::vector<std::string> components;
       components.push_back("Light");
       Create("Light", components);
-      
+
     }
 
     /**************************************************************************/
@@ -66,7 +77,7 @@ namespace DCEngine {
       EditorRef.MoveToViewportCenter(object);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(object, EditorRef.CurrentSpace,
-                                    CommandObjectCreation::Setting::Create));
+        CommandObjectCreation::Setting::Create));
       EditorRef.Add(command);
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
     }

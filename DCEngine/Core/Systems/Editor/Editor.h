@@ -80,15 +80,12 @@ namespace DCEngine {
       EditorConfig Settings;
       // Modules
       EditorCreator Creator;
-
       EditorWindows Windows;
       TransformToolData Transformation;
-
       // Objects
       SystemPtr ReflectionSystem;
       GameObjectPtr EditorCamera = nullptr;
-      //GameObjectPtr TransformTool = nullptr;
-      
+      //GameObjectPtr TransformTool = nullptr;      
       // Editor
       void setEnabled(bool);
       void DisplayEditor();

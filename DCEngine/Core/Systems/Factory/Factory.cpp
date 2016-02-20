@@ -65,8 +65,6 @@ namespace DCEngine {
         DCTrace << "Factory::Terminate \n";
     }
 
-
-
     /*=====================*
     *  Object Construction *
     *=====================*/
@@ -74,8 +72,9 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Creates a game object with default components.
-    @param  A reference to the space where the object will be constructed on.
-    @param  Whether the GameObject should be initialized right away.
+    @param  name The name of the GameObject.
+    @param  space A reference to the space where the object will be constructed on.
+    @param  init Whether the GameObject should be initialized right away.
     @return A pointer to GameObject created on the space.
     @note   The factory owns a container of strong pointers of all active GameObjects.
             Everyone else just has raw pointers, which do not have ownership.
@@ -160,16 +159,14 @@ namespace DCEngine {
         }
       }
 
-      // 4. Add it to the space's container of active gameobjects
-      space.AddObject(gameObjPtr);
       return gameObjPtr;
     }
 
     /**************************************************************************/
     /*!
     @brief  Builds all the GameObjects from a level into a space.
-    @param  serializedData A pointer to the serialized data for the GameObject.
-    @param  space A referene to the Space the GameObject will be created on/
+    @param  level A pointer to the level resource.
+    @param  space A reference to the Space the GameObject will be created on/
     @return A pointer to the GameObject created on the space.
     */
     /**************************************************************************/
@@ -192,8 +189,10 @@ namespace DCEngine {
       // 1. For every GameObject...
       auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");      
       for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
-        // Build the GameObject
-        BuildGameObject(gameObjectValue, space);
+        // 2. Build the GameObject
+        auto gameObjectPtr = BuildGameObject(gameObjectValue, space);
+        // 3. Add it to the space's container of active gameobjects
+        space.AddObject(gameObjectPtr);
       }
 
       return true;

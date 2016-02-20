@@ -87,8 +87,8 @@
             {
               "Vec3": 
               {
-                "x": 38.048801, 
-                "y": -8.197194, 
+                "x": 42.767895, 
+                "y": -1.301646, 
                 "z": 0.000000
               }
             }, 
@@ -148,8 +148,8 @@
             {
               "Vec3": 
               {
-                "x": 39.279675, 
-                "y": -3.325860, 
+                "x": 35.612885, 
+                "y": 4.867495, 
                 "z": 0.000000
               }
             }, 
@@ -202,7 +202,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "Sentinel", 
         "Archetype": "", 
         "Components": 
         {
@@ -212,8 +212,8 @@
             {
               "Vec3": 
               {
-                "x": 51.591042, 
-                "y": -4.995524, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -236,6 +236,30 @@
               }
             }
           }, 
+          "RigidBody": 
+          {
+            "Mass": 10.000000, 
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
           "Sprite": 
           {
             "Visible": true, 
@@ -255,6 +279,18 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 0, 
+            "StartingHealth": 0
+          }, 
+          "Sentinel": 
+          {
+            "PlayerName": "Player", 
+            "IdleRange": 0.000000, 
+            "MoveSpeed": 0.000000, 
+            "ShieldArchetype": "Sentinel Shield"
           }
         }
       }

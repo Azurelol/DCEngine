@@ -24,15 +24,15 @@
 
 namespace DCEngine {
 
-#define ThisOwner dynamic_cast<GameObject*>(Owner())
+  #define ThisOwner dynamic_cast<GameObject*>(Owner())
 
   // (?) EXPLAIN
   using mask = unsigned;
 
-#pragma region metadataEnums
-  
+  #pragma region metadataEnums
+
   enum class EntityType;
-  
+
 
   enum class EnumeratedComponent {
     None = 0,
@@ -46,7 +46,7 @@ namespace DCEngine {
     SoundSpace = 13,
 
 
-    Capacity,    
+    Capacity,
 
   };
 
@@ -64,7 +64,7 @@ namespace DCEngine {
     NoObjects = -1,
 
   };
-  
+
   /* Forward-declarations */
   class Entity;
   //using EntityPtr = Entity*;
@@ -74,15 +74,15 @@ namespace DCEngine {
   class GameSession;
   namespace Systems {
     class Factory;
-  }  
+  }
 
   class Component : public Object {
-	  friend class Entity;
-    friend class GameObject; 
+    friend class Entity;
+    friend class GameObject;
     friend class Systems::Factory;
     friend class Engine; // @todo Is this the best way?
 
-  public:   
+  public:
 
     #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(Component, Object);
@@ -95,13 +95,12 @@ namespace DCEngine {
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
-    const GameSession& ThisGameSession()  const { return *GameSessionRef; }     
-    
-    // Dependencies
-    //bool AddDependency(std::string componentName);    
-    virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies;  }
+    const GameSession& ThisGameSession()  const { return *GameSessionRef; }
+
+    // Dependencies  
+    virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies; }
     bool HasDependencies();
-    std::string MissingDependencies();
+    std::vector<std::string> MissingDependencies();
 
     // Static member variables
     static unsigned int ComponentsCreated;
@@ -111,24 +110,24 @@ namespace DCEngine {
     static std::string ComponentLastDestroyed;
     static bool DiagnosticsEnabled;
 
-    Component(std::string name, Entity& owner);    
+    Component(std::string name, Entity& owner);
     virtual ~Component(); // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
     void Destroy();
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
-    
+
   protected:
 
     using DependenciesContainer = std::vector<std::string>;
     Space* SpaceRef;
     GameSession* GameSessionRef;
     std::vector<Entity*> ActiveDelegateHolders;
-    
+
   private:
     static DependenciesContainer __Base_Dependencies;
     EntityType OwnerClass;
-    
+
     Component() = delete; // No default construction
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
@@ -150,9 +149,9 @@ namespace DCEngine {
       return dynamic_cast<GameObject*>(ObjectOwner);
     else if (ownerType_ == EntityType::Space)
       return dynamic_cast<Space*>(ObjectOwner);
-    else if (ownerType_ == EntityType::GameSession) 
+    else if (ownerType_ == EntityType::GameSession)
       return dynamic_cast<GameSession*>(ObjectOwner);
-   return NULL;
+    return NULL;
   }
 
 } // DCEngine
