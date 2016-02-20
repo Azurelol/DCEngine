@@ -47,10 +47,7 @@ namespace DCEngine {
 			if (event->OtherObject->getComponent<Components::BallController>())
 			{
 				auto BallRef = event->OtherObject;
-        DCTrace << "Before " << BallRef->getComponent<Components::Transform>()->Translation.x << "\n";
 				BallRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
-        DCTrace << "After " << BallRef->getComponent<Components::Transform>()->Translation.x << "\n";
-
 				BallRef->getComponent<Components::BallController>()->Powering = true;
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
 				auto wall = SpaceRef->FindObjectByName(Target);
