@@ -50,6 +50,10 @@ namespace DCEngine {
 			AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
 				ShaderPath + "ParticleShader.vs",
 				ShaderPath + "ParticleShader.frag")));
+			AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
+				ShaderPath + "ShadowingShader.vs",
+				ShaderPath + "ShadowingShader.frag",
+				ShaderPath + "ShadowingShader.geo")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;

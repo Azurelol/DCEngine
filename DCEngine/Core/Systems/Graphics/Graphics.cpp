@@ -18,6 +18,8 @@
 namespace DCEngine {
 	namespace Systems {
 
+		std::unique_ptr<GraphicsGL> Graphics::GraphicsHandler;
+
 		/**************************************************************************/
 		/*!
 		\brief Default constructor for the Graphics System.
@@ -74,7 +76,7 @@ namespace DCEngine {
 				int TotalObjNumG = 0, TotalObjTranspNumG = 0;
 
 				// Get the default camera from the 'CameraViewport' component
-				auto camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+				Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
 				// Do not update the space if no camera has been set
 				if (camera == nullptr)
@@ -88,45 +90,135 @@ namespace DCEngine {
 				}
 
 				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
-				for (auto lightComponent : lightComponents)
-				{
-					mLightList.push_back(lightComponent);
-				}
+
+				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+					[] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
 
 				GraphicsHandler->SetParticleSystemShader(*camera);
 				GraphicsHandler->SetSpriteTextShader(*camera);
 				GraphicsHandler->SetSpriteShader(*camera, lightComponents);
 
-				for (auto&& drawList : mDrawList)
+
+				for (auto& drawList : mDrawList)
 				{
 					for (auto&& obj : drawList)
 					{
-						obj->Update(dt);
-						obj->Draw(*camera);
+						std::sort(drawList.begin(), drawList.end(),
+							[](Components::Graphical* a, Components::Graphical* b)
+						{
+							return a->Owner()->getComponent<Components::Transform>()->Translation.z
+								< b->Owner()->getComponent<Components::Transform>()->Translation.z;
+						});
 					}
+					//drawList.clear();
+				}
+
+				//RenderDepths(dt, camera);
+
+				//glEnable(GL_STENCIL_TEST);
+
+				//RenderShadows(dt, camera, lightComponents);
+
+				RenderScene(dt, camera);
+
+				//glDisable(GL_STENCIL_TEST);
+
+				DrawDebug();
+				
+				for (auto&& drawList : mDrawList)
+				{
 					drawList.clear();
 				}
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
-
-				//for (auto gameObj : gfxSpace->getSprites()) {
-				//	++TotalObjNumG;
-				//	mDrawList[gameObj->getDrawLayer()].push_back(gameObj);
-				//}
-
-				//for(auto&& drawList : mDrawList)
-				//{
-				//	for (Components::Sprite* sprite : drawList)
-				//	{
-				//		DrawSprite(*sprite, *camera, dt);
-				//	}
-				//	drawList.clear();
-				//}
 
 				SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
-				if (Debug::CheckOpenGLError())
-					DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
 			}
+		}
+
+		void Graphics::RenderDepths(float dt, Components::Camera* camera)
+		{
+			glDrawBuffer(GL_NONE);
+			RenderObjects(dt, camera);
+		}
+
+		void Graphics::RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents)
+		{
+			//glDepthMask(GL_FALSE);
+			glEnable(GL_DEPTH_CLAMP);
+			glDisable(GL_CULL_FACE);
+
+			glStencilFunc(GL_ALWAYS, 0, 0xff);
+
+			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR_WRAP, GL_KEEP);
+			glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_DECR_WRAP, GL_KEEP);
+
+			GraphicsHandler->SetShadowingShaders(*camera, lightComponents);
+
+			for (auto&& drawList : mDrawList)
+			{
+				for (auto&& obj : drawList)
+				{
+					if (dynamic_cast<Components::Sprite*>(obj))
+					{
+						obj->SetModelMatrix();
+						obj->Draw(*camera);
+					}
+				}
+			}
+
+			// Restore local stuff
+			glDisable(GL_DEPTH_CLAMP);
+			glEnable(GL_CULL_FACE);
+		}
+
+		void Graphics::RenderScene(float dt, Components::Camera* camera)
+		{
+			glDrawBuffer(GL_BACK);
+
+			// Draw only if the corresponding stencil value is zero
+			glStencilFunc(GL_EQUAL, 0x0, 0xFF);
+
+			// prevent update to the stencil buffer
+			glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
+
+			RenderObjects(dt, camera);
+
+			glDepthMask(GL_TRUE);
+		}
+
+		void Graphics::RenderObjects(float dt, Components::Camera* camera)
+		{
+			for (auto&& drawList : mDrawList)
+			{
+				for (auto&& obj : drawList)
+				{
+					obj->Update(dt);
+					obj->SetModelMatrix();
+					obj->Draw(*camera);
+				}
+				//drawList.clear();
+			}
+		}
+
+		void Graphics::DrawDebug()
+		{
+			glDisable(GL_BLEND);
+			GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
+			GraphicsHandler->SpriteShader->Use();
+			for (const auto& debugObj : mDebugLineList)
+			{
+				debugObj.Draw();
+			}
+			for (const auto& debugObj : mDebugRectangleList)
+			{
+				debugObj.Draw();
+			}
+			for (const auto& debugObj : mDebugCircleList)
+			{
+				debugObj.Draw();
+			}
+			mDebugLineList.clear();
+			mDebugRectangleList.clear();
+			mDebugCircleList.clear();
 		}
 
 		/**************************************************************************/
@@ -212,17 +304,17 @@ namespace DCEngine {
 
 		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawCircle(pos, radius, color, cam, fill);
+			mDebugCircleList.push_back(DebugCircle(color, pos, radius));
 		}
 
 		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill)
 		{
-			GraphicsHandler->DrawRectangle(pos, width, height, color, cam, fill);
+			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height)));
 		}
 
 		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)
 		{
-			GraphicsHandler->DrawLineSegment(startPos, endPos, color, cam);
+			mDebugLineList.push_back(DebugLine(color, startPos, endPos));
 		}
 
 		/////////////////

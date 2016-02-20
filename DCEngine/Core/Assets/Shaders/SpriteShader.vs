@@ -93,13 +93,4 @@ void main() {
   gl_Position = projection * view * model * vec4(vertex.xy, 0.0, 1.0);
 	vec4 temp = model * vec4(vertex.xy, 0.0, 1.0);
 	WorldCoords = temp.xyz;
-
-  // Flipping the texture vertically, due to SOIL2 not providing this functionality... 
-  //TexCoords = vec2(texCoords.x, 1.0 - texCoords.y);
-
-  /*if (TexCoords.x > 1)//For debugging. TexCoords.x and TexCoords.y should be smaller than 1;
-  {
-    gl_Position.x = gl_Position.x + 1;
-  }*/
-
 }

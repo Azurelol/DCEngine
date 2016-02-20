@@ -28,23 +28,27 @@ namespace DCEngine {
 
       auto cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       // The editor grid will always be in front of the camera.
-      Vec3 gridStartPos(cameraPos.x, cameraPos.y, cameraPos.z - 1);
-      Real edge = 500; // We want to make sure we draw 'very' from far away??
+			Vec3 gridStartPos(cameraPos.x, cameraPos.y, 0);
+      Real edge = 5000; // We want to make sure we draw 'very' from far away??
       unsigned lines = 100;
       // Start drawings from the center of the screen and outwards
       for (unsigned int i = 0; i < lines; ++i) {
         // Draw the horizontal lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
           Vec3(gridStartPos.x + edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
           Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
           Vec3(gridStartPos.x + edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
           Settings.GridColor);
         // Draw the vertical lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
           Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
           Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
           Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
           Settings.GridColor);
       }
