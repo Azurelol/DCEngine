@@ -59,6 +59,24 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Creates a GameObject from an Archetype into the current space.
+    @param archetypeName The name of the Archetype.
+    */
+    /**************************************************************************/
+    void EditorCreator::CreateFromArchetype(const std::string & archetypeName)
+    {
+      auto gameObject = EditorRef.CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
+      EditorRef.Select(gameObject);
+      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.MoveToViewportCenter(gameObject);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(gameObject, EditorRef.CurrentSpace,
+        CommandObjectCreation::Setting::Create));
+      EditorRef.Add(command);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Creates a GameObject on the editor's currently selected space.
     @param name The name of the object
     @param components A vector of the components the object requires.

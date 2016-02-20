@@ -21,7 +21,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                                          Settings(settings), Creator(*this)
+                                                          Settings(settings), 
+                                                          Creator(*this), Resources(*this), Archetypes(*this)
     {      
     }
 
@@ -254,15 +255,6 @@ namespace DCEngine {
     {
     }
 
-    /**************************************************************************/
-    /*!
-    \brief  Allows the user to add a resource to the current project's library
-            of assets.
-    */
-    /**************************************************************************/
-    void Editor::WidgetResourceAdd()
-    {
-    }
 
     /**************************************************************************/
     /*!

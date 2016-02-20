@@ -376,6 +376,7 @@ namespace DCEngine {
         return componentHandle;
       }
     }
+    return componentHandle;
   }
 
   /**************************************************************************/

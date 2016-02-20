@@ -298,6 +298,12 @@
     <Filter Include="Core\Components\Graphics\Lightning\Particles">
       <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
+      <UniqueIdentifier>{0939e1f2-4cc9-4a0a-b089-03e379530d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Project">
+      <UniqueIdentifier>{9d342821-1780-47db-ba60-d9bf84719517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -535,9 +541,6 @@
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
-      <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
@@ -795,9 +798,6 @@
     <ClCompile Include="Core\Systems\Editor\Selector.cpp">
       <Filter>Core\Systems\Editor\Modules\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp">
       <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
     </ClCompile>
@@ -809,12 +809,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\TransformToolComponent.cpp">
       <Filter>Core\Components\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
-      <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp">
       <Filter>Core\Systems\Editor\Modules\Creator</Filter>
@@ -844,6 +838,21 @@
       <Filter>Core\Systems\AI</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorArchetypes.cpp">
+      <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
+      <Filter>Core\Systems\Editor\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1377,9 +1386,6 @@
     <ClInclude Include="Core\Systems\Editor\Selector.h">
       <Filter>Core\Systems\Editor\Modules\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h">
       <Filter>Core\Systems\Editor\Modules</Filter>
     </ClInclude>
@@ -1433,6 +1439,12 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\SteeringBehaviors.h">
       <Filter>Core\Systems\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h">
+      <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorResources.h">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

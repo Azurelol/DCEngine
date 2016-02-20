@@ -375,6 +375,7 @@
     <ClCompile Include="Core\Systems\Editor\CameraControl.cpp" />
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorArchetypes.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
@@ -389,7 +390,7 @@
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp" />
-    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
@@ -493,6 +494,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h" />
     <ClInclude Include="Core\Systems\Editor\EditorCreator.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
@@ -611,7 +613,7 @@
     <ClInclude Include="Core\Systems\DispatchSystemEvents.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorWindow.h" />
-    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorResources.h" />
     <ClInclude Include="Core\Systems\Editor\Selector.h" />
     <ClInclude Include="Core\Systems\Editor\TransformTool.h" />
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h" />

@@ -158,6 +158,7 @@ namespace DCEngine {
       // Loading functions
       void LoadCoreAssets(); //!< Load default content files for the engine.   
       void LoadProject(const std::string& projectDataPath);
+      void SaveProject(const std::string& projectPath);
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
       void LoadAllResources();

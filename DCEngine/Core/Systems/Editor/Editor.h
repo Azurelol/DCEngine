@@ -37,6 +37,8 @@ namespace DCEngine {
       friend class Engine;
       // Modules. @toodo I would prefer not to friend all my modules to give them private access.
       friend class EditorCreator;
+      friend class EditorArchetypes;
+      friend class EditorResources;
 
     public:
 
@@ -74,13 +76,15 @@ namespace DCEngine {
       void MoveObject(const Vec3&);
       void TransformStartDragging();
       void TransformDrag(Vec2&);
-      void TransformDragRelease();
-      
+      void TransformDragRelease();      
       // Settings
       EditorConfig Settings;
       // Modules
       EditorCreator Creator;
+      EditorResources Resources;
+      EditorArchetypes Archetypes;
       EditorWindows Windows;
+
       TransformToolData Transformation;
       // Objects
       SystemPtr ReflectionSystem;
@@ -92,7 +96,6 @@ namespace DCEngine {
       // Windows
       void DisplayMainMenuBar();
       void WidgetLevel();
-      void WidgetResourceAdd();
       // Objects
       void WindowObjects();
       void ObjectsListSwapPosition(GameObjectPtr, Direction);
@@ -112,10 +115,11 @@ namespace DCEngine {
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
-      void WindowCreateFromArchetype();
       // Archetypes
+      void WindowCreateFromArchetype();
       void SaveArchetype(std::string&);
       void RevertToArchetype();
+      void CreateFromArchetype(std::string&);
       // Project
       void NewProject();
       void ArchiveProject();
@@ -167,6 +171,8 @@ namespace DCEngine {
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
       SpriteLayerOrderPtr SelectedSpriteLayerOrder;
+
+
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();
@@ -188,11 +194,6 @@ namespace DCEngine {
       void PanCamera(Vec2&);
       void DrawGrid();
       // Create
-      void CreateTransform();
-      void CreateSprite();
-      void CreateSpriteText();
-      void CreateParticleSystem();
-      void CreateFromArchetype(std::string&);
       void MoveToViewportCenter(GameObject* gameobject);
       // Processes      
       void LaunchProjectFolder();
@@ -210,8 +211,7 @@ namespace DCEngine {
       void OnMouseUpEvent(Events::MouseUp* event);
       void OnMouseUpdateEvent(Events::MouseUpdate* event);
 
-      int consoleWindowStringLength = 0;
-      int oldConsoleWindowStringLength = 0;
+
     };
     
   }

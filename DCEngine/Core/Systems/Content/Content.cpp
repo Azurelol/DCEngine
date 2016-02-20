@@ -118,9 +118,16 @@ namespace DCEngine {
         worked = Serialization::Deserialize(ProjectInfo.get(), projectDataString);
       // Load it
       LoadProjectResources();
+    }
 
-
-
+    /**************************************************************************/
+    /*!
+    @brief  Saves the project to a file.
+    @param  A string containing the path of the project data file.
+    */
+    /**************************************************************************/
+    void Content::SaveProject(const std::string & projectPath)
+    {
     }
 
     /**************************************************************************/

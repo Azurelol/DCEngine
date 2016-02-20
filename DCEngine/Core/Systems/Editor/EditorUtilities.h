@@ -34,6 +34,9 @@ namespace DCEngine {
     Vec3 MouseLastPos;
     // Commands
     CommandManager Commands;
+    // Console
+    size_t ConsoleWindowStringLength = 0;
+    size_t PreviousConsoleWindowStringLength = 0;
   };
 
   /**************************************************************************/

@@ -743,8 +743,8 @@
             {
               "Vec3": 
               {
-                "x": 8.219748, 
-                "y": 14.176253, 
+                "x": 7.330859, 
+                "y": 15.776253, 
                 "z": 0.000000
               }
             }, 
@@ -831,8 +831,8 @@
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 45.000000, 
-            "OuterAngle": 90.000000
+            "InnerAngle": 90.000000, 
+            "OuterAngle": 180.000000
           }
         }
       }, 
@@ -1967,7 +1967,7 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": ""
+            "ShieldArchetype": "Sentinel Shield"
           }
         }
       }, 
