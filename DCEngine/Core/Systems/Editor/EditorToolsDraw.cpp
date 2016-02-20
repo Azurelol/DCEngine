@@ -25,12 +25,13 @@ namespace DCEngine {
       if (IsSelectableGameObject(SelectedObject())) {
 
         auto width = 2.1;
+        auto& camPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
 
         // Draw a border around every selected object
         for (auto object : SelectedObjects) {          
           auto transform = dynamic_cast<GameObjectPtr>(object)->getComponent<Components::Transform>();
           CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(transform->getTranslation(),
-                                            transform->getScale().x * width, transform->getScale().y * width, Vec4(1, 0, 0, 1), false);
+                                            transform->getScale().x * width, transform->getScale().y * width, Vec4(1, 0, 0, camPos.z), false);
         }
       }
     }
