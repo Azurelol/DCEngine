@@ -73,7 +73,7 @@ float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 di
 	angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
 	clamp(angleFalloff, 0, 1);
 	clamp(luminesence, 0, 1);
-	return min(luminesence, angleFalloff);
+	return luminesence * angleFalloff;
 }
 
 vec3 GenerateIlluminationValues(void)

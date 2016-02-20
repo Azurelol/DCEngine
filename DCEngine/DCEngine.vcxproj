@@ -407,6 +407,7 @@
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Configure.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
