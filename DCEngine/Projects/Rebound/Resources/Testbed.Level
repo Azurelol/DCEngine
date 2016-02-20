@@ -69,6 +69,14 @@
       }, 
       "GameObject": 
       {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
         "Name": "ActionTest", 
         "Archetype": "", 
         "Components": 
@@ -79,13 +87,8 @@
             {
               "Vec3": 
               {
-<<<<<<< HEAD
-                "x": 51.259884, 
-                "y": -8.197192, 
-=======
-                "x": -8.143859, 
-                "y": 22.856304, 
->>>>>>> 6e3aeaa562e25969b71fc006d78f98b3514a81c6
+                "x": 38.048801, 
+                "y": -8.197194, 
                 "z": 0.000000
               }
             }, 
@@ -145,18 +148,8 @@
             {
               "Vec3": 
               {
-<<<<<<< HEAD
-                "x": 52.490757, 
-                "y": -3.325861, 
-=======
-<<<<<<< HEAD
-                "x": -2.336607, 
-                "y": 18.896038, 
-=======
-                "x": 30.870241, 
-                "y": 12.137087, 
->>>>>>> 3ada9233a4a565375c6d281bfe3816c19a30331c
->>>>>>> 6e3aeaa562e25969b71fc006d78f98b3514a81c6
+                "x": 39.279675, 
+                "y": -3.325860, 
                 "z": 0.000000
               }
             }, 
@@ -209,10 +202,60 @@
       }, 
       "GameObject": 
       {
-        "Name": "Transform", 
+        "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
         {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.591042, 
+                "y": -4.995524, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
         }
       }
     }
