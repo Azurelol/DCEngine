@@ -655,8 +655,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -5.688889, 
+                "y": 2.222222, 
                 "z": 0.000000
               }
             }, 
@@ -761,7 +761,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 2.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -804,7 +804,7 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
@@ -821,7 +821,7 @@
             }, 
             "Intensity": 1.000000, 
             "Range": 20.000000, 
-            "Falloff": 0.000000, 
+            "Falloff": 0.100000, 
             "DirectionVector": 
             {
               "Vec3": 
@@ -831,8 +831,8 @@
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 0.400000, 
-            "OuterAngle": 0.800000
+            "InnerAngle": 45.000000, 
+            "OuterAngle": 90.000000
           }
         }
       }, 
@@ -1105,7 +1105,7 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
@@ -1863,8 +1863,8 @@
             {
               "Vec3": 
               {
-                "x": -19.733334, 
-                "y": 2.844445, 
+                "x": -70.644890, 
+                "y": 3.401703, 
                 "z": 0.000000
               }
             }, 
@@ -1882,7 +1882,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -1967,7 +1967,7 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": ""
           }
         }
       }, 

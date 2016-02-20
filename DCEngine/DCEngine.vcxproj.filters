@@ -843,6 +843,7 @@
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp">
       <Filter>Core\Systems\AI</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

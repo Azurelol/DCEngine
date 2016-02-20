@@ -89,9 +89,13 @@ namespace DCEngine {
       shield = SpaceRef->CreateObject(ShieldArchetype);
       //shield->AttachTo(gameObj);
       //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
+<<<<<<< HEAD
       DCTrace << "Created shield archetype! \n";
+=======
+
       //shield = SpaceRef->CreateObject();
       
+>>>>>>> 357f878b48cafe02ffc69d65ddadd769517673fe
     }
 
 

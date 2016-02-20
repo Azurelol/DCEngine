@@ -55,6 +55,7 @@ namespace DCEngine {
 				{
 					wall->getComponent<Components::MoveToLocation>()->setMoving(true);
 				}
+
 			}
 		}
 
