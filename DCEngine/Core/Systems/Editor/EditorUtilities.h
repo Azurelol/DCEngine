@@ -66,6 +66,8 @@ namespace DCEngine {
     bool DraggingX = false;
     bool DraggingY = false;
     float DragOffset = 0;
+	Vec3 LastMousePos;
+
     TransformDataPairVec InitialGameObjectTransforms;
     // Rotating
     bool Rotating = false;
