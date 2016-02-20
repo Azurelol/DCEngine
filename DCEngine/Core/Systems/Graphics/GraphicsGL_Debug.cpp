@@ -19,11 +19,9 @@ namespace DCEngine {
     {
       glm::mat4 cleanup;
       glm::vec4 colorclean;
-      //this->SpriteShader->SetMatrix4("model", cleanup, true);
+      this->SpriteShader->SetMatrix4("model", cleanup, true);
       this->SpriteShader->SetVector4f("color", colorclean, true);
       this->SpriteShader->SetInteger("isTexture", 0, true);
-			//glEnable(GL_DEPTH_TEST);
-			//glDepthFunc(GL_LESS);
     }
 
     /**************************************************************************/
@@ -100,26 +98,30 @@ namespace DCEngine {
     \param  The color of the rectangle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill)
+    void GraphicsGL::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill)
     {
 			CleanBuffer();
-			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			glm::mat4x4 model;
+			model = glm::translate(model, pos);
+			model = glm::scale(model, Vec3(width / 2, height / 2, 0));
+			SpriteShader->SetMatrix4("model", model, true);
 			//auto CameraMatrix = cam.GetProjectionMatrix() * cam.GetViewMatrix();
 			if (fill)
 				glBegin(GL_TRIANGLE_FAN);
 			else
 				glBegin(GL_LINE_LOOP);
 
-			auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-			auto Position1 = PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
-			auto Position2 = PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
-			auto Position3 = PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
-			auto Position4 = PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
+			//auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
+			//auto Position1 = glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
+			//auto Position2 = glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
+			//auto Position3 = glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
+			//auto Position4 = glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
 
-			glVertex3f(Position1.x, Position1.y, Position1.z);
-			glVertex3f(Position2.x, Position2.y, Position2.z);
-			glVertex3f(Position3.x, Position3.y, Position3.z);
-			glVertex3f(Position4.x, Position4.y, Position4.z);
+			glVertex4f(1, 1, 0, 1);
+			glVertex4f(1, -1, 0, 1);
+			glVertex4f(-1, -1, 0, 1);
+			glVertex4f(-1, 1, 0, 1);
 
 			glEnd();
 			
@@ -133,11 +135,15 @@ namespace DCEngine {
     \param The color of the circle.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill)
+    void GraphicsGL::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill)
     {
       // Do your magic here Chen
       CleanBuffer();
-      this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+      SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			glm::mat4x4 model;
+			model = glm::translate(model, pos);
+			model = glm::scale(model, Vec3(radius / 2, radius / 2, 0));
+			SpriteShader->SetMatrix4("model", model, true);
 
 			if (fill)
 				glBegin(GL_TRIANGLE_FAN);
@@ -148,9 +154,9 @@ namespace DCEngine {
       static double PointsNumber = 128;
       for (double i = 0; i < 2 * M_PI; i = i + ((2 * M_PI) / PointsNumber))
       {
-        auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0f);
+        auto PositionOrigin = glm::vec4(0, 0, 0, 0.0f);
         //PositionOrigin = cam.GetProjectionMatrix() * cam.GetViewMatrix() * PositionOrigin;
-        glm::vec4 Position = glm::vec4(PositionOrigin.x + radius * cos(i), PositionOrigin.y + radius * sin(i), PositionOrigin.z, 0.0);
+        glm::vec4 Position = glm::vec4(PositionOrigin.x + cos(i), PositionOrigin.y + sin(i), PositionOrigin.z, 0.0);
         glVertex3f(Position.x, Position.y, Position.z);
       }
 			
@@ -167,26 +173,32 @@ namespace DCEngine {
     \param  The color of the line segment.
     */
     /**************************************************************************/
-    void GraphicsGL::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color)
+    void GraphicsGL::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)
     {
 			CleanBuffer();
+			this->SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			glBegin(GL_LINES);
+			auto Position1 = glm::vec4(startPos.x, startPos.y, startPos.z, 0.0);
+			auto Position2 = glm::vec4(endPos.x, endPos.y, endPos.z, 0.0);
+			glVertex3f(Position1.x, Position1.y, Position1.z);
+			glVertex3f(Position2.x, Position2.y, Position2.z);
 			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
 			Vec3 vector = endPos - startPos;
 			float magnitude = Math::Normalize(&Math::Vector3(vector.x, vector.y, vector.z));
 			glm::mat4x4 model;
-			model = glm::translate(model, Vec3(startPos.x + vector.x / 2, startPos.y + vector.y / 2, startPos.z + vector.z / 2));
+			model = glm::translate(model, Vec3(startPos.x, startPos.y, startPos.z));
 			model = glm::scale(model, Vec3(magnitude, magnitude, 0));
 			SpriteShader->SetMatrix4("model", model, true);
 
-			float mag1 = Math::Normalize(&Math::Vector2(startPos.x, startPos.y)),
-				mag2 = Math::Normalize(&Math::Vector2(endPos.x, endPos.y));
-
 			glBegin(GL_LINES);
-			glVertex2f(startPos.x / mag1, startPos.y / mag1);
-			glVertex2f(endPos.x / mag2, endPos.y / mag2);
+			glVertex4f(0, 0, 0, 1);
+			glVertex4f(vector.x / magnitude, vector.y / magnitude, 0, 1);
 			glEnd();
-
 			CleanBuffer();
     }
+
+
+
+
   }
 }

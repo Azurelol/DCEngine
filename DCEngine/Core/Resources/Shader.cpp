@@ -19,10 +19,8 @@
 
 namespace DCEngine {
 
-  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath, std::string geometryPath) 
-                 : Resource("Shader", shaderName, "None"),
-		VertexPath(vertexPath), FragmentPath(fragmentPath), GeometryPath(geometryPath)
-	{
+  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath) 
+                 : Resource("Shader", shaderName, "None"), VertexPath(vertexPath), FragmentPath(fragmentPath) {
     if (TRACE_CONSTRUCTOR)
       DCTrace << "\n" << ObjectName << "::Shader - Constructor \n";
 
@@ -45,34 +43,27 @@ namespace DCEngine {
     //  DCTrace << ObjectName << "::Load - Vertex: " << VertexPath << " , Fragment: " << FragmentPath << "\n";
     std::ifstream vertexShaderFile;
     std::ifstream fragmentShaderFile;
-		std::ifstream geometryShaderFile;
+
     // Ensures ifstream objects can throw exceptions
     vertexShaderFile.exceptions(std::ifstream::badbit);
     fragmentShaderFile.exceptions(std::ifstream::badbit);
-		geometryShaderFile.exceptions(std::ifstream::badbit);
+
     try {
       //std::string shaderLocation("Core/Resources/Shaders/");
       //vertexShaderFile.open(shaderLocation + VertexPath);
       //fragmentShaderFile.open(shaderLocation + FragmentPath);
       vertexShaderFile.open(VertexPath);
       fragmentShaderFile.open(FragmentPath);
-			if (!GeometryPath.empty())
-				geometryShaderFile.open(GeometryPath);
       // Use C++ filestreams to read the content from the file
-      std::stringstream vertexShaderStream, fragmentShaderStream, geometryShaderStream;
+      std::stringstream vertexShaderStream, fragmentShaderStream;
       vertexShaderStream << vertexShaderFile.rdbuf();
       fragmentShaderStream << fragmentShaderFile.rdbuf();
-			if (!GeometryPath.empty())
-				geometryShaderStream << geometryShaderFile.rdbuf();
       // Close the files
       vertexShaderFile.close();
       fragmentShaderFile.close();
-			geometryShaderFile.close();
       // Store the shader code within the object   
       vertexCode = vertexShaderStream.str();
       fragmentCode = fragmentShaderStream.str();  
-			if (!GeometryPath.empty())
-				geometryCode = geometryShaderStream.str();
     }
     catch (std::ifstream::failure e) {
       if (TRACE_ON)
@@ -90,7 +81,7 @@ namespace DCEngine {
   void Shader::Compile() {
     if (TRACE_ON)
       DCTrace << ObjectName << "::Compile \n";
-    GLuint vertex, geometry, fragment;   
+    GLuint vertex, fragment;   
     
     // Vertex Shader
     vertex = glCreateShader(GL_VERTEX_SHADER);
@@ -104,27 +95,15 @@ namespace DCEngine {
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
     AssertShaderCompilation(fragment, "Fragment Shader");
-		if (!GeometryPath.empty())
-		{
-			geometry = glCreateShader(GL_GEOMETRY_SHADER);
-			const GLchar* gShaderCode = geometryCode.c_str();
-			glShaderSource(geometry, 1, &gShaderCode, NULL);
-			glCompileShader(geometry);
-			AssertShaderCompilation(geometry, "Geometry Shader");
-		}
     // Link shader program
     this->ShaderProgramID = glCreateProgram();
     glAttachShader(this->ShaderProgramID, vertex);
-		if(!GeometryPath.empty())
-			glAttachShader(this->ShaderProgramID, geometry);
     glAttachShader(this->ShaderProgramID, fragment);
     glLinkProgram(this->ShaderProgramID);
     AssertShaderProgramLinking(this->ShaderProgramID);
     // Delete the shaders as they're now linked into the program and no longer necessary
     glDeleteShader(vertex);
     glDeleteShader(fragment);
-		if (!GeometryPath.empty())
-			glDeleteShader(geometry);
   }
 
   /**************************************************************************/

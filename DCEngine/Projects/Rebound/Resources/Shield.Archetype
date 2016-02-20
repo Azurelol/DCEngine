@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Door", 
-    "Archetype": "Door", 
+    "Name": "Shield", 
+    "Archetype": "Shield", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 301.996002, 
-            "y": -4.615656, 
+            "x": 268.295929, 
+            "y": -2.335855, 
             "z": 0.000000
           }
         }, 
@@ -23,15 +23,15 @@
           {
             "x": 0.000000, 
             "y": 0.000000, 
-            "z": 90.000000
+            "z": 0.000000
           }
         }, 
         "Scale": 
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 2.000000, 
+            "y": 14.000000, 
             "z": 1.000000
           }
         }
@@ -43,10 +43,10 @@
         {
           "Vec4": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
+            "x": 0.235000, 
+            "y": 0.470000, 
+            "z": 0.745000, 
+            "w": 0.500000
           }
         }, 
         "SpriteSource": "square", 
@@ -56,20 +56,31 @@
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 0
       }, 
-      "MoveToLocation": 
+      "BoxCollider": 
       {
-        "Timer": 0.000000, 
-        "TargetLocation": 
+        "PhysicsMaterial": "", 
+        "CollisionGroup": "Default", 
+        "Size": 
         {
           "Vec3": 
           {
-            "x": 30.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
         }, 
-        "MoveToLocationTime": 1.000000, 
-        "Moving": false
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
       }
     }
   }
