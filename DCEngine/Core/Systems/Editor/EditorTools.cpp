@@ -204,18 +204,22 @@ namespace DCEngine {
 
      // Calculate the current mouse position
      auto mousePos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(pos), 0);     
-     dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(mousePos);
+     //dynamic_cast<GameObjectPtr>(SelectedObject())->getComponent<Components::Transform>()->setTranslation(mousePos);
 
-     
-     // Drag all selected objects
-/*     auto mouseDiff = mousePos - Settings.MouseStartPos;
-     for (auto& gameObject : Transformation.InitialGameObjectPositions) {
-       auto& objectCurrentPos = gameObject.first->getComponent<Components::Transform>()->getTranslation();
-       auto& objectStartPos = gameObject.second;
-       auto objectDiff = objectCurrentPos - objectStartPos;
+	 // Drag all selected objects
+	 auto mouseDiff = mousePos - Transformation.LastMousePos;
+	 //mouseDiff *= 2; 
+	 for (auto& transformData : Transformation.InitialGameObjectTransforms) {
 
-       gameObject.first->getComponent<Components::Transform>()->setTranslation(objectStartPos - objectDiff + mouseDiff);
-     }   */  
+		 auto transformComponent = transformData.first;
+
+		 auto objectCurrentPos = transformComponent->getTranslation();
+		 auto& objectStartPos = transformData.second.Translation;
+		 auto objectDiff = objectCurrentPos - objectStartPos;
+
+		 transformComponent->setTranslation(objectCurrentPos + mouseDiff);
+		 //transformComponent->setTranslation(mousePos);
+	 }
 
      
       

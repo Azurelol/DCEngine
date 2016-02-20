@@ -122,6 +122,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
+
       // Do not update physics while the engine is paused.
       if (Paused)
         return;
