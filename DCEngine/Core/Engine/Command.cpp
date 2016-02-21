@@ -98,6 +98,9 @@ namespace DCEngine {
   /**************************************************************************/
   void CommandManager::Copy(GameObjectRawVec gameObjects)
   {
+    // Clear the data on previously copied objects
+    ObjectCopyData.clear();
+
     for (auto& gameObj : gameObjects) {
       auto copyName = gameObj->Name() + " Copy";
       ObjectCopyData.push_back(Daisy->getSystem<Systems::Factory>()->BuildArchetype(copyName, gameObj));
@@ -152,6 +155,7 @@ namespace DCEngine {
                                                : Command("Creation - " + copyData.front()->Name()),
                                                  GameObjectData(copyData), SpaceRef(space), CurrentSetting(Setting::Create)
   {
+
   }
 
   /**************************************************************************/

@@ -172,7 +172,6 @@ namespace DCEngine {
       ResourcePtr SelectedCollisionTable;
       SpriteLayerOrderPtr SelectedSpriteLayerOrder;
 
-
       bool LoadLevel(std::string level);
       bool SaveLevel(std::string level);
       bool ReloadLevel();
@@ -199,6 +198,7 @@ namespace DCEngine {
       void LaunchProjectFolder();
       void LaunchDocumentation();
       // CTOR
+      void WindowSplashScreen();
       Editor(EditorConfig settings);
       void Initialize();
       void Subscribe();

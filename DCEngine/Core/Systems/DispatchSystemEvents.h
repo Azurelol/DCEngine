@@ -12,6 +12,9 @@ uses.
 #pragma once
 
 namespace DCEngine {
+  
+  class Object;
+
   namespace Systems {
 
     class DispatchSystemEvents {
@@ -20,6 +23,9 @@ namespace DCEngine {
       static void EngineResume();
       static void EnginePause();
       static void EngineExit();
+      
+      static void EditorSelectObject(Object* object);
+      static void EditorDeselectObject();
       
       static void SetWindowCaption(std::string name);
       static void WindowLostFocus();

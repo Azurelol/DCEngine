@@ -58,6 +58,7 @@ namespace DCEngine {
 			Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
 			Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
 			GameObject* PlayerRef; // Use a pointer inside, better to use a handle for serialization
+			GameObject* gameObj;
 			String PlayerName = "Player";
 
 			DCE_DEFINE_PROPERTY(String, PlayerName);

@@ -34,7 +34,7 @@ namespace DCEngine {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
             Select(archetype.second.get());
-            Windows.PropertiesEnabled = true;
+            
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
             CreateFromArchetype(std::string(SelectedObject()->Name()));

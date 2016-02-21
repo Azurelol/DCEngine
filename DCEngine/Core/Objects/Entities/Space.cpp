@@ -121,6 +121,7 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Update \n";
 
     MigrateRecentlyAdded();
+    
   }
 
   /**************************************************************************/
@@ -345,7 +346,7 @@ namespace DCEngine {
   GameObjectPtr Space::CreateObject() {
     // Calls the object factory to create the object from an archetype
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject("Transform", *this, true);
-    GameObjectContainer.push_back(gameObject);
+    //GameObjectContainer.push_back(gameObject);
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
 

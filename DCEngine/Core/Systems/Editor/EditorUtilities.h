@@ -69,6 +69,8 @@ namespace DCEngine {
     bool DraggingX = false;
     bool DraggingY = false;
     float DragOffset = 0;
+	Vec3 LastMousePos;
+
     TransformDataPairVec InitialGameObjectTransforms;
     // Rotating
     bool Rotating = false;
@@ -93,6 +95,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct EditorWindows {
+    bool SplashScreenEnabled = true;
     bool MenuBarEnabled = false;
     bool LevelEnabled = false;
     bool AddResourceEnabled = false;

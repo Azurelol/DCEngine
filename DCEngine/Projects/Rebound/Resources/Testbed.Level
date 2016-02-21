@@ -53,18 +53,60 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Name": "Transform", 
         "Archetype": "", 
         "Components": 
         {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.800001, 
+                "y": -17.333334, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
         }
       }, 
       "GameObject": 
@@ -73,22 +115,14 @@
         "Archetype": "", 
         "Components": 
         {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "ActionTest", 
-        "Archetype": "", 
-        "Components": 
-        {
           "Transform": 
           {
             "Translation": 
             {
               "Vec3": 
               {
-                "x": 52.370541, 
-                "y": 6.338406, 
+                "x": 11.111112, 
+                "y": 23.377777, 
                 "z": 0.000000
               }
             }, 
@@ -130,15 +164,12 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "DebugActions": 
-          {
           }
         }
       }, 
       "GameObject": 
       {
-        "Name": "AudioTest", 
+        "Name": "Transform", 
         "Archetype": "", 
         "Components": 
         {
@@ -148,72 +179,8 @@
             {
               "Vec3": 
               {
-                "x": 45.215523, 
-                "y": 12.507549, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 39.411057, 
-                "y": 11.316046, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 0.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "DebugAudio": 
-          {
-            "Track1": "train", 
-            "Track2": "WoofWoof", 
-            "Track3": ""
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sentinel", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 7.569962, 
-                "y": 0.700922, 
+                "x": 18.044445, 
+                "y": 11.822222, 
                 "z": 0.000000
               }
             }, 
@@ -236,10 +203,46 @@
               }
             }
           }, 
-          "RigidBody": 
+          "Sprite": 
           {
-            "Mass": 10.000000, 
-            "Velocity": 
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 6.666667, 
+                "y": 4.711110, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
             {
               "Vec3": 
               {
@@ -248,17 +251,15 @@
                 "z": 0.000000
               }
             }, 
-            "AngularVelocity": 
+            "Scale": 
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
               }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
+            }
           }, 
           "Sprite": 
           {
@@ -279,18 +280,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Sentinel": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 0.000000, 
-            "MoveSpeed": 0.000000, 
-            "ShieldArchetype": "Sentinel Shield"
           }
         }
       }

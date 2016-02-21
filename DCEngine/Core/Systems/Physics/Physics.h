@@ -28,6 +28,7 @@ namespace DCEngine {
 
   // Forward declarations
   class Engine;
+  class Transform;
   namespace Components {
     class Collider;
   }
@@ -63,8 +64,8 @@ namespace DCEngine {
       void DeregisterSpace(Components::PhysicsSpace& physicsSpace);
 
       // Physics Casting            
-      CastResult CastRay(Ray& ray);
-      CastResult CastRay(Ray& ray, CastFilter& filter);
+      CastResult CastRay(Ray& ray, Components::PhysicsSpace *Space);
+      CastResult CastRay(Ray& ray, CastFilter& filter, Components::PhysicsSpace *Space);
       CastResultsRange CastRay(Ray& ray, unsigned count);
       CastResultsRange CastRay(Ray& ray, unsigned count, CastFilter& filter);
       CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count);

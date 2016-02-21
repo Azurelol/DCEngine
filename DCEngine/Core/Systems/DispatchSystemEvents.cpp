@@ -36,6 +36,21 @@ namespace DCEngine {
       delete exitEvent;
     }
 
+    void DispatchSystemEvents::EditorSelectObject(Object * object)
+    {
+      auto event = new Events::EditorSelectObject;
+      //event->SelectedObject = object;
+      Daisy->Dispatch<Events::EditorSelectObject>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::EditorDeselectObject()
+    {
+      auto event = new Events::EditorDeselectObject;
+      Daisy->Dispatch<Events::EditorDeselectObject>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::SetWindowCaption(std::string caption)
     {
       auto event = new Events::SetWindowCaption;      
