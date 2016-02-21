@@ -1,4 +1,16 @@
+/******************************************************************************/
+/*!
+@file   EditorArchetypes.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   2/20/2016
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
 #pragma once
+
+#include "../../Resources/Archetype.h"
 
 namespace DCEngine {
 
@@ -11,11 +23,16 @@ namespace DCEngine {
     class EditorArchetypes {
     public:
       EditorArchetypes(Editor& editor);
+      ~EditorArchetypes();
+      void Select(ArchetypeHandle archetype);
+      void Preview();
 
     private:
       Editor& EditorRef;
-      GameObject* CurrentArchetype;
+      GameObject* CurrentArchetype;      
       Space* ArchetypeSpace;
+
+      void Deselect();
 
     };
 
