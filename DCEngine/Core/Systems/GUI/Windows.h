@@ -31,7 +31,7 @@ namespace DCEngine {
       class Window {
       public:
         virtual ~Window();
-        virtual void Display() = 0;        
+        virtual void Display() = 0;
         void Remove();
       };
 

@@ -44,8 +44,7 @@ namespace DCEngine {
     #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(Space, Entity);
     #endif
-
-
+    
     Space(std::string name, GameSession& gamesession);
     ~Space();
     void Initialize();
@@ -78,17 +77,19 @@ namespace DCEngine {
     LevelPtr CurrentLevel; //!< The currently-loaded level.
     GameSession* GameSessionRef; //!< The gamesession in which this space resides
     GameObjectVec GameObjectContainer; //!< A vector of GameObjects this space holds.
+    //!< A container of recently created GameObjects. They are added onto the main container on the next frame.
+    GameObjectVec RecentlyCreatedGameObjects;
+
+    // GameObjects
+    void MigrateRecentlyAdded();
     void SwapGameObject(GameObjectPtr, Direction);
+    // Levels
+    void LoadSampleLevel(LevelPtr level);
+    LevelPtr SaveLevel(const std::string& levelName);
+    void LoadLevel(LevelPtr level);
 
     Space() = delete; //!< Spaces should never be default or copy constructed.
     Space(Space& space) = delete;  
-
-    // TEMPORARY
-    void LoadSampleLevel(LevelPtr level);
-    LevelPtr SaveLevel(const std::string& levelName);
-    //std::string SaveLevel(const std::string& levelName);
-    void LoadLevel(LevelPtr level);
-
   };
 
   using SpacePtr = Space*;

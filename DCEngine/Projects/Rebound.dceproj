@@ -1,6 +1,6 @@
 {
 	"Project Name": "Rebound",
-  "Default Level": "SandboxTesting",
+  "Default Level": "Testbed",
   "Default Space": "",  
   "Project Path": "Projects/Rebound/",
   "Resource Path": "Resources/",

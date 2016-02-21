@@ -70,8 +70,8 @@ namespace DCEngine {
 			ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
 			ParticleSystemShader->Compile();
 			// Construct the Shadowing shader
-			ShadowingShader = Daisy->getSystem<Content>()->getShader(std::string("ShadowingShader"));
-			ShadowingShader->Compile();
+			//ShadowingShader = Daisy->getSystem<Content>()->getShader(std::string("ShadowingShader"));
+			//ShadowingShader->Compile();
 			Components::SpriteParticleSystem::mShader = ParticleSystemShader;
 			ConfigureParticleBuffers();
 			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";

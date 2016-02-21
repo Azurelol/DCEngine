@@ -28,13 +28,13 @@ namespace DCEngine {
         return;
       
       ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Library", &Windows.LibraryEnabled);
+      ImGui::Begin("Library", &Windows.LibraryEnabled);           
       
       if (ImGui::TreeNode("Archetype")) {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
             Select(archetype.second.get());
-            Windows.PropertiesEnabled = true;
+            
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
             CreateFromArchetype(std::string(SelectedObject()->Name()));
@@ -44,27 +44,12 @@ namespace DCEngine {
         ImGui::TreePop();
       }
 
-      if (ImGui::TreeNode("Bank")) {
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto& resource : *Daisy->getSystem<Content>()->AllBanks()) {
-          if (ImGui::Selectable(resource.second->Name().c_str())) {
-            Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
 
-      if (ImGui::TreeNode("SpriteLayer")) {
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto& resource : *Daisy->getSystem<Content>()->AllSpriteLayers()) {
-          if (ImGui::Selectable(resource.second->Name().c_str())) {
-            Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
+      auto banks = Daisy->getSystem<Content>()->AllBanks();
+      Resources.DisplayResourceList<BankMap>("Bank", banks);
+
+      auto spriteLayers = Daisy->getSystem<Content>()->AllSpriteLayers();
+      Resources.DisplayResourceList<SpriteLayerMap>("SpriteLayer", spriteLayers);
 
       if (ImGui::TreeNode("SpriteLayerOrder")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
@@ -86,34 +71,16 @@ namespace DCEngine {
       }
 
 
-      if (ImGui::TreeNode("SpriteSource")) {
-        for (auto& spriteSrc : *Daisy->getSystem<Content>()->AllSpriteSources()) {
-          if (ImGui::Selectable(spriteSrc.second->Name().c_str())) {   
-            Select(spriteSrc.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
-      if (ImGui::TreeNode("Font")) {
-        for (auto& font : *Daisy->getSystem<Content>()->AllFonts()) {
-          if (ImGui::Selectable(font.second->Name().c_str())) {
-            Select(font.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
-      if (ImGui::TreeNode("SoundCue")) {        
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "SoundCues: ");
-        for (auto& soundCue : *Daisy->getSystem<Content>()->AllSoundCues()) {
-          if (ImGui::Selectable(soundCue.second->Name().c_str())) {
-            Select(soundCue.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
+      auto spriteSources = Daisy->getSystem<Content>()->AllSpriteSources();
+      Resources.DisplayResourceList<SpriteSourceMap>("SpriteSource", spriteSources);
+      
+      auto fonts = Daisy->getSystem<Content>()->AllFonts();
+      Resources.DisplayResourceList<FontMap>("Font", fonts);
+      
+      auto soundCues = Daisy->getSystem<Content>()->AllSoundCues();
+      Resources.DisplayResourceList<SoundCueMap>("SoundCue", soundCues);
+      
+      // Open the shader file perhaps?
       if (ImGui::TreeNode("Shader")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& shader : *Daisy->getSystem<Content>()->AllShaders()) {
@@ -124,7 +91,8 @@ namespace DCEngine {
         }
         ImGui::TreePop();
       }
-      // 4. Display every level
+
+      // Display every level
       if (ImGui::TreeNode("Level")) {
         for (auto& level : *Daisy->getSystem<Content>()->AllLevels()) {
           auto levelName = level.second->Name().c_str();
@@ -144,16 +112,8 @@ namespace DCEngine {
         ImGui::TreePop();
       }
 
-      if (ImGui::TreeNode("CollisionGroup")) {
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto& resource : *Daisy->getSystem<Content>()->AllCollisionGroups()) {
-          if (ImGui::Selectable(resource.second->Name().c_str())) {
-            Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
+      auto collisionGroups = Daisy->getSystem<Content>()->AllCollisionGroups();
+      Resources.DisplayResourceList<CollisionGroupMap>("CollisionGroup", collisionGroups);
 
       if (ImGui::TreeNode("CollisionTable")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
@@ -174,19 +134,9 @@ namespace DCEngine {
         ImGui::TreePop();
       }
 
-
-      if (ImGui::TreeNode("PhysicsMaterial")) {
-        //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
-        for (auto& resource : *Daisy->getSystem<Content>()->AllPhysicsMaterials()) {
-          if (ImGui::Selectable(resource.second->Name().c_str())) {
-            Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
-          }
-        }
-        ImGui::TreePop();
-      }
-
-
+      auto physicsMaterials = Daisy->getSystem<Content>()->AllPhysicsMaterials();
+      Resources.DisplayResourceList<PhysicsMaterialMap>("PhysicsMaterial", physicsMaterials);
+      
       if (ImGui::TreeNode("ZilchScript")) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& script : *Daisy->getSystem<Content>()->AllZilchScripts()) {

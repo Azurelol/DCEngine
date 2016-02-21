@@ -34,6 +34,9 @@ namespace DCEngine {
     Vec3 MouseLastPos;
     // Commands
     CommandManager Commands;
+    // Console
+    size_t ConsoleWindowStringLength = 0;
+    size_t PreviousConsoleWindowStringLength = 0;
   };
 
   /**************************************************************************/
@@ -92,6 +95,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct EditorWindows {
+    bool SplashScreenEnabled = true;
     bool MenuBarEnabled = false;
     bool LevelEnabled = false;
     bool AddResourceEnabled = false;

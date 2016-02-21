@@ -20,14 +20,14 @@ namespace DCEngine
 		{
 			GraphicsHandler->DrawLineSegment(position, endPosition, color);
 		}
-		Graphics::DebugRectangle::DebugRectangle(const Vec4& color, const Vec3& position, const Vec2& scale)
-			: DebugObject(color, position), scale(scale)
+		Graphics::DebugRectangle::DebugRectangle(const Vec4& color, const Vec3& position, const Vec2& scale, bool fill)
+			: DebugObject(color, position), scale(scale), fill(fill)
 		{
 
 		}
 		void Graphics::DebugRectangle::Draw(void) const
 		{
-			GraphicsHandler->DrawRectangle(position, scale.x, scale.y, color);
+			GraphicsHandler->DrawRectangle(position, scale.x, scale.y, color, fill);
 		}
 		Graphics::DebugCircle::DebugCircle(const Vec4& color, const Vec3& position, float radius)
 			: DebugObject(color, position), radius(radius)

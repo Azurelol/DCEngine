@@ -20,8 +20,8 @@ namespace DCEngine {
       // Open the PopUp
       ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
       ImGui::OpenPopup(Data.Title.c_str());
-      
-      if (ImGui::BeginPopupModal(Data.Title.c_str())) {        
+
+      if (ImGui::BeginPopupModal(Data.Title.c_str())) {
         ImGui::Text(Data.Message.c_str());
 
         // Close the PopUp
@@ -41,7 +41,7 @@ namespace DCEngine {
       ImGui::OpenPopup(Data.Title.c_str());
 
       if (ImGui::BeginPopupModal(Data.Title.c_str())) {
-        
+
         // List all missing dependencies.
         for (auto& dependency : Data.List) {
           ImGui::Text(dependency.c_str());

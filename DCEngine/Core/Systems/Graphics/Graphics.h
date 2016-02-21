@@ -125,10 +125,11 @@ namespace DCEngine {
 			class DebugRectangle : public DebugObject
 			{
 			public:
-				DebugRectangle(const Vec4&, const Vec3&, const Vec2&);
+				DebugRectangle(const Vec4&, const Vec3&, const Vec2&, bool fill);
 				virtual void Draw(void) const;
 			private:
 				Vec2 scale;
+				bool fill;
 			};
 			class DebugCircle : public DebugObject
 			{

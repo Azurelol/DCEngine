@@ -32,7 +32,6 @@ namespace DCEngine {
       float IdleRange; // Past this range, the grunt will be idle, within the range, it will patrol
       float MoveSpeed;
       ArchetypeHandle ShieldArchetype;
-
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, MoveSpeed);
@@ -49,15 +48,15 @@ namespace DCEngine {
       void CreateShield();
 
     private:
+      StateMachine<Sentinel> *stateMachine;
+      GameObject *player;
+      float dt;
+      GameObjectPtr shield;
       GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       HealthController* HealthRef;
-      StateMachine<Sentinel> *stateMachine;
-      GameObject *player;
-      float dt;
-      GameObjectPtr shield;
      
       class Global : public IState<Sentinel>
       {

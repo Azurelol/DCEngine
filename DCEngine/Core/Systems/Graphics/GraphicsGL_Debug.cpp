@@ -20,7 +20,7 @@ namespace DCEngine {
       glm::mat4 cleanup;
       glm::vec4 colorclean;
       //this->SpriteShader->SetMatrix4("model", cleanup, true);
-      this->SpriteShader->SetVector4f("color", colorclean, true);
+      //this->SpriteShader->SetVector4f("color", colorclean, true);
       this->SpriteShader->SetInteger("isTexture", 0, true);
 			//glEnable(GL_DEPTH_TEST);
 			//glDepthFunc(GL_LESS);
@@ -103,7 +103,7 @@ namespace DCEngine {
     void GraphicsGL::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill)
     {
 			CleanBuffer();
-			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, color.a), true);
 			glm::mat4x4 model;
 			model = glm::translate(model, pos);
 			model = glm::scale(model, Vec3(width / 2, height / 2, 0));
@@ -141,7 +141,7 @@ namespace DCEngine {
     {
       // Do your magic here Chen
       CleanBuffer();
-      SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+      SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, color.a), true);
 			glm::mat4x4 model;
 			model = glm::translate(model, pos);
 			model = glm::scale(model, Vec3(radius / 2, radius / 2, 0));
@@ -178,7 +178,7 @@ namespace DCEngine {
     void GraphicsGL::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color)
     {
 			CleanBuffer();
-			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, 1.0), true);
+			SpriteShader->SetVector4f("spriteColor", glm::vec4(color.r, color.g, color.b, color.a), true);
 			Vec3 vector = endPos - startPos;
 			float magnitude = Math::Normalize(&Math::Vector3(vector.x, vector.y, vector.z));
 			glm::mat4x4 model;

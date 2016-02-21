@@ -13,10 +13,22 @@
 #include "EventReference.h"
 
 namespace DCEngine {
+
+  // Forward declarations
+  //class Object;    
+  
   namespace Events {
 
     class EditorEnabled : public Event {
     public:
+    };
+
+    class EditorSelectObject : public Event {
+    public:
+     // Object* SelectedObject;
+    };
+
+    class EditorDeselectObject : public Event {
     };
 
   }

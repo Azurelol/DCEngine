@@ -126,7 +126,7 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief Checks whether the component exists among the list of active
-         components.
+  components.
   @param componentName The name of the component.
   @return Whether the component exists among the list of created components.
   */
@@ -153,7 +153,7 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  Checks whether this component's owner has all the components
-          this component depends on.
+  this component depends on.
   @return Whether this component's dependencies have been fulfilled.
   */
   /**************************************************************************/
@@ -187,28 +187,6 @@ namespace DCEngine {
     return dependencies;
   }
   
-  /**************************************************************************/
-  /*!
-  @brief Adds a dependency to this component.
-  @param componentName The component this component depends on.
-  @return The success of the operation.
-  */
-  /**************************************************************************/
-  //bool Component::AddDependency(std::string componentName)
-  //{
-  //  // Check if the component is a valid component name
-  //  if (!Exists(componentName)) {
-  //    DCTrace << "Component::AddDependency: '" << componentName << "' does not exist! \n";
-  //    return false;
-  //  }
-  //  // Check that it hasn't been already added
-  //  //if (Dependencies.find(componentName)
-  //
-  //  Dependencies.push_back(componentName);
-  //}
-
-
-
   /**************************************************************************/
   /*!
   @brief Sets the Owner reference for this component.

@@ -69,9 +69,11 @@ namespace DCEngine {
 			void ConfigureParticleBuffers();
 			void SetParticleSystemShader(Components::Camera& camera);
 			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & camera, double dt);
+
 			/* Shadowing System */
 			void ConfigureShadowBuffers(void);
 			void SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
+
       /* Model */
       void DrawModel(GameObject& gameObj);
       /* DebugDraw */
@@ -83,6 +85,7 @@ namespace DCEngine {
       void DrawCircle(DrawCircleObj& obj);
       void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
+
       void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill = false);
       void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color);
@@ -113,13 +116,6 @@ namespace DCEngine {
       void EndFrame();
       void BackupState();
       void RestoreState();
-
-
-			
-
-	  //Draw List
-	  int TotalObjNum = 0;
-	  int TotalTranspObjNum = 0; //including semi-transparent objects
     };
   }
 }

@@ -53,7 +53,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Light2", 
+        "Name": "Transform", 
         "Archetype": "", 
         "Components": 
         {
@@ -63,148 +63,8 @@
             {
               "Vec3": 
               {
-                "x": 0.384869, 
-                "y": 10.189369, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Light": 
-          {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Spot", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 0.700000, 
-            "Range": 6.299996, 
-            "Falloff": 0.000000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 45.000000, 
-            "OuterAngle": 103.499794
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Light", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 2.610418, 
-                "y": 15.711973, 
-                "z": -0.100000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Light": 
-          {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Point", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 0.700000, 
-            "Range": 50.000000, 
-            "Falloff": 0.000000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "ActionTest", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 30.167250, 
-                "y": 7.300750, 
+                "x": 20.800001, 
+                "y": -17.333334, 
                 "z": 0.000000
               }
             }, 
@@ -246,15 +106,12 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "DebugActions": 
-          {
           }
         }
       }, 
       "GameObject": 
       {
-        "Name": "AudioTest", 
+        "Name": "Transform", 
         "Archetype": "", 
         "Components": 
         {
@@ -264,8 +121,8 @@
             {
               "Vec3": 
               {
-                "x": 30.870241, 
-                "y": 12.137087, 
+                "x": 8.711111, 
+                "y": 13.600000, 
                 "z": 0.000000
               }
             }, 
@@ -273,8 +130,8 @@
             {
               "Vec3": 
               {
-                "x": 39.411057, 
-                "y": 11.316046, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -284,7 +141,7 @@
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000
+                "z": 1.000000
               }
             }
           }, 
@@ -307,12 +164,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "DebugAudio": 
-          {
-            "Track1": "train", 
-            "Track2": "WoofWoof", 
-            "Track3": ""
           }
         }
       }, 
@@ -322,6 +173,56 @@
         "Archetype": "", 
         "Components": 
         {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.644444, 
+                "y": 2.044445, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
         }
       }, 
       "GameObject": 
@@ -330,22 +231,56 @@
         "Archetype": "", 
         "Components": 
         {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.266667, 
+                "y": -5.066667, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
         }
       }
     }

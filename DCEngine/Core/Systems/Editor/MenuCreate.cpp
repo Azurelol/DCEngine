@@ -17,103 +17,103 @@ namespace DCEngine {
   namespace Systems {
 
 
-    /**************************************************************************/
-    /*!
-    @brief  Creates a GameObject with a Transform component on the selected
-            space.
-    */
-    /**************************************************************************/
-    void Editor::CreateTransform()
-    {      
-      // Create the empty transform
-      auto transform = CurrentSpace->CreateObject();
-      transform->setObjectName("Transform");
-      //transform->setArchetype = "Transform";
-      DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
-      Select(transform);
-      Windows.PropertiesEnabled = true;
-      MoveToViewportCenter(transform);
+    ///**************************************************************************/
+    ///*!
+    //@brief  Creates a GameObject with a Transform component on the selected
+    //        space.
+    //*/
+    ///**************************************************************************/
+    //void Editor::CreateTransform()
+    //{      
+    //  // Create the empty transform
+    //  auto transform = CurrentSpace->CreateObject();
+    //  transform->setObjectName("Transform");
+    //  //transform->setArchetype = "Transform";
+    //  DCTrace << "Editor::CreateTransform - Created 'Transform' \n";
+    //  Select(transform);
+    //  Windows.PropertiesEnabled = true;
+    //  MoveToViewportCenter(transform);
 
-      // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
-                                          CommandObjectCreation::Setting::Create));
-      Add(command);
+    //  // Save the command
+    //  auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
+    //                                      CommandObjectCreation::Setting::Create));
+    //  Add(command);
 
-    }
+    //}
 
-    /**************************************************************************/
-    /*!
-    @brief  Creates a GameObject with Transform and Sprite components on the 
-            selected space.
-    @todo   Create the GameObject from a "Sprite' archetype rather than
-            hard-coded here.
-    */
-    /**************************************************************************/
-    void Editor::CreateSprite()
-    {
-      // Create the Sprite GameObject
-      auto sprite = CurrentSpace->CreateObject();
-      sprite->setObjectName("Sprite");
-      // Add the Sprite component
-      sprite->AddComponentByName(std::string("Sprite"), true);
-      DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
-      Select(sprite);
-      Windows.PropertiesEnabled = true;
-      MoveToViewportCenter(sprite);
-      // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
-                                    CommandObjectCreation::Setting::Create));
-      Add(command);
+    ///**************************************************************************/
+    ///*!
+    //@brief  Creates a GameObject with Transform and Sprite components on the 
+    //        selected space.
+    //@todo   Create the GameObject from a "Sprite' archetype rather than
+    //        hard-coded here.
+    //*/
+    ///**************************************************************************/
+    //void Editor::CreateSprite()
+    //{
+    //  // Create the Sprite GameObject
+    //  auto sprite = CurrentSpace->CreateObject();
+    //  sprite->setObjectName("Sprite");
+    //  // Add the Sprite component
+    //  sprite->AddComponentByName(std::string("Sprite"), true);
+    //  DCTrace << "Editor::CreateTransform - Created 'Sprite' \n";
+    //  Select(sprite);
+    //  Windows.PropertiesEnabled = true;
+    //  MoveToViewportCenter(sprite);
+    //  // Save the command
+    //  auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
+    //                                CommandObjectCreation::Setting::Create));
+    //  Add(command);
 
-    }
+    //}
 
-    /**************************************************************************/
-    /*!
-    @brief  Creates a GameObject with a default SpriteText.
-    */
-    /**************************************************************************/
-    void Editor::CreateSpriteText()
-    {
-      // Create the SpriteText GameObject
-      auto spriteText = CurrentSpace->CreateObject("SpriteText");
-      spriteText->setObjectName("SpriteText");
-      // Add the Sprite component
-      spriteText->AddComponentByName(std::string("SpriteText"), true);
-      DCTrace << "Editor::CreateSpriteText - Created 'SpriteText' \n";
-      Select(spriteText);
-      Windows.PropertiesEnabled = true;
-      MoveToViewportCenter(spriteText);
-      // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
-                                    CommandObjectCreation::Setting::Create));
-      Add(command);
-    }
+    ///**************************************************************************/
+    ///*!
+    //@brief  Creates a GameObject with a default SpriteText.
+    //*/
+    ///**************************************************************************/
+    //void Editor::CreateSpriteText()
+    //{
+    //  // Create the SpriteText GameObject
+    //  auto spriteText = CurrentSpace->CreateObject("SpriteText");
+    //  spriteText->setObjectName("SpriteText");
+    //  // Add the Sprite component
+    //  spriteText->AddComponentByName(std::string("SpriteText"), true);
+    //  DCTrace << "Editor::CreateSpriteText - Created 'SpriteText' \n";
+    //  Select(spriteText);
+    //  Windows.PropertiesEnabled = true;
+    //  MoveToViewportCenter(spriteText);
+    //  // Save the command
+    //  auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
+    //                                CommandObjectCreation::Setting::Create));
+    //  Add(command);
+    //}
 
-    /**************************************************************************/
-    /*!
-    @brief  Creates a GameObject with a default particle system.
-    */
-    /**************************************************************************/
-    void Editor::CreateParticleSystem()
-    {
-      // Create the ParticleSystem GameObject
-      auto psystem = CurrentSpace->CreateObject();
-      psystem->AddComponentByName(std::string("SpriteParticleSystem"), false);
-      psystem->AddComponentByName(std::string("ParticleEmitter"), false);
-      psystem->AddComponentByName(std::string("LinearParticleAnimator"), false);
-      //auto psystem = CurrentSpace->CreateObject("ParticleEffect");
-      psystem->setObjectName("ParticleSystem");
-      // Add the Sprite component
-      //psystem->AddComponentByName(std::string("Particle System"), true);
-      DCTrace << "Editor::CreateParticleSystem - Created 'ParticleEffect' \n";
-      Select(psystem);
-      Windows.PropertiesEnabled = true;
-      MoveToViewportCenter(psystem);
-      // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
-                                    CommandObjectCreation::Setting::Create));
-      Add(command);
-    }
+    ///**************************************************************************/
+    ///*!
+    //@brief  Creates a GameObject with a default particle system.
+    //*/
+    ///**************************************************************************/
+    //void Editor::CreateParticleSystem()
+    //{
+    //  // Create the ParticleSystem GameObject
+    //  auto psystem = CurrentSpace->CreateObject();
+    //  psystem->AddComponentByName(std::string("SpriteParticleSystem"), false);
+    //  psystem->AddComponentByName(std::string("ParticleEmitter"), false);
+    //  psystem->AddComponentByName(std::string("LinearParticleAnimator"), false);
+    //  //auto psystem = CurrentSpace->CreateObject("ParticleEffect");
+    //  psystem->setObjectName("ParticleSystem");
+    //  // Add the Sprite component
+    //  //psystem->AddComponentByName(std::string("Particle System"), true);
+    //  DCTrace << "Editor::CreateParticleSystem - Created 'ParticleEffect' \n";
+    //  Select(psystem);
+    //  Windows.PropertiesEnabled = true;
+    //  MoveToViewportCenter(psystem);
+    //  // Save the command
+    //  auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
+    //                                CommandObjectCreation::Setting::Create));
+    //  Add(command);
+    //}
 
     /**************************************************************************/
     /*!

@@ -298,6 +298,15 @@
     <Filter Include="Core\Components\Graphics\Lightning\Particles">
       <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
+      <UniqueIdentifier>{0939e1f2-4cc9-4a0a-b089-03e379530d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Project">
+      <UniqueIdentifier>{9d342821-1780-47db-ba60-d9bf84719517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Module">
+      <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -535,9 +544,6 @@
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
-      <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
@@ -795,9 +801,6 @@
     <ClCompile Include="Core\Systems\Editor\Selector.cpp">
       <Filter>Core\Systems\Editor\Modules\Selector</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\ResourceEditor.cpp">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\TransformToolDraw.cpp">
       <Filter>Core\Systems\Editor\Tools\TransformTool</Filter>
     </ClCompile>
@@ -809,12 +812,6 @@
     </ClCompile>
     <ClCompile Include="Core\Components\TransformToolComponent.cpp">
       <Filter>Core\Components\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
-      <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp">
       <Filter>Core\Systems\Editor\Modules\Creator</Filter>
@@ -842,6 +839,25 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp">
       <Filter>Core\Systems\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorArchetypes.cpp">
+      <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
+      <Filter>Core\Systems\Editor\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Module.cpp">
+      <Filter>Core\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1376,9 +1392,6 @@
     <ClInclude Include="Core\Systems\Editor\Selector.h">
       <Filter>Core\Systems\Editor\Modules\Selector</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\ResourceEditor.h">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h">
       <Filter>Core\Systems\Editor\Modules</Filter>
     </ClInclude>
@@ -1433,6 +1446,15 @@
     <ClInclude Include="Core\Engine\SteeringBehaviors.h">
       <Filter>Core\Systems\AI</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h">
+      <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorResources.h">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Module.h">
+      <Filter>Core\Object\Module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1475,15 +1497,6 @@
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Core\Assets\Shaders\ParticleShader.vs">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Assets\Shaders\ShadowingShader.frag">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Assets\Shaders\ShadowingShader.geo">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

@@ -21,7 +21,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                                          Settings(settings), Creator(*this)
+                                                          Settings(settings), 
+                                                          Creator(*this), Resources(*this), Archetypes(*this)
     {      
     }
 
@@ -224,6 +225,10 @@ namespace DCEngine {
       if (!Settings.EditorEnabled)
         return;
 
+      WindowSplashScreen();
+      if (Windows.SplashScreenEnabled)
+        return;
+
       DrawGrid();
       DrawSelection();
       DrawMultiSelect();
@@ -254,15 +259,6 @@ namespace DCEngine {
     {
     }
 
-    /**************************************************************************/
-    /*!
-    \brief  Allows the user to add a resource to the current project's library
-            of assets.
-    */
-    /**************************************************************************/
-    void Editor::WidgetResourceAdd()
-    {
-    }
 
     /**************************************************************************/
     /*!
@@ -274,7 +270,57 @@ namespace DCEngine {
       DCTrace << "Editor::Terminate \n";
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the SplashScreen.
+    */
+    /**************************************************************************/
+    void Editor::WindowSplashScreen()
+    {
+      if (!Windows.SplashScreenEnabled)
+        return;
 
+
+      auto texture = Daisy->getSystem<Content>()->getSpriteSrc("EngineLogo")->getTexture();
+      auto imageSizeScalar = 2;
+      auto textureSize = ImVec2(texture.Width * imageSizeScalar, texture.Height * imageSizeScalar);
+
+      // Open the PopUp
+      //ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
+      //ImGui::OpenPopup("Welcome!");
+
+      //if (ImGui::BeginPopupModal("Welcome")) {
+      //  ImGui::Text("Hi");
+      //  // Display splash image
+      //  ImGui::Image((void*)(texture.TextureID), ImVec2(texture.Width, texture.Height),
+      //    ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
+      //  if (ImGui::IsMouseClicked(0)) {
+      //    ImGui::CloseCurrentPopup();
+      //  }
+
+      //  ImGui::EndPopup();
+      //}
+
+      auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
+      auto splashPos = ImVec2((windowDim.x / 2) - textureSize.x / 2, (windowDim.y / 2) - textureSize.y / 2);
+
+      ImGui::SetNextWindowPos(splashPos);
+      //ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
+      if (ImGui::Begin("Example: Fixed Overlay", &Windows.SplashScreenEnabled, ImVec2(0, 0), 0.3f,
+        ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings))
+      {
+        // Display splash image
+        ImGui::Image((void*)(texture.TextureID), ImVec2(textureSize.x, textureSize.y),
+          ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
+        if (ImGui::IsMouseClicked(0)) {
+          Windows.SplashScreenEnabled = false;
+        }
+        //if (ImGui::Button("Continue")) {
+        //}
+      }
+      ImGui::End();
+
+    }
 
     
 

@@ -54,7 +54,25 @@ namespace DCEngine {
       std::vector<std::string> components;
       components.push_back("Light");
       Create("Light", components);
-      
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a GameObject from an Archetype into the current space.
+    @param archetypeName The name of the Archetype.
+    */
+    /**************************************************************************/
+    void EditorCreator::CreateFromArchetype(const std::string & archetypeName)
+    {
+      auto gameObject = EditorRef.CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
+      EditorRef.Select(gameObject);
+      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.MoveToViewportCenter(gameObject);
+      // Save the command
+      auto command = CommandPtr(new CommandObjectCreation(gameObject, EditorRef.CurrentSpace,
+        CommandObjectCreation::Setting::Create));
+      EditorRef.Add(command);
     }
 
     /**************************************************************************/
@@ -77,7 +95,7 @@ namespace DCEngine {
       EditorRef.MoveToViewportCenter(object);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(object, EditorRef.CurrentSpace,
-                                    CommandObjectCreation::Setting::Create));
+        CommandObjectCreation::Setting::Create));
       EditorRef.Add(command);
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
     }

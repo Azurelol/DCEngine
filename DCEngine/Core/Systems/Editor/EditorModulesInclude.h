@@ -1,5 +1,6 @@
 #pragma once
 
 #include "Selector.h"
-#include "ResourceEditor.h"
+#include "EditorResources.h"
 #include "EditorCreator.h"
+#include "EditorArchetypes.h"

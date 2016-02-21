@@ -10,12 +10,8 @@
 /******************************************************************************/
 #pragma once
 
-// Libraries
-#include <string>
-#include <memory>
-#include <vector>
-
 // Headers
+#include "../Objects/Module.h"
 #include "..\Objects\Entity.h"
 #include "..\Debug\Debug.h"
 // Helpers
@@ -48,8 +44,7 @@ namespace DCEngine {
   class System : public Object {
 
   public:
-    System(std::string name, ESys type) : SysName(name), _type(type) {
-      //trace << _name << "::Constructor \n";
+    System(std::string name, ESys type) : Object(name), Type(type) {
     }
     ~System();
     
@@ -66,8 +61,7 @@ namespace DCEngine {
 
 
   protected:
-    std::string SysName;
-    const ESys _type;
+    const ESys Type;
     
   };
 

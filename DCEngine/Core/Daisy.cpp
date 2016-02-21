@@ -56,7 +56,7 @@ int WinMain(int argc, char* argv[]) {
       }
     }
     ImGui::EndPopup();
-    ImGui::End;
+    ImGui::End();
 
 
     DCTrace << exception << "\n";

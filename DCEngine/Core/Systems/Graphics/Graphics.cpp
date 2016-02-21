@@ -201,7 +201,8 @@ namespace DCEngine {
 
 		void Graphics::DrawDebug()
 		{
-			glDisable(GL_BLEND);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
 			GraphicsHandler->SpriteShader->Use();
 			for (const auto& debugObj : mDebugLineList)
@@ -302,18 +303,21 @@ namespace DCEngine {
 		// DEBUG DRAW
 		///////////////
 
-		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill)
+		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& camera, bool fill)
 		{
+			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
 			mDebugCircleList.push_back(DebugCircle(color, pos, radius));
 		}
 
-		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill)
+		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& camera, bool fill)
 		{
-			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height)));
+			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
+			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height), fill));
 		}
 
-		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam)
+		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& camera)
 		{
+			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
 			mDebugLineList.push_back(DebugLine(color, startPos, endPos));
 		}
 
@@ -359,8 +363,8 @@ namespace DCEngine {
 
 		void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
 		{
-			GraphicsHandler->TotalObjNum = TotalObjNumG;
-			GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
+			//GraphicsHandler->TotalObjNum = TotalObjNumG;
+			//GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
 		}
 
 

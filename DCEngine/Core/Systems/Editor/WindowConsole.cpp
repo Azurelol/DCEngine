@@ -29,16 +29,16 @@ namespace DCEngine {
 
       ImGui::Begin("Console", &Windows.ConsoleEnabled);
 
-      consoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
+      Settings.ConsoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
 
       ImGuiTextBuffer log;
       log.append(DCEngine::Debug::traceObj->stream.str().c_str());
       ImGui::TextUnformatted(log.begin(), log.end());
       
-      if (consoleWindowStringLength > oldConsoleWindowStringLength)
+      if (Settings.ConsoleWindowStringLength > Settings.PreviousConsoleWindowStringLength)
       {
         ImGui::SetScrollY(INT_MAX);
-        oldConsoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
+        Settings.PreviousConsoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());
       }
      
       ImGui::End();
