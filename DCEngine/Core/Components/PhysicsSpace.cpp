@@ -11,6 +11,7 @@ physics integration and resolution, for collisions, velocity, etc...
 */
 /******************************************************************************/
 #include "PhysicsSpace.h"
+#include "../Systems/Physics/Physics.h"
 #include "EngineReference.h"
 #include "../../Core/Systems/Physics/Physics.h"
 #include "../Resources/CollisionTable.h"
@@ -135,7 +136,7 @@ namespace DCEngine {
     /**************************************************************************/
     CastResult PhysicsSpace::CastRay(Ray & ray)
     {
-      return CastResult();
+      return Daisy->getSystem<Systems::Physics>()->CastRay(ray, this);
     }
 
     /**************************************************************************/
@@ -148,7 +149,7 @@ namespace DCEngine {
     /**************************************************************************/
     CastResult PhysicsSpace::CastRay(Ray & ray, CastFilter & filter)
     {
-      return CastResult();
+      return Daisy->getSystem<Systems::Physics>()->CastRay(ray, filter, this);
     }
 
     /**************************************************************************/

@@ -1,7 +1,8 @@
 #pragma once
 
-namespace DCEngine {
+#include"../../Components/PhysicsSpace.h"
 
+namespace DCEngine {
   /**************************************************************************/
   /*!
   @class Ray A ray is a linear arrangement of points that starts at a given location
@@ -9,10 +10,10 @@ namespace DCEngine {
   half-line.
   */
   /**************************************************************************/
-  struct Ray {
+  struct Ray 
+  {
     Vec3 Origin;
     Vec3 Direction;
-    //Components::PhysicsSpace *Space;
   };
 
 }

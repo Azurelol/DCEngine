@@ -127,8 +127,8 @@ namespace DCEngine
     float Width0 = boxcollider1->getColliderScale().x  * 2.0f;
     float Width1 = boxcollider2->getColliderScale().x  * 2.0f;
 
-    float rot0 = transform1->WorldRotation.z;
-    float rot1 = transform2->WorldRotation.z;
+    float rot0 = transform1->Rotation.z;
+    float rot1 = transform2->Rotation.z;
 
     std::vector<glm::vec3> verts1;
     std::vector<glm::vec3> verts2;
@@ -1081,6 +1081,133 @@ namespace DCEngine
     /* collision is true */
   
     return true;
+  }
+
+  bool Collision::SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance)
+  {
+    auto box = obj->getComponent<Components::BoxCollider>();
+    auto circle = obj->getComponent<Components::CircleCollider>();
+    auto Translation = obj->getComponent<Components::Transform>();
+
+    if (box)
+    {
+      Vec3 topL, topR, botL, botR;
+
+      bool retval = false;
+
+      float Height = box->getSize().y, Width = box->getSize().x, rot = Translation->Rotation.z;
+
+      float Dist = FLT_MAX;
+
+      topL.x = Translation->Translation.x + box->getOffset().x +  ((0.5f * Height) * -sin(rot)) + ((-0.5f * Width) * cos(rot));
+      topL.y = Translation->Translation.y + box->getOffset().y +  ((0.5f * Height) *  cos(rot)) + ((-0.5f * Width) * sin(rot));
+
+      topR.x = Translation->Translation.x + box->getOffset().x +  ((0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
+      topR.y = Translation->Translation.y + box->getOffset().y +  ((0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
+
+      botL.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) + ((-0.5f * Width) * cos(rot));
+      botL.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) + ((-0.5f * Width) * sin(rot));
+
+      botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
+      botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
+      float T1, T2;
+      Vec3 Sstart = topL;
+      Vec3 Send = topR;
+      Vec3 Direction = line.second - line.first;
+
+      Vec3 SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        Vec3 point = Vec3(line.first + (T2 * Direction));
+        if (Dist > glm::distance(line.first, point))
+        {
+          Dist = glm::distance(line.first, point);
+          retval = true;
+        }
+      }
+
+
+      Sstart = topR;
+      Send = botR;
+      Direction = line.second - line.first;
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        Vec3 point = Vec3(line.first + (T2 * Direction));
+        if (Dist > glm::distance(line.first, point))
+        {
+          Dist = glm::distance(line.first, point);
+          retval = true;
+        }
+      }
+
+
+      Sstart = botR;
+      Send = botL;
+      Direction = line.second - line.first;
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        Vec3 point = Vec3(line.first + (T2 * Direction));
+        if (Dist > glm::distance(line.first, point))
+        {
+          Dist = glm::distance(line.first, point);
+          retval = true;
+        }
+      }
+
+
+      Sstart = botL;
+      Send = topL;
+      Direction = line.second - line.first;
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        Vec3 point = Vec3(line.first + (T2 * Direction));
+        if (Dist > glm::distance(line.first, point))
+        {
+          Dist = glm::distance(line.first, point);
+          retval = true;
+        }
+      }
+
+      Distance = Dist;
+      return retval;
+    }
+
+    if (circle)
+    {
+
+    }
+
+    return false;
   }
 
 }
