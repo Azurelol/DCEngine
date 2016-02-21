@@ -12,8 +12,8 @@
 
 // Headers
 #include "../Objects/Module.h"
-#include "..\Objects\Entity.h"
-#include "..\Debug\Debug.h"
+#include "../Objects\Entity.h"
+#include "../Debug\Debug.h"
 // Helpers
 #include "DispatchSystemEvents.h"
 
@@ -41,10 +41,10 @@ namespace DCEngine {
   // Alias for the enum
   using ESys = EnumeratedSystem;
 
-  class System : public Object {
+  class System : public Module {
 
   public:
-    System(std::string name, ESys type) : Object(name), Type(type) {
+    System(std::string name, ESys type) : Module(name), Type(type) {
     }
     ~System();
     
@@ -53,12 +53,11 @@ namespace DCEngine {
     friend class Engine; 
 
   private:
-    EntityVec ActiveDelegateHolders; //!< @todo Remove me soon
+    
     System() = delete;
     virtual void Initialize() = 0;
     virtual void Update(float dt) = 0;
     virtual void Terminate() = 0;
-
 
   protected:
     const ESys Type;

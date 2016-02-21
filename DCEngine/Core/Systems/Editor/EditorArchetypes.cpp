@@ -21,9 +21,11 @@ namespace DCEngine {
 	@param editor A reference to the Editor system.
 	*/
 	/**************************************************************************/
-    EditorArchetypes::EditorArchetypes(Editor & editor) : EditorRef(editor), ArchetypeSpace(nullptr)
+    EditorArchetypes::EditorArchetypes(Editor & editor) : Module("EditorArchetypes"), 
+                                                          EditorRef(editor),  CurrentArchetype(nullptr),
+                                                          ArchetypeSpace(nullptr)
     {
-      
+      Daisy->Connect<Events::EditorDeselectObject>(&EditorArchetypes::OnEditorDeselectObjectEvent, this);
     }
 
 	/**************************************************************************/
@@ -57,6 +59,12 @@ namespace DCEngine {
     void EditorArchetypes::ConstructSpace()
     {
       ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
+    }
+
+    void EditorArchetypes::OnEditorDeselectObjectEvent(Events::EditorDeselectObject * event)
+    {
+      Deselect();
+      DCTrace << "received event!!! \n";
     }
 
     void EditorArchetypes::Deselect()

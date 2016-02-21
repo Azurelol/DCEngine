@@ -857,7 +857,7 @@
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Module.cpp">
-      <Filter>Core\Object</Filter>
+      <Filter>Core\Object\Module</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

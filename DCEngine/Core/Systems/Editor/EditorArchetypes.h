@@ -21,7 +21,7 @@ namespace DCEngine {
   namespace Systems {
 
     class Editor;
-    class EditorArchetypes {
+    class EditorArchetypes : public Module {
     public:
       EditorArchetypes(Editor& editor);
       ~EditorArchetypes();
@@ -31,6 +31,7 @@ namespace DCEngine {
 
     private:
       void ConstructSpace();
+      void OnEditorSelectObjectEvent(Events::EditorSelectObject* event);
       void OnEditorDeselectObjectEvent(Events::EditorDeselectObject* event);
       Editor& EditorRef;
       GameObject* CurrentArchetype;      
