@@ -2,8 +2,8 @@
 {
   "GameObject": 
   {
-    "Name": "Door", 
-    "Archetype": "Door", 
+    "Name": "Shield", 
+    "Archetype": "Shield", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 39.101791, 
-            "y": -1.667112, 
+            "x": 291.156372, 
+            "y": -2.089555, 
             "z": 0.000000
           }
         }, 
@@ -31,7 +31,7 @@
           "Vec3": 
           {
             "x": 1.000000, 
-            "y": 6.000000, 
+            "y": 12.000000, 
             "z": 1.000000
           }
         }
@@ -44,9 +44,9 @@
           "Vec4": 
           {
             "x": 0.300000, 
-            "y": 0.800000, 
-            "z": 0.400000, 
-            "w": 1.000000
+            "y": 0.600000, 
+            "z": 0.900000, 
+            "w": 0.500000
           }
         }, 
         "SpriteSource": "square", 
@@ -78,24 +78,9 @@
             "z": 0.000000
           }
         }, 
-        "Ghost": false, 
+        "Ghost": true, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
-      }, 
-      "MoveToLocation": 
-      {
-        "Timer": 0.000000, 
-        "TargetLocation": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 10.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "MoveToLocationTime": 1.000000, 
-        "Moving": false
       }
     }
   }
