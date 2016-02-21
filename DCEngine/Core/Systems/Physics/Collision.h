@@ -23,6 +23,7 @@ namespace DCEngine
   {
   public:
     static bool BoxtoBox(GameObject *obj1, GameObject *obj2, Manifold &result);
+    static bool SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance);
     static bool CircletoBox(GameObject * objrect, GameObject * objcircle, Manifold &result);
     static std::vector<std::vector<float>> ProjectOnTo(std::vector<glm::vec3> &verts1, std::vector<glm::vec3> &verts2, glm::vec3 &Axis);
     static bool CircletoCircle(GameObject *obj1, GameObject *obj2, Manifold &result);

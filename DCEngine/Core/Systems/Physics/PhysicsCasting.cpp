@@ -15,32 +15,96 @@ and so on.
       #manualphysicscastingoverview
 */
 /******************************************************************************/
-#include "Physics.h"
 #pragma once
-
+#include "Physics.h"
+#include "../../Components/Transform.h"
 namespace DCEngine
 {
   namespace Systems 
   {
 
-    Vec3 GenerateSegment(Ray &ray)
+    Vec3 GenerateSegment(Ray &ray, Components::PhysicsSpace *Space)
     {
-      // r = ray, s = segment.
-      /*
-      Vec3 Sstart = ray.Space->
+      
+      Vec3 Sstart = Vec3(Space->MinX, Space->MaxY, 0);
+      Vec3 Send = Vec3(Space->MaxX, Space->MaxY, 0);
 
-      Vec3 v1 = ray.Origin – s.start;
-      Vec3 v2 = s.end – s.start;
-      Vec3 v3;
-      if ((s.dir).cross(r.dir) > 0)
-        v3 = r.dir.getRPerp(); // Vec2(y, -x);
-      else
-        v3 = r.dir.getPerp(); // Vec2(-y, x);
-      float t1 = abs(v2.cross(v1)) / v2.dot(v3);
-      float t2 = v1.dot(v3) / v2.dot(v3);
-      if (t1 0 && t2 < 1) return make_pair(true, Vec2(r.start + r.dir * t1));
-      return make_pair(false, Vec2::ZERO);*/
+      Vec3 SegmentDir = glm::normalize(Send - Sstart);
+
+      float T1, T2;
+      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        return Vec3(ray.Origin + (T2 * ray.Direction));
+      }
+
+
+      Sstart = Vec3(Space->MaxX, Space->MaxY, 0);
+      Send = Vec3(Space->MaxX, Space->MinY, 0);
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        return Vec3(ray.Origin + (T2 * ray.Direction));
+      }
+
+      Sstart = Vec3(Space->MaxX, Space->MinY, 0);
+      Send = Vec3(Space->MinX, Space->MinY, 0);
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        return Vec3(ray.Origin + (T2 * ray.Direction));
+      }
+
+      Sstart = Vec3(Space->MinX, Space->MinY, 0);
+      Send = Vec3(Space->MinX, Space->MaxY, 0);
+
+      SegmentDir = glm::normalize(Send - Sstart);
+
+      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
+
+      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      {
+        // Collision detected
+        // Return the point of intersection
+        return Vec3(ray.Origin + (T2 * ray.Direction));
+      }
+
+
+
+      // if we get here there is a serious problem
+      throw (DCException("shit man this is bad my line segment algorithm dont work"));
+
       return Vec3();
+    }
+
+    bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, DCEngine::CollisionGroup group)
+    {
+      for (auto Group : Groups)
+      {
+        if (Group.Name() == group.Name())
+        {
+          return true;
+        }
+      }
     }
 
     /**************************************************************************/
@@ -50,9 +114,40 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResult Physics::CastRay(Ray & ray)
+    CastResult Physics::CastRay(Ray & ray, Components::PhysicsSpace *Space)
     {
-      return CastResult();
+      CastResult retval;
+
+      Vec3 endpoint = GenerateSegment(ray, Space);
+
+      std::pair<Vec3, Vec3> segment;
+      segment.first = ray.Origin;
+      segment.second = endpoint;
+      
+      retval.Distance = FLT_MAX;
+
+      auto colliders = Space->AllColliders();
+
+      float Distance = 0;
+
+      for (auto &object : colliders)
+      {
+
+        if (Collision::SegmentToCollider(segment, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        {
+          if (Distance < retval.Distance)
+          {
+            retval.Distance = Distance;
+            Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+            retval.WorldPosition = transform->Translation;
+
+          }
+        }
+
+      }
+
+      return retval;
     }
 
     /**************************************************************************/
@@ -63,9 +158,54 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResult Physics::CastRay(Ray & ray, CastFilter & filter)
+    CastResult Physics::CastRay(Ray & ray, CastFilter & filter, Components::PhysicsSpace *Space)
     {
-      return CastResult();
+      CastResult retval;
+
+      Vec3 endpoint = GenerateSegment(ray, Space);
+
+      std::pair<Vec3, Vec3> segment;
+      segment.first = ray.Origin;
+      segment.second = endpoint;
+
+      retval.Distance = FLT_MAX;
+
+      auto colliders = Space->AllColliders();
+
+      float Distance = 0;
+
+      for (auto &object : colliders)
+      {
+
+        if (Collision::SegmentToCollider(segment, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        {
+          if (filter.Include)
+          {
+            if (Distance < retval.Distance && isGroup(filter.CollisionGroups, object->getCollisionGroup()))
+            {
+              retval.Distance = Distance;
+              Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+              retval.WorldPosition = transform->Translation;
+
+            }
+          }
+          else
+          {
+            if (Distance < retval.Distance && !isGroup(filter.CollisionGroups, object->getCollisionGroup()))
+            {
+              retval.Distance = Distance;
+              Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+              retval.WorldPosition = transform->Translation;
+
+            }
+          }
+        }
+
+      }
+
+      return retval;
     }
 
     /**************************************************************************/
