@@ -25,6 +25,7 @@ namespace DCEngine {
       EditorArchetypes(Editor& editor);
       ~EditorArchetypes();
       void Select(ArchetypeHandle archetype);
+      void Deselect();
       void Preview();
 
     private:
@@ -32,7 +33,6 @@ namespace DCEngine {
       GameObject* CurrentArchetype;      
       Space* ArchetypeSpace;
 
-      void Deselect();
 
     };
 

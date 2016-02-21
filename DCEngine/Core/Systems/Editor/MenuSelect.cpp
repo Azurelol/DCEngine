@@ -160,6 +160,7 @@ namespace DCEngine {
     {
       SelectedObjects.clear();
       SelectedObjects.push_back(object);
+	  Windows.PropertiesEnabled = true;
     }
 
     /**************************************************************************/
@@ -212,6 +213,9 @@ namespace DCEngine {
       SelectedObjects.clear();
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Deselect();
+	  // Deselect Archetypes
+	  Archetypes.Deselect();
+	  
     }
 
     /**************************************************************************/

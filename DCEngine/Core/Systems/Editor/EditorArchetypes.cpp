@@ -15,21 +15,39 @@
 namespace DCEngine {
   namespace Systems {
 
+	/**************************************************************************/
+	/*!
+	@brief EditorArchetypes constructor.
+	@param editor A reference to the Editor system.
+	*/
+	/**************************************************************************/
     EditorArchetypes::EditorArchetypes(Editor & editor) : EditorRef(editor)
     {
       ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
     }
 
+	/**************************************************************************/
+	/*!
+	@brief EditorArchetypes destructor.
+	*/
+	/**************************************************************************/
     EditorArchetypes::~EditorArchetypes()
     {
       ArchetypeSpace->Destroy();
     }
 
+	/**************************************************************************/
+	/*!
+	@brief Selects an Archetype, instantiating it.
+	*/
+	/**************************************************************************/
     void EditorArchetypes::Select(ArchetypeHandle archetype)
     {
+	  // Deselect the previous archetype
+	  //Deselect();
       // Instantiate the archetype
-      ArchetypeSpace->CreateObject(archetype);
-      
+      CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
+	  EditorRef.Select(CurrentArchetype);      
     }
 
     void EditorArchetypes::Preview()
