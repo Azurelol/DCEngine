@@ -325,7 +325,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Ball", 
             "Size": 
             {
               "Vec3": 
@@ -919,7 +919,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "DefaultCollisionGroup", 
+            "CollisionGroup": "Player", 
             "Size": 
             {
               "Vec3": 

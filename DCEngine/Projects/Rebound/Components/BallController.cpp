@@ -37,7 +37,7 @@ namespace DCEngine {
 
 		void BallController::Initialize()
 		{
-			auto gameObj = dynamic_cast<GameObject*>(Owner());
+			gameObj = dynamic_cast<GameObject*>(Owner());
 			Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
 			Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
 			Connect(gameObj, Events::CollisionStarted, BallController::OnCollisionStartedEvent);
@@ -60,7 +60,7 @@ namespace DCEngine {
 			}
 			RigidBodyRef->setRestitution(Restitution);
 			RigidBodyRef->setFriction(Friction);
-			CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+			//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
 		}
 
 		void BallController::Serialize(Json::Value & root)
@@ -116,6 +116,12 @@ namespace DCEngine {
 		{
 			if (event->ButtonReleased == MouseButton::Left)
 			{
+				if (gameObj->Parent() != nullptr)
+				{
+					int x = 10;
+					gameObj->Detach();
+					int i = 9;
+				}
 				auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(event->Position));
 				auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Components::Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Components::Transform>()->Translation.y, 0));
 				if (CurrentlyFired && glm::distance(TransformRef->getTranslation(), PlayerRef->getComponent<Components::Transform>()->getTranslation()) < 5)
@@ -155,7 +161,7 @@ namespace DCEngine {
 			}
 			if (event->ButtonReleased == MouseButton::Right && CollidingWithPlayer == false)
 			{
-				//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
+				CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
 			}
 
 
@@ -167,11 +173,14 @@ namespace DCEngine {
 			if (event->OtherObject->getComponent<Components::PlayerController>())
 			{
 				CollidingWithPlayer = true;
-				CurrentlyFired = false;
-				SpriteRef->Color = NormalColor;
-				if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution)
+				if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
 				{
-
+					CurrentlyFired = false;
+					SpriteRef->Color = NormalColor;
+					RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+					//RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
+					TransformRef->setTranslation(event->OtherObject->getComponent<Components::Transform>()->WorldTranslation);
+					gameObj->AttachTo(event->OtherObject);
 				}
 			}
 		}
@@ -183,13 +192,19 @@ namespace DCEngine {
 				CollidingWithPlayer = false;
 				if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution)
 				{
-					//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
+					CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
+					//gameObj->Detach();
 				}
 			}
 		}
 
 		void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+			if (gameObj->Parent() != nullptr)
+			{
+				RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+				TransformRef->setTranslation(gameObj->Parent()->getComponent<Components::Transform>()->Translation);
+			}
 			//DCTrace << (CollisionTableRef->GetResolve("Ball", "Player");
 			if (Daisy->getKeyboard()->KeyIsDown(Keys::F))
 			{
