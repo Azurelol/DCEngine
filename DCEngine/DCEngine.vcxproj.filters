@@ -304,6 +304,9 @@
     <Filter Include="Core\Systems\Editor\Project">
       <UniqueIdentifier>{9d342821-1780-47db-ba60-d9bf84719517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Object\Module">
+      <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -852,6 +855,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
       <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Module.cpp">
+      <Filter>Core\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1445,6 +1451,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorResources.h">
       <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Module.h">
+      <Filter>Core\Object\Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

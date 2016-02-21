@@ -21,9 +21,9 @@ namespace DCEngine {
 	@param editor A reference to the Editor system.
 	*/
 	/**************************************************************************/
-    EditorArchetypes::EditorArchetypes(Editor & editor) : EditorRef(editor)
+    EditorArchetypes::EditorArchetypes(Editor & editor) : EditorRef(editor), ArchetypeSpace(nullptr)
     {
-      ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
+      
     }
 
 	/**************************************************************************/
@@ -33,7 +33,8 @@ namespace DCEngine {
 	/**************************************************************************/
     EditorArchetypes::~EditorArchetypes()
     {
-      ArchetypeSpace->Destroy();
+      if (ArchetypeSpace)      
+        ArchetypeSpace->Destroy();
     }
 
 	/**************************************************************************/
@@ -42,17 +43,20 @@ namespace DCEngine {
 	*/
 	/**************************************************************************/
     void EditorArchetypes::Select(ArchetypeHandle archetype)
-    {
-	  // Deselect the previous archetype
-	  //Deselect();
+    {    
       // Instantiate the archetype
       CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
-	  EditorRef.Select(CurrentArchetype);      
+	    EditorRef.Select(CurrentArchetype);      
     }
 
     void EditorArchetypes::Preview()
     {
       // Previews the currently selected archetype on the a separate viewport/space
+    }
+
+    void EditorArchetypes::ConstructSpace()
+    {
+      ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
     }
 
     void EditorArchetypes::Deselect()

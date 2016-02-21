@@ -339,6 +339,7 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Objects\Module.cpp" />
     <ClCompile Include="Core\Objects\Object.cpp" />
     <ClCompile Include="Core\Objects\Resource.cpp" />
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
@@ -486,6 +487,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Objects\Module.h" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">

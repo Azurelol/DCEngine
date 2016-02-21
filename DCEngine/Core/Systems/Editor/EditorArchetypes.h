@@ -11,6 +11,7 @@
 #pragma once
 
 #include "../../Resources/Archetype.h"
+#include "../System.h"
 
 namespace DCEngine {
 
@@ -29,6 +30,8 @@ namespace DCEngine {
       void Preview();
 
     private:
+      void ConstructSpace();
+      void OnEditorDeselectObjectEvent(Events::EditorDeselectObject* event);
       Editor& EditorRef;
       GameObject* CurrentArchetype;      
       Space* ArchetypeSpace;
