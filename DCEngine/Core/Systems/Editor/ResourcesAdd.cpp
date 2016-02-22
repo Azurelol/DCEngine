@@ -82,10 +82,10 @@ namespace DCEngine {
 
       // Open the file dialog by default on the project's resource path
       auto executablePath = boost::filesystem::initial_path().string();      
-      auto resourcesPath = executablePath + "\\" + Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->AssetPath;
+      auto resourcesPath = executablePath + "\\" + Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->AssetPath;
       FileSystem::CorrectPath(resourcesPath);      
       //auto a = boost::filesystem::
-      //auto resourcesPath = executablePath + Settings.ProjectsPath + Settings.ProjectInfo->ResourcePath; // "\\Projects";
+      //auto resourcesPath = executablePath + Settings.ProjectsPath + Settings.ProjectProperties->ResourcePath; // "\\Projects";
       // If the projects directory doesn't exist, start from the executable
       if (!FileSystem::Exists(resourcesPath)) {
         resourcesPath = executablePath;
@@ -162,7 +162,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateBank(std::string & name, std::string& assetPath)
     {
       DCTrace << "Editor::CreateBank - Creating " << name << "\n";
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                                                     + name + Bank::Extension();
       auto resource = BankPtr(new Bank(path));
       // Save its asset path
@@ -185,7 +185,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateCollisionGroup(std::string & name)
     {
       DCTrace << "Editor::CreateCollisionGroup - Creating " << name << "\n";
-      auto collisionGroupPath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath 
+      auto collisionGroupPath = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath 
                                 + name + CollisionGroup::Extension();
       auto collisionGroup = CollisionGroupPtr(new CollisionGroup(collisionGroupPath));
       Daisy->getSystem<Content>()->AddCollisionGroup(name, collisionGroup);
@@ -205,7 +205,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateCollisionTable(std::string & name)
     {
       DCTrace << "Editor::CreateCollisionTable - Creating " << name << "\n";
-      auto collisionTablePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto collisionTablePath = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                                 + name + CollisionTable::Extension();
       auto collisionTable = CollisionTablePtr(new CollisionTable(collisionTablePath));
       Daisy->getSystem<Content>()->AddCollisionTable(name, collisionTable);      
@@ -224,7 +224,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreatePhysicsMaterial(std::string & name)
     {
       DCTrace << "Editor::CreatePhysicsMaterial - Creating " << name << "\n";
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                   + name + PhysicsMaterial::Extension();
       auto resource = PhysicsMaterialPtr(new PhysicsMaterial(path));
       Daisy->getSystem<Content>()->AddPhysicsMaterial(name, resource);
@@ -248,7 +248,7 @@ namespace DCEngine {
     {
       DCTrace << "Editor::CreateSpriteSource - Created '" << name << "' with asset: '" << assetPath << "' \n";  
       // Create a SpriteSource object
-      auto spriteSourcePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SpriteSource::Extension();
+      auto spriteSourcePath = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath + name + SpriteSource::Extension();
       auto spriteSource = SpriteSourcePtr(new SpriteSource(spriteSourcePath));
       // Store the path of its asset
       spriteSource->setAssetPath(assetPath);
@@ -276,7 +276,7 @@ namespace DCEngine {
     {
       DCTrace << "Editor::CreateSoundCue - Created '" << name << "' with asset: '" << assetPath << "' \n";
       // Create a SoundCue object
-      auto soundCuePath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + SoundCue::Extension();
+      auto soundCuePath = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath + name + SoundCue::Extension();
       auto soundCue = SoundCuePtr(new SoundCue(soundCuePath, SoundCue::SoundCueType::File));
       // Store the path of its asset
       soundCue->setAssetPath(assetPath);
@@ -299,7 +299,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateZilchScript(std::string & name)
     {
       DCTrace << "Editor::CreateZilchScript - Creating " << name << "\n";
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                   + name + ZilchScript::Extension();
       FileSystem::CorrectPath(path);
       auto script = ZilchScriptPtr(new ZilchScript(path));
@@ -332,7 +332,7 @@ namespace DCEngine {
     {
       DCTrace << "Editor::CreateFont - Created '" << name << "' with asset: '" << assetPath << "' \n";
       // Create a SpriteSource object
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath + name + Font::Extension();
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath + name + Font::Extension();
       auto font = FontPtr(new Font(path));
       // Store the path of its asset
       font->setAssetPath(assetPath);
@@ -356,7 +356,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateSpriteLayer(std::string & name)
     {
       DCTrace << "Editor::CreateSpriteLayer - Creating " << name << "\n";
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                                             + name + SpriteLayer::Extension();
       auto resource = SpriteLayerPtr(new SpriteLayer(path));
       Daisy->getSystem<Content>()->AddSpriteLayer(name, resource);
@@ -375,7 +375,7 @@ namespace DCEngine {
     ResourcePtr Editor::CreateSpriteLayerOrder(std::string & name)
     {
       DCTrace << "Editor::CreateSpriteLayerOrder - Creating " << name << "\n";
-      auto path = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath
+      auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                   + name + SpriteLayerOrder::Extension();
       auto resource = SpriteLayerOrderPtr(new SpriteLayerOrder(path));
       Daisy->getSystem<Content>()->AddSpriteLayerOrder(name, resource);

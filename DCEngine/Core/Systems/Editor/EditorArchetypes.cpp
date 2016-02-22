@@ -74,7 +74,7 @@ namespace DCEngine {
     void EditorArchetypes::UploadArchetype(ArchetypeHandle archetype)
     {
       // Get the current project's archetype path
-      auto path = EditorRef.Settings.ProjectInfo->ProjectPath + EditorRef.Settings.ProjectInfo->ResourcePath
+      auto path = EditorRef.Settings.ProjectProperties->ProjectPath + EditorRef.Settings.ProjectProperties->ResourcePath
                    + archetype + Archetype::Extension();
 
       // Create the archetype

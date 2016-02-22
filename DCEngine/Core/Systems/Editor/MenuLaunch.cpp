@@ -24,7 +24,7 @@ namespace DCEngine {
     {
       // Open the projects path
       auto executablePath = boost::filesystem::initial_path().string();
-      auto projectPath = "\\" + Settings.ProjectInfo->ProjectPath;
+      auto projectPath = "\\" + Settings.ProjectProperties->ProjectPath;
       FileSystem::CorrectPath(projectPath);
       // If the projects directory doesn't exist, start from the executable      
       if (FileSystem::Exists(executablePath + projectPath)) {

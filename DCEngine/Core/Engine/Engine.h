@@ -53,6 +53,7 @@ namespace DCEngine {
     auto Stop() { Active = false; }
     void LoadProject(std::string& filename);
     void StartProject();    
+    float Dt() { return DeltaTime; }
 
     Keyboard* getKeyboard() { return KeyboardHandle.get(); }
     Mouse* getMouse() { return MouseHandle.get(); }
@@ -81,7 +82,7 @@ namespace DCEngine {
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;
     MousePtr MouseHandle;
-    float dt; //!< Delta time. 
+    float DeltaTime; //!< Delta time. 
     float Framerate = 60.0f; //!< The target frame rate.
     float Runtime; //!< How long the engine has been running.
     bool Active; //!< Whether the engine is active or not.      

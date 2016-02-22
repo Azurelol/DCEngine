@@ -24,7 +24,7 @@ namespace DCEngine {
     Content::Content(std::string& coreAssetsPath) : 
                      System(std::string("ContentSystem"), EnumeratedSystem::Content),
                      CoreAssetsPath(coreAssetsPath) {
-      ProjectInfo.reset(new ProjectData());
+      ProjectInfo.reset(new ProjectProperties());
     }
 
     /**************************************************************************/
@@ -89,7 +89,7 @@ namespace DCEngine {
     
     /**************************************************************************/
     /*!
-    @brief Deserializes a ProjectData file for project data settings.
+    @brief Deserializes a ProjectProperties file for project data settings.
     */
     /**************************************************************************/
     void Content::LoadProjectData(const std::string& projectData)
@@ -111,7 +111,7 @@ namespace DCEngine {
     void Content::LoadProject(const std::string& projectDataPath)
     {
       // Deserialize the project data
-      ProjectInfo.reset(new ProjectData);
+      ProjectInfo.reset(new ProjectProperties);
       std::string projectDataString;
       bool worked;
       if (FileSystem::FileReadToString(projectDataPath, projectDataString))

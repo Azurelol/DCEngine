@@ -307,6 +307,12 @@
     <Filter Include="Core\Object\Module">
       <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Utilities">
+      <UniqueIdentifier>{387a41df-d237-4a6d-a408-384911e4ed1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Projects">
+      <UniqueIdentifier>{95314a66-638d-43d1-b1cf-f444fdb0a9b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -856,6 +862,15 @@
     <ClCompile Include="Core\Objects\Module.cpp">
       <Filter>Core\Object\Module</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\Timer.cpp">
+      <Filter>Core\Engine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp">
+      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorModule.cpp">
+      <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -863,9 +878,6 @@
     </ClInclude>
     <ClInclude Include="Core\Debug\Debug.h">
       <Filter>Core\Engine\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Libraries\Timer.h">
-      <Filter>Libraries</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\System.h">
       <Filter>Core\Systems</Filter>
@@ -1451,6 +1463,15 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Module.h">
       <Filter>Core\Object\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Timer.h">
+      <Filter>Core\Engine\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorProjects.h">
+      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorModule.h">
+      <Filter>Core\Systems\Editor\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

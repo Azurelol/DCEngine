@@ -18,7 +18,7 @@ namespace DCEngine {
   class Entity;
   class Component;
   class System;
-  struct ProjectData;
+  struct ProjectProperties;
 
   class SerializerJSONCPP {
   public:

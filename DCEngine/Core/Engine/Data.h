@@ -64,40 +64,67 @@ namespace DCEngine {
   };
   using EngineConfigPtr = std::unique_ptr<EngineConfig>;
 
-
   /**************************************************************************/
   /*!
-  @brief Configuration data for a Daisy Engine project.
-  @note This structure is deserialized from a config file called "Project.dcp"
+  @struct EditorPreferences Preferences for the Editor.
   */
   /**************************************************************************/
-  struct ProjectData {
-    std::string ProjectName;
-    std::string DefaultSpace;
-    std::string DefaultLevel;
-    std::string ProjectPath;
-    std::string ResourcePath;
-    std::string AssetPath;
-    std::string ScriptPath;
-    bool Play;
+  struct EditorPreferences {
+
+
 
     void Serialize(Json::Value& root) {
     }
 
     void Deserialize(Json::Value& root) {
-
-      ProjectName = root.get("Project Name", "").asString();
-      DefaultLevel = root.get("Default Level", "").asString();
-      DefaultSpace = root.get("Default Space", "").asString();
-      ProjectPath = root.get("Project Path", "").asString();
-      ResourcePath = root.get("Resource Path", "").asString();
-      AssetPath = root.get("Asset Path", "").asString();
-      ScriptPath = root.get("Script Path", "").asString();
-      Play = root.get("Play", "").asBool();
     }
 
   };
-  using ProjectDataPtr = std::unique_ptr<ProjectData>;
+
+
+
+  /**************************************************************************/
+  /*!
+  @struct ProjectProperties Configuration data for a project.
+  */
+  /**************************************************************************/
+  struct ProjectProperties {
+    std::string ProjectName;
+    std::string ProjectPath;
+    // Levels
+    std::string DefaultSpace;
+    std::string DefaultLevel;
+    // Resources
+    std::string ResourcePath;
+    std::string AssetPath;
+    // Settings
+    bool Play;
+
+    void Serialize(Json::Value& root) {
+      root["Project Name"] = ProjectName;
+      root["Project Path"] = ProjectPath;
+      root["Default Space"] = DefaultSpace;
+      root["Default Level"] = DefaultLevel;
+      root["Resource Path"] = ResourcePath;
+      root["Asset Path"] = AssetPath;
+      root["Project Name"] = ProjectName;
+      root["Play"] = Play;
+    }
+    void Deserialize(Json::Value& root) {
+
+      ProjectName    = root.get("Project Name", "").asString();
+      DefaultLevel   = root.get("Default Level", "").asString();
+      DefaultSpace   = root.get("Default Space", "").asString();
+      ProjectPath    = root.get("Project Path", "").asString();
+      ResourcePath   = root.get("Resource Path", "").asString();
+      AssetPath      = root.get("Asset Path", "").asString();
+      Play           = root.get("Play", "").asBool();
+    }
+
+    static std::string Extension() { return ".dceproj"; }
+
+  };
+  using ProjectDataPtr = std::unique_ptr<ProjectProperties>;
 
   struct AssetsData {
     std::string SpritePath;

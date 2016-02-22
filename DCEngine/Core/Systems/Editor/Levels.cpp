@@ -45,6 +45,8 @@ namespace DCEngine {
       SetEditorCamera(true);
       // Sets the current window's caption
       UpdateCaption();
+      // Set it as the default level
+      Settings.ProjectProperties->DefaultLevel = level;
       return true;
     }
 
@@ -61,7 +63,7 @@ namespace DCEngine {
       DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
 
       // Get the current project's path
-      std::string LevelPath = Settings.ProjectInfo->ProjectPath + Settings.ProjectInfo->ResourcePath;
+      std::string LevelPath = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath;
       // ("Projects/Rebound/Resources/Levels/");
       auto levelResource = CurrentSpace->SaveLevel(LevelPath + level + Level::Extension());
 

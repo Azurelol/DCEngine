@@ -24,34 +24,28 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::DisplayMainMenuBar()
     {
-		bool IsFullScreenTriggered = false;
+      bool IsFullScreenTriggered = false;
       if (ImGui::BeginMainMenuBar()) {
 
         // Project
         if (ImGui::BeginMenu("Project")) {
-          if (ImGui::MenuItem("New Project"))
-            NewProject();          
-          if (ImGui::MenuItem("Archive Project"))
-            ArchiveProject();
-          if (ImGui::MenuItem("Open Project"))
-            OpenProject();
-          if (ImGui::MenuItem("Save Project"))
-            SaveProject();
+          if (ImGui::MenuItem("New Project")) NewProject();
+          if (ImGui::MenuItem("Archive Project")) ArchiveProject();
+          if (ImGui::MenuItem("Open Project")) OpenProject();
+          if (ImGui::MenuItem("Save Project")) Projects.SaveProject();
           if (ImGui::MenuItem("Show Project Folder")) LaunchProjectFolder();
+          if (ImGui::MenuItem("Project Properties")) Projects.ToggleProperties();
           ImGui::Separator();
-          if (ImGui::MenuItem("Play Game", "F5"))
-            PlayGame();
-          if (ImGui::MenuItem("Stop Game"))
-            StopGame();
-          if (ImGui::MenuItem("Exit"))
-            Exit();
+          if (ImGui::MenuItem("Play Game", "F5")) PlayGame();
+          if (ImGui::MenuItem("Stop Game")) StopGame();
+          if (ImGui::MenuItem("Exit")) Exit();
           ImGui::EndMenu();
         }
 
         // Edit
         if (ImGui::BeginMenu("Edit")) {
           if (ImGui::MenuItem("Undo", "CTRL+Z")) { Undo(); }
-          if (ImGui::MenuItem("Redo", "CTRL+Y")) { Redo(); } 
+          if (ImGui::MenuItem("Redo", "CTRL+Y")) { Redo(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Cut", "CTRL+X")) { Cut(); }
           if (ImGui::MenuItem("Copy", "CTRL+C")) { Copy(); }
@@ -111,11 +105,11 @@ namespace DCEngine {
           //ImGui::Separator();
           /*if (ImGui::MenuItem("Load Dollhouse"))
             LoadDollhouse();*/
-          //ReloadLevel();
+            //ReloadLevel();
           ImGui::EndMenu();
         }
 
-        // Windows.s
+        // Windows
         if (ImGui::BeginMenu("Windows")) {
           if (ImGui::MenuItem("Properties"))
             Windows.PropertiesEnabled = !Windows.PropertiesEnabled;
@@ -131,11 +125,11 @@ namespace DCEngine {
             Windows.CommandsEnabled = !Windows.CommandsEnabled;
           if (ImGui::MenuItem("Console", "~"))
             Windows.ConsoleEnabled = !Windows.ConsoleEnabled;
-		  ImGui::Separator();
-		  if (ImGui::MenuItem("Full Screen/Windows. mode"))
-		  {
-			  IsFullScreenTriggered = true;
-		  }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Full Screen/Windows. mode"))
+          {
+            IsFullScreenTriggered = true;
+          }
 
           ImGui::EndMenu();
         }
@@ -152,20 +146,17 @@ namespace DCEngine {
           ImGui::EndMenu();
         }
         
-        //ImGui::PushID(1);
-        ImGui::BeginChild("Project2", ImVec2(30, 30));
-        ImGui::EndChild();
-
         ImGui::EndMainMenuBar();
 
       }
-	  if (IsFullScreenTriggered)
-	  {
-		  auto fsevent = new Events::FullscreenEnabledEvent();
-		  Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
-		  delete fsevent;
-		  return;
-	  }
+
+      if (IsFullScreenTriggered)
+      {
+        auto fsevent = new Events::FullscreenEnabledEvent();
+        Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
+        delete fsevent;
+        return;
+      }
     }
 
   }

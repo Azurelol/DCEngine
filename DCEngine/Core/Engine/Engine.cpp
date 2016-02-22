@@ -19,7 +19,7 @@ Description here.
 #include <algorithm> // for_each
 
 #include "..\Systems\SystemsInclude.h"
-#include "..\..\Libraries\Timer.h"
+#include "Timer.h"
 #include "..\Debug\Debug.h" // Trace
 #include "..\EventsInclude.h"
 
@@ -439,11 +439,11 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Loop() {
-    dt = 1.0f / EngineConfiguration->Framerate;
+    DeltaTime = 1.0f / EngineConfiguration->Framerate;
 
     while (Active) {
-      ScopeTimer frameTimer(&dt);
-      Update(dt);
+      Time::ScopeTimer frameTimer(&DeltaTime);
+      Update(DeltaTime);
     }
   }
 }

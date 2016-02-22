@@ -2,6 +2,7 @@
 
 #include "../../Engine/Data.h"
 #include "../../Engine/Command.h"
+#include "../../Engine/Timer.h"
 
 namespace DCEngine {
 
@@ -12,11 +13,11 @@ namespace DCEngine {
   /**************************************************************************/
   struct EditorConfig {
     // Project
-    Real AutoSaveTimer;
+    Time::Timer AutoSaveTimer;
     bool EditorEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;
-    ProjectData* ProjectInfo;
+    ProjectProperties* ProjectProperties;
     // Window
     Vec2 ViewportResize;
     // Tools
@@ -39,7 +40,8 @@ namespace DCEngine {
     // Console
     size_t ConsoleWindowStringLength = 0;
     size_t PreviousConsoleWindowStringLength = 0;
-    EditorConfig() : AutoSaveTimer(0.0f), CameraLastPos(0.0f, 0.0f, 40.0f) {}
+    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Timer, true),  
+                     CameraLastPos(0.0f, 0.0f, 40.0f) {}
   };
 
   /**************************************************************************/

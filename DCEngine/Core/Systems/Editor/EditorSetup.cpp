@@ -127,7 +127,7 @@ namespace DCEngine {
     void Editor::UpdateCaption()
     {
       // Get the current project's name
-      auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
+      auto projectName = Settings.ProjectProperties->ProjectName;
       std::string levelName;
       if (CurrentSpace->CurrentLevel)
         levelName = CurrentSpace->CurrentLevel->getObjectName();

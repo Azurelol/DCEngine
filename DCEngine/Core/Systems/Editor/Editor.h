@@ -39,6 +39,7 @@ namespace DCEngine {
       friend class EditorCreator;
       friend class EditorArchetypes;
       friend class EditorResources;
+      friend class EditorProjects;
 
     public:
 
@@ -84,6 +85,7 @@ namespace DCEngine {
       EditorResources Resources;
       EditorArchetypes Archetypes;
       EditorWindows Windows;
+      EditorProjects Projects;
 
       TransformToolData Transformation;
       // Objects
@@ -125,11 +127,14 @@ namespace DCEngine {
       void OpenProject();
       void OpenRecentProject();
       void LoadProject(std::string path);
-      void SaveProject();
+      void AutoSave();
       void SaveCurrentLevel();
       void PlayGame();
       void StopGame();
       void ExportGame();
+      bool LoadLevel(std::string level);
+      bool SaveLevel(std::string level);
+      bool ReloadLevel();
       void Exit();
       // Select
       ObjectContainer SelectedObjects;
@@ -171,9 +176,6 @@ namespace DCEngine {
       ResourcePtr SelectedCollisionTable;
       SpriteLayerOrderPtr SelectedSpriteLayerOrder;
 
-      bool LoadLevel(std::string level);
-      bool SaveLevel(std::string level);
-      bool ReloadLevel();
       // Object Selection
       void WindowCommands();
       void Undo();

@@ -22,7 +22,8 @@ namespace DCEngine {
     /**************************************************************************/
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
                                                           Settings(settings), 
-                                                          Creator(*this), Resources(*this), Archetypes(*this)
+                                                          Creator(*this), Resources(*this), Archetypes(*this),
+                                                          Projects(*this)
     {      
     }
 
@@ -246,6 +247,11 @@ namespace DCEngine {
       WindowCollisionTableEditor();
       WindowSpriteLayerOrderEditor();
       WindowCommands();
+
+      Projects.WindowProjectProperties();
+
+      // Autosave
+      AutoSave();
     }
 
     /**************************************************************************/

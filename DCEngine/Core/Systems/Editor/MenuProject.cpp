@@ -72,17 +72,18 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::LoadProject(std::string path)
     {
-
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
+      // Save a pointer to the project data
+      Settings.ProjectProperties = Daisy->getSystem<Content>()->ProjectInfo.get();
       // Update the window caption to display the current project
       auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
       DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
       DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
       // Load its default level 
-      auto play = Daisy->getSystem<Content>()->ProjectInfo->Play;
-      auto load = LoadLevel(Daisy->getSystem<Content>()->ProjectInfo->DefaultLevel);
+      auto play = Settings.ProjectProperties->Play;
+      auto load = LoadLevel(Settings.ProjectProperties->DefaultLevel);
 
       if (load) {
         if (play) {       
@@ -99,20 +100,22 @@ namespace DCEngine {
       else
         ToggleEditor(true);
 
-      // Save a pointer to the project data
-      Settings.ProjectInfo = Daisy->getSystem<Content>()->ProjectInfo.get();
      }
     
 
     /**************************************************************************/
     /*!
-    @brief  Saves the active project.
-    @note   This function will serialize back into the file.
+    @brief  Autosaves the current project.
     */
     /**************************************************************************/
-    void Editor::SaveProject()
+    void Editor::AutoSave()
     {
-      // Serialize all resources, scripts
+      // The timer's update will return true every 60 seconds. When it does so,
+      // we will automatically save the current level.
+      if (Settings.AutoSaveTimer.Update()) {
+        DCTrace << "Editor::AutoSave - Autosaving... \n";
+        SaveCurrentLevel();
+      }
     }
 
     /**************************************************************************/
@@ -140,7 +143,7 @@ namespace DCEngine {
     void Editor::PlayGame()
     {
       DCTrace << "Editor::PlayGame - Playing: /"
-              << Daisy->getSystem<Content>()->ProjectInfo->ProjectName << "'\n";
+              << Settings.ProjectProperties->ProjectName << "'\n";
       
       // If on editor mode, save the currently-loaded level before exiting the editor
       if (Settings.EditorEnabled)      
@@ -176,7 +179,9 @@ namespace DCEngine {
     {
       Deselect();
       // Save the currently-loaded level before exiting the editor
-      SaveCurrentLevel();      
+      SaveCurrentLevel();
+      // Save the current project's settings
+      Projects.SaveProject();
       DispatchSystemEvents::EngineExit();
     }
 

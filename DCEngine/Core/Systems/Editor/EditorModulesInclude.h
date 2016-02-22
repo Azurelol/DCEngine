@@ -4,3 +4,4 @@
 #include "EditorResources.h"
 #include "EditorCreator.h"
 #include "EditorArchetypes.h"
+#include "EditorProjects.h"
