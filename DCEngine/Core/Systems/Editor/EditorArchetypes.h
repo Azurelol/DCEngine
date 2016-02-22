@@ -26,8 +26,8 @@ namespace DCEngine {
       EditorArchetypes(Editor& editor);
       ~EditorArchetypes();
       void Select(ArchetypeHandle archetype);
-      void Preview();
-      void UploadArchetype(ArchetypeHandle archetype);
+      void Preview();      
+      void UploadArchetype(ArchetypeHandle archetype);      
       void RevertToArchetype(EntityPtr entity);
 
     private:

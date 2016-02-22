@@ -627,17 +627,6 @@ namespace DCEngine {
       return false;
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Reverts a GameObject to its Archetype from file.
-    */
-    /**************************************************************************/
-    void Editor::RevertToArchetype()
-    {
-      // Delete the object
-
-      // Recreate it from archetype, setting up parenting again
-    }
 
     /**************************************************************************/
     /*!

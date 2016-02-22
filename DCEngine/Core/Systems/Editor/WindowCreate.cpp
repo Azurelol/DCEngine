@@ -48,7 +48,7 @@ namespace DCEngine {
           ImGui::InputText("##archetype", archetypeName, IM_ARRAYSIZE(archetypeName));
 
           if (ImGui::Button("Create")) {
-            CreateFromArchetype(std::string(archetypeName));
+            Creator.CreateFromArchetype(std::string(archetypeName));
             Windows.CreateFromArchetypeEnabled = false;
           }
           ImGui::SameLine();

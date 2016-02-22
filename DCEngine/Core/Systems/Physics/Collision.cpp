@@ -32,6 +32,24 @@ namespace DCEngine
     return sqrt(a * b);
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  This function determines if a point is within the boundary
+          of a cube defined by translation, scale and rotation data.
+  @param  point The position of the point.
+  @param  translation The center of the cube.
+  @param  rotation The rotation of the cube.
+  @param  scale The scale of the cube.  
+  @return True if it was found within the bounding area, false if not.
+  */
+
+  /**************************************************************************/
+  bool Collision::PointToBoundingCube(const Vec3 & point, const Vec3 & translation, const Vec3 & rotation, const Vec3 & scale)
+  {
+    return false;
+  }
+
+
   // remember to come back and fill these out with manifold data
 
   /**************************************************************************/
@@ -42,6 +60,7 @@ namespace DCEngine
   @param  A pointer to the second object.
   @return True if a collision was detected, false otherwise.
   */
+
   /**************************************************************************/
   bool Collision::BoxtoBox(GameObject * obj1, GameObject * obj2, Manifold &result)
   {

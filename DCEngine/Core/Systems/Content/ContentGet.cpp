@@ -101,6 +101,10 @@ namespace DCEngine {
     /**************************************************************************/
     ArchetypePtr Content::getArchetype(const std::string & archetypeName)
     {
+      if (!ArchetypeMap.count(archetypeName)) {
+        DCTrace << "Content::getArchetype: The archetype '" << archetypeName << "' was not found! \n";
+        return nullptr;
+      }
       return ArchetypeMap.at(archetypeName);
     }
 
