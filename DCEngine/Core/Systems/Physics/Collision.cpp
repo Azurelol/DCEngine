@@ -941,8 +941,8 @@ namespace DCEngine
 
     float height, width;
 
-    height = transform->Scale.y;
-    width = transform->Scale.x;
+    height = transform->Scale.y / 2;
+    width = transform->Scale.x / 2;
 
    // if (collider == NULL)
    // {
