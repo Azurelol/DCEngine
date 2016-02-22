@@ -31,6 +31,10 @@ namespace DCEngine {
     public:
     };
 
+    class EngineInitialized : public Event {
+    public:
+    };
+
     class WindowLostFocus : public Event {
     public:
     };

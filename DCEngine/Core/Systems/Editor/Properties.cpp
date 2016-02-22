@@ -82,13 +82,15 @@ namespace DCEngine {
       // Upload to Archetype
       if (ImGui::Button("Upload to Archetype")) {
         DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
-        SaveArchetype(selectedEntity->getArchetype());
+        Archetypes.UploadArchetype(selectedEntity->getArchetype());
+        //SaveArchetype(selectedEntity->getArchetype());
       }
       ImGui::SameLine();
       // Revert to Archetype
       if (ImGui::Button("Revert to Archetype")) {
         DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
-        RevertToArchetype();
+        Archetypes.RevertToArchetype(selectedEntity);
+        return;
       }
 
       /////////////////////////////

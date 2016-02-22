@@ -26,13 +26,19 @@ namespace DCEngine {
       EditorArchetypes(Editor& editor);
       ~EditorArchetypes();
       void Select(ArchetypeHandle archetype);
-      void Deselect();
       void Preview();
+      void UploadArchetype(ArchetypeHandle archetype);
+      void RevertToArchetype(EntityPtr entity);
 
     private:
+      void Deselect();
       void ConstructSpace();
+      void UpdateArchetypeInstances(ArchetypeHandle archetypeName);
+
+      void OnEngineInitializedEvent(Events::EngineInitialized* event);
       void OnEditorSelectObjectEvent(Events::EditorSelectObject* event);
       void OnEditorDeselectObjectEvent(Events::EditorDeselectObject* event);
+
       Editor& EditorRef;
       GameObject* CurrentArchetype;      
       Space* ArchetypeSpace;
