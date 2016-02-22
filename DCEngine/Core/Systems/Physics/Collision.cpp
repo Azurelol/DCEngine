@@ -140,11 +140,11 @@ namespace DCEngine
     glm::vec3 Axis3;
     glm::vec3 Axis4;
 
-    float Height0 = boxcollider1->getColliderScale().y * 2.0f;
-    float Height1 = boxcollider2->getColliderScale().y  * 2.0f;
+    float Height0 = boxcollider1->getColliderScale().y;
+    float Height1 = boxcollider2->getColliderScale().y;
 
-    float Width0 = boxcollider1->getColliderScale().x  * 2.0f;
-    float Width1 = boxcollider2->getColliderScale().x  * 2.0f;
+    float Width0 = boxcollider1->getColliderScale().x ;
+    float Width1 = boxcollider2->getColliderScale().x ;
 
     float rot0 = transform1->Rotation.z;
     float rot1 = transform2->Rotation.z;
@@ -941,8 +941,8 @@ namespace DCEngine
 
     float height, width;
 
-    height = transform->Scale.y;
-    width = transform->Scale.x;
+    height = transform->Scale.y / 2;
+    width = transform->Scale.x / 2;
 
    // if (collider == NULL)
    // {

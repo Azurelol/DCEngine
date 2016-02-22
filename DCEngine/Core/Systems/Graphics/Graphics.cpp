@@ -201,6 +201,7 @@ namespace DCEngine {
 
 		void Graphics::DrawDebug()
 		{
+      glDisable(GL_DEPTH_TEST);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			GraphicsHandler->SpriteShader->SetInteger("numLights", 0);
@@ -220,6 +221,8 @@ namespace DCEngine {
 			mDebugLineList.clear();
 			mDebugRectangleList.clear();
 			mDebugCircleList.clear();
+      glEnable(GL_DEPTH_TEST);
+
 		}
 
 		/**************************************************************************/
