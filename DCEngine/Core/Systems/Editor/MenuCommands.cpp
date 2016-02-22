@@ -201,12 +201,21 @@ namespace DCEngine {
 
         }
       }
-
-
     }
 
 
 
+    /**************************************************************************/
+    /*!
+    @brief  Moves the object to the viewport's center.
+    @param  A pointer to the GameObject.
+    */
+    /**************************************************************************/
+    void Editor::MoveToViewportCenter(GameObject* gameobject)
+    {
+      auto viewportCenter = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera()->TransformComponent->Translation;
+      gameobject->getComponent<Components::Transform>()->setTranslation(Vec3(viewportCenter.x, viewportCenter.y, 0));
+    }
 
 
   }

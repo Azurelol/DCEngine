@@ -22,6 +22,8 @@ namespace DCEngine
   class Collision
   {
   public:
+    static bool PointToBoundingCube(const Vec3& point, const Vec3& translation, const Vec3& rotation, const Vec3& scale);
+    static bool PointToBoundingSphere(const Vec3& point, const Vec3& translation, const Vec3& scale, const Vec3& rotation);
     static bool BoxtoBox(GameObject *obj1, GameObject *obj2, Manifold &result);
     static bool SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance);
     static bool CircletoBox(GameObject * objrect, GameObject * objcircle, Manifold &result);

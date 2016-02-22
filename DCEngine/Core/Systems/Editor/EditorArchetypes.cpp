@@ -128,11 +128,18 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief Updates all instances of the selected Archetype on the project.
+    @param archetypeName The instance of the Archetype.
     /**************************************************************************/
     void EditorArchetypes::UpdateArchetypeInstances(ArchetypeHandle archetypeName)
     {
-
+      // For every level in the project...
+      for (auto& gameObject : *EditorRef.CurrentSpace->AllObjects()) {
+        // If the GameObject is of the same archetype
+        if (gameObject->getArchetype() == archetypeName)
+          RevertToArchetype(gameObject);
+      }
     }
+
 
     void EditorArchetypes::OnEngineInitializedEvent(Events::EngineInitialized * event)
     {

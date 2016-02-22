@@ -38,7 +38,7 @@ namespace DCEngine {
             
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
-            CreateFromArchetype(std::string(SelectedObject()->Name()));
+            Creator.CreateFromArchetype(archetype.second->Name());
             break;
           }
         }

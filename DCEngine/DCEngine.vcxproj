@@ -387,7 +387,6 @@
     <ClCompile Include="Core\Systems\Editor\EditorTools.cpp" />
     <ClCompile Include="Core\Systems\Editor\Library.cpp" />
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
-    <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
     <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp" />

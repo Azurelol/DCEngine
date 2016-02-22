@@ -540,9 +540,6 @@
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
       <Filter>Core\Precompiled</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuCreate.cpp">
-      <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>

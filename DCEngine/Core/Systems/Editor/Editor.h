@@ -117,9 +117,6 @@ namespace DCEngine {
       void WindowConsole();
       // Archetypes
       void WindowCreateFromArchetype();
-      void SaveArchetype(std::string&);
-      void RevertToArchetype();
-      void CreateFromArchetype(std::string&);
       // Project
       void NewProject();
       void ArchiveProject();
@@ -185,6 +182,7 @@ namespace DCEngine {
       void Duplicate();
       void DeleteObject();
       void DeleteResource(ResourcePtr);
+      void MoveToViewportCenter(GameObject* gameobject);
       // Window, Input
       void ApplyEditorWindowLayout();
       void SetEditorCamera(bool);
@@ -193,7 +191,6 @@ namespace DCEngine {
       void PanCamera(Vec2&);
       void DrawGrid();
       // Create
-      void MoveToViewportCenter(GameObject* gameobject);
       // Processes      
       void LaunchProjectFolder();
       void LaunchDocumentation();
