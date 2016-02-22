@@ -15,6 +15,13 @@ uses.
 namespace DCEngine {
   namespace Systems {
 
+    void DispatchSystemEvents::EngineInitialized()
+    {
+      auto resume = new Events::EngineInitialized();
+      Daisy->Dispatch<Events::EngineInitialized>(resume);
+      delete resume;
+    }
+
     void DispatchSystemEvents::EngineResume()
     {
       auto resume = new Events::EngineResume();

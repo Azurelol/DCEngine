@@ -105,18 +105,25 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(ArchetypePtr archetype, Space & space, bool init)
     {
-      // Turn the string from file into JSON data
-      Zilch::CompilationErrors errors;
-      Zilch::JsonReader reader;
-      const Zilch::String what;
-      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
-                                    archetype->Get().c_str(), what, nullptr);
-      
-      auto data = *archetypeData->OrderedMembers.data();
-      //for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
+      // 1. Construct the GameObject
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
+      auto gameObjPtr = ActiveGameObjects.back().get();
+      // 2. Build it from serialized data
+      BuildFromArchetype(gameObjPtr, archetype);
 
-      return BuildGameObject(data, space);
+
+      //// Turn the string from file into JSON data
+      //Zilch::CompilationErrors errors;
+      //Zilch::JsonReader reader;
+      //const Zilch::String what;
+      //Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
+      //                              archetype->Get().c_str(), what, nullptr);
+      //
+      //auto data = *archetypeData->OrderedMembers.data();
+
+      return gameObjPtr;
     }
+
 
     /**************************************************************************/
     /*!
@@ -127,17 +134,33 @@ namespace DCEngine {
     @todo   Refactor how it's done..
     */
     /**************************************************************************/
-    GameObjectPtr Factory::BuildGameObject(SerializedMember* objectData, Space & space)
+    GameObjectPtr Factory::BuildGameObject(SerializedMember * data, Space & space)
     {      
       // 1. Construct the GameObject
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
-      auto gameObjPtr = ActiveGameObjects.back().get();      
+      auto gameObject = ActiveGameObjects.back().get();
+      // 2. Build it from serialized data
+      BuildEntity(gameObject, data);
 
-      // 2. For every property !!! CURRENTLY HARDCODED !!!
+      return gameObject;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Builds an Entity from serialized data.
+    @param  entity A pointer to the entity.
+    @param  objectData A pointer to the serialized data for the Entity.
+    @return A pointer to the GameObject created on the space.
+    @todo   Refactor how it's done..
+    */
+    /**************************************************************************/
+    EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
+    {      
+      // 1. For every property... !!! CURRENTLY HARDCODED !!!
       auto name = objectData->Value->GetMember("Name")->AsString().c_str();
-      gameObjPtr->setObjectName(name);
+      entity->setObjectName(name);
       auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      gameObjPtr->setArchetype(archetype);
+      entity->setArchetype(archetype);
 
       auto gameObject = objectData->Value;
       for (auto property : gameObject->OrderedMembers.all()) {
@@ -150,7 +173,7 @@ namespace DCEngine {
       for (auto component : components) {
         // Construct the Component
         auto componentName = std::string(component->Key.c_str());
-        auto componentPtr = gameObjPtr->AddComponentByName(componentName);
+        auto componentPtr = entity->AddComponentByName(componentName);
         // If the component was successfully constructed..
         if (componentPtr) {
           // Deserialize it
@@ -159,7 +182,59 @@ namespace DCEngine {
         }
       }
 
-      return gameObjPtr;
+      return entity;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Builds an entity given serialized data.
+    @param  entity A pointer to the entity.
+    @param archetype A pointer to the archetype.
+    */
+    /**************************************************************************/
+    void Factory::BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype)
+    {
+      // 1. Get the Archetype data
+      Zilch::CompilationErrors errors;
+      Zilch::JsonReader reader;
+      const Zilch::String what;
+      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
+        archetype->Get().c_str(), what, nullptr);
+      auto data = *archetypeData->OrderedMembers.data();
+      // 2. Build the GameObject
+      BuildEntity(entity, data);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Rebuilds an entity from its current archetype, removing all its
+            components and remaking them anew from its archeetype.
+    @param  entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::RebuildFromArchetype(EntityPtr entity)
+    {
+      // If the entity has a transform component, save that data.
+      TransformDataPair transformData;
+      if (entity->HasComponent("Transform")) {
+        transformData = entity->getComponent<Components::Transform>()->getTransformDataPair();
+      }
+
+      // 1. Remove all of the entities components
+      entity->RemoveAllComponents();
+      // 2. Grab the Archetype resource from the handle.
+      auto archetype = Daisy->getSystem<Content>()->getArchetype(entity->getArchetype());
+      // 3. Rebuild the object from its archetype
+      BuildFromArchetype(entity, archetype);
+      
+      // 4. Set back its transform data.
+      if (entity->HasComponent("Transform")) {
+        auto transform = entity->getComponent<Components::Transform>();
+        transform->setTranslation(transformData.second.Translation);
+        transform->setRotation(transformData.second.Rotation);
+        transform->setScale(transformData.second.Scale);
+      }
+
     }
 
     /**************************************************************************/

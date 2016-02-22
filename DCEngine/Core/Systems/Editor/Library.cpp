@@ -33,7 +33,8 @@ namespace DCEngine {
       if (ImGui::TreeNode("Archetype")) {
         for (auto& archetype : *Daisy->getSystem<Content>()->AllArchetypes()) {
           if (ImGui::Selectable(archetype.second->Name().c_str())) {
-            Select(archetype.second.get());
+            Archetypes.Select(archetype.second->Name());
+            //Select(archetype.second.get());
             
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          

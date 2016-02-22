@@ -255,6 +255,21 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Removes all components from the entity.
+  */
+  /**************************************************************************/
+  void Entity::RemoveAllComponents()
+  {
+    // C++- Factory-made components
+    ComponentsContainer.clear();
+    // Zilch-made components
+    for (auto& component : ComponentHandlesContainer)
+      component.Delete();
+    ComponentHandlesContainer.clear();
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Removes the specified component from the entity.
   @param  component The name of the component
   @todo   Check for dependencies before removing the component.

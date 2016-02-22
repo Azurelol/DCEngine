@@ -20,6 +20,7 @@ namespace DCEngine {
     class DispatchSystemEvents {
     public:
 
+      static void EngineInitialized();
       static void EngineResume();
       static void EnginePause();
       static void EngineExit();

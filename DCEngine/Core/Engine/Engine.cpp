@@ -125,40 +125,32 @@ namespace DCEngine {
     // Graphics configuration
     GraphicsConfig graphicsConfig;
     graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
-
     // Add the systems to the engine's systems container
     Systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
     Systems.push_back(SystemPtr(new Systems::Physics));
     Systems.push_back(SystemPtr(new Systems::Audio));
     Systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
     Systems.push_back(SystemPtr(new Systems::GUI));        
-
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
     CurrentGameSession.reset(new GameSession(_projectName));
     // Load the default space to start with
     LoadDefaultSpace();
-
     // Initialize all internal engine systems
     for (auto sys : Systems) {
       sys->Initialize();
     }  
-
     // Load all resources, both defaults and project-specific
     getSystem<Systems::Content>()->LoadAllResources();
-
     // Subscribe to events
     Subscribe();
-
-    // Initialize the project
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
 
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
-    CurrentGameSession->Initialize();  
-    
+    CurrentGameSession->Initialize();      
     // Open the last known recent project
-    getSystem<Systems::Editor>()->OpenRecentProject();
-    
+    getSystem<Systems::Editor>()->OpenRecentProject();    
+    Systems::DispatchSystemEvents::EngineInitialized();
 
     // Toggle the editor
     //if (EngineConfiguration->EditorEnabled)

@@ -37,8 +37,11 @@ namespace DCEngine {
     public:                  
       // GameObjects
       GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
-      GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);     
-      GameObjectPtr BuildGameObject(SerializedMember* objectData, Space& space);      
+      GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);  
+      GameObjectPtr BuildGameObject(SerializedMember* data, Space& space);
+      EntityPtr BuildEntity(EntityPtr entity, SerializedMember* objectData);      
+      void BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype);
+      void RebuildFromArchetype(EntityPtr entity);
       void MarkGameObject(GameObject& gameObj);
       void DestroyGameObjects();      
       // Spaces
