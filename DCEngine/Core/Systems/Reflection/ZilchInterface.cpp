@@ -13,6 +13,7 @@ uses.
 #include "ZilchInterface.h"
 
 #include "../../Binding/CoreBinding.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -38,6 +39,17 @@ namespace DCEngine {
     ZilchInterface::~ZilchInterface()
     {
     }
+
+    ZilchInterface & ZilchInterface::Get()
+    {
+      return *Daisy->getSystem<Reflection>()->Handler();
+    }
+
+    Zilch::ExecutableState * ZilchInterface::GetState()
+    {
+      return Daisy->getSystem<Reflection>()->Handler()->State;
+    }
+
 
     /**************************************************************************/
     /*!
@@ -159,6 +171,20 @@ namespace DCEngine {
       auto typeName = type->Name.c_str();
       ErrorIf(field == nullptr, std::string("Failed to find '" + name + "' on " + typeName).c_str());
       return field;
+    }
+
+    /*!************************************************************************\
+    @brief  Retrieves an attribute from a property by name.
+    @param property A pointer to the property.
+    @param attributeName The name of the attribute which to retrieve.
+    @return A pointer to the attribute.
+    \**************************************************************************/
+    Zilch::Attribute * ZilchInterface::getAttribute(Zilch::Property * property, std::string attributeName)
+    {
+      for (auto& attribute : property->Attributes.all()) {
+        if (attribute.Name == attributeName.c_str() )
+          return &attribute;
+      }
     }
 
     /*!************************************************************************\

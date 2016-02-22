@@ -384,10 +384,7 @@ namespace DCEngine {
       return resource.get();
     }
 
-    bool Editor::SelectEnumeration(Zilch::Property *, ObjectPtr, unsigned int &)
-    {
-      return false;
-    }
+
 
   }
 

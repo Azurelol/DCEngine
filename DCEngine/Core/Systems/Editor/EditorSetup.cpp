@@ -87,10 +87,6 @@ namespace DCEngine {
         // Whether the editor's transform tool is a component
         if (Settings.TransformTool_IsComponent)
           editorCamera->AddComponent<Components::TransformTool>(true);
-        //editorCamera->AddComponent<Components::DebugAudio>(true);
-        // Camera properties      
-        //editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
-        //editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
         editorCamera->getComponent<Components::Transform>()->Translation = Vec3(0.0f, 0.0f, 40.0f);
         editorCamera->getComponent<Components::Camera>()->setSize(70);
         editorCamera->getComponent<Components::Camera>()->setFarPlane(500);
@@ -101,10 +97,14 @@ namespace DCEngine {
         // Set it as the default camera on the space
         auto cameraComp = editorCamera->getComponent<Components::Camera>();
         CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(cameraComp);
+        // Set it to last position
+        EditorCamera->getComponent<Components::Transform>()->setTranslation(Settings.CameraLastPos);
       }
       // If the editor camera needs to be removed
       else {
         DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
+        // Save the last position of the editor's camera
+        Settings.CameraLastPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
         // Look for a camera on the space to be default
         auto defaultcam = CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
         // Set it as the default camera
@@ -113,9 +113,7 @@ namespace DCEngine {
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
 
         if (editorCamera)
-        {
           editorCamera->Destroy();
-        }
         EditorCamera = nullptr;
       }
       Deselect();

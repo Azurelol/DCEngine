@@ -32,6 +32,8 @@ namespace DCEngine {
     public:
 
       ~ZilchInterface();
+      static ZilchInterface& Get();
+      static Zilch::ExecutableState *GetState();
 
       // Code
       void AddScriptFile(std::string fileName);
@@ -56,6 +58,8 @@ namespace DCEngine {
       Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);
       std::vector<Zilch::BoundType*> GetTypes();
+      Zilch::Attribute* getAttribute(Zilch::Property* property, std::string attributeName);
+
 
       /* Type constructors */
       Zilch::Handle AllocateDefaultConstructedHeapObject(Zilch::BoundType* type, Zilch::HeapFlags::Enum);

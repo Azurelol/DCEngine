@@ -104,6 +104,8 @@ namespace DCEngine {
       // Properties
       void WindowProperties();
       bool DisplayProperties(ObjectPtr);
+      template <typename PropertyType> void Set(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Property* property, PropertyType value);
+      template <typename PropertyType> void CheckUnsigned(Zilch::Property* property, PropertyType& value);
       //template <typename PropertyType, typename InputFunction, typename SetValue> bool DisplayProperty(Zilch::Property* property, SetValue value)
       void DisplayEntityProperties();
       void DisplayResourceProperties();

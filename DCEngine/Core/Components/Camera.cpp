@@ -40,15 +40,13 @@ namespace DCEngine {
     ZilchDefineType(Camera, "Camera", DCEngineCore, builder, type) {      
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Camera);
       // Properties
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(FieldOfView, 0, 180);
       DCE_BINDING_DEFINE_PROPERTY(Camera, FieldOfView);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyFieldOfView, attributeRangeFieldOfView);
       DCE_BINDING_DEFINE_PROPERTY(Camera, NearPlane);
       DCE_BINDING_DEFINE_PROPERTY(Camera, FarPlane);
       DCE_BINDING_DEFINE_PROPERTY(Camera, Size);
       DCE_BINDING_DEFINE_PROPERTY(Camera, Projection);
-      //ZilchBindProperty(builder, type, &Camera::getFieldOfView, &Camera::setFieldOfView, "FieldOfView");
-      //ZilchBindProperty(builder, type, &Camera::getNearPlane, &Camera::setNearPlane, "NearPlane");
-      //ZilchBindProperty(builder, type, &Camera::getFarPlane, &Camera::setFarPlane, "FarPlane");
-      //ZilchBindProperty(builder, type, &Camera::getSize, &Camera::setSize, "Size");
     }
 #endif
 

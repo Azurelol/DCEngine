@@ -940,7 +940,7 @@
             }, 
             "Ghost": false, 
             "SendsEvents": true, 
-            "IsDrawingCollider": false
+            "IsDrawingCollider": true
           }, 
           "PlayerController": 
           {

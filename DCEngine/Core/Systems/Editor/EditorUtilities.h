@@ -12,6 +12,7 @@ namespace DCEngine {
   /**************************************************************************/
   struct EditorConfig {
     // Project
+    Real AutoSaveTimer;
     bool EditorEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;
@@ -30,6 +31,7 @@ namespace DCEngine {
     //Panning
     bool Panning = false;
     Vec3 CamStartPos;
+    Vec3 CameraLastPos;
     Vec3 MouseStartPos;
     Vec3 MouseLastPos;
     // Commands
@@ -37,6 +39,7 @@ namespace DCEngine {
     // Console
     size_t ConsoleWindowStringLength = 0;
     size_t PreviousConsoleWindowStringLength = 0;
+    EditorConfig() : AutoSaveTimer(0.0f), CameraLastPos(0.0f, 0.0f, 40.0f) {}
   };
 
   /**************************************************************************/

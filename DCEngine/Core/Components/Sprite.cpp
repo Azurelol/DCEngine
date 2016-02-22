@@ -34,13 +34,17 @@ namespace DCEngine {
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Sprite, "Sprite", DCEngineCore, builder, type) {
-      DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
-      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteSource);
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sprite);
       // Properties
+      DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteSource);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Visible);
+
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Color);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);      
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor, attributeRangeColor);
+
       DCE_BINDING_DEFINE_PROPERTY(Sprite, SpriteSource);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySpriteSource, attributeSpriteSource);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, FlipX);
@@ -48,6 +52,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationActive);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationSpeed);
 			DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 5);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyDrawLayer, attributeRangeDrawLayer);
       DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
     }
     #endif

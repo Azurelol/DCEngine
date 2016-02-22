@@ -74,8 +74,8 @@ namespace DCEngine {
 
   // This macro sets a Resource-specific attribute onto a property
   #define DCE_BINDING_PROPERTY_SET_ATTRIBUTE(property, attribute) \
-  property->Attributes.push_back(attribute);                       \
-  property->Attributes.push_back(attributeResource)
+  property->Attributes.push_back(attribute)                       
+  //property->Attributes.push_back(attributeResource)
 
   /////////////
   // Resources
@@ -99,14 +99,18 @@ namespace DCEngine {
   #define DCE_BINDING_PROPERTY_SET_UNSIGNED(property)                    \
     property->Attributes.push_back(attributeUnsigned)
 
-  #define DCE_BINDING_PROPERTY_DEFINE_RANGE                             \
-    Zilch::Attribute attributeRange;                                    \
-    attributeRange.Name = "Range";                                      \
-    Zilch::AttributeParameter minRange, maxRange;                       \
-    minRange.NumberValue = 0;                                           \
-    maxRange.NumberValue = 0;                                           \
-    attributeRange.Parameters.push_back(minRange);                      \
-    attributeRange.Parameters.push_back(maxRange)
+
+  #define DCE_BINDING_PROPERTY_DEFINE_RANGE(property, min, max)         \
+    Zilch::Attribute attributeRange##property;                          \
+    attributeRange##property.Name = "Range";                            \
+    Zilch::AttributeParameter minRange##property, maxRange##property;   \
+    minRange##property.NumberValue = min;                               \
+    maxRange##property.NumberValue = max;                               \
+    attributeRange##property.Parameters.push_back(minRange##property);  \
+    attributeRange##property.Parameters.push_back(maxRange##property)
+
+  #define DCE_BINDING_PROPERTY_DEFINE_COLOR_RANGE                       \
+  DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1)  
 
   /*===================*
   *     Enumerations   *
