@@ -49,7 +49,7 @@ namespace DCEngine {
     /**************************************************************************/
     bool Timer::Update(float dt)
     {
-      if (CurrentMode == Mode::Timer) {
+      if (CurrentMode == Mode::timer) {
 
         if (CurrentTime >= Duration) {
           if (Reset)

@@ -28,7 +28,7 @@ namespace DCEngine
     seekVelocity = glm::normalize(seekVelocity);            // Normalize for direction
     seekVelocity *= maxSpeed;                               // Multiply by speed to get velocity
     seekVelocity -= currentVelocity;                               // Subtract by current velocity to find a force to get us to our desired velocity from our current velocity
-    seekVelocity = ClampMagnitude(seekVelocity, maxForce);  // Limit the force my maxForce
+    seekVelocity = ClampMagnitudeMax(seekVelocity, maxForce);  // Limit the force my maxForce
     return seekVelocity;
   }
 
@@ -37,7 +37,8 @@ namespace DCEngine
                                             Vec3 currentVelocity,
                                             float maxSpeed,
                                             float maxForce,
-                                            float arriveDistance)
+                                            float arriveDistance,
+                                            float minSpeed)
   {
     Vec3 arriveForce = targetPosition - currentPosition;
     arriveForce.z = 0;
@@ -45,20 +46,35 @@ namespace DCEngine
     float arrivalSpeed = 0.0;
 
     if (distance < arriveDistance)
+    {
       arrivalSpeed = maxSpeed * distance / arriveDistance;
+      if (arrivalSpeed < minSpeed)
+        arrivalSpeed = minSpeed;
+    }
     else
+    {
       arrivalSpeed = maxSpeed;
+    }
 
     arriveForce *= arrivalSpeed;
     arriveForce -= currentVelocity;
-    arriveForce = ClampMagnitude(arriveForce, maxSpeed);
+    arriveForce = ClampMagnitudeMax(arriveForce, maxSpeed);
+    //arriveForce = ClampMagnitudeMin(arriveForce, minSpeed);
     return arriveForce;
   }
 
-  Vec3 SteeringBehaviors::ClampMagnitude(Vec3 vector, float maxMagnitude)
+  Vec3 SteeringBehaviors::ClampMagnitudeMax(Vec3 vector, float maxMagnitude)
   {
     if (glm::length(vector) > maxMagnitude)
       return glm::normalize(vector) * maxMagnitude;
+
+    return vector;
+  }
+
+  Vec3 SteeringBehaviors::ClampMagnitudeMin(Vec3 vector, float minMagnitude)
+  {
+    if (glm::length(vector) < minMagnitude)
+      return glm::normalize(vector) * minMagnitude;
 
     return vector;
   }

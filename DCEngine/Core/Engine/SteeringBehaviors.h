@@ -17,9 +17,10 @@ namespace DCEngine
   {
   public:
     static Vec3 GetSeekVelocity(Vec3 currentPosition, Vec3 targetPosition, Vec3 currentVelocity, float maxSpeed, float maxForce);
-    static Vec3 GetArriveVelocity(Vec3 currentPosition, Vec3 targetPosition, Vec3 currentVelocity, float maxSpeed, float maxForce, float arriveDistance);
+    static Vec3 GetArriveVelocity(Vec3 currentPosition, Vec3 targetPosition, Vec3 currentVelocity, float maxSpeed, float maxForce, float arriveDistance, float minSpeed);
 
   private:
-    static Vec3 ClampMagnitude(Vec3 vector, float maxMagnitude);
+    static Vec3 ClampMagnitudeMax(Vec3 vector, float maxMagnitude);
+    static Vec3 ClampMagnitudeMin(Vec3 vector, float minMagnitude);
   };
 }

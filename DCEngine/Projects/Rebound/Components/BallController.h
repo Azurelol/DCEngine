@@ -50,6 +50,7 @@ namespace DCEngine {
 			Real AttractPower = 400.0f;
 			Real AttractYBoost = 3.0f;
 		    Real MaxAttractSpeed = 100.0f;
+        Real MinAttractSpeed = 50.0f;
             Real MaxAttractForce = 100.0f;
             Real AttractArriveDistance = 200.0f;
 			Real SlamPower = ChargeFactor * MaxCharge;
@@ -78,6 +79,7 @@ namespace DCEngine {
 			DCE_DEFINE_PROPERTY(Boolean, FreezeEnabled);
 			DCE_DEFINE_PROPERTY(Boolean, Charging);
       DCE_DEFINE_PROPERTY(Real, MaxAttractSpeed);
+      DCE_DEFINE_PROPERTY(Real, MinAttractSpeed);
       DCE_DEFINE_PROPERTY(Real, MaxAttractForce);
       DCE_DEFINE_PROPERTY(Real, AttractArriveDistance);
 

@@ -32,6 +32,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
 		}
 #endif
 
@@ -299,7 +300,7 @@ namespace DCEngine {
 				//}
 				//RigidBodyRef->AddForce(CenteringVector * AttractPower);
         //Vec3 seekForce = SteeringBehaviors::GetSeekVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce);
-        Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance);
+        Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance, MinAttractSpeed);
         RigidBodyRef->ApplyLinearVelocity(arriveForce);
       }
 		}

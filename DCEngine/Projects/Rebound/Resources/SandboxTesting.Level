@@ -412,7 +412,8 @@
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 50.000000, 
             "MaxAttractForce": 100.000000, 
-            "AttractArriveDistance": 200.000000
+            "AttractArriveDistance": 200.000000, 
+            "MinAttractSpeed": 2.000000
           }, 
           "Light": 
           {
