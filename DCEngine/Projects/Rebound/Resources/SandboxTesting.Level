@@ -127,7 +127,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 125.122009, 
+            "FieldOfView": 90.000008, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -431,8 +431,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 3.000000, 
-            "Range": 10.000000, 
+            "Intensity": 4.000000, 
+            "Range": 0.199998, 
             "Falloff": 0.900000, 
             "DirectionVector": 
             {
@@ -1077,8 +1077,8 @@
             {
               "Vec3": 
               {
-                "x": 150.000000, 
-                "y": 75.000000, 
+                "x": 300.000000, 
+                "y": 150.000000, 
                 "z": 1.000000
               }
             }
@@ -2450,7 +2450,7 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 

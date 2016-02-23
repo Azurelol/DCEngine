@@ -19,6 +19,7 @@ namespace DCEngine {
 		class Transform;
 		class RigidBody;
 		class Sprite;
+		class Light;
 		class CircleCollider;
 		enum class ControlScheme { John, Connor };
 		class BallController : public Component {
@@ -37,6 +38,7 @@ namespace DCEngine {
 			Transform* TransformRef;
 			RigidBody* RigidBodyRef;
 			Sprite* SpriteRef;
+			Light* LightRef;
 			CollisionTablePtr CollisionTableRef;
 			//CircleCollider* ColliderRef;
 			Real CurrentCharge = 0.0f;
@@ -47,10 +49,12 @@ namespace DCEngine {
 			Real Friction = 0.1f; //set from 0 to 1
 			Real AttractPower = 400.0f;
 			Real AttractYBoost = 3.0f;
-      Real MaxAttractSpeed = 100.0f;
-      Real MaxAttractForce = 100.0f;
-      Real AttractArriveDistance = 200.0f;
+		    Real MaxAttractSpeed = 100.0f;
+            Real MaxAttractForce = 100.0f;
+            Real AttractArriveDistance = 200.0f;
 			Real SlamPower = ChargeFactor * MaxCharge;
+			Real MinimumLightRange = 0.2f;
+			Real MaximumLightRange = 2.0f;
 
 			Boolean Charging = false;
 			Boolean FreezeEnabled = true;

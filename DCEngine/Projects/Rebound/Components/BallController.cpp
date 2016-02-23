@@ -46,6 +46,7 @@ namespace DCEngine {
 			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
 			RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
 			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+			LightRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Light>();
 			//ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::CircleCollider>();
 			CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
 			CollisionTableRef->AddGroup("Ball");
@@ -146,7 +147,6 @@ namespace DCEngine {
 					Charging = false;
 					CurrentCharge = 0;
 					CurrentlyFired = true;
-					SpriteRef->Color = Vec4(1, 0, 0, 1);
 					RigidBodyRef->setGravityRatio(0.1f);
 
 					if (BallControllerTraceOn)
@@ -176,7 +176,7 @@ namespace DCEngine {
 				if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
 				{
 					CurrentlyFired = false;
-					SpriteRef->Color = NormalColor;
+					//SpriteRef->Color = NormalColor;
 					RigidBodyRef->setVelocity(Vec3(0, 0, 0));
 					//RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
 					TransformRef->setTranslation(event->OtherObject->getComponent<Components::Transform>()->WorldTranslation);
@@ -232,6 +232,7 @@ namespace DCEngine {
 				}
 			}
 			//PrintVelocity();
+			LightRef->setRange(((MaximumLightRange - MinimumLightRange) * CurrentCharge / MaxCharge) + MinimumLightRange);
 		}
 
 		void BallController::ChangeColor()
