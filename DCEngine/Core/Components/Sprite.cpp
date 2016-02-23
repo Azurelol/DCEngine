@@ -276,7 +276,7 @@ namespace DCEngine {
 			spriteSrc->getTexture().Bind();
 			//this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
 			glBindVertexArray(mVAO);
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+			glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
 
 			//DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
