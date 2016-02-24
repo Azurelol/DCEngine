@@ -37,9 +37,9 @@ namespace DCEngine {
       GLuint VBO;
       GLfloat vertices[]{
         // Position,      Texture
-        -.5f, -.5f,     0.0f, 0.0f,
+        -.5f, -.5f,      0.0f, 0.0f,
          .5f, -.5f,      1.0f, 0.0f,
-         .5f,  .5f,     1.0f, 1.0f,
+         .5f,  .5f,      1.0f, 1.0f,
         -.5f,  .5f,      0.0f, 1.0f,
       };
 

@@ -110,8 +110,9 @@ namespace DCEngine {
 								< b->Owner()->getComponent<Components::Transform>()->Translation.z;
 						});
 					}
-					//drawList.clear();
 				}
+
+
 
 				//RenderDepths(dt, camera);
 

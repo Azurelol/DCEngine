@@ -233,12 +233,7 @@ namespace DCEngine {
 
 			// Create the matrix of the transform
 			GLfloat verticesOffset = 0.5f;
-			glm::mat4 modelMatrix;
-
-			// Matrices
-			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-				transform->Translation.y,
-				transform->Translation.z));
+			
 			if (FlipX == true)
 			{
 				mShader->SetInteger("flipx", 1);
@@ -256,19 +251,28 @@ namespace DCEngine {
 			{
 				mShader->SetInteger("flipy", 0);
 			}
+			glm::mat4 modelMatrix;
+			// Matrices
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
 				transform->Scale.y, 0.0f));
+			mShader->SetMatrix4("model", modelMatrix);
 
+			glm::mat4 rotationMatrix;
+			rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+			mShader->SetMatrix4("rotation", rotationMatrix);
 
 			// Update the uniforms in the shader to this particular sprite's data 
-			mShader->SetMatrix4("model", modelMatrix);
+			
 			mShader->SetVector4f("spriteColor", Color);
 			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
 			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
 			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
 			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+
 
 
 			// Set the active texture
