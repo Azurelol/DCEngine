@@ -81,8 +81,8 @@ namespace DCEngine {
 
 			//graphical inhereted
 			virtual void Update(float dt);
-			virtual void SetModelMatrix(ShaderPtr shader);
-			virtual void Draw(Camera& camera);
+			virtual void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
+			virtual void Draw(void);
 			virtual void SetShader();
 			//unsigned GetDrawLayer(void);
 
@@ -107,6 +107,7 @@ namespace DCEngine {
       float AnimationSpeedFPS = 0;
       float AnimationSpeedFPSCounter = 0;
 			unsigned DrawLayer;
+			bool silhouette;
     };
 
   }

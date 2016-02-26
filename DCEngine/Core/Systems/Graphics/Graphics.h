@@ -91,9 +91,9 @@ namespace DCEngine {
 			void RenderDepths(float dt, Components::Camera* camera);
 			void RenderShadows(float dt, Components::Camera* camera, Components::Light* light);
 			void RenderScene(float dt, Components::Camera* camera, ShaderPtr shader = 0);
-			void RenderZ0Scene(float dt, Components::Camera* camera, ShaderPtr shader = 0);
-			void RenderZ0SceneUp(float dt, Components::Camera* camera, ShaderPtr shader = 0);
-			void RenderObjects(float dt, Components::Camera* camera, ShaderPtr shader = 0);
+			void RenderZ0Scene(float dt, Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+			void RenderZ0SceneUp(float dt, Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+			void RenderObjects(float dt, Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void DrawDebug();
 			void Terminate();
 
