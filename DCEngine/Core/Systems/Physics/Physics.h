@@ -66,13 +66,13 @@ namespace DCEngine {
       // Physics Casting            
       CastResult CastRay(Ray& ray, Components::PhysicsSpace *Space);
       CastResult CastRay(Ray& ray, CastFilter& filter, Components::PhysicsSpace *Space);
-      CastResultsRange CastRay(Ray& ray, unsigned count);
-      CastResultsRange CastRay(Ray& ray, unsigned count, CastFilter& filter);
-      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count);
-      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count, CastFilter& filter);
-      CastResultsRange CastAabb(Vec3& center, Vec3& size, unsigned count, CastFilter& filter);
-      CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter);
-      CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter);
+      CastResultsRange CastRay(Ray& ray, unsigned count, Components::PhysicsSpace *Space);
+      CastResultsRange CastRay(Ray& ray, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count, Components::PhysicsSpace *Space);
+      CastResultsRange CastSegment(Vec3& start, Vec3& end, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
+      CastResultsRange CastAabb(Vec3& center, Vec3& size, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
+      CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
+      CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter, Components::PhysicsSpace *Space);
 
 			
 			//class Bucket

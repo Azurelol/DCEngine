@@ -46,7 +46,75 @@ namespace DCEngine
   /**************************************************************************/
   bool Collision::PointToBoundingCube(const Vec3 & point, const Vec3 & translation, const Vec3 & rotation, const Vec3 & scale)
   {
-    return false;
+    // This function is inherently wrong because it assumes there is only rotation along the z axis
+    // the reason for this flaw is that there is no proper way to resolve the way 3D objects are rotated with
+    // the way we store rotation. 
+
+    glm::vec3 Point = point;
+
+    Point -= translation;
+
+    glm::vec3 temp = Point;
+
+    Point.x = cos(-rotation.z) * temp.x + -sin(-rotation.z) * temp.y;
+    Point.y = sin(-rotation.z) * temp.x +  cos(-rotation.z) * temp.y;
+
+    Point += translation;
+
+    // assumed to be in right handed coordinates so positive Z is towards the front
+
+    float left  =  translation.x - (scale.x / 2.0f);
+    float right =  translation.x + (scale.x / 2.0f);
+    float top   =  translation.y + (scale.y / 2.0f);
+    float bottom = translation.y - (scale.y / 2.0f);
+    float back  =  translation.z - (scale.z / 2.0f);
+    float front =  translation.z + (scale.z / 2.0f);
+
+    if (Point.x < left)
+    {
+      return false;
+    }
+
+    if (Point.x > right)
+    {
+      return false;
+    }
+
+    if (Point.y < bottom)
+    {
+      return false;
+    }
+
+    if (Point.y > top)
+    {
+      return false;
+    }
+
+    if (Point.z < back)
+    {
+      return false;
+    }
+
+    if (Point.z > front)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  bool Collision::PointToBoundingSphere(const Vec3& point, const Vec3& translation, const Vec3& scale, const Vec3& rotation)
+  {
+    // Christian if you are looking through this I question why you send me a rotation
+    // assuming scale.x, y, z are the radius
+
+    if (glm::distance(point, translation) > scale.x)
+    {
+      return false;
+    }
+
+
+    return true;
   }
 
 
@@ -1180,6 +1248,19 @@ namespace DCEngine
 
     float x = ((Begin.x - End.x) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.x - RayEnd.x) * (Begin.x * End.y - Begin.y * End.x)) / D;
     float y = ((Begin.y - End.y) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.y - RayEnd.y) * (Begin.x * End.y - Begin.y * End.x)) / D;
+
+
+    if (x < std::min(O.x, RayEnd.x) ||  x > std::max(O.x, RayEnd.x) ||
+        x < std::min(Begin.x, End.x) || x > std::max(Begin.x, End.x))
+    {
+      return false;
+    }
+    if (y < std::min(O.y, RayEnd.y) || y > std::max(O.y, RayEnd.y) ||
+        y < std::min(Begin.y, End.y) || y > std::max(Begin.y, End.y))
+    {
+      return false;
+    }
+
 
     Result = Vec3(x, y, 0);
 

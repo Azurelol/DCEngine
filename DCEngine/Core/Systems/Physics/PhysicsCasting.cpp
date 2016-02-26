@@ -61,6 +61,7 @@ namespace DCEngine
             retval.Distance = Distance;
             Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
 
+            retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
             retval.WorldPosition = transform->Translation;
 
           }
@@ -101,8 +102,8 @@ namespace DCEngine
               retval.Distance = Distance;
               Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
 
+              retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               retval.WorldPosition = transform->Translation;
-
             }
           }
           else
@@ -112,8 +113,8 @@ namespace DCEngine
               retval.Distance = Distance;
               Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
 
+              retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               retval.WorldPosition = transform->Translation;
-
             }
           }
         }
@@ -131,9 +132,37 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastRay(Ray & ray, unsigned count)
+    CastResultsRange Physics::CastRay(Ray & ray, unsigned count, Components::PhysicsSpace *Space)
     {
-      return CastResultsRange();
+      CastResultsRange retval;
+      
+      CastResult pushval;
+
+      pushval.Distance = FLT_MAX;
+
+      auto colliders = Space->AllColliders();
+
+      float Distance = 0;
+
+      for (auto &object : colliders)
+      {
+
+        if (Collision::RayToCollider(ray, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        {
+          if (Distance < FLT_MAX)
+          {
+            pushval.Distance = Distance;
+            Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+            pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
+            pushval.WorldPosition = transform->Translation;
+            retval.push_back(pushval);
+          }
+        }
+
+      }
+
+      return retval;
     }
 
     /**************************************************************************/
@@ -145,9 +174,52 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastRay(Ray & ray, unsigned count, CastFilter & filter)
+    CastResultsRange Physics::CastRay(Ray & ray, unsigned count, CastFilter & filter, Components::PhysicsSpace *Space)
     {
-      return CastResultsRange();
+      CastResultsRange retval;
+
+      CastResult pushval;
+
+      pushval.Distance = FLT_MAX;
+
+      auto colliders = Space->AllColliders();
+
+      float Distance = 0;
+
+      for (auto &object : colliders)
+      {
+
+        if (Collision::RayToCollider(ray, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        {
+          if (filter.Include)
+          {
+            if (Distance < FLT_MAX && isGroup(filter.CollisionGroups, object->getCollisionGroup()))
+            {
+              pushval.Distance = Distance;
+              Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+              pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
+              pushval.WorldPosition = transform->Translation;
+              retval.push_back(pushval);
+            }
+          }
+          else
+          {
+            if (Distance < FLT_MAX && !isGroup(filter.CollisionGroups, object->getCollisionGroup()))
+            {
+              pushval.Distance = Distance;
+              Components::Transform* transform = object->Owner()->getComponent<Components::Transform>();
+
+              pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
+              pushval.WorldPosition = transform->Translation;
+              retval.push_back(pushval);
+            }
+          }
+        }
+
+      }
+
+      return retval;
     }
 
     /**************************************************************************/
@@ -159,7 +231,7 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastSegment(Vec3 & start, Vec3 & end, unsigned count)
+    CastResultsRange Physics::CastSegment(Vec3 & start, Vec3 & end, unsigned count, Components::PhysicsSpace *Space)
     {
       return CastResultsRange();
     }
@@ -174,7 +246,7 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastSegment(Vec3 & start, Vec3 & end, unsigned count, CastFilter & filter)
+    CastResultsRange Physics::CastSegment(Vec3 & start, Vec3 & end, unsigned count, CastFilter & filter, Components::PhysicsSpace *Space)
     {
       return CastResultsRange();
     }
@@ -189,7 +261,7 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastAabb(Vec3 & center, Vec3 & size, unsigned count, CastFilter & filter)
+    CastResultsRange Physics::CastAabb(Vec3 & center, Vec3 & size, unsigned count, CastFilter & filter, Components::PhysicsSpace *Space)
     {
       return CastResultsRange();
     }
@@ -204,7 +276,7 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastSphere(Vec3 & center, float radius, unsigned count, CastFilter & filter)
+    CastResultsRange Physics::CastSphere(Vec3 & center, float radius, unsigned count, CastFilter & filter, Components::PhysicsSpace *Space)
     {
       return CastResultsRange();
     }
@@ -218,7 +290,7 @@ namespace DCEngine
     @return An object containing the results from the cast.
     */
     /**************************************************************************/
-    CastResultsRange Physics::CastCollider(Vec3 & offset, Components::Collider & testCollider, CastFilter & filter)
+    CastResultsRange Physics::CastCollider(Vec3 & offset, Components::Collider & testCollider, CastFilter & filter, Components::PhysicsSpace *Space)
     {
       return CastResultsRange();
     }
