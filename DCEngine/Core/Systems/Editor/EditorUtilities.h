@@ -27,8 +27,8 @@ namespace DCEngine {
     Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
     // Snapping
     bool Snapping = true;
-    float SnapDistance = 1.0;
-    float SnapAngle = 15;
+    float SnapDistance = 1.0f;
+    float SnapAngle = 15.0f;
     //Panning
     bool Panning = false;
     Vec3 CamStartPos;
@@ -58,6 +58,7 @@ namespace DCEngine {
     Vec3 MultiSelectStartPos;
     Vec3 MultiSelectArea;
 
+    GameObjectRawVec SelectedAtZ;
     Vec3  SelectedBoundingCenter;
     float SelectedBoundingWidth;
     float SelectedBoundingHeight;

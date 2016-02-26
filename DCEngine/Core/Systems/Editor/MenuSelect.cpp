@@ -69,9 +69,17 @@ namespace DCEngine {
         auto closestObjectName = closestObj->Name();
         auto objZ = obj->getComponent<Components::Transform>()->Translation.z;
         auto closestZ = closestObj->getComponent<Components::Transform>()->Translation.z;
-
-        if (objZ < camPos.z && objZ > closestZ) {
-          closestObj = obj;
+        
+        // If the object' Z is lesser than
+        if (objZ < camPos.z && objZ > closestZ ) {
+          // If the area of the current object is smaller than of the currently
+          // closest object
+          auto objScale = obj->getComponent<Components::Transform>()->getScale();
+          auto closestObjScale = closestObj->getComponent<Components::Transform>()->getScale();
+          auto objArea = objScale.x * objScale.y;
+          auto closestObjArea = closestObjScale.x * closestObjScale.y;
+          if (objArea < closestObjArea)
+            closestObj = obj; 
         }
       }
       
