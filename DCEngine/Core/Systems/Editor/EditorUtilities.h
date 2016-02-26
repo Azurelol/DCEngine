@@ -27,8 +27,8 @@ namespace DCEngine {
     Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
     // Snapping
     bool Snapping = true;
-    float SnapDistance = 1.0;
-    float SnapAngle = 15;
+    float SnapDistance = 1.0f;
+    float SnapAngle = 15.0f;
     //Panning
     bool Panning = false;
     Vec3 CamStartPos;
@@ -40,7 +40,7 @@ namespace DCEngine {
     // Console
     size_t ConsoleWindowStringLength = 0;
     size_t PreviousConsoleWindowStringLength = 0;
-    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::timer, true),  
+    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Timer, true),  
                      CameraLastPos(0.0f, 0.0f, 40.0f) {}
   };
 
@@ -58,6 +58,7 @@ namespace DCEngine {
     Vec3 MultiSelectStartPos;
     Vec3 MultiSelectArea;
 
+    GameObjectRawVec SelectedAtZ;
     Vec3  SelectedBoundingCenter;
     float SelectedBoundingWidth;
     float SelectedBoundingHeight;

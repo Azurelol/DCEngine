@@ -151,10 +151,6 @@ namespace DCEngine {
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();    
     Systems::DispatchSystemEvents::EngineInitialized();
-
-    // Toggle the editor
-    //if (EngineConfiguration->EditorEnabled)
-    //  getSystem<Systems::Editor>()->ToggleEditor();
   }
 
   /**************************************************************************/
