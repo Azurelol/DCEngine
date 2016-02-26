@@ -1142,7 +1142,7 @@
       "GameObject": 
       {
         "Name": "Background", 
-        "Archetype": "", 
+        "Archetype": "DesertBackground", 
         "Components": 
         {
           "Transform": 
@@ -2692,6 +2692,76 @@
             "Torque": 0.000000, 
             "Growth": 0.000000, 
             "Dampening": 0.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Light", 
+        "Archetype": "SpotLight", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 1.000000, 
+            "Range": 100.000000, 
+            "Falloff": 1.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.200000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 5.000000, 
+            "OuterAngle": 30.000000
           }
         }
       }
