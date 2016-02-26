@@ -44,14 +44,14 @@ namespace DCEngine {
 			Real CurrentCharge = 0.0f;
 			Real MaxCharge = 2.0f;
 			Real MinCharge = 0.5f;
-			Real ChargeFactor = 30.0f * 1000.0f;
+			Real ChargeFactor = 10.0f * 1000.0f;
 			Real Restitution = 0.1f; //set from 0 to 1
 			Real Friction = 0.1f; //set from 0 to 1
 			Real AttractPower = 400.0f;
 			Real AttractYBoost = 3.0f;
-		    Real MaxAttractSpeed = 100.0f;
-        Real MinAttractSpeed = 50.0f;
-            Real MaxAttractForce = 100.0f;
+		    Real MaxAttractSpeed = 50.0f;
+		    Real MinAttractSpeed = 25.0f;
+            Real MaxAttractForce = 50.0f;
             Real AttractArriveDistance = 200.0f;
 			Real SlamPower = ChargeFactor * MaxCharge;
 			Real MinimumLightRange = 0.2f;
@@ -71,6 +71,7 @@ namespace DCEngine {
 			DCE_DEFINE_PROPERTY(Real, MoveSpeed);
 			DCE_DEFINE_PROPERTY(Real, RotSpeed);
 			DCE_DEFINE_PROPERTY(Real, CurrentCharge);
+			DCE_DEFINE_PROPERTY(Real, ChargeFactor);
 			DCE_DEFINE_PROPERTY(Real, MaxCharge);
 			DCE_DEFINE_PROPERTY(Real, MinCharge);
 			DCE_DEFINE_PROPERTY(Vec4, FrozenColor);

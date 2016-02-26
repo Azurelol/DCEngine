@@ -25,6 +25,7 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(BallController, RotSpeed);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, MinCharge);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, MaxCharge);
+			DCE_BINDING_DEFINE_PROPERTY(BallController, ChargeFactor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
@@ -148,7 +149,7 @@ namespace DCEngine {
 					Charging = false;
 					CurrentCharge = 0;
 					CurrentlyFired = true;
-					RigidBodyRef->setGravityRatio(0.1f);
+					RigidBodyRef->setGravityRatio(0.25f);
 
 					if (BallControllerTraceOn)
 					{
