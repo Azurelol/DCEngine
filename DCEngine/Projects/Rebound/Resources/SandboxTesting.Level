@@ -378,8 +378,8 @@
             "MoveSpeed": 0.750000, 
             "RotSpeed": 15.000000, 
             "MinCharge": 0.500000, 
-            "MaxCharge": 2.000000, 
-            "ChargeFactor": 10000.000000, 
+            "MaxCharge": 1.000000, 
+            "ChargeFactor": 20000.000000, 
             "FrozenColor": 
             {
               "Vec4": 
@@ -400,6 +400,8 @@
                 "w": 1.000000
               }
             }, 
+            "NormalGravity": 0.400000, 
+            "ShotGravity": 0.200000, 
             "ChargedColor": 
             {
               "Vec4": 
@@ -433,8 +435,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 4.000000, 
-            "Range": 5.499995, 
+            "Intensity": 10.500006, 
+            "Range": 1.299998, 
             "Falloff": 1.900000, 
             "DirectionVector": 
             {
@@ -1071,6 +1073,11 @@
             }, 
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 10, 
+            "StartingHealth": 10
           }
         }
       }, 
@@ -2465,7 +2472,7 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 

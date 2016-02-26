@@ -28,6 +28,8 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(BallController, ChargeFactor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
+			DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
+			DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
 			DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
@@ -149,7 +151,7 @@ namespace DCEngine {
 					Charging = false;
 					CurrentCharge = 0;
 					CurrentlyFired = true;
-					RigidBodyRef->setGravityRatio(0.25f);
+					RigidBodyRef->setGravityRatio(ShotGravity);
 
 					if (BallControllerTraceOn)
 					{
@@ -171,7 +173,7 @@ namespace DCEngine {
 
 		void BallController::OnCollisionStartedEvent(Events::CollisionStarted * event)
 		{
-			RigidBodyRef->setGravityRatio(1.0f);
+			RigidBodyRef->setGravityRatio(NormalGravity);
 			if (event->OtherObject->getComponent<Components::PlayerController>())
 			{
 				CollidingWithPlayer = true;
@@ -234,7 +236,10 @@ namespace DCEngine {
 				}
 			}
 			//PrintVelocity();
-			LightRef->setRange(((MaximumLightRange - MinimumLightRange) * CurrentCharge / MaxCharge) + MinimumLightRange);
+			if (LightRef != nullptr)
+			{
+				LightRef->setRange(((MaximumLightRange - MinimumLightRange) * CurrentCharge / MaxCharge) + MinimumLightRange);
+			}
 		}
 
 		void BallController::ChangeColor()

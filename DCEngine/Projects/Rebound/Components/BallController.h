@@ -56,7 +56,8 @@ namespace DCEngine {
 			Real SlamPower = ChargeFactor * MaxCharge;
 			Real MinimumLightRange = 0.2f;
 			Real MaximumLightRange = 2.0f;
-
+			Real ShotGravity = 0.1f;
+			Real NormalGravity = 0.25f;
 			Boolean Charging = false;
 			Boolean FreezeEnabled = true;
 			Vec4 FrozenColor = Vec4(1, 0, 1, 1);
@@ -74,6 +75,8 @@ namespace DCEngine {
 			DCE_DEFINE_PROPERTY(Real, ChargeFactor);
 			DCE_DEFINE_PROPERTY(Real, MaxCharge);
 			DCE_DEFINE_PROPERTY(Real, MinCharge);
+			DCE_DEFINE_PROPERTY(Real, NormalGravity);
+			DCE_DEFINE_PROPERTY(Real, ShotGravity);
 			DCE_DEFINE_PROPERTY(Vec4, FrozenColor);
 			DCE_DEFINE_PROPERTY(Vec4, NormalColor);
 			DCE_DEFINE_PROPERTY(Vec4, ChargedColor);
