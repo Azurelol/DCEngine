@@ -32,35 +32,52 @@ uniform vec4 spriteColor;
 
 in vec2 TexCoords;
 in vec3 WorldCoords;
+in vec3 VertWorldNormal;
 out vec4 color;
 
-float GeneratePointLightValues(vec3 position, float range, float falloff)
+float GenerateZ0DiffuseFactor(vec3 lightPosition)
 {
-	float luminesence = 0;
-	float distance = length(WorldCoords - position);
+	if(lightPosition.z == 0 && WorldCoords.z == 0)
+	{
+		vec3 lightVector = normalize(lightPosition - WorldCoords);
+		vec3 normal = normalize(VertWorldNormal);
+		float diffuseFactor = dot(lightVector, normal);
+		return clamp(diffuseFactor, 0, 1);
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+float GenerateFalloffFactor(float distance, float range, float falloff)
+{
+	float factor;
 	if(distance <= range)
 	{
 		if(falloff > 0)
-			luminesence = (1 - distance/range) * (1 - falloff);
+			factor = (1 - distance/range) / (falloff * falloff);
 		else
-			luminesence = 1;
+			factor = 1;
+		return clamp(factor, 0, 1);
 	}
-	return luminesence;
+	else return 0;
+}
+
+float GeneratePointLightValues(vec3 position, float range, float falloff)
+{
+	float diffuseFactor = GenerateZ0DiffuseFactor(position);
+	float distance = length(WorldCoords - position);
+	float distanceAttenuation = GenerateFalloffFactor(distance, range, falloff);
+	return distanceAttenuation * diffuseFactor;
 }
 
 float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 direction,
 	float innerAngle, float outerAngle, mat4 model)
 {
-	float luminesence = 0;
+	float diffuseFactor = GenerateZ0DiffuseFactor(position);
 	float distance = length(WorldCoords - position);
-	if(distance <= range)
-	{
-		if(falloff > 0)
-			luminesence = (1 - distance/range) * (1 - falloff);
-		else
-			luminesence = 1;
-	}
-	else return 0;
+	float distanceAttenuation = GenerateFalloffFactor(distance, range, falloff);
 
 	vec3 lightVector = (WorldCoords - position) / distance;
 	float angleFalloff = 0;
@@ -71,9 +88,8 @@ float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 di
 		return 0;
 
 	angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
-	clamp(angleFalloff, 0, 1);
-	clamp(luminesence, 0, 1);
-	return luminesence * angleFalloff;
+	angleFalloff = clamp(angleFalloff, 0, 1);
+	return distanceAttenuation * angleFalloff;
 }
 
 vec3 GenerateIlluminationValues(void)
@@ -123,7 +139,7 @@ void main()
 	if(numLights != 0)
 	{
 		lightValue = GenerateIlluminationValues();
-		clamp(lightValue, 0, 1);
+		lightValue = clamp(lightValue, 0, 1);
 	}
 	
   color = vec4(

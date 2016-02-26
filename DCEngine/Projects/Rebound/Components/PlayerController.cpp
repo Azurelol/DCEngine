@@ -284,6 +284,10 @@ namespace DCEngine {
         Jumping = false;
         JumpFramesApplied = 0;
       }
+	  if (PlayerControllerTraceOn)
+	  {
+		  DCTrace << "PlayerController::Jump";
+	  }
       //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
     }
 

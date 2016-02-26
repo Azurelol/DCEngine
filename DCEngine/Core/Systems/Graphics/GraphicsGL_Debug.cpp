@@ -114,12 +114,6 @@ namespace DCEngine {
 			else
 				glBegin(GL_LINE_LOOP);
 
-			//auto PositionOrigin = glm::vec4(pos.x, pos.y, pos.z, 0.0);
-			//auto Position1 = glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / 2.0f, height / 2.0f, 0.0f, 0.0f);
-			//auto Position2 = glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / 2.0f, height / -2.0f, 0.0f, 0.0f);
-			//auto Position3 = glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / -2.0f, height / -2.0f, 0.0f, 0.0f);
-			//auto Position4 = glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);//PositionOrigin + glm::vec4(width / -2.0f, height / 2.0f, 0.0f, 0.0f);
-
 			glVertex4f(1, 1, 0, 1);
 			glVertex4f(1, -1, 0, 1);
 			glVertex4f(-1, -1, 0, 1);

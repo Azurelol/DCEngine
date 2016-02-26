@@ -12,7 +12,7 @@
 #include "ReboundComponent.h"
 
 
-#define PlayerControllerTraceOn 0 // Use a static bool inside the class
+#define PlayerControllerTraceOn 1 // Use a static bool inside the class
 
 namespace DCEngine {
   namespace Components {
@@ -36,7 +36,7 @@ namespace DCEngine {
       Real FramesOfDamageColor = 10.0f;
       Real FramesOfDamageColorApplied = 0.0f;
       Real MoveSpeed = 0.7f;
-      Real JumpPower = 60.0f;
+      Real JumpPower = 8.0f;
       Real JumpFrames = 1.0f;
       Real JumpFramesApplied = 0.0f;
       Real Health = 10.0f;
