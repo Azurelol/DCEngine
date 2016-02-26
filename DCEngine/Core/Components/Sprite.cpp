@@ -143,9 +143,9 @@ namespace DCEngine {
 
 		void Sprite::Update(float dt)
 		{
+			mShader->Use();
 			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			//Animation update
-			mShader->Use();
 			mShader->SetInteger("isAnimaitonActivated", 0);
 			HaveAnimation = AnimationActive;
 			if (HaveAnimation == true)//Check whether it has animation
@@ -211,29 +211,6 @@ namespace DCEngine {
 					}
 				}
 			}
-		}
-
-		void Sprite::Draw(Camera& camera)
-		{
-      // Skip drawing if visible is false...
-      if (!this->Visible)
-        return;
-
-			mShader->SetInteger("isTexture", 1);
-			glEnable(GL_BLEND);
-			//glEnable(GL_TEXTURE_2D);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			glDepthFunc(GL_LEQUAL);
-
-			// Retrieve the 'SpriteSource' resource from the content system
-			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
-
-			// We use transform data for drawing:
-			auto transform = TransformComponent;
-
-			// Create the matrix of the transform
-			GLfloat verticesOffset = 0.5f;
-			
 			if (FlipX == true)
 			{
 				mShader->SetInteger("flipx", 1);
@@ -251,6 +228,20 @@ namespace DCEngine {
 			{
 				mShader->SetInteger("flipy", 0);
 			}
+			mShader->SetVector4f("spriteColor", Color);
+			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
+			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
+			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
+			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+			spriteSrc->getTexture().Bind();
+		}
+
+		void Sprite::SetModelMatrix(ShaderPtr shader)
+		{
+			if (!shader)
+				shader = mShader;
+			shader->Use();
+			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
 			// Matrices
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
@@ -259,31 +250,53 @@ namespace DCEngine {
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
 				transform->Scale.y, 0.0f));
-			mShader->SetMatrix4("model", modelMatrix);
+			shader->SetMatrix4("model", modelMatrix);
 
 			glm::mat4 rotationMatrix;
 			rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-			mShader->SetMatrix4("rotation", rotationMatrix);
+			shader->SetMatrix4("rotation", rotationMatrix);
+		}
+
+		void Sprite::Draw(Camera& camera)
+		{
+      // Skip drawing if visible is false...
+      if (!this->Visible)
+        return;
+
+			mShader->SetInteger("isTexture", 1);
+			glEnable(GL_BLEND);
+			//glEnable(GL_TEXTURE_2D);
+			glBlendFunc(GL_ONE, GL_ONE);
+			glDepthFunc(GL_LEQUAL);
+
+			// Retrieve the 'SpriteSource' resource from the content system
+
+			// We use transform data for drawing:
+			
+
+			// Create the matrix of the transform
+			GLfloat verticesOffset = 0.5f;
 
 			// Update the uniforms in the shader to this particular sprite's data 
 			
-			mShader->SetVector4f("spriteColor", Color);
-			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
-			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
-			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
-			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+
 
 
 
 			// Set the active texture
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
-			spriteSrc->getTexture().Bind();
+			
 			//this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
 			glBindVertexArray(mVAO);
 			glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
 
 			//DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
+		}
+
+		void Sprite::SetShader()
+		{
+			mShader->Use();
 		}
 
 		//unsigned Sprite::GetDrawLayer(void)

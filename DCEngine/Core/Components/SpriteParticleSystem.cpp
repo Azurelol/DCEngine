@@ -167,6 +167,13 @@ namespace DCEngine {
       }
     }
 
+		void SpriteParticleSystem::SetModelMatrix(ShaderPtr shader)
+		{
+			if (!shader)
+				shader = mShader;
+			shader->Use();
+		}
+
     /**************************************************************************/
     /*!
     @brief Draws all active particles.
@@ -175,8 +182,8 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::Draw(Camera& camera)
 		{
-			mShader->Use();
-
+			//mShader->Use();
+			glDepthMask(GL_FALSE);
 			glEnable(GL_BLEND);
 			if(getAdditive())
 				glBlendFunc(GL_ONE, GL_ONE);
@@ -235,6 +242,7 @@ namespace DCEngine {
 				glBindVertexArray(0);
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glDepthMask(GL_TRUE);
 		}
 
 

@@ -53,11 +53,11 @@ namespace DCEngine {
           
     public:
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
-			void SetLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents);
+			void SetLightUniforms(ShaderPtr shader, Components::Light* lightComponents);
 
       /* Sprite */
       void ConfigureSpriteVAO();      
-      void SetSpriteShader(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
+      void SetSpriteShader(Components::Camera& camera, Components::Light* light);
       void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 	    void AnimationUpdate(Components::Sprite& sprite, float dt);
 	    int IsNextFrame(Components::Sprite& sprite);
@@ -72,7 +72,7 @@ namespace DCEngine {
 
 			/* Shadowing System */
 			void ConfigureShadowBuffers(void);
-			void SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
+			void SetShadowingShaders(Components::Camera& camera, Components::Light* light);
 
       /* Model */
       void DrawModel(GameObject& gameObj);

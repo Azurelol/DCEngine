@@ -27,8 +27,9 @@ namespace DCEngine {
       virtual ~Graphical();
       virtual void Initialize();
 			virtual void Update(float dt) {}
-			virtual void SetModelMatrix(void) {}
+			virtual void SetModelMatrix(ShaderPtr shader) {}
 			virtual void Draw(Camera&) {}
+			virtual void SetShader(void) {}
 			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
 		private:
 			unsigned DrawLayer;

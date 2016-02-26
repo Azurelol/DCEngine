@@ -701,6 +701,9 @@
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
     <None Include="Core\Assets\Shaders\ParticleShader.frag" />
     <None Include="Core\Assets\Shaders\ParticleShader.vs" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.frag" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.gs" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />

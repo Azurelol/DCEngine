@@ -55,6 +55,7 @@ namespace DCEngine {
 			virtual ~SpriteParticleSystem(void);
       void Initialize();
 			void Update(float);
+			void SetModelMatrix(ShaderPtr shader);
 			void Draw(Camera& camera);
 			Transform* TransformComponent;
 

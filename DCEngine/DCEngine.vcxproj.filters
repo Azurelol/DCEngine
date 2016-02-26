@@ -1517,5 +1517,14 @@
     <None Include="Core\Assets\Shaders\ParticleShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.gs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
