@@ -22,7 +22,7 @@ namespace DCEngine {
 
       enum class Mode {
         StopWatch,
-        Timer,
+        timer,
       };
 
       Timer(float duration, Mode mode, bool reset);

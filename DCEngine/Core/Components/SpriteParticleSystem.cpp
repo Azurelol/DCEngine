@@ -231,7 +231,7 @@ namespace DCEngine {
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 				glBindVertexArray(mVAO);
-				glDrawArraysInstanced(GL_TRIANGLES, 0, 6,  static_cast<GLsizei>(offset.size()));
+				glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4,  static_cast<GLsizei>(offset.size()));
 				glBindVertexArray(0);
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
