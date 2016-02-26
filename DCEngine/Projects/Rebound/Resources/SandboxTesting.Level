@@ -278,8 +278,8 @@
             {
               "Vec3": 
               {
-                "x": -74.408340, 
-                "y": 6.929744, 
+                "x": -73.484123, 
+                "y": 10.117640, 
                 "z": 0.000000
               }
             }, 
@@ -379,6 +379,7 @@
             "RotSpeed": 15.000000, 
             "MinCharge": 0.500000, 
             "MaxCharge": 2.000000, 
+            "ChargeFactor": 10000.000000, 
             "FrozenColor": 
             {
               "Vec4": 
@@ -413,7 +414,7 @@
             "MaxAttractSpeed": 50.000000, 
             "MaxAttractForce": 100.000000, 
             "AttractArriveDistance": 200.000000, 
-            "MinAttractSpeed": 2.000000
+            "MinAttractSpeed": 50.000000
           }, 
           "Light": 
           {
@@ -433,18 +434,18 @@
               }
             }, 
             "Intensity": 4.000000, 
-            "Range": 0.199998, 
-            "Falloff": 0.900000, 
+            "Range": 5.499995, 
+            "Falloff": 1.900000, 
             "DirectionVector": 
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
               }
             }, 
-            "InnerAngle": 0.000000, 
+            "InnerAngle": -0.200000, 
             "OuterAngle": 0.000000
           }, 
           "SpriteParticleSystem": 
@@ -1029,7 +1030,7 @@
           "PlayerController": 
           {
             "MoveSpeed": 0.700000, 
-            "JumpPower": 60.000000, 
+            "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
@@ -2481,7 +2482,7 @@
             }, 
             "Intensity": 13.200014, 
             "Range": 100.000000, 
-            "Falloff": 2.899999, 
+            "Falloff": 5.999996, 
             "DirectionVector": 
             {
               "Vec3": 
