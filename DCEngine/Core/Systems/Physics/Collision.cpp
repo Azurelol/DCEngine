@@ -1102,7 +1102,7 @@ namespace DCEngine
     return true;
   }
 
-  bool Collision::SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance)
+  bool Collision::RayToCollider(const Ray line, GameObject *obj, float &Distance)
   {
     auto box = obj->getComponent<Components::BoxCollider>();
     auto circle = obj->getComponent<Components::CircleCollider>();
@@ -1110,7 +1110,7 @@ namespace DCEngine
 
     if (box)
     {
-      Vec3 topL, topR, botL, botR;
+      Vec3 topL, topR, botL, botR, Rseg;
 
       bool retval = false;
 
@@ -1129,96 +1129,34 @@ namespace DCEngine
 
       botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
       botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
-      float T1, T2;
-      Vec3 Sstart = topL;
-      Vec3 Send = topR;
-      Vec3 Direction = line.second - line.first;
+      
 
-      Vec3 SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
       }
 
 
-      Sstart = topR;
-      Send = botR;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-
-      Sstart = botR;
-      Send = botL;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-
-      Sstart = botL;
-      Send = topL;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-      Distance = Dist;
-      return retval;
+      return false;
     }
 
     if (circle)
@@ -1227,6 +1165,54 @@ namespace DCEngine
     }
 
     return false;
+  }
+
+  bool Collision::RayToSegment(Vec3 O, Vec3 Dir, Vec3 Begin, Vec3 End, Vec3 &Result)
+  {
+    Vec3 RayEnd = O + Dir * 10000.0f;
+
+    float D = (O.x - RayEnd.x)*(Begin.y - End.y) - (O.y - RayEnd.y)*(Begin.x - End.x);
+    
+    if (D == 0)
+    {
+      return false;
+    }
+
+    float x = ((Begin.x - End.x) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.x - RayEnd.x) * (Begin.x * End.y - Begin.y * End.x)) / D;
+    float y = ((Begin.y - End.y) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.y - RayEnd.y) * (Begin.x * End.y - Begin.y * End.x)) / D;
+
+    Result = Vec3(x, y, 0);
+
+    return true;
+
+
+    /*Dir = glm::normalize(Dir);
+    Vec3 SegDir = glm::normalize(End - Begin);
+    
+    if (Dir == SegDir || Dir == -SegDir)
+    {
+      return false;
+    }
+
+    SegDir = End - Begin;
+
+    float x, y, S, T;
+
+    S = (O.y * Dir.x + Begin.x - O.x - Begin.y * Dir.x) / (SegDir.y * Dir.x - SegDir.x);
+
+    T = (Begin.x + S * SegDir.x - O.x) / Dir.x;
+
+    Vec3 Temp = O + T * Dir;
+
+    Vec3 Tempvec = Temp - Begin;
+
+    if (glm::normalize(SegDir) == glm::normalize(Tempvec))
+    {
+      Result = Temp;
+      return true;
+    }
+
+    return false;*/
   }
 
 }

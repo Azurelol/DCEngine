@@ -197,13 +197,19 @@ namespace DCEngine {
 		{
       // Hardcode dt temporarily
       dt = 0.0166f;
-
+      static bool first = true;
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
         // If the space is paused, skip physics update
         if (physpace->Owner()->getComponent<Components::TimeSpace>()->getPaused())
           continue;
+
+        
+        if (first)
+        {
+          UpdateTransforms(physpace);
+        }
 
 				std::vector<Manifold> contactlist;
         static std::vector<DetectionPairing> pairs;
@@ -221,6 +227,7 @@ namespace DCEngine {
 				UpdateTransforms(physpace);
 			}
 
+      first = false;
 
 		}
 

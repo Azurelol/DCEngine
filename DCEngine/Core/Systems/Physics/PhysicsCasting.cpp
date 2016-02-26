@@ -23,79 +23,6 @@ namespace DCEngine
   namespace Systems 
   {
 
-    Vec3 GenerateSegment(Ray &ray, Components::PhysicsSpace *Space)
-    {
-      
-      Vec3 Sstart = Vec3(Space->MinX, Space->MaxY, 0);
-      Vec3 Send = Vec3(Space->MaxX, Space->MaxY, 0);
-
-      Vec3 SegmentDir = glm::normalize(Send - Sstart);
-
-      float T1, T2;
-      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        return Vec3(ray.Origin + (T2 * ray.Direction));
-      }
-
-
-      Sstart = Vec3(Space->MaxX, Space->MaxY, 0);
-      Send = Vec3(Space->MaxX, Space->MinY, 0);
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        return Vec3(ray.Origin + (T2 * ray.Direction));
-      }
-
-      Sstart = Vec3(Space->MaxX, Space->MinY, 0);
-      Send = Vec3(Space->MinX, Space->MinY, 0);
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        return Vec3(ray.Origin + (T2 * ray.Direction));
-      }
-
-      Sstart = Vec3(Space->MinX, Space->MinY, 0);
-      Send = Vec3(Space->MinX, Space->MaxY, 0);
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-ray.Direction.y * (ray.Origin.x - Sstart.x) + ray.Direction.x * (ray.Origin.y - Sstart.y)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (ray.Origin.y - Sstart.y) - SegmentDir.y * (ray.Origin.x - Sstart.x)) / (-SegmentDir.x * ray.Direction.y + ray.Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        return Vec3(ray.Origin + (T2 * ray.Direction));
-      }
-
-
-
-      // if we get here there is a serious problem
-      throw (DCException("shit man this is bad my line segment algorithm dont work"));
-
-      return Vec3();
-    }
-
     bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, DCEngine::CollisionGroup group)
     {
       for (auto Group : Groups)
@@ -117,12 +44,6 @@ namespace DCEngine
     CastResult Physics::CastRay(Ray & ray, Components::PhysicsSpace *Space)
     {
       CastResult retval;
-
-      Vec3 endpoint = GenerateSegment(ray, Space);
-
-      std::pair<Vec3, Vec3> segment;
-      segment.first = ray.Origin;
-      segment.second = endpoint;
       
       retval.Distance = FLT_MAX;
 
@@ -133,7 +54,7 @@ namespace DCEngine
       for (auto &object : colliders)
       {
 
-        if (Collision::SegmentToCollider(segment, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        if (Collision::RayToCollider(ray, dynamic_cast<GameObject*>(object->Owner()), Distance))
         {
           if (Distance < retval.Distance)
           {
@@ -162,12 +83,6 @@ namespace DCEngine
     {
       CastResult retval;
 
-      Vec3 endpoint = GenerateSegment(ray, Space);
-
-      std::pair<Vec3, Vec3> segment;
-      segment.first = ray.Origin;
-      segment.second = endpoint;
-
       retval.Distance = FLT_MAX;
 
       auto colliders = Space->AllColliders();
@@ -177,7 +92,7 @@ namespace DCEngine
       for (auto &object : colliders)
       {
 
-        if (Collision::SegmentToCollider(segment, dynamic_cast<GameObject*>(object->Owner()), Distance))
+        if (Collision::RayToCollider(ray, dynamic_cast<GameObject*>(object->Owner()), Distance))
         {
           if (filter.Include)
           {
