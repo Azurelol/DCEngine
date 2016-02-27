@@ -40,7 +40,7 @@ namespace DCEngine {
     // Console
     size_t ConsoleWindowStringLength = 0;
     size_t PreviousConsoleWindowStringLength = 0;
-    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Timer, true),  
+    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Countdown, true),  
                      CameraLastPos(0.0f, 0.0f, 40.0f) {}
   };
 

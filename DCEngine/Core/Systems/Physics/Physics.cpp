@@ -122,6 +122,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
+      SystemTimer profile(this->Name());
 
       // Do not update physics while the engine is paused.
       if (Paused)
@@ -267,18 +268,6 @@ namespace DCEngine {
         if (rigidbody != nullptr)
           rigidbody->PublishResults();
       }
-
-			//for (int i = 0; i < bodies.size(); ++i)
-			//{
-			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
-			//	{
-			//		bodies[i]->getComponent<RigidBody>()->PublishResults();
-			//	}
-			//	else
-			//	{
-			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
-			//	}
-			//}
 		}
 
     /**************************************************************************/

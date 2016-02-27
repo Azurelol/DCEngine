@@ -49,7 +49,7 @@ namespace DCEngine {
     /**************************************************************************/
     bool Timer::Update(float dt)
     {
-      if (CurrentMode == Mode::Timer) {
+      if (CurrentMode == Mode::Countdown) {
 
         if (CurrentTime >= Duration) {
           if (Reset)
@@ -73,6 +73,12 @@ namespace DCEngine {
       // Neither of the conditions have been met
       return false;
 
+    }
+    
+    void FunctionTimer::Record()
+    {
+      EndTime = Time::clock::now();
+      ElapsedTime = Time::floatSeconds(EndTime - StartTime).count();
     }
 
   }

@@ -98,7 +98,43 @@ namespace DCEngine {
       // Update the current width's, heig
       Width = WindowHandler->getWindowDimensions().x;
       Height = WindowHandler->getWindowDimensions().y;      
+      CalculateFPS(dt);
       WindowHandler->Update(dt);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Returns the engine's current framerate.
+    @return The framerate.
+    */
+    /**************************************************************************/
+    float Window::FPS()
+    {
+      return CurrentFramerate;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Calculates the engine's current FPS.
+    @param dt The delta time.
+    */
+    /**************************************************************************/
+    float localCounter = 0;
+    int frameCounter = 0;
+    void Window::CalculateFPS(float dt)
+    {
+      localCounter += dt;
+      ++frameCounter;
+      if (localCounter > 0.5)
+      {
+        CurrentFramerate = static_cast<int>(frameCounter / localCounter);
+        std::stringstream ss;
+        ss << Caption << "              [FPS =" << CurrentFramerate << "]";
+        WindowHandler->WindowContext->setTitle(ss.str());
+        //windowsTitle = ss.str();
+        localCounter = 0;
+        frameCounter = 0;
+      }
     }
 
     /**************************************************************************/

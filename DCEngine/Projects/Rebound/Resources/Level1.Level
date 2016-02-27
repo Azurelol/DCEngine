@@ -5770,8 +5770,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 162.870956, 
                 "y": 39.487556, 
+=======
+                "x": -7.325226, 
+                "y": 33.335693, 
+>>>>>>> 86bf0896ebbbd529c4bb739dc62f8d8293c5e6b7
                 "z": 0.000000
               }
             }, 
@@ -9705,8 +9710,8 @@
             {
               "Vec3": 
               {
-                "x": -53.763031, 
-                "y": 44.824577, 
+                "x": -53.000000, 
+                "y": 44.311481, 
                 "z": -0.100000
               }
             }, 
@@ -9874,7 +9879,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -9944,7 +9949,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10014,7 +10019,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10084,7 +10089,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10154,7 +10159,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10224,7 +10229,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10294,7 +10299,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10320,6 +10325,179 @@
             }, 
             "InnerAngle": 60.000000, 
             "OuterAngle": 100.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Light", 
+        "Archetype": "SpotLight", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -30.000000, 
+                "y": 50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 1.000000, 
+            "Range": 99.400009, 
+            "Falloff": 1.300000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.300000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 5.000000, 
+            "OuterAngle": 50.000000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Ground", 
+        "Archetype": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 98.840897, 
+                "y": 10.044578, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 11.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.500000, 
+                "y": 0.500000, 
+                "z": 0.500000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Terrain", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "ErraticDoor": 
+          {
+            "Timer": 1.000000
+          }, 
+          "MoveToLocation": 
+          {
+            "Timer": 0.000000, 
+            "TargetLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 9.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "MoveToLocationTime": 0.666000, 
+            "Moving": true
           }
         }
       }

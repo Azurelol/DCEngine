@@ -13,6 +13,7 @@
 #pragma once
 #include "ComponentReference.h"
 #include "Camera.h"
+#include "Light.h"
 
 namespace DCEngine {
   namespace Components {
@@ -27,8 +28,9 @@ namespace DCEngine {
       virtual ~Graphical();
       virtual void Initialize();
 			virtual void Update(float dt) {}
-			virtual void SetModelMatrix(void) {}
-			virtual void Draw(Camera&) {}
+			virtual void SetUniforms(ShaderPtr shader, Camera* camera, Light* light) {}
+			virtual void Draw(void) {}
+			virtual void SetShader(void) {}
 			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
 		private:
 			unsigned DrawLayer;

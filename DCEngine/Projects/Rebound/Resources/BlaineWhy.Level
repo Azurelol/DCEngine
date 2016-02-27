@@ -194,7 +194,11 @@
                 "w": 1.000000
               }
             }, 
-            "FreezeEnabled": true
+            "FreezeEnabled": true, 
+            "MaxAttractSpeed": 100.000000, 
+            "MaxAttractForce": 100.000000, 
+            "AttractArriveDistance": 200.000000, 
+            "MinAttractSpeed": 50.000000
           }
         }
       }, 

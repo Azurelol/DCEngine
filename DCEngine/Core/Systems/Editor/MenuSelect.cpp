@@ -121,6 +121,7 @@ namespace DCEngine {
         Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
         Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
         Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+        CalculateSelectionBounding();
       }
 
       Select(obj);      
