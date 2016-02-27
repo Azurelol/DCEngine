@@ -54,6 +54,7 @@ namespace DCEngine {
     public:
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
 			void SetLightUniforms(ShaderPtr shader, Components::Light* lightComponents);
+			void SetAllLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents);
 
       /* Sprite */
       void ConfigureSpriteVAO();      

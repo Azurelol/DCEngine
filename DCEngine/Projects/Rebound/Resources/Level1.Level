@@ -1748,8 +1748,8 @@
             {
               "Vec3": 
               {
-                "x": -21.972334, 
-                "y": 16.223257, 
+                "x": -11.350986, 
+                "y": 34.039993, 
                 "z": 0.000000
               }
             }, 
@@ -5770,8 +5770,8 @@
             {
               "Vec3": 
               {
-                "x": -18.472303, 
-                "y": 18.223253, 
+                "x": -7.325226, 
+                "y": 33.335693, 
                 "z": 0.000000
               }
             }, 
@@ -9705,8 +9705,8 @@
             {
               "Vec3": 
               {
-                "x": -53.763031, 
-                "y": 44.824577, 
+                "x": -53.000000, 
+                "y": 44.311481, 
                 "z": -0.100000
               }
             }, 
@@ -9874,7 +9874,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -9944,7 +9944,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10014,7 +10014,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10084,7 +10084,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10154,7 +10154,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10224,7 +10224,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10294,7 +10294,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -10364,7 +10364,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Spot", 
             "Color": 
             {

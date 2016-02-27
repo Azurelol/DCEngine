@@ -975,7 +975,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
@@ -2446,8 +2446,8 @@
             {
               "Vec3": 
               {
-                "x": -32.147846, 
-                "y": 36.091621, 
+                "x": -51.665367, 
+                "y": 28.793764, 
                 "z": 0.000000
               }
             }, 

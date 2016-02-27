@@ -30,7 +30,7 @@ namespace DCEngine {
 
       enum class Mode {
         StopWatch,
-        Timer,
+        Countdown,
       };
 
       Timer(float duration, Mode mode, bool reset);

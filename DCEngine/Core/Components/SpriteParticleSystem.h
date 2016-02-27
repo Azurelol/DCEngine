@@ -55,8 +55,8 @@ namespace DCEngine {
 			virtual ~SpriteParticleSystem(void);
       void Initialize();
 			void Update(float);
-			void SetModelMatrix(ShaderPtr shader);
-			void Draw(Camera& camera);
+			void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
+			void Draw(void);
 			Transform* TransformComponent;
 
 			//logic
@@ -110,6 +110,7 @@ namespace DCEngine {
 			unsigned mEmitCounter;
 			bool mActiveFlag;
       Camera* CameraComponent;
+			std::vector<glm::mat4> transformData;
     };
   }
 

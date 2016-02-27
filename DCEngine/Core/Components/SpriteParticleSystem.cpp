@@ -167,31 +167,11 @@ namespace DCEngine {
       }
     }
 
-		void SpriteParticleSystem::SetModelMatrix(ShaderPtr shader)
+		void SpriteParticleSystem::SetUniforms(ShaderPtr shader, Camera* camera, Light * light)
 		{
 			if (!shader)
 				shader = mShader;
 			shader->Use();
-		}
-
-    /**************************************************************************/
-    /*!
-    @brief Draws all active particles.
-    @param camera Reference to the current camera in the space.
-    */
-    /**************************************************************************/
-		void SpriteParticleSystem::Draw(Camera& camera)
-		{
-			//mShader->Use();
-			glDepthMask(GL_FALSE);
-			glEnable(GL_BLEND);
-			if(getAdditive())
-				glBlendFunc(GL_ONE, GL_ONE);
-			else
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-			SpriteSourcePtr src = Daisy->getSystem<Systems::Content>()->getSpriteSrc(Texture);
-
 			Components::Transform* transform = TransformComponent;
 
 			glm::mat4 modelMatrix;
@@ -201,12 +181,10 @@ namespace DCEngine {
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
 
-			//.Update(dt);
 			std::vector<glm::vec2> offset(GetPositionData());
-			std::vector<float> scale(GetScaleData());
 			std::vector<float> rotation(GetRotationData());
-			std::vector<glm::vec4> color(GetColorData());
-			std::vector<glm::mat4> transformData;
+			std::vector<float> scale(GetScaleData());
+			
 			for (unsigned i = 0; i < GetParticleCount(); ++i)
 			{
 				glm::mat4 modelMatrix;
@@ -220,6 +198,7 @@ namespace DCEngine {
 			}
 
 			//texture info
+			SpriteSourcePtr src = Daisy->getSystem<Systems::Content>()->getSpriteSrc(Texture);
 			mShader->SetFloat("CutMinX", (float)src->MinX / src->PicWidth);
 			mShader->SetFloat("CutMaxX", (float)src->MaxX / src->PicWidth);
 			mShader->SetFloat("CutMinY", (float)src->MinY / src->PicHeight);
@@ -227,6 +206,29 @@ namespace DCEngine {
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			src->getTexture().Bind();
 
+			// Set the projection matrix
+			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
+			// Set the view matrix 
+			shader->SetMatrix4("view", camera->GetViewMatrix());
+		}
+
+    /**************************************************************************/
+    /*!
+    @brief Draws all active particles.
+    @param camera Reference to the current camera in the space.
+    */
+    /**************************************************************************/
+		void SpriteParticleSystem::Draw(void)
+		{
+			//mShader->Use();
+			glDepthMask(GL_FALSE);
+			glEnable(GL_BLEND);
+			std::vector<glm::vec2> offset(GetPositionData());
+			std::vector<glm::vec4> color(GetColorData());
+			if(getAdditive())
+				glBlendFunc(GL_ONE, GL_ONE);
+			else
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			if (Visible)
 			{
 				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
@@ -243,6 +245,7 @@ namespace DCEngine {
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glDepthMask(GL_TRUE);
+			transformData.clear();
 		}
 
 

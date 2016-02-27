@@ -143,10 +143,10 @@ namespace DCEngine {
 
 		void Sprite::Update(float dt)
 		{
-			mShader->Use();
+			//mShader->Use();
 			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			//Animation update
-			mShader->SetInteger("isAnimaitonActivated", 0);
+			
 			HaveAnimation = AnimationActive;
 			if (HaveAnimation == true)//Check whether it has animation
 			{
@@ -165,82 +165,50 @@ namespace DCEngine {
 				{
 					if (UpdateAnimationSpeed())//Check whether the animation speed is 0
 					{
-						if (CheckAnimationIntialized() == false)
+						if (AnimationActive == true)
 						{
-							mShader->SetInteger("isAnimaitonActivated", 1);
-							mShader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
-							mShader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
-							mShader->SetInteger("currentColumn", StartColumn);
-							mShader->SetInteger("currentRow", StartRow);
-						}
-						else
-						{
-							if (AnimationActive == true)
+							IncreaseAnimationCounter(dt);
+							if (GetAnimationSpeedFPSCounter() >= GetAnimationSpeedFPS())
 							{
-								IncreaseAnimationCounter(dt);
-								if (GetAnimationSpeedFPSCounter() >= GetAnimationSpeedFPS())
+								ResetSpeedCounter();
+								CurrentColumn++;
+								//Check whether it reaches the next line.
+								if (CurrentColumn >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount)
 								{
-									ResetSpeedCounter();
-									CurrentColumn++;
-									//Check whether it reaches the next line.
-									if (CurrentColumn >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount)
+									CurrentRow++;
+									CurrentColumn = 0;
+									if (CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->RowCount)
 									{
-										CurrentRow++;
-										CurrentColumn = 0;
-										if (CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->RowCount)
-										{
-											CurrentRow = 0;
-										}
-									}
-									//Check If it is go into void frame
-									if ((Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame != 0) &&
-										(CurrentColumn + Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount * CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame))
-									{
-										CurrentColumn = 0;
 										CurrentRow = 0;
 									}
-									//Current frame started from 0
 								}
+								//Check If it is go into void frame
+								if ((Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame != 0) &&
+									(CurrentColumn + Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount * CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame))
+								{
+									CurrentColumn = 0;
+									CurrentRow = 0;
+								}
+								//Current frame started from 0
 							}
-							mShader->SetInteger("isAnimaitonActivated", 1);
-							mShader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
-							mShader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
-							mShader->SetInteger("currentColumn", CurrentColumn);
-							mShader->SetInteger("currentRow", CurrentRow);
 						}
 					}
 				}
 			}
-			if (FlipX == true)
-			{
-				mShader->SetInteger("flipx", 1);
-			}
-			else
-			{
-				mShader->SetInteger("flipx", 0);
-			}
-
-			if (FlipY == true)
-			{
-				mShader->SetInteger("flipy", 1);
-			}
-			else
-			{
-				mShader->SetInteger("flipy", 0);
-			}
-			mShader->SetVector4f("spriteColor", Color);
-			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
-			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
-			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
-			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
-			spriteSrc->getTexture().Bind();
 		}
 
-		void Sprite::SetModelMatrix(ShaderPtr shader)
+		void Sprite::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
 		{
 			if (!shader)
+			{
+				silhouette = false;
 				shader = mShader;
+			}
+			else silhouette = true;
 			shader->Use();
+
+			shader->SetInteger("isTexture", 1);
+			//set matrix uniforms
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
 			// Matrices
@@ -255,43 +223,122 @@ namespace DCEngine {
 			glm::mat4 rotationMatrix;
 			rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			shader->SetMatrix4("rotation", rotationMatrix);
-		}
 
-		void Sprite::Draw(Camera& camera)
+			//animation uniforms
+			shader->SetInteger("isAnimaitonActivated", 0);
+			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+			if (FlipX == true)
+				shader->SetInteger("flipx", 1);
+			else
+				shader->SetInteger("flipx", 0);
+
+			if (FlipY == true)
+				shader->SetInteger("flipy", 1);
+			else
+				shader->SetInteger("flipy", 0);
+			shader->SetVector4f("spriteColor", Color);
+			shader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
+			shader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
+			shader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
+			shader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+			glActiveTexture(GL_TEXTURE0); // Used for 3D???
+			spriteSrc->getTexture().Bind();
+
+			if (HaveAnimation == true)//Check whether it has animation
+			{
+				if (CheckAnimationIntialized() == false)
+				{
+					shader->SetInteger("isAnimaitonActivated", 1);
+					shader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
+					shader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
+					shader->SetInteger("currentColumn", StartColumn);
+					shader->SetInteger("currentRow", StartRow);
+				}
+				else
+				{
+					shader->SetInteger("isAnimaitonActivated", 1);
+					shader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
+					shader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
+					shader->SetInteger("currentColumn", CurrentColumn);
+					shader->SetInteger("currentRow", CurrentRow);
+				}
+			}
+
+			//Lights
+
+			if (light)
+			{
+				shader->SetInteger("useLight", true);
+				glm::mat4 lightMatrix;
+				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
+				lightMatrix = glm::translate(lightMatrix, glm::vec3(lightTransform->Translation.x,
+					lightTransform->Translation.y,
+					lightTransform->Translation.z));
+				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
+					lightTransform->Scale.y, 0.0f));
+
+				std::string var("gLight.");
+				std::string member;
+				member = var + "Visible";
+				shader->SetInteger(member.c_str(), light->getVisible());
+				member = var + "VisibilityCulling";
+				shader->SetInteger(member.c_str(), light->getVisibilityCulling());
+				member = var + "VisibilityEvents";
+				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "CastShadows";
+				shader->SetInteger(member.c_str(), light->getCastShadows());
+				member = var + "LightType";
+				shader->SetInteger(member.c_str(), light->getTypeAsInt());
+				member = var + "Color";
+				shader->SetVector4f(member.c_str(), light->getColor());
+				member = var + "Intensity";
+				shader->SetFloat(member.c_str(), light->getIntensity());
+				member = var + "Range";
+				shader->SetFloat(member.c_str(), light->getRange());
+				member = var + "Falloff";
+				shader->SetFloat(member.c_str(), light->getFalloff());
+				member = var + "Direction";
+				shader->SetVector3f(member.c_str(), light->getDirectionVector());
+				member = var + "InnerAngle";
+				shader->SetFloat(member.c_str(), light->getInnerAngle() * 3.141593f / 360.0f);
+				member = var + "OuterAngle";
+				shader->SetFloat(member.c_str(), light->getOuterAngle() * 3.141593f / 360.0f);
+				member = var + "Position";
+				shader->SetVector3f(member.c_str(), lightTransform->Translation);
+				member = var + "Model";
+				shader->SetMatrix4(member.c_str(), lightMatrix);
+			}
+			else shader->SetInteger("useLight", false);
+
+			// Set the projection matrix
+			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
+			// Set the view matrix 
+			shader->SetMatrix4("view", camera->GetViewMatrix());
+		}
+		
+			
+
+		void Sprite::Draw(void)
 		{
       // Skip drawing if visible is false...
-      if (!this->Visible)
+      if (!Visible)
         return;
 
-			mShader->SetInteger("isTexture", 1);
 			glEnable(GL_BLEND);
 			//glEnable(GL_TEXTURE_2D);
 			glBlendFunc(GL_ONE, GL_ONE);
-			glDepthFunc(GL_LEQUAL);
-
-			// Retrieve the 'SpriteSource' resource from the content system
-
-			// We use transform data for drawing:
-			
-
-			// Create the matrix of the transform
-			GLfloat verticesOffset = 0.5f;
-
-			// Update the uniforms in the shader to this particular sprite's data 
-			
-
-
-
-
+			//glDepthFunc(GL_LEQUAL);
 			// Set the active texture
-			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			
-			//this->SpriteShader->SetInteger("image", spriteSrc->getTexture().TextureID); // WHAT DO?
+			
 			glBindVertexArray(mVAO);
-			glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+			if(silhouette)
+				glDrawArrays(GL_LINE_LOOP, 0, 4);
+			else
+				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
 
-			//DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
 		}
 
 		void Sprite::SetShader()
