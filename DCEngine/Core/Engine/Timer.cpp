@@ -74,6 +74,12 @@ namespace DCEngine {
       return false;
 
     }
+    
+    void FunctionTimer::Record()
+    {
+      EndTime = Time::clock::now();
+      ElapsedTime = Time::floatSeconds(EndTime - StartTime).count();
+    }
 
   }
 }

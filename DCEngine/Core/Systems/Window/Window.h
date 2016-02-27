@@ -53,13 +53,15 @@ namespace DCEngine {
       unsigned int Height = 600;
       unsigned int Framerate = 60;
       bool Fullscreen = false;
-
+      unsigned CurrentFramerate;
       
       Window(std::string& caption, unsigned int framerate, unsigned int width, 
              unsigned int height, bool fullscreen);
       void Initialize();
       void Subscribe();
       void Update(float dt);
+      float FPS();
+      void CalculateFPS(float dt);
       void Terminate();
       void StartFrame();
       void EndFrame();

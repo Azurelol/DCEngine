@@ -21,6 +21,7 @@ namespace DCEngine {
     void DiagnosticsGraphics();
     void DiagnosticsPhysics();
     void DiagnosticsEventsActions();
+    void DiagnosticsSystemHistogram();
 
     /**************************************************************************/
     /*!
@@ -55,7 +56,7 @@ namespace DCEngine {
         ImGui::TreePop();
       }
 
-      auto a = 14;
+      DiagnosticsSystemHistogram();
 
       ImGui::End();
     }
@@ -182,6 +183,20 @@ namespace DCEngine {
       auto actionsDeleted = std::string("Actions deleted: ") +
         std::to_string(Action::Destroyed);
       ImGui::Text(actionsDeleted.c_str());
+
+    }
+
+    void DiagnosticsSystemHistogram()
+    {
+      int systemsProfiled = static_cast<int>(Daisy->Profiler().SystemTimes.size());
+      auto num = std::string("Systems profiled: ") + std::to_string(systemsProfiled);
+      ImGui::Text(num.c_str());
+
+      if (ImGui::CollapsingHeader("Systems Histogram")) {
+        // Minimum and max edge caes for the histogram chart
+
+
+      }
 
     }
 
