@@ -2,6 +2,21 @@
 #include "Timer.h"
 
 namespace DCEngine {
+  
+  /**************************************************************************/
+  /*!
+  @class SystemTimer Times a system's update.
+  */
+  /**************************************************************************/
+  class SystemMethodTimer : public Time::FunctionTimer {
+  public:   
+    SystemMethodTimer(std::string methodName, EnumeratedSystem system);
+    ~SystemMethodTimer();
+    virtual void Report();
+  private:
+    const std::string MethodName;
+    EnumeratedSystem System;
+  };
 
   /**************************************************************************/
   /*!
@@ -16,27 +31,34 @@ namespace DCEngine {
   private:
     const std::string SystemName;
   };
-  using SystemTimeSlice = std::pair<std::string, float>;
-  using SystemTimeSliceVec = std::vector<SystemTimeSlice>;
 
   /**************************************************************************/
   /*!
   @class Profiler Runs various diagnostics on the engine and stores that 
          data.
+  @todo  Decide whether to use a branching Add method and enums for different
+         types or different methods like being done currently.
   */
   /**************************************************************************/
   class Profiler {
   public:
-    void Add(SystemTimeSlice systemTime);
+    void Add(Time::FunctionTimeSlice systemTime);
+    void Add(Time::FunctionTimeSlice systemTime, EnumeratedSystem system);
     float FPS();
     void Update(float dt);
-    SystemTimeSliceVec SystemTimes;
-    SystemTimeSliceVec NextSystemTimes;
-    
+    Time::FunctionTimeSliceVec& SystemTimes();
+    Time::FunctionTimeSliceVec& Graphics();
+    Time::FunctionTimeSliceVec& Physics();
 
   private:
-    float CurrentFPS;
-    
+    float CurrentFPS;    
+    Time::FunctionTimes GraphicsSystemTimes;
+    Time::FunctionTimes PhysicsSystemTimes;
+    // 
+    Time::FunctionTimeSliceVec CurrentSystemTimes;
+    Time::FunctionTimeSliceVec NextSystemTimes;   
+
+
     void CalculateFPS(float dt);
     void Clear();
   };

@@ -5,14 +5,36 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
-  @brief Adds a system's time to the profile.
+  @brief Adds a system's time to the profiler.
   @param systemTime The system and the time elapsed during its udpate method.
   */
   /**************************************************************************/
-  void Profiler::Add(SystemTimeSlice systemTime)
+  void Profiler::Add(Time::FunctionTimeSlice systemTime)
   {
     NextSystemTimes.push_back(systemTime);
   }
+
+  /**************************************************************************/
+  /*!
+  @brief Adds a system method to the profiler.
+  @param tiime The method and the time elapsed during its execution.
+  */
+  /**************************************************************************/
+  void Profiler::Add(Time::FunctionTimeSlice time, EnumeratedSystem system)
+  {
+    switch (system) {
+
+    case EnumeratedSystem::Graphics:
+    GraphicsSystemTimes.second.push_back(time);
+      break;
+
+    case EnumeratedSystem::Physics:
+    PhysicsSystemTimes.second.push_back(time);
+      break;
+
+    }
+  }
+
 
   /**************************************************************************/
   /*!
@@ -21,7 +43,14 @@ namespace DCEngine {
   /**************************************************************************/
   void Profiler::Clear()
   {
-    SystemTimes = NextSystemTimes;
+    // Graphics
+    GraphicsSystemTimes.first = GraphicsSystemTimes.second;
+    GraphicsSystemTimes.second.clear();
+    // Physics
+    PhysicsSystemTimes.first = PhysicsSystemTimes.second;
+    PhysicsSystemTimes.second.clear();
+    // Systems
+    CurrentSystemTimes = NextSystemTimes;
     NextSystemTimes.clear();
   }
 
@@ -48,14 +77,47 @@ namespace DCEngine {
     Clear();
   }
 
-  float localCounter = 0;
-  int frameCounter = 0;
+  /**************************************************************************/
+  /*!
+  @brief Returns a container containing the names and times for all the methods.
+  @return The time for the methods.
+  */
+  /**************************************************************************/
+  Time::FunctionTimeSliceVec & Profiler::SystemTimes()
+  {
+    return CurrentSystemTimes;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Returns a container containing the names and times for all the methods.
+  @return The time for the methods.
+  */
+  /**************************************************************************/
+  Time::FunctionTimeSliceVec & Profiler::Graphics()
+  {
+    return GraphicsSystemTimes.first;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Returns a container containing the names and times for all the methods.
+  @return The time for the methods.
+  */
+  /**************************************************************************/
+  Time::FunctionTimeSliceVec & Profiler::Physics()
+  {
+    return PhysicsSystemTimes.first;
+  }
+
   /**************************************************************************/
   /*!
   @brief Calculates the engine's current FPS.
   @param dt The delta time.
   */
   /**************************************************************************/
+  float localCounter = 0;
+  int frameCounter = 0;
   void Profiler::CalculateFPS(float dt)
   {
     localCounter += dt;
@@ -68,18 +130,25 @@ namespace DCEngine {
     }
   }
 
+  /*====================
+      SYSTEM TIMER
+  ====================*/
 
   /**************************************************************************/
   /*!
-  @brief Updates the Timer off a delta time.
-  @param dt The delta time.
-  @return True if the timer hit its specified time, false otherwise.
+  @brief SystemTimer constructor.
+  @param systemName The name of the system.
   */
   /**************************************************************************/
   SystemTimer::SystemTimer(std::string systemName) : SystemName(systemName)
   {
   }
 
+  /**************************************************************************/
+  /*!
+  @brief SystemTimer destructor.
+  */
+  /**************************************************************************/
   SystemTimer::~SystemTimer()
   {
     Record();
@@ -88,12 +157,48 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief Reports the 
+  @brief Reports the system time to the profiler.
   */
   /**************************************************************************/
   void SystemTimer::Report()
   {
-    Daisy->Profiler().Add(SystemTimeSlice(SystemName, ElapsedTime));
+    Daisy->Profiler().Add(Time::FunctionTimeSlice(SystemName, ElapsedTime));
+  }
+
+  /*====================
+    SYSTEM METHOD TIMER
+  ====================*/
+  /**************************************************************************/
+  /*!
+  @brief SystemMethodTimer constructor.
+  @param methodName The name of the method.
+  @param system The system to which this method belongs to.
+  */
+  /**************************************************************************/
+  SystemMethodTimer::SystemMethodTimer(std::string methodName, EnumeratedSystem system)
+    : MethodName(methodName), System(system)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief SystemMethodTimer destructor.
+  */
+  /**************************************************************************/
+  SystemMethodTimer::~SystemMethodTimer()
+  {
+    Record();
+    Report();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Reports the system time to the profiler.
+  */
+  /**************************************************************************/
+  void SystemMethodTimer::Report()
+  {
+    Daisy->Profiler().Add(Time::FunctionTimeSlice(MethodName, ElapsedTime), this->System);
   }
 
 }

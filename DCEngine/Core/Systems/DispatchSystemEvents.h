@@ -25,6 +25,7 @@ namespace DCEngine {
       static void EnginePause();
       static void EngineExit();
       
+      static void EditorInitialize();
       static void EditorSelectObject(Object* object);
       static void EditorDeselectObject();
       

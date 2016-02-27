@@ -166,6 +166,7 @@ namespace DCEngine {
 
 		void Graphics::RenderShadows(Components::Camera* camera, Components::Light* light)
 		{
+
 			glEnable(GL_DEPTH_CLAMP);
 			//glDisable(GL_CULL_FACE);
 
@@ -210,7 +211,8 @@ namespace DCEngine {
 		}
 
 		void Graphics::RenderBackground(ShaderPtr shader, Components::Camera * camera)
-		{
+		{      
+
 			for (auto&& drawList : mDrawList)
 			{
 				for (const auto& obj : drawList)
@@ -259,6 +261,7 @@ namespace DCEngine {
 
 		void Graphics::RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader)
 		{
+      
 			for (auto&& drawList : mDrawList)
 			{
 				for (auto&& obj : drawList)

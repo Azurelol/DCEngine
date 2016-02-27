@@ -174,6 +174,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Content::Update(float dt) {
+      SystemTimer profile(this->Name());
       // On every update, scan for resources being changed outside the application. (Hot loading?)
     }
 

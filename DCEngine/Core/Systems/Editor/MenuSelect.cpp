@@ -154,6 +154,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Adds a module to the Editor.
+    @param module An editor module.
+    */
+    /**************************************************************************/
+    void Editor::Add(EditorModulePtr module)
+    {
+      ActiveModules.push_back(module);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Adds a command to the editor's command stack.
     */
     /**************************************************************************/

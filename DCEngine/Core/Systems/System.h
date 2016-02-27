@@ -18,28 +18,8 @@
 #include "DispatchSystemEvents.h"
 
 namespace DCEngine {
-
-  enum class EnumeratedSystem {
-    Window,
-    Input,
-    Graphics,
-    Audio,
-    Physics,
-    Factory,
-    Content,
-    Serializer,
-    Reflection,
-    Editor,
-    GUI,
-    Keyboard,
-    Mouse,
-
-    // The amount of systems
-    Capacity
-  };
-
-  // Alias for the enum
-  using ESys = EnumeratedSystem;
+  
+  
 
   class System : public Module {
 

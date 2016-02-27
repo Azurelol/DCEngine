@@ -316,6 +316,9 @@
     <Filter Include="Core\Engine\Profiler">
       <UniqueIdentifier>{ed80af28-e43d-4206-b345-1287c6279e5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
+      <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -551,9 +554,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
@@ -876,6 +876,9 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\Profiler.cpp">
       <Filter>Core\Engine\Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp">
+      <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1481,6 +1484,9 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Profiler.h">
       <Filter>Core\Engine\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h">
+      <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

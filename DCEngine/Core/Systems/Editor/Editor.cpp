@@ -23,7 +23,7 @@ namespace DCEngine {
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
                                                           Settings(settings), 
                                                           Creator(*this), Resources(*this), Archetypes(*this),
-                                                          Projects(*this)
+                                                          Projects(*this), Diagnostics(*this)
     {      
     }
 
@@ -44,6 +44,8 @@ namespace DCEngine {
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
+      DispatchSystemEvents::EditorInitialize();
+      
     }
 
     /**************************************************************************/
@@ -82,6 +84,8 @@ namespace DCEngine {
       // Only enable the editor while the GUI is enabled
       if (!GUI_ENABLED)
         return;
+
+      SystemTimer profile(this->Name());
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
@@ -171,6 +175,11 @@ namespace DCEngine {
       }
     }
 
+    Editor & Editor::Access()
+    {
+      return *Daisy->getSystem<Systems::Editor>();
+    }
+
     /**************************************************************************/
     /*!
     @brief  Switches to a new editor tool.
@@ -220,7 +229,7 @@ namespace DCEngine {
     void Editor::DisplayEditor()
     {
       // Allow diagnostics even without the editor!
-      WindowDiagnostics();
+      Diagnostics.Display();
       WindowConsole();
 
       if (!Settings.EditorEnabled)
@@ -233,6 +242,10 @@ namespace DCEngine {
       DrawGrid();
       DrawSelection();
       DrawMultiSelect();
+
+      for (auto& module : ActiveModules)
+        module->Display();
+
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();

@@ -120,7 +120,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Tools"))
             Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
-            Windows.DiagnosticsEnabled = !Windows.DiagnosticsEnabled;
+            Diagnostics.WindowEnabled = !Diagnostics.WindowEnabled;
           if (ImGui::MenuItem("Commands"))
             Windows.CommandsEnabled = !Windows.CommandsEnabled;
           if (ImGui::MenuItem("Console", "~"))

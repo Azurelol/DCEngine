@@ -1,45 +1,52 @@
-/******************************************************************************/
-/*!
-@file   Diagnostics.cpp
-@author Christian Sagel
-@par    email: c.sagel\@digipen.edu
-@date   11/02/2015
-@brief  This file includes the implementation for the Editor's library widget.
-@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
-
-*/
-/******************************************************************************/
-#include "Editor.h"
+#include "EditorDiagnostics.h"
 
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
-    
-    // Different diagnostics tabs
+
     void DiagnosticsGameObjects();
-    void DiagnosticsGraphics();
-    void DiagnosticsPhysics();
     void DiagnosticsEventsActions();
-    void DiagnosticsSystemHistogram();
 
     /**************************************************************************/
     /*!
-    \brief  Diagnostics Window.
+    \brief  EditorDiagnostics constructor.
     */
     /**************************************************************************/
-    void Editor::WindowDiagnostics()
+    EditorDiagnostics::EditorDiagnostics(Editor & editor) : EditorModule(editor, false)
     {
-      if (!Windows.DiagnosticsEnabled)
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  EditorDiagnostics destructor.
+    */
+    /**************************************************************************/
+    EditorDiagnostics::~EditorDiagnostics()
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays diagnostics window.
+    */
+    /**************************************************************************/
+    void EditorDiagnostics::Display()
+    {
+      if (!WindowEnabled)
         return;
 
       ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Diagnostics", &Windows.DiagnosticsEnabled);
+      ImGui::Begin("Diagnostics", &WindowEnabled);
 
-      if (ImGui::TreeNode("GameObjects")) {        
+      // Display the engine's systems histogram.
+      auto& systemTimes = Daisy->Profiler().SystemTimes();
+      DisplaySystemsHistogram("Systems", systemTimes);
+
+      if (ImGui::TreeNode("GameObjects")) {
         DiagnosticsGameObjects();
         ImGui::TreePop();
-      }    
+      }
 
       if (ImGui::TreeNode("Events & Actions")) {
         DiagnosticsEventsActions();
@@ -47,16 +54,14 @@ namespace DCEngine {
       }
 
       if (ImGui::TreeNode("Physics")) {
-        DiagnosticsPhysics();
+        Physics();
         ImGui::TreePop();
       }
 
       if (ImGui::TreeNode("Graphics")) {
-        DiagnosticsGraphics();
+        Graphics();
         ImGui::TreePop();
       }
-
-      DiagnosticsSystemHistogram();
 
       ImGui::End();
     }
@@ -89,7 +94,7 @@ namespace DCEngine {
           GameObject::GameObjectLastDestroyed;
         ImGui::Text(gameObjectsLastDestroyed.c_str());
       }
-      
+
       ImGui::Separator();
 
       //////////////
@@ -117,8 +122,10 @@ namespace DCEngine {
     \brief  Displays diagnostics for Physics.
     */
     /**************************************************************************/
-    void DiagnosticsGraphics()
+    void EditorDiagnostics::Graphics()
     {
+      auto& times = Daisy->Profiler().Graphics();
+      DisplaySystemsHistogram("Graphics", times);
     }
 
     /**************************************************************************/
@@ -126,10 +133,13 @@ namespace DCEngine {
     \brief  Displays diagnostics for Physics.
     */
     /**************************************************************************/
-    void DiagnosticsPhysics()
+    void EditorDiagnostics::Physics()
     {
+      auto& times = Daisy->Profiler().Physics();
+      DisplaySystemsHistogram("Physics", times);
+
       /*============
-         COLLIDERS
+      COLLIDERS
       ============*/
       auto collidersActive = std::string("Colliders Active: ") +
         std::to_string(Components::Collider::Active);
@@ -141,10 +151,8 @@ namespace DCEngine {
         std::to_string(Components::Collider::Destroyed);
       ImGui::Text(collidersDestroyed.c_str());
 
-      ImGui::Separator();
-
       /*============
-        RIGIDBODIES
+      RIGIDBODIES
       ============*/
       auto rigidBodiesActive = std::string("RigidBodies Active: ") +
         std::to_string(Components::RigidBody::Active);
@@ -172,7 +180,7 @@ namespace DCEngine {
       ImGui::Text(eventsCreated.c_str());
       auto eventsDeleted = std::string("Events deleted: ") +
         std::to_string(Event::EventsDestroyed);
-      ImGui::Text(eventsDeleted.c_str());      
+      ImGui::Text(eventsDeleted.c_str());
 
       ///////////
       // Events
@@ -186,19 +194,63 @@ namespace DCEngine {
 
     }
 
-    void DiagnosticsSystemHistogram()
+    void EditorDiagnostics::DisplaySystemsHistogram(std::string title, DCEngine::Time::FunctionTimeSliceVec& data)
     {
-      int systemsProfiled = static_cast<int>(Daisy->Profiler().SystemTimes.size());
-      auto num = std::string("Systems profiled: ") + std::to_string(systemsProfiled);
-      ImGui::Text(num.c_str());
+      //int systemsProfiled = static_cast<int>(Daisy->Profiler().SystemTimes.size());
+      //auto num = std::string("Systems profiled: ") + std::to_string(systemsProfiled);
+      //ImGui::Text(num.c_str());
+      if (data.empty())
+        return;
+        
+        auto frameRate = 60;
+        static int slowDown = 15;
+        static int refreshTime = 15;
 
-      if (ImGui::CollapsingHeader("Systems Histogram")) {
+        ++slowDown;
+        
+
         // Minimum and max edge caes for the histogram chart
+        static float minTime = 0.0f;
+        static float maxTime = 1.0f / 60.0f;// Daisy->Dt();
 
+        ImGui::PushItemWidth(90);
 
-      }
+        // Slider float to adjust the minimum time
+        //ImGui::SliderFloat("Min Time", &minTime, 0.0f, 0.001f, "%.4f");
+        //GUI::SetToolTip("Minimum time displayed in the histogram");
+        //ImGui::SameLine();
+        //// Slider float to adjust the max time
+        //ImGui::SliderFloat("Max Time", &maxTime, 0.001f, 0.033f, "%.4f");
+        //GUI::SetToolTip("Max time displayed in the histogram.");
 
+        // Parse the times and names to a format dear imgui can read
+        float* times = new float[data.size()];
+        std::string names;
+        for (unsigned i = 0; i < data.size(); ++i) {
+          names += std::to_string(i);
+          names += ": ";
+          names += data[i].first;
+          names += "\n";
+          times[i] = data[i].second;
+        }
+
+        int height = data.size() * 14;
+
+        // Display the histogram through 
+        ImGui::PushItemWidth(290);
+        ImGui::PlotHistogram("", times, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height));
+        //GUI::SetToolTip("Shows the amount of time taken by each system.");
+        //ImGui::PushItemWidth(0);
+        ImGui::SameLine();
+        // Print the legend 
+        ImGui::Text(names.c_str());
+        // Clean up!
+        delete[] times;
+      
     }
 
+    void EditorDiagnostics::Update()
+    {
+    }
   }
 }

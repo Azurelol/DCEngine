@@ -23,6 +23,9 @@ namespace DCEngine {
     using timePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
     using ms = std::chrono::milliseconds;
     using us = std::chrono::microseconds;
+    using FunctionTimeSlice = std::pair<std::string, float>;
+    using FunctionTimeSliceVec = std::vector<FunctionTimeSlice>;
+    using FunctionTimes = std::pair<FunctionTimeSliceVec, FunctionTimeSliceVec>;
 
 
     class Timer {
