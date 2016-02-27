@@ -168,7 +168,7 @@
       <ForcedIncludeFiles>Precompiled.h</ForcedIncludeFiles>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
@@ -329,6 +329,7 @@
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
+    <ClCompile Include="Core\Engine\Profiler.cpp" />
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
     <ClCompile Include="Core\Engine\Timer.cpp" />
     <ClCompile Include="Core\Events\DispatchGameEvents.cpp" />
@@ -482,6 +483,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">

@@ -46,7 +46,75 @@ namespace DCEngine
   /**************************************************************************/
   bool Collision::PointToBoundingCube(const Vec3 & point, const Vec3 & translation, const Vec3 & rotation, const Vec3 & scale)
   {
-    return false;
+    // This function is inherently wrong because it assumes there is only rotation along the z axis
+    // the reason for this flaw is that there is no proper way to resolve the way 3D objects are rotated with
+    // the way we store rotation. 
+
+    glm::vec3 Point = point;
+
+    Point -= translation;
+
+    glm::vec3 temp = Point;
+
+    Point.x = cos(-rotation.z) * temp.x + -sin(-rotation.z) * temp.y;
+    Point.y = sin(-rotation.z) * temp.x +  cos(-rotation.z) * temp.y;
+
+    Point += translation;
+
+    // assumed to be in right handed coordinates so positive Z is towards the front
+
+    float left  =  translation.x - (scale.x / 2.0f);
+    float right =  translation.x + (scale.x / 2.0f);
+    float top   =  translation.y + (scale.y / 2.0f);
+    float bottom = translation.y - (scale.y / 2.0f);
+    float back  =  translation.z - (scale.z / 2.0f);
+    float front =  translation.z + (scale.z / 2.0f);
+
+    if (Point.x < left)
+    {
+      return false;
+    }
+
+    if (Point.x > right)
+    {
+      return false;
+    }
+
+    if (Point.y < bottom)
+    {
+      return false;
+    }
+
+    if (Point.y > top)
+    {
+      return false;
+    }
+
+    if (Point.z < back)
+    {
+      return false;
+    }
+
+    if (Point.z > front)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  bool Collision::PointToBoundingSphere(const Vec3& point, const Vec3& translation, const Vec3& scale, const Vec3& rotation)
+  {
+    // Christian if you are looking through this I question why you send me a rotation
+    // assuming scale.x, y, z are the radius
+
+    if (glm::distance(point, translation) > scale.x)
+    {
+      return false;
+    }
+
+
+    return true;
   }
 
 
@@ -1102,7 +1170,7 @@ namespace DCEngine
     return true;
   }
 
-  bool Collision::SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance)
+  bool Collision::RayToCollider(const Ray line, GameObject *obj, float &Distance)
   {
     auto box = obj->getComponent<Components::BoxCollider>();
     auto circle = obj->getComponent<Components::CircleCollider>();
@@ -1110,7 +1178,7 @@ namespace DCEngine
 
     if (box)
     {
-      Vec3 topL, topR, botL, botR;
+      Vec3 topL, topR, botL, botR, Rseg;
 
       bool retval = false;
 
@@ -1129,96 +1197,34 @@ namespace DCEngine
 
       botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
       botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
-      float T1, T2;
-      Vec3 Sstart = topL;
-      Vec3 Send = topR;
-      Vec3 Direction = line.second - line.first;
+      
 
-      Vec3 SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
+      if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
+      }
+
+      if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
+      {
+        Distance = glm::length(Rseg - line.Origin);
+        return true;
       }
 
 
-      Sstart = topR;
-      Send = botR;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-
-      Sstart = botR;
-      Send = botL;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-
-      Sstart = botL;
-      Send = topL;
-      Direction = line.second - line.first;
-
-      SegmentDir = glm::normalize(Send - Sstart);
-
-      T1 = (-Direction.y * (line.first.x - Sstart.x) + Direction.x * (line.first.y - Sstart.y)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-      T2 = (SegmentDir.x * (line.first.y - Sstart.y) - SegmentDir.y * (line.first.x - Sstart.x)) / (-SegmentDir.x * Direction.y + Direction.x * SegmentDir.y);
-
-      if (T1 >= 0 && T1 <= 1 && T2 >= 0 && T2 <= 1)
-      {
-        // Collision detected
-        // Return the point of intersection
-        Vec3 point = Vec3(line.first + (T2 * Direction));
-        if (Dist > glm::distance(line.first, point))
-        {
-          Dist = glm::distance(line.first, point);
-          retval = true;
-        }
-      }
-
-      Distance = Dist;
-      return retval;
+      return false;
     }
 
     if (circle)
@@ -1227,6 +1233,67 @@ namespace DCEngine
     }
 
     return false;
+  }
+
+  bool Collision::RayToSegment(Vec3 O, Vec3 Dir, Vec3 Begin, Vec3 End, Vec3 &Result)
+  {
+    Vec3 RayEnd = O + Dir * 10000.0f;
+
+    float D = (O.x - RayEnd.x)*(Begin.y - End.y) - (O.y - RayEnd.y)*(Begin.x - End.x);
+    
+    if (D == 0)
+    {
+      return false;
+    }
+
+    float x = ((Begin.x - End.x) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.x - RayEnd.x) * (Begin.x * End.y - Begin.y * End.x)) / D;
+    float y = ((Begin.y - End.y) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.y - RayEnd.y) * (Begin.x * End.y - Begin.y * End.x)) / D;
+
+
+    if (x < std::min(O.x, RayEnd.x) ||  x > std::max(O.x, RayEnd.x) ||
+        x < std::min(Begin.x, End.x) || x > std::max(Begin.x, End.x))
+    {
+      return false;
+    }
+    if (y < std::min(O.y, RayEnd.y) || y > std::max(O.y, RayEnd.y) ||
+        y < std::min(Begin.y, End.y) || y > std::max(Begin.y, End.y))
+    {
+      return false;
+    }
+
+
+    Result = Vec3(x, y, 0);
+
+    return true;
+
+
+    /*Dir = glm::normalize(Dir);
+    Vec3 SegDir = glm::normalize(End - Begin);
+    
+    if (Dir == SegDir || Dir == -SegDir)
+    {
+      return false;
+    }
+
+    SegDir = End - Begin;
+
+    float x, y, S, T;
+
+    S = (O.y * Dir.x + Begin.x - O.x - Begin.y * Dir.x) / (SegDir.y * Dir.x - SegDir.x);
+
+    T = (Begin.x + S * SegDir.x - O.x) / Dir.x;
+
+    Vec3 Temp = O + T * Dir;
+
+    Vec3 Tempvec = Temp - Begin;
+
+    if (glm::normalize(SegDir) == glm::normalize(Tempvec))
+    {
+      Result = Temp;
+      return true;
+    }
+
+    return false;*/
   }
 
 }

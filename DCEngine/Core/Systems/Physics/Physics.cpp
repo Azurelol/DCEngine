@@ -122,6 +122,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
+      SystemTimer profile(this->Name());
 
       // Do not update physics while the engine is paused.
       if (Paused)
@@ -197,13 +198,19 @@ namespace DCEngine {
 		{
       // Hardcode dt temporarily
       dt = 0.0166f;
-
+      static bool first = true;
 			// Iterate through every space that has the 'PhysicsSpace' component
 			for (auto physpace : physicsSpaces_)
 			{
         // If the space is paused, skip physics update
         if (physpace->Owner()->getComponent<Components::TimeSpace>()->getPaused())
           continue;
+
+        
+        if (first)
+        {
+          UpdateTransforms(physpace);
+        }
 
 				std::vector<Manifold> contactlist;
         static std::vector<DetectionPairing> pairs;
@@ -221,6 +228,7 @@ namespace DCEngine {
 				UpdateTransforms(physpace);
 			}
 
+      first = false;
 
 		}
 
@@ -260,18 +268,6 @@ namespace DCEngine {
         if (rigidbody != nullptr)
           rigidbody->PublishResults();
       }
-
-			//for (int i = 0; i < bodies.size(); ++i)
-			//{
-			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
-			//	{
-			//		bodies[i]->getComponent<RigidBody>()->PublishResults();
-			//	}
-			//	else
-			//	{
-			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
-			//	}
-			//}
 		}
 
     /**************************************************************************/

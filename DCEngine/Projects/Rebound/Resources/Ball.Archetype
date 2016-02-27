@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 23.000000, 
+            "x": -75.000000, 
+            "y": 6.000000, 
             "z": 0.000000
           }
         }, 
@@ -59,7 +59,7 @@
       "BoxCollider": 
       {
         "PhysicsMaterial": "", 
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "Ball", 
         "Size": 
         {
           "Vec3": 
@@ -143,7 +143,125 @@
             "w": 1.000000
           }
         }, 
-        "FreezeEnabled": true
+        "FreezeEnabled": true, 
+        "MaxAttractSpeed": 50.000000, 
+        "MaxAttractForce": 100.000000, 
+        "AttractArriveDistance": 200.000000
+      }, 
+      "Light": 
+      {
+        "Visible": true, 
+        "VisibilityCulling": false, 
+        "VisibilityEvents": false, 
+        "CastShadows": false, 
+        "Type": "Point", 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "Intensity": 4.000000, 
+        "Range": 0.199998, 
+        "Falloff": 0.900000, 
+        "DirectionVector": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "InnerAngle": 0.000000, 
+        "OuterAngle": 0.000000
+      }, 
+      "SpriteParticleSystem": 
+      {
+        "Visible": true, 
+        "Tint": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "Texture": "Laser", 
+        "VelocityScale": 1.000000, 
+        "LengthScale": 1.000000, 
+        "SystemSize": 
+        {
+          "Vec3": 
+          {
+            "x": 40.000000, 
+            "y": 4.000000, 
+            "z": 4.000000
+          }
+        }, 
+        "Additive": true
+      }, 
+      "ParticleEmitter": 
+      {
+        "Active": true, 
+        "ResetCount": false, 
+        "EmitCount": 0, 
+        "EmitRate": 26, 
+        "EmitVariance": 0, 
+        "Size": 0.100000, 
+        "SizeVariance": 0.100000, 
+        "Lifetime": 0.400000, 
+        "LifetimeVariance": 0.000000, 
+        "Spin": 100.000000, 
+        "SpinVariance": 100.000000, 
+        "StartVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "RandomVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 1.500000, 
+            "y": 1.500000, 
+            "z": 0.000000
+          }
+        }
+      }, 
+      "LinearParticleAnimator": 
+      {
+        "Force": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "RandomForce": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Torque": 0.000000, 
+        "Growth": 0.000000, 
+        "Dampening": 10.000000
       }
     }
   }

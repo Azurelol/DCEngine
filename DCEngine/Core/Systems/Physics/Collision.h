@@ -12,6 +12,7 @@
 #pragma once
 
 #include "Manifold.h"
+#include "Physics.h"
 #include <vector>
 
 
@@ -25,13 +26,14 @@ namespace DCEngine
     static bool PointToBoundingCube(const Vec3& point, const Vec3& translation, const Vec3& rotation, const Vec3& scale);
     static bool PointToBoundingSphere(const Vec3& point, const Vec3& translation, const Vec3& scale, const Vec3& rotation);
     static bool BoxtoBox(GameObject *obj1, GameObject *obj2, Manifold &result);
-    static bool SegmentToCollider(const std::pair<Vec3, Vec3> &line, GameObject *obj, float &Distance);
+    static bool RayToCollider(const Ray line, GameObject *obj, float &Distance);
     static bool CircletoBox(GameObject * objrect, GameObject * objcircle, Manifold &result);
     static std::vector<std::vector<float>> ProjectOnTo(std::vector<glm::vec3> &verts1, std::vector<glm::vec3> &verts2, glm::vec3 &Axis);
     static bool CircletoCircle(GameObject *obj1, GameObject *obj2, Manifold &result);
     static bool PointToCircle(GameObject *circle, glm::vec3 point);
     static bool PointToRectangle(GameObject *rect, glm::vec3 point);
     static bool SelectiontoBox(Vec3& center, float width, float height, const Vec3& translation, const Vec3& scale, float rot);
+    static bool RayToSegment(Vec3 O, Vec3 Dir, Vec3 Begin, Vec3 End, Vec3 &Result);
   };
 
 }

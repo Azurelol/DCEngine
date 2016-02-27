@@ -31,6 +31,7 @@ namespace DCEngine {
   struct CastResult {
     //Collider* Collider;
     float Distance;
+    // the position of the ray-line segment collision in world coordinates
     Vec3 BodySpacePosition;
     Vec3 Normal;
     //GameObject* ObjectHit;

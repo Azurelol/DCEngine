@@ -131,9 +131,6 @@ namespace DCEngine {
       }
     }
 
-
-
-
     /**************************************************************************/
     /*!
     @brief  Starts the game, reloading the level from the last settings saved
