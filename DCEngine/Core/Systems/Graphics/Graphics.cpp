@@ -201,7 +201,21 @@ namespace DCEngine {
 			//glStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR_WRAP, GL_KEEP);
 			glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 
-			RenderZ0Scene(dt, camera, light, GraphicsHandler->ShadowingShader);
+			for (auto&& drawList : mDrawList)
+			{
+				for (const auto& obj : drawList)
+				{
+					if (obj->Owner()->getComponent<Components::Sprite>())
+					{
+						Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
+						if (transform->Translation.z == 0)
+						{
+							obj->SetUniforms(GraphicsHandler->ShadowingShader, camera, light);
+							obj->Draw();
+						}
+					}
+				}
+			}
 			// Restore local stuff
 			glDisable(GL_DEPTH_CLAMP);
 			//glEnable(GL_CULL_FACE);
