@@ -70,6 +70,9 @@ namespace DCEngine {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::Update \n";
 
+      // Start the profiler
+      SystemTimer profile(this->Name());
+
 			// For every Space with a 'GraphicsSpace' component...
 			for (Components::GraphicsSpace* gfxSpace : graphicsSpaces_) {
 
