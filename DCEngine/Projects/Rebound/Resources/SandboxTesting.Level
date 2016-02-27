@@ -975,7 +975,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
@@ -1038,7 +1038,7 @@
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
+            "StandAnimation": "Char_Asha_Run_Spritesheet", 
             "JumpAnimation": "PlayerFall", 
             "AutoPlayTimer": 2.000000
           }, 
