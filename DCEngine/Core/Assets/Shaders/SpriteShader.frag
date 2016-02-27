@@ -27,6 +27,8 @@ struct Light
 uniform int isTexture;
 uniform Light gLight;
 uniform bool useLight;
+uniform int numLights;
+uniform Light Lights[MaxNumLights];
 uniform sampler2D image;
 uniform vec4 spriteColor;
 
@@ -113,6 +115,28 @@ vec3 GenerateIlluminationValues(void)
 	coefficients.x += gLight.Color.x * diffI;
 	coefficients.y += gLight.Color.y * diffI;
 	coefficients.z += gLight.Color.z * diffI;
+	//else
+	//{
+	//	for(int i = 0; i < numLights; ++i)
+	//	{
+	//		float diffI = 0;
+	//		Light light = Lights[i];
+	//		switch(light.LightType)
+	//		{
+	//		case 0:
+	//			diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
+	//			break;
+	//		case 1:
+	//			diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
+	//				light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
+	//			break;
+	//		default:
+	//			diffI = 1;
+	//			break;
+	//		}
+	//		
+	//	}
+	//}
 	return coefficients;
 }
 

@@ -91,75 +91,47 @@ namespace DCEngine {
 				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
 					[] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
 
-				//GraphicsHandler->SetParticleSystemShader(*camera);
-				//GraphicsHandler->SetSpriteTextShader(*camera);
-
-				for (auto& drawList : mDrawList)
-				{
-					for (auto&& obj : drawList)
-					{
-						std::sort(drawList.begin(), drawList.end(),
-							[](Components::Graphical* a, Components::Graphical* b)
-						{
-							return a->Owner()->getComponent<Components::Transform>()->Translation.z
-								< b->Owner()->getComponent<Components::Transform>()->Translation.z;
-						});
-					}
-				}
+				//for (auto& drawList : mDrawList)
+				//{
+				//	for (auto&& obj : drawList)
+				//	{
+				//		std::sort(drawList.begin(), drawList.end(),
+				//			[](Components::Graphical* a, Components::Graphical* b)
+				//		{
+				//			return a->Owner()->getComponent<Components::Transform>()->Translation.z
+				//				< b->Owner()->getComponent<Components::Transform>()->Translation.z;
+				//		});
+				//	}
+				//}
 
 				UpdateObjects(dt);
-				glDrawBuffer(GL_NONE);
-				RenderZ0Scene(dt, camera, 0);
-				glDepthFunc(GL_LESS);
-				
 
-				
+				glDrawBuffer(GL_NONE);
+				RenderZ0Scene(camera, 0);
+				glDepthFunc(GL_LESS);
+
 				for (const auto& light : lightComponents)
 				{
-					glDepthFunc(GL_LESS);
-					glDrawBuffer(GL_NONE);
-					glEnable(GL_STENCIL_TEST);
-					//glDrawBuffer(GL_FRONT_AND_BACK);
-					RenderShadows(dt, camera, light);
+					if (light->getCastShadows())
+					{
+						glDepthFunc(GL_LESS);
+						glDrawBuffer(GL_NONE);
+						glEnable(GL_STENCIL_TEST);
+						RenderShadows(camera, light);
 
-					glDrawBuffer(GL_FRONT_AND_BACK);
-					glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
-					glStencilOpSeparate(GL_FRONT_AND_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
-
-					glDepthFunc(GL_LEQUAL);
-					RenderZ0Scene(dt, camera, light);
+						glDrawBuffer(GL_FRONT_AND_BACK);
+						glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
+						glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+						glDepthFunc(GL_LEQUAL);
+					}
+					RenderZ0Scene(camera, light);
 					glDisable(GL_STENCIL_TEST);
-					RenderObjects(dt, camera, light);
+					RenderObjects(camera, light);
 					glClear(GL_STENCIL_BUFFER_BIT);
 				}
-				//glClear(GL_DEPTH_BUFFER_BIT);
-				//
-				//glDrawBuffer(GL_NONE);
-				//GraphicsHandler->SetSpriteShader(*camera, lightComponents.back());
-				//RenderZ0SceneUp(dt, camera);
-				//
-				//glDrawBuffer(GL_FRONT_AND_BACK);
-				//glDisable(GL_STENCIL_TEST);
-				//RenderScene(dt, camera);
+				//GraphicsHandler->SetAllLightUniforms(GraphicsHandler->SpriteShader, lightComponents);
+				//RenderBackground(GraphicsHandler->SpriteShader, camera);
 				
-				//for (const auto& light : lightComponents)
-				//{
-				//	GraphicsHandler->SetSpriteShader(*camera, light);
-				//	//RenderDepths(dt, camera);
-				//
-				//	glEnable(GL_STENCIL_TEST);
-				//
-				//	RenderShadows(dt, camera, light);
-				//
-				//	RenderZ0Scene(dt, camera);
-				//	
-				//
-				//
-				//
-				//	//RenderScene(dt, camera);
-				//
-				//	//glDisable(GL_STENCIL_TEST);
-				//}
 
 				DrawDebug();
 				
@@ -183,16 +155,14 @@ namespace DCEngine {
 			}
 		}
 
-		void Graphics::RenderDepths(float dt, Components::Camera* camera)
+		void Graphics::RenderDepths(Components::Camera* camera)
 		{
 			glDrawBuffer(GL_NONE);
 			//RenderObjects(dt, camera);
 		}
 
-		void Graphics::RenderShadows(float dt, Components::Camera* camera, Components::Light* light)
+		void Graphics::RenderShadows(Components::Camera* camera, Components::Light* light)
 		{
-			glEnable(GL_DEPTH_TEST);
-			glDepthMask(GL_FALSE);
 			glEnable(GL_DEPTH_CLAMP);
 			//glDisable(GL_CULL_FACE);
 
@@ -210,6 +180,7 @@ namespace DCEngine {
 						Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
 						if (transform->Translation.z == 0)
 						{
+							glDepthMask(GL_FALSE);
 							obj->SetUniforms(GraphicsHandler->ShadowingShader, camera, light);
 							obj->Draw();
 						}
@@ -221,7 +192,7 @@ namespace DCEngine {
 			//glEnable(GL_CULL_FACE);
 		}
 
-		void Graphics::RenderScene(float dt, Components::Camera* camera, ShaderPtr shader)
+		void Graphics::RenderScene(Components::Camera* camera, ShaderPtr shader)
 		{
 			//glDrawBuffer(GL_BACK);
 			//
@@ -235,7 +206,23 @@ namespace DCEngine {
 			//glDepthMask(GL_TRUE);
 		}
 
-		void Graphics::RenderZ0Scene(float dt, Components::Camera * camera, Components::Light* light, ShaderPtr shader)
+		void Graphics::RenderBackground(ShaderPtr shader, Components::Camera * camera)
+		{
+			for (auto&& drawList : mDrawList)
+			{
+				for (const auto& obj : drawList)
+				{
+					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
+					if (transform->Translation.z != 0)
+					{
+						obj->SetUniforms(shader, camera, 0);
+						obj->Draw();
+					}
+				}
+			}
+		}
+
+		void Graphics::RenderZ0Scene(Components::Camera * camera, Components::Light* light, ShaderPtr shader)
 		{
 			for (auto&& drawList : mDrawList)
 			{
@@ -250,7 +237,7 @@ namespace DCEngine {
 				}
 			}
 		}
-		void Graphics::RenderZ0SceneUp(float dt, Components::Camera * camera, Components::Light* light, ShaderPtr shader)
+		void Graphics::RenderZ0SceneUp(Components::Camera * camera, Components::Light* light, ShaderPtr shader)
 		{
 			for (auto&& drawList : mDrawList)
 			{
@@ -259,7 +246,7 @@ namespace DCEngine {
 					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
 					if (transform->Translation.z == 0)
 					{
-						obj->Update(dt);
+						obj->Update(0);
 						obj->SetUniforms(shader, camera, light);
 						obj->Draw();
 					}
@@ -267,7 +254,7 @@ namespace DCEngine {
 			}
 		}
 
-		void Graphics::RenderObjects(float dt, Components::Camera* camera, Components::Light* light, ShaderPtr shader)
+		void Graphics::RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader)
 		{
 			for (auto&& drawList : mDrawList)
 			{
@@ -276,7 +263,6 @@ namespace DCEngine {
 					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
 					if (transform->Translation.z != 0)
 					{
-						obj->Update(dt);
 						obj->SetUniforms(shader, camera, light);
 						obj->Draw();
 					}

@@ -264,11 +264,11 @@ namespace DCEngine {
 				}
 			}
 
-			//LightUniforms
-			shader->SetInteger("useLight", true);
+			//Lights
 
 			if (light)
 			{
+				shader->SetInteger("useLight", true);
 				glm::mat4 lightMatrix;
 				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
 				lightMatrix = glm::translate(lightMatrix, glm::vec3(lightTransform->Translation.x,
@@ -309,12 +309,15 @@ namespace DCEngine {
 				member = var + "Model";
 				shader->SetMatrix4(member.c_str(), lightMatrix);
 			}
+			else shader->SetInteger("useLight", false);
 
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			// Set the view matrix 
 			shader->SetMatrix4("view", camera->GetViewMatrix());
 		}
+		
+			
 
 		void Sprite::Draw(void)
 		{

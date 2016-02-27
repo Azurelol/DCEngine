@@ -214,9 +214,6 @@
     <Filter Include="Core\Systems\Serialization\ZilchJSON">
       <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Select">
-      <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Properties">
       <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
     </Filter>

@@ -10,7 +10,7 @@
 /******************************************************************************/
 #include "LinearParticleAnimator.h"
 #include "EngineReference.h"
-
+// Allan was here really bored in a tech meeting, so he decided to fix the FPS issues in debug mode.
 namespace DCEngine {
   namespace Components
   {
