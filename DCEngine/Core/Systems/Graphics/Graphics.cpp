@@ -132,9 +132,7 @@ namespace DCEngine {
 					RenderObjects(camera, light);
 					glClear(GL_STENCIL_BUFFER_BIT);
 				}
-				//GraphicsHandler->SetAllLightUniforms(GraphicsHandler->SpriteShader, lightComponents);
-				//RenderBackground(GraphicsHandler->SpriteShader, camera);
-				
+				glDrawBuffer(GL_FRONT_AND_BACK);
 
 				DrawDebug();
 				
@@ -142,8 +140,6 @@ namespace DCEngine {
 				{
 					drawList.clear();
 				}
-
-				//SendCountToGL(TotalObjNumG, TotalObjTranspNumG);
 			}
 		}
 

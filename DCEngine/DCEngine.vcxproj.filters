@@ -1526,9 +1526,6 @@
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Daisy.cfg" />
-    <None Include="Projects\Rebound.dceproj">
-      <Filter>Projects\Rebound</Filter>
-    </None>
     <None Include="Core\Assets\Shaders\ParticleShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
@@ -1543,6 +1540,9 @@
     </None>
     <None Include="Core\Assets\Shaders\ShadowingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Projects\Rebound\Rebound.dceproj">
+      <Filter>Projects\Rebound</Filter>
     </None>
   </ItemGroup>
 </Project>

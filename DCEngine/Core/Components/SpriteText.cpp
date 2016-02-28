@@ -104,7 +104,7 @@ namespace DCEngine {
 			}
 		}
 
-		void SpriteText::Draw(Camera& camera)
+		void SpriteText::Draw(void)
 		{
 			//set shader uniforms
 			//mShader->Use();
