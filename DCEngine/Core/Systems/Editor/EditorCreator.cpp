@@ -59,6 +59,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Creates a camera on the editor's current level.
+    */
+    /**************************************************************************/
+    void EditorCreator::CreateCamera()
+    {
+      std::vector<std::string> components;
+      components.push_back("Camera");
+      Create("Camera", components);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Creates a GameObject from an Archetype into the current space.
     @param archetypeName The name of the Archetype.
     */

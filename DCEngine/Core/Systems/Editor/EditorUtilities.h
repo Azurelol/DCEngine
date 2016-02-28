@@ -15,6 +15,7 @@ namespace DCEngine {
     // Project
     Time::Timer AutoSaveTimer;
     bool EditorEnabled = false;
+    bool LightningEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;
     ProjectProperties* ProjectProperties;

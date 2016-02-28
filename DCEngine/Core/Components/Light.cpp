@@ -35,7 +35,6 @@ namespace DCEngine {
     @note This can only go in the translational unit (.cpp)
     */
     /**************************************************************************/
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(Light, "Light", DCEngineCore, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Light);
       // Properties
@@ -47,14 +46,29 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Color);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor, attributeRangeColor);
+
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Intensity, 0, 5);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyIntensity, attributeRangeIntensity);
+
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);
+
       DCE_BINDING_DEFINE_PROPERTY(Light, Falloff);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Falloff, 0, 2);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyFalloff, attributeRangeFalloff);
+
       DCE_BINDING_DEFINE_PROPERTY(Light, DirectionVector);
+
 			DCE_BINDING_DEFINE_PROPERTY(Light, InnerAngle);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(InnerAngle, 0, 180);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyInnerAngle, attributeRangeInnerAngle);
+
 			DCE_BINDING_DEFINE_PROPERTY(Light, OuterAngle);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(OuterAngle, 0, 180);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyOuterAngle, attributeRangeOuterAngle);
     }
-    #endif
 
     /**************************************************************************/
     /*!

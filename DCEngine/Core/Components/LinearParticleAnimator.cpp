@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   LinearParticleAnimator.h
-@author Chen Shu, Christian Sagel
+@author William Mao, Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   11/6/2015
 @brief  The LinearParticleAnimator component...
@@ -10,6 +10,7 @@
 /******************************************************************************/
 #include "LinearParticleAnimator.h"
 #include "EngineReference.h"
+
 // Allan was here really bored in a tech meeting, so he decided to fix the FPS issues in debug mode.
 namespace DCEngine {
   namespace Components
