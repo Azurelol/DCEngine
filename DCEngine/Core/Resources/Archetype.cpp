@@ -11,8 +11,9 @@ data and the source file for debugging and for archetype updating.
 
 */
 /******************************************************************************/
-
 #include "Archetype.h"
+
+#include "../Engine/Engine.h"
 
 namespace DCEngine {
 
@@ -44,7 +45,18 @@ namespace DCEngine {
   /**************************************************************************/
   Archetype::~Archetype()
   {
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief Returns the specified Archetype resource.
+  @param name The name of the Archetype.
+  @return A reference to the Archetype object.
+  */
+  /**************************************************************************/
+  ArchetypePtr Archetype::Find(std::string name)
+  {
+    return Daisy->getSystem<Systems::Content>()->getArchetype(name);
   }
 
  /**************************************************************************/
@@ -52,7 +64,7 @@ namespace DCEngine {
  @brief Serializes the data definition of an object from a string back into
         the source file now that we have modified it.
  */
- /**************************************************************************/
+  /**************************************************************************/
  void Archetype::Save()
  {
    FileSystem::FileWriteString(ResourcePath, SerializedData);

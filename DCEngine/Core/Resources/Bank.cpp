@@ -20,11 +20,41 @@ namespace DCEngine {
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(Bank, "Bank", DCEngineCore, builder, type) {
     DCE_BINDING_DEFINE_PROPERTY(Bank, AssetPath);
   }
-#endif
+
+  /**************************************************************************/
+  /*!
+  @brief Retrieve a reference to the specified VCA.
+  @param name The name of the VCA.
+  @return A reference to the VCA.
+  */
+  /**************************************************************************/
+  Systems::VCAPtr Bank::VCA(Systems::VCAHandle name)
+  {
+    if (!Data.VCAs.count(name)) {
+      DCTrace << Name() << "::Bank::VCA: Could not find '" << name << "'!";
+      return nullptr;
+    }
+    return Data.VCAs.at(name);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Retrieve a reference to the specified Bus.
+  @param name The name of the Bus.
+  @return A reference to the Bus.
+  */
+  /**************************************************************************/
+  Systems::BusPtr Bank::Bus(Systems::BusHandle name)
+  {
+    if (!Data.Buses.count(name)) {
+      DCTrace << Name() << "::Bank::Bus: Could not find '" << name << "'!";
+      return nullptr;
+    }
+    return Data.Buses.at(name);
+  }
 
   /**************************************************************************/
   /*!

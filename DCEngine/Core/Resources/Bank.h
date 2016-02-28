@@ -25,9 +25,9 @@ namespace DCEngine {
       
     // Properties
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
-
-    
-
+    // Getters
+    Systems::VCAPtr VCA(Systems::VCAHandle name);
+    Systems::BusPtr Bus(Systems::BusHandle name);
 
 
     ZilchDeclareDerivedType(Bank, Resource);
@@ -37,14 +37,9 @@ namespace DCEngine {
     static std::string Extension() { return ".Bank"; }
     static BankPtr Find(std::string);
 
-    struct BankData {
-      FMOD::Studio::Bank* Handle;
-      FMOD::Studio::Bank* operator->() { return Handle; }
-    };
-
   private:
     std::string AssetPath;
-    BankData Data;
+    Systems::BankInfo Data;
 
   };
 
