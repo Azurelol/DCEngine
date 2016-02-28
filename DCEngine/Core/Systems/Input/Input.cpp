@@ -95,6 +95,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Input::Update(float dt) {
+      SystemTimer profile(this->Name());
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Input::Update \n";
       InputHandler->Update(dt);

@@ -104,6 +104,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Audio::Update(float dt) {
+      SystemTimer profile(this->Name());
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Audio::Update \n";
       if (Enabled)

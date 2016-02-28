@@ -69,9 +69,17 @@ namespace DCEngine {
         auto closestObjectName = closestObj->Name();
         auto objZ = obj->getComponent<Components::Transform>()->Translation.z;
         auto closestZ = closestObj->getComponent<Components::Transform>()->Translation.z;
-
-        if (objZ < camPos.z && objZ > closestZ) {
-          closestObj = obj;
+        
+        // If the object' Z is lesser than
+        if (objZ < camPos.z && objZ > closestZ ) {
+          // If the area of the current object is smaller than of the currently
+          // closest object
+          auto objScale = obj->getComponent<Components::Transform>()->getScale();
+          auto closestObjScale = closestObj->getComponent<Components::Transform>()->getScale();
+          auto objArea = objScale.x * objScale.y;
+          auto closestObjArea = closestObjScale.x * closestObjScale.y;
+          if (objArea < closestObjArea)
+            closestObj = obj; 
         }
       }
       
@@ -113,6 +121,7 @@ namespace DCEngine {
         Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
         Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
         Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+        CalculateSelectionBounding();
       }
 
       Select(obj);      
@@ -141,6 +150,17 @@ namespace DCEngine {
     ObjectContainer& Editor::AllSelectedObjects()
     {
       return SelectedObjects;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a module to the Editor.
+    @param module An editor module.
+    */
+    /**************************************************************************/
+    void Editor::Add(EditorModulePtr module)
+    {
+      ActiveModules.push_back(module);
     }
 
     /**************************************************************************/

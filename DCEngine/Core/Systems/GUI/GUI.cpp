@@ -21,7 +21,7 @@ namespace DCEngine {
     @brief  Constructor.
     */
     /**************************************************************************/
-    GUI::GUI() : System(std::string("GUI"), EnumeratedSystem::GUI)
+    GUI::GUI() : System(std::string("GUISystem"), EnumeratedSystem::GUI)
     {
       GUIHandler.reset(new ImGuiSFML());
     }
@@ -86,6 +86,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GUI::Update(float dt)
     {
+      SystemTimer profile(this->Name());
       // Clear inactive windows
       ClearInactive();
       // Draw every active window
@@ -106,6 +107,16 @@ namespace DCEngine {
 
       DCTrace << "GUI::Terminate \n";
       GUIHandler->Terminate();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays a Tooltip.
+    */
+    /**************************************************************************/
+    void GUI::SetToolTip(std::string tooltip)
+    {
+      ImGui::SetTooltip(tooltip.c_str());
     }
 
     /**************************************************************************/

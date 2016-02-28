@@ -214,9 +214,6 @@
     <Filter Include="Core\Systems\Serialization\ZilchJSON">
       <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Select">
-      <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Properties">
       <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
     </Filter>
@@ -312,6 +309,15 @@
     </Filter>
     <Filter Include="Core\Components\Graphics\Particles">
       <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Utilities\Time">
+      <UniqueIdentifier>{d45fb154-7dc8-4a61-8e99-0d915cef5732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Profiler">
+      <UniqueIdentifier>{ed80af28-e43d-4206-b345-1287c6279e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
+      <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -548,9 +554,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Event.cpp">
       <Filter>Core\Engine\Event</Filter>
@@ -862,14 +865,20 @@
     <ClCompile Include="Core\Objects\Module.cpp">
       <Filter>Core\Object\Module</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Timer.cpp">
-      <Filter>Core\Engine\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp">
       <Filter>Core\Systems\Editor\Modules\Projects</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp">
       <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Timer.cpp">
+      <Filter>Core\Engine\Utilities\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Profiler.cpp">
+      <Filter>Core\Engine\Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp">
+      <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1464,14 +1473,20 @@
     <ClInclude Include="Core\Objects\Module.h">
       <Filter>Core\Object\Module</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\Timer.h">
-      <Filter>Core\Engine\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorProjects.h">
       <Filter>Core\Systems\Editor\Modules\Projects</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorModule.h">
       <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Timer.h">
+      <Filter>Core\Engine\Utilities\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Profiler.h">
+      <Filter>Core\Engine\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h">
+      <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1515,6 +1530,15 @@
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Core\Assets\Shaders\ParticleShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.gs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

@@ -11,24 +11,29 @@
 #pragma once
 
 #include "../../Resources/Archetype.h"
-#include "../System.h"
+//#include "../System.h"
+#include "EditorModule.h"
 
 namespace DCEngine {
   namespace Systems {
 
     class Editor;
-    class EditorProjects : public Module {
+    class EditorProjects : public EditorModule {
     public:
       void WindowProjectProperties();
       void SaveProject();
       void ToggleProperties();
 
+      void Display();
       EditorProjects(Editor& editor);
       ~EditorProjects();
 
+    protected:
+      
+
     private:
-      Editor& EditorRef;
       bool WindowProjectsPropertiesEnabled;
+      void Update();
     };
 
 

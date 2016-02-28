@@ -46,11 +46,13 @@ namespace DCEngine {
       SelectionData Selection;
       ObjectPtr SelectedObject();      
       ObjectContainer& AllSelectedObjects();
+      void Add(EditorModulePtr module);
       void Add(CommandPtr command);
       bool IsEnabled();
       void ToggleEditor();
       void ToggleEditor(bool);
       SpacePtr CurrentSpace;
+      static Editor& Access();
 
     private:
 
@@ -86,6 +88,8 @@ namespace DCEngine {
       EditorArchetypes Archetypes;
       EditorWindows Windows;
       EditorProjects Projects;
+      EditorDiagnostics Diagnostics;
+      std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;
       // Objects

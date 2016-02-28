@@ -25,8 +25,10 @@ struct Light
 };
 
 uniform int isTexture;
-uniform Light Lights[MaxNumLights];
+uniform Light gLight;
+uniform bool useLight;
 uniform int numLights;
+uniform Light Lights[MaxNumLights];
 uniform sampler2D image;
 uniform vec4 spriteColor;
 
@@ -41,7 +43,7 @@ float GenerateZ0DiffuseFactor(vec3 lightPosition)
 	{
 		vec3 lightVector = normalize(lightPosition - WorldCoords);
 		vec3 normal = normalize(VertWorldNormal);
-		float diffuseFactor = dot(lightVector, normal);
+		float diffuseFactor = dot(lightVector, normal) + .25;
 		return clamp(diffuseFactor, 0, 1);
 	}
 	else
@@ -89,34 +91,52 @@ float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 di
 
 	angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
 	angleFalloff = clamp(angleFalloff, 0, 1);
-	return distanceAttenuation * angleFalloff;
+	return distanceAttenuation * angleFalloff * diffuseFactor;
 }
 
 vec3 GenerateIlluminationValues(void)
 {
 	vec3 coefficients = vec3(0,0,0);
-	for(int i = 0; i < numLights; ++i)
+	float diffI = 0;
+	switch(gLight.LightType)
 	{
-		Light light = Lights[i];
-		float diffI = 0;
-		switch(light.LightType)
-		{
-		case 0:
-			diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
-			break;
-		case 1:
-			diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
-				light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
-			break;
-		default:
-			diffI = 1;
-			break;
-		}
-		diffI *= light.Intensity;
-		coefficients.x += light.Color.x * diffI;
-		coefficients.y += light.Color.y * diffI;
-		coefficients.z += light.Color.z * diffI;
+	case 0:
+		diffI = GeneratePointLightValues(gLight.Position, gLight.Range, gLight.Falloff);
+		break;
+	case 1:
+		diffI = GenerateSpotLightValues(gLight.Position, gLight.Range, gLight.Falloff,
+			gLight.Direction, gLight.InnerAngle, gLight.OuterAngle, gLight.Model);
+		break;
+	default:
+		diffI = 1;
+		break;
 	}
+	diffI *= gLight.Intensity;
+	coefficients.x += gLight.Color.x * diffI;
+	coefficients.y += gLight.Color.y * diffI;
+	coefficients.z += gLight.Color.z * diffI;
+	//else
+	//{
+	//	for(int i = 0; i < numLights; ++i)
+	//	{
+	//		float diffI = 0;
+	//		Light light = Lights[i];
+	//		switch(light.LightType)
+	//		{
+	//		case 0:
+	//			diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
+	//			break;
+	//		case 1:
+	//			diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
+	//				light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
+	//			break;
+	//		default:
+	//			diffI = 1;
+	//			break;
+	//		}
+	//		
+	//	}
+	//}
 	return coefficients;
 }
 
@@ -134,9 +154,9 @@ void main()
   }
 
 	vec3 lightValue = vec3(1);
-	if(Tmpcolor.a < 0.1)
+	if(Tmpcolor.a < 0.01)
     discard;
-	if(numLights != 0)
+	if(useLight)
 	{
 		lightValue = GenerateIlluminationValues();
 		lightValue = clamp(lightValue, 0, 1);

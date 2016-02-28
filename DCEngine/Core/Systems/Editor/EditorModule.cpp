@@ -16,13 +16,26 @@
 namespace DCEngine {
   namespace Systems {
 
-    EditorModule::EditorModule(Editor & editor) : Module("EditorModule"), EditorRef(editor)
+    EditorModule::EditorModule(Editor & editor, bool add) : Module("EditorModule"), EditorRef(editor), WillAddWindow(add)
     {
       Daisy->Connect<Events::EditorUpdate>(&EditorModule::OnEditorUpdateEvent, this);
+      Daisy->Connect<Events::EditorInitialize>(&EditorModule::OnEditorInitializeEvent, this);
     }
 
     EditorModule::~EditorModule()
     {
+    }
+
+    void EditorModule::AddWindow()
+    {
+      if (WillAddWindow)
+        EditorRef.Add(this);
+      //Daisy->
+    }
+
+    void EditorModule::OnEditorInitializeEvent(Events::EditorInitialize * event)
+    {
+      AddWindow();
     }
 
     void EditorModule::OnEditorUpdateEvent(Events::EditorUpdate * event)

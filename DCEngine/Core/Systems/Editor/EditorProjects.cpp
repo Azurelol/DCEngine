@@ -63,11 +63,18 @@ namespace DCEngine {
       WindowProjectsPropertiesEnabled = !WindowProjectsPropertiesEnabled;
     }
 
-    EditorProjects::EditorProjects(Editor & editor) : Module("EditorProjects"), EditorRef(editor), WindowProjectsPropertiesEnabled(false)
+    void EditorProjects::Display()
+    {
+    }
+
+    EditorProjects::EditorProjects(Editor & editor) : EditorModule(editor, true), WindowProjectsPropertiesEnabled(false)
     {
     }
 
     EditorProjects::~EditorProjects()
+    {
+    }
+    void EditorProjects::Update()
     {
     }
   }
