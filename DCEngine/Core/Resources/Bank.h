@@ -13,6 +13,7 @@
 #include "ResourceReference.h"
 
 #include <FMOD\fmod_studio.hpp>
+#include "../Systems/Audio/AudioFMOD_Utilities.h"
 
 namespace DCEngine {
   
@@ -25,11 +26,14 @@ namespace DCEngine {
     // Properties
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
 
-    void Add();
+    
+
+
 
     ZilchDeclareDerivedType(Bank, Resource);
     Bank(std::string name);
     ~Bank() {}
+    void Add();
     static std::string Extension() { return ".Bank"; }
     static BankPtr Find(std::string);
 
