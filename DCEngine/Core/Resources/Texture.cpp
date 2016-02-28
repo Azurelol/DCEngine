@@ -31,6 +31,7 @@ namespace DCEngine {
   /**************************************************************************/
   Texture::Texture(std::string textureFile) : 
       Resource("Texture", FileSystem::FileNoExtension(textureFile), textureFile)
+      
   {
   }
 

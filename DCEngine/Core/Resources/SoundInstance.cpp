@@ -141,4 +141,16 @@ namespace DCEngine {
     return !Paused;
   }
 
+  /**************************************************************************/
+  /*!
+  @brief  Sets the specified parameter on the event instance.
+  @param  parameter The event parameter.
+  */
+  /**************************************************************************/
+  void SoundInstance::SetParameter(Systems::EventParameterHandle parameter, float value)
+  {
+    if (SoundHandle.EventInstance)
+      SoundHandle.EventInstance->setParameterValue(parameter.c_str(), value);
+  }
+
 }

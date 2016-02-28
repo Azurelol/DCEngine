@@ -1488,6 +1488,9 @@
     <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h">
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

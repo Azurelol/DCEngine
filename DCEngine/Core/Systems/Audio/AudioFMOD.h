@@ -54,7 +54,8 @@ namespace DCEngine {
       void SetVolume(FMOD::Channel* soundPtr, float volume);
       void SetVolume(EventDescriptionHandle& eventHandle, float volume);     
 
-      // Accesors
+      // Accessors
+      EventParameterInfoContainer getParameters(EventInstanceHandle eventInstance);
       FMOD::Studio::Bank* getBank(const std::string handle);
       FMOD_RESULT getBank(const std::string path, FMOD::Studio::Bank** bank);
       FMOD::Studio::Bus* getBus(const std::string path);
@@ -95,11 +96,12 @@ namespace DCEngine {
       bool CreateSound(const std::string& eventDescrption);
       bool CreateStream(const std::string& soundFile, FMOD::Sound** soundPtr);      
       FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
-      FMOD::Studio::EventInstance* AddEventInstance(FMOD::Studio::EventDescription* event) const;
+      FMOD::Studio::EventInstance* CreateEventInstance(FMOD::Studio::EventDescription* event) const;
 
       // Loading
       FMOD::Studio::Bank* LoadBankFromFile(const std::string handle, const std::string& path);      
       void LoadEventDescriptions(FMOD::Studio::Bank* bank);
+      void LoadEventInstances();
       void LoadVCAs(FMOD::Studio::Bank* bank);
       void LoadChannelGroups(FMOD::Studio::Bank* bank);
 

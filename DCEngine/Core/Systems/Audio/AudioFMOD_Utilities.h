@@ -15,15 +15,28 @@
 #include <FMOD\fmod_errors.h>
 
 namespace DCEngine {
+
   namespace Systems {
     
-    class EventInstanceInfo {
-    public:
+    // Event Instances
+    struct EventInstanceInfo {    
       EventInstanceInfo(unsigned id, FMOD::Studio::EventInstance* handle);
       unsigned ID; 
       FMOD::Studio::EventInstance* Handle;
     };
-    using EventInstanceHandle = std::shared_ptr<EventInstanceInfo>;
+    using EventInstanceHandle = FMOD::Studio::EventInstance*;
+
+    // Event Parameters
+    struct EventParameterInfo {
+      std::string Name;
+      float Minimum;
+      float Maximum;
+      FMOD_STUDIO_PARAMETER_TYPE Type;
+    };
+    using EventParameterHandle = std::string;
+    using EventParameterInfoContainer = std::vector<EventParameterInfo>;
+    using EventParameterContainer = std::vector<FMOD::Studio::ParameterInstance*>;
+
 
     // Containers
     using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;

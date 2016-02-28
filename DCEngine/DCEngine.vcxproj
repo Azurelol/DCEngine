@@ -645,6 +645,7 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h" />
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />

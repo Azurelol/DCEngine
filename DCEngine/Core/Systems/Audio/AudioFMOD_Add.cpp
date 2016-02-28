@@ -45,13 +45,11 @@ namespace DCEngine {
     @param  event The name of the event to instantiate.
     */
     /**************************************************************************/
-    FMOD::Studio::EventInstance * AudioFMOD::AddEventInstance(FMOD::Studio::EventDescription* event) const
+    FMOD::Studio::EventInstance * AudioFMOD::CreateEventInstance(FMOD::Studio::EventDescription* event) const
     {
-      //DCTrace << "AudioFMOD::AddEventInstance: \n";
-
+      //DCTrace << "AudioFMOD::CreateEventInstance: \n";
       FMOD::Studio::EventInstance* eventInstance;      
       event->createInstance(&eventInstance);
-      //EventInstanceHandle newEvent(new EventInstanceInfo(EventInstancesCreated++, eventInstance));
 
       return eventInstance;
     }
@@ -127,6 +125,20 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Loads single event instances out of available events.
+    @param  bank A pointer to the bank.
+    */
+    /**************************************************************************/
+    void AudioFMOD::LoadEventInstances()
+    {
+      for (auto& event : AvailableEvents) {
+        auto instance = CreateEventInstance(event.second);
+        InstantiatedEvents.insert(std::pair<std::string, FMOD::Studio::EventInstance*>(event.first, instance));
+      }
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Loads all VCAs from the bank.
     @param  bank A pointer to the bank.
     */
@@ -156,6 +168,7 @@ namespace DCEngine {
       for (auto& event : AvailableEvents) {
         // Create the SoundCue
         auto soundCue = SoundCuePtr(new SoundCue(event.first, SoundCue::SoundCueType::Event));
+        soundCue->Data.Parameters = getParameters(InstantiatedEvents.at(soundCue->Name()));
         // Add it to the Content system
         Daisy->getSystem<Content>()->AddSoundCue(std::string(event.first), soundCue);
 

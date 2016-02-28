@@ -13,6 +13,7 @@
 #include "ResourceReference.h"
 // Headers
 #include "../Systems/Audio/FMODPtrs.h"
+#include "../Systems/Audio/AudioFMOD_Utilities.h"
 
 namespace DCEngine {
 

@@ -14,6 +14,43 @@
 namespace DCEngine {
   namespace Systems {
 
+    /**************************************************************************/
+    /*!
+    @brief  Retrieves a list of event parameters.
+    @param  handle The name of the sound bank.
+    @return A container of event parameter instances.
+    */
+    /**************************************************************************/
+    EventParameterInfoContainer AudioFMOD::getParameters(EventInstanceHandle instance)
+    {
+      EventParameterContainer parameters;
+      EventParameterInfoContainer parametersInfo;
+
+      // Get the number of parameters
+      int parameterCount = 0;
+      ErrorCheck(instance->getParameterCount(&parameterCount));
+      
+      // Get the parameters
+      int parametersRetrieved = 0;
+      //FMOD::Studio::ParameterInstance** paramList = (FMOD::Studio::ParameterInstance**)malloc(parameterCount * sizeof(void*));
+
+      // Grab every parameter
+      parameters.resize(static_cast<size_t>(parameterCount));
+      for (int i = 0; i < parameterCount; ++i) {
+        // Save an instance of the parameter
+        instance->getParameterByIndex(i, &parameters[i]);        
+        // Record its settings and name
+        FMOD_STUDIO_PARAMETER_DESCRIPTION paramDescription;        
+        auto paramInfo = parameters[i]->getDescription(&paramDescription);
+        EventParameterInfo info;
+        info.Name = paramDescription.name;
+        info.Minimum = paramDescription.minimum;
+        info.Maximum = paramDescription.maximum;
+        info.Type = paramDescription.type;
+      }
+      
+      return parametersInfo;
+    }
 
     /**************************************************************************/
     /*!
@@ -40,11 +77,20 @@ namespace DCEngine {
     /**************************************************************************/
     FMOD::Studio::Bus * AudioFMOD::getBus(std::string path)
     {
-      return nullptr;
+      FMOD::Studio::Bus* bus;
+      ErrorCheck(getBus(path, &bus));
+      return bus;
     }
 
-    FMOD_RESULT  AudioFMOD::getBus(std::string path, FMOD::Studio::Bus ** bus) const
-    {
+    /**************************************************************************/
+    /*!
+    @brief  Retrieves the bus.
+    @param  path The path to the bus.
+    @return The success of the operation.
+    */
+    /**************************************************************************/
+    FMOD_RESULT AudioFMOD::getBus(std::string path, FMOD::Studio::Bus ** bus) const
+    {      
       return FMOD_RESULT();
     }
 
@@ -58,7 +104,9 @@ namespace DCEngine {
       for (auto bank : ActiveBanks) {
         DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
         // Load event descriptions
-        LoadEventDescriptions(bank.second);
+        LoadEventDescriptions(bank.second);        
+        // Load event instances
+        LoadEventInstances();
         // Load channel groups
         LoadChannelGroups(bank.second);
         // Load VCAs
@@ -67,7 +115,6 @@ namespace DCEngine {
 
       // Generate SoundCues
       GenerateSoundCues();
-
     }
 
 
