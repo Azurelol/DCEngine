@@ -135,7 +135,7 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::GenerateResources()
     {
-      for (auto bank : ActiveBanks) {
+      for (auto& bank : ActiveBanks) {
         DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
         // Load event descriptions
         LoadEventDescriptions(bank.second.Handle);
@@ -149,7 +149,7 @@ namespace DCEngine {
         LoadBuses(bank.second.Handle, bank.second.Buses);        
       }
 
-      // Generate SoundCues
+      // Generate SoundCues from Event Instances
       GenerateSoundCues();
     }
 

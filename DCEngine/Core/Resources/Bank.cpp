@@ -42,6 +42,29 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Retrieves a reference to the container of all VCAs on the bank.
+  @return A reference to the container.
+  */
+  /**************************************************************************/
+  Systems::VCAContainer & Bank::AllVCAs()
+  {
+    return Data.VCAs;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Retrieves a reference to the container of all Buses on the bank.
+  @return A reference to the container.
+  */
+  /**************************************************************************/
+  Systems::BusContainer & Bank::AllBuses()
+  {
+    return Data.Buses;
+  }
+
+
+  /**************************************************************************/
+  /*!
   @brief Retrieve a reference to the specified Bus.
   @param name The name of the Bus.
   @return A reference to the Bus.
@@ -55,6 +78,7 @@ namespace DCEngine {
     }
     return Data.Buses.at(name);
   }
+
 
   /**************************************************************************/
   /*!

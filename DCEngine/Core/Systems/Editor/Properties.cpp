@@ -21,6 +21,7 @@ namespace DCEngine {
     static SoundInstanceHandle EditorSoundPreview;
     void PreviewSound(Zilch::Property* property, ObjectPtr object);
     bool CheckIfDoneModified(bool& modified);
+    void DisplayAdditionalProperties(ResourcePtr resource);
 
     /**************************************************************************/
     /*!
@@ -144,9 +145,11 @@ namespace DCEngine {
       // 1. Display the Resource's name
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
       ImGui::Text(selectedResource->getObjectName().c_str());
-      // 2. Display all its properties
+      // 2. Display all its reflected properties (Zilch)
       ImGui::Separator();
       auto modified = DisplayProperties(selectedResource);
+      // 3. Display additional properties (C++)
+      DisplayAdditionalProperties(selectedResource);
       // If the resource was modified...
       if (modified)
         selectedResource->Build();
@@ -704,6 +707,33 @@ namespace DCEngine {
       return false;
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Displays additional properties of the resource that are not
+           being reflected by Zilch.
+    @param resource A pointer to the resource.
+    */
+    /**************************************************************************/
+    void DisplayAdditionalProperties(ResourcePtr resource)
+    {
+      // Banks
+      if (auto bank = dynamic_cast<Bank*>(resource)) {
+        ImGui::Separator();
+        ImGui::Text("VCAs");
+        for (auto& vca : bank->AllVCAs()) {
+          ImGui::Text(vca.first.c_str());
+        }
+        ImGui::Text("Buses");
+        for (auto& bus : bank->AllBuses()) {
+          ImGui::Text(bus.first.c_str());
+        }
+      }
+
+      // SoundCues
+
+
+    }
+
     bool CheckIfDoneModified(bool& modified)
     {
       if (modified && ImGui::GetIO().WantCaptureKeyboard == false)
@@ -713,6 +743,7 @@ namespace DCEngine {
       }
       return false;
     }
+
 
 
 

@@ -215,14 +215,6 @@ namespace DCEngine {
 
         ImGui::PushItemWidth(90);
 
-        // Slider float to adjust the minimum time
-        //ImGui::SliderFloat("Min Time", &minTime, 0.0f, 0.001f, "%.4f");
-        //GUI::SetToolTip("Minimum time displayed in the histogram");
-        //ImGui::SameLine();
-        //// Slider float to adjust the max time
-        //ImGui::SliderFloat("Max Time", &maxTime, 0.001f, 0.033f, "%.4f");
-        //GUI::SetToolTip("Max time displayed in the histogram.");
-
         // Parse the times and names to a format dear imgui can read
         float* times = new float[data.size()];
         std::string names;

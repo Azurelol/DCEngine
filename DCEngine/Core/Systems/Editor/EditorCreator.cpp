@@ -86,6 +86,7 @@ namespace DCEngine {
     {
       // Create the object
       auto object = EditorRef.CurrentSpace->CreateObject();
+      object->setObjectName(name);
       // Add the components
       for (auto& componentName : components) {
         object->AddComponentByName(componentName);

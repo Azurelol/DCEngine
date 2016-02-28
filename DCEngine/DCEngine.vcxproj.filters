@@ -319,6 +319,9 @@
     <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
       <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Properties">
+      <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">

@@ -18,6 +18,7 @@ namespace DCEngine {
     EnumeratedSystem System;
   };
 
+
   /**************************************************************************/
   /*!
   @class SystemTimer Times a system's update.

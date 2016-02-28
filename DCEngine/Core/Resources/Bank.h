@@ -20,6 +20,7 @@ namespace DCEngine {
   class Bank;
   using BankHandle = std::string;
   using BankPtr = std::shared_ptr<Bank>;
+
   class Bank : public Resource {
   public:
       
@@ -27,7 +28,9 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
     // Getters
     Systems::VCAPtr VCA(Systems::VCAHandle name);
+    Systems::VCAContainer& AllVCAs();
     Systems::BusPtr Bus(Systems::BusHandle name);
+    Systems::BusContainer& AllBuses();
 
 
     ZilchDeclareDerivedType(Bank, Resource);
