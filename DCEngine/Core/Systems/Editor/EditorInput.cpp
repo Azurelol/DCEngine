@@ -83,8 +83,8 @@ namespace DCEngine {
       PanCamera(event->ScreenPosition);
       TransformDrag(event->ScreenPosition);
       CalculateSelectionBounding();
-      Settings.MouseLastPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->ScreenPosition), 0);
-
+      if (EditorCamera)
+        Settings.MouseLastPos = Vec3(CurrentSpace->getComponent<Components::CameraViewport>()->ScreenToViewport(event->ScreenPosition), 0);
     }
 
     /**************************************************************************/

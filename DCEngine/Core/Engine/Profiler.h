@@ -55,11 +55,7 @@ namespace DCEngine {
     float CurrentFPS;    
     Time::FunctionTimes GraphicsSystemTimes;
     Time::FunctionTimes PhysicsSystemTimes;
-    // 
-    Time::FunctionTimeSliceVec CurrentSystemTimes;
-    Time::FunctionTimeSliceVec NextSystemTimes;   
-
-
+    Time::FunctionTimes EngineSystemTimes;
     void CalculateFPS(float dt);
     void Clear();
   };

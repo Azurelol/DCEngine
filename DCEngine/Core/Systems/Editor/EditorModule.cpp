@@ -16,7 +16,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    EditorModule::EditorModule(Editor & editor, bool add) : Module("EditorModule"), EditorRef(editor), WillAddWindow(add)
+    EditorModule::EditorModule(Editor & editor, bool add) : Module("EditorModule"), EditorRef(editor), WillAddWindow(add), WindowEnabled(false)
     {
       Daisy->Connect<Events::EditorUpdate>(&EditorModule::OnEditorUpdateEvent, this);
       Daisy->Connect<Events::EditorInitialize>(&EditorModule::OnEditorInitializeEvent, this);

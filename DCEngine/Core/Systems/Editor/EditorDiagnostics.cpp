@@ -194,11 +194,15 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Displays the histogram for a system.
+    @param title The title of the histogram.
+    @param data The container of data.
+    */
+    /**************************************************************************/
     void EditorDiagnostics::DisplaySystemsHistogram(std::string title, DCEngine::Time::FunctionTimeSliceVec& data)
     {
-      //int systemsProfiled = static_cast<int>(Daisy->Profiler().SystemTimes.size());
-      //auto num = std::string("Systems profiled: ") + std::to_string(systemsProfiled);
-      //ImGui::Text(num.c_str());
       if (data.empty())
         return;
         
@@ -206,8 +210,7 @@ namespace DCEngine {
         static int slowDown = 15;
         static int refreshTime = 15;
 
-        ++slowDown;
-        
+        ++slowDown;        
 
         // Minimum and max edge caes for the histogram chart
         static float minTime = 0.0f;
@@ -226,19 +229,17 @@ namespace DCEngine {
           times[i] = data[i].second;
         }
 
-        int height = data.size() * 14;
+        int textSize = 14;
+        int height = data.size() * textSize;
 
         // Display the histogram through 
         ImGui::PushItemWidth(290);
         ImGui::PlotHistogram("", times, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height));
-        //GUI::SetToolTip("Shows the amount of time taken by each system.");
-        //ImGui::PushItemWidth(0);
         ImGui::SameLine();
         // Print the legend 
         ImGui::Text(names.c_str());
         // Clean up!
-        delete[] times;
-      
+        delete[] times;      
     }
 
     void EditorDiagnostics::Update()

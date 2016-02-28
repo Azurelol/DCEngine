@@ -11,7 +11,7 @@ namespace DCEngine {
   /**************************************************************************/
   void Profiler::Add(Time::FunctionTimeSlice systemTime)
   {
-    NextSystemTimes.push_back(systemTime);
+    EngineSystemTimes.second.push_back(systemTime);
   }
 
   /**************************************************************************/
@@ -49,9 +49,9 @@ namespace DCEngine {
     // Physics
     PhysicsSystemTimes.first = PhysicsSystemTimes.second;
     PhysicsSystemTimes.second.clear();
-    // Systems
-    CurrentSystemTimes = NextSystemTimes;
-    NextSystemTimes.clear();
+    // Engine Systems
+    EngineSystemTimes.first = EngineSystemTimes.second;
+    EngineSystemTimes.second.clear();
   }
 
   /**************************************************************************/
@@ -85,7 +85,7 @@ namespace DCEngine {
   /**************************************************************************/
   Time::FunctionTimeSliceVec & Profiler::SystemTimes()
   {
-    return CurrentSystemTimes;
+    return EngineSystemTimes.first;
   }
 
   /**************************************************************************/
