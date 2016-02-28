@@ -27,7 +27,7 @@ namespace DCEngine {
       void AddWindow();
       void OnEditorInitializeEvent(Events::EditorInitialize* event);
       void OnEditorUpdateEvent(Events::EditorUpdate* event);
-      virtual void Update() = 0;
+      virtual void Update() {};
 
       bool WillAddWindow;
     };

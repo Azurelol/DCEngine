@@ -89,6 +89,7 @@ namespace DCEngine {
       EditorWindows Windows;
       EditorProjects Projects;
       EditorDiagnostics Diagnostics;
+      EditorTextEditor TextEditor;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;

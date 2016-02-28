@@ -50,7 +50,9 @@ namespace DCEngine {
         auto objectName = object->Name().c_str();   
 
         // If the object was found among one of those selected..
-        if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
+        bool selected = SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID();
+        if (ImGui::Selectable(objectName, selected)) {
+        //if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
           SelectObject(object);
           Windows.PropertiesEnabled = true;
         }

@@ -322,6 +322,9 @@
     <Filter Include="Core\Systems\Editor\Modules\Properties">
       <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
+      <UniqueIdentifier>{5353d67b-d97f-4e69-b5e9-474663bd7f1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -882,6 +885,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp">
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1493,6 +1499,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

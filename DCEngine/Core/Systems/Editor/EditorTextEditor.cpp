@@ -1,0 +1,114 @@
+/******************************************************************************/
+/*!
+@file   EditorTextEditor.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   2/28/2016
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
+#include "EditorTextEditor.h"
+
+#include "../../Engine/Engine.h"
+
+namespace DCEngine {
+  namespace Systems {
+
+    // Statics
+    static bool ReadOnly = false;
+    static char Text[1024 * 16]; // Magic number no!
+
+    /**************************************************************************/
+    /*!
+    @brief EditorTextEditor constructor.
+    @param editor A reference to the Editor.
+    */
+    /**************************************************************************/
+    EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Displays the text editor.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Display()
+    {
+      if (!WindowEnabled)
+        return;
+
+      ImGui::SetNextWindowSize(ImVec2(800, 800), ImGuiSetCond_FirstUseEver);
+      if (ImGui::Begin("Text Editor", &WindowEnabled, ImGuiWindowFlags_MenuBar)) {
+
+        if (ImGui::BeginMenuBar()) {
+          if (ImGui::BeginMenu("File")) {
+            if ((ImGui::MenuItem("Save"))) Save();
+            if ((ImGui::MenuItem("Close"))) Close();
+
+            ImGui::EndMenu();
+          }
+          ImGui::EndMenuBar();
+        }
+
+
+        //ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
+        ////ImGui::Checkbox("Read-only", &ReadOnly);
+        //ImGui::PopStyleVar();
+        ImGui::InputTextMultiline("##source", Text, IM_ARRAYSIZE(Text), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16),
+                                  ImGuiInputTextFlags_AllowTabInput | (ReadOnly ? ImGuiInputTextFlags_ReadOnly : 0));
+
+
+
+      }
+      ImGui::End();
+
+
+
+
+
+      
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Loads the specified script onto the text editor.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Load(ZilchScriptPtr script)
+    {
+      DCTrace << "EditorTextEditor::Load: '" << script->Name() << "' \n";
+      WindowEnabled = true;
+      CurrentScript = script;
+      CurrentScript->Load();
+      std::strcpy(Text, CurrentScript->Read().c_str());
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Saves the currently selected script to a file.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Save()
+    {
+      if (!CurrentScript)
+        return;
+
+      DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
+      CurrentScript->Save(std::string(Text));
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Closes the current script.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Close()
+    {
+      CurrentScript = nullptr;
+      WindowEnabled = false;
+    }
+  }
+}

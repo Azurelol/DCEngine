@@ -383,6 +383,7 @@
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
@@ -507,6 +508,7 @@
     <ClInclude Include="Core\Systems\Editor\EditorModule.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorProjects.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
     <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />

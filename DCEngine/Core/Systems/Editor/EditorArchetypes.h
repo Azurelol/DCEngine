@@ -11,7 +11,7 @@
 #pragma once
 
 #include "../../Resources/Archetype.h"
-#include "../System.h"
+#include "EditorModule.h"
 
 namespace DCEngine {
 
@@ -21,7 +21,7 @@ namespace DCEngine {
   namespace Systems {
 
     class Editor;
-    class EditorArchetypes : public Module {
+    class EditorArchetypes : public EditorModule {
     public:
       EditorArchetypes(Editor& editor);
       ~EditorArchetypes();
@@ -29,8 +29,10 @@ namespace DCEngine {
       void Preview();      
       void UploadArchetype(ArchetypeHandle archetype);      
       void RevertToArchetype(EntityPtr entity);
+      GameObject* Current();
 
     private:
+      void Display() {}
       void Deselect();
       void ConstructSpace();
       void UpdateArchetypeInstances(ArchetypeHandle archetypeName);
@@ -39,7 +41,6 @@ namespace DCEngine {
       void OnEditorSelectObjectEvent(Events::EditorSelectObject* event);
       void OnEditorDeselectObjectEvent(Events::EditorDeselectObject* event);
 
-      Editor& EditorRef;
       GameObject* CurrentArchetype;      
       Space* ArchetypeSpace;
 
