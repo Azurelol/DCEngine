@@ -125,14 +125,32 @@ namespace DCEngine {
 
       // Unload all banks
       for (auto& bank : ActiveBanks) {
-        Unload(bank.second);
+        Unload(bank.second.Handle);
+      }
+    }
+    /**************************************************************************/
+    /*!
+    @brief  Generates audio resources from all currently loaded banks.
+    */
+    /**************************************************************************/
+    void AudioFMOD::GenerateResources()
+    {
+      for (auto bank : ActiveBanks) {
+        DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
+        // Load event descriptions
+        LoadEventDescriptions(bank.second.Handle);
+        // Load event instances
+        LoadEventInstances();
+        // Load channel groups
+        LoadChannelGroups(bank.second.Handle);
+        // Load VCAs
+        LoadVCAs(bank.second.Handle, bank.second.VCAs);
+        // Load Buses
+        LoadBuses(bank.second.Handle, bank.second.Buses);        
       }
 
-      //System.LowLevel->
-      //System.LowLevel->getChannelsPlaying().
-
-      //delete(MusicPtr);
-      //delete CurrentChannel;
+      // Generate SoundCues
+      GenerateSoundCues();
     }
 
     /**************************************************************************/

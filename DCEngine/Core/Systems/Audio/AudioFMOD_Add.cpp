@@ -71,7 +71,10 @@ namespace DCEngine {
       // Now that the bank is finished loading, load its sample data
       ErrorCheck(newBank->loadSampleData());
       // Add it to the container of active banks
-      ActiveBanks.insert(std::pair<const std::string, FMOD::Studio::Bank*>(handle, newBank));
+      BankInfo bankInfo;
+      bankInfo.Name = handle;
+      bankInfo.Handle = newBank;
+      ActiveBanks.insert(std::pair<const std::string, BankInfo>(handle, bankInfo));
 
       return newBank;
     }
@@ -109,18 +112,12 @@ namespace DCEngine {
         int buff_sz = 0;
         char path[256] = { 0 };
         result = eventList[i]->getPath(path, 255, &buff_sz);
-        printf("%s\n", path);
+        //printf("%s\n", path);
         
-        // Create an event description and add it to the map of available events
-        //FMOD::Studio::EventInstance* eventInstance;
-        //eventList[i]->createInstance(&eventInstance);
-        
-        //EventDescriptionHandle eventDescription = EventDescriptionHandle(new EventDescriptionInfo(FileSystem::FileNoExtension(path), path));
         auto name = FileSystem::FileNoExtension(path);
         AvailableEvents.insert(std::pair<const std::string, FMOD::Studio::EventDescription*>(name, eventList[i]));
       }
 
-      //free(eventList);
     }
 
     /**************************************************************************/
@@ -139,22 +136,72 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Loads all VCAs from the bank.
-    @param  bank A pointer to the bank.
+    @brief Loads all VCAs from the bank.
+    @param bank A pointer to the bank.
+    @param vcas A reference to the container of all VCAs within the bank.
     */
     /**************************************************************************/
-    void AudioFMOD::LoadVCAs(FMOD::Studio::Bank * bank)
+    void AudioFMOD::LoadVCAs(FMOD::Studio::Bank * bank, VCAContainer& vcas)
     {
+      int count;       
+      if (!ErrorCheck(bank->getVCACount(&count)))
+        return;
+
+      int vcasFound;
+      FMOD::Studio::VCA ** vcaList = (FMOD::Studio::VCA **)malloc(count * sizeof(void *));
+      if (!ErrorCheck(bank->getVCAList(vcaList, count, &vcasFound)))
+        return;
+
+      for (int i = 0; i < vcasFound; ++i) {
+        // Grab the path of the VCA
+        int buff_sz = 0;
+        char path[256] = { 0 };
+        ErrorCheck(vcaList[i]->getPath(path, 255, &buff_sz));
+        // Extract the name of the VCA
+        auto name = FileSystem::FileNoExtension(path);
+        vcas.insert(std::pair<VCAHandle, FMOD::Studio::VCA*>(name, vcaList[i]));
+      }      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Loads all buses from the bank.
+    @param bank A pointer to the bank.
+    @param buses A reference to the container of all buses within the bank.
+    */
+    /**************************************************************************/
+    void AudioFMOD::LoadBuses(FMOD::Studio::Bank * bank, BusContainer & buses)
+    {
+      int count;
+      if (!ErrorCheck(bank->getBusCount(&count)))
+        return;
+
+      int found;
+      FMOD::Studio::Bus** busList = (FMOD::Studio::Bus **)malloc(count * sizeof(void *));
+      if (!ErrorCheck(bank->getBusList(busList, count, &found)))
+        return;
+
+
+      for (int i = 0; i < found; ++i) {
+        // Grab the path of the VCA
+        int buff_sz = 0;
+        char path[256] = { 0 };
+        ErrorCheck(busList[i]->getPath(path, 255, &buff_sz));
+        // Extract the name of the VCA
+        auto name = FileSystem::FileNoExtension(path);
+        buses.insert(std::pair<BusHandle, FMOD::Studio::Bus*>(name, busList[i]));
+      }
     }
 
     /**************************************************************************/
     /*!
     @brief  Loads all channel groups from the bank.
-    @param  bank A pointer to the bank.
+    @param  bank A pointer to the bank.    
     */
     /**************************************************************************/
     void AudioFMOD::LoadChannelGroups(FMOD::Studio::Bank * bank)
     {
+
     }
 
 

@@ -15,9 +15,14 @@
 #include <FMOD\fmod_errors.h>
 
 namespace DCEngine {
-
   namespace Systems {
-    
+   
+
+    /*==================
+          ALIASES
+    ===================*/
+    // Event Descriptions
+    using EventDescriptionHandle = const std::string&;
     // Event Instances
     struct EventInstanceInfo {    
       EventInstanceInfo(unsigned id, FMOD::Studio::EventInstance* handle);
@@ -25,7 +30,7 @@ namespace DCEngine {
       FMOD::Studio::EventInstance* Handle;
     };
     using EventInstanceHandle = FMOD::Studio::EventInstance*;
-
+    using EventInstanceMap = std::map<std::string, FMOD::Studio::EventInstance*>;
     // Event Parameters
     struct EventParameterInfo {
       std::string Name;
@@ -36,18 +41,29 @@ namespace DCEngine {
     using EventParameterHandle = std::string;
     using EventParameterInfoContainer = std::vector<EventParameterInfo>;
     using EventParameterContainer = std::vector<FMOD::Studio::ParameterInstance*>;
-
-
+    // VCA
+    using VCAHandle = std::string;
+    using VCAContainer = std::map<VCAHandle, FMOD::Studio::VCA*>;
+    // Bus
+    using BusHandle = std::string;
+    using BusContainer = std::map<BusHandle, FMOD::Studio::Bus*>;
+    // Banks
+    struct BankInfo {
+      std::string Name;
+      FMOD::Studio::Bank* Handle;
+      VCAContainer VCAs;
+      BusContainer Buses;
+    };
+    using BanksContainer = std::map<std::string, BankInfo>;
     // Containers
-    using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;
-    using EventInstanceMap = std::map<std::string, FMOD::Studio::EventInstance*>;
     using EventDescriptionMap = std::map<std::string, FMOD::Studio::EventDescription*>;
+    // Channels
     using ChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
     using GroupMap = std::map<std::string, FMOD::ChannelGroup*>;
 
-    // Aliases
-    using EventDescriptionHandle = const std::string&;
-
+    /*==================
+        DATA STRUCTS
+    ===================*/
     // Settings 
     struct AudioFMODSettings {
       unsigned MaxChannels;

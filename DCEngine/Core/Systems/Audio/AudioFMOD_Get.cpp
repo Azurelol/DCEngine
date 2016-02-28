@@ -32,8 +32,6 @@ namespace DCEngine {
       
       // Get the parameters
       int parametersRetrieved = 0;
-      //FMOD::Studio::ParameterInstance** paramList = (FMOD::Studio::ParameterInstance**)malloc(parameterCount * sizeof(void*));
-
       // Grab every parameter
       parameters.resize(static_cast<size_t>(parameterCount));
       for (int i = 0; i < parameterCount; ++i) {
@@ -65,26 +63,26 @@ namespace DCEngine {
       if (!ActiveBanks.count(handle))
         return nullptr;
       // If the bank could be found...
-      return ActiveBanks.at(handle);
+      return ActiveBanks.at(handle).Handle;
     }
 
     /**************************************************************************/
     /*!
-    @brief  Retrieves the bus.
+    @brief  Retrieves a reference to the bus.
     @param  path The path to the bus.
     @return
     */
     /**************************************************************************/
     FMOD::Studio::Bus * AudioFMOD::getBus(std::string path)
     {
-      FMOD::Studio::Bus* bus;
+      FMOD::Studio::Bus* bus;      
       ErrorCheck(getBus(path, &bus));
       return bus;
     }
 
     /**************************************************************************/
     /*!
-    @brief  Retrieves the bus.
+    @brief  Retrieves a reference to the bus.
     @param  path The path to the bus.
     @return The success of the operation.
     */
@@ -96,26 +94,24 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Generates audio resources from all currently loaded banks.
+    @brief  Retrieves a reference to the VCA.
+    @param  path The path to the VCA.
+    @return The success of the operation.
     */
     /**************************************************************************/
-    void AudioFMOD::GenerateResources()
+    FMOD::Studio::VCA * AudioFMOD::getVCA(const std::string& path)
     {
-      for (auto bank : ActiveBanks) {
-        DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
-        // Load event descriptions
-        LoadEventDescriptions(bank.second);        
-        // Load event instances
-        LoadEventInstances();
-        // Load channel groups
-        LoadChannelGroups(bank.second);
-        // Load VCAs
-        LoadVCAs(bank.second);
-      }
-
-      // Generate SoundCues
-      GenerateSoundCues();
+      FMOD::Studio::VCA* vca;      
+      ErrorCheck(getVCA(path, &vca));
+      return vca;
     }
+
+    FMOD_RESULT AudioFMOD::getVCA(const std::string& path, FMOD::Studio::VCA ** vca) const
+    {
+      return FMOD_RESULT();
+    }
+
+
 
 
 
