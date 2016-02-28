@@ -1200,7 +1200,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": false, 
+            "CastShadows": true, 
             "Type": "Ambient", 
             "Color": 
             {
@@ -1213,8 +1213,8 @@
               }
             }, 
             "Intensity": 0.200000, 
-            "Range": 0.000000, 
-            "Falloff": 0.000000, 
+            "Range": 0.500000, 
+            "Falloff": 0.300000, 
             "DirectionVector": 
             {
               "Vec3": 
@@ -2472,7 +2472,7 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
