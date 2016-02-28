@@ -172,6 +172,11 @@ namespace DCEngine {
 
     void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+	  if (PlayerControllerTraceOn)
+	  {
+			PrintTranslation();
+	  }
+	  //Grounded = CheckForGround();
       if (glm::abs(RigidBodyRef->getVelocity().x) > VelocityXCap)
       {
         Vec3 currentVel = RigidBodyRef->getVelocity();
@@ -424,6 +429,35 @@ namespace DCEngine {
       }
 
     }
+	Boolean PlayerController::CheckForGround()
+	{
+
+		DCEngine::CastFilter filter;
+		filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+		filter.Include = true;
+		auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
+		DCEngine::Ray ray;
+		ray.Direction = Vec3(0, -1, 0);
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		auto result = physicsSpace->CastRay(ray);
+		if (result.Distance < 0.05)
+		{
+			return true;
+		}
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(0, -TransformRef->Scale.y / 2, 0);
+		result = physicsSpace->CastRay(ray, filter);
+		if (result.Distance < 0.05)
+		{
+			return true;
+		}
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		result = physicsSpace->CastRay(ray, filter);
+		if (result.Distance < 0.05)
+		{
+			return true;
+		}
+		return false;
+	}
   }
 
 }

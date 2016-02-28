@@ -1201,24 +1201,44 @@ namespace DCEngine
 
       if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
+		  if (Rseg == line.Origin)
+		  {
+			  Distance = 0;
+			  return true;
+		  }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
       {
+		  if (Rseg == line.Origin)
+		  {
+			  Distance = 0;
+			  return true;
+		  }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
       {
+		  if (Rseg == line.Origin)
+		  {
+			  Distance = 0;
+			  return true;
+		  }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
       {
+		  if (Rseg == line.Origin)
+		  {
+			  Distance = 0;
+			  return true;
+		  }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }

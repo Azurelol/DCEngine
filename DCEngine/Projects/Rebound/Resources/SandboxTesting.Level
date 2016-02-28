@@ -377,9 +377,6 @@
             "PlayerName": "Player", 
             "MoveSpeed": 0.750000, 
             "RotSpeed": 15.000000, 
-            "MinCharge": 0.500000, 
-            "MaxCharge": 1.000000, 
-            "ChargeFactor": 20000.000000, 
             "FrozenColor": 
             {
               "Vec4": 
@@ -413,10 +410,10 @@
               }
             }, 
             "FreezeEnabled": true, 
-            "MaxAttractSpeed": 50.000000, 
-            "MaxAttractForce": 100.000000, 
-            "AttractArriveDistance": 200.000000, 
-            "MinAttractSpeed": 50.000000
+            "MaxAttractSpeed": 10.000000, 
+            "MaxAttractForce": 50.000000, 
+            "AttractArriveDistance": 100.000000, 
+            "MinAttractSpeed": 7.500000
           }, 
           "Light": 
           {
@@ -655,7 +652,7 @@
               "Vec3": 
               {
                 "x": 29.500000, 
-                "y": 13.000000, 
+                "y": 5.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1031,7 +1028,7 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.700000, 
+            "MoveSpeed": 0.300000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
