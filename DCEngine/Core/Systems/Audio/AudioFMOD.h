@@ -34,9 +34,6 @@ namespace DCEngine {
 
     friend class Audio;
     public:
-      AudioFMOD();
-      ~AudioFMOD();
-
       // Playback
       bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, PlaybackSettings& settings);
       bool PlaySound(EventDescriptionHandle& eventHandle, PlaybackSettings& settings);
@@ -54,15 +51,16 @@ namespace DCEngine {
       void SetVolume(FMOD::Channel* soundPtr, float volume);
       void SetVolume(EventDescriptionHandle& eventHandle, float volume);     
 
-      // Accesors
+      // Accessors
+      EventParameterInfoContainer getParameters(EventInstanceHandle eventInstance);
       FMOD::Studio::Bank* getBank(const std::string handle);
-      FMOD_RESULT getBank(const std::string path, FMOD::Studio::Bank** bank);
       FMOD::Studio::Bus* getBus(const std::string path);
       FMOD_RESULT getBus(const std::string path, FMOD::Studio::Bus **bus) const;
-      FMOD::Studio::VCA* getVCA(const std::string path) const;
-      FMOD_RESULT getVCA(const std::string path, FMOD::Studio::VCA** vca) const;
-      
+      FMOD::Studio::VCA* getVCA(const std::string& path);
+      FMOD_RESULT getVCA(const std::string& path, FMOD::Studio::VCA** vca) const;      
+
       // Generate
+      void Load(BankInfo& bankInfo);
       void GenerateResources();
       void GenerateSoundCues();
 
@@ -70,6 +68,8 @@ namespace DCEngine {
       //FMOD_RESULT Stop(FMOD_STUDIO_STOP_MODE mode);
       //FMOD_RESULT Unload();
       //FMOD_RESULT StopAllEvents(FMOD_STUDIO_STOP_MODE mode);     
+      AudioFMOD();
+      ~AudioFMOD();
 
     private:
 
@@ -84,6 +84,8 @@ namespace DCEngine {
       bool Muted;
 
       // Containers
+      VCAContainer ActiveVCAs;
+      BusContainer ActiveBuses;
       BanksContainer ActiveBanks;
       EventInstanceMap InstantiatedEvents;
       EventDescriptionMap AvailableEvents;
@@ -92,15 +94,15 @@ namespace DCEngine {
 
       // Create
       bool CreateSound(const std::string& soundFile, FMOD::Sound** soundPtr);
-      bool CreateSound(const std::string& eventDescrption);
       bool CreateStream(const std::string& soundFile, FMOD::Sound** soundPtr);      
-      FMOD_RESULT CreateEventInstance(FMOD::Studio::EventInstance** instance) const;
-      FMOD::Studio::EventInstance* AddEventInstance(FMOD::Studio::EventDescription* event) const;
+      FMOD::Studio::EventInstance* CreateEventInstance(FMOD::Studio::EventDescription* event) const;
 
       // Loading
-      FMOD::Studio::Bank* LoadBankFromFile(const std::string handle, const std::string& path);      
+      BankInfo LoadBankFromFile(const std::string handle, const std::string& path);      
       void LoadEventDescriptions(FMOD::Studio::Bank* bank);
-      void LoadVCAs(FMOD::Studio::Bank* bank);
+      void LoadEventInstances();
+      void LoadVCAs(FMOD::Studio::Bank* bank, VCAContainer& vcas);
+      void LoadBuses(FMOD::Studio::Bank* bank, BusContainer& buses);
       void LoadChannelGroups(FMOD::Studio::Bank* bank);
 
       // Release

@@ -42,7 +42,6 @@ namespace DCEngine {
 		class Light;
   }
   
-
   namespace Systems {
 
     class Window;
@@ -52,12 +51,16 @@ namespace DCEngine {
       friend class Graphics;
           
     public:
+      /* Shader Control */
+      void CompileShaders();
+      /* Uniforms */
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
-			void SetLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents);
+			void SetLightUniforms(ShaderPtr shader, Components::Light* lightComponents);
+			void SetAllLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents);
 
       /* Sprite */
       void ConfigureSpriteVAO();      
-      void SetSpriteShader(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
+      void SetSpriteShader(Components::Camera& camera, Components::Light* light);
       void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 	    void AnimationUpdate(Components::Sprite& sprite, float dt);
 	    int IsNextFrame(Components::Sprite& sprite);
@@ -69,11 +72,9 @@ namespace DCEngine {
 			void ConfigureParticleBuffers();
 			void SetParticleSystemShader(Components::Camera& camera);
 			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & camera, double dt);
-
 			/* Shadowing System */
 			void ConfigureShadowBuffers(void);
-			void SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents);
-
+			void SetShadowingShaders(Components::Camera& camera, Components::Light* light);
       /* Model */
       void DrawModel(GameObject& gameObj);
       /* DebugDraw */
@@ -102,8 +103,7 @@ namespace DCEngine {
 
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
-      void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);
-      
+      void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);      
       // Temporary until we switch to DebugDraw objects with shaders
 	    void CleanBuffer();
 

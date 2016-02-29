@@ -17,15 +17,23 @@ namespace DCEngine {
     class Editor;
     class EditorModule : public Module {
     public:
-      EditorModule(Editor& editor);
+      bool WindowEnabled;
+      void Toggle(bool);
+      virtual void Display() = 0;
+      EditorModule(Editor& editor, bool add);
       ~EditorModule();
-
-    private:
-      void OnEditorUpdateEvent(Events::EditorUpdate* event);
-      virtual void Update() = 0;
-
+    protected:
       Editor& EditorRef;
+    private:
+      void AddWindow();
+      void OnEditorInitializeEvent(Events::EditorInitialize* event);
+      void OnEditorUpdateEvent(Events::EditorUpdate* event);
+      virtual void Update() {};
+
+      bool WillAddWindow;
     };
+
+    using EditorModulePtr = EditorModule*;
 
   }
 }

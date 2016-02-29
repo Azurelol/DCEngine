@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   EditorResources.h
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   2/28/2015
+@brief  This file includes the implementation for the Editor's library widget.
+@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+
+*/
+/******************************************************************************/
 #pragma once
 
 #include "../../Objects/Resource.h"
@@ -10,6 +21,12 @@ namespace DCEngine {
     public:
       EditorResources(Editor& editor);
       template <typename ResourceMap> bool DisplayResourceList(std::string type, ResourceMap* map);
+      // Templated genius function
+      //template <typename ResourceMap, typename SingleClickFn, typename DoubleClickFn, typename ...Args> 
+      //bool DisplayResourceList(std::string type, ResourceMap* map, 
+      //                          void(SingleClickFn::* singleClickFn)(Args...), 
+      //                          void(DoubleClickFn::* doubleClickFn)(Args...)) {
+      //}
 
       //void WindowAddResource();
       //void ResourceCreate(std::string& name, ResourceType type);
@@ -40,7 +57,13 @@ namespace DCEngine {
     };
     
 
-
+    /**************************************************************************/
+    /*!
+    @brief Displays all the resources on the map as a list.
+    @param type The name of the resource type.
+    @param map A poiner to the map that holds the resources.
+    */
+    /**************************************************************************/
     template<typename ResourceMap>
     inline bool EditorResources::DisplayResourceList(std::string type, ResourceMap* map)
     {
@@ -51,9 +74,11 @@ namespace DCEngine {
       if (ImGui::TreeNode(type.c_str())) {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *map) {
-          if (ImGui::Selectable(resource.second->Name().c_str()) ) {
+          auto resourceName = resource.second->Name().c_str();
+          bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == resource.second->getObjectID();
+          if (ImGui::Selectable(resourceName, selected) ) {
             EditorRef.Select(resource.second.get());
-            EditorRef.Windows.PropertiesEnabled = true;
+            EditorRef.Inspector.Toggle(true);
           }
         }
         ImGui::TreePop();

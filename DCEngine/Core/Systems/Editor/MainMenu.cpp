@@ -63,8 +63,9 @@ namespace DCEngine {
           if (ImGui::MenuItem("Create Sprite")) { Creator.CreateSprite(); }
           if (ImGui::MenuItem("Create SpriteText")) { Creator.CreateSpriteText(); }
           ImGui::Separator();
-          if (ImGui::MenuItem("Create Particle System")) { Creator.CreateParticleSystem(); }
+          if (ImGui::MenuItem("Create Camera")) { Creator.CreateCamera(); }
           if (ImGui::MenuItem("Create Light")) { Creator.CreateLight(); }
+          if (ImGui::MenuItem("Create Particle System")) { Creator.CreateParticleSystem(); }
           ImGui::Separator();
           if (ImGui::MenuItem("Create from Archetype"))
             Windows.CreateFromArchetypeEnabled = true;
@@ -112,7 +113,7 @@ namespace DCEngine {
         // Windows
         if (ImGui::BeginMenu("Windows")) {
           if (ImGui::MenuItem("Properties"))
-            Windows.PropertiesEnabled = !Windows.PropertiesEnabled;
+            Inspector.Toggle(true);
           if (ImGui::MenuItem("Library"))
             Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))
@@ -120,7 +121,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Tools"))
             Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
-            Windows.DiagnosticsEnabled = !Windows.DiagnosticsEnabled;
+            Diagnostics.WindowEnabled = !Diagnostics.WindowEnabled;
           if (ImGui::MenuItem("Commands"))
             Windows.CommandsEnabled = !Windows.CommandsEnabled;
           if (ImGui::MenuItem("Console", "~"))
@@ -145,7 +146,11 @@ namespace DCEngine {
 
           ImGui::EndMenu();
         }
-        
+                
+        if (ImGui::Button("Lightning")) {
+          Settings.LightningEnabled = !Settings.LightningEnabled;
+        }
+
         ImGui::EndMainMenuBar();
 
       }

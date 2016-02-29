@@ -25,12 +25,19 @@ namespace DCEngine {
       static void EnginePause();
       static void EngineExit();
       
+      static void EditorInitialize();
       static void EditorSelectObject(Object* object);
       static void EditorDeselectObject();
+      static void EditorSave();
       
       static void SetWindowCaption(std::string name);
       static void WindowLostFocus();
       static void WindowGainedFocus();
+      
+      static void GraphicsCompileShaders();
+
+      static void ScriptingCompile();
+      
 
     };
 

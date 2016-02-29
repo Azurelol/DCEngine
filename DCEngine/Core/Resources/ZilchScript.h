@@ -22,6 +22,7 @@ namespace DCEngine {
     ~ZilchScript();
     static std::string Extension() { return ".Zilch"; }
     void Save(std::string& serializedData);
+    const std::string& Read();
     bool Load();
     bool BuildDefaultFromTemplate();
     bool IncludeScript();

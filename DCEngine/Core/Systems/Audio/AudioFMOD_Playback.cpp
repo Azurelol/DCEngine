@@ -57,7 +57,7 @@ namespace DCEngine {
       // Otherwise, create an instance of it.
       else {
         if (AvailableEvents.count(eventName)) {
-          auto eventInstance = AddEventInstance(AvailableEvents.at(eventName));
+          auto eventInstance = CreateEventInstance(AvailableEvents.at(eventName));
           // Configure it
           eventInstance->setVolume(settings.Volume);
           eventInstance->setPitch(settings.Pitch);          
@@ -85,7 +85,7 @@ namespace DCEngine {
     {
       // If the event is found in the map of available events, create it
       if (AvailableEvents.count(eventHandle)) {
-        *instance = AddEventInstance(AvailableEvents.at(eventHandle));
+        *instance = CreateEventInstance(AvailableEvents.at(eventHandle));
         // Configure it
         (*instance)->setVolume(settings.Volume);
         (*instance)->setPitch(settings.Pitch);

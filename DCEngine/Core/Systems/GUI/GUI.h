@@ -34,10 +34,10 @@ namespace DCEngine {
       friend class Windows;
 
     public:
-    
-    public:
+      static void SetToolTip(std::string);
       static void PopUp(Windows::PopUpData& data);
       static void Add(WindowPtr window);
+      static bool IsMouseDoubleClicked();
     
     private:
                         

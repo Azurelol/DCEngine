@@ -47,7 +47,7 @@ namespace DCEngine {
     void Factory::Update(float dt) {
       if (TRACE_UPDATE)
         DCTrace << "Factory::Update \n";
-      
+      SystemTimer profile(this->Name());
       // Destroy all objects on the to-be-deleted list
       DestroyGameObjects();      
       // Destroy all marked components

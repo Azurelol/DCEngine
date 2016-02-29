@@ -15,13 +15,13 @@
 #include <unordered_map>
 #include <stack>
 #include <functional> // std::function, std::bind
-
-// Headers
+// Packages
 #include "Types.h"
 #include "Event.h"
 #include "Math.h"
 #include "Action.h"
-
+#include "Profiler.h"
+// Objects
 #include "../Objects/ObjectsInclude.h"
 #include "../Objects/Entities/EntitiesInclude.h"
 #include "..\Systems\System.h"
@@ -74,10 +74,13 @@ namespace DCEngine {
 
     template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     template<typename T> std::shared_ptr<T> getSystem();
+    Profiler& Profiler() { return this->Profile; }
+    //EngineConfigPtr& Configuration() { return EngineConfiguration; }
 
   private:
 
     bool Paused;
+    DCEngine::Profiler Profile;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;

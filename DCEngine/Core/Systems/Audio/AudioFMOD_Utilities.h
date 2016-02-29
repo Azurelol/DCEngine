@@ -16,25 +16,57 @@
 
 namespace DCEngine {
   namespace Systems {
-    
-    class EventInstanceInfo {
-    public:
+   
+
+    /*==================
+          ALIASES
+    ===================*/
+    // Event Descriptions
+    using EventDescriptionHandle = const std::string&;
+    // Event Instances
+    struct EventInstanceInfo {    
       EventInstanceInfo(unsigned id, FMOD::Studio::EventInstance* handle);
       unsigned ID; 
       FMOD::Studio::EventInstance* Handle;
     };
-    using EventInstanceHandle = std::shared_ptr<EventInstanceInfo>;
-
-    // Containers
-    using BanksContainer = std::map<std::string, FMOD::Studio::Bank*>;
+    using EventInstanceHandle = FMOD::Studio::EventInstance*;
     using EventInstanceMap = std::map<std::string, FMOD::Studio::EventInstance*>;
+    // Event Parameters
+    struct EventParameterInfo {
+      std::string Name;
+      float Minimum;
+      float Maximum;
+      FMOD_STUDIO_PARAMETER_TYPE Type;
+    };
+    using EventParameterHandle = std::string;
+    using EventParameterInfoContainer = std::vector<EventParameterInfo>;
+    using EventParameterContainer = std::vector<FMOD::Studio::ParameterInstance*>;
+    // VCA
+    using VCAHandle = std::string;
+    using VCAPtr = FMOD::Studio::VCA*;
+    using VCAContainer = std::map<VCAHandle, FMOD::Studio::VCA*>;
+    // Bus
+    using BusHandle = std::string;
+    using BusPtr = FMOD::Studio::Bus*;
+    using BusContainer = std::map<BusHandle, FMOD::Studio::Bus*>;
+    // Banks
+    struct BankInfo {
+      std::string Name;
+      FMOD::Studio::Bank* Handle;
+      VCAContainer VCAs;
+      BusContainer Buses;
+      FMOD::Studio::Bank* operator->() { return Handle; }
+    };
+    using BanksContainer = std::map<std::string, BankInfo>;
+    // Containers
     using EventDescriptionMap = std::map<std::string, FMOD::Studio::EventDescription*>;
+    // Channels
     using ChannelMap = std::map<FMOD::Sound*, FMOD::Channel*>;
     using GroupMap = std::map<std::string, FMOD::ChannelGroup*>;
 
-    // Aliases
-    using EventDescriptionHandle = const std::string&;
-
+    /*==================
+        DATA STRUCTS
+    ===================*/
     // Settings 
     struct AudioFMODSettings {
       unsigned MaxChannels;

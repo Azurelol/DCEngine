@@ -15,6 +15,7 @@ namespace DCEngine {
     // Project
     Time::Timer AutoSaveTimer;
     bool EditorEnabled = false;
+    bool LightningEnabled = false;
     std::string ProjectsPath;
     std::string RecentProject;
     ProjectProperties* ProjectProperties;
@@ -40,7 +41,7 @@ namespace DCEngine {
     // Console
     size_t ConsoleWindowStringLength = 0;
     size_t PreviousConsoleWindowStringLength = 0;
-    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Timer, true),  
+    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Countdown, true),  
                      CameraLastPos(0.0f, 0.0f, 40.0f) {}
   };
 
@@ -106,7 +107,6 @@ namespace DCEngine {
     bool LevelEnabled = false;
     bool AddResourceEnabled = false;
     bool ObjectsEnabled = false;
-    bool PropertiesEnabled = false;
     bool LibraryEnabled = false;
     bool DiagnosticsEnabled = false;
     bool SaveLevelEnabled = false;

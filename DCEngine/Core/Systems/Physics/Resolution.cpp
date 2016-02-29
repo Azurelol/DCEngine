@@ -115,7 +115,7 @@ namespace DCEngine
     }
 
     //What is the total change in velocity for the contact?
-    float deltaVelocity = newSepVelocity - separatingVelocity;
+    float deltaVelocity = /*newSepVelocity*/ 0.0f - separatingVelocity;
 
     //The delta velocity is applied to each object proportional to inverse
     //mass. So the more massive an object is the less of the change
@@ -425,7 +425,7 @@ namespace DCEngine
     {
       if (c.Object1->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object1->getComponent<Components::RigidBody>()->setPosition(c.Object1->getComponent<Components::RigidBody>()->getPosition() + c.v1 * 2.0f);
+        c.Object1->getComponent<Components::RigidBody>()->setPosition(c.Object1->getComponent<Components::RigidBody>()->getPosition() + c.v1);
       }
     }
 
@@ -433,7 +433,7 @@ namespace DCEngine
     {
       if (c.Object2->getComponent<Components::RigidBody>()->DynamicState != DynamicStateType::Static)
       {
-        c.Object2->getComponent<Components::RigidBody>()->setPosition(c.Object2->getComponent<Components::RigidBody>()->getPosition() + c.v2 * 2.0f);
+        c.Object2->getComponent<Components::RigidBody>()->setPosition(c.Object2->getComponent<Components::RigidBody>()->getPosition() + c.v2);
       }
     }
 

@@ -78,7 +78,8 @@ namespace DCEngine {
         this->MyJam->Stop();
       this->MyJam = SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(track);
 
-
+      Bank::Find("Master")->VCA("VCAlol")->setFaderLevel(0.0f);
+      Bank::Find("Master")->Bus("lol")->setMute(true);
       //auto SoundSpaceRef = SpaceRef->getComponent<Components::SoundSpace>();
       //SoundSpaceRef->StopCue(CurrentSoundCue);
       //CurrentSoundCue = track;

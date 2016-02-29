@@ -13,34 +13,41 @@
 #include "ResourceReference.h"
 
 #include <FMOD\fmod_studio.hpp>
+#include "../Systems/Audio/AudioFMOD_Utilities.h"
 
 namespace DCEngine {
   
   class Bank;
   using BankHandle = std::string;
   using BankPtr = std::shared_ptr<Bank>;
+
+  namespace Systems {
+    class AudioFMOD;
+  }
+
   class Bank : public Resource {
+    friend class Systems::AudioFMOD;
   public:
       
     // Properties
     DCE_DEFINE_PROPERTY(std::string, AssetPath);
+    // Getters
+    Systems::VCAPtr VCA(Systems::VCAHandle name);
+    Systems::VCAContainer& AllVCAs();
+    Systems::BusPtr Bus(Systems::BusHandle name);
+    Systems::BusContainer& AllBuses();
 
-    void Add();
 
     ZilchDeclareDerivedType(Bank, Resource);
     Bank(std::string name);
     ~Bank() {}
+    void Add();
     static std::string Extension() { return ".Bank"; }
     static BankPtr Find(std::string);
 
-    struct BankData {
-      FMOD::Studio::Bank* Handle;
-      FMOD::Studio::Bank* operator->() { return Handle; }
-    };
-
   private:
     std::string AssetPath;
-    BankData Data;
+    Systems::BankInfo Data;
 
   };
 

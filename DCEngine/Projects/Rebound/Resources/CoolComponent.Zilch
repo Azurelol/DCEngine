@@ -7,5 +7,6 @@ class CoolComponent : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+		I am a cool component.
     }
 }

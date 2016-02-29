@@ -329,6 +329,7 @@
     <ClCompile Include="Core\Daisy.cpp" />
     <ClCompile Include="Core\Engine\Event.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
+    <ClCompile Include="Core\Engine\Profiler.cpp" />
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
     <ClCompile Include="Core\Engine\Timer.cpp" />
     <ClCompile Include="Core\Events\DispatchGameEvents.cpp" />
@@ -375,15 +376,20 @@
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
     <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp" />
     <ClCompile Include="Core\Systems\Editor\CameraControl.cpp" />
-    <ClCompile Include="Core\Systems\Editor\Diagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorArchetypes.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInput.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorPreview.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorInspector.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuLaunch.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorSetup.cpp" />
@@ -392,13 +398,10 @@
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
-    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
-    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp" />
@@ -482,6 +485,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">
@@ -501,9 +505,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h" />
     <ClInclude Include="Core\Systems\Editor\EditorCreator.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp" />
     <ClInclude Include="Core\Systems\Editor\EditorModule.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorProjects.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
     <ClInclude Include="Core\Systems\Editor\EditorToolsInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorUtilities.h" />
@@ -621,6 +628,7 @@
     <ClInclude Include="Core\Systems\Editor\Editor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorWindow.h" />
     <ClInclude Include="Core\Systems\Editor\EditorResources.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.h" />
     <ClInclude Include="Core\Systems\Editor\Selector.h" />
     <ClInclude Include="Core\Systems\Editor\TransformTool.h" />
     <ClInclude Include="Core\Systems\Factory\ComponentFactory.h" />
@@ -642,6 +650,7 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h" />
     <ClInclude Include="Core\Systems\Reflection\Reflection.h" />
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h" />
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h" />
     <ClInclude Include="Core\Systems\Serialization\Serialization.h" />
     <ClInclude Include="Core\Systems\Serialization\SerializerJSONCPP.h" />
     <ClInclude Include="Core\Systems\Serialization\JSONObject.h" />
@@ -701,12 +710,15 @@
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
     <None Include="Core\Assets\Shaders\ParticleShader.frag" />
     <None Include="Core\Assets\Shaders\ParticleShader.vs" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.frag" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.gs" />
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteShader.vs" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.frag" />
     <None Include="Core\Assets\Shaders\SpriteTextShader.vs" />
     <None Include="Daisy.cfg" />
-    <None Include="Projects\Rebound.dceproj" />
+    <None Include="Projects\Rebound\Rebound.dceproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

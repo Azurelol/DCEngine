@@ -24,7 +24,7 @@ namespace DCEngine
   // the problem is that the values in min and max are wrong
   float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
-    return 	std::min(a.getRestitution(), b.getRestitution());
+    return 	std::max(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(float a, float b)
@@ -306,7 +306,7 @@ namespace DCEngine
         return false;
       }
       /* check the series of overlap results */
-      else if (MinMax[0][1] > MinMax[1][0] && MinMax[0][0] < MinMax[1][0])
+      else if (MinMax[0][1] >= MinMax[1][0] && MinMax[0][0] <= MinMax[1][0])
       {
         if ((MinMax[0][1] - MinMax[1][0]) < result.Penetration)
         {
@@ -314,7 +314,7 @@ namespace DCEngine
           result.ContactNormal = Axes[i];
         }
       }
-      else if (MinMax[1][1] > MinMax[0][0] && MinMax[1][0] < MinMax[0][0])
+      else if (MinMax[1][1] >= MinMax[0][0] && MinMax[1][0] <= MinMax[0][0])
       {
         if (MinMax[1][1] - MinMax[0][0] <= result.Penetration)
         {
@@ -322,7 +322,7 @@ namespace DCEngine
           result.ContactNormal = Axes[i];
         }
       }
-      else if (MinMax[1][0] > MinMax[0][0] && MinMax[1][1] < MinMax[0][1])
+      else if (MinMax[1][0] >= MinMax[0][0] && MinMax[1][1] <= MinMax[0][1])
       {
         if (MinMax[1][0] - MinMax[0][1] > MinMax[0][1] - MinMax[1][1])
         {
@@ -341,7 +341,7 @@ namespace DCEngine
           }
         }
       }
-      else if (MinMax[0][0] > MinMax[1][0] && MinMax[0][1] < MinMax[1][1])
+      else if (MinMax[0][0] >= MinMax[1][0] && MinMax[0][1] <= MinMax[1][1])
       {
         if (MinMax[1][1] - MinMax[0][1] > MinMax[0][0] - MinMax[1][0])
         {
@@ -365,9 +365,9 @@ namespace DCEngine
 
     /* collision is true calculate collision data */
 
-    if (result.Penetration > 200.0f)
+    if (result.Penetration > 2.0f)
     {
-      result.Penetration = 1.0f / 60.0f;
+      result.Penetration = 1.0f / 600.0f;
     }
 
     result.Object1 = obj1;

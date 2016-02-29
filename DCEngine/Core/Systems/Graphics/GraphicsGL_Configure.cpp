@@ -9,13 +9,43 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "GraphicsGL.h"
+
 #include "../../Components/Sprite.h"
 #include "../../Components/SpriteText.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
   namespace Systems {
+
+    /**************************************************************************/
+    /*!
+    \brief Compiles the engine's shaders.
+    */
+    /**************************************************************************/
+    void GraphicsGL::CompileShaders()
+    {
+      DCTrace << "\n[GraphicsGL::CompileShaders] - Compiling shaders \n";
+      // Grab a reference to the Sprite shader
+      SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
+      SpriteShader->Compile();
+      Components::Sprite::mShader = SpriteShader;
+      ConfigureSpriteVAO();
+      // Construct the SpriteText shader
+      SpriteTextShader = Daisy->getSystem<Content>()->getShader("SpriteTextShader");
+      SpriteTextShader->Compile();
+      Components::SpriteText::mShader = SpriteTextShader;
+      ConfigureSpriteTextVAO();
+      // Construct the ParticleSystem shader
+      ParticleSystemShader = Daisy->getSystem<Content>()->getShader("ParticleShader");
+      ParticleSystemShader->Compile();
+      Components::SpriteParticleSystem::mShader = ParticleSystemShader;
+      ConfigureParticleBuffers();
+      // Construct the Shadowing shader
+      ShadowingShader = Daisy->getSystem<Content>()->getShader("ShadowingShader");
+      ShadowingShader->Compile();
+      DCTrace << "[GraphicsGL::CompileShaders] - Finished compiling shaders \n";
+    }
 
     /**************************************************************************/
     /*!

@@ -23,12 +23,18 @@ namespace DCEngine {
     public:
     };
 
+    class EditorInitialize : public Event {
+    };
+
     class EditorSelectObject : public Event {
     public:
      // Object* SelectedObject;
     };
 
     class EditorDeselectObject : public Event {
+    };
+
+    class EditorSave : public Event {
     };
     
     class EditorUpdate : public Event {

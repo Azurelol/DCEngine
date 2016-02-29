@@ -38,7 +38,7 @@ namespace DCEngine {
       WindowSFML(Window& windowInterface);
       ~WindowSFML();
 
-	  std::string windowsTitle;
+	  //std::string windowsTitle;
 	  int widthRecord = 1024;
 	  int heightRecord = 768;
 

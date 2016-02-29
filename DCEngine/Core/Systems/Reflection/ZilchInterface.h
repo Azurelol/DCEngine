@@ -11,11 +11,10 @@
 */
 /******************************************************************************/
 #pragma once
-#include <string>
 #include <ZILCH\Zilch.hpp>
 #include "../../Binding/CoreBindingObjects.h"
 #include "../../Debug/Debug.h"
-#include <unordered_map>
+#include "ZilchInterfaceUtilities.h"
 
 
 namespace DCEngine {

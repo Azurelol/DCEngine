@@ -318,7 +318,7 @@ namespace DCEngine {
 		\param A reference to camera object.
 		\note
 		*/
-		/**************************************************************************/
+    /**************************************************************************/
 		void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
 
 			//auto camTrans = camera.Owner()->getComponent<Components::Transform>();
@@ -331,24 +331,68 @@ namespace DCEngine {
 			shader->SetMatrix4("view", camera.GetViewMatrix());
 		}
 
+		void GraphicsGL::SetLightUniforms(ShaderPtr shader, Components::Light* light)
+		{
+			shader->SetInteger("useLight", true);
+			
+			glm::mat4 modelMatrix;
+			Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(lightTransform->Translation.x,
+				lightTransform->Translation.y,
+				lightTransform->Translation.z));
+			modelMatrix = glm::rotate(modelMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+			modelMatrix = glm::scale(modelMatrix, glm::vec3(lightTransform->Scale.x,
+				lightTransform->Scale.y, 0.0f));
+
+			std::string var("gLight.");
+			std::string member;
+			member = var + "Visible";
+			shader->SetInteger(member.c_str(), light->getVisible());
+			member = var + "VisibilityCulling";
+			shader->SetInteger(member.c_str(), light->getVisibilityCulling());
+			member = var + "VisibilityEvents";
+			shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+			member = var + "CastShadows";
+			shader->SetInteger(member.c_str(), light->getCastShadows());
+			member = var + "LightType";
+			shader->SetInteger(member.c_str(), light->getTypeAsInt());
+			member = var + "Color";
+			shader->SetVector4f(member.c_str(), light->getColor());
+			member = var + "Intensity";
+			shader->SetFloat(member.c_str(), light->getIntensity());
+			member = var + "Range";
+			shader->SetFloat(member.c_str(), light->getRange());
+			member = var + "Falloff";
+			shader->SetFloat(member.c_str(), light->getFalloff());
+			member = var + "Direction";
+			shader->SetVector3f(member.c_str(), light->getDirectionVector());
+			member = var + "InnerAngle";
+			shader->SetFloat(member.c_str(), light->getInnerAngle() * 3.141593f / 360.0f);
+			member = var + "OuterAngle";
+			shader->SetFloat(member.c_str(), light->getOuterAngle() * 3.141593f / 360.0f);
+			member = var + "Position";
+			shader->SetVector3f(member.c_str(), lightTransform->Translation);
+			member = var + "Model";
+			shader->SetMatrix4(member.c_str(), modelMatrix);
+		}
+
 		/*!************************************************************************\
 		@brief  Sets the Sprite's Shaders Uniforms.
 		\**************************************************************************/
-		void GraphicsGL::SetSpriteShader(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents)
+		void GraphicsGL::SetSpriteShader(Components::Camera& camera, Components::Light* light)
 		{
 			SpriteShader->Use();
 			SpriteShader->SetInteger("image", 0);
 
-			SetLightUniforms(SpriteShader, lightComponents);
+			SetLightUniforms(SpriteShader, light);
 			SetShaderProjViewUniforms(SpriteShader, camera);
 			// Enable alpha blending for opacity.
 		}
-		void GraphicsGL::SetLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents)
+
+		void GraphicsGL::SetAllLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents)
 		{
 			shader->SetInteger("numLights", lightComponents.size());
-
 			SpriteShader->SetInteger("numLights", lightComponents.size());
-
 			std::string var;
 			for (unsigned i = 0; i < lightComponents.size(); ++i)
 			{
@@ -375,8 +419,8 @@ namespace DCEngine {
 				var = sStream.str() + "CastShadows";
 				SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getCastShadows());
 				var = sStream.str() + "LightType";
-        SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getTypeAsInt());
-        //SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getType());
+		    SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getTypeAsInt());
+		    //SpriteShader->SetInteger(var.c_str(), lightComponents[i]->getType());
 				var = sStream.str() + "Color";
 				SpriteShader->SetVector4f(var.c_str(), lightComponents[i]->getColor());
 				var = sStream.str() + "Intensity";
@@ -409,9 +453,10 @@ namespace DCEngine {
 		}
 
 
-		void GraphicsGL::SetShadowingShaders(Components::Camera& camera, const std::vector<Components::Light*>& lightComponents)
+		void GraphicsGL::SetShadowingShaders(Components::Camera& camera, Components::Light* light)
 		{
-			SetLightUniforms(ShadowingShader, lightComponents);
+			ShadowingShader->Use();
+			SetLightUniforms(ShadowingShader, light);
 			SetShaderProjViewUniforms(ShadowingShader, camera);
 		}
 
