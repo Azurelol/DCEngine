@@ -135,18 +135,19 @@ namespace DCEngine {
     /**************************************************************************/
     void AudioFMOD::GenerateResources()
     {
-      for (auto& bank : ActiveBanks) {
+      for (auto& bank : *Daisy->getSystem<Content>()->AllBanks()) {
+      //for (auto& bank : ActiveBanks) {
         DCTrace << "AudioFMOD::GenerateResources: Generating resources for bank '" << bank.first << "' \n";
         // Load event descriptions
-        LoadEventDescriptions(bank.second.Handle);
+        LoadEventDescriptions(bank.second->Data.Handle);
         // Load event instances
         LoadEventInstances();
         // Load channel groups
-        LoadChannelGroups(bank.second.Handle);
+        LoadChannelGroups(bank.second->Data.Handle);
         // Load VCAs
-        LoadVCAs(bank.second.Handle, bank.second.VCAs);
+        LoadVCAs(bank.second->Data.Handle, bank.second->Data.VCAs);
         // Load Buses
-        LoadBuses(bank.second.Handle, bank.second.Buses);        
+        LoadBuses(bank.second->Data.Handle, bank.second->Data.Buses);
       }
 
       // Generate SoundCues from Event Instances

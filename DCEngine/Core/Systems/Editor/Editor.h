@@ -24,7 +24,6 @@
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 
-
 namespace DCEngine {
 
   // Forward declarations
@@ -40,6 +39,7 @@ namespace DCEngine {
       friend class EditorArchetypes;
       friend class EditorResources;
       friend class EditorProjects;
+      friend class EditorInspector;
 
     public:
 
@@ -90,6 +90,7 @@ namespace DCEngine {
       EditorProjects Projects;
       EditorDiagnostics Diagnostics;
       EditorTextEditor TextEditor;
+      EditorInspector Inspector;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;

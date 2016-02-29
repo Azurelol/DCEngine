@@ -109,9 +109,9 @@ namespace DCEngine {
   /**************************************************************************/
   void Bank::Add()
   {
-    DCTrace << Name() << "::Bank::Add \n";
     // Add the bank to the audio system
     Daisy->getSystem<Systems::Audio>()->Add(AssetPath, Data);
+    DCTrace << Name() << "::Bank::Add \n";
   }
 
 }

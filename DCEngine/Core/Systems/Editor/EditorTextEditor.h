@@ -21,17 +21,21 @@ namespace DCEngine {
     class EditorTextEditor : public EditorModule {
     public:
 
-      void Display();
-      
+      void Display();      
       void Load(ZilchScriptPtr script);
-      void Load(ShaderPtr shader);
+      void Load(Shader* shader, Shader::Type type);
       void Save();
       EditorTextEditor(Editor& editor);
 
     private:      
       ZilchScriptPtr CurrentScript;
+      Shader* CurrentShader;
+      Shader::Type CurrentShaderType;
+
       unsigned CharLimit = 1024 * 16;
+      void Clear();
       void Close();
+      void OnEditorSaveEvent(Events::EditorSave* event);
 
     };
 

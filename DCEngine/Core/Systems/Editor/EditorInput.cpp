@@ -169,6 +169,8 @@ namespace DCEngine {
       case Keys::S:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift))
           SelectSpace();
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+          DispatchSystemEvents::EditorSave();
         break;
 
       case Keys::F:

@@ -262,9 +262,6 @@
     <Filter Include="Core\Systems\Physics\PhysicsCasting">
       <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Camera">
-      <UniqueIdentifier>{b96ada2b-2ce9-4c95-a791-bbcf40fe6593}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Input">
       <UniqueIdentifier>{bec2abf2-633a-4dec-80f0-57595d8587fc}</UniqueIdentifier>
     </Filter>
@@ -295,9 +292,6 @@
     <Filter Include="Core\Systems\Editor\Modules\Archetypes">
       <UniqueIdentifier>{0939e1f2-4cc9-4a0a-b089-03e379530d07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Project">
-      <UniqueIdentifier>{9d342821-1780-47db-ba60-d9bf84719517}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Module">
       <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
     </Filter>
@@ -319,11 +313,11 @@
     <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
       <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Properties">
-      <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Modules\TextEditor">
       <UniqueIdentifier>{5353d67b-d97f-4e69-b5e9-474663bd7f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Inspector">
+      <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -859,9 +853,6 @@
     <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
       <Filter>Core\Systems\Editor\Modules\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
-      <Filter>Core\Systems\Editor\Project</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
       <Filter>Core\Systems\Editor</Filter>
     </ClCompile>
@@ -888,6 +879,21 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp">
       <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspector.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorPreview.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1502,6 +1508,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h">
       <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.h">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

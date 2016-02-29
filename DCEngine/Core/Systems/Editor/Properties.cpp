@@ -716,22 +716,68 @@ namespace DCEngine {
     /**************************************************************************/
     void DisplayAdditionalProperties(ResourcePtr resource)
     {
-      // Banks
+
+      if (auto shader = dynamic_cast<Shader*>(resource)) {
+
+        if (!shader->Read(Shader::Type::Vertex).empty())
+          if (ImGui::Button("Vertex"); ImGui::SameLine())
+        if (!shader->Read(Shader::Type::Fragment).empty())
+          ImGui::Button("Fragment"); ImGui::SameLine();
+        if (!shader->Read(Shader::Type::Geometry).empty())
+          ImGui::Button("Geometry");       
+
+      }
+
       if (auto bank = dynamic_cast<Bank*>(resource)) {
-        ImGui::Separator();
-        ImGui::Text("VCAs");
-        for (auto& vca : bank->AllVCAs()) {
-          ImGui::Text(vca.first.c_str());
+        
+        // VCAs
+        auto vcas = bank->AllVCAs();
+        if (!vcas.empty()) {
+          if (ImGui::TreeNode("VCAs")) {
+            for (auto& vca : vcas) {
+              ImGui::BulletText(vca.first.c_str());
+            }
+            ImGui::TreePop();
+          }
         }
-        ImGui::Text("Buses");
-        for (auto& bus : bank->AllBuses()) {
-          ImGui::Text(bus.first.c_str());
+          
+        // Buses
+        auto buses = bank->AllBuses();
+        if (!buses.empty()) {
+          if (ImGui::TreeNode("Buses")) {
+            for (auto& bus : buses) {
+              ImGui::BulletText(bus.first.c_str());
+            }
+            ImGui::TreePop();
+          }
         }
       }
 
-      // SoundCues
 
+      // SoundCue
+      else if (auto soundCue = dynamic_cast<SoundCue*>(resource)) {
 
+        auto parameters = soundCue->Data.Parameters;
+        if (parameters.empty())
+          return;
+
+        // Parameters
+        if (ImGui::TreeNode("Parameters")) {
+          ImGui::Columns(3, "paramColumns");            
+          ImGui::Separator();
+          ImGui::Text("Name"); ImGui::NextColumn();
+          ImGui::Text("Minimum"); ImGui::NextColumn();
+          ImGui::Text("Maximum"); ImGui::NextColumn();
+          ImGui::Separator();
+          for (auto& parameter : soundCue->Data.Parameters) {            
+            ImGui::Text(parameter.Name.c_str()); ImGui::NextColumn();
+            ImGui::Text(std::to_string(parameter.Minimum).c_str()); ImGui::NextColumn();
+            ImGui::Text(std::to_string(parameter.Maximum).c_str()); ImGui::NextColumn();
+
+          }     
+          ImGui::TreePop();
+        }                
+      }
     }
 
     bool CheckIfDoneModified(bool& modified)

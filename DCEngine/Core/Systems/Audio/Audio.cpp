@@ -121,7 +121,7 @@ namespace DCEngine {
     void Audio::Add(const std::string & bankFile, Systems::BankInfo& data)
     {
       // Adds the bank to the FMOD Studio system
-      data.Handle = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);
+      data = AudioHandler->LoadBankFromFile(FileSystem::FileNoExtension(bankFile), bankFile);
     }
 
     /**************************************************************************/
@@ -199,40 +199,15 @@ namespace DCEngine {
         DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
         return nullptr;
       }        
-
       // Create an unique SoundInstance for this SoundCue
       SoundInstanceHandle instance = CreateSoundInstance(soundCueName);
-      // Package the playback settings...
-      //PlaybackSettings settings;
-      //settings.Loop = instance->Loop;
-      //settings.Volume = instance->Volume;
-      //settings.VolumeVariation = instance->VolumeVariation;
-      //settings.Pitch = instance->Pitch;
-      //settings.PitchVariation = instance->PitchVariation;
       // Depending on the type of SoundCue, play it through the low level API
       // or as an event belonging to the Studip API
       if (soundCue->Type == SoundCue::SoundCueType::File)
         AudioHandler->PlaySound(instance->SoundHandle.Handle, &instance->SoundHandle.Channel, instance->Settings);
       else if (soundCue->Type == SoundCue::SoundCueType::Event)
         AudioHandler->PlaySound(instance->StudioEventName, &instance->SoundHandle.EventInstance, instance->Settings);
-
-
-      // One-shot??
-      //// Package the playback settings...
-      //PlaybackSettings settings;
-      //settings.Loop = soundCue->Loop;
-      //settings.Volume = soundCue->Volume;
-      //settings.VolumeVariation = soundCue->VolumeVariation;
-      //settings.Pitch = soundCue->Pitch;
-      //settings.PitchVariation = soundCue->PitchVariation;
-
-      //// Depending on the type of SoundCue, play it through the low level API
-      //// or as an event belonging to the Studip API
-      //if (soundCue->Type == SoundCue::SoundCueType::File)
-      //  AudioHandler->PlaySound(soundCue->Data.Handle, &soundCue->Data.Channel, settings);
-      //else if (soundCue->Type == SoundCue::SoundCueType::Event)
-      //  AudioHandler->PlaySound(soundCueName, settings);
-
+      
       // Return a handle to the SoundInstance
       return instance;
     }
@@ -325,8 +300,11 @@ namespace DCEngine {
       DCTrace << "Audio::LoadSoundCues - Done loading!";
     }
 
-
-    
+    /**************************************************************************/
+    /*!
+    @brief  Terminates the Audio system.
+    */
+    /**************************************************************************/    
     void Audio::Terminate() {
       if (TRACE_ON)
         DCTrace << "Audio::Terminate \n";

@@ -219,14 +219,12 @@ namespace DCEngine {
         ImGui::PushItemWidth(90);
 
         // Parse the times and names to a format dear imgui can read
-        float* times = new float[data.size()];
         std::string names;
         for (unsigned i = 0; i < data.size(); ++i) {
           names += std::to_string(i);
           names += ": ";
           names += data[i].first;
           names += "\n";
-          times[i] = data[i].second;
         }
 
         int textSize = 14;
@@ -234,12 +232,10 @@ namespace DCEngine {
 
         // Display the histogram through 
         ImGui::PushItemWidth(290);
-        ImGui::PlotHistogram("", times, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height));
+        ImGui::PlotHistogram("", &data[0].second, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height), sizeof(data[0]));
         ImGui::SameLine();
         // Print the legend 
         ImGui::Text(names.c_str());
-        // Clean up!
-        delete[] times;      
     }
 
     void EditorDiagnostics::Update()

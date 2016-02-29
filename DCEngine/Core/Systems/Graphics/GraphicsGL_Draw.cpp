@@ -318,7 +318,7 @@ namespace DCEngine {
 		\param A reference to camera object.
 		\note
 		*/
-		/**************************************************************************/
+    /**************************************************************************/
 		void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
 
 			//auto camTrans = camera.Owner()->getComponent<Components::Transform>();

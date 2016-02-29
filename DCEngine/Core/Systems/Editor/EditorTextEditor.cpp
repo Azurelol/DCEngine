@@ -27,6 +27,7 @@ namespace DCEngine {
     /**************************************************************************/
     EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true)
     {
+      Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
     }
 
     /**************************************************************************/
@@ -62,28 +63,40 @@ namespace DCEngine {
 
 
       }
-      ImGui::End();
-
-
-
-
-
-      
+      ImGui::End();      
 
     }
 
     /**************************************************************************/
     /*!
     @brief Loads the specified script onto the text editor.
+    @param script A pointer to the script resource.
     */
     /**************************************************************************/
     void EditorTextEditor::Load(ZilchScriptPtr script)
     {
-      DCTrace << "EditorTextEditor::Load: '" << script->Name() << "' \n";
+      Clear();
+      DCTrace << "EditorTextEditor::Load: Loading the script '" << script->Name() << "' \n";
       WindowEnabled = true;
       CurrentScript = script;
       CurrentScript->Load();
       std::strcpy(Text, CurrentScript->Read().c_str());
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Loads the specified shader onto the text editor.
+    @param shader A pointer to the shader resource.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Load(Shader* shader, Shader::Type type)
+    {
+      Clear();
+      DCTrace << "EditorTextEditor::Load: Loading the shader '" << shader->Name() << "' \n";
+      WindowEnabled = true;
+      CurrentShader = shader;
+      CurrentShaderType = type;
+      std::strcpy(Text, CurrentShader->Read(type).c_str());
     }
 
     /**************************************************************************/
@@ -93,11 +106,20 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorTextEditor::Save()
     {
-      if (!CurrentScript)
-        return;
+      if (CurrentScript) {
+        DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
+        CurrentScript->Save(std::string(Text));
+      }
+      else if (CurrentShader) {
+        DCTrace << "EditorTextEditor::Save: '" << CurrentShader->Name() << "' \n";
+        CurrentShader->Save(std::string(Text), CurrentShaderType);
+      }    
+    }
 
-      DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
-      CurrentScript->Save(std::string(Text));
+    void EditorTextEditor::Clear()
+    {
+      CurrentScript = nullptr;
+      CurrentShader = nullptr;
     }
 
     /**************************************************************************/
@@ -107,8 +129,26 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorTextEditor::Close()
     {
-      CurrentScript = nullptr;
+      Clear();
       WindowEnabled = false;
     }
+
+    /**************************************************************************/
+    /*!
+    @brief Saves the Editor's current file if its active.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnEditorSaveEvent(Events::EditorSave * event)
+    {
+      if (!WindowEnabled)
+        return;
+
+      if (CurrentScript)
+        Save();
+
+      if (CurrentShader)
+        Save();
+    }
+
   }
 }

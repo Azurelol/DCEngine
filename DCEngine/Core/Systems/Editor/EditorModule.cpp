@@ -30,7 +30,6 @@ namespace DCEngine {
     {
       if (WillAddWindow)
         EditorRef.Add(this);
-      //Daisy->
     }
 
     void EditorModule::OnEditorInitializeEvent(Events::EditorInitialize * event)
@@ -42,6 +41,11 @@ namespace DCEngine {
     {
       Update();
     }
+    void EditorModule::Toggle()
+    {
+      WindowEnabled = !WindowEnabled;
+    }
+
 
   }
 }

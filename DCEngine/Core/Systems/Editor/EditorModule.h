@@ -18,6 +18,7 @@ namespace DCEngine {
     class EditorModule : public Module {
     public:
       bool WindowEnabled;
+      void Toggle();
       virtual void Display() = 0;
       EditorModule(Editor& editor, bool add);
       ~EditorModule();

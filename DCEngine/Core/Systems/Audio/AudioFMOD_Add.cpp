@@ -62,7 +62,7 @@ namespace DCEngine {
     @return A pointer to the bank.
     */
     /**************************************************************************/
-    FMOD::Studio::Bank * AudioFMOD::LoadBankFromFile(const std::string handle, const std::string & path)
+    BankInfo AudioFMOD::LoadBankFromFile(const std::string handle, const std::string & path)
     {
       DCTrace << "AudioFMOD::LoadBankFromFile - Loading: '" << handle << "' from file: '" << path << "'\n";
       FMOD::Studio::Bank* newBank;
@@ -74,9 +74,10 @@ namespace DCEngine {
       BankInfo bankInfo;
       bankInfo.Name = handle;
       bankInfo.Handle = newBank;
+      // Perhaps odn't need to do this
       ActiveBanks.insert(std::pair<const std::string, BankInfo>(handle, bankInfo));
 
-      return newBank;
+      return bankInfo;
     }
 
     /**************************************************************************/

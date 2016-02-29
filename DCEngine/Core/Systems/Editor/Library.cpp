@@ -146,7 +146,6 @@ namespace DCEngine {
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
             Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
           }
           if (GUI::IsMouseDoubleClicked()) {
             TextEditor.Load(resource.second);

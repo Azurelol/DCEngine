@@ -21,7 +21,12 @@ namespace DCEngine {
   using BankHandle = std::string;
   using BankPtr = std::shared_ptr<Bank>;
 
+  namespace Systems {
+    class AudioFMOD;
+  }
+
   class Bank : public Resource {
+    friend class Systems::AudioFMOD;
   public:
       
     // Properties

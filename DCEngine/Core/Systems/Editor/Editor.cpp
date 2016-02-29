@@ -24,6 +24,7 @@ namespace DCEngine {
                                                           Settings(settings), 
                                                           Creator(*this), Resources(*this), Archetypes(*this),
                                                           Projects(*this), Diagnostics(*this), TextEditor(*this)
+                                                          Inspector(*this)
     {      
     }
 
