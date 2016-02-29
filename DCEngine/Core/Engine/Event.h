@@ -21,6 +21,7 @@ namespace DCEngine {
 
     class Event {
     public:
+      ZilchDeclareBaseType(Event, Zilch::TypeCopyMode::ReferenceType);
       static unsigned int EventsCreated;
       static unsigned int EventsDestroyed;
 

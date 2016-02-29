@@ -279,6 +279,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Binding\CoreBinding.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEvents.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
@@ -469,6 +471,8 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
+    <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Engine\Actions.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>

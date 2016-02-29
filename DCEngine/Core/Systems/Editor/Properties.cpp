@@ -212,7 +212,7 @@ namespace DCEngine {
         // Create an exception report object
         Zilch::ExceptionReport report;
         // Grab the current property
-        Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+        Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
         getCall.SetHandleVirtual(Zilch::Call::This, object);
         getCall.Invoke(report);
 
@@ -236,7 +236,7 @@ namespace DCEngine {
             auto selectedEnum = enums.at(currentItem);
             // Retrieve...
             auto enumValue = enumType->GetStaticProperty(selectedEnum);
-            Zilch::Call retriever(enumValue->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+            Zilch::Call retriever(enumValue->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
             retriever.Invoke(report);
             auto valueSet = retriever.Get<Zilch::Integer>(Zilch::Call::Return);
             // Set the property
@@ -637,7 +637,7 @@ namespace DCEngine {
     {
       // Create an exception report object
       Zilch::ExceptionReport report;
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
       getCall.SetHandleVirtual(Zilch::Call::This, object);
       getCall.Invoke(report);
       // Grab the image's path
@@ -666,7 +666,7 @@ namespace DCEngine {
 
       // Create an exception report object
       Zilch::ExceptionReport report;
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
       getCall.SetHandleVirtual(Zilch::Call::This, object);
       getCall.Invoke(report);
       // Grab the sound's path

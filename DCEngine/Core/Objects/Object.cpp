@@ -75,7 +75,7 @@ namespace DCEngine {
       builder.Value(this->Name().c_str());
     }
     // Not working atm
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType->ZilchGetDerivedType()->BaseType );
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType()->BaseType->ZilchGetDerivedType()->BaseType );
   }
 
   /**************************************************************************/

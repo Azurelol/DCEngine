@@ -106,7 +106,7 @@ namespace DCEngine {
     // Serialize Object-specific properties
     Object::Serialize(builder);
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType);
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType()->BaseType);
     // Serialize all of its components
     builder.Key("Components");
     builder.Begin(Zilch::JsonType::Object);
@@ -133,7 +133,7 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

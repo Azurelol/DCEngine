@@ -45,7 +45,7 @@ namespace DCEngine {
 
     builder.Key("Properties");
     builder.Begin(Zilch::JsonType::Object);
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType());
     builder.End();
   }
 
@@ -59,7 +59,7 @@ namespace DCEngine {
   void Resource::Deserialize(Zilch::JsonValue * properties)
   {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

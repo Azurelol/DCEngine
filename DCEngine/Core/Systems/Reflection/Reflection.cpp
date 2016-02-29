@@ -106,7 +106,7 @@ namespace DCEngine {
       // Create an exception report object
       Zilch::ExceptionReport report;
       // Grab the current resource
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
       getCall.SetHandleVirtual(Zilch::Call::This, object);
       getCall.Invoke(report);
       return std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
