@@ -21,6 +21,8 @@ namespace DCEngine {
     class EditorProjects : public EditorModule {
     public:
       void WindowProjectProperties();
+      void LoadProject(std::string);
+      void OpenRecentProject();
       void SaveProject();
       void ToggleProperties();
 

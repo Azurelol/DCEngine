@@ -194,11 +194,15 @@ namespace DCEngine {
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Displays the histogram for a system.
+    @param title The title of the histogram.
+    @param data The container of data.
+    */
+    /**************************************************************************/
     void EditorDiagnostics::DisplaySystemsHistogram(std::string title, DCEngine::Time::FunctionTimeSliceVec& data)
     {
-      //int systemsProfiled = static_cast<int>(Daisy->Profiler().SystemTimes.size());
-      //auto num = std::string("Systems profiled: ") + std::to_string(systemsProfiled);
-      //ImGui::Text(num.c_str());
       if (data.empty())
         return;
         
@@ -206,8 +210,7 @@ namespace DCEngine {
         static int slowDown = 15;
         static int refreshTime = 15;
 
-        ++slowDown;
-        
+        ++slowDown;        
 
         // Minimum and max edge caes for the histogram chart
         static float minTime = 0.0f;
@@ -215,38 +218,24 @@ namespace DCEngine {
 
         ImGui::PushItemWidth(90);
 
-        // Slider float to adjust the minimum time
-        //ImGui::SliderFloat("Min Time", &minTime, 0.0f, 0.001f, "%.4f");
-        //GUI::SetToolTip("Minimum time displayed in the histogram");
-        //ImGui::SameLine();
-        //// Slider float to adjust the max time
-        //ImGui::SliderFloat("Max Time", &maxTime, 0.001f, 0.033f, "%.4f");
-        //GUI::SetToolTip("Max time displayed in the histogram.");
-
         // Parse the times and names to a format dear imgui can read
-        float* times = new float[data.size()];
         std::string names;
         for (unsigned i = 0; i < data.size(); ++i) {
           names += std::to_string(i);
           names += ": ";
           names += data[i].first;
           names += "\n";
-          times[i] = data[i].second;
         }
 
-        int height = data.size() * 14;
+        int textSize = 14;
+        int height = data.size() * textSize;
 
         // Display the histogram through 
         ImGui::PushItemWidth(290);
-        ImGui::PlotHistogram("", times, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height));
-        //GUI::SetToolTip("Shows the amount of time taken by each system.");
-        //ImGui::PushItemWidth(0);
+        ImGui::PlotHistogram("", &data[0].second, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height), sizeof(data[0]));
         ImGui::SameLine();
         // Print the legend 
         ImGui::Text(names.c_str());
-        // Clean up!
-        delete[] times;
-      
     }
 
     void EditorDiagnostics::Update()

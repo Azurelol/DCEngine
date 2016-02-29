@@ -32,7 +32,11 @@ namespace DCEngine {
       DCE_BINDING_INTERNAL_COMPONENT_SET_ATTRIBUTE_RESOURCE;
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Visible);
+      
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Color);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor, attributeRangeColor);
+
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Font);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyFont, attributeFont);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, FontSize);

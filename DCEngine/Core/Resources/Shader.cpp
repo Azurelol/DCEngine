@@ -63,8 +63,8 @@ namespace DCEngine {
       vertexShaderFile.close();
       fragmentShaderFile.close();
       // Store the shader code within the object   
-      vertexCode = vertexShaderStream.str();
-      fragmentCode = fragmentShaderStream.str();  
+      VertexCode = vertexShaderStream.str();
+      FragmentCode = fragmentShaderStream.str();  
 			if (!GeometryPath.empty())
 			{
 				std::ifstream geometryShaderFile;
@@ -73,7 +73,7 @@ namespace DCEngine {
 				geometryShaderFile.open(GeometryPath);
 				geometryShaderStream << geometryShaderFile.rdbuf();
 				geometryShaderFile.close();
-				geometryCode = geometryShaderStream.str();
+				GeometryCode = geometryShaderStream.str();
 			}
     }
     catch (std::ifstream::failure e) {
@@ -96,27 +96,25 @@ namespace DCEngine {
     
     // Vertex Shader
     vertex = glCreateShader(GL_VERTEX_SHADER);
-    const GLchar* vShaderCode = vertexCode.c_str();
+    const GLchar* vShaderCode = VertexCode.c_str();
     glShaderSource(vertex, 1, &vShaderCode, NULL);
     glCompileShader(vertex);
     AssertShaderCompilation(vertex, "Vertex Shader");
-		// GeometryShader
+		// Geometry Shader
 		if (!GeometryPath.empty())
 		{
 			geometry = glCreateShader(GL_GEOMETRY_SHADER);
-			const GLchar* gShaderCode = geometryCode.c_str();
+			const GLchar* gShaderCode = GeometryCode.c_str();
 			glShaderSource(geometry, 1, &gShaderCode, NULL);
 			glCompileShader(geometry);
 			AssertShaderCompilation(geometry, "Geometry Shader");
 		}
     // Fragment Shader
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
-    const GLchar* fShaderCode = fragmentCode.c_str();
+    const GLchar* fShaderCode = FragmentCode.c_str();
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
     AssertShaderCompilation(fragment, "Fragment Shader");
-		
-		
 
     // Link shader program
     this->ShaderProgramID = glCreateProgram();
@@ -131,6 +129,51 @@ namespace DCEngine {
     glDeleteShader(fragment);
 		if (!GeometryPath.empty())
 			glDeleteShader(geometry);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Returns the specified shader code.
+  @param type The type which we want to read (vertex,fragment,etc..)
+  */
+  /**************************************************************************/
+  const std::string & Shader::Read(Type type)
+  {
+    switch (type) {
+    case Type::Vertex:
+      return VertexCode;
+      DCTrace << Name() << "::Shader::Read: Returning vertex code... \n";
+      break;
+    case Type::Fragment:
+      return FragmentCode;
+      DCTrace << Name() << "::Shader::Read: Returning fragment code... \n";      
+      break;
+    case Type::Geometry:
+      return GeometryCode;
+      DCTrace << Name() << "::Shader::Read: Returning geometry code... \n";
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Saves the shader code back to file.
+  */
+  /**************************************************************************/
+  void Shader::Save(const std::string& code, Type type)
+  {
+    switch (type) {
+    case Type::Vertex:
+      VertexCode = code; FileSystem::FileWriteString(VertexPath, VertexCode);
+      DCTrace << Name() << "::Shader::Save: Saving the vertex code to file... \n";
+      break;
+    case Type::Fragment:
+      FragmentCode = code; FileSystem::FileWriteString(FragmentPath, FragmentCode);
+      DCTrace << Name() << "::Shader::Save: Saving the fragment code to file... \n";
+      break;
+    case Type::Geometry:
+      GeometryCode = code; FileSystem::FileWriteString(GeometryPath, GeometryCode);
+      DCTrace << Name() << "::Shader::Save: Saving the geometry code to file... \n";
+    }
   }
 
   /**************************************************************************/

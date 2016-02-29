@@ -43,6 +43,12 @@ namespace DCEngine {
     public:
     };
 
+    class GraphicsCompileShaders : public Event {
+    };
+
+    class ScriptingCompileScripts : public Event {
+    };
+
 
   }
 }

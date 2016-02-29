@@ -32,16 +32,19 @@ namespace DCEngine {
       template <typename T>
       T GetProperty(Zilch::Property*);
 
-     // static Zilch::Call Get(Zilch::Property*);
       std::vector<Zilch::BoundType*> AllComponents();
       ZilchInterface* Handler();
 
     private:
+
+      // Events
+      void OnScriptingCompileScriptsEvent(Events::ScriptingCompileScripts* event);
+      // CTOR
       Reflection();
       void Initialize();
+      void Subscribe();
       void Update(float dt);
       void Terminate();    
-
       std::unique_ptr<ZilchInterface> ZilchHandler;
 
     };

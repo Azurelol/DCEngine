@@ -1,156 +1,20 @@
 /******************************************************************************/
 /*!
-@file   Properties.cpp
+@file   EditorInspectorProperties.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   11/02/2015
-@brief  This file includes the implementation for the Editor's properties widget.
-@copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
+@date   2/28/2016
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
 
 */
 /******************************************************************************/
-#include "Editor.h"
+#include "EditorInspector.h"
+
 #include "../../Engine/Engine.h"
-#include "../../ComponentsInclude.h"
-#include "../../Systems/Reflection/ZilchInterface.h"
+
 
 namespace DCEngine {
   namespace Systems {
-
-    void DisplayImage(Zilch::Property* property, ObjectPtr object);
-    static SoundInstanceHandle EditorSoundPreview;
-    void PreviewSound(Zilch::Property* property, ObjectPtr object);
-    bool CheckIfDoneModified(bool& modified);
-
-    /**************************************************************************/
-    /*!
-    \brief  Displays the properties of the currently selected object.
-    */
-    /**************************************************************************/
-    void Editor::WindowProperties()
-    {
-      if (!Windows.PropertiesEnabled)
-        return;
-
-      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Properties", &Windows.PropertiesEnabled);
-
-      // If there's an object selected, display its properties.
-      if (SelectedObject() != nullptr) {
-
-        // If the object is an entity
-        if (dynamic_cast<EntityPtr>(SelectedObject())) {
-          DisplayEntityProperties();
-        }
-        // If the object is a resource
-        else if (dynamic_cast<ResourcePtr>(SelectedObject())) {
-          DisplayResourceProperties();
-        }
-      }
-
-      ImGui::End();
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Displays an entity's properties
-    */
-    /**************************************************************************/
-    void Editor::DisplayEntityProperties()
-    {
-      auto selectedEntity = dynamic_cast<EntityPtr>(SelectedObject());
-
-      ////////////////////////////////
-      // 1. Display the object's name
-      ////////////////////////////////
-      char name[32]; strcpy(name, SelectedObject()->Name().c_str());
-      // If the user has given input, change the name
-      ImGui::PushItemWidth(ImGui::GetWindowWidth() / 4.0f);
-      if (ImGui::InputText("Name", name, IM_ARRAYSIZE(name))) {
-        SelectedObject()->setObjectName(name);
-      }
-      ImGui::PopItemWidth();
-      /////////////////////////////////////
-      // 2. Display the entity's archetype
-      /////////////////////////////////////
-      char archetypeName[32];
-      strcpy(archetypeName, selectedEntity->getArchetype().c_str());
-      // If the user has given input, change the archetype
-      if (ImGui::InputText("Archetype", archetypeName, IM_ARRAYSIZE(archetypeName))) {
-        selectedEntity->setArchetype(archetypeName);
-      }
-      // Upload to Archetype
-      if (ImGui::Button("Upload to Archetype")) {
-        DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
-        Archetypes.UploadArchetype(selectedEntity->getArchetype());
-        //SaveArchetype(selectedEntity->getArchetype());
-      }
-      ImGui::SameLine();
-      // Revert to Archetype
-      if (ImGui::Button("Revert to Archetype")) {
-        DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
-        Archetypes.RevertToArchetype(selectedEntity);
-        return;
-      }
-
-      /////////////////////////////
-      // 3. Display its components
-      /////////////////////////////
-      // Keep track of whether the entity was modified
-      bool modified = false;
-      ImGui::Separator();
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
-      unsigned int inputID = 0;
-      for (auto &component : selectedEntity->AllComponents()) {
-        if (ImGui::TreeNode(component->Name().c_str())) {
-          //ImGui::SetWindowFocus();
-          // 3. If the user clicks on a tree-node, display the commponent's properties
-          //    through reflection
-          modified = DisplayProperties(component);
-          ImGui::TreePop();
-        }
-        ImGui::SameLine();
-
-        // Remove component
-        ImGui::PushID(inputID++);
-        if (ImGui::Button("X")) {
-          DCTrace << "Editor::DisplayEntityProperties - Removing component: '" << component->Name()
-            << "' from " << selectedEntity->Name() << "\n";
-          component->Destroy();
-          //selectedEntity->RemoveComponentByName(component->getObjectName());
-        }
-        ImGui::PopID();
-      }
-
-      ///////////////////////////////////////////
-      // 4. Allow the user to add new components
-      ///////////////////////////////////////////
-      bool componentAdded = AddComponent(selectedEntity);
-      // If the entity was modified or a componen was added, save the level
-      if (modified || componentAdded)
-        SaveCurrentLevel();
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Displays a resource's properties
-    */
-    /**************************************************************************/
-    void Editor::DisplayResourceProperties()
-    {
-      auto selectedResource = dynamic_cast<ResourcePtr>(SelectedObject());
-
-      // 1. Display the Resource's name
-      ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Name: ");
-      ImGui::Text(selectedResource->getObjectName().c_str());
-      // 2. Display all its properties
-      ImGui::Separator();
-      auto modified = DisplayProperties(selectedResource);
-      // If the resource was modified...
-      if (modified)
-        selectedResource->Build();
-    }
 
     /**************************************************************************/
     /*!
@@ -162,8 +26,8 @@ namespace DCEngine {
     Dios mio, 200 line function!
     */
     /**************************************************************************/
-    bool Editor::DisplayProperties(ObjectPtr object) {
-
+    bool EditorInspector::DisplayProperties(ObjectPtr object)
+    {
       // 1. Get the object's BoundType, which has a wealth of reflected data
       auto componentBoundType = object->ZilchGetDerivedType();
       if (componentBoundType == nullptr)
@@ -186,7 +50,7 @@ namespace DCEngine {
 
         // If the property is marked as an image...
         if (property->HasAttribute("Image")) {
-          DisplayImage(property, object);
+          PreviewImage(property, object);
           continue;
         }
 
@@ -198,14 +62,14 @@ namespace DCEngine {
 
         // If the property is marked as an enumeration..
         if (property->HasAttribute("Enumeration")) {
-          modified = SelectEnumeration(property, object, propertyID);
+          //modified = SelectEnumeration(property, object, propertyID);
           continue;
         }
 
         // If it's a resource... 
         if (property->HasAttribute("Resource")) {
           //if (!property->Attributes.empty()) {
-          modified = SelectResource(property, object, propertyID);
+          modified = InspectResource(property, object, propertyID);
           continue;
         }
 
@@ -345,7 +209,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt2("##propertyID", int2)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer2(int2[0], int2[1]) );
+            Set(ZilchInterface::GetState(), object, property, Zilch::Integer2(int2[0], int2[1]));
           }
           if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
           {
@@ -367,7 +231,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt3("##propertyID", int3)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer3(int3[0], int3[1], int3[2]) );
+            Set(ZilchInterface::GetState(), object, property, Zilch::Integer3(int3[0], int3[1], int3[2]));
           }
           if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
           {
@@ -376,7 +240,7 @@ namespace DCEngine {
           }
           ImGui::PopID();
         }
-        
+
         /*=======================
         // Property: Integer4
         =======================*/
@@ -389,7 +253,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt4("##propertyID", int4)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]) );
+            Set(ZilchInterface::GetState(), object, property, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
           }
           if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
           {
@@ -507,8 +371,8 @@ namespace DCEngine {
             auto range = Systems::ZilchInterface::Get().getAttribute(property, "Range");
             auto& min = range->Parameters.front().NumberValue;
             auto& max = range->Parameters.back().NumberValue;
-            if (ImGui::SliderFloat4(property->Name.c_str(), vec4f, static_cast<float>(min), 
-                                                                   static_cast<float>(max))) {              
+            if (ImGui::SliderFloat4(property->Name.c_str(), vec4f, static_cast<float>(min),
+              static_cast<float>(max))) {
               Set(ZilchInterface::GetState(), object, property, Zilch::Real4(vec4f));
             }
           }
@@ -531,190 +395,6 @@ namespace DCEngine {
       // If the object was modified...
       return modified;
     }
-
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Allows the user to add a component to the entity.
-    @todo   If the component has been marked as skipped, do not attempt to add it.
-    */
-    /**************************************************************************/
-    bool Editor::AddComponent(EntityPtr selectedEntity)
-    {
-      static bool Scanned = false;
-
-      // Grab a container of all bound components.. 
-      static std::vector<Zilch::BoundType*> components;
-      static std::vector<const char*> componentNames;
-      // Scan for components only when need be
-      if (!Scanned) {
-        componentNames.clear();
-        components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
-        for (auto component : components) {
-          // Do not display components marked as hidden
-          if (component->HasAttribute("Hidden"))
-            continue;
-
-          // Components to skip
-          bool skip = false;
-          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical" };
-          //skippableComponents.push_back(std::string("ZilchComponet"));
-          for (auto& name : skippableComponents) {
-            auto componentName = std::string(component->Name.c_str());
-            if (componentName == name) {
-              skip = true;
-              break;
-            }
-          }
-          if (skip)
-            continue;
-
-          // If it's a Zilch component, we need to do more to get its underlying type
-          if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
-            componentNames.push_back(component->Name.c_str());
-            auto name = component->Name.c_str();
-          }
-
-          // If it's a C++ component, it's less cumbersome...
-          else
-            componentNames.push_back(component->Name.c_str());
-        }
-
-        Scanned = true;
-      }
-
-      // Sort the component names alphabetically
-      std::sort(componentNames.begin(), componentNames.end(),
-        [](const char* lhs, const char* rhs) -> bool
-      {
-        return *lhs < *rhs;
-      });
-
-      int currentComponent = 0;
-      ImGui::Separator();
-      ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
-
-      if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
-        auto componentName = std::string(componentNames.at(currentComponent));
-        auto component = selectedEntity->AddComponentByName(componentName, false);
-
-        DCTrace << "Editor::AddComponent - " << componentName << "\n";
-
-        // If there's a missing dependency...
-        if (!component->HasDependencies()) {
-          auto missingDependencies = component->MissingDependencies();
-          // Send a popup!
-          Windows::PopUpData data;
-          data.Title = "Missing Dependencies";
-          data.List = missingDependencies;
-          data.Confirmation = "Back";
-          auto popUp = WindowPtr(new Windows::PopUpComponentDependencies(data, component));
-          GUI::Add(popUp);
-          // Remove the component
-          //component->Destroy();
-          return false;
-        }
-        // A component was added
-        return true;
-        Scanned = false;
-      }
-
-      // No component was added
-      return false;
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Displays an image on the Editor's properties inspector.
-    @param  property A pointer to the property.
-    @param  object A pointer to the object the property belongs to.
-    @todo   Currently we are pulling the image from the Content system..
-    */
-    /**************************************************************************/
-    void DisplayImage(Zilch::Property * property, ObjectPtr object)
-    {
-      // Create an exception report object
-      Zilch::ExceptionReport report;
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
-      getCall.SetHandleVirtual(Zilch::Call::This, object);
-      getCall.Invoke(report);
-      // Grab the image's path
-      auto imagePath = getCall.Get<Zilch::String>(Zilch::Call::Return);
-
-      // Grab a pointer to the texture data of the image from the SpriteSource it's on
-      auto spriteSource = dynamic_cast<SpriteSource*>(object);
-      auto textureData = spriteSource->getTexture();
-      //ImTextureID texID = textureData;
-      ImGui::Image((void*)(textureData.TextureID), ImVec2(textureData.Width, textureData.Height),
-        ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Previews a sound on the Editor's properties inspector.
-    @param  property A pointer to the property.
-    @param  object A pointer to the object the property belongs to.
-    @todo   Currently we are pulling the sound from the Content system..
-    */
-    /**************************************************************************/
-    void PreviewSound(Zilch::Property * property, ObjectPtr object)
-    {
-      static bool playedOnce = false;
-
-      // Create an exception report object
-      Zilch::ExceptionReport report;
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
-      getCall.SetHandleVirtual(Zilch::Call::This, object);
-      getCall.Invoke(report);
-      // Grab the sound's path
-      auto soundPath = getCall.Get<Zilch::String>(Zilch::Call::Return);
-
-      // Grab the reference to the sound this SoundCue holds
-      auto soundCue = dynamic_cast<SoundCue*>(object);
-
-      if (ImGui::Button("Preview")) {
-        // If it's loaded, call it to stop first
-        if (playedOnce)
-          EditorSoundPreview->Stop();
-
-        EditorSoundPreview = Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
-        playedOnce = true;
-      }
-      ImGui::SameLine();
-      if (ImGui::Button("Stop Preview") && EditorSoundPreview) {
-        EditorSoundPreview->Stop();
-        //Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Selects an enumeration.
-    @param property A pointer to the property.
-    @param object A pointer to the object which the property belongs to.
-    @param propertyID Used by the GUI.
-    @return Whether the property was modified.
-    */
-    /**************************************************************************/
-    bool Editor::SelectEnumeration(Zilch::Property * property, ObjectPtr object, unsigned int & propertyID)
-    {
-      return false;
-    }
-
-    bool CheckIfDoneModified(bool& modified)
-    {
-      if (modified && ImGui::GetIO().WantCaptureKeyboard == false)
-      {
-        modified = false;
-        return true ;
-      }
-      return false;
-    }
-
-
 
   }
 }

@@ -43,9 +43,11 @@ namespace DCEngine {
     using EventParameterContainer = std::vector<FMOD::Studio::ParameterInstance*>;
     // VCA
     using VCAHandle = std::string;
+    using VCAPtr = FMOD::Studio::VCA*;
     using VCAContainer = std::map<VCAHandle, FMOD::Studio::VCA*>;
     // Bus
     using BusHandle = std::string;
+    using BusPtr = FMOD::Studio::Bus*;
     using BusContainer = std::map<BusHandle, FMOD::Studio::Bus*>;
     // Banks
     struct BankInfo {
@@ -53,6 +55,7 @@ namespace DCEngine {
       FMOD::Studio::Bank* Handle;
       VCAContainer VCAs;
       BusContainer Buses;
+      FMOD::Studio::Bank* operator->() { return Handle; }
     };
     using BanksContainer = std::map<std::string, BankInfo>;
     // Containers

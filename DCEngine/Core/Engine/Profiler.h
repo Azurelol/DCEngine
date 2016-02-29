@@ -18,6 +18,7 @@ namespace DCEngine {
     EnumeratedSystem System;
   };
 
+
   /**************************************************************************/
   /*!
   @class SystemTimer Times a system's update.
@@ -54,11 +55,7 @@ namespace DCEngine {
     float CurrentFPS;    
     Time::FunctionTimes GraphicsSystemTimes;
     Time::FunctionTimes PhysicsSystemTimes;
-    // 
-    Time::FunctionTimeSliceVec CurrentSystemTimes;
-    Time::FunctionTimeSliceVec NextSystemTimes;   
-
-
+    Time::FunctionTimes EngineSystemTimes;
     void CalculateFPS(float dt);
     void Clear();
   };

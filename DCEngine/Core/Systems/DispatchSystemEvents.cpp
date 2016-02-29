@@ -65,6 +65,13 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::EditorSave()
+    {
+      auto event = new Events::EditorSave;
+      Daisy->Dispatch<Events::EditorSave>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::SetWindowCaption(std::string caption)
     {
       auto event = new Events::SetWindowCaption;      
@@ -84,6 +91,20 @@ namespace DCEngine {
     {
       auto event = new Events::WindowGainedFocus();
       Daisy->Dispatch<Events::WindowGainedFocus>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::GraphicsCompileShaders()
+    {
+      auto event = new Events::GraphicsCompileShaders();
+      Daisy->Dispatch<Events::GraphicsCompileShaders>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingCompile()
+    {
+      auto event = new Events::ScriptingCompileScripts();
+      Daisy->Dispatch<Events::ScriptingCompileScripts>(event);
       delete event;
     }
 

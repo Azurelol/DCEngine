@@ -45,6 +45,7 @@ namespace DCEngine {
         info.Minimum = paramDescription.minimum;
         info.Maximum = paramDescription.maximum;
         info.Type = paramDescription.type;
+        parametersInfo.push_back(info);
       }
       
       return parametersInfo;

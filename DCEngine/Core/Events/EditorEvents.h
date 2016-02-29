@@ -33,6 +33,9 @@ namespace DCEngine {
 
     class EditorDeselectObject : public Event {
     };
+
+    class EditorSave : public Event {
+    };
     
     class EditorUpdate : public Event {
     };

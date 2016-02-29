@@ -130,9 +130,6 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Reflection">
-      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Rebound">
       <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
     </Filter>
@@ -178,9 +175,6 @@
     <Filter Include="Core\Components\Graphics\Camera">
       <UniqueIdentifier>{4a02aad3-07b2-4f58-a66b-03abfcc8512a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Reflection\Zilch">
-      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
@@ -213,9 +207,6 @@
     </Filter>
     <Filter Include="Core\Systems\Serialization\ZilchJSON">
       <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Properties">
-      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Libraries">
       <UniqueIdentifier>{2ce09bdb-9f9a-4d29-8efc-cfc6e38891f6}</UniqueIdentifier>
@@ -262,9 +253,6 @@
     <Filter Include="Core\Systems\Physics\PhysicsCasting">
       <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Camera">
-      <UniqueIdentifier>{b96ada2b-2ce9-4c95-a791-bbcf40fe6593}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Input">
       <UniqueIdentifier>{bec2abf2-633a-4dec-80f0-57595d8587fc}</UniqueIdentifier>
     </Filter>
@@ -295,9 +283,6 @@
     <Filter Include="Core\Systems\Editor\Modules\Archetypes">
       <UniqueIdentifier>{0939e1f2-4cc9-4a0a-b089-03e379530d07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Project">
-      <UniqueIdentifier>{9d342821-1780-47db-ba60-d9bf84719517}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Object\Module">
       <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
     </Filter>
@@ -318,6 +303,18 @@
     </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
       <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
+      <UniqueIdentifier>{5353d67b-d97f-4e69-b5e9-474663bd7f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Inspector">
+      <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Scripting">
+      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Scripting\Zilch">
+      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -445,7 +442,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
-      <Filter>Core\Systems\Reflection</Filter>
+      <Filter>Core\Systems\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -529,7 +526,7 @@
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Object.cpp">
       <Filter>Core\Object</Filter>
@@ -547,7 +544,7 @@
       <Filter>Core\Binding</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
       <Filter>Core\Precompiled</Filter>
@@ -582,17 +579,11 @@
     <ClCompile Include="Core\Components\EditorCameraController.cpp">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp">
       <Filter>Projects\Rebound</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Resources.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
@@ -828,9 +819,6 @@
     <ClCompile Include="Core\Resources\SoundCue.cpp">
       <Filter>Core\Resources\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\AI\Sentinel.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
@@ -852,9 +840,6 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
       <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
-      <Filter>Core\Systems\Editor\Project</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
       <Filter>Core\Systems\Editor</Filter>
@@ -879,6 +864,24 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp">
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspector.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorPreview.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1090,7 +1093,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\Reflection.h">
-      <Filter>Core\Systems\Reflection</Filter>
+      <Filter>Core\Systems\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Orientation.h">
       <Filter>Core\Components\Physics</Filter>
@@ -1183,7 +1186,7 @@
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -1489,7 +1492,16 @@
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.h">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

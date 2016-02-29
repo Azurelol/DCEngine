@@ -18,8 +18,6 @@
 #include "DispatchSystemEvents.h"
 
 namespace DCEngine {
-  
-  
 
   class System : public Module {
 

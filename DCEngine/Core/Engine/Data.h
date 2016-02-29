@@ -69,7 +69,7 @@ namespace DCEngine {
   @struct EditorPreferences Preferences for the Editor.
   */
   /**************************************************************************/
-  struct EditorPreferences {
+  struct EditorPreferences {    
 
 
 

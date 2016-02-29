@@ -24,7 +24,6 @@
 #include "../../Objects/ObjectsInclude.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 
-
 namespace DCEngine {
 
   // Forward declarations
@@ -40,6 +39,7 @@ namespace DCEngine {
       friend class EditorArchetypes;
       friend class EditorResources;
       friend class EditorProjects;
+      friend class EditorInspector;
 
     public:
 
@@ -89,6 +89,8 @@ namespace DCEngine {
       EditorWindows Windows;
       EditorProjects Projects;
       EditorDiagnostics Diagnostics;
+      EditorTextEditor TextEditor;
+      EditorInspector Inspector;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;
@@ -107,15 +109,6 @@ namespace DCEngine {
       void ObjectsListSwapPosition(GameObjectPtr, Direction);
       // Tools
       void WindowTools();
-      // Properties
-      void WindowProperties();
-      bool DisplayProperties(ObjectPtr);
-      template <typename PropertyType> void Set(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Property* property, PropertyType value);
-      template <typename PropertyType> void CheckUnsigned(Zilch::Property* property, PropertyType& value);
-      //template <typename PropertyType, typename InputFunction, typename SetValue> bool DisplayProperty(Zilch::Property* property, SetValue value)
-      void DisplayEntityProperties();
-      void DisplayResourceProperties();
-      bool AddComponent(EntityPtr);
       // Library
       void WindowLibrary();
       //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
@@ -147,7 +140,7 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
-      void Select(ObjectPtr);
+      void Select(ObjectPtr, bool inspect = true);
       void SelectionAddOrRemoveToMultiple(GameObjectPtr);
       void Deselect();
       void SelectSpace();
@@ -171,10 +164,6 @@ namespace DCEngine {
       ResourcePtr CreateFont(std::string& name, std::string& assetPath);
       ResourcePtr CreateSpriteLayer(std::string& name);
       ResourcePtr CreateSpriteLayerOrder(std::string& name);
-      bool SelectEnumeration(Zilch::Property*, ObjectPtr, unsigned int&);
-      bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
-      template <typename ResourceMap>
-      bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
       void WindowCollisionTableEditor();
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;

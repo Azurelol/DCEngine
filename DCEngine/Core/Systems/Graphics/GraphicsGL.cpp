@@ -54,27 +54,9 @@ namespace DCEngine {
 				DCTrace << "Failed to initialize GLEW \n";
 			}
 
-			DCTrace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
+      CompileShaders();
 
-			// Grab a reference to the Sprite shader
-			SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
-			SpriteShader->Compile();
-			Components::Sprite::mShader = SpriteShader;
-			ConfigureSpriteVAO();
-			// Construct the SpriteText shader
-			SpriteTextShader = Daisy->getSystem<Content>()->getShader(std::string("SpriteTextShader"));
-			SpriteTextShader->Compile();
-			Components::SpriteText::mShader = SpriteTextShader;
-			ConfigureSpriteTextVAO();
-			// Construct the ParticleSystem shader
-			ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
-			ParticleSystemShader->Compile();
-			Components::SpriteParticleSystem::mShader = ParticleSystemShader;
-			ConfigureParticleBuffers();
-			// Construct the Shadowing shader
-			ShadowingShader = Daisy->getSystem<Content>()->getShader(std::string("ShadowingShader"));
-			ShadowingShader->Compile();
-			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
+
 		}
 
 		/**************************************************************************/

@@ -149,6 +149,17 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Checks whether the mouse has been double clicked or not.
+    @return True if the mouse was double clicked recently.
+    */
+    /**************************************************************************/
+    bool GUI::IsMouseDoubleClicked()
+    {
+      return ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Removes an active window from the GUI system.
     @param A pointer to the Window.
     */

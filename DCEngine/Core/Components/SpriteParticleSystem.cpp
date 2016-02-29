@@ -167,6 +167,12 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Sets the uniforms of the particle system.
+    @param shader A pointer to the shader.
+    */
+    /**************************************************************************/
 		void SpriteParticleSystem::SetUniforms(ShaderPtr shader, Camera* camera, Light * light)
 		{
 			if (!shader)

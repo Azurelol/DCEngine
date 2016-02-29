@@ -38,6 +38,43 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Loads the selected project into the engine.
+    @param  path The path of the project.
+    */
+    /**************************************************************************/
+    void EditorProjects::LoadProject(std::string path)
+    {
+      // Load the project's data into the Content system. This will
+      // automatically load its resources/assets for use.
+      //Daisy->getSystem<Content>()->LoadProject(path);
+      //// Save a pointer to the project data
+      //EditorRef.Settings.ProjectProperties = Daisy->getSystem<Content>()->ProjectInfo.get();
+      //// Update the window caption to display the current project
+      ///auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
+      ////DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
+      //DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
+      //// Load its default level 
+      //auto play = EditorRef.Settings.ProjectProperties->Play;
+      //auto load = EditorRef.LoadLevel(EditorRef.Settings.ProjectProperties->DefaultLevel);
+
+      //if (load) {
+      //  if (play) {
+      //    EditorRef.ToggleEditor(false);
+      //    //PlayGame();
+      //  }
+
+      //  else {
+      //    DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
+      //    EditorRef.ToggleEditor(true);
+      //  }
+      //}
+      //// No default level set, turn on the editor!
+      //else
+      //  EditorRef.ToggleEditor(true);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Saves the current project's properties..
     */
     /**************************************************************************/

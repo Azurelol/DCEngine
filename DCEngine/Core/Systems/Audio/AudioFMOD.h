@@ -60,6 +60,7 @@ namespace DCEngine {
       FMOD_RESULT getVCA(const std::string& path, FMOD::Studio::VCA** vca) const;      
 
       // Generate
+      void Load(BankInfo& bankInfo);
       void GenerateResources();
       void GenerateSoundCues();
 
@@ -97,7 +98,7 @@ namespace DCEngine {
       FMOD::Studio::EventInstance* CreateEventInstance(FMOD::Studio::EventDescription* event) const;
 
       // Loading
-      FMOD::Studio::Bank* LoadBankFromFile(const std::string handle, const std::string& path);      
+      BankInfo LoadBankFromFile(const std::string handle, const std::string& path);      
       void LoadEventDescriptions(FMOD::Studio::Bank* bank);
       void LoadEventInstances();
       void LoadVCAs(FMOD::Studio::Bank* bank, VCAContainer& vcas);
