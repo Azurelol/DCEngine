@@ -180,7 +180,7 @@ namespace DCEngine {
       }
 
       // Turn off the Properties window
-      Windows.PropertiesEnabled = false;
+      Inspector.Toggle(false);
     }
 
     /**************************************************************************/

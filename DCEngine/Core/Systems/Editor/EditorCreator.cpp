@@ -79,7 +79,7 @@ namespace DCEngine {
     {
       auto gameObject = EditorRef.CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
       EditorRef.Select(gameObject);
-      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.Inspector.Toggle(true);
       EditorRef.MoveToViewportCenter(gameObject);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(gameObject, EditorRef.CurrentSpace,
@@ -104,7 +104,7 @@ namespace DCEngine {
         object->AddComponentByName(componentName);
       }
       EditorRef.Select(object);
-      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.Inspector.Toggle(true);
       EditorRef.MoveToViewportCenter(object);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(object, EditorRef.CurrentSpace,

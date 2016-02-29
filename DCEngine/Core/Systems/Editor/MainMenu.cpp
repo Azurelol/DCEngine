@@ -113,7 +113,7 @@ namespace DCEngine {
         // Windows
         if (ImGui::BeginMenu("Windows")) {
           if (ImGui::MenuItem("Properties"))
-            Windows.PropertiesEnabled = !Windows.PropertiesEnabled;
+            Inspector.Toggle(true);
           if (ImGui::MenuItem("Library"))
             Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))

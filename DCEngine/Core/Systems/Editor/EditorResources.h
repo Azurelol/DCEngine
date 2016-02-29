@@ -57,7 +57,13 @@ namespace DCEngine {
     };
     
 
-
+    /**************************************************************************/
+    /*!
+    @brief Displays all the resources on the map as a list.
+    @param type The name of the resource type.
+    @param map A poiner to the map that holds the resources.
+    */
+    /**************************************************************************/
     template<typename ResourceMap>
     inline bool EditorResources::DisplayResourceList(std::string type, ResourceMap* map)
     {
@@ -72,7 +78,7 @@ namespace DCEngine {
           bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected) ) {
             EditorRef.Select(resource.second.get());
-            EditorRef.Windows.PropertiesEnabled = true;
+            EditorRef.Inspector.Toggle(true);
           }
         }
         ImGui::TreePop();

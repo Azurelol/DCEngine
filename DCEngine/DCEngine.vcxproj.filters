@@ -214,9 +214,6 @@
     <Filter Include="Core\Systems\Serialization\ZilchJSON">
       <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Properties">
-      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Libraries">
       <UniqueIdentifier>{2ce09bdb-9f9a-4d29-8efc-cfc6e38891f6}</UniqueIdentifier>
     </Filter>
@@ -582,17 +579,11 @@
     <ClCompile Include="Core\Components\EditorCameraController.cpp">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp">
       <Filter>Projects\Rebound</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Resources.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowCreate.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
@@ -827,9 +818,6 @@
     </ClCompile>
     <ClCompile Include="Core\Resources\SoundCue.cpp">
       <Filter>Core\Resources\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp">
-      <Filter>Core\Systems\Editor\Properties</Filter>
     </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\AI\Sentinel.cpp">
       <Filter>Projects\Rebound\Components</Filter>

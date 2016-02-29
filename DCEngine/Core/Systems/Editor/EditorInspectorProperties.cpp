@@ -62,14 +62,14 @@ namespace DCEngine {
 
         // If the property is marked as an enumeration..
         if (property->HasAttribute("Enumeration")) {
-          modified = SelectEnumeration(property, object, propertyID);
+          //modified = SelectEnumeration(property, object, propertyID);
           continue;
         }
 
         // If it's a resource... 
         if (property->HasAttribute("Resource")) {
           //if (!property->Attributes.empty()) {
-          modified = SelectResource(property, object, propertyID);
+          modified = InspectResource(property, object, propertyID);
           continue;
         }
 

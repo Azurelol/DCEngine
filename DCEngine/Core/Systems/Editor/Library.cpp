@@ -64,7 +64,7 @@ namespace DCEngine {
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
             Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
+            Inspector.Toggle(true);
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Edit the selected SpriteLayerOrder
@@ -98,7 +98,7 @@ namespace DCEngine {
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
             Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
+            Inspector.Toggle(true);
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Load the selected level
@@ -122,7 +122,7 @@ namespace DCEngine {
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
             Select(resource.second.get());
-            Windows.PropertiesEnabled = true;
+            Inspector.Toggle(true);
           }
           if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
             // Edit the selected collision table

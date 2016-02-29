@@ -109,10 +109,12 @@ namespace DCEngine {
       if (CurrentScript) {
         DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
         CurrentScript->Save(std::string(Text));
+        DispatchSystemEvents::ScriptingCompile();
       }
       else if (CurrentShader) {
         DCTrace << "EditorTextEditor::Save: '" << CurrentShader->Name() << "' \n";
         CurrentShader->Save(std::string(Text), CurrentShaderType);
+        DispatchSystemEvents::GraphicsCompileShaders();
       }    
     }
 
@@ -124,11 +126,13 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief Closes the current script.
+    @brief Closes the current file.
+    @todo  Perhaps ask the user if he wants to save it with a prompt?
     */
     /**************************************************************************/
     void EditorTextEditor::Close()
     {
+      //Save();
       Clear();
       WindowEnabled = false;
     }

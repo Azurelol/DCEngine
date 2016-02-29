@@ -78,6 +78,7 @@ namespace DCEngine {
 			void BackupState();
 			void RestoreState();
 			// Events
+      void OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders* event);
 			void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
 			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
       // CTOR/ DTOR, Initialize

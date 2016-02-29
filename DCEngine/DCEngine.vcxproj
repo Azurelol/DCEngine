@@ -398,13 +398,10 @@
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuCommands.cpp" />
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp" />
-    <ClCompile Include="Core\Systems\Editor\PropertiesPreview.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
-    <ClCompile Include="Core\Systems\Editor\PropertiesSelect.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
-    <ClCompile Include="Core\Systems\Editor\Properties.cpp" />
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp" />

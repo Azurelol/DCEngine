@@ -54,7 +54,7 @@ namespace DCEngine {
         if (ImGui::Selectable(objectName, selected)) {
         //if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
           SelectObject(object);
-          Windows.PropertiesEnabled = true;
+          Inspector.Toggle(true);
         }
         ImGui::PopID();
       }

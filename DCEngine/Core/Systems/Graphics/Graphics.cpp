@@ -56,6 +56,7 @@ namespace DCEngine {
 		{
 			Daisy->Connect<Events::ResizeViewportEvent>(&Graphics::OnResizeViewportEvent, this);
 			Daisy->Connect<Events::FullscreenEnabledEvent>(&Graphics::OnFullscreenEnabledEvent, this);
+      Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
 		}
 
 		/**************************************************************************/
@@ -426,7 +427,12 @@ namespace DCEngine {
 			GraphicsHandler->ConfigureSpriteVAO();
 		}
 
-		void Graphics::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)
+    void Graphics::OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders * event)
+    {
+      GraphicsHandler->CompileShaders();
+    }
+
+    void Graphics::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)
 		{
 
 		}

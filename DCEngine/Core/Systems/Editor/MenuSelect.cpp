@@ -114,7 +114,7 @@ namespace DCEngine {
     void Editor::SelectObject(GameObject* obj)
     {
       DCTrace << "Editor::SelectObject - " << obj->Name() << "\n";
-      Windows.PropertiesEnabled = true;
+      Inspector.Toggle(true);
       
       // Save its boundaries
       if (obj->HasComponent("Transform")) {
@@ -127,8 +127,6 @@ namespace DCEngine {
       Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Select(obj);
-
-
     }
 
 
@@ -182,7 +180,7 @@ namespace DCEngine {
     {
       SelectedObjects.clear();
       SelectedObjects.push_back(object);
-	    Windows.PropertiesEnabled = true;
+      Inspector.Toggle(true);
       // Dispatch an event
       //DispatchSystemEvents::EditorSelectObject(object);
     }
@@ -251,7 +249,7 @@ namespace DCEngine {
     void Editor::SelectSpace()
     {
       Select(CurrentSpace);
-      Windows.PropertiesEnabled = true;
+      Inspector.Toggle(true);
     }
 
     /**************************************************************************/

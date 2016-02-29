@@ -41,9 +41,9 @@ namespace DCEngine {
     {
       Update();
     }
-    void EditorModule::Toggle()
+    void EditorModule::Toggle(bool toggle)
     {
-      WindowEnabled = !WindowEnabled;
+      WindowEnabled = toggle;
     }
 
 
