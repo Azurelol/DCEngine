@@ -20,7 +20,6 @@ namespace DCEngine {
     class Editor;
     class EditorTextEditor : public EditorModule {
     public:
-
       void Display();      
       void Load(ZilchScriptPtr script);
       void Load(Shader* shader, Shader::Type type);
@@ -31,6 +30,7 @@ namespace DCEngine {
       ZilchScriptPtr CurrentScript;
       Shader* CurrentShader;
       Shader::Type CurrentShaderType;
+      std::string Title;
 
       unsigned CharLimit = 1024 * 16;
       void Clear();

@@ -176,11 +176,12 @@ namespace DCEngine {
     @brief  Selects the specified object.
     */
     /**************************************************************************/
-    void Editor::Select(ObjectPtr object)
+    void Editor::Select(ObjectPtr object, bool inspect)
     {
       SelectedObjects.clear();
       SelectedObjects.push_back(object);
-      Inspector.Toggle(true);
+      if (inspect)
+        Inspector.Toggle(true);
       // Dispatch an event
       //DispatchSystemEvents::EditorSelectObject(object);
     }

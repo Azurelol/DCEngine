@@ -40,8 +40,8 @@ namespace DCEngine {
       if (!WindowEnabled)
         return;
 
-      ImGui::SetNextWindowSize(ImVec2(800, 800), ImGuiSetCond_FirstUseEver);
-      if (ImGui::Begin("Text Editor", &WindowEnabled, ImGuiWindowFlags_MenuBar)) {
+      ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
+      if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
 
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
@@ -57,8 +57,8 @@ namespace DCEngine {
         //ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
         ////ImGui::Checkbox("Read-only", &ReadOnly);
         //ImGui::PopStyleVar();
-        ImGui::InputTextMultiline("##source", Text, IM_ARRAYSIZE(Text), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16),
-                                  ImGuiInputTextFlags_AllowTabInput | (ReadOnly ? ImGuiInputTextFlags_ReadOnly : 0));
+        ImGui::InputTextMultiline("##source", Text, IM_ARRAYSIZE(Text), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 48),
+                                  ImGuiInputTextFlags_AllowTabInput | (ReadOnly ? ImGuiInputTextFlags_ReadOnly : 0)); 
 
 
 
@@ -78,6 +78,7 @@ namespace DCEngine {
       Clear();
       DCTrace << "EditorTextEditor::Load: Loading the script '" << script->Name() << "' \n";
       WindowEnabled = true;
+      Title = script->Name() + " - Text Editor";
       CurrentScript = script;
       CurrentScript->Load();
       std::strcpy(Text, CurrentScript->Read().c_str());
@@ -94,6 +95,7 @@ namespace DCEngine {
       Clear();
       DCTrace << "EditorTextEditor::Load: Loading the shader '" << shader->Name() << "' \n";
       WindowEnabled = true;
+      Title = shader->Name() + " - Text Editor";
       CurrentShader = shader;
       CurrentShaderType = type;
       std::strcpy(Text, CurrentShader->Read(type).c_str());

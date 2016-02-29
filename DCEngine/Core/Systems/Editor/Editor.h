@@ -140,7 +140,7 @@ namespace DCEngine {
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
-      void Select(ObjectPtr);
+      void Select(ObjectPtr, bool inspect = true);
       void SelectionAddOrRemoveToMultiple(GameObjectPtr);
       void Deselect();
       void SelectSpace();
