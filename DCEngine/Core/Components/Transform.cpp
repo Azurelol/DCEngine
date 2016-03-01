@@ -176,5 +176,17 @@ namespace DCEngine {
       return point;
     }
 
+    const Vec3 &Transform::getRotation(void)
+    {
+      DRotation = Rotation * (180.0f / PI);
+
+      return DRotation;
+    }
+    void Transform::setRotation(Vec3 const & rot)
+    {
+      Rotation = rot * (PI / 180.0f);
+    }
+
+
   }
 }
