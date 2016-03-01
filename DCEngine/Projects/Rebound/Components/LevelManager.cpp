@@ -34,17 +34,20 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, LevelManager::OnCollisionStartedEvent);
       Connect(SpaceRef, Events::LogicUpdate, LevelManager::OnLogicUpdateEvent);
       Connect(gameObj, Events::MouseClickedOn, LevelManager::OnMouseClickedOnEvent);
+      Connect(Daisy->getKeyboard(), Events::KeyDown, LevelManager::OnKeyDownEvent);
       //FadeRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Fade>();
     }
 
     void LevelManager::OnMouseClickedOnEvent(Events::MouseClickedOn * event)
     {
-      SpaceRef->LoadLevel(NextLevel);
+      if(Timer > 1.5)
+        SpaceRef->LoadLevel(NextLevel);
     }
 
     void LevelManager::OnKeyDownEvent(Events::KeyDown * event)
     {
-
+      if (Timer > 1.5)
+        SpaceRef->LoadLevel(NextLevel);
     }
 
     void LevelManager::OnKeyUpEvent(Events::KeyDown * event)

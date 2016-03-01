@@ -188,6 +188,12 @@
             "NextLevel": "MainMenu", 
             "LoadingTime": 4.000000, 
             "TimerStarted": true
+          }, 
+          "Reactive": 
+          {
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }
         }
       }

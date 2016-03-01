@@ -1,0 +1,11 @@
+
+{
+  "Bank": 
+  {
+    "Name": "Music", 
+    "Properties": 
+    {
+      "AssetPath": "Projects\\Rebound\\Assets\\Sounds\\FMOD\\Music.bank"
+    }
+  }
+}

@@ -1005,7 +1005,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 

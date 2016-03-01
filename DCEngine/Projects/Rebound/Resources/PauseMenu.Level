@@ -63,7 +63,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 0.000000, 
                 "y": 17.000000, 
                 "z": 0.010000
               }
@@ -127,7 +127,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 0.000000, 
                 "y": 12.500000, 
                 "z": 0.010000
               }
@@ -191,7 +191,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 0.000000, 
                 "y": 8.000000, 
                 "z": 0.010000
               }
@@ -255,7 +255,7 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
+                "x": 0.000000, 
                 "y": 3.500000, 
                 "z": 0.010000
               }
@@ -309,64 +309,6 @@
       }, 
       "GameObject": 
       {
-        "Name": "Background", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 11.000000, 
-                "z": 0.010000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 14.000000, 
-                "y": 14.000000, 
-                "z": -0.100000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "BackgroundPause", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }
-      }, 
-      "GameObject": 
-      {
         "Name": "ButtonConfirm", 
         "Archetype": "", 
         "Components": 
@@ -377,7 +319,7 @@
             {
               "Vec3": 
               {
-                "x": -4.000000, 
+                "x": -4.500000, 
                 "y": 8.000000, 
                 "z": 0.110000
               }
@@ -441,8 +383,8 @@
             {
               "Vec3": 
               {
-                "x": 6.000000, 
-                "y": 8.000000, 
+                "x": 4.500000, 
+                "y": 8.040046, 
                 "z": 0.110000
               }
             }, 
@@ -505,8 +447,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 17.500000, 
+                "x": 0.000000, 
+                "y": 16.000000, 
                 "z": 0.100000
               }
             }, 
@@ -548,6 +490,76 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.285000, 
+            "Range": 100000.000000, 
+            "Falloff": 0.100000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
           }
         }
       }
