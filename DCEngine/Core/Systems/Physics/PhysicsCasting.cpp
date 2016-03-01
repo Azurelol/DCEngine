@@ -25,7 +25,7 @@ namespace DCEngine
 
     bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, DCEngine::CollisionGroup group)
     {
-      for (auto Group : Groups)
+      for (auto &Group : Groups)
       {
         if (Group.Name() == group.Name())
         {
@@ -63,7 +63,7 @@ namespace DCEngine
 
             retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
             retval.WorldPosition = transform->Translation;
-
+            retval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
           }
         }
 
@@ -104,6 +104,7 @@ namespace DCEngine
 
               retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               retval.WorldPosition = transform->Translation;
+              retval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
             }
           }
           else
@@ -115,6 +116,7 @@ namespace DCEngine
 
               retval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               retval.WorldPosition = transform->Translation;
+              retval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
             }
           }
         }
@@ -156,6 +158,7 @@ namespace DCEngine
 
             pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
             pushval.WorldPosition = transform->Translation;
+            pushval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
             retval.push_back(pushval);
           }
         }
@@ -200,6 +203,7 @@ namespace DCEngine
 
               pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               pushval.WorldPosition = transform->Translation;
+              pushval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
               retval.push_back(pushval);
             }
           }
@@ -212,6 +216,7 @@ namespace DCEngine
 
               pushval.BodySpacePosition = ray.Origin + glm::normalize(ray.Direction) * Distance;
               pushval.WorldPosition = transform->Translation;
+              pushval.ObjectHit = dynamic_cast<GameObject*>(object->Owner());
               retval.push_back(pushval);
             }
           }

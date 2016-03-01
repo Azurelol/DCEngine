@@ -34,7 +34,7 @@ namespace DCEngine {
     // the position of the ray-line segment collision in world coordinates
     Vec3 BodySpacePosition;
     Vec3 Normal;
-    //GameObject* ObjectHit;
+    GameObject* ObjectHit;
     Vec3 WorldPosition;
   };
 
