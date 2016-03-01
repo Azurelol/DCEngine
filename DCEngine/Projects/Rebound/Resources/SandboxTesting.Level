@@ -377,6 +377,9 @@
             "PlayerName": "Player", 
             "MoveSpeed": 0.750000, 
             "RotSpeed": 15.000000, 
+            "MinCharge": 0.500000, 
+            "MaxCharge": 1.000000, 
+            "ChargeFactor": 20000.000000, 
             "FrozenColor": 
             {
               "Vec4": 
@@ -972,7 +975,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
