@@ -334,7 +334,7 @@ namespace DCEngine {
 
     void PlayerController::PrintTranslation()
     {
-      DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+      //DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
     }
 
     void PlayerController::PrintVelocity()

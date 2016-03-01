@@ -43,7 +43,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 175.000000, 
+            "FieldOfView": 173.415009, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -1412,8 +1412,8 @@
             {
               "Vec3": 
               {
-                "x": 152.633057, 
-                "y": -6.779518, 
+                "x": 153.704742, 
+                "y": -6.550983, 
                 "z": 0.000000
               }
             }, 
@@ -1430,8 +1430,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 6.000000, 
+                "x": 2.000000, 
+                "y": 8.000000, 
                 "z": 1.000000
               }
             }
@@ -1748,8 +1748,8 @@
             {
               "Vec3": 
               {
-                "x": -21.972334, 
-                "y": 16.223257, 
+                "x": 196.422180, 
+                "y": -30.624727, 
                 "z": 0.000000
               }
             }, 
@@ -2074,8 +2074,8 @@
             {
               "Vec3": 
               {
-                "x": 136.095963, 
-                "y": 16.344585, 
+                "x": 135.975815, 
+                "y": 5.171904, 
                 "z": 0.000000
               }
             }, 
@@ -5770,8 +5770,8 @@
             {
               "Vec3": 
               {
-                "x": -18.472303, 
-                "y": 18.223253, 
+                "x": 199.922195, 
+                "y": -28.624731, 
                 "z": 0.000000
               }
             }, 
@@ -8596,7 +8596,37 @@
             "JumpPeriod": 0.000000, 
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
-            "AttackJumpPeriod": 0.000000
+            "AttackJumpPeriod": 0.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -8722,7 +8752,37 @@
             "JumpPeriod": 0.000000, 
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
-            "AttackJumpPeriod": 0.000000
+            "AttackJumpPeriod": 0.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -8743,8 +8803,8 @@
             {
               "Vec3": 
               {
-                "x": 263.079742, 
-                "y": -31.206764, 
+                "x": 262.391632, 
+                "y": -31.816240, 
                 "z": 0.000000
               }
             }, 
@@ -8761,8 +8821,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 1.500000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -8780,7 +8840,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Wow", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8840,15 +8900,45 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "IdleRange": 10.000000, 
+            "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
-            "IsPatrolRight": true, 
-            "JumpStrengthX": 10.000000, 
-            "JumpStrengthY": 6.000000, 
-            "JumpPeriod": 0.000000, 
-            "AttackJumpStrengthX": 0.000000, 
-            "AttackJumpStrengthY": 0.000000, 
-            "AttackJumpPeriod": 0.000000
+            "IsPatrolRight": false, 
+            "JumpStrengthX": 5.599995, 
+            "JumpStrengthY": 4.100003, 
+            "JumpPeriod": 0.500000, 
+            "AttackJumpStrengthX": 20.100040, 
+            "AttackJumpStrengthY": 12.000010, 
+            "AttackJumpPeriod": 1.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -9419,8 +9509,8 @@
             {
               "Vec3": 
               {
-                "x": 108.000000, 
-                "y": 9.000000, 
+                "x": 292.872498, 
+                "y": -89.223083, 
                 "z": 0.000000
               }
             }, 
@@ -9524,7 +9614,37 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 0.500000
+            "AttackJumpPeriod": 0.500000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -9605,8 +9725,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "Background", 
-        "Archetype": "DesertBackground", 
+        "Name": "g17", 
+        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -9615,9 +9735,9 @@
             {
               "Vec3": 
               {
-                "x": 205.673996, 
-                "y": 76.887909, 
-                "z": -0.100000
+                "x": 151.974091, 
+                "y": -7.541920, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -9633,8 +9753,8 @@
             {
               "Vec3": 
               {
-                "x": 500.000000, 
-                "y": 400.000000, 
+                "x": 2.000000, 
+                "y": 6.000000, 
                 "z": 1.000000
               }
             }
@@ -9646,50 +9766,44 @@
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Oldworld_Middleground_1", 
+            "SpriteSource": "square", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "Light": 
+          "BoxCollider": 
           {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": false, 
-            "Type": "Ambient", 
-            "Color": 
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Terrain", 
+            "Size": 
             {
-              "Vec4": 
+              "Vec3": 
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "z": 1.000000
               }
             }, 
-            "Intensity": 0.200000, 
-            "Range": 0.000000, 
-            "Falloff": 0.000000, 
-            "DirectionVector": 
+            "Offset": 
             {
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -1.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.600000
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }, 
@@ -10498,8 +10612,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "PauseManager", 
-        "Archetype": "", 
+        "Name": "Background", 
+        "Archetype": "DesertBackground", 
         "Components": 
         {
           "Transform": 
@@ -10508,8 +10622,98 @@
             {
               "Vec3": 
               {
-                "x": -8.800000, 
-                "y": 16.177778, 
+                "x": 205.743118, 
+                "y": 76.922485, 
+                "z": -0.100000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 500.000000, 
+                "y": 400.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Oldworld_Middleground_1", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Ambient", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.200000, 
+            "Range": 0.000000, 
+            "Falloff": 0.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 0.600000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "g26", 
+        "Archetype": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.095963, 
+                "y": 16.344585, 
                 "z": 0.000000
               }
             }, 
@@ -10526,14 +10730,57 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "PauseManager": 
+          "Sprite": 
           {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Terrain", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }
       }
