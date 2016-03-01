@@ -17,12 +17,16 @@
 
 namespace DCEngine {
 
+  class Archetype;
+  using ArchetypePtr = std::shared_ptr<Archetype>;
+
   class Archetype : public Resource {
   public:
     Archetype(std::string archetypeFile);
     Archetype(std::string archetypeFile, std::string serializedData);
     ~Archetype();
     static std::string Extension() { return ".Archetype"; }
+    static ArchetypePtr Find(std::string);
     void Save();
     bool Load();
     const std::string& Get();
@@ -34,7 +38,6 @@ namespace DCEngine {
   };
 
   using ArchetypeHandle = std::string;
-  using ArchetypePtr = std::shared_ptr<Archetype>;
   using ArchetypeContainer = std::vector<ArchetypePtr>;
 
 }

@@ -54,27 +54,9 @@ namespace DCEngine {
 				DCTrace << "Failed to initialize GLEW \n";
 			}
 
-			DCTrace << "\n[GraphicsGL::Initialize] - Compiling shaders \n";
+      CompileShaders();
 
-			// Grab a reference to the Sprite shader
-			SpriteShader = Daisy->getSystem<Content>()->getShader("SpriteShader");
-			SpriteShader->Compile();
-			Components::Sprite::mShader = SpriteShader;
-			ConfigureSpriteVAO();
-			// Construct the SpriteText shader
-			SpriteTextShader = Daisy->getSystem<Content>()->getShader(std::string("SpriteTextShader"));
-			SpriteTextShader->Compile();
-			Components::SpriteText::mShader = SpriteTextShader;
-			ConfigureSpriteTextVAO();
-			// Construct the ParticleSystem shader
-			ParticleSystemShader = Daisy->getSystem<Content>()->getShader(std::string("ParticleShader"));
-			ParticleSystemShader->Compile();
-			// Construct the Shadowing shader
-			//ShadowingShader = Daisy->getSystem<Content>()->getShader(std::string("ShadowingShader"));
-			//ShadowingShader->Compile();
-			Components::SpriteParticleSystem::mShader = ParticleSystemShader;
-			ConfigureParticleBuffers();
-			DCTrace << "[GraphicsGL::Initialize] - Finished compiling shaders \n";
+
 		}
 
 		/**************************************************************************/
@@ -111,8 +93,7 @@ namespace DCEngine {
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
-			glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-			//glClearColor(ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glStencilMask(~0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}

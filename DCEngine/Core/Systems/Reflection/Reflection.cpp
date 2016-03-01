@@ -39,6 +39,17 @@ namespace DCEngine {
     void Reflection::Initialize()
     {
       ZilchHandler->Initialize();
+      Subscribe();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Subscribes to events.
+    */
+    /**************************************************************************/
+    void Reflection::Subscribe()
+    {
+      Daisy->Connect<Events::ScriptingCompileScripts>(&Reflection::OnScriptingCompileScriptsEvent, this);
     }
 
     /**************************************************************************/
@@ -89,18 +100,16 @@ namespace DCEngine {
       return componentTypes;
     }
     
+
+
     /**************************************************************************/
     /*!
-    @brief  Constructs a Call object with access to the property's accessor method.
-    @param  property A pointer to the property.
-    @return A Zilch::Call object.
+    @brief Returns the name of property as string.
+    @param property A pointer to the property.
+    @param object A pointer to the object.
+    @return A string.
     */
     /**************************************************************************/
-  // Zilch::Call DCEngine::Systems::Reflection::Get(Zilch::Property * property)
-  // {
-
-  // }
-
     std::string DCEngine::Systems::Reflection::PropertyAsString(Zilch::Property * property, ObjectPtr object)
     {
       // Create an exception report object
@@ -112,15 +121,28 @@ namespace DCEngine {
       return std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Returns a reference to the underlying Zilch Interface.
+    @return A reference to the Zilch Interface.
+    */
+    /**************************************************************************/
     ZilchInterface* Reflection::Handler()
     {
-      return ZilchHandler.get();
+      return ZilchHandler.get(); 
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Compiles all currently loaded scripts.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Reflection::OnScriptingCompileScriptsEvent(Events::ScriptingCompileScripts * event)
+    {
+      Handler()->CompileScripts();
     }
 
 
-
-
   }
-
-
 }

@@ -25,11 +25,17 @@ namespace DCEngine {
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(ParticleColorAnimator);
       // Properties
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);
       DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color0);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor0, attributeRangeColor);
       DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color1);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor1, attributeRangeColor);
       DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color2);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor2, attributeRangeColor);
       DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color3);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor3, attributeRangeColor);
       DCE_BINDING_DEFINE_PROPERTY(ParticleColorAnimator, Color4);
+      DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor4, attributeRangeColor);
     }
     #endif
 

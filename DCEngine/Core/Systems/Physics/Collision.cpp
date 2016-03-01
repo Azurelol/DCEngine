@@ -24,7 +24,7 @@ namespace DCEngine
   // the problem is that the values in min and max are wrong
   float DetermineRestitution(Components::RigidBody  &a, Components::RigidBody &b)
   {
-    return 	std::min(a.getRestitution(), b.getRestitution());
+    return 	std::max(a.getRestitution(), b.getRestitution());
   }
 
   float DetermineFriction(float a, float b)
@@ -46,7 +46,78 @@ namespace DCEngine
   /**************************************************************************/
   bool Collision::PointToBoundingCube(const Vec3 & point, const Vec3 & translation, const Vec3 & rotation, const Vec3 & scale)
   {
-    return false;
+    // This function is inherently wrong because it assumes there is only rotation along the z axis
+    // the reason for this flaw is that there is no proper way to resolve the way 3D objects are rotated with
+    // the way we store rotation. 
+
+    glm::vec3 Point = point;
+
+    float rot = (3.14159265359f / 180.0f) * rotation.z;
+
+
+    Point -= translation;
+
+    glm::vec3 temp = Point;
+
+    Point.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    Point.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
+
+    Point += translation;
+
+    // assumed to be in right handed coordinates so positive Z is towards the front
+
+    float left  =  translation.x - (scale.x / 2.0f);
+    float right =  translation.x + (scale.x / 2.0f);
+    float top   =  translation.y + (scale.y / 2.0f);
+    float bottom = translation.y - (scale.y / 2.0f);
+    float back  =  translation.z - (scale.z / 2.0f);
+    float front =  translation.z + (scale.z / 2.0f);
+
+    if (Point.x < left)
+    {
+      return false;
+    }
+
+    if (Point.x > right)
+    {
+      return false;
+    }
+
+    if (Point.y < bottom)
+    {
+      return false;
+    }
+
+    if (Point.y > top)
+    {
+      return false;
+    }
+
+    if (Point.z < back)
+    {
+      return false;
+    }
+
+    if (Point.z > front)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  bool Collision::PointToBoundingSphere(const Vec3& point, const Vec3& translation, const Vec3& scale, const Vec3& rotation)
+  {
+    // Christian if you are looking through this I question why you send me a rotation
+    // assuming scale.x, y, z are the radius
+
+    if (glm::distance(point, translation) > scale.x)
+    {
+      return false;
+    }
+
+
+    return true;
   }
 
 
@@ -146,8 +217,8 @@ namespace DCEngine
     float Width0 = boxcollider1->getColliderScale().x ;
     float Width1 = boxcollider2->getColliderScale().x ;
 
-    float rot0 = transform1->Rotation.z;
-    float rot1 = transform2->Rotation.z;
+    float rot0 = (3.14159265359f / 180.0f) * transform1->Rotation.z;
+    float rot1 = (3.14159265359f / 180.0f) * transform2->Rotation.z;
 
     std::vector<glm::vec3> verts1;
     std::vector<glm::vec3> verts2;
@@ -238,7 +309,7 @@ namespace DCEngine
         return false;
       }
       /* check the series of overlap results */
-      else if (MinMax[0][1] > MinMax[1][0] && MinMax[0][0] < MinMax[1][0])
+      else if (MinMax[0][1] >= MinMax[1][0] && MinMax[0][0] <= MinMax[1][0])
       {
         if ((MinMax[0][1] - MinMax[1][0]) < result.Penetration)
         {
@@ -246,7 +317,7 @@ namespace DCEngine
           result.ContactNormal = Axes[i];
         }
       }
-      else if (MinMax[1][1] > MinMax[0][0] && MinMax[1][0] < MinMax[0][0])
+      else if (MinMax[1][1] >= MinMax[0][0] && MinMax[1][0] <= MinMax[0][0])
       {
         if (MinMax[1][1] - MinMax[0][0] <= result.Penetration)
         {
@@ -254,7 +325,7 @@ namespace DCEngine
           result.ContactNormal = Axes[i];
         }
       }
-      else if (MinMax[1][0] > MinMax[0][0] && MinMax[1][1] < MinMax[0][1])
+      else if (MinMax[1][0] >= MinMax[0][0] && MinMax[1][1] <= MinMax[0][1])
       {
         if (MinMax[1][0] - MinMax[0][1] > MinMax[0][1] - MinMax[1][1])
         {
@@ -273,7 +344,7 @@ namespace DCEngine
           }
         }
       }
-      else if (MinMax[0][0] > MinMax[1][0] && MinMax[0][1] < MinMax[1][1])
+      else if (MinMax[0][0] >= MinMax[1][0] && MinMax[0][1] <= MinMax[1][1])
       {
         if (MinMax[1][1] - MinMax[0][1] > MinMax[0][0] - MinMax[1][0])
         {
@@ -297,9 +368,9 @@ namespace DCEngine
 
     /* collision is true calculate collision data */
 
-    if (result.Penetration > 200.0f)
+    if (result.Penetration > 2.0f)
     {
-      result.Penetration = 1.0f / 60.0f;
+      result.Penetration = 1.0f / 600.0f;
     }
 
     result.Object1 = obj1;
@@ -562,6 +633,7 @@ namespace DCEngine
       throw DCException("An object Missing a Transform component got passed to BoxtoCircle");
     }
 
+    float rot = (3.14159265359f / 180.0f) * transform2->Rotation.z;
 
     glm::vec3 CircleCenter = transform1->Translation + circlecollider->getOffset();
 
@@ -569,8 +641,8 @@ namespace DCEngine
 
     glm::vec3 temp = CircleCenter;
 
-    CircleCenter.x = cos(-transform2->WorldRotation.z) * temp.x + -sin(-transform2->WorldRotation.z) * temp.y;
-    CircleCenter.y = sin(-transform2->WorldRotation.z) * temp.x + cos(-transform2->WorldRotation.z) * temp.y;
+    CircleCenter.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    CircleCenter.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
 
     CircleCenter += transform2->Translation + boxcollider->getOffset().x;
 
@@ -961,8 +1033,10 @@ namespace DCEngine
 
     glm::vec3 temp = point;
 
-    point.x = cos(-transform->WorldRotation.z) * temp.x + -sin(-transform->WorldRotation.z) * temp.y;
-    point.y = sin(-transform->WorldRotation.z) * temp.x + cos(-transform->WorldRotation.z) * temp.y;
+    float rot = (3.14159265359f / 180.0f) * transform->Rotation.z;
+
+    point.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    point.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
 
     point += transform->Translation;
 
@@ -1112,9 +1186,9 @@ namespace DCEngine
     {
       Vec3 topL, topR, botL, botR, Rseg;
 
-      bool retval = false;
-
-      float Height = box->getSize().y, Width = box->getSize().x, rot = Translation->Rotation.z;
+      float Height = box->getColliderScale().y;
+      float Width = box->getColliderScale().x;
+      float rot = (3.14159265359f / 180.0f) * Translation->Rotation.z;
 
       float Dist = FLT_MAX;
 
@@ -1129,28 +1203,48 @@ namespace DCEngine
 
       botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
       botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
-      
 
       if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
       {
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
       {
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
       {
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
+         
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
@@ -1180,6 +1274,19 @@ namespace DCEngine
 
     float x = ((Begin.x - End.x) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.x - RayEnd.x) * (Begin.x * End.y - Begin.y * End.x)) / D;
     float y = ((Begin.y - End.y) * (O.x * RayEnd.y - O.y * RayEnd.x) - (O.y - RayEnd.y) * (Begin.x * End.y - Begin.y * End.x)) / D;
+
+
+    if (x < std::min(O.x, RayEnd.x) ||  x > std::max(O.x, RayEnd.x) ||
+        x < std::min(Begin.x, End.x) || x > std::max(Begin.x, End.x))
+    {
+      return false;
+    }
+    if (y < std::min(O.y, RayEnd.y) || y > std::max(O.y, RayEnd.y) ||
+        y < std::min(Begin.y, End.y) || y > std::max(Begin.y, End.y))
+    {
+      return false;
+    }
+
 
     Result = Vec3(x, y, 0);
 

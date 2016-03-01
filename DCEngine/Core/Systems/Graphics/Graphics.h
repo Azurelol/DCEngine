@@ -78,6 +78,7 @@ namespace DCEngine {
 			void BackupState();
 			void RestoreState();
 			// Events
+      void OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders* event);
 			void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
 			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
       // CTOR/ DTOR, Initialize
@@ -87,10 +88,14 @@ namespace DCEngine {
 
 			//Main Methods
 			void Update(float dt);
-			void RenderDepths(float dt, Components::Camera* camera);
-			void RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents);
-			void RenderScene(float dt, Components::Camera* camera);
-			void RenderObjects(float dt, Components::Camera* camera);
+			void UpdateObjects(float dt);
+			void RenderDepths(Components::Camera* camera);
+			void RenderShadows(Components::Camera* camera, Components::Light* light);
+			void RenderScene(Components::Camera* camera, ShaderPtr shader = 0);
+			void RenderBackground(ShaderPtr shader, Components::Camera* camera);
+			void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+			void RenderZ0SceneUp(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+			void RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void DrawDebug();
 			void Terminate();
 

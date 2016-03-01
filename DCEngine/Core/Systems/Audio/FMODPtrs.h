@@ -14,31 +14,24 @@
 #include <FMOD\fmod.hpp>
 #include <FMOD\fmod_errors.h>
 #include <FMOD/fmod_studio.hpp>
+#include "AudioFMOD_Utilities.h"
 
 namespace DCEngine {
   
   class FMODSoundHandle {
-  
-  public:
+    public:
 
     FMOD::Channel* Channel;
     FMOD::Sound* Handle;
     FMOD::Studio::EventInstance* EventInstance;
+    Systems::EventParameterContainer ParameterInstances;
+    Systems::EventParameterInfoContainer Parameters;
 
     FMODSoundHandle() : Channel(nullptr), Handle(nullptr), EventInstance(nullptr) {}
     FMOD::Sound* operator->() { return Handle; }
-    // What do these do, again? 
-    //FMODSoundHandle(FMODSoundHandle&&) = default;
-    //FMODSoundHandle& operator=(FMODSoundHandle&&) = default;
-    
-    //FMODSoundHandle(const FMODSoundHandle&) = delete;
-    //FMODSoundHandle& operator=(const FMODSoundHandle&) = delete;
 
-    ~FMODSoundHandle() {
-
-      // WHY DOTH YOU CRASH
-      //auto result = Handle->release();
-    }
+    ~FMODSoundHandle() {}
   };
+
 
 }

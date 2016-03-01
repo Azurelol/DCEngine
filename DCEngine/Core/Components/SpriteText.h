@@ -40,7 +40,7 @@ namespace DCEngine {
       void Register();
       void Initialize();
 			void Update(float dt);
-			void Draw(Camera& camera);
+			void Draw(void);
       Transform* TransformComponent;
 
 			static ShaderPtr mShader;

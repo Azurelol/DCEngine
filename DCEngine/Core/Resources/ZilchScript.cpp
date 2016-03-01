@@ -58,6 +58,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Reads the string from.
+  */
+  /**************************************************************************/
+  const std::string & ZilchScript::Read()
+  {
+    return this->SerializedData;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Deserializes the script from file into theh SerializedData string.
   */
   /**************************************************************************/

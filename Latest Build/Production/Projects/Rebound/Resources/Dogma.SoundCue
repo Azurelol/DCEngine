@@ -1,0 +1,16 @@
+
+{
+  "SoundCue": 
+  {
+    "Name": "Dogma", 
+    "Properties": 
+    {
+      "Loop": false, 
+      "Volume": 1.000000, 
+      "VolumeVariation": 0.000000, 
+      "Pitch": 1.000000, 
+      "PitchVariation": 0.000000, 
+      "AssetPath": "Projects\\Rebound\\Assets\\Sounds\\Dogma.ogg"
+    }
+  }
+}

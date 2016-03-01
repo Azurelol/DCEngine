@@ -30,6 +30,27 @@ namespace DCEngine {
   
   // Reference: http://codereview.stackexchange.com/questions/48344/yet-another-any-class-implementation-named-some
   
+  enum class EnumeratedSystem {
+    Window,
+    Input,
+    Graphics,
+    Audio,
+    Physics,
+    Factory,
+    Content,
+    Serializer,
+    Reflection,
+    Editor,
+    GUI,
+    Keyboard,
+    Mouse,
+
+    // The amount of systems
+    Capacity
+  };
+  // Alias for the enum
+  using ESys = EnumeratedSystem;
+
   enum class Direction {
     None,
     Up,

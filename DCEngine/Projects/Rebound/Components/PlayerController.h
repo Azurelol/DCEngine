@@ -35,7 +35,7 @@ namespace DCEngine {
       Real TimeToDie = 0.7f;
       Real FramesOfDamageColor = 10.0f;
       Real FramesOfDamageColorApplied = 0.0f;
-      Real MoveSpeed = 0.7f;
+      Real MoveSpeed = 0.35f;
       Real JumpPower = 8.0f;
       Real JumpFrames = 1.0f;
       Real JumpFramesApplied = 0.0f;
@@ -81,6 +81,7 @@ namespace DCEngine {
       void Jump();
       void TakeDamage(int damage);
       void Die();
+	  Boolean CheckForGround();
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(PlayerController, Component);
 #endif

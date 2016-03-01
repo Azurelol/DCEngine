@@ -13,6 +13,7 @@
 #include "ResourceReference.h"
 // Headers
 #include "../Systems/Audio/FMODPtrs.h"
+#include "../Systems/Audio/AudioFMOD_Utilities.h"
 
 namespace DCEngine {
 
@@ -65,7 +66,6 @@ namespace DCEngine {
     bool Loop = false;
     SoundCueType Type;
     FMODSoundHandle Data;
-    
     // Properties    
     DCE_DEFINE_PROPERTY(PlayMode, Mode);
     DCE_DEFINE_PROPERTY(bool, Loop);
@@ -73,9 +73,7 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(float, VolumeVariation);
     DCE_DEFINE_PROPERTY(float, Pitch);
     DCE_DEFINE_PROPERTY(float, PitchVariation);    
-    DCE_DEFINE_PROPERTY(String, AssetPath);
-
-
+    DCE_DEFINE_PROPERTY(String, AssetPath);    
     // Methods
     ZilchDeclareDerivedType(SoundCue, Resource);
     SoundCue(std::string soundFile, SoundCueType type);

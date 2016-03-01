@@ -67,6 +67,9 @@ namespace DCEngine {
       // starting X and Y position of our GL viewport along with the width and
       // height.
 
+      if (!CameraObj)
+        return Vec2();
+
       auto screenCenter = Vec3(*CameraObj->ScreenWidth / 2, *CameraObj->ScreenHeight / 2, 0);
       auto vecCenter = Vec3(screenPoint, 0) - screenCenter;
       auto angle = (float)(CameraObj->FieldOfView) / 2;

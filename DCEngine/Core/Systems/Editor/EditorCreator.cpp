@@ -59,6 +59,18 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Creates a camera on the editor's current level.
+    */
+    /**************************************************************************/
+    void EditorCreator::CreateCamera()
+    {
+      std::vector<std::string> components;
+      components.push_back("Camera");
+      Create("Camera", components);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Creates a GameObject from an Archetype into the current space.
     @param archetypeName The name of the Archetype.
     */
@@ -67,7 +79,7 @@ namespace DCEngine {
     {
       auto gameObject = EditorRef.CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
       EditorRef.Select(gameObject);
-      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.Inspector.Toggle(true);
       EditorRef.MoveToViewportCenter(gameObject);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(gameObject, EditorRef.CurrentSpace,
@@ -86,12 +98,13 @@ namespace DCEngine {
     {
       // Create the object
       auto object = EditorRef.CurrentSpace->CreateObject();
+      object->setObjectName(name);
       // Add the components
       for (auto& componentName : components) {
         object->AddComponentByName(componentName);
       }
       EditorRef.Select(object);
-      EditorRef.Windows.PropertiesEnabled = true;
+      EditorRef.Inspector.Toggle(true);
       EditorRef.MoveToViewportCenter(object);
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(object, EditorRef.CurrentSpace,

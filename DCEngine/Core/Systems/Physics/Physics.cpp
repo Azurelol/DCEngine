@@ -122,6 +122,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Update(float dt)
 		{
+      SystemTimer profile(this->Name());
 
       // Do not update physics while the engine is paused.
       if (Paused)
@@ -240,6 +241,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::Integrate(float dt, Components::PhysicsSpace* physpace)
 		{
+      SystemMethodTimer timer("Integrate", EnumeratedSystem::Physics);
 			auto& bodies = physpace->AllRigidBodies();
 
 
@@ -261,24 +263,13 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::PublishResults(Components::PhysicsSpace* physpace)
 		{
+      SystemMethodTimer timer("PublishResults", EnumeratedSystem::Physics);
 			auto& bodies = physpace->AllRigidBodies();
 
       for (auto rigidbody : bodies) {
         if (rigidbody != nullptr)
           rigidbody->PublishResults();
       }
-
-			//for (int i = 0; i < bodies.size(); ++i)
-			//{
-			//	if (bodies[i]->getComponent<RigidBody>() != NULL)
-			//	{
-			//		bodies[i]->getComponent<RigidBody>()->PublishResults();
-			//	}
-			//	else
-			//	{
-			//		throw DCException("An object without a RigidBody got into the list of RigidBodies");
-			//	}
-			//}
 		}
 
     /**************************************************************************/
@@ -290,6 +281,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Physics::UpdateTransforms(Components::PhysicsSpace *physpace)
     {
+      SystemMethodTimer timer("UpdateTransforms", EnumeratedSystem::Physics);
       auto objects = dynamic_cast<Space*>(physpace->Owner())->AllObjects();
 
       for (auto current : *objects)
@@ -312,7 +304,7 @@ namespace DCEngine {
     void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
 		{
       // For all gameobjects with a 'Collider' component
-
+      SystemMethodTimer timer("BroadPhaseDetection", EnumeratedSystem::Physics);
       Components::ColliderContainer& list = physpace->AllColliders();
 
 			//find extent of all objects
@@ -539,6 +531,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist)
 		{
+      SystemMethodTimer timer("NarrowPhaseDetection", EnumeratedSystem::Physics);
 			GameObject * obj1, *obj2;
       std::pair<GameObjectPtr, GameObjectPtr> pair;
 			Manifold collision;

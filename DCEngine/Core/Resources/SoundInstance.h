@@ -31,18 +31,12 @@ namespace DCEngine {
     SoundCue::SoundCueType Type;
     std::string StudioEventName;
     FMODSoundHandle SoundHandle;    
-    PlaybackSettings Settings;
-
-    //PlayMode Mode;
-    //float Volume = 1.0f;
-    //float VolumeVariation = 0.0f;
-    //float Pitch = 1.0f;
-    //float PitchVariation = 0.0f;
-    //bool Loop = false;
+    PlaybackSettings Settings;    
     bool Paused = false;
-    SoundCueHandle SoundCue;
-    //DCE_DEFINE_PROPERTY(PlayMode, Mode);  
+    SoundCueHandle SoundCue;    
+
     // Methods
+    void SetParameter(Systems::EventParameterHandle parameter, float value);
     void InterpolateVolume(Real newVolume, Real time);
     void InterpolatePitch(Real newPitch, Real time);
     void Resume();

@@ -16,13 +16,24 @@
 namespace DCEngine {
 
   namespace Time {
+    // A framework that relates a time point to real physical time
+    using clock = std::chrono::high_resolution_clock;
+    // A reference to a specific point in time, like one's birthday, etc
+    //  high_resolution_clock is the clock with the shortest tick period
+    using timePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
+    using ms = std::chrono::milliseconds;
+    using us = std::chrono::microseconds;
+    using FunctionTimeSlice = std::pair<std::string, float>;
+    using FunctionTimeSliceVec = std::vector<FunctionTimeSlice>;
+    using FunctionTimes = std::pair<FunctionTimeSliceVec, FunctionTimeSliceVec>;
+
 
     class Timer {
     public:
 
       enum class Mode {
         StopWatch,
-        timer,
+        Countdown,
       };
 
       Timer(float duration, Mode mode, bool reset);
@@ -36,20 +47,12 @@ namespace DCEngine {
       Mode CurrentMode;      
     };
 
-    // A framework that relates a time point to real physical time
-    using clock = std::chrono::high_resolution_clock;
-    // A reference to a specific point in time, like one's birthday, etc
-    //  high_resolution_clock is the clock with the shortest tick period
-    using timePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
-    using ms = std::chrono::milliseconds;
-    using us = std::chrono::microseconds;
     // Durations measure time spans, like one minute, two hours, ten ms
     using floatSeconds = std::chrono::duration<float>;
 
 
     class ScopeTimer {
     public:
-
       /**************************************************************************/
       /*!
       \brief
@@ -58,7 +61,7 @@ namespace DCEngine {
       A pointer to a float.
       */
       /**************************************************************************/
-      ScopeTimer(float* output) : _Start(Time::clock::now()), _RetVal(output) {}
+      ScopeTimer(float* output) : StartTime(Time::clock::now()), _RetVal(output) {}
 
       /**************************************************************************/
       /*!
@@ -70,17 +73,40 @@ namespace DCEngine {
       /**************************************************************************/
       ~ScopeTimer() {
 
-        _End = Time::clock::now();
-        Time::floatSeconds duration = _End - _Start;
+        EndTime = Time::clock::now();
+        Time::floatSeconds duration = EndTime - StartTime;
         *_RetVal = duration.count();
 
       }
 
     private:
-      Time::timePoint _Start;
-      Time::timePoint _End;
+      Time::timePoint StartTime;
+      Time::timePoint EndTime;
       float* _RetVal;
     };
+
+
+    /**************************************************************************/
+    /*!
+    @class FunctionTimer Times a function, invoking a report method on the
+           destructor.
+    */
+    /**************************************************************************/
+    class FunctionTimer {
+    public:
+      FunctionTimer() : StartTime(Time::clock::now()) {}
+      void Record();
+      virtual void Report() = 0;
+      float ElapsedTime;
+
+    private:
+      Time::timePoint StartTime;
+      Time::timePoint EndTime;
+    };
+
+
+    
+
 
   }
 

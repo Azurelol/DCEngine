@@ -12,7 +12,7 @@
 #include "ReboundComponent.h"
 #include "../../../Core/Components/BoxCollider.h"
 
-#define BallControllerTraceOn 0
+#define BallControllerTraceOn 1
 namespace DCEngine {
 	namespace Components
 	{
@@ -42,16 +42,16 @@ namespace DCEngine {
 			CollisionTablePtr CollisionTableRef;
 			//CircleCollider* ColliderRef;
 			Real CurrentCharge = 0.0f;
-			Real MaxCharge = 2.0f;
+			Real MaxCharge = 1.0f;
 			Real MinCharge = 0.5f;
-			Real ChargeFactor = 10.0f * 1000.0f;
+			Real ChargeFactor = 20.0f * 1000.0f;
 			Real Restitution = 0.1f; //set from 0 to 1
 			Real Friction = 0.1f; //set from 0 to 1
 			Real AttractPower = 400.0f;
 			Real AttractYBoost = 3.0f;
-		    Real MaxAttractSpeed = 50.0f;
-		    Real MinAttractSpeed = 25.0f;
-            Real MaxAttractForce = 50.0f;
+		    Real MaxAttractSpeed = 12.50f;
+		    Real MinAttractSpeed = 6.0f;
+            Real MaxAttractForce = 12.50f;
             Real AttractArriveDistance = 200.0f;
 			Real SlamPower = ChargeFactor * MaxCharge;
 			Real MinimumLightRange = 0.2f;
@@ -98,6 +98,7 @@ namespace DCEngine {
 			void OnCollisionEndedEvent(Events::CollisionEnded* event);
 			void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event);
 			void ChangeColor();
+			void ParentToPlayer();
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
 			ZilchDeclareDerivedType(BallController, Component);

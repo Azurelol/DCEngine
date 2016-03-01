@@ -46,6 +46,10 @@ namespace DCEngine {
 		{
 			if (event->OtherObject->getComponent<Components::BallController>())
 			{
+				if (event->OtherObject->Parent() != nullptr)
+				{
+					return;
+				}
 				BallRef = event->OtherObject;
 				BallRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 				BallRef->getComponent<Components::BallController>()->Locked = true;
@@ -63,7 +67,10 @@ namespace DCEngine {
 			{
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
 				BallRef->getComponent<Components::BallController>()->Locked = false;
-				BallRef->getComponent<Components::Transform>()->setTranslation(event->OtherObject->getComponent<Components::Transform>()->getTranslation());
+				if (event->OtherObject->Parent() != nullptr)
+				{
+					BallRef->getComponent<Components::BallController>()->ParentToPlayer();
+				}
 				BallRef = NULL;
 			}
 		}

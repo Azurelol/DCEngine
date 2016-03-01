@@ -21,8 +21,7 @@ namespace DCEngine {
 	@param editor A reference to the Editor system.
 	*/
 	/**************************************************************************/
-    EditorArchetypes::EditorArchetypes(Editor & editor) : Module("EditorArchetypes"), 
-                                                          EditorRef(editor),  CurrentArchetype(nullptr),
+    EditorArchetypes::EditorArchetypes(Editor & editor) : EditorModule(editor, false), CurrentArchetype(nullptr),
                                                           ArchetypeSpace(nullptr)
     {
       Daisy->Connect<Events::EditorDeselectObject>(&EditorArchetypes::OnEditorDeselectObjectEvent, this);
@@ -98,6 +97,11 @@ namespace DCEngine {
       // Request the factory system to rebuild the object's components
       // from its archetype.
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
+    }
+
+    GameObject* EditorArchetypes::Current()
+    {
+      return CurrentArchetype;
     }
 
     /**************************************************************************/

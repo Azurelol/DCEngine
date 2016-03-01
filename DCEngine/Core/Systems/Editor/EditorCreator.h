@@ -21,6 +21,7 @@ namespace DCEngine {
       void CreateSpriteText();
       void CreateParticleSystem();
       void CreateLight();
+      void CreateCamera();      
       void CreateFromArchetype(const std::string& archetypeName);
 
     private:

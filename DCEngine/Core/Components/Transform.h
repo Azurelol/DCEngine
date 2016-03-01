@@ -13,9 +13,13 @@
 #pragma once
 #include "ComponentReference.h"
 
-namespace DCEngine {
-  
 
+namespace DCEngine {
+ 
+  namespace
+  {
+    float PI = 3.14159265359f;
+  }
 
   class GameObject;
   namespace Components
@@ -40,6 +44,9 @@ namespace DCEngine {
       Vec3 LocalRotation = Rotation;
       Vec3 LocalScale = Scale;
       
+
+      //const Vec3 &getRotation(void);
+      //void setRotation(Vec3 const & rot);
       TransformDataPair getTransformDataPair();
       ZilchDeclareDerivedType(Transform, Component);
       Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
@@ -50,6 +57,7 @@ namespace DCEngine {
 
     private:
 
+      Vec3 DRotation;
       Vec3 Origin = Vec3(0, 0, 0);
       Vec3 PrevTranslation = Translation;
       Vec3 PrevRotation = Rotation;

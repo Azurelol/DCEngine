@@ -151,10 +151,6 @@ namespace DCEngine {
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();    
     Systems::DispatchSystemEvents::EngineInitialized();
-
-    // Toggle the editor
-    //if (EngineConfiguration->EditorEnabled)
-    //  getSystem<Systems::Editor>()->ToggleEditor();
   }
 
   /**************************************************************************/
@@ -242,6 +238,9 @@ namespace DCEngine {
   void Engine::Update(float dt) {
     if (TRACE_UPDATE)
       DCTrace << "\n[Engine::Update] \n";
+    // The profile gets updated at the end of the frame so that
+    // it clears the list.
+    Profile.Update(dt);
 
     // Tell window management system to begin new frame
     getSystem<Systems::Window>()->StartFrame();
@@ -255,8 +254,9 @@ namespace DCEngine {
 
     // Update all the sytems at the end of the frame, based on the order
     // they were added to the engine. (Or split it and do it individually?)
-    for (auto system : Systems)
+    for (auto system : Systems) {
       system->Update(dt);
+    }
 
     //if (PauseMenuEnabled)
     //  PauseMenu();
@@ -265,6 +265,7 @@ namespace DCEngine {
     getSystem<Systems::Graphics>()->EndFrame();
     getSystem<Systems::GUI>()->Render();    
     getSystem<Systems::Window>()->EndFrame();
+    
 
     if (TRACE_UPDATE)
       DCTrace << "[Engine::Update - All systems updated.] \n";

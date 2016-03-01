@@ -20,9 +20,6 @@
 namespace DCEngine {
   namespace Systems {
 
-
-    float localCounter = 0;
-    int frameCounter = 0;
     /**************************************************************************/
     /*!
     \brief  Constructor for the WindowSFML class.
@@ -146,17 +143,7 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-      localCounter += dt;
-      ++frameCounter;
-      if (localCounter > 0.5)
-      {
-        std::stringstream ss;
-        ss << WindowInterface.Caption << "              [FPS =" << int(frameCounter / localCounter) << "]";
-        WindowContext->setTitle(ss.str());
-        windowsTitle = ss.str();
-        localCounter = 0;
-        frameCounter = 0;
-      }
+
       
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
