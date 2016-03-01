@@ -1,0 +1,13 @@
+
+{
+  "PhysicsMaterial": 
+  {
+    "Name": "Tuff", 
+    "Properties": 
+    {
+      "Density": 0.000000, 
+      "Restitution": 0.000000, 
+      "Friction": 0.000000
+    }
+  }
+}
