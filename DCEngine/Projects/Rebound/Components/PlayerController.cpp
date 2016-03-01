@@ -28,6 +28,13 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
+
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportArriveSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, FootstepSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, LandSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, CollideSound);
     }
     #endif
 

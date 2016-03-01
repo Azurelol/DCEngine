@@ -1853,7 +1853,13 @@
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
-            "AutoPlayTimer": 2.000000
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "FootstepSound": "Step", 
+            "LandSound": "Land", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -8899,7 +8905,8 @@
             "LastTrack": "NO TRACK SET", 
             "Volume": 0.000000, 
             "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
+            "FadeOutTime": 0.000000, 
+            "PlayOnStart": true
           }
         }
       }, 
