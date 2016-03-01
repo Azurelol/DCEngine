@@ -75,6 +75,7 @@ namespace DCEngine {
       Vec3 endPosition;
       float jumpTimer = 0;
       float dt;
+      Vec4 defaultColor;
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 

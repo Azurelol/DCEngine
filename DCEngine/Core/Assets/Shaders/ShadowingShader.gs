@@ -57,7 +57,10 @@ void EmitQuad(vec3 StartVertex, vec3 EndVertex, mat4 projview)
 void main()
 {
 	mat4 projview = projection * view;
-	EmitQuad(WorldPos[0], WorldPos[1], projview);
+  float len1 = length(WorldPos[0] - gLight.Position);
+  float len2 = length(WorldPos[1] - gLight.Position);
+  if(gLight.Range > len1 || gLight.Range > len2)
+	  EmitQuad(WorldPos[0], WorldPos[1], projview);
 	//EmitQuad(WorldPos[1], WorldPos[2]);
 	//EmitQuad(WorldPos[2], WorldPos[0]);
 }
