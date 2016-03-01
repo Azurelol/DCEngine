@@ -1180,9 +1180,7 @@ namespace DCEngine
     {
       Vec3 topL, topR, botL, botR, Rseg;
 
-      bool retval = false;
-
-      float Height = box->getSize().y, Width = box->getSize().x, rot = Translation->Rotation.z;
+      float Height = box->Size.y, Width = box->Size.x, rot = Translation->Rotation.z;
 
       float Dist = FLT_MAX;
 
