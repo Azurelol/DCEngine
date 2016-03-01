@@ -114,9 +114,9 @@ namespace DCEngine {
        
         Ray rightRay;
         rightRay.Direction = Vec3(1, 0, 0);
-        leftRay.Origin = owner->TransformRef->Translation;
+        rightRay.Origin = owner->TransformRef->Translation;
         CastResult castRight = owner->PhysicsSpaceRef->CastRay(rightRay, filter);
-        if (castRight.ObjectHit == owner->player);
+        if (castRight.ObjectHit == owner->player)
         {
           DCTrace << "Lancer: detect player right\n";
           owner->stateMachine->ChangeState(ChargeRight::Instance());

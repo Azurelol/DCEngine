@@ -1318,7 +1318,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Terrain", 
             "Size": 
             {
               "Vec3": 
@@ -2105,8 +2105,8 @@
             {
               "Vec3": 
               {
-                "x": -131.688889, 
-                "y": 6.755555, 
+                "x": -132.133331, 
+                "y": 2.755555, 
                 "z": 0.000000
               }
             }, 
@@ -2123,8 +2123,8 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 5.000000, 
+                "x": 4.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -2181,13 +2181,13 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
-            "IdleRange": 0.000000, 
+            "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000
           }, 
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "Size": 
             {
               "Vec3": 
@@ -2392,8 +2392,8 @@
             {
               "Vec3": 
               {
-                "x": -179.733337, 
-                "y": 5.600000, 
+                "x": -179.822220, 
+                "y": 2.755555, 
                 "z": 0.000000
               }
             }, 
