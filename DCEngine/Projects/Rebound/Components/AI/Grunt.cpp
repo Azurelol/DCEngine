@@ -300,7 +300,14 @@ namespace DCEngine {
 
     void Grunt::Die::Exit(Grunt *owner)
     {
+		//create death particle
+		auto particle = owner->SpaceRef->CreateObject("EnemyExplosionParticle");
+		if (particle)
+		{
+			particle->getComponent<Components::Transform>()->setTranslation(owner->TransformRef->Translation); 
+		}
       // Destroy grunt
+
       owner->gameObj->Destroy();
     }
 
