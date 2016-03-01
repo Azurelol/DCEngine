@@ -70,6 +70,7 @@ namespace DCEngine {
 		void Graphics::Update(float dt) {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::Update \n";
+           
 
       // Start the profiler
       SystemTimer profile(this->Name());
@@ -110,32 +111,40 @@ namespace DCEngine {
 
 				UpdateObjects(dt);
 
-				glDrawBuffer(GL_NONE);
-				RenderZ0Scene(camera, 0);
-				glDepthFunc(GL_LESS);
+				//glDrawBuffer(GL_NONE);
+				//RenderZ0Scene(camera, 0);
+				//glDepthFunc(GL_LESS);
 
         if (!lightComponents.empty())
         {
           for (const auto& light : lightComponents)
           {
-            if (light->getCastShadows())
+            for (auto&& drawList : mDrawList)
             {
-              glDepthFunc(GL_LESS);
-              glDrawBuffer(GL_NONE);
-              glEnable(GL_STENCIL_TEST);
-              RenderShadows(camera, light);
-
-              glDrawBuffer(GL_FRONT_AND_BACK);
-              glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
-              glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-              glDepthFunc(GL_LEQUAL);
+              for (auto&& obj : drawList)
+              {
+                obj->SetUniforms(0, camera, light);
+                obj->Draw();
+              }
             }
-            RenderZ0Scene(camera, light);
-            glDisable(GL_STENCIL_TEST);
-            RenderObjects(camera, light);
-            glClear(GL_STENCIL_BUFFER_BIT);
+            //if (light->getCastShadows())
+            //{
+            //  glDepthFunc(GL_LESS);
+            //  glDrawBuffer(GL_NONE);
+            //  glEnable(GL_STENCIL_TEST);
+            //  RenderShadows(camera, light);
+            //
+            //  glDrawBuffer(GL_FRONT_AND_BACK);
+            //  glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
+            //  glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+            //  glDepthFunc(GL_LEQUAL);
+            //}
+            //RenderZ0Scene(camera, light);
+            //glDisable(GL_STENCIL_TEST);
+            //RenderObjects(camera, light);
+            //glClear(GL_STENCIL_BUFFER_BIT);
           }
-          glDrawBuffer(GL_FRONT_AND_BACK);
+          //glDrawBuffer(GL_FRONT_AND_BACK);
         }
         else
         {

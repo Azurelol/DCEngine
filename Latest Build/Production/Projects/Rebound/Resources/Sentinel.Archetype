@@ -1,0 +1,123 @@
+
+{
+  "GameObject": 
+  {
+    "Name": "Sentinel", 
+    "Archetype": "Sentinel", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": 12.738161, 
+            "y": 30.721380, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "Sprite": 
+      {
+        "Visible": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.500000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "square", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 0
+      }, 
+      "BoxCollider": 
+      {
+        "PhysicsMaterial": "", 
+        "CollisionGroup": "Default", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }, 
+      "RigidBody": 
+      {
+        "Mass": 10.000000, 
+        "Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "AngularVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Mass": 10.000000, 
+        "RotationLocked": true
+      }, 
+      "HealthController": 
+      {
+        "MaxHealth": 1, 
+        "StartingHealth": 1
+      }, 
+      "Sentinel": 
+      {
+        "PlayerName": "Player", 
+        "IdleRange": 100.000000, 
+        "MoveSpeed": 0.000000, 
+        "ShieldArchetype": ""
+      }
+    }
+  }
+}
