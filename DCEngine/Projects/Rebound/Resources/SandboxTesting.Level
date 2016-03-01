@@ -2032,7 +2032,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "Size": 
             {
               "Vec3": 
