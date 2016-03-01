@@ -114,27 +114,41 @@ namespace DCEngine {
 				RenderZ0Scene(camera, 0);
 				glDepthFunc(GL_LESS);
 
-				for (const auto& light : lightComponents)
-				{
-					if (light->getCastShadows())
-					{
-						glDepthFunc(GL_LESS);
-						glDrawBuffer(GL_NONE);
-						glEnable(GL_STENCIL_TEST);
-						RenderShadows(camera, light);
+        if (!lightComponents.empty())
+        {
+          for (const auto& light : lightComponents)
+          {
+            if (light->getCastShadows())
+            {
+              glDepthFunc(GL_LESS);
+              glDrawBuffer(GL_NONE);
+              glEnable(GL_STENCIL_TEST);
+              RenderShadows(camera, light);
 
-						glDrawBuffer(GL_FRONT_AND_BACK);
-						glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
-						glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-						glDepthFunc(GL_LEQUAL);
-					}
-					RenderZ0Scene(camera, light);
-					glDisable(GL_STENCIL_TEST);
-					RenderObjects(camera, light);
-					glClear(GL_STENCIL_BUFFER_BIT);
-				}
-				glDrawBuffer(GL_FRONT_AND_BACK);
-
+              glDrawBuffer(GL_FRONT_AND_BACK);
+              glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
+              glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+              glDepthFunc(GL_LEQUAL);
+            }
+            RenderZ0Scene(camera, light);
+            glDisable(GL_STENCIL_TEST);
+            RenderObjects(camera, light);
+            glClear(GL_STENCIL_BUFFER_BIT);
+          }
+          glDrawBuffer(GL_FRONT_AND_BACK);
+        }
+        else
+        {
+          glDrawBuffer(GL_FRONT_AND_BACK);
+          for (auto&& drawList : mDrawList)
+          {
+            for (auto&& obj : drawList)
+            {
+                obj->SetUniforms(0, camera, 0);
+                obj->Draw();
+            }
+          }
+        }
 				DrawDebug();
 				
 				for (auto&& drawList : mDrawList)
