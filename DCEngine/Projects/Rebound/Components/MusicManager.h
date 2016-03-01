@@ -50,7 +50,7 @@ namespace DCEngine {
       Real FadeOutTime = 0;
       int play = 0;
       Boolean PlayOnStart = true;
-
+      int PlayingObj = 0;
     };
 
   }

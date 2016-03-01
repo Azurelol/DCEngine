@@ -5914,7 +5914,10 @@
             "MaxAttractSpeed": 50.000000, 
             "MaxAttractForce": 100.000000, 
             "AttractArriveDistance": 200.000000, 
-            "MinAttractSpeed": 25.000000
+            "MinAttractSpeed": 25.000000, 
+            "CommandSound": "Command", 
+            "CollideSound": "CollideStone", 
+            "FreezeSound": "Freeze"
           }, 
           "Light": 
           {
@@ -8902,8 +8905,8 @@
           "MusicManager": 
           {
             "CurrentTrack": "DesertLab", 
-            "LastTrack": "NO TRACK SET", 
-            "Volume": 0.000000, 
+            "LastTrack": "DesertLab", 
+            "Volume": 1.000000, 
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000, 
             "PlayOnStart": true

@@ -29,7 +29,10 @@ namespace DCEngine {
 
     MusicManager::~MusicManager()
     {
-      SpaceRef->getComponent<Components::SoundSpace>()->StopCue(CurrentTrack);
+      if (this->getObjectID() == PlayingObj)
+      {
+        SpaceRef->getComponent<Components::SoundSpace>()->StopCue(CurrentTrack);
+      }
     }
 
     void MusicManager::Initialize()
@@ -42,6 +45,7 @@ namespace DCEngine {
       if (PlayOnStart == true)
       {
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+        PlayingObj = this->getObjectID();
       }
     }
 
