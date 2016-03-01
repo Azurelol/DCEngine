@@ -52,12 +52,15 @@ namespace DCEngine
 
     glm::vec3 Point = point;
 
+    float rot = (3.14159265359f / 180.0f) * rotation.z;
+
+
     Point -= translation;
 
     glm::vec3 temp = Point;
 
-    Point.x = cos(-rotation.z) * temp.x + -sin(-rotation.z) * temp.y;
-    Point.y = sin(-rotation.z) * temp.x +  cos(-rotation.z) * temp.y;
+    Point.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    Point.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
 
     Point += translation;
 
@@ -214,8 +217,8 @@ namespace DCEngine
     float Width0 = boxcollider1->getColliderScale().x ;
     float Width1 = boxcollider2->getColliderScale().x ;
 
-    float rot0 = transform1->Rotation.z;
-    float rot1 = transform2->Rotation.z;
+    float rot0 = (3.14159265359f / 180.0f) * transform1->Rotation.z;
+    float rot1 = (3.14159265359f / 180.0f) * transform2->Rotation.z;
 
     std::vector<glm::vec3> verts1;
     std::vector<glm::vec3> verts2;
@@ -630,6 +633,7 @@ namespace DCEngine
       throw DCException("An object Missing a Transform component got passed to BoxtoCircle");
     }
 
+    float rot = (3.14159265359f / 180.0f) * transform2->Rotation.z;
 
     glm::vec3 CircleCenter = transform1->Translation + circlecollider->getOffset();
 
@@ -637,8 +641,8 @@ namespace DCEngine
 
     glm::vec3 temp = CircleCenter;
 
-    CircleCenter.x = cos(-transform2->WorldRotation.z) * temp.x + -sin(-transform2->WorldRotation.z) * temp.y;
-    CircleCenter.y = sin(-transform2->WorldRotation.z) * temp.x + cos(-transform2->WorldRotation.z) * temp.y;
+    CircleCenter.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    CircleCenter.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
 
     CircleCenter += transform2->Translation + boxcollider->getOffset().x;
 
@@ -1029,8 +1033,10 @@ namespace DCEngine
 
     glm::vec3 temp = point;
 
-    point.x = cos(-transform->WorldRotation.z) * temp.x + -sin(-transform->WorldRotation.z) * temp.y;
-    point.y = sin(-transform->WorldRotation.z) * temp.x + cos(-transform->WorldRotation.z) * temp.y;
+    float rot = (3.14159265359f / 180.0f) * transform->Rotation.z;
+
+    point.x = cos(-rot) * temp.x + -sin(-rot) * temp.y;
+    point.y = sin(-rot) * temp.x +  cos(-rot) * temp.y;
 
     point += transform->Translation;
 
@@ -1180,7 +1186,9 @@ namespace DCEngine
     {
       Vec3 topL, topR, botL, botR, Rseg;
 
-      float Height = box->Size.y, Width = box->Size.x, rot = Translation->Rotation.z;
+      float Height = box->getColliderScale().y;
+      float Width = box->getColliderScale().x;
+      float rot = (3.14159265359f / 180.0f) * Translation->Rotation.z;
 
       float Dist = FLT_MAX;
 
@@ -1195,48 +1203,48 @@ namespace DCEngine
 
       botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
       botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
-      
 
       if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
-		  if (Rseg == line.Origin)
-		  {
-			  Distance = 0;
-			  return true;
-		  }
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
       {
-		  if (Rseg == line.Origin)
-		  {
-			  Distance = 0;
-			  return true;
-		  }
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
       {
-		  if (Rseg == line.Origin)
-		  {
-			  Distance = 0;
-			  return true;
-		  }
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }
 
       if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
       {
-		  if (Rseg == line.Origin)
-		  {
-			  Distance = 0;
-			  return true;
-		  }
+		    if (Rseg == line.Origin)
+		    {
+			    Distance = 0;
+			    return true;
+		    }
+         
         Distance = glm::length(Rseg - line.Origin);
         return true;
       }

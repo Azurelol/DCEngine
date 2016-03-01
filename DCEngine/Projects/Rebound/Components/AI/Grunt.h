@@ -39,6 +39,9 @@ namespace DCEngine {
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
+      Vec4 IdleColor = Vec4(0, 1, 0, 1);
+      Vec4 PatrolColor = Vec4(0, 0, 1, 1);
+      Vec4 AttackColor = Vec4(1, 0, 0, 1);
 
       
 
@@ -55,6 +58,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthX);
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthY);
       DCE_DEFINE_PROPERTY(float, AttackJumpPeriod);
+      DCE_DEFINE_PROPERTY(Vec4, IdleColor);
+      DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
+      DCE_DEFINE_PROPERTY(Vec4, AttackColor);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
@@ -75,6 +81,7 @@ namespace DCEngine {
       Vec3 endPosition;
       float jumpTimer = 0;
       float dt;
+      Vec4 defaultColor;
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 

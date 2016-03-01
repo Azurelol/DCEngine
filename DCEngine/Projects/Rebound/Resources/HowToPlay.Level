@@ -2,7 +2,7 @@
 {
   "Level": 
   {
-    "Name": "MoonwardLogo", 
+    "Name": "HowToPlay", 
     "GameObjects": 
     {
       "GameObject": 
@@ -53,7 +53,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Background", 
+        "Name": "Light", 
         "Archetype": "", 
         "Components": 
         {
@@ -63,8 +63,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 11.000000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -81,8 +81,78 @@
             {
               "Vec3": 
               {
-                "x": 50.000000, 
-                "y": 50.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Ambient", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.671000, 
+            "Range": 500.000000, 
+            "Falloff": 2.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Sprite", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 30.000000, 
                 "z": 1.000000
               }
             }
@@ -94,13 +164,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "HTPImagev2", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -111,7 +181,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Logo", 
+        "Name": "BackButtonHTP", 
         "Archetype": "", 
         "Components": 
         {
@@ -122,7 +192,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -13.000000, 
                 "z": 0.000000
               }
             }, 
@@ -139,8 +209,8 @@
             {
               "Vec3": 
               {
-                "x": 20.000000, 
-                "y": 20.000000, 
+                "x": 8.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -155,39 +225,15 @@
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 0.000000
+                "w": 1.000000
               }
             }, 
-            "SpriteSource": "MoonwardLogo", 
+            "SpriteSource": "BackButton", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "Fade": 
-          {
-            "Timer": 0.000000, 
-            "FadeTime": 4.000000, 
-            "FadeTimeGrowth": 0.500000, 
-            "TargetColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Fading": true, 
-            "Pulse": false
-          }, 
-          "LevelManager": 
-          {
-            "NextLevel": "MainMenu", 
-            "LoadingTime": 4.000000, 
-            "TimerStarted": true
           }, 
           "Reactive": 
           {
