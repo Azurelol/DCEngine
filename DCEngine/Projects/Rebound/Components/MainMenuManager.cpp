@@ -116,6 +116,7 @@ namespace DCEngine {
       if (DisplayConfirmationActive)
         return;
       DCTrace << "MainMenuManager::OnCreditsClicked \n";
+      SpaceRef->LoadLevel(LevelCredits);
     }
 
     void MainMenuManager::OnExitClicked(Events::MouseClickedOn * event)
