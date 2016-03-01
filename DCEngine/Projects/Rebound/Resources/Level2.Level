@@ -5271,8 +5271,8 @@
             {
               "Vec3": 
               {
-                "x": 96.622833, 
-                "y": 3.651084, 
+                "x": 96.500000, 
+                "y": 3.712500, 
                 "z": 0.000000
               }
             }, 
@@ -5318,7 +5318,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Shield", 
+            "CollisionGroup": "Default", 
             "Size": 
             {
               "Vec3": 
@@ -6993,9 +6993,9 @@
             {
               "Vec3": 
               {
-                "x": 33.777782, 
-                "y": 3.733335, 
-                "z": 0.000000
+                "x": 5.789633, 
+                "y": 3.002574, 
+                "z": 1.000000
               }
             }, 
             "Rotation": 
@@ -7034,8 +7034,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "LevelGoal", 
-        "Archetype": "LevelGoal", 
+        "Name": "PauseManager", 
+        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -7044,8 +7044,8 @@
             {
               "Vec3": 
               {
-                "x": 109.442924, 
-                "y": 2.143563, 
+                "x": -8.800000, 
+                "y": 16.177778, 
                 "z": 0.000000
               }
             }, 
@@ -7062,15 +7062,60 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "Sprite": 
+          "PauseManager": 
+          {
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.303611, 
+                "y": 7.353416, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
           {
             "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -7081,62 +7126,20 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "VictorySymbol", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
-            "Size": 
+            "Intensity": 1.000000, 
+            "Range": 50.000000, 
+            "Falloff": 0.100000, 
+            "DirectionVector": 
             {
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "LevelManager": 
-          {
-            "NextLevel": "Level6", 
-            "LoadingTime": 3.000000, 
-            "TimerStarted": false
-          }, 
-          "Fade": 
-          {
-            "Timer": 0.000000, 
-            "FadeTime": 0.500000, 
-            "FadeTimeGrowth": 0.750000, 
-            "TargetColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Fading": false, 
-            "Pulse": true
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
           }
         }
       }
