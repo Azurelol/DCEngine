@@ -72,6 +72,7 @@ namespace DCEngine {
   /**************************************************************************/
   std::string Resource::Build()
   {
+    DCTrace << Name() << "::Resource::Build \n";
     Zilch::JsonBuilder builder;
     builder.Begin(Zilch::JsonType::Object);
     {
