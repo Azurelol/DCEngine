@@ -69,7 +69,7 @@
               "Vec3": 
               {
                 "x": -14.000000, 
-                "y": 13.000000, 
+                "y": 11.000000, 
                 "z": 0.000000
               }
             }, 
@@ -8895,7 +8895,7 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "Sole Groove", 
+            "CurrentTrack": "DesertLab", 
             "LastTrack": "NO TRACK SET", 
             "Volume": 0.000000, 
             "FadeInTime": 0.000000, 
@@ -10503,7 +10503,7 @@
               "Vec3": 
               {
                 "x": 205.743118, 
-                "y": 76.922485, 
+                "y": 74.922485, 
                 "z": -0.100000
               }
             }, 

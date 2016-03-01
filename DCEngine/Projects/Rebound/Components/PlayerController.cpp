@@ -148,7 +148,7 @@ namespace DCEngine {
       {
         Grounded = true;
         // play landing sound.
-        this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(LandSound);
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
@@ -194,7 +194,7 @@ namespace DCEngine {
           Dead = false;
           this->SpaceRef->ReloadLevel();
     		  // Play teleport in sound.
-          this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(TeleportArriveSound);
+          SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
         }
         return;
       }
@@ -297,7 +297,8 @@ namespace DCEngine {
 		    DCTrace << "PlayerController::Jump";
 	    }
   	  // play jump sound
-      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(JumpSound);
+      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
     }
 
     void PlayerController::TakeDamage(int damage)
@@ -310,7 +311,7 @@ namespace DCEngine {
       Health -= damage;
 
       // Play hurt sound.
-      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(CollideSound);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
 
       if (PlayerControllerTraceOn)
       {
@@ -340,7 +341,7 @@ namespace DCEngine {
         cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
       }
       // play teleport start.
-      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(TeleportStartSound);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
     }
 
 
