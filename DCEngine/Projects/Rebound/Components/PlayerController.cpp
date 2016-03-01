@@ -147,7 +147,8 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::Transform>()->getTranslation().y + event->OtherObject->getComponent<Components::Transform>()->getScale().y / 2 < TransformRef->getTranslation().y)
       {
         Grounded = true;
-        //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
+        // play landing sound.
+        this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(LandSound);
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
@@ -192,6 +193,8 @@ namespace DCEngine {
         {
           Dead = false;
           this->SpaceRef->ReloadLevel();
+    		  // Play teleport in sound.
+          this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(TeleportArriveSound);
         }
         return;
       }
@@ -289,11 +292,12 @@ namespace DCEngine {
         Jumping = false;
         JumpFramesApplied = 0;
       }
-	  if (PlayerControllerTraceOn)
-	  {
-		  DCTrace << "PlayerController::Jump";
-	  }
-      //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
+	    if (PlayerControllerTraceOn)
+	    {
+		    DCTrace << "PlayerController::Jump";
+	    }
+  	  // play jump sound
+      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(JumpSound);
     }
 
     void PlayerController::TakeDamage(int damage)
@@ -304,7 +308,10 @@ namespace DCEngine {
       }
       SpriteComponent->Color = Vec4(1, 0, 0, 1);
       Health -= damage;
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Hit");
+
+      // Play hurt sound.
+      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(CollideSound);
+
       if (PlayerControllerTraceOn)
       {
         DCTrace << "PlayerController::TakeDamage:: Health = " << Health << ".\n";
@@ -314,6 +321,10 @@ namespace DCEngine {
       {
         Die();
       }
+	  else
+	  {
+		// play take damage sound.
+	  }
 
     }
 
@@ -328,6 +339,8 @@ namespace DCEngine {
       {
         cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
       }
+      // play teleport start.
+      this->SpaceRef->getComponent<Components::SoundEmitter>()->PlayCue(TeleportStartSound);
     }
 
 
