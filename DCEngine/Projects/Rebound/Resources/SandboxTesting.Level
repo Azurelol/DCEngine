@@ -35,7 +35,7 @@
             {
               "Vec3": 
               {
-                "x": 200.000000, 
+                "x": 400.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -1169,7 +1169,7 @@
             {
               "Vec3": 
               {
-                "x": 300.000000, 
+                "x": 600.000000, 
                 "y": 150.000000, 
                 "z": 1.000000
               }
@@ -2667,7 +2667,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Type": "Spot", 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 
@@ -2679,8 +2679,8 @@
               }
             }, 
             "Intensity": 0.882000, 
-            "Range": 84.000244, 
-            "Falloff": 0.807000, 
+            "Range": 2.000000, 
+            "Falloff": 1.041000, 
             "DirectionVector": 
             {
               "Vec3": 
