@@ -264,15 +264,15 @@ namespace DCEngine {
 
 		void BallController::PrintTranslation()
 		{
-			DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-				<< ", " << TransformRef->Translation.y
-				<< ", " << TransformRef->Translation.z << ")\n";
+			//DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+			//	<< ", " << TransformRef->Translation.y
+			//	<< ", " << TransformRef->Translation.z << ")\n";
 		}
 
 		void BallController::PrintVelocity()
 		{
 			Vec3 vel = RigidBodyRef->getVelocity();
-			DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y << ", " << vel.z << ")\n";
+			//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y << ", " << vel.z << ")\n";
 		}
 
 		void BallController::AttractBall()
