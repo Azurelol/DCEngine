@@ -96,20 +96,31 @@ namespace DCEngine {
         owner->stateMachine->ChangeState(Idle::Instance());
       else
       {
-        //Ray leftRay;
-        //leftRay.Direction = Vec3(-1, 0, 0);
-        //leftRay.Origin = owner->TransformRef->Translation;
-        //CastFilter filter;
-        //filter.CollisionGroups.push_back(CollisionGroup("Player"));
-        //filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
-        //filter.Include = true;
+        Ray leftRay;
+        leftRay.Direction = Vec3(-1, 0, 0);
+        leftRay.Origin = owner->TransformRef->Translation;
+        CastFilter filter;
+        filter.CollisionGroups.push_back(CollisionGroup("Player"));
+        filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+        filter.Include = true;
 
-        //CastResult castLeft = owner->PhysicsSpaceRef->CastRay(leftRay, filter);
-        //if(castLeft.)
-        if (direction.x < 0)
+        CastResult castLeft = owner->PhysicsSpaceRef->CastRay(leftRay, filter);
+        if (castLeft.ObjectHit == owner->player)
+        {
+          //if (direction.x < 0)
+          DCTrace << "Lancer: detect player left\n";
           owner->stateMachine->ChangeState(ChargeLeft::Instance());
-        else
+        }
+       
+        Ray rightRay;
+        rightRay.Direction = Vec3(1, 0, 0);
+        rightRay.Origin = owner->TransformRef->Translation;
+        CastResult castRight = owner->PhysicsSpaceRef->CastRay(rightRay, filter);
+        if (castRight.ObjectHit == owner->player)
+        {
+          DCTrace << "Lancer: detect player right\n";
           owner->stateMachine->ChangeState(ChargeRight::Instance());
+        }
       }
     }
 
