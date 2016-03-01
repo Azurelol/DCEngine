@@ -44,7 +44,7 @@ namespace DCEngine {
 
       if (PlayOnStart == true)
       {
-        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+//        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
         PlayingObj = this->getObjectID();
       }
     }

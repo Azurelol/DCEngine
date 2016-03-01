@@ -70,6 +70,7 @@ namespace DCEngine {
 			RigidBodyRef->setRestitution(Restitution);
 			RigidBodyRef->setFriction(Friction);
 			//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("DesertLab");
 		}
 
 		void BallController::Serialize(Json::Value & root)
@@ -173,6 +174,10 @@ namespace DCEngine {
 				CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
 			}
 
+      if (event->ButtonReleased == MouseButton::Right)
+      {
+        ball_can_play = true;
+      }
 
 		}
 
@@ -187,15 +192,6 @@ namespace DCEngine {
 					ParentToPlayer();
 				}
 			}
-      else
-      {
-        if (ball_can_play == true)
-        {
-          ball_can_play == false;
-          // play impact sound only if not hitting player.
-          //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
-        }
-      }
 		}
 
 		void BallController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -209,7 +205,6 @@ namespace DCEngine {
 					//gameObj->Detach();
 				}
 			}
-      ball_can_play = true;
 		}
 
 		void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -296,7 +291,15 @@ namespace DCEngine {
 			{
 				DCTrace << "BallController::AttractBall :: Now attracting!";
 			}
-			if (Frozen || Powering)
+
+      if (ball_can_play)
+      {
+        // play command sound.
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
+        ball_can_play = false;
+      }
+      
+      if (Frozen || Powering)
 			{
 				Frozen = false;
 				Powering = false;
@@ -331,8 +334,6 @@ namespace DCEngine {
         Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance, MinAttractSpeed);
         RigidBodyRef->ApplyLinearVelocity(arriveForce);
       }
-      // play command sound.
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
     }
 
 		void BallController::FreezeBall()
