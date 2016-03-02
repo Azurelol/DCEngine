@@ -1006,7 +1006,7 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
+            "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
           "RigidBody": 
@@ -1061,15 +1061,16 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.300000, 
+            "MoveSpeed": 0.700000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "Char_Asha_Run_Spritesheet", 
+            "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "AutoPlayTimer": 2.000000
           }, 
           "Light": 
@@ -2693,7 +2694,7 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 

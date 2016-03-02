@@ -159,7 +159,7 @@ namespace DCEngine {
 						if (light->getCastShadows())
 						{
 							glDepthFunc(GL_LESS);
-							glDrawBuffer(GL_FRONT);
+							glDrawBuffer(GL_NONE);
 							glEnable(GL_STENCIL_TEST);
 							RenderShadows(camera, light);
 							glStencilFunc(GL_GREATER, 0x3, 0xFF);
