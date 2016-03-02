@@ -122,6 +122,7 @@
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
+            "RunAnimation": "PlayerRun", 
             "AutoPlayTimer": 2.000000
           }, 
           "Light": 
@@ -141,8 +142,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.800000, 
-            "Range": 32.500080, 
+            "Intensity": 0.400000, 
+            "Range": 5.000000, 
             "Falloff": 0.300000, 
             "DirectionVector": 
             {
