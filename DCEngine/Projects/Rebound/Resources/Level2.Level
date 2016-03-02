@@ -54,11 +54,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Asha_Run_Spritesheet", 
+            "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 24.000000, 
+            "AnimationActive": true, 
+            "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
           "RigidBody": 
@@ -122,7 +122,7 @@
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
-            "RunAnimation": "PlayerRun", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "AutoPlayTimer": 2.000000
           }, 
           "Light": 
