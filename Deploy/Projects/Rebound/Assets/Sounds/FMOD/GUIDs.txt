@@ -1,0 +1,25 @@
+{5e0ff212-a968-49ca-bfe4-f09e1e44cccd} event:/Asha/Collide
+{074c0631-2439-40de-a518-01d30feb2013} event:/Asha/Jump
+{f5735140-7a1f-4a8d-99f1-a78a5cad3b9b} event:/Asha/Land
+{1eba8993-7fd4-4d77-8520-f089555860c8} event:/Asha/Step
+{fd337a26-0867-4d21-bf28-c8fc5dec92ad} event:/Ball/CollideMetal
+{4bec7bde-006f-4d09-8814-f28aaa44fd64} event:/Ball/CollideStone
+{36fbbfa0-1e53-46f6-b585-b8c2fdeb5205} event:/Ball/Command
+{18a4f676-898b-44c6-bdd1-22f6b688103e} event:/Ball/Freeze
+{ab4d2488-e5d3-420a-a789-faf6d2a4ebdf} event:/Misc/GeneratorPowerOn
+{740974cd-17da-4a6b-8d07-b8f6fe5853da} event:/Misc/SandSlideLong
+{feab9062-7128-4b6f-92ff-03f1d033a632} event:/Misc/SandSlideMedium
+{358831b4-314f-48f0-9f8c-dbba4dfab14f} event:/Misc/SandSlideShort
+{d9af9fd6-431b-4db0-bc92-de002ba84ad1} event:/Misc/Teleport
+{231057c8-98c7-4508-a7b7-c80105c50ce7} event:/Misc/TeleportArrive
+{06b6d538-0acc-418b-b7e4-7da2b84f538b} event:/Music/DesertLab
+{94f93528-c162-45ac-a178-10af56c95c17} bus:/
+{a77238f2-08b8-4d0c-bf83-6e9e942a0c7d} bus:/MASTER
+{5d6f9b91-cb2d-4ae1-8ea2-024de24ca668} bus:/MASTER/MUS
+{134bdfe0-49ae-45bb-8963-afbc3d57480a} bus:/MASTER/SFX
+{bb633ac1-90e4-4a00-91f9-41e6a507404a} vca:/MASTER
+{eba024cb-465e-403e-b9de-c7c5cee68ea9} vca:/MUS
+{d0dbb778-ccc1-483a-94bd-a334f072b042} vca:/SFX
+{41edbcb1-b1b2-4ec3-8c6b-e9acd183f6a9} bank:/Music
+{b9ce0c13-1790-40e1-b318-f49114aafbd0} bank:/SFX
+{a2934509-542c-4778-8990-7a783e6a7606} bank:/Master Bank

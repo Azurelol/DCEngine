@@ -1,0 +1,19 @@
+
+{
+  "SpriteSource": 
+  {
+    "Name": "Char_Asha_Run_Spritesheet", 
+    "Properties": 
+    {
+      "FrameRate": 24.000000, 
+      "PixelsPerUnit": 0.000000, 
+      "ColumnCount": 10, 
+      "RowCount": 1, 
+      "Smoothing": true, 
+      "Looping": true, 
+      "Fill": false, 
+      "TotalFrame": 10, 
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Char_Asha_Run_Spritesheet.png"
+    }
+  }
+}
