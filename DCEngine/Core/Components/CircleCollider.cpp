@@ -83,10 +83,6 @@ namespace DCEngine {
     }
 
     /* Getters */
-    String CircleCollider::getCollisionGroup() const
-    {
-      return CollisionGroup;
-    }
 
     Vec3 CircleCollider::getOffset(void)
     {

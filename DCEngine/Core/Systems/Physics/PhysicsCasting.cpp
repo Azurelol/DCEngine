@@ -23,7 +23,7 @@ namespace DCEngine
   namespace Systems 
   {
 
-    bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, DCEngine::CollisionGroup group)
+    bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, const DCEngine::CollisionGroup & group)
     {
       for (auto &Group : Groups)
       {

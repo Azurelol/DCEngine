@@ -90,7 +90,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Terrain", 
             "Size": 
             {
               "Vec3": 
@@ -218,7 +218,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Player", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "Size": 
             {
               "Vec3": 
