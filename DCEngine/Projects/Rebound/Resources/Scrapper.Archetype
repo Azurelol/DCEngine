@@ -2,7 +2,7 @@
 {
   "GameObject": 
   {
-    "Name": "Enemy", 
+    "Name": "Scrapper4", 
     "Archetype": "Scrapper", 
     "Components": 
     {
@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 59.063122, 
-            "y": 21.808744, 
+            "x": 262.391632, 
+            "y": -31.816240, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 1.500000, 
+            "y": 1.500000, 
             "z": 1.000000
           }
         }
@@ -49,7 +49,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "Wow", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -109,20 +109,50 @@
       "Grunt": 
       {
         "PlayerName": "Player", 
-        "IdleRange": 100.000000, 
-        "PatrolDistance": 20.000000, 
-        "IsPatrolRight": true, 
-        "JumpStrengthX": 5.000000, 
-        "JumpStrengthY": 25.000000, 
-        "JumpPeriod": 2.000000, 
-        "AttackJumpStrengthX": 10.000000, 
-        "AttackJumpStrengthY": 15.000000, 
-        "AttackJumpPeriod": 0.500000
+        "IdleRange": 20.000038, 
+        "PatrolDistance": 8.000000, 
+        "IsPatrolRight": false, 
+        "JumpStrengthX": 5.599995, 
+        "JumpStrengthY": 4.100003, 
+        "JumpPeriod": 0.500000, 
+        "AttackJumpStrengthX": 20.100040, 
+        "AttackJumpStrengthY": 12.000010, 
+        "AttackJumpPeriod": 1.000000, 
+        "IdleColor": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 1.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "PatrolColor": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "AttackColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }
       }, 
       "HealthController": 
       {
-        "MaxHealth": 1, 
-        "StartingHealth": 1
+        "MaxHealth": 0, 
+        "StartingHealth": 0
       }
     }
   }
