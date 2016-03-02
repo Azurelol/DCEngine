@@ -2440,7 +2440,7 @@
           "BoxCollider": 
           {
             "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Terrain", 
             "Size": 
             {
               "Vec3": 
