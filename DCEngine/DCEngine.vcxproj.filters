@@ -253,9 +253,6 @@
     <Filter Include="Core\Systems\Physics\PhysicsCasting">
       <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Input">
-      <UniqueIdentifier>{bec2abf2-633a-4dec-80f0-57595d8587fc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Physics\Broadphase">
       <UniqueIdentifier>{0da5a604-ce5b-4632-bb27-05c36d990304}</UniqueIdentifier>
     </Filter>
@@ -765,12 +762,6 @@
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Utilities.cpp">
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\CameraControl.cpp">
-      <Filter>Core\Systems\Editor\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
-      <Filter>Core\Systems\Editor\Input</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
@@ -883,8 +874,16 @@
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Projects\Rebound\Components\Shield.cpp">
       <Filter>Projects\Rebound\Components</Filter>
+=======
+    <ClCompile Include="Core\Systems\Editor\CameraControl.cpp">
+      <Filter>Core\Systems\Editor\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor\Configuration</Filter>
+>>>>>>> 276b3744cf2e4ee0f13b2ae13fc7d1ed7d3a5845
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
