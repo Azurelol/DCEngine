@@ -53,7 +53,14 @@ namespace DCEngine {
 				auto wall = SpaceRef->FindObjectByName(Target);
 				if (wall)
 				{
-					wall->getComponent<Components::MoveToLocation>()->setMoving(true);
+          if (wall->getComponent<Components::MoveToLocation>())
+          {
+            wall->getComponent<Components::MoveToLocation>()->setMoving(true);
+          }
+          else if (wall->getComponent<Components::Shield>())
+          {
+            wall->getComponent<Components::Shield>()->Deactivate();
+          }
 				}
 
 			}

@@ -132,7 +132,7 @@ namespace DCEngine {
       if (CurrentSpace->CurrentLevel)
         levelName = CurrentSpace->CurrentLevel->getObjectName();
 
-      DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName + " -                       Level: " + levelName);
+      DispatchSystemEvents::SetWindowCaption(projectName + " - Level: " + levelName + " - Daisy Chain Engine");
     }
 
 

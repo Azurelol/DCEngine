@@ -70,6 +70,7 @@ namespace DCEngine {
 		void Graphics::Update(float dt) {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::Update \n";
+           
 
       // Start the profiler
       SystemTimer profile(this->Name());
