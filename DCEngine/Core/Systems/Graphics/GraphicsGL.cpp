@@ -93,7 +93,10 @@ namespace DCEngine {
 			glEnable(GL_DEPTH_TEST);
 			//glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			if (lightingON)
+				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			else
+				glClearColor(.35f, .35f, .35f, .35f);
 			glStencilMask(~0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}

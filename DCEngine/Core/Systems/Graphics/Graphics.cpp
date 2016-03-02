@@ -43,6 +43,7 @@ namespace DCEngine {
 			if (TRACE_ON && TRACE_INITIALIZE)
 				DCTrace << "Graphics::Initialize \n";
 			GraphicsHandler->Initialize();
+			GraphicsHandler->lightingON = true;
 			// Subscribe to events
 			Subscribe();
 		}
@@ -111,45 +112,7 @@ namespace DCEngine {
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 				UpdateObjects(dt);
-				//glEnable(GL_DEPTH_TEST);
-        //if (!lightComponents.empty())
-        //{
-				//	glDrawBuffer(GL_NONE);
-				//	RenderZ0Scene(camera, 0);
-				//	glDepthFunc(GL_LESS);
-        //  for (const auto& light : lightComponents)
-        //  {
-        //    if (light->getCastShadows())
-        //    {
-        //      glDepthFunc(GL_LESS);
-        //      glDrawBuffer(GL_NONE);
-        //      glEnable(GL_STENCIL_TEST);
-        //      RenderShadows(camera, light);
-				//
-        //      glDrawBuffer(GL_FRONT_AND_BACK);
-        //      glStencilFunc(GL_GEQUAL, 0x2, 0xFF);
-        //      glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-        //    }
-				//		glDepthFunc(GL_LEQUAL);
-        //    RenderZ0Scene(camera, light);
-        //    glDisable(GL_STENCIL_TEST);
-        //    RenderObjects(camera, light);
-        //    glClear(GL_STENCIL_BUFFER_BIT);
-        //  }
-        //  glDrawBuffer(GL_FRONT_AND_BACK);
-        //}
-        //else
-        //{
-        //  glDrawBuffer(GL_FRONT);
-        //  for (auto&& drawList : mDrawList)
-        //  {
-        //    for (auto&& obj : drawList)
-        //    {
-        //        obj->SetUniforms(0, camera, 0);
-        //        obj->Draw();
-        //    }
-        //  }
-        //}
+
 				if (!lightComponents.empty())
 				{
 					glDrawBuffer(GL_NONE);
@@ -159,37 +122,36 @@ namespace DCEngine {
 						if (light->getCastShadows())
 						{
 							glDepthFunc(GL_LESS);
-							glDrawBuffer(GL_FRONT);
+							glDrawBuffer(GL_NONE);
 							glEnable(GL_STENCIL_TEST);
 							RenderShadows(camera, light);
-							glStencilFunc(GL_GREATER, 0x3, 0xFF);
+							glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
 							glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 						}
 						glDrawBuffer(GL_FRONT_AND_BACK);
+						glDepthFunc(GL_LEQUAL);
 						for (const auto& drawList : mDrawList)
 						{
 							for (const auto& obj : drawList)
 							{
-								glDepthFunc(GL_LEQUAL);
 								Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-								if (transform->Translation.z == 0)
-								{
-									if (light->getCastShadows())
-									{
-										glEnable(GL_STENCIL_TEST);
-									}
-								}
-								else
-								{
-									glDisable(GL_STENCIL_TEST);
-								}
-								glEnable(GL_BLEND);
-								glBlendFunc(GL_ONE, GL_ONE);
 								obj->SetUniforms(0, camera, light);
 								obj->Draw();
 							}
 						}
-						glClear(GL_STENCIL_BUFFER_BIT);
+					}
+					glClear(GL_STENCIL_BUFFER_BIT);
+				}
+				else
+				{
+					for (const auto& drawList : mDrawList)
+					{
+						for (const auto& obj : drawList)
+						{
+							Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
+							obj->SetUniforms(0, camera, 0);
+							obj->Draw();
+						}
 					}
 				}
 				glDisable(GL_STENCIL_TEST);
@@ -226,7 +188,10 @@ namespace DCEngine {
 
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
 			glEnable(GL_DEPTH_TEST);
-			glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+			if(light->getVisibilityCulling())
+				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+			else
+				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 
 			for (const auto& drawList : mDrawList)
 			{

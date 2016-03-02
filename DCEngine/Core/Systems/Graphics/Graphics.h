@@ -29,6 +29,7 @@ namespace DCEngine {
 
   struct GraphicsConfig {
     int MaxDrawLayers;
+
   };
 
 
@@ -69,7 +70,7 @@ namespace DCEngine {
 			Mat4 ViewProjMatrix;
 			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
 
-			
+			bool* lightingON;
 			
 
 			// Base methods

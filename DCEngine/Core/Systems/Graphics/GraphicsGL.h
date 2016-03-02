@@ -101,6 +101,8 @@ namespace DCEngine {
       GLuint LineVAO, CircleVAO, RectVAO;
       OpenGLStateData GLState;
 
+			bool lightingON;
+
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
       void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);      
