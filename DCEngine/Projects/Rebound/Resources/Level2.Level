@@ -126,19 +126,19 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": false, 
+            "CastShadows": true, 
             "Type": "Point", 
             "Color": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "x": 0.514000, 
+                "y": 0.264000, 
+                "z": 0.389000, 
+                "w": 0.689000
               }
             }, 
             "Intensity": 1.800000, 
@@ -6879,7 +6879,7 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
@@ -6949,7 +6949,7 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
@@ -6995,7 +6995,7 @@
               {
                 "x": 33.777782, 
                 "y": 3.733335, 
-                "z": 0.000000
+                "z": 40.000000
               }
             }, 
             "Rotation": 
@@ -7019,7 +7019,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 250.000000, 
+            "FieldOfView": 90.523003, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -7070,6 +7070,96 @@
           }, 
           "PauseManager": 
           {
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Background", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 65.186874, 
+                "y": 14.257324, 
+                "z": -10.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 500.000000, 
+                "y": 100.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.625000, 
+                "y": 0.687000, 
+                "z": 0.583000, 
+                "w": 0.417000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.729000, 
+                "y": 0.292000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.467000, 
+            "Range": 10000.000000, 
+            "Falloff": 0.100000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
           }
         }
       }

@@ -309,7 +309,8 @@ namespace DCEngine {
 				member = var + "Model";
 				shader->SetMatrix4(member.c_str(), lightMatrix);
 			}
-			else shader->SetInteger("useLight", 0);
+			else
+				shader->SetInteger("useLight", 0);
 
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
@@ -325,8 +326,8 @@ namespace DCEngine {
       if (!Visible)
         return;
 
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_ONE, GL_ONE);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_ONE, GL_ONE);
 			//glDepthFunc(GL_LEQUAL);
 			// Set the active texture
 			
