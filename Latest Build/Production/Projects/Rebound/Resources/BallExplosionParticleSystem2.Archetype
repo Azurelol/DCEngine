@@ -68,7 +68,7 @@
         "Active": true, 
         "ResetCount": false, 
         "EmitCount": 4, 
-        "EmitRate": 10000, 
+        "EmitRate": 40, 
         "EmitVariance": 0, 
         "Size": 0.100000, 
         "SizeVariance": 0.300000, 

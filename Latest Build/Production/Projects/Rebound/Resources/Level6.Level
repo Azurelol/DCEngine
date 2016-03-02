@@ -17,7 +17,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": 0.046214, 
                 "y": 0.000000, 
                 "z": 1.000000
               }
@@ -10527,7 +10527,7 @@
             {
               "Vec3": 
               {
-                "x": 116.385223, 
+                "x": 116.422127, 
                 "y": 59.924068, 
                 "z": -0.100000
               }
@@ -10617,8 +10617,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 2.212292, 
+                "y": -0.013710, 
                 "z": 0.000000
               }
             }, 
@@ -10635,8 +10635,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -10657,8 +10657,8 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
+            "AnimationActive": true, 
+            "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
           "RigidBody": 
@@ -10711,10 +10711,19 @@
             "SendsEvents": true, 
             "IsDrawingCollider": true
           }, 
-          "HealthController": 
+          "PlayerController": 
           {
-            "MaxHealth": 10, 
-            "StartingHealth": 10
+            "MoveSpeed": 0.700000, 
+            "JumpPower": 30.000000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "PlayerStand", 
+            "JumpAnimation": "PlayerFall", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
           }, 
           "Light": 
           {
@@ -10747,6 +10756,11 @@
             }, 
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 10, 
+            "StartingHealth": 10
           }
         }
       }, 
@@ -10762,8 +10776,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 0.000000, 
+                "x": 3.627201, 
+                "y": -0.509387, 
                 "z": 0.000000
               }
             }, 
@@ -11827,6 +11841,114 @@
           }, 
           "PauseManager": 
           {
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "LevelGoal", 
+        "Archetype": "LevelGoal", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 203.882828, 
+                "y": 25.575939, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "VictorySymbol", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "PhysicsMaterial": "", 
+            "CollisionGroup": "Default", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "LevelManager": 
+          {
+            "NextLevel": "Victory", 
+            "LoadingTime": 3.000000, 
+            "TimerStarted": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 0.500000, 
+            "FadeTimeGrowth": 0.750000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
           }
         }
       }
