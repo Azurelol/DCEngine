@@ -1,3 +1,6 @@
+@echo Setting environment variables to build the engine...
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
+@echo - Daisy Chain Engine Deployment -
 @echo Preparing to deploy the "Rebound" project...
 @echo off
 rmdir Deploy /s /q
@@ -19,5 +22,9 @@ xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-system-2.dll Deploy
 xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-window-2.dll Deploy
 
 xcopy DCEngine\Daisy.cfg Deploy
+cd DCEngine
+msbuild /p:Configuration=Production
+cd..
+@echo Copying executable over...
 xcopy DCEngine\x64\Production\DCEngine.exe Deploy
 @echo Done deploying "Rebound"!
