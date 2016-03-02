@@ -70,7 +70,6 @@ namespace DCEngine {
 			RigidBodyRef->setRestitution(Restitution);
 			RigidBodyRef->setFriction(Friction);
 			//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("DesertLab");
 		}
 
 		void BallController::Serialize(Json::Value & root)

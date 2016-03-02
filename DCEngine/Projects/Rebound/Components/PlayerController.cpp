@@ -61,6 +61,9 @@ namespace DCEngine {
       auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
+
+
+      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
     }
 
     void PlayerController::Serialize(Json::Value & root)
