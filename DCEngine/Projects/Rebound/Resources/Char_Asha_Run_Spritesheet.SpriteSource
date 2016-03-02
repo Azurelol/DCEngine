@@ -5,7 +5,7 @@
     "Name": "Char_Asha_Run_Spritesheet", 
     "Properties": 
     {
-      "FrameRate": 60.000000, 
+      "FrameRate": 24.000000, 
       "PixelsPerUnit": 0.000000, 
       "ColumnCount": 10, 
       "RowCount": 1, 

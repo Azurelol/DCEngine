@@ -148,10 +148,18 @@ namespace DCEngine {
       {
         Grounded = true;
         //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
+		auto particle = SpaceRef->CreateObject("LandingParticle");
+		if (particle)
+		{
+			particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+		}
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
-        event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  if (event->OtherObject->getComponent<Components::Fade>())
+		  {
+			  event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  }
       }
     }
 

@@ -104,7 +104,7 @@
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
+            "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }
         }

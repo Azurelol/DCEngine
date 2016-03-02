@@ -51,6 +51,7 @@ namespace DCEngine {
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
       HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
+      GraphicsSpaceRef = SpaceRef->getComponent<Components::GraphicsSpace>();
 
       stateMachine = new StateMachine<Lancer>(this);
       startingPosition = TransformRef->Translation;
@@ -105,9 +106,15 @@ namespace DCEngine {
         filter.Include = true;
 
         CastResult castLeft = owner->PhysicsSpaceRef->CastRay(leftRay, filter);
+        //if (castLeft.ObjectHit)
+        //{
+        //  if (castLeft.ObjectHit->getComponent<Components::Transform>()->Translation != owner->TransformRef->Translation)
+        //    owner->GraphicsSpaceRef->DrawLineSegment(leftRay.Origin, castLeft.ObjectHit->getComponent<Components::Transform>()->Translation, Vec4(1, 0, 0, 1));
+        //}
+
+
         if (castLeft.ObjectHit == owner->player)
         {
-          //if (direction.x < 0)
           DCTrace << "Lancer: detect player left\n";
           owner->stateMachine->ChangeState(ChargeLeft::Instance());
         }
@@ -116,6 +123,17 @@ namespace DCEngine {
         rightRay.Direction = Vec3(1, 0, 0);
         rightRay.Origin = owner->TransformRef->Translation;
         CastResult castRight = owner->PhysicsSpaceRef->CastRay(rightRay, filter);
+        
+        //if (castRight.ObjectHit)
+        //{
+        //  if (castRight.ObjectHit->getComponent<Components::Transform>()->Translation != owner->TransformRef->Translation)
+        //    owner->GraphicsSpaceRef->DrawLineSegment(rightRay.Origin, castRight.ObjectHit->getComponent<Components::Transform>()->Translation, Vec4(0, 1, 0, 1));
+        //}
+        //if (castRight.Distance < 100)
+        //{
+        //  DCTrace << castRight.ObjectHit->Name() << "\n";
+        //  DCTrace << castRight.ObjectHit->getComponent<Components::BoxCollider>()->getCollisionGroup() << "\n";
+        //}
         if (castRight.ObjectHit == owner->player)
         {
           DCTrace << "Lancer: detect player right\n";

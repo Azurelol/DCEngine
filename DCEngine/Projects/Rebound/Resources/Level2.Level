@@ -54,11 +54,11 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerRun", 
+            "SpriteSource": "Char_Asha_Run_Spritesheet", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
+            "AnimationActive": true, 
+            "AnimationSpeed": 24.000000, 
             "DrawLayer": 0
           }, 
           "RigidBody": 
