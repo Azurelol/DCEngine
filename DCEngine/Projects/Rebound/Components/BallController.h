@@ -68,6 +68,12 @@ namespace DCEngine {
 			GameObject* TrailRef;
 			String PlayerName = "Player";
 
+      String CommandSound = "Command";
+      String CollideSound = "CollideStone";
+      String FreezeSound = "Freeze";
+
+      Boolean ball_can_play = true;
+
 			DCE_DEFINE_PROPERTY(String, PlayerName);
 			//DCE_DEFINE_PROPERTY(Boolean, Translation);
 			DCE_DEFINE_PROPERTY(Real, MoveSpeed);
@@ -87,6 +93,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, MinAttractSpeed);
       DCE_DEFINE_PROPERTY(Real, MaxAttractForce);
       DCE_DEFINE_PROPERTY(Real, AttractArriveDistance);
+
+      DCE_DEFINE_PROPERTY(String, CommandSound);
+      DCE_DEFINE_PROPERTY(String, CollideSound);
+      DCE_DEFINE_PROPERTY(String, FreezeSound);
 
 
 			BallController(Entity& owner) : Component(std::string("BallController"), owner) {}

@@ -36,6 +36,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
+
+      DCE_BINDING_DEFINE_PROPERTY(BallController, CommandSound);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, CollideSound);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeSound);
 		}
 #endif
 
@@ -165,7 +169,8 @@ namespace DCEngine {
 						DCTrace << "BallController::OnMouseUpEvent - Vector of ball shot = (" << MouseVector.x << ", " << MouseVector.y << ", " << MouseVector.z << ").\n";
 						DCTrace << "BallController::OnMouseUpEvent - released at screen position: " << event->Position.x << " y: " << event->Position.y << "\n";
 					}
-
+          // play command sound.
+          SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
 				}
 			}
 			if (event->ButtonReleased == MouseButton::Right && CollidingWithPlayer == false && Locked == false)
@@ -173,6 +178,10 @@ namespace DCEngine {
 				CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
 			}
 
+      if (event->ButtonReleased == MouseButton::Right)
+      {
+        ball_can_play = true;
+      }
 
 		}
 
@@ -296,7 +305,15 @@ namespace DCEngine {
 			{
 				DCTrace << "BallController::AttractBall :: Now attracting!";
 			}
-			if (Frozen || Powering)
+
+      if (ball_can_play)
+      {
+        // play command sound.
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
+        ball_can_play = false;
+      }
+      
+      if (Frozen || Powering)
 			{
 				Frozen = false;
 				Powering = false;
@@ -331,7 +348,7 @@ namespace DCEngine {
         Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance, MinAttractSpeed);
         RigidBodyRef->ApplyLinearVelocity(arriveForce);
       }
-		}
+    }
 
 		void BallController::FreezeBall()
 		{
@@ -340,6 +357,8 @@ namespace DCEngine {
 				return;
 			}
 
+      // play freezing sound
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(FreezeSound);
 			Frozen = true;
 			SpriteRef->Color = FrozenColor;
 			if (CurrentlyFired)
@@ -373,6 +392,9 @@ namespace DCEngine {
 			//RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
 			TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
 			gameObj->AttachTo(PlayerRef);
+
+      // play command sound.
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
 		}
 
 	}

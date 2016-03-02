@@ -23,22 +23,30 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, Volume);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
+      DCE_BINDING_DEFINE_PROPERTY(MusicManager, PlayOnStart);
     }
 #endif
 
     MusicManager::~MusicManager()
     {
-      if (play >= 3)
-        this->SpaceRef->getComponent<Components::SoundSpace>()->StopCue(CurrentTrack);
+      if (this->getObjectID() == PlayingObj)
+      {
+        SpaceRef->getComponent<Components::SoundSpace>()->StopCue(CurrentTrack);
+      }
     }
+
     void MusicManager::Initialize()
     {
       Connect(Daisy->getKeyboard(), Events::KeyDown, MusicManager::OnKeyDownEvent);
       Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
       Connect(Owner(), Events::PlayMusic, MusicManager::OnPlayMusicEvent);
       Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
-      play = true;      
 
+      if (PlayOnStart == true)
+      {
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+        PlayingObj = this->getObjectID();
+      }
     }
 
     void MusicManager::OnKeyDownEvent(Events::KeyDown * event)
@@ -46,31 +54,32 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::M:
-        Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-        this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+        SpaceRef->getComponent<Components::SoundSpace>()->PauseCue(CurrentTrack);
+        //Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
+        //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
         break;
       }
     }
 
     void MusicManager::OnKeyUpEvent(Events::KeyUp * event)
     {
+
     }
 
     void MusicManager::OnPlayMusicEvent(Events::PlayMusic* event)
     {
-      //Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-      //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+
     }
 
     void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-      if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play < 3)
-      {
-        Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-        this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
-      }
+    //  if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play < 3)
+    //  {
+    //    Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
+    //    this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+    //  }
 
-      ++play;
+    //  ++play;
     }
   }
 }

@@ -29,6 +29,13 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
 	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
+
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportArriveSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, FootstepSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, LandSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, CollideSound);
     }
     #endif
 
@@ -55,6 +62,9 @@ namespace DCEngine {
       auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
+
+
+      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
     }
 
     void PlayerController::Serialize(Json::Value & root)
@@ -148,7 +158,8 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::Transform>()->getTranslation().y + event->OtherObject->getComponent<Components::Transform>()->getScale().y / 2 < TransformRef->getTranslation().y)
       {
         Grounded = true;
-        //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
+        // play landing sound.
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
 		auto particle = SpaceRef->CreateObject("LandingParticle");
 		if (particle)
 		{
@@ -201,6 +212,8 @@ namespace DCEngine {
         {
           Dead = false;
           this->SpaceRef->ReloadLevel();
+    		  // Play teleport in sound.
+          SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
         }
         return;
       }
@@ -302,11 +315,13 @@ namespace DCEngine {
         Jumping = false;
         JumpFramesApplied = 0;
       }
-	  if (PlayerControllerTraceOn)
-	  {
-		  DCTrace << "PlayerController::Jump";
-	  }
-      //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("FootConcreteBootRun2");
+	    if (PlayerControllerTraceOn)
+	    {
+		    DCTrace << "PlayerController::Jump";
+	    }
+  	  // play jump sound
+      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
     }
 
     void PlayerController::TakeDamage(int damage)
@@ -317,7 +332,10 @@ namespace DCEngine {
       }
       SpriteComponent->Color = Vec4(1, 0, 0, 1);
       Health -= damage;
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Hit");
+
+      // Play hurt sound.
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+
       if (PlayerControllerTraceOn)
       {
         DCTrace << "PlayerController::TakeDamage:: Health = " << Health << ".\n";
@@ -327,6 +345,10 @@ namespace DCEngine {
       {
         Die();
       }
+	  else
+	  {
+		// play take damage sound.
+	  }
 
     }
 
@@ -341,6 +363,8 @@ namespace DCEngine {
       {
         cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
       }
+      // play teleport start.
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
     }
 
 
