@@ -51,7 +51,7 @@ namespace DCEngine {
       bool FlipX = false;
       bool FlipY = false;
       //Animation subsystem
-      bool AnimationActive = false;
+      bool AnimationActive = true;
       bool HaveAnimation = false;
       float AnimationSpeed = 1;
       int StartColumn = 0;//the number of first frame is 0

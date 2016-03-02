@@ -59,9 +59,14 @@ namespace DCEngine {
 			CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
 			CollisionTableRef->AddGroup("Ball");
 			CollisionTableRef->AddGroup("Player");
+			CollisionTableRef->AddGroup("Shield");
 			auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
 			ColliderRef->setCollisionGroup("Ball");
+			CollisionTableRef->SetResolve("Ball", "Shield", CollisionFlag::SkipResolution);
 			PlayerRef = SpaceRef->FindObjectByName(PlayerName);
+			TrailRef = SpaceRef->CreateObject("TestParticle");
+			TrailRef->AttachTo(gameObj);
+			TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 
 			if (BallControllerTraceOn)
 			{
@@ -191,6 +196,14 @@ namespace DCEngine {
 					ParentToPlayer();
 				}
 			}
+			if(event->OtherObject->getComponent<Components::Transform>()->getScale().y > 3 || event->OtherObject->getComponent<Components::Transform>()->getScale().x > 3)  //this is a bad check for terrain, fix later
+			{
+				auto particle = SpaceRef->CreateObject("BounceParticle");
+				if (particle)
+				{
+					particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + RigidBodyRef->getVelocity() / 50.0f); //bad way to get collision point
+				}
+			}
 		}
 
 		void BallController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -208,6 +221,8 @@ namespace DCEngine {
 
 		void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+			DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
+			DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
 			if (gameObj->Parent() != nullptr)
 			{
 				RigidBodyRef->setVelocity(Vec3(0, 0, 0));
@@ -273,15 +288,15 @@ namespace DCEngine {
 
 		void BallController::PrintTranslation()
 		{
-			DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
-				<< ", " << TransformRef->Translation.y
-				<< ", " << TransformRef->Translation.z << ")\n";
+			//DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x
+			//	<< ", " << TransformRef->Translation.y
+			//	<< ", " << TransformRef->Translation.z << ")\n";
 		}
 
 		void BallController::PrintVelocity()
 		{
 			Vec3 vel = RigidBodyRef->getVelocity();
-			DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y << ", " << vel.z << ")\n";
+			//DCTrace << Owner()->Name() << "::RigidBody.Velocity(" << vel.x << ", " << vel.y << ", " << vel.z << ")\n";
 		}
 
 		void BallController::AttractBall()
@@ -369,13 +384,13 @@ namespace DCEngine {
 			auto particle = SpaceRef->CreateObject("BallExplosionParticle");
 			if (particle)
 			{
-				particle->getComponent<Components::Transform>()->setTranslation(TransformRef->WorldTranslation);
+				particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 			}
 			CurrentlyFired = false;
 			//SpriteRef->Color = NormalColor;
 			RigidBodyRef->setVelocity(Vec3(0, 0, 0));
 			//RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
-			TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->WorldTranslation);
+			TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
 			gameObj->AttachTo(PlayerRef);
 
       // play command sound.

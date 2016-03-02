@@ -12,7 +12,7 @@
 #include "ReboundComponent.h"
 #include "../../../Core/Components/BoxCollider.h"
 
-#define BallControllerTraceOn 1
+#define BallControllerTraceOn 0
 namespace DCEngine {
 	namespace Components
 	{
@@ -65,6 +65,7 @@ namespace DCEngine {
 			Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
 			GameObject* PlayerRef; // Use a pointer inside, better to use a handle for serialization
 			GameObject* gameObj;
+			GameObject* TrailRef;
 			String PlayerName = "Player";
 
       String CommandSound = "Command";

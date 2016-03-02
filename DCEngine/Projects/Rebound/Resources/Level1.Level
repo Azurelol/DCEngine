@@ -8605,7 +8605,37 @@
             "JumpPeriod": 0.000000, 
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
-            "AttackJumpPeriod": 0.000000
+            "AttackJumpPeriod": 0.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -8731,7 +8761,37 @@
             "JumpPeriod": 0.000000, 
             "AttackJumpStrengthX": 0.000000, 
             "AttackJumpStrengthY": 0.000000, 
-            "AttackJumpPeriod": 0.000000
+            "AttackJumpPeriod": 0.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -8789,7 +8849,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Wow", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8857,7 +8917,37 @@
             "JumpPeriod": 0.500000, 
             "AttackJumpStrengthX": 20.100040, 
             "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -9534,7 +9624,37 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 0.500000
+            "AttackJumpPeriod": 0.500000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
           }, 
           "HealthController": 
           {
@@ -10512,8 +10632,8 @@
             {
               "Vec3": 
               {
-                "x": 205.743118, 
-                "y": 74.922485, 
+                "x": 233.809784, 
+                "y": 81.522491, 
                 "z": -0.100000
               }
             }, 
@@ -10671,6 +10791,47 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "PauseManager": 
+          {
           }
         }
       }

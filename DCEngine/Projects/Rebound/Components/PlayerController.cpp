@@ -159,10 +159,18 @@ namespace DCEngine {
         Grounded = true;
         // play landing sound.
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
+		auto particle = SpaceRef->CreateObject("LandingParticle");
+		if (particle)
+		{
+			particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+		}
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
-        event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  if (event->OtherObject->getComponent<Components::Fade>())
+		  {
+			  event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  }
       }
     }
 
@@ -358,7 +366,7 @@ namespace DCEngine {
 
     void PlayerController::PrintTranslation()
     {
-      DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
+      //DCTrace << Owner()->Name() << "::Transform.Translation(" << TransformRef->Translation.x << ", " << TransformRef->Translation.y << ", " << TransformRef->Translation.z << ")\n";
     }
 
     void PlayerController::PrintVelocity()

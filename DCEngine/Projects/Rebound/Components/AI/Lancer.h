@@ -19,6 +19,8 @@ namespace DCEngine {
     class RigidBody;
     class Sprite;
     class HealthController;
+    class PhysicsSpace;
+    class GraphicsSpace;
     class Lancer : public Component
     {
 
@@ -28,6 +30,9 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       HealthController* HealthRef;
+      PhysicsSpace* PhysicsSpaceRef;
+      CollisionTablePtr CollisionTableRef;
+      GraphicsSpace* GraphicsSpaceRef;
       String PlayerName = "Player";
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
