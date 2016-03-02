@@ -17,8 +17,8 @@
             {
               "Vec3": 
               {
-                "x": 79.880966, 
-                "y": 1.775180, 
+                "x": -14.038826, 
+                "y": 2.010273, 
                 "z": 0.000000
               }
             }, 
@@ -57,7 +57,7 @@
             "SpriteSource": "Char_Asha_Run_Spritesheet", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 24.000000, 
             "DrawLayer": 0
           }, 
@@ -7531,7 +7531,7 @@
             {
               "Vec3": 
               {
-                "x": 82.050652, 
+                "x": -10.105946, 
                 "y": 2.177018, 
                 "z": 0.000000
               }
