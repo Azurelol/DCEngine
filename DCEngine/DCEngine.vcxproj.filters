@@ -883,6 +883,9 @@
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\Shield.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1502,6 +1505,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\Shield.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
