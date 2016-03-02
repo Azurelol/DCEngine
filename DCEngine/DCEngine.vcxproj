@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="DebugTwo|Win32">
-      <Configuration>DebugTwo</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="DebugTwo|x64">
-      <Configuration>DebugTwo</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -80,12 +72,6 @@
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugTwo|Win32'">
-    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -265,16 +251,6 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-graphics.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-window.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\sfml-system.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\jpeg.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\nfd.lib;comctl32.lib;opengl32.lib;winmm.lib;gdi32.lib;$(ProjectDir)\Dependencies\lib\MSVC\glew32s.lib;$(ProjectDir)\Dependencies\lib\MSVC\glfw3.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmodstudio64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\fmod64_vc.lib;$(ProjectDir)\Dependencies\lib\MSVC\freetype.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\jsoncpp-mt.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_filesystem-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\libboost_system-vc140-mt-s-1_59.lib;$(ProjectDir)\Dependencies\lib\MSVC\x64\Release\PocoFoundationmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">
-    <ClCompile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -467,6 +443,7 @@
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\Shield.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
@@ -476,14 +453,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core\Engine\Ease.h" />
     <ClInclude Include="Core\Engine\Engine.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
@@ -492,7 +467,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core\Objects\Module.h" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
@@ -501,7 +475,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTwo|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h" />
     <ClInclude Include="Core\Systems\Editor\EditorCreator.h" />
@@ -693,6 +666,7 @@
     <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
+    <ClInclude Include="Projects\Rebound\Components\Shield.h" />
     <ClInclude Include="Projects\Rebound\Components\Skeleton.h" />
     <ClInclude Include="Projects\Rebound\Components\TutorialTextLogic.h" />
     <ClInclude Include="Projects\Rebound\ReboundBinding.h" />

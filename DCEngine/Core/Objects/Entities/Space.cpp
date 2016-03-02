@@ -381,7 +381,7 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   @brief  Creates a GameObject from an Archetype and adds it to the space.
-  @param  A pointer to the Archetype resource.
+  @param  archetype A pointer to the Archetype resource.
   @return A pointer to the GameObject that was added.
   \note   This function requests the entity to be created through
   the object factory.
@@ -399,6 +399,22 @@ namespace DCEngine {
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
 
+    return gameObject;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Creates GameObject from an Archetype and adds it to the space
+         at the specified position.
+  @param archetype A pointer to the Archetype resource.
+  @param position The position at which to spawn the object.
+  @return A pointer to the GameObject that was added.
+  */
+  /**************************************************************************/
+  GameObjectPtr Space::CreateObjectAtPosition(ArchetypePtr archetype, const Vec3 & position)
+  {
+    auto gameObject = CreateObject(archetype);
+    gameObject->getComponent<Components::Transform>()->setTranslation(position);
     return gameObject;
   }
 

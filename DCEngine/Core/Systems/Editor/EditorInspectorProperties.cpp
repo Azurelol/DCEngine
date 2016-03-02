@@ -94,7 +94,6 @@ namespace DCEngine {
           // If the user selects an item... 
           static int currentItem = 0;
           ImGui::Text(property->Name.c_str());
-          static bool thisModified = false;
           if (ImGui::Combo("##propertyID", &currentItem, enums.data(), static_cast<int>(enums.size()))) {
             // Set the selected item as the current resource
             auto selectedEnum = enums.at(currentItem);
@@ -105,11 +104,7 @@ namespace DCEngine {
             auto valueSet = retriever.Get<Zilch::Integer>(Zilch::Call::Return);
             // Set the property
             Set(ZilchInterface::GetState(), object, property, valueSet);
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -120,18 +115,12 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
 
-          static bool thisModified = false;
           // If the user modifies it
           ImGui::PushID(propertyID++);
           //ImGui::Text(property->Name.c_str());
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
             Set(ZilchInterface::GetState(), object, property, boolean);
-          }
-
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -144,17 +133,12 @@ namespace DCEngine {
           char buf[128];
           strcpy(buf, string.c_str());
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputText("##propertyID", buf, IM_ARRAYSIZE(buf))) {
             Set(ZilchInterface::GetState(), object, property, Zilch::String(buf));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -165,7 +149,6 @@ namespace DCEngine {
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
@@ -177,23 +160,16 @@ namespace DCEngine {
             if (ImGui::SliderInt("##propertyID", &integer, static_cast<int>(min), static_cast<int>(max))) {
               CheckUnsigned(property, integer);
               Set(ZilchInterface::GetState(), object, property, integer);
+              modified = true;
             }
           }
           else {
             if (ImGui::InputInt("##propertyID", &integer)) {
               CheckUnsigned(property, integer);
               Set(ZilchInterface::GetState(), object, property, integer);
+              modified = true;
             }
           }
-          //if (ImGui::GetIO().WantCaptureKeyboard == false)
-          //  modified = true;
-
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
-            modified = true;
-            thisModified = false;
-          }
-
           ImGui::PopID();
         }
 
@@ -204,17 +180,12 @@ namespace DCEngine {
           auto integer2 = getCall.Get<Zilch::Integer2>(Zilch::Call::Return);
           int int2[2] = { integer2.x, integer2.y };
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt2("##propertyID", int2)) {
             Set(ZilchInterface::GetState(), object, property, Zilch::Integer2(int2[0], int2[1]));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -226,17 +197,12 @@ namespace DCEngine {
           auto integer3 = getCall.Get<Zilch::Integer3>(Zilch::Call::Return);
           int int3[3] = { integer3.x, integer3.y, integer3.z };
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt3("##propertyID", int3)) {
             Set(ZilchInterface::GetState(), object, property, Zilch::Integer3(int3[0], int3[1], int3[2]));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -248,17 +214,12 @@ namespace DCEngine {
           auto integer4 = getCall.Get<Zilch::Integer4>(Zilch::Call::Return);
           int int4[4] = { integer4.x, integer4.y, integer4.z, integer4.w };
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt4("##propertyID", int4)) {
             Set(ZilchInterface::GetState(), object, property, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
 
           ImGui::PopID();
@@ -272,7 +233,6 @@ namespace DCEngine {
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
-          static bool thisModified = false;
 
           // If it's of a given range..
           if (property->HasAttribute("Range")) {
@@ -288,10 +248,11 @@ namespace DCEngine {
                   real = 0.0f;
               }
               Set(ZilchInterface::GetState(), object, property, real);
+              modified = true;
             }
           }
           else {
-            if (ImGui::InputFloat("##propertyID", &real, 0.1f, 0.5f, 3)) {
+            if (ImGui::InputFloat("##propertyID", &real, 0.5f, 0.5f, 3)) {
 
               // Unsigned
               if (property->HasAttribute("Unsigned")) {
@@ -299,14 +260,10 @@ namespace DCEngine {
                   real = 0.0f;
               }
               Set(ZilchInterface::GetState(), object, property, real);
+              modified = true;
             }
           }
 
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
-            modified = true;
-            thisModified = false;
-          }
           ImGui::PopID();
         }
 
@@ -319,15 +276,10 @@ namespace DCEngine {
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
 
-          static bool thisModified = false;
           // If the user has given input, set the property
           if (ImGui::InputFloat2("##propertyID", vec2f, 3)) {
             Set(ZilchInterface::GetState(), object, property, Zilch::Real2(vec2f));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -342,15 +294,9 @@ namespace DCEngine {
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
 
-          static bool thisModified = false;
           if (ImGui::InputFloat3("##propertyID", vec3f, 3)) {
-            //DCTrace << "Setting " << property->Name.c_str() << "\n";
             Set(ZilchInterface::GetState(), object, property, Zilch::Real3(vec3f));
-          }
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
             modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
@@ -364,7 +310,6 @@ namespace DCEngine {
           // If the user has given input, set the property          
           ImGui::Text(property->Name.c_str());
           ImGui::PushID(propertyID++);
-          static bool thisModified = false;
 
           // If it's of a given range..
           if (property->HasAttribute("Range")) {
@@ -374,19 +319,14 @@ namespace DCEngine {
             if (ImGui::SliderFloat4(property->Name.c_str(), vec4f, static_cast<float>(min),
               static_cast<float>(max))) {
               Set(ZilchInterface::GetState(), object, property, Zilch::Real4(vec4f));
+              modified = true;
             }
           }
           else {
             if (ImGui::InputFloat4("##propertyID", vec4f, 3)) {
               Set(ZilchInterface::GetState(), object, property, Zilch::Real4(vec4f));
+              modified = true;
             }
-          }
-
-
-          if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
-          {
-            modified = true;
-            thisModified = false;
           }
           ImGui::PopID();
         }
