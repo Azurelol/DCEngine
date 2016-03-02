@@ -91,7 +91,7 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::StartFrame() {
 			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LEQUAL);
+			//glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glStencilMask(~0);
