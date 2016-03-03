@@ -31,24 +31,9 @@ namespace DCEngine {
       ImGui::Begin("Library", &Windows.LibraryEnabled);           
       
       auto archetypes = Daisy->getSystem<Content>()->AllArchetypes();
-      //Resources.DisplayResourceList<ArchetypeMap>("Archetypes", archetypes, &Archetypes.Select, &Creator.CreateFromArchetype);
-      if (ImGui::TreeNode("Archetype")) {
-        for (auto& resource : *archetypes) {
-          auto resourceName = resource.second->Name().c_str();
-          auto current = Archetypes.Current();
-          bool selected = current && current->Name() == resource.second->Name();
-          if (ImGui::Selectable(resourceName, selected)) {
-            Archetypes.Select(resource.second->Name());
-            //Select(archetype.second.get());            
-          }
-          if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {          
-            Creator.CreateFromArchetype(resource.second->Name());
-            break;
-          }
-        }
-        ImGui::TreePop();
-      }
-
+      using namespace std::placeholders;
+      Resources.DisplayResourceList<ArchetypeMap>("Archetype", archetypes, std::bind(&EditorArchetypes::Select, Archetypes, _1),
+                                                                            std::bind(&EditorCreator::CreateFromArchetype, Creator, _1));
 
       auto banks = Daisy->getSystem<Content>()->AllBanks();
       Resources.DisplayResourceList<BankMap>("Bank", banks);

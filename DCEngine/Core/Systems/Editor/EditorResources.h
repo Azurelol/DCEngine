@@ -22,10 +22,32 @@ namespace DCEngine {
       EditorResources(Editor& editor);
       template <typename ResourceMap> bool DisplayResourceList(std::string type, ResourceMap* map);
       // Templated genius function
-      //template <typename ResourceMap, typename SingleClickFn, typename DoubleClickFn, typename ...Args> 
-      //bool DisplayResourceList(std::string type, ResourceMap* map, 
-      //                          void(SingleClickFn::* singleClickFn)(Args...), 
-      //                          void(DoubleClickFn::* doubleClickFn)(Args...)) {
+      template <typename ResourceMap>
+      bool DisplayResourceList(std::string resourceType, ResourceMap* map,
+        std::function<void(const std::string&)> singleClick,
+        std::function<void(const std::string&)> doubleClick);
+
+      //template <typename ResourceMap, typename SingleClickClass, typename DoubleClickClass,
+      //          typename SingleClickFn, typename DoubleClickFn> 
+      //bool DisplayResourceList(std::string type, ResourceMap* map, SingleClickClass scClass, 
+      //                          void(SingleClickClass::* SingleClickFn singleClickFn)(const std::string&),
+      //                          void(DoubleClickClass::* DoubleClickFn doubleClickFn)(const std::string&)) {
+      //  if (ImGui::TreeNode(type.c_str())) {
+      //    for (auto& resource : map) {
+      //      auto resourceName = resource.second->Name().c_str();
+
+      //      bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() 
+      //                                                             == resource.second->getObjectID();
+      //      if (ImGui::Selectable(resourceName, selected)) {
+      //        SingleClickClass.SingleClickFn(resourceName);      
+      //      }
+      //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+      //        Creator.CreateFromArchetype(resource.second->Name());
+      //        break;
+      //      }
+      //    }
+      //    ImGui::TreePop();
+      //  }
       //}
 
       //void WindowAddResource();
@@ -84,6 +106,28 @@ namespace DCEngine {
         ImGui::TreePop();
       }
       return true;
+    }
+
+    template<typename ResourceMap>
+    inline bool EditorResources::DisplayResourceList(std::string resourceType, ResourceMap * map, std::function<void(const std::string&)> singleClick, std::function<void(const std::string&)> doubleClick)
+    {
+        if (ImGui::TreeNode(resourceType.c_str())) {
+          for (auto& resource : *map) {
+            auto resourceName = resource.second->Name().c_str();
+
+            bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() 
+                                                                   == resource.second->getObjectID();
+            if (ImGui::Selectable(resourceName, selected)) {
+              singleClick(resourceName);      
+            }
+            if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
+              doubleClick(resourceName);
+              break;
+            }
+          }
+          ImGui::TreePop();
+        }
+        return true;
     }
 
   }
