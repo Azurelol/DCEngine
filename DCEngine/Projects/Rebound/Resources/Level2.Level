@@ -7745,7 +7745,7 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": true, 
             "VisibilityEvents": false, 
             "CastShadows": true, 

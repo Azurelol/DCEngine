@@ -90,13 +90,10 @@ namespace DCEngine {
 			//Main Methods
 			void Update(float dt);
 			void UpdateObjects(float dt);
-			void RenderDepths(Components::Camera* camera);
 			void RenderShadows(Components::Camera* camera, Components::Light* light);
-			void RenderScene(Components::Camera* camera, ShaderPtr shader = 0);
+			void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
 			void RenderBackground(ShaderPtr shader, Components::Camera* camera);
 			void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void RenderZ0SceneUp(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void DrawDebug();
 			void Terminate();
 
@@ -104,12 +101,6 @@ namespace DCEngine {
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Graphical*>> mDrawList;
-			//std::vector<Components::Light*> mLightList;
-			
-			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
-			//std::vector<Components::Sprite*>  TextureObjNontransp;
-			//std::vector<Components::Sprite*> NonTextureObjtransp;
-			//std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 			class DebugObject
 			{

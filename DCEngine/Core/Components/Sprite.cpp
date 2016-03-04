@@ -327,12 +327,6 @@ namespace DCEngine {
       if (!Visible)
         return;
 
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_ONE, GL_ONE);
-			//glDepthFunc(GL_LEQUAL);
-			// Set the active texture
-			
-			
 			glBindVertexArray(mVAO);
 			if(silhouette)
 				glDrawArrays(GL_LINE_LOOP, 0, 4);

@@ -295,9 +295,6 @@
     <Filter Include="Core\Systems\Editor\Modules\Creator">
       <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Components\Graphics\Lightning\Particles">
-      <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Archetypes">
       <UniqueIdentifier>{f00ae099-e0a2-480c-8c3b-0a91fa4905cd}</UniqueIdentifier>
     </Filter>
@@ -318,6 +315,9 @@
     </Filter>
     <Filter Include="Core\Engine\Time">
       <UniqueIdentifier>{f91e6fca-220f-4ba8-b2e1-f6272a110441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Components\Graphics\Particles">
+      <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -511,13 +511,13 @@
       <Filter>Core\Components\Graphics\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem.cpp">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\ParticleEmitter.cpp">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
@@ -526,7 +526,7 @@
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
@@ -778,7 +778,7 @@
       <Filter>Core\Systems\Editor\Input</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Texture.cpp">
       <Filter>Core\Resources\Graphics</Filter>
@@ -1182,16 +1182,16 @@
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SpriteParticleSystem.h">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\LinearParticleAnimator.h">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ParticleEmitter.h">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ParticleColorAnimator.h">
-      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
+      <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>

@@ -71,8 +71,7 @@ namespace DCEngine {
 		void Graphics::Update(float dt) {
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::Update \n";
-           
-
+          
       // Start the profiler
       SystemTimer profile(this->Name());
 
@@ -92,24 +91,12 @@ namespace DCEngine {
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 				}
 
-				std::vector<Components::Light*> lightComponents = gfxSpace->getLightComponents();
+				std::vector<Components::Light*> lightComponents;
+				if (GraphicsHandler->lightingON)
+					lightComponents = gfxSpace->getLightComponents();
 
 				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
 					[] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
-
-				//for (auto& drawList : mDrawList)
-				//{
-				//	for (auto&& obj : drawList)
-				//	{
-				//		std::sort(drawList.begin(), drawList.end(),
-				//			[](Components::Graphical* a, Components::Graphical* b)
-				//		{
-				//			return a->Owner()->getComponent<Components::Transform>()->Translation.z
-				//				< b->Owner()->getComponent<Components::Transform>()->Translation.z;
-				//		});
-				//	}
-				//}
-				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 				UpdateObjects(dt);
 
@@ -124,61 +111,41 @@ namespace DCEngine {
 							glDepthFunc(GL_LESS);
 							glDrawBuffer(GL_NONE);
 							glEnable(GL_STENCIL_TEST);
+
 							RenderShadows(camera, light);
+
 							glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
 							glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 						}
 						glDrawBuffer(GL_FRONT_AND_BACK);
 						glDepthFunc(GL_LEQUAL);
-						for (const auto& drawList : mDrawList)
-						{
-							for (const auto& obj : drawList)
-							{
-								Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-								obj->SetUniforms(0, camera, light);
-								obj->Draw();
-							}
-						}
+
+						glEnable(GL_BLEND);
+						glBlendFunc(GL_ONE, GL_ONE);
+						RenderScene(camera, light);
+
 						glClear(GL_STENCIL_BUFFER_BIT);
 					}
 				}
 				else
 				{
-					for (const auto& drawList : mDrawList)
-					{
-						for (const auto& obj : drawList)
-						{
-							Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-							obj->SetUniforms(0, camera, 0);
-							obj->Draw();
-						}
-					}
+					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+					RenderScene(camera);
 				}
+
 				glDisable(GL_STENCIL_TEST);
 				DrawDebug();
 				
 				for (auto&& drawList : mDrawList)
-				{
 					drawList.clear();
-				}
 			}
 		}
 
 		void Graphics::UpdateObjects(float dt)
 		{
 			for (auto&& drawList : mDrawList)
-			{
 				for (auto&& obj : drawList)
-				{
 					obj->Update(dt);
-				}
-			}
-		}
-
-		void Graphics::RenderDepths(Components::Camera* camera)
-		{
-			glDrawBuffer(GL_NONE);
-			//RenderObjects(dt, camera);
 		}
 
 		void Graphics::RenderShadows(Components::Camera* camera, Components::Light* light)
@@ -214,18 +181,16 @@ namespace DCEngine {
 			glEnable(GL_CULL_FACE);
 		}
 
-		void Graphics::RenderScene(Components::Camera* camera, ShaderPtr shader)
+		void Graphics::RenderScene(Components::Camera* camera, Components::Light* light, ShaderPtr shader)
 		{
-			//glDrawBuffer(GL_BACK);
-			//
-			//// Draw only if the corresponding stencil value is zero
-			//glStencilFunc(GL_EQUAL, 0x0, 0xFF);
-			//
-			//// prevent update to the stencil buffer
-			//glStencilOpSeparate(GL_BACK, GL_KEEP, GL_KEEP, GL_KEEP);
-			//RenderObjects(dt, camera, light, shader);
-
-			//glDepthMask(GL_TRUE);
+			for (const auto& drawList : mDrawList)
+			{
+				for (const auto& obj : drawList)
+				{
+					obj->SetUniforms(shader, camera, light);
+					obj->Draw();
+				}
+			}
 		}
 
 		void Graphics::RenderBackground(ShaderPtr shader, Components::Camera * camera)
@@ -253,39 +218,6 @@ namespace DCEngine {
 				{
 					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
 					if (transform->Translation.z == 0)
-					{
-						obj->SetUniforms(shader, camera, light);
-						obj->Draw();
-					}
-				}
-			}
-		}
-		void Graphics::RenderZ0SceneUp(Components::Camera * camera, Components::Light* light, ShaderPtr shader)
-		{
-			for (auto&& drawList : mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-					if (transform->Translation.z == 0)
-					{
-						obj->Update(0);
-						obj->SetUniforms(shader, camera, light);
-						obj->Draw();
-					}
-				}
-			}
-		}
-
-		void Graphics::RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader)
-		{
-      
-			for (auto&& drawList : mDrawList)
-			{
-				for (auto&& obj : drawList)
-				{
-					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-					if (transform->Translation.z != 0)
 					{
 						obj->SetUniforms(shader, camera, light);
 						obj->Draw();
