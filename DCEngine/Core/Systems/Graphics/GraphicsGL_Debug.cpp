@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   GraphicsGL_Debug.cpp
-\author Christian Sagel
+\author Chen Shu
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
 \brief  The implementation of the DebugDraw functions.
@@ -187,5 +187,6 @@ namespace DCEngine {
 
 			CleanBuffer();
     }
+
   }
 }

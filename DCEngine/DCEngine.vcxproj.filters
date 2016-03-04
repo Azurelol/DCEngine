@@ -319,6 +319,9 @@
     <Filter Include="Core\Components\Graphics\Particles">
       <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Macros">
+      <UniqueIdentifier>{82e63ce4-ae8b-454d-a7c4-fe49838e3642}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -891,6 +894,12 @@
     <ClCompile Include="Core\Engine\Timer.cpp">
       <Filter>Core\Engine\Time</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsRender.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Lightning.cpp">
+      <Filter>Core\Systems\Graphics\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1211,9 +1220,6 @@
     <ClInclude Include="Core\Precompiled\Precompiled.h">
       <Filter>Core\Precompiled</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\Macros.h">
-      <Filter>Core\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Resources\Archetype.h">
       <Filter>Core\Resources\Serialization</Filter>
     </ClInclude>
@@ -1513,6 +1519,15 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
       <Filter>Core\Systems\Reflection\Zilch</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Macros.h">
+      <Filter>Core\Engine\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\MacrosEvents.h">
+      <Filter>Core\Engine\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\MacrosBinding.h">
+      <Filter>Core\Engine\Macros</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

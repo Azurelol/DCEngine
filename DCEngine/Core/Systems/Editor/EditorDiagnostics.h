@@ -15,7 +15,7 @@ namespace DCEngine {
     private:
       void Graphics();
       void Physics();
-      void DisplaySystemsHistogram(std::string, DCEngine::Time::FunctionTimeSliceVec&);
+      void DisplaySystemsHistogram(std::string, DCEngine::Time::FunctionTimeSliceVec&, bool calls = false);
       void Update();
 
     };

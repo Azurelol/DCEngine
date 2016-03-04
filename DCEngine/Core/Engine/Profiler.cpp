@@ -2,7 +2,32 @@
 #include "Engine.h"
 
 namespace DCEngine {
-  
+
+  /**************************************************************************/
+  /*!
+  @brief Adds a time to the specified container, making sure its aggregated.
+  @param container A reference to the container.
+  @param time A reference to the timeslice object.
+  */
+  /**************************************************************************/
+  void Profiler::AddSystemTime(Time::FunctionTimeSliceVec & container, Time::FunctionTimeSlice & time)
+  {
+    // Attempt to look for a matching time slice in the container
+    auto matchingTime = std::find_if(container.begin(), container.end(),
+                        [=](Time::FunctionTimeSlice& t) { 
+                          return t.Name == time.Name; 
+                        });
+    // If it's there, add this time to it
+    if (matchingTime != container.end()) {
+      matchingTime->Time += time.Time;
+      matchingTime->Calls++;
+    }
+    // Else, add it to the container
+    else {
+      container.push_back(time);
+    }
+  }
+
   /**************************************************************************/
   /*!
   @brief Adds a system's time to the profiler.
@@ -25,11 +50,11 @@ namespace DCEngine {
     switch (system) {
 
     case EnumeratedSystem::Graphics:
-    GraphicsSystemTimes.second.push_back(time);
+      AddSystemTime(GraphicsSystemTimes.second, time);
       break;
 
     case EnumeratedSystem::Physics:
-    PhysicsSystemTimes.second.push_back(time);
+      AddSystemTime(PhysicsSystemTimes.second, time);
       break;
 
     }
@@ -118,6 +143,7 @@ namespace DCEngine {
   /**************************************************************************/
   float localCounter = 0;
   int frameCounter = 0;
+
   void Profiler::CalculateFPS(float dt)
   {
     localCounter += dt;

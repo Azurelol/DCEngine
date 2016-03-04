@@ -17,6 +17,8 @@ namespace DCEngine {
 
   namespace Systems {
 
+
+
     class DispatchSystemEvents {
     public:
 
@@ -35,6 +37,7 @@ namespace DCEngine {
       static void WindowGainedFocus();
       
       static void GraphicsCompileShaders();
+      static void GraphicsToggleLightning();
 
       static void ScriptingCompile();
       

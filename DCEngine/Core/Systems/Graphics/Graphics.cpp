@@ -9,7 +9,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "Graphics.h"
 #include "../../Components/CameraViewport.h"
 #include "../../Engine/Engine.h"
@@ -30,8 +29,7 @@ namespace DCEngine {
       //Settings.MaxDrawLayers = 5;
 			mDrawList.resize(Settings.MaxDrawLayers);
 			DCTrace << "*Using OpenGL for Graphics \n";
-			GraphicsHandler.reset(new GraphicsGL());
-			GraphicsHandler->ClearColor = ClearColor;
+			GraphicsHandler.reset(new GraphicsGL(Settings));
 		}
 
 		/**************************************************************************/
@@ -43,7 +41,6 @@ namespace DCEngine {
 			if (TRACE_ON && TRACE_INITIALIZE)
 				DCTrace << "Graphics::Initialize \n";
 			GraphicsHandler->Initialize();
-			GraphicsHandler->lightingON = true;
 			// Subscribe to events
 			Subscribe();
 		}
@@ -58,6 +55,7 @@ namespace DCEngine {
 			Daisy->Connect<Events::ResizeViewportEvent>(&Graphics::OnResizeViewportEvent, this);
 			Daisy->Connect<Events::FullscreenEnabledEvent>(&Graphics::OnFullscreenEnabledEvent, this);
       Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
+      Daisy->Connect<Events::GraphicsToggleLightning>(&Graphics::OnGraphicsToggleLightningEvent, this);
 		}
 
 		/**************************************************************************/
@@ -76,7 +74,7 @@ namespace DCEngine {
       SystemTimer profile(this->Name());
 
 			// For every Space with a 'GraphicsSpace' component...
-			for (Components::GraphicsSpace* gfxSpace : graphicsSpaces_) {
+			for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
 
 				// Get the default camera from the 'CameraViewport' component
 				Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
@@ -92,7 +90,7 @@ namespace DCEngine {
 				}
 
 				std::vector<Components::Light*> lightComponents;
-				if (GraphicsHandler->lightingON)
+				if (Settings.LightningEnabled)
 					lightComponents = gfxSpace->getLightComponents();
 
 				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
@@ -141,117 +139,6 @@ namespace DCEngine {
 			}
 		}
 
-		void Graphics::UpdateObjects(float dt)
-		{
-			for (auto&& drawList : mDrawList)
-				for (auto&& obj : drawList)
-					obj->Update(dt);
-		}
-
-		void Graphics::RenderShadows(Components::Camera* camera, Components::Light* light)
-		{
-			glEnable(GL_DEPTH_CLAMP);
-			glDisable(GL_CULL_FACE);
-
-			glStencilFunc(GL_ALWAYS, 0, 0xff);
-			glEnable(GL_DEPTH_TEST);
-			if(light->getVisibilityCulling())
-				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
-			else
-				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-
-			for (const auto& drawList : mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					if (obj->Owner()->getComponent<Components::Sprite>())
-					{
-						Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-						if (transform->Translation.z == 0)
-						{
-							glDepthMask(GL_FALSE);
-							obj->SetUniforms(GraphicsHandler->ShadowingShader, camera, light);
-							obj->Draw();
-						}
-					}
-				}
-			}
-			// Restore local stuff
-			glDisable(GL_DEPTH_CLAMP);
-			glEnable(GL_CULL_FACE);
-		}
-
-		void Graphics::RenderScene(Components::Camera* camera, Components::Light* light, ShaderPtr shader)
-		{
-			for (const auto& drawList : mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					obj->SetUniforms(shader, camera, light);
-					obj->Draw();
-				}
-			}
-		}
-
-		void Graphics::RenderBackground(ShaderPtr shader, Components::Camera * camera)
-		{      
-
-			for (auto&& drawList : mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-					if (transform->Translation.z != 0)
-					{
-						obj->SetUniforms(shader, camera, 0);
-						obj->Draw();
-					}
-				}
-			}
-		}
-
-		void Graphics::RenderZ0Scene(Components::Camera * camera, Components::Light* light, ShaderPtr shader)
-		{
-			for (const auto& drawList : mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-					if (transform->Translation.z == 0)
-					{
-						obj->SetUniforms(shader, camera, light);
-						obj->Draw();
-					}
-				}
-			}
-		}
-
-		void Graphics::DrawDebug()
-		{
-      glDisable(GL_DEPTH_TEST);
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			GraphicsHandler->SpriteShader->Use();
-			GraphicsHandler->SpriteShader->SetInteger("useLight", false);
-			for (const auto& debugObj : mDebugLineList)
-			{
-				debugObj.Draw();
-			}
-			for (const auto& debugObj : mDebugRectangleList)
-			{
-				debugObj.Draw();
-			}
-			for (const auto& debugObj : mDebugCircleList)
-			{
-				debugObj.Draw();
-			}
-			mDebugLineList.clear();
-			mDebugRectangleList.clear();
-			mDebugCircleList.clear();
-      glEnable(GL_DEPTH_TEST);
-			//glEnable(GL_BLEND);
-
-		}
 
 		/**************************************************************************/
 		/*!
@@ -260,7 +147,7 @@ namespace DCEngine {
 		*/
 		/**************************************************************************/
 		void Graphics::Register(Components::GraphicsSpace& graphicsSpace) {
-			graphicsSpaces_.push_back(&graphicsSpace);
+			ActiveGraphicsSpaces.push_back(&graphicsSpace);
 			DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
 				<< " has registered to the Graphics system\n";
 		}
@@ -276,9 +163,9 @@ namespace DCEngine {
 			DCTrace << "Graphics::Deregister -  " << graphicsSpace.Owner()->Name()
 				<< " has deregistered from the Graphics system\n";
 			auto graphicsSpacePtr = &graphicsSpace;
-			graphicsSpaces_.erase(std::remove(graphicsSpaces_.begin(),
-				graphicsSpaces_.end(), graphicsSpacePtr),
-				graphicsSpaces_.end());
+			ActiveGraphicsSpaces.erase(std::remove(ActiveGraphicsSpaces.begin(),
+				ActiveGraphicsSpaces.end(), graphicsSpacePtr),
+				ActiveGraphicsSpaces.end());
 		}
 
 		/**************************************************************************/
@@ -330,56 +217,107 @@ namespace DCEngine {
 		{
 		}
 
-		///////////////
-		// DEBUG DRAW
-		///////////////
-
+    /**************************************************************************/
+    /*!
+    @brief Draws a circle at the specified position.
+    @param pos The center of the circle.
+    @param radius The radius of the circle.
+    @param color The color of the circle.
+    @param camera A reference to the camera component.
+    @param fill Whether the circle should be filled.
+    */
+    /**************************************************************************/
 		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& camera, bool fill)
 		{
 			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
 			mDebugCircleList.push_back(DebugCircle(color, pos, radius));
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a rectangle at the specified position.
+    @param pos The center of the rectangle.
+    @param radius The width of the rectangle.
+    @param height The height of the rectangle.
+    @param color The color of the rectangle.
+    @param camera A reference to the camera component.
+    @param fill Whether the rectangle should be filled.
+    */
+    /**************************************************************************/
 		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& camera, bool fill)
 		{
 			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
 			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height), fill));
 		}
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a line from the specified starting position to the end position.
+    @param startPos The starting position of the line.
+    @param endPos The ending position of the line.
+    @param color  The color of the line.
+    */
+    /**************************************************************************/
 		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& camera)
 		{
 			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
 			mDebugLineList.push_back(DebugLine(color, startPos, endPos));
 		}
 
-		/////////////////
-		// FRAME UPDATE
-		/////////////////
-
+    /**************************************************************************/
+    /*!
+    \brief Terminates the Graphics System.
+    */
+    /**************************************************************************/
 		void Graphics::Terminate() {
 			DCTrace << "Graphics::Terminate \n";
 			GraphicsHandler->Terminate();
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Starts the current frame.
+    */
+    /**************************************************************************/
 		void Graphics::StartFrame() {
 			GraphicsHandler->StartFrame();
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Ends the current frame.
+    */
+    /**************************************************************************/
 		void Graphics::EndFrame() {
 			GraphicsHandler->EndFrame();
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Saves the current OpenGL state.
+    */
+    /**************************************************************************/
 		void Graphics::BackupState()
 		{
 			GraphicsHandler->BackupState();
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Restores the previous OpenGL state.
+    */
+    /**************************************************************************/
 		void Graphics::RestoreState()
 		{
 			GraphicsHandler->RestoreState();
 			GraphicsHandler->ConfigureSpriteVAO();
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Recompiles the shaders.
+    */
+    /**************************************************************************/
     void Graphics::OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders * event)
     {
       GraphicsHandler->CompileShaders();
@@ -392,10 +330,15 @@ namespace DCEngine {
 
 		void Graphics::OnResizeViewportEvent(Events::ResizeViewportEvent * event)
 		{
-			ViewportScale = event->viewportScale;
-			DCTrace << "Graphics::OnResizeViewportEvent - Width: " << ViewportScale.x
-				<< " Height " << ViewportScale.y << "\n";
+			Settings.ViewportScale = event->viewportScale;
+			DCTrace << "Graphics::OnResizeViewportEvent - Width: " << Settings.ViewportScale.x
+				<< " Height " << Settings.ViewportScale.y << "\n";
 		}
+
+    void Graphics::OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning * event)
+    {
+      Settings.LightningEnabled = !Settings.LightningEnabled;
+    }
 
 		void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
 		{

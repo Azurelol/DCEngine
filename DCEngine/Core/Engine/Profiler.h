@@ -56,6 +56,7 @@ namespace DCEngine {
     Time::FunctionTimes GraphicsSystemTimes;
     Time::FunctionTimes PhysicsSystemTimes;
     Time::FunctionTimes EngineSystemTimes;
+    void AddSystemTime(Time::FunctionTimeSliceVec& container, Time::FunctionTimeSlice& time);
     void CalculateFPS(float dt);
     void Clear();
   };

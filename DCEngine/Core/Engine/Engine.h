@@ -57,9 +57,6 @@ namespace DCEngine {
 
     Keyboard* getKeyboard() { return KeyboardHandle.get(); }
     Mouse* getMouse() { return MouseHandle.get(); }
-    Systems::Factory& getFactory() {
-      return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
-    }
     GameSession* getGameSession() { return CurrentGameSession.get(); }
 
     // Component Events
@@ -72,7 +69,6 @@ namespace DCEngine {
     void Connect(MemberFunction fn, SystemClass* sys);
     template <typename EventClass> void Dispatch(Event* eventObj);
 
-    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     template<typename T> std::shared_ptr<T> getSystem();
     Profiler& Profiler() { return this->Profile; }
     //EngineConfigPtr& Configuration() { return EngineConfiguration; }

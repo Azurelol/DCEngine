@@ -314,23 +314,25 @@ namespace DCEngine {
 		/**************************************************************************/
 		/*!
 		\brief Sets the shader's camera projection matrix and view uniforms.
-		\param A (smart) pointer to the shader object.
+		\param A pointer to the shader object.
 		\param A reference to camera object.
 		\note
 		*/
     /**************************************************************************/
 		void GraphicsGL::SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera) {
-
-			//auto camTrans = camera.Owner()->getComponent<Components::Transform>();
-
-			// (???) Sets the "image" uniform to 0
-			//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(800), 0.0f, static_cast<GLfloat>(600));
-			// Set the projection matrix
+      // Set the projection matrix
 			shader->SetMatrix4("projection", camera.GetProjectionMatrix());
 			// Set the view matrix 
 			shader->SetMatrix4("view", camera.GetViewMatrix());
 		}
 
+    /**************************************************************************/
+    /*!
+    \brief Sets the shader's lightning uniforms.
+    \param A pointer to the shader object.
+    \param A reference to lgiht component    
+    */
+    /**************************************************************************/
 		void GraphicsGL::SetLightUniforms(ShaderPtr shader, Components::Light* light)
 		{
 			shader->SetInteger("useLight", true);
@@ -443,16 +445,25 @@ namespace DCEngine {
 
 		}
 
-		/*!************************************************************************\
-		@brief  Sets the SpriteText's Shader Uniforms.
-		\**************************************************************************/
+    /**************************************************************************/
+    /*!
+    @brief Sets the SpriteText shaders.
+    @param camera A reference to the camera component.
+    */
+    /**************************************************************************/
 		void GraphicsGL::SetSpriteTextShader(Components::Camera& camera)
 		{
 			SpriteTextShader->Use();
 			SetShaderProjViewUniforms(SpriteTextShader, camera);
 		}
 
-
+    /**************************************************************************/
+    /*!
+    @brief Sets the shadowing shaders.
+    @param camera A reference to the camera component.
+    @param light A reference to the light component.
+    */
+    /**************************************************************************/
 		void GraphicsGL::SetShadowingShaders(Components::Camera& camera, Components::Light* light)
 		{
 			ShadowingShader->Use();

@@ -123,7 +123,7 @@ namespace DCEngine {
     editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
     editorConfig.RecentProject = EngineConfiguration->RecentProject;
     // Graphics configuration
-    GraphicsConfig graphicsConfig;
+    Systems::GraphicsConfig graphicsConfig;
     graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
     // Add the systems to the engine's systems container
     Systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));

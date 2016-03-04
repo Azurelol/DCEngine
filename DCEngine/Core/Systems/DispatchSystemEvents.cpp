@@ -101,6 +101,13 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::GraphicsToggleLightning()
+    {
+      auto event = new Events::GraphicsToggleLightning();
+      Daisy->Dispatch<Events::GraphicsToggleLightning>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::ScriptingCompile()
     {
       auto event = new Events::ScriptingCompileScripts();

@@ -125,7 +125,7 @@ namespace DCEngine {
     void EditorDiagnostics::Graphics()
     {
       auto& times = Daisy->Profiler().Graphics();
-      DisplaySystemsHistogram("Graphics", times);
+      DisplaySystemsHistogram("Graphics", times, true); 
     }
 
     /**************************************************************************/
@@ -136,7 +136,7 @@ namespace DCEngine {
     void EditorDiagnostics::Physics()
     {
       auto& times = Daisy->Profiler().Physics();
-      DisplaySystemsHistogram("Physics", times);
+      DisplaySystemsHistogram("Physics", times, true);
 
       /*============
       COLLIDERS
@@ -201,7 +201,7 @@ namespace DCEngine {
     @param data The container of data.
     */
     /**************************************************************************/
-    void EditorDiagnostics::DisplaySystemsHistogram(std::string title, DCEngine::Time::FunctionTimeSliceVec& data)
+    void EditorDiagnostics::DisplaySystemsHistogram(std::string title, DCEngine::Time::FunctionTimeSliceVec& data, bool calls)
     {
       if (data.empty())
         return;
@@ -223,7 +223,12 @@ namespace DCEngine {
         for (unsigned i = 0; i < data.size(); ++i) {
           names += std::to_string(i);
           names += ": ";
-          names += data[i].first;
+          names += data[i].Name;
+          // If displaying the number of calls..
+          if (calls) {
+            names += " '";
+            names += std::to_string(data[i].Calls) + "'";
+          }
           names += "\n";
         }
 
@@ -232,10 +237,12 @@ namespace DCEngine {
 
         // Display the histogram through 
         ImGui::PushItemWidth(290);
-        ImGui::PlotHistogram("", &data[0].second, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height), sizeof(data[0]));
+        ImGui::PlotHistogram("", &data[0].Time, data.size(), 0, title.c_str(), minTime, maxTime, ImVec2(0, height), sizeof(data[0]));
         ImGui::SameLine();
         // Print the legend 
         ImGui::Text(names.c_str());
+
+        
     }
 
     void EditorDiagnostics::Update()

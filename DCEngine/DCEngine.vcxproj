@@ -395,6 +395,8 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Configure.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Lightning.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsRender.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\GUI\Windows.cpp" />
@@ -460,6 +462,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\MacrosBinding.h" />
+    <ClInclude Include="Core\Engine\MacrosEvents.h" />
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />

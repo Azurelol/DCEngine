@@ -46,6 +46,9 @@ namespace DCEngine {
     class GraphicsCompileShaders : public Event {
     };
 
+    class GraphicsToggleLightning : public Event {
+    };
+
     class ScriptingCompileScripts : public Event {
     };
 

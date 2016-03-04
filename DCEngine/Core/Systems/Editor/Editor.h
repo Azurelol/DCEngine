@@ -187,6 +187,7 @@ namespace DCEngine {
       void UpdateCaption();
       void PanCamera(Vec2&);
       void DrawGrid();
+      void ToggleLightning();
       // Create
       // Processes      
       void LaunchProjectFolder();
