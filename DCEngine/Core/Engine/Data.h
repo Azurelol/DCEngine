@@ -41,7 +41,6 @@ namespace DCEngine {
     }
 
     void Deserialize(Json::Value& root) {
-
       Caption = root.get("Caption", "").asString();
       Version = root.get("Version", "").asDouble();
       Framerate = root.get("Framerate", "").asInt();

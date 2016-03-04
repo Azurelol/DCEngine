@@ -43,6 +43,13 @@ namespace DCEngine {
       delete exitEvent;
     }
 
+    void DispatchSystemEvents::EngineSaveConfigurations()
+    {
+      auto exitEvent = new Events::EngineSaveConfigurations();
+      Daisy->Dispatch<Events::EngineSaveConfigurations>(exitEvent);
+      delete exitEvent;
+    }
+
     void DispatchSystemEvents::EditorInitialize()
     {
       auto event = new Events::EditorInitialize;

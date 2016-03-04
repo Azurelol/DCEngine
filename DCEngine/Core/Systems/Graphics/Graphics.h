@@ -51,7 +51,7 @@ namespace DCEngine {
 
 		private:
 
-      GraphicsConfig Settings;		
+      GraphicsConfig& Settings;		
 			static std::unique_ptr<GraphicsGL> GraphicsHandler;
 			std::vector<Components::GraphicsSpace*> ActiveGraphicsSpaces;			
       // Matrixes
@@ -69,7 +69,7 @@ namespace DCEngine {
 			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
-			Graphics(GraphicsConfig settings);
+			Graphics(GraphicsConfig& settings);
 			void Initialize();
 			void Subscribe();
 			//Main Methods

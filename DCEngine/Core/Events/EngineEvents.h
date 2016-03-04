@@ -15,6 +15,10 @@
 namespace DCEngine {
   namespace Events {
 
+    class EngineSaveConfigurations : public Event {
+    public:
+    };
+
     class EngineExit : public Event {
     public:
     };

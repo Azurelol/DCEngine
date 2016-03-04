@@ -26,6 +26,7 @@ namespace DCEngine {
       static void EngineResume();
       static void EnginePause();
       static void EngineExit();
+      static void EngineSaveConfigurations();
       
       static void EditorInitialize();
       static void EditorSelectObject(Object* object);

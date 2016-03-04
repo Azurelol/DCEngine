@@ -81,7 +81,7 @@ namespace DCEngine {
       void TransformDrag(Vec2&);
       void TransformDragRelease();      
       // Settings
-      EditorConfig Settings;
+      EditorConfig& Settings;
       // Modules
       EditorCreator Creator;
       EditorResources Resources;
@@ -194,7 +194,7 @@ namespace DCEngine {
       void LaunchDocumentation();
       // CTOR
       void WindowSplashScreen();
-      Editor(EditorConfig settings);
+      Editor(EditorConfig& settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);

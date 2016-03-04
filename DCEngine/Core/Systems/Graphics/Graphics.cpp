@@ -25,7 +25,7 @@ namespace DCEngine {
 		\note  It sets several values for the OpenGL interface...
 		*/
 		/**************************************************************************/
-		Graphics::Graphics(GraphicsConfig settings) : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics), Settings(settings) {
+		Graphics::Graphics(GraphicsConfig& settings) : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics), Settings(settings) {
       //Settings.MaxDrawLayers = 5;
 			mDrawList.resize(Settings.MaxDrawLayers);
 			DCTrace << "*Using OpenGL for Graphics \n";

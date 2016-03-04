@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  Constructor.
     */
     /**************************************************************************/
-    Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
+    Editor::Editor(EditorConfig& settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
                                                           Settings(settings), 
                                                           Creator(*this), Resources(*this), Archetypes(*this),
                                                           Projects(*this), Diagnostics(*this), TextEditor(*this),

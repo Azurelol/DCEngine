@@ -43,16 +43,7 @@ namespace DCEngine {
   
   namespace Systems {
 
-    struct GraphicsConfig {
-      int MaxDrawLayers;
-      bool LightningEnabled;
-      const int ScreenWidth = 1024;
-      const int ScreenHeight = 768;
-      Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
-      Vec2 ViewportScale = Vec2(1, 1);
-      Vec2 ViewportRatio;
-      GraphicsConfig() : ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f), ViewportRatio(1.0f, 1.0f) {}
-    };
+
 
     // More forward declarations!
     class Window;

@@ -77,6 +77,7 @@ namespace DCEngine {
 
     bool Paused;
     DCEngine::Profiler Profile;
+    Systems::ConfigurationFiles Configurations;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;
@@ -92,12 +93,13 @@ namespace DCEngine {
     ActionSpace ActionSpace; 
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
 
-    bool LoadEngineConfig();
     void LoadDefaultSpace();
     // Updates
     void Update(float dt);   
     void DispatchUpdateEvents(float dt);    
     void UpdateActions(float dt);
+    void LoadConfigurationFiles(const std::string&);
+    template <typename Type> bool LoadConfiguration(Type& config, std::string fileName);
     // Events
     void Subscribe();
     void OnWindowLostFocusEvent(Events::WindowLostFocus* event);
@@ -106,7 +108,7 @@ namespace DCEngine {
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
     void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
-    
+    void OnEngineSaveConfigurationsEvent(Events::EngineSaveConfigurations* event);    
   }; 
 
   /**************************************************************************/

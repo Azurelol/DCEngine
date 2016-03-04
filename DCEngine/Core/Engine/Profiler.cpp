@@ -1,3 +1,12 @@
+/*****************************************************************************/
+/*!
+\file   Profiler.cpp
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   3/3/2016
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Profiler.h"
 #include "Engine.h"
 

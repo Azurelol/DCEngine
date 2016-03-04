@@ -361,6 +361,7 @@
     <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorPreferences.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
@@ -486,6 +487,7 @@
     <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp" />
     <ClInclude Include="Core\Systems\Editor\EditorModule.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorPreferences.h" />
     <ClInclude Include="Core\Systems\Editor\EditorProjects.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
@@ -634,6 +636,7 @@
     <ClInclude Include="Core\Systems\StateMachine\IState.h" />
     <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
+    <ClInclude Include="Core\Systems\SystemsConfiguration.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
