@@ -125,7 +125,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Transform::SetLocalTranslation(const Vec3 & pos)
     {
-      auto parentref = static_cast<GameObject*>(this->Owner())->Parent();
+      auto parentref = dynamic_cast<GameObject*>(this->Owner())->Parent();
 
       if (parentref)
       {
