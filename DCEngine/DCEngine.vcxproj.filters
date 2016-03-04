@@ -130,6 +130,9 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Reflection">
+      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Projects\Rebound">
       <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
     </Filter>
@@ -175,6 +178,9 @@
     <Filter Include="Core\Components\Graphics\Camera">
       <UniqueIdentifier>{4a02aad3-07b2-4f58-a66b-03abfcc8512a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Reflection\Zilch">
+      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
     </Filter>
@@ -207,6 +213,12 @@
     </Filter>
     <Filter Include="Core\Systems\Serialization\ZilchJSON">
       <UniqueIdentifier>{cc85a118-b8bc-43dc-a66b-2c3da9f54dd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Select">
+      <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Properties">
+      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Libraries">
       <UniqueIdentifier>{2ce09bdb-9f9a-4d29-8efc-cfc6e38891f6}</UniqueIdentifier>
@@ -253,6 +265,12 @@
     <Filter Include="Core\Systems\Physics\PhysicsCasting">
       <UniqueIdentifier>{82b295a7-30c6-4b53-9efb-0d9deca8971c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Camera">
+      <UniqueIdentifier>{b96ada2b-2ce9-4c95-a791-bbcf40fe6593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Input">
+      <UniqueIdentifier>{bec2abf2-633a-4dec-80f0-57595d8587fc}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Core\Systems\Physics\Broadphase">
       <UniqueIdentifier>{0da5a604-ce5b-4632-bb27-05c36d990304}</UniqueIdentifier>
     </Filter>
@@ -277,41 +295,29 @@
     <Filter Include="Core\Systems\Editor\Modules\Creator">
       <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
-      <UniqueIdentifier>{0939e1f2-4cc9-4a0a-b089-03e379530d07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Object\Module">
-      <UniqueIdentifier>{b029f76e-aefd-42b5-9e07-c3ae5424af51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Engine\Utilities">
-      <UniqueIdentifier>{387a41df-d237-4a6d-a408-384911e4ed1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Projects">
-      <UniqueIdentifier>{95314a66-638d-43d1-b1cf-f444fdb0a9b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Components\Graphics\Particles">
+    <Filter Include="Core\Components\Graphics\Lightning\Particles">
       <UniqueIdentifier>{4b45aaee-293b-4243-ae35-3c3c8aba06d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Engine\Utilities\Time">
-      <UniqueIdentifier>{d45fb154-7dc8-4a61-8e99-0d915cef5732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Engine\Profiler">
-      <UniqueIdentifier>{ed80af28-e43d-4206-b345-1287c6279e5b}</UniqueIdentifier>
+    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
+      <UniqueIdentifier>{f00ae099-e0a2-480c-8c3b-0a91fa4905cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
-      <UniqueIdentifier>{60108eb6-e9ef-47df-be28-dc4b6fc58425}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
-      <UniqueIdentifier>{5353d67b-d97f-4e69-b5e9-474663bd7f1c}</UniqueIdentifier>
+      <UniqueIdentifier>{7664af0e-b5d5-4660-8ccc-8c8e232bbf8c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Inspector">
-      <UniqueIdentifier>{144a8278-2edd-4a96-9467-0be64add8227}</UniqueIdentifier>
+      <UniqueIdentifier>{6ebbbc75-00bb-4acb-af79-28ba68beac91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Scripting">
-      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
+    <Filter Include="Core\Systems\Editor\Modules\Projects">
+      <UniqueIdentifier>{7ce06c2e-cef5-4ec6-b7a3-d7a2235e6077}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Scripting\Zilch">
-      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
+    <Filter Include="Core\Engine\Profiler">
+      <UniqueIdentifier>{7f390996-54d1-4eb9-94d9-a6ec71b61c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
+      <UniqueIdentifier>{6eeee2b9-786d-41c3-8392-a378017f10f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Time">
+      <UniqueIdentifier>{f91e6fca-220f-4ba8-b2e1-f6272a110441}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -439,7 +445,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
-      <Filter>Core\Systems\Scripting</Filter>
+      <Filter>Core\Systems\Reflection</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -505,13 +511,13 @@
       <Filter>Core\Components\Graphics\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem.cpp">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\LinearParticleAnimator.cpp">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\ParticleEmitter.cpp">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp">
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
@@ -520,10 +526,10 @@
       <Filter>Core\Systems\Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\ParticleColorAnimator.cpp">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp">
-      <Filter>Core\Systems\Scripting\Zilch</Filter>
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Object.cpp">
       <Filter>Core\Object</Filter>
@@ -541,12 +547,15 @@
       <Filter>Core\Binding</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
-      <Filter>Core\Systems\Scripting\Zilch</Filter>
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
       <Filter>Core\Precompiled</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\MainMenu.cpp">
+      <Filter>Core\Systems\Editor\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Event.cpp">
@@ -762,8 +771,14 @@
     <ClCompile Include="Core\Systems\Audio\AudioFMOD_Utilities.cpp">
       <Filter>Core\Systems\Audio\FMOD</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\CameraControl.cpp">
+      <Filter>Core\Systems\Editor\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
+      <Filter>Core\Systems\Editor\Input</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Components\SpriteParticleSystem_Particle.cpp">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Resources\Texture.cpp">
       <Filter>Core\Resources\Graphics</Filter>
@@ -801,6 +816,12 @@
     <ClCompile Include="Core\Components\TransformToolComponent.cpp">
       <Filter>Core\Components\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
+      <Filter>Core\Systems\Editor</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorCreator.cpp">
       <Filter>Core\Systems\Editor\Modules\Creator</Filter>
     </ClCompile>
@@ -825,65 +846,50 @@
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp">
       <Filter>Core\Systems\AI</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorArchetypes.cpp">
       <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorToolsDraw.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTools.cpp">
-      <Filter>Core\Systems\Editor</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Objects\Module.cpp">
-      <Filter>Core\Object\Module</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp">
-      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorModule.cpp">
-      <Filter>Core\Systems\Editor\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Engine\Timer.cpp">
-      <Filter>Core\Engine\Utilities\Time</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Engine\Profiler.cpp">
-      <Filter>Core\Engine\Profiler</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorDiagnostics.cpp">
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp">
-      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
-      <Filter>Core\Systems\Editor\Menus</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorInspector.cpp">
-      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorInspectorPreview.cpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp">
+      <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
+    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClCompile>
-<<<<<<< HEAD
+    <ClCompile Include="Core\Systems\Editor\EditorModule.cpp">
+      <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp">
+      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorResources.cpp">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Profiler.cpp">
+      <Filter>Core\Engine\Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Objects\Module.cpp">
+      <Filter>Core\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\Shield.cpp">
       <Filter>Projects\Rebound\Components</Filter>
-=======
-    <ClCompile Include="Core\Systems\Editor\CameraControl.cpp">
-      <Filter>Core\Systems\Editor\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\EditorInput.cpp">
-      <Filter>Core\Systems\Editor\Configuration</Filter>
->>>>>>> 276b3744cf2e4ee0f13b2ae13fc7d1ed7d3a5845
+    <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Timer.cpp">
+      <Filter>Core\Engine\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1095,7 +1101,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\Reflection.h">
-      <Filter>Core\Systems\Scripting</Filter>
+      <Filter>Core\Systems\Reflection</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Orientation.h">
       <Filter>Core\Components\Physics</Filter>
@@ -1176,19 +1182,19 @@
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\SpriteParticleSystem.h">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\LinearParticleAnimator.h">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ParticleEmitter.h">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\ParticleColorAnimator.h">
-      <Filter>Core\Components\Graphics\Particles</Filter>
+      <Filter>Core\Components\Graphics\Lightning\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
-      <Filter>Core\Systems\Scripting\Zilch</Filter>
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -1472,32 +1478,8 @@
     <ClInclude Include="Core\Systems\Editor\EditorArchetypes.h">
       <Filter>Core\Systems\Editor\Modules\Archetypes</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\EditorResources.h">
-      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Objects\Module.h">
-      <Filter>Core\Object\Module</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\EditorProjects.h">
-      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\EditorModule.h">
-      <Filter>Core\Systems\Editor\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Timer.h">
-      <Filter>Core\Engine\Utilities\Time</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Profiler.h">
-      <Filter>Core\Engine\Profiler</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h">
       <Filter>Core\Systems\Editor\Modules\Diagnostics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
-      <Filter>Core\Systems\Scripting\Zilch</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h">
-      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorInspector.h">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
@@ -1505,8 +1487,32 @@
     <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp">
       <Filter>Core\Systems\Editor\Modules\Inspector</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorModule.h">
+      <Filter>Core\Systems\Editor\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorProjects.h">
+      <Filter>Core\Systems\Editor\Modules\Projects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorResources.h">
+      <Filter>Core\Systems\Editor\Modules\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Profiler.h">
+      <Filter>Core\Engine\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Module.h">
+      <Filter>Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h">
+      <Filter>Core\Systems\Editor\Modules\TextEditor</Filter>
+    </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\Shield.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Timer.h">
+      <Filter>Core\Engine\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
+      <Filter>Core\Systems\Reflection\Zilch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1549,13 +1555,13 @@
     <None Include="Core\Assets\Shaders\ParticleShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
     <None Include="Core\Assets\Shaders\ShadowingShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Core\Assets\Shaders\ShadowingShader.gs">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Assets\Shaders\ShadowingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Projects\Rebound\Rebound.dceproj">

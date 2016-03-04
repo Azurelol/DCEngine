@@ -19,7 +19,7 @@
 
 namespace DCEngine {
 
-  Shader::Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath, std::string geometryPath) 
+  Shader::Shader(const std::string& shaderName, const std::string& vertexPath, const std::string& fragmentPath, const std::string& geometryPath) 
                  : Resource("Shader", shaderName, "None"), VertexPath(vertexPath), FragmentPath(fragmentPath), GeometryPath(geometryPath) {
     if (TRACE_CONSTRUCTOR)
       DCTrace << "\n" << ObjectName << "::Shader - Constructor \n";

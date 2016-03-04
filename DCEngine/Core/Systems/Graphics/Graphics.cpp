@@ -139,8 +139,8 @@ namespace DCEngine {
 								obj->Draw();
 							}
 						}
+						glClear(GL_STENCIL_BUFFER_BIT);
 					}
-					glClear(GL_STENCIL_BUFFER_BIT);
 				}
 				else
 				{

@@ -136,7 +136,7 @@ namespace DCEngine {
 				auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Components::Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Components::Transform>()->Translation.y, 0));
 				if (CurrentlyFired && glm::distance(TransformRef->getTranslation(), PlayerRef->getComponent<Components::Transform>()->getTranslation()) < 5)
 				{
-					DCTrace << "BallController::OnMouseUpEvent - Slam\n";
+          // DCTrace << "BallController::OnMouseUpEvent - Slam\n";
 					RigidBodyRef->setVelocity(Vec3(0, 0, 0));
 					RigidBodyRef->AddForce(MouseVector * SlamPower);
 				}
@@ -212,8 +212,8 @@ namespace DCEngine {
 
 		void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
-			DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
-			DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
+			//DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
+			//DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
 			if (gameObj->Parent() != nullptr)
 			{
 				RigidBodyRef->setVelocity(Vec3(0, 0, 0));

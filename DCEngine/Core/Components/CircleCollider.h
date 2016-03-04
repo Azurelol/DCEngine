@@ -34,7 +34,7 @@ namespace DCEngine {
 
       // draw collider is disabled because function only works for boxes right now
       //void DrawCollider();
-      String getCollisionGroup() const;
+      //String getCollisionGroup() const;
       // These should be private!
       CircleCollider(Entity& owner) : Collider(owner, "CircleCollider") {}
       ~CircleCollider();
@@ -47,7 +47,7 @@ namespace DCEngine {
 
     private:
       Transform* TransformComponent = NULL;
-      CollisionGroupHandle CollisionGroup = String("Default");
+      //CollisionGroupHandle CollisionGroup = String("Default");
     };
   }
 

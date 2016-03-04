@@ -33,6 +33,9 @@
 /**************************************************************************/
 // SFML
 
+// Dear ImgUi
+#include <IMGUI/imgui.h>
+
 #include <SFML\System\Vector2.hpp>
 // GLEW
 

@@ -26,7 +26,7 @@ namespace DCEngine {
       Geometry
     };
 
-    Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath, std::string geometryPath = "");
+    Shader(const std::string& shaderName, const std::string& vertexPath, const std::string& fragmentPath, const std::string& geometryPath = "");
     
     bool Load();
     std::string Extension() { return ".Shader"; }

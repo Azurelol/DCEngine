@@ -111,16 +111,6 @@ namespace DCEngine {
       // 2. Build it from serialized data
       BuildFromArchetype(gameObjPtr, archetype);
 
-
-      //// Turn the string from file into JSON data
-      //Zilch::CompilationErrors errors;
-      //Zilch::JsonReader reader;
-      //const Zilch::String what;
-      //Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
-      //                              archetype->Get().c_str(), what, nullptr);
-      //
-      //auto data = *archetypeData->OrderedMembers.data();
-
       return gameObjPtr;
     }
 
