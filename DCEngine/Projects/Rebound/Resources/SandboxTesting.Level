@@ -1219,7 +1219,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Oldworld_Background_1", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -1868,114 +1868,6 @@
       }, 
       "GameObject": 
       {
-        "Name": "Shield", 
-        "Archetype": "Sentinel Shield", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 13.407575, 
-                "y": 14.637627, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 0.500000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "PhysicsMaterial": "", 
-            "CollisionGroup": "Default", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Mass": 10.000000, 
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }
-        }
-      }, 
-      "GameObject": 
-      {
         "Name": "Sentinel", 
         "Archetype": "Sentinel", 
         "Components": 
@@ -1986,8 +1878,8 @@
             {
               "Vec3": 
               {
-                "x": -70.644890, 
-                "y": 3.401703, 
+                "x": -57.489338, 
+                "y": 2.246147, 
                 "z": 0.000000
               }
             }, 
@@ -2023,7 +1915,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "char_sent", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2143,7 +2035,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2697,7 +2589,7 @@
             "Visible": true, 
             "VisibilityCulling": true, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Type": "Ambient", 
             "Color": 
             {
