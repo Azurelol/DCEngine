@@ -189,7 +189,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Char_Scrap", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2698,7 +2698,7 @@
             "VisibilityCulling": true, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Type": "Point", 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 
