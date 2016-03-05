@@ -69,6 +69,11 @@ namespace DCEngine {
       ImGui::End();
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the current tab.
+    */
+    /**************************************************************************/
     void EditorPreferences::DisplayTab()
     {
       switch (CurrentTab) {
@@ -89,6 +94,11 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the columns.
+    */
+    /**************************************************************************/
     void EditorPreferences::DisplayColumns()
     {
       ImGui::BeginGroup();
@@ -98,26 +108,56 @@ namespace DCEngine {
       if (ImGui::Selectable("Editor")) CurrentTab = Tab::Editor;
       if (ImGui::Selectable("Graphics")) CurrentTab = Tab::Graphics;
       if (ImGui::Selectable("Audio")) CurrentTab = Tab::Audio;
-      if (ImGui::Selectable("Style")) CurrentTab = Tab::Style;
+      if (ImGui::CollapsingHeader("Style")) {
+        //CurrentTab = Tab::Style;
+        if (ImGui::Selectable("Sizes")) CurrentTab = Tab::StyleSizes;
+        if (ImGui::Selectable("Colors")) CurrentTab = Tab::StyleColors;
+      }
       // Right Column
       ImGui::NextColumn();
       DisplayTab();
       ImGui::EndGroup();
     }
 
-
+    /**************************************************************************/
+    /*!
+    \brief  Displays the Editor's preferences.
+    */
+    /**************************************************************************/
     void EditorPreferences::TabEditor()
     {
       static auto& config = ConfigurationFiles::Access().Editor;
       ImGui::InputInt("AutoSaveTime", &config.AutoSaveTime);
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the GUI Style's preferences.
+    */
+    /**************************************************************************/
     void EditorPreferences::TabStyle()
     {
       static auto& style = ConfigurationFiles::Access().GUI.Style;
       ImGui::SliderFloat("Alpha", &style.Alpha, 0.0f, 1.0f);
     }
 
+    void EditorPreferences::TabStyleSizes()
+    {
+      static auto& style = ConfigurationFiles::Access().GUI.Style;
+      ImGui::SliderFloat("WindowRounding", &style.WindowRounding, 1.0f, 16.0f);
+      ImGui::SliderFloat("FrameRounding", &style.FrameRounding, 1.0f, 16.0f);
+    }
+
+    void EditorPreferences::TabStyleColors()
+    {
+      static auto& style = ConfigurationFiles::Access().GUI.Style;
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays the Graphics's preferences.
+    */
+    /**************************************************************************/
     void EditorPreferences::TabGraphics()
     {
       static auto& config = ConfigurationFiles::Access().Graphics;
@@ -133,6 +173,11 @@ namespace DCEngine {
       ImGui::SliderFloat4("Clear Color", &config.ClearColor[0], 0.0f, 1.0f);
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  Displays the Audio's preferences.
+    */
+    /**************************************************************************/
     void EditorPreferences::TabAudio()
     {
       static auto& config = ConfigurationFiles::Access().Audio;

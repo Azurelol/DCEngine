@@ -30,6 +30,8 @@ namespace DCEngine {
         Graphics,
         Audio,
         Style,
+        StyleSizes,
+        StyleColors,
       };
 
       void Update();
@@ -39,6 +41,8 @@ namespace DCEngine {
       void DisplayTab();
       void TabEditor();
       void TabStyle();
+      void TabStyleSizes();
+      void TabStyleColors();
       void TabGraphics();
       void TabAudio();
 

@@ -262,11 +262,19 @@ namespace DCEngine {
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(Style.Alpha);
+        DCE_JSON_SERIALIZE(Style.WindowRounding);
+        DCE_JSON_SERIALIZE(Style.FrameRounding);
+        DCE_JSON_SERIALIZE(Style.WindowFillAlphaDefault);
+        DCE_JSON_SERIALIZE(Style.ColumnsMinSpacing);
         //DCE_JSON_SERIALIZE_VEC4(Col_Text);
       }
 
       void Deserialize(Json::Value& root) {
         DCE_JSON_DESERIALIZE_INTRINSIC(Style.Alpha).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowRounding).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.FrameRounding).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowFillAlphaDefault).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.ColumnsMinSpacing).asFloat();
       }
 
       void Link() {
