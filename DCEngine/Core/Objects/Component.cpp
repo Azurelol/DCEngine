@@ -104,7 +104,7 @@ namespace DCEngine {
 
     builder.Key(this->Name().c_str());
     builder.Begin(Zilch::JsonType::Object);
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType());
     builder.End();
   }
 
@@ -120,7 +120,7 @@ namespace DCEngine {
     if (DCE_TRACE_COMPONENT_INITIALIZE)
       DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

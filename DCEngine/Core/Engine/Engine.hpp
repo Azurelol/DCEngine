@@ -10,7 +10,7 @@
 /******************************************************************************/
 //#pragma once
 #include "Engine.h"
-
+#include <ZILCH\Zilch.hpp>
 namespace DCEngine {
 
   /**************************************************************************/
@@ -38,6 +38,21 @@ namespace DCEngine {
     memDeg->Inst = inst;
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = dynamic_cast<EventDelegate*>(memDeg);
+    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
+    publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
+    //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    // Add a pointer to entiyy
+    inst->ActiveDelegateHolders.push_back(publisher);
+  }
+  template<typename EventClass>
+  void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
+
+    auto zilchDeg = new EventZilchFunctionDelegate<ZilchComponent>();
+    zilchDeg->FuncPtr = fn;
+    zilchDeg->Inst = inst;
+
+    // Create a base delegate pointer to pass to the entity's container
+    auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
     //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
@@ -173,4 +188,17 @@ namespace DCEngine {
   #define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), &Function, this)
 
 
+/*#define CreateZilchConnect(EventName)                                \
+\
+   void ZilchConnect##EventName(Entity* publisher, Zilch::Function* fn, ZilchComponent* fnOwner) \
+   {                                                                                          \
+     Daisy->ZilchConnect<::DCEngine::Events::##EventName>(publisher, fn, fnOwner); \
+   } \*/
+
+  //CreateZilchConnect(LogicUpdate);
+
+  /*void ZilchConnectLogicUpdate(Entity* publisher, Zilch::Function* fn, ZilchComponent* fnOwner)
+  {
+    Daisy->Connect<::DCEngine::Events::LogicUpdate>(publisher, fn, fnOwner);
+  }*/
 }
