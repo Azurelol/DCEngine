@@ -89,8 +89,15 @@ float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 di
 	if(angleDifference > outerAngle)
 		return 0;
 
-	angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
-	angleFalloff = clamp(angleFalloff, 0, 1);
+	if(innerAngle < outerAngle)
+	{
+		angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
+		angleFalloff = clamp(angleFalloff, 0, 1);
+	}
+	else
+	{
+		angleFalloff = 1;
+	}
 
 	return distanceAttenuation * angleFalloff * diffuseFactor;
 }

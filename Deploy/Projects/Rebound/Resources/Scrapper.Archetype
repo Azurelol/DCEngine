@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 262.391632, 
-            "y": -31.816240, 
+            "x": 326.356995, 
+            "y": -73.627930, 
             "z": 0.000000
           }
         }, 
@@ -49,7 +49,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Wow", 
+        "SpriteSource": "Char_Scrap", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 

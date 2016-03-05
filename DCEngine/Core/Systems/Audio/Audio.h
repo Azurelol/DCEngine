@@ -50,14 +50,14 @@ namespace DCEngine {
 
     private:
 
-      bool Enabled = false;
+      AudioConfig& Settings;
       std::vector<Components::SoundSpace*> SoundSpaceContainer;
       SoundInstanceContainer ActiveInstances;
 
       SoundInstanceHandle CreateSoundInstance(const SoundCueHandle& soundCue);
       PlaybackSettings RetrievePlaybackSettings(const SoundCueHandle& soundCue);
 
-      Audio();
+      Audio(AudioConfig& config);
       void Initialize();
       void Subscribe();
       void Update(float dt);

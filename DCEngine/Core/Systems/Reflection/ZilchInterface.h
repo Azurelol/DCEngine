@@ -20,16 +20,11 @@
 namespace DCEngine {
   namespace Systems {
     
-    using ZilchOrigin = std::string;
-    using ZilchFile = std::string;
-    using ZilchCode = std::string;
-
     class Reflection;
     class ZilchInterface {
       friend class Reflection;
 
     public:
-
       ~ZilchInterface();
       static ZilchInterface& Get();
       static Zilch::ExecutableState *GetState();
@@ -52,9 +47,10 @@ namespace DCEngine {
       template <typename Value, typename ObjectPtr>
       bool SetProperty(Value val, Zilch::Property* property, ObjectPtr object);
       // Getters
-      Zilch::ExecutableState* getState();
+      Zilch::LibraryRef getLibrary();
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
-      Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);
+      Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters,
+        Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options, bool ErrorOn);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);
       std::vector<Zilch::BoundType*> GetTypes();
       Zilch::Attribute* getAttribute(Zilch::Property* property, std::string attributeName);
@@ -72,12 +68,19 @@ namespace DCEngine {
       Zilch::ZilchSetup Setup;
       Zilch::ExecutableState* State;
       Zilch::ExceptionReport Report;
-      Zilch::LibraryRef ScriptLibrary;
-      // A container of dependent libraries
       Zilch::Module Dependencies;
+      // A container of dependent libraries
 
-      std::unordered_map<ZilchOrigin, ZilchCode> Scripts;
-      std::unordered_map<ZilchFile , bool> ScriptFiles;
+      // Scripts
+      Zilch::LibraryRef ScriptLibrary;
+      struct ZilchScriptInfo {
+        std::string Name;
+        std::string Code;
+        ZilchScriptInfo(const std::string& name, const std::string& code) 
+                        : Name(name), Code(code) {}
+      };
+      std::vector<ZilchScriptInfo> Scripts;
+      std::vector<std::string> ScriptFiles;
 
       /* Base methods */
       void SetupConsole();

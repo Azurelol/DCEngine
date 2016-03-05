@@ -11,9 +11,10 @@
 #include "../Engine/Timer.h"
 #include "../Engine/Command.h"
 
+#include "../Systems/Serialization/Serialization.h"
+
 namespace DCEngine {
   namespace Systems {
-
        
     /**************************************************************************/
     /*!
@@ -70,7 +71,7 @@ namespace DCEngine {
       */
       /**************************************************************************/
       void Save(std::string filePath) {
-        std::string configData;
+        std::string configData;        
         Serialization::Serialize(*this, configData);
         FileSystem::FileWriteString(filePath, configData);
       }
@@ -79,20 +80,36 @@ namespace DCEngine {
 
     };
 
-    //#define str(s) str2(s)
-    //#define str2(s) #s
-    //#define DCE_JSON_SERIALIZE(PropertyName)   \ 
-    //root[str(PropertyName)] = PropertyName
+
+    #define DCE_JSON_SERIALIZE(PropertyName)   \
+    root[#PropertyName] = PropertyName
+
+    //#define DCE_JSON_SERIALIZE(PropertyName)   \
+    //root[#PropertyName] = PropertyName
+
+    //#define CONCAT_NX(A, B) A ## B
+    //#define CONCAT(A, B), CONCAT_NX(A, B)
+    //#define STRINGIZE(A) ((A),STRINGIZE_NX(A))
+
+    //#define DCE_JSON_SERIALIZE_VEC4(PropertyName)                     \ 
+    //root[#PropertyName "X"] = PropertyName.x;                         \
+    //root[#PropertyName "Y"] = PropertyName.y;                         \
+    //root[#PropertyName "Z"] = PropertyName.z;                         \
+    //root[#PropertyName "W"] = PropertyName.w       
+
+    //#define DCE_JSON_DESERIALIZE_VEC4(PropertyName)                   \ 
+    //PropertyName.x = root.get(#PropertyName "X", "").asFloat();       \
+    //PropertyName.y = root.get(#PropertyName "Y", "").asFloat();       \
+    //PropertyName.z = root.get(#PropertyName "Z", "").asFloat();       \
+    //PropertyName.w = root.get(#PropertyName "W", "").asFloat()
+
+
     #define DCE_JSON_DESERIALIZE(PropertyName)   \
     Deserialize(root, PropertyName, "##PropertyName")
-    #define DCE_JSON_DESERIALIZE_STRING(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asString() 
-    #define DCE_JSON_DESERIALIZE_BOOL(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asBool()
-    #define DCE_JSON_DESERIALIZE_INT(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asInt()
-    #define DCE_JSON_DESERIALIZE_FLOAT(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asFloat()
+    #define DCE_JSON_DESERIALIZE_INTRINSIC(PropertyName) \
+    PropertyName = root.get(#PropertyName, "")
+    
+
 
     /**************************************************************************/
     /*!
@@ -101,7 +118,6 @@ namespace DCEngine {
     /**************************************************************************/
     struct EditorConfig : public Configuration {
       static std::string FileName() { return "ConfigurationEditor.cfg"; }
-
       // Time
       int AutoSaveTime;      
       // Grid
@@ -115,8 +131,6 @@ namespace DCEngine {
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-
-
 
       Time::Timer AutoSaveTimer;
       bool EditorEnabled = false;
@@ -136,43 +150,32 @@ namespace DCEngine {
       // Console
       size_t ConsoleWindowStringLength = 0;
       size_t PreviousConsoleWindowStringLength = 0;
+
+      void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(AutoSaveTime);
+        DCE_JSON_SERIALIZE(GridActive);
+        DCE_JSON_SERIALIZE(GridLength);
+        DCE_JSON_SERIALIZE(Snapping);
+        DCE_JSON_SERIALIZE(SnapDistance);
+        DCE_JSON_SERIALIZE(SnapAngle);
+        DCE_JSON_SERIALIZE(RecentProject);
+        DCE_JSON_SERIALIZE(ProjectsPath);
+      }
+      void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(AutoSaveTime).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(GridActive).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(GridLength).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Snapping).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(SnapDistance).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(SnapAngle).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(RecentProject).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
+      }
+
       EditorConfig() : AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
                        Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),
                        AutoSaveTimer(AutoSaveTime, Time::Timer::Mode::Countdown, true),
                        CameraLastPos(0.0f, 0.0f, 40.0f) {}
-
-
-      void Serialize(Json::Value& root) {
-        root["AutoSaveTime"] = AutoSaveTime;
-        root["GridActive"] = GridActive;
-        root["GridLength"] = GridLength;
-        root["Snapping"] = Snapping;
-        root["SnapDistance"] = SnapDistance;
-        root["SnapAngle"] = SnapAngle;
-
-      }
-      void Deserialize(Json::Value& root) {
-        //DeserializeByType(root, AutoSaveTime, "AutoSaveTime");
-        //DeserializeByType(root, GridActive, "GridActive");
-        //DeserializeByType(root, GridLength, "GridLength");
-        //DeserializeByType(root, Snapping, "Snapping");
-        //DeserializeByType(root, SnapDistance, "SnapDistance");
-        //DeserializeByType(root, SnapAngle, "SnapAngle");
-
-        AutoSaveTime = root.get("AutoSaveTime", "").asInt();
-        GridActive = root.get("GridActive", "").asBool();
-        GridLength = root.get("GridLength", "").asFloat();
-        Snapping = root.get("Snapping", "").asBool();
-        SnapDistance = root.get("SnapDistance", "").asFloat();
-        SnapAngle = root.get("SnapAngle", "").asFloat();
-
-        //DCE_JSON_DESERIALIZE_INT(AutoSaveTime);
-        //DCE_JSON_DESERIALIZE_BOOL(GridActive);
-        //DCE_JSON_DESERIALIZE_FLOAT(GridLength);
-        //DCE_JSON_DESERIALIZE_BOOL(Snapping);
-        //DCE_JSON_DESERIALIZE_FLOAT(SnapDistance);
-        //DCE_JSON_DESERIALIZE_FLOAT(SnapAngle);
-      }
     };
 
     /**************************************************************************/
@@ -184,16 +187,23 @@ namespace DCEngine {
       static std::string FileName() { return "ConfigurationGraphics.cfg"; }
       int MaxDrawLayers;
       bool LightningEnabled;
-      const int ScreenWidth = 1024;
-      const int ScreenHeight = 768;
+      int ScreenWidth;
+      int ScreenHeight;
+      int Framerate;
+      bool Fullscreen;
+      std::string Caption;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
       Vec2 ViewportScale = Vec2(1, 1);
       Vec2 ViewportRatio;
-      GraphicsConfig() : MaxDrawLayers(5), ScreenWidth(1024), ScreenHeight(768), 
-                         ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f), ViewportRatio(1.0f, 1.0f) {}
 
       void Serialize(Json::Value& root) {
-        root["MaxDrawLayers"] = MaxDrawLayers;
+        DCE_JSON_SERIALIZE(MaxDrawLayers);
+        DCE_JSON_SERIALIZE(ScreenWidth);
+        DCE_JSON_SERIALIZE(ScreenHeight);
+        DCE_JSON_SERIALIZE(Framerate);
+        DCE_JSON_SERIALIZE(Fullscreen);
+        DCE_JSON_SERIALIZE(Caption);
+        //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
         root["ClearColorZ"] = ClearColor.z;
         root["ClearColorY"] = ClearColor.y;
@@ -201,18 +211,91 @@ namespace DCEngine {
       }
 
       void Deserialize(Json::Value& root) {
-        //DCE_JSON_DESERIALIZE_INT(MaxDrawLayers);
-        MaxDrawLayers = root.get("MaxDrawLayers", "").asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(MaxDrawLayers).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(ScreenWidth).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(ScreenHeight).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();
         ClearColor.w = root.get("ClearColorW", "").asFloat();
       }
+
+      GraphicsConfig() : MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
+                         Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f), 
+                         ViewportRatio(1.0f, 1.0f) {}
     };
 
+    /**************************************************************************/
+    /*!
+    @struct GraphicsConfig Configuration for Audio system.
+    */
+    /**************************************************************************/
+    struct AudioConfig : public Configuration {
+      static std::string FileName() { return "ConfigurationAudio.cfg"; }
+      bool Enabled;
+      int MasterVolume;
+
+      void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(Enabled);
+        DCE_JSON_SERIALIZE(MasterVolume);
+      }
+
+      void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(Enabled).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(MasterVolume).asInt();
+      }
+
+      AudioConfig() : Enabled(true), MasterVolume(100) {}
+    };
+
+    /**************************************************************************/
+    /*!
+    @struct GraphicsConfig Configuration for GUI system.
+    */
+    /**************************************************************************/
+    struct GUIConfig : public Configuration {
+      static std::string FileName() { return "ConfigurationGUI.cfg"; }
+      ImGuiStyle& Style; // A pointer to the ImGui Style
+
+      void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(Style.Alpha);
+        DCE_JSON_SERIALIZE(Style.WindowRounding);
+        DCE_JSON_SERIALIZE(Style.FrameRounding);
+        DCE_JSON_SERIALIZE(Style.WindowFillAlphaDefault);
+        DCE_JSON_SERIALIZE(Style.ColumnsMinSpacing);
+        //DCE_JSON_SERIALIZE_VEC4(Col_Text);
+      }
+
+      void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.Alpha).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowRounding).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.FrameRounding).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowFillAlphaDefault).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Style.ColumnsMinSpacing).asFloat();
+      }
+
+      void Link() {
+        //Style = &ImGui::GetStyle();
+      }
+
+      GUIConfig();
+
+    };
+
+    /**************************************************************************/
+    /*!
+    @struct ConfigurationFiles Configuration files for the engine.
+    */
+    /**************************************************************************/
     struct ConfigurationFiles {
       EditorConfig Editor;
       GraphicsConfig Graphics;
+      AudioConfig Audio;
+      GUIConfig GUI;
+      static ConfigurationFiles& Access();
     };
 
 

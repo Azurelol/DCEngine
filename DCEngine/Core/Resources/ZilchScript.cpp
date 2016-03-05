@@ -115,8 +115,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   bool ZilchScript::IncludeScript()
-  {   
-    Daisy->getSystem<Systems::Reflection>()->Handler()->AddScript(SerializedData, getObjectName());
+  { 
+    //Daisy->getSystem<Systems::Reflection>()->Handler()->AddScript(SerializedData, getObjectName());
+    Daisy->getSystem<Systems::Reflection>()->Handler()->AddScriptFile(ResourcePath);
     return true;
   }
 

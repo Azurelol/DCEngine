@@ -255,6 +255,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Binding\CoreBinding.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEvents.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
@@ -418,6 +420,7 @@
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
+    <ClCompile Include="Core\Systems\SystemsConfiguration.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp" />
@@ -452,6 +455,8 @@
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
+    <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Engine\Actions.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>

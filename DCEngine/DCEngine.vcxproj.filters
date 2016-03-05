@@ -906,6 +906,9 @@
     <ClCompile Include="Core\Systems\Editor\EditorPreferences.cpp">
       <Filter>Core\Systems\Editor\Modules\Preferences</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\SystemsConfiguration.cpp">
+      <Filter>Core\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

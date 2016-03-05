@@ -46,6 +46,11 @@ namespace DCEngine {
       WindowEnabled = toggle;
     }
 
+    void EditorModule::Toggle()
+    {
+      WindowEnabled = !WindowEnabled;
+    }
+
 
   }
 }

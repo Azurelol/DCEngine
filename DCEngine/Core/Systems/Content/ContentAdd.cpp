@@ -250,7 +250,11 @@ namespace DCEngine {
     void Content::AddZilchScript(const  std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
     {
       AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
-      // Recompile scripts again so it can be used immediately.
+      // Load the script
+      zilchScriptPtr->Load();
+      // Add the the script to the scripting systems's library
+      zilchScriptPtr->IncludeScript();
+      // Recompile the scripts library again so it can be used immediately.
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
     }
 

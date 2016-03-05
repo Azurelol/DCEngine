@@ -18,19 +18,23 @@ namespace DCEngine {
     
     class MouseEnter : public Event {
     public:
+      ZilchDeclareDerivedType(MouseEnter, Event);
     };
 
     class MouseExit : public Event {
     public:
+      ZilchDeclareDerivedType(MouseExit, Event);
     };
 
     class MouseUpdate : public Event {
     public:
+      ZilchDeclareDerivedType(MouseUpdate, Event);
       Vec2 ScreenPosition;
     };
 
     class MouseClickedOn : public Event {
     public:
+      ZilchDeclareDerivedType(MouseClickedOn, Event);
 
     };
 

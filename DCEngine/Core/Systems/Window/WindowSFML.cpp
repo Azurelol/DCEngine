@@ -72,24 +72,24 @@ namespace DCEngine {
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
-        WindowInterface.Width = widthRecord;
-        WindowInterface.Height = heightRecord;
-        WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+        WindowInterface.Settings.ScreenWidth = widthRecord;
+        WindowInterface.Settings.ScreenHeight = heightRecord;
+        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Default, ContextSettings);
         break;
       case WindowMode::Fullscreen:
-        widthRecord = WindowInterface.Width;
-        heightRecord = WindowInterface.Height;
-        WindowInterface.Width = sf::VideoMode::getDesktopMode().width;
-        WindowInterface.Height = sf::VideoMode::getDesktopMode().height;
-        WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+        widthRecord = WindowInterface.Settings.ScreenWidth;
+        heightRecord = WindowInterface.Settings.ScreenHeight;
+        WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
+        WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
+        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       //WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      WindowContext->setFramerateLimit(WindowInterface.Framerate);
+      WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
@@ -111,7 +111,7 @@ namespace DCEngine {
       ContextSettings.minorVersion = _minorVersion;
 
       // If it starts as fullscreen
-      if (WindowInterface.Fullscreen) {
+      if (WindowInterface.Settings.Fullscreen) {
         WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width,
           sf::VideoMode::getDesktopMode().height),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
@@ -119,12 +119,12 @@ namespace DCEngine {
       }
       // Or if it starts as windowed
       else {
-        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
+        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Default, ContextSettings));
         Mode = WindowMode::Default;
       }
 
-      WindowContext->setFramerateLimit(WindowInterface.Framerate);
+      WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 
       // Configures the window context, then creates it
       //setWindow(WindowMode::Default);

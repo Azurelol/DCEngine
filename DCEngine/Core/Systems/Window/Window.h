@@ -47,16 +47,11 @@ namespace DCEngine {
       std::unique_ptr<WindowSFML> WindowHandler;      
       
     private:
+      GraphicsConfig& Settings;
       std::string Caption = "Daisy Chain Engine v.Segment Presentation";
-      std::string Version;
-      unsigned int Width = 1024;
-      unsigned int Height = 600;
-      unsigned int Framerate = 60;
-      bool Fullscreen = false;
       unsigned CurrentFramerate;
       
-      Window(std::string& caption, unsigned int framerate, unsigned int width, 
-             unsigned int height, bool fullscreen);
+      Window(GraphicsConfig& config, const std::string& caption);
       void Initialize();
       void Subscribe();
       void Update(float dt);
