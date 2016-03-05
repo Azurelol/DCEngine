@@ -80,11 +80,11 @@ namespace DCEngine {
       // Update the window caption to display the current project
       auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
       DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
-      DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
+      DispatchSystemEvents::SetWindowCaption(projectName + "- Daisy Chain Engine");
       // Load its default level 
       auto play = Settings.ProjectProperties->Play;
       auto load = LoadLevel(Settings.ProjectProperties->DefaultLevel);
-
+      //
       if (load) {
         if (play) {       
           ToggleEditor(false);

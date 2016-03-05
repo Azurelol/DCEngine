@@ -52,6 +52,16 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Toggles lightning on and off.
+    */
+    /**************************************************************************/
+    void Editor::ToggleLightning()
+    {
+
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Resizes the size of the rendering window while in editor mode.
     */
     /**************************************************************************/
@@ -132,7 +142,7 @@ namespace DCEngine {
       if (CurrentSpace->CurrentLevel)
         levelName = CurrentSpace->CurrentLevel->getObjectName();
 
-      DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName + " -                       Level: " + levelName);
+      DispatchSystemEvents::SetWindowCaption(projectName + " - Level: " + levelName + " - Daisy Chain Engine");
     }
 
 

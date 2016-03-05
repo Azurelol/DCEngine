@@ -27,11 +27,6 @@ namespace DCEngine {
 	class SpriteText;
 	class DebugDrawObject;
 
-  struct GraphicsConfig {
-    int MaxDrawLayers;
-  };
-
-
 	namespace Systems {
 		class WindowSFML;
 
@@ -47,7 +42,7 @@ namespace DCEngine {
 			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
 			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera& cam, double dt);
-			void DrawModel(GameObject& gameObj);
+			//void DrawModel(Components::Model& model, Components::Camera& cam);
 			void DrawDebug(DebugDrawObject& debugDraw);
 			// DebugDraw
 			void DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill = false);
@@ -56,46 +51,34 @@ namespace DCEngine {
 
 		private:
 
+      GraphicsConfig& Settings;		
 			static std::unique_ptr<GraphicsGL> GraphicsHandler;
-
-      GraphicsConfig Settings;
-			
-			const int screenwidth_ = 1024;
-			const int screenheight_ = 768;
-			Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
-			Vec2 ViewportScale = Vec2(1, 1);
+			std::vector<Components::GraphicsSpace*> ActiveGraphicsSpaces;			
+      // Matrixes
 			Mat4 ProjMatrix;
 			Mat4 ViewMatrix;
-			Mat4 ViewProjMatrix;
-			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
-
-			
-			
-
+			Mat4 ViewProjMatrix;		
 			// Base methods
 			void StartFrame();
 			void EndFrame();
 			void BackupState();
 			void RestoreState();
 			// Events
-      void OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders* event);
+      void OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders* event);      
 			void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
 			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
+      void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
-			Graphics(GraphicsConfig settings);
+			Graphics(GraphicsConfig& settings);
 			void Initialize();
 			void Subscribe();
-
 			//Main Methods
 			void Update(float dt);
 			void UpdateObjects(float dt);
-			void RenderDepths(Components::Camera* camera);
 			void RenderShadows(Components::Camera* camera, Components::Light* light);
-			void RenderScene(Components::Camera* camera, ShaderPtr shader = 0);
+			void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
 			void RenderBackground(ShaderPtr shader, Components::Camera* camera);
 			void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void RenderZ0SceneUp(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void RenderObjects(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void DrawDebug();
 			void Terminate();
 
@@ -103,13 +86,12 @@ namespace DCEngine {
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Graphical*>> mDrawList;
-			//std::vector<Components::Light*> mLightList;
-			
-			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
-			//std::vector<Components::Sprite*>  TextureObjNontransp;
-			//std::vector<Components::Sprite*> NonTextureObjtransp;
-			//std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
+
+
+      /*============
+       DEBUG OBJECT
+      =============*/
 			class DebugObject
 			{
 			public:
@@ -144,6 +126,7 @@ namespace DCEngine {
 			private:
 				float radius;
 			};
+      // Draw Lists
 			std::vector<DebugLine> mDebugLineList;
 			std::vector<DebugRectangle> mDebugRectangleList;
 			std::vector<DebugCircle> mDebugCircleList;

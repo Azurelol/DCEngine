@@ -170,7 +170,11 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief Passes a call requesting a DebugDraw call on to the Graphics System.
+    @brief Draws a circle at the specified position.
+    @param pos The center of the circle.
+    @param radius The radius of the circle.
+    @param color The color of the circle.
+    @param fill Whether the circle should be filled.
     */
     /**************************************************************************/
     void GraphicsSpace::DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill) const
@@ -179,12 +183,30 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam, fill);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a rectangle at the specified position.
+    @param pos The center of the rectangle.
+    @param radius The width of the rectangle.
+    @param height The height of the rectangle.
+    @param color The color of the rectangle.
+    @param fill Whether the rectangle should be filled.
+    */
+    /**************************************************************************/
     void GraphicsSpace::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill) const
     {
       auto cam = CameraViewportComponent->getCamera();
       Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam, fill);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a line from the specified starting position to the end position.
+    @param startPos The starting position of the line.
+    @param endPos The ending position of the line.
+    @param color  The color of the line.
+    */
+    /**************************************************************************/
     void GraphicsSpace::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const
     {
       auto cam = CameraViewportComponent->getCamera();

@@ -249,7 +249,7 @@ namespace DCEngine {
 				glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4,  static_cast<GLsizei>(offset.size()));
 				glBindVertexArray(0);
 			}
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glBlendFunc(GL_ONE, GL_ONE);
 			glDepthMask(GL_TRUE);
 			transformData.clear();
 		}

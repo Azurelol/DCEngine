@@ -84,8 +84,8 @@ namespace DCEngine {
 
     private:
       // References to the Window context's settings
-      unsigned int* ScreenWidth;
-      unsigned int* ScreenHeight;
+      int* ScreenWidth;
+      int* ScreenHeight;
       bool Active;
 
       void Configure();

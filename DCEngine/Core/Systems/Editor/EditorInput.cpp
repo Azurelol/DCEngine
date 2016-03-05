@@ -194,6 +194,10 @@ namespace DCEngine {
         Windows.ToolsEnabled = !Windows.ToolsEnabled;
         break;
 
+      case Keys::F10:
+        Preferences.Toggle();
+        break;
+
       case Keys::Num1:
         if (DCE_EDITOR_TRACE_TOOLS)
           DCTrace << "Editor::Select \n";

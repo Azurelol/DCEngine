@@ -34,3 +34,4 @@
 #include "Components\HealthController.h"
 #include "Components\AI\Sentinel.h"
 #include "Components\AI\Lancer.h"
+#include "Components\Shield.h"

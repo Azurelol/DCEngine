@@ -20,7 +20,7 @@ namespace DCEngine {
     @brief  Constructs the Audio system.
     */
     /**************************************************************************/
-    Audio::Audio() : System(std::string("AudioSystem"), EnumeratedSystem::Audio) {
+    Audio::Audio(AudioConfig& config) : System(std::string("AudioSystem"), EnumeratedSystem::Audio), Settings(config) {
       #if(USE_FMOD)
       DCTrace << "*Using FMOD for Audio \n";
       AudioHandler.reset(new AudioFMOD());
@@ -79,6 +79,11 @@ namespace DCEngine {
       Subscribe();
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Subscribes to events.
+    */
+    /**************************************************************************/
     void Audio::Subscribe()
     {
       Daisy->Connect<Events::EnginePause>(&Audio::OnEnginePauseEvent, this);
@@ -88,13 +93,13 @@ namespace DCEngine {
     void Audio::OnEnginePauseEvent(Events::EnginePause * event)
     {
       DCTrace << "Audio::OnEnginePauseEvent - Pause \n";
-      this->Enabled = false;
+      Settings.Enabled = false;
     }
 
     void Audio::OnEngineResumeEvent(Events::EngineResume * event)
     {
       DCTrace << "Audio::OnEngineResumeEvent - Pause \n";
-      this->Enabled = true;
+      Settings.Enabled = true;
     }
 
     /**************************************************************************/
@@ -107,7 +112,7 @@ namespace DCEngine {
       SystemTimer profile(this->Name());
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Audio::Update \n";
-      if (Enabled)
+      if (Settings.Enabled)
         AudioHandler->Update(dt);    
 
     }

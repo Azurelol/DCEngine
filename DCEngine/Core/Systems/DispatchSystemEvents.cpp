@@ -43,6 +43,13 @@ namespace DCEngine {
       delete exitEvent;
     }
 
+    void DispatchSystemEvents::EngineSaveConfigurations()
+    {
+      auto exitEvent = new Events::EngineSaveConfigurations();
+      Daisy->Dispatch<Events::EngineSaveConfigurations>(exitEvent);
+      delete exitEvent;
+    }
+
     void DispatchSystemEvents::EditorInitialize()
     {
       auto event = new Events::EditorInitialize;
@@ -98,6 +105,13 @@ namespace DCEngine {
     {
       auto event = new Events::GraphicsCompileShaders();
       Daisy->Dispatch<Events::GraphicsCompileShaders>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::GraphicsToggleLightning()
+    {
+      auto event = new Events::GraphicsToggleLightning();
+      Daisy->Dispatch<Events::GraphicsToggleLightning>(event);
       delete event;
     }
 

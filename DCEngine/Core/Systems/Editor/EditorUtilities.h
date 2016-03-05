@@ -6,44 +6,7 @@
 
 namespace DCEngine {
 
-  /**************************************************************************/
-  /*!
-  @struct Editor Configuration data for the Editor system.
-  */
-  /**************************************************************************/
-  struct EditorConfig {
-    // Project
-    Time::Timer AutoSaveTimer;
-    bool EditorEnabled = false;
-    bool LightningEnabled = false;
-    std::string ProjectsPath;
-    std::string RecentProject;
-    ProjectProperties* ProjectProperties;
-    // Window
-    Vec2 ViewportResize;
-    // Tools
-    bool TransformTool_IsComponent = false;
-    bool GridActive = true;
-    Real GridLength = 1.0f;
-    Vec4 GridColor = Vec4(0.5f, 0.5f, 0.5f, 0.1f);
-    // Snapping
-    bool Snapping = true;
-    float SnapDistance = 1.0f;
-    float SnapAngle = 15.0f;
-    //Panning
-    bool Panning = false;
-    Vec3 CamStartPos;
-    Vec3 CameraLastPos;
-    Vec3 MouseStartPos;
-    Vec3 MouseLastPos;
-    // Commands
-    CommandManager Commands;
-    // Console
-    size_t ConsoleWindowStringLength = 0;
-    size_t PreviousConsoleWindowStringLength = 0;
-    EditorConfig() : AutoSaveTimer(60.0f, Time::Timer::Mode::Countdown, true),  
-                     CameraLastPos(0.0f, 0.0f, 40.0f) {}
-  };
+
 
   /**************************************************************************/
   /*!

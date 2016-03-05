@@ -111,16 +111,6 @@ namespace DCEngine {
       // 2. Build it from serialized data
       BuildFromArchetype(gameObjPtr, archetype);
 
-
-      //// Turn the string from file into JSON data
-      //Zilch::CompilationErrors errors;
-      //Zilch::JsonReader reader;
-      //const Zilch::String what;
-      //Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
-      //                              archetype->Get().c_str(), what, nullptr);
-      //
-      //auto data = *archetypeData->OrderedMembers.data();
-
       return gameObjPtr;
     }
 
@@ -231,6 +221,8 @@ namespace DCEngine {
       if (entity->HasComponent("Transform")) {
         auto transform = entity->getComponent<Components::Transform>();
         transform->setTranslation(transformData.second.Translation);
+        transform->setRotation(transformData.second.Rotation);
+        transform->setScale(transformData.second.Scale);
       }
 
     }
@@ -389,12 +381,26 @@ namespace DCEngine {
       // Get the component's BoundType
       auto boundType = Component::BoundType(name);
       // Allocate the component on the heap through Zilch
-      auto componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);      
+      Zilch::Handle componentHandle; 
+
+      // C++ Components
+      if (!Zilch::TypeBinding::IsA(boundType, ZilchComponent::ZilchGetStaticType())) {
+        componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Zilch::Call ctorCall(boundType->Constructors[0], state);
+        ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+        ctorCall.Set(0, entity);
+        ctorCall.Invoke(report);
+      }
+      // Zilch Components
+      else {
+        //componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
+        //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+        //ctorCall.Set(0, entity);
+        //ctorCall.Invoke(report);
+        componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+      }
       // Call the component's constructor explicitly
-      Zilch::Call ctorCall(boundType->Constructors[0], state);
-      ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-      ctorCall.Set(0, entity);
-      ctorCall.Invoke(report);
       // Return the handle to this component
       return componentHandle;
     }

@@ -16,6 +16,7 @@
 #include "../Debug\Debug.h"
 // Helpers
 #include "DispatchSystemEvents.h"
+#include "SystemsConfiguration.h"
 
 namespace DCEngine {
 

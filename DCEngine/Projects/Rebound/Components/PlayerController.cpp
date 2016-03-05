@@ -27,6 +27,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
+	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
     }
     #endif
@@ -148,10 +149,18 @@ namespace DCEngine {
       {
         Grounded = true;
         //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("HighThud");
+		auto particle = SpaceRef->CreateObject("LandingParticle");
+		if (particle)
+		{
+			particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+		}
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
-        event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  if (event->OtherObject->getComponent<Components::Fade>())
+		  {
+			  event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+		  }
       }
     }
 
@@ -220,6 +229,7 @@ namespace DCEngine {
       {
 
         SpriteComponent->SpriteSource = JumpAnimation;
+		SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
@@ -254,6 +264,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
+		  SpriteComponent->AnimationActive = true;
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -264,6 +275,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
+		  SpriteComponent->AnimationActive = true;
         }
       }
       else
@@ -272,6 +284,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;
+		  SpriteComponent->AnimationActive = false;
         }
       }
     }

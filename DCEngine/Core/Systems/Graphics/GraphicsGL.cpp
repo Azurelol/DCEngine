@@ -28,19 +28,15 @@ namespace DCEngine {
 		\brief  The constructor for the Engine object.
 		*/
 		/**************************************************************************/
-		GraphicsGL::GraphicsGL() {
-      ViewportRatio.x = 1;
-      ViewportRatio.y = 1;
+		GraphicsGL::GraphicsGL(GraphicsConfig& settings) : Settings(settings) {
 		}
 
-		/**************************************************************************/
+    /**************************************************************************/
 		/*!
 		\brief  The constructor for the Engine object.
 		*/
 		/**************************************************************************/
 		void GraphicsGL::Initialize() {
-
-			// Set a pointer to the Window system
 
 			// GLEW manages function pointers for OpenGL, so we want to initialize
 			// it before calling any OpenGL functions. Setting glewExperimental to
@@ -55,8 +51,6 @@ namespace DCEngine {
 			}
 
       CompileShaders();
-
-
 		}
 
 		/**************************************************************************/
@@ -68,7 +62,7 @@ namespace DCEngine {
 		void GraphicsGL::ViewportUpdate() {
 			// Tells OpenGL the current size of the rendering window
 			auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
-      auto& viewportScale = Daisy->getSystem<Graphics>()->ViewportScale;
+      auto& viewportScale = Settings.ViewportScale;
 			glViewport(0, 0, static_cast<GLsizei>(windowDim.x * viewportScale.x),
                        static_cast<GLsizei>(windowDim.y * viewportScale.y));
 		}
@@ -81,7 +75,7 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsGL::ResizeViewport(glm::vec2 ratio)
     {
-      ViewportRatio = ratio;
+      Settings.ViewportRatio = ratio;
     }
 
 		/**************************************************************************/
@@ -91,9 +85,12 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::StartFrame() {
 			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LEQUAL);
+			//glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
-			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			if (Settings.LightningEnabled)
+				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			else
+				glClearColor(Settings.ClearColor.x, Settings.ClearColor.y, Settings.ClearColor.z, Settings.ClearColor.w);
 			glStencilMask(~0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}

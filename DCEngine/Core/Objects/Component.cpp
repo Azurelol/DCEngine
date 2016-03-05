@@ -159,6 +159,9 @@ namespace DCEngine {
   /**************************************************************************/
   bool Component::HasDependencies()
   {
+    if (ZilchComponent::IsZilchComponent(this))
+      return true;
+
     // Look for every component dependency in this component's owner
     for (auto& dependency : Dependencies()) {
       if (!this->Owner()->HasComponent(dependency))

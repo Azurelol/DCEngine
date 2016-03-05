@@ -71,7 +71,8 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) {
+    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) 
+                   {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
 
@@ -150,15 +151,15 @@ namespace DCEngine {
 			HaveAnimation = AnimationActive;
 			if (HaveAnimation == true)//Check whether it has animation
 			{
-				if (spriteSrc->ColumnCount == 0 || spriteSrc->RowCount == 0)//Check whether the number of frames if 0
+				if (spriteSrc->ColumnCount == 0 || spriteSrc->RowCount == 0) //Check whether the number of frames if 0
 				{
 					if (spriteSrc->ColumnCount == 0)
 					{
-						DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
+						//DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
 					}
 					else
 					{
-						DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
+						//DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
 					}
 				}
 				else
@@ -309,7 +310,8 @@ namespace DCEngine {
 				member = var + "Model";
 				shader->SetMatrix4(member.c_str(), lightMatrix);
 			}
-			else shader->SetInteger("useLight", 0);
+			else
+				shader->SetInteger("useLight", 0);
 
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
@@ -325,12 +327,6 @@ namespace DCEngine {
       if (!Visible)
         return;
 
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_ONE, GL_ONE);
-			//glDepthFunc(GL_LEQUAL);
-			// Set the active texture
-			
-			
 			glBindVertexArray(mVAO);
 			if(silhouette)
 				glDrawArrays(GL_LINE_LOOP, 0, 4);

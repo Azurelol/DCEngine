@@ -65,6 +65,7 @@ namespace DCEngine {
       Vec3 endPosition;
       float jumpTimer = 0;
       float dt;
+      int count = 0;
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 

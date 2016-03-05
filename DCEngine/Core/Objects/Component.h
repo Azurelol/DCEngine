@@ -90,6 +90,7 @@ namespace DCEngine {
 
     // Interface
     static bool Exists(std::string componentName);
+    
 
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();

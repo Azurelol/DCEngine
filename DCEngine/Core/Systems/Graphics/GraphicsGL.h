@@ -32,8 +32,7 @@
 
 namespace DCEngine {
   
-  // Forward declarations
-  
+  // Forward declarations  
   namespace Components {
     class GraphicsSpace;
     class Camera;
@@ -44,6 +43,9 @@ namespace DCEngine {
   
   namespace Systems {
 
+
+
+    // More forward declarations!
     class Window;
     class Graphics;
 
@@ -51,33 +53,32 @@ namespace DCEngine {
       friend class Graphics;
           
     public:
-      /* Shader Control */
+      // Shader Control
       void CompileShaders();
-      /* Uniforms */
+      // Uniforms
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
 			void SetLightUniforms(ShaderPtr shader, Components::Light* lightComponents);
 			void SetAllLightUniforms(ShaderPtr shader, const std::vector<Components::Light*>& lightComponents);
-
-      /* Sprite */
+      // Sprites
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Components::Camera& camera, Components::Light* light);
       void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
 	    void AnimationUpdate(Components::Sprite& sprite, float dt);
 	    int IsNextFrame(Components::Sprite& sprite);
-      /* SpriteText */
+      // SpriteText
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Components::Camera& camera);
       void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
-			/* Particle System */
+			// Particle System
 			void ConfigureParticleBuffers();
 			void SetParticleSystemShader(Components::Camera& camera);
 			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & camera, double dt);
-			/* Shadowing System */
+			// Shadowing System
 			void ConfigureShadowBuffers(void);
 			void SetShadowingShaders(Components::Camera& camera, Components::Light* light);
-      /* Model */
+      // Modes
       void DrawModel(GameObject& gameObj);
-      /* DebugDraw */
+      // DebugDraw
       void ConfigureLineVAO();
       void ConfigureCircleVAO();
       void ConfigureRectangleVAO();
@@ -86,28 +87,27 @@ namespace DCEngine {
       void DrawCircle(DrawCircleObj& obj);
       void DrawRectangle(DrawRectObj& obj);      
       void DrawLineSegment(DrawLineObj& obj);
-
       void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill = false);
       void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color);
-      /* Viewport */
+      // Lightning
+      void RenderShadows(Components::Camera* camera, Components::Light* light);
+      void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
+      void RenderBackground(ShaderPtr shader, Components::Camera* camera);
+      void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+      void DrawDebug();
       
     private:
-      // TEMP: Change these two to const
-      glm::vec4 ClearColor = glm::vec4(0.2f, 0.2f, 0.3f, 1.0f);
-      glm::ivec2 ViewportRatio;
+      GraphicsConfig& Settings;
       ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
       OpenGLStateData GLState;
-
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
       void DrawElements(GLuint VAO, GLuint numVertices, GLenum drawMode);      
-      // Temporary until we switch to DebugDraw objects with shaders
-	    void CleanBuffer();
-
-      GraphicsGL();
+      // Main functions
+      GraphicsGL(GraphicsConfig& settings);
       void Initialize();
       void ViewportUpdate();
       void ResizeViewport(glm::vec2 ratio);
@@ -116,6 +116,8 @@ namespace DCEngine {
       void EndFrame();
       void BackupState();
       void RestoreState();
+      // Temporary until we switch to DebugDraw objects with shaders
+	    void CleanBuffer();
     };
   }
 }

@@ -138,6 +138,34 @@ namespace DCEngine {
     throw std::range_error("The specified system does not exist.");
   }
 
+
+  /**************************************************************************/
+  /*!
+  \brief  Loads a configuration file.
+  \param The event class.
+  \param The event object that is being passed.
+  */
+  /**************************************************************************/
+  template<typename Type>
+  inline bool Engine::LoadConfiguration(Type & config, std::string fileName)
+  {
+    std::string configData;
+
+    // Attempt to load the Graphics Config
+    if (FileSystem::FileReadToString(fileName, configData)) {
+      Serialization::Deserialize(config, configData);
+      DCTrace << "Engine::LoadConfigurationFiles - Successfully loaded '" << fileName << "'! \n";
+      return true;
+    }
+    else {
+      Type defaultConfig;
+      Serialization::Serialize(defaultConfig, configData);
+      FileSystem::FileWriteString(fileName, configData);
+      DCTrace << "Engine::LoadConfigurationFiles - Failed to load '" << fileName << "'! \n";
+    }
+    return false;
+  }
+
   /////////////////////////////////////////
   /*/ MACROS ( I AM SORRY VOLPER, MEAD )/*/
   /////////////////////////////////////////

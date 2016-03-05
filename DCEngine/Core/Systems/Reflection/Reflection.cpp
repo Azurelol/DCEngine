@@ -83,17 +83,28 @@ namespace DCEngine {
     {
       std::vector<Zilch::BoundType*> componentTypes;
 
-      // Loop through every library
+      // Loop through the script library for scripts      
+      auto scriptLibrary = ZilchHandler->ScriptLibrary;
+      if (scriptLibrary) {
+        auto boundTypes = scriptLibrary->BoundTypes.all();
+        ZilchForEach(auto type, boundTypes)
+        {
+          componentTypes.push_back(type.second);          
+        }
+      }
+
+      // Load C++ components
       for (auto library : Handler()->Dependencies.all()) {
         // Grab a container of all the bound types in the library
         auto types = library->BoundTypes.all();
         // For every type in the library
-        ZilchForEach(auto type, types) {
-          // If the type is a C++ component
+        ZilchForEach(auto type, types) {      
+          //// If the type is a Zilch component
+
+
+          //if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
+          //  componentTypes.push_back(type.second);
           if (Zilch::TypeBinding::IsA(type.second, Component::ZilchGetStaticType()))
-            componentTypes.push_back(type.second);
-          // If the type is a Zilch component
-          if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
             componentTypes.push_back(type.second);
         }
       }

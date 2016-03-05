@@ -68,7 +68,7 @@ namespace DCEngine {
       stateMachine->Update();
       dt = event->Dt;
 
-      
+      shield->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
     }
 
     void Sentinel::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -87,8 +87,8 @@ namespace DCEngine {
     void Sentinel::CreateShield()
     {
       shield = SpaceRef->CreateObject(ShieldArchetype);
-      //shield->AttachTo(gameObj);
-      //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
+      shield->AttachTo(gameObj);
+      shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
       DCTrace << "Created shield archetype! \n";
       //shield = SpaceRef->CreateObject();
       

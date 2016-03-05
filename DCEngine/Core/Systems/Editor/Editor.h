@@ -81,7 +81,7 @@ namespace DCEngine {
       void TransformDrag(Vec2&);
       void TransformDragRelease();      
       // Settings
-      EditorConfig Settings;
+      EditorConfig& Settings;
       // Modules
       EditorCreator Creator;
       EditorResources Resources;
@@ -91,6 +91,7 @@ namespace DCEngine {
       EditorDiagnostics Diagnostics;
       EditorTextEditor TextEditor;
       EditorInspector Inspector;
+      EditorPreferences Preferences;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;
@@ -187,13 +188,14 @@ namespace DCEngine {
       void UpdateCaption();
       void PanCamera(Vec2&);
       void DrawGrid();
+      void ToggleLightning();
       // Create
       // Processes      
       void LaunchProjectFolder();
       void LaunchDocumentation();
       // CTOR
       void WindowSplashScreen();
-      Editor(EditorConfig settings);
+      Editor(EditorConfig& settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);

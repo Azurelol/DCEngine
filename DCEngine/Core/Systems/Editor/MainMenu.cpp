@@ -53,6 +53,8 @@ namespace DCEngine {
           ImGui::Separator();
           if (ImGui::MenuItem("Duplicate", "CTRL+D")) { Duplicate(); }
           if (ImGui::MenuItem("Delete", "Del")) { DeleteObject(); }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Preferences", "F10")) { Preferences.Toggle(true); }
           ImGui::EndMenu();
         }
 
@@ -103,10 +105,6 @@ namespace DCEngine {
             Windows.SaveLevelEnabled = !Windows.SaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))
             ReloadLevel();
-          //ImGui::Separator();
-          /*if (ImGui::MenuItem("Load Dollhouse"))
-            LoadDollhouse();*/
-            //ReloadLevel();
           ImGui::EndMenu();
         }
 
@@ -148,7 +146,7 @@ namespace DCEngine {
         }
                 
         if (ImGui::Button("Lightning")) {
-          Settings.LightningEnabled = !Settings.LightningEnabled;
+          DispatchSystemEvents::GraphicsToggleLightning();
         }
 
         ImGui::EndMainMenuBar();

@@ -8,3 +8,4 @@
 #include "EditorDiagnostics.h"
 #include "EditorTextEditor.h"
 #include "EditorInspector.h"
+#include "EditorPreferences.h"

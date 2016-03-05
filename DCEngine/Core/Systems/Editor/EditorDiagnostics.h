@@ -1,3 +1,12 @@
+/*****************************************************************************/
+/*!
+\file   EditorDiagnostics.h
+\author Christian Sagel
+\par    email: c.sagel\@digipen.edu
+\date   3/3/2016
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #pragma once
 #include "EditorModule.h"
 #include "../../Engine/Timer.h"
@@ -15,7 +24,7 @@ namespace DCEngine {
     private:
       void Graphics();
       void Physics();
-      void DisplaySystemsHistogram(std::string, DCEngine::Time::FunctionTimeSliceVec&);
+      void DisplaySystemsHistogram(std::string, DCEngine::Time::FunctionTimeSliceVec&, bool calls = false);
       void Update();
 
     };

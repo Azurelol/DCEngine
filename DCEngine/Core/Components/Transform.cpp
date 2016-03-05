@@ -117,6 +117,30 @@ namespace DCEngine {
       }
     }
 
+
+    /**************************************************************************/
+    /*!
+    @brief set's the translation with respect to the parent.
+    */
+    /**************************************************************************/
+    void Transform::SetLocalTranslation(const Vec3 & pos)
+    {
+      auto parentref = dynamic_cast<GameObject*>(this->Owner())->Parent();
+
+      if (parentref)
+      {
+        auto Center = parentref->getComponent<Components::Transform>()->Translation;
+
+
+        Translation = Center + pos;
+        return;
+      }
+
+
+      Translation = pos;
+
+    }
+
     /**************************************************************************/
     /*!
     @brief Updates the GameObject's rotation with respect to its origin.

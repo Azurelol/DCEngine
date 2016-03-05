@@ -37,6 +37,10 @@ namespace DCEngine {
         mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
         mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
         mScale += mLinearAnimator->Growth * dt;
+		if (mScale < 0)
+		{
+			mScale = 0;
+		}
         mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
         mRotationRate += mLinearAnimator->Torque * dt;
       }

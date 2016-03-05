@@ -79,11 +79,11 @@ namespace DCEngine {
         font.second->Load();
       }
 
-      // Load every script..
-      for (auto& script : MapZilchScript) {
-        script.second->IncludeScript();
-      }
-      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
+      //// Load every script..
+      //for (auto& script : MapZilchScript) {
+      //  script.second->IncludeScript();
+      //}
+      //Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
 
     }
     
@@ -155,11 +155,6 @@ namespace DCEngine {
 
       // Scan for the resources... 
       ScanResources();
-
-      //ScanForLevels();
-      //ScanForArchetypes();
-      //ScanForSoundCues();
-      //ScanForSpriteSources();
       // Load the resources
       LoadAllResources();
 

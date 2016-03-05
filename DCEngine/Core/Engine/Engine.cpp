@@ -41,13 +41,7 @@ namespace DCEngine {
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
     // Load the engine's configuration from a file
-    EngineConfiguration.reset(new EngineConfig);
-    std::string configPath = "Daisy.cfg";
-    std::string configString; 
-    if (FileSystem::FileReadToString(configPath, configString))
-      Serialization::Deserialize(EngineConfiguration.get(), configString);
-    else
-      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
+    //LoadConfigurationFiles();
   }
 
   /**************************************************************************/
@@ -67,12 +61,7 @@ namespace DCEngine {
     traceObj.reset(new Trace("Log.txt"));
 
     // Load the engine's configuration from a file
-    EngineConfiguration.reset(new EngineConfig);
-    std::string configString;
-    if (FileSystem::FileReadToString(configFile, configString))
-      Serialization::Deserialize(EngineConfiguration.get(), configString);
-    else
-      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
+    LoadConfigurationFiles(configFile);
   }
 
   /**************************************************************************/
@@ -101,36 +90,25 @@ namespace DCEngine {
 
     // Autowolves, howl out!
     Active = true;
-
     // Construct the input interface objects
     KeyboardHandle.reset(new Keyboard());
     MouseHandle.reset(new Mouse());
-
     // Systems are added to to the engine's systems container, and configurations passed on.
     Systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     Systems.push_back(SystemPtr(new Systems::Reflection));
     Systems.push_back(SystemPtr(new Systems::Factory));
-    Systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
-                                                     EngineConfiguration->Framerate,
-                                                     EngineConfiguration->ResolutionWidth,
-                                                     EngineConfiguration->ResolutionHeight,
-                                                     EngineConfiguration->IsFullScreen)));
+    Systems.push_back(SystemPtr(new Systems::Window(Configurations.Graphics, EngineConfiguration->Caption)));
     Systems.push_back(SystemPtr(new Systems::Input));
-
-    // Editor configuration
-    EditorConfig editorConfig;
-    editorConfig.EditorEnabled = EngineConfiguration->EditorEnabled;
-    editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
-    editorConfig.RecentProject = EngineConfiguration->RecentProject;
-    // Graphics configuration
-    GraphicsConfig graphicsConfig;
-    graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
+    // Editor configuration @todo change me next!
+    Configurations.Editor.EditorEnabled = EngineConfiguration->EditorEnabled;
+    Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
+    Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
     // Add the systems to the engine's systems container
-    Systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
+    Systems.push_back(SystemPtr(new Systems::Editor(Configurations.Editor)));
     Systems.push_back(SystemPtr(new Systems::Physics));
-    Systems.push_back(SystemPtr(new Systems::Audio));
-    Systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
-    Systems.push_back(SystemPtr(new Systems::GUI));        
+    Systems.push_back(SystemPtr(new Systems::Audio(Configurations.Audio)));
+    Systems.push_back(SystemPtr(new Systems::Graphics(Configurations.Graphics)));
+    Systems.push_back(SystemPtr(new Systems::GUI(Configurations.GUI)));        
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
     CurrentGameSession.reset(new GameSession(_projectName));
     // Load the default space to start with
@@ -166,6 +144,7 @@ namespace DCEngine {
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
     Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
+    Connect<Events::EngineSaveConfigurations>(&Engine::OnEngineSaveConfigurationsEvent, this);
   }
 
   void Engine::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
@@ -219,6 +198,15 @@ namespace DCEngine {
     //PauseMenuEnabled = true;    
   }
 
+  void Engine::OnEngineSaveConfigurationsEvent(Events::EngineSaveConfigurations * event)
+  {
+    DCTrace << "Engine::OnEngineSaveConfigurationsEvent - Saving configurations... \n";
+    Configurations.Editor.Save(Systems::EditorConfig::FileName());
+    Configurations.Graphics.Save(Systems::GraphicsConfig::FileName());
+    Configurations.Audio.Save(Systems::AudioConfig::FileName());
+    Configurations.GUI.Save(Systems::GUIConfig::FileName());
+  }
+
   
   
   /**************************************************************************/
@@ -257,9 +245,6 @@ namespace DCEngine {
     for (auto system : Systems) {
       system->Update(dt);
     }
-
-    //if (PauseMenuEnabled)
-    //  PauseMenu();
 
     // Tell window management system to end the frame
     getSystem<Systems::Graphics>()->EndFrame();
@@ -322,6 +307,33 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Deserializes the engine's configuration files.
+  */
+  /**************************************************************************/
+  void Engine::LoadConfigurationFiles(const std::string& configFile)
+  {
+    // Load the engine's configuration from a file
+    EngineConfiguration.reset(new EngineConfig);
+    std::string configString;
+    if (FileSystem::FileReadToString(configFile, configString))
+      Serialization::Deserialize(EngineConfiguration.get(), configString);
+    else
+      DCTrace << "Engine::LoadConfigurationFiles - Failed to deserialize engine configuration! \n";
+
+    // Load the Graphics Config
+    LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
+    // Load the Audio Config
+    LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
+    // Load the GUI Config
+    //Configurations.GUI.Link(); // Link it for the Style
+    LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
+    // Load the Editor Config
+    LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Registers this Action to the engine's ActioNSpace.
   @param A reference to the action.
   */
@@ -373,20 +385,7 @@ namespace DCEngine {
     CurrentGameSession->Initialize();
 
   }
-
   
-  /**************************************************************************/
-  /*!
-  @brief  Loads the engine's configuration from a file.
-  @return Success of the operation.
-  @note   If this operation fails, the engine will stop its initialize.
-  */
-  /**************************************************************************/
-  bool Engine::LoadEngineConfig()
-  {
-    return false;
-  }
-
   /**************************************************************************/
   /*!
   @brief  Loads the GameSession's default space

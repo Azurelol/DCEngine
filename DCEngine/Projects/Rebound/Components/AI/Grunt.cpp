@@ -171,7 +171,7 @@ namespace DCEngine {
     {
       owner->jumpTimer = 0;
       owner->SpriteRef->Color = owner->PatrolColor;
-      owner->SpriteRef->FlipX = false;
+      owner->SpriteRef->FlipX = true;
       DCTrace << "Grunt PatrolRight Enter\n";
     }
 
@@ -214,7 +214,7 @@ namespace DCEngine {
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
       owner->SpriteRef->Color = owner->PatrolColor;
-      owner->SpriteRef->FlipX = true;
+      owner->SpriteRef->FlipX = false;
       DCTrace << "Grunt PatrolLeft Enter\n";
     }
 
@@ -267,12 +267,12 @@ namespace DCEngine {
       Vec3 direction = playerPosition - ownerPosition;
       if (direction.x < 0)
       {
-        owner->SpriteRef->FlipX = true;
+        owner->SpriteRef->FlipX = false;
         owner->Jump(-1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
       else
       {
-        owner->SpriteRef->FlipX = false;
+        owner->SpriteRef->FlipX = true;
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 
@@ -319,7 +319,14 @@ namespace DCEngine {
 
     void Grunt::Die::Exit(Grunt *owner)
     {
+		//create death particle
+		auto particle = owner->SpaceRef->CreateObject("EnemyExplosionParticle");
+		if (particle)
+		{
+			particle->getComponent<Components::Transform>()->setTranslation(owner->TransformRef->Translation); 
+		}
       // Destroy grunt
+
       owner->gameObj->Destroy();
     }
 
