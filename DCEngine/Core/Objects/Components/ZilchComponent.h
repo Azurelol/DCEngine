@@ -31,12 +31,13 @@ namespace DCEngine {
 
     static bool IsZilchComponent(ComponentPtr component);
     ZilchDeclareDerivedType(ZilchComponent, Component);
+    ZilchComponent();
     ZilchComponent(std::string name, Entity& owner);
     virtual ~ZilchComponent();
     virtual void Initialize();
 
   private:
-
+    
 
 
   };

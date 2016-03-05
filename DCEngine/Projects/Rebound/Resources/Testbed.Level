@@ -106,6 +106,9 @@
             "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "Player": 
+          {
           }
         }
       }, 

@@ -59,6 +59,72 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Component default constructor.
+  */
+  /**************************************************************************/
+  Component::Component() : Object("Component"), ComponentID(ComponentsCreated++)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Sets the references  for this component.
+  @param name The name of this component.
+  @param entity A reference to the owner.
+  */
+  /**************************************************************************/
+  void Component::PostDefaultConstructor(const std::string & name, Entity & entity)
+  {
+    // Set the name
+    setObjectName(name);
+    // Set its owner
+    ObjectOwner = dynamic_cast<ObjectPtr>(&entity);
+    // Set its references
+    SetReferences();
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      ComponentLastCreated = ObjectName;
+
+    if (DCE_TRACE_COMPONENT_CONSTRUCTOR) {
+      DCTrace << ObjectName << "::Component - Constructor - "
+        << "Owner: '" << ObjectOwner->Name() << "'\n";
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Sets the Owner reference for this component.
+  */
+  /**************************************************************************/
+  void Component::SetReferences() {
+    auto type = Owner()->Type();
+    auto entity = dynamic_cast<Entity*>(Owner());
+
+    // If the owner is a 'GameObject' entity
+    if (type == EntityType::GameObject) {
+      auto gameObj = (GameObject*)entity;
+      SpaceRef = gameObj->GetSpace();
+      GameSessionRef = SpaceRef->getGameSession();
+    }
+
+    // If the owner is a 'Space' entity
+    if (type == EntityType::Space) {
+      SpaceRef = dynamic_cast<Space*>(entity);
+      GameSessionRef = SpaceRef->getGameSession();
+    }
+
+    // If the owner is a 'GameSession' entity
+    if (type == EntityType::GameSession) {
+      SpaceRef = NULL;
+      GameSessionRef = dynamic_cast<GameSession*>(entity);
+    }
+
+    auto a = GameSessionRef;
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Component destructor.
   */
   /**************************************************************************/
@@ -142,6 +208,18 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Deferences the component handle into a pointer.
+  @param componentHandle The handle to the component.
+  @return A pointer to the component.
+  */
+  /**************************************************************************/
+  ComponentPtr Component::Dereference(ComponentHandle& componentHandle)
+  {
+    return reinterpret_cast<ComponentPtr>(componentHandle.Dereference());
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a pointer to the Entity that owns this component.
   @return An entity pointer.
   */
@@ -190,37 +268,7 @@ namespace DCEngine {
     return dependencies;
   }
   
-  /**************************************************************************/
-  /*!
-  @brief Sets the Owner reference for this component.
-  */
-  /**************************************************************************/
-  void Component::SetReferences() {
-    auto type = Owner()->Type();
-    auto entity = dynamic_cast<Entity*>(Owner());
 
-    // If the owner is a 'GameObject' entity
-    if (type == EntityType::GameObject) {
-      auto gameObj = (GameObject*)entity;
-      SpaceRef = gameObj->GetSpace();
-      GameSessionRef = SpaceRef->getGameSession();
-    }
-
-    // If the owner is a 'Space' entity
-    if (type == EntityType::Space) {
-      SpaceRef = dynamic_cast<Space*>(entity);
-      GameSessionRef = SpaceRef->getGameSession();
-    }
-
-    // If the owner is a 'GameSession' entity
-    if (type == EntityType::GameSession) {
-      SpaceRef = NULL;
-      GameSessionRef = dynamic_cast<GameSession*>(entity);
-    }
-
-    auto a = GameSessionRef;
-
-  }
 
   /**************************************************************************/
   /*!
