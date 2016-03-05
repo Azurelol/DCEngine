@@ -175,12 +175,8 @@ namespace DCEngine {
     //type->HandleManager = ZilchManagerId(Zilch::HandleManager);    
     //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor    
-<<<<<<< HEAD
     ZilchBindConstructor(builder, type, ZilchComponent, ZilchNoNames);
     ZilchBindConstructor(builder, type, ZilchComponent, "name, owner", std::string, Entity&);
-=======
-    ZilchBindConstructor(builder, type, ZilchComponent, "name, scriptname, owner", std::string, std::string, Entity&);
->>>>>>> 1b8153f782558972768bcba4a12d9c8ff1e26f1d
     ZilchBindDestructor(builder, type, ZilchComponent);
     // Methods
     ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
