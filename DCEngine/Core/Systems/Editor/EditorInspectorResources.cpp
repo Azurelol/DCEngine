@@ -111,7 +111,7 @@ namespace DCEngine {
         // Set the selected item as the current resource
         auto selectedSpriteSource = spriteSourceNames.at(currentItem);
         Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedSpriteSource));
         setCall.Invoke(report);
@@ -134,7 +134,7 @@ namespace DCEngine {
       // Create an exception report object
       Zilch::ExceptionReport report;
       // Grab the current property
-      Zilch::Call getCall(resource->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      Zilch::Call getCall(resource->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
       getCall.SetHandleVirtual(Zilch::Call::This, component);
       getCall.Invoke(report);
       auto resourceValue = std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
@@ -153,7 +153,7 @@ namespace DCEngine {
         // Set the selected item as the current resource
         auto selectedSoundCue = soundCueNames.at(currentItem);
         Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedSoundCue));
         setCall.Invoke(report);
@@ -188,7 +188,7 @@ namespace DCEngine {
         // Set the selected item as the current resource
         auto selectedLevel = levelNames.at(currentItem);
         Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedLevel));
         setCall.Invoke(report);

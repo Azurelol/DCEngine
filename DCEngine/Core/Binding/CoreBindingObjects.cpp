@@ -19,6 +19,8 @@
 #include "CoreBinding.h"
 #include "CoreBindingTypes.h"
 
+#include "../Engine/Engine.h"
+
 // Object
 #include "../Objects/Object.h"
 // Object ->
@@ -55,6 +57,14 @@ namespace DCEngine {
     // Properties
     ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");
 
+  }
+  /*!************************************************************************\
+  @brief  Engine, Daisy, Definition
+  \**************************************************************************/
+  ZilchDefineType(Engine, "Daisy", DCEngineCore, builder, type) {
+    //ZilchBindMethod(builder, type, &(Daisy->OnLogicUpdateConnect), ZilchNoOverload, "OnLogicUpdateConnect", ZilchNoNames);
+         //ZilchBindMethod(builder, type, &(Daisy->Connect<::DCEngine::Event>), ZilchNoOverload, "Connect", ZilchNoNames);
+      
   }
 
   /*!************************************************************************\
@@ -111,8 +121,12 @@ namespace DCEngine {
   ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameSession, "name", std::string);
-    ZilchBindDestructor(builder, type, GameSession);
+    ZilchBindDestructor(builder, type, GameSession); +     // Methods
+    ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
+    ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
+    ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);
   }
+
   
   /*!************************************************************************\
   @brief  Space Definition
@@ -161,8 +175,12 @@ namespace DCEngine {
     //type->HandleManager = ZilchManagerId(Zilch::HandleManager);    
     //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor    
+<<<<<<< HEAD
     ZilchBindConstructor(builder, type, ZilchComponent, ZilchNoNames);
     ZilchBindConstructor(builder, type, ZilchComponent, "name, owner", std::string, Entity&);
+=======
+    ZilchBindConstructor(builder, type, ZilchComponent, "name, scriptname, owner", std::string, std::string, Entity&);
+>>>>>>> 1b8153f782558972768bcba4a12d9c8ff1e26f1d
     ZilchBindDestructor(builder, type, ZilchComponent);
     // Methods
     ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;

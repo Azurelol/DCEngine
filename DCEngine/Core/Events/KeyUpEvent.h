@@ -17,6 +17,7 @@ namespace DCEngine {
   namespace Events {
     class KeyUp : public Event {
     public:
+      ZilchDeclareDerivedType(KeyUp, Event);
       Keys Key;
 
       //uint State;

@@ -26,6 +26,9 @@
 #include "../Objects/Entities/EntitiesInclude.h"
 #include "..\Systems\System.h"
 #include "..\Systems\SystemsInclude.h"
+#include "../Binding/CoreBinding.h"
+#include "../Binding/CoreBindingTypes.h"
+#include "../Binding/CoreBindingObjects.h"
 
 namespace DCEngine {
 
@@ -40,7 +43,9 @@ namespace DCEngine {
   class Engine : public Object {
     friend class EngineLauncher;
   public:
-
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDeclareDerivedType(Engine, Object);
+#endif
     void Register(ActionPtr action);
     void Deregister(ActionPtr action);
 
@@ -67,6 +72,8 @@ namespace DCEngine {
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
+    template<typename EventClass>
+    void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
     template <typename EventClass> void Dispatch(Event* eventObj);
 
     template<typename T> std::shared_ptr<T> getSystem();

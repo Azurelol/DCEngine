@@ -257,7 +257,7 @@ namespace DCEngine {
     // Deserialize the underlying Entity
     Entity::Deserialize(properties);
     // Deserialize the GameObject properties
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/

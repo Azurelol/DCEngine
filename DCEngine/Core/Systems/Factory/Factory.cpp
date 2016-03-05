@@ -375,7 +375,7 @@ namespace DCEngine {
     /**************************************************************************/
     ComponentHandle Factory::CreateComponentByNameFromZilch(const std::string & name, Entity & entity)
     {      
-      auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
+      auto state = Daisy->getSystem<Reflection>()->Handler()->GetState();
       Zilch::ExceptionReport report;
 
       // Get the component's BoundType

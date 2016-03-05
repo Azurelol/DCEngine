@@ -25,7 +25,6 @@ namespace DCEngine {
       friend class Reflection;
 
     public:
-
       ~ZilchInterface();
       static ZilchInterface& Get();
       static Zilch::ExecutableState *GetState();
@@ -48,9 +47,10 @@ namespace DCEngine {
       template <typename Value, typename ObjectPtr>
       bool SetProperty(Value val, Zilch::Property* property, ObjectPtr object);
       // Getters
-      Zilch::ExecutableState* getState();
+      Zilch::LibraryRef getLibrary();
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
-      Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters, Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options);
+      Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters,
+        Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options, bool ErrorOn);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);
       std::vector<Zilch::BoundType*> GetTypes();
       Zilch::Attribute* getAttribute(Zilch::Property* property, std::string attributeName);
