@@ -418,6 +418,7 @@
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
+    <ClCompile Include="Core\Systems\SystemsConfiguration.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp" />

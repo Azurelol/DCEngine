@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": 12.244446, 
-            "y": 5.422222, 
+            "x": -132.133331, 
+            "y": 2.755555, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +30,8 @@
         {
           "Vec3": 
           {
-            "x": 5.000000, 
-            "y": 5.000000, 
+            "x": 4.000000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -49,7 +49,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "Char_Lanc", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -88,12 +88,13 @@
       "Lancer": 
       {
         "PlayerName": "Player", 
-        "IdleRange": 0.000000
+        "IdleRange": 1000.000000, 
+        "ChargeForce": 100.000000
       }, 
       "BoxCollider": 
       {
         "PhysicsMaterial": "", 
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "Enemy", 
         "Size": 
         {
           "Vec3": 

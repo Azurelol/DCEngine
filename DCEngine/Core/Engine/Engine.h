@@ -71,6 +71,7 @@ namespace DCEngine {
 
     template<typename T> std::shared_ptr<T> getSystem();
     Profiler& Profiler() { return this->Profile; }
+    Systems::ConfigurationFiles& Configuration() { return this->Configurations; }
     //EngineConfigPtr& Configuration() { return EngineConfiguration; }
 
   private:

@@ -10,6 +10,8 @@
 /******************************************************************************/
 #include "EditorPreferences.h"
 
+#include "../../Engine/Engine.h"
+
 namespace DCEngine {
   namespace Systems {
         
@@ -59,17 +61,17 @@ namespace DCEngine {
       if (ImGui::CollapsingHeader("Style")) CurrentTab = Tab::Style;
       //ImGui::PopStyleVar();
 
-      //ImGui::Separator();
-      //// Saves before exiting
-      //if (ImGui::Button("OK")) {
-      //  Save();
-      //  WindowEnabled = false;
-      //}
-      //// Exits without saving
-      //ImGui::SameLine();
-      //if (ImGui::Button("Cancel")) {
-      //  WindowEnabled = false;
-      //}
+      ImGui::Separator();
+      // Saves before exiting
+      if (ImGui::Button("OK")) {
+        Save();
+        WindowEnabled = false;
+      }
+      // Exits without saving
+      ImGui::SameLine();
+      if (ImGui::Button("Cancel")) {
+        WindowEnabled = false;
+      }
 
 
       ImGui::NextColumn();
@@ -103,21 +105,27 @@ namespace DCEngine {
 
     void EditorPreferences::TabEditor()
     {
-      ImGui::Text("Hello :P");
-      ImGui::Text("Hello :P"); ImGui::Text("Hello :P"); ImGui::Text("Hello :P"); ImGui::Text("Hello :P");
-      ImGui::Text("Hello :P");
-      ImGui::Text("Hello :P");
-      ImGui::Text("Hello :P");
+      static auto& config = ConfigurationFiles::Access().Editor;
+      ImGui::InputInt("AutoSaveTime", &config.AutoSaveTime);
     }
 
     void EditorPreferences::TabStyle()
     {
-      ImGui::ShowStyleEditor();
+      //ImGui::ShowStyleEditor();
+      static auto& style = ConfigurationFiles::Access().GUI.Style;
+      ImGui::SliderFloat("Alpha", &style.Alpha, 0.0f, 1.0f);
+      //ImGui::GetStyle().Alpha = 0.5f;
     }
 
     void EditorPreferences::TabGraphics()
     {
-
+      static auto& config = ConfigurationFiles::Access().Graphics;
+      //float vec2f[2] = { config.ScreenWidth, config.ScreenHeight };
+      //if (ImGui::InputFloat2("Resolution", vec2f, 3)) {
+      //  config.ScreenWidth = vec2f[0]; config.ScreenHeight = vec2f[1];
+      //}
+      ImGui::InputInt("Width", &config.ScreenWidth, 10.f); 
+      ImGui::InputInt("Height", &config.ScreenHeight, 10.f);
     }
 
     void EditorPreferences::TabAudio()
