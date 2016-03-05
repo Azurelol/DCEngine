@@ -79,20 +79,13 @@ namespace DCEngine {
 
     };
 
-    //#define str(s) str2(s)
-    //#define str2(s) #s
-    //#define DCE_JSON_SERIALIZE(PropertyName)   \ 
-    //root[str(PropertyName)] = PropertyName
+
+    #define DCE_JSON_SERIALIZE(PropertyName)   \
+    root[#PropertyName] = PropertyName
     #define DCE_JSON_DESERIALIZE(PropertyName)   \
     Deserialize(root, PropertyName, "##PropertyName")
-    #define DCE_JSON_DESERIALIZE_STRING(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asString() 
-    #define DCE_JSON_DESERIALIZE_BOOL(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asBool()
-    #define DCE_JSON_DESERIALIZE_INT(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asInt()
-    #define DCE_JSON_DESERIALIZE_FLOAT(PropertyName) \
-    PropertyName = root.get("##PropertyName", " ").asFloat()
+    #define DCE_JSON_DESERIALIZE_INTRINSIC(PropertyName) \
+    PropertyName = root.get(#PropertyName, "")
 
     /**************************************************************************/
     /*!
@@ -143,12 +136,12 @@ namespace DCEngine {
 
 
       void Serialize(Json::Value& root) {
-        root["AutoSaveTime"] = AutoSaveTime;
-        root["GridActive"] = GridActive;
-        root["GridLength"] = GridLength;
-        root["Snapping"] = Snapping;
-        root["SnapDistance"] = SnapDistance;
-        root["SnapAngle"] = SnapAngle;
+        DCE_JSON_SERIALIZE(AutoSaveTime);
+        DCE_JSON_SERIALIZE(GridActive);
+        DCE_JSON_SERIALIZE(GridLength);
+        DCE_JSON_SERIALIZE(Snapping);
+        DCE_JSON_SERIALIZE(SnapDistance);
+        DCE_JSON_SERIALIZE(SnapAngle);
 
       }
       void Deserialize(Json::Value& root) {
@@ -159,12 +152,12 @@ namespace DCEngine {
         //DeserializeByType(root, SnapDistance, "SnapDistance");
         //DeserializeByType(root, SnapAngle, "SnapAngle");
 
-        AutoSaveTime = root.get("AutoSaveTime", "").asInt();
-        GridActive = root.get("GridActive", "").asBool();
-        GridLength = root.get("GridLength", "").asFloat();
-        Snapping = root.get("Snapping", "").asBool();
-        SnapDistance = root.get("SnapDistance", "").asFloat();
-        SnapAngle = root.get("SnapAngle", "").asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(AutoSaveTime).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(GridActive).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(GridLength).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Snapping).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(SnapDistance).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(SnapAngle).asFloat();
 
         //DCE_JSON_DESERIALIZE_INT(AutoSaveTime);
         //DCE_JSON_DESERIALIZE_BOOL(GridActive);
