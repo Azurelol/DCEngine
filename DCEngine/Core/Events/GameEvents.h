@@ -17,30 +17,37 @@ namespace DCEngine {
 
     class GameFocusIn : public Event {
     public:
+      ZilchDeclareDerivedType(GameFocusIn, Event);
     };
 
     class GameFocusOut : public Event {
     public:
+      ZilchDeclareDerivedType(GameFocusOut, Event);
     };
 
     class GameLoad : public Event {
     public:
+      ZilchDeclareDerivedType(GameLoad, Event);
     };
 
     class GameRequestQuit : public Event {
     public:
+      ZilchDeclareDerivedType(GameRequestQuit, Event);
     };
 
     class GameStarted : public Event {
     public:
+      ZilchDeclareDerivedType(GameStarted, Event);
     };
 
     class GameEnded : public Event {
     public:
+      ZilchDeclareDerivedType(GameEnded, Event);
     };
 
     class GameSetup : public Event {
     public:
+      ZilchDeclareDerivedType(GameSetup, Event);
     };
 
   }

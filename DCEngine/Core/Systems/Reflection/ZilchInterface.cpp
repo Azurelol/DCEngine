@@ -39,11 +39,22 @@ namespace DCEngine {
     ZilchInterface::~ZilchInterface()
     {
     }
-
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a reference to this system, Static member
+    @return The reference to the single instance of this class
+    */
+    /**************************************************************************/
     ZilchInterface & ZilchInterface::Get()
     {
       return *Daisy->getSystem<Reflection>()->Handler();
     }
+    /**************************************************************************/
+    /*!
+    @brief  Grabs a reference to the executable state.
+    @return The exclusive executable state for the interface.
+    */
+    /**************************************************************************/
 
     Zilch::ExecutableState * ZilchInterface::GetState()
     {
@@ -108,13 +119,13 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Grabs a reference to the executable state.
-    @return The exclusive executable state for the interface.
+    @brief  Grabs a reference to the Library.
+    @return The current Script Library Reference for the interface.
     */
     /**************************************************************************/
-    Zilch::ExecutableState * ZilchInterface::getState()
+    Zilch::LibraryRef ZilchInterface::getLibrary()
     {
-      return State;
+      return ScriptLibrary;
     }
 
     /**************************************************************************/
@@ -146,7 +157,9 @@ namespace DCEngine {
     Zilch::Function * ZilchInterface::getFunction(std::string name, Zilch::BoundType* type,
                                                   const Zilch::Array<Zilch::Type*>& parameters,
                                                   Zilch::Type* returnType,
-                                                  Zilch::FindMemberOptions::Flags options)
+                                                  Zilch::FindMemberOptions::Flags options,
+                                                  bool ErrorOn)
+
     {
       Zilch::Function* function = type->FindFunction(name.c_str(),
         parameters,
