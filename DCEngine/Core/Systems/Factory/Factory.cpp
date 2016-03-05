@@ -221,6 +221,8 @@ namespace DCEngine {
       if (entity->HasComponent("Transform")) {
         auto transform = entity->getComponent<Components::Transform>();
         transform->setTranslation(transformData.second.Translation);
+        transform->setRotation(transformData.second.Rotation);
+        transform->setScale(transformData.second.Scale);
       }
 
     }
