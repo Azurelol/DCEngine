@@ -227,7 +227,8 @@ namespace DCEngine {
       static std::vector<Zilch::BoundType*> components;
       static std::vector<const char*> componentNames;
       // Scan for components only when need be
-      if (!Scanned) {
+      if (1) {
+      //if (!Scanned) {
         componentNames.clear();
         components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
         for (auto component : components) {
@@ -237,7 +238,7 @@ namespace DCEngine {
 
           // Components to skip
           bool skip = false;
-          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical" };
+          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical", "ZilchComponent" };
           //skippableComponents.push_back(std::string("ZilchComponet"));
           for (auto& name : skippableComponents) {
             auto componentName = std::string(component->Name.c_str());
@@ -251,8 +252,8 @@ namespace DCEngine {
 
           // If it's a Zilch component, we need to do more to get its underlying type
           if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
+            //componentNames.push_back(component->Name.c_str());
             componentNames.push_back(component->Name.c_str());
-            auto name = component->Name.c_str();
           }
 
           // If it's a C++ component, it's less cumbersome...

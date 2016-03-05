@@ -29,6 +29,7 @@ namespace DCEngine {
 
   public:
 
+    static bool IsZilchComponent(ComponentPtr component);
     ZilchDeclareDerivedType(ZilchComponent, Component);
     ZilchComponent(std::string name, Entity& owner);
     virtual ~ZilchComponent();

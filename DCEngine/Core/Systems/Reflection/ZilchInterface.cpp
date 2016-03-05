@@ -72,9 +72,11 @@ namespace DCEngine {
       // Set up the console
       SetupConsole();
       // Add our custom static library for binding our classes
-      AddLibrary(DCEngineCore::GetLibrary());
+      AddLibrary(DCEngineCore::GetInstance().GetLibrary());
       // Add our custom library for our own Zilch scripts
-      CompileScripts();
+      Zilch::Project ScriptProject;
+      Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, Zilch::DefaultErrorCallback);
+      ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
       AddLibrary(ScriptLibrary);
       // Compile and build the exclusive 'ExecutableState' object
       Build();

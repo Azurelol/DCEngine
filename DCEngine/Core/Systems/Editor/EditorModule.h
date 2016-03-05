@@ -19,6 +19,7 @@ namespace DCEngine {
     public:
       bool WindowEnabled;
       void Toggle(bool);
+      void Toggle();
       virtual void Display() = 0;
       EditorModule(Editor& editor, bool add);
       ~EditorModule();

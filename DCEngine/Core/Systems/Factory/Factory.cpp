@@ -379,12 +379,26 @@ namespace DCEngine {
       // Get the component's BoundType
       auto boundType = Component::BoundType(name);
       // Allocate the component on the heap through Zilch
-      auto componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);      
+      Zilch::Handle componentHandle; 
+
+      // C++ Components
+      if (!Zilch::TypeBinding::IsA(boundType, ZilchComponent::ZilchGetStaticType())) {
+        componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Zilch::Call ctorCall(boundType->Constructors[0], state);
+        ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+        ctorCall.Set(0, entity);
+        ctorCall.Invoke(report);
+      }
+      // Zilch Components
+      else {
+        //componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
+        //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+        //ctorCall.Set(0, entity);
+        //ctorCall.Invoke(report);
+        componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+      }
       // Call the component's constructor explicitly
-      Zilch::Call ctorCall(boundType->Constructors[0], state);
-      ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-      ctorCall.Set(0, entity);
-      ctorCall.Invoke(report);
       // Return the handle to this component
       return componentHandle;
     }

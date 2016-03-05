@@ -91,6 +91,7 @@ namespace DCEngine {
       EditorDiagnostics Diagnostics;
       EditorTextEditor TextEditor;
       EditorInspector Inspector;
+      EditorPreferences Preferences;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;

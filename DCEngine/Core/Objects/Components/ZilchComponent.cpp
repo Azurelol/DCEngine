@@ -14,6 +14,13 @@ These components, alongside events, drive the logic of a game project.
 
 namespace DCEngine {
 
+  bool ZilchComponent::IsZilchComponent(ComponentPtr component)
+  {
+    if (Zilch::TypeBinding::IsA(component->ZilchGetStaticType(), ZilchComponent::ZilchGetStaticType()))
+      return false;
+    return true;
+  }
+
   ZilchComponent::ZilchComponent(std::string name, Entity & owner) : Component(name, owner)
   {
     //if (DCE_TRACE_COMPONENT_CONSTRUCTOR)
