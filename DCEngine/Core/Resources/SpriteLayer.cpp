@@ -17,6 +17,7 @@ namespace DCEngine {
   *     SpriteLayer    *
   *===================*/
   ZilchDefineType(SpriteLayer, "SpriteLayer", DCEngineCore, builder, type) {
+    
   }
 
   /**************************************************************************/
@@ -49,7 +50,7 @@ namespace DCEngine {
   *     SpriteLayerOrder        *
   *============================*/
   ZilchDefineType(SpriteLayerOrder, "SpriteLayerOrder", DCEngineCore, builder, type) {
-    //DCE_BINDING_DEFINE_PROPERTY(SpriteLayerOrder, List);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteLayerOrder, List);
   }
 
   /**************************************************************************/
@@ -91,7 +92,7 @@ namespace DCEngine {
   void SpriteLayerOrder::Remove(SpriteLayerHandle spriteLayer)
   {
     DCTrace << Name() << "SpriteLayerOrder::Remove: '" << spriteLayer << "' \n";
-    List.remove(spriteLayer);
+    //List.Remove(spriteLayer);
   }
 
   /**************************************************************************/
