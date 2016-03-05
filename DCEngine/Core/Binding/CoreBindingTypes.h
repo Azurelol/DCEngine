@@ -18,12 +18,12 @@ ZilchDeclareRedirectType(glm::vec2, Zilch::Real2);
 ZilchDeclareRedirectType(glm::vec3, Zilch::Real3);
 ZilchDeclareRedirectType(glm::vec4, Zilch::Real4);
 
-//class StringArray : public std::vector<std::string> {
-//public:
-//  ZilchDeclareBaseType(StringArray, Zilch::TypeCopyMode::ReferenceType);
-//  void Add(const std::string& val);
-//  void Remove(const std::string& val);
-//  void Clear();
-//
-//
-//};
+class StringArray : public std::vector<std::string> {
+public:
+  ZilchDeclareBaseType(StringArray, Zilch::TypeCopyMode::ReferenceType);
+  void Add(const std::string& val);
+  void Remove(const std::string& val);
+  void Clear();
+
+
+};

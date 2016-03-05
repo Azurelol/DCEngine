@@ -66,23 +66,23 @@ ZilchDefineRedirectType(glm::vec4, Vec4ToReal4, Real4ToVec4);
 /*******************************************************************************
   StringArray
 *******************************************************************************/
-//ZilchDefineType(StringArray, "StringArray", DCEngine::DCEngineCore, builder, type) {
-//  ZilchBindMethod(builder, type, &StringArray::Add, ZilchNoOverload, "Add", "val");
-//  ZilchBindMethod(builder, type, &StringArray::Clear, ZilchNoOverload, "Add", "val");
-//  
-//}
-//
-//void StringArray::Add(const std::string & val)
-//{
-//  push_back(val);
-//}
-//
-//void StringArray::Remove(const std::string & val)
-//{
-//  // Implement removing here 
-//}
-//
-//void StringArray::Clear()
-//{
-//  clear();
-//}
+ZilchDefineType(StringArray, "StringArray", DCEngine::DCEngineCore, builder, type) {
+  ZilchBindMethod(builder, type, &StringArray::Add, ZilchNoOverload, "Add", "val");
+  ZilchBindMethod(builder, type, &StringArray::Clear, ZilchNoOverload, "Add", "val");
+  
+}
+
+void StringArray::Add(const std::string & val)
+{
+  push_back(val);
+}
+
+void StringArray::Remove(const std::string & val)
+{
+  // Implement removing here 
+}
+
+void StringArray::Clear()
+{
+  clear();
+}

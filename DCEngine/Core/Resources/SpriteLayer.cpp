@@ -50,7 +50,7 @@ namespace DCEngine {
   *     SpriteLayerOrder        *
   *============================*/
   ZilchDefineType(SpriteLayerOrder, "SpriteLayerOrder", DCEngineCore, builder, type) {
-    DCE_BINDING_DEFINE_PROPERTY(SpriteLayerOrder, List);
+    //DCE_BINDING_DEFINE_PROPERTY(SpriteLayerOrder, List);
   }
 
   /**************************************************************************/
@@ -78,7 +78,7 @@ namespace DCEngine {
     }
 
     // Add the item to the list
-    List.push_back(spriteLayer);
+    List.Add(spriteLayer.c_str());
     DCTrace << Name() << "::SpriteLayerOrder::Add: '" << spriteLayer << "' has been added! \n";
 
   }
