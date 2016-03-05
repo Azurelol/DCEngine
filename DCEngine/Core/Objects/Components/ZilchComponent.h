@@ -38,8 +38,8 @@ namespace DCEngine {
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDeclareDerivedType(ZilchComponent, Component);
 #endif
-    ZilchComponent(std::string name, ZilchFile scriptName, Entity& owner); public:
-
+    ZilchComponent(std::string name, ZilchFile scriptName, Entity& owner);
+      static bool IsZilchComponent(ComponentPtr component);
       //ZilchComponent() : classScript("Example"), zilchId(CTZ_Example) {};
       //ZilchComponent(std::string scriptName, ZilchComponentTypeId zilchId);
       //void OnLogicUpdate(Events::LogicUpdate * event);

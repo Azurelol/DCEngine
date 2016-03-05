@@ -45,7 +45,7 @@ namespace DCEngine {
         // Set the selected item as the current resource
         auto selectedResource = resources.at(currentItem);
         Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedResource));
         setCall.Invoke(report);

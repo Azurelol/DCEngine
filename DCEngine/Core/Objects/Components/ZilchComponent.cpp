@@ -24,16 +24,14 @@ namespace DCEngine {
     //if (DCE_TRACE_COMPONENT_CONSTRUCTOR)
 
   }
-
+  bool ZilchComponent::IsZilchComponent(ComponentPtr component)
+  {
+    if (Zilch::TypeBinding::IsA(component->ZilchGetStaticType(), ZilchComponent::ZilchGetStaticType()))
+      return false;
+    return true;
+  }
   ZilchComponent::~ZilchComponent()
   {
-    if (Destroy != NULL)
-    {
-      ExecutableState* state = Systems::ZilchInterface::Get().GetState();
-      Call call(Destroy, state);
-      call.Set<Handle>(Call::This, classInstance);
-      call.Invoke(report);
-    }
     //delete classInstance;
   }
   void ZilchComponent::Initialize()
@@ -50,17 +48,17 @@ namespace DCEngine {
       initFunc = Interface->getFunction("Initialize", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), FindMemberOptions::None, true);
     }
     
-    classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
+    //classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
     Function* updateFunct = Interface->getFunction("OnLogicUpdate", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), ZilchTypeId(void), FindMemberOptions::None, true);
     if (initFunc != NULL)
     {
       //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
       //Daisy->Connect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), &ZilchComponent::CallConnections, this);
-      Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
+     /* Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
       Call call(initFunc, Interface->GetState());
       call.Set<Handle>(Call::This, classInstance);
       call.Set<>(0, Owner());
-      call.Invoke(report);
+      call.Invoke(report);*/
     }
     else
     {
