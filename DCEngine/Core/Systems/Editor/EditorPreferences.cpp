@@ -36,7 +36,7 @@ namespace DCEngine {
     void EditorPreferences::Update()
     {
     }
-
+    
     /**************************************************************************/
     /*!
     \brief  Displays the EditorPreferences window.
@@ -47,21 +47,14 @@ namespace DCEngine {
       if (!WindowEnabled)
         return;
 
-      ImGui::SetNextWindowSize(ImVec2(300, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin("Preferences", &WindowEnabled);
+      ImGui::SetNextWindowSize(ImVec2(600, 300), ImGuiSetCond_Always);
+      ImGui::Begin("Preferences", &WindowEnabled, ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize);
 
-      //ImGui::PushStyleVar()
-      ImGui::Columns(2, "WindowPreferences");
+      DisplayColumns();
 
-      // Left Column
-      //ImGui::PushStyleVar(ImGuiStyleVar_::ImGuiStyleVar_ItemInnerSpacing, ImVec2(5, 0));
-      if (ImGui::CollapsingHeader("Editor")) CurrentTab = Tab::Editor;
-      if (ImGui::CollapsingHeader("Graphics")) CurrentTab = Tab::Graphics;
-      if (ImGui::CollapsingHeader("Audio")) CurrentTab = Tab::Audio;
-      if (ImGui::CollapsingHeader("Style")) CurrentTab = Tab::Style;
-      //ImGui::PopStyleVar();
 
-      ImGui::Separator();
+
+      // Bottom
       // Saves before exiting
       if (ImGui::Button("OK")) {
         Save();
@@ -72,14 +65,6 @@ namespace DCEngine {
       if (ImGui::Button("Cancel")) {
         WindowEnabled = false;
       }
-
-
-      ImGui::NextColumn();
-      // Right Column
-
-      DisplayTab();
-
-
 
       ImGui::End();
     }
@@ -99,7 +84,25 @@ namespace DCEngine {
       case Tab::Style:
         TabStyle();
         break;
+      default:
+        break;
       }
+    }
+
+    void EditorPreferences::DisplayColumns()
+    {
+      ImGui::BeginGroup();
+      
+      ImGui::Columns(2, "WindowPreferences");
+      // Left Column
+      if (ImGui::Selectable("Editor")) CurrentTab = Tab::Editor;
+      if (ImGui::Selectable("Graphics")) CurrentTab = Tab::Graphics;
+      if (ImGui::Selectable("Audio")) CurrentTab = Tab::Audio;
+      if (ImGui::Selectable("Style")) CurrentTab = Tab::Style;
+      // Right Column
+      ImGui::NextColumn();
+      DisplayTab();
+      ImGui::EndGroup();
     }
 
 
@@ -111,10 +114,8 @@ namespace DCEngine {
 
     void EditorPreferences::TabStyle()
     {
-      //ImGui::ShowStyleEditor();
       static auto& style = ConfigurationFiles::Access().GUI.Style;
       ImGui::SliderFloat("Alpha", &style.Alpha, 0.0f, 1.0f);
-      //ImGui::GetStyle().Alpha = 0.5f;
     }
 
     void EditorPreferences::TabGraphics()
@@ -124,13 +125,19 @@ namespace DCEngine {
       //if (ImGui::InputFloat2("Resolution", vec2f, 3)) {
       //  config.ScreenWidth = vec2f[0]; config.ScreenHeight = vec2f[1];
       //}
-      ImGui::InputInt("Width", &config.ScreenWidth, 10.f); 
-      ImGui::InputInt("Height", &config.ScreenHeight, 10.f);
+      ImGui::InputInt("Width", &config.ScreenWidth, 10.0f); 
+      ImGui::InputInt("Height", &config.ScreenHeight, 10.0f);
+      ImGui::InputInt("Framerate", &config.Framerate, 1.0f);
+      ImGui::InputInt("Max Draw Layers", &config.MaxDrawLayers, 10.0f);
+      ImGui::Checkbox("Fullscreen", &config.Fullscreen);
+      ImGui::SliderFloat4("Clear Color", &config.ClearColor[0], 0.0f, 1.0f);
     }
 
     void EditorPreferences::TabAudio()
     {
-
+      static auto& config = ConfigurationFiles::Access().Audio;
+      ImGui::Checkbox("Enabled", &config.Enabled);
+      ImGui::InputInt("Master Volume", &config.MasterVolume, 1.0f);
     }
 
     void EditorPreferences::Save()

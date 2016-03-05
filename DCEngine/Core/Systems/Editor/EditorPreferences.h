@@ -33,6 +33,7 @@ namespace DCEngine {
       };
 
       void Update();
+      void DisplayColumns();
       
       Tab CurrentTab;
       void DisplayTab();
