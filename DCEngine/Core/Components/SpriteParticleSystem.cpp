@@ -44,6 +44,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, SystemSize);
 
 			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, Additive);
+			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, Lock);
     }
     #endif
 
@@ -60,20 +61,6 @@ namespace DCEngine {
     }
 
 
-    /**************************************************************************/
-    /*!
-    @brief SpriteParticleSystem argument constructor.
-    @param camera Reference to the current camera in the space.
-    */
-    /**************************************************************************/
-    SpriteParticleSystem::Particle::Particle(float lifetime,
-      const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
-      ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
-      : mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
-      mScale(scale), mRotation(0), mRotationRate(spin), mTint(tint),
-      mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
-    {
-    }
 
     /**************************************************************************/
     /*!
@@ -194,12 +181,15 @@ namespace DCEngine {
 			for (unsigned i = 0; i < GetParticleCount(); ++i)
 			{
 				glm::mat4 modelMatrix;
-				modelMatrix = glm::translate(modelMatrix, glm::vec3(
-					transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
-					transform->Translation.z));
+				if (Lock)
+					modelMatrix = glm::translate(modelMatrix, glm::vec3(
+						transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
+						transform->Translation.z));
+				else
+					modelMatrix = glm::translate(modelMatrix, glm::vec3(offset[i].x, offset[i].y,
+						transform->Translation.z));
 				modelMatrix = glm::rotate(modelMatrix, rotation[i], glm::vec3(0, 0, 1));
-				modelMatrix = glm::scale(modelMatrix, glm::vec3(
-					scale[i], scale[i], 0.0f));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(scale[i], scale[i], 0.0f));
 				transformData.push_back(modelMatrix);
 			}
 
@@ -271,13 +261,14 @@ namespace DCEngine {
 				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100;
 				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100;
 				Vec2 force = Vec2(0, 0);
+				Vec2 position = Vec2(0, 0);
 				if (mLinearAnimator)
-				{
 					force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
-				}
+				if (!Lock)
+					position = Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
 				mParticleList.push_back(Particle(
-					lifetime, Vec2(0, 0), velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
+					lifetime, position, velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
 			}
 		}
 

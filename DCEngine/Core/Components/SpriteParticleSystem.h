@@ -42,6 +42,7 @@ namespace DCEngine {
       Real LengthScale = 1;
       Vec3 SystemSize = Vec3(4, 4, 4);
 			Boolean Additive;
+			Boolean Lock;
       DCE_DEFINE_PROPERTY(Boolean, Visible);
       DCE_DEFINE_PROPERTY(Vec4, Tint);
       DCE_DEFINE_PROPERTY(String, Texture);
@@ -49,6 +50,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, LengthScale);
       DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 			DCE_DEFINE_PROPERTY(Boolean, Additive);
+			DCE_DEFINE_PROPERTY(Boolean, Lock);
 
       ZilchDeclareDerivedType(SpriteParticleSystem, Graphical);
       SpriteParticleSystem(Entity& owner);

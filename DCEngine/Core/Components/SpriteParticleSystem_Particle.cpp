@@ -17,6 +17,20 @@ namespace DCEngine {
   namespace Components
   {
 
+		/**************************************************************************/
+		/*!
+		@brief SpriteParticleSystem::Particle argument constructor.
+		@param camera Reference to the current camera in the space.
+		*/
+		/**************************************************************************/
+		SpriteParticleSystem::Particle::Particle(float lifetime,
+			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
+			ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
+			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
+			mScale(scale), mRotation(0), mRotationRate(spin), mTint(tint),
+			mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
+		{
+		}
     /**************************************************************************/
     /*!
     @brief Updates the particle.
