@@ -32,3 +32,5 @@
 #include "Events\WindowEvents.h"
 // Game
 #include "Events\GameEvents.h"
+// Scripting
+#include "Events\ScriptingEvents.h"

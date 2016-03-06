@@ -122,6 +122,13 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::ScriptingLibraryPatched()
+    {
+      auto event = new Events::ScriptingLibraryPatched();
+      Daisy->Dispatch<Events::ScriptingLibraryPatched>(event);
+      delete event;
+    }
+
 
   }
 }

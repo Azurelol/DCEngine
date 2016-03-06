@@ -1,7 +1,7 @@
 class Player : ZilchComponent 
 {
   var Health : Real = 100;
-  var MaxHealth : Real = 50;
+  var MaxHealth : Real = 95;
 
   [Static]
   function SayHello()

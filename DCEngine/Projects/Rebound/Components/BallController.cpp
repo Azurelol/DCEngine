@@ -73,14 +73,6 @@ namespace DCEngine {
 			//CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
 		}
 
-		void BallController::Serialize(Json::Value & root)
-		{
-		}
-
-		void BallController::Deserialize(Json::Value & root)
-		{
-		}
-
 		void BallController::OnMouseDownEvent(Events::MouseDown * event)
 		{
 

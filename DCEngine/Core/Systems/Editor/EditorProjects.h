@@ -20,13 +20,11 @@ namespace DCEngine {
     class Editor;
     class EditorProjects : public EditorModule {
     public:
-      void WindowProjectProperties();
+      void Display();
       void LoadProject(std::string);
       void OpenRecentProject();
       void SaveProject();
-      void ToggleProperties();
 
-      void Display();
       EditorProjects(Editor& editor);
       ~EditorProjects();
 
@@ -36,6 +34,7 @@ namespace DCEngine {
     private:
       bool WindowProjectsPropertiesEnabled;
       void Update();
+
     };
 
 

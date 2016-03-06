@@ -60,6 +60,7 @@ namespace DCEngine {
       void DestroyComponents();
       // Resources
       void MarkGameObject(GameObject& gameObj);
+      void MarkForRebuild(EntityPtr entity);
       void DestroyGameObjects();         
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
 
@@ -69,6 +70,7 @@ namespace DCEngine {
       GameObjectStrongVec ActiveGameObjects; //!< Container of active GameObjects
       ComponentVec ActiveComponents; //!< Container of active Components
       std::map<std::string, std::type_index> ComponentClassMap;
+      std::set<EntityPtr> EntitiesToRebuild;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
       std::set<ComponentPtr> ComponentsToBeDeleted;
       std::set<SpacePtr> SpacesToBeDeleted;
@@ -80,6 +82,7 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();      
       void ConstructComponentFactoryMap();
+      void RebuildEntities();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
     }; 
 

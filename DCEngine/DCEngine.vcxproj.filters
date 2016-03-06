@@ -130,9 +130,6 @@
     <Filter Include="Core\Events\Physics">
       <UniqueIdentifier>{fc56e84c-d548-4661-9492-71661dd441ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Reflection">
-      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects\Rebound">
       <UniqueIdentifier>{910eeb23-e36c-4d2f-86f8-2e355648d895}</UniqueIdentifier>
     </Filter>
@@ -177,9 +174,6 @@
     </Filter>
     <Filter Include="Core\Components\Graphics\Camera">
       <UniqueIdentifier>{4a02aad3-07b2-4f58-a66b-03abfcc8512a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Reflection\Zilch">
-      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Binding">
       <UniqueIdentifier>{11a22b62-a1d2-4e23-8d98-f120e89bc3fc}</UniqueIdentifier>
@@ -325,6 +319,15 @@
     <Filter Include="Core\Systems\Editor\Modules\Preferences">
       <UniqueIdentifier>{af9799e7-d794-4630-a3a9-85c7e4bce4f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Scripting">
+      <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Scripting\Zilch">
+      <UniqueIdentifier>{1917c094-597e-4243-9dfe-02526aa44d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Events\Scripting">
+      <UniqueIdentifier>{8541d3d8-4938-44eb-b804-d98c8febf5ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -451,7 +454,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp">
-      <Filter>Core\Systems\Reflection</Filter>
+      <Filter>Core\Systems\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="Core\Components\Orientation.cpp">
       <Filter>Core\Components\Physics</Filter>
@@ -535,7 +538,7 @@
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Objects\Object.cpp">
       <Filter>Core\Object</Filter>
@@ -553,7 +556,7 @@
       <Filter>Core\Binding</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Precompiled\Precompiled.cpp">
       <Filter>Core\Precompiled</Filter>
@@ -1121,7 +1124,7 @@
       <Filter>Core\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\Reflection.h">
-      <Filter>Core\Systems\Reflection</Filter>
+      <Filter>Core\Systems\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Core\Components\Orientation.h">
       <Filter>Core\Components\Physics</Filter>
@@ -1214,7 +1217,7 @@
       <Filter>Core\Components\Graphics\Particles</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterface.h">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBinding.h">
       <Filter>Core\Binding</Filter>
@@ -1529,7 +1532,7 @@
       <Filter>Core\Engine\Time</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Reflection\ZilchInterfaceUtilities.h">
-      <Filter>Core\Systems\Reflection\Zilch</Filter>
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Macros.h">
       <Filter>Core\Engine\Macros</Filter>
@@ -1550,6 +1553,9 @@
     <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Objects\Object.hpp">
       <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\ScriptingEvents.h">
+      <Filter>Core\Events\Scripting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

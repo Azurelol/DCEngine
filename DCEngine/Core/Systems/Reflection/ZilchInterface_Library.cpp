@@ -8,7 +8,6 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "ZilchInterface.h"
 
 namespace DCEngine {
@@ -89,9 +88,8 @@ namespace DCEngine {
     @param  library The name of the Library.
     */
     /**************************************************************************/
-    void ZilchInterface::CompileScripts()
-    {
-      
+    bool ZilchInterface::CompileScripts()
+    {      
       //DCTrace << "ZilchInterface::CompileScripts - Compiling the script library: \n";
       // A project contains all of the code we combine together to make a single
       // Zilch library. The project also sends events for compilation errors that occur
@@ -120,9 +118,11 @@ namespace DCEngine {
         
       if (ScriptLibrary) {
         State->PatchLibrary(ScriptLibrary);
+        DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
+        return true;
       }
-      else
-        DCTrace << "Failed to compile \n";
+      DCTrace << "ZilchInterface::CompileScripts: Failed to compile \n";
+      return false;
 
       // Build 
       //Build();

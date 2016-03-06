@@ -11,8 +11,9 @@ namespace DCEngine {
     @param editor A reference to the Editor system.
     */
     /**************************************************************************/
-    EditorCreator::EditorCreator(Editor & editor) : EditorRef(editor)
+    EditorCreator::EditorCreator(Editor & editor) : EditorModule(editor, false)
     {
+      Daisy->Connect<Events::ScriptingLibraryPatched>(&EditorCreator::OnScriptingLibraryPatched, this);
     }
 
     void EditorCreator::CreateTransform()
@@ -113,5 +114,29 @@ namespace DCEngine {
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Whenever the scripting library has been patched, reconstructs
+           all entities that have zilch components.
+    @todo  This could be optimized by having the entity flagged as having
+           script components.
+    */
+    /**************************************************************************/
+    void EditorCreator::OnScriptingLibraryPatched(Events::ScriptingLibraryPatched * event)
+    {
+      // For every GameObject in the current space..
+      for (auto& gameObject : *EditorRef.CurrentSpace->AllObjects()) {
+        // Check if it has a Zilch component
+        for (auto& component : gameObject->AllComponents()) {
+          // If it's a zilch component, reconstruct this gameobject and look to the next one..
+          if (ZilchComponent::IsZilchComponent(component)) {
+            gameObject->Rebuild();
+            break;
+          }
+        }
+      }
+
+    }
+    
   }
 }

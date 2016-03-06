@@ -92,8 +92,8 @@ namespace DCEngine {
       if (set) {
         DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
-        editorCamera->AddComponent<Components::Camera>(true);
-        editorCamera->AddComponent<Components::EditorCameraController>(true);
+        editorCamera->AddComponentByName("Camera", true);
+        editorCamera->AddComponentByName("EditorCameraController", true);
         // Whether the editor's transform tool is a component
         if (Settings.TransformTool_IsComponent)
           editorCamera->AddComponent<Components::TransformTool>(true);

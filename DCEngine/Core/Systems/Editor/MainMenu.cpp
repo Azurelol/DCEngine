@@ -34,7 +34,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Open Project")) OpenProject();
           if (ImGui::MenuItem("Save Project")) Projects.SaveProject();
           if (ImGui::MenuItem("Show Project Folder")) LaunchProjectFolder();
-          if (ImGui::MenuItem("Project Properties")) Projects.ToggleProperties();
+          if (ImGui::MenuItem("Project Properties")) Projects.Toggle();
           ImGui::Separator();
           if (ImGui::MenuItem("Play Game", "F5")) PlayGame();
           if (ImGui::MenuItem("Stop Game")) StopGame();

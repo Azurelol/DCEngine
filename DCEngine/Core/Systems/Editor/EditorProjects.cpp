@@ -20,14 +20,14 @@ namespace DCEngine {
     @brief Displays the Project Properties' window.
     */
     /**************************************************************************/
-    void EditorProjects::WindowProjectProperties()
+    void EditorProjects::Display()
     {
-      if (!WindowProjectsPropertiesEnabled)
+      if (!WindowEnabled)
         return;
 
       auto title = EditorRef.Settings.ProjectProperties->ProjectName + " Project Properties";
       ImGui::SetNextWindowSize(ImVec2(500, 300), ImGuiSetCond_FirstUseEver);
-      ImGui::Begin(title.c_str(), &WindowProjectsPropertiesEnabled);
+      ImGui::Begin(title.c_str(), &WindowEnabled);
       if (ImGui::TreeNode("Game")) {
         ImGui::Checkbox("Play", &EditorRef.Settings.ProjectProperties->Play);
         ImGui::TreePop();
@@ -94,16 +94,7 @@ namespace DCEngine {
       }
       DCTrace << "EditorProjects::SaveProject: Saved the current project! \n";
     }
-
-    void EditorProjects::ToggleProperties()
-    {
-      WindowProjectsPropertiesEnabled = !WindowProjectsPropertiesEnabled;
-    }
-
-    void EditorProjects::Display()
-    {
-    }
-
+    
     EditorProjects::EditorProjects(Editor & editor) : EditorModule(editor, true), WindowProjectsPropertiesEnabled(false)
     {
     }

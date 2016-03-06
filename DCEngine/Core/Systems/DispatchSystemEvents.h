@@ -41,6 +41,7 @@ namespace DCEngine {
       static void GraphicsToggleLightning();
 
       static void ScriptingCompile();
+      static void ScriptingLibraryPatched();
       
 
     };

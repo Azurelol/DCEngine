@@ -473,6 +473,7 @@
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
+    <ClInclude Include="Core\Events\ScriptingEvents.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>

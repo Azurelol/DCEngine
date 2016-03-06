@@ -52,7 +52,7 @@ namespace DCEngine {
     void Terminate();
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
-    void Reconstruct();
+    void Rebuild();
 
     // Properties
     //DCE_DEFINE_PROPERTY(std::string, ArchetypeName);

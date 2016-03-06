@@ -136,9 +136,9 @@ namespace DCEngine {
   @brief  Reconstructs an entity by rebuilding its components.
   */
   /**************************************************************************/
-  void Entity::Reconstruct()
+  void Entity::Rebuild()
   {
-    Daisy->getSystem<Systems::Factory>()->Rebuild(this);
+    Daisy->getSystem<Systems::Factory>()->MarkForRebuild(this);
   }
 
   /**************************************************************************/

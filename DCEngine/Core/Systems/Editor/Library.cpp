@@ -130,7 +130,7 @@ namespace DCEngine {
           auto resourceName = resource.second->Name().c_str();
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
-            Select(resource.second.get(), false);
+            //Select(resource.second.get(), false);
           }
           if (GUI::IsMouseDoubleClicked()) {
             TextEditor.Load(resource.second);

@@ -54,6 +54,8 @@ namespace DCEngine {
       DestroyComponents();
       // Destroy all marked spaces
       DestroySpaces();
+      // Rebuild all specified entities
+      RebuildEntities();
     }
 
     /**************************************************************************/
@@ -347,7 +349,10 @@ namespace DCEngine {
         //archetypeBuilder.Key("GameObject");
         //archetypeBuilder.Begin(Zilch::JsonType::Object);
         //{
-          entity->Serialize(archetypeBuilder);
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(entity)) 
+          gameObject->Serialize(archetypeBuilder);
+        else if (auto space = dynamic_cast<SpacePtr>(entity))
+          space->Serialize(archetypeBuilder);
         //}
         //archetypeBuilder.End();
       }      
@@ -516,6 +521,23 @@ namespace DCEngine {
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Marks an entity to have its components rebuilt on the next frame.
+    @param entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::MarkForRebuild(EntityPtr entity)
+    {
+      EntitiesToRebuild.insert(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks a space for destruction.
+    @param entity A pointer to the space.
+    */
+    /**************************************************************************/
     void Factory::MarkSpace(Space& space)
     {
       SpacesToBeDeleted.insert(SpacePtr(&space));
@@ -559,7 +581,22 @@ namespace DCEngine {
 
       // This is set back to default, from 'Space::LoadLevel'
       SoundInstance::StopOnDestroyed = false;
+    }
 
+    /**************************************************************************/
+    /*!
+    @brief Rebuilds all specified entities.
+    */
+    /**************************************************************************/
+    void Factory::RebuildEntities()
+    {
+      if (EntitiesToRebuild.empty())
+        return;
+
+      for (auto& entity : EntitiesToRebuild) {
+        Rebuild(entity);
+      }
+      EntitiesToRebuild.clear();
     }
 
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {

@@ -260,9 +260,7 @@ namespace DCEngine {
       WindowCollisionTableEditor();
       WindowSpriteLayerOrderEditor();
       WindowCommands();
-
-      Projects.WindowProjectProperties();
-
+      
       // Autosave
       AutoSave();
     }

@@ -35,7 +35,7 @@ namespace DCEngine {
       bool AddCodeFromFile(std::string fileName, Zilch::Project& project);
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
-      void CompileScripts();
+      bool CompileScripts();
       void Build();
       void Clean();
       Zilch::LibraryRef ScriptLibrary;

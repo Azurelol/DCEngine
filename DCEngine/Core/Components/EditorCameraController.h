@@ -30,7 +30,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, ZoomSpeed);
       // Initialize
       ZilchDeclareDerivedType(EditorCameraController, Component);
-      EditorCameraController(Entity& owner) : Component(std::string("EditorCameraController"), owner) {}
+      EditorCameraController(Entity& owner);
       void Initialize();
       // Events 
       void OnKeyDownEvent(Events::KeyDown* event);

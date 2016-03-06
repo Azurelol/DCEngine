@@ -35,15 +35,7 @@ namespace DCEngine {
       //gameObj->AttachTo(PlayerRef);
     //hardcoded and bad, fix
     }
-
-    void CameraController::Serialize(Json::Value & root)
-    {
-    }
-
-    void CameraController::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void CameraController::OnKeyDownEvent(Events::KeyDown * event)
     {
       if (event->Key == Keys::A)
