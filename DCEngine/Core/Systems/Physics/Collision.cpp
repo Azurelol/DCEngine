@@ -376,26 +376,10 @@ namespace DCEngine
     result.Object1 = obj1;
     result.Object2 = obj2;
 
-    if (result.rigid1 != false && result.rigid2 != false)
-    {
-      result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), rigidbody2->getFriction());
-      result.Restitution = DetermineRestitution(*rigidbody1, *rigidbody2);
-    }
-    else if (result.rigid1 == false && result.rigid2 != false)
-    {
-      result.FrictionCof = DetermineFriction(0.5f, rigidbody2->getFriction());
-      result.Restitution = rigidbody2->getRestitution();
-    }
-    else if (result.rigid1 != false && result.rigid2 == false)
-    {
-      result.FrictionCof = DetermineFriction(rigidbody1->getFriction(), 0.5f);
-      result.Restitution = rigidbody1->getRestitution();
-    }
-    else if (result.rigid1 == false && result.rigid2 == false)
-    {
-      result.FrictionCof = 0.0f;
-      result.Restitution = 0.0f;
-    }
+
+    result.FrictionCof = DetermineFriction(boxcollider1->getFriction(), boxcollider2->getFriction());
+    result.Restitution = std::max(boxcollider1->getRestitution(), boxcollider2->getRestitution());
+
 
     return true;
     //Check X
@@ -1190,7 +1174,8 @@ namespace DCEngine
       float Width = box->getColliderScale().x;
       float rot = (3.14159265359f / 180.0f) * Translation->Rotation.z;
 
-      float Dist = FLT_MAX;
+      Distance = FLT_MAX;
+      bool retval = false;
 
       topL.x = Translation->Translation.x + box->getOffset().x +  ((0.5f * Height) * -sin(rot)) + ((-0.5f * Width) * cos(rot));
       topL.y = Translation->Translation.y + box->getOffset().y +  ((0.5f * Height) *  cos(rot)) + ((-0.5f * Width) * sin(rot));
@@ -1204,6 +1189,14 @@ namespace DCEngine
       botR.x = Translation->Translation.x + box->getOffset().x + ((-0.5f * Height) * -sin(rot)) +  ((0.5f * Width) * cos(rot));
       botR.y = Translation->Translation.y + box->getOffset().y + ((-0.5f * Height) *  cos(rot)) +  ((0.5f * Width) * sin(rot));
 
+
+      if ((line.Origin.y < topR.y && line.Origin.y > botR.y) ||
+        (line.Origin.y < topL.y && line.Origin.y > botL.y))
+      {
+        int a = 1;
+      }
+
+
       if (RayToSegment(line.Origin, line.Direction, topL, topR, Rseg))
       {
 		    if (Rseg == line.Origin)
@@ -1211,8 +1204,12 @@ namespace DCEngine
 			    Distance = 0;
 			    return true;
 		    }
-        Distance = glm::length(Rseg - line.Origin);
-        return true;
+
+        if (glm::length(Rseg - line.Origin) < Distance)
+        {
+          Distance = glm::length(Rseg - line.Origin);
+          retval = true;
+        }
       }
 
       if (RayToSegment(line.Origin, line.Direction, topR, botR, Rseg))
@@ -1222,8 +1219,13 @@ namespace DCEngine
 			    Distance = 0;
 			    return true;
 		    }
-        Distance = glm::length(Rseg - line.Origin);
-        return true;
+
+        if (glm::length(Rseg - line.Origin) < Distance)
+        {
+          Distance = glm::length(Rseg - line.Origin);
+          retval = true;
+        }
+
       }
 
       if (RayToSegment(line.Origin, line.Direction, botR, botL, Rseg))
@@ -1233,8 +1235,13 @@ namespace DCEngine
 			    Distance = 0;
 			    return true;
 		    }
-        Distance = glm::length(Rseg - line.Origin);
-        return true;
+        
+        if (glm::length(Rseg - line.Origin) < Distance)
+        {
+          Distance = glm::length(Rseg - line.Origin);
+          retval = true;
+        }
+
       }
 
       if (RayToSegment(line.Origin, line.Direction, botL, topL, Rseg))
@@ -1245,12 +1252,16 @@ namespace DCEngine
 			    return true;
 		    }
          
-        Distance = glm::length(Rseg - line.Origin);
-        return true;
+        if (glm::length(Rseg - line.Origin) < Distance)
+        {
+          Distance = glm::length(Rseg - line.Origin);
+          retval = true;
+        }
+       
       }
 
 
-      return false;
+      return retval;
     }
 
     if (circle)
@@ -1265,6 +1276,31 @@ namespace DCEngine
   {
     Vec3 RayEnd = O + Dir * 10000.0f;
 
+    float denominator = ((RayEnd.x - O.x) * (End.y - Begin.y)) - ((RayEnd.y - O.y) * (End.x - Begin.x));
+    float numerator1 =  ((O.y - Begin.y) * (End.x - Begin.x)) - ((O.x - Begin.x) * (End.y - Begin.y));
+    float numerator2 =  ((O.y - Begin.y) * (RayEnd.x - O.x)) - ((O.x - Begin.x) * (RayEnd.y - O.y));
+
+    // Detect coincident lines (has a problem, read below)
+    if (denominator == 0)
+    {
+      return (numerator1 == 0 && numerator2 == 0);
+    }
+    float r = numerator1 / denominator;
+    float s = numerator2 / denominator;
+
+    if ((r >= 0 && r <= 1) && (s >= 0 && s <= 1))
+    {
+      Result = Begin + s * (End - Begin);
+
+      return true;
+    }
+    
+    
+    
+    
+    
+    
+    /*
     float D = (O.x - RayEnd.x)*(Begin.y - End.y) - (O.y - RayEnd.y)*(Begin.x - End.x);
     
     if (D == 0)
@@ -1290,36 +1326,7 @@ namespace DCEngine
 
     Result = Vec3(x, y, 0);
 
-    return true;
-
-
-    /*Dir = glm::normalize(Dir);
-    Vec3 SegDir = glm::normalize(End - Begin);
-    
-    if (Dir == SegDir || Dir == -SegDir)
-    {
-      return false;
-    }
-
-    SegDir = End - Begin;
-
-    float x, y, S, T;
-
-    S = (O.y * Dir.x + Begin.x - O.x - Begin.y * Dir.x) / (SegDir.y * Dir.x - SegDir.x);
-
-    T = (Begin.x + S * SegDir.x - O.x) / Dir.x;
-
-    Vec3 Temp = O + T * Dir;
-
-    Vec3 Tempvec = Temp - Begin;
-
-    if (glm::normalize(SegDir) == glm::normalize(Tempvec))
-    {
-      Result = Temp;
-      return true;
-    }
-
-    return false;*/
+    return true;*/
   }
 
 }

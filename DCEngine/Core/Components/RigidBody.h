@@ -70,8 +70,8 @@ namespace DCEngine
                 in one place, and only have to update there. Otherwise whenever we wanted to change
                 either we would have to change it for EACH object. */
       float getRestitution(void);
-      void setRestitution(float rest);
       float getFriction(void);
+      void setRestitution(float rest);
       void setFriction(float friction);
       /* @todo Gravity-specific settings should be moved to a different
                component specifically for gravity. */
@@ -90,7 +90,7 @@ namespace DCEngine
       void setPosition(Vec3 pos);
       Vec3 getPosition(void);
 
-      Transform* TransformComponent = NULL;; //!< Reference to the Transform component.
+      Transform* TransformComponent = NULL; //!< Reference to the Transform component.
 
       /* Variables */
       DynamicStateType DynamicState = DynamicStateType::Dynamic;

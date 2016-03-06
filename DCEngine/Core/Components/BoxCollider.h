@@ -41,7 +41,6 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Boolean, Ghost);
       DCE_DEFINE_PROPERTY(Boolean, SendsEvents);
       DCE_DEFINE_PROPERTY(Boolean, IsDrawingCollider);
-      DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
 
       // These should be private!
       BoxCollider(Entity& owner);
@@ -53,8 +52,7 @@ namespace DCEngine {
 
       Transform* TransformComponent = NULL;
       // The group is a tag used for filter out collisions. The rules
-      // for filtering are on the CollisionFilter that is on the running space.    
-      PhysicsMaterialHandle PhysicsMaterial;
+
       //CollisionGroupHandle CollisionGroup = String("Default");
 
       void Register();

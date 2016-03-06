@@ -63,7 +63,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -198,7 +197,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -354,7 +352,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Ball", 
             "Size": 
             {
@@ -623,7 +620,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -730,7 +726,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -818,7 +813,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -1035,7 +1029,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Player", 
             "Size": 
             {
@@ -1318,7 +1311,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1924,7 +1916,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -2032,7 +2023,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Enemy", 
             "Size": 
             {
@@ -2187,7 +2177,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Enemy", 
             "Size": 
             {
@@ -2271,7 +2260,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -2355,7 +2343,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -2439,7 +2426,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {

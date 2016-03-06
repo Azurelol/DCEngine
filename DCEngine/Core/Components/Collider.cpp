@@ -74,5 +74,33 @@ namespace DCEngine {
     {
     }
 
+    float Collider::getRestitution(void)
+    {
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+
+      return PhyMat->getRestitution();
+    }
+
+    float Collider::getFriction(void)
+    {
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+
+      return PhyMat->getFriction();
+    }
+
+    float Collider::GetInvMass(void)
+    {
+      return 1.0f / GetMass();
+    }
+
+    float Collider::GetMass(void)
+    {
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+
+      Vec3 volume = dynamic_cast<GameObject*>(this->Owner())->getComponent<Components::Transform>()->Scale;
+
+      return (PhyMat->getDensity() * volume.x * volume.y);
+    }
+
   }
 }
