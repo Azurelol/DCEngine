@@ -79,7 +79,9 @@ namespace DCEngine {
     // If it failed to find the event-based one, use the hard one...
     if (!OnLogicUpdateFunc) {
       OnLogicUpdateFunc = boundType->FindFunction("OnLogicUpdate", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
-      LogicUpdateDirectly = true;
+      // If it succesfully found the default 'OnLogicUpdate'...
+      if (OnLogicUpdateFunc)
+        LogicUpdateDirectly = true;
     }
     
 
@@ -124,7 +126,7 @@ namespace DCEngine {
   {
     // Find all bound functions!
     FindFunctions();
-    // If updating directly...
+    // If updating directly, subscribe through C++ Logic Update Events
     if (LogicUpdateDirectly)
       Daisy->Connect<Events::LogicUpdate>(SpaceRef, &ZilchComponent::OnLogicUpdateEvent, this);
 
@@ -132,43 +134,6 @@ namespace DCEngine {
     Zilch::Call init(InitializeFunc, Systems::ZilchInterface::GetState());
     init.Set<Zilch::Handle>(Zilch::Call::This, Handle());
     init.Invoke(Report);
-
-    // Subscribe to LogicUpdate events
-
-
-
-
-    //Systems::ZilchInterface* interface = &Systems::ZilchInterface::Get();
-    //Zilch::LibraryRef library = interface->getLibrary();
-
-    //if (library->BoundTypes.findValue(stdstringToZilchString(classScript), nullptr) == NULL)
-    //{
-    //  return;
-    //}
-
-    //else
-    //{
-    //  zilchClass = interface->getBoundType(classScript, library);
-    //  InitializeFunc = interface->getFunction("Initialize", zilchClass,
-    //                  Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), 
-    //                  Zilch::FindMemberOptions::None, true);
-    //}
-    ////classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
-
-    //if (InitializeFunc != NULL)
-    //{
-    //  //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
-    //  //Daisy->Connect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), &ZilchComponent::CallConnections, this);
-    // /* Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
-    //  Call call(InitializeFunc, Interface->GetState());
-    //  call.Set<Handle>(Call::This, classInstance);
-    //  call.Set<>(0, Owner());
-    //  call.Invoke(report);*/
-    //}
-    //else
-    //{
-    //  //THROW EXCEPTION HERE
-    //}
   }
 
   void ZilchComponent::OnLogicUpdateEvent(Events::LogicUpdate * event)
