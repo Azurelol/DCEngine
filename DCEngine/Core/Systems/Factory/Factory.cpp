@@ -221,6 +221,8 @@ namespace DCEngine {
       if (entity->HasComponent("Transform")) {
         auto transform = entity->getComponent<Components::Transform>();
         transform->setTranslation(transformData.second.Translation);
+        transform->setRotation(transformData.second.Rotation);
+        transform->setScale(transformData.second.Scale);
       }
 
     }
@@ -373,18 +375,28 @@ namespace DCEngine {
     /**************************************************************************/
     ComponentHandle Factory::CreateComponentByNameFromZilch(const std::string & name, Entity & entity)
     {      
-      auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
+      auto state = Daisy->getSystem<Reflection>()->Handler()->GetState();
       Zilch::ExceptionReport report;
 
       // Get the component's BoundType
       auto boundType = Component::BoundType(name);
       // Allocate the component on the heap through Zilch
-      auto componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);      
+      Zilch::Handle componentHandle; 
+
+      // C++ Components
+      if (!Zilch::TypeBinding::IsA(boundType, ZilchComponent::ZilchGetStaticType())) {
+        componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Zilch::Call ctorCall(boundType->Constructors[0], state);
+        ctorCall.SetHandle(Zilch::Call::This, componentHandle);
       // Call the component's constructor explicitly
-      Zilch::Call ctorCall(boundType->Constructors[0], state);
-      ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-      ctorCall.Set(0, entity);
-      ctorCall.Invoke(report);
+        ctorCall.Set(0, entity);
+        ctorCall.Invoke(report);
+      }
+      // Zilch Components
+      else {  
+        componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
+      }
       // Return the handle to this component
       return componentHandle;
     }
@@ -404,6 +416,17 @@ namespace DCEngine {
         throw DCException("Factory::CreateComponentByType - Tried to construct '" + std::string(boundType->Name.c_str()) + "' that's not bound yet!");
 
       return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
+    void Factory::MarkComponent(ComponentHandle component)
+    {
+      //ComponentsToBeDeletedByHandle.insert(component);
     }
 
     /**************************************************************************/
@@ -433,7 +456,6 @@ namespace DCEngine {
         component->Owner()->RemoveComponentByName(component->Name());
       }
       ComponentsToBeDeleted.clear();
-
     }
 
     /**************************************************************************/

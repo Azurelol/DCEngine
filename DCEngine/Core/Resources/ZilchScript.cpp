@@ -50,7 +50,7 @@ namespace DCEngine {
   @brief Serializes the script now that is been modified.
   */
   /**************************************************************************/
-  void ZilchScript::Save(std::string & serializedData)
+  void ZilchScript::Save(const std::string & serializedData)
   {
     SerializedData = serializedData;
     FileSystem::FileWriteString(ResourcePath, SerializedData);
@@ -115,8 +115,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   bool ZilchScript::IncludeScript()
-  {   
-    Daisy->getSystem<Systems::Reflection>()->Handler()->AddScript(SerializedData, getObjectName());
+  { 
+    //Daisy->getSystem<Systems::Reflection>()->Handler()->AddScript(SerializedData, getObjectName());
+    Daisy->getSystem<Systems::Reflection>()->Handler()->AddScriptFile(ResourcePath);
     return true;
   }
 

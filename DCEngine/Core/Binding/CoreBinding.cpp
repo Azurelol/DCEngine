@@ -19,6 +19,8 @@
 #include "..\Objects\Entities\EntitiesInclude.h"
 // Core Components
 #include "..\ComponentsInclude.h"
+// Core Events
+#include "..\EventsInclude.h"
 // Engine
 #include "..\Engine\Engine.h"
 
@@ -37,8 +39,11 @@ namespace DCEngine {
     *     Objects       *
     *===================*/
     ZilchInitializeType(Object);
+    ZilchInitializeType(Engine);
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
+    ZilchInitializeType(Mouse);
+    ZilchInitializeType(Keyboard);
     ZilchInitializeType(Component);
     ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(GameSession);
@@ -58,6 +63,46 @@ namespace DCEngine {
     ZilchInitializeType(Font);
     ZilchInitializeType(SpriteLayer);
     ZilchInitializeType(SpriteLayerOrder);
+
+    /*===================*
+    *      Enums        *
+    *===================*/
+    /*ZilchInitializeType(Direction);
+    ZilchInitializeType(Keys);
+    ZilchInitializeType(MouseButton);
+    ZilchInitializeType(MouseWheelScrollDirection);*/
+    /*===================*
+    *      Events        *
+    *===================*/
+    ZilchInitializeType(Event);
+    //Game
+    ZilchInitializeType(Events::GameFocusIn);
+    ZilchInitializeType(Events::GameFocusOut);
+    ZilchInitializeType(Events::GameLoad);
+    ZilchInitializeType(Events::GameRequestQuit);
+    ZilchInitializeType(Events::GameStarted);
+    ZilchInitializeType(Events::GameEnded);
+    ZilchInitializeType(Events::GameSetup);
+    //Key
+    ZilchInitializeType(Events::KeyDown);
+    ZilchInitializeType(Events::KeyUp);
+    //Mouse
+    ZilchInitializeType(Events::MouseDown);
+    ZilchInitializeType(Events::MouseUp);
+    ZilchInitializeType(Events::MouseEnter);
+    ZilchInitializeType(Events::MouseExit);
+    ZilchInitializeType(Events::MouseUpdate);
+    ZilchInitializeType(Events::MouseClickedOn);
+    ZilchInitializeType(Events::MouseScroll);
+    //Collision
+    ZilchInitializeType(Events::CollisionStarted);
+    ZilchInitializeType(Events::CollisionEnded);
+    ZilchInitializeType(Events::CollisionPersisted);
+    //Update
+    ZilchInitializeType(Events::LogicUpdate);
+    ZilchInitializeType(Events::FrameUpdate);
+    ZilchInitializeType(Events::PhysicsUpdate);
+
 
     /*===================*
     *     Components     *
@@ -90,6 +135,8 @@ namespace DCEngine {
     // Debug
     ZilchInitializeType(Components::DebugActions);
     ZilchInitializeType(Components::DebugAudio);
+    // Zilch
+    ZilchInitializeType(ZilchComponent);
   }
   
   /**************************************************************************/

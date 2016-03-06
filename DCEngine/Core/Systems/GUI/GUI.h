@@ -37,9 +37,10 @@ namespace DCEngine {
       static void SetToolTip(std::string);
       static void PopUp(Windows::PopUpData& data);
       static void Add(WindowPtr window);
-      static bool IsMouseDoubleClicked();
+      static bool IsMouseDoubleClicked();      
     
     private:
+      GUIConfig& Settings;
                         
       void Remove(WindowPtr Window);
       void ClearInactive();
@@ -48,8 +49,9 @@ namespace DCEngine {
       void StartFrame();
       void Render();
       void Toggle();
+      void UpdateStyle();
 
-      GUI();
+      GUI(GUIConfig&);
       void Update(float dt);
       void Terminate();
       

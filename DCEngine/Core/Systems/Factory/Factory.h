@@ -56,6 +56,7 @@ namespace DCEngine {
       ComponentHandle CreateComponentByNameFromZilch(const std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
+      void MarkComponent(ComponentHandle component);
       void MarkComponent(Component& component);
       void DestroyComponents();
       // Resources

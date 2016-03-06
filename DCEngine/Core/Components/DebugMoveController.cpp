@@ -34,15 +34,7 @@ namespace DCEngine {
 
 
     }
-
-    void DebugMoveController::Serialize(Json::Value & root)
-    {
-    }
-
-    void DebugMoveController::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void DebugMoveController::OnKeyDownEvent(Events::KeyDown* event) {
       switch (event->Key) {
 

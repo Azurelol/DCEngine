@@ -24,7 +24,7 @@ namespace DCEngine {
 
     private:
 
-      bool DisplayProperties(ObjectPtr);
+      bool DisplayProperties(ObjectPtr, Zilch::Handle = Zilch::Handle());
       void DisplayEntityProperties(EntityPtr);
       void DisplayResourceProperties(ResourcePtr);
       void DisplayAdditionalProperties(ResourcePtr resource);
@@ -39,7 +39,8 @@ namespace DCEngine {
 
       // Templates
       template <typename ResourceMap> bool InspectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
-      template <typename PropertyType> void Set(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Property* property, PropertyType value);
+      template <typename PropertyType> void Get(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Handle handle, Zilch::Property* property, PropertyType value);
+      template <typename PropertyType> void Set(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Handle handle, Zilch::Property* property, PropertyType value);
       template <typename PropertyType> void CheckUnsigned(Zilch::Property* property, PropertyType& value);
       void OnEditorSaveEvent(Events::EditorSave* event);
     };

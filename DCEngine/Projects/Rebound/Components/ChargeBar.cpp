@@ -34,15 +34,7 @@ namespace DCEngine {
       SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
       BallRef = SpaceRef->FindObjectByName("Ball");
     }
-
-    void ChargeBar::Serialize(Json::Value & root)
-    {
-    }
-
-    void ChargeBar::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void ChargeBar::OnMouseDownEvent(Events::MouseDown * event)
     {
 

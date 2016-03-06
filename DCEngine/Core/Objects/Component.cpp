@@ -59,6 +59,72 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Component default constructor.
+  */
+  /**************************************************************************/
+  Component::Component() : Object("Component"), ComponentID(ComponentsCreated++)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Sets the references  for this component.
+  @param name The name of this component.
+  @param entity A reference to the owner.
+  */
+  /**************************************************************************/
+  void Component::PostDefaultConstructor(const std::string & name, Entity & entity)
+  {
+    // Set the name
+    setObjectName(name);
+    // Set its owner
+    ObjectOwner = dynamic_cast<ObjectPtr>(&entity);
+    // Set its references
+    SetReferences();
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      ComponentLastCreated = ObjectName;
+
+    if (DCE_TRACE_COMPONENT_CONSTRUCTOR) {
+      DCTrace << ObjectName << "::Component - Constructor - "
+        << "Owner: '" << ObjectOwner->Name() << "'\n";
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Sets the Owner reference for this component.
+  */
+  /**************************************************************************/
+  void Component::SetReferences() {
+    auto type = Owner()->Type();
+    auto entity = dynamic_cast<Entity*>(Owner());
+
+    // If the owner is a 'GameObject' entity
+    if (type == EntityType::GameObject) {
+      auto gameObj = (GameObject*)entity;
+      SpaceRef = gameObj->GetSpace();
+      GameSessionRef = SpaceRef->getGameSession();
+    }
+
+    // If the owner is a 'Space' entity
+    if (type == EntityType::Space) {
+      SpaceRef = dynamic_cast<Space*>(entity);
+      GameSessionRef = SpaceRef->getGameSession();
+    }
+
+    // If the owner is a 'GameSession' entity
+    if (type == EntityType::GameSession) {
+      SpaceRef = NULL;
+      GameSessionRef = dynamic_cast<GameSession*>(entity);
+    }
+
+    auto a = GameSessionRef;
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Component destructor.
   */
   /**************************************************************************/
@@ -104,7 +170,7 @@ namespace DCEngine {
 
     builder.Key(this->Name().c_str());
     builder.Begin(Zilch::JsonType::Object);
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType());
     builder.End();
   }
 
@@ -120,7 +186,7 @@ namespace DCEngine {
     if (DCE_TRACE_COMPONENT_INITIALIZE)
       DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/
@@ -142,6 +208,28 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Deferences the component handle into a pointer.
+  @param componentHandle The handle to the component.
+  @return A pointer to the component.
+  */
+  /**************************************************************************/
+  ComponentPtr Component::Dereference(ComponentHandle& componentHandle)
+  {
+    return reinterpret_cast<ComponentPtr>(componentHandle.Dereference());
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a a handle to this component.
+  */
+  /**************************************************************************/
+  ComponentHandle Component::Handle()
+  {
+    return this->Handle;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a pointer to the Entity that owns this component.
   @return An entity pointer.
   */
@@ -159,6 +247,9 @@ namespace DCEngine {
   /**************************************************************************/
   bool Component::HasDependencies()
   {
+    if (ZilchComponent::IsZilchComponent(this))
+      return true;
+
     // Look for every component dependency in this component's owner
     for (auto& dependency : Dependencies()) {
       if (!this->Owner()->HasComponent(dependency))
@@ -187,37 +278,7 @@ namespace DCEngine {
     return dependencies;
   }
   
-  /**************************************************************************/
-  /*!
-  @brief Sets the Owner reference for this component.
-  */
-  /**************************************************************************/
-  void Component::SetReferences() {
-    auto type = Owner()->Type();
-    auto entity = dynamic_cast<Entity*>(Owner());
 
-    // If the owner is a 'GameObject' entity
-    if (type == EntityType::GameObject) {
-      auto gameObj = (GameObject*)entity;
-      SpaceRef = gameObj->GetSpace();
-      GameSessionRef = SpaceRef->getGameSession();
-    }
-
-    // If the owner is a 'Space' entity
-    if (type == EntityType::Space) {
-      SpaceRef = dynamic_cast<Space*>(entity);
-      GameSessionRef = SpaceRef->getGameSession();
-    }
-
-    // If the owner is a 'GameSession' entity
-    if (type == EntityType::GameSession) {
-      SpaceRef = NULL;
-      GameSessionRef = dynamic_cast<GameSession*>(entity);
-    }
-
-    auto a = GameSessionRef;
-
-  }
 
   /**************************************************************************/
   /*!
@@ -239,7 +300,10 @@ namespace DCEngine {
   /**************************************************************************/
   Zilch::BoundType * Component::BoundType(std::string componentName)
   {
-    for (auto componentType : AllComponents()) {
+    auto componentTypes = AllComponents();
+
+
+    for (auto componentType : componentTypes) {
       auto componentTypeName = std::string(componentType->Name.c_str());
       if (componentTypeName == componentName) {
         return componentType;

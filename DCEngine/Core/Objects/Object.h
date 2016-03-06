@@ -168,6 +168,12 @@ namespace DCEngine {
       {
         call.Set(0, value->AsString());
       }
+      // Type is a string array
+      //else if (Zilch::Type::IsSame(namedProperty->PropertyType, StringArray))
+      //{
+      //  DCTrace << "hello lol\n";
+      //  //call.Set(0, value->AsString());
+      //}
       // Type is a Boolean.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Boolean)))
       {
@@ -288,6 +294,12 @@ namespace DCEngine {
       {
         builder.Value(call.Get<Zilch::String>(Zilch::Call::Return));
       }
+      // Type is a string array
+      //else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(StringArray)))
+      //{
+      //  DCTrace << "hello lol\n";
+      //  //
+      //}
       // Property: Boolean
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean)))
       {

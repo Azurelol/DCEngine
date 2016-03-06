@@ -37,6 +37,7 @@
 #include <typeindex>
 #include <typeinfo>
 #include "..\Engine\Types.h"
+//#include "..\Systems\Reflection\ZilchInterface.h"
 
 namespace DCEngine {
 
@@ -45,7 +46,10 @@ namespace DCEngine {
   class Component;
   class Event;
   class EventDelegate;
-  
+  class ZilchComponent;
+  namespace Systems {
+    class ZilchInterface;
+  }
   /**************************************************************************/
   /*!
   @class EventDelegate Base class for delegates used for the event system.
@@ -96,6 +100,39 @@ namespace DCEngine {
       return Inst;
     }
   };
-  
+  template<typename ZilchComponent>
+  class EventZilchFunctionDelegate : public EventDelegate {
+  public:
+    Zilch::Function* FuncPtr;
+    ZilchComponent* Inst;
+
+    /**************************************************************************/
+    /*!
+    @brief  Calls the member function given an event.
+    @param  A pointer to the event object.
+    @note   If the Object instance is no longer valid (such as if the object
+    was destroyed, this will return false)
+    */
+    /**************************************************************************/
+    virtual bool Call(Event* event) {
+      // If the object instance has been rendered null, do nothing
+      if (Inst == nullptr) {
+        return false;
+      }
+      Zilch::ExceptionReport report;
+      
+      // Else, if it is active, dispatch the event object
+      Systems::ZilchInterface* Interface = &Systems::ZilchInterface::Get();
+      Zilch::Call call(FuncPtr, Interface->GetState());
+      call.Set<Zilch::Handle>(Zilch::Call::This, Inst->getInstance());
+      call.Set<>(0, event);
+      call.Invoke(report);
+      return true;
+    }
+
+    virtual Object* GetObserver() {
+      return Inst->Owner();
+    }
+  };
 
 }

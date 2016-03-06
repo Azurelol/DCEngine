@@ -45,15 +45,7 @@ namespace DCEngine {
         PlayerRef = SpaceRef->FindObjectByName(PlayerName);
       }
     }
-
-    void EnemyController::Serialize(Json::Value & root)
-    {
-    }
-
-    void EnemyController::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void EnemyController::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       if (event->OtherObject->getComponent<Components::BallController>())

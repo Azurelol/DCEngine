@@ -24,12 +24,18 @@ namespace DCEngine {
     /**************************************************************************/
     void ZilchInterface::AddScriptFile(std::string fileName)
     {
-      ScriptFiles[fileName] = true;
+      auto iter = std::find(ScriptFiles.begin(), ScriptFiles.end(), fileName);
+      if (iter != ScriptFiles.end())
+        return;
+
+      ScriptFiles.push_back(fileName);
+      DCTrace << "ZilchInterface::AddScriptFile: Added '" << fileName << "' \n";
     }
 
     void ZilchInterface::AddScript(std::string code, std::string origin)
     {
-      Scripts[origin] = code;
+      Scripts.push_back(ZilchScriptInfo(origin, code));
+      DCTrace << "ZilchInterface::AddScript: Added '" << origin << "' \n";
     }
 
     /**************************************************************************/
@@ -55,7 +61,7 @@ namespace DCEngine {
     @return The success of the operation.
     */
     /**************************************************************************/
-    void ZilchInterface::AddCodeFromString(std::string code, std::string displayName, Zilch::Project& project)
+    void ZilchInterface::AddCodeFromString(std::string displayName, std::string code, Zilch::Project& project)
     {
       DCTrace << "ZilchInterface::AddCodeFromString - Adding script: " << displayName << "\n";
       project.AddCodeFromString(code.c_str(), displayName.c_str());
@@ -98,21 +104,28 @@ namespace DCEngine {
 
       // Add code from the scripts stored so far
       for (auto script : Scripts) {
-        AddCodeFromString(script.second.c_str(), script.first.c_str(), ScriptProject);
+        AddCodeFromString(script.Name, script.Code, ScriptProject);
         //DCTrace << "ZilchInterface::CompileScripts - Adding: '" << script.first << "' \n";
       }
 
       // Add code from script files stored so far
       for (auto script : ScriptFiles) {
-        AddCodeFromFile(script.first.c_str(), ScriptProject);
+        AddCodeFromFile(script, ScriptProject);
         //DCTrace << "ZilchInterface::CompileScripts - Adding: '" << script.first << "' \n";
       }
 
       // Compile all the code we have added together into a single library for our scripts
       ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
-      
+      // Link together all the libraries that we depend upon
+        
+      if (ScriptLibrary) {
+        State->PatchLibrary(ScriptLibrary);
+      }
+      else
+        DCTrace << "Failed to compile \n";
+
       // Build 
-      Build();
+      //Build();
     }
 
     /**************************************************************************/

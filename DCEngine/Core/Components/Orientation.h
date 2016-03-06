@@ -51,8 +51,6 @@ namespace DCEngine {
       /* Initialize */
       Orientation(Entity& owner) : Component(std::string("Orientation"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
     private:
     };

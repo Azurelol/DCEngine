@@ -21,7 +21,7 @@ namespace DCEngine {
     @brief  Constructor.
     */
     /**************************************************************************/
-    GUI::GUI() : System(std::string("GUISystem"), EnumeratedSystem::GUI)
+    GUI::GUI(GUIConfig& config) : System(std::string("GUISystem"), EnumeratedSystem::GUI), Settings(config)
     {
       GUIHandler.reset(new ImGuiSFML());
     }
@@ -35,6 +35,9 @@ namespace DCEngine {
     {
       //if (!GUI_ENABLED)
       //  return;
+
+      // Update the curent styles
+      UpdateStyle();
 
       if (TRACE_INITIALIZE)
         DCTrace << "GUI::Initialize \n";
@@ -77,6 +80,22 @@ namespace DCEngine {
     void GUI::Toggle()
     {
       GUI_ENABLED = !GUI_ENABLED;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads the currently serialized Style into ImGui.
+    */
+    /**************************************************************************/
+    void GUI::UpdateStyle()
+    {
+    //  auto style = ImGui::GetStyle();
+
+    //  // Rendering
+    //  style.Alpha = Settings.Alpha;
+
+    //  // Colors
+
     }
 
     /**************************************************************************/

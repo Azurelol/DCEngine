@@ -24,6 +24,7 @@ namespace DCEngine {
   namespace Events {
     class MouseScroll : public Event {
     public:
+      ZilchDeclareDerivedType(MouseScroll, Event);
       Real Delta;
       Vec2 Direction;      
     private:

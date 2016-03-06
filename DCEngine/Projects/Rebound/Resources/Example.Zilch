@@ -1,0 +1,13 @@
+class Example : ZilchComponent
+{
+    [Property] var UrMum : Integer = 5;
+
+    function Initialize()
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate()
+    {
+    }
+}

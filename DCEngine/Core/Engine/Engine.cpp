@@ -90,32 +90,25 @@ namespace DCEngine {
 
     // Autowolves, howl out!
     Active = true;
-
     // Construct the input interface objects
     KeyboardHandle.reset(new Keyboard());
     MouseHandle.reset(new Mouse());
-
     // Systems are added to to the engine's systems container, and configurations passed on.
     Systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     Systems.push_back(SystemPtr(new Systems::Reflection));
     Systems.push_back(SystemPtr(new Systems::Factory));
-    Systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
-                                                     EngineConfiguration->Framerate,
-                                                     EngineConfiguration->ResolutionWidth,
-                                                     EngineConfiguration->ResolutionHeight,
-                                                     EngineConfiguration->IsFullScreen)));
+    Systems.push_back(SystemPtr(new Systems::Window(Configurations.Graphics, EngineConfiguration->Caption)));
     Systems.push_back(SystemPtr(new Systems::Input));
-
-    // Editor configuration
+    // Editor configuration @todo change me next!
     Configurations.Editor.EditorEnabled = EngineConfiguration->EditorEnabled;
     Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
     Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
     // Add the systems to the engine's systems container
     Systems.push_back(SystemPtr(new Systems::Editor(Configurations.Editor)));
     Systems.push_back(SystemPtr(new Systems::Physics));
-    Systems.push_back(SystemPtr(new Systems::Audio));
+    Systems.push_back(SystemPtr(new Systems::Audio(Configurations.Audio)));
     Systems.push_back(SystemPtr(new Systems::Graphics(Configurations.Graphics)));
-    Systems.push_back(SystemPtr(new Systems::GUI));        
+    Systems.push_back(SystemPtr(new Systems::GUI(Configurations.GUI)));        
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
     CurrentGameSession.reset(new GameSession(_projectName));
     // Load the default space to start with
@@ -129,10 +122,10 @@ namespace DCEngine {
     // Subscribe to events
     Subscribe();
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
-
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     CurrentGameSession->Initialize();      
+
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();    
     Systems::DispatchSystemEvents::EngineInitialized();
@@ -151,6 +144,7 @@ namespace DCEngine {
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
     Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
+    Connect<Events::EngineSaveConfigurations>(&Engine::OnEngineSaveConfigurationsEvent, this);
   }
 
   void Engine::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
@@ -209,6 +203,8 @@ namespace DCEngine {
     DCTrace << "Engine::OnEngineSaveConfigurationsEvent - Saving configurations... \n";
     Configurations.Editor.Save(Systems::EditorConfig::FileName());
     Configurations.Graphics.Save(Systems::GraphicsConfig::FileName());
+    Configurations.Audio.Save(Systems::AudioConfig::FileName());
+    Configurations.GUI.Save(Systems::GUIConfig::FileName());
   }
 
   
@@ -249,9 +245,6 @@ namespace DCEngine {
     for (auto system : Systems) {
       system->Update(dt);
     }
-
-    //if (PauseMenuEnabled)
-    //  PauseMenu();
 
     // Tell window management system to end the frame
     getSystem<Systems::Graphics>()->EndFrame();
@@ -329,9 +322,13 @@ namespace DCEngine {
 
     // Load the Graphics Config
     LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
+    // Load the Audio Config
+    LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
+    // Load the GUI Config
+    //Configurations.GUI.Link(); // Link it for the Style
+    LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
     // Load the Editor Config
     LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
-    // Load the Editor Config
 
   }
 

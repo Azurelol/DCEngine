@@ -69,6 +69,7 @@ namespace DCEngine {
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);
     ComponentVec AllComponents();
+    ComponentHandleVec& AllComponentsByHandle();
     void Swap(ComponentPtr, Direction);
     void SwapToBack(ComponentPtr);
 

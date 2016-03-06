@@ -106,7 +106,7 @@ namespace DCEngine {
     // Serialize Object-specific properties
     Object::Serialize(builder);
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType);
+    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType()->BaseType);
     // Serialize all of its components
     builder.Key("Components");
     builder.Begin(Zilch::JsonType::Object);
@@ -133,7 +133,7 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
   }
 
   /**************************************************************************/
@@ -194,12 +194,17 @@ namespace DCEngine {
 
     // Returns a pointer to the just-added component
     return ComponentsContainer.back().get();
-    #else    
+    
+    #else // Zilch-created components
+    // Construct the component through Zilch, getting a handle
     auto componentHandle = Daisy->getSystem<Systems::Factory>()->CreateComponentByNameFromZilch(name, *this);
-    // Add the component to the container
+    // Add the component's handle to the container
     ComponentHandlesContainer.push_back(componentHandle);
+    // Get a pointer to it
+    auto componentPtr = Component::Dereference(componentHandle);
+    // Save the handle to the component
+    componentPtr->Handle = componentHandle;
     // Initialize the component if need be
-    auto componentPtr = reinterpret_cast<Component*>(componentHandle.Dereference());
     if (initialize)
       componentPtr->Initialize();
     return componentPtr;
@@ -342,6 +347,11 @@ namespace DCEngine {
       components.push_back(reinterpret_cast<Component*>(componentHandle.Dereference()));
     }
     return components;
+  }
+
+  ComponentHandleVec& Entity::AllComponentsByHandle()
+  {
+    return ComponentHandlesContainer;
   }
 
   /**************************************************************************/

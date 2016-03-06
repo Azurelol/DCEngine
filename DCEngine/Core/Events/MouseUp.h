@@ -17,6 +17,7 @@ namespace DCEngine {
   namespace Events {
     class MouseUp : public Event {
     public:
+        ZilchDeclareDerivedType(MouseDown, Event);
       Vec2 Position;
       MouseButton ButtonReleased;
     private:
