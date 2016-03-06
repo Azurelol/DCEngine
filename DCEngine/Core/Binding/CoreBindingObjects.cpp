@@ -121,7 +121,7 @@ namespace DCEngine {
   ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameSession, "name", std::string);
-    ZilchBindDestructor(builder, type, GameSession); +     // Methods
+    ZilchBindDestructor(builder, type, GameSession);      // Methods
     ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
     ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
     ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);

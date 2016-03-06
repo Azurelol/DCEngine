@@ -290,7 +290,10 @@ namespace DCEngine {
   /**************************************************************************/
   Zilch::BoundType * Component::BoundType(std::string componentName)
   {
-    for (auto componentType : AllComponents()) {
+    auto componentTypes = AllComponents();
+
+
+    for (auto componentType : componentTypes) {
       auto componentTypeName = std::string(componentType->Name.c_str());
       if (componentTypeName == componentName) {
         return componentType;

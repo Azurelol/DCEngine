@@ -38,6 +38,7 @@ namespace DCEngine {
       void CompileScripts();
       void Build();
       void Clean();
+      Zilch::LibraryRef ScriptLibrary;
      
       // JSON
       Zilch::JsonValue ParseJSON(std::string& string);
@@ -72,7 +73,6 @@ namespace DCEngine {
       // A container of dependent libraries
 
       // Scripts
-      Zilch::LibraryRef ScriptLibrary;
       struct ZilchScriptInfo {
         std::string Name;
         std::string Code;

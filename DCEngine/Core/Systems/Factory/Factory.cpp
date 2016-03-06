@@ -431,6 +431,17 @@ namespace DCEngine {
     @param component A reference to the component.
     */
     /**************************************************************************/
+    void Factory::MarkComponent(ComponentHandle component)
+    {
+      //ComponentsToBeDeletedByHandle.insert(component);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
     void Factory::MarkComponent(Component & component)
     {
       DCTrace << "Factory::MarkComponent - " << component.getObjectName() << " has been marked for removal \n";
@@ -452,7 +463,6 @@ namespace DCEngine {
         component->Owner()->RemoveComponentByName(component->Name());
       }
       ComponentsToBeDeleted.clear();
-
     }
 
     /**************************************************************************/

@@ -122,10 +122,10 @@ namespace DCEngine {
     // Subscribe to events
     Subscribe();
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
-
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     CurrentGameSession->Initialize();      
+
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();    
     Systems::DispatchSystemEvents::EngineInitialized();

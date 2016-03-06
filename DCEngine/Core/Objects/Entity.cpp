@@ -344,6 +344,11 @@ namespace DCEngine {
     return components;
   }
 
+  ComponentHandleVec& Entity::AllComponentsByHandle()
+  {
+    return ComponentHandlesContainer;
+  }
+
   /**************************************************************************/
   /*!
   @brief Moves a component to the back of the entity's components container.

@@ -165,10 +165,10 @@ namespace DCEngine {
       //if (ImGui::InputFloat2("Resolution", vec2f, 3)) {
       //  config.ScreenWidth = vec2f[0]; config.ScreenHeight = vec2f[1];
       //}
-      ImGui::InputInt("Width", &config.ScreenWidth, 10.0f); 
-      ImGui::InputInt("Height", &config.ScreenHeight, 10.0f);
-      ImGui::InputInt("Framerate", &config.Framerate, 1.0f);
-      ImGui::InputInt("Max Draw Layers", &config.MaxDrawLayers, 10.0f);
+      ImGui::InputInt("Width", &config.ScreenWidth, 10); 
+      ImGui::InputInt("Height", &config.ScreenHeight, 10);
+      ImGui::InputInt("Framerate", &config.Framerate, 1);
+      ImGui::InputInt("Max Draw Layers", &config.MaxDrawLayers, 1);
       ImGui::Checkbox("Fullscreen", &config.Fullscreen);
       ImGui::SliderFloat4("Clear Color", &config.ClearColor[0], 0.0f, 1.0f);
     }
