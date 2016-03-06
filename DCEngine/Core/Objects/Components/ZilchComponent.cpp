@@ -11,12 +11,29 @@ These components, alongside events, drive the logic of a game project.
 */
 /******************************************************************************/
 #include "ZilchComponent.h"
-#include "Precompiled.h"
+
 #include "../../Systems/Reflection/ZilchInterface.h"
+
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
   
+
+  /*!************************************************************************\
+  @brief  Zilch Component Definition
+  \**************************************************************************/
+  ZilchDefineType(ZilchComponent, "ZilchComponent", DCEngineCore, builder, type) {
+    // This sets Zilch's Handle manager setting
+    //type->HandleManager = ZilchManagerId(Zilch::HandleManager);    
+    //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor    
+    ZilchBindConstructor(builder, type, ZilchComponent, ZilchNoNames);
+    ZilchBindConstructor(builder, type, ZilchComponent, "name, owner", std::string, Entity&);
+    ZilchBindDestructor(builder, type, ZilchComponent);
+    // Methods
+    ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
+  }
+
   /**************************************************************************/
   /*!
   @brief ZilchComponent constructor.
@@ -45,6 +62,33 @@ namespace DCEngine {
   ZilchComponent::~ZilchComponent()
   {
   }
+
+  /**************************************************************************/
+  /*!
+  @brief Finds all common functions to be passed to Zilch.
+  */
+  /**************************************************************************/
+  void ZilchComponent::FindFunctions()
+  {
+    auto boundType = BoundType();
+    // Find the Initialize function
+    InitializeFunc = boundType->FindFunction("Initialize", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
+    // Attempt to find the OnLogicUpdate function
+    OnLogicUpdateFunc = boundType->FindFunction("OnLogicUpdate", Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
+                                                                                            ZilchTypeId(void), Zilch::FindMemberOptions::None);
+    // If it failed to find the event-based one, use the hard one...
+    if (!OnLogicUpdateFunc) {
+      OnLogicUpdateFunc = boundType->FindFunction("OnLogicUpdate", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
+      LogicUpdateDirectly = true;
+    }
+    
+
+
+    //Zilch::Function* updateFunct = interface->getFunction("OnLogicUpdate", zilchClass,
+    //                              Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
+    //                              ZilchTypeId(void), Zilch::FindMemberOptions::None, true);
+  }
+
 
   /**************************************************************************/
   /*!
@@ -78,37 +122,61 @@ namespace DCEngine {
   /**************************************************************************/
   void ZilchComponent::Initialize()
   {
-    Systems::ZilchInterface* Interface = &Systems::ZilchInterface::Get();
-    Zilch::LibraryRef library = Interface->getLibrary();
-    if (library->BoundTypes.findValue(stdstringToZilchString(classScript), nullptr) == NULL)
-    {
-      return;
-    }
-    else
-    {
-      zilchClass = Interface->getBoundType(classScript, library);
-      InitializeFunc = Interface->getFunction("Initialize", zilchClass, 
-                      Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), 
-                      Zilch::FindMemberOptions::None, true);
-    }
-    //classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
-    Zilch::Function* updateFunct = Interface->getFunction("OnLogicUpdate", zilchClass, 
-                                  Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
-                                  ZilchTypeId(void), Zilch::FindMemberOptions::None, true);
-    if (InitializeFunc != NULL)
-    {
-      //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
-      //Daisy->Connect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), &ZilchComponent::CallConnections, this);
-     /* Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
-      Call call(InitializeFunc, Interface->GetState());
-      call.Set<Handle>(Call::This, classInstance);
-      call.Set<>(0, Owner());
-      call.Invoke(report);*/
-    }
-    else
-    {
-      //THROW EXCEPTION HERE
-    }
+    // Find all bound functions!
+    FindFunctions();
+    // If updating directly...
+    if (LogicUpdateDirectly)
+      Daisy->Connect<Events::LogicUpdate>(SpaceRef, &ZilchComponent::OnLogicUpdateEvent, this);
+
+    // Invoke the Initialize Method
+    Zilch::Call init(InitializeFunc, Systems::ZilchInterface::GetState());
+    init.Set<Zilch::Handle>(Zilch::Call::This, Handle());
+    init.Invoke(Report);
+
+    // Subscribe to LogicUpdate events
+
+
+
+
+    //Systems::ZilchInterface* interface = &Systems::ZilchInterface::Get();
+    //Zilch::LibraryRef library = interface->getLibrary();
+
+    //if (library->BoundTypes.findValue(stdstringToZilchString(classScript), nullptr) == NULL)
+    //{
+    //  return;
+    //}
+
+    //else
+    //{
+    //  zilchClass = interface->getBoundType(classScript, library);
+    //  InitializeFunc = interface->getFunction("Initialize", zilchClass,
+    //                  Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), 
+    //                  Zilch::FindMemberOptions::None, true);
+    //}
+    ////classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
+
+    //if (InitializeFunc != NULL)
+    //{
+    //  //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
+    //  //Daisy->Connect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), &ZilchComponent::CallConnections, this);
+    // /* Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
+    //  Call call(InitializeFunc, Interface->GetState());
+    //  call.Set<Handle>(Call::This, classInstance);
+    //  call.Set<>(0, Owner());
+    //  call.Invoke(report);*/
+    //}
+    //else
+    //{
+    //  //THROW EXCEPTION HERE
+    //}
+  }
+
+  void ZilchComponent::OnLogicUpdateEvent(Events::LogicUpdate * event)
+  {
+    // Invoke the update method
+    Zilch::Call update(OnLogicUpdateFunc, Systems::ZilchInterface::GetState());
+    update.Set<Zilch::Handle>(Zilch::Call::This, Handle());
+    update.Invoke(Report);
   }
 
   /**************************************************************************/
@@ -139,32 +207,19 @@ namespace DCEngine {
   /**************************************************************************/
   void ZilchComponent::Deserialize(Zilch::JsonValue * properties)
   {
-    /*
-    if (DCE_TRACE_COMPONENT_INITIALIZE)
-      DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";*/
-    
-    // Serialize the underlying Component
-
-    
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     auto boundType = BoundType();
     auto handle = Handle();
     DeserializeByType(properties, interface->GetState(), boundType, this, handle);
   }
-
-
-  void DCEngine::ZilchComponent::OnLogicUpdate(::DCEngine::Events::LogicUpdate * event)
-  {
-  }
-
+  
   void ZilchComponent::CallConnections(::DCEngine::Event Event)
   {
-
   }
   
   Zilch::Function* ZilchComponent::GetFieldOrProperty(std::string functName)
   {
-    Zilch::Property* field = zilchClass->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
+    Zilch::Property* field = BoundType()->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
     if (field != NULL)
     {
       return field->Get;
@@ -173,18 +228,12 @@ namespace DCEngine {
 
   Zilch::Function* ZilchComponent::SetFieldOrProperty(std::string functName)
   {
-    Zilch::Property* field = zilchClass->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
+    Zilch::Property* field = BoundType()->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
     if (field != NULL)
     {
       return field->Set;
     }
   }
-
-
-  Zilch::Handle ZilchComponent::getInstance()
-  {
-    return classInstance;
-  }
-
+  
   
 }

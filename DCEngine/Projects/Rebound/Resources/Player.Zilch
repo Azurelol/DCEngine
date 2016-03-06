@@ -9,9 +9,13 @@ class Player : ZilchComponent
     Console.WriteLine("Hello world!");
   }
 
-  function TakeDamage(amount : Real)
-  {
-    this.Health -= amount;
-    Console.WriteLine("Ouch! I've got `this.Health` health left!");
+  function Initialize() {
+  Console.WriteLine("Hello, John");
   }
+
+  function OnLogicUpdate() {
+   Console.WriteLine("Please no"); 
+
+  }
+	
 }

@@ -117,6 +117,10 @@ namespace DCEngine {
       DCTrace << errorMessage;
     }
 
+
+    void CustomWriteText(Zilch::ConsoleEvent* event) {
+      DCTrace << event->Text.c_str();
+    }
     /**************************************************************************/
     /*!
     @brief  Sets up the console for the ZilchInterface.
@@ -125,7 +129,8 @@ namespace DCEngine {
     void ZilchInterface::SetupConsole()
     {
       // Setup the console so that when we call 'Console.WriteLine' it outputs to stdio
-      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
+      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, CustomWriteText);
+      //Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
       // We can also setup the console so that any 'Read' functions will attempt to read from stdin
       Zilch::EventConnect(&Zilch:: Console::Events, Zilch::Events::ConsoleRead, Zilch::DefaultReadText);
     }

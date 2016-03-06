@@ -29,6 +29,7 @@ namespace DCEngine {
         Editor,
         Graphics,
         Audio,
+        Debug,
         Style,
         StyleSizes,
         StyleColors,
@@ -40,6 +41,7 @@ namespace DCEngine {
       Tab CurrentTab;
       void DisplayTab();
       void TabEditor();
+      void TabDebug();
       void TabStyle();
       void TabStyleSizes();
       void TabStyleColors();

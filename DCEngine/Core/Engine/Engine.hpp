@@ -55,7 +55,6 @@ namespace DCEngine {
     auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
-    //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
     // Add a pointer to entiyy
     inst->ActiveDelegateHolders.push_back(publisher);
   }

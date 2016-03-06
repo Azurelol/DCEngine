@@ -88,6 +88,8 @@ namespace DCEngine {
         break;
       case Tab::Style:
         TabStyle();
+      case Tab::Debug:
+        TabStyle();
         break;
       default:
         break;
@@ -108,6 +110,7 @@ namespace DCEngine {
       if (ImGui::Selectable("Editor")) CurrentTab = Tab::Editor;
       if (ImGui::Selectable("Graphics")) CurrentTab = Tab::Graphics;
       if (ImGui::Selectable("Audio")) CurrentTab = Tab::Audio;
+      if (ImGui::Selectable("Debug")) CurrentTab = Tab::Debug;
       if (ImGui::CollapsingHeader("Style")) {
         //CurrentTab = Tab::Style;
         if (ImGui::Selectable("Sizes")) CurrentTab = Tab::StyleSizes;
@@ -128,6 +131,15 @@ namespace DCEngine {
     {
       static auto& config = ConfigurationFiles::Access().Editor;
       ImGui::InputInt("AutoSaveTime", &config.AutoSaveTime);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays the engine's debugging preferences.
+    */
+    /**************************************************************************/
+    void EditorPreferences::TabDebug()
+    {
     }
 
     /**************************************************************************/
