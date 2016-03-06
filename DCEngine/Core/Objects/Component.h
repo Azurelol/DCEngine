@@ -97,7 +97,7 @@ namespace DCEngine {
     // Interface
     static bool Exists(std::string componentName);
     static ComponentPtr Dereference(ComponentHandle& componentHandle);
-    ComponentHandle Handle();
+    Zilch::Handle Handle();
 
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();
@@ -131,7 +131,7 @@ namespace DCEngine {
     std::vector<Entity*> ActiveDelegateHolders;
 
   private:
-    Zilch::Handle Handle;
+    Zilch::Handle mHandle;
     static DependenciesContainer __Base_Dependencies;
     EntityType OwnerClass;
 

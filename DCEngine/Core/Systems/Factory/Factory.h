@@ -40,17 +40,16 @@ namespace DCEngine {
       GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);  
       GameObjectPtr BuildGameObject(SerializedMember* data, Space& space);
       EntityPtr BuildEntity(EntityPtr entity, SerializedMember* objectData);      
+      // Archetypes
+      ArchetypePtr BuildArchetype(std::string, EntityPtr);
       void BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype);
       void RebuildFromArchetype(EntityPtr entity);
-      void MarkGameObject(GameObject& gameObj);
-      void DestroyGameObjects();      
+      void Rebuild(EntityPtr entity);
       // Spaces
       void MarkSpace(Space&);
       void DestroySpaces();
       bool BuildFromLevel(LevelPtr level, Space&);
       LevelPtr BuildLevel(std::string name, Space&);
-      // Archetypes
-      ArchetypePtr BuildArchetype(std::string, GameObjectPtr);
       // Components
       ComponentStrongPtr CreateComponentByName(const std::string& name, Entity& entity);
       ComponentHandle CreateComponentByNameFromZilch(const std::string& name, Entity& entity);
@@ -60,7 +59,8 @@ namespace DCEngine {
       void MarkComponent(Component& component);
       void DestroyComponents();
       // Resources
-      ResourceStrongPtr CreateResource(const std::string& resourceName, bool init);       
+      void MarkGameObject(GameObject& gameObj);
+      void DestroyGameObjects();         
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
 
     private:

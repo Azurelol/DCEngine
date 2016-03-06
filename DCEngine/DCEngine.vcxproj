@@ -479,6 +479,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core\Objects\Module.h" />
+    <ClInclude Include="Core\Objects\Object.hpp" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">

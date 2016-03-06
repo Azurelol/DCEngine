@@ -96,17 +96,12 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-
-    // 1. Name
-    //{
-    //  builder.Key("Name");
-    //  builder.Value(this->Name().c_str());
-    //}
+    auto type = this->ZilchGetDerivedType()->BaseType;
 
     // Serialize Object-specific properties
     Object::Serialize(builder);
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType()->BaseType);
+    SerializeByType(builder, interface->GetState(), type, this);
     // Serialize all of its components
     builder.Key("Components");
     builder.Begin(Zilch::JsonType::Object);
@@ -133,27 +128,17 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
   }
 
   /**************************************************************************/
   /*!
-  @brief  Archetype setter.
+  @brief  Reconstructs an entity by rebuilding its components.
   */
   /**************************************************************************/
-  void Entity::setArchetype(std::string archetypeName)
+  void Entity::Reconstruct()
   {
-    ArchetypeName = archetypeName;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Archetype getter.
-  */
-  /**************************************************************************/
-  std::string Entity::getArchetype() const
-  {
-    return ArchetypeName;
+    Daisy->getSystem<Systems::Factory>()->Rebuild(this);
   }
 
   /**************************************************************************/
@@ -203,7 +188,7 @@ namespace DCEngine {
     // Get a pointer to it
     auto componentPtr = Component::Dereference(componentHandle);
     // Save the handle to the component
-    componentPtr->Handle = componentHandle;
+    componentPtr->mHandle = componentHandle;
     // Initialize the component if need be
     if (initialize)
       componentPtr->Initialize();
@@ -438,6 +423,17 @@ namespace DCEngine {
       }
     }
 
+  }
+
+
+  void Entity::setArchetype(std::string name)
+  {
+    ArchetypeName = name;
+  }
+
+  std::string Entity::getArchetype() const
+  {
+    return ArchetypeName;
   }
 
   #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)

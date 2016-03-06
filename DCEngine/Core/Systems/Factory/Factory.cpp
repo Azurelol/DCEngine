@@ -229,6 +229,22 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Reconstructs an entity by rebuilding its components.
+    @param entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::Rebuild(EntityPtr entity)
+    {
+      // Create an temporary archetype out of the entity
+      auto archetype = BuildArchetype(entity->Name(), entity);
+      // Remove all its components
+      entity->RemoveAllComponents();
+      // Rebuild all the components
+      BuildFromArchetype(entity, archetype);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Builds all the GameObjects from a level into a space.
     @param  level A pointer to the level resource.
     @param  space A reference to the Space the GameObject will be created on/
@@ -322,7 +338,7 @@ namespace DCEngine {
     @return A pointer to the Archetype resource.
     */
     /**************************************************************************/
-    ArchetypePtr Factory::BuildArchetype(std::string archetype ,GameObjectPtr gameObj)
+    ArchetypePtr Factory::BuildArchetype(std::string archetype, EntityPtr entity)
     {
       // Create a builder object to build JSON
       Zilch::JsonBuilder archetypeBuilder;     
@@ -331,7 +347,7 @@ namespace DCEngine {
         //archetypeBuilder.Key("GameObject");
         //archetypeBuilder.Begin(Zilch::JsonType::Object);
         //{
-          gameObj->Serialize(archetypeBuilder);
+          entity->Serialize(archetypeBuilder);
         //}
         //archetypeBuilder.End();
       }      

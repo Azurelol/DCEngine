@@ -79,10 +79,11 @@ namespace DCEngine {
   ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
     DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
     // Constructor / Destructor
-    /*ZilchBindConstructor(builder, type, Entity, "name", std::string);
+    ZilchBindConstructor(builder, type, Entity, "name", std::string);
     ZilchBindDestructor(builder, type, Entity);
     // Properties
-    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");*/
+    //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
   }
 
   /*!************************************************************************\
@@ -95,7 +96,6 @@ namespace DCEngine {
     ZilchBindDestructor(builder, type, Resource);
     // Properties
     DCE_BINDING_DEFINE_PROPERTY(Resource, ResourcePath);
-    //DCE_BINDING_DEFINE_PROPERTY(Resource, SerializedData);
 
   }
 
