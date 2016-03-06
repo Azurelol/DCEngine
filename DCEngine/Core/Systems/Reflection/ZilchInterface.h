@@ -64,7 +64,6 @@ namespace DCEngine {
     private:
 
       void Test();
-
       /* Member variables */
       Zilch::ZilchSetup Setup;
       Zilch::ExecutableState* State;
@@ -87,8 +86,8 @@ namespace DCEngine {
       ZilchInterface();
       void Initialize();
       void SetupZilch();
-      void Update(float dt);
       void Terminate();
+      void CustomErrorCallback(Zilch::ErrorEvent* error);
 
     };
 

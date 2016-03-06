@@ -10,9 +10,26 @@
 /******************************************************************************/
 #include "ZilchInterface.h"
 
+#include "../../Engine/Engine.h"
+
 namespace DCEngine {
   namespace Systems {
 
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives Zilch errors and redirects them to our logging system!
+    @param  error A pointer to the error event.
+    */
+    /**************************************************************************/
+    void FreeCustomErrorCallback(Zilch::ErrorEvent * error)
+    {
+      std::string errorMessage = error->GetFormattedMessage(Zilch::MessageFormat::Zilch).c_str();
+      // Redirect to our tracing system
+      DCTrace << errorMessage;  
+      // Send an event containing the message to the engine
+      DCEngine::Systems::DispatchSystemEvents::ScriptingErrorMessage(errorMessage);
+    }
 
     /**************************************************************************/
     /*!
@@ -98,7 +115,7 @@ namespace DCEngine {
 
       // Here, we can register our own callback for when compilation errors occur
       // The default callback prints the file, line/character number, and message to stderr
-      Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, Zilch::DefaultErrorCallback);
+      Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, FreeCustomErrorCallback);
 
       // Add code from the scripts stored so far
       for (auto script : Scripts) {

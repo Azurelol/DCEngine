@@ -129,6 +129,14 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::ScriptingErrorMessage(const std::string & message)
+    {
+      auto event = new Events::ScriptingErrorMessage();
+      event->Message = message;
+      Daisy->Dispatch<Events::ScriptingErrorMessage>(event);
+      delete event;
+    }
+
 
   }
 }

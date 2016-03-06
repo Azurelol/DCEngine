@@ -18,5 +18,10 @@ namespace DCEngine {
     class ScriptingLibraryPatched : public Event {
     };
 
+    class ScriptingErrorMessage : public Event {
+    public:
+      std::string Message;
+    };
+
   }
 }

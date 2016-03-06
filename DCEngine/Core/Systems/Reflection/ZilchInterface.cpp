@@ -106,6 +106,19 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Receives Zilch errors and redirects them to our logging system!
+    @param  error A pointer to the error event.
+    */
+    /**************************************************************************/
+    void ZilchInterface::CustomErrorCallback(Zilch::ErrorEvent * error)
+    {
+      std::string errorMessage = error->GetFormattedMessage(Zilch::MessageFormat::Zilch).c_str();
+      // Redirect to our tracing system
+      DCTrace << errorMessage;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Sets up the console for the ZilchInterface.
     */
     /**************************************************************************/

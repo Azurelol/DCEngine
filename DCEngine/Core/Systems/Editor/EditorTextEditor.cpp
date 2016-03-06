@@ -28,6 +28,7 @@ namespace DCEngine {
     EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true)
     {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
+      Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
     }
 
     /**************************************************************************/
@@ -154,6 +155,21 @@ namespace DCEngine {
 
       if (CurrentShader)
         Save();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Once a script has failed to compile, display the message.. roughly!
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage * event)
+    {
+      Windows::PopUpData data;
+      data.Title = "'" + CurrentScript->Name() + "' has failed to compile!";
+      data.Message = event->Message;
+      data.Confirmation = "Back";
+      auto popUp = WindowPtr(new Windows::PopUp(data));
+      GUI::Add(popUp);
     }
 
   }

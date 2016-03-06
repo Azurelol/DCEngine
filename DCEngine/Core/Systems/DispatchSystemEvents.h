@@ -42,6 +42,7 @@ namespace DCEngine {
 
       static void ScriptingCompile();
       static void ScriptingLibraryPatched();
+      static void ScriptingErrorMessage(const std::string& message);
       
 
     };
