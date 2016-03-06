@@ -106,7 +106,7 @@ namespace DCEngine {
   @param  resourcePath The path of the file containing the resource on disk.
   */
   /**************************************************************************/
-  void Resource::Save(std::string & serializedData)
+  void Resource::Save(const std::string & serializedData)
   {
     SerializedData = serializedData;
     FileSystem::FileWriteString(ResourcePath, SerializedData);

@@ -32,15 +32,7 @@ namespace DCEngine {
       RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
       PlayerRef = SpaceRef->FindObjectByName("Player");
     }
-
-    void HazardArea::Serialize(Json::Value & root)
-    {
-    }
-
-    void HazardArea::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void HazardArea::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       if (event->OtherObject->getComponent<Components::PlayerController>())

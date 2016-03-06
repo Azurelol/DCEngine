@@ -24,6 +24,10 @@ namespace DCEngine {
     /**************************************************************************/
     void ZilchInterface::AddScriptFile(std::string fileName)
     {
+      auto iter = std::find(ScriptFiles.begin(), ScriptFiles.end(), fileName);
+      if (iter != ScriptFiles.end())
+        return;
+
       ScriptFiles.push_back(fileName);
       DCTrace << "ZilchInterface::AddScriptFile: Added '" << fileName << "' \n";
     }
@@ -113,9 +117,15 @@ namespace DCEngine {
       // Compile all the code we have added together into a single library for our scripts
       ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
       // Link together all the libraries that we depend upon
-         
+        
+      if (ScriptLibrary) {
+        State->PatchLibrary(ScriptLibrary);
+      }
+      else
+        DCTrace << "Failed to compile \n";
+
       // Build 
-      Build();
+      //Build();
     }
 
     /**************************************************************************/

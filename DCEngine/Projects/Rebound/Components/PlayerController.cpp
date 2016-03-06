@@ -57,14 +57,6 @@ namespace DCEngine {
       //RigidBodyRef->setGravity(false);
     }
 
-    void PlayerController::Serialize(Json::Value & root)
-    {
-    }
-
-    void PlayerController::Deserialize(Json::Value & root)
-    {
-    }
-
     void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
     {
 

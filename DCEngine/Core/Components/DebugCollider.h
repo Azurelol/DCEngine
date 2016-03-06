@@ -31,8 +31,6 @@ namespace DCEngine{
       /* Initialize */
       DebugCollider(Entity& owner) : Component(std::string("DebugCollider"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
       /* Events */
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnCollisionEndedEvent(Events::CollisionEnded* event);

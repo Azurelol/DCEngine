@@ -307,6 +307,15 @@ namespace DCEngine {
       AddPhysicsMaterial(DefaultPhysicsMaterial, PhysicsMaterialPtr(new PhysicsMaterial(DefaultPhysicsMaterial)));
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Scans the project's resource path for updated levels.
+    */
+    /**************************************************************************/
+    void Content::ScanForLevels()
+    {
+      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
+    }
 
     /**************************************************************************/
     /*!
@@ -386,10 +395,7 @@ namespace DCEngine {
       //}
     }
 
-    void Content::ScanForLevels()
-    {
-      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
-    }
+
 
     void Content::ScanForArchetypes()
     {

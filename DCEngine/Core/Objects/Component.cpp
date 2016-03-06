@@ -220,6 +220,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Returns a a handle to this component.
+  */
+  /**************************************************************************/
+  ComponentHandle Component::Handle()
+  {
+    return this->Handle;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a pointer to the Entity that owns this component.
   @return An entity pointer.
   */
@@ -290,7 +300,10 @@ namespace DCEngine {
   /**************************************************************************/
   Zilch::BoundType * Component::BoundType(std::string componentName)
   {
-    for (auto componentType : AllComponents()) {
+    auto componentTypes = AllComponents();
+
+
+    for (auto componentType : componentTypes) {
       auto componentTypeName = std::string(componentType->Name.c_str());
       if (componentTypeName == componentName) {
         return componentType;

@@ -95,12 +95,12 @@ namespace DCEngine {
       ImGui::Separator();
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
       unsigned int inputID = 0;
-      for (auto &component : selectedEntity->AllComponents()) {
+      for (auto& componentHandle : selectedEntity->AllComponentsByHandle()) {
+        auto component = Component::Dereference(componentHandle);
         if (ImGui::TreeNode(component->Name().c_str())) {
-          //ImGui::SetWindowFocus();
           // 3. If the user clicks on a tree-node, display the commponent's properties
           //    through reflection
-          modified = DisplayProperties(component);
+          modified = DisplayProperties(component, componentHandle);
           ImGui::TreePop();
         }
         ImGui::SameLine();
@@ -110,7 +110,7 @@ namespace DCEngine {
         if (ImGui::Button("X")) {
           DCTrace << "Editor::DisplayEntityProperties - Removing component: '" << component->Name()
             << "' from " << selectedEntity->Name() << "\n";
-          component->Destroy();
+          component->Destroy(); // Need to destroy the Zilch-component too.
           //selectedEntity->RemoveComponentByName(component->getObjectName());
         }
         ImGui::PopID();

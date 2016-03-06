@@ -31,8 +31,6 @@ namespace DCEngine {
       /* Initialize */
       IgnoreSpaceEffects(Entity& owner) : Component(std::string("IgnoreSpaceEffects"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
     private:
     };

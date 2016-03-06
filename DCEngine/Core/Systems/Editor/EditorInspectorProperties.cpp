@@ -26,10 +26,16 @@ namespace DCEngine {
     Dios mio, 200 line function!
     */
     /**************************************************************************/
-    bool EditorInspector::DisplayProperties(ObjectPtr object)
+    bool EditorInspector::DisplayProperties(ObjectPtr object, Zilch::Handle handle)
     {
       // 1. Get the object's BoundType, which has a wealth of reflected data
       auto componentBoundType = object->ZilchGetDerivedType();
+      
+      // 2. If it'a ZilchComponent, we will be doing slightly different operation
+      if (Zilch::Type::IsSame(componentBoundType, ZilchTypeId(ZilchComponent))) {
+        componentBoundType = Daisy->getSystem<Reflection>()->Handler()->ScriptLibrary->BoundTypes.findValue(object->getObjectName().c_str(), nullptr);        
+      }
+
       if (componentBoundType == nullptr)
         return false;
 
@@ -76,8 +82,13 @@ namespace DCEngine {
         // Create an exception report object
         Zilch::ExceptionReport report;
         // Grab the current property
-        Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
-        getCall.SetHandleVirtual(Zilch::Call::This, object);
+        Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());        
+        // If it has a handle...
+        if (handle.Dereference())
+          getCall.SetHandle(Zilch::Call::This, handle); // Pass in a handle here
+        // Else use the pointer
+        else
+          getCall.SetHandleVirtual(Zilch::Call::This, object); // Pass in a handle here        
         getCall.Invoke(report);
 
         /*=======================
@@ -103,7 +114,7 @@ namespace DCEngine {
             retriever.Invoke(report);
             auto valueSet = retriever.Get<Zilch::Integer>(Zilch::Call::Return);
             // Set the property
-            Set(ZilchInterface::GetState(), object, property, valueSet);
+            Set(ZilchInterface::GetState(), object, handle, property, valueSet);
             modified = true;
           }
           ImGui::PopID();
@@ -119,7 +130,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           //ImGui::Text(property->Name.c_str());
           if (ImGui::Checkbox(property->Name.c_str(), &boolean)) {
-            Set(ZilchInterface::GetState(), object, property, boolean);
+            Set(ZilchInterface::GetState(), object, handle, property, boolean);
             modified = true;
           }
           ImGui::PopID();
@@ -137,7 +148,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputText("##propertyID", buf, IM_ARRAYSIZE(buf))) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::String(buf));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::String(buf));
             modified = true;
           }
           ImGui::PopID();
@@ -159,14 +170,14 @@ namespace DCEngine {
             auto& max = range->Parameters.back().NumberValue;
             if (ImGui::SliderInt("##propertyID", &integer, static_cast<int>(min), static_cast<int>(max))) {
               CheckUnsigned(property, integer);
-              Set(ZilchInterface::GetState(), object, property, integer);
+              Set(ZilchInterface::GetState(), object, handle, property, integer);
               modified = true;
             }
           }
           else {
             if (ImGui::InputInt("##propertyID", &integer)) {
               CheckUnsigned(property, integer);
-              Set(ZilchInterface::GetState(), object, property, integer);
+              Set(ZilchInterface::GetState(), object, handle, property, integer);
               modified = true;
             }
           }
@@ -184,7 +195,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt2("##propertyID", int2)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer2(int2[0], int2[1]));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::Integer2(int2[0], int2[1]));
             modified = true;
           }
           ImGui::PopID();
@@ -201,7 +212,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt3("##propertyID", int3)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer3(int3[0], int3[1], int3[2]));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::Integer3(int3[0], int3[1], int3[2]));
             modified = true;
           }
           ImGui::PopID();
@@ -218,7 +229,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
           ImGui::Text(property->Name.c_str());
           if (ImGui::InputInt4("##propertyID", int4)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::Integer4(int4[0], int4[1], int4[2], int4[3]));
             modified = true;
           }
 
@@ -247,7 +258,7 @@ namespace DCEngine {
                 if (real < 0.0f)
                   real = 0.0f;
               }
-              Set(ZilchInterface::GetState(), object, property, real);
+              Set(ZilchInterface::GetState(), object,  handle, property, real);
               modified = true;
             }
           }
@@ -259,7 +270,7 @@ namespace DCEngine {
                 if (real < 0.0f)
                   real = 0.0f;
               }
-              Set(ZilchInterface::GetState(), object, property, real);
+              Set(ZilchInterface::GetState(), object, handle, property, real);
               modified = true;
             }
           }
@@ -278,7 +289,7 @@ namespace DCEngine {
 
           // If the user has given input, set the property
           if (ImGui::InputFloat2("##propertyID", vec2f, 3)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Real2(vec2f));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::Real2(vec2f));
             modified = true;
           }
           ImGui::PopID();
@@ -295,7 +306,7 @@ namespace DCEngine {
           ImGui::PushID(propertyID++);
 
           if (ImGui::InputFloat3("##propertyID", vec3f, 3)) {
-            Set(ZilchInterface::GetState(), object, property, Zilch::Real3(vec3f));
+            Set(ZilchInterface::GetState(), object, handle, property, Zilch::Real3(vec3f));
             modified = true;
           }
           ImGui::PopID();
@@ -318,13 +329,13 @@ namespace DCEngine {
             auto& max = range->Parameters.back().NumberValue;
             if (ImGui::SliderFloat4(property->Name.c_str(), vec4f, static_cast<float>(min),
               static_cast<float>(max))) {
-              Set(ZilchInterface::GetState(), object, property, Zilch::Real4(vec4f));
+              Set(ZilchInterface::GetState(), object, handle, property, Zilch::Real4(vec4f));
               modified = true;
             }
           }
           else {
             if (ImGui::InputFloat4("##propertyID", vec4f, 3)) {
-              Set(ZilchInterface::GetState(), object, property, Zilch::Real4(vec4f));
+              Set(ZilchInterface::GetState(), object, handle, property, Zilch::Real4(vec4f));
               modified = true;
             }
           }

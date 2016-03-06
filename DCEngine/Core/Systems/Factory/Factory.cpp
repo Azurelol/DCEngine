@@ -388,22 +388,15 @@ namespace DCEngine {
         componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
         Zilch::Call ctorCall(boundType->Constructors[0], state);
         ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+      // Call the component's constructor explicitly
         ctorCall.Set(0, entity);
         ctorCall.Invoke(report);
       }
       // Zilch Components
-      else {
-        //componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
-        //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
-        //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-        //ctorCall.Set(0, entity);
-        //ctorCall.Invoke(report);        
-
-        // onegai
+      else {  
         componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
         Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
       }
-      // Call the component's constructor explicitly
       // Return the handle to this component
       return componentHandle;
     }
@@ -423,6 +416,17 @@ namespace DCEngine {
         throw DCException("Factory::CreateComponentByType - Tried to construct '" + std::string(boundType->Name.c_str()) + "' that's not bound yet!");
 
       return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
+    void Factory::MarkComponent(ComponentHandle component)
+    {
+      //ComponentsToBeDeletedByHandle.insert(component);
     }
 
     /**************************************************************************/
@@ -452,7 +456,6 @@ namespace DCEngine {
         component->Owner()->RemoveComponentByName(component->Name());
       }
       ComponentsToBeDeleted.clear();
-
     }
 
     /**************************************************************************/

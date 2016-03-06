@@ -23,16 +23,7 @@ namespace DCEngine {
 
       TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
       Connect(SpaceRef, Events::LogicUpdate, DebugReport::OnLogicUpdateEvent);
-
-
-    }
-
-    void DebugReport::Serialize(Json::Value & root)
-    {
-    }
-
-    void DebugReport::Deserialize(Json::Value & root)
-    {
+      
     }
 
     void DebugReport::OnKeyDownEvent(Events::KeyDown * event)

@@ -8,7 +8,6 @@
       "GameObject": 
       {
         "Name": "Camera", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -53,8 +52,7 @@
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
-        "Archetype": "", 
+        "Name": "Player", 
         "Components": 
         {
           "Transform": 
@@ -106,13 +104,15 @@
             "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "Player": 
+          {
           }
         }
       }, 
       "GameObject": 
       {
         "Name": "Light", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
