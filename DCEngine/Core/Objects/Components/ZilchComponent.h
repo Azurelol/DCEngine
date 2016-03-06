@@ -36,11 +36,14 @@ namespace DCEngine {
 
     public:
       static bool IsZilchComponent(ComponentPtr component);
+      Zilch::BoundType* BoundType();
       ZilchDeclareDerivedType(ZilchComponent, Component);
       ZilchComponent(std::string name, Entity& owner);
       ZilchComponent();
       virtual ~ZilchComponent();
       virtual void Initialize();
+      void Serialize(Zilch::JsonBuilder& builder);
+      void Deserialize(Zilch::JsonValue* properties);
 
     private:
       //ZilchComponent() : classScript("Example"), zilchId(CTZ_Example) {};

@@ -220,6 +220,16 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Returns a a handle to this component.
+  */
+  /**************************************************************************/
+  ComponentHandle Component::Handle()
+  {
+    return this->Handle;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a pointer to the Entity that owns this component.
   @return An entity pointer.
   */

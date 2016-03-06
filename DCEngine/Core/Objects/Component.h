@@ -97,6 +97,7 @@ namespace DCEngine {
     // Interface
     static bool Exists(std::string componentName);
     static ComponentPtr Dereference(ComponentHandle& componentHandle);
+    ComponentHandle Handle();
 
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();
@@ -119,8 +120,8 @@ namespace DCEngine {
     virtual ~Component(); // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
     void Destroy();
-    void Serialize(Zilch::JsonBuilder& builder);
-    void Deserialize(Zilch::JsonValue* properties);
+    virtual void Serialize(Zilch::JsonBuilder& builder);
+    virtual void Deserialize(Zilch::JsonValue* properties);
 
   protected:
 
@@ -130,6 +131,7 @@ namespace DCEngine {
     std::vector<Entity*> ActiveDelegateHolders;
 
   private:
+    Zilch::Handle Handle;
     static DependenciesContainer __Base_Dependencies;
     EntityType OwnerClass;
 

@@ -8,7 +8,6 @@
       "GameObject": 
       {
         "Name": "Camera", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -54,7 +53,6 @@
       "GameObject": 
       {
         "Name": "Player", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -115,7 +113,6 @@
       "GameObject": 
       {
         "Name": "Light", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 

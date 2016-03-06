@@ -16,9 +16,7 @@ These components, alongside events, drive the logic of a game project.
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
-
-  using namespace Zilch;
-
+  
   /**************************************************************************/
   /*!
   @brief ZilchComponent constructor.
@@ -64,13 +62,24 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Returns the BoundType of this ZilchComponent.
+  @return The boundtype of this component.
+  */
+  /**************************************************************************/
+  Zilch::BoundType * ZilchComponent::BoundType()
+  {
+    return Daisy->getSystem<Systems::Reflection>()->Handler()->ScriptLibrary->BoundTypes.findValue(this->getObjectName().c_str(), nullptr);
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Initializes the ZilchComponent.
   */
   /**************************************************************************/
   void ZilchComponent::Initialize()
   {
     Systems::ZilchInterface* Interface = &Systems::ZilchInterface::Get();
-    LibraryRef library = Interface->getLibrary();
+    Zilch::LibraryRef library = Interface->getLibrary();
     if (library->BoundTypes.findValue(stdstringToZilchString(classScript), nullptr) == NULL)
     {
       return;
@@ -78,10 +87,14 @@ namespace DCEngine {
     else
     {
       zilchClass = Interface->getBoundType(classScript, library);
-      InitializeFunc = Interface->getFunction("Initialize", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), FindMemberOptions::None, true);
+      InitializeFunc = Interface->getFunction("Initialize", zilchClass, 
+                      Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), 
+                      Zilch::FindMemberOptions::None, true);
     }
     //classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
-    Function* updateFunct = Interface->getFunction("OnLogicUpdate", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), ZilchTypeId(void), FindMemberOptions::None, true);
+    Zilch::Function* updateFunct = Interface->getFunction("OnLogicUpdate", zilchClass, 
+                                  Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
+                                  ZilchTypeId(void), Zilch::FindMemberOptions::None, true);
     if (InitializeFunc != NULL)
     {
       //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
@@ -98,6 +111,45 @@ namespace DCEngine {
     }
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Serializes a ZilchComponent.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the component and all its properties.
+  */
+  /**************************************************************************/
+  void ZilchComponent::Serialize(Zilch::JsonBuilder & builder)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    auto boundType = BoundType();
+    auto handle = Handle();
+
+    builder.Key(this->Name().c_str());
+    builder.Begin(Zilch::JsonType::Object);
+
+    //SerializeByType(builder, interface->GetState(), handle, boundType);
+    //builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes a ZilchComponent.
+  @param builder A pointer to the object containing the properties.
+  @note  This will deserialize the Component's properties.
+  */
+  /**************************************************************************/
+  void ZilchComponent::Deserialize(Zilch::JsonValue * properties)
+  {
+    /*
+    if (DCE_TRACE_COMPONENT_INITIALIZE)
+      DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";*/
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    auto boundType = BoundType();
+
+    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
+  }
+
+
   void DCEngine::ZilchComponent::OnLogicUpdate(::DCEngine::Events::LogicUpdate * event)
   {
   }
@@ -107,23 +159,23 @@ namespace DCEngine {
 
   }
   
-  Function* ZilchComponent::GetFieldOrProperty(std::string functName)
+  Zilch::Function* ZilchComponent::GetFieldOrProperty(std::string functName)
   {
-    Property* field = zilchClass->FindPropertyOrField(functName.data(), FindMemberOptions::None);
+    Zilch::Property* field = zilchClass->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
     if (field != NULL)
     {
       return field->Get;
     }
   }
-  Function* ZilchComponent::SetFieldOrProperty(std::string functName)
+
+  Zilch::Function* ZilchComponent::SetFieldOrProperty(std::string functName)
   {
-    Property* field = zilchClass->FindPropertyOrField(functName.data(), FindMemberOptions::None);
+    Zilch::Property* field = zilchClass->FindPropertyOrField(functName.data(), Zilch::FindMemberOptions::None);
     if (field != NULL)
     {
       return field->Set;
     }
   }
-
 
 
   Zilch::Handle ZilchComponent::getInstance()

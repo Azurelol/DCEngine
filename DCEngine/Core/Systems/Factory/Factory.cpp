@@ -388,22 +388,15 @@ namespace DCEngine {
         componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
         Zilch::Call ctorCall(boundType->Constructors[0], state);
         ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+      // Call the component's constructor explicitly
         ctorCall.Set(0, entity);
         ctorCall.Invoke(report);
       }
       // Zilch Components
-      else {
-        //componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
-        //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
-        //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-        //ctorCall.Set(0, entity);
-        //ctorCall.Invoke(report);        
-
-        // onegai
+      else {  
         componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
         Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
       }
-      // Call the component's constructor explicitly
       // Return the handle to this component
       return componentHandle;
     }
