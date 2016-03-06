@@ -16,24 +16,57 @@ These components, alongside events, drive the logic of a game project.
 #include "../../Engine/Engine.h"
 
 namespace DCEngine {
+
   using namespace Zilch;
 
-  ZilchComponent::ZilchComponent(std::string name, ZilchFile scriptName, Entity & owner) : Component(name, owner), classScript(scriptName)
+  /**************************************************************************/
+  /*!
+  @brief ZilchComponent constructor.
+  @param name The name of the component.
+  @param owner A reference to the owner of this component.
+  */
+  /**************************************************************************/
+  ZilchComponent::ZilchComponent(std::string name, Entity & owner) : Component(name, owner)
   {
-
-    //if (DCE_TRACE_COMPONENT_CONSTRUCTOR)
-
   }
+  
+  /**************************************************************************/
+  /*!
+  @brief ZilchComponent default constructor
+  */
+  /**************************************************************************/
+  ZilchComponent::ZilchComponent()
+  {
+  }
+  
+  /**************************************************************************/
+  /*!
+  @brief ZilchComponent destructor.
+  */
+  /**************************************************************************/
+  ZilchComponent::~ZilchComponent()
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Checks if this is a Zilch Component.
+  @param component A pointer to the component.
+  @return True if a Zilch component, false otherwise.
+  */
+  /**************************************************************************/
   bool ZilchComponent::IsZilchComponent(ComponentPtr component)
   {
     if (Zilch::TypeBinding::IsA(component->ZilchGetStaticType(), ZilchComponent::ZilchGetStaticType()))
       return false;
     return true;
   }
-  ZilchComponent::~ZilchComponent()
-  {
-    //delete classInstance;
-  }
+
+  /**************************************************************************/
+  /*!
+  @brief Initializes the ZilchComponent.
+  */
+  /**************************************************************************/
   void ZilchComponent::Initialize()
   {
     Systems::ZilchInterface* Interface = &Systems::ZilchInterface::Get();
@@ -45,17 +78,16 @@ namespace DCEngine {
     else
     {
       zilchClass = Interface->getBoundType(classScript, library);
-      initFunc = Interface->getFunction("Initialize", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), FindMemberOptions::None, true);
+      InitializeFunc = Interface->getFunction("Initialize", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Entity)), ZilchTypeId(void), FindMemberOptions::None, true);
     }
-    
     //classInstance = Interface->AllocateDefaultConstructedHeapObject(zilchClass, HeapFlags::ReferenceCounted);
     Function* updateFunct = Interface->getFunction("OnLogicUpdate", zilchClass, Array<Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), ZilchTypeId(void), FindMemberOptions::None, true);
-    if (initFunc != NULL)
+    if (InitializeFunc != NULL)
     {
       //Connect(SpaceRef, Events::LogicUpdate, ZilchComponent::OnLogicUpdate);
       //Daisy->Connect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), &ZilchComponent::CallConnections, this);
      /* Daisy->ZilchConnect<::DCEngine::Events::LogicUpdate>((Entity*)(SpaceRef), updateFunct, this);
-      Call call(initFunc, Interface->GetState());
+      Call call(InitializeFunc, Interface->GetState());
       call.Set<Handle>(Call::This, classInstance);
       call.Set<>(0, Owner());
       call.Invoke(report);*/
@@ -65,29 +97,16 @@ namespace DCEngine {
       //THROW EXCEPTION HERE
     }
   }
-  void ZilchComponent::LogicUpdate(::DCEngine::Events::LogicUpdate)
-  {
 
+  void DCEngine::ZilchComponent::OnLogicUpdate(::DCEngine::Events::LogicUpdate * event)
+  {
   }
-  /*void ZilchComponent::ZilchConnect(::DCEngine::Event Event, Entity* EntityConnection, Zilch::Function* funct)
-  {
 
-  }*/
   void ZilchComponent::CallConnections(::DCEngine::Event Event)
   {
 
   }
-  /*void ZilchComponent::CallFunction(std::string functName)
-  {
-  Function* funct = zilchClass->FindFunction(functName.data(), Array<Type*>(), ZilchTypeId(String), FindMemberOptions::None);
-  if (funct != NULL)
-  {
-  Call call(initFunc, ZILCHMANAGER->state);
-  call.Set<Handle>(Call::This, classInstance);
-  call.Set<>(0, GetOwner());
-  call.Invoke(report);
-  }
-  }*/
+  
   Function* ZilchComponent::GetFieldOrProperty(std::string functName)
   {
     Property* field = zilchClass->FindPropertyOrField(functName.data(), FindMemberOptions::None);
@@ -104,8 +123,13 @@ namespace DCEngine {
       return field->Set;
     }
   }
+
+
+
   Zilch::Handle ZilchComponent::getInstance()
   {
     return classInstance;
   }
+
+  
 }

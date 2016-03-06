@@ -397,8 +397,11 @@ namespace DCEngine {
         //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
         //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
         //ctorCall.Set(0, entity);
-        //ctorCall.Invoke(report);
+        //ctorCall.Invoke(report);        
+
+        // onegai
         componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
       }
       // Call the component's constructor explicitly
       // Return the handle to this component

@@ -76,11 +76,17 @@ namespace DCEngine {
     class Factory;
   }
 
+  class Component;
+  using ComponentPtr = Component*;
+  using ComponentHandle = Zilch::Handle;
+  using ComponentHandleVec = std::vector<Zilch::Handle>;
+
   class Component : public Object {
     friend class Entity;
     friend class GameObject;
     friend class Systems::Factory;
     friend class Engine; // @todo Is this the best way?
+    friend class ZilchComponent;
 
   public:
 
@@ -90,19 +96,17 @@ namespace DCEngine {
 
     // Interface
     static bool Exists(std::string componentName);
-    
+    static ComponentPtr Dereference(ComponentHandle& componentHandle);
 
     //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
     const Space& ThisSpace() const { return  *SpaceRef; }
     const GameSession& ThisGameSession()  const { return *GameSessionRef; }
-
     // Dependencies  
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies; }
     bool HasDependencies();
     std::vector<std::string> MissingDependencies();
-
     // Static member variables
     static unsigned int ComponentsCreated;
     static unsigned int ComponentsDestroyed;
@@ -110,7 +114,7 @@ namespace DCEngine {
     static std::string ComponentLastCreated;
     static std::string ComponentLastDestroyed;
     static bool DiagnosticsEnabled;
-
+    // Constructor, Serialization
     Component(std::string name, Entity& owner);
     virtual ~Component(); // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
@@ -129,11 +133,12 @@ namespace DCEngine {
     static DependenciesContainer __Base_Dependencies;
     EntityType OwnerClass;
 
-    Component() = delete; // No default construction
+    //Component() = delete; // No default construction
+    Component();
+    void PostDefaultConstructor(const std::string& name, Entity& entity);
     void SetReferences();
     static std::vector<Zilch::BoundType*> AllComponents();
     static Zilch::BoundType* BoundType(std::string componentName);
-    //std::vector<EventDelegate*> ActiveDelegates;
 
   };
 
@@ -141,8 +146,7 @@ namespace DCEngine {
   using ComponentVec = std::vector<ComponentPtr>;
   using ComponentStrongPtr = std::unique_ptr<Component>;
   using ComponentStrongVec = std::vector<ComponentStrongPtr>;
-  using ComponentHandle = Zilch::Handle;
-  using ComponentHandleVec = std::vector<Zilch::Handle>;
+
 
   template<typename EntityClass>
   inline EntityClass* Component::getOwner() {
