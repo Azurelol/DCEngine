@@ -25,7 +25,7 @@ namespace DCEngine {
       if (!WindowEnabled)
         return;
 
-      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver | ImGuiWindowFlags_ShowBorders);
       ImGui::Begin("Properties", &WindowEnabled);
 
       // If there's an object selected, display its properties.

@@ -27,7 +27,7 @@ namespace DCEngine {
         return;
 
       // Set the position of the window
-      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver | ImGuiWindowFlags_ShowBorders);
       // Title
       ImGui::Begin("Objects", &Windows.ObjectsEnabled);
       

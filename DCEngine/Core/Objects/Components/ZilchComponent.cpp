@@ -83,12 +83,6 @@ namespace DCEngine {
       if (OnLogicUpdateFunc)
         LogicUpdateDirectly = true;
     }
-    
-
-
-    //Zilch::Function* updateFunct = interface->getFunction("OnLogicUpdate", zilchClass,
-    //                              Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
-    //                              ZilchTypeId(void), Zilch::FindMemberOptions::None, true);
   }
 
 

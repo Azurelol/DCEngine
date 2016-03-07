@@ -253,7 +253,7 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @struct GraphicsConfig Configuration for GUI system.
+    @struct GUIConfig Configuration for GUI system.
     */
     /**************************************************************************/
     struct GUIConfig : public Configuration {
@@ -282,7 +282,23 @@ namespace DCEngine {
       }
 
       GUIConfig();
+    };
 
+    /**************************************************************************/
+    /*!
+    @struct DebugConfig Configuration for debugging system.
+    */
+    /**************************************************************************/
+    struct DebugConfig : public Configuration {
+      static std::string FileName() { return "ConfigurationDebug.cfg"; }
+
+      void Serialize(Json::Value& root) {
+      }
+
+      void Deserialize(Json::Value& root) {
+      }
+
+      DebugConfig() {}
     };
 
     /**************************************************************************/
@@ -295,6 +311,7 @@ namespace DCEngine {
       GraphicsConfig Graphics;
       AudioConfig Audio;
       GUIConfig GUI;
+      DebugConfig Debug;
       static ConfigurationFiles& Access();
     };
 

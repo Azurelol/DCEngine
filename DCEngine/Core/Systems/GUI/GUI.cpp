@@ -177,6 +177,40 @@ namespace DCEngine {
       return ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0);
     }
 
+    bool GUI::SliderFloat4(std::string label, ImVec4 & vec4, float min, float max)
+    {
+      bool modified = false;
+      //float f4[4] = { vec4.x, vec4.y, vec4.z, vec4.w };
+      //if (ImGui::SliderFloat4("##propertyID", f4, min, max)) {
+      //  vec4.x = f4[0]; vec4.y = f4[1]; vec4.z = f4[2]; vec4.w = f4[3];
+      //  modified = true;
+      //}
+
+      int id = 0;
+      ImGui::Text(label.c_str());
+      ImGui::PushID(id++);
+      if (ImGui::SliderFloat("##label", &vec4.x, min, max))
+        modified = true;
+      ImGui::PopID();
+      ImGui::SameLine();
+      ImGui::PushID(id++);
+      if (ImGui::SliderFloat("##label", &vec4.y, min, max))
+        modified = true;
+      ImGui::PopID();
+      ImGui::SameLine();
+      ImGui::PushID(id++);
+      if (ImGui::SliderFloat("##label", &vec4.z, min, max))
+        modified = true;
+      ImGui::PopID();
+      ImGui::SameLine();
+      ImGui::PushID(id++);
+      if (ImGui::SliderFloat("##label", &vec4.w, min, max))
+        modified = true;
+      ImGui::PopID();
+
+      return modified;        
+    }
+
     /**************************************************************************/
     /*!
     @brief Removes an active window from the GUI system.

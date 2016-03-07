@@ -27,7 +27,7 @@ namespace DCEngine {
       if (!Windows.LibraryEnabled)
         return;
       
-      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver | ImGuiWindowFlags_ShowBorders);
       ImGui::Begin("Library", &Windows.LibraryEnabled);           
       
       auto archetypes = Daisy->getSystem<Content>()->AllArchetypes();

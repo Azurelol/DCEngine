@@ -324,8 +324,9 @@ namespace DCEngine {
     LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
     // Load the Audio Config
     LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
+    // Load the Debug Config
+    LoadConfiguration(Configurations.Debug, Systems::DebugConfig::FileName());
     // Load the GUI Config
-    //Configurations.GUI.Link(); // Link it for the Style
     LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
     // Load the Editor Config
     LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
