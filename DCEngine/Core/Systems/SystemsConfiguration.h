@@ -91,18 +91,17 @@ namespace DCEngine {
     //#define CONCAT(A, B), CONCAT_NX(A, B)
     //#define STRINGIZE(A) ((A),STRINGIZE_NX(A))
 
-    //#define DCE_JSON_SERIALIZE_VEC4(PropertyName)                     \ 
-    //root[#PropertyName "X"] = PropertyName.x;                         \
-    //root[#PropertyName "Y"] = PropertyName.y;                         \
-    //root[#PropertyName "Z"] = PropertyName.z;                         \
-    //root[#PropertyName "W"] = PropertyName.w       
+    #define DCE_JSON_SERIALIZE_VEC4(PropertyName) \
+    root[#PropertyName "X"] = PropertyName.x; \
+    root[#PropertyName "Y"] = PropertyName.y; \
+    root[#PropertyName "Z"] = PropertyName.z; \
+    root[#PropertyName "W"] = PropertyName.w
 
-    //#define DCE_JSON_DESERIALIZE_VEC4(PropertyName)                   \ 
-    //PropertyName.x = root.get(#PropertyName "X", "").asFloat();       \
-    //PropertyName.y = root.get(#PropertyName "Y", "").asFloat();       \
-    //PropertyName.z = root.get(#PropertyName "Z", "").asFloat();       \
-    //PropertyName.w = root.get(#PropertyName "W", "").asFloat()
-
+    #define DCE_JSON_DESERIALIZE_VEC4(PropertyName) \
+    PropertyName.x = root.get(#PropertyName "X", 0.f).asFloat(); \
+    PropertyName.y = root.get(#PropertyName "Y", 0.f).asFloat(); \
+    PropertyName.z = root.get(#PropertyName "Z", 0.f).asFloat(); \
+    PropertyName.w = root.get(#PropertyName "W", 0.f).asFloat()
 
     #define DCE_JSON_DESERIALIZE(PropertyName)   \
     Deserialize(root, PropertyName, "##PropertyName")
@@ -237,10 +236,12 @@ namespace DCEngine {
       static std::string FileName() { return "ConfigurationAudio.cfg"; }
       bool Enabled;
       int MasterVolume;
+      Vec4 myVec;
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(Enabled);
         DCE_JSON_SERIALIZE(MasterVolume);
+        DCE_JSON_SERIALIZE_VEC4(myVec);
       }
 
       void Deserialize(Json::Value& root) {
@@ -266,7 +267,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Style.FrameRounding);
         DCE_JSON_SERIALIZE(Style.WindowFillAlphaDefault);
         DCE_JSON_SERIALIZE(Style.ColumnsMinSpacing);
-        //DCE_JSON_SERIALIZE_VEC4(Col_Text);
+        //DCE_JSON_SERIALIZE_VEC4(Style.Colors[Col_Text]);
       }
 
       void Deserialize(Json::Value& root) {
