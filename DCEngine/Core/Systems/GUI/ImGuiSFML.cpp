@@ -265,6 +265,8 @@ namespace DCEngine {
       
       io.Fonts->ClearInputData();
       io.Fonts->ClearTexData();
+
+
     }
 
 

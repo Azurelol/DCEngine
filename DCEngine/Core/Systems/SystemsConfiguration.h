@@ -22,22 +22,14 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct Configuration {
-      //class BaseSerializedProperty {
-      //};
-
-      //template <typename T>
-      //class SerializedProperty {
-      //  T Property;
-      //  std::string Name;
-      //  SerializedProperty(T propertyName, std::string name) 
-      //                    : Property(propertyName), Name(name) {}
-      //};
-      //std::vector<SerializedProperty> Properties;
-
-      //template <typename PropertyType>
-      //void Add(PropertyType property) {
-      //  Properties.push_back(property);
-      //}
+      const std::string FileName;
+      Configuration(std::string extension);
+      virtual void Deserialize(Json::Value&) = 0;
+      virtual void Serialize(Json::Value&) = 0;
+      bool Save();
+      bool Load();
+      bool Load(std::string filePath);
+      void Save(std::string filePath);
 
       /**************************************************************************/
       /*!
@@ -63,33 +55,11 @@ namespace DCEngine {
           property = root.get(name, "").asInt();
         }
       }
-
-      /**************************************************************************/
-      /*!
-      @brief Saves the configuration to the specified file.
-      @param filePath The path which to save the configuration at.
-      */
-      /**************************************************************************/
-      void Save(std::string filePath) {
-        std::string configData;        
-        Serialization::Serialize(*this, configData);
-        FileSystem::FileWriteString(filePath, configData);
-      }
-
-      virtual void Serialize(Json::Value&) = 0;
-
     };
 
-
+    // MACROS!
     #define DCE_JSON_SERIALIZE(PropertyName)   \
     root[#PropertyName] = PropertyName
-
-    //#define DCE_JSON_SERIALIZE(PropertyName)   \
-    //root[#PropertyName] = PropertyName
-
-    //#define CONCAT_NX(A, B) A ## B
-    //#define CONCAT(A, B), CONCAT_NX(A, B)
-    //#define STRINGIZE(A) ((A),STRINGIZE_NX(A))
 
     #define DCE_JSON_SERIALIZE_VEC4(PropertyName) \
     root[#PropertyName "X"] = PropertyName.x; \
@@ -116,6 +86,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct EditorConfig : public Configuration {
+      EditorConfig();
       static std::string FileName() { return "ConfigurationEditor.cfg"; }
       // Time
       int AutoSaveTime;      
@@ -170,11 +141,8 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(RecentProject).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
       }
+      
 
-      EditorConfig() : AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
-                       Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),
-                       AutoSaveTimer(AutoSaveTime, Time::Timer::Mode::Countdown, true),
-                       CameraLastPos(0.0f, 0.0f, 40.0f) {}
     };
 
     /**************************************************************************/
@@ -183,6 +151,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct GraphicsConfig : public Configuration {
+      GraphicsConfig();
       static std::string FileName() { return "ConfigurationGraphics.cfg"; }
       int MaxDrawLayers;
       bool LightningEnabled;
@@ -222,9 +191,6 @@ namespace DCEngine {
         ClearColor.w = root.get("ClearColorW", "").asFloat();
       }
 
-      GraphicsConfig() : MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-                         Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f), 
-                         ViewportRatio(1.0f, 1.0f) {}
     };
 
     /**************************************************************************/
@@ -233,15 +199,15 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct AudioConfig : public Configuration {
+      AudioConfig();
       static std::string FileName() { return "ConfigurationAudio.cfg"; }
       bool Enabled;
       int MasterVolume;
-      Vec4 myVec;
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(Enabled);
         DCE_JSON_SERIALIZE(MasterVolume);
-        DCE_JSON_SERIALIZE_VEC4(myVec);
+        
       }
 
       void Deserialize(Json::Value& root) {
@@ -249,7 +215,6 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(MasterVolume).asInt();
       }
 
-      AudioConfig() : Enabled(true), MasterVolume(100) {}
     };
 
     /**************************************************************************/
@@ -258,31 +223,13 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct GUIConfig : public Configuration {
-      static std::string FileName() { return "ConfigurationGUI.cfg"; }
-      ImGuiStyle& Style; // A pointer to the ImGui Style
-
-      void Serialize(Json::Value& root) {
-        DCE_JSON_SERIALIZE(Style.Alpha);
-        DCE_JSON_SERIALIZE(Style.WindowRounding);
-        DCE_JSON_SERIALIZE(Style.FrameRounding);
-        DCE_JSON_SERIALIZE(Style.WindowFillAlphaDefault);
-        DCE_JSON_SERIALIZE(Style.ColumnsMinSpacing);
-        //DCE_JSON_SERIALIZE_VEC4(Style.Colors[Col_Text]);
-      }
-
-      void Deserialize(Json::Value& root) {
-        DCE_JSON_DESERIALIZE_INTRINSIC(Style.Alpha).asFloat();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowRounding).asFloat();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Style.FrameRounding).asFloat();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Style.WindowFillAlphaDefault).asFloat();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Style.ColumnsMinSpacing).asFloat();
-      }
-
-      void Link() {
-        //Style = &ImGui::GetStyle();
-      }
-
       GUIConfig();
+      static std::string FileName() { return "ConfigurationGUI.cfg"; }
+      void Serialize(Json::Value& root);
+      void Deserialize(Json::Value& root);
+
+      ImGuiStyle& Style; // A pointer to the ImGui Style
+      std::string FontPath;
     };
 
     /**************************************************************************/
@@ -291,15 +238,10 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct DebugConfig : public Configuration {
+      DebugConfig();
       static std::string FileName() { return "ConfigurationDebug.cfg"; }
-
-      void Serialize(Json::Value& root) {
-      }
-
-      void Deserialize(Json::Value& root) {
-      }
-
-      DebugConfig() {}
+      void Serialize(Json::Value& root);
+      void Deserialize(Json::Value& root);
     };
 
     /**************************************************************************/

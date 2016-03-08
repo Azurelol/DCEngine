@@ -33,15 +33,16 @@ namespace DCEngine {
     /**************************************************************************/
     void GUI::Initialize()
     {
-      //if (!GUI_ENABLED)
-      //  return;
-
       // Update the curent styles
       UpdateStyle();
 
       if (TRACE_INITIALIZE)
         DCTrace << "GUI::Initialize \n";
      GUIHandler->Initialize();
+
+     // Set the current font
+     SetFont(std::string("DroidSans.ttf"), 14);    
+     
     }
 
     /**************************************************************************/
@@ -209,6 +210,36 @@ namespace DCEngine {
       ImGui::PopID();
 
       return modified;        
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Sets the current font for the GUI.
+    @param fontPath The path for the font to use.
+    @param pixelSize What size of the font to use
+    */
+    /**************************************************************************/
+    void GUI::SetFont(const std::string & fontPath, unsigned pixelSize)
+    {
+      auto io = ImGui::GetIO();
+      // Clear previous fonts
+      io.Fonts->ClearFonts();
+      io.Fonts->AddFontFromFileTTF(fontPath.c_str(), pixelSize);
+      unsigned char* pixels;
+      int width, height;
+      // Generate a font texture
+      GLuint FontTexture;
+      io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+      glGenTextures(1, &FontTexture);
+      glBindTexture(GL_TEXTURE_2D, FontTexture);
+      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+      // Set the font
+      io.Fonts->TexID = (void *)(intptr_t)FontTexture;
+      // Clear the buffer stuff??
+      io.Fonts->ClearInputData();
+      io.Fonts->ClearTexData();
     }
 
     /**************************************************************************/

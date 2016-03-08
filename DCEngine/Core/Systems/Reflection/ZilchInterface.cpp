@@ -38,7 +38,10 @@ namespace DCEngine {
     /**************************************************************************/
     ZilchInterface::~ZilchInterface()
     {
+      // Clear the script library
+      ScriptLibrary.Clear();
     }
+
     /**************************************************************************/
     /*!
     @brief  Grabs a reference to this system, Static member
@@ -88,7 +91,7 @@ namespace DCEngine {
       Zilch::Project ScriptProject;
       Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, Zilch::DefaultErrorCallback);
       ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
-      AddLibrary(ScriptLibrary);
+      //AddLibrary(ScriptLibrary);
       // Compile and build the exclusive 'ExecutableState' object
       Build();
     }
