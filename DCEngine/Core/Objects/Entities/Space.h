@@ -65,6 +65,7 @@ namespace DCEngine {
     GameObjectPtr CreateObjectAtPosition(ArchetypePtr, const Vec3&);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
+    GameObject::Identifiers IdentifyAllObjects();
     void AddObject(GameObjectPtr entity);
     void RemoveObject(GameObject&);
     void DestroyAll();

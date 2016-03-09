@@ -31,7 +31,22 @@ namespace DCEngine {
       // Title
       ImGui::Begin("Objects", &Windows.ObjectsEnabled);
       
+      // Capture a list of all objects on the space
+      auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
+      auto objectIdentifiers = CurrentSpace->IdentifyAllObjects();
+      auto names = objectIdentifiers.NamesAsChars();
+
+      ImGui::PushItemWidth(ImGui::GetWindowWidth() / 2.0f);
+      ImGui::TextColored(ImVec4(255, 0, 0, 255), "Attach To");
       ImGui::SameLine();
+      static int currentAttachable = 0;
+      if (ImGui::Combo("##Attach", &currentAttachable, names.data(), static_cast<int>(names.size()))) {
+        DCTrace << "Attaching to " << objectIdentifiers.Names[currentAttachable] << ", with ID: " << objectIdentifiers.IDs[currentAttachable] << "\n";
+      }
+      if (ImGui::Button("Detach")) {      
+      }
+      ImGui::SameLine();
+      //ImGui::Columns(2);
       if (ImGui::Button("Up")) {
         if (auto gameObject = dynamic_cast<GameObjectPtr>(SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Up);
@@ -42,9 +57,11 @@ namespace DCEngine {
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
+
+
+      //ImGui::NextColumn();
       // Display every object's name
       unsigned objID = 0;
-      auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
       for (auto& object : *objects) {
         ImGui::PushID(objID++);
         auto objectName = object->Name().c_str();   

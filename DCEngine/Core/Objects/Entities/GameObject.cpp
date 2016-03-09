@@ -304,6 +304,22 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Returns a struct containing data about this GameObject.
+  @return A struct containing the Name, ID, and ParentID.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  GameObject::Identifier GameObject::Identify()
+  {
+    Identifier identifier;
+    identifier.Name = Name();
+    identifier.ID = GameObjectID;
+    identifier.ParentID = ParentID;
+    return identifier;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Deregisters a child onto the GameObject.
   @param  A pointer to a child.
   */
