@@ -14,8 +14,8 @@
 */
 /******************************************************************************/
 #pragma once
-#include "Types.h"
-#include "EventDelegate.h"
+
+#include "../Engine/Types.h"
 
 namespace DCEngine {
   
@@ -41,21 +41,6 @@ namespace DCEngine {
   using EventVec = std::vector<EventPtr>;
 
 
-  class BaseDelegate {
-    virtual void Invoke(Event*);
-  };
-
-  // C++ version
-  class CppDelegate : public BaseDelegate {
-    void Invoke(Event*);
-  };
-
-  // Zilch version
-  class ScriptDelegate : public BaseDelegate {
-    void Invoke(Event*);
-    Zilch::Delegate* Delegate;
-    Zilch::ExecutableState* State;    
-  };
 
 
 

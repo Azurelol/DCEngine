@@ -47,16 +47,16 @@ namespace DCEngine {
 			Connect(gameObj, Events::CollisionStarted, BallController::OnCollisionStartedEvent);
 			Connect(gameObj, Events::CollisionEnded, BallController::OnCollisionEndedEvent);
 			Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
-			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-			RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-			LightRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Light>();
+			TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+			RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+			SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+			LightRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Light>();
 			//ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::CircleCollider>();
 			CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
 			CollisionTableRef->AddGroup("Ball");
 			CollisionTableRef->AddGroup("Player");
 			CollisionTableRef->AddGroup("Shield");
-			auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+			auto ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
 			ColliderRef->setCollisionGroup("Ball");
 			CollisionTableRef->SetResolve("Ball", "Shield", CollisionFlag::SkipResolution);
 			PlayerRef = SpaceRef->FindObjectByName(PlayerName);

@@ -44,15 +44,15 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
       //Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
-      SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
+      SpriteComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       // ColliderRef->	 
       auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       //CollisionTableRef->AddGroup("Player");
-      auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      auto ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
     }

@@ -22,6 +22,7 @@ namespace DCEngine {
     class CollisionStarted : public Event {
     public:
       ZilchDeclareDerivedType(CollisionStarted, Event);
+      CollisionStarted() : Event("CollisionStarted") {}
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
@@ -35,6 +36,7 @@ namespace DCEngine {
     class CollisionEnded : public Event {
     public:
       ZilchDeclareDerivedType(CollisionEnded, Event);
+      CollisionEnded() : Event("CollisionEnded") {}
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
@@ -43,7 +45,7 @@ namespace DCEngine {
     class CollisionPersisted : public Event {
     public:
       ZilchDeclareDerivedType(CollisionPersisted, Event);
-
+      CollisionPersisted() : Event("CollisionPersisted") {}
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;

@@ -15,6 +15,11 @@
 namespace DCEngine {
   namespace Events {
 
+    #define DCE_EVENTS_DECLARE_AND_DEFINE(EventName) \
+    class EventName : public Event {                 \
+      EventName() : Event("" ##EventName) {}         \
+    }
+
     // Perhaps not that useful?
     #define DCE_EVENTS_DECLARE_LISTEN(EventClass)     \
     void On##EventClass(EventClass* event)            

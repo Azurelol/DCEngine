@@ -39,7 +39,7 @@ namespace DCEngine {
       //Connect(gameObj, Events::CollisionEnded, MoveToLocation::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, MoveToLocation::OnLogicUpdateEvent);
       //SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Components::Sprite>();
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       InitialLocation = TransformRef->getTranslation();
       TargetLocation = InitialLocation + TargetLocation;
     }

@@ -302,10 +302,9 @@
     <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
-    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
-    <ClCompile Include="Core\Engine\Event.cpp" />
+    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
     <ClCompile Include="Core\Engine\Profiler.cpp" />
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
@@ -319,6 +318,7 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Objects\Event.cpp" />
     <ClCompile Include="Core\Objects\Module.cpp" />
     <ClCompile Include="Core\Objects\Object.cpp" />
     <ClCompile Include="Core\Objects\Resource.cpp" />
@@ -468,17 +468,21 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\EventDelegate.h" />
     <ClInclude Include="Core\Engine\MacrosBinding.h" />
     <ClInclude Include="Core\Engine\MacrosEvents.h" />
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
+    <ClInclude Include="Core\Events\InputEvents.h" />
     <ClInclude Include="Core\Events\ScriptingEvents.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Objects\Event.h" />
+    <ClInclude Include="Core\Objects\Events\ZilchEvent.h" />
     <ClInclude Include="Core\Objects\Module.h" />
     <ClInclude Include="Core\Objects\Object.hpp" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
@@ -545,28 +549,18 @@
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\Command.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
-    <ClInclude Include="Core\Engine\EventDelegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
-    <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\Data.h" />
     <ClInclude Include="Core\Engine\Macros.h" />
     <ClInclude Include="Core\Engine\Math.h" />
     <ClInclude Include="Core\Engine\Types.h" />
-    <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
     <ClInclude Include="Core\Events\CollisionEvents.h" />
     <ClInclude Include="Core\Events\DispatchGameEvents.h" />
     <ClInclude Include="Core\Events\EditorEvents.h" />
     <ClInclude Include="Core\Events\EngineEvents.h" />
-    <ClInclude Include="Core\Events\EventReference.h" />
     <ClInclude Include="Core\Events\GameEvents.h" />
     <ClInclude Include="Core\Events\GraphicsEvents.h" />
-    <ClInclude Include="Core\Events\KeyDownEvent.h" />
-    <ClInclude Include="Core\Events\KeyUpEvent.h" />
-    <ClInclude Include="Core\Events\MouseDown.h" />
-    <ClInclude Include="Core\Events\MouseEvents.h" />
-    <ClInclude Include="Core\Events\MouseScroll.h" />
-    <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Events\WindowEvents.h" />

@@ -16,10 +16,13 @@ namespace DCEngine {
   namespace Events {
 
     class ScriptingLibraryPatched : public Event {
+    public:
+      ScriptingLibraryPatched() : Event("ScriptingLibraryPatched") {}
     };
 
     class ScriptingErrorMessage : public Event {
     public:
+      ScriptingErrorMessage() : Event("ScriptingErrorMessage") {}
       std::string Message;
     };
 

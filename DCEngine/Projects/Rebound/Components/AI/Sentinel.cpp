@@ -48,10 +48,10 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, Sentinel::OnCollisionStartedEvent);
       Connect(gameObj, Events::DeathEvent, Sentinel::OnDeathEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
 
       stateMachine = new StateMachine<Sentinel>(this);
 

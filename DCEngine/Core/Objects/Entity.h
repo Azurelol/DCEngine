@@ -21,7 +21,7 @@
 // Headers
 #include "Component.h"
 //#include "..\ComponentsInclude.h" // Entities need to know of componnets
-#include "../Engine/Event.h"
+#include "Event.h"
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
 #include "../Engine/Types.h"

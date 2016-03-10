@@ -28,8 +28,8 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, HazardArea::OnCollisionStartedEvent);
       Connect(gameObj, Events::CollisionEnded, HazardArea::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, HazardArea::OnLogicUpdateEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       PlayerRef = SpaceRef->FindObjectByName("Player");
     }
     

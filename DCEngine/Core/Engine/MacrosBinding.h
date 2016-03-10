@@ -31,6 +31,10 @@
   ZilchBindConstructor(builder, type, componentName, "owner", Entity&);  \
   ZilchBindDestructor(builder, type, componentName)
 
+// This macro defines a field to Zilch
+#define DCE_BINDING_DEFINE_FIELD(className, fieldName) \
+ZilchBindField(builder, type, &className::##fieldName, "" ##fieldName, Zilch::PropertyBinding::Get)
+
 // This macro defines a property to Zilch
 #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
   auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 

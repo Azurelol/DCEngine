@@ -37,10 +37,10 @@ namespace DCEngine {
       //Connect(gameObj, Events::CollisionStarted, ErraticDoor::OnCollisionStartedEvent);
       //Connect(gameObj, Events::CollisionEnded, ErraticDoor::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, ErraticDoor::OnLogicUpdateEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       //RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      MTLRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::MoveToLocation>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      MTLRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::MoveToLocation>();
       RandomDelay = static_cast<Real>((rand() % 10 + 1) / 3);
     }
 

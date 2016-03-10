@@ -29,8 +29,8 @@ namespace DCEngine {
       Connect(Daisy->getMouse(), Events::MouseDown, DebugMoveController::OnMouseDownEvent);
       Connect(SpaceRef, Events::LogicUpdate, DebugMoveController::OnLogicUpdateEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>(); // ew
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>(); // ew
 
 
     }

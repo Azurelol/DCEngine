@@ -17,7 +17,7 @@
 #include <functional> // std::function, std::bind
 // Packages
 #include "Types.h"
-#include "Event.h"
+#include "../Events/EventReference.h"
 #include "Math.h"
 #include "Action.h"
 #include "Profiler.h"

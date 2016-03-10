@@ -32,12 +32,12 @@
 #pragma once
 
 // Libraries
-#include <list> // doubly-linked list
+#include <list>
 #include <functional>
 #include <typeindex>
 #include <typeinfo>
+// Engine
 #include "..\Engine\Types.h"
-//#include "..\Systems\Reflection\ZilchInterface.h"
 
 namespace DCEngine {
 
@@ -134,5 +134,25 @@ namespace DCEngine {
       return Inst->Owner();
     }
   };
+
+
+  class BaseDelegate {
+    virtual void Invoke(Event*);
+  };
+
+  // C++ version
+  class CppDelegate : public BaseDelegate {
+    void Invoke(Event*);
+  };
+
+  // Zilch version
+  class ScriptDelegate : public BaseDelegate {
+    void Invoke(Event*);
+    Zilch::Delegate* Delegate;
+    Zilch::ExecutableState* State;
+  };
+
+
+
 
 }

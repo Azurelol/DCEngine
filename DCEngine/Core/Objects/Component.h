@@ -18,7 +18,7 @@
 // Libraries
 //#include <JSONCPP\json.h>
 // Headers
-#include "../Engine/Event.h" //!< Components need to access events.
+//#include "../Events/EventReference.h" //!< Components need to access events.
 #include "../EventsInclude.h" //!< A list of events that can be added.
 #include "../Systems/Serialization/Serialization.h"
 
@@ -133,6 +133,7 @@ namespace DCEngine {
   private:
     Zilch::Handle mHandle;
     static DependenciesContainer __Base_Dependencies;
+    Entity* ObjectOwner; //!< Should this be a smart pointer?
     EntityType OwnerClass;
 
     //Component() = delete; // No default construction

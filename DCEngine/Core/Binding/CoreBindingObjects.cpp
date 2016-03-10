@@ -55,7 +55,6 @@ namespace DCEngine {
     // Fields
     ZilchBindField(builder, type, &Object::ObjectName, "ObjectName", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Object::ObjectID, "ObjectID", Zilch::PropertyBinding::Get);
-    ZilchBindField(builder, type, &Object::ObjectOwner, "ObjectOwner", Zilch::PropertyBinding::GetSet);
     // Properties
     ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");
 

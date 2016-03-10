@@ -40,8 +40,8 @@ namespace DCEngine {
       //Connect(Daisy->getMouse(), Events::MouseUp, FreezeEnabler::OnMouseUpEvent);
       //Connect(SpaceRef, Events::LogicUpdate, FreezeEnabler::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, FreezeEnabler::OnCollisionStartedEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
     }
 
     void FreezeEnabler::OnMouseDownEvent(Events::MouseDown * event)

@@ -100,9 +100,6 @@
     <Filter Include="Core\Events\Graphics">
       <UniqueIdentifier>{6ce22829-b9e0-47b7-bfb0-4edfed619a91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Engine\Event">
-      <UniqueIdentifier>{581381cb-97df-4a13-bf1b-2a874f82cab6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Engine\Debug">
       <UniqueIdentifier>{0f04524d-b6b8-40cb-b81f-e43b8749bc46}</UniqueIdentifier>
     </Filter>
@@ -327,6 +324,12 @@
     </Filter>
     <Filter Include="Core\Events\Scripting">
       <UniqueIdentifier>{8541d3d8-4938-44eb-b804-d98c8febf5ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object\Event">
+      <UniqueIdentifier>{8584857e-6d7b-4cfa-bbd5-aa1a7f4e031a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Delegates">
+      <UniqueIdentifier>{9e277687-56ad-4a33-a996-54ee3416029f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -567,9 +570,6 @@
     <ClCompile Include="Core\Systems\Editor\MenuProject.cpp">
       <Filter>Core\Systems\Editor\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Event.cpp">
-      <Filter>Core\Engine\Event</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Systems\Editor\WindowConsole.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
@@ -716,9 +716,6 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\ActionSpace.cpp">
       <Filter>Core\Engine\Action</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Engine\EventDelegate.cpp">
-      <Filter>Core\Engine\Event</Filter>
     </ClCompile>
     <ClCompile Include="Core\Engine\Delegate.cpp">
       <Filter>Core\Engine\Action</Filter>
@@ -916,6 +913,12 @@
     <ClCompile Include="Core\Binding\CoreBindingEvents.cpp">
       <Filter>Core\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\Event.cpp">
+      <Filter>Core\Object\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\EventDelegate.cpp">
+      <Filter>Core\Engine\Delegates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -990,15 +993,6 @@
     <ClInclude Include="Core\Objects\Entities\Mouse.h">
       <Filter>Core\Object\Entity\Mouse</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Events\KeyDownEvent.h">
-      <Filter>Core\Events\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\KeyUpEvent.h">
-      <Filter>Core\Events\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\MouseDown.h">
-      <Filter>Core\Events\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h">
       <Filter>Core\Events\Graphics</Filter>
     </ClInclude>
@@ -1062,15 +1056,6 @@
     <ClInclude Include="Core\Objects\Components\ZilchComponent.h">
       <Filter>Core\Object\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\ZilchEvent.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\EventReference.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Event.h">
-      <Filter>Core\Engine\Event</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Components\DebugMoveController.h">
       <Filter>Core\Components\Debug</Filter>
     </ClInclude>
@@ -1133,9 +1118,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\IgnoreSpaceEffects.h">
       <Filter>Core\Components\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\MouseUp.h">
-      <Filter>Core\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Projects\ProjectComponent.h">
       <Filter>Projects\Includes</Filter>
@@ -1260,9 +1242,6 @@
     <ClInclude Include="Core\Components\EditorCameraController.h">
       <Filter>Core\Components\Graphics\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Events\MouseScroll.h">
-      <Filter>Core\Events\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Projects\Rebound\ReboundBinding.h">
       <Filter>Projects\Rebound</Filter>
     </ClInclude>
@@ -1280,9 +1259,6 @@
     </ClInclude>
     <ClInclude Include="Core\Components\Reactive.h">
       <Filter>Core\Components\Graphics\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Events\MouseEvents.h">
-      <Filter>Core\Events\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\Events\WindowEvents.h">
       <Filter>Core\Events</Filter>
@@ -1370,9 +1346,6 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\SpriteLayer.h">
       <Filter>Core\Resources\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\EventDelegate.h">
-      <Filter>Core\Engine\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core\Engine\Delegate.h">
       <Filter>Core\Engine\Action</Filter>
@@ -1560,6 +1533,18 @@
     </ClInclude>
     <ClInclude Include="Core\Binding\CoreBindingEvents.h">
       <Filter>Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Events\InputEvents.h">
+      <Filter>Core\Events\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Event.h">
+      <Filter>Core\Object\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Objects\Events\ZilchEvent.h">
+      <Filter>Core\Object\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\EventDelegate.h">
+      <Filter>Core\Engine\Delegates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

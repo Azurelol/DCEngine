@@ -33,9 +33,9 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, EnemyController::OnCollisionStartedEvent);
       Connect(gameObj, Events::CollisionEnded, EnemyController::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, EnemyController::OnLogicUpdateEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       InitialPosition = TransformRef->getTranslation();
 
       if (AutoPlay) {

@@ -41,7 +41,7 @@ namespace DCEngine {
   /**************************************************************************/
   Component::Component(std::string name, Entity& owner)
     : Object(name), ComponentID(ComponentsCreated++) {
-    ObjectOwner = (Object*)&owner;
+    ObjectOwner = &owner;
 
     // Set references
     SetReferences();
@@ -78,7 +78,7 @@ namespace DCEngine {
     // Set the name
     setObjectName(name);
     // Set its owner
-    ObjectOwner = dynamic_cast<ObjectPtr>(&entity);
+    ObjectOwner = &entity;
     // Set its references
     SetReferences();
     // Diagnostics

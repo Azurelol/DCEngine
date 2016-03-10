@@ -33,8 +33,8 @@ namespace DCEngine {
 			//Connect(Daisy->getMouse(), Events::MouseUp, PowerField::OnMouseUpEvent);
 			//Connect(SpaceRef, Events::LogicUpdate, PowerField::OnLogicUpdateEvent);
 			Connect(gameObj, Events::CollisionStarted, PowerField::OnCollisionStartedEvent);
-			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+			TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+			SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 		}
 
 		void PowerField::OnMouseDownEvent(Events::MouseDown * event)

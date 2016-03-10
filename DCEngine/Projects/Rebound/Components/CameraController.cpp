@@ -28,8 +28,8 @@ namespace DCEngine {
       Connect(Daisy->getMouse(), Events::MouseDown, CameraController::OnMouseDownEvent);
       Connect(Daisy->getMouse(), Events::MouseUp, CameraController::OnMouseUpEvent);
       Connect(SpaceRef, Events::LogicUpdate, CameraController::OnLogicUpdateEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       PlayerRef = SpaceRef->FindObjectByName(TargetName);
       //PlayerRef = SpaceRef->FindObjectByName(TargetName);
       //gameObj->AttachTo(PlayerRef);

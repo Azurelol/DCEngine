@@ -44,8 +44,8 @@ namespace DCEngine {
     EditorCameraController::EditorCameraController(Entity & owner) 
          : Component(std::string("EditorCameraController"), owner)
     {
-      CameraComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Camera>();
-      TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
+      CameraComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Camera>();
+      TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       // Set it as the space's default camera ( Maybe not needed?)
       SpaceRef->getComponent<Components::CameraViewport>()->setCamera(CameraComponent);
     }

@@ -14,13 +14,13 @@ back.
 #include "../Objects/Entities/GameObject.h"
 
 namespace DCEngine {
-#if(!DCE_BINDING_OBJECT_CLASSES_INTERNALLY)
 
   ZilchDefineType(Event, "Event", DCEngineCore, builder, type)
   {
     ZilchBindField(builder, type, &Event::EventID, "EventID", Zilch::PropertyBinding::Get);
   }
   namespace Events {
+
     /********************/
     //Game Events
     /********************/
@@ -45,9 +45,11 @@ namespace DCEngine {
     ZilchDefineType(GameSetup, "GameSetup", DCEngineCore, builder, type)
     {
     }
+
     /********************/
-    //Key Events
+    //  Key Events
     /********************/
+
     ZilchDefineType(KeyDown, "KeyDown", DCEngineCore, builder, type)
     {
       ZilchBindField(builder, type, &KeyDown::Key, "Key", Zilch::PropertyBinding::Get);
@@ -58,8 +60,9 @@ namespace DCEngine {
       ZilchBindField(builder, type, &KeyUp::Key, "Key", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &KeyUp::ShiftPressed, "ShiftPressed", Zilch::PropertyBinding::Get);
     }
+
     /********************/
-    //Mouse Events
+    //  Mouse Events
     /********************/
     ZilchDefineType(MouseDown, "MouseDown", DCEngineCore, builder, type)
     {
@@ -89,8 +92,9 @@ namespace DCEngine {
       ZilchBindField(builder, type, &MouseScroll::Delta, "Delta", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &MouseScroll::Direction, "Direction", Zilch::PropertyBinding::Get);
     }
+
     /********************/
-    //Collision Events
+    // Collision Events
     /********************/
     ZilchDefineType(CollisionStarted, "CollisionStarted", DCEngineCore, builder, type)
     {
@@ -110,8 +114,9 @@ namespace DCEngine {
       ZilchBindField(builder, type, &CollisionPersisted::OtherObject, "OtherObject", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &CollisionPersisted::IsGhost, "IsGhost", Zilch::PropertyBinding::Get);
     }
+
     /********************/
-    //Update Events
+    //  Update Events
     /********************/
     ZilchDefineType(LogicUpdate, "LogicUpdate", DCEngineCore, builder, type)
     {
@@ -131,6 +136,8 @@ namespace DCEngine {
       ZilchBindField(builder, type, &PhysicsUpdate::TimePassed, "TimePassed", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &PhysicsUpdate::RealTimePassed, "RealTimePassed", Zilch::PropertyBinding::Get);
     }
+
+
+
   }
-#endif
 }

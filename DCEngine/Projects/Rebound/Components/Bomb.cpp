@@ -30,8 +30,8 @@ namespace DCEngine {
 		void Bomb::Initialize()
 		{
 			auto gameObj = dynamic_cast<GameObject*>(Owner());
-			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+			TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+			SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 			Connect(SpaceRef, Events::LogicUpdate, Bomb::OnLogicUpdateEvent);
 		}
 

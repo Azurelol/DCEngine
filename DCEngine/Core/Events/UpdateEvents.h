@@ -26,6 +26,7 @@ namespace DCEngine {
     class FrameUpdate : public Event {
     public:
       ZilchDeclareDerivedType(FrameUpdate, Event);
+      FrameUpdate() : Event("FrameUpdate") {}
       float Dt;
       float TimePassed;
       float RealTimePassed;
@@ -34,6 +35,7 @@ namespace DCEngine {
     class PhysicsUpdate : public Event {
     public:
       ZilchDeclareDerivedType(PhysicsUpdate, Event);
+      PhysicsUpdate() : Event("PhysicsUpdate") {}
       float Dt;
       float TimePassed;
       float RealTimePassed;
