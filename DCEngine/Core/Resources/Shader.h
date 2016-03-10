@@ -32,6 +32,8 @@ namespace DCEngine {
     std::string Extension() { return ".Shader"; }
     void Compile();
     const std::string& Read(Type);
+
+    using Resource::Save;
     void Save(const std::string&, Type);
     Shader& Use(); 
     Shader& Unbind();

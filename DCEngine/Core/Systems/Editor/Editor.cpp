@@ -300,7 +300,8 @@ namespace DCEngine {
 
       auto texture = Daisy->getSystem<Content>()->getSpriteSrc("EngineLogo")->getTexture();
       auto imageSizeScalar = 2;
-      auto textureSize = ImVec2(texture.Width * imageSizeScalar, texture.Height * imageSizeScalar);
+      auto textureSize = ImVec2(static_cast<float>(texture.Width * imageSizeScalar),
+                                static_cast<float>(texture.Height * imageSizeScalar));
 
       // Open the PopUp
       //ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
@@ -322,13 +323,19 @@ namespace DCEngine {
       auto splashPos = ImVec2((windowDim.x / 2) - textureSize.x / 2, (windowDim.y / 2) - textureSize.y / 2);
 
       ImGui::SetNextWindowPos(splashPos);
+      
       //ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
       if (ImGui::Begin("Example: Fixed Overlay", &Windows.SplashScreenEnabled, ImVec2(0, 0), 0.3f,
-        ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings))
+        ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings 
+        | ImGuiWindowFlags_ShowBorders))
       {
         // Display splash image
+        ImColor tint(255, 255, 255, 255);
+        ImColor border(255, 255, 255, 0);
+        ImVec2 uv0(0, 1);
+        ImVec2 uv1(1, 0);
         ImGui::Image((void*)(texture.TextureID), ImVec2(textureSize.x, textureSize.y),
-          ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
+          uv0, uv1, tint, border);
         if (ImGui::IsMouseClicked(0)) {
           Windows.SplashScreenEnabled = false;
         }

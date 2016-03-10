@@ -17,9 +17,22 @@
 
 #include "../Engine/Engine.h" 
 
-
-
 namespace DCEngine {
+  
+  /*!************************************************************************\
+  @brief  Entity Definition
+  \**************************************************************************/
+  ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Entity, "name", std::string);
+    ZilchBindDestructor(builder, type, Entity);
+    // Properties
+    //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
+    ZilchBindMethod(builder, type, &Entity::TestMe, ZilchNoOverload, "TestMe", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
+  }
 
   /**************************************************************************/
   /*!
@@ -351,6 +364,16 @@ namespace DCEngine {
     auto handleIter = std::find(ComponentHandlesContainer.begin(), ComponentHandlesContainer.end(), handle);
     // Shift every element on the way to the back
     std::rotate(handleIter, handleIter + 1, ComponentHandlesContainer.end());
+  }
+
+  void Entity::TestMe()
+  {
+    DCTrace << "Hello Josh \n";
+  }
+
+  void Entity::TestMeString(const std::string & string)
+  {
+    DCTrace << string << "\n";
   }
 
   /**************************************************************************/

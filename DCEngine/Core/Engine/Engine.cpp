@@ -386,6 +386,16 @@ namespace DCEngine {
     CurrentGameSession->Initialize();
 
   }
+
+  /**************************************************************************/
+  /*!
+  @brief  Loads the GameSession's default space
+  */
+  /**************************************************************************/
+  void Engine::ZilchConnect(Entity & publisher, BaseDelegate * deleg)
+  {
+    //
+  }
   
   /**************************************************************************/
   /*!

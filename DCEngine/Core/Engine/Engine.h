@@ -67,6 +67,9 @@ namespace DCEngine {
     // Component Events
     template <typename EventClass, typename Class, typename MemberFunction>
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
+
+    void ZilchConnect(Entity& publisher, BaseDelegate*);
+
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
     // System Events

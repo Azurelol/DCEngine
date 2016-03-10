@@ -204,7 +204,7 @@ namespace DCEngine {
     {
       static auto& config = ConfigurationFiles::Access().Audio;
       ImGui::Checkbox("Enabled", &config.Enabled);
-      ImGui::InputInt("Master Volume", &config.MasterVolume, 1.0f);
+      ImGui::InputInt("Master Volume", &config.MasterVolume, 1);
     }
 
     void EditorPreferences::Save()

@@ -32,6 +32,10 @@ namespace DCEngine {
     ZilchBindDestructor(builder, type, ZilchComponent);
     // Methods
     ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
+    ZilchBindProperty(builder, type, &ZilchComponent::Owner, ZilchNoSetter, "Owner");
+    //ZilchBind(builder, type, &ZilchComponent::SpaceRef, ZilchNoSetter, "Space");
+    //ZilchBindMethod(builder, type, &::DCEngine::Engine::Connect<Events::MouseDown>(Entity*, )
+    
   }
 
   /**************************************************************************/
@@ -118,6 +122,8 @@ namespace DCEngine {
   /**************************************************************************/
   void ZilchComponent::Initialize()
   {
+    
+
     // Find all bound functions!
     FindFunctions();
     // If updating directly, subscribe through C++ Logic Update Events

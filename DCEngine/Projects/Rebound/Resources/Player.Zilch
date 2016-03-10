@@ -3,21 +3,20 @@ class Player : ZilchComponent
   var Check : Boolean = true;
   var Vec2lol : Real2 = Real2(1,0);
   var Health : Real = 50;
-var Health2 : Real = 23;
+  var Health2 : Real = 23;
   var MaxHealth : Real = 126;
+  var TestMeLol : Real = 25;
+  var Checky2 : Boolean = false;
 
-  [Static]
-  function SayHello()
-  {
-    Console.WriteLine("Hello world!");
-  }
 
   function Initialize() {
   Console.WriteLine("Hello, John");
+  this.Owner.TestMe();
+  this.Owner.TestMeString("Hello Joshua 2");
   }
 
   function OnLogicUpdate() {
-   Console.WriteLine("Please no"); 
+   //Console.WriteLine("Please no"); 
 
   }
 	

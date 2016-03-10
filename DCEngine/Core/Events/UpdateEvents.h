@@ -17,6 +17,7 @@ namespace DCEngine {
     class LogicUpdate : public Event {
     public:
       ZilchDeclareDerivedType(LogicUpdate, Event);
+      LogicUpdate() : Event("LogicUpdate") {}
       float Dt;
       float TimePassed;
       float RealTimePassed;

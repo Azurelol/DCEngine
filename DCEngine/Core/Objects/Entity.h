@@ -74,6 +74,8 @@ namespace DCEngine {
     ComponentHandleVec& AllComponentsByHandle();
     void Swap(ComponentPtr, Direction);
     void SwapToBack(ComponentPtr);
+    void TestMe();
+    void TestMeString(const std::string& string);
 
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);

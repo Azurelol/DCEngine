@@ -18,28 +18,47 @@
 #include "EventDelegate.h"
 
 namespace DCEngine {
-
+  
     class Event {
     public:
       ZilchDeclareBaseType(Event, Zilch::TypeCopyMode::ReferenceType);
       static unsigned int EventsCreated;
       static unsigned int EventsDestroyed;
 
-      Event() {
+      Event(std::string name) : Name(name) {
         EventsCreated++;
       }
+
       virtual ~Event(void) {
         EventsDestroyed++;
       }
+
       unsigned int EventID;
-
-    private:
-
+      std::string Name;
     };
-
-
 
   using EventPtr = std::shared_ptr<Event>;
   using EventVec = std::vector<EventPtr>;
+
+
+  class BaseDelegate {
+    virtual void Invoke(Event*);
+  };
+
+  // C++ version
+  class CppDelegate : public BaseDelegate {
+    void Invoke(Event*);
+  };
+
+  // Zilch version
+  class ScriptDelegate : public BaseDelegate {
+    void Invoke(Event*);
+    Zilch::Delegate* Delegate;
+    Zilch::ExecutableState* State;    
+  };
+
+
+
+
 
 }

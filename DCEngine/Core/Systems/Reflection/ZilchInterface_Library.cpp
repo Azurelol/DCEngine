@@ -130,10 +130,12 @@ namespace DCEngine {
       }
 
       // Compile all the code we have added together into a single library for our scripts
-      ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
+      auto tempLib = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);      
+      //ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
       // Link together all the libraries that we depend upon
         
-      if (ScriptLibrary) {
+      if (tempLib) {
+        ScriptLibrary = tempLib;
         State->PatchLibrary(ScriptLibrary);
         DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
         return true;

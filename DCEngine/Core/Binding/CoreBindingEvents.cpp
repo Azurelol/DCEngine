@@ -12,6 +12,7 @@ back.
 #include "CoreBindingEvents.h"
 #include "../EventsInclude.h"
 #include "../Objects/Entities/GameObject.h"
+
 namespace DCEngine {
 #if(!DCE_BINDING_OBJECT_CLASSES_INTERNALLY)
 

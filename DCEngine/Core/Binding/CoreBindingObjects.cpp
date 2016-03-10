@@ -73,18 +73,6 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Engine::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
   }
 
-  /*!************************************************************************\
-  @brief  Entity Definition
-  \**************************************************************************/
-  ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
-    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, Entity, "name", std::string);
-    ZilchBindDestructor(builder, type, Entity);
-    // Properties
-    //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
-    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
-  }
 
   /*!************************************************************************\
   @brief  Resource Definition 
@@ -129,7 +117,7 @@ namespace DCEngine {
   ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameSession, "name", std::string);
-    ZilchBindDestructor(builder, type, GameSession); +     // Methods
+    ZilchBindDestructor(builder, type, GameSession);      // Methods
     // Methods
     ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
     ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
