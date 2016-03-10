@@ -38,10 +38,26 @@ namespace DCEngine {
 
   public:
     
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    struct Identifier {
+      std::string Name;
+      unsigned ID;
+      unsigned ParentID;
+    };
+    struct Identifiers {
+      std::vector<std::string> Names;     
+      std::vector<unsigned> IDs;
+      std::vector<unsigned> ParentIDs;
+      
+      std::vector<const char*> NamesAsChars() {
+        std::vector<const char *> names;
+        for (auto& name : Names)
+          names.push_back(name.c_str());        
+        return names;
+      }
+    };
+    using GameObjectIdentifiers = std::vector<Identifier>;
+        
     ZilchDeclareDerivedType(GameObject, Entity);
-    #endif
-    
     GameObject(std::string name, Space& space, GameSession& gamesession);
     GameObject();
     ~GameObject();
@@ -71,16 +87,19 @@ namespace DCEngine {
     static bool DiagnosticsEnabled;
 
   private:
+    const unsigned int GameObjectID;    
     GameObjectPtr ParentRef;
+    unsigned ParentID;
     GameObjectVec ChildrenContainer;
     Space* SpaceRef;
     GameSession* GamesessionRef;
 
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);
-
-    const unsigned int GameObjectID;    
+    Identifier Identify();
 
   };  
+
+
   
 }

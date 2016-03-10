@@ -450,6 +450,22 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Returns a container of all gameobjects identifiers.
+  */
+  /**************************************************************************/
+  GameObject::Identifiers Space::IdentifyAllObjects()
+  {
+    GameObject::Identifiers ids;
+    for (auto& gameObject : GameObjectContainer) {
+      ids.Names.push_back(gameObject->Name());
+      ids.IDs.push_back(gameObject->GameObjectID);
+      ids.ParentIDs.push_back(gameObject->ParentID);
+    }
+    return ids;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Adds an entity directly to the space.
   */
   /**************************************************************************/
