@@ -302,7 +302,7 @@
           }, 
           "Player": 
           {
-            "Check": false, 
+            "Check": true, 
             "Vec2lol": 
             {
               "Vec2": 
@@ -311,10 +311,10 @@
                 "y": 0.000000
               }
             }, 
-            "Health": 0.000000, 
+            "Health": 50.000000, 
             "Health2": 23.000000, 
-            "MaxHealth": 0.000000, 
-            "TestMeLol": 50.000000, 
+            "MaxHealth": 126.000000, 
+            "TestMeLol": 25.000000, 
             "Checky2": false
           }
         }

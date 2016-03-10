@@ -99,11 +99,11 @@ namespace DCEngine {
     static ComponentPtr Dereference(ComponentHandle& componentHandle);
     Zilch::Handle Handle();
 
-    //virtual void Destroy() = 0; // Every component needs to provide a method for its destruction.   
+    // References
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
-    const Space& ThisSpace() const { return  *SpaceRef; }
-    const GameSession& ThisGameSession()  const { return *GameSessionRef; }
+    const Space& getSpace() const { return  *SpaceRef; }
+    const GameSession& getGameSession()  const { return *GameSessionRef; }
     // Dependencies  
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies; }
     bool HasDependencies();

@@ -15,8 +15,11 @@ back.
 
 namespace DCEngine {
 
+  // Base Event class
   ZilchDefineType(Event, "Event", DCEngineCore, builder, type)
   {
+    //DCE_BINDING_DEFINE_FIELD(Event, Name);
+    ZilchBindField(builder, type, &Event::Name, "Name", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Event::EventID, "EventID", Zilch::PropertyBinding::Get);
   }
   namespace Events {

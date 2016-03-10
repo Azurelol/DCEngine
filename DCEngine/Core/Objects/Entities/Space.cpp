@@ -27,6 +27,7 @@ Each space has its own instances of the core systems of the engine.
 namespace DCEngine {
     
 
+
   
   /**************************************************************************/
   /*!
@@ -170,6 +171,11 @@ namespace DCEngine {
     }
     GameObjectContainer.clear();
 
+  }
+
+  void Space::TestSpace()
+  {
+    DCTrace << "Space::TestScript \n";
   }
 
   /**************************************************************************/

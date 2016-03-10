@@ -30,7 +30,7 @@ namespace DCEngine {
     // Properties
     //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
-    ZilchBindMethod(builder, type, &Entity::TestMe, ZilchNoOverload, "TestMe", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Entity::TestEntity, ZilchNoOverload, "TestEntity", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
   }
 
@@ -366,9 +366,9 @@ namespace DCEngine {
     std::rotate(handleIter, handleIter + 1, ComponentHandlesContainer.end());
   }
 
-  void Entity::TestMe()
+  void Entity::TestEntity()
   {
-    DCTrace << "Hello Josh \n";
+    DCTrace << "Entity::TestEntity \n";
   }
 
   void Entity::TestMeString(const std::string & string)

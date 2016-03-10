@@ -11,8 +11,7 @@ class Player : ZilchComponent
 
   function Initialize() {
   Console.WriteLine("Hello, John");
-  this.Owner.TestMe();
-  this.Owner.TestMeString("Hello Joshua 2");
+  this.Owner.TestEntity();
   }
 
   function OnLogicUpdate() {

@@ -149,6 +149,11 @@ namespace DCEngine {
     return DefaultSpace;
   }
 
+  void GameSession::TestGameSession()
+  {
+    DCTrace << "GameSession::TestGameSession \n";
+  }
+
   /**************************************************************************/
   /*!
   \brief Updates the space, updating all its systems.

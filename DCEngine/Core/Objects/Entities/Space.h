@@ -69,6 +69,7 @@ namespace DCEngine {
     void AddObject(GameObjectPtr entity);
     void RemoveObject(GameObject&);
     void DestroyAll();
+    void TestSpace();
 
     GameSession* getGameSession();
     const GameSession* Owner() { return GameSessionRef; };

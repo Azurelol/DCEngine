@@ -15,6 +15,35 @@
 /*===================*
 *     Binding       *
 *===================*/
+// This macro declares a base type to Zilch
+#define DCE_BINDING_DECLARE_BASE_TYPE(baseClass)  \
+    ZilchDeclareBaseType(baseClass)  
+
+// This macro declares a derived type to Zilch
+#define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
+    ZilchDeclareDerivedType(derivedClass, baseClass)  
+
+// These macros, enclose the definition of a type to zilch
+#define DCE_BINDING_DEFINE_TYPE_BEGIN(type, library) \
+  ZilchDefineType(type, "" type, library, builder, type) {
+#define DCE_BINDING_DEFINE_TYPE_END }
+
+// This macro defines a field to Zilch
+#define DCE_BINDING_DEFINE_FIELD(className, fieldName) \
+ZilchBindField(builder, type, &className::fieldName, "" ##fieldName, Zilch::PropertyBinding::Get)
+
+// This macro defines a method to Zilch
+#define DCE_BINDING_DEFINE_METHOD_NO_ARGS(classname, methodName) \
+ZilchBindMethod(builder, type, &classname::methodName, ZilchNoOverload, "" methodName, ZilchNoNames)
+
+// This macro defines a property to Zilch
+#define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
+  auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
+
+// This macro defines a property with no setter to Zilch
+#define DCE_BINDING_DEFINE_PROPERTY_NOSETTER(className, propertyName) \
+ZilchBindProperty(builder, type, &className::get##propertyName, ZilchNoSetter, "" #propertyName) 
+
 // This macro declares a component 
 #define DCE_DECLARE_COMPONENT(COMP)   \
   class COMP;                                   \
@@ -22,22 +51,11 @@
     public:                                     \
   ZilchDeclareDerivedType(COMP, Component)
 
-// This macro declares a derived type to Zilch
-#define DCE_BINDING_DECLARE_DERIVED_TYPE(derivedClass, baseClass)  \
-    ZilchDeclareDerivedType(derivedClass, baseClass)  
-
-// This macro defines a component to zilch
+// This macro defines a component's constructor to zilch
 #define DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(componentName)          \
   ZilchBindConstructor(builder, type, componentName, "owner", Entity&);  \
   ZilchBindDestructor(builder, type, componentName)
 
-// This macro defines a field to Zilch
-#define DCE_BINDING_DEFINE_FIELD(className, fieldName) \
-ZilchBindField(builder, type, &className::##fieldName, "" ##fieldName, Zilch::PropertyBinding::Get)
-
-// This macro defines a property to Zilch
-#define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
-  auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
 
 // This macro defines a Zilch attribute
 #define DCE_BINDING_DEFINE_ATTRIBUTE(name) \
@@ -48,9 +66,9 @@ ZilchBindField(builder, type, &className::##fieldName, "" ##fieldName, Zilch::Pr
 #define DCE_BINDING_PROPERTY_SET_ATTRIBUTE(property, attribute) \
   property->Attributes.push_back(attribute)              
 
-/////////////
-// Resources
-/////////////
+/*=============
+  PROPERTIES
+=============*/
 // This macro defines a Resource-specific attribute.
 #define DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(resource) \
   Zilch::Attribute attributeResource;                     \

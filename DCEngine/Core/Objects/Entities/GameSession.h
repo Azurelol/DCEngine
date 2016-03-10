@@ -49,6 +49,7 @@ namespace DCEngine {
     SpacePtr CreateSpace(std::string name, bool initialize = true);
     SpacePtr GetSpace(std::string name);
     Space* getDefaultSpace();
+    void TestGameSession();
 
 
   private:

@@ -33,9 +33,8 @@ namespace DCEngine {
     // Methods
     ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
     ZilchBindProperty(builder, type, &ZilchComponent::Owner, ZilchNoSetter, "Owner");
-    //ZilchBind(builder, type, &ZilchComponent::SpaceRef, ZilchNoSetter, "Space");
-    //ZilchBindMethod(builder, type, &::DCEngine::Engine::Connect<Events::MouseDown>(Entity*, )
-    
+    ZilchBindProperty(builder, type, &ZilchComponent::getSpace, ZilchNoSetter, "Space");
+    ZilchBindProperty(builder, type, &ZilchComponent::getGameSession, ZilchNoSetter, "GameSession");    
   }
 
   /**************************************************************************/
