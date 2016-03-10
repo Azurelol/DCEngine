@@ -694,6 +694,8 @@
   <ItemGroup>
     <None Include="Core\Assets\Shaders\GUIShader.frag" />
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
+    <None Include="Core\Assets\Shaders\LightingShader.frag" />
+    <None Include="Core\Assets\Shaders\LightingShader.vs" />
     <None Include="Core\Assets\Shaders\ParticleShader.frag" />
     <None Include="Core\Assets\Shaders\ParticleShader.vs" />
     <None Include="Core\Assets\Shaders\ShadowingShader.frag" />

@@ -41,6 +41,7 @@ namespace DCEngine {
 			if (TRACE_ON && TRACE_INITIALIZE)
 				DCTrace << "Graphics::Initialize \n";
 			GraphicsHandler->Initialize();
+			GraphicsHandler->mDrawList = &mDrawList;
 			// Subscribe to events
 			Subscribe();
 		}
@@ -98,38 +99,53 @@ namespace DCEngine {
 
 				UpdateObjects(dt);
 
+				GraphicsHandler->PreRender(camera);
 				if (!lightComponents.empty())
 				{
-					glDrawBuffer(GL_NONE);
-					RenderZ0Scene(camera, 0);
 					for (const auto& light : lightComponents)
 					{
-						if (light->getCastShadows())
-						{
-							glDepthFunc(GL_LESS);
-							glDrawBuffer(GL_NONE);
-							glEnable(GL_STENCIL_TEST);
-
-							RenderShadows(camera, light);
-
-							glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
-							glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-						}
-						glDrawBuffer(GL_FRONT_AND_BACK);
-						glDepthFunc(GL_LEQUAL);
-
-						glEnable(GL_BLEND);
-						glBlendFunc(GL_ONE, GL_ONE);
-						RenderScene(camera, light);
-
-						glClear(GL_STENCIL_BUFFER_BIT);
+						//if (light->getCastShadows())
+						//	GraphicsHandler->RenderShadows(camera, light);
+						GraphicsHandler->RenderScene(camera, light);
 					}
 				}
 				else
 				{
-					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-					RenderScene(camera);
+					//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+					GraphicsHandler->RenderScene(camera);
 				}
+				//if (!lightComponents.empty())
+				//{
+				//	glDrawBuffer(GL_NONE);
+				//	RenderZ0Scene(camera, 0);
+				//	for (const auto& light : lightComponents)
+				//	{
+				//		if (light->getCastShadows())
+				//		{
+				//			glDepthFunc(GL_LESS);
+				//			glDrawBuffer(GL_NONE);
+				//			glEnable(GL_STENCIL_TEST);
+				//
+				//			RenderShadows(camera, light);
+				//
+				//			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
+				//			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+				//		}
+				//		glDrawBuffer(GL_FRONT_AND_BACK);
+				//		glDepthFunc(GL_LEQUAL);
+				//
+				//		glEnable(GL_BLEND);
+				//		glBlendFunc(GL_ONE, GL_ONE);
+				//		RenderScene(camera, light);
+				//
+				//		glClear(GL_STENCIL_BUFFER_BIT);
+				//	}
+				//}
+				//else
+				//{
+				//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+				//	RenderScene(camera);
+				//}
 
 				glDisable(GL_STENCIL_TEST);
 				DrawDebug();

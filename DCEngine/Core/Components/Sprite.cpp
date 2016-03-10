@@ -242,6 +242,7 @@ namespace DCEngine {
 			shader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
 			shader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
 			shader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+			shader->SetInteger("image", 0);
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			spriteSrc->getTexture().Bind();
 
@@ -318,8 +319,6 @@ namespace DCEngine {
 			// Set the view matrix 
 			shader->SetMatrix4("view", camera->GetViewMatrix());
 		}
-		
-			
 
 		void Sprite::Draw(void)
 		{
@@ -333,7 +332,6 @@ namespace DCEngine {
 			else
 				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
-
 		}
 
 		void Sprite::SetShader()

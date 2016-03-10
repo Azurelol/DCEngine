@@ -909,6 +909,8 @@
     <ClCompile Include="Core\Systems\SystemsConfiguration.cpp">
       <Filter>Core\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEvents.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1544,6 +1546,8 @@
     <ClInclude Include="Core\Systems\Editor\EditorPreferences.h">
       <Filter>Core\Systems\Editor\Modules\Preferences</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
+    <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1596,6 +1600,12 @@
     </None>
     <None Include="Projects\Rebound\Rebound.dceproj">
       <Filter>Projects\Rebound</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\LightingShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\LightingShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>
