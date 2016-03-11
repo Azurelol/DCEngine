@@ -31,7 +31,6 @@ namespace DCEngine {
 
       // Create a key for the builder
       auto pname = property->Name;
-      builder.Key(property->Name);
       //builder.Begin(Zilch::JsonType::Object);      
 
 
@@ -39,6 +38,7 @@ namespace DCEngine {
         continue;
       }
 
+      builder.Key(property->Name);
       // Set up the 'getter' method so that we can serialize the value
       Zilch::Call call(property->Get, state);
       if (handle.Dereference())

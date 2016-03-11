@@ -33,7 +33,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Entity::TestEntity, ZilchNoOverload, "TestEntity", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
     // Engine-component properties
-    DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
+    //DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
     //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
   }
 
@@ -120,10 +120,12 @@ namespace DCEngine {
 
     // Serialize Object-specific properties
     Object::Serialize(builder);
+    //DCTrace << "Before Entity: \n" << builder.ToString().c_str() << "\n";
     // Serialize Entity-specific properties
     SerializeByType(builder, interface->GetState(), type, this);
     // Serialize all of its components
     builder.Key("Components");
+    //DCTrace << "After Components: \n" << builder.ToString().c_str() << "\n";
     builder.Begin(Zilch::JsonType::Object);
     // Factory-created components
     for (auto& component : ComponentsContainer) {
