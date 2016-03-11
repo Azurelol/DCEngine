@@ -150,7 +150,7 @@ namespace DCEngine {
     }
 
     // 2. Dispatch to events identified by name
-    Dispatch(eventObj, eventObj->Name);
+    Dispatch(eventObj);
   }
 
   /**************************************************************************/

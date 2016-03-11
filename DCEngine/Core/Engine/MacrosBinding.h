@@ -34,7 +34,7 @@ ZilchBindField(builder, type, &className::fieldName, "" ##fieldName, Zilch::Prop
 
 // This macro defines a method to Zilch
 #define DCE_BINDING_DEFINE_METHOD_NO_ARGS(classname, methodName) \
-ZilchBindMethod(builder, type, &classname::methodName, ZilchNoOverload, "" methodName, ZilchNoNames)
+ZilchBindMethod(builder, type, &classname::methodName, ZilchNoOverload, "" #methodName, ZilchNoNames)
 
 // This macro defines a property to Zilch
 #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \

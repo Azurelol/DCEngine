@@ -26,6 +26,13 @@
 #include "..\Systems\Serialization\Serialization.h"
 #include "../Engine/Types.h"
 #include "../Engine/Action.h"
+// Macros
+#define DCE_ENTITY_GET_COMPONENT(ComponentName)                    \
+  Components::ComponentName* get##ComponentName() {                            \
+    return this->getComponent<Components::ComponentName>();                    \
+  }
+#define DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(ComponentName)    \
+ZilchBindProperty(builder, type, &Entity::get##ComponentName, ZilchNoSetter, "" #ComponentName)
 
 namespace DCEngine {
 
@@ -53,9 +60,7 @@ namespace DCEngine {
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
     void Rebuild();
-
-    // Properties
-    //DCE_DEFINE_PROPERTY(std::string, ArchetypeName);
+    // Properties    
     void setArchetype(std::string);
     std::string getArchetype() const;
     // Components    
@@ -78,13 +83,19 @@ namespace DCEngine {
     void TestMeString(const std::string& string);
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
-    void Dispatch(Event* eventObj, const std::string& eventName);
+    void Dispatch(Event* eventObj);
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);
     void RegisterListener(Zilch::Call & call, Zilch::ExceptionReport & report);
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
+    // Components as properties
+    Components::Transform* getTransform() { return getComponent<Components::Transform>(); }
+    //DCE_ENTITY_GET_COMPONENT(Transform);
+    //DCE_ENTITY_GET_COMPONENT(Sprite);
+    //DCE_ENTITY_GET_COMPONENT(RigidBody);
+    //DCE_ENTITY_GET_COMPONENT(BoxCollider);
 
   protected:
 

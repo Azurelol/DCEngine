@@ -10,11 +10,11 @@
 */
 /******************************************************************************/
 #include "Entity.h"
+#include "Entities\EntityProperties.h"
 
 // Headers
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
-
 #include "../Engine/Engine.h" 
 
 namespace DCEngine {
@@ -33,6 +33,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Entity::TestEntity, ZilchNoOverload, "TestEntity", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
     // Engine-component properties
+    DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
     //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
   }
 
@@ -389,15 +390,15 @@ namespace DCEngine {
   \param eventName The event class.
   */
   /**************************************************************************/
-  void Entity::Dispatch(Event * eventObj, const std::string & eventName)
+  void Entity::Dispatch(Event * eventObj)
   {
     // For every delegate in the registry
     for (auto& event : ObserverRegistryByString) {
-      if (eventObj->Name != eventName)
-        continue;
-      // For every delegate in the list for this specific event
-      for (auto& deleg : event.second) {
-        deleg->Call(eventObj);
+      if (eventObj->Name == event.first) {
+        // For every delegate in the list for this specific event
+        for (auto& deleg : event.second) {
+          deleg->Call(eventObj);
+        }
       }
     }
   }

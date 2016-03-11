@@ -12,13 +12,12 @@ class Player : ZilchComponent
   this.Owner.TestMeString("Creating BounceParticle!");
   this.Object = this.Space.CreateObject("BounceParticle");
   this.Object.Test();  
-  this.Hello();
+  this.Hello();sasqa
   var a = DaisyEvent.MouseDown;
   Console.WriteLine(a);
-  //Daisy.Connect(this.Owner, "Keydown", this.OnKeyDownEvent); 
-  //this.Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
- this.Daisy.Connect(this.Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
- this.Daisy.Connect(this.Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent); 
+  Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
+  Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+
  }
 
   function OnLogicUpdate() {
@@ -41,5 +40,9 @@ function OnKeyDownEvent(event : KeyDown) {
 function OnMouseDownEvent(event : MouseDown) {
   Console.WriteLine("Clicked!");
 }
-	
+
+function OnMouseUpdateEvent(event : MouseUpdate) {
+  Console.WriteLine("Moved!");
+}
+
 }

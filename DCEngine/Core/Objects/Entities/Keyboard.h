@@ -28,11 +28,8 @@ namespace DCEngine {
     friend class Systems::InputSFML;
   public:
 
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    static Keyboard* Access();
     ZilchDeclareDerivedType(Keyboard, Entity);
-    #endif
-
-    //Keyboard::Keyboard() : System(std::string("Keyboard"), EnumeratedSystem::Keyboard) {
     Keyboard::Keyboard() : Entity(std::string("Keyboard")) {
       if (TRACE_ON && TRACE_CONSTRUCTOR)
         DCTrace << ObjectName << " Interface - Constructor \n";

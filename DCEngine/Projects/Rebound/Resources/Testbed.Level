@@ -54,7 +54,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Wow", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": true, 

@@ -36,7 +36,7 @@ namespace DCEngine {
   @param report A reference to the report object.
   */
   /**************************************************************************/
-  void ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  static void ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
     auto publisher = reinterpret_cast<Entity*>(call.Get<Entity*>(0));
     auto eventType = call.Get<Zilch::String>(1);
@@ -59,7 +59,7 @@ namespace DCEngine {
   @param report A reference to the report object.
   */
   /**************************************************************************/
-  void ZilchConnectToSpace(Zilch::Call & call, Zilch::ExceptionReport & report)
+  static void ZilchConnectToSpace(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
     auto publisher = reinterpret_cast<Space*>(call.Get<Space*>(0));
     auto eventType = call.Get<Zilch::String>(1);
@@ -82,7 +82,7 @@ namespace DCEngine {
   @param report A reference to the report object.
   */
   /**************************************************************************/
-  void ZilchConnectToMouse(Zilch::Call & call, Zilch::ExceptionReport & report)
+  static void ZilchConnectToMouse(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
     auto publisher = reinterpret_cast<Mouse*>(call.Get<Mouse*>(0));
     auto eventType = call.Get<Zilch::String>(1);
@@ -105,7 +105,7 @@ namespace DCEngine {
   @param report A reference to the report object.
   */
   /**************************************************************************/
-  void ZilchConnectToKeyboard(Zilch::Call & call, Zilch::ExceptionReport & report)
+  static void ZilchConnectToKeyboard(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
     auto publisher = reinterpret_cast<Keyboard*>(call.Get<Keyboard*>(0));
     auto eventType = call.Get<Zilch::String>(1);
@@ -126,42 +126,37 @@ namespace DCEngine {
   @brief  Engine, Daisy, Definition
   \**************************************************************************/
   ZilchDefineType(Engine, "Daisy", DCEngineCore, builder, type) {
-    //ZilchBindMethod(builder, type, &(Daisy->OnLogicUpdateConnect), ZilchNoOverload, "OnLogicUpdateConnect", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &(Daisy->Connect<::DCEngine::Event>), ZilchNoOverload, "Connect", ZilchNoNames);
-
-    // Methods
-    //ZilchBindMethod(builder, type, &Engine::getKeyboard, ZilchNoOverload, "getKeyboard", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &Engine::getMouse, ZilchNoOverload, "getMouse", ZilchNoNames);
     DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Methods
     ZilchBindMethod(builder, type, &Engine::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Engine::Test, ZilchNoOverload, "Test", ZilchNoNames);
-    ZilchBindProperty(builder, type, &Engine::getMouse, ZilchNoSetter, "Mouse", ZilchNoNames);
-    ZilchBindProperty(builder, type, &Engine::getKeyboard, ZilchNoSetter, "Keyboard", ZilchNoNames);
+    ZilchBindProperty(builder, type, &Mouse::Access, ZilchNoSetter, "Mouse", ZilchNoNames)->IsStatic;
+    ZilchBindProperty(builder, type, &Keyboard::Access, ZilchNoSetter, "Keyboard", ZilchNoNames)->IsStatic;
+    DCE_BINDING_DEFINE_METHOD_NO_ARGS(Engine, Test);
 
     // Connect to entity
     Zilch::ParameterArray connectEntity;
     connectEntity.push_back(ZilchTypeId(Entity));
     connectEntity.push_back(ZilchTypeId(Zilch::String));
     connectEntity.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnect, connectEntity, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnect, connectEntity, ZilchTypeId(void), Zilch::FunctionOptions::Static);
     // Connect to space
     Zilch::ParameterArray connectSpace;
     connectSpace.push_back(ZilchTypeId(Space));
     connectSpace.push_back(ZilchTypeId(Zilch::String));
     connectSpace.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToSpace, connectSpace, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToSpace, connectSpace, ZilchTypeId(void), Zilch::FunctionOptions::Static);
     // Connect to keyboard
     Zilch::ParameterArray connectKeyboard;
     connectKeyboard.push_back(ZilchTypeId(Keyboard));
     connectKeyboard.push_back(ZilchTypeId(Zilch::String));
     connectKeyboard.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToKeyboard, connectKeyboard, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToKeyboard, connectKeyboard, ZilchTypeId(void), Zilch::FunctionOptions::Static);
     // Connect to mouse
     Zilch::ParameterArray connectMouse;
     connectMouse.push_back(ZilchTypeId(Mouse));
     connectMouse.push_back(ZilchTypeId(Zilch::String));
     connectMouse.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToMouse, connectMouse, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToMouse, connectMouse, ZilchTypeId(void), Zilch::FunctionOptions::Static);
 
   }
 

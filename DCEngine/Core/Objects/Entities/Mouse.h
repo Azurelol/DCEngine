@@ -26,10 +26,8 @@ namespace DCEngine {
 
   public:
 
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    static Mouse* Access();
     ZilchDeclareDerivedType(Mouse, Entity);
-    #endif
-    
     Mouse::Mouse() : Entity(std::string("Mouse")) {
       if (TRACE_ON && TRACE_CONSTRUCTOR)
         DCTrace << ObjectName << " Interface - Constructor \n";
