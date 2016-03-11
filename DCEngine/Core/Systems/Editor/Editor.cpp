@@ -146,7 +146,7 @@ namespace DCEngine {
         setEnabled(true);
         // Pause the engine (Physics, Input, Events)
         DispatchSystemEvents::EnginePause();
-        DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
+        //DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
         // Quit the Game
         DispatchGameEvents::GameEnded();
         // Reload the level
@@ -165,7 +165,7 @@ namespace DCEngine {
         DispatchSystemEvents::EngineResume();
         // Send the game start event
         DispatchGameEvents::GameStarted();
-        DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
+        //DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
         // Set the editor camera
         SetEditorCamera(false);
         Deselect();

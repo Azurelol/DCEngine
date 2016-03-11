@@ -298,15 +298,17 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
-
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
+    DCTrace << "\n\n"
+            << "/------------------------------------------------/ \n";
     if (!editorEnabled) {
-      for (auto& gameObject : GameObjectContainer) {
-        DCTrace << "Initializing " << gameObject->Name() << "\n";
+      for (auto& gameObject : GameObjectContainer) {        
         gameObject->Initialize();    
       }
     }
+
+
 
   }
 
@@ -380,7 +382,7 @@ namespace DCEngine {
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
-
+    DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
     return gameObject;
   }
 
@@ -404,7 +406,7 @@ namespace DCEngine {
     }
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
-
+    DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
     return gameObject;
   }
 

@@ -35,6 +35,10 @@ namespace DCEngine {
       //builder.Begin(Zilch::JsonType::Object);      
 
 
+      if (Zilch::Type::IsSame(property->PropertyType, (ZilchTypeId(GameObject)))) {
+        continue;
+      }
+
       // Set up the 'getter' method so that we can serialize the value
       Zilch::Call call(property->Get, state);
       if (handle.Dereference())
@@ -183,6 +187,10 @@ namespace DCEngine {
     // For every 'bound' property in the object
     for (auto property : properties->OrderedMembers.all()) {
       //
+
+
+
+
       Zilch::JsonValue* value = property->Value;
       // Attemot to either get it as a 'Property' with Getter/Setter methods
       Zilch::Property* namedProperty = boundType->GetInstanceProperty(property->Key);
@@ -191,12 +199,17 @@ namespace DCEngine {
         namedProperty = boundType->GetInstanceField(property->Key);
       }
       // If the property on file could not be found on the objec...
-      if (namedProperty == nullptr)     
+      if (namedProperty == nullptr)
         continue;
+
+      if (Zilch::Type::IsSame(namedProperty->PropertyType, (ZilchTypeId(GameObject)))) {
+        continue;
+      }
 
       // If there is no set method
       if (namedProperty->Set == nullptr)
         continue;
+
 
 
 

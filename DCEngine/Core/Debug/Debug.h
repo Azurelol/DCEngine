@@ -16,6 +16,8 @@
 #include <memory>
 #include <sstream>
 
+//#include "../Systems/SystemsConfiguration.h"
+
 #undef DCException
 
 namespace DCEngine
@@ -27,9 +29,14 @@ namespace DCEngine
   #define DCE_TRACE_FACTORY_COMPONENT_CONSTRUCTION 0
   #define DCE_TRACE_FACTORY_COMPONENT_MAP 0
   //#define TraceFactoryResourceAdd 0
+  
+  namespace Systems {
+    //class DebugConfig::TraceTypes;
+  }
 
   namespace Debug {
 
+    //static Systems::DebugConfig::TraceTypes& Tracing();
     static bool TraceFactoryResourceAdd = 0;
 
     #define TRACE_ON 1
@@ -68,6 +75,7 @@ namespace DCEngine
       Trace(std::string fileName);
       ~Trace();
 
+      
       template<typename T>
       Trace& operator<<(const T& data) {
       #ifndef _PRODUCTION
@@ -80,6 +88,9 @@ namespace DCEngine
       #endif
         
       }
+
+
+
       std::stringstream stream;
 
     private:
@@ -99,7 +110,7 @@ namespace DCEngine
     };
 
     extern std::unique_ptr<Trace> traceObj;
-#define DCTrace (*::DCEngine::Debug::traceObj) 
+    #define DCTrace (*::DCEngine::Debug::traceObj) 
 
   }
 }

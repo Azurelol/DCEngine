@@ -74,6 +74,7 @@ namespace DCEngine {
     GameObjectPtr Parent() { return ParentRef; }    
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
+    void Test();
 
     // Stream
     friend std::ostream& operator<<(std::ostream&, GameObject const&);

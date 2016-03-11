@@ -28,8 +28,7 @@
 
 
 */
-/******************************************************************************/
-#pragma once
+/******************************************************************************/#pragma once
 
 // Libraries
 #include <list>
@@ -64,10 +63,23 @@ namespace DCEngine {
   };
 
 
+  //class BaseDelegate {
+  //  virtual void Invoke(Event*);
+  //};
+
+  // C++ version
+  //class CppDelegate : public EventDelegate {
+  //  void Invoke(Event*);
+  //};
+
+
+
+
   /**************************************************************************/
   /*!
   @class EventMemberFunctionDelegate Templated class that allows member 
-         functions to connect to an entity's events.
+         functions to connect to an entity's events. This version is used
+         by C++.
   */
   /**************************************************************************/
   template <typename Class, typename EventClass>
@@ -95,62 +107,37 @@ namespace DCEngine {
       (Inst->*FuncPtr)(eventObj);
       return true;
     }
-
-    virtual Object* GetObserver() {
+    Object* GetObserver() {
       return Inst;
     }
+
   };
-  template<typename ZilchComponent>
+
+
+  //// Zilch version
+  //class ScriptDelegate : public EventDelegate {
+  //  void Invoke(Event*);
+  //  Zilch::Delegate* Delegate;
+  //  Zilch::ExecutableState* State;
+  //};
+
+  /**************************************************************************/
+  /*!
+  @class EventZilchFunctionDelegate Templated class that allows member
+  functions to connect to an entity's events. This version is used
+  by C++.
+  */
+  /**************************************************************************/
   class EventZilchFunctionDelegate : public EventDelegate {
   public:
-    Zilch::Function* FuncPtr;
-    ZilchComponent* Inst;
-
-    /**************************************************************************/
-    /*!
-    @brief  Calls the member function given an event.
-    @param  A pointer to the event object.
-    @note   If the Object instance is no longer valid (such as if the object
-    was destroyed, this will return false)
-    */
-    /**************************************************************************/
-    virtual bool Call(Event* event) {
-      // If the object instance has been rendered null, do nothing
-      if (Inst == nullptr) {
-        return false;
-      }
-      Zilch::ExceptionReport report;
-      
-      // Else, if it is active, dispatch the event object
-      Systems::ZilchInterface* Interface = &Systems::ZilchInterface::Get();
-      Zilch::Call call(FuncPtr, Interface->GetState());
-      call.Set<Zilch::Handle>(Zilch::Call::This, Inst->getInstance());
-      call.Set<>(0, event);
-      call.Invoke(report);
-      return true;
-    }
-
-    virtual Object* GetObserver() {
-      return Inst->Owner();
-    }
-  };
-
-
-  class BaseDelegate {
-    virtual void Invoke(Event*);
-  };
-
-  // C++ version
-  class CppDelegate : public BaseDelegate {
-    void Invoke(Event*);
-  };
-
-  // Zilch version
-  class ScriptDelegate : public BaseDelegate {
-    void Invoke(Event*);
-    Zilch::Delegate* Delegate;
+    Zilch::Delegate Delegate;
     Zilch::ExecutableState* State;
+    virtual bool Call(Event* event);
+    Object* GetObserver();
   };
+
+
+
 
 
 

@@ -64,14 +64,17 @@ namespace DCEngine {
     Mouse* getMouse() { return MouseHandle.get(); }
     GameSession* getGameSession() { return CurrentGameSession.get(); }
 
-    // Component Events
+    // Events (Template)
     template <typename EventClass, typename Class, typename MemberFunction>
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
-
-    void ZilchConnect(Entity& publisher, BaseDelegate*);
-
+    template<typename EventClass, typename Class, typename MemberFunction>
+    void Connect(std::string eventName, Entity* publisher, MemberFunction fn, Class* inst);
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
+    // Events
+    void ConnectTo(const std::string& eventName, Entity* publisher, EventDelegate* deleg, Component* inst);
+    void ZilchConnect(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void ZilchDisconnect(Zilch::Call& call, Zilch::ExceptionReport& report);
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);

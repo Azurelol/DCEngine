@@ -1,22 +1,26 @@
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
-  var Vec2lol : Real2 = Real2(1,0);
-  var Health : Real = 50;
-  var Health2 : Real = 23;
-  var MaxHealth : Real = 126;
-  var TestMeLol : Real = 25;
-  var Checky2 : Boolean = false;
-
+  var Inty : Integer = 5;
+  var Object : GameObject;
 
   function Initialize() {
   Console.WriteLine("Hello, John");
-  this.Owner.TestEntity();
+  this.Owner.TestEntity(); 
+  this.Space.TestSpace();
+  this.GameSession.TestGameSession();
+  this.Owner.TestMeString("Creating BounceParticle!");
+  this.Object = this.Space.CreateObject("BounceParticle");
+  this.Object.Test();  
+  this.Hello();
   }
 
   function OnLogicUpdate() {
    //Console.WriteLine("Please no"); 
+  }
 
+  function Hello() {
+    Console.WriteLine("Hello from the console");
   }
 	
 }
