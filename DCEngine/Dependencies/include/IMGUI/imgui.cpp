@@ -7447,6 +7447,11 @@ bool ImGui::InputTextEx(const char* label, char* buf, int buf_size, const ImVec2
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_Z) && is_editable)    { edit_state.OnKeyPressed(STB_TEXTEDIT_K_UNDO); edit_state.ClearSelection(); }
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_Y) && is_editable)    { edit_state.OnKeyPressed(STB_TEXTEDIT_K_REDO); edit_state.ClearSelection(); }
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_A))                   { edit_state.SelectAll(); edit_state.CursorFollow = true; }
+// JJ: Added CRTL+S for for saving. 
+        else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_S))
+        {
+
+        }
         else if (is_ctrl_only && !is_password && ((IsKeyPressedMap(ImGuiKey_X) && is_editable) || IsKeyPressedMap(ImGuiKey_C)) && (!is_multiline || edit_state.HasSelection()))
         {
             // Cut, Copy

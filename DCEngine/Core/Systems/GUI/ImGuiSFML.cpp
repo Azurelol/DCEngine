@@ -317,6 +317,7 @@ namespace DCEngine {
       io.KeyMap[ImGuiKey_X] = sf::Keyboard::X;
       io.KeyMap[ImGuiKey_Y] = sf::Keyboard::Y;
       io.KeyMap[ImGuiKey_Z] = sf::Keyboard::Z;
+      io.KeyMap[ImGuiKey_S] = sf::Keyboard::S;
       TimeElapsed.restart();
     }
 
@@ -328,7 +329,7 @@ namespace DCEngine {
     IMGUI_API void ImGuiSFML::ImGuiSFMLEventsUpdate()
     {
       ImGuiIO& io = ImGui::GetIO();
-
+      
       // Update display size
       //io.DisplaySize = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
       //io.DisplayFramebufferScale = ImVec2(WindowContext->getSize().x, WindowContext->getSize().y);
