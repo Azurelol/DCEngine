@@ -56,7 +56,7 @@ namespace DCEngine {
     ZilchBindField(builder, type, &Object::ObjectName, "ObjectName", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Object::ObjectID, "ObjectID", Zilch::PropertyBinding::Get);
     // Properties
-    ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");
+    ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");    
 
   }
   /*!************************************************************************\
@@ -77,7 +77,7 @@ namespace DCEngine {
   @brief  Resource Definition 
   \**************************************************************************/
   ZilchDefineType(Resource, "Resource", DCEngineCore, builder, type) {
-    DCE_BINDING_RESOURCE_SET_HANDLE_TYPE;
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Resource, "type, name, resourcePath", std::string, std::string, std::string);
     ZilchBindDestructor(builder, type, Resource);
@@ -114,6 +114,7 @@ namespace DCEngine {
   @brief  GameSession Definition
   \**************************************************************************/
   ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, GameSession, "name", std::string);
     ZilchBindDestructor(builder, type, GameSession);      // Methods
@@ -124,33 +125,13 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &GameSession::TestGameSession, ZilchNoOverload, "TestGameSession", ZilchNoNames);
   }
 
-  /*!************************************************************************\
-  @brief  GameObject Definition
-  \**************************************************************************/
-  ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
-    ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::FindChildByName, ZilchNoOverload, "FindChildByName", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &GameObject::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &GameObject::Children, ZilchNoOverload, "Children", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::AttachTo, ZilchNoOverload, "AttachTo", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
-    ZilchBindDestructor(builder, type, GameObject);
-    // Fields
-    // Properties
 
-  }
 
   /*!************************************************************************\
   @brief  Space Definition
   \**************************************************************************/
   ZilchDefineType(Space, "Space", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Space, "name, gamesession", std::string, GameSession&);
     ZilchBindDestructor(builder, type, Space);
@@ -165,7 +146,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Space::ReloadLevel, ZilchNoOverload, "ReloadLevel", ZilchNoNames);
     //ZilchBindMethod(builder, type, &Space::Update, ZilchNoOverload, "Update", ZilchNoNames);
     //ZilchBindMethod(builder, type, &Space::CreateObject, GameObject* , "CreateObject", "archetype");
-    //ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)()), "CreateObject", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)()), "CreateObject", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)(std::string)), "CreateObject", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::FindObjectByName, (GameObject* (Space::*)(const std::string)), "FindObjectByName", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::DestroyAll, ZilchNoOverload, "DestroyAll", ZilchNoNames);

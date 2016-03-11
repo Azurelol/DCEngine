@@ -19,16 +19,13 @@
 
 namespace DCEngine {
   
-    class Event {
+    class Event : public Zilch::IZilchObject {
     public:
       ZilchDeclareBaseType(Event, Zilch::TypeCopyMode::ReferenceType);
       static unsigned int EventsCreated;
       static unsigned int EventsDestroyed;
 
-      Event(std::string name) : Name(name) {
-        EventsCreated++;
-      }
-
+      Event(std::string name);
       virtual ~Event(void) {
         EventsDestroyed++;
       }

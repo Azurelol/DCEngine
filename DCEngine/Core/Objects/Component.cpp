@@ -93,6 +93,29 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Component destructor.
+  */
+  /**************************************************************************/
+  Component::~Component()
+  {
+    if (DCE_TRACE_COMPONENT_DESTRUCTOR)
+      DCTrace << ObjectOwner->Name() << "::" << Name()
+      << "::~Component - Destructor called! \n";
+    ComponentsDestroyed++;
+
+    // Deregister from all publishers
+    for (auto publisher : ActiveDelegateHolders) {
+      //publisher->Dis
+      Daisy->Disconnect<Entity>(publisher, this);
+    }
+
+
+    if (DiagnosticsEnabled)
+      ComponentLastDestroyed = ObjectName;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Sets the Owner reference for this component.
   */
   /**************************************************************************/
@@ -123,28 +146,7 @@ namespace DCEngine {
 
   }
 
-  /**************************************************************************/
-  /*!
-  @brief Component destructor.
-  */
-  /**************************************************************************/
-  Component::~Component()
-  {
-    if (DCE_TRACE_COMPONENT_DESTRUCTOR)
-      DCTrace << ObjectOwner->Name() << "::" << Name()
-      << "::~Component - Destructor called! \n";
-    ComponentsDestroyed++;
 
-    // Deregister from all publishers
-    for (auto publisher : ActiveDelegateHolders) {
-      //publisher->Dis
-      Daisy->Disconnect<Entity>(publisher, this);
-    }
-
-
-    if (DiagnosticsEnabled)
-      ComponentLastDestroyed = ObjectName;
-  }
 
   /**************************************************************************/
   /*!
@@ -236,6 +238,16 @@ namespace DCEngine {
   /**************************************************************************/
   Entity* Component::Owner() {
     return dynamic_cast<Entity*>(ObjectOwner);
+  }
+
+  Space * Component::getSpace() const
+  {
+    return SpaceRef;
+  }
+
+  GameSession * Component::getGameSession() const
+  {
+    return GameSessionRef;
   }
 
   /**************************************************************************/

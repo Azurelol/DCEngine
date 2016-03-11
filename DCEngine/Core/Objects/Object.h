@@ -43,7 +43,8 @@ namespace DCEngine {
       Object(std::string name);
       Object();
       virtual ~Object();
-      const std::string& Name() const;      
+      const std::string& Name() const;   
+      Object* Owner() { return ObjectOwner; } // Quick hack until I refactor events for engine/systems
       // Properties
       DCE_DEFINE_PROPERTY(std::string, ObjectName);
       DCE_DEFINE_PROPERTY(unsigned int, ObjectID);
@@ -61,6 +62,7 @@ namespace DCEngine {
 
     protected:
       std::string ObjectName;
+      Object* ObjectOwner; //!< Should this be a smart pointer?
       static unsigned int ObjectsCreated;
       unsigned int ObjectID;
             

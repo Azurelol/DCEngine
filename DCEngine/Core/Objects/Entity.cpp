@@ -32,6 +32,8 @@ namespace DCEngine {
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
     ZilchBindMethod(builder, type, &Entity::TestEntity, ZilchNoOverload, "TestEntity", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
+    // Engine-component properties
+    //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
   }
 
   /**************************************************************************/
@@ -39,8 +41,9 @@ namespace DCEngine {
   \brief  Entity constructor.
   */
   /**************************************************************************/
-  Entity::Entity(std::string name) : Object("Entity"), ArchetypeName(""), Actions(*this) {
-    ObjectName = name;
+  Entity::Entity(std::string name) : Object(name), IsInitialized(false), 
+                                     ModifiedFromArchetype(false),
+                                     ArchetypeName(""), Actions(*this) {
   }
 
   /**************************************************************************/
@@ -75,6 +78,8 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
       return;
     }
+    
+    //DCTrace << "Initializing " << Name() << "\n";
 
     // Initialize factory-created components
     for (auto &component : ComponentsContainer)
@@ -85,7 +90,8 @@ namespace DCEngine {
     }
     // Flag this entity as already being initialized
     IsInitialized = true;
-    DCTrace << ObjectName << "::Initialize \n";
+    if (DCE_TRACE_COMPONENT_INITIALIZE)
+      DCTrace << ObjectName << "::Initialize \n";
   }
 
   /**************************************************************************/

@@ -21,7 +21,6 @@ namespace DCEngine {
   \param  A pointer to the entity.
   \param  A member function from the component.
   \param  A pointer to the component.
-  \return A shared pointer to the requested system.
   */
   /**************************************************************************/
   template<typename EventClass, typename Class, typename MemberFunction>
@@ -41,39 +40,24 @@ namespace DCEngine {
   }
 
   //// Called by C++
-  //template<typename EventClass, typename Class, typename MemberFunction>
-  //void Engine::Connect(std::string aName, Entity* publisher, MemberFunction fn, Class* inst) {
-  //  // Construct the member function delegate
-  //  auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
-  //  memDeg->FuncPtr = fn;
-  //  memDeg->Inst = inst;
-
-  //  Connect(aName, publisher, memDeg, inst);
-  //}
-
-  // Called by Zilch
-  //void ZilchConnectFoReal(Zilch::Call &call, Zilch::ExceptionReport &report) {
-  //  auto eventType = call.Get<Zilch::String>(0);
-
-
-  //  auto actualDelegate = new ScriptDelegate();
-  //  actualDelegate->Delegate =  call.Get<Zilch::Delegate>(1);
-
-
-  //  Connect(eventType, )
-
-  //}
-
-  //// Called by both
-  //void Engine::Connect(std::string aEventName, Entity &publisher, BaseDelegate *deleg, BaseEventHandler *aInst) {
-  //  // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-  //  publisher->ObserverRegistryByString[aEventName].emplace_back(deleg);
-  //  //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
-  //  // Add a pointer to entiyy
-  //  aInst->ActiveDelegateHolders.push_back(publisher);
-  //}
-
-
+  /**************************************************************************/
+  /*!
+  \brief  Subscribes a component to an entity, registering it to its listeners'
+          registry for the specific event.
+  \param  eventName The name of the event.
+  \param  publisher A pointer to the entity to connect to.
+  \param  fn The member function to connect to.
+  \param  inst A pointer to the instance of the receiver.
+  */
+  /**************************************************************************/
+  template<typename EventClass, typename Class, typename MemberFunction>
+  void Engine::Connect(std::string eventName, Entity* publisher, MemberFunction fn, Class* inst) {
+    // Construct the member function delegate
+    auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
+    memDeg->FuncPtr = fn;
+    memDeg->Inst = inst;
+    Connect(eventName, publisher, memDeg, inst);
+  }
 
   template<typename EventClass>
   void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
@@ -116,7 +100,7 @@ namespace DCEngine {
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = (EventDelegate*)memDeg;
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-    this->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    this->ObserverRegistry[std::type_index(typeid(EventClass))].push_back(degPtr);
   }
 
   /**************************************************************************/

@@ -11,15 +11,14 @@
 */
 /******************************************************************************/
 #include "Debug.h"
+#include "../Engine/Engine.h"
 
 #undef DCException
 
-namespace DCEngine
-{
+namespace DCEngine {
   namespace Debug {
 
     std::unique_ptr<Trace> traceObj = nullptr;
-
     /**************************************************************************/
     /*!
     \brief  Creates the DCTrace object.
@@ -90,6 +89,18 @@ namespace DCEngine
         << "////////////////////////////////////////////////////// \n";
       return os;
     }
+
+    /**************************************************************************/
+    /*!
+    @brief Grabs a reference to the tracing settings.
+    @return A reference to the struct containing Debugging settings.
+    */
+    /**************************************************************************/
+    //Systems::DebugConfig::TraceTypes & Tracing()
+    //{
+    //  return Daisy->Configuration().Debug.Tracing;
+    //}
+
   }
 }
 

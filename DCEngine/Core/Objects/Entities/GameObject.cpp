@@ -19,6 +19,34 @@ entities.
 
 namespace DCEngine {
     
+  /*!************************************************************************\
+  @brief  GameObject Definition
+  \**************************************************************************/
+  ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
+    ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::FindChildByName, ZilchNoOverload, "FindChildByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::Children, ZilchNoOverload, "Children", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachTo, ZilchNoOverload, "AttachTo", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Test, ZilchNoOverload, "Test", ZilchNoNames);
+    //DCE_BINDING_DEFINE_METHOD_NO_ARGS(GameObject, Test);
+    ZilchBindDestructor(builder, type, GameObject);
+    // Fields
+    // Properties
+
+  }
+
+
+
   // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
   unsigned int GameObject::GameObjectsDestroyed = 0;
@@ -48,7 +76,8 @@ namespace DCEngine {
         << "\n";
 
     }
-
+       
+    
     type_ = EntityType::GameObject;
 
     // Diagnostics
@@ -258,6 +287,11 @@ namespace DCEngine {
     Entity::Deserialize(properties);
     // Deserialize the GameObject properties
     DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
+  }
+
+  void GameObject::Test()
+  {
+    DCTrace << Name() << "GameObject::Test \n";
   }
 
   /**************************************************************************/

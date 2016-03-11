@@ -90,7 +90,7 @@ namespace DCEngine {
     {
       // If the editor camera needs to be set
       if (set) {
-        DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
+        //DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
         editorCamera->AddComponentByName("Camera", true);
         editorCamera->AddComponentByName("EditorCameraController", true);
@@ -112,7 +112,7 @@ namespace DCEngine {
       }
       // If the editor camera needs to be removed
       else {
-        DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
+        //DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
         // Save the last position of the editor's camera
         Settings.CameraLastPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
         // Look for a camera on the space to be default

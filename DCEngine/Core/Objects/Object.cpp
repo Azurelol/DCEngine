@@ -25,7 +25,8 @@ namespace DCEngine {
           set their names through this constructor.
   */
   /**************************************************************************/
-  Object::Object(std::string name) : ObjectName(name), ObjectID(ObjectsCreated++)
+  Object::Object(std::string name) : ObjectName(name), ObjectID(ObjectsCreated++), 
+                                     ObjectOwner(nullptr)
   {
 
   }

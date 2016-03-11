@@ -384,18 +384,47 @@ namespace DCEngine {
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     CurrentGameSession->Initialize();
-
+  }
+  
+  /**************************************************************************/
+  /*!
+  @brief Connects an object to an event on an entity.
+  @param eventName The name of the event.
+  @param publisher A reference to the entity to connect to.
+  @param deleg A pointer to the delegate.
+  @param inst The instance of the object which will connect.
+  @note This method is routed to by both C++ and Zilch components.
+  */
+  /**************************************************************************/
+  void Engine::ConnectTo(const std::string & eventName, Entity* publisher, EventDelegate * deleg, Component * inst)
+  {
+    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
+    publisher->ObserverRegistryByString[eventName].emplace_back(deleg);
+    //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    // Add a pointer to entiyy
+    inst->ActiveDelegateHolders.push_back(publisher);
   }
 
   /**************************************************************************/
   /*!
-  @brief  Loads the GameSession's default space
+  @brief Connects a ZilchComponent.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
   */
   /**************************************************************************/
-  void Engine::ZilchConnect(Entity & publisher, BaseDelegate * deleg)
+  void Engine::ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
-    //
+    auto eventType = call.Get<Zilch::String>(0);
+    auto actualDelegate = new EventZilchFunctionDelegate();
+    //actualDelegate->Delegate = call.Get<Zilch::Delegate>(1);
+    //Connect(eventType, )
   }
+
+  void Engine::ZilchDisconnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+  }
+
+
   
   /**************************************************************************/
   /*!

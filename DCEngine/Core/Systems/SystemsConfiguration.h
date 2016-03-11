@@ -238,6 +238,17 @@ namespace DCEngine {
     */
     /**************************************************************************/
     struct DebugConfig : public Configuration {
+      struct TraceInfo {
+        bool Construction;
+        bool Initialize;
+        bool Update;
+      };
+      struct TraceTypes {
+        TraceInfo GameObjects;
+        TraceInfo Components;
+        TraceInfo Events;
+      };
+      TraceTypes Tracing;
       DebugConfig();
       static std::string FileName() { return "ConfigurationDebug.cfg"; }
       void Serialize(Json::Value& root);

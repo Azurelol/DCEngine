@@ -29,72 +29,33 @@ thanks to Gab and Arend.
 
 */
 /******************************************************************************/
-
+#include "EventDelegate.h"
 #include "Delegate.h"
+#include "../Objects/Event.h"
 
 namespace DCEngine {
 
-}
+  /**************************************************************************/
+  /*!
+  @brief  Calls the member function given an event.
+  @param  A pointer to the event object.
+  @note   If the Object instance is no longer valid (such as if the object
+  was destroyed, this will return false)
+  */
+  /**************************************************************************/
+  bool EventZilchFunctionDelegate::Call(Event * event)
+  {
+    Zilch::ExceptionReport report;
+    Zilch::Call call(Delegate, State);
+    //call.DisableParameterChecks();
+    call.Set(0, event);
+    call.Invoke(report);
+    return true;
+  }
 
-///******************************************************************************/
-//#pragma once
-//
-//// Libraries
-//#include <list> // doubly-linked list
-//#include <functional>
-//#include <typeindex>
-//#include <typeinfo>
-//#include "..\Engine\Types.h"
-//
-//namespace DCEngine {
-//
-//  // Forward declarations
-//  class Component;
-//  class Event;
-//  class EventDelegate;
-//
-//  // Alias declarations
-//  using ComponentFnPtr = void(Component::*)(DCEngine::Event*);
-//  using DelegateFnPtr = void(EventDelegate::*)(DCEngine::Event*);
-//
-//  // Class declaration
-//  class EventDelegate {
-//  public:
-//    EventDelegate(void) : componentPtr(NULL) {}
-//
-//
-//    template <typename GenericComponent, typename EventClass, typename MemberFunction>
-//    void Create(GenericComponent* component, EventClass eventclass, MemberFunction fn) {
-//      componentPtr = component;
-//      auto eventClass = std::type_index(typeid(EventClass));
-//      funcPtr = static_cast<void(Component::*)(Event*)>(fn);
-//    }
-//
-//    void Call(DCEngine::Event* eventObj) {
-//      (componentPtr->*funcPtr)(eventObj);
-//      //(this->*caller_)(eventObj);
-//    }
-//
-//    Component* componentPtr;
-//    ComponentFnPtr funcPtr;
-//    void (EventDelegate::*caller_)(DCEngine::Event* eventObj);
-//
-//
-//  private:
-//
-//    template <typename GenericComponent>
-//    void Invoke(DCEngine::Event* eventObj) {
-//
-//      if (componentPtr == NULL) {
-//        DCTrace << "EventDelegate::Invoke - Fatal: No component provided \n";
-//      }
-//
-//      GenericComponent* comp = void_cast<GenericComponent*>(componentPtr);
-//      (comp->*(reinterpret_cast<ComponentFnPtr>(functionPtr)))(eventObj);
-//    }
-//    void (EventDelegate::*functionPtr)(DCEngine::Event* eventObj);
-//  };
-//
-//
-//
-//}
+  Object * EventZilchFunctionDelegate::GetObserver()
+  {
+    return reinterpret_cast<Object*>(Delegate.ThisHandle.Dereference());
+  }
+
+}

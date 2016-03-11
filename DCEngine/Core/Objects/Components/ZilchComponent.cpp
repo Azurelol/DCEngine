@@ -126,8 +126,8 @@ namespace DCEngine {
     // Find all bound functions!
     FindFunctions();
     // If updating directly, subscribe through C++ Logic Update Events
-    if (LogicUpdateDirectly)
-      Daisy->Connect<Events::LogicUpdate>(SpaceRef, &ZilchComponent::OnLogicUpdateEvent, this);
+    //if (LogicUpdateDirectly)
+    //  Daisy->Connect<Events::LogicUpdate>(SpaceRef, &ZilchComponent::OnLogicUpdateEvent, this);
 
     // Invoke the Initialize Method
     Zilch::Call init(InitializeFunc, Systems::ZilchInterface::GetState());

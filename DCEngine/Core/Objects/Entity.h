@@ -93,18 +93,19 @@ namespace DCEngine {
 
   private:
 
-    //! Use a vector here instead perhaps?
+    std::string ArchetypeName;
+    bool IsInitialized;
+    bool ModifiedFromArchetype;
+    // Events
+    std::map < std::string, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistryByString;
     std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    std::string ArchetypeName;
-    bool IsInitialized = false;
-
-    // Methods
-    ComponentHandle GetComponentHandle(ComponentPtr component);
     template <typename GenericEvent, typename GenericComponent>
     unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
     template <typename Class> void DeregisterObserver(Class* observer);
     void InformObserversOfDeath();
+    // Components
+    ComponentHandle GetComponentHandle(ComponentPtr component);
 
   };
 

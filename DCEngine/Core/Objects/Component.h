@@ -102,8 +102,8 @@ namespace DCEngine {
     // References
     template <typename EntityClass> EntityClass* getOwner();
     Entity* Owner(); // Returns a pointer to the component's owner
-    const Space& getSpace() const { return  *SpaceRef; }
-    const GameSession& getGameSession()  const { return *GameSessionRef; }
+    Space* getSpace() const;
+    GameSession* getGameSession() const;
     // Dependencies  
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies; }
     bool HasDependencies();
@@ -133,7 +133,7 @@ namespace DCEngine {
   private:
     Zilch::Handle mHandle;
     static DependenciesContainer __Base_Dependencies;
-    Entity* ObjectOwner; //!< Should this be a smart pointer?
+    //Entity* ObjectOwner; //!< Should this be a smart pointer?
     EntityType OwnerClass;
 
     //Component() = delete; // No default construction

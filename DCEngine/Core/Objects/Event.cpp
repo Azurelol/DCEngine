@@ -13,13 +13,29 @@ to it by 'Connecting' a member function to the event.
 
 */
 /******************************************************************************/
-
 #include "Event.h"
+#include "../Binding/CoreBinding.h"
+#include "../Binding/CoreBindingTypes.h"
 
 namespace DCEngine{
 
   // Initialize static member variables
   unsigned int Event::EventsCreated = 0;
   unsigned int Event::EventsDestroyed = 0;
+
+  // Base Event class
+  ZilchDefineType(Event, "Event", DCEngineCore, builder, type)
+  {    
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    ZilchBindConstructor(builder, type, Event, "name", std::string);
+    ZilchBindDestructor(builder, type, Event);
+    ZilchBindField(builder, type, &Event::Name, "Name", Zilch::PropertyBinding::Get);
+    ZilchBindField(builder, type, &Event::EventID, "EventID", Zilch::PropertyBinding::Get);
+  }
+  
+  Event::Event(std::string name) : Name(name) {
+    EventsCreated++;
+  }
+
 
 }
