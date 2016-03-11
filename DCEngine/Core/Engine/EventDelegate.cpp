@@ -47,7 +47,7 @@ namespace DCEngine {
   {
     Zilch::ExceptionReport report;
     Zilch::Call call(Delegate, State);
-    //call.DisableParameterChecks();
+    call.DisableParameterChecks();
     call.Set(0, event);
     call.Invoke(report);
     return true;

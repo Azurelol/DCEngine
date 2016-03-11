@@ -104,6 +104,7 @@ namespace DCEngine {
     Entity* Owner(); // Returns a pointer to the component's owner
     Space* getSpace() const;
     GameSession* getGameSession() const;
+    Engine* getEngine();
     // Dependencies  
     virtual DependenciesContainer& Dependencies() const noexcept { return __Base_Dependencies; }
     bool HasDependencies();

@@ -76,11 +76,12 @@ namespace DCEngine {
     void SwapToBack(ComponentPtr);
     void TestEntity();
     void TestMeString(const std::string& string);
-
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Dispatch(Event* eventObj, const std::string& eventName);
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);
+    void RegisterListener(Zilch::Call & call, Zilch::ExceptionReport & report);
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
@@ -100,9 +101,8 @@ namespace DCEngine {
     std::map < std::string, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistryByString;
     std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
-    template <typename GenericEvent, typename GenericComponent>
-    unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
-    template <typename Class> void DeregisterObserver(Class* observer);
+
+    template <typename Class> void DeregisterObserver(Class* observer);    
     void InformObserversOfDeath();
     // Components
     ComponentHandle GetComponentHandle(ComponentPtr component);

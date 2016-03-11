@@ -44,6 +44,7 @@ namespace DCEngine {
       virtual void Initialize();
       void Serialize(Zilch::JsonBuilder& builder);
       void Deserialize(Zilch::JsonValue* properties);
+      
 
     private:
       // Functions

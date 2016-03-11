@@ -384,6 +384,26 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief  Dispatches an event to the object.
+  \param eventObj The event object.
+  \param eventName The event class.
+  */
+  /**************************************************************************/
+  void Entity::Dispatch(Event * eventObj, const std::string & eventName)
+  {
+    // For every delegate in the registry
+    for (auto& event : ObserverRegistryByString) {
+      if (eventObj->Name != eventName)
+        continue;
+      // For every delegate in the list for this specific event
+      for (auto& deleg : event.second) {
+        deleg->Call(eventObj);
+      }
+    }
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a reference to the container of all the components this
   Entity has.
   @return A reference to the container of all components.

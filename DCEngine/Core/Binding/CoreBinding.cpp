@@ -20,9 +20,11 @@
 // Core Components
 #include "..\ComponentsInclude.h"
 // Core Events
+#include "CoreBindingEventStrings.h"
 #include "..\EventsInclude.h"
 // Engine
 #include "..\Engine\Engine.h"
+//#include "..\Binding\CoreBindingEvents.h"
 
 namespace DCEngine {  
 
@@ -75,6 +77,7 @@ namespace DCEngine {
     *      Events        *
     *===================*/
     ZilchInitializeType(Event);
+    ZilchInitializeType(EventStrings);
     //Game
     ZilchInitializeType(Events::GameFocusIn);
     ZilchInitializeType(Events::GameFocusOut);

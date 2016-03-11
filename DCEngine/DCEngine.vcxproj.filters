@@ -1546,6 +1546,9 @@
     <ClInclude Include="Core\Engine\EventDelegate.h">
       <Filter>Core\Engine\Delegates</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingEventStrings.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

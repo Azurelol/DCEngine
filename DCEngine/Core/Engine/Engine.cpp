@@ -28,6 +28,143 @@ namespace DCEngine {
   // A pointer to the 'ENGINE' object
   std::unique_ptr<Engine> Daisy = nullptr;
 
+
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent to an Entity.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  void ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto publisher = reinterpret_cast<Entity*>(call.Get<Entity*>(0));
+    auto eventType = call.Get<Zilch::String>(1);
+    auto& deleg = call.GetDelegate(2);
+    // Gets the pointers needed
+    //auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+    auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+    // Creates the delegate to be added to the entity
+    auto zilchFnDeleg = new EventZilchFunctionDelegate();
+    zilchFnDeleg->State = call.GetState();
+    zilchFnDeleg->Delegate = deleg;
+
+    Daisy->ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent to a Space.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  void ZilchConnectToSpace(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto publisher = reinterpret_cast<Space*>(call.Get<Space*>(0));
+    auto eventType = call.Get<Zilch::String>(1);
+    auto& deleg = call.GetDelegate(2);
+    // Gets the pointers needed
+    //auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+    auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+    // Creates the delegate to be added to the entity
+    auto zilchFnDeleg = new EventZilchFunctionDelegate();
+    zilchFnDeleg->State = call.GetState();
+    zilchFnDeleg->Delegate = deleg;
+
+    Daisy->ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent to the Mouse interface.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  void ZilchConnectToMouse(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto publisher = reinterpret_cast<Mouse*>(call.Get<Mouse*>(0));
+    auto eventType = call.Get<Zilch::String>(1);
+    auto& deleg = call.GetDelegate(2);
+    // Gets the pointers needed
+    //auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+    auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+    // Creates the delegate to be added to the entity
+    auto zilchFnDeleg = new EventZilchFunctionDelegate();
+    zilchFnDeleg->State = call.GetState();
+    zilchFnDeleg->Delegate = deleg;
+
+    Daisy->ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent to the Keyboard interface.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  void ZilchConnectToKeyboard(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto publisher = reinterpret_cast<Keyboard*>(call.Get<Keyboard*>(0));
+    auto eventType = call.Get<Zilch::String>(1);
+    auto& deleg = call.GetDelegate(2);
+    // Gets the pointers needed
+    //auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+    auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+    // Creates the delegate to be added to the entity
+    auto zilchFnDeleg = new EventZilchFunctionDelegate();
+    zilchFnDeleg->State = call.GetState();
+    zilchFnDeleg->Delegate = deleg;
+
+    Daisy->ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  }
+
+
+  /*!************************************************************************\
+  @brief  Engine, Daisy, Definition
+  \**************************************************************************/
+  ZilchDefineType(Engine, "Daisy", DCEngineCore, builder, type) {
+    //ZilchBindMethod(builder, type, &(Daisy->OnLogicUpdateConnect), ZilchNoOverload, "OnLogicUpdateConnect", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &(Daisy->Connect<::DCEngine::Event>), ZilchNoOverload, "Connect", ZilchNoNames);
+
+    // Methods
+    //ZilchBindMethod(builder, type, &Engine::getKeyboard, ZilchNoOverload, "getKeyboard", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &Engine::getMouse, ZilchNoOverload, "getMouse", ZilchNoNames);
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    ZilchBindMethod(builder, type, &Engine::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Engine::Test, ZilchNoOverload, "Test", ZilchNoNames);
+    ZilchBindProperty(builder, type, &Engine::getMouse, ZilchNoSetter, "Mouse", ZilchNoNames);
+    ZilchBindProperty(builder, type, &Engine::getKeyboard, ZilchNoSetter, "Keyboard", ZilchNoNames);
+
+    // Connect to entity
+    Zilch::ParameterArray connectEntity;
+    connectEntity.push_back(ZilchTypeId(Entity));
+    connectEntity.push_back(ZilchTypeId(Zilch::String));
+    connectEntity.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnect, connectEntity, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    // Connect to space
+    Zilch::ParameterArray connectSpace;
+    connectSpace.push_back(ZilchTypeId(Space));
+    connectSpace.push_back(ZilchTypeId(Zilch::String));
+    connectSpace.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToSpace, connectSpace, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    // Connect to keyboard
+    Zilch::ParameterArray connectKeyboard;
+    connectKeyboard.push_back(ZilchTypeId(Keyboard));
+    connectKeyboard.push_back(ZilchTypeId(Zilch::String));
+    connectKeyboard.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToKeyboard, connectKeyboard, ZilchTypeId(void), Zilch::FunctionOptions::None);
+    // Connect to mouse
+    Zilch::ParameterArray connectMouse;
+    connectMouse.push_back(ZilchTypeId(Mouse));
+    connectMouse.push_back(ZilchTypeId(Zilch::String));
+    connectMouse.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToMouse, connectMouse, ZilchTypeId(void), Zilch::FunctionOptions::None);
+
+  }
+
   /**************************************************************************/
   /*!
   \brief  Default constructor for the Engine object.
@@ -400,8 +537,7 @@ namespace DCEngine {
   {
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     publisher->ObserverRegistryByString[eventName].emplace_back(deleg);
-    //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
-    // Add a pointer to entiyy
+    // Add a pointer to the publishing entity in the component
     inst->ActiveDelegateHolders.push_back(publisher);
   }
 
@@ -412,19 +548,36 @@ namespace DCEngine {
   @param report A reference to the report object.
   */
   /**************************************************************************/
-  void Engine::ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
-  {
-    auto eventType = call.Get<Zilch::String>(0);
-    auto actualDelegate = new EventZilchFunctionDelegate();
-    //actualDelegate->Delegate = call.Get<Zilch::Delegate>(1);
-    //Connect(eventType, )
-  }
+  //void Engine::ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  //{
+  //  auto eventType = call.Get<Zilch::String>(0);
+  //  auto& deleg = call.GetDelegate(1);
+  //  // Gets the pointers needed
+  //  auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+  //  auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+  //  // Creates the delegate to be added to the entity
+  //  auto zilchFnDeleg = new EventZilchFunctionDelegate();
+  //  zilchFnDeleg->State = call.GetState();
+  //  zilchFnDeleg->Delegate = deleg;
 
+  //  ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  //}
+
+  /**************************************************************************/
+  /*!
+  @brief Disconnects a ZilchComponent from a particular event on an entity.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
   void Engine::ZilchDisconnect(Zilch::Call & call, Zilch::ExceptionReport & report)
   {
   }
 
-
+  void Engine::Test()
+  {
+    DCTrace << "Engine::Test \n";
+  }
   
   /**************************************************************************/
   /*!

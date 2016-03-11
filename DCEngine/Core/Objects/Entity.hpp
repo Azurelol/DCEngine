@@ -115,9 +115,8 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  \brief  Dispatches an event to the object.
-  \param The event class
-  \param The event object that is being passed.
+  \brief  Dispatches an event to the object.  
+  \param eventObj The event object that is being passed.
   */
   /**************************************************************************/
   template <typename EventClass>
@@ -125,7 +124,7 @@ namespace DCEngine {
     if (TRACE_DISPATCH)
       DCTrace << Name() << "::Dispatch - Sending event\n";
 
-    // For every delegate in the registry
+    // 1. Dispatch to events identified by type_index
     auto eventTypeID = std::type_index(typeid(EventClass));
     // Look for a matching event among the keys
     for (auto& eventKey : ObserverRegistry) {
@@ -149,6 +148,9 @@ namespace DCEngine {
           DCTrace << Name() << "::Dispatch - No delegate with event type matched!\n";
       }
     }
+
+    // 2. Dispatch to events identified by name
+    Dispatch(eventObj, eventObj->Name);
   }
 
   /**************************************************************************/
@@ -196,22 +198,29 @@ namespace DCEngine {
   template<typename Class>
   inline void Entity::DeregisterObserver(Class * observer)
   {
-    // For every event in the map
+    // 1. Look for the observer in the registry by type
     for (auto& event : ObserverRegistry) {
       // For every delegate in the list of delegates
       for (auto it = event.second.begin(); it != event.second.end(); ++it) {
         // If the observer the delegate is pointing to matches..
         if ((*it)->GetObserver() == observer) {
-          // Remove it
-          //(*it).reset();
           event.second.erase(it);
           break;
-          //delete (*it);
-          //*it = event.second.back();
-          //event.second.pop_back();
         }
       }
     }
+    // 2. Look for the observer in the second registry by name
+    for (auto& event : ObserverRegistryByString) {
+      // For every delegate in the list of delegates
+      for (auto it = event.second.begin(); it != event.second.end(); ++it) {
+        // If the observer the delegate is pointing to matches..
+        if ((*it)->GetObserver() == observer) {
+          event.second.erase(it);
+          break;
+        }
+      }
+    }
+
   }
 
 }

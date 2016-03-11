@@ -56,25 +56,32 @@ namespace DCEngine {
     auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
     memDeg->FuncPtr = fn;
     memDeg->Inst = inst;
-    Connect(eventName, publisher, memDeg, inst);
+    ConnectTo(eventName, publisher, memDeg, inst);
   }
 
-  template<typename EventClass>
-  void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
+  //template<typename EventClass>
+  //void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
 
-    auto zilchDeg = new EventZilchFunctionDelegate<ZilchComponent>();
-    zilchDeg->FuncPtr = fn;
-    zilchDeg->Inst = inst;
+  //  auto zilchDeg = new EventZilchFunctionDelegate<ZilchComponent>();
+  //  zilchDeg->FuncPtr = fn;
+  //  zilchDeg->Inst = inst;
 
-    // Create a base delegate pointer to pass to the entity's container
-    auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
-    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-    publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
-    // Add a pointer to entiyy
-    inst->ActiveDelegateHolders.push_back(publisher);
-  }
+  //  // Create a base delegate pointer to pass to the entity's container
+  //  auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
+  //  // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
+  //  publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
+  //  // Add a pointer to entiyy
+  //  inst->ActiveDelegateHolders.push_back(publisher);
+  //}
 
 
+  /**************************************************************************/
+  /*!
+  \brief  Unsubscribes a system's member function to an engine event.
+  \param  publisher A pointer to the engine instance.
+  \param  observerA member function from the component.
+  */
+  /**************************************************************************/
   template<typename Publisher, typename Observer>
   inline void Engine::Disconnect(Publisher * publisher, Observer * observer)
   {

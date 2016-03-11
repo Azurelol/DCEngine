@@ -105,10 +105,9 @@ namespace YTE
       BaseEventHandler();
 
       void Trigger(const std::string &eventName, Event *e);
-
       void StopListening(const std::string &eventName,
         BaseEventHandler& callbacker);
-
+			
       template <typename ClassType, typename EventType>
       void RegisterListener(std::string eventName, ClassType& otherObj,
         void (ClassType::*callback)(EventType*))

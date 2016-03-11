@@ -35,6 +35,7 @@ namespace DCEngine {
     ZilchBindProperty(builder, type, &ZilchComponent::Owner, ZilchNoSetter, "Owner");
     ZilchBindProperty(builder, type, &ZilchComponent::getSpace, ZilchNoSetter, "Space");
     ZilchBindProperty(builder, type, &ZilchComponent::getGameSession, ZilchNoSetter, "GameSession");    
+    ZilchBindProperty(builder, type, &ZilchComponent::getEngine, ZilchNoSetter, "Daisy");
   }
 
   /**************************************************************************/

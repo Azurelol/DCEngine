@@ -12,4 +12,4 @@ back.
 #pragma once
 #include "CoreBinding.h"
 #include "CoreBindingEnums.h"
-
+#include "CoreBindingEventStrings.h"

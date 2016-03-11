@@ -13,7 +13,13 @@ class Player : ZilchComponent
   this.Object = this.Space.CreateObject("BounceParticle");
   this.Object.Test();  
   this.Hello();
-  }
+  var a = DaisyEvent.MouseDown;
+  Console.WriteLine(a);
+  //Daisy.Connect(this.Owner, "Keydown", this.OnKeyDownEvent); 
+  //this.Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+ this.Daisy.Connect(this.Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
+ this.Daisy.Connect(this.Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent); 
+ }
 
   function OnLogicUpdate() {
    //Console.WriteLine("Please no"); 
@@ -22,5 +28,18 @@ class Player : ZilchComponent
   function Hello() {
     Console.WriteLine("Hello from the console");
   }
+
+function OnLogicUpdateEvent(event : LogicUpdate) {
+  Console.WriteLine("John notice me because I am receiving a logic update event in a script");
+  Console.WriteLine(event.Dt);
+}
+
+function OnKeyDownEvent(event : KeyDown) { 
+  Console.WriteLine("Pressed a key!");
+ }
+
+function OnMouseDownEvent(event : MouseDown) {
+  Console.WriteLine("Clicked!");
+}
 	
 }

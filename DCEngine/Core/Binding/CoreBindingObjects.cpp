@@ -56,21 +56,10 @@ namespace DCEngine {
     ZilchBindField(builder, type, &Object::ObjectName, "ObjectName", Zilch::PropertyBinding::Get);
     ZilchBindField(builder, type, &Object::ObjectID, "ObjectID", Zilch::PropertyBinding::Get);
     // Properties
-    ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "ObjectName");    
+    ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "Name");    
 
   }
-  /*!************************************************************************\
-  @brief  Engine, Daisy, Definition
-  \**************************************************************************/
-  ZilchDefineType(Engine, "Daisy", DCEngineCore, builder, type) {
-    //ZilchBindMethod(builder, type, &(Daisy->OnLogicUpdateConnect), ZilchNoOverload, "OnLogicUpdateConnect", ZilchNoNames);
-         //ZilchBindMethod(builder, type, &(Daisy->Connect<::DCEngine::Event>), ZilchNoOverload, "Connect", ZilchNoNames);
 
-    // Methods
-    ZilchBindMethod(builder, type, &Engine::getKeyboard, ZilchNoOverload, "getKeyboard", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Engine::getMouse, ZilchNoOverload, "getMouse", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Engine::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
-  }
 
 
   /*!************************************************************************\
@@ -90,6 +79,7 @@ namespace DCEngine {
   @brief  Keyboard Definition
   \**************************************************************************/
   ZilchDefineType(Keyboard, "Keyboard", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Keyboard, ZilchNoNames);
     ZilchBindDestructor(builder, type, Keyboard);
@@ -102,6 +92,7 @@ namespace DCEngine {
   @brief  Mouse Definition
   \**************************************************************************/
   ZilchDefineType(Mouse, "Mouse", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
    /* // Constructor / Destructor
     ZilchBindConstructor(builder, type, Mouse, ZilchNoNames);
     ZilchBindDestructor(builder, type, Mouse);

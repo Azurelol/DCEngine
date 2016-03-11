@@ -133,8 +133,41 @@ namespace DCEngine {
       ZilchBindField(builder, type, &PhysicsUpdate::TimePassed, "TimePassed", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &PhysicsUpdate::RealTimePassed, "RealTimePassed", Zilch::PropertyBinding::Get);
     }
-
-
-
   }
+  
+  /**************************************************************************/
+  /*!
+  @brief Provides the reflection of engine events on Zilch.
+  */
+  /**************************************************************************/
+  ZilchDefineType(EventStrings, "DaisyEvent", DCEngineCore, builder, type)
+  {
+    // Game Events
+    DCE_EVENTS_DEFINE_PROPERTY(GameFocusIn);
+    DCE_EVENTS_DEFINE_PROPERTY(GameFocusOut);
+    DCE_EVENTS_DEFINE_PROPERTY(GameLoad);
+    DCE_EVENTS_DEFINE_PROPERTY(GameRequestQuit);
+    DCE_EVENTS_DEFINE_PROPERTY(GameStarted);
+    DCE_EVENTS_DEFINE_PROPERTY(GameEnded);
+    DCE_EVENTS_DEFINE_PROPERTY(GameSetup);
+    // Input Events
+    DCE_EVENTS_DEFINE_PROPERTY(KeyDown);
+    DCE_EVENTS_DEFINE_PROPERTY(KeyUp);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseDown);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseUp);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseExit);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseUpdate);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseClickedOn);
+    DCE_EVENTS_DEFINE_PROPERTY(MouseScroll);
+    // Physics Events
+    DCE_EVENTS_DEFINE_PROPERTY(CollisionStarted);
+    DCE_EVENTS_DEFINE_PROPERTY(CollisionEnded);
+    DCE_EVENTS_DEFINE_PROPERTY(CollisionPersisted);
+    // Update Events
+    DCE_EVENTS_DEFINE_PROPERTY(LogicUpdate);
+    DCE_EVENTS_DEFINE_PROPERTY(FrameUpdate);
+    DCE_EVENTS_DEFINE_PROPERTY(PhysicsUpdate);
+  }
+
+
 }

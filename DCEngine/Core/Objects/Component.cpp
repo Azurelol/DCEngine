@@ -250,6 +250,11 @@ namespace DCEngine {
     return GameSessionRef;
   }
 
+  Engine * Component::getEngine()
+  {
+    return Daisy.get();
+  }
+
   /**************************************************************************/
   /*!
   @brief  Checks whether this component's owner has all the components
