@@ -41,6 +41,7 @@ namespace DCEngine {
       friend class EditorProjects;
       friend class EditorInspector;
       friend class EditorTextEditor;
+      friend class EditorObjects;
 
     public:
 
@@ -93,6 +94,7 @@ namespace DCEngine {
       EditorTextEditor TextEditor;
       EditorInspector Inspector;
       EditorPreferences Preferences;
+      EditorObjects Objects;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;
@@ -106,15 +108,10 @@ namespace DCEngine {
       // Windows
       void DisplayMainMenuBar();
       void WidgetLevel();
-      // Objects
-      void WindowObjects();
-      void ObjectsListSwapPosition(GameObjectPtr, Direction);
       // Tools
       void WindowTools();
       // Library
       void WindowLibrary();
-      //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
-      void WindowDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();

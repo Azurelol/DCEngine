@@ -150,10 +150,23 @@ namespace DCEngine {
     EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
     {      
       // 1. For every property... !!! CURRENTLY HARDCODED !!!
-      auto name = objectData->Value->GetMember("Name")->AsString().c_str();
-      entity->setObjectName(name);
-      auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      entity->setArchetype(archetype);
+
+      // Name is special
+      //auto name = objectData->Value->GetMember("Name")->AsString().c_str();
+      //entity->setObjectName(name);
+
+      // Deserialize specific properties
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
+        gameObject->Deserialize(objectData->Value);
+      else if (auto space = dynamic_cast<SpacePtr>(entity))
+        space->Deserialize(objectData->Value);
+
+      //auto val : objectData->Value->OrderedMembers.all();
+      //entity->Deserialize(objectData->Value);
+      //entity->Object::Deserialize(objectData->Value);
+
+      //auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
+      //entity->setArchetype(archetype);
 
       auto gameObject = objectData->Value;
       for (auto property : gameObject->OrderedMembers.all()) {

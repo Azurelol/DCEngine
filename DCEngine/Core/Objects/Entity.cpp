@@ -30,6 +30,12 @@ namespace DCEngine {
     // Properties
     //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
+
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
+    DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeHidden);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeSkip);
     // Engine-component properties
     //DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
     //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
@@ -114,13 +120,10 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    auto type = this->ZilchGetDerivedType()->BaseType;
-
     // Serialize Object-specific properties
     Object::Serialize(builder);
-    //DCTrace << "Before Entity: \n" << builder.ToString().c_str() << "\n";
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->GetState(), type, this);
+    SerializeByType(builder, interface->GetState(), ZilchTypeId(Entity), this);
     // Serialize all of its components
     builder.Key("Components");
     //DCTrace << "After Components: \n" << builder.ToString().c_str() << "\n";
@@ -148,7 +151,7 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(Entity), this);
   }
 
   /**************************************************************************/

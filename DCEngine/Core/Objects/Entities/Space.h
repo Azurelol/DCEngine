@@ -32,12 +32,14 @@ namespace DCEngine {
   namespace Systems {
     class Editor;
     class Factory;
+    class EditorObjects;
   }
 
   class Space : public Entity {
     friend class GameSession;
     friend class Systems::Factory;
     friend class Systems::Editor;    
+    friend class Systems::EditorObjects;
   
   public:
 

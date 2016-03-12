@@ -24,7 +24,7 @@ namespace DCEngine {
                                                           Settings(settings), 
                                                           Creator(*this), Resources(*this), Archetypes(*this),
                                                           Projects(*this), Diagnostics(*this), TextEditor(*this),
-                                                          Inspector(*this), Preferences(*this)
+                                                          Inspector(*this), Preferences(*this), Objects(*this)
     {      
     }
 
@@ -250,7 +250,6 @@ namespace DCEngine {
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();
-      WindowObjects();
       WindowLibrary();
       WindowSaveLevel();
       WindowLoadLevel();    

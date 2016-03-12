@@ -19,3 +19,4 @@
 #include "EditorTextEditor.h"
 #include "EditorInspector.h"
 #include "EditorPreferences.h"
+#include "EditorObjects.h"

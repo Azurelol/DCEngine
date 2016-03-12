@@ -36,8 +36,7 @@ namespace DCEngine {
         auto gameObject = FindObjectFromSpace(posOnSpace);
 
         // If an object was found at that position...
-        if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {
-
+        if (gameObject && gameObject->getObjectName() != std::string("EditorCamera")) {    
 
           // If the [CTRL] key is being held down, add it (or remove it if already there)
           if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
@@ -169,8 +168,11 @@ namespace DCEngine {
       case Keys::S:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift))
           SelectSpace();
-        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {
+          Projects.SaveProject();
+          SaveCurrentLevel();
           DispatchSystemEvents::EditorSave();
+        }
         break;
 
       case Keys::F:

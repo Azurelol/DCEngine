@@ -115,7 +115,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Library"))
             Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))
-            Windows.ObjectsEnabled = !Windows.ObjectsEnabled;
+            Objects.Toggle(true);
           if (ImGui::MenuItem("Tools"))
             Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))

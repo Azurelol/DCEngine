@@ -63,6 +63,7 @@ namespace DCEngine {
     // Properties    
     void setArchetype(std::string);
     std::string getArchetype() const;
+    DCE_DEFINE_PROPERTY(bool, ModifiedFromArchetype);
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);

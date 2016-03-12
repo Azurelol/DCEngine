@@ -50,9 +50,9 @@ namespace DCEngine {
       for (auto& obj : objsAtPos) {
 
         // Do not select the EditorCamera
-        if (obj->getObjectName() == "EditorCamera")
+        if (obj->getLocked())
           continue;
-        
+                
         // Do nothing if the GameObject does not have a transform.
         if (! obj->HasComponent(std::string("Transform")))
           continue;
@@ -298,6 +298,9 @@ namespace DCEngine {
       SelectedObjects.clear();
       for (auto& gameObject : CurrentSpace->GameObjectContainer) {
 
+        // Do nothing if the object is currenty locked
+        if (gameObject->getLocked())
+          continue;
         // Do nothing if it has a camera component
         if (gameObject->HasComponent(std::string("Camera")))
           continue;

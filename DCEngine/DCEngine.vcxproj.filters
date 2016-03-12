@@ -283,9 +283,6 @@
     <Filter Include="Core\Systems\Editor\Tools\TransformTool">
       <UniqueIdentifier>{1cd4b666-0334-4327-b4aa-53e571683fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Creator">
-      <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Archetypes">
       <UniqueIdentifier>{f00ae099-e0a2-480c-8c3b-0a91fa4905cd}</UniqueIdentifier>
     </Filter>
@@ -330,6 +327,12 @@
     </Filter>
     <Filter Include="Core\Engine\Delegates">
       <UniqueIdentifier>{9e277687-56ad-4a33-a996-54ee3416029f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Objects">
+      <UniqueIdentifier>{709750cf-81b7-4f90-847a-a0f91b360905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Creator">
+      <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -496,9 +499,6 @@
       <Filter>Core\Systems\FileSystem</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\Library.cpp">
-      <Filter>Core\Systems\Editor\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Systems\Editor\Objects.cpp">
       <Filter>Core\Systems\Editor\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Input\InputSFML_Mouse.cpp">
@@ -924,6 +924,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Reflection\ZilchInterfaceUtilities.cpp">
       <Filter>Core\Systems\Scripting\Zilch</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Editor\EditorObjects.cpp">
+      <Filter>Core\Systems\Editor\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1557,6 +1560,9 @@
     </ClInclude>
     <ClInclude Include="Core\Objects\Entities\EntityProperties.h">
       <Filter>Core\Object\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\EditorObjects.h">
+      <Filter>Core\Systems\Editor\Modules\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
