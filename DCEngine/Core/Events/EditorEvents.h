@@ -50,5 +50,11 @@ namespace DCEngine {
       EditorUpdate() : Event("EditorUpdate") {}
     };
 
+    class EditorRebuildZilchComponents : public Event {
+    public:
+      EditorRebuildZilchComponents() : Event("EditorRebuildZilchComponents") {}
+    };
+
+
   }
 }

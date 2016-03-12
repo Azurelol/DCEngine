@@ -26,7 +26,7 @@ namespace DCEngine {
     user friendly asserts!)
     */
     /**************************************************************************/
-    ZilchInterface::ZilchInterface() : Setup(Zilch::StartupFlags::None)
+    ZilchInterface::ZilchInterface() : Setup(Zilch::StartupFlags::None), Patching(false)
     {
       DCTrace << "ZilchInterface::ZilchInterface - Constructor\n";
       
@@ -87,6 +87,8 @@ namespace DCEngine {
       SetupConsole();
       // Add our custom static library for binding our classes
       AddLibrary(DCEngineCore::GetInstance().GetLibrary());
+      AddLibrary(Rebound::GetInstance().GetLibrary());
+      //ReboundComponentsAddToLibrary();
       // Add our custom library for our own Zilch scripts
       Zilch::Project ScriptProject;
       Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, Zilch::DefaultErrorCallback);
@@ -94,6 +96,20 @@ namespace DCEngine {
       //AddLibrary(ScriptLibrary);
       // Compile and build the exclusive 'ExecutableState' object
       Build();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Sets up the main libraries used by the engine.
+    */
+    /**************************************************************************/
+    void ZilchInterface::SetupLibraries()
+    {
+      Dependencies.clear();
+      AddLibrary(Zilch::Core::GetInstance().GetLibrary());
+      AddLibrary(DCEngineCore::GetInstance().GetLibrary());
+      AddLibrary(Rebound::GetInstance().GetLibrary());
+      // 
     }
 
     /**************************************************************************/
@@ -276,14 +292,6 @@ namespace DCEngine {
       return call;
     }
 
-
-    /*!************************************************************************\
-    @brief  Testing!
-    \**************************************************************************/
-    void ZilchInterface::Test()
-    {
-      //auto objectType = DCEngineCore::GetLibrary()->BoundTypes.all();
-    }
 
 
 

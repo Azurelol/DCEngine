@@ -40,6 +40,7 @@ namespace DCEngine {
       friend class EditorResources;
       friend class EditorProjects;
       friend class EditorInspector;
+      friend class EditorTextEditor;
 
     public:
 

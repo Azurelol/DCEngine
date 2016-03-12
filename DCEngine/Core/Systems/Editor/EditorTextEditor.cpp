@@ -111,7 +111,10 @@ namespace DCEngine {
     {
       if (CurrentScript) {
         DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
-        CurrentScript->Save(std::string(Text));
+        CurrentScript->Save(std::string(Text));        
+        // Mark Zilch components for rebuilding on the next frame before we recompile them
+        //DispatchSystemEvents::EditorRebuildZilchComponents();
+        EditorRef.Creator.RebuildAllObjectsOnSpace();
         DispatchSystemEvents::ScriptingCompile();
       }
       else if (CurrentShader) {

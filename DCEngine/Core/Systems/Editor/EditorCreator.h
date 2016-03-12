@@ -24,9 +24,11 @@ namespace DCEngine {
       void CreateLight();
       void CreateCamera();      
       void CreateFromArchetype(const std::string& archetypeName);
+      void RebuildAllObjectsOnSpace();
 
     private:
       void Create(std::string name, std::vector<std::string>& components);
+      void OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents* event);
       void OnScriptingLibraryPatched(Events::ScriptingLibraryPatched* event);
 
     };

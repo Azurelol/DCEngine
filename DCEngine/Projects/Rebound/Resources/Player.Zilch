@@ -2,17 +2,11 @@ class Player : ZilchComponent
 {
   var Check : Boolean = true;
   var Inty : Integer = 15;
+  var Into : Integer = 3;
+  var Boo : Real = 2;
+  var Wham : Real2 = Real2(2,2);
+  var Blam : Real3 = Real3(1,2,3);
   var Object : GameObject;
-  var Woop : Integer = 4;
-  var Lol : Real = 3;
-  var Foo : Real = 4;
-  var Boo : Real = 4;
-  var Goo : Real = 55;
-  var Zoo : Real = 55;
-  var Yoo : Real = 55;
-  var Doo : Real = 99;
-  var Woo : Real = 34;
-  var Noo : Real = 34;
 
   function Initialize() {
   Console.WriteLine("Hello, John");

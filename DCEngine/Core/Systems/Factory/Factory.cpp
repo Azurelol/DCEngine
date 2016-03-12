@@ -36,6 +36,7 @@ namespace DCEngine {
       // Construct the component factories for each core component type
       ConstructComponentFactoryMap();
       // Construct the component factories for 'Rebound' components
+      //ReboundComponentsAddToLibrary();
       ReboundComponentsAddToFactory();
     }
 
@@ -593,6 +594,7 @@ namespace DCEngine {
       if (EntitiesToRebuild.empty())
         return;
 
+      // Rebuild all entities
       for (auto& rebuildData : EntitiesToRebuild) {
         Rebuild(rebuildData);
       }

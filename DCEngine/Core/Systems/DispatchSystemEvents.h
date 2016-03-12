@@ -32,6 +32,7 @@ namespace DCEngine {
       static void EditorSelectObject(Object* object);
       static void EditorDeselectObject();
       static void EditorSave();
+      static void EditorRebuildZilchComponents();
       
       static void SetWindowCaption(std::string name);
       static void WindowLostFocus();
