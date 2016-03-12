@@ -130,14 +130,34 @@ namespace DCEngine {
       }
 
       // Compile all the code we have added together into a single library for our scripts
+      Dependencies.clear();
+      AddLibrary(Zilch::Core::GetInstance().GetLibrary());
+      AddLibrary(DCEngineCore::GetInstance().GetLibrary());
       auto tempLib = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);      
       //ScriptLibrary = ScriptProject.Compile("ZilchScripts", Dependencies, Zilch::EvaluationMode::Project);
       // Link together all the libraries that we depend upon
         
       if (tempLib) {
         ScriptLibrary = tempLib;
-        State->PatchLibrary(ScriptLibrary);
-        DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
+        AddLibrary(ScriptLibrary);
+        Build();
+
+        //bool patch = true;
+        //// If patching...
+        //if (patch) {
+        //  patch = false;
+        //  State->PatchLibrary(ScriptLibrary);
+        //  DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
+        //}
+        //// Rebuilding the state
+        //else {
+        //  //delete State;
+        //  Dependencies.clear();
+        //  AddLibrary(DCEngineCore::GetInstance().GetLibrary());
+        //  AddLibrary(ScriptLibrary);
+        //  Build();
+        //}
+
         return true;
       }
       DCTrace << "ZilchInterface::CompileScripts: Failed to compile \n";

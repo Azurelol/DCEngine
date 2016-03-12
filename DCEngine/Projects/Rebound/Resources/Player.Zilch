@@ -1,8 +1,18 @@
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
-  var Inty : Integer = 5;
+  var Inty : Integer = 15;
   var Object : GameObject;
+  var Woop : Integer = 4;
+  var Lol : Real = 3;
+  var Foo : Real = 4;
+  var Boo : Real = 4;
+  var Goo : Real = 55;
+  var Zoo : Real = 55;
+  var Yoo : Real = 55;
+  var Doo : Real = 99;
+  var Woo : Real = 34;
+  var Noo : Real = 34;
 
   function Initialize() {
   Console.WriteLine("Hello, John");
@@ -17,7 +27,6 @@ class Player : ZilchComponent
   Console.WriteLine(a);
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
-
  }
 
   function OnLogicUpdate() {

@@ -104,7 +104,7 @@ namespace DCEngine {
 
           //if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
           //  componentTypes.push_back(type.second);
-          if (Zilch::TypeBinding::IsA(type.second, Component::ZilchGetStaticType()))
+          if (Zilch::TypeBinding::IsA(type.second, ZilchTypeId(Component)))
             componentTypes.push_back(type.second);
         }
       }

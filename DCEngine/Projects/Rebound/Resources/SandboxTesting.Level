@@ -2659,8 +2659,8 @@
             {
               "Vec3": 
               {
-                "x": -90.369858, 
-                "y": 65.083672, 
+                "x": -7.388625, 
+                "y": 7.489794, 
                 "z": 0.000000
               }
             }, 
@@ -2686,7 +2686,7 @@
           "Light": 
           {
             "Visible": true, 
-            "VisibilityCulling": true, 
+            "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
             "Type": "Point", 

@@ -124,6 +124,11 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorCreator::OnScriptingLibraryPatched(Events::ScriptingLibraryPatched * event)
     {
+      /*
+      bool patching = true;
+      if (patching)
+        return;
+*/
       // For every GameObject in the current space..
       for (auto& gameObject : *EditorRef.CurrentSpace->AllObjects()) {
         // Check if it has a Zilch component

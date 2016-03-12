@@ -235,14 +235,12 @@ namespace DCEngine {
     @param entity A pointer to the entity.
     */
     /**************************************************************************/
-    void Factory::Rebuild(EntityPtr entity)
+    void Factory::Rebuild(EntityBuildData data)
     {
-      // Create an temporary archetype out of the entity
-      auto archetype = BuildArchetype(entity->Name(), entity);
       // Remove all its components
-      entity->RemoveAllComponents();
+      data.first->RemoveAllComponents();
       // Rebuild all the components
-      BuildFromArchetype(entity, archetype);
+      BuildFromArchetype(data.first, data.second);
     }
 
     /**************************************************************************/
@@ -529,7 +527,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::MarkForRebuild(EntityPtr entity)
     {
-      EntitiesToRebuild.insert(entity);
+      // Create an temporary archetype out of the entity
+      auto archetype = BuildArchetype(entity->Name(), entity);
+      EntitiesToRebuild.insert(EntityBuildData(entity, archetype));
     }
 
     /**************************************************************************/
@@ -593,8 +593,8 @@ namespace DCEngine {
       if (EntitiesToRebuild.empty())
         return;
 
-      for (auto& entity : EntitiesToRebuild) {
-        Rebuild(entity);
+      for (auto& rebuildData : EntitiesToRebuild) {
+        Rebuild(rebuildData);
       }
       EntitiesToRebuild.clear();
     }

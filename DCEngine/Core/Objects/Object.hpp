@@ -22,6 +22,9 @@ namespace DCEngine {
     Zilch::PropertyArray& properties = boundType->AllProperties;
     Zilch::ExceptionReport report;
 
+    //if (boundType->Name == "Player")
+    //  __debugbreak();
+
     for (auto property : properties) {
 
       // If the bound field/property does not have the 'Property' attribute, 
@@ -184,6 +187,8 @@ namespace DCEngine {
     if (properties == nullptr || boundType == nullptr)
       return;
 
+    /*if (boundType->Name == "Player")
+      __debugbreak();*/
     // For every 'bound' property in the object
     for (auto property : properties->OrderedMembers.all()) {
       //
