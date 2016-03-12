@@ -1,23 +1,24 @@
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
-  var Inty : Integer = 5;
+  var Inty : Integer = 15;
+  var Into : Integer = 3;
+  var Boo : Real = 2;
+  var Wham : Real2 = Real2(2,2);
+  var Blam : Real3 = Real3(1,2,3);
   var Object : GameObject;
 
   function Initialize() {
   Console.WriteLine("Hello, John");
-  this.Owner.TestEntity(); 
-  this.Space.TestSpace();
-  this.GameSession.TestGameSession();
-  this.Owner.TestMeString("Creating BounceParticle!");
   this.Object = this.Space.CreateObject("BounceParticle");
-  this.Object.Test();  
   this.Hello();
   var a = DaisyEvent.MouseDown;
   Console.WriteLine(a);
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
-
+ var b = this.Owner.Player.Boo;
+ Console.WriteLine(b);
+ //var c = this.Owner.Transform.Scale;
  }
 
   function OnLogicUpdate() {

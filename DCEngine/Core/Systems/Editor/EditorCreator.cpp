@@ -114,6 +114,11 @@ namespace DCEngine {
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
     }
 
+    void EditorCreator::OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents * event)
+    {
+      RebuildAllObjectsOnSpace();
+    }
+
     /**************************************************************************/
     /*!
     @brief Whenever the scripting library has been patched, reconstructs
@@ -123,6 +128,15 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void EditorCreator::OnScriptingLibraryPatched(Events::ScriptingLibraryPatched * event)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Rebuilds all the GameObjects on the current space
+    */
+    /**************************************************************************/
+    void EditorCreator::RebuildAllObjectsOnSpace()
     {
       // For every GameObject in the current space..
       for (auto& gameObject : *EditorRef.CurrentSpace->AllObjects()) {
@@ -135,7 +149,6 @@ namespace DCEngine {
           }
         }
       }
-
     }
     
   }

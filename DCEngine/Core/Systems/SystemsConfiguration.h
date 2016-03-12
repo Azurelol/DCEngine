@@ -98,6 +98,7 @@ namespace DCEngine {
       bool Snapping = true;
       float SnapDistance = 1.0f;
       float SnapAngle = 15.0f;
+      Vec4 LockedColor;
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
@@ -130,6 +131,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(SnapAngle);
         DCE_JSON_SERIALIZE(RecentProject);
         DCE_JSON_SERIALIZE(ProjectsPath);
+        DCE_JSON_SERIALIZE_VEC4(LockedColor);
       }
       void Deserialize(Json::Value& root) {
         DCE_JSON_DESERIALIZE_INTRINSIC(AutoSaveTime).asInt();
@@ -140,6 +142,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(SnapAngle).asFloat();
         DCE_JSON_DESERIALIZE_INTRINSIC(RecentProject).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
+        DCE_JSON_DESERIALIZE_VEC4(LockedColor);
       }
       
 

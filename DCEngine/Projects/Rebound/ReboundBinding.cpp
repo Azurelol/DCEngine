@@ -45,11 +45,14 @@ namespace DCEngine {
     ZilchInitializeType(Components::Shield);
   }
 
-  void ReboundComponentsAddToFactory() {
-    // Add the Rebound library
+  // Add the Rebound library
+  void ReboundComponentsAddToLibrary() {
     Daisy->getSystem<Systems::Reflection>()->Handler()->AddLibrary(Rebound::GetLibrary());
     Daisy->getSystem<Systems::Reflection>()->Handler()->Build();
-    // Add the components to the engine's component factory map
+  }
+
+  // Add the components to the engine's component factory map
+  void ReboundComponentsAddToFactory() {
     auto factory = Daisy->getSystem<Systems::Factory>();
     factory->AddComponentFactory(Components::PlayerController ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::PlayerController >>());
     factory->AddComponentFactory(Components::BallController   ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::BallController   >>());

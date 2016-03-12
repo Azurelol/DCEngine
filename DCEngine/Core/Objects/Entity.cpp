@@ -30,8 +30,12 @@ namespace DCEngine {
     // Properties
     //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
-    ZilchBindMethod(builder, type, &Entity::TestEntity, ZilchNoOverload, "TestEntity", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Entity::TestMeString, ZilchNoOverload, "TestMeString", "names");
+
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
+    DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeHidden);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeSkip);
     // Engine-component properties
     //DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
     //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
@@ -116,13 +120,10 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    auto type = this->ZilchGetDerivedType()->BaseType;
-
     // Serialize Object-specific properties
     Object::Serialize(builder);
-    //DCTrace << "Before Entity: \n" << builder.ToString().c_str() << "\n";
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->GetState(), type, this);
+    SerializeByType(builder, interface->GetState(), ZilchTypeId(Entity), this);
     // Serialize all of its components
     builder.Key("Components");
     //DCTrace << "After Components: \n" << builder.ToString().c_str() << "\n";
@@ -150,7 +151,7 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(Entity), this);
   }
 
   /**************************************************************************/
@@ -375,16 +376,6 @@ namespace DCEngine {
     std::rotate(handleIter, handleIter + 1, ComponentHandlesContainer.end());
   }
 
-  void Entity::TestEntity()
-  {
-    DCTrace << "Entity::TestEntity \n";
-  }
-
-  void Entity::TestMeString(const std::string & string)
-  {
-    DCTrace << string << "\n";
-  }
-
   /**************************************************************************/
   /*!
   \brief  Dispatches an event to the object.
@@ -417,7 +408,46 @@ namespace DCEngine {
   //  return &ComponentsContainer;
   //}
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a pointer to the specified component.
+  @param name The name of the component/
+  @return A pointer to the component, casted down to its base class.
+  */
+  /**************************************************************************/
+  ComponentPtr Entity::getComponent(const std::string & name)
+  {
+    for (auto& component : ComponentsContainer) {
+      if (component->getObjectName() == name) {
+        return component.get();
+      }
+    }
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+      if (component->getObjectName() == name) {
+        return component;
+      }
+    }
+    return nullptr;
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a pointer to the specified component.
+  @param type The boundtype of the component.
+  @return A pointer to the component, casted down to its base class.
+  */
+  /**************************************************************************/
+  ComponentPtr Entity::getComponent(Zilch::BoundType * type)
+  {
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      if (Zilch::TypeBinding::IsA(componentHandle.Type, type)) {
+        auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+        return component;
+      }
+    }
+    return nullptr;
+  }
 
   /**************************************************************************/
   /*!

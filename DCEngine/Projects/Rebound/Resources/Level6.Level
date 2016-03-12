@@ -7,6 +7,7 @@
     {
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -58,6 +59,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -114,7 +116,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -142,6 +143,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -198,7 +200,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -226,6 +227,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -282,7 +284,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -310,6 +311,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -366,7 +368,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -394,6 +395,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -450,7 +452,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -478,6 +479,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -534,7 +536,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -562,6 +563,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -618,7 +620,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -646,6 +647,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -702,7 +704,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -730,6 +731,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -786,7 +788,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -814,6 +815,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -870,7 +872,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -898,6 +899,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -954,7 +956,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -982,6 +983,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1038,7 +1040,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1066,6 +1067,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1122,7 +1124,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1150,6 +1151,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1206,7 +1208,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1234,6 +1235,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1290,7 +1292,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1318,6 +1319,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1374,7 +1376,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1402,6 +1403,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1458,7 +1460,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1486,6 +1487,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1542,7 +1544,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1570,6 +1571,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1626,7 +1628,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1654,6 +1655,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1710,7 +1712,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1738,6 +1739,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1794,7 +1796,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1822,6 +1823,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1878,7 +1880,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1906,6 +1907,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1962,7 +1964,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1990,6 +1991,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2046,7 +2048,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2074,6 +2075,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2130,7 +2132,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2158,6 +2159,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2214,7 +2216,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2242,6 +2243,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2298,7 +2300,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2326,6 +2327,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2382,7 +2384,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2410,6 +2411,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2466,7 +2468,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2494,6 +2495,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2550,7 +2552,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2578,6 +2579,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2634,7 +2636,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2662,6 +2663,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2718,7 +2720,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2746,6 +2747,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2802,7 +2804,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2830,6 +2831,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2886,7 +2888,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2914,6 +2915,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2970,7 +2972,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2998,6 +2999,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3054,7 +3056,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3082,6 +3083,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3138,7 +3140,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3166,6 +3167,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3222,7 +3224,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3250,6 +3251,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3306,7 +3308,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3334,6 +3335,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3390,7 +3392,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3418,6 +3419,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3474,7 +3476,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3502,6 +3503,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3558,7 +3560,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3586,6 +3587,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3642,7 +3644,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3670,6 +3671,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3726,7 +3728,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3754,6 +3755,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3810,7 +3812,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3838,6 +3839,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3894,7 +3896,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3922,6 +3923,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3978,7 +3980,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4006,6 +4007,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4062,7 +4064,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4090,6 +4091,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4146,7 +4148,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4174,6 +4175,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4230,7 +4232,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4258,6 +4259,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4314,7 +4316,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4342,6 +4343,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4398,7 +4400,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4426,6 +4427,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4482,7 +4484,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4510,6 +4511,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4566,7 +4568,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4594,6 +4595,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4650,7 +4652,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4678,6 +4679,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4734,7 +4736,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4762,6 +4763,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4818,7 +4820,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4846,6 +4847,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4902,7 +4904,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4930,6 +4931,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -4986,7 +4988,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5014,6 +5015,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5070,7 +5072,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5098,6 +5099,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5154,7 +5156,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5182,6 +5183,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5238,7 +5240,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5266,6 +5267,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5322,7 +5324,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5350,6 +5351,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5406,7 +5408,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5434,6 +5435,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5490,7 +5492,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5518,6 +5519,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5574,7 +5576,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5602,6 +5603,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5658,7 +5660,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5686,6 +5687,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5742,7 +5744,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5770,6 +5771,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5826,7 +5828,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5854,6 +5855,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5910,7 +5912,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5938,6 +5939,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5994,7 +5996,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6022,6 +6023,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6078,7 +6080,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6106,6 +6107,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6162,7 +6164,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6190,6 +6191,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6246,7 +6248,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6274,6 +6275,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6330,7 +6332,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6358,6 +6359,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6414,7 +6416,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6442,6 +6443,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6498,7 +6500,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6526,6 +6527,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6582,7 +6584,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6610,6 +6611,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6666,7 +6668,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6694,6 +6695,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -6750,7 +6752,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -6778,6 +6779,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -6834,7 +6836,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6934,6 +6935,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Sentinel", 
         "Archetype": "Sentinel", 
         "Components": 
@@ -6990,7 +6992,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7054,6 +7055,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -7110,7 +7112,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7142,6 +7143,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -7198,7 +7200,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7230,6 +7231,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -7286,7 +7288,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7318,6 +7319,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "BioField", 
         "Archetype": "BioField", 
         "Components": 
@@ -7376,6 +7378,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -7432,7 +7435,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7532,6 +7534,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -7588,7 +7591,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7688,6 +7690,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -7744,7 +7747,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7844,6 +7846,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -7900,7 +7903,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8000,6 +8002,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -8056,7 +8059,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8156,6 +8158,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -8212,7 +8215,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8312,6 +8314,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -8368,7 +8371,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8400,6 +8402,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Sentinel", 
         "Archetype": "Sentinel", 
         "Components": 
@@ -8456,7 +8459,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8520,6 +8522,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -8576,7 +8579,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8608,6 +8610,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Lightfield", 
         "Archetype": "Lightfield", 
         "Components": 
@@ -8666,6 +8669,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Lancer", 
         "Archetype": "Lancer", 
         "Components": 
@@ -8757,7 +8761,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8785,6 +8788,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Lightfield", 
         "Archetype": "Lightfield", 
         "Components": 
@@ -8843,6 +8847,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -8899,7 +8904,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -8931,6 +8935,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -8987,7 +8992,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9019,6 +9023,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Sentinel", 
         "Archetype": "Sentinel", 
         "Components": 
@@ -9075,7 +9080,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9139,6 +9143,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9195,7 +9200,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9227,6 +9231,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9283,7 +9288,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9315,6 +9319,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -9371,7 +9376,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9422,6 +9426,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9478,7 +9483,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9510,6 +9514,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9566,7 +9571,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9598,6 +9602,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9654,7 +9659,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9686,6 +9690,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9742,7 +9747,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9774,6 +9778,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -9830,7 +9835,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9862,6 +9866,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -9918,7 +9923,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -9969,6 +9973,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -10025,7 +10030,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -10057,6 +10061,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "PowerField", 
         "Archetype": "PowerField", 
         "Components": 
@@ -10113,7 +10118,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -10145,6 +10149,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -10201,7 +10206,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -10233,6 +10237,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Lightfield", 
         "Archetype": "Lightfield", 
         "Components": 
@@ -10291,6 +10296,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -10347,7 +10353,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -10398,6 +10403,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Lancer", 
         "Archetype": "Lancer", 
         "Components": 
@@ -10489,7 +10495,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -10517,6 +10522,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Background", 
         "Archetype": "DesertBackground", 
         "Components": 
@@ -10607,6 +10613,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -10687,7 +10694,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Player", 
             "Size": 
             {
@@ -10766,6 +10772,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Ball", 
         "Archetype": "Ball", 
         "Components": 
@@ -10822,7 +10829,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Ball", 
             "Size": 
             {
@@ -10973,7 +10979,8 @@
                 "z": 4.000000
               }
             }, 
-            "Additive": true
+            "Additive": true, 
+            "Lock": false
           }, 
           "ParticleEmitter": 
           {
@@ -11035,6 +11042,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -11105,6 +11113,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -11175,6 +11184,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -11245,6 +11255,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Transform", 
         "Archetype": "", 
         "Components": 
@@ -11315,6 +11326,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "AcidLight", 
         "Archetype": "", 
         "Components": 
@@ -11385,6 +11397,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "AcidLight", 
         "Archetype": "", 
         "Components": 
@@ -11455,6 +11468,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "SmallAcidLight", 
         "Archetype": "SmallAcidLight", 
         "Components": 
@@ -11525,6 +11539,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "MediumSpotlight", 
         "Components": 
@@ -11595,6 +11610,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "MediumSpotlight", 
         "Components": 
@@ -11665,6 +11681,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "MediumSpotlight", 
         "Components": 
@@ -11735,6 +11752,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "Light", 
         "Archetype": "MediumSpotlight", 
         "Components": 
@@ -11805,6 +11823,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "PauseManager", 
         "Archetype": "", 
         "Components": 
@@ -11846,6 +11865,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": true, 
         "Name": "LevelGoal", 
         "Archetype": "LevelGoal", 
         "Components": 
@@ -11902,7 +11922,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {

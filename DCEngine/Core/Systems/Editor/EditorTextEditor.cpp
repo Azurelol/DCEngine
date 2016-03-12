@@ -44,6 +44,8 @@ namespace DCEngine {
       ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
       if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
 
+        ImGui::SetWindowFontScale(16.0f);
+
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
             if ((ImGui::MenuItem("Save"))) Save();
@@ -111,7 +113,10 @@ namespace DCEngine {
     {
       if (CurrentScript) {
         DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
-        CurrentScript->Save(std::string(Text));
+        CurrentScript->Save(std::string(Text));        
+        // Mark Zilch components for rebuilding on the next frame before we recompile them
+        //DispatchSystemEvents::EditorRebuildZilchComponents();
+        EditorRef.Creator.RebuildAllObjectsOnSpace();
         DispatchSystemEvents::ScriptingCompile();
       }
       else if (CurrentShader) {

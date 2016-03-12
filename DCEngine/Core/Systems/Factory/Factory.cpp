@@ -36,6 +36,7 @@ namespace DCEngine {
       // Construct the component factories for each core component type
       ConstructComponentFactoryMap();
       // Construct the component factories for 'Rebound' components
+      //ReboundComponentsAddToLibrary();
       ReboundComponentsAddToFactory();
     }
 
@@ -149,10 +150,23 @@ namespace DCEngine {
     EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
     {      
       // 1. For every property... !!! CURRENTLY HARDCODED !!!
-      auto name = objectData->Value->GetMember("Name")->AsString().c_str();
-      entity->setObjectName(name);
-      auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      entity->setArchetype(archetype);
+
+      // Name is special
+      //auto name = objectData->Value->GetMember("Name")->AsString().c_str();
+      //entity->setObjectName(name);
+
+      // Deserialize specific properties
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
+        gameObject->Deserialize(objectData->Value);
+      else if (auto space = dynamic_cast<SpacePtr>(entity))
+        space->Deserialize(objectData->Value);
+
+      //auto val : objectData->Value->OrderedMembers.all();
+      //entity->Deserialize(objectData->Value);
+      //entity->Object::Deserialize(objectData->Value);
+
+      //auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
+      //entity->setArchetype(archetype);
 
       auto gameObject = objectData->Value;
       for (auto property : gameObject->OrderedMembers.all()) {
@@ -235,14 +249,12 @@ namespace DCEngine {
     @param entity A pointer to the entity.
     */
     /**************************************************************************/
-    void Factory::Rebuild(EntityPtr entity)
+    void Factory::Rebuild(EntityBuildData data)
     {
-      // Create an temporary archetype out of the entity
-      auto archetype = BuildArchetype(entity->Name(), entity);
       // Remove all its components
-      entity->RemoveAllComponents();
+      data.first->RemoveAllComponents();
       // Rebuild all the components
-      BuildFromArchetype(entity, archetype);
+      BuildFromArchetype(data.first, data.second);
     }
 
     /**************************************************************************/
@@ -529,7 +541,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::MarkForRebuild(EntityPtr entity)
     {
-      EntitiesToRebuild.insert(entity);
+      // Create an temporary archetype out of the entity
+      auto archetype = BuildArchetype(entity->Name(), entity);
+      EntitiesToRebuild.insert(EntityBuildData(entity, archetype));
     }
 
     /**************************************************************************/
@@ -593,8 +607,9 @@ namespace DCEngine {
       if (EntitiesToRebuild.empty())
         return;
 
-      for (auto& entity : EntitiesToRebuild) {
-        Rebuild(entity);
+      // Rebuild all entities
+      for (auto& rebuildData : EntitiesToRebuild) {
+        Rebuild(rebuildData);
       }
       EntitiesToRebuild.clear();
     }

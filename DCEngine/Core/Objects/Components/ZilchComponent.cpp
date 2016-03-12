@@ -99,9 +99,9 @@ namespace DCEngine {
   /**************************************************************************/
   bool ZilchComponent::IsZilchComponent(ComponentPtr component)
   {
-    if (Zilch::TypeBinding::IsA(component->ZilchGetStaticType(), ZilchComponent::ZilchGetStaticType()))
-      return false;
-    return true;
+    if (Zilch::TypeBinding::IsA(component->ZilchGetDerivedType(), ZilchComponent::ZilchGetStaticType()))
+      return true;
+    return false;
   }
 
   /**************************************************************************/

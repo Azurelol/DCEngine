@@ -43,6 +43,7 @@ namespace DCEngine {
       unsigned ID;
       unsigned ParentID;
     };
+
     struct Identifiers {
       std::vector<std::string> Names;     
       std::vector<unsigned> IDs;
@@ -55,6 +56,7 @@ namespace DCEngine {
         return names;
       }
     };
+
     using GameObjectIdentifiers = std::vector<Identifier>;
         
     ZilchDeclareDerivedType(GameObject, Entity);
@@ -72,13 +74,11 @@ namespace DCEngine {
     void Detach();
     void DetachRelative();
     GameObjectPtr Parent() { return ParentRef; }    
+    DCE_DEFINE_PROPERTY(bool, Locked);
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
-    void Test();
-
     // Stream
     friend std::ostream& operator<<(std::ostream&, GameObject const&);
-
     // Static member variables
     static unsigned int GameObjectsCreated;
     static unsigned int GameObjectsDestroyed;
@@ -94,6 +94,7 @@ namespace DCEngine {
     GameObjectVec ChildrenContainer;
     Space* SpaceRef;
     GameSession* GamesessionRef;
+    bool Locked;    
 
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);

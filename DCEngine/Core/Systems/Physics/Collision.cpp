@@ -291,6 +291,12 @@ namespace DCEngine
     Axes.push_back(glm::normalize(topR1 - topL1));
     Axes.push_back(glm::normalize(topR1 - botR1));
 
+    Axes.push_back(glm::normalize(botL1 - topL1));
+    Axes.push_back(glm::normalize(topL1 - topR1));
+
+    Axes.push_back(glm::normalize(topR2 - topL2));
+    Axes.push_back(glm::normalize(topR2 - botR2));
+
     Axes.push_back(glm::normalize(botL2 - topL2));
     Axes.push_back(glm::normalize(topL2 - topR2));
 
@@ -351,7 +357,7 @@ namespace DCEngine
           if (MinMax[0][1] - MinMax[1][0] < result.Penetration)
           {
             result.Penetration = MinMax[0][1] - MinMax[1][0];
-            result.ContactNormal = Axes[i];
+            result.ContactNormal = -Axes[i];
           }
         }
         else
@@ -359,7 +365,7 @@ namespace DCEngine
           if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
           {
             result.Penetration = MinMax[1][1] - MinMax[0][0];
-            result.ContactNormal = Axes[i];
+            result.ContactNormal = -Axes[i];
           }
         }
       }

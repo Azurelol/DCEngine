@@ -3,7 +3,7 @@
 @file   EditorArchetypes.h
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
-@date   2/20/2016
+@date   3/12/2016
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */

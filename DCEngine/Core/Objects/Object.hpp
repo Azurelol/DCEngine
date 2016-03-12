@@ -22,12 +22,17 @@ namespace DCEngine {
     Zilch::PropertyArray& properties = boundType->AllProperties;
     Zilch::ExceptionReport report;
 
+    //if (boundType->Name == "Player")
+    //  __debugbreak();
+
     for (auto property : properties) {
 
       // If the bound field/property does not have the 'Property' attribute, 
       // do nothing!
-      //if (!property->HasAttribute("Property")
-      //  continue;
+      
+      // If the property has been unmarked for serialization
+      if (property->HasAttribute("Skip"))
+        continue;
 
       // Create a key for the builder
       auto pname = property->Name;
@@ -184,10 +189,7 @@ namespace DCEngine {
     if (properties == nullptr || boundType == nullptr)
       return;
 
-    // For every 'bound' property in the object
     for (auto property : properties->OrderedMembers.all()) {
-      //
-
 
 
 
@@ -210,7 +212,9 @@ namespace DCEngine {
       if (namedProperty->Set == nullptr)
         continue;
 
-
+      // If the property has been unmarked for serialization
+      if (namedProperty->HasAttribute("Skip"))
+        continue;
 
 
       // Construct a Zilch::Call object for invoking the set method!

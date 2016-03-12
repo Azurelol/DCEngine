@@ -34,17 +34,19 @@ namespace DCEngine {
     class Factory : public System {    
       friend class Engine;
 
-    public:                  
+    public:             
+
       // GameObjects
       GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
       GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);  
       GameObjectPtr BuildGameObject(SerializedMember* data, Space& space);
       EntityPtr BuildEntity(EntityPtr entity, SerializedMember* objectData);      
       // Archetypes
+      using EntityBuildData = std::pair<EntityPtr, ArchetypePtr>;
       ArchetypePtr BuildArchetype(std::string, EntityPtr);
       void BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype);
       void RebuildFromArchetype(EntityPtr entity);
-      void Rebuild(EntityPtr entity);
+      void Rebuild(EntityBuildData data);
       // Spaces
       void MarkSpace(Space&);
       void DestroySpaces();
@@ -70,7 +72,8 @@ namespace DCEngine {
       GameObjectStrongVec ActiveGameObjects; //!< Container of active GameObjects
       ComponentVec ActiveComponents; //!< Container of active Components
       std::map<std::string, std::type_index> ComponentClassMap;
-      std::set<EntityPtr> EntitiesToRebuild;
+      
+      std::set<EntityBuildData> EntitiesToRebuild;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
       std::set<ComponentPtr> ComponentsToBeDeleted;
       std::set<SpacePtr> SpacesToBeDeleted;
@@ -82,6 +85,8 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();      
       void ConstructComponentFactoryMap();
+      
+      
       void RebuildEntities();
       GameObjectPtr BuildAndSerialize(const std::string& fileName);
     }; 

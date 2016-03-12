@@ -224,7 +224,7 @@ namespace DCEngine {
 
     EditorConfig::EditorConfig(): Configuration("Editor"), 
       AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
-      Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),
+      LockedColor(1.0f, 0.0f, 0.0f, 1.0f), Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),
       AutoSaveTimer(AutoSaveTime, Time::Timer::Mode::Countdown, true),
       CameraLastPos(0.0f, 0.0f, 40.0f)
     {

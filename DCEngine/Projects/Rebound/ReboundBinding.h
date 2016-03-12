@@ -24,5 +24,6 @@ namespace DCEngine {
 
   // Add the components to the factory
   void ReboundComponentsAddToFactory();
+  void ReboundComponentsAddToLibrary();
 
 }
