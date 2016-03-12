@@ -10,17 +10,15 @@ class Player : ZilchComponent
 
   function Initialize() {
   Console.WriteLine("Hello, John");
-  this.Owner.TestEntity(); 
-  this.Space.TestSpace();
-  this.GameSession.TestGameSession();
-  this.Owner.TestMeString("Creating BounceParticle!");
   this.Object = this.Space.CreateObject("BounceParticle");
-  this.Object.Test();  
   this.Hello();
   var a = DaisyEvent.MouseDown;
   Console.WriteLine(a);
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+ var b = this.Owner.Player.Boo;
+ Console.WriteLine(b);
+ //var c = this.Owner.Transform.Scale;
  }
 
   function OnLogicUpdate() {

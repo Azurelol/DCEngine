@@ -415,6 +415,8 @@
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterfaceUtilities.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Accessors.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp" />
     <ClCompile Include="Core\Systems\Serialization\JSONObject.cpp" />
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />

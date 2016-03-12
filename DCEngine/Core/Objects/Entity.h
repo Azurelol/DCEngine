@@ -67,20 +67,23 @@ namespace DCEngine {
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);
     bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
-    //template <typename ComponentClass> bool AddComponent(bool initialize = false);
+    
     template <typename ComponentClass> ComponentClass* getComponent();
+    ComponentPtr getComponent(const std::string& name);
+    ComponentPtr getComponent(Zilch::BoundType* type);
     template <typename ComponentClass> bool HasComponent();
     bool HasComponent(const std::string& name);
+    
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveAllComponents();
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);
+    
     ComponentVec AllComponents();
     ComponentHandleVec& AllComponentsByHandle();
+    
     void Swap(ComponentPtr, Direction);
     void SwapToBack(ComponentPtr);
-    void TestEntity();
-    void TestMeString(const std::string& string);
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
     void Dispatch(Event* eventObj);

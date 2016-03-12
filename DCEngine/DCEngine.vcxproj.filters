@@ -919,6 +919,12 @@
     <ClCompile Include="Core\Engine\EventDelegate.cpp">
       <Filter>Core\Engine\Delegates</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Accessors.cpp">
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterfaceUtilities.cpp">
+      <Filter>Core\Systems\Scripting\Zilch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

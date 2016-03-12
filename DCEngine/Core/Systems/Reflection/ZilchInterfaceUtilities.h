@@ -11,10 +11,25 @@
 #pragma once
 
 namespace DCEngine {
+    
+  class Component;
+  
   namespace Systems {
 
+    class ZilchInterface;
     class StringArray {
 
+    };
+    
+
+
+    Component* GetComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void GetNativeComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void GetZilchComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+
+    struct ComponentData {
+      Zilch::BoundType* Type;
+      ZilchInterface* Interface;
     };
 
   }

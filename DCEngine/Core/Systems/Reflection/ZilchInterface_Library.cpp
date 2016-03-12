@@ -11,10 +11,50 @@
 #include "ZilchInterface.h"
 
 #include "../../Engine/Engine.h"
+#include "ZilchInterfaceUtilities.h"
 
 namespace DCEngine {
   namespace Systems {
 
+
+    /**************************************************************************/
+    /*!
+    @brief Sets up a type
+    */
+    /**************************************************************************/
+    void ZilchInterface::SetupType(Zilch::BoundType * type, Zilch::BoundType * baseType, Zilch::LibraryBuilder * builder, ParseCallback callback)
+    {
+      if (Zilch::TypeBinding::IsA(type, baseType)) {
+        Zilch::Property* componentProperty;        
+        componentProperty = builder->AddExtensionProperty(ZilchTypeId(Entity), type->Name, type, nullptr, callback, Zilch::MemberOptions::None);
+        ComponentData userData;
+        userData.Type = type;
+        userData.Interface = this;
+        auto& data = componentProperty->Get->ComplexUserData.WriteObject(userData);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives Zilch parse events and redirects them to extend
+            properties.
+    @param  event A pointer to the parse event.
+    */
+    /**************************************************************************/
+    void ZilchInterface::TypeParsedErrorCallback(Zilch::ParseEvent* event) {
+      // If the type being parsed is a Zilch component..
+      ZilchInterface::Get().SetupType(event->Type, ZilchComponent::ZilchGetStaticType(), event->Builder, GetZilchComponent);
+    }
+
+    void FreeTypeParserCallback(Zilch::ParseEvent* event) {
+      // If the type being parsed is a Zilch component..
+      ZilchInterface::Get().SetupType(event->Type, ZilchComponent::ZilchGetStaticType(), event->Builder, GetZilchComponent);
+    }
+
+    void FreePreParserCallback(Zilch::ParseEvent* event) {
+      // If the type being parsed is a Zilch component..
+      ZilchInterface::Get().SetupType(event->Type, ZilchTypeId(Component), event->Builder, GetNativeComponent);
+    }
 
     /**************************************************************************/
     /*!
@@ -26,9 +66,36 @@ namespace DCEngine {
     {
       std::string errorMessage = error->GetFormattedMessage(Zilch::MessageFormat::Zilch).c_str();
       // Redirect to our tracing system
-      DCTrace << errorMessage;  
+      DCTrace << errorMessage;
       // Send an event containing the message to the engine
       DCEngine::Systems::DispatchSystemEvents::ScriptingErrorMessage(errorMessage);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Configures various callback functions on the specified project.
+    @param project A reference to the project.
+    */
+    /**************************************************************************/
+    void ZilchInterface::SetupProject(Zilch::Project & project)
+    {
+      Zilch::EventConnect(&project, Zilch::Events::CompilationError, FreeCustomErrorCallback);
+      //Zilch::EventConnect(&project, Zilch::Events::CompilationError, &ZilchInterface::CustomErrorCallback, this);      
+      //Zilch::EventConnect(&project, Zilch::Events::TypeParsed, &ZilchInterface::TypeParsedErrorCallback, this);
+      Zilch::EventConnect(&project, Zilch::Events::TypeParsed, FreeTypeParserCallback);
+      //Zilch::EventConnect(&project, Zilch::Events::PreParser, FreePreParserCallback);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds a Zilch script to the Zilch interface.
+    @param  fileName The name of the file containing the code.
+    @return The success of the operation.
+    */
+    /**************************************************************************/
+    void ZilchInterface::SetUpComponentTypes(Zilch::LibraryRef library)
+    {
+      //auto boundTypes = library->BoundTypes.values();
     }
 
     /**************************************************************************/
@@ -108,21 +175,19 @@ namespace DCEngine {
     bool ZilchInterface::CompileScripts()
     {      
       //DCTrace << "ZilchInterface::CompileScripts - Compiling the script library: \n";
+
       // A project contains all of the code we combine together to make a single
       // Zilch library. The project also sends events for compilation errors that occur
-      // (Including friendly!?? asserts)
       Zilch::Project ScriptProject;
-
       // Here, we can register our own callback for when compilation errors occur
       // The default callback prints the file, line/character number, and message to stderr
-      Zilch::EventConnect(&ScriptProject, Zilch::Events::CompilationError, FreeCustomErrorCallback);
+      SetupProject(ScriptProject);
 
       // Add code from the scripts stored so far
       for (auto script : Scripts) {
         AddCodeFromString(script.Name, script.Code, ScriptProject);
         //DCTrace << "ZilchInterface::CompileScripts - Adding: '" << script.first << "' \n";
       }
-
       // Add code from script files stored so far
       for (auto script : ScriptFiles) {
         AddCodeFromFile(script, ScriptProject);
@@ -189,6 +254,7 @@ namespace DCEngine {
       // Re-include Zilch's core libraries
       Dependencies.push_back(Zilch::Core::GetInstance().GetLibrary());
     }
+
     
   }
 }
