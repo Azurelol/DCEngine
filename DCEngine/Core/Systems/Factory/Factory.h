@@ -45,12 +45,14 @@ namespace DCEngine {
       using EntityBuildData = std::pair<EntityPtr, ArchetypePtr>;
       ArchetypePtr BuildArchetype(std::string, EntityPtr);
       void BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype);
+      GameObjectPtr BuildGameObjectFromArchetype(ArchetypePtr archetype, Space& space, bool init);
       void RebuildFromArchetype(EntityPtr entity);
       void Rebuild(EntityBuildData data);
       // Spaces
       void MarkSpace(Space&);
       void DestroySpaces();
       bool BuildFromLevel(LevelPtr level, Space&);
+      void BuildGameObjectAndChildren(Zilch::JsonMember* gameObject, Space& space, GameObjectPtr parent);
       LevelPtr BuildLevel(std::string name, Space&);
       // Components
       ComponentStrongPtr CreateComponentByName(const std::string& name, Entity& entity);
@@ -85,10 +87,8 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();      
       void ConstructComponentFactoryMap();
-      
-      
+      Zilch::JsonMember* ArchetypeData(ArchetypePtr archetype);
       void RebuildEntities();
-      GameObjectPtr BuildAndSerialize(const std::string& fileName);
     }; 
 
     /**************************************************************************/

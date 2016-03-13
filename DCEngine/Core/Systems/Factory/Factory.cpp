@@ -108,12 +108,7 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(ArchetypePtr archetype, Space & space, bool init)
     {
-      // 1. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
-      auto gameObjPtr = ActiveGameObjects.back().get();
-      // 2. Build it from serialized data
-      BuildFromArchetype(gameObjPtr, archetype);
-      return gameObjPtr;
+      return BuildGameObjectFromArchetype(archetype, space, init);
     }
 
     /**************************************************************************/
@@ -355,11 +350,24 @@ namespace DCEngine {
       EntitiesToRebuild.clear();
     }
 
-    GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {
-      // Construct the object with defaults
-      GameObjectPtr gameObj(new GameObject());
-      // Open the input file
-      return gameObj;
+    /**************************************************************************/
+    /*!
+    @brief Parses JSON data from the Archetype so that it can be used for
+           construction.
+    @param archetype A pointer to the archetype.
+    @return The data, as a pointer.
+    */
+    /**************************************************************************/
+    Zilch::JsonMember * Factory::ArchetypeData(ArchetypePtr archetype)
+    {
+      // 1. Get the Archetype data
+      Zilch::CompilationErrors errors;
+      Zilch::JsonReader reader;
+      const Zilch::String what;
+      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
+        archetype->Get().c_str(), what, nullptr);
+      auto data = *archetypeData->OrderedMembers.data();
+      return data;
     }
 
   }

@@ -148,6 +148,11 @@ namespace DCEngine {
     return GamesessionRef;
   }
 
+  GameObjectPtr GameObject::IsA(EntityPtr entity)
+  {
+    return dynamic_cast<GameObjectPtr>(entity);
+  }
+
 
   /**************************************************************************/
   /*!
@@ -203,6 +208,18 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachTo(GameObjectPtr parent)
   {
+    // If there is no parent
+    if (!parent)
+      return;
+    // If trying to attach to self
+    if (parent->GameObjectID == this->GameObjectID)
+      return;
+    // If trying to attach to a child
+    for (auto& child : ChildrenContainer) {
+      if (child->GameObjectID == parent->GameObjectID)
+        return;
+    }
+
     // Detach from the current
     Detach();
     parent->AddChild(GameObjectPtr(this));
@@ -217,6 +234,18 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachToRelative(GameObjectPtr parent)
   {
+    // If there is no parent
+    if (!parent)
+      return;
+    // If trying to attach to self
+    if (parent->GameObjectID == this->GameObjectID)
+      return;
+    // If trying to attach to a child
+    for (auto& child : ChildrenContainer) {
+      if (child->GameObjectID == parent->GameObjectID)
+        return;
+    }
+
     DetachRelative();
     parent->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
@@ -262,8 +291,7 @@ namespace DCEngine {
   @param builder A reference to the JSON builder.
   @note  This will serialize the GameObject.
   */
-  /**************************************************************************/
-  
+  /**************************************************************************/  
   void GameObject::Serialize(Zilch::JsonBuilder & builder)
   {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
@@ -277,9 +305,14 @@ namespace DCEngine {
       // Serialize the underlying Entity object, which includes its components.
       Entity::Serialize(builder);
       // Serialize all its children and their children
-      for (auto& child : ChildrenContainer) {
-        child->Serialize(builder);
+      builder.Key("Children");
+      builder.Begin(Zilch::JsonType::Object);
+      {
+        for (auto& child : ChildrenContainer) {
+          child->Serialize(builder);
+        }
       }
+      builder.End();
     }
     builder.End();
 

@@ -43,9 +43,7 @@ namespace DCEngine {
 
       ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
       if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
-
-        ImGui::SetWindowFontScale(16.0f);
-
+        
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
             if ((ImGui::MenuItem("Save"))) Save();

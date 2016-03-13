@@ -131,10 +131,19 @@ namespace DCEngine {
       DCTrace << "Editor::Duplicate \n";
     }
 
+
+    void AddChildrenToContainer(GameObjectPtr gameObject, GameObjectRawVec& children) {
+      for (auto& child : gameObject->Children()) {
+        // Add this child to the container
+        children.push_back(child);
+        // Add all its children
+        AddChildrenToContainer(child, children);
+      }
+    }
+
     /**************************************************************************/
     /*!
     @brief  Deletes the currently selected GameObject.
-    @todo   
     */
     /**************************************************************************/
     void Editor::DeleteObject()
@@ -149,22 +158,23 @@ namespace DCEngine {
         return;        
       }
 
-      //ImGui::OpenPopup("#ProtectTheEditorCamera");
-      //if (ImGui::BeginPopupModal("#ProtectTheEditorCamera")) {
-      //  ImGui::Text("Cannot delete the editor camera! Y-y-you trying to crash or sumthin??");
-
-      //  if (ImGui::Button("I am sorry")) {
-      //    ImGui::CloseCurrentPopup();
-      //  }
-
-      //  ImGui::EndPopup();
-      //  
-      //}
-
       // Destroy the currently selected GameObjects
       if (dynamic_cast<GameObjectPtr>(SelectedObject())) {
+
+        // The list of objects to be deleted
+        auto objectsToDelete = ObjectPtrsToGameObjectPtrs(SelectedObjects);
+        // Also add their children
+        GameObjectRawVec childrenToDelete;
+        for (auto& object : objectsToDelete) {
+          AddChildrenToContainer(object, childrenToDelete);
+        }
+        // Add the children to the list of objects to be deleted
+        objectsToDelete.insert(objectsToDelete.begin(), childrenToDelete.begin(), 
+                               childrenToDelete.end());
+
         // Save the command
-        auto deleteCommand = CommandPtr(new CommandObjectCreation(ObjectPtrsToGameObjectPtrs(SelectedObjects), CurrentSpace,
+        auto deleteCommand = CommandPtr(new CommandObjectCreation(objectsToDelete, 
+                                                                  CurrentSpace,
                                         CommandObjectCreation::Setting::Destroy));
         deleteCommand->Execute();
         Settings.Commands.Add(deleteCommand);

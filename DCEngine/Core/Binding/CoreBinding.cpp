@@ -190,13 +190,9 @@ namespace DCEngine {
     AddComponentFactory(Components::Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Reactive>>());
     // Audio
     AddComponentFactory(Components::SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::SoundEmitter>>());
-
-
-
-
-
-
   }
+
+
 
 
 
