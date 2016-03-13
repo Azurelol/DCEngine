@@ -909,7 +909,6 @@
     <ClCompile Include="Core\Systems\SystemsConfiguration.cpp">
       <Filter>Core\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingEvents.cpp">
       <Filter>Core\Events</Filter>
     </ClCompile>
@@ -930,6 +929,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Factory\FactoryBuild.cpp">
       <Filter>Core\Systems\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp">
+      <Filter>Core\Binding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1029,9 +1031,6 @@
     <ClInclude Include="Core\Components\Transform.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Resources\ResourcesInclude.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Resource.h">
       <Filter>Core\Object\Resource</Filter>
     </ClInclude>
@@ -1055,9 +1054,6 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\Material.h">
       <Filter>Core\Resources\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Resources\ResourceReference.h">
-      <Filter>Core\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Factory\Factory.h">
       <Filter>Core\Systems\Factory</Filter>
@@ -1536,7 +1532,6 @@
     <ClInclude Include="Core\Systems\Editor\EditorPreferences.h">
       <Filter>Core\Systems\Editor\Modules\Preferences</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Objects\Object.hpp">
       <Filter>Core\Object</Filter>
     </ClInclude>
@@ -1566,6 +1561,15 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorObjects.h">
       <Filter>Core\Systems\Editor\Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h">
+      <Filter>Core\Binding</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourcesInclude.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourceReference.h">
+      <Filter>Core\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1619,6 +1623,18 @@
     </None>
     <None Include="Projects\Rebound\Rebound.dceproj">
       <Filter>Projects\Rebound</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\LightingShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\LightingShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\DebugShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\DebugShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>
