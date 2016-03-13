@@ -392,7 +392,7 @@ namespace DCEngine {
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
     // Add it to the recently-created GameObjects container
-    RecentlyCreatedGameObjects.push_back(gameObject);
+    // RecentlyCreatedGameObjects.push_back(gameObject);
     DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
     return gameObject;
   }
@@ -416,7 +416,7 @@ namespace DCEngine {
       return nullptr;
     }
     // Add it to the recently-created GameObjects container
-    RecentlyCreatedGameObjects.push_back(gameObject);
+    //RecentlyCreatedGameObjects.push_back(gameObject);
     DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
     return gameObject;
   }
@@ -485,12 +485,23 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Adds an entity directly to the space.
+  @brief Adds a GameObject to the space's container of active GameObjects.
+  @param gameObject A pointer to the GameObject to add.
+  @param nextFrame Whether the object should be added to the space on the next frame.
   */
   /**************************************************************************/
-  void Space::AddObject(GameObjectPtr gameObject) {
-    GameObjectContainer.push_back(gameObject);
-    //ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
+  void Space::AddObject(GameObjectPtr gameObject, bool nextFrame) {
+    
+    // Don't add duplicates!
+    if (std::find(GameObjectContainer.begin(), GameObjectContainer.end(), gameObject)
+      != GameObjectContainer.end())
+      return;
+
+    // If you want the object to be added on the next frame
+    if (nextFrame)
+      RecentlyCreatedGameObjects.push_back(gameObject);
+    else
+      GameObjectContainer.push_back(gameObject);
 
     if (DCE_TRACE_GAMEOBJECT_ADD)
       DCTrace << ObjectName << "::AddObject - Added " << gameObject->Name() << " to the space.\n";

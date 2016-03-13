@@ -68,7 +68,7 @@ namespace DCEngine {
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
     GameObject::Identifiers IdentifyAllObjects();
-    void AddObject(GameObjectPtr entity);
+    void AddObject(GameObjectPtr entity, bool nextFrame = false);    
     void RemoveObject(GameObject&);
     void DestroyAll();
     void TestSpace();
