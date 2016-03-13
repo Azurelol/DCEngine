@@ -50,7 +50,7 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor, attributeRangeColor);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
-      DCE_BINDING_PROPERTY_DEFINE_RANGE(Intensity, 0, 50);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Intensity, 0, 20);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyIntensity, attributeRangeIntensity);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);

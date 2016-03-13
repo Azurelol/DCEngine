@@ -191,7 +191,7 @@ namespace DCEngine {
       ImGui::InputInt("Height", &config.ScreenHeight, 10);
       ImGui::InputInt("Framerate", &config.Framerate, 1);
       ImGui::InputInt("Max Draw Layers", &config.MaxDrawLayers, 1);
-			ImGui::SliderFloat("Exposure", &config.Exposure, 0, 1);
+			ImGui::SliderFloat("Exposure", &config.Exposure, 0, 5);
       ImGui::Checkbox("Fullscreen", &config.Fullscreen);
       ImGui::SliderFloat4("Clear Color", &config.ClearColor[0], 0.0f, 1.0f);
     }
