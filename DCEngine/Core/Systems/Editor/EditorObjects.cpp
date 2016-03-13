@@ -189,11 +189,11 @@ namespace DCEngine {
       {
         if (ImGui::Selectable("Attach")) {
           // The next object to be selected will be the one we will be attaching to
-          //Attaching = true;
-          //ImGui::GetIO().MouseDrawCursor = true;
+          Attaching = true;
+          ImGui::GetIO().MouseDrawCursor = true;
         }
         if (ImGui::Selectable("Dettach")) {
-          //Detaching = true;
+          Detaching = true;
         }
         // Lock/Unlock the object
         if (ImGui::Selectable("Lock")) {

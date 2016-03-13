@@ -110,13 +110,14 @@ namespace DCEngine {
       // 1. Grab the serialized data
       auto data = ArchetypeData(archetype);
       // 2. Construct the gameObject and all its children
-      //BuildGameObjectAndChildren()
+      return BuildGameObjectAndChildren(data, space, nullptr, true);
+
       // 1. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
-      auto gameObjPtr = ActiveGameObjects.back().get();
-      // 2. Build it from serialized data
-      BuildFromArchetype(gameObjPtr, archetype);
-      return gameObjPtr;
+      //ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
+      //auto gameObjPtr = ActiveGameObjects.back().get();
+      //// 2. Build it from serialized data
+      //BuildFromArchetype(gameObjPtr, archetype);
+      //return gameObjPtr;
     }
 
     /**************************************************************************/
@@ -171,14 +172,16 @@ namespace DCEngine {
     @param gameObjectData A pointer to the GameObject data.    
     @param space A reference to the Space the GameObject will be created on.
     @param parent A pointer to the parent of this GameObject.
-    @return A pointer to the GameObject created on the space.
+    @param nextFrame Whether the object should be added to the space on the next frame.
+    @return A pointer to the first GameObject created on the space.
     */
     /**************************************************************************/
-    void Factory::BuildGameObjectAndChildren(Zilch::JsonMember* gameObjectData, Space& space, GameObjectPtr parent) {
+    GameObjectPtr Factory::BuildGameObjectAndChildren(Zilch::JsonMember* gameObjectData, Space& space, 
+                                                      GameObjectPtr parent, bool nextFrame) {
       // 1. Build the GameObject
       auto gameObject = BuildGameObject(gameObjectData, space);
       // 2. Add it to the space's container of active gameobjects
-      space.AddObject(gameObject);
+      space.AddObject(gameObject, nextFrame);
       // 3. Attach it to its parent
       gameObject->AttachTo(parent);
       // 4. Deserialize and build all its children      
@@ -188,6 +191,7 @@ namespace DCEngine {
           BuildGameObjectAndChildren(child, space, gameObject);
         }
       }
+      return gameObject;
     }
 
     /**************************************************************************/

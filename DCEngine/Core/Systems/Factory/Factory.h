@@ -52,7 +52,7 @@ namespace DCEngine {
       void MarkSpace(Space&);
       void DestroySpaces();
       bool BuildFromLevel(LevelPtr level, Space&);
-      void BuildGameObjectAndChildren(Zilch::JsonMember* gameObject, Space& space, GameObjectPtr parent);
+      GameObjectPtr BuildGameObjectAndChildren(Zilch::JsonMember* gameObject, Space& space, GameObjectPtr parent, bool nextFrame = false);
       LevelPtr BuildLevel(std::string name, Space&);
       // Components
       ComponentStrongPtr CreateComponentByName(const std::string& name, Entity& entity);
