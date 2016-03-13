@@ -32,9 +32,7 @@ namespace DCEngine
 
       Vec3 temp = glm::normalize(point - Translation);
 
-      this->Owner()->getComponent<Components::Transform>()->Rotation.z = GetVectorAngle(temp);
-
-      WorldForward.x = WorldForward.x;
+      LookAtDirection(temp);
     }
 
     void Orientation::LookAtPointWithUp(Vec3 point)
@@ -48,8 +46,17 @@ namespace DCEngine
 
     void Orientation::LookAtDirection(Vec3 direction)
     {
+      float NextRot = GetVectorAngle(direction);
 
+      float CurrentRot = GetVectorAngle(WorldForward);
 
+      float DeltaRot = CurrentRot - NextRot;
+
+      CurrentRot -= DeltaRot;
+
+      this->Owner()->getComponent<Components::Transform>()->Rotation.z = CurrentRot;
+
+      WorldForward = Vec3(cos(CurrentRot), sin(CurrentRot), 0.0f);
     }
 
     void Orientation::LookAtDirectionWithUp(Vec3 direction)
@@ -59,7 +66,7 @@ namespace DCEngine
 
     void Orientation::LookAtUp(void)
     {
-
+      LookAtDirection(WorldUp);
     }
 
 
