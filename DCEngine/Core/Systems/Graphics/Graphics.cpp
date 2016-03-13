@@ -100,17 +100,17 @@ namespace DCEngine {
 				UpdateObjects(dt);
 
 				GraphicsHandler->PreRender(camera);
-				GraphicsHandler->RenderDepths(camera);
+				//GraphicsHandler->RenderDepths(camera);
 				if (!lightComponents.empty())
 					for (const auto& light : lightComponents)
 					{
 						if (light->getCastShadows())
 							GraphicsHandler->RenderShadows(camera, light);
-						GraphicsHandler->RenderScene(light);
+						GraphicsHandler->RenderLights(light);
 					}
 				else
-					GraphicsHandler->RenderScene();
-
+					GraphicsHandler->RenderLights(0);
+				GraphicsHandler->RenderScene(Settings.Exposure);
 				DrawDebug(camera);
 
 				for (auto&& drawList : mDrawList)

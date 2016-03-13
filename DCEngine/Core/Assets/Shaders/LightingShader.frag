@@ -28,15 +28,14 @@ uniform sampler2D gColor;
 
 in vec2 gTexCoords;
 
-out vec4 gFragColor;
+layout (location = 0) out vec4 FragColor;
 
 float GenerateZ0DiffuseFactor(vec3 fragPos, vec3 fragNormal, vec3 lightPosition)
 {
 	if(lightPosition.z == 0.0 && fragPos.z == 0.0)
 	{
 		vec3 lightVector = normalize(lightPosition - fragPos);
-		float diffuseFactor = (dot(lightVector, fragNormal) + .2) / 2;
-		return clamp(diffuseFactor, 0.0, 1.0) * .9 + .1;
+		return (dot(lightVector, fragNormal) + .2) / 2;
 	}
 	else
 		return 1.0;
@@ -46,7 +45,7 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
 		if(falloff > 0.0)
-			return clamp((1.0 - distance/range) / (falloff * falloff), 0, 1);
+			return (1.0 - distance/range) / (falloff * falloff);
 		else
 			return 1.0;
 	else return 0.0;
@@ -75,14 +74,9 @@ float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, vec3 lightPosition,
 		return 0.0;
 
 	if(lightInnerAngle < lightOuterAngle)
-	{
 		angleFalloff = (angleDifference - lightOuterAngle) / (lightInnerAngle - lightOuterAngle);
-		angleFalloff = clamp(angleFalloff, 0.0, 1.0);
-	}
 	else
-	{
 		angleFalloff = 1;
-	}
 
 	return distanceAttenuation * angleFalloff * diffuseFactor;
 }
@@ -120,7 +114,7 @@ void main()
 	if(useLight)
 	{
 		lightValue = GenerateIlluminationValues(fragPos, normal);
-		lightValue = clamp(lightValue, 0, 1);
+		lightValue = lightValue;
 	}
-	gFragColor = color * vec4(lightValue, 1);
+	FragColor = color * vec4(lightValue, 1);
 }

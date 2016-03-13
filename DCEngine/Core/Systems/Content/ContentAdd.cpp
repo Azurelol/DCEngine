@@ -60,6 +60,9 @@ namespace DCEngine {
 			AddShader(std::string("DebugShader"), ShaderPtr(new Shader(std::string("DebugShader"),
 				ShaderPath + "DebugShader.vs",
 				ShaderPath + "DebugShader.frag")));
+			AddShader(std::string("FinalRenderShader"), ShaderPtr(new Shader(std::string("FinalRenderShader"),
+				ShaderPath + "FinalRenderShader.vs",
+				ShaderPath + "FinalRenderShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;

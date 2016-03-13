@@ -151,14 +151,15 @@ namespace DCEngine {
       GraphicsHandler->DebugShader->Use();
 			GraphicsHandler->DebugShader->SetMatrix4("Proj", camera->GetProjectionMatrix());
 			GraphicsHandler->DebugShader->SetMatrix4("View", camera->GetViewMatrix());
+			for (const auto& debugObj : mDebugRectangleList)
+			{
+				debugObj.Draw();
+			}
       for (const auto& debugObj : mDebugLineList)
       {
         debugObj.Draw();
       }
-      for (const auto& debugObj : mDebugRectangleList)
-      {
-        debugObj.Draw();
-      }
+      
       for (const auto& debugObj : mDebugCircleList)
       {
         debugObj.Draw();

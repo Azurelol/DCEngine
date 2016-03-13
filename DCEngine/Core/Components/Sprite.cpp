@@ -110,8 +110,6 @@ namespace DCEngine {
     void Sprite::Initialize() {
       if (DCE_TRACE_COMPONENT_INITIALIZE)
         DCTrace << Owner()->Name() << "::" << ObjectName << "::Initialize\n";
-
-
     }
 
     void Sprite::Register()

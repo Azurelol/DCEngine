@@ -32,17 +32,13 @@ namespace DCEngine {
 
     void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
     {
-			glClear(GL_STENCIL_BUFFER_BIT);
-			
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_ONE, GL_ONE);
-			
 			glEnable(GL_STENCIL_TEST);
+			glClear(GL_STENCIL_BUFFER_BIT);
+
 			glEnable(GL_DEPTH_CLAMP);
 			glEnable(GL_DEPTH_TEST);
 			glDisable(GL_CULL_FACE);
 			glDepthFunc(GL_LESS);
-			glDrawBuffer(GL_NONE);
 			glDepthMask(GL_FALSE);
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
@@ -99,13 +95,13 @@ namespace DCEngine {
 			glDepthFunc(GL_LESS);
 			glDisable(GL_BLEND);
 
-			RenderObjects(camera);
+			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			glDrawBuffers(3, attachments);
 
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			RenderObjects(camera);
 		}
 
-		void GraphicsGL::RenderScene(Components::Light * light)
+		void GraphicsGL::RenderLights(Components::Light * light)
 		{
 			LightingShader->Use();
 			glDisable(GL_STENCIL_TEST);
@@ -180,13 +176,38 @@ namespace DCEngine {
 			glActiveTexture(GL_TEXTURE2);
 			glBindTexture(GL_TEXTURE_2D, ColorTexture);
 
+			glDrawBuffer(GL_COLOR_ATTACHMENT3);
+
 			glBegin(GL_TRIANGLE_FAN);
 			glVertex4f(-1, -1, 0, 0);
 			glVertex4f( 1, -1, 1, 0);
 			glVertex4f( 1,  1, 1, 1);
 			glVertex4f(-1,  1, 0, 1);
 			glEnd();
+
+			glClear(GL_STENCIL_BUFFER_BIT);
 			glDisable(GL_STENCIL_TEST);
+		}
+
+		void GraphicsGL::RenderScene(float exposure)
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDrawBuffer(GL_FRONT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glDisable(GL_BLEND);
+			FinalRenderShader->Use();
+			FinalRenderShader->SetFloat("Exposure", exposure);
+
+			FinalRenderShader->SetInteger("LightedFrag", 0);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, FinalColor);
+
+			glBegin(GL_TRIANGLE_FAN);
+			glVertex4f(-1, -1, 0, 0);
+			glVertex4f(1, -1, 1, 0);
+			glVertex4f(1, 1, 1, 1);
+			glVertex4f(-1, 1, 0, 1);
+			glEnd();
 		}
 
     void GraphicsGL::DrawDebug()

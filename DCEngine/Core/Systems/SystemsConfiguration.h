@@ -166,6 +166,7 @@ namespace DCEngine {
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
       Vec2 ViewportScale = Vec2(1, 1);
       Vec2 ViewportRatio;
+			float Exposure;
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(MaxDrawLayers);
@@ -174,6 +175,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Framerate);
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Caption);
+				DCE_JSON_SERIALIZE(Exposure);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
         root["ClearColorZ"] = ClearColor.z;
@@ -188,6 +190,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
+				DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();

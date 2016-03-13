@@ -98,15 +98,16 @@ namespace DCEngine {
       void RenderBackground(ShaderPtr shader, Components::Camera* camera);
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void PreRender(Components::Camera* camera);
-			void RenderScene(Components::Light* light = 0);
+			void RenderLights(Components::Light* light = 0);
+			void RenderScene(float exposure);
       void DrawDebug();
       
     private:
       GraphicsConfig& Settings;
-      ShaderPtr DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
+      ShaderPtr FinalRenderShader, DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
-			GLuint FBO, PosTexture, NormalTexture, ColorTexture;
+			GLuint FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;
       OpenGLStateData GLState;
