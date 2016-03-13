@@ -49,7 +49,6 @@ namespace DCEngine {
 			if (glewInit() != GLEW_OK) {
 				DCTrace << "Failed to initialize GLEW \n";
 			}
-
       CompileShaders();
 		}
 

@@ -2,6 +2,7 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
     "Name": "TestParticle", 
     "Archetype": "TestParticle", 
     "Components": 
@@ -43,7 +44,7 @@
         {
           "Vec4": 
           {
-            "x": 1.000000, 
+            "x": 0.000000, 
             "y": 1.000000, 
             "z": 1.000000, 
             "w": 1.000000
@@ -71,7 +72,7 @@
         "EmitCount": 0, 
         "EmitRate": 20, 
         "EmitVariance": 0, 
-        "Size": 0.100000, 
+        "Size": 0.200000, 
         "SizeVariance": 0.100000, 
         "Lifetime": 4.000000, 
         "LifetimeVariance": 0.000000, 
@@ -117,7 +118,7 @@
           }
         }, 
         "Torque": 0.000000, 
-        "Growth": 0.000000, 
+        "Growth": -0.050000, 
         "Dampening": 0.000000
       }
     }

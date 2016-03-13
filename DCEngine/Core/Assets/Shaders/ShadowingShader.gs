@@ -22,7 +22,7 @@ struct Light
 	vec3 Position;
 	mat4 Model;
 };
-uniform bool useLight;
+
 uniform Light gLight;
 uniform mat4 view;
 uniform mat4 projection;
@@ -57,6 +57,4 @@ void EmitQuad(vec3 StartVertex, vec3 EndVertex)
 void main()
 {
 	EmitQuad(WorldPos[0], WorldPos[1]);
-	//EmitQuad(WorldPos[1], WorldPos[2]);
-	//EmitQuad(WorldPos[2], WorldPos[0]);
 }
