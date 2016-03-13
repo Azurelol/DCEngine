@@ -224,7 +224,7 @@ namespace DCEngine {
 		//SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
-        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
+        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.96f, 0.99f, 1));
       }
 
 
@@ -448,7 +448,7 @@ namespace DCEngine {
 		auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
 		DCEngine::Ray ray;
 		ray.Direction = Vec3(0, -1, 0);
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
 		auto result = physicsSpace->CastRay(ray);
 		if (result.Distance < 0.05)
 		{
@@ -460,7 +460,7 @@ namespace DCEngine {
 		{
 			return true;
 		}
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
 		result = physicsSpace->CastRay(ray, filter);
 		if (result.Distance < 0.05)
 		{

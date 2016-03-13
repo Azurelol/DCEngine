@@ -27,7 +27,7 @@ namespace DCEngine {
   #endif
 
   PhysicsMaterial::PhysicsMaterial(std::string physicsMaterialFile) : Resource("PhysicsMaterial", 
-                                   FileSystem::FileNoExtension(physicsMaterialFile), physicsMaterialFile)
+                                   FileSystem::FileNoExtension(physicsMaterialFile), physicsMaterialFile), Restitution(0)
   {
   }
 
