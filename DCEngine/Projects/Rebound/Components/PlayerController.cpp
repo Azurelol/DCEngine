@@ -221,7 +221,7 @@ namespace DCEngine {
       {
 
         SpriteComponent->SpriteSource = JumpAnimation;
-		SpriteComponent->AnimationActive = false;
+		//SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
@@ -232,7 +232,10 @@ namespace DCEngine {
       {
         if (Grounded)
         {
-          Jump();
+			auto Sequence = Actions::Sequence(this->Owner()->Actions);
+			auto seq = Actions::Sequence(Owner()->Actions);
+			Actions::Delay(seq, 0.1f);
+			Actions::Call(seq, &PlayerController::Jump, this);
           Jumping = true;
           Grounded = false;
         }
@@ -256,7 +259,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
+		  //SpriteComponent->AnimationActive = true;
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -276,7 +279,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;
-		  SpriteComponent->AnimationActive = false;
+		  //SpriteComponent->AnimationActive = false;
         }
       }
     }
@@ -371,6 +374,8 @@ namespace DCEngine {
     }
     void PlayerController::MoveLeft()
     {
+
+		//////
       float scalar = 0.0f;
 
       if (RigidBodyRef->getVelocity().x > 0)
@@ -464,5 +469,7 @@ namespace DCEngine {
 		return false;
 	}
   }
+
+
 
 }

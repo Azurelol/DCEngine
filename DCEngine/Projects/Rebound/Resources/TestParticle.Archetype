@@ -12,8 +12,8 @@
         {
           "Vec3": 
           {
-            "x": -56.701260, 
-            "y": 18.836403, 
+            "x": -60.000000, 
+            "y": 5.000000, 
             "z": 0.000000
           }
         }, 
@@ -61,18 +61,19 @@
             "z": 4.000000
           }
         }, 
-        "Additive": true
+        "Additive": true, 
+        "Lock": false
       }, 
       "ParticleEmitter": 
       {
-        "Active": false, 
+        "Active": true, 
         "ResetCount": false, 
         "EmitCount": 0, 
-        "EmitRate": 7, 
+        "EmitRate": 20, 
         "EmitVariance": 0, 
-        "Size": 0.300000, 
+        "Size": 0.100000, 
         "SizeVariance": 0.100000, 
-        "Lifetime": 2.000000, 
+        "Lifetime": 4.000000, 
         "LifetimeVariance": 0.000000, 
         "Spin": 100.000000, 
         "SpinVariance": 100.000000, 
@@ -89,8 +90,8 @@
         {
           "Vec3": 
           {
-            "x": 0.500000, 
-            "y": 0.500000, 
+            "x": 0.125000, 
+            "y": 0.125000, 
             "z": 0.000000
           }
         }
