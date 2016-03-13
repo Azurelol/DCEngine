@@ -218,7 +218,7 @@ namespace DCEngine {
 				transform->Translation.z));
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
-				transform->Scale.y, 0.0f));
+				transform->Scale.y, 1.0f));
 			shader->SetMatrix4("model", modelMatrix);
 
 			glm::mat4 rotationMatrix;
@@ -243,6 +243,7 @@ namespace DCEngine {
 			shader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
 			shader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
       shader->SetInteger("image", 0);
+			shader->SetInteger("image", 0);
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			spriteSrc->getTexture().Bind();
 
@@ -265,7 +266,10 @@ namespace DCEngine {
 					shader->SetInteger("currentRow", CurrentRow);
 				}
 			}
-
+			// Set the projection matrix
+			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
+			// Set the view matrix 
+			shader->SetMatrix4("view", camera->GetViewMatrix());
 			//Lights
 
 			if (light)
@@ -279,7 +283,7 @@ namespace DCEngine {
 				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
 					lightTransform->Scale.y, 0.0f));
-
+			
 				std::string var("gLight.");
 				std::string member;
 				member = var + "Visible";
@@ -313,14 +317,7 @@ namespace DCEngine {
 			}
 			else
 				shader->SetInteger("useLight", 0);
-
-			// Set the projection matrix
-			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
-			// Set the view matrix 
-			shader->SetMatrix4("view", camera->GetViewMatrix());
 		}
-		
-			
 
 		void Sprite::Draw(void)
 		{
@@ -334,7 +331,6 @@ namespace DCEngine {
 			else
 				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
-
 		}
 
 		void Sprite::SetShader()

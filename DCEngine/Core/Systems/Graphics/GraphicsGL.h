@@ -54,6 +54,7 @@ namespace DCEngine {
           
     public:
       // Shader Control
+			void ConfigureFBO();
       void CompileShaders();
       // Uniforms
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
@@ -91,17 +92,23 @@ namespace DCEngine {
       void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color);
       // Lightning
+			void RenderDepths(Components::Camera* camera);
       void RenderShadows(Components::Camera* camera, Components::Light* light);
-      void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
+      void RenderObjects(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
       void RenderBackground(ShaderPtr shader, Components::Camera* camera);
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+			void PreRender(Components::Camera* camera);
+			void RenderScene(Components::Light* light = 0);
       void DrawDebug();
       
     private:
       GraphicsConfig& Settings;
-      ShaderPtr SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader;
+      ShaderPtr DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
+			GLuint FBO, PosTexture, NormalTexture, ColorTexture;
+			
+			std::vector<std::vector<Components::Graphical*>>* mDrawList;
       OpenGLStateData GLState;
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);

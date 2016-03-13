@@ -145,14 +145,12 @@ namespace DCEngine {
     @brief Draws all debug objects.
     */
     /**************************************************************************/
-    void Graphics::DrawDebug()
+    void Graphics::DrawDebug(Components::Camera* camera)
     {
       SystemMethodTimer timer("DrawDebug", EnumeratedSystem::Graphics);
-      glDisable(GL_DEPTH_TEST);
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-      GraphicsHandler->SpriteShader->Use();
-      GraphicsHandler->SpriteShader->SetInteger("useLight", false);
+      GraphicsHandler->DebugShader->Use();
+			GraphicsHandler->DebugShader->SetMatrix4("Proj", camera->GetProjectionMatrix());
+			GraphicsHandler->DebugShader->SetMatrix4("View", camera->GetViewMatrix());
       for (const auto& debugObj : mDebugLineList)
       {
         debugObj.Draw();
@@ -168,8 +166,6 @@ namespace DCEngine {
       mDebugLineList.clear();
       mDebugRectangleList.clear();
       mDebugCircleList.clear();
-      glEnable(GL_DEPTH_TEST);
-      //glEnable(GL_BLEND);
     }
 
   }

@@ -926,7 +926,10 @@
       <Filter>Core\Systems\Scripting\Zilch</Filter>
     </ClCompile>
     <ClCompile Include="Core\Systems\Editor\EditorObjects.cpp">
-      <Filter>Core\Systems\Editor\Modules</Filter>
+      <Filter>Core\Systems\Editor\Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Factory\FactoryBuild.cpp">
+      <Filter>Core\Systems\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

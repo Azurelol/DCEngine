@@ -25,8 +25,10 @@ namespace DCEngine {
   ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
     DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor
+    ZilchBindDestructor(builder, type, GameObject);
     ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
     ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
+    // Methods
     ZilchBindMethod(builder, type, &GameObject::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
@@ -37,22 +39,18 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    // Properties
     DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
     DCE_BINDING_DEFINE_PROPERTY(GameObject, Locked);
     DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLocked, attributeHidden);
-    //DCE_BINDING_DEFINE_METHOD_NO_ARGS(GameObject, Test);
-    ZilchBindDestructor(builder, type, GameObject);
-    // Fields
-    // Properties
-
+    DCE_BINDING_DEFINE_PROPERTY(GameObject, GameObjectID);
   }
-
-
 
   // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
   unsigned int GameObject::GameObjectsDestroyed = 0;
   unsigned int GameObject::GameObjectsActive = 0;
+  std::unordered_set<unsigned int> GameObject::ActiveGameObjectIDs;
   std::string GameObject::GameObjectLastCreated;
   std::string GameObject::GameObjectLastDestroyed;
   // Enable diagnostics
@@ -265,6 +263,7 @@ namespace DCEngine {
   @note  This will serialize the GameObject.
   */
   /**************************************************************************/
+  
   void GameObject::Serialize(Zilch::JsonBuilder & builder)
   {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
@@ -277,9 +276,28 @@ namespace DCEngine {
       SerializeByType(builder, interface->GetState(), ZilchTypeId(GameObject), this);
       // Serialize the underlying Entity object, which includes its components.
       Entity::Serialize(builder);
+      // Serialize all its children and their children
+      for (auto& child : ChildrenContainer) {
+        child->Serialize(builder);
+      }
     }
     builder.End();
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Serializes all of the GameObject's children.
+  @param builder A reference to the JSON builder.
+  @param children A reference to the container of all the children
+  @note  This will serialize the GameObject.
+  */
+  /**************************************************************************/
+  void GameObject::SerializeChildren(Zilch::JsonBuilder & builder, GameObjectVec & children)
+  {
+    //for (auto& child : children) {
+    //  child->Serialize(builder);
+    //}
   }
 
   /**************************************************************************/

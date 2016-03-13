@@ -9,7 +9,7 @@ layout (location = 0) in vec4 vertex; // <vec2 position, vec2 TexCoords>
 
 out vec2 TexCoords;
 out vec3 WorldCoords; 
-out vec3 VertWorldNormal;
+out vec3 WorldNormal;
 
 //basic
 uniform mat4 model; //the model to world matrix
@@ -92,10 +92,10 @@ void main() {
 		  TexCoords.y = CutMinY;
 		}
   }
-    
+
 	vec4 temp = model * vec4(vertex.xy, 0.0, 1.0);
   gl_Position = projection * view * temp;
 	WorldCoords = temp.xyz;
-	vec4 tempNormal = rotation * vec4(vertex.xy, .1, 0);
-	VertWorldNormal = vec3(tempNormal.xyz);
+	vec4 tempNormal = rotation * vec4(vertex.xy, 0, 0);
+	WorldNormal = vec3(tempNormal.xy, tempNormal.z + .1);
 }
