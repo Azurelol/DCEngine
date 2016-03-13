@@ -33,7 +33,7 @@ namespace DCEngine {
 
   class GameObject : public Entity {
     friend class Space;
-    friend class Factory;
+    friend class Systems::Factory;
     friend class Systems::Editor;
 
   public:
@@ -75,7 +75,9 @@ namespace DCEngine {
     void DetachRelative();
     GameObjectPtr Parent() { return ParentRef; }    
     DCE_DEFINE_PROPERTY(bool, Locked);
+    DCE_DEFINE_PROPERTY(unsigned int, GameObjectID);
     void Serialize(Zilch::JsonBuilder& builder);
+    void SerializeChildren(Zilch::JsonBuilder& builder, GameObjectVec& children);
     void Deserialize(Zilch::JsonValue* properties);
     // Stream
     friend std::ostream& operator<<(std::ostream&, GameObject const&);
@@ -88,7 +90,8 @@ namespace DCEngine {
     static bool DiagnosticsEnabled;
 
   private:
-    const unsigned int GameObjectID;    
+    static std::unordered_set<unsigned int> ActiveGameObjectIDs;
+    unsigned int GameObjectID;    
     GameObjectPtr ParentRef;
     unsigned ParentID;
     GameObjectVec ChildrenContainer;

@@ -26,15 +26,16 @@ namespace DCEngine {
 /**************************************************************************/
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(BoxCollider, "BoxCollider", DCEngineCore, builder, type) {
-      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
-      DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(BoxCollider);
-      //ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, BoxCollider);
-      // Properties
+      // Resources Properties
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
+      DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);   
       DCE_BINDING_DEFINE_PROPERTY(BoxCollider, CollisionGroup);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCollisionGroup, attributeCollisionGroup);
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, PhysicsMaterial);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyPhysicsMaterial, attributePhysicsMaterial);
+      // Other properties
       ZilchBindProperty(builder, type, &BoxCollider::getSize, &BoxCollider::setSize, "Size");
       ZilchBindProperty(builder, type, &BoxCollider::getOffset, &BoxCollider::setOffset, "Offset");
       ZilchBindProperty(builder, type, &BoxCollider::getGhost, &BoxCollider::setGhost, "Ghost");

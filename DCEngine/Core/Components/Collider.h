@@ -41,7 +41,7 @@ namespace DCEngine {
 
       /* Properties */
       DCE_DEFINE_PROPERTY(String, CollisionGroup);
-      DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhyMatHandle);
+      DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
       // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
       //String getCollisionGroup() const;
       //void setCollisionGroup(String);
@@ -63,7 +63,7 @@ namespace DCEngine {
       // // for filtering are on the CollisionFilter that is on the running space.
       CollisionGroupHandle CollisionGroup = String("Default");
       // for filtering are on the CollisionFilter that is on the running space.    
-      PhysicsMaterialHandle PhyMatHandle;
+      PhysicsMaterialHandle PhysicsMaterial;
 			//for quad trees
 			
 
