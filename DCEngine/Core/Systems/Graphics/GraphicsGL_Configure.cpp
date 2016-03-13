@@ -26,7 +26,7 @@ namespace DCEngine {
 			// - Position color buffer
 			glGenTextures(1, &PosTexture);
 			glBindTexture(GL_TEXTURE_2D, PosTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, PosTexture, 0);
@@ -34,10 +34,10 @@ namespace DCEngine {
 			// - Normal color buffer
 			glGenTextures(1, &NormalTexture);
 			glBindTexture(GL_TEXTURE_2D, NormalTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, NormalTexture, 0);
+			glFramebufferTexture2D(GL_FRAMEBUFFER,  GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, NormalTexture, 0);
 
 			// - Color + Specular color buffer
 			glGenTextures(1, &ColorTexture);
@@ -60,11 +60,6 @@ namespace DCEngine {
 				std::cout << "Framebuffer not complete!" << std::endl;
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-			
-			// - Tell OpenGL which color attachments we'll use (of this framebuffer) for rendering 
-			//GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
-			//glDrawBuffers(3, attachments);
 		}
     /**************************************************************************/
     /*!
@@ -92,6 +87,9 @@ namespace DCEngine {
       // Construct the Shadowing shader
       ShadowingShader = Daisy->getSystem<Content>()->getShader("ShadowingShader");
       ShadowingShader->Compile();
+			// Construct the Debug shader
+			DebugShader = Daisy->getSystem<Content>()->getShader("DebugShader");
+			DebugShader->Compile();
 			// Construct the Lighting shader
 			LightingShader = Daisy->getSystem<Content>()->getShader("LightingShader");
 			LightingShader->Compile();

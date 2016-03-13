@@ -35,36 +35,28 @@ float GenerateZ0DiffuseFactor(vec3 fragPos, vec3 fragNormal, vec3 lightPosition)
 	if(lightPosition.z == 0.0 && fragPos.z == 0.0)
 	{
 		vec3 lightVector = normalize(lightPosition - fragPos);
-		vec3 normal = normalize(fragNormal);
-		float diffuseFactor = dot(lightVector, normal) + .25;
-		return clamp(diffuseFactor, 0.0, 1.0);
+		float diffuseFactor = (dot(lightVector, fragNormal) + .2) / 2;
+		return clamp(diffuseFactor, 0.0, 1.0) * .9 + .1;
 	}
 	else
-	{
 		return 1.0;
-	}
 }
 
 float GenerateFalloffFactor(float distance, float range, float falloff)
 {
-	float factor;
 	if(distance <= range)
-	{
 		if(falloff > 0.0)
-			factor = (1.0 - distance/range) / (falloff * falloff);
+			return clamp((1.0 - distance/range) / (falloff * falloff), 0, 1);
 		else
-			factor = 1.0;
-		return clamp(factor, 0.0, 1.0);
-	}
+			return 1.0;
 	else return 0.0;
 }
 
-float GeneratePointLightValues(vec3 fragPos, vec3 fragNormal, vec3 position, float range, float falloff)
+float GeneratePointLightValues(vec3 fragPos, vec3 fragNormal, vec3 lightPosition, float range, float falloff)
 {
-	float diffuseFactor = GenerateZ0DiffuseFactor(fragPos, fragNormal, position);
-	float distance = length(fragPos - position);
-	float distanceAttenuation = GenerateFalloffFactor(distance, range, falloff);
-	return distanceAttenuation * diffuseFactor;
+	float distance = length(fragPos - lightPosition);
+	return GenerateFalloffFactor(distance, range, falloff)
+	 * GenerateZ0DiffuseFactor(fragPos, fragNormal, lightPosition);
 }
 
 float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, vec3 lightPosition, float lightRange, float lightFalloff, vec3 lightDirection,
@@ -122,16 +114,13 @@ vec3 GenerateIlluminationValues(vec3 fragPos, vec3 fragNormal)
 void main()
 {
 	vec3 lightValue = vec3(1);
-	vec3 FragPos = texture(gWorldCoords, gTexCoords).rgb;
-	vec3 Normal = texture(gWorldNormal, gTexCoords).rgb;
-	vec4 Color = texture(gColor, gTexCoords);
+	vec3 fragPos = texture(gWorldCoords, gTexCoords).rgb;
+	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
+	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
 	{
-		lightValue = GenerateIlluminationValues(FragPos, Normal);
+		lightValue = GenerateIlluminationValues(fragPos, normal);
 		lightValue = clamp(lightValue, 0, 1);
 	}
-  gFragColor = Color * vec4(lightValue, 1);
-	//gFragColor = texture(gColor, gTexCoords);
-	//gFragColor = texture(gWorldCoords, gTexCoords);
-	//gFragColor = texture(gWorldNormal, gTexCoords);
+	gFragColor = color * vec4(lightValue, 1);
 }

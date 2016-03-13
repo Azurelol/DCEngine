@@ -57,6 +57,9 @@ namespace DCEngine {
 			AddShader(std::string("LightingShader"), ShaderPtr(new Shader(std::string("LightingShader"),
 				ShaderPath + "LightingShader.vs",
 				ShaderPath + "LightingShader.frag")));
+			AddShader(std::string("DebugShader"), ShaderPtr(new Shader(std::string("DebugShader"),
+				ShaderPath + "DebugShader.vs",
+				ShaderPath + "DebugShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;

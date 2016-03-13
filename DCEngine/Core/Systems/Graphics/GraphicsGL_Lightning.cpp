@@ -8,48 +8,62 @@
 */
 /******************************************************************************/
 #include "GraphicsGL.h"
+#include "../../Components/Sprite.h"
 
 namespace DCEngine {
   namespace Systems {
 
+		void GraphicsGL::RenderDepths(Components::Camera * camera)
+		{
+			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LESS);
+			glDrawBuffer(GL_NONE);
+			for (const auto& drawList : *mDrawList)
+				for (const auto& obj : drawList)
+					if (dynamic_cast<Components::Sprite*>(obj))
+						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
+						{
+							obj->SetUniforms(0, camera, 0);
+							obj->Draw();
+						}
+
+		}
+
     void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
     {
 			glClear(GL_STENCIL_BUFFER_BIT);
-
+			
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_ONE, GL_ONE);
+			
 			glEnable(GL_STENCIL_TEST);
 			glEnable(GL_DEPTH_CLAMP);
+			glEnable(GL_DEPTH_TEST);
 			glDisable(GL_CULL_FACE);
 			glDepthFunc(GL_LESS);
 			glDrawBuffer(GL_NONE);
-
+			glDepthMask(GL_FALSE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
-			glEnable(GL_DEPTH_TEST);
+			
 			if (light->getVisibilityCulling())
 				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
 			else
 				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 
 			for (const auto& drawList : *mDrawList)
-			{
 				for (const auto& obj : drawList)
-				{
-					if (obj->Owner()->getComponent<Components::Sprite>())
-					{
-						Components::Transform* transform = obj->Owner()->getComponent<Components::Transform>();
-						if (transform->Translation.z == 0)
+					if (dynamic_cast<Components::Sprite*>(obj))
+						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
 						{
-							glDepthMask(GL_FALSE);
 							obj->SetUniforms(ShadowingShader, camera, light);
 							obj->Draw();
 						}
-					}
-				}
-			}
+
 			// Restore local stuff
-			glDisable(GL_DEPTH_CLAMP);
+			glDepthMask(GL_TRUE);
+			glDrawBuffer(GL_FRONT);
 			glEnable(GL_CULL_FACE);
-			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
-			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+			glDisable(GL_DEPTH_CLAMP);
     }
 
     void GraphicsGL::RenderObjects(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
@@ -58,8 +72,11 @@ namespace DCEngine {
 			{
 				for (const auto& obj : drawList)
 				{
-					obj->SetUniforms(shader, camera, light);
-					obj->Draw();
+					if (dynamic_cast<Components::Sprite*>(obj))
+					{
+						obj->SetUniforms(shader, camera, light);
+						obj->Draw();
+					}
 				}
 			}
     }
@@ -78,33 +95,31 @@ namespace DCEngine {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LESS);
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
-			glDrawBuffers(3, attachments);
+			glDisable(GL_BLEND);
 
 			RenderObjects(camera);
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}
 
-		void GraphicsGL::RenderScene(Components::Camera * camera, Components::Light * light)
+		void GraphicsGL::RenderScene(Components::Light * light)
 		{
 			LightingShader->Use();
-
+			glDisable(GL_STENCIL_TEST);
 			if(light)
 			{
 				LightingShader->SetInteger("useLight", true);
 				glm::mat4 lightMatrix;
 				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
-				lightMatrix = glm::translate(lightMatrix, glm::vec3(lightTransform->Translation.x,
+
+				lightMatrix = glm::translate(lightMatrix, glm::vec3(
+					lightTransform->Translation.x,
 					lightTransform->Translation.y,
 					lightTransform->Translation.z));
 				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
-					lightTransform->Scale.y, 0.0f));
+					lightTransform->Scale.y, 1.0f));
 
 				std::string var("gLight.");
 				std::string member;
@@ -136,13 +151,21 @@ namespace DCEngine {
 				LightingShader->SetVector3f(member.c_str(), lightTransform->Translation);
 				member = var + "Model";
 				LightingShader->SetMatrix4(member.c_str(), lightMatrix);
+
+				if (light->getCastShadows())
+				{
+					glEnable(GL_STENCIL_TEST);
+					glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
+					glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+				}
 			}
 			else
-			{
 				LightingShader->SetInteger("useLight", false);
-			}
-			glDisable(GL_BLEND);
+
+			glDisable(GL_DEPTH_TEST);
+			glEnable(GL_BLEND);
 			glBlendFunc(GL_ONE, GL_ONE);
+
 
 			LightingShader->SetInteger("gWorldCoords", 0);
 			LightingShader->SetInteger("gWorldNormal", 1);
@@ -157,10 +180,11 @@ namespace DCEngine {
 
 			glBegin(GL_TRIANGLE_FAN);
 			glVertex4f(-1, -1, 0, 0);
-			glVertex4f(-1,  1, 0, 1);
-			glVertex4f( 1,  1, 1, 1);
 			glVertex4f( 1, -1, 1, 0);
+			glVertex4f( 1,  1, 1, 1);
+			glVertex4f(-1,  1, 0, 1);
 			glEnd();
+			glDisable(GL_STENCIL_TEST);
 		}
 
     void GraphicsGL::DrawDebug()

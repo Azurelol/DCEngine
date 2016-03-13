@@ -7,7 +7,7 @@ layout (location = 2) out vec4 gColor;
 
 in vec2 TexCoords;
 in vec3 WorldCoords; 
-in vec3 VertWorldNormal;
+in vec3 WorldNormal;
 
 uniform sampler2D image;
 uniform vec4 spriteColor;
@@ -27,7 +27,7 @@ void main()
   // Store the fragment position vector in the first gbuffer texture
   gPosition = WorldCoords;
   // Also store the per-fragment normals into the gbuffer
-  gNormal = normalize(VertWorldNormal);
+  gNormal = normalize(WorldNormal);
   // And the diffuse per-fragment color
   gColor = Tmpcolor;
 }

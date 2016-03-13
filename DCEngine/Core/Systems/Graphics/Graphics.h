@@ -79,7 +79,7 @@ namespace DCEngine {
 			void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
 			void RenderBackground(ShaderPtr shader, Components::Camera* camera);
 			void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void DrawDebug();
+			void DrawDebug(Components::Camera* camera);
 			void Terminate();
 
 			//2D draw list

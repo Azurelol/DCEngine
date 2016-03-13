@@ -1607,5 +1607,11 @@
     <None Include="Core\Assets\Shaders\LightingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Core\Assets\Shaders\DebugShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\DebugShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

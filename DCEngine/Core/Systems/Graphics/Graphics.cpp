@@ -100,20 +100,21 @@ namespace DCEngine {
 				UpdateObjects(dt);
 
 				GraphicsHandler->PreRender(camera);
+				GraphicsHandler->RenderDepths(camera);
 				if (!lightComponents.empty())
-				{
 					for (const auto& light : lightComponents)
 					{
-						//if (light->getCastShadows())
-						//	GraphicsHandler->RenderShadows(camera, light);
-						GraphicsHandler->RenderScene(camera, light);
+						if (light->getCastShadows())
+							GraphicsHandler->RenderShadows(camera, light);
+						GraphicsHandler->RenderScene(light);
 					}
-				}
 				else
-				{
-					//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-					GraphicsHandler->RenderScene(camera);
-				}
+					GraphicsHandler->RenderScene();
+
+				DrawDebug(camera);
+
+				for (auto&& drawList : mDrawList)
+					drawList.clear();
 				//if (!lightComponents.empty())
 				//{
 				//	glDrawBuffer(GL_NONE);
@@ -146,12 +147,7 @@ namespace DCEngine {
 				//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 				//	RenderScene(camera);
 				//}
-
-				glDisable(GL_STENCIL_TEST);
-				DrawDebug();
 				
-				for (auto&& drawList : mDrawList)
-					drawList.clear();
 			}
 		}
 
