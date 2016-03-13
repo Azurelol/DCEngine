@@ -10,4 +10,5 @@
 /******************************************************************************/
 
 #pragma once
-#include "../Engine/Event.h"
+#include "../Objects/Event.h"
+#include "../Engine/EventDelegate.h"

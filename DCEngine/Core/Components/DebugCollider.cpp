@@ -31,15 +31,7 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, DebugCollider::OnCollisionStartedEvent);
       Connect(gameObj, Events::CollisionEnded, DebugCollider::OnCollisionEndedEvent);
     }
-
-    void DebugCollider::Serialize(Json::Value & root)
-    {
-    }
-
-    void DebugCollider::Deserialize(Json::Value & root)
-    {
-    }
-
+    
     void DebugCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       //DCTrace << Owner()->Name() << "::DebugCollider::OnCollisionStartedEvent - Colliding with  "

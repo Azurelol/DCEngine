@@ -19,10 +19,14 @@
 #include "..\Objects\Entities\EntitiesInclude.h"
 // Core Components
 #include "..\ComponentsInclude.h"
+// Used to add component properties
+#include "..\Systems\Reflection\ZilchInterfaceUtilities.h"
 // Core Events
 #include "..\EventsInclude.h"
+#include "CoreBindingEventStrings.h"
 // Engine
 #include "..\Engine\Engine.h"
+
 
 namespace DCEngine {  
 
@@ -42,6 +46,8 @@ namespace DCEngine {
     ZilchInitializeType(Engine);
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
+    ZilchInitializeType(Mouse);
+    ZilchInitializeType(Keyboard);
     ZilchInitializeType(Component);
     ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(GameSession);
@@ -73,6 +79,7 @@ namespace DCEngine {
     *      Events        *
     *===================*/
     ZilchInitializeType(Event);
+    ZilchInitializeType(EventStrings);
     //Game
     ZilchInitializeType(Events::GameFocusIn);
     ZilchInitializeType(Events::GameFocusOut);
@@ -100,8 +107,6 @@ namespace DCEngine {
     ZilchInitializeType(Events::LogicUpdate);
     ZilchInitializeType(Events::FrameUpdate);
     ZilchInitializeType(Events::PhysicsUpdate);
-
-
     /*===================*
     *     Components     *
     *===================*/
@@ -135,6 +140,22 @@ namespace DCEngine {
     ZilchInitializeType(Components::DebugAudio);
     // Zilch
     ZilchInitializeType(ZilchComponent);
+    
+    //auto interface = Systems::ZilchInterface::Get();
+    //// Try #1
+    //auto& boundTypes = builder.BuiltLibrary->BoundTypes.values();
+    //while (!boundTypes.empty()) {
+    //  interface.SetupType(boundTypes.front(), ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
+    //}
+    //// Try #2
+    //ZilchForEach(auto boundType, builder.BuiltLibrary->BoundTypes.values()) {
+    //  interface.SetupType(boundType, ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
+    //}
+    
+
+    //for (auto& boundType : DCEngineCore::GetLibrary()->BoundTypes.all()) {
+    //  //ZilchInterface::Get().SetupType(event->Type, Component::ZilchGetStaticType(), event->Builder, GetComponent);
+    //}
   }
   
   /**************************************************************************/
@@ -176,5 +197,7 @@ namespace DCEngine {
 
 
   }
+
+
 
 }

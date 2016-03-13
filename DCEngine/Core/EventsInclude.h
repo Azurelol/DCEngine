@@ -19,12 +19,7 @@
 // Physics
 #include "Events\CollisionEvents.h"
 // Input
-#include "Events\KeyDownEvent.h"
-#include "Events\KeyUpEvent.h"
-#include "Events\MouseDown.h"
-#include "Events\MouseUp.h"
-#include "Events\MouseScroll.h"
-#include "Events\MouseEvents.h"
+#include "Events\InputEvents.h"
 // Engine
 #include "Events\EditorEvents.h"
 #include "Events\EngineEvents.h"
@@ -32,3 +27,5 @@
 #include "Events\WindowEvents.h"
 // Game
 #include "Events\GameEvents.h"
+// Scripting
+#include "Events\ScriptingEvents.h"

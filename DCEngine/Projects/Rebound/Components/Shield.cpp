@@ -30,9 +30,9 @@ namespace DCEngine {
     void Shield::Initialize()
     {
       auto gameObj = dynamic_cast<GameObject*>(Owner());
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      BoxColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      BoxColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
       Connect(SpaceRef, Events::LogicUpdate, Shield::OnLogicUpdateEvent);
 
       CollisionTable = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));

@@ -27,6 +27,7 @@ Each space has its own instances of the core systems of the engine.
 namespace DCEngine {
     
 
+
   
   /**************************************************************************/
   /*!
@@ -133,9 +134,16 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Serialize(Zilch::JsonBuilder & builder)
   {
-    // Serialize the underlying Entity object, which includes its components.
-    Entity::Serialize(builder);
     // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    builder.Key("Space");
+    builder.Begin(Zilch::JsonType::Object);
+    {
+      // Serialize the Space
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(Space), this);
+      // Serialize the underlying Entity object, which includes its components.
+      Entity::Serialize(builder);
+    }
   }
 
   /**************************************************************************/
@@ -147,9 +155,13 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Deserialize(Zilch::JsonValue * properties)
   {
-
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Deserialize the underlying Entity
+    Entity::Deserialize(properties);
+    // Deserialize the GameObject properties
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(Space), this);
   }
-
 
   /**************************************************************************/
   /*!
@@ -170,6 +182,11 @@ namespace DCEngine {
     }
     GameObjectContainer.clear();
 
+  }
+
+  void Space::TestSpace()
+  {
+    DCTrace << "Space::TestScript \n";
   }
 
   /**************************************************************************/
@@ -292,15 +309,17 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
-
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
+    DCTrace << "\n\n"
+            << "/------------------------------------------------/ \n";
     if (!editorEnabled) {
-      for (auto& gameObject : GameObjectContainer) {
-        DCTrace << "Initializing " << gameObject->Name() << "\n";
+      for (auto& gameObject : GameObjectContainer) {        
         gameObject->Initialize();    
       }
     }
+
+
 
   }
 
@@ -374,7 +393,7 @@ namespace DCEngine {
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
-
+    DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
     return gameObject;
   }
 
@@ -398,7 +417,7 @@ namespace DCEngine {
     }
     // Add it to the recently-created GameObjects container
     RecentlyCreatedGameObjects.push_back(gameObject);
-
+    DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
     return gameObject;
   }
 
@@ -446,6 +465,22 @@ namespace DCEngine {
   GameObjectVec* Space::AllObjects()
   {
     return &GameObjectContainer;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a container of all gameobjects identifiers.
+  */
+  /**************************************************************************/
+  GameObject::Identifiers Space::IdentifyAllObjects()
+  {
+    GameObject::Identifiers ids;
+    for (auto& gameObject : GameObjectContainer) {
+      ids.Names.push_back(gameObject->Name());
+      ids.IDs.push_back(gameObject->GameObjectID);
+      ids.ParentIDs.push_back(gameObject->ParentID);
+    }
+    return ids;
   }
 
   /**************************************************************************/

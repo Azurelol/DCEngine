@@ -242,6 +242,7 @@ namespace DCEngine {
 			shader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
 			shader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
 			shader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+      shader->SetInteger("image", 0);
 			shader->SetInteger("image", 0);
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			spriteSrc->getTexture().Bind();

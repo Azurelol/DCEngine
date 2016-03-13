@@ -34,7 +34,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Open Project")) OpenProject();
           if (ImGui::MenuItem("Save Project")) Projects.SaveProject();
           if (ImGui::MenuItem("Show Project Folder")) LaunchProjectFolder();
-          if (ImGui::MenuItem("Project Properties")) Projects.ToggleProperties();
+          if (ImGui::MenuItem("Project Properties")) Projects.Toggle();
           ImGui::Separator();
           if (ImGui::MenuItem("Play Game", "F5")) PlayGame();
           if (ImGui::MenuItem("Stop Game")) StopGame();
@@ -115,7 +115,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Library"))
             Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))
-            Windows.ObjectsEnabled = !Windows.ObjectsEnabled;
+            Objects.Toggle(true);
           if (ImGui::MenuItem("Tools"))
             Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))

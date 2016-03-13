@@ -28,6 +28,7 @@ namespace DCEngine {
     EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true)
     {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
+      Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
     }
 
     /**************************************************************************/
@@ -42,6 +43,8 @@ namespace DCEngine {
 
       ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
       if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
+
+        ImGui::SetWindowFontScale(16.0f);
 
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
@@ -110,7 +113,10 @@ namespace DCEngine {
     {
       if (CurrentScript) {
         DCTrace << "EditorTextEditor::Save: '" << CurrentScript->Name() << "' \n";
-        CurrentScript->Save(std::string(Text));
+        CurrentScript->Save(std::string(Text));        
+        // Mark Zilch components for rebuilding on the next frame before we recompile them
+        //DispatchSystemEvents::EditorRebuildZilchComponents();
+        EditorRef.Creator.RebuildAllObjectsOnSpace();
         DispatchSystemEvents::ScriptingCompile();
       }
       else if (CurrentShader) {
@@ -154,6 +160,21 @@ namespace DCEngine {
 
       if (CurrentShader)
         Save();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Once a script has failed to compile, display the message.. roughly!
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage * event)
+    {
+      Windows::PopUpData data;
+      data.Title = "'" + CurrentScript->Name() + "' has failed to compile!";
+      data.Message = event->Message;
+      data.Confirmation = "Back";
+      auto popUp = WindowPtr(new Windows::PopUp(data));
+      GUI::Add(popUp);
     }
 
   }

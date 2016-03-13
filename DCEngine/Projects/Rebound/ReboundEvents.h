@@ -15,26 +15,31 @@ namespace DCEngine {
 
     class ChangeMusic : public Event {
     public:
+      ChangeMusic() : Event("ChangeMusic") {}
       String NextTrack;
     };
 
     class PlayMusic : public Event {
     public:
+      PlayMusic() : Event("PlayMusic") {}
     };
 
     class ChangeLevel : public Event {
     public:
+      ChangeLevel() : Event("ChangeMusic") {}
       String NextLevel;
     };
 
 	  class DamageEvent : public Event {
 	  public:
+      DamageEvent() : Event("DamageEvent") {}
 	  	Real Damage;
 
 	  };
 
     class DeathEvent : public Event {
     public:
+      DeathEvent() : Event("DeathEvent") {}
     };
 
   }

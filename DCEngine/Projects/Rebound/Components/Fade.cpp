@@ -42,7 +42,7 @@ namespace DCEngine {
       //Connect(gameObj, Events::CollisionStarted, Fade::OnCollisionStartedEvent);
       //Connect(gameObj, Events::CollisionEnded, Fade::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, Fade::OnLogicUpdateEvent);
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
     }
 
     void Fade::OnMouseDownEvent(Events::MouseDown * event)

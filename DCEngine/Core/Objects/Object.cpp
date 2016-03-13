@@ -25,7 +25,8 @@ namespace DCEngine {
           set their names through this constructor.
   */
   /**************************************************************************/
-  Object::Object(std::string name) : ObjectName(name), ObjectOwner(nullptr), ObjectID(ObjectsCreated++)
+  Object::Object(std::string name) : ObjectName(name), ObjectID(ObjectsCreated++), 
+                                     ObjectOwner(nullptr)
   {
 
   }
@@ -36,7 +37,7 @@ namespace DCEngine {
   set their names through this constructor.
   */
   /**************************************************************************/
-  Object::Object() : ObjectName("Object"), ObjectOwner(nullptr), ObjectID(ObjectsCreated++)
+  Object::Object() : ObjectName("Object"), ObjectID(ObjectsCreated++)
   {
   }
 
@@ -75,7 +76,7 @@ namespace DCEngine {
       builder.Value(this->Name().c_str());
     }
     // Not working atm
-    SerializeByType(builder, interface->GetState(), this, this->ZilchGetDerivedType()->BaseType->ZilchGetDerivedType()->BaseType );
+    //SerializeByType(builder, interface->GetState(), this->ZilchGetDerivedType()->BaseType->ZilchGetDerivedType()->BaseType, this);
   }
 
   /**************************************************************************/

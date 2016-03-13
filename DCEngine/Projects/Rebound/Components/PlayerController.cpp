@@ -44,25 +44,17 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
       //Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
-      SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
+      SpriteComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       // ColliderRef->	 
       auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       //CollisionTableRef->AddGroup("Player");
-      auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      auto ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
-    }
-
-    void PlayerController::Serialize(Json::Value & root)
-    {
-    }
-
-    void PlayerController::Deserialize(Json::Value & root)
-    {
     }
 
     void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
@@ -229,7 +221,7 @@ namespace DCEngine {
       {
 
         SpriteComponent->SpriteSource = JumpAnimation;
-		SpriteComponent->AnimationActive = false;
+		//SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
@@ -240,7 +232,10 @@ namespace DCEngine {
       {
         if (Grounded)
         {
-          Jump();
+			auto Sequence = Actions::Sequence(this->Owner()->Actions);
+			auto seq = Actions::Sequence(Owner()->Actions);
+			Actions::Delay(seq, 0.1f);
+			Actions::Call(seq, &PlayerController::Jump, this);
           Jumping = true;
           Grounded = false;
         }
@@ -264,7 +259,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
+		  //SpriteComponent->AnimationActive = true;
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -284,7 +279,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;
-		  SpriteComponent->AnimationActive = false;
+		  //SpriteComponent->AnimationActive = false;
         }
       }
     }
@@ -379,6 +374,8 @@ namespace DCEngine {
     }
     void PlayerController::MoveLeft()
     {
+
+		//////
       float scalar = 0.0f;
 
       if (RigidBodyRef->getVelocity().x > 0)
@@ -472,5 +469,7 @@ namespace DCEngine {
 		return false;
 	}
   }
+
+
 
 }

@@ -37,9 +37,9 @@ namespace DCEngine {
       //Connect(gameObj, Events::CollisionStarted, TutorialTextLogic::OnCollisionStartedEvent);
       //Connect(gameObj, Events::CollisionEnded, TutorialTextLogic::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, TutorialTextLogic::OnLogicUpdateEvent);
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
                                                 //RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       //SpriteRef->setVisible(false);
       SpriteRef->Color = Vec4(1, 1, 1, 0);
     }

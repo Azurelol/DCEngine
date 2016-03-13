@@ -38,6 +38,9 @@ namespace DCEngine {
       static void PopUp(Windows::PopUpData& data);
       static void Add(WindowPtr window);
       static bool IsMouseDoubleClicked();      
+      static bool SliderFloat2(std::string label, ImVec2& vec2, float min, float max);
+      static bool SliderFloat4(std::string label, ImVec4& vec4, float min, float max);
+      static void SetFont(const std::string& fontPath, unsigned pixelSize);
     
     private:
       GUIConfig& Settings;

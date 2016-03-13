@@ -17,7 +17,7 @@
 #include <functional> // std::function, std::bind
 // Packages
 #include "Types.h"
-#include "Event.h"
+#include "../Events/EventReference.h"
 #include "Math.h"
 #include "Action.h"
 #include "Profiler.h"
@@ -43,12 +43,10 @@ namespace DCEngine {
   class Engine : public Object {
     friend class EngineLauncher;
   public:
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDeclareDerivedType(Engine, Object);
-#endif
+
     void Register(ActionPtr action);
     void Deregister(ActionPtr action);
-
+    ZilchDeclareDerivedType(Engine, Object);
     Engine();
     Engine(std::string configFile);
     ~Engine();
@@ -64,17 +62,26 @@ namespace DCEngine {
     Mouse* getMouse() { return MouseHandle.get(); }
     GameSession* getGameSession() { return CurrentGameSession.get(); }
 
-    // Component Events
+    // Events (Template)
     template <typename EventClass, typename Class, typename MemberFunction>
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
+    template<typename EventClass, typename Class, typename MemberFunction>
+    void Connect(std::string eventName, Entity* publisher, MemberFunction fn, Class* inst);
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
+    // Events
+    //void ZilchConnect(Zilch::Call& call, Zilch::ExceptionReport& report);  
+    void ConnectTo(const std::string& eventName, Entity* publisher, EventDelegate* deleg, Component* inst);
+    void ZilchDisconnect(Zilch::Call& call, Zilch::ExceptionReport& report);
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
-    template<typename EventClass>
-    void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Test();
+    
+    
+    //template<typename EventClass>
+    //void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
 
     template<typename T> std::shared_ptr<T> getSystem();
     Profiler& Profiler() { return this->Profile; }

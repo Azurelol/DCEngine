@@ -27,7 +27,7 @@ namespace DCEngine {
       if (!Windows.LibraryEnabled)
         return;
       
-      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(200, 400), ImGuiSetCond_FirstUseEver | ImGuiWindowFlags_ShowBorders);
       ImGui::Begin("Library", &Windows.LibraryEnabled);           
       
       auto archetypes = Daisy->getSystem<Content>()->AllArchetypes();
@@ -130,7 +130,7 @@ namespace DCEngine {
           auto resourceName = resource.second->Name().c_str();
           bool selected = SelectedObject() && SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected)) {
-            Select(resource.second.get(), false);
+            //Select(resource.second.get(), false);
           }
           if (GUI::IsMouseDoubleClicked()) {
             TextEditor.Load(resource.second);

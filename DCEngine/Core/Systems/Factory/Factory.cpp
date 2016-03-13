@@ -36,6 +36,7 @@ namespace DCEngine {
       // Construct the component factories for each core component type
       ConstructComponentFactoryMap();
       // Construct the component factories for 'Rebound' components
+      //ReboundComponentsAddToLibrary();
       ReboundComponentsAddToFactory();
     }
 
@@ -54,6 +55,8 @@ namespace DCEngine {
       DestroyComponents();
       // Destroy all marked spaces
       DestroySpaces();
+      // Rebuild all specified entities
+      RebuildEntities();
     }
 
     /**************************************************************************/
@@ -147,10 +150,23 @@ namespace DCEngine {
     EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
     {      
       // 1. For every property... !!! CURRENTLY HARDCODED !!!
-      auto name = objectData->Value->GetMember("Name")->AsString().c_str();
-      entity->setObjectName(name);
-      auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      entity->setArchetype(archetype);
+
+      // Name is special
+      //auto name = objectData->Value->GetMember("Name")->AsString().c_str();
+      //entity->setObjectName(name);
+
+      // Deserialize specific properties
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
+        gameObject->Deserialize(objectData->Value);
+      else if (auto space = dynamic_cast<SpacePtr>(entity))
+        space->Deserialize(objectData->Value);
+
+      //auto val : objectData->Value->OrderedMembers.all();
+      //entity->Deserialize(objectData->Value);
+      //entity->Object::Deserialize(objectData->Value);
+
+      //auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
+      //entity->setArchetype(archetype);
 
       auto gameObject = objectData->Value;
       for (auto property : gameObject->OrderedMembers.all()) {
@@ -225,6 +241,20 @@ namespace DCEngine {
         transform->setScale(transformData.second.Scale);
       }
 
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Reconstructs an entity by rebuilding its components.
+    @param entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::Rebuild(EntityBuildData data)
+    {
+      // Remove all its components
+      data.first->RemoveAllComponents();
+      // Rebuild all the components
+      BuildFromArchetype(data.first, data.second);
     }
 
     /**************************************************************************/
@@ -322,7 +352,7 @@ namespace DCEngine {
     @return A pointer to the Archetype resource.
     */
     /**************************************************************************/
-    ArchetypePtr Factory::BuildArchetype(std::string archetype ,GameObjectPtr gameObj)
+    ArchetypePtr Factory::BuildArchetype(std::string archetype, EntityPtr entity)
     {
       // Create a builder object to build JSON
       Zilch::JsonBuilder archetypeBuilder;     
@@ -331,7 +361,10 @@ namespace DCEngine {
         //archetypeBuilder.Key("GameObject");
         //archetypeBuilder.Begin(Zilch::JsonType::Object);
         //{
-          gameObj->Serialize(archetypeBuilder);
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(entity)) 
+          gameObject->Serialize(archetypeBuilder);
+        else if (auto space = dynamic_cast<SpacePtr>(entity))
+          space->Serialize(archetypeBuilder);
         //}
         //archetypeBuilder.End();
       }      
@@ -388,19 +421,15 @@ namespace DCEngine {
         componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
         Zilch::Call ctorCall(boundType->Constructors[0], state);
         ctorCall.SetHandle(Zilch::Call::This, componentHandle);
+      // Call the component's constructor explicitly
         ctorCall.Set(0, entity);
         ctorCall.Invoke(report);
       }
       // Zilch Components
-      else {
-        //componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
-        //Zilch::Call ctorCall(boundType->BaseType->Constructors[0], state);
-        //ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-        //ctorCall.Set(0, entity);
-        //ctorCall.Invoke(report);
+      else {  
         componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
       }
-      // Call the component's constructor explicitly
       // Return the handle to this component
       return componentHandle;
     }
@@ -420,6 +449,17 @@ namespace DCEngine {
         throw DCException("Factory::CreateComponentByType - Tried to construct '" + std::string(boundType->Name.c_str()) + "' that's not bound yet!");
 
       return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
+    void Factory::MarkComponent(ComponentHandle component)
+    {
+      //ComponentsToBeDeletedByHandle.insert(component);
     }
 
     /**************************************************************************/
@@ -449,7 +489,6 @@ namespace DCEngine {
         component->Owner()->RemoveComponentByName(component->Name());
       }
       ComponentsToBeDeleted.clear();
-
     }
 
     /**************************************************************************/
@@ -494,6 +533,25 @@ namespace DCEngine {
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Marks an entity to have its components rebuilt on the next frame.
+    @param entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::MarkForRebuild(EntityPtr entity)
+    {
+      // Create an temporary archetype out of the entity
+      auto archetype = BuildArchetype(entity->Name(), entity);
+      EntitiesToRebuild.insert(EntityBuildData(entity, archetype));
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks a space for destruction.
+    @param entity A pointer to the space.
+    */
+    /**************************************************************************/
     void Factory::MarkSpace(Space& space)
     {
       SpacesToBeDeleted.insert(SpacePtr(&space));
@@ -537,7 +595,23 @@ namespace DCEngine {
 
       // This is set back to default, from 'Space::LoadLevel'
       SoundInstance::StopOnDestroyed = false;
+    }
 
+    /**************************************************************************/
+    /*!
+    @brief Rebuilds all specified entities.
+    */
+    /**************************************************************************/
+    void Factory::RebuildEntities()
+    {
+      if (EntitiesToRebuild.empty())
+        return;
+
+      // Rebuild all entities
+      for (auto& rebuildData : EntitiesToRebuild) {
+        Rebuild(rebuildData);
+      }
+      EntitiesToRebuild.clear();
     }
 
     GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {

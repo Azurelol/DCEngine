@@ -46,7 +46,7 @@ type->HandleManager = ZilchManagerId(Zilch::PointerManager)
 
 // What type of handle manager to use for resources. For now we will be 
 // constructing components internally so we use pointers.
-#define DCE_BINDING_RESOURCE_SET_HANDLE_TYPE \
+#define DCE_BINDING_SET_HANDLE_TYPE_POINTER \
 type->HandleManager = ZilchManagerId(Zilch::PointerManager)
 
 

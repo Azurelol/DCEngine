@@ -14,32 +14,33 @@
 */
 /******************************************************************************/
 #pragma once
-#include "Types.h"
-#include "EventDelegate.h"
+
+#include "../Engine/Types.h"
 
 namespace DCEngine {
-
-    class Event {
+  
+    class Event : public Zilch::IZilchObject {
     public:
       ZilchDeclareBaseType(Event, Zilch::TypeCopyMode::ReferenceType);
       static unsigned int EventsCreated;
       static unsigned int EventsDestroyed;
 
-      Event() {
-        EventsCreated++;
-      }
+      Event(std::string name);
       virtual ~Event(void) {
         EventsDestroyed++;
       }
+
       unsigned int EventID;
-
-    private:
-
+      std::string Name;
     };
-
-
 
   using EventPtr = std::shared_ptr<Event>;
   using EventVec = std::vector<EventPtr>;
+
+
+
+
+
+
 
 }

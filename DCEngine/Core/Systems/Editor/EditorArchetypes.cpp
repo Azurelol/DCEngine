@@ -153,7 +153,6 @@ namespace DCEngine {
     void EditorArchetypes::OnEditorDeselectObjectEvent(Events::EditorDeselectObject * event)
     {
       Deselect();
-      DCTrace << "received event!!! \n";
     }
 
 

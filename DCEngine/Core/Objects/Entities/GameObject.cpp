@@ -19,6 +19,36 @@ entities.
 
 namespace DCEngine {
     
+  /*!************************************************************************\
+  @brief  GameObject Definition
+  \**************************************************************************/
+  ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
+    ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::FindChildByName, ZilchNoOverload, "FindChildByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::Children, ZilchNoOverload, "Children", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachTo, ZilchNoOverload, "AttachTo", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
+    DCE_BINDING_DEFINE_PROPERTY(GameObject, Locked);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLocked, attributeHidden);
+    //DCE_BINDING_DEFINE_METHOD_NO_ARGS(GameObject, Test);
+    ZilchBindDestructor(builder, type, GameObject);
+    // Fields
+    // Properties
+
+  }
+
+
+
   // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
   unsigned int GameObject::GameObjectsDestroyed = 0;
@@ -38,7 +68,7 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
     : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession), ParentRef(nullptr)
-   , GameObjectID(GameObjectsCreated++) 
+   , GameObjectID(GameObjectsCreated++), Locked(false)
   {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
@@ -48,7 +78,8 @@ namespace DCEngine {
         << "\n";
 
     }
-
+       
+    
     type_ = EntityType::GameObject;
 
     // Diagnostics
@@ -174,6 +205,8 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachTo(GameObjectPtr parent)
   {
+    // Detach from the current
+    Detach();
     parent->AddChild(GameObjectPtr(this));
   }
 
@@ -186,6 +219,7 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachToRelative(GameObjectPtr parent)
   {
+    DetachRelative();
     parent->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Components::Transform>()) {
@@ -233,9 +267,14 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::Serialize(Zilch::JsonBuilder & builder)
   {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+
     // Serialize the type as the key
     builder.Key("GameObject");
-    builder.Begin(Zilch::JsonType::Object); {
+    builder.Begin(Zilch::JsonType::Object); 
+    {
+      // Serialize GameObject properties
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(GameObject), this);
       // Serialize the underlying Entity object, which includes its components.
       Entity::Serialize(builder);
     }
@@ -257,9 +296,9 @@ namespace DCEngine {
     // Deserialize the underlying Entity
     Entity::Deserialize(properties);
     // Deserialize the GameObject properties
-    DeserializeByType(properties, interface->GetState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameObject), this);
   }
-
+  
   /**************************************************************************/
   /*!
   @brief  Marks the GameObject to be destroyed.
@@ -300,6 +339,22 @@ namespace DCEngine {
       }
 
     }  
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a struct containing data about this GameObject.
+  @return A struct containing the Name, ID, and ParentID.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  GameObject::Identifier GameObject::Identify()
+  {
+    Identifier identifier;
+    identifier.Name = Name();
+    identifier.ID = GameObjectID;
+    identifier.ParentID = ParentID;
+    return identifier;
   }
 
   /**************************************************************************/

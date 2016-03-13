@@ -27,7 +27,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     template<typename ResourceMap>
-    bool EditorInspector::InspectResource(std::string resourceType, ResourceMap * map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID)
+    bool EditorInspector::InspectResource(std::string resourceType, ResourceMap * map, Zilch::Property * resource, 
+                                          ObjectPtr component, unsigned int propertyID)
     {
       // Get a container of all active resources
       std::vector<const char *> resources;
@@ -45,7 +46,7 @@ namespace DCEngine {
         // Set the selected item as the current resource
         auto selectedResource = resources.at(currentItem);
         Zilch::ExceptionReport report;
-        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());
+        Zilch::Call setCall(resource->Set, Daisy->getSystem<Reflection>()->Handler()->GetState());        
         setCall.SetHandleVirtual(Zilch::Call::This, component);
         setCall.Set(0, Zilch::String(selectedResource));
         setCall.Invoke(report);
@@ -56,6 +57,12 @@ namespace DCEngine {
       return false;
     }
 
+    template<typename PropertyType>
+    inline void EditorInspector::Get(Zilch::ExecutableState * state, ObjectPtr object, Zilch::Handle handle, 
+                                     Zilch::Property * property, PropertyType value)
+    {
+    }
+
     /**************************************************************************/
     /*!
     @brief Sets the property of a Resource through Zilch.
@@ -64,11 +71,17 @@ namespace DCEngine {
     */
     /**************************************************************************/
     template<typename PropertyType>
-    inline void EditorInspector::Set(Zilch::ExecutableState * state, ObjectPtr object, Zilch::Property * property, PropertyType value)
+    inline void EditorInspector::Set(Zilch::ExecutableState * state, ObjectPtr object, Zilch::Handle handle, 
+                                    Zilch::Property * property, PropertyType value)
     {
       Zilch::ExceptionReport report;
       Zilch::Call setCall(property->Set, state);
-      setCall.SetHandleVirtual(Zilch::Call::This, object);
+      // If it has a handle...
+      if (handle.Dereference())
+        setCall.SetHandle(Zilch::Call::This, handle);
+      // Else use the pointer
+      else
+        setCall.SetHandleVirtual(Zilch::Call::This, object);
       setCall.Set(0, value);
       setCall.Invoke(report);
     }

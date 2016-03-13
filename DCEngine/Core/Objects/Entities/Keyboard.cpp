@@ -9,10 +9,15 @@
 
 */
 /******************************************************************************/
-
 #include "Keyboard.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
+
+  Keyboard * Keyboard::Access()
+  {
+    return Daisy->getKeyboard();
+  }
 
   bool Keyboard::KeyIsDown(Keys key)
   {

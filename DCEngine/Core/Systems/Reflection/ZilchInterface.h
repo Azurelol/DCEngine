@@ -14,8 +14,6 @@
 #include <ZILCH\Zilch.hpp>
 #include "../../Binding/CoreBindingObjects.h"
 #include "../../Debug/Debug.h"
-#include "ZilchInterfaceUtilities.h"
-
 
 namespace DCEngine {
   namespace Systems {
@@ -23,9 +21,12 @@ namespace DCEngine {
     class Reflection;
     class ZilchInterface {
       friend class Reflection;
-
     public:
+      using ParseCallback = void(*)(Zilch::Call&, Zilch::ExceptionReport&);
+
+      
       ~ZilchInterface();
+      Zilch::LibraryRef ScriptLibrary;
       static ZilchInterface& Get();
       static Zilch::ExecutableState *GetState();
 
@@ -35,10 +36,10 @@ namespace DCEngine {
       bool AddCodeFromFile(std::string fileName, Zilch::Project& project);
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
-      void CompileScripts();
+      bool CompileScripts();
       void Build();
       void Clean();
-     
+      void SetupType(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::LibraryBuilder* builder, ParseCallback callback);
       // JSON
       Zilch::JsonValue ParseJSON(std::string& string);
       // Zilch::Call
@@ -50,29 +51,21 @@ namespace DCEngine {
       Zilch::LibraryRef getLibrary();
       Zilch::BoundType* getBoundType(std::string name, Zilch::LibraryRef library);
       Zilch::Function* getFunction(std::string name, Zilch::BoundType* type, const Zilch::Array<Zilch::Type*>& parameters,
-        Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options, bool ErrorOn);
+      Zilch::Type* returnType, Zilch::FindMemberOptions::Flags options, bool ErrorOn);
       Zilch::Field* getInstanceField(std::string name, Zilch::BoundType* type);
       std::vector<Zilch::BoundType*> GetTypes();
       Zilch::Attribute* getAttribute(Zilch::Property* property, std::string attributeName);
-
-
-      /* Type constructors */
       Zilch::Handle AllocateDefaultConstructedHeapObject(Zilch::BoundType* type, Zilch::HeapFlags::Enum);
       Zilch::Call* const Call(Zilch::Function* function) const;
 
     private:
-
-      void Test();
-
-      /* Member variables */
+      // State
+      bool Patching;
       Zilch::ZilchSetup Setup;
       Zilch::ExecutableState* State;
       Zilch::ExceptionReport Report;
       Zilch::Module Dependencies;
-      // A container of dependent libraries
-
       // Scripts
-      Zilch::LibraryRef ScriptLibrary;
       struct ZilchScriptInfo {
         std::string Name;
         std::string Code;
@@ -82,17 +75,19 @@ namespace DCEngine {
       std::vector<ZilchScriptInfo> Scripts;
       std::vector<std::string> ScriptFiles;
 
-      /* Base methods */
+      // Configuration
       void SetupConsole();
+      void Terminate();
+      void SetupProject(Zilch::Project& project);
       ZilchInterface();
       void Initialize();
       void SetupZilch();
-      void Update(float dt);
-      void Terminate();
+      void SetupLibraries();
+      void SetUpComponentTypes(Zilch::LibraryRef library);
 
+      void TypeParsedErrorCallback(Zilch::ParseEvent* event);
+      void CustomErrorCallback(Zilch::ErrorEvent* error);
     };
-
-
 
     template<typename ObjectPtr>
     inline Zilch::Call ZilchInterface::ConstructGetCaller(Zilch::Property * property, ObjectPtr object)

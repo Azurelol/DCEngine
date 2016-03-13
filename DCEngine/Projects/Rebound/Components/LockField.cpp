@@ -33,8 +33,8 @@ namespace DCEngine {
 			Connect(gameObj, Events::CollisionStarted, LockField::OnCollisionStartedEvent);
 			Connect(gameObj, Events::CollisionPersisted, LockField::OnCollisionPersistedEvent);
 			Connect(gameObj, Events::CollisionEnded, LockField::OnCollisionEndedEvent);
-			TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-			SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+			TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+			SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 		}
 
 		void LockField::OnMouseDownEvent(Events::MouseDown * event)

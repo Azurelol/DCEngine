@@ -9,10 +9,15 @@
 
 */
 /******************************************************************************/
-
 #include "Mouse.h"
+#include "../../Engine/Engine.h"
 
 namespace DCEngine {
+
+  Mouse * Mouse::Access()
+  {
+    return Daisy->getMouse();
+  }
 
   bool Mouse::MouseDown(MouseButton button)
   {

@@ -182,13 +182,13 @@ namespace DCEngine {
       if (map.count(resourceName)) {
         // Overwrite the current level
         map.erase(resourceName);
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddResourceToMap - " << resourceName << " is already present in the map. Overwriting. \n";
         //return;
       }
 
       map.insert(std::pair<std::string, ResourcePtr>(resourceName, ptr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddResourceToMap - " << resourceName << " was added.\n";
     }
 

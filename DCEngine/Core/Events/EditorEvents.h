@@ -21,24 +21,40 @@ namespace DCEngine {
 
     class EditorEnabled : public Event {
     public:
+      EditorEnabled() : Event("EditorEnabled") {}
     };
 
     class EditorInitialize : public Event {
+    public:
+      EditorInitialize() : Event("EditorInitialize") {}
     };
 
     class EditorSelectObject : public Event {
     public:
+      EditorSelectObject() : Event("EditorSelectObject") {}
      // Object* SelectedObject;
     };
 
     class EditorDeselectObject : public Event {
+    public:
+      EditorDeselectObject() : Event("EditorDeselectObject") {}
     };
 
     class EditorSave : public Event {
+    public:
+      EditorSave() : Event("EditorSave") {}
     };
     
     class EditorUpdate : public Event {
+    public:
+      EditorUpdate() : Event("EditorUpdate") {}
     };
+
+    class EditorRebuildZilchComponents : public Event {
+    public:
+      EditorRebuildZilchComponents() : Event("EditorRebuildZilchComponents") {}
+    };
+
 
   }
 }

@@ -36,6 +36,7 @@ namespace DCEngine {
       void Clear();
       void Close();
       void OnEditorSaveEvent(Events::EditorSave* event);
+      void OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage* event);
 
     };
 

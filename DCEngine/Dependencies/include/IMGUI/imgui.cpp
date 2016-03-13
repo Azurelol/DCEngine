@@ -7164,7 +7164,7 @@ static bool InputTextFilterCharacter(unsigned int* p_char, ImGuiInputTextFlags f
     {
         bool pass = false;
         pass |= (c == '\n' && (flags & ImGuiInputTextFlags_Multiline));
-        pass |= (c == '\t' && (flags & ImGuiInputTextFlags_AllowTabInput));
+        pass |= (c == ' ' && (flags & ImGuiInputTextFlags_AllowTabInput)); // JJ: Changed tabs to spaces
         if (!pass)
             return false;
     }
@@ -7434,14 +7434,24 @@ bool ImGui::InputTextEx(const char* label, char* buf, int buf_size, const ImVec2
         }
         else if ((flags & ImGuiInputTextFlags_AllowTabInput) && IsKeyPressedMap(ImGuiKey_Tab) && !is_ctrl_down && !is_shift_down && !is_alt_down && is_editable)
         {
-            unsigned int c = '\t'; // Insert TAB
+// JJ: Made tabs only 2 spaces
+            unsigned int c = ' '; // Insert TAB
             if (InputTextFilterCharacter(&c, flags, callback, user_data))
-                edit_state.OnKeyPressed((int)c);
+            {
+              edit_state.OnKeyPressed((int)c);
+              edit_state.OnKeyPressed((int)c);
+
+            }
         }
         else if (IsKeyPressedMap(ImGuiKey_Escape))                              { SetActiveID(0); cancel_edit = true; }
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_Z) && is_editable)    { edit_state.OnKeyPressed(STB_TEXTEDIT_K_UNDO); edit_state.ClearSelection(); }
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_Y) && is_editable)    { edit_state.OnKeyPressed(STB_TEXTEDIT_K_REDO); edit_state.ClearSelection(); }
         else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_A))                   { edit_state.SelectAll(); edit_state.CursorFollow = true; }
+// JJ: Added CRTL+S for for saving. 
+        else if (is_ctrl_only && IsKeyPressedMap(ImGuiKey_S))
+        {
+
+        }
         else if (is_ctrl_only && !is_password && ((IsKeyPressedMap(ImGuiKey_X) && is_editable) || IsKeyPressedMap(ImGuiKey_C)) && (!is_multiline || edit_state.HasSelection()))
         {
             // Cut, Copy

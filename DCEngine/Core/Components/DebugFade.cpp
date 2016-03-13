@@ -24,14 +24,6 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, DebugFade::OnLogicUpdateEvent);
     }
 
-    void DebugFade::Serialize(Json::Value & root)
-    {
-    }
-
-    void DebugFade::Deserialize(Json::Value & root)
-    {
-    }
-
     void DebugFade::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
       // Decrement the alpha every update

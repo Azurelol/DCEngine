@@ -151,7 +151,7 @@ namespace DCEngine {
 
       // Dispatch the event
       auto mouseScrolled = new Events::MouseScroll();
-      mouseScrolled->Delta += static_cast<float>(event.mouseWheel.delta);
+      mouseScrolled->Delta += delta;
       mouseScrolled->Direction = Vec2(event.mouseWheelScroll.x, event.mouseWheelScroll.y);
       Daisy->getMouse()->Dispatch<Events::MouseScroll>(mouseScrolled);
       delete mouseScrolled;

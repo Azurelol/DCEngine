@@ -68,8 +68,6 @@ namespace DCEngine {
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
       void OnKeyDownEvent(Events::KeyDown* event);

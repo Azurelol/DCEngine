@@ -79,6 +79,13 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::EditorRebuildZilchComponents()
+    {
+      auto event = new Events::EditorRebuildZilchComponents;
+      Daisy->Dispatch<Events::EditorRebuildZilchComponents>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::SetWindowCaption(std::string caption)
     {
       auto event = new Events::SetWindowCaption;      
@@ -119,6 +126,21 @@ namespace DCEngine {
     {
       auto event = new Events::ScriptingCompileScripts();
       Daisy->Dispatch<Events::ScriptingCompileScripts>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingLibraryPatched()
+    {
+      auto event = new Events::ScriptingLibraryPatched();
+      Daisy->Dispatch<Events::ScriptingLibraryPatched>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingErrorMessage(const std::string & message)
+    {
+      auto event = new Events::ScriptingErrorMessage();
+      event->Message = message;
+      Daisy->Dispatch<Events::ScriptingErrorMessage>(event);
       delete event;
     }
 

@@ -50,7 +50,7 @@ namespace DCEngine {
   @brief Serializes the script now that is been modified.
   */
   /**************************************************************************/
-  void ZilchScript::Save(std::string & serializedData)
+  void ZilchScript::Save(const std::string & serializedData)
   {
     SerializedData = serializedData;
     FileSystem::FileWriteString(ResourcePath, SerializedData);

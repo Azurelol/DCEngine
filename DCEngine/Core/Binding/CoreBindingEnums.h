@@ -15,7 +15,8 @@ back.
 #include "CoreBindingTypes.h"
 
 #include"../Engine/Types.h"
-#include "../Events/MouseScroll.h"
+#include "../Events/EventReference.h"
+#include "../Events/InputEvents.h"
 
 #include <ZILCH\Zilch.hpp>
 

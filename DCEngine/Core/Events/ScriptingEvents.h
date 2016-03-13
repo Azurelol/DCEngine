@@ -1,10 +1,10 @@
 /******************************************************************************/
 /*!
-\file   MouseUp.h
+\file   EditorEvents.h
 \author Christian Sagel
 \par    email: c.sagel\@digipen.edu
-\date   9/16/2015
-\brief  The keyboard input event for when the mouse button is released.
+\date   11/6/2015
+\brief  Events for the editor system.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 
 */
@@ -13,17 +13,18 @@
 #include "EventReference.h"
 
 namespace DCEngine {
-
   namespace Events {
-    class MouseUp : public Event {
+
+    class ScriptingLibraryPatched : public Event {
     public:
-        ZilchDeclareDerivedType(MouseDown, Event);
-      Vec2 Position;
-      MouseButton ButtonReleased;
-    private:
-
+      ScriptingLibraryPatched() : Event("ScriptingLibraryPatched") {}
     };
+
+    class ScriptingErrorMessage : public Event {
+    public:
+      ScriptingErrorMessage() : Event("ScriptingErrorMessage") {}
+      std::string Message;
+    };
+
   }
-
-
 }
