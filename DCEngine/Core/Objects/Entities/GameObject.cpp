@@ -359,6 +359,10 @@ namespace DCEngine {
   {
     // Tell the space to remove this object
     SpaceRef->RemoveObject(*this);
+    // Tell the space to remove all its children
+    for (auto& child : ChildrenContainer) {
+      child->Destroy();
+    }
   }
 
   /**************************************************************************/

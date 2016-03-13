@@ -182,9 +182,11 @@ namespace DCEngine {
       // 3. Attach it to its parent
       gameObject->AttachTo(parent);
       // 4. Deserialize and build all its children      
-      auto children = gameObjectData->Value->GetMember("Children")->OrderedMembers.all();
-      for (auto child : children) {
-        BuildGameObjectAndChildren(child, space, gameObject);
+      if (gameObjectData->Value->Members.count("Children")) {
+        auto children = gameObjectData->Value->GetMember("Children")->OrderedMembers.all();
+        for (auto child : children) {
+          BuildGameObjectAndChildren(child, space, gameObject);
+        }
       }
     }
 

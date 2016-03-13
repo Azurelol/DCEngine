@@ -164,13 +164,13 @@ namespace DCEngine {
         // The list of objects to be deleted
         auto objectsToDelete = ObjectPtrsToGameObjectPtrs(SelectedObjects);
         // Also add their children
-        GameObjectRawVec childrenToDelete;
-        for (auto& object : objectsToDelete) {
-          AddChildrenToContainer(object, childrenToDelete);
-        }
-        // Add the children to the list of objects to be deleted
-        objectsToDelete.insert(objectsToDelete.begin(), childrenToDelete.begin(), 
-                               childrenToDelete.end());
+        //GameObjectRawVec childrenToDelete;
+        //for (auto& object : objectsToDelete) {
+        //  AddChildrenToContainer(object, childrenToDelete);
+        //}
+        //// Add the children to the list of objects to be deleted
+        //objectsToDelete.insert(objectsToDelete.begin(), childrenToDelete.begin(), 
+        //                       childrenToDelete.end());
 
         // Save the command
         auto deleteCommand = CommandPtr(new CommandObjectCreation(objectsToDelete, 
