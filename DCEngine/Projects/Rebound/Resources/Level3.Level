@@ -7,6 +7,7 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -58,7 +59,8 @@
       }, 
       "GameObject": 
       {
-        "Name": "Layout", 
+        "Locked": false, 
+        "Name": "Light", 
         "Archetype": "", 
         "Components": 
         {
@@ -68,9 +70,9 @@
             {
               "Vec3": 
               {
-                "x": 50.696480, 
-                "y": -12.042056, 
-                "z": -0.100000
+                "x": -64.625427, 
+                "y": -40.290337, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -86,15 +88,19 @@
             {
               "Vec3": 
               {
-                "x": 300.000000, 
-                "y": 300.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "Sprite": 
+          "Light": 
           {
             "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -105,17 +111,26 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "LayoutLevel3", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
           }
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -274,6 +289,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -357,6 +373,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -440,6 +457,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -523,6 +541,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -606,6 +625,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ball", 
         "Archetype": "Ball", 
         "Components": 
@@ -875,6 +895,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -958,6 +979,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1041,6 +1063,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1124,6 +1147,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1207,6 +1231,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1290,6 +1315,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1373,6 +1399,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1456,6 +1483,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1539,6 +1567,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1622,6 +1651,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1705,6 +1735,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1788,6 +1819,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1871,6 +1903,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1954,6 +1987,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2037,6 +2071,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2120,6 +2155,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2203,6 +2239,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2286,6 +2323,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2369,6 +2407,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2452,6 +2491,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2535,6 +2575,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2618,6 +2659,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2701,6 +2743,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2784,6 +2827,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2867,6 +2911,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2950,6 +2995,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3033,6 +3079,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3116,6 +3163,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3199,6 +3247,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3282,6 +3331,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3365,6 +3415,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3448,6 +3499,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3531,6 +3583,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3614,6 +3667,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3697,6 +3751,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3780,6 +3835,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3863,6 +3919,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4018,6 +4075,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -4124,6 +4182,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -4230,6 +4289,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4385,6 +4445,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4540,6 +4601,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4695,6 +4757,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4850,6 +4913,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5005,6 +5069,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5160,6 +5225,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5315,6 +5381,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5470,6 +5537,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "LevelGoal", 
         "Archetype": "LevelGoal", 
         "Components": 
@@ -5577,6 +5645,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -5633,7 +5702,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -5661,6 +5729,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -5731,6 +5800,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -5801,6 +5871,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -5871,6 +5942,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -5881,8 +5953,8 @@
             {
               "Vec3": 
               {
-                "x": -33.576958, 
-                "y": -35.876770, 
+                "x": 78.120949, 
+                "y": 34.207592, 
                 "z": 0.000000
               }
             }, 
@@ -5922,7 +5994,7 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 0.745000, 
+            "Intensity": 0.553000, 
             "Range": 100.000000, 
             "Falloff": 1.362000, 
             "DirectionVector": 
@@ -5941,6 +6013,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -6011,6 +6084,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -6051,6 +6125,988 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -23.512852, 
+                "y": 40.424549, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Layout", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 50.967003, 
+                "y": -10.353834, 
+                "z": -0.100000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 300.000000, 
+                "y": 300.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "LayoutLevel3", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 89.710175, 
+                "y": 29.174099, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.737091, 
+                "y": 35.280338, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -62.759972, 
+                "y": 59.083084, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 102.695175, 
+                "y": 48.110546, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.037204, 
+                "y": 98.697906, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 121.902138, 
+                "y": 35.125553, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -61.781395, 
+                "y": 102.485207, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -56.100464, 
+                "y": 101.944160, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -50.149006, 
+                "y": 101.944160, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -42.033394, 
+                "y": 101.403114, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -19.580177, 
+                "y": 100.050514, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.553000, 
+            "Range": 100.000000, 
+            "Falloff": 1.362000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "Name": "Light", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.037204, 
+                "y": 98.697906, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
             "Type": "Point", 
             "Color": 
             {

@@ -26,7 +26,8 @@ namespace DCEngine {
 							obj->SetUniforms(0, camera, 0);
 							obj->Draw();
 						}
-
+			glDisable(GL_DEPTH_TEST);
+			glDrawBuffer(GL_FRONT);
 		}
 
     void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
@@ -43,6 +44,7 @@ namespace DCEngine {
 			glDepthFunc(GL_LESS);
 			glDrawBuffer(GL_NONE);
 			glDepthMask(GL_FALSE);
+			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
 			
 			if (light->getVisibilityCulling())
