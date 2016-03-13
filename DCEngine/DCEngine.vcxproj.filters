@@ -271,35 +271,11 @@
     <Filter Include="Projects\Rebound\Scripts">
       <UniqueIdentifier>{89011df5-235f-42f4-9796-4ee5eb811e4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Modules">
-      <UniqueIdentifier>{a28e5ef2-de24-4104-902a-54bf8d02c48f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Selector">
-      <UniqueIdentifier>{31fea31c-c72f-4919-a237-e14f10c83bd5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Resources">
-      <UniqueIdentifier>{60bc15e7-e3de-4a21-933f-935d07ea6bdb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Systems\Editor\Tools\TransformTool">
       <UniqueIdentifier>{1cd4b666-0334-4327-b4aa-53e571683fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
-      <UniqueIdentifier>{f00ae099-e0a2-480c-8c3b-0a91fa4905cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
-      <UniqueIdentifier>{7664af0e-b5d5-4660-8ccc-8c8e232bbf8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Inspector">
-      <UniqueIdentifier>{6ebbbc75-00bb-4acb-af79-28ba68beac91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Projects">
-      <UniqueIdentifier>{7ce06c2e-cef5-4ec6-b7a3-d7a2235e6077}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Engine\Profiler">
       <UniqueIdentifier>{7f390996-54d1-4eb9-94d9-a6ec71b61c67}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
-      <UniqueIdentifier>{6eeee2b9-786d-41c3-8392-a378017f10f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Engine\Time">
       <UniqueIdentifier>{f91e6fca-220f-4ba8-b2e1-f6272a110441}</UniqueIdentifier>
@@ -309,9 +285,6 @@
     </Filter>
     <Filter Include="Core\Engine\Macros">
       <UniqueIdentifier>{82e63ce4-ae8b-454d-a7c4-fe49838e3642}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Systems\Editor\Modules\Preferences">
-      <UniqueIdentifier>{af9799e7-d794-4630-a3a9-85c7e4bce4f8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Scripting">
       <UniqueIdentifier>{cdfad8a7-ef8f-40c4-b453-cad23aba9b7b}</UniqueIdentifier>
@@ -327,6 +300,33 @@
     </Filter>
     <Filter Include="Core\Engine\Delegates">
       <UniqueIdentifier>{9e277687-56ad-4a33-a996-54ee3416029f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules">
+      <UniqueIdentifier>{a28e5ef2-de24-4104-902a-54bf8d02c48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Selector">
+      <UniqueIdentifier>{31fea31c-c72f-4919-a237-e14f10c83bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Resources">
+      <UniqueIdentifier>{60bc15e7-e3de-4a21-933f-935d07ea6bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Archetypes">
+      <UniqueIdentifier>{f00ae099-e0a2-480c-8c3b-0a91fa4905cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Diagnostics">
+      <UniqueIdentifier>{7664af0e-b5d5-4660-8ccc-8c8e232bbf8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Inspector">
+      <UniqueIdentifier>{6ebbbc75-00bb-4acb-af79-28ba68beac91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Projects">
+      <UniqueIdentifier>{7ce06c2e-cef5-4ec6-b7a3-d7a2235e6077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\TextEditor">
+      <UniqueIdentifier>{6eeee2b9-786d-41c3-8392-a378017f10f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Preferences">
+      <UniqueIdentifier>{af9799e7-d794-4630-a3a9-85c7e4bce4f8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Objects">
       <UniqueIdentifier>{709750cf-81b7-4f90-847a-a0f91b360905}</UniqueIdentifier>
@@ -909,7 +909,6 @@
     <ClCompile Include="Core\Systems\SystemsConfiguration.cpp">
       <Filter>Core\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingEvents.cpp">
       <Filter>Core\Events</Filter>
     </ClCompile>
@@ -930,6 +929,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Factory\FactoryBuild.cpp">
       <Filter>Core\Systems\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp">
+      <Filter>Core\Binding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1029,9 +1031,6 @@
     <ClInclude Include="Core\Components\Transform.h">
       <Filter>Core\Components\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Resources\ResourcesInclude.h">
-      <Filter>Core\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Objects\Resource.h">
       <Filter>Core\Object\Resource</Filter>
     </ClInclude>
@@ -1055,9 +1054,6 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\Material.h">
       <Filter>Core\Resources\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Resources\ResourceReference.h">
-      <Filter>Core\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\Factory\Factory.h">
       <Filter>Core\Systems\Factory</Filter>
@@ -1536,7 +1532,6 @@
     <ClInclude Include="Core\Systems\Editor\EditorPreferences.h">
       <Filter>Core\Systems\Editor\Modules\Preferences</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Objects\Object.hpp">
       <Filter>Core\Object</Filter>
     </ClInclude>
@@ -1566,6 +1561,15 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorObjects.h">
       <Filter>Core\Systems\Editor\Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h">
+      <Filter>Core\Binding</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourcesInclude.h">
+      <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Resources\ResourceReference.h">
+      <Filter>Core\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1620,22 +1624,16 @@
     <None Include="Projects\Rebound\Rebound.dceproj">
       <Filter>Projects\Rebound</Filter>
     </None>
-    <None Include="Core\Assets\Shaders\DebugShader.frag">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
-    <None Include="Core\Assets\Shaders\DebugShader.vs">
-      <Filter>Core\Resources\Graphics\Shaders</Filter>
-    </None>
     <None Include="Core\Assets\Shaders\LightingShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
     <None Include="Core\Assets\Shaders\LightingShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Assets\Shaders\FinalRenderShader.frag">
+    <None Include="Core\Assets\Shaders\DebugShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Assets\Shaders\FinalRenderShader.vs">
+    <None Include="Core\Assets\Shaders\DebugShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
   </ItemGroup>

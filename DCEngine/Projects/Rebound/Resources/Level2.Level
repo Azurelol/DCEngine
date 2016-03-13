@@ -8,7 +8,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 6, 
+        "GameObjectID": 216, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -164,12 +164,15 @@
             "MaxHealth": 10, 
             "StartingHealth": 10
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 7, 
+        "GameObjectID": 217, 
         "Name": "Ground1", 
         "Archetype": "Ground", 
         "Components": 
@@ -250,12 +253,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 8, 
+        "GameObjectID": 218, 
         "Name": "Ground2", 
         "Archetype": "Ground", 
         "Components": 
@@ -336,12 +342,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 9, 
+        "GameObjectID": 219, 
         "Name": "Ground3", 
         "Archetype": "Ground", 
         "Components": 
@@ -422,12 +431,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 10, 
+        "GameObjectID": 220, 
         "Name": "Ground4", 
         "Archetype": "Ground", 
         "Components": 
@@ -508,12 +520,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 11, 
+        "GameObjectID": 221, 
         "Name": "Ground5", 
         "Archetype": "Ground", 
         "Components": 
@@ -594,12 +609,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 12, 
+        "GameObjectID": 222, 
         "Name": "Ground6", 
         "Archetype": "Ground", 
         "Components": 
@@ -680,12 +698,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 13, 
+        "GameObjectID": 223, 
         "Name": "Ground7", 
         "Archetype": "Ground", 
         "Components": 
@@ -766,12 +787,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 14, 
+        "GameObjectID": 224, 
         "Name": "Ground8", 
         "Archetype": "Ground", 
         "Components": 
@@ -852,12 +876,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 15, 
+        "GameObjectID": 225, 
         "Name": "Ground10", 
         "Archetype": "Ground", 
         "Components": 
@@ -938,12 +965,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 16, 
+        "GameObjectID": 226, 
         "Name": "Ground11", 
         "Archetype": "Ground", 
         "Components": 
@@ -1024,12 +1054,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 17, 
+        "GameObjectID": 227, 
         "Name": "Ground12", 
         "Archetype": "Ground", 
         "Components": 
@@ -1110,12 +1143,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 18, 
+        "GameObjectID": 228, 
         "Name": "Ground13", 
         "Archetype": "Ground", 
         "Components": 
@@ -1196,12 +1232,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 19, 
+        "GameObjectID": 229, 
         "Name": "Ground14", 
         "Archetype": "Ground", 
         "Components": 
@@ -1282,12 +1321,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 20, 
+        "GameObjectID": 230, 
         "Name": "Ground15", 
         "Archetype": "Ground", 
         "Components": 
@@ -1368,12 +1410,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 21, 
+        "GameObjectID": 231, 
         "Name": "Ground16", 
         "Archetype": "Ground", 
         "Components": 
@@ -1454,12 +1499,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 22, 
+        "GameObjectID": 232, 
         "Name": "Ground17", 
         "Archetype": "Ground", 
         "Components": 
@@ -1540,12 +1588,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 23, 
+        "GameObjectID": 233, 
         "Name": "Ground18", 
         "Archetype": "Ground", 
         "Components": 
@@ -1626,12 +1677,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 24, 
+        "GameObjectID": 234, 
         "Name": "Ground19", 
         "Archetype": "Ground", 
         "Components": 
@@ -1712,12 +1766,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 25, 
+        "GameObjectID": 235, 
         "Name": "Ground20", 
         "Archetype": "Ground", 
         "Components": 
@@ -1798,12 +1855,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 26, 
+        "GameObjectID": 236, 
         "Name": "Ground21", 
         "Archetype": "Ground", 
         "Components": 
@@ -1884,12 +1944,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 27, 
+        "GameObjectID": 237, 
         "Name": "Ground22", 
         "Archetype": "Ground", 
         "Components": 
@@ -1970,12 +2033,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 28, 
+        "GameObjectID": 238, 
         "Name": "Ground23", 
         "Archetype": "Ground", 
         "Components": 
@@ -2056,12 +2122,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 29, 
+        "GameObjectID": 239, 
         "Name": "Ground24", 
         "Archetype": "Ground", 
         "Components": 
@@ -2142,12 +2211,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 30, 
+        "GameObjectID": 240, 
         "Name": "Ground25", 
         "Archetype": "Ground", 
         "Components": 
@@ -2228,12 +2300,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 31, 
+        "GameObjectID": 241, 
         "Name": "Ceiling1", 
         "Archetype": "Ground", 
         "Components": 
@@ -2314,12 +2389,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 32, 
+        "GameObjectID": 242, 
         "Name": "Ceiling2", 
         "Archetype": "Ground", 
         "Components": 
@@ -2400,12 +2478,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 33, 
+        "GameObjectID": 243, 
         "Name": "Ceiling3", 
         "Archetype": "Ground", 
         "Components": 
@@ -2486,12 +2567,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 34, 
+        "GameObjectID": 244, 
         "Name": "Ceiling4", 
         "Archetype": "Ground", 
         "Components": 
@@ -2572,12 +2656,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 35, 
+        "GameObjectID": 245, 
         "Name": "Ceiling5", 
         "Archetype": "Ground", 
         "Components": 
@@ -2658,12 +2745,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 36, 
+        "GameObjectID": 246, 
         "Name": "Ceiling6", 
         "Archetype": "Ground", 
         "Components": 
@@ -2744,12 +2834,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 37, 
+        "GameObjectID": 247, 
         "Name": "Ceiling7", 
         "Archetype": "Ground", 
         "Components": 
@@ -2830,12 +2923,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 38, 
+        "GameObjectID": 248, 
         "Name": "Ceiling8", 
         "Archetype": "Ground", 
         "Components": 
@@ -2916,12 +3012,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 39, 
+        "GameObjectID": 249, 
         "Name": "Ceiling9", 
         "Archetype": "Ground", 
         "Components": 
@@ -3002,12 +3101,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 40, 
+        "GameObjectID": 250, 
         "Name": "Ceiling10", 
         "Archetype": "Ground", 
         "Components": 
@@ -3088,12 +3190,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 41, 
+        "GameObjectID": 251, 
         "Name": "Ceiling11", 
         "Archetype": "Ground", 
         "Components": 
@@ -3174,12 +3279,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 42, 
+        "GameObjectID": 252, 
         "Name": "Ceiling12", 
         "Archetype": "Ground", 
         "Components": 
@@ -3260,12 +3368,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 43, 
+        "GameObjectID": 253, 
         "Name": "Wall1", 
         "Archetype": "Ground", 
         "Components": 
@@ -3346,12 +3457,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 44, 
+        "GameObjectID": 254, 
         "Name": "Wall2", 
         "Archetype": "Ground", 
         "Components": 
@@ -3432,12 +3546,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 45, 
+        "GameObjectID": 255, 
         "Name": "Wall3", 
         "Archetype": "Ground", 
         "Components": 
@@ -3518,12 +3635,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 46, 
+        "GameObjectID": 256, 
         "Name": "Wall4", 
         "Archetype": "Ground", 
         "Components": 
@@ -3604,12 +3724,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 47, 
+        "GameObjectID": 257, 
         "Name": "Wall5", 
         "Archetype": "Ground", 
         "Components": 
@@ -3690,12 +3813,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 48, 
+        "GameObjectID": 258, 
         "Name": "Wall6", 
         "Archetype": "Ground", 
         "Components": 
@@ -3776,12 +3902,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 49, 
+        "GameObjectID": 259, 
         "Name": "Wall7", 
         "Archetype": "Ground", 
         "Components": 
@@ -3862,12 +3991,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 50, 
+        "GameObjectID": 260, 
         "Name": "Wall8", 
         "Archetype": "Ground", 
         "Components": 
@@ -3948,12 +4080,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 51, 
+        "GameObjectID": 261, 
         "Name": "Wall9", 
         "Archetype": "Ground", 
         "Components": 
@@ -4034,12 +4169,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 52, 
+        "GameObjectID": 262, 
         "Name": "Wall10", 
         "Archetype": "Ground", 
         "Components": 
@@ -4120,12 +4258,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 53, 
+        "GameObjectID": 263, 
         "Name": "Wall11", 
         "Archetype": "Ground", 
         "Components": 
@@ -4206,12 +4347,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 54, 
+        "GameObjectID": 264, 
         "Name": "Wall12", 
         "Archetype": "Ground", 
         "Components": 
@@ -4292,12 +4436,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 55, 
+        "GameObjectID": 265, 
         "Name": "Door1", 
         "Archetype": "", 
         "Components": 
@@ -4393,12 +4540,15 @@
             "MoveToLocationTime": 1.000000, 
             "Moving": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 56, 
+        "GameObjectID": 266, 
         "Name": "Door2", 
         "Archetype": "", 
         "Components": 
@@ -4494,12 +4644,15 @@
             "MoveToLocationTime": 1.000000, 
             "Moving": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 57, 
+        "GameObjectID": 267, 
         "Name": "Door3", 
         "Archetype": "", 
         "Components": 
@@ -4554,12 +4707,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 58, 
+        "GameObjectID": 268, 
         "Name": "Door4", 
         "Archetype": "", 
         "Components": 
@@ -4614,12 +4770,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 59, 
+        "GameObjectID": 269, 
         "Name": "Door5", 
         "Archetype": "", 
         "Components": 
@@ -4674,12 +4833,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 60, 
+        "GameObjectID": 270, 
         "Name": "Door6", 
         "Archetype": "", 
         "Components": 
@@ -4734,12 +4896,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 61, 
+        "GameObjectID": 271, 
         "Name": "Button1", 
         "Archetype": "", 
         "Components": 
@@ -4824,12 +4989,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 62, 
+        "GameObjectID": 272, 
         "Name": "Button2", 
         "Archetype": "", 
         "Components": 
@@ -4914,12 +5082,15 @@
           {
             "Target": "Door2"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 63, 
+        "GameObjectID": 273, 
         "Name": "Button3", 
         "Archetype": "", 
         "Components": 
@@ -5004,12 +5175,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 64, 
+        "GameObjectID": 274, 
         "Name": "Button4", 
         "Archetype": "", 
         "Components": 
@@ -5094,12 +5268,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 65, 
+        "GameObjectID": 275, 
         "Name": "Button5", 
         "Archetype": "", 
         "Components": 
@@ -5154,12 +5331,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 66, 
+        "GameObjectID": 276, 
         "Name": "Button6", 
         "Archetype": "", 
         "Components": 
@@ -5214,12 +5394,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 67, 
+        "GameObjectID": 277, 
         "Name": "Button7", 
         "Archetype": "", 
         "Components": 
@@ -5274,12 +5457,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 68, 
+        "GameObjectID": 278, 
         "Name": "Button8", 
         "Archetype": "", 
         "Components": 
@@ -5334,12 +5520,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 69, 
+        "GameObjectID": 279, 
         "Name": "Shield1", 
         "Archetype": "Shield", 
         "Components": 
@@ -5424,12 +5613,15 @@
           {
             "Timer": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 70, 
+        "GameObjectID": 280, 
         "Name": "Shield2", 
         "Archetype": "Shield", 
         "Components": 
@@ -5514,12 +5706,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 71, 
+        "GameObjectID": 281, 
         "Name": "Shield3", 
         "Archetype": "Shield", 
         "Components": 
@@ -5604,12 +5799,15 @@
           {
             "Timer": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 72, 
+        "GameObjectID": 282, 
         "Name": "Shield4", 
         "Archetype": "Shield", 
         "Components": 
@@ -5694,12 +5892,15 @@
           {
             "Timer": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 73, 
+        "GameObjectID": 283, 
         "Name": "Shield5", 
         "Archetype": "Shield", 
         "Components": 
@@ -5780,12 +5981,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 74, 
+        "GameObjectID": 284, 
         "Name": "Shield6", 
         "Archetype": "Shield", 
         "Components": 
@@ -5866,12 +6070,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 75, 
+        "GameObjectID": 285, 
         "Name": "Shield7", 
         "Archetype": "Shield", 
         "Components": 
@@ -5952,12 +6159,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 76, 
+        "GameObjectID": 286, 
         "Name": "Shield8", 
         "Archetype": "Shield", 
         "Components": 
@@ -6038,12 +6248,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 77, 
+        "GameObjectID": 287, 
         "Name": "Shield9", 
         "Archetype": "Shield", 
         "Components": 
@@ -6124,12 +6337,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 78, 
+        "GameObjectID": 288, 
         "Name": "PowerField1", 
         "Archetype": "PowerField", 
         "Components": 
@@ -6214,12 +6430,15 @@
           {
             "Target": "Shield4"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 79, 
+        "GameObjectID": 289, 
         "Name": "PowerField2", 
         "Archetype": "PowerField", 
         "Components": 
@@ -6304,12 +6523,15 @@
           {
             "Target": "Shield3"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 80, 
+        "GameObjectID": 290, 
         "Name": "PowerField3", 
         "Archetype": "PowerField", 
         "Components": 
@@ -6394,12 +6616,15 @@
           {
             "Target": ""
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 81, 
+        "GameObjectID": 291, 
         "Name": "PowerField4", 
         "Archetype": "PowerField", 
         "Components": 
@@ -6484,12 +6709,15 @@
           {
             "Target": ""
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 82, 
+        "GameObjectID": 292, 
         "Name": "PowerField5", 
         "Archetype": "PowerField", 
         "Components": 
@@ -6574,12 +6802,15 @@
           {
             "Target": ""
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 83, 
+        "GameObjectID": 293, 
         "Name": "PressurePlate1", 
         "Archetype": "", 
         "Components": 
@@ -6634,12 +6865,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 84, 
+        "GameObjectID": 294, 
         "Name": "PressurePlate2", 
         "Archetype": "", 
         "Components": 
@@ -6694,12 +6928,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 85, 
+        "GameObjectID": 295, 
         "Name": "PressurePlate3", 
         "Archetype": "", 
         "Components": 
@@ -6754,12 +6991,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 86, 
+        "GameObjectID": 296, 
         "Name": "PressurePlate4", 
         "Archetype": "", 
         "Components": 
@@ -6814,12 +7054,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 87, 
+        "GameObjectID": 297, 
         "Name": "PressurePlate5", 
         "Archetype": "", 
         "Components": 
@@ -6874,12 +7117,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 88, 
+        "GameObjectID": 298, 
         "Name": "BioField1", 
         "Archetype": "BioField", 
         "Components": 
@@ -6934,12 +7180,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 89, 
+        "GameObjectID": 299, 
         "Name": "BioField2", 
         "Archetype": "BioField", 
         "Components": 
@@ -6994,12 +7243,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 90, 
+        "GameObjectID": 300, 
         "Name": "BioField3", 
         "Archetype": "BioField", 
         "Components": 
@@ -7054,12 +7306,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 91, 
+        "GameObjectID": 301, 
         "Name": "BioField4", 
         "Archetype": "BioField", 
         "Components": 
@@ -7114,12 +7369,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 92, 
+        "GameObjectID": 302, 
         "Name": "BioField5", 
         "Archetype": "BioField", 
         "Components": 
@@ -7174,12 +7432,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 93, 
+        "GameObjectID": 303, 
         "Name": "Generator", 
         "Archetype": "", 
         "Components": 
@@ -7234,12 +7495,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 94, 
+        "GameObjectID": 304, 
         "Name": "LevelGoal", 
         "Archetype": "LevelGoal", 
         "Components": 
@@ -7344,12 +7608,15 @@
             "Fading": false, 
             "Pulse": true
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 95, 
+        "GameObjectID": 305, 
         "Name": "Ball", 
         "Archetype": "Ball", 
         "Components": 
@@ -7616,12 +7883,15 @@
             "Growth": 0.000000, 
             "Dampening": 10.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 96, 
+        "GameObjectID": 306, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -7669,12 +7939,15 @@
             "TargetName": "Player", 
             "InterpolationSpeed": 0.060000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 97, 
+        "GameObjectID": 307, 
         "Name": "PauseManager", 
         "Archetype": "", 
         "Components": 
@@ -7712,12 +7985,15 @@
           "PauseManager": 
           {
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 98, 
+        "GameObjectID": 308, 
         "Name": "Background", 
         "Archetype": "", 
         "Components": 
@@ -7728,8 +8004,8 @@
             {
               "Vec3": 
               {
-                "x": 8.693644, 
-                "y": 12.039125, 
+                "x": 0.462784, 
+                "y": 20.103182, 
                 "z": -1.000000
               }
             }, 
@@ -7746,8 +8022,8 @@
             {
               "Vec3": 
               {
-                "x": 100.000000, 
-                "y": 100.000000, 
+                "x": 40.000000, 
+                "y": 40.000000, 
                 "z": 1.000000
               }
             }
@@ -7759,57 +8035,28 @@
             {
               "Vec4": 
               {
-                "x": 0.591000, 
-                "y": 0.545000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Light": 
-          {
-            "Visible": false, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Point", 
-            "Color": 
-            {
-              "Vec4": 
-              {
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.619000, 
-            "Range": 60.000000, 
-            "Falloff": 1.399000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 5.640000, 
-            "OuterAngle": 36.188004
+            "SpriteSource": "New World_Foreground", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 99, 
+        "GameObjectID": 309, 
         "Name": "Button1", 
         "Archetype": "", 
         "Components": 
@@ -7894,13 +8141,16 @@
           {
             "Target": "Door2"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 100, 
-        "Name": "Light", 
+        "GameObjectID": 310, 
+        "Name": "GlobalLight", 
         "Archetype": "", 
         "Components": 
         {
@@ -7910,9 +8160,9 @@
             {
               "Vec3": 
               {
-                "x": -16.888889, 
-                "y": 20.311111, 
-                "z": 0.000000
+                "x": 62.919121, 
+                "y": 4.951467, 
+                "z": 10.000000
               }
             }, 
             "Rotation": 
@@ -7936,42 +8186,45 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
-            "VisibilityCulling": true, 
+            "Visible": true, 
+            "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Spot", 
+            "CastShadows": false, 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "Intensity": 0.966000, 
-            "Range": 100.000000, 
+            "Intensity": 0.210000, 
+            "Range": 20.000000, 
             "Falloff": 0.100000, 
             "DirectionVector": 
             {
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": -0.500000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 30.548002, 
-            "OuterAngle": 76.136002
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 101, 
+        "GameObjectID": 311, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -7982,8 +8235,8 @@
             {
               "Vec3": 
               {
-                "x": 14.284258, 
-                "y": 10.275746, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -8009,7 +8262,7 @@
           "Light": 
           {
             "Visible": true, 
-            "VisibilityCulling": true, 
+            "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
             "Type": "Point", 
@@ -8017,15 +8270,15 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "Intensity": 0.669000, 
-            "Range": 21.000000, 
-            "Falloff": 1.056000, 
+            "Intensity": 1.000000, 
+            "Range": 20.000000, 
+            "Falloff": 1.617000, 
             "DirectionVector": 
             {
               "Vec3": 
@@ -8038,6 +8291,84 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 312, 
+        "Name": "StreetLight", 
+        "Archetype": "StreetLight", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.357639, 
+                "y": 25.020929, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 1.000000, 
+            "Range": 15.000000, 
+            "Falloff": 1.000000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 26.916000, 
+            "OuterAngle": 30.000000
+          }
+        }, 
+        "Children": 
+        {
         }
       }
     }

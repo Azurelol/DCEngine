@@ -46,14 +46,11 @@ namespace DCEngine {
     EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
     {
       // 1. Deserialize specific properties
-      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity)) {
         gameObject->Deserialize(objectData->Value);
+      }
       else if (auto space = dynamic_cast<SpacePtr>(entity))
         space->Deserialize(objectData->Value);
-
-      //auto val : objectData->Value->OrderedMembers.all();
-      //entity->Deserialize(objectData->Value);
-      //entity->Object::Deserialize(objectData->Value);
 
       //auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
       //entity->setArchetype(archetype);
@@ -70,7 +67,7 @@ namespace DCEngine {
           auto properties = component->Value;
           componentPtr->Deserialize(properties);
         }
-      }
+      }     
 
       return entity;
     }
@@ -85,14 +82,41 @@ namespace DCEngine {
     void Factory::BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype)
     {
       // 1. Get the Archetype data
+      auto data = ArchetypeData(archetype);
+      /*
       Zilch::CompilationErrors errors;
       Zilch::JsonReader reader;
       const Zilch::String what;
       Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
         archetype->Get().c_str(), what, nullptr);
-      auto data = *archetypeData->OrderedMembers.data();
-      // 2. Build the GameObject
-      BuildEntity(entity, data);
+      auto data = *archetypeData->OrderedMembers.data();*/
+            
+      // If the entity is currently constructed, do not construct a new one
+      if (entity) {
+        BuildEntity(entity, data);
+        return;
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Builds a GameObject from a given archetype.
+    @param archetype A pointer to the archetype.
+    @param  entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    GameObjectPtr Factory::BuildGameObjectFromArchetype(ArchetypePtr archetype, Space & space, bool init)
+    {
+      // 1. Grab the serialized data
+      auto data = ArchetypeData(archetype);
+      // 2. Construct the gameObject and all its children
+      //BuildGameObjectAndChildren()
+      // 1. Construct the GameObject
+      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
+      auto gameObjPtr = ActiveGameObjects.back().get();
+      // 2. Build it from serialized data
+      BuildFromArchetype(gameObjPtr, archetype);
+      return gameObjPtr;
     }
 
     /**************************************************************************/
@@ -143,6 +167,31 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Builds all the GameObject and all its children, recursively.
+    @param gameObjectData A pointer to the GameObject data.    
+    @param space A reference to the Space the GameObject will be created on.
+    @param parent A pointer to the parent of this GameObject.
+    @return A pointer to the GameObject created on the space.
+    */
+    /**************************************************************************/
+    void Factory::BuildGameObjectAndChildren(Zilch::JsonMember* gameObjectData, Space& space, GameObjectPtr parent) {
+      // 1. Build the GameObject
+      auto gameObject = BuildGameObject(gameObjectData, space);
+      // 2. Add it to the space's container of active gameobjects
+      space.AddObject(gameObject);
+      // 3. Attach it to its parent
+      gameObject->AttachTo(parent);
+      // 4. Deserialize and build all its children      
+      if (gameObjectData->Value->Members.count("Children")) {
+        auto children = gameObjectData->Value->GetMember("Children")->OrderedMembers.all();
+        for (auto child : children) {
+          BuildGameObjectAndChildren(child, space, gameObject);
+        }
+      }
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Builds all the GameObjects from a level into a space.
     @param  level A pointer to the level resource.
     @param  space A reference to the Space the GameObject will be created on/
@@ -164,15 +213,17 @@ namespace DCEngine {
       }
 
       DCTrace << "Factory::BuildFromLevel - Building GameObjects from Level: '" << level->Name() << "' \n";
-      // 1. For every GameObject...
       auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");
-      for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
-        // 2. Build the GameObject
-        auto gameObjectPtr = BuildGameObject(gameObjectValue, space);
-        // 3. Add it to the space's container of active gameobjects
-        space.AddObject(gameObjectPtr);
-        // 4. Build all children
+      // 1. For every GameObject...
+      for (auto gameObjectData : gameObjects->OrderedMembers.all()) {
+        // Build the gameobject and all its children. We pass in null
+        // since the root has no parent
+        BuildGameObjectAndChildren(gameObjectData, space, nullptr);
 
+        //// 2. Build the GameObject
+        //auto gameObjectPtr = BuildGameObject(gameObjectData, space);
+        //// 3. Add it to the space's container of active gameobjects
+        //space.AddObject(gameObjectPtr);
       }
       return true;
     }
@@ -210,7 +261,12 @@ namespace DCEngine {
           {
             levelBuilder.Key("GameObjects");
             levelBuilder.Begin(Zilch::JsonType::Object);
+            // For every level in the root
             for (auto &gameObj : space.GameObjectContainer) {
+              // Do not serialize children from the root. They will be 
+              // serialized recursively next...
+              if (gameObj->Parent())
+                continue;
               // Do not serialize the editor's camera
               if (gameObj->Name() == "EditorCamera")
                 continue;

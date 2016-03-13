@@ -20,7 +20,8 @@ namespace DCEngine {
     @param editor A reference to the Editor.
     */
     /**************************************************************************/
-    EditorObjects::EditorObjects(Editor & editor) : EditorModule(editor, true)
+    EditorObjects::EditorObjects(Editor & editor) : EditorModule(editor, true), 
+      Attaching(false), Detaching(false), Deleting(false)
     {
       // The EditorObjects window starts displayed
       Toggle(true);
@@ -117,17 +118,43 @@ namespace DCEngine {
       auto& children = object->Children();
       if (!children.empty()) {
         // If you click on the TreeNode..
-        if (ImGui::TreeNode(objectName)) {
-          // Display all children recursively
-          for (auto& child : children) {
-            DisplayObject(child);
+        //if (ImGui::CollapsingHeader(objectName)) {
+        //  for (auto& child : children) {
+        //    DisplayObject(child);
+        //  }
+        //}
+        
+        bool asTree = false;
+        if (asTree) {
+          if (ImGui::TreeNode(objectName)) {
+            // Display all children recursively
+            for (auto& child : children) {
+              DisplayObject(child);
+            }
+            ImGui::TreePop();
           }
-          ImGui::TreePop();
+          if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+            EditorRef.SelectObject(object);
+            EditorRef.Inspector.Toggle(true);
+          }
         }
-        if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
-          EditorRef.SelectObject(object);
-          EditorRef.Inspector.Toggle(true);
+        else {
+          if (ImGui::BeginMenu(objectName)) {
+            // Display all children recursively
+            for (auto& child : children) {
+              DisplayObject(child);
+            }
+            ImGui::EndMenu();
+          }
+          // Display a context menu
+          ContextMenu(object);
+          if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+            EditorRef.SelectObject(object);
+            EditorRef.Inspector.Toggle(true);
+          }
         }
+
+
       }
       else {
         if (ImGui::Selectable(objectName, selected)) {
@@ -162,11 +189,11 @@ namespace DCEngine {
       {
         if (ImGui::Selectable("Attach")) {
           // The next object to be selected will be the one we will be attaching to
-          Attaching = true;
-          ImGui::GetIO().MouseDrawCursor = true;
+          //Attaching = true;
+          //ImGui::GetIO().MouseDrawCursor = true;
         }
         if (ImGui::Selectable("Dettach")) {
-          Detaching = true;
+          //Detaching = true;
         }
         // Lock/Unlock the object
         if (ImGui::Selectable("Lock")) {

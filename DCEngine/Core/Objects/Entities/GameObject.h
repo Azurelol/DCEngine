@@ -66,6 +66,7 @@ namespace DCEngine {
     void Destroy();
     Space* GetSpace();
     GameSession* GetGameSession();  
+    static GameObjectPtr IsA(EntityPtr);
     GameObjectPtr FindChildByName(std::string name);
     GameObjectVec FindAllChildrenByName(std::string name);
     GameObjectVec& Children();    
