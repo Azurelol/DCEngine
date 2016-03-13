@@ -116,25 +116,20 @@ namespace DCEngine {
       // If it has any children, display all children recursively
       auto& children = object->Children();
       if (!children.empty()) {
+        // If you click on the TreeNode..
         if (ImGui::TreeNode(objectName)) {
-          //EditorRef.SelectObject(object);
-          //EditorRef.Inspector.Toggle(true);
+          // Display all children recursively
           for (auto& child : children) {
             DisplayObject(child);
           }
           ImGui::TreePop();
         }
+        if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+          EditorRef.SelectObject(object);
+          EditorRef.Inspector.Toggle(true);
+        }
       }
       else {
-        // If the object was found among one of those selected..
-        //if (object->getLocked()) {
-        //  ImGui::PushStyleColor(ImGuiCol_TextSelectedBg, ImVec4(EditorRef.Settings.LockedColor.x,
-        //  EditorRef.Settings.LockedColor.y,
-        //  EditorRef.Settings.LockedColor.z,
-        //  EditorRef.Settings.LockedColor.w));
-        //}
-
-        //if (ImGui::Sele)
         if (ImGui::Selectable(objectName, selected)) {
 
           if (Attaching)
@@ -151,11 +146,6 @@ namespace DCEngine {
           ImGui::SameLine();
           ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "L");
         }
-
-        /*if (object->getLocked()) {
-          ImGui::PopStyleColor();
-        }*/
-
       }
       return false;
     }

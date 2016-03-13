@@ -7,6 +7,7 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -58,6 +59,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Layout", 
         "Archetype": "", 
         "Components": 
@@ -116,6 +118,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -274,6 +277,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -357,6 +361,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -440,6 +445,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -523,6 +529,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -606,6 +613,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ball", 
         "Archetype": "Ball", 
         "Components": 
@@ -875,6 +883,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -958,6 +967,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1041,6 +1051,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1124,6 +1135,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1207,6 +1219,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1290,6 +1303,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1373,6 +1387,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1456,6 +1471,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1539,6 +1555,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1622,6 +1639,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1705,6 +1723,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1788,6 +1807,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1871,6 +1891,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -1954,6 +1975,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2037,6 +2059,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2120,6 +2143,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2203,6 +2227,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2286,6 +2311,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2369,6 +2395,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2452,6 +2479,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2535,6 +2563,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2618,6 +2647,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2701,6 +2731,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2784,6 +2815,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2867,6 +2899,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -2950,6 +2983,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3033,6 +3067,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3116,6 +3151,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3199,6 +3235,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3282,6 +3319,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3365,6 +3403,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3448,6 +3487,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3531,6 +3571,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3614,6 +3655,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3697,6 +3739,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3780,6 +3823,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Ground", 
         "Archetype": "Ground", 
         "Components": 
@@ -3863,6 +3907,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4018,6 +4063,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -4124,6 +4170,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -4230,6 +4277,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4385,6 +4433,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4540,6 +4589,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4695,6 +4745,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -4850,6 +4901,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5005,6 +5057,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5160,6 +5213,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5315,6 +5369,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "Scrapper4", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -5470,6 +5525,7 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
         "Name": "LevelGoal", 
         "Archetype": "LevelGoal", 
         "Components": 

@@ -38,6 +38,11 @@ namespace DCEngine {
       ZilchBindDestructor(builder, type, Collider);
       // Properties
 
+
+
+
+      // Properties
+
     }
     #endif
 
@@ -76,14 +81,14 @@ namespace DCEngine {
 
     float Collider::getRestitution(void)
     {
-      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhysicsMaterial);
 
       return PhyMat->getRestitution();
     }
 
     float Collider::getFriction(void)
     {
-      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhysicsMaterial);
 
       return PhyMat->getFriction();
     }
@@ -95,7 +100,7 @@ namespace DCEngine {
 
     float Collider::GetMass(void)
     {
-      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhyMatHandle);
+      auto PhyMat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(PhysicsMaterial);
 
       Vec3 volume = dynamic_cast<GameObject*>(this->Owner())->getComponent<Components::Transform>()->Scale;
 

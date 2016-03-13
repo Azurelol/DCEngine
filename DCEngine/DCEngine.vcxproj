@@ -391,6 +391,7 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp" />
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
+    <ClCompile Include="Core\Systems\Factory\FactoryBuild.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
