@@ -35,7 +35,11 @@ float GenerateZ0DiffuseFactor(vec3 fragPos, vec3 fragNormal, vec3 lightPosition)
 	if(lightPosition.z == 0.0 && fragPos.z == 0.0)
 	{
 		vec3 lightVector = normalize(lightPosition - fragPos);
-		return (dot(lightVector, fragNormal) + .2) / 2;
+		float luminence = dot(lightVector, fragNormal) + .2;
+		if(luminence < 0)
+			return 0;
+		else
+			return luminence;
 	}
 	else
 		return 1.0;
