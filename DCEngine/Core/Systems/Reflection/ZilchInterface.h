@@ -84,6 +84,7 @@ namespace DCEngine {
       void Initialize();
       void SetupZilch();
       void SetupLibraries();
+      void ParseStaticLibraries();
       void SetUpComponentTypes(Zilch::LibraryRef library);
 
       void TypeParsedErrorCallback(Zilch::ParseEvent* event);

@@ -22,6 +22,7 @@ class Player : ZilchComponent
 
   // Test printing a string
   Console.WriteLine("Hello, John");
+   //var t = this.Owner.Transform;
 
   // Test connect to engine events
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 

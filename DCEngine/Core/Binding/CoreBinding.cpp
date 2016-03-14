@@ -141,14 +141,14 @@ namespace DCEngine {
     // Zilch
     ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(ZilchEvent);
-
+    
     //auto interface = Systems::ZilchInterface::Get();
     //// Try #1
     //auto& boundTypes = builder.BuiltLibrary->BoundTypes.values();
     //while (!boundTypes.empty()) {
     //  interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
     //}
-    //// Try #2
+    ////// Try #2
     //ZilchForEach(auto boundType, builder.BuiltLibrary->BoundTypes.values()) {
     //  interface.SetupTypeProperty(boundType, ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
     //}

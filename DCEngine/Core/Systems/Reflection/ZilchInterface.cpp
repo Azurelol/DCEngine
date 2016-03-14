@@ -85,6 +85,8 @@ namespace DCEngine {
     {
       // Set up the console
       SetupConsole();
+      // Parse all static libraries
+      ParseStaticLibraries();
       // Add our custom static library for binding our classes
       AddLibrary(DCEngineCore::GetInstance().GetLibrary());
       AddLibrary(Rebound::GetInstance().GetLibrary());
@@ -113,6 +115,7 @@ namespace DCEngine {
       AddLibrary(Rebound::GetInstance().GetLibrary());      
       SetUpComponentTypes(Rebound::GetInstance().GetLibrary());
     }
+
 
 
     /**************************************************************************/
