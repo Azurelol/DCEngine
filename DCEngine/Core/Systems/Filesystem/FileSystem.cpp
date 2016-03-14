@@ -42,6 +42,12 @@ namespace DCEngine
     Poco::Process::launch(command, arguments);
     return true;
   }
+
+  bool FileSystem::Execute(const std::string & command, const std::vector<std::string>& arguments)
+  {
+    Poco::Process::launch(command, arguments, nullptr, nullptr, nullptr);
+    return true;
+  }
   /*!************************************************************************\
   @brief  Opens a file dialog for opening a file.
   @param  openpath The path from which to start.

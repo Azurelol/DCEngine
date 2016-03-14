@@ -27,17 +27,23 @@ namespace DCEngine {
     @param callback The callback function to call.
     */
     /**************************************************************************/
-    void ZilchInterface::SetupTypeProperty(Zilch::BoundType * type, Zilch::BoundType * baseType,
-                                           Zilch::BoundType* extensionType, Zilch::LibraryBuilder * builder, ParseCallback callback)
+    bool ZilchInterface::SetupTypeProperty(Zilch::BoundType * type, Zilch::BoundType * baseType,
+                                           Zilch::BoundType* extensionType, Zilch::LibraryBuilder * builder, ParseCallback callback, bool makeStatic)
     {
       if (Zilch::TypeBinding::IsA(type, baseType)) {
         Zilch::Property* componentProperty;        
         componentProperty = builder->AddExtensionProperty(extensionType, type->Name, type, nullptr, callback, Zilch::MemberOptions::None);
+        // If the property is marked as static
+        if (makeStatic)
+          componentProperty->IsStatic = true;
+        // Construct data for the getter callback to used by the property
         ComponentData userData;
         userData.Type = type;
         userData.Interface = this;
         auto& data = componentProperty->Get->ComplexUserData.WriteObject(userData);
+        return true;
       }
+      return false;
     }
 
     /**************************************************************************/
@@ -60,10 +66,15 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void FreeTypeParserCallback(Zilch::ParseEvent* event) {
+      bool parsed;
       // If the type being parsed is a Zilch component..
-      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchComponent::ZilchGetStaticType(), ZilchTypeId(Entity), event->Builder, GetZilchComponent);
+      parsed = ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchComponent::ZilchGetStaticType(), 
+                                                       ZilchTypeId(Entity), event->Builder, GetZilchComponent);
       // If the type being parsed is a ZilchEvent, attach it to the EventStrings type
-      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchEvent::ZilchGetStaticType(), ZilchTypeId(EventStrings), event->Builder, GetZilchEvent);
+      if (!parsed) {
+        parsed = ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchEvent::ZilchGetStaticType(), 
+                                                         ZilchTypeId(EventStrings), event->Builder, GetZilchEvent, true);
+      }
     }
     
     void FreePreParserCallback(Zilch::ParseEvent* event) {
@@ -95,9 +106,10 @@ namespace DCEngine {
     void ZilchInterface::SetupProject(Zilch::Project & project)
     {
       Zilch::EventConnect(&project, Zilch::Events::CompilationError, FreeCustomErrorCallback);
+      Zilch::EventConnect(&project, Zilch::Events::TypeParsed, FreeTypeParserCallback);
+
       //Zilch::EventConnect(&project, Zilch::Events::CompilationError, &ZilchInterface::CustomErrorCallback, this);      
       //Zilch::EventConnect(&project, Zilch::Events::TypeParsed, &ZilchInterface::TypeParsedErrorCallback, this);
-      Zilch::EventConnect(&project, Zilch::Events::TypeParsed, FreeTypeParserCallback);
       //Zilch::EventConnect(&project, Zilch::Events::PreParser, FreePreParserCallback);
     }
 

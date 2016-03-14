@@ -135,6 +135,23 @@ namespace DCEngine {
     {
       static auto& config = ConfigurationFiles::Access().Editor;
       ImGui::InputInt("AutoSaveTime", &config.AutoSaveTime);
+      ImGui::Checkbox("GridActive", &config.GridActive);
+      ImGui::SliderFloat("GridLength", &config.GridLength, 1.0f, 10.0f);
+      ImGui::SliderFloat4("GridColor", &config.GridColor[0], 0.0f, 1.0f);
+      ImGui::Checkbox("Snapping", &config.Snapping);
+      ImGui::InputFloat("SnapDistance", &config.SnapDistance, 0.25f);
+      ImGui::InputFloat("SnapAngle", &config.SnapAngle, 1.0f);
+      ImGui::SliderFloat4("LockedColor", &config.LockedColor[0], 0.0f, 1.0f);
+
+      const char* editors[] = { "Notepad++", "Sublime" };
+      static int editorSelected = 0;
+      // What a hack
+      if (config.ExternalTextEditor == editors[1])
+        editorSelected = 1;
+      if (ImGui::Combo("ExternalTextEditor", &editorSelected, editors, IM_ARRAYSIZE(editors))) {
+        config.ExternalTextEditor = editors[editorSelected];
+      }
+      ImGui::Checkbox("CompileOnContextSwitch", &config.CompileOnContextSwitch);
     }
 
     /**************************************************************************/

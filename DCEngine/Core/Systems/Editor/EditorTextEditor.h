@@ -21,9 +21,15 @@ namespace DCEngine {
     class EditorTextEditor : public EditorModule {
       friend class Editor;
     public:
+      enum class ExternalEditor {
+        Notepadplusplus,
+        Sublime
+      };
+
       void Display();      
       void Load(ZilchScriptPtr script);
       void Load(Shader* shader, Shader::Type type);
+      void Reload();
       void Save();
       EditorTextEditor(Editor& editor);
       
@@ -34,14 +40,17 @@ namespace DCEngine {
       ZilchScriptPtr CurrentScript;
       Shader* CurrentShader;
       Shader::Type CurrentShaderType;
-
       unsigned CharLimit = 1024 * 16;
-      void CheckInputs();
+
+      void OpenOnExternalEditor();
+      void CheckHotkeys();
       void Clear();
       void Close();
+      // Events
       void OnEditorSaveEvent(Events::EditorSave* event);
       void OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage* event);
       void OnGraphicsCompileShadersErrorEvent(Events::GraphicsCompileShadersError* event);
+      void OnWindowGainedFocusEvent(Events::WindowGainedFocus* event);
 
     };
 

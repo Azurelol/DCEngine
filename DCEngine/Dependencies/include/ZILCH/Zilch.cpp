@@ -12,6 +12,8 @@
   #define TEMP_DISABLE_UNICODE
 #endif
 
+// For using built-in Events
+#define ZilchUnsafeEvents 1
 
 namespace Zilch
 {

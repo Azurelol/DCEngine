@@ -26,7 +26,7 @@ namespace DCEngine {
   extern std::unique_ptr<Engine> Daisy;
 
   namespace Systems {
-    
+
     /**************************************************************************/
     /*!
     \brief  Constructor for the InputSFML class.
@@ -45,9 +45,9 @@ namespace DCEngine {
     /**************************************************************************/
     void InputSFML::Initialize() {
 
-     #if(USE_SFML)      
+      #if(USE_SFML)      
       WindowContext = Daisy->getSystem<Window>()->WindowHandler->WindowContext.get();
-     #endif
+      #endif
 
       // Should key presses repeat?
       WindowContext->setKeyRepeatEnabled(false);
@@ -64,7 +64,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void InputSFML::Update(float dt) {
-      PollEvents();    
+      PollEvents();
     }
 
     /**************************************************************************/
@@ -74,17 +74,17 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void InputSFML::PollEvents() {
-      
+
       // Check all window's events that were triggered since the last iteration
       if (WindowContext->pollEvent(_event) == false)
         return;
 
       // Poll for events
       switch (_event.type) {
-	  case sf::Event::Closed:
-		  WindowContext->close();
-		  Daisy->Stop();
-		  break;
+      case sf::Event::Closed:
+        WindowContext->close();
+        Daisy->Stop();
+        break;
       case sf::Event::KeyPressed:
         //ImGuiPollKeyPressed(_event);
         PollKeyPressed(_event);
@@ -112,54 +112,54 @@ namespace DCEngine {
       case sf::Event::TextEntered:
         PollTextEntered(_event);
         break;
-		
-    // KEYS: alt+tab, ctrl+alt+delete
-	  case sf::Event::LostFocus:
-		  if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
-		  {
-			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);        
-		  }
 
-      // @todo plz fix me
-      KeyboardRef->KeyDown_S = false;
-      KeyboardRef->KeyDown_W = false;
-      KeyboardRef->KeyDown_A = false;
-      KeyboardRef->KeyDown_D = false;
-      KeyboardRef->KeyDown_D = false;
-      KeyboardRef->KeyDown_Space = false;
+      // KEYS: alt+tab, ctrl+alt+delete
+      case sf::Event::LostFocus:
+        if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
+        {
+          ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+        }
+        // @todo plz fix me
+        KeyboardRef->KeyDown_S = false;
+        KeyboardRef->KeyDown_W = false;
+        KeyboardRef->KeyDown_A = false;
+        KeyboardRef->KeyDown_D = false;
+        KeyboardRef->KeyDown_D = false;
+        KeyboardRef->KeyDown_Space = false;
 
-      DispatchSystemEvents::WindowLostFocus();
-		  break;      
-	  case sf::Event::GainedFocus:
-		  ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
-      DispatchSystemEvents::WindowGainedFocus();
-		  break;
-
-
-        // Don't process other events
-      default:
-      // @todo WHAT?? - CTRL - ALT - DELETE COMBO FOR TASK MANAGER
-        // Send lose focus event
-		  if ((((unsigned short)GetKeyState(VK_CONTROL)) >> 15) && (((unsigned short)GetKeyState(VK_MENU) >> 15)) && (((unsigned short)GetKeyState(VK_MENU) >> 15)))
-		  {
-			  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
         DispatchSystemEvents::WindowLostFocus();
-		  }
+        break;
+
+      // Gained focus
+      case sf::Event::GainedFocus:
+        ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
+        DispatchSystemEvents::WindowGainedFocus();
+        break;
+
+      // Don't process other events
+      default:
+        // @todo WHAT?? - CTRL - ALT - DELETE COMBO FOR TASK MANAGER
+          // Send lose focus event
+        if ((((unsigned short)GetKeyState(VK_CONTROL)) >> 15) && (((unsigned short)GetKeyState(VK_MENU) >> 15)) && (((unsigned short)GetKeyState(VK_MENU) >> 15)))
+        {
+          ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+          DispatchSystemEvents::WindowLostFocus();
+        }
         break;
       }
     }
-    
-  /**************************************************************************/
-  /*!
-  \brief  Polls for text events.
-  */
-  /**************************************************************************/
-  void InputSFML::PollTextEntered(sf::Event & event)
-  {
-    // Update ImGui
-    if (event.text.unicode > 0 && event.text.unicode < 0x10000)
-      ImGui::GetIO().AddInputCharacter(event.text.unicode);  
-  }
+
+    /**************************************************************************/
+    /*!
+    \brief  Polls for text events.
+    */
+    /**************************************************************************/
+    void InputSFML::PollTextEntered(sf::Event & event)
+    {
+      // Update ImGui
+      if (event.text.unicode > 0 && event.text.unicode < 0x10000)
+        ImGui::GetIO().AddInputCharacter(event.text.unicode);
+    }
 
     /**************************************************************************/
     /*!

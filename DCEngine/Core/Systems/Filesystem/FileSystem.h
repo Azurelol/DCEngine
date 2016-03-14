@@ -29,6 +29,7 @@ namespace DCEngine
 
     /* Shell */
     static bool Execute(std::string command);
+    static bool Execute(const std::string& command, const std::vector<std::string>& arguments);
 
     /* File Dialog */
     static std::string  FileOpenDialog(std::string& defaultPath, std::string& filters);

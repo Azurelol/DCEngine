@@ -23,6 +23,7 @@ namespace DCEngine {
     /**************************************************************************/
     struct Configuration {
       const std::string FileName;
+      static std::string Folder() { return "Configuration"; }
       Configuration(std::string extension);
       virtual void Deserialize(Json::Value&) = 0;
       virtual void Serialize(Json::Value&) = 0;
@@ -88,7 +89,8 @@ namespace DCEngine {
     struct EditorConfig : public Configuration {
       EditorConfig();
       static std::string FileName() { return "ConfigurationEditor.cfg"; }
-      // Time
+      // Saving
+      bool AutoSave;
       int AutoSaveTime;      
       // Grid
       bool GridActive = true;
@@ -99,6 +101,11 @@ namespace DCEngine {
       float SnapDistance = 1.0f;
       float SnapAngle = 15.0f;
       Vec4 LockedColor;
+      //Text Editor
+      std::string ExternalTextEditor;
+      bool CompileOnContextSwitch;
+
+
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
@@ -123,6 +130,7 @@ namespace DCEngine {
       size_t PreviousConsoleWindowStringLength = 0;
 
       void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(AutoSave);
         DCE_JSON_SERIALIZE(AutoSaveTime);
         DCE_JSON_SERIALIZE(GridActive);
         DCE_JSON_SERIALIZE(GridLength);
@@ -131,9 +139,13 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(SnapAngle);
         DCE_JSON_SERIALIZE(RecentProject);
         DCE_JSON_SERIALIZE(ProjectsPath);
+        DCE_JSON_SERIALIZE(ExternalTextEditor);
+        DCE_JSON_SERIALIZE(CompileOnContextSwitch);
         DCE_JSON_SERIALIZE_VEC4(LockedColor);
       }
+
       void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(AutoSave).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(AutoSaveTime).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(GridActive).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(GridLength).asFloat();
@@ -142,6 +154,8 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(SnapAngle).asFloat();
         DCE_JSON_DESERIALIZE_INTRINSIC(RecentProject).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(ExternalTextEditor).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(CompileOnContextSwitch).asBool();
         DCE_JSON_DESERIALIZE_VEC4(LockedColor);
       }
       

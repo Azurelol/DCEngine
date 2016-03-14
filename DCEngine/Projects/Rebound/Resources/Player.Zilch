@@ -2,6 +2,10 @@ class Eventy : ZilchEvent {
  var Number : Integer = 1;
 }
 
+class BarEvent : EventData {
+  var Lives : Integer = 3;
+}
+
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
@@ -12,38 +16,55 @@ class Player : ZilchComponent
   var Blam : Real3 = Real3(1,2,3);
   var Object : GameObject;
 
+  sends Bar : BarEvent;  
+
   function Initialize() {
+
   // Test printing a string
   Console.WriteLine("Hello, John");
+
   // Test connect to engine events
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
-  Daisy.Connect(this.Space, DaisyEvent.LogicUpdate,this.OnLogicUpdateEvent);
-  // Test connect to custom events
+  //  Daisy.Connect(this.Space, DaisyEvent.LogicUpdate,this.OnLogicUpdateEvent);
+  
+  // Test connect to custom ZilchEvents
   //Daisy.Connect(this.Space, DaisyEvent.Eventy, this.OnEventyEvent);
   Daisy.Connect(this.Space, "Eventy", this.OnEventyEvent);
 
+  // Test connect to Zilch's built-in event system
+  Events.Connect(this, Events.Bar, this.OnBarEvent);
+  var barEvent = BarEvent();
+  barEvent.Lives = 3;
+  Events.Send(this, Events.Bar, barEvent);
 
- var b = this.Owner.Player.Boo;
- Console.WriteLine(b);
- //var c = this.Owner.Transform.Scale;
- var eventInstance : Eventy = Eventy();
- eventInstance.Number = 5;
- Console.WriteLine("Number is 'eventInstance.Number' ");
- Console.WriteLine(eventInstance.Number);
- 
+   //var eventyName = DaisyEvent.Eventy;
+   var d = this.Owner.Player.Boo;
+   var b = this.Owner.Player.Boo;
+   Console.WriteLine(b);
+   //var c = this.Owner.Transform.Scale;
+   var eventInstance : Eventy = Eventy();
+   eventInstance.Number = 5;
+   Console.WriteLine("Number is 'eventInstance.Number' ");
+   Console.WriteLine(eventInstance.Number); 
  }
 
-function OnEventyEvent(event : Eventy) {
+function OnBarEvent(event : BarEvent) 
+{
+  Console.WriteLine("Received bar event with 'event.Lives' lives");
 }
 
-  function OnLogicUpdate() {
-   //Console.WriteLine("Please no"); 
-  }
+function OnEventyEvent(event : Eventy) 
+{
+}
 
-  function Hello() {
-    Console.WriteLine("Hello from the console");
-  }
+function OnLogicUpdate() {
+ //Console.WriteLine("Please no"); 
+}
+
+function Hello() {
+  Console.WriteLine("Hello from the console");
+}
 
 function OnLogicUpdateEvent(event : LogicUpdate) {
   Console.WriteLine("John notice me because I am receiving a logic update event in a script");

@@ -6,7 +6,7 @@ layout (triangle_strip, max_vertices = 4) out;
 in vec3 WorldPos[]; // an array of 3 vertices (triangle with adjacency)
 
 struct Light
-{ WillNoticeMe
+{ 
 	bool Visible;
 	bool VisibilityCulling;
 	bool VisibilityEvents;

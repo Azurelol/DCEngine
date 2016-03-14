@@ -31,6 +31,7 @@ namespace DCEngine {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
       Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
       Daisy->Connect<Events::GraphicsCompileShadersError>(&EditorTextEditor::OnGraphicsCompileShadersErrorEvent, this);
+      Daisy->Connect<Events::WindowGainedFocus>(&EditorTextEditor::OnWindowGainedFocusEvent, this);
     }
 
     /**************************************************************************/
@@ -46,28 +47,27 @@ namespace DCEngine {
       ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
       if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
         
-        CheckInputs();
+        CheckHotkeys();
 
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
+            if ((ImGui::MenuItem("Open Externally"))) OpenOnExternalEditor();
             if ((ImGui::MenuItem("Save"))) Save();
             if ((ImGui::MenuItem("Close"))) Close();
-
             ImGui::EndMenu();
           }
           ImGui::EndMenuBar();
         }
 
-
-        //ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
-        ////ImGui::Checkbox("Read-only", &ReadOnly);
-        //ImGui::PopStyleVar();
         ImGui::InputTextMultiline("##source", Text, IM_ARRAYSIZE(Text), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 48),
                                   ImGuiInputTextFlags_AllowTabInput | (ReadOnly ? ImGuiInputTextFlags_ReadOnly : 0)); 
 
 
       }
       ImGui::End();      
+
+      if (!WindowEnabled) 
+        Clear();
 
     }
 
@@ -121,7 +121,26 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief Saves the currently selected script to a file.
+    @brief Reloads the currently selected script/shader from file.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Reload()
+    {
+      DCTrace << "EditorTextEditor::Reload: Recompiling... \n";
+      if (CurrentShader) {
+        Load(CurrentShader, CurrentShaderType);
+        DispatchSystemEvents::GraphicsCompileShaders();
+      }
+      if (CurrentScript) {
+        Load(CurrentScript);
+        EditorRef.Creator.RebuildAllObjectsOnSpace();
+        DispatchSystemEvents::ScriptingCompile();
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Saves the currently selected script/shader to a file.
     */
     /**************************************************************************/
     void EditorTextEditor::Save()
@@ -143,19 +162,74 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Opens the currently selected script/shader on the specified
+           source code text editor.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OpenOnExternalEditor()
+    {
+      std::string qm = "\"";
+      auto executablePath = boost::filesystem::initial_path().string();
+      std::string filePath = executablePath + "\\";
+      if (CurrentScript) {
+        filePath += CurrentScript->getResourcePath();
+      }
+      if (CurrentShader) {
+        DCTrace << "EditorTextEditor::OpenOnExternalEditor: Currently not working with shaders! \n";
+        return;
+      }
+
+      // Fix me :(
+      //std::string extTextEditorPath = executablePath + "\\Tools\\" + EditorRef.Settings.ExternalTextEditor + ".exe.lnk";
+      std::string notepadPath = "\\Notepad++\\notepad++.exe";
+      std::string sublimePath = "\\Sublime\\sublime_text.exe";
+
+      std::string editorPath;
+      if (EditorRef.Settings.ExternalTextEditor == "Notepad++")
+        editorPath = notepadPath;
+      else
+        editorPath = sublimePath;            
+
+      std::string extTextEditorPath = executablePath + "\\Tools" + editorPath;
+      FileSystem::CorrectPath(extTextEditorPath);
+      FileSystem::CorrectPath(filePath);
+
+      // Get the arguments
+      std::string command = qm + extTextEditorPath + qm; // +" " + filePath;
+      std::vector<std::string> arguments;
+      std::string fileArgument = qm + filePath + qm;
+      arguments.push_back(fileArgument);
+
+      FileSystem::Execute(command, arguments);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Checks for specific inputs while the TextEditor window is open.
     */
     /**************************************************************************/
-    void EditorTextEditor::CheckInputs()
+    void EditorTextEditor::CheckHotkeys()
     {
       auto io = ImGui::GetIO();
+
+      // CTRL-Modified
       if (io.KeyCtrl) {
-        if (ImGui::IsKeyPressed(ImGuiKey_S))
+        // S
+        bool s_keyPressed = io.KeysDown[io.KeyMap[ImGuiKey_S]];
+        auto s_keyPressedDur = io.KeysDownDuration[io.KeyMap[ImGuiKey_S]];
+        auto s_keyPressedPrevDur = io.KeysDownDurationPrev[io.KeyMap[ImGuiKey_S]];
+        if (s_keyPressed && (s_keyPressedDur == s_keyPressedPrevDur)) {          
           DispatchSystemEvents::EditorSave();
+        }     
       }
 
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Clears the TextEditor's selected files.
+    */
+    /**************************************************************************/
     void EditorTextEditor::Clear()
     {
       CurrentScript = nullptr;
@@ -226,6 +300,19 @@ namespace DCEngine {
       data.Confirmation = "Back";
       auto popUp = WindowPtr(new Windows::PopUp(data));
       GUI::Add(popUp);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief If the window gained focus, and the Editor has been set to recompile
+           scripts on it, compile and reload the script into the Editor.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnWindowGainedFocusEvent(Events::WindowGainedFocus * event)
+    {
+      if (EditorRef.Settings.CompileOnContextSwitch) {
+        Reload();
+      }
     }
 
   }

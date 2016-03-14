@@ -210,7 +210,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);#define ZilchUnsafeEvents</PreprocessorDefinitions>
       <AdditionalOptions>/MP  /bigobj %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -235,7 +235,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_PRODUCTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_PRODUCTION;%(PreprocessorDefinitions);#define ZilchUnsafeEvents</PreprocessorDefinitions>
       <AdditionalOptions>/MP  /bigobj %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
