@@ -1,3 +1,7 @@
+class Eventy : ZilchEvent {
+ var Number : Integer = 1;
+}
+
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
@@ -9,17 +13,29 @@ class Player : ZilchComponent
   var Object : GameObject;
 
   function Initialize() {
+  // Test printing a string
   Console.WriteLine("Hello, John");
-  this.Object = this.Space.CreateObject("BounceParticle");
-  this.Hello();
-  var a = DaisyEvent.MouseDown;
-  Console.WriteLine(a);
+  // Test connect to engine events
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+  Daisy.Connect(this.Space, DaisyEvent.LogicUpdate,this.OnLogicUpdateEvent);
+  // Test connect to custom events
+  //Daisy.Connect(this.Space, DaisyEvent.Eventy, this.OnEventyEvent);
+  Daisy.Connect(this.Space, "Eventy", this.OnEventyEvent);
+
+
  var b = this.Owner.Player.Boo;
  Console.WriteLine(b);
  //var c = this.Owner.Transform.Scale;
+ var eventInstance : Eventy = Eventy();
+ eventInstance.Number = 5;
+ Console.WriteLine("Number is 'eventInstance.Number' ");
+ Console.WriteLine(eventInstance.Number);
+ 
  }
+
+function OnEventyEvent(event : Eventy) {
+}
 
   function OnLogicUpdate() {
    //Console.WriteLine("Please no"); 

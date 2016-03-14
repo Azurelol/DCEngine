@@ -76,6 +76,7 @@ namespace DCEngine {
     class Factory;
   }
 
+  // Pointers
   class Component;
   using ComponentPtr = Component*;
   using ComponentHandle = Zilch::Handle;
@@ -96,6 +97,7 @@ namespace DCEngine {
 
     // Interface
     static bool Exists(std::string componentName);
+    static ComponentPtr IsA(ObjectPtr object);
     static ComponentPtr Dereference(ComponentHandle& componentHandle);
     Zilch::Handle Handle();
 

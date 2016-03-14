@@ -15,9 +15,6 @@
 
 // Base class
 #include "Object.h"
-// Libraries
-#include <map>
-#include <list>
 // Headers
 #include "Component.h"
 //#include "..\ComponentsInclude.h" // Entities need to know of componnets
@@ -45,6 +42,11 @@ namespace DCEngine {
   class Engine; // The engine has complete access to entities.
   class Space;
   class GameSession;
+  
+  // Pointers
+  class Entity;
+  using EntityPtr = Entity*;
+  using EntityVec = std::vector<EntityPtr>;
 
   class Entity : public Object {
     friend class Engine;
@@ -52,6 +54,7 @@ namespace DCEngine {
 
   public:
 
+    static EntityPtr IsA(ObjectPtr object);
     ZilchDeclareDerivedType(Entity, Object);
     Entity(std::string name);
     ~Entity();
@@ -67,19 +70,16 @@ namespace DCEngine {
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);
-    bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
-    
+    bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);    
     template <typename ComponentClass> ComponentClass* getComponent();
     ComponentPtr getComponent(const std::string& name);
     ComponentPtr getComponent(Zilch::BoundType* type);
     template <typename ComponentClass> bool HasComponent();
-    bool HasComponent(const std::string& name);
-    
+    bool HasComponent(const std::string& name);    
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveAllComponents();
     void RemoveComponentByName(std::string componentName);
-    void RemoveComponent(ComponentPtr component);
-    
+    void RemoveComponent(ComponentPtr component);    
     ComponentVec AllComponents();
     ComponentHandleVec& AllComponentsByHandle();
     
@@ -91,6 +91,7 @@ namespace DCEngine {
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);
     void RegisterListener(Zilch::Call & call, Zilch::ExceptionReport & report);
+    EventDelegatesInfo PeekEvents();
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
@@ -113,8 +114,8 @@ namespace DCEngine {
     bool IsInitialized;
     bool ModifiedFromArchetype;
     // Events
-    std::map < std::string, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistryByString;
-    std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistry;
+    ObserverRegistryMapStr ObserverRegistryByString;
+    ObserverRegistryMapTypeIndex ObserverRegistry;
     std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
 
     template <typename Class> void DeregisterObserver(Class* observer);    
@@ -124,8 +125,7 @@ namespace DCEngine {
 
   };
 
-  using EntityPtr = Entity*;
-  using EntityVec = std::vector<EntityPtr>;
+
 }
 
 #include "Entity.hpp"

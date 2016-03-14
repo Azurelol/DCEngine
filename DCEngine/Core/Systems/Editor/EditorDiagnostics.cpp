@@ -13,10 +13,7 @@
 
 namespace DCEngine {
   namespace Systems {
-
-    void DiagnosticsGameObjects();
-    void DiagnosticsEventsActions();
-
+    
     /**************************************************************************/
     /*!
     \brief  EditorDiagnostics constructor.
@@ -52,25 +49,23 @@ namespace DCEngine {
       auto& systemTimes = Daisy->Profiler().SystemTimes();
       DisplaySystemsHistogram("Systems", systemTimes);
 
-      if (ImGui::TreeNode("GameObjects")) {
-        DiagnosticsGameObjects();
-        ImGui::TreePop();
-      }
-
-      if (ImGui::TreeNode("Events & Actions")) {
-        DiagnosticsEventsActions();
-        ImGui::TreePop();
-      }
-
-      if (ImGui::TreeNode("Physics")) {
+      if (ImGui::CollapsingHeader("Physics")) {
         Physics();
-        ImGui::TreePop();
+      }
+      if (ImGui::CollapsingHeader("Graphics")) {
+        Graphics();
+      }
+      if (ImGui::CollapsingHeader("GameObjects")) {
+        GameObjects();
+      }
+      if (ImGui::CollapsingHeader("Events")) {
+        Events();
+      }
+      if (ImGui::CollapsingHeader("Actions")) {
+        Actions();
       }
 
-      if (ImGui::TreeNode("Graphics")) {
-        Graphics();
-        ImGui::TreePop();
-      }
+
 
       ImGui::End();
     }
@@ -176,32 +171,134 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Displays diagnostics for Events and Actions.
+    \brief  Displays diagnostics for Events.
     */
     /**************************************************************************/
-    void DiagnosticsEventsActions()
+    void EditorDiagnostics::Events()
     {
-      ///////////
-      // Events
-      ///////////
       auto eventsCreated = std::string("Events allocated: ") +
         std::to_string(Event::EventsCreated);
       ImGui::Text(eventsCreated.c_str());
       auto eventsDeleted = std::string("Events deleted: ") +
         std::to_string(Event::EventsDestroyed);
       ImGui::Text(eventsDeleted.c_str());
+      
+      // Grab a pointer to the GameSession
+      auto gamesession = GameSession::Get();
 
-      ///////////
-      // Events
-      ///////////
+      // For the GameSession
+      if (ImGui::TreeNode("GameSession")) {
+        DisplayEvents(std::string("GameSession"), gamesession->PeekEvents());
+        ImGui::TreePop();
+      }
+
+      // For every Space
+      if (ImGui::TreeNode("Spaces"))
+      {
+        for (auto& space : gamesession->AllSpaces()) {
+          auto name = space.first.c_str();
+          // Display the events in the space
+          if (ImGui::TreeNode(name)) {
+            DisplayEvents(name, space.second->PeekEvents());
+            ImGui::TreePop();
+            // Display the events for individual objects on the space
+            for (auto& object : *space.second->AllObjects()) {
+              auto objectName = object->Name().c_str();
+              if (ImGui::TreeNode(objectName)) {
+                DisplayEvents(objectName, object->PeekEvents());
+                ImGui::TreePop();
+              }
+            }
+          }    
+        }
+
+        ImGui::TreePop();
+      }
+
+
+
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays diagnostics for the events of a specific entity.
+    \param info The information on the event.
+    */
+    /**************************************************************************/
+    void EditorDiagnostics::DisplayEvents(const std::string& name, EventDelegatesInfo & info)
+    {
+      if (info.Events.empty())
+        return;
+
+      ImGui::BeginGroup();
+      ImGui::Columns(2, name.c_str());
+           
+      EventDelegatesInfo::EventDelegateInfo* currentEvent = nullptr;
+
+      ImGui::TextColored(ImVec4(1, 0, 1, 1), "Events");
+      ImGui::NextColumn();
+      ImGui::TextColored(ImVec4(0, 0, 1, 1), "Observers");
+      ImGui::Separator();
+
+      ImGui::Columns(2);      
+      for (auto& event : info.Events) {
+        ImGui::Text(event.Name.c_str());
+        ImGui::NextColumn();
+        for (auto& observer : event.Observers) {
+          ImGui::Text(observer.c_str());
+        }      
+        ImGui::Columns(2);
+      }
+      
+      
+      // Left column: The name of every event
+      //ImGui::TextColored(ImVec4(1, 0, 1, 1), "Events");
+      //for (auto& event : info.Events) {
+      //  if (ImGui::Selectable(event.Name.c_str())) {
+      //    currentEvent = &event;
+      //
+      //  }
+      //}
+      // Right column: Every observer to this event
+      //ImGui::NextColumn();
+      //ImGui::TextColored(ImVec4(0, 0, 1, 1), "Observers");
+      //ImGui::Separator();
+      //if (currentEvent) {
+      //  for (auto& observer : currentEvent->Observers) {
+      //    ImGui::Text(observer.c_str());
+      //  }
+      //}
+
+      ImGui::Columns(1);
+      ImGui::Separator();
+      ImGui::EndGroup();
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays diagnostics for Actions.
+    */
+    /**************************************************************************/
+    void EditorDiagnostics::Actions()
+    {
       auto actionsCreated = std::string("Actions created: ") +
         std::to_string(Action::Created);
       ImGui::Text(actionsCreated.c_str());
       auto actionsDeleted = std::string("Actions deleted: ") +
         std::to_string(Action::Destroyed);
       ImGui::Text(actionsDeleted.c_str());
-
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Displays diagnostics for GameObj ects.
+    */
+    /**************************************************************************/
+    void EditorDiagnostics::GameObjects()
+    {
+    }
+    
+
 
     /**************************************************************************/
     /*!

@@ -61,6 +61,12 @@ namespace DCEngine {
       GraphicsCompileShaders() : Event("GraphicsCompileShaders") {}
     };
 
+    class GraphicsCompileShadersError : public Event {
+    public:
+      GraphicsCompileShadersError() : Event("GraphicsCompileShadersError") {}
+      std::string ErrorMessage;
+    };
+
     class GraphicsToggleLightning : public Event {
     public:
       GraphicsToggleLightning() : Event("GraphicsToggleLightning") {}

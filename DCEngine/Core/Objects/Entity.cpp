@@ -43,6 +43,18 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Returns the entity pointer to this object.. if it's one.
+  \param object A pointer to the object.
+  \return A valid entity pointer if the object was an entity.
+  */
+  /**************************************************************************/
+  EntityPtr Entity::IsA(ObjectPtr object)
+  {
+    return dynamic_cast<EntityPtr>(object);
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Entity constructor.
   */
   /**************************************************************************/
@@ -394,6 +406,41 @@ namespace DCEngine {
         }
       }
     }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Constructs a structure containing current information of all
+          active evets.
+  @return A structure containing data of all events.
+  */
+  /**************************************************************************/
+  EventDelegatesInfo Entity::PeekEvents()
+  {
+    auto data = EventDelegatesInfo();
+    // Identified by RTTI
+    for (auto& event : ObserverRegistryByString) {
+      EventDelegatesInfo::EventDelegateInfo info;
+      info.Name = event.first;
+      for (auto& deleg : event.second) {
+        auto componentName = deleg->GetObserver()->Name();
+        auto ownerName = Component::IsA(deleg->GetObserver())->Owner()->Name();
+        info.Observers.push_back(std::string(ownerName + "::" + componentName));
+      }
+      data.Events.push_back(info);
+    }
+    // Identified by string
+    for (auto& event : ObserverRegistry) {
+      EventDelegatesInfo::EventDelegateInfo info;
+      info.Name = event.first.name();
+      for (auto& deleg : event.second) {
+        auto componentName = deleg->GetObserver()->Name();
+        auto ownerName = Component::IsA(deleg->GetObserver())->Owner()->Name();
+        info.Observers.push_back(std::string(ownerName + "::" + componentName));
+      }
+      data.Events.push_back(info);
+    }
+    return data;
   }
 
   /**************************************************************************/

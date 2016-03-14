@@ -24,6 +24,11 @@ namespace DCEngine {
     private:
       void Graphics();
       void Physics();
+      void Events();
+      void Actions();
+      void GameObjects();
+
+      void DisplayEvents(const std::string& name, EventDelegatesInfo& info);
       void DisplaySystemsHistogram(std::string, DCEngine::Time::FunctionTimeSliceVec&, bool calls = false);
       void Update();
 

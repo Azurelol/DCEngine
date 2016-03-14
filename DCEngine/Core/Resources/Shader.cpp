@@ -10,9 +10,10 @@
 @todo   Should shaders be a resource?
 */
 /******************************************************************************/
-
 #include "Shader.h"
+
 #include "../Debug/DebugGraphics.h"
+#include "../Systems/DispatchSystemEvents.h"
 
 #include <fstream>
 #include <sstream>
@@ -213,9 +214,10 @@ namespace DCEngine {
       DCTrace << ObjectName << "::AssertShaderCompilation - " << shaderName << " compiled! \n";
     }
     else {
-      glGetShaderInfoLog(shader, 512, NULL, infoLog);
+      glGetShaderInfoLog(shader, 512, NULL, infoLog);      
       DCTrace << ObjectName << "::AssertShaderCompilation - " << shaderName << " failed to compile! \n"
         << infoLog << "\n";
+      Systems::DispatchSystemEvents::GraphicsCompileShadersError(infoLog);
     }
   }
 

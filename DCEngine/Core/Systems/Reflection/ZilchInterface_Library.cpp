@@ -9,9 +9,9 @@
 */
 /******************************************************************************/
 #include "ZilchInterface.h"
+#include "ZilchInterfaceUtilities.h"
 
 #include "../../Engine/Engine.h"
-#include "ZilchInterfaceUtilities.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -19,14 +19,20 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief Sets up a type
+    @brief Sets up an extension property on the specified type.
+    @param type The type that is being passed in.
+    @param baseType The type of property we are looking for.
+    @param extensionType The type to which we are adding the extension property on.
+    @param builder A pointer to the builder which is writing the properties.
+    @param callback The callback function to call.
     */
     /**************************************************************************/
-    void ZilchInterface::SetupType(Zilch::BoundType * type, Zilch::BoundType * baseType, Zilch::LibraryBuilder * builder, ParseCallback callback)
+    void ZilchInterface::SetupTypeProperty(Zilch::BoundType * type, Zilch::BoundType * baseType,
+                                           Zilch::BoundType* extensionType, Zilch::LibraryBuilder * builder, ParseCallback callback)
     {
       if (Zilch::TypeBinding::IsA(type, baseType)) {
         Zilch::Property* componentProperty;        
-        componentProperty = builder->AddExtensionProperty(ZilchTypeId(Entity), type->Name, type, nullptr, callback, Zilch::MemberOptions::None);
+        componentProperty = builder->AddExtensionProperty(extensionType, type->Name, type, nullptr, callback, Zilch::MemberOptions::None);
         ComponentData userData;
         userData.Type = type;
         userData.Interface = this;
@@ -36,24 +42,33 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Receives Zilch parse events and redirects them to extend
-            properties.
+    @brief  Receives Zilch parse events and redirects them to extend properties.
     @param  event A pointer to the parse event.
     */
     /**************************************************************************/
     void ZilchInterface::TypeParsedErrorCallback(Zilch::ParseEvent* event) {
-      // If the type being parsed is a Zilch component..
-      ZilchInterface::Get().SetupType(event->Type, ZilchComponent::ZilchGetStaticType(), event->Builder, GetZilchComponent);
+      // If the type being parsed is a Zilch component, attach it to Entity type
+      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchComponent::ZilchGetStaticType(), ZilchTypeId(Entity), event->Builder, GetZilchComponent);
+      // If the type being parsed is a ZilchEvent, attach it to the EventStrings type
+      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchEvent::ZilchGetStaticType(), ZilchTypeId(EventStrings), event->Builder, GetZilchEvent);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Receives Zilch parse events and redirects them to extend properties.
+    @param event A pointer to the parse event.
+    */
+    /**************************************************************************/
     void FreeTypeParserCallback(Zilch::ParseEvent* event) {
       // If the type being parsed is a Zilch component..
-      ZilchInterface::Get().SetupType(event->Type, ZilchComponent::ZilchGetStaticType(), event->Builder, GetZilchComponent);
+      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchComponent::ZilchGetStaticType(), ZilchTypeId(Entity), event->Builder, GetZilchComponent);
+      // If the type being parsed is a ZilchEvent, attach it to the EventStrings type
+      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchEvent::ZilchGetStaticType(), ZilchTypeId(EventStrings), event->Builder, GetZilchEvent);
     }
-
+    
     void FreePreParserCallback(Zilch::ParseEvent* event) {
       // If the type being parsed is a Zilch component..
-      ZilchInterface::Get().SetupType(event->Type, ZilchTypeId(Component), event->Builder, GetNativeComponent);
+      ZilchInterface::Get().SetupTypeProperty(event->Type, ZilchTypeId(Component), ZilchTypeId(Entity), event->Builder, GetNativeComponent);
     }
 
     /**************************************************************************/

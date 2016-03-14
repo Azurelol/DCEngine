@@ -319,6 +319,7 @@
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
     <ClCompile Include="Core\Objects\Event.cpp" />
+    <ClCompile Include="Core\Objects\Events\ZilchEvent.cpp" />
     <ClCompile Include="Core\Objects\Module.cpp" />
     <ClCompile Include="Core\Objects\Object.cpp" />
     <ClCompile Include="Core\Objects\Resource.cpp" />

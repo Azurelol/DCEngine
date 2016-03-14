@@ -210,6 +210,18 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Returns the component pointer to this object.. if it's one.
+  \param object A pointer to the object.
+  \return A valid component pointer if the object was an entity.
+  */
+  /**************************************************************************/
+  ComponentPtr Component::IsA(ObjectPtr object)
+  {
+    return dynamic_cast<ComponentPtr>(object);
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Deferences the component handle into a pointer.
   @param componentHandle The handle to the component.
   @return A pointer to the component.

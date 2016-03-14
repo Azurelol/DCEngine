@@ -39,7 +39,8 @@ namespace DCEngine {
       bool CompileScripts();
       void Build();
       void Clean();
-      void SetupType(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::LibraryBuilder* builder, ParseCallback callback);
+      void SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, 
+                             Zilch::LibraryBuilder* builder, ParseCallback callback);
       // JSON
       Zilch::JsonValue ParseJSON(std::string& string);
       // Zilch::Call

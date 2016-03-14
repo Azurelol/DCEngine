@@ -25,10 +25,12 @@ namespace DCEngine {
     @param editor A reference to the Editor.
     */
     /**************************************************************************/
-    EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true)
+    EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true),
+                                                          CurrentScript(nullptr), CurrentShader(nullptr)
     {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
       Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
+      Daisy->Connect<Events::GraphicsCompileShadersError>(&EditorTextEditor::OnGraphicsCompileShadersErrorEvent, this);
     }
 
     /**************************************************************************/
@@ -44,6 +46,8 @@ namespace DCEngine {
       ImGui::SetNextWindowSize(ImVec2(800, 600), ImGuiSetCond_Always);
       if (ImGui::Begin(Title.c_str(), &WindowEnabled, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize)) {
         
+        CheckInputs();
+
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
             if ((ImGui::MenuItem("Save"))) Save();
@@ -60,7 +64,6 @@ namespace DCEngine {
         //ImGui::PopStyleVar();
         ImGui::InputTextMultiline("##source", Text, IM_ARRAYSIZE(Text), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 48),
                                   ImGuiInputTextFlags_AllowTabInput | (ReadOnly ? ImGuiInputTextFlags_ReadOnly : 0)); 
-
 
 
       }
@@ -96,7 +99,21 @@ namespace DCEngine {
       Clear();
       DCTrace << "EditorTextEditor::Load: Loading the shader '" << shader->Name() << "' \n";
       WindowEnabled = true;
-      Title = shader->Name() + " - Text Editor";
+
+      std::string typeAsString;
+      switch (type) {
+      case Shader::Type::Vertex:
+        typeAsString = "Vertex";
+        break;
+      case Shader::Type::Fragment:
+        typeAsString = "Fragment";
+        break;
+      case Shader::Type::Geometry:
+        typeAsString = "Geometry";
+        break;
+      }
+
+      Title = shader->Name() + " : " + typeAsString + " - Text Editor";
       CurrentShader = shader;
       CurrentShaderType = type;
       std::strcpy(Text, CurrentShader->Read(type).c_str());
@@ -124,10 +141,25 @@ namespace DCEngine {
       }    
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Checks for specific inputs while the TextEditor window is open.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::CheckInputs()
+    {
+      auto io = ImGui::GetIO();
+      if (io.KeyCtrl) {
+        if (ImGui::IsKeyPressed(ImGuiKey_S))
+          DispatchSystemEvents::EditorSave();
+      }
+
+    }
+
     void EditorTextEditor::Clear()
     {
       CurrentScript = nullptr;
-      CurrentShader = nullptr;
+      CurrentShader = nullptr;      
     }
 
     /**************************************************************************/
@@ -167,9 +199,30 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorTextEditor::OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage * event)
     {
+      if (!CurrentScript)
+        return;
+
       Windows::PopUpData data;
       data.Title = "'" + CurrentScript->Name() + "' has failed to compile!";
       data.Message = event->Message;
+      data.Confirmation = "Back";
+      auto popUp = WindowPtr(new Windows::PopUp(data));
+      GUI::Add(popUp);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Once a shader has failed to compile, display the message.. roughly!
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnGraphicsCompileShadersErrorEvent(Events::GraphicsCompileShadersError * event)
+    {
+      if (!CurrentShader)
+        return;
+
+      Windows::PopUpData data;
+      data.Title = "'" + CurrentShader->Name() + "' has failed to compile!";
+      data.Message = event->ErrorMessage;
       data.Confirmation = "Back";
       auto popUp = WindowPtr(new Windows::PopUp(data));
       GUI::Add(popUp);

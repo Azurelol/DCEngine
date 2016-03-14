@@ -19,24 +19,29 @@ namespace DCEngine {
 
     class Editor;
     class EditorTextEditor : public EditorModule {
+      friend class Editor;
     public:
       void Display();      
       void Load(ZilchScriptPtr script);
       void Load(Shader* shader, Shader::Type type);
       void Save();
       EditorTextEditor(Editor& editor);
+      
+      
 
     private:      
+      std::string Title;
       ZilchScriptPtr CurrentScript;
       Shader* CurrentShader;
       Shader::Type CurrentShaderType;
-      std::string Title;
 
       unsigned CharLimit = 1024 * 16;
+      void CheckInputs();
       void Clear();
       void Close();
       void OnEditorSaveEvent(Events::EditorSave* event);
       void OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage* event);
+      void OnGraphicsCompileShadersErrorEvent(Events::GraphicsCompileShadersError* event);
 
     };
 

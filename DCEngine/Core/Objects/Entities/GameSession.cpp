@@ -30,6 +30,11 @@ namespace DCEngine {
   GameSession::~GameSession() {
   }
 
+  GameSession*  GameSession::Get()
+  {
+    return Daisy->getGameSession();
+  }
+
   /**************************************************************************/
   /*!
   \brief Initializes the GameSession.
@@ -142,6 +147,11 @@ namespace DCEngine {
     */
 
     throw std::range_error("The specified space does not exist.");
+  }
+
+  SpaceMap & GameSession::AllSpaces()
+  {
+    return ActiveSpaces;
   }
 
   Space* GameSession::getDefaultSpace()

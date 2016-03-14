@@ -140,21 +140,22 @@ namespace DCEngine {
     ZilchInitializeType(Components::DebugAudio);
     // Zilch
     ZilchInitializeType(ZilchComponent);
-    
+    ZilchInitializeType(ZilchEvent);
+
     //auto interface = Systems::ZilchInterface::Get();
     //// Try #1
     //auto& boundTypes = builder.BuiltLibrary->BoundTypes.values();
     //while (!boundTypes.empty()) {
-    //  interface.SetupType(boundTypes.front(), ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
+    //  interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
     //}
     //// Try #2
     //ZilchForEach(auto boundType, builder.BuiltLibrary->BoundTypes.values()) {
-    //  interface.SetupType(boundType, ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
+    //  interface.SetupTypeProperty(boundType, ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
     //}
     
 
     //for (auto& boundType : DCEngineCore::GetLibrary()->BoundTypes.all()) {
-    //  //ZilchInterface::Get().SetupType(event->Type, Component::ZilchGetStaticType(), event->Builder, GetComponent);
+    //  //ZilchInterface::Get().SetupTypeProperty(event->Type, Component::ZilchGetStaticType(), event->Builder, GetComponent);
     //}
   }
   

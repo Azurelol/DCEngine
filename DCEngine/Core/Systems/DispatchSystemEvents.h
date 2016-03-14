@@ -39,6 +39,7 @@ namespace DCEngine {
       static void WindowGainedFocus();
       
       static void GraphicsCompileShaders();
+      static void GraphicsCompileShadersError(const std::string& message);
       static void GraphicsToggleLightning();
 
       static void ScriptingCompile();

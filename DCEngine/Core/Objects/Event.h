@@ -26,6 +26,7 @@ namespace DCEngine {
       static unsigned int EventsDestroyed;
 
       Event(std::string name);
+      void PostConstructor(const std::string& name);
       virtual ~Event(void) {
         EventsDestroyed++;
       }
@@ -36,11 +37,5 @@ namespace DCEngine {
 
   using EventPtr = std::shared_ptr<Event>;
   using EventVec = std::vector<EventPtr>;
-
-
-
-
-
-
 
 }

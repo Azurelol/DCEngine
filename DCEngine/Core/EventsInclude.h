@@ -29,3 +29,4 @@
 #include "Events\GameEvents.h"
 // Scripting
 #include "Events\ScriptingEvents.h"
+#include "Objects\Events\ZilchEvent.h"

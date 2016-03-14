@@ -115,6 +115,14 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::GraphicsCompileShadersError(const std::string& message)
+    {
+      auto event = new Events::GraphicsCompileShadersError();
+      event->ErrorMessage = message;
+      Daisy->Dispatch<Events::GraphicsCompileShadersError>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::GraphicsToggleLightning()
     {
       auto event = new Events::GraphicsToggleLightning();

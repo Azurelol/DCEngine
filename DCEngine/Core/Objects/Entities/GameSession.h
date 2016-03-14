@@ -44,10 +44,12 @@ namespace DCEngine {
 
 
     GameSession(std::string name);
-    ~GameSession();  
+    ~GameSession();
+    static GameSession* Get();
 
     SpacePtr CreateSpace(std::string name, bool initialize = true);
     SpacePtr GetSpace(std::string name);
+    SpaceMap& AllSpaces();
     Space* getDefaultSpace();
     void TestGameSession();
 

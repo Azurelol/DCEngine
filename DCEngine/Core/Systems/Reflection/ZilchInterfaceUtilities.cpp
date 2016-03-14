@@ -28,7 +28,7 @@ namespace DCEngine {
     Component* GetComponent(Zilch::Call& call, Zilch::ExceptionReport& report) {
       // Grabs the object containing the boundtype
       auto& userData = call.GetFunction()->ComplexUserData.ReadObject<ComponentData>(0);
-      // Grabs a pointer to the entity class
+      // Grabs a pointer to the 'Entity' class
       Entity* owner = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
       // Return a pointer to the component
       return owner->getComponent(userData.Type);
@@ -69,6 +69,27 @@ namespace DCEngine {
       else {
         call.SetHandle(Zilch::Call::Return, Zilch::Handle());
       }
+    }
+
+    /*========
+      EVENTS
+    =========*/
+    Zilch::String GetEventName(Zilch::Call & call, Zilch::ExceptionReport & report)
+    {
+      // Grabs the object containing the boundtype
+      auto& userData = call.GetFunction()->ComplexUserData.ReadObject<ComponentData>(0);
+      // Grab the name of the event
+      auto name = userData.Type->Name;
+      // Return the name of the event
+      return name;
+    }
+
+    void GetZilchEvent(Zilch::Call & call, Zilch::ExceptionReport & report)
+    {
+      // Grab the name of the event
+      Zilch::String zilchEventName = GetEventName(call, report);
+      // Return the name of the event
+      call.SetHandle(Zilch::Call::Return, zilchEventName);
     }
 
   }

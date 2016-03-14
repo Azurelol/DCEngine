@@ -933,6 +933,9 @@
     <ClCompile Include="Core\Binding\CoreBindingEnums.cpp">
       <Filter>Core\Binding</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\Events\ZilchEvent.cpp">
+      <Filter>Core\Object\Event</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1636,5 +1639,7 @@
     <None Include="Core\Assets\Shaders\DebugShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
+    <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />
+    <None Include="Core\Assets\Shaders\FinalRenderShader.vs" />
   </ItemGroup>
 </Project>

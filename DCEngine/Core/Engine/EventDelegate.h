@@ -63,18 +63,16 @@ namespace DCEngine {
     virtual Object* GetObserver() = 0;
   };
 
-
-  //class BaseDelegate {
-  //  virtual void Invoke(Event*);
-  //};
-
-  // C++ version
-  //class CppDelegate : public EventDelegate {
-  //  void Invoke(Event*);
-  //};
-
-
-
+  // Containers
+  using ObserverRegistryMapStr = std::map < std::string, std::list<std::unique_ptr<EventDelegate>>>;
+  using ObserverRegistryMapTypeIndex = std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>>;
+  struct EventDelegatesInfo {
+    struct EventDelegateInfo {
+      std::string Name;
+      std::vector<std::string> Observers;
+    };
+    std::vector<EventDelegateInfo> Events;
+  };
 
   /**************************************************************************/
   /*!
