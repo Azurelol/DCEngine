@@ -122,32 +122,34 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Adds a Zilch script to the Zilch interface.
-    @param  fileName The name of the file containing the code.
-    @return The success of the operation.
+    @brief  Receives Zilch errors and redirects them to our logging system!
+    @param  error A pointer to the error event.
     */
     /**************************************************************************/
-    void ZilchInterface::SetUpComponentTypes(Zilch::LibraryRef library)
+    void ZilchInterface::CustomErrorCallback(Zilch::ErrorEvent * error)
     {
-      //auto boundTypes = library->BoundTypes.values();
+      std::string errorMessage = error->GetFormattedMessage(Zilch::MessageFormat::Zilch).c_str();
+      // Redirect to our tracing system
+      DCTrace << errorMessage;
     }
 
 
     /**************************************************************************/
     /*!
-    @brief  Parse the engine's static libraries.
+    @brief  Sets up the console for the ZilchInterface.
     */
     /**************************************************************************/
-    void ZilchInterface::ParseStaticLibraries()
-    {
-      //auto builder = DCEngineCore::GetBuilder();
-      //auto& boundTypes = DCEngineCore::GetLibrary()->BoundTypes.values();
-      //auto builder5 = DCEngineCore::GetInstance().GetBuilder(); 
-      //ZilchForEach(auto boundType, boundTypes) {
-      //  SetupTypeProperty(boundType, ZilchTypeId(Component), ZilchTypeId(Entity), builder5, GetNativeComponent);
-      //}
+    void CustomWriteText(Zilch::ConsoleEvent* event) {
+      DCTrace << event->Text.c_str();
     }
-
+    void ZilchInterface::SetupConsole()
+    {
+      // Setup the console so that when we call 'Console.WriteLine' it outputs to stdio
+      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, CustomWriteText);
+      //Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
+      // We can also setup the console so that any 'Read' functions will attempt to read from stdin
+      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleRead, Zilch::DefaultReadText);
+    }
 
     /**************************************************************************/
     /*!
@@ -270,41 +272,24 @@ namespace DCEngine {
       return false;
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Compiles and links all the libraries into one executable state.
-    @param  A reference to the current Zilch project object.
-    */
-    /**************************************************************************/
-    void ZilchInterface::Build()
-    {
-      DCTrace << "ZilchInterface::Build - Linking and compiling the executable state! \n";
-      // Link all the libraries together into one executable state
-      State = Dependencies.Link();
-      ErrorIf(State == nullptr, "Failed to link libraries together");
-    }
 
     /**************************************************************************/
     /*!
-    @brief  Clears the interface's Zilch 'state' as well as the 'dependencies'
-            module.
+    @brief  Parse the engine's static libraries.
     */
     /**************************************************************************/
-    void ZilchInterface::Clean()
+    void ZilchInterface::ParseStaticLibraries()
     {
-      DCTrace << "ZilchInterface::Clean - Freeing the state, report, dependencies... \n";
-      // Free the State's dynamically allocated memory
-      if (State) {
-        delete State;
-        State = nullptr;
+      return;
+      auto builder = DCEngineCore::GetBuilder();
+      auto& boundTypes = DCEngineCore::GetLibrary()->BoundTypes.values();
+      //auto builder5 = DCEngineCore::GetInstance().GetBuilder();
+      ZilchForEach(auto boundType, boundTypes) {
+        SetupTypeProperty(boundType, ZilchTypeId(Component), ZilchTypeId(Entity), builder, GetNativeComponent);
       }
-      // Clear the 'Exception' report
-      Report.Clear();
-      // Clear the 'Dependencies' container
-      Dependencies.clear();
-      // Re-include Zilch's core libraries
-      Dependencies.push_back(Zilch::Core::GetInstance().GetLibrary());
     }
+
+
 
     
   }

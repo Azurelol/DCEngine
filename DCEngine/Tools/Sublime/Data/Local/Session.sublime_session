@@ -20,18 +20,10 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt",
-					"settings":
-					{
-						"buffer_size": 0,
-						"line_ending": "Windows"
-					}
-				},
-				{
 					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
 					"settings":
 					{
-						"buffer_size": 2200,
+						"buffer_size": 2225,
 						"line_ending": "Windows"
 					}
 				}
@@ -68,6 +60,7 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt"
 			],
 			"find":
 			{
@@ -102,16 +95,16 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt",
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 0,
+								"buffer_size": 2225,
 								"regions":
 								{
 								},
@@ -124,39 +117,11 @@
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 2200,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										738,
-										738
-									]
-								],
-								"settings":
-								{
 									"syntax": "Packages/C#/C#.sublime-syntax",
 									"tab_size": 2
 								},
 								"translation.x": 0.0,
-								"translation.y": 225.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -201,7 +166,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,901,-1649,139,-717",
+			"position": "0,2,3,-1,-1,-1,-1,901,-1649,139,-717",
 			"project": "",
 			"replace":
 			{

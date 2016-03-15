@@ -22,13 +22,16 @@ namespace DCEngine {
     private:
       void Display();
       void ObjectsListSwapPosition(GameObjectPtr object, Direction dir);
-      bool DisplayObject(GameObjectPtr object);
+      bool DisplayObject(GameObjectPtr object, unsigned& id);
       
       void ContextMenu(GameObjectPtr object);
+      bool IsLocked(GameObjectPtr object);
+      bool IsParent(GameObjectPtr object);
       void AttachMenu();
       void Attach(GameObjectPtr);
 
       void CheckState();
+      void ShowOverlay();
       bool Attaching;   
       bool Detaching;
       bool Deleting;
