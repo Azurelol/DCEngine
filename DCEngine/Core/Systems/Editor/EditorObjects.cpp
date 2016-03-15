@@ -128,12 +128,33 @@ namespace DCEngine {
         //  }
         //}
 
+
+        //// Parent
+        //if (ImGui::Selectable(objectName), selected) {          
+        //  if (Attaching)
+        //    Attach(object);
+        //  EditorRef.SelectObject(object);
+        //  EditorRef.Inspector.Toggle(true);
+        //}
+        //// Display a context menu
+        //ContextMenu(object);
+        //if (ImGui::TreeNode("Children")) {
+        //  // Display all children recursively
+        //  for (auto& child : children) {
+        //    DisplayObject(child, ++id);
+        //  }
+        //  ImGui::TreePop();
+        //}
+
+
+
+
         bool treeOpened = false; 
+        ImGui::PushID(++id);
         if (ImGui::TreeNode("")) {
           treeOpened = true;
           // Display the parent selectable
           ImGui::SameLine();
-          ImGui::PushID(5);
           if (ImGui::Selectable(objectName), selected) {
             // Attach
             if (Attaching)
@@ -141,7 +162,6 @@ namespace DCEngine {
             EditorRef.SelectObject(object);
             EditorRef.Inspector.Toggle(true);
           }
-          ImGui::PopID();
           // Display a context menu
           ContextMenu(object);
 
@@ -150,8 +170,8 @@ namespace DCEngine {
             DisplayObject(child, ++id);
           }
           ImGui::TreePop();
-
         }
+        ImGui::PopID();
         if (!treeOpened) {
           // Display the parent selectable
           ImGui::SameLine();

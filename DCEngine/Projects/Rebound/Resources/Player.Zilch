@@ -27,7 +27,7 @@ class Player : ZilchComponent
   // Test connect to engine events
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
-  //  Daisy.Connect(this.Space, DaisyEvent.LogicUpdate,this.OnLogicUpdateEvent);
+  //  Daisy.Connect(this.Space, DaisyEvent.LogicUpdate,this.OnLogicUpdateEvent;
   
   // Test connect to custom ZilchEvents
   //Daisy.Connect(this.Space, DaisyEvent.Eventy, this.OnEventyEvent);
@@ -46,6 +46,8 @@ class Player : ZilchComponent
    //var c = this.Owner.Transform.Scale;
    var eventInstance : Eventy = Eventy();
    eventInstance.Number = 5;
+   this.Space.Dispatch("Eventy", eventInstance);
+
    Console.WriteLine("Number is 'eventInstance.Number' ");
    Console.WriteLine(eventInstance.Number); 
  }
@@ -57,6 +59,7 @@ function OnBarEvent(event : BarEvent)
 
 function OnEventyEvent(event : Eventy) 
 {
+Console.WriteLine("Eventy received!");
 }
 
 function OnLogicUpdate() {

@@ -87,6 +87,7 @@ namespace DCEngine {
     void SwapToBack(ComponentPtr);
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Dispatch(std::string eventID, Event* event);
     void Dispatch(Event* eventObj);
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);

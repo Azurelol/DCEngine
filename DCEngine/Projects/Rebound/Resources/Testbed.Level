@@ -8,331 +8,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 14, 
-        "Name": "Sprite3", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }, 
-        "Children": 
-        {
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "Sprite2", 
-            "Archetype": "", 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "square", 
-                "FlipX": false, 
-                "FlipY": false, 
-                "AnimationActive": true, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 0
-              }
-            }, 
-            "Children": 
-            {
-              "GameObject": 
-              {
-                "Locked": false, 
-                "GameObjectID": 2, 
-                "Name": "Sprite", 
-                "Archetype": "", 
-                "Components": 
-                {
-                  "Transform": 
-                  {
-                    "Translation": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 3.889119, 
-                        "y": 5.223976, 
-                        "z": 0.000000
-                      }
-                    }, 
-                    "Rotation": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 0.000000, 
-                        "y": 0.000000, 
-                        "z": 0.000000
-                      }
-                    }, 
-                    "Scale": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 1.000000, 
-                        "y": 1.000000, 
-                        "z": 1.000000
-                      }
-                    }
-                  }, 
-                  "Sprite": 
-                  {
-                    "Visible": true, 
-                    "Color": 
-                    {
-                      "Vec4": 
-                      {
-                        "x": 1.000000, 
-                        "y": 1.000000, 
-                        "z": 1.000000, 
-                        "w": 1.000000
-                      }
-                    }, 
-                    "SpriteSource": "square", 
-                    "FlipX": false, 
-                    "FlipY": false, 
-                    "AnimationActive": true, 
-                    "AnimationSpeed": 1.000000, 
-                    "DrawLayer": 0
-                  }, 
-                  "Player": 
-                  {
-                    "Check": true, 
-                    "Inty": 15, 
-                    "Into": 3, 
-                    "Boo": 2.000000, 
-                    "Wham": 
-                    {
-                      "Vec2": 
-                      {
-                        "x": 2.000000, 
-                        "y": 2.000000
-                      }
-                    }, 
-                    "Blam": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 1.000000, 
-                        "y": 2.000000, 
-                        "z": 3.000000
-                      }
-                    }
-                  }, 
-                  "BoxCollider": 
-                  {
-                    "CollisionGroup": "Default", 
-                    "PhysicsMaterial": "", 
-                    "Size": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 1.000000, 
-                        "y": 1.000000, 
-                        "z": 1.000000
-                      }
-                    }, 
-                    "Offset": 
-                    {
-                      "Vec3": 
-                      {
-                        "x": 0.000000, 
-                        "y": 0.000000, 
-                        "z": 0.000000
-                      }
-                    }, 
-                    "Ghost": false, 
-                    "SendsEvents": true, 
-                    "IsDrawingCollider": false
-                  }
-                }, 
-                "Children": 
-                {
-                }
-              }
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 11, 
-            "Name": "Transform", 
-            "Archetype": "", 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 10, 
-            "Name": "Transform", 
-            "Archetype": "", 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Camera", 
         "Archetype": "", 
@@ -375,6 +50,73 @@
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
             "Projection": "Perspective"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 53, 
+        "Name": "Transform", 
+        "Archetype": "", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Player": 
+          {
+            "Check": true, 
+            "Inty": 15, 
+            "Into": 3, 
+            "Boo": 2.000000, 
+            "Wham": 
+            {
+              "Vec2": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000
+              }
+            }, 
+            "Blam": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 2.000000, 
+                "z": 3.000000
+              }
+            }
           }
         }, 
         "Children": 

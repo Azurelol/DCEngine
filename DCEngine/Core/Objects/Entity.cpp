@@ -19,6 +19,9 @@
 
 namespace DCEngine {
   
+
+
+
   /*!************************************************************************\
   @brief  Entity Definition
   \**************************************************************************/
@@ -27,10 +30,14 @@ namespace DCEngine {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Entity, "name", std::string);
     ZilchBindDestructor(builder, type, Entity);
-    // Properties
-    //DCE_BINDING_DEFINE_PROPERTY(Entity, ArchetypeName);
-    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
+    // Methods
+    Zilch::ParameterArray dispatchParams;
+    dispatchParams.push_back(ZilchTypeId(Zilch::String));
+    dispatchParams.push_back(ZilchTypeId(Event));
+    ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");
 
+    // Properties
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
     DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
     DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
     DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
@@ -390,9 +397,28 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Dispatches an event to the object.
+  \param eventID The name of the event.
+  \param eventObj The event object.
+  */
+  /**************************************************************************/
+  void Entity::Dispatch(std::string eventID, Event * event)
+  {
+    // For every delegate in the registry
+    for (auto& deleg : ObserverRegistryByString) {
+      if (eventID == deleg.first) {
+        // For every delegate in the list for this specific event
+        for (auto& deleg : deleg.second) {
+          deleg->Call(event);
+        }
+      }
+    }
+  }
+
+  /**************************************************************************/
+  /*!
   \brief  Dispatches an event to the object.
   \param eventObj The event object.
-  \param eventName The event class.
   */
   /**************************************************************************/
   void Entity::Dispatch(Event * eventObj)
