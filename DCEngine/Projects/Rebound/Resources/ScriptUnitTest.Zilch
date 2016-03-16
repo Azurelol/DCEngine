@@ -1,0 +1,115 @@
+/******************************************************************************/
+/*!
+@file   ScriptEvent.Zilch
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   3/15/2016
+@brief  Roughly tests all possible scripting actions the average John may
+	    want to use.
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+class CustomEvent : ZilchEvent {
+	var IntegerVar : Integer = 1;
+	var BoolVar : Boolean = true;
+	var RealVar : Real = 0.5;
+	var Real2Var : Real2 = Real2(1,1);
+}
+
+class ScriptUnitTest : ZilchComponent
+{
+	sends CustomEvent : CustomEvent;
+
+	[Property] var TestingLogicUpdate : Boolean = false;
+	[Property] var TestingInput : Boolean = true;	
+
+    function Initialize()
+    {
+    	if (this.TestingLogicUpdate) this.TestConnectEngineEvents();
+    	this.TestConnectScriptEvents();
+    	this.ConnectToInputEvents();
+    	this.ConstructAndDispatchEvent();
+    }
+
+  	/**************************************************************************/
+  	/*!
+  	@brief Tests connecting to and receiving engine events.
+  	*/
+  	/**************************************************************************/
+    function TestConnectEngineEvents() {
+    	Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+    }
+    function OnLogicUpdateEvent(event : LogicUpdate) {
+    	Console.WriteLine("LogicUpdate with dt: `event.Dt` ");    	
+    }
+
+  	/**************************************************************************/
+  	/*!
+  	@brief Tests connecting to and receiving ZilchEvents.
+  	*/
+  	/**************************************************************************/
+    function TestConnectScriptEvents() {
+    }
+
+    //////////////////
+    // Testing Input
+    /**************************************************************************/
+  	/*!
+  	@brief Connects to and receives all possible input events.
+  	*/
+  	/**************************************************************************/
+  	function ConnectToInputEvents() {
+  		Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+  		Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyUp, this.OnKeyUpEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUpEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseScroll, this.OnMouseScrollEvent);
+  		// MouseUpdate get spammy, man.
+  		//Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUpdate, this.OnMouseUpdateEvent);
+  	}
+
+  	// KeyDown
+  	function OnKeyDownEvent(event : KeyDown) {
+  		Console.WriteLine("KeyDown!");
+  	}
+
+  	// KeyUp
+  	function OnKeyUpEvent(event : KeyUp) {
+		Console.WriteLine("KeyUp!");
+  	}
+
+  	// MouseDown
+  	function OnMouseDownEvent(event : MouseDown) {
+		Console.WriteLine("MouseDown!");
+  	}
+
+  	// MouseUp
+  	function OnMouseUpEvent(event : MouseUp) {
+  		Console.WriteLine("MouseUp!");
+  	}
+
+  	// MouseUpdate
+  	function OnMouseUpdateEvent(event : MouseUpdate) {  		
+		Console.WriteLine("MouseUpdate!");
+  	}
+
+  	// MouseScroll
+  	function OnMouseScrollEvent(event : MouseScroll) {  		
+  		Console.WriteLine("MouseScroll!");
+  	}
+
+  	/**************************************************************************/
+  	/*!
+  	@brief Tests constructing and dispatching a custom event.
+  	*/
+  	/**************************************************************************/
+    function ConstructAndDispatchEvent() {
+
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+
+    }
+
+}

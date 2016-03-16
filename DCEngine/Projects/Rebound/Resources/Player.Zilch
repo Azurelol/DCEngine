@@ -6,6 +6,10 @@ class BarEvent : EventData {
   var Lives : Integer = 3;
 }
 
+class Boomy : ZilchEvent {
+	var Haha: Boolean = false;
+}
+
 class Player : ZilchComponent 
 {
   var Check : Boolean = true;
@@ -26,7 +30,6 @@ class Player : ZilchComponent
   var scaleX = this.Owner.Transform.Scale.X;
   Console.WriteLine("ScaleX is: 'scaleX'");
 
-
   // Test connect to engine events
   Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
   Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
@@ -35,9 +38,11 @@ class Player : ZilchComponent
   //Daisy.Connect(this.Space, DaisyEvent.Eventy, this.OnEventyEvent);
   Daisy.Connect(this.Owner, "Eventy", this.OnEventyEvent);
   Daisy.Connect(this.Space, "Eventy", this.OnEventyEvent);
+  var eventyName = DaisyEvent.Eventy;
+  Console.WriteLine(eventyName);
 
-
-  // Test connect to Zilch's built-in event system
+  // Test connect to Zilch's built-in event system 
+  // The following only works if 'this' derives from EventHandler.   
   var barEvent = BarEvent();
   barEvent.Lives = 3;
   Events.Connect(this, Events.Bar, this.OnBarEvent);

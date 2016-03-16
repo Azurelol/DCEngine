@@ -40,7 +40,7 @@ namespace DCEngine {
       void ParseStaticLibraries();
       void Build();
       void Clean();
-      bool SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, 
+      bool SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, Zilch::BoundType* returnType, 
                              Zilch::LibraryBuilder* builder, ParseCallback callback, bool makeStatic = false);
       // JSON
       Zilch::JsonValue ParseJSON(std::string& string);

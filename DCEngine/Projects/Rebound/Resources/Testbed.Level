@@ -60,7 +60,7 @@
       {
         "Locked": false, 
         "GameObjectID": 53, 
-        "Name": "Player", 
+        "Name": "ScriptTest", 
         "Archetype": "", 
         "Components": 
         {
@@ -94,29 +94,10 @@
               }
             }
           }, 
-          "Player": 
+          "ScriptUnitTest": 
           {
-            "Check": true, 
-            "Inty": 15, 
-            "Into": 3, 
-            "Boo": 2.000000, 
-            "Wham": 
-            {
-              "Vec2": 
-              {
-                "x": 2.000000, 
-                "y": 2.000000
-              }
-            }, 
-            "Blam": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 2.000000, 
-                "z": 3.000000
-              }
-            }
+            "TestingLogicUpdate": false, 
+            "TestingInput": true
           }
         }, 
         "Children": 

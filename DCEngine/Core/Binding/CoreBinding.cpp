@@ -146,7 +146,8 @@ namespace DCEngine {
     // Try #1
     auto& boundTypes = builder.BoundTypes.values();
     while (!boundTypes.empty()) {
-      interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), &builder, Systems::GetNativeComponent);
+      interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), boundTypes.front(),
+                                  &builder, Systems::GetNativeComponent);
       boundTypes.popFront();
     }
     ////// Try #2
