@@ -32,10 +32,12 @@ namespace DCEngine {
     {
       if (Zilch::TypeBinding::IsA(type, baseType)) {
         Zilch::Property* componentProperty;        
-        componentProperty = builder->AddExtensionProperty(extensionType, type->Name, type, nullptr, callback, Zilch::MemberOptions::None);
-        // If the property is marked as static
-        if (makeStatic)
-          componentProperty->IsStatic = true;
+        Zilch::MemberOptions::Enum option = Zilch::MemberOptions::None;
+        // If the property is marked as static 
+        if (makeStatic) {
+          option = Zilch::MemberOptions::Static;
+        }
+        componentProperty = builder->AddExtensionProperty(extensionType, type->Name, type, nullptr, callback, option);
         // Construct data for the getter callback to used by the property
         ComponentData userData;
         userData.Type = type;

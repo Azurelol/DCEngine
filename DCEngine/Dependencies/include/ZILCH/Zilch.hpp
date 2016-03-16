@@ -27609,9 +27609,7 @@ namespace Zilch
     // The library builder always creates a single library
     // This should generally not be touched until the builder is finished building
     LibraryRef BuiltLibrary;
-
-  private:
-
+    
     // A constant we can pass in as a get/set that signifies to not actually generate the get/set Function object
     static const BoundFn DoNotGenerate;
 
@@ -27622,8 +27620,6 @@ namespace Zilch
     // Must be called AFTER all sizes have been computed
     // Can be called multiple times (only checks fields with no get/set)
     void GenerateGetSetFields();
-
-  private:
 
     // Store all the types compiled in this library
     BoundTypeMap BoundTypes;

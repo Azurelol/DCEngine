@@ -404,6 +404,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Entity::Dispatch(std::string eventID, Event * event)
   {
+    DCTrace << Name() << "::Entity::Dispatch: Dispatching '" << eventID << "'! \n";
+
     // For every delegate in the registry
     for (auto& deleg : ObserverRegistryByString) {
       if (eventID == deleg.first) {

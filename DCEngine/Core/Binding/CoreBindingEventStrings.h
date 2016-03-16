@@ -17,7 +17,7 @@ namespace DCEngine {
   }
 
   #define DCE_EVENTS_DEFINE_PROPERTY(EventName) \
-  ZilchBindProperty(builder, type, &EventStrings::EventName, ZilchNoSetter, "" #EventName, ZilchNoNames)->IsStatic = true;
+  ZilchBindProperty(builder, type, &EventStrings::EventName, ZilchNoSetter, #EventName, ZilchNoNames);
 
   /**************************************************************************/
   /*!

@@ -31,6 +31,7 @@ namespace DCEngine {
       void Load(Shader* shader, Shader::Type type);
       void Reload();
       void Save();
+      void Print();
       EditorTextEditor(Editor& editor);
       
       

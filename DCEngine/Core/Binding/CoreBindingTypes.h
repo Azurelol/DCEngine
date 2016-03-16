@@ -25,8 +25,7 @@ class StringArray : public std::vector<std::string> {
     ZilchDeclareBaseType(StringArray, Zilch::TypeCopyMode::ReferenceType);
     void Add(const std::string& val);
     void Remove(const std::string& val);
-    void Clear();
-    
+    void Clear();   
       
       
 };
