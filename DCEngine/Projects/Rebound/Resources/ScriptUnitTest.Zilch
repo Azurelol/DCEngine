@@ -9,6 +9,7 @@
 @copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
+// Declaring and defining a custom event using our engine's event system
 class CustomEvent : ZilchEvent {
 	var IntegerVar : Integer = 1;
 	var BoolVar : Boolean = true;
@@ -16,30 +17,44 @@ class CustomEvent : ZilchEvent {
 	var Real2Var : Real2 = Real2(1,1);
 }
 
+// Declaring and defining a custom enumeration
+enum CustomEnum { Red, Green, Blue }
+
+// Declaring a custom component class derived from our engine's component
 class ScriptUnitTest : ZilchComponent
 {
+    // Adding the event to Zilch's 'Event.EventName' group
 	sends CustomEvent : CustomEvent;
 
 	[Property] var TestingLogicUpdate : Boolean = false;
 	[Property] var TestingInput : Boolean = true;	
+	[Property] var TestingScriptEvents : Boolean = true;
+    //[Property] var EngineEnum : Keys = Keys.A;
+    [Property] var ColorEnum : CustomEnum = CustomEnum.Red;
+    [Property] var ColorEnum2 : CustomEnum = CustomEnum.Blue;
 
     function Initialize()
     {
-    	if (this.TestingLogicUpdate) this.TestConnectEngineEvents();
-    	this.TestConnectScriptEvents();
-    	this.ConnectToInputEvents();
-    	this.ConstructAndDispatchEvent();
+    	if (this.TestingLogicUpdate) this.ConnectEngineEvents();
+    	if (this.TestingScriptEvents) this.ConnectScriptEvents();
+    	if (this.TestingInput) this.ConnectToInputEvents();
     }
 
+
+    ////////////////////////////////
+    // Testing Connect and Dispatch
+    ////////////////////////////////
   	/**************************************************************************/
   	/*!
   	@brief Tests connecting to and receiving engine events.
   	*/
   	/**************************************************************************/
-    function TestConnectEngineEvents() {
+    function ConnectEngineEvents() {
     	Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
     }
     function OnLogicUpdateEvent(event : LogicUpdate) {
+    	// To print the value of variables inside 'WriteLine', use tildes to 
+    	// enclose the value: `value`
     	Console.WriteLine("LogicUpdate with dt: `event.Dt` ");    	
     }
 
@@ -48,11 +63,24 @@ class ScriptUnitTest : ZilchComponent
   	@brief Tests connecting to and receiving ZilchEvents.
   	*/
   	/**************************************************************************/
-    function TestConnectScriptEvents() {
+    function ConnectScriptEvents() {
+    	// Connect to the event. 
+    	Daisy.Connect(this.Owner, DaisyEvent.CustomEvent, this.OnCustomScriptEvent);
+    	// Construct an event to send
+    	var eventObject = CustomEvent();
+    	eventObject.IntegerVar = 5;
+    	eventObject.BoolVar = false;
+    	// Dispatch the event onto the entity
+    	this.Owner.Dispatch(DaisyEvent.CustomEvent, eventObject);
+    }
+
+    function OnCustomScriptEvent(event : CustomEvent) {
+    	Console.WriteLine("`this.Owner.Name` has received a custom event!");
     }
 
     //////////////////
     // Testing Input
+    //////////////////
     /**************************************************************************/
   	/*!
   	@brief Connects to and receives all possible input events.
@@ -70,22 +98,23 @@ class ScriptUnitTest : ZilchComponent
 
   	// KeyDown
   	function OnKeyDownEvent(event : KeyDown) {
-  		Console.WriteLine("KeyDown!");
+  		Console.WriteLine("KeyDown: `event.Key` ");
+        Console.WriteLine("Current ColorEnum: `this.ColorEnum`");
   	}
 
   	// KeyUp
   	function OnKeyUpEvent(event : KeyUp) {
-		Console.WriteLine("KeyUp!");
+		Console.WriteLine("KeyUp: `event.Key`");
   	}
 
   	// MouseDown
   	function OnMouseDownEvent(event : MouseDown) {
-		Console.WriteLine("MouseDown!");
+		Console.WriteLine("MouseDown: `event.ButtonPressed`");
   	}
 
   	// MouseUp
   	function OnMouseUpEvent(event : MouseUp) {
-  		Console.WriteLine("MouseUp!");
+  		Console.WriteLine("MouseUp: `event.ButtonReleased`");
   	}
 
   	// MouseUpdate
@@ -97,19 +126,5 @@ class ScriptUnitTest : ZilchComponent
   	function OnMouseScrollEvent(event : MouseScroll) {  		
   		Console.WriteLine("MouseScroll!");
   	}
-
-  	/**************************************************************************/
-  	/*!
-  	@brief Tests constructing and dispatching a custom event.
-  	*/
-  	/**************************************************************************/
-    function ConstructAndDispatchEvent() {
-
-    }
-
-    function OnLogicUpdate(event : LogicUpdate)
-    {
-
-    }
 
 }

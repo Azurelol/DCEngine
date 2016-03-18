@@ -97,7 +97,10 @@
           "ScriptUnitTest": 
           {
             "TestingLogicUpdate": false, 
-            "TestingInput": true
+            "TestingInput": true, 
+            "TestingScriptEvents": true, 
+            "ColorEnum": "Blue", 
+            "ColorEnum2": "Red"
           }
         }, 
         "Children": 
