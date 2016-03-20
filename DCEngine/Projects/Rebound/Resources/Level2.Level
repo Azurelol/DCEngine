@@ -87,7 +87,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Player", 
             "Size": 
             {
@@ -222,7 +221,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -306,7 +304,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -390,7 +387,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -474,7 +470,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -558,7 +553,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -642,7 +636,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -726,7 +719,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -810,7 +802,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -894,7 +885,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -978,7 +968,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1062,7 +1051,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1146,7 +1134,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1230,7 +1217,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1314,7 +1300,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1398,7 +1383,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1482,7 +1466,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1566,7 +1549,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1650,7 +1632,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1734,7 +1715,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1818,7 +1798,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1902,7 +1881,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -1986,7 +1964,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2070,7 +2047,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2154,7 +2130,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2238,7 +2213,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2322,7 +2296,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2406,7 +2379,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2490,7 +2462,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2574,7 +2545,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2658,7 +2628,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2742,7 +2711,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2826,7 +2794,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2910,7 +2877,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -2994,7 +2960,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3078,7 +3043,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3162,7 +3126,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3246,7 +3209,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3330,7 +3292,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3414,7 +3375,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3498,7 +3458,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3582,7 +3541,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3666,7 +3624,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3750,7 +3707,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3834,7 +3790,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -3918,7 +3873,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4002,7 +3956,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4086,7 +4039,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4170,7 +4122,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4254,7 +4205,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
             "Size": 
             {
@@ -4353,7 +4303,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -4688,7 +4637,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -4772,7 +4720,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -4864,7 +4811,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "DefaultCollisionGroup", 
             "Size": 
             {
@@ -4952,7 +4898,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "DefaultCollisionGroup", 
             "Size": 
             {
@@ -5268,7 +5213,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Shield", 
             "Size": 
             {
@@ -5360,7 +5304,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Shield", 
             "Size": 
             {
@@ -5444,7 +5387,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Shield", 
             "Size": 
             {
@@ -5532,7 +5474,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Shield", 
             "Size": 
             {
@@ -5620,7 +5561,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -5704,7 +5644,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -5788,7 +5727,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -5872,7 +5810,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -5956,7 +5893,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6040,7 +5976,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6128,7 +6063,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6216,7 +6150,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6304,7 +6237,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -6392,7 +6324,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7118,7 +7049,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
@@ -7226,7 +7156,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Ball", 
             "Size": 
             {
@@ -7377,7 +7306,8 @@
                 "z": 4.000000
               }
             }, 
-            "Additive": true
+            "Additive": true, 
+            "Lock": false
           }, 
           "ParticleEmitter": 
           {
@@ -7677,7 +7607,6 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Default", 
             "Size": 
             {
