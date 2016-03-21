@@ -38,7 +38,10 @@ ZilchBindMethod(builder, type, &classname::methodName, ZilchNoOverload, "" #meth
 
 // This macro defines a property to Zilch
 #define DCE_BINDING_DEFINE_PROPERTY(className, propertyName)          \
-  auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName) 
+  auto property##propertyName = ZilchBindProperty(builder, type, &className::get##propertyName, &className::set##propertyName, "" #propertyName);  \
+  Zilch::Attribute propertyTag##propertyName;   \
+  propertyTag##propertyName.Name = "Property";  \
+  property##propertyName->Attributes.push_back(propertyTag##propertyName)
 
 // This macro defines a property with no setter to Zilch
 #define DCE_BINDING_DEFINE_PROPERTY_NOSETTER(className, propertyName) \

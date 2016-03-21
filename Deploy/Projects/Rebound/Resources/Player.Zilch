@@ -1,16 +1,108 @@
+class Eventy : ZilchEvent {
+ var Number : Integer = 1;
+}
+
+class BarEvent : EventData {
+  var Lives : Integer = 3;
+}
+
+class Boomy : ZilchEvent {
+	var Haha: Boolean = false;
+}
+
 class Player : ZilchComponent 
 {
-  var Health : Real = 100;
+  var Check : Boolean = true;
+  var Inty : Integer = 15;
+  var Into : Integer = 3;
+  var Boo : Real = 2;
+  var Wham : Real2 = Real2(2,2);
+  var Blam : Real3 = Real3(1,2,3);
+  var Object : GameObject;
 
-  [Static]
-  function SayHello()
-  {
-    Console.WriteLine("Hello world!");
-  }
+  sends Bar : BarEvent;  
 
-  function TakeDamage(amount : Real)
-  {
-    this.Health -= amount;
-    Console.WriteLine("Ouch! I've got `this.Health` health left!");
-  }
+  function Initialize() {
+
+  // Test printing a string
+  Console.WriteLine("Hello, John");
+  var t = this.Owner.Transform;
+  var scaleX = this.Owner.Transform.Scale.X;
+  Console.WriteLine("ScaleX is: 'scaleX'");
+
+  // Test connect to engine events
+  Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent); 
+  Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+  
+  // Test connect/dispatch to custom ZilchEvents
+  //Daisy.Connect(this.Space, DaisyEvent.Eventy, this.OnEventyEvent);
+  Daisy.Connect(this.Owner, "Eventy", this.OnEventyEvent);
+  Daisy.Connect(this.Space, "Eventy", this.OnEventyEvent);
+  var eventyName = DaisyEvent.Eventy;
+  Console.WriteLine(eventyName);
+
+  // Test connect to Zilch's built-in event system 
+  // The following only works if 'this' derives from EventHandler.   
+  var barEvent = BarEvent();
+  barEvent.Lives = 3;
+  Events.Connect(this, Events.Bar, this.OnBarEvent);
+  Events.Send(this, Events.Bar, barEvent);
+
+  //Daisy.Connect(this.Owner, "Bar", this.OnBarEvent);
+  //this.Owner.Dispatch("Bar", barEvent)
+
+  // Zilch-Component Properties
+   var b = this.Owner.Player.Boo;
+   Console.WriteLine(b);
+  
+   //var eventyName = DaisyEvent.Eventy;
+ }
+
+[Static][Extension(typeid(Events))]
+function Connect(entity : Entity, eventName : String, callback : any)
+{
+	//Events.Connect(entity.EventHandler, eventName, callback);
+}
+
+function OnBarEvent(event : BarEvent) 
+{
+  Console.WriteLine("Received bar event with 'event.Lives' lives");
+}
+
+function OnEventyEvent(event : Eventy) 
+{
+Console.WriteLine("Eventy received!"); 
+Console.WriteLine("Number is 'event.Number' ");
+Console.WriteLine(event.Number); 
+}
+
+function OnLogicUpdate() {
+ //Console.WriteLine("Please no"); 
+}
+
+function Hello() {
+  Console.WriteLine("Hello from the console");
+}
+
+function OnLogicUpdateEvent(event : LogicUpdate) {
+  Console.WriteLine("John notice me because I am receiving a logic update event in a script");
+  Console.WriteLine(event.Dt);
+}
+
+function OnKeyDownEvent(event : KeyDown) { 
+  Console.WriteLine("Pressed a key, sending 'Eventy' event!");
+    var eventInstance : Eventy = Eventy();
+   eventInstance.Number = 5;
+   this.Owner.Dispatch("Eventy", eventInstance);
+   this.Space.Dispatch("Eventy", eventInstance);
+ }
+
+function OnMouseDownEvent(event : MouseDown) {
+  Console.WriteLine("Clicked!");
+}
+
+function OnMouseUpdateEvent(event : MouseUpdate) {
+  Console.WriteLine("Moved!");
+}
+
 }

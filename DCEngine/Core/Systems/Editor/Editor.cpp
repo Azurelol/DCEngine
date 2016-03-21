@@ -323,10 +323,11 @@ namespace DCEngine {
 
       ImGui::SetNextWindowPos(splashPos);
       
+      
       //ImGui::SetNextWindowPosCenter(ImGuiSetCond_FirstUseEver);
-      if (ImGui::Begin("Example: Fixed Overlay", &Windows.SplashScreenEnabled, ImVec2(0, 0), 0.3f,
+      if (ImGui::Begin("Example: Fixed Overlay", &Windows.SplashScreenEnabled, ImVec2(0, 0), 1.0f,
         ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings 
-        | ImGuiWindowFlags_ShowBorders))
+        | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize))
       {
         // Display splash image
         ImColor tint(255, 255, 255, 255);

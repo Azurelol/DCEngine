@@ -43,8 +43,6 @@ namespace DCEngine {
       ImGui::End();
     }
 
-
-
     /**************************************************************************/
     /*!
     \brief  Displays the properties of the currently selected object.

@@ -7,10 +7,9 @@
     {
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 147, 
         "Name": "Camera", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -20,8 +19,8 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -4.000000, 
-                "z": 0.000000
+                "y": 0.000000, 
+                "z": 2.000000
               }
             }, 
             "Rotation": 
@@ -60,8 +59,7 @@
       {
         "Locked": false, 
         "GameObjectID": 53, 
-        "Name": "Player", 
-        "Archetype": "", 
+        "Name": "ScriptTest", 
         "Components": 
         {
           "Transform": 
@@ -70,8 +68,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": -1.000000, 
+                "x": -2.361506, 
+                "y": 1.045399, 
                 "z": 0.000000
               }
             }, 
@@ -94,29 +92,97 @@
               }
             }
           }, 
-          "Player": 
+          "ScriptUnitTest": 
           {
-            "Check": true, 
-            "Inty": 15, 
-            "Into": 3, 
-            "Boo": 2.000000, 
-            "Wham": 
+            "TestingLogicUpdate": false, 
+            "TestingInput": true, 
+            "TestingScriptEvents": true, 
+            "TestingColorChange": true, 
+            "EngineEnum": "I", 
+            "Color": "Red", 
+            "Color2": "Blue"
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
             {
-              "Vec2": 
+              "Vec4": 
               {
-                "x": 2.000000, 
-                "y": 2.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
               }
             }, 
-            "Blam": 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 271, 
+        "Name": "Asha", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.072877, 
+                "y": -0.428148, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
             {
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 2.000000, 
-                "z": 3.000000
+                "y": 1.000000, 
+                "z": 1.000000
               }
             }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Asha_Run_Spritesheet", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": true, 
+            "AnimationSpeed": 12.000000, 
+            "DrawLayer": 0
           }
         }, 
         "Children": 

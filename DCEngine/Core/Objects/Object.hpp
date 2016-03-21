@@ -34,6 +34,9 @@ namespace DCEngine {
       if (property->HasAttribute("Skip"))
         continue;
 
+      if (!property->HasAttribute("Property"))
+        continue;
+
       // Create a key for the builder
       auto pname = property->Name;
       //builder.Begin(Zilch::JsonType::Object);      
@@ -204,9 +207,9 @@ namespace DCEngine {
       if (namedProperty == nullptr)
         continue;
 
-      if (Zilch::Type::IsSame(namedProperty->PropertyType, (ZilchTypeId(GameObject)))) {
-        continue;
-      }
+      //if (Zilch::Type::IsSame(namedProperty->PropertyType, (ZilchTypeId(GameObject)))) {
+      //  continue;
+      //}
 
       // If there is no set method
       if (namedProperty->Set == nullptr)
@@ -214,6 +217,9 @@ namespace DCEngine {
 
       // If the property has been unmarked for serialization
       if (namedProperty->HasAttribute("Skip"))
+        continue;
+
+      if (!namedProperty->HasAttribute("Property"))
         continue;
 
 
@@ -241,6 +247,11 @@ namespace DCEngine {
       else if (Zilch::Type::IsEnumType(namedProperty->PropertyType)) {
         Zilch::BoundType* enumType = Zilch::Type::GetBoundType(namedProperty->PropertyType);
         auto enumValue = enumType->GetStaticProperty(value->AsString());
+
+        // If the value cannot be found (could have been removed), do nothing
+        if (!enumValue)
+          continue;
+
         // Convert the enum to its integer value
         Zilch::Call getCall(enumValue->Get, state);
         getCall.Invoke(report);

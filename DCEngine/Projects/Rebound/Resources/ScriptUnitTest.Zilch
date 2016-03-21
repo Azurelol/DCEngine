@@ -1,0 +1,167 @@
+/******************************************************************************/
+/*!
+@file   ScriptEvent.Zilch
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   3/15/2016
+@brief  Roughly tests all possible scripting actions the average John may
+	    want to use.
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
+// Declaring and defining a custom event using our engine's event system
+class CustomEvent : ZilchEvent {
+	var IntegerVar : Integer = 1;
+	var BoolVar : Boolean = true;
+	var RealVar : Real = 0.5;
+	var Real2Var : Real2 = Real2(1,1);
+}
+
+// Declaring and defining a custom enumeration
+enum CustomEnum { Red, Green, Blue }
+
+// Declaring a custom component class derived from our engine's component
+class ScriptUnitTest : ZilchComponent
+{
+    // Adding the event to Zilch's 'Event.EventName' group
+	sends CustomEvent : CustomEvent;
+
+	// Properties
+	[Property] var TestingLogicUpdate : Boolean = false;
+	[Property] var TestingInput : Boolean = true;	
+	[Property] var TestingScriptEvents : Boolean = true;
+    [Property] var TestingColorChange : Boolean = true;
+    // Testing engine enum
+    [Property] var EngineEnum : Keys = Keys.A;    
+    // Testing enums, fields and using them.    
+    [Property] var Color : CustomEnum = CustomEnum.Red;
+    [Property] var Color2 : CustomEnum = CustomEnum.Blue;
+    var ColorRed : Real4 = Real4(1, 0, 0, 1);
+	var ColorBlue : Real4 = Real4(0, 0, 1, 1);
+    var ColorGreeen : Real4 = Real4(0, 1, 0, 1);
+
+    // Handles
+    var SpriteRef : Sprite;
+    var TransformRef : Transform;
+
+    function Initialize()
+    {
+    	if (this.TestingLogicUpdate) this.ConnectEngineEvents();
+    	if (this.TestingScriptEvents) this.ConnectScriptEvents();
+    	if (this.TestingInput) this.ConnectToInputEvents();
+
+    	// If possible, save the references
+    	if (this.Owner.Transform != null) this.TransformRef = this.Owner.Transform;
+    	if (this.Owner.Sprite != null) this.SpriteRef = this.Owner.Sprite;
+
+    }
+
+
+    ////////////////////////////////
+    // Testing Connect and Dispatch
+    ////////////////////////////////
+  	/**************************************************************************/
+  	/*!
+  	@brief Tests connecting to and receiving engine events.
+  	*/
+  	/**************************************************************************/
+    function ConnectEngineEvents() {
+    	Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+    }
+    function OnLogicUpdateEvent(event : LogicUpdate) {
+    	// To print the value of variables inside 'WriteLine', use tildes to 
+    	// enclose the value: `value`
+    	Console.WriteLine("LogicUpdate with dt: `event.Dt` ");    	
+    }
+
+  	/**************************************************************************/
+  	/*!
+  	@brief Tests connecting to and receiving ZilchEvents.
+  	*/
+  	/**************************************************************************/
+    function ConnectScriptEvents() {
+    	// Connect to the event. 
+    	Daisy.Connect(this.Owner, DaisyEvent.CustomEvent, this.OnCustomScriptEvent);
+    	// Construct an event to send
+    	var eventObject = CustomEvent();
+    	eventObject.IntegerVar = 5;
+    	eventObject.BoolVar = false;
+    	// Dispatch the event onto the entity
+    	this.Owner.Dispatch(DaisyEvent.CustomEvent, eventObject);
+    }
+
+    function OnCustomScriptEvent(event : CustomEvent) {
+    	Console.WriteLine("`this.Owner.Name` has received a custom event!");
+    }
+
+    //////////////////
+    // Testing Input
+    //////////////////
+    /**************************************************************************/
+  	/*!
+  	@brief Connects to and receives all possible input events.
+  	*/
+  	/**************************************************************************/
+  	function ConnectToInputEvents() {
+  		Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+  		Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyUp, this.OnKeyUpEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUpEvent);
+  		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseScroll, this.OnMouseScrollEvent);
+  		// MouseUpdate get spammy, man.
+  		//Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUpdate, this.OnMouseUpdateEvent);
+  	}
+
+  	// KeyDown
+  	function OnKeyDownEvent(event : KeyDown) {
+  		Console.WriteLine("KeyDown: `event.Key` ");
+  		// Testing a simple color change
+  		if (this.TestingColorChange) {
+  			Console.WriteLine("Current Color: `this.Color`");	
+  			this.ColorChange(this.Color);
+  		}
+  	}
+
+  	// KeyUp
+  	function OnKeyUpEvent(event : KeyUp) {
+		Console.WriteLine("KeyUp: `event.Key`");
+		Console.WriteLine("Current Color2: `this.Color2`");
+		// Testing a simple color change
+  		if (this.TestingColorChange) {
+  			Console.WriteLine("Current Color: `this.Color2`");	
+  			this.ColorChange(this.Color2);
+  		}
+  	}
+
+  	// MouseDown
+  	function OnMouseDownEvent(event : MouseDown) {
+		Console.WriteLine("MouseDown: `event.ButtonPressed`");
+  	}
+
+  	// MouseUp
+  	function OnMouseUpEvent(event : MouseUp) {
+  		Console.WriteLine("MouseUp: `event.ButtonReleased`");
+  	}
+
+  	// MouseUpdate
+  	function OnMouseUpdateEvent(event : MouseUpdate) {  		
+		Console.WriteLine("MouseUpdate!");
+  	}
+
+  	// MouseScroll
+  	function OnMouseScrollEvent(event : MouseScroll) {  		
+  		Console.WriteLine("MouseScroll!");
+  	}
+
+  	function ColorChange(color : CustomEnum) {
+  		if (this.SpriteRef != null) {
+  			if (color == CustomEnum.Red)
+  				this.SpriteRef.Color = this.ColorRed;
+  			else if (color == CustomEnum.Blue)
+  				this.SpriteRef.Color = this.ColorBlue;
+  			else if (color == CustomEnum.Green)
+  				this.SpriteRef.Color = this.ColorGreeen;
+  		}
+  	}
+
+}

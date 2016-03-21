@@ -21,7 +21,7 @@ namespace DCEngine {
     @note This can only go in the translational unit (.cpp)
     */
     /**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(SoundEmitter, "SoundEmitter", DCEngineCore, builder, type) {
       //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(SoundEmitter);
@@ -33,14 +33,15 @@ namespace DCEngine {
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Cue); // ->Attributes.push_back(attributeSoundCue);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCue, attributeSoundCue);
-      DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Volume);
+      DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Volume); // ->Attributes.push_back(Zilch::Attribute().Name = "Property");      
+      //Zilch::Attribute isPropertyVolume; isPropertyVolume.Name = "Property"; propertyVolume->Attributes.push_back(isPropertyVolume);
       DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, Pitch);
       DCE_BINDING_DEFINE_PROPERTY(SoundEmitter, IsPlaying);
       //ZilchBindProperty(builder, type, &SoundEmitter::getVolume, &SoundEmitter::setVolume, "Volume");
       //ZilchBindProperty(builder, type, &SoundEmitter::getPitch, &SoundEmitter::setPitch, "Pitch");
       //ZilchBindProperty(builder, type, &SoundEmitter::getIsPlaying, &SoundEmitter::setIsPlaying, "IsPlaying");
     }
-#endif
+    #endif
 
 
     void SoundEmitter::Initialize()
