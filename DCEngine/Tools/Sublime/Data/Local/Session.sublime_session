@@ -23,7 +23,7 @@
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
 					"settings":
 					{
-						"buffer_size": 2313,
+						"buffer_size": 0,
 						"line_ending": "Windows"
 					}
 				}
@@ -105,15 +105,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2313,
+								"buffer_size": 0,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1422,
-										1422
+										0,
+										0
 									]
 								],
 								"settings":
@@ -121,7 +121,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 810.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -166,7 +166,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,890,2156,128,3088",
+			"position": "0,0,1,-32000,-32000,-1,-1,1002,2693,239,3485",
 			"project": "",
 			"replace":
 			{
