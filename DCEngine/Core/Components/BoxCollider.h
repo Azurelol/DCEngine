@@ -17,12 +17,9 @@ another. This component interacts directly with the physics system.
 namespace DCEngine {
   namespace Components
   {
-
     class Transform;
-    class Physics;
     class BoxCollider : public Collider {
     public:
-      friend class Physics;
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(BoxCollider, Collider);
