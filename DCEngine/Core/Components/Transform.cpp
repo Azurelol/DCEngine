@@ -26,9 +26,9 @@ namespace DCEngine {
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Transform);
       // Properties
-      ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-      ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-      ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Translation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Rotation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Scale);
     }
 
     /**************************************************************************/

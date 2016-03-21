@@ -7,6 +7,8 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 268, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -49,10 +51,15 @@
             "Size": 90.000000, 
             "Projection": "Perspective"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 269, 
         "Name": "Platform", 
         "Archetype": "", 
         "Components": 
@@ -89,8 +96,8 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -133,10 +140,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 270, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -217,8 +229,8 @@
           }, 
           "BoxCollider": 
           {
-            "PhysicsMaterial": "", 
             "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -252,6 +264,7 @@
             "DoAutoPlay": true, 
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
+            "RunAnimation": "PlayerRun", 
             "AutoPlayTimer": 2.000000
           }, 
           "Light": 
@@ -286,6 +299,9 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }

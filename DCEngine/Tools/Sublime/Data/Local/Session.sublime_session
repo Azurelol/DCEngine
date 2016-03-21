@@ -16,6 +16,26 @@
 				"selected_items":
 				[
 					[
+						"Change",
+						"ColorChange"
+					],
+					[
+						"Color",
+						"ColorChange"
+					],
+					[
+						"Clor",
+						"ColorBlue"
+					],
+					[
+						"Sprie",
+						"SpriteRef"
+					],
+					[
+						"Sprite",
+						"SpriteRef"
+					],
+					[
 						"TestIn",
 						"TestingInput"
 					],
@@ -59,7 +79,7 @@
 					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 5841,
 						"line_ending": "Windows"
 					}
 				}
@@ -102,7 +122,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 34.0
 			},
 			"find_in_files":
 			{
@@ -116,6 +136,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"ColorEnum"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -142,15 +163,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 0,
+								"buffer_size": 5841,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										1690,
+										1690
 									]
 								],
 								"settings":
@@ -158,7 +179,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 376.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -169,7 +190,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -203,11 +224,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,957,-1356,173,-564",
+			"position": "0,0,1,-1,-1,-1,-1,1031,-1110,38,-218",
 			"project": "",
 			"replace":
 			{
-				"height": 0.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":

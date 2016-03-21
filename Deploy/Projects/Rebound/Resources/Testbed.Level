@@ -7,6 +7,8 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 147, 
         "Name": "Camera", 
         "Archetype": "", 
         "Components": 
@@ -17,9 +19,9 @@
             {
               "Vec3": 
               {
-                "x": 0.130054, 
-                "y": 0.494794, 
-                "z": 10.000000
+                "x": 0.000000, 
+                "y": -4.000000, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -49,11 +51,16 @@
             "Size": 90.000000, 
             "Projection": "Perspective"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
-        "Name": "Sprite", 
+        "Locked": false, 
+        "GameObjectID": 53, 
+        "Name": "ScriptTest", 
         "Archetype": "", 
         "Components": 
         {
@@ -64,7 +71,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -1.000000, 
                 "z": 0.000000
               }
             }, 
@@ -87,96 +94,17 @@
               }
             }
           }, 
-          "Sprite": 
+          "ScriptUnitTest": 
           {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "char_sent", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "TestingLogicUpdate": false, 
+            "TestingInput": true, 
+            "TestingScriptEvents": true, 
+            "ColorEnum": "Blue", 
+            "ColorEnum2": "Red"
           }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Name": "Light", 
-        "Archetype": "", 
-        "Components": 
+        }, 
+        "Children": 
         {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Light": 
-          {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Point", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 1.000000, 
-            "Range": 20.000000, 
-            "Falloff": 0.100000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.600000, 
-            "OuterAngle": 0.800000
-          }
         }
       }
     }

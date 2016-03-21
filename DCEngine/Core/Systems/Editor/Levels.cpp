@@ -39,6 +39,8 @@ namespace DCEngine {
         return false;
       }
 
+      // Deselect
+      Deselect();
       // Load the level
       CurrentSpace->LoadLevel(level);
       // Load the editor camera

@@ -7,6 +7,8 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 898, 
         "Name": "Floor", 
         "Archetype": "", 
         "Components": 
@@ -64,6 +66,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -86,10 +89,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 899, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -137,10 +145,15 @@
             "TargetName": "Player", 
             "InterpolationSpeed": 0.060000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Archetype": "Scrapper", 
         "Components": 
@@ -198,6 +211,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -292,10 +306,15 @@
             "MaxHealth": 1, 
             "StartingHealth": 1
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 901, 
         "Name": "Ball", 
         "Archetype": "Ball", 
         "Components": 
@@ -353,6 +372,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Ball", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -561,10 +581,15 @@
             "Growth": 0.000000, 
             "Dampening": 10.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 902, 
         "Name": "Acid", 
         "Archetype": "Acid", 
         "Components": 
@@ -622,6 +647,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -667,10 +693,15 @@
             "Fading": true, 
             "Pulse": true
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 903, 
         "Name": "LockField", 
         "Archetype": "LockField", 
         "Components": 
@@ -728,6 +759,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -754,10 +786,15 @@
           {
             "Timer": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 904, 
         "Name": "PowerField", 
         "Archetype": "PowerField", 
         "Components": 
@@ -815,6 +852,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -841,10 +879,15 @@
           {
             "Target": "Door"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 905, 
         "Name": "Door", 
         "Archetype": "", 
         "Components": 
@@ -946,10 +989,15 @@
             "InnerAngle": 45.000000, 
             "OuterAngle": 90.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 906, 
         "Name": "Player", 
         "Archetype": "Player", 
         "Components": 
@@ -1031,6 +1079,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Player", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -1104,10 +1153,15 @@
             "MaxHealth": 10, 
             "StartingHealth": 10
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 907, 
         "Name": "Sky", 
         "Archetype": "", 
         "Components": 
@@ -1162,10 +1216,15 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 908, 
         "Name": "Background", 
         "Archetype": "DesertBackground", 
         "Components": 
@@ -1252,10 +1311,15 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 909, 
         "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
@@ -1313,6 +1377,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -1335,10 +1400,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 910, 
         "Name": "SkidParticleSystem", 
         "Archetype": "", 
         "Components": 
@@ -1510,10 +1580,15 @@
               }
             }
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 911, 
         "Name": "BallParticleSystem", 
         "Archetype": "BallExplosionParticleSystem2", 
         "Components": 
@@ -1685,10 +1760,15 @@
               }
             }
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 912, 
         "Name": "BallParticleSystem", 
         "Archetype": "BallExplosionParticle", 
         "Components": 
@@ -1860,10 +1940,15 @@
               }
             }
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 913, 
         "Name": "Shield", 
         "Archetype": "Sentinel Shield", 
         "Components": 
@@ -1921,6 +2006,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -1967,10 +2053,15 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Archetype": "Sentinel", 
         "Components": 
@@ -2028,6 +2119,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -2086,10 +2178,15 @@
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 915, 
         "Name": "Lancer", 
         "Archetype": "Lancer", 
         "Components": 
@@ -2182,6 +2279,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -2204,10 +2302,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 916, 
         "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
@@ -2265,6 +2368,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -2287,10 +2391,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 917, 
         "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
@@ -2348,6 +2457,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -2370,10 +2480,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 918, 
         "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
@@ -2431,6 +2546,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
             "Size": 
             {
               "Vec3": 
@@ -2453,10 +2569,15 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 919, 
         "Name": "Transform", 
         "Archetype": "", 
         "Components": 
@@ -2523,10 +2644,15 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 920, 
         "Name": "Transform", 
         "Archetype": "", 
         "Components": 
@@ -2645,10 +2771,15 @@
             "Growth": 0.000000, 
             "Dampening": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 921, 
         "Name": "Light", 
         "Archetype": "SpotLight", 
         "Components": 
@@ -2715,6 +2846,9 @@
             "InnerAngle": 31.765001, 
             "OuterAngle": 83.950005
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }
