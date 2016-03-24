@@ -69,12 +69,14 @@ namespace DCEngine {
     ZilchInitializeType(SpriteLayerOrder);
 
     /*===================*
-    *      Enums        *
+    *      Actions      *
     *===================*/
-    /*ZilchInitializeType(Direction);
-    ZilchInitializeType(Keys);
-    ZilchInitializeType(MouseButton);
-    ZilchInitializeType(MouseWheelScrollDirection);*/
+    ZilchInitializeType(Action);
+    ZilchInitializeType(ActionSet);
+    ZilchInitializeType(ActionGroup);
+    ZilchInitializeType(ActionSequence);
+    ZilchInitializeType(ActionsOwner);
+    ZilchInitializeType(Actions);
     /*===================*
     *      Events        *
     *===================*/

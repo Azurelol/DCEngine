@@ -164,4 +164,9 @@ class ScriptUnitTest : ZilchComponent
   		}
   	}
 
+  	function ActionDelay() {
+  		var seq = Actions.Sequence(this.Owner.Actions);
+          Actions.Delay(seq, 1.5);          
+  	}
+
 }

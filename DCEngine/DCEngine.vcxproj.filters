@@ -1571,6 +1571,9 @@
     <ClInclude Include="Core\Resources\ResourceReference.h">
       <Filter>Core\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Systems\Content\ContentUtils.h">
+      <Filter>Core\Systems\Content</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

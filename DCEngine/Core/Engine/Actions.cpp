@@ -18,6 +18,50 @@ namespace DCEngine {
   unsigned Action::Created = 0;
   unsigned Action::Destroyed = 0;
 
+  /*!************************************************************************\
+  @brief  Action Zilch Definition
+  \**************************************************************************/
+  ZilchDefineType(Action, "Action", DCEngineCore, builder, type) {
+    // Constructor
+    //ZilchBindConstructor(builder, type, Action, "type", std::string);
+    //ZilchBindDestructor(builder, type, Action);
+  }
+
+  ZilchDefineType(ActionSet, "ActionSet", DCEngineCore, builder, type) {
+    // Constructor
+    //ZilchBindConstructor(builder, type, ActionSet, "type", std::string);
+    //ZilchBindDestructor(builder, type, ActionSet);
+  }
+
+  ZilchDefineType(ActionSequence, "ActionSequence", DCEngineCore, builder, type) {
+    // Constructor
+    ZilchBindConstructor(builder, type, ActionSequence, ZilchNoNames);
+    ZilchBindDestructor(builder, type, ActionSequence);
+  }
+
+  ZilchDefineType(ActionGroup, "ActionGroup", DCEngineCore, builder, type) {
+    // Constructor
+    ZilchBindConstructor(builder, type, ActionGroup, ZilchNoNames);
+    ZilchBindDestructor(builder, type, ActionGroup);
+  }
+
+  ZilchDefineType(ActionsOwner, "ActionsOwner", DCEngineCore, builder, type) {
+    // Constructor
+    ZilchBindConstructor(builder, type, ActionsOwner, "owner", Entity&);
+    ZilchBindDestructor(builder, type, ActionsOwner);
+  }
+
+
+  /*!************************************************************************\
+  @brief  Actions Zilch Definition
+  \**************************************************************************/
+  ZilchDefineType(Actions, "Actions", DCEngineCore, builder, type) {
+    // Methods
+    ZilchBindMethod(builder, type, &Actions::Sequence, ZilchNoOverload, "Sequence", "owner");
+    ZilchBindMethod(builder, type, &Actions::Group, ZilchNoOverload, "Group", "owner");
+    ZilchBindMethod(builder, type, &Actions::Delay, ZilchNoOverload, "Delay", "sets, duration");
+  }
+
   /**************************************************************************/
   /*!
   @brief Action constructor
