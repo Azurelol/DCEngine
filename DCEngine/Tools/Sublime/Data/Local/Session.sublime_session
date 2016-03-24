@@ -15,75 +15,15 @@
 			{
 				"selected_items":
 				[
-					[
-						"Change",
-						"ColorChange"
-					],
-					[
-						"Color",
-						"ColorChange"
-					],
-					[
-						"Clor",
-						"ColorBlue"
-					],
-					[
-						"Sprie",
-						"SpriteRef"
-					],
-					[
-						"Sprite",
-						"SpriteRef"
-					],
-					[
-						"TestIn",
-						"TestingInput"
-					],
-					[
-						"Tes",
-						"TestingInput"
-					],
-					[
-						"B",
-						"BoolVar"
-					],
-					[
-						"event",
-						"eventObject"
-					],
-					[
-						"Integ",
-						"IntegerVar"
-					],
-					[
-						"Test",
-						"TestLogicUpdate"
-					],
-					[
-						"Onl",
-						"OnLogicUpdateEvent"
-					],
-					[
-						"Conn",
-						"Connect"
-					],
-					[
-						"Connect",
-						"ConnectToInputEvents"
-					]
 				]
 			},
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
-<<<<<<< HEAD
-						"buffer_size": 0,
-=======
 						"buffer_size": 5841,
->>>>>>> 508985b4269967058878f2cc09c8ba670c219980
 						"line_ending": "Windows"
 					}
 				}
@@ -95,16 +35,16 @@
 			"build_varint": "",
 			"command_palette":
 			{
-				"height": 392.0,
+				"height": 0.0,
 				"last_filter": "",
 				"selected_items":
 				[
 				],
-				"width": 392.0
+				"width": 0.0
 			},
 			"console":
 			{
-				"height": 126.0,
+				"height": 0.0,
 				"history":
 				[
 				]
@@ -120,13 +60,10 @@
 			},
 			"file_history":
 			[
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt"
 			],
 			"find":
 			{
-				"height": 34.0
+				"height": 0.0
 			},
 			"find_in_files":
 			{
@@ -140,7 +77,6 @@
 				"case_sensitive": false,
 				"find_history":
 				[
-					"ColorEnum"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -163,40 +99,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-<<<<<<< HEAD
-								"buffer_size": 0,
-=======
 								"buffer_size": 5841,
->>>>>>> 508985b4269967058878f2cc09c8ba670c219980
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-<<<<<<< HEAD
 										0,
 										0
-=======
-										1690,
-										1690
->>>>>>> 508985b4269967058878f2cc09c8ba670c219980
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
-<<<<<<< HEAD
 								"translation.y": 0.0,
-=======
-								"translation.y": 376.0,
->>>>>>> 508985b4269967058878f2cc09c8ba670c219980
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -207,7 +130,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 0.0
 			},
 			"input":
 			{
@@ -241,15 +164,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-<<<<<<< HEAD
-			"position": "0,0,1,-32000,-32000,-1,-1,1002,2693,239,3485",
-=======
-			"position": "0,0,1,-1,-1,-1,-1,1031,-1110,38,-218",
->>>>>>> 508985b4269967058878f2cc09c8ba670c219980
+			"position": "0,0,1,-1,-1,-1,-1,705,623,167,1279",
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 0.0
 			},
 			"save_all_on_build": true,
 			"select_file":
