@@ -23,7 +23,11 @@
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 5841,
+=======
+						"buffer_size": 5972,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 						"line_ending": "Windows"
 					}
 				}
@@ -103,15 +107,24 @@
 							"semi_transient": false,
 							"settings":
 							{
+<<<<<<< HEAD
 								"buffer_size": 5841,
+=======
+								"buffer_size": 5972,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
+<<<<<<< HEAD
 										0,
 										0
+=======
+										4954,
+										4954
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 									]
 								],
 								"settings":
@@ -119,7 +132,11 @@
 									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
+<<<<<<< HEAD
 								"translation.y": 0.0,
+=======
+								"translation.y": 1654.0,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -164,7 +181,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+<<<<<<< HEAD
 			"position": "0,0,1,-1,-1,-1,-1,705,623,167,1279",
+=======
+			"position": "0,0,1,-1,-1,-1,-1,1143,1247,301,2282",
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 			"project": "",
 			"replace":
 			{

@@ -14,6 +14,8 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+
+#include "ContentUtils.h"
 #include "../../Resources/ResourcesInclude.h"
 #include "../../Engine/Data.h"
 
@@ -25,7 +27,6 @@ namespace DCEngine {
   namespace Systems {
 
     // Resource Maps
-    using ResourceMap = std::map<std::string, std::string>;    
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
     using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;

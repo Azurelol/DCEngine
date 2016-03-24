@@ -38,8 +38,9 @@ namespace DCEngine {
   @class Action is the base class from which all other actions derive from.
   */
   /**************************************************************************/
-  class Action {
+  class Action : public Zilch::IZilchObject{
   public:
+    ZilchDeclareBaseType(Action, Zilch::TypeCopyMode::ReferenceType);
     Action(std::string type = "Action");
     ~Action();
     virtual float Update(float dt) = 0;
@@ -80,6 +81,7 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionSet : public Action {
   public:
+    ZilchDeclareDerivedType(ActionSet, Action);
     //virtual void Add(Action& action);
     ActionSet(std::string type = "ActionSet") : Action(type) {}
     virtual void Add(ActionSetPtr set);
@@ -101,6 +103,7 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionGroup : public ActionSet {
   public:
+    ZilchDeclareDerivedType(ActionGroup, Action);
     ActionGroup() : ActionSet("ActionGroup") {}
     float Update(float dt);
   };
@@ -114,6 +117,7 @@ namespace DCEngine {
   /**************************************************************************/
   class ActionSequence : public ActionSet {
   public:
+    ZilchDeclareDerivedType(ActionSequence, Action);
     ActionSequence() : ActionSet("ActionSequence") {}
     float Update(float dt);
   };
@@ -180,6 +184,7 @@ namespace DCEngine {
   class Entity;
   class ActionsOwner : public ActionSet {
   public:
+    ZilchDeclareDerivedType(ActionsOwner, ActionSet);
     ActionsOwner(Entity& owner);
     ~ActionsOwner();
     float Update(float dt);
@@ -230,14 +235,15 @@ namespace DCEngine {
          for constructing and interacting with actions.
   */
   /**************************************************************************/
-  class Actions {
+  class Actions : public Zilch::IZilchObject{
   public:
+    ZilchDeclareBaseType(Actions, Zilch::TypeCopyMode::ReferenceType);
     // Constructs an action sequence, adding it to 
     static ActionSetPtr Sequence(ActionSet& owner);
     static ActionSetPtr Group(ActionSet& owner);
-    template <typename Class, typename... Args> static void Call(ActionSetPtr set, void(Class::*func)(Args...), Class* object, Args...);
-    static void Delay(ActionSetPtr set, Real duration);
-    template <typename Property> static void Property(ActionSetPtr set, Property& prty, Property val, Real duration, Ease ease);
+    static void Delay(ActionSetPtr sets, Real duration);
+    template <typename Class, typename... Args> static void Call(ActionSetPtr sets, void(Class::*func)(Args...), Class* object, Args...);
+    template <typename PropertyType> static void Property(ActionSetPtr sets, PropertyType & propertyRef, PropertyType val, Real duration, Ease ease);
 
   private:
     

@@ -493,6 +493,7 @@
     <ClInclude Include="Core\Objects\Object.hpp" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
+    <ClInclude Include="Core\Systems\Content\ContentUtils.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
