@@ -22,6 +22,10 @@ namespace DCEngine {
     class Orientation : public Component {
     public:
 
+#if (DCE_USE_ZILCH_INTERNAL_BINDING)
+      ZilchDeclareDerivedType(Orientation, Component);
+#endif
+
       Real AbsoluteAngle; //!< The angle of the object about the up vector.
       //Quaternion Rotation; //!< The rotation that this object defines. Useful to align the object's
                       // bases with the world bases (using the inverse rotation)

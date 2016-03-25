@@ -20,6 +20,18 @@ namespace DCEngine
 {
   namespace Components
   {
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(Orientation, "Orientation", DCEngineCore, builder, type) {
+      // Constructor / Destructor
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Orientation);
+    }
+    #endif
+
+
+    void Orientation::Initialize()
+    {
+      return;
+    }
 
     float Orientation::GetVectorAngle(Vec3 vector)
     {
@@ -46,15 +58,19 @@ namespace DCEngine
 
     void Orientation::LookAtDirection(Vec3 direction)
     {
+      direction = glm::normalize(direction);
+
       float NextRot = GetVectorAngle(direction);
 
       float CurrentRot = GetVectorAngle(WorldForward);
 
       float DeltaRot = CurrentRot - NextRot;
 
-      CurrentRot -= DeltaRot;
+      // convert to degrees first
 
-      this->Owner()->getComponent<Components::Transform>()->Rotation.z = CurrentRot;
+      DeltaRot = DeltaRot * 180.0f / 3.14159265359;
+
+      this->Owner()->getComponent<Components::Transform>()->Rotation.z -= DeltaRot;
 
       WorldForward = Vec3(cos(CurrentRot), sin(CurrentRot), 0.0f);
     }

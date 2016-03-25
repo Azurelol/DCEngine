@@ -120,6 +120,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::Transform);
     ZilchInitializeType(Components::RigidBody);
     ZilchInitializeType(Components::BoxCollider);
+    ZilchInitializeType(Components::Orientation);
     // Graphics
     ZilchInitializeType(Components::Sprite);
     ZilchInitializeType(Components::SpriteText);
