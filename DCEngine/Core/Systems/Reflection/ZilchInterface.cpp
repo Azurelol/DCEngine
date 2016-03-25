@@ -26,8 +26,12 @@ namespace DCEngine {
     user friendly asserts!)
     */
     /**************************************************************************/
-    ZilchInterface::ZilchInterface() : Setup(Zilch::StartupFlags::DoNotShutdown), Patching(false)
+    ZilchInterface::ZilchInterface() : 
+      Setup(Zilch::StartupFlags::DoNotShutdown), 
+      Patching(false)
     {
+      //Setup = Zilch::ZilchSetup(Zilch::StartupFlags::DoNotShutdown);
+
       DCTrace << "ZilchInterface::ZilchInterface - Constructor\n";
       
     }
@@ -82,7 +86,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void ZilchInterface::SetupZilch()
-    {
+    {      
+      // Create the setup
+      //Setup = Zilch::ZilchSetup(Zilch::StartupFlags::DoNotShutdown);
       // Set up the console
       SetupConsole();
       // Parse all static libraries
@@ -110,10 +116,8 @@ namespace DCEngine {
       AddLibrary(Zilch::Core::GetInstance().GetLibrary());
       // Add the Core Library
       AddLibrary(DCEngineCore::GetInstance().GetLibrary());
-      SetUpComponentTypes(DCEngineCore::GetInstance().GetLibrary());
       // Add the Rebound Library (Temporary)
       AddLibrary(Rebound::GetInstance().GetLibrary());      
-      SetUpComponentTypes(Rebound::GetInstance().GetLibrary());
     }
 
 
@@ -128,39 +132,6 @@ namespace DCEngine {
       DCTrace << "ZilchInterface::Terminate";
       Clean();
     }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives Zilch errors and redirects them to our logging system!
-    @param  error A pointer to the error event.
-    */
-    /**************************************************************************/
-    void ZilchInterface::CustomErrorCallback(Zilch::ErrorEvent * error)
-    {
-      std::string errorMessage = error->GetFormattedMessage(Zilch::MessageFormat::Zilch).c_str();
-      // Redirect to our tracing system
-      DCTrace << errorMessage;
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Sets up the console for the ZilchInterface.
-    */
-    /**************************************************************************/
-    void CustomWriteText(Zilch::ConsoleEvent* event) {
-      DCTrace << event->Text.c_str();
-    }
-    void ZilchInterface::SetupConsole()
-    {
-      // Setup the console so that when we call 'Console.WriteLine' it outputs to stdio
-      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, CustomWriteText);
-      //Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
-      // We can also setup the console so that any 'Read' functions will attempt to read from stdin
-      Zilch::EventConnect(&Zilch:: Console::Events, Zilch::Events::ConsoleRead, Zilch::DefaultReadText);
-    }
-
-
 
     /*!************************************************************************\
     @brief  Invokes the function.
@@ -192,6 +163,42 @@ namespace DCEngine {
       // Check the exception error
 
       return call;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Compiles and links all the libraries into one executable state.
+    @param  A reference to the current Zilch project object.
+    */
+    /**************************************************************************/
+    void ZilchInterface::Build()
+    {
+      DCTrace << "ZilchInterface::Build - Linking and compiling the executable state! \n";
+      // Link all the libraries together into one executable state
+      State = Dependencies.Link();
+      ErrorIf(State == nullptr, "Failed to link libraries together");
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Clears the interface's Zilch 'state' as well as the 'dependencies'
+    module.
+    */
+    /**************************************************************************/
+    void ZilchInterface::Clean()
+    {
+      DCTrace << "ZilchInterface::Clean - Freeing the state, report, dependencies... \n";
+      // Free the State's dynamically allocated memory
+      if (State) {
+        delete State;
+        State = nullptr;
+      }
+      // Clear the 'Exception' report
+      Report.Clear();
+      // Clear the 'Dependencies' container
+      Dependencies.clear();
+      // Re-include Zilch's core libraries
+      Dependencies.push_back(Zilch::Core::GetInstance().GetLibrary());
     }
 
 

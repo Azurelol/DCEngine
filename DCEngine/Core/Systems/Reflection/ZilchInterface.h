@@ -37,9 +37,10 @@ namespace DCEngine {
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
       bool CompileScripts();
+      void ParseStaticLibraries();
       void Build();
       void Clean();
-      bool SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, 
+      bool SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, Zilch::BoundType* returnType, 
                              Zilch::LibraryBuilder* builder, ParseCallback callback, bool makeStatic = false);
       // JSON
       Zilch::JsonValue ParseJSON(std::string& string);
@@ -84,8 +85,6 @@ namespace DCEngine {
       void Initialize();
       void SetupZilch();
       void SetupLibraries();
-      void ParseStaticLibraries();
-      void SetUpComponentTypes(Zilch::LibraryRef library);
 
       void TypeParsedErrorCallback(Zilch::ParseEvent* event);
       void CustomErrorCallback(Zilch::ErrorEvent* error);

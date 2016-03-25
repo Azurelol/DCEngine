@@ -14,6 +14,7 @@
 #include "../../Components/Transform.h"
 #include "../../Components/RigidBody.h"
 #include "../../Components/BoxCollider.h"
+#include "../../Components/CircleCollider.h"
 #include "../../Objects/Entities/EntitiesInclude.h"
 #include "../../Events/CollisionEvents.h"
 #include "Collision.h"
@@ -48,6 +49,19 @@ namespace DCEngine
   {
     auto rigid1 = c.Object1->getComponent<Components::RigidBody>();
     auto rigid2 = c.Object2->getComponent<Components::RigidBody>();
+
+    Components::Collider * Collider1 = c.Object1->getComponent<Components::BoxCollider>();
+    Components::Collider * Collider2 = c.Object1->getComponent<Components::BoxCollider>();
+
+    if (Collider1 == NULL)
+    {
+      Collider1 = c.Object1->getComponent<Components::CircleCollider>();
+    }
+
+    if (Collider2 == NULL)
+    {
+      Collider2 = c.Object2->getComponent<Components::CircleCollider>();
+    }
 
 
     //Find the velocity of the two object along the contact normal
@@ -129,17 +143,17 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      totalInverseMass = rigid1->getInvMass();
+      totalInverseMass = Collider1->GetInvMass();
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      totalInverseMass = rigid2->getInvMass();
+      totalInverseMass = Collider2->GetInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      totalInverseMass = rigid1->getInvMass() + rigid2->getInvMass();
+      totalInverseMass = Collider1->GetInvMass() + Collider2->GetInvMass();
     }
 
 
@@ -166,8 +180,7 @@ namespace DCEngine
       if (rigid1->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass *
-					c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * Collider1->GetInvMass());
       }
     }
 
@@ -175,7 +188,7 @@ namespace DCEngine
     {
       if (rigid2->DynamicState != DynamicStateType::Static)
       {
-        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * Collider2->GetInvMass());
       }
     }
 
@@ -183,13 +196,13 @@ namespace DCEngine
     {
       if (rigid1->DynamicState != DynamicStateType::Static)
       {
-        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * c.Object1->getComponent<Components::RigidBody>()->getInvMass());
+        rigid1->setVelocity(rigid1->getVelocity() + impulsePerIMass * Collider1->GetInvMass());
       }
 
       if (rigid2->DynamicState != DynamicStateType::Static)
       {
         // The other body goes in the opposite direction
-        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * c.Object2->getComponent<Components::RigidBody>()->getInvMass());
+        rigid2->setVelocity(rigid2->getVelocity() - impulsePerIMass * Collider2->GetInvMass());
       }
     }
 
@@ -360,6 +373,20 @@ namespace DCEngine
     // The movement of each object is based on their inverse mass, so
     // total that.
     float totalInverseMass;
+    Components::Collider * Collider1 = c.Object1->getComponent<Components::BoxCollider>();
+    Components::Collider * Collider2 = c.Object1->getComponent<Components::BoxCollider>();
+
+    if (Collider1 == NULL)
+    {
+      Collider1 = c.Object1->getComponent<Components::CircleCollider>();
+    }
+
+    if (Collider2 == NULL)
+    {
+      Collider2 = c.Object2->getComponent<Components::CircleCollider>();
+    }
+
+
 
     if (c.rigid1 == false && c.rigid2 == false)
     {
@@ -368,17 +395,17 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = Collider1->GetInvMass();
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = Collider2->GetInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      totalInverseMass = c.Object1->getComponent<Components::RigidBody>()->getInvMass() + c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      totalInverseMass = Collider1->GetInvMass() + Collider2->GetInvMass();
     }
 
     // Find the amount of penetration resolution per unit of inverse mass
@@ -398,20 +425,20 @@ namespace DCEngine
 
     if (c.rigid1 != false && c.rigid2 == false)
     {
-      c.v1 = movePerIMass *  c.Object1->getComponent<Components::RigidBody>()->getInvMass();
+      c.v1 = movePerIMass *  Collider1->GetInvMass();
       c.v2 = movePerIMass * -0.0f;
     }
 
     if (c.rigid1 == false && c.rigid2 != false)
     {
       c.v1 = movePerIMass *  0.0f;
-      c.v2 = movePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      c.v2 = movePerIMass * -Collider2->GetInvMass();
     }
 
     if (c.rigid1 != false && c.rigid2 != false)
     {
-      c.v1 = movePerIMass *  c.Object1->getComponent<Components::RigidBody>()->getInvMass();
-      c.v2 = movePerIMass * -c.Object2->getComponent<Components::RigidBody>()->getInvMass();
+      c.v1 = movePerIMass *  Collider1->GetInvMass();
+      c.v2 = movePerIMass * -Collider2->GetInvMass();
     }
 
     // Apply the penetration resolution

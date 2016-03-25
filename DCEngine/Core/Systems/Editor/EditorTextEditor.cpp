@@ -51,8 +51,9 @@ namespace DCEngine {
 
         if (ImGui::BeginMenuBar()) {
           if (ImGui::BeginMenu("File")) {
-            if ((ImGui::MenuItem("Open Externally"))) OpenOnExternalEditor();
-            if ((ImGui::MenuItem("Save"))) Save();
+            if ((ImGui::MenuItem("Open Externally", "CTRL+Tab"))) OpenOnExternalEditor();
+            if ((ImGui::MenuItem("Save", "CTRL+S"))) Save();
+            if ((ImGui::MenuItem("Print", "CTRL+P", false))) Print();
             if ((ImGui::MenuItem("Close"))) Close();
             ImGui::EndMenu();
           }
@@ -160,6 +161,11 @@ namespace DCEngine {
       }    
     }
 
+    void EditorTextEditor::Print()
+    {
+      DCTrace << " EditorTextEditor::Print: \n";
+    }
+
     /**************************************************************************/
     /*!
     @brief Opens the currently selected script/shader on the specified
@@ -220,7 +226,14 @@ namespace DCEngine {
         auto s_keyPressedPrevDur = io.KeysDownDurationPrev[io.KeyMap[ImGuiKey_S]];
         if (s_keyPressed && (s_keyPressedDur == s_keyPressedPrevDur)) {          
           DispatchSystemEvents::EditorSave();
-        }     
+        }
+        // Tab
+        bool tab_keyPressed = io.KeysDown[io.KeyMap[ImGuiKey_Tab]];
+        auto tab_keyPressedDur = io.KeysDownDuration[io.KeyMap[ImGuiKey_Tab]];
+        auto tab_keyPressedPrevDur = io.KeysDownDurationPrev[io.KeyMap[ImGuiKey_Tab]];
+        if (tab_keyPressed && (tab_keyPressedDur == tab_keyPressedPrevDur)) {
+          OpenOnExternalEditor();
+        }
       }
 
     }

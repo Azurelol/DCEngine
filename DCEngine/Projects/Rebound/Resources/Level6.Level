@@ -63,7 +63,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 83, 
         "Name": "Ground", 
         "Archetype": "Ground", 

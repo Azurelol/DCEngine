@@ -53,7 +53,6 @@ namespace DCEngine {
     ZilchInitializeType(GameSession);
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
-
     /*===================*
     *     Resources      *
     *===================*/
@@ -67,14 +66,15 @@ namespace DCEngine {
     ZilchInitializeType(Font);
     ZilchInitializeType(SpriteLayer);
     ZilchInitializeType(SpriteLayerOrder);
-
     /*===================*
-    *      Enums        *
+    *      Actions      *
     *===================*/
-    /*ZilchInitializeType(Direction);
-    ZilchInitializeType(Keys);
-    ZilchInitializeType(MouseButton);
-    ZilchInitializeType(MouseWheelScrollDirection);*/
+    ZilchInitializeType(Action);
+    ZilchInitializeType(ActionSet);
+    ZilchInitializeType(ActionGroup);
+    ZilchInitializeType(ActionSequence);
+    ZilchInitializeType(ActionsOwner);
+    ZilchInitializeType(Actions);
     /*===================*
     *      Events        *
     *===================*/
@@ -140,23 +140,15 @@ namespace DCEngine {
     ZilchInitializeType(Components::DebugAudio);
     // Zilch
     ZilchInitializeType(ZilchComponent);
-    ZilchInitializeType(ZilchEvent);
-    
-    //auto interface = Systems::ZilchInterface::Get();
-    //// Try #1
-    //auto& boundTypes = builder.BuiltLibrary->BoundTypes.values();
-    //while (!boundTypes.empty()) {
-    //  interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
-    //}
-    ////// Try #2
-    //ZilchForEach(auto boundType, builder.BuiltLibrary->BoundTypes.values()) {
-    //  interface.SetupTypeProperty(boundType, ZilchTypeId(Component), &builder, Systems::GetNativeComponent);
-    //}
-    
-
-    //for (auto& boundType : DCEngineCore::GetLibrary()->BoundTypes.all()) {
-    //  //ZilchInterface::Get().SetupTypeProperty(event->Type, Component::ZilchGetStaticType(), event->Builder, GetComponent);
-    //}
+    ZilchInitializeType(ZilchEvent);    
+    // Setup extension properties for Entity
+    auto interface = Systems::ZilchInterface::Get();
+    auto& boundTypes = builder.BoundTypes.values();
+    while (!boundTypes.empty()) {
+      interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), boundTypes.front(),
+                                  &builder, Systems::GetNativeComponent);
+      boundTypes.popFront();
+    }
   }
   
   /**************************************************************************/

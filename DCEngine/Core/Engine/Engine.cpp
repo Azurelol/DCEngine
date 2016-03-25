@@ -144,19 +144,19 @@ namespace DCEngine {
     connectSpace.push_back(ZilchTypeId(Space));
     connectSpace.push_back(ZilchTypeId(Zilch::String));
     connectSpace.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToSpace, connectSpace, ZilchTypeId(void), Zilch::FunctionOptions::Static);
+    //builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToSpace, connectSpace, ZilchTypeId(void), Zilch::FunctionOptions::Static);
     // Connect to keyboard
     Zilch::ParameterArray connectKeyboard;
     connectKeyboard.push_back(ZilchTypeId(Keyboard));
     connectKeyboard.push_back(ZilchTypeId(Zilch::String));
     connectKeyboard.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToKeyboard, connectKeyboard, ZilchTypeId(void), Zilch::FunctionOptions::Static);
+    //builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToKeyboard, connectKeyboard, ZilchTypeId(void), Zilch::FunctionOptions::Static);
     // Connect to mouse
     Zilch::ParameterArray connectMouse;
     connectMouse.push_back(ZilchTypeId(Mouse));
     connectMouse.push_back(ZilchTypeId(Zilch::String));
     connectMouse.push_back(Zilch::Core::GetInstance().AnyDelegateType);
-    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToMouse, connectMouse, ZilchTypeId(void), Zilch::FunctionOptions::Static);
+    //builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnectToMouse, connectMouse, ZilchTypeId(void), Zilch::FunctionOptions::Static);
 
   }
 

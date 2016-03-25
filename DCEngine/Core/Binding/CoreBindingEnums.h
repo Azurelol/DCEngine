@@ -5,7 +5,7 @@
 @par    email: g.neumann\@digipen.edu
 @date   2/27/2016
 @brief  Binds enums used in the engine so that Zilch can convert to them and
-back.
+        back.
 @copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
@@ -20,7 +20,8 @@ back.
 
 #include <ZILCH\Zilch.hpp>
 
-ZilchDeclareExternalBaseType(DCEngine::Direction, Zilch::TypeCopyMode::ReferenceType);
-ZilchDeclareExternalBaseType(DCEngine::Keys, Zilch::TypeCopyMode::ReferenceType);
-ZilchDeclareExternalBaseType(DCEngine::MouseButton, Zilch::TypeCopyMode::ReferenceType);
-ZilchDeclareExternalBaseType(DCEngine::MouseWheelScrollDirection, Zilch::TypeCopyMode::ReferenceType);
+ZilchDeclareExternalBaseType(DCEngine::Direction, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::Keys, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::MouseButton, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::MouseWheelScrollDirection, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::Ease, Zilch::TypeCopyMode::Enum::ValueType);

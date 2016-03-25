@@ -209,15 +209,21 @@ namespace DCEngine {
   void GameObject::AttachTo(GameObjectPtr parent)
   {
     // If there is no parent
-    if (!parent)
+    if (!parent) {
+      DCTrace << Name() << "::GameObject: Failed to attach, no parent! \n";
       return;
+    }
     // If trying to attach to self
-    if (parent->GameObjectID == this->GameObjectID)
+    if (parent->GameObjectID == this->GameObjectID) {
+      DCTrace << Name() << "::GameObject: Cannot attach to self! \n";
       return;
+    }
     // If trying to attach to a child
     for (auto& child : ChildrenContainer) {
-      if (child->GameObjectID == parent->GameObjectID)
+      if (child->GameObjectID == parent->GameObjectID) {
+        DCTrace << Name() << "::GameObject: Cannot attach to child! \n";        
         return;
+      }
     }
 
     // Detach from the current

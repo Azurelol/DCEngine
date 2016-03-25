@@ -49,6 +49,11 @@ namespace DCEngine {
 
       // 2. Get a list of all properties on the object      
       for (auto& property : componentBoundType->AllProperties) {
+        
+        // Only reflect properties with the "Property" attribute
+        if (!property->HasAttribute("Property")) {
+          continue;
+        }
 
         // If property is marked as hidden...
         if (property->HasAttribute("Hidden"))
@@ -96,14 +101,18 @@ namespace DCEngine {
         =======================*/
         if (Zilch::Type::IsEnumType(property->PropertyType)) {
           ImGui::PushID(propertyID++);
+
+          auto currentVal = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
+          int currentItem = currentVal;
+
+          // Fill in a list of all possible enum values by name
           std::vector<const char *> enums;
           auto enumType = Zilch::Type::GetBoundType(property->PropertyType);
-          for (auto& enumProperty : enumType->AllProperties) {
-            ;
+          for (auto& enumProperty : enumType->AllProperties) {            
             enums.push_back(enumProperty->Name.c_str());
           }
+
           // If the user selects an item... 
-          static int currentItem = 0;
           ImGui::Text(property->Name.c_str());
           if (ImGui::Combo("##propertyID", &currentItem, enums.data(), static_cast<int>(enums.size()))) {
             // Set the selected item as the current resource

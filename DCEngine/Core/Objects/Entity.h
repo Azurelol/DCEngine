@@ -87,6 +87,7 @@ namespace DCEngine {
     void SwapToBack(ComponentPtr);
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Dispatch(std::string eventID, Event* event);
     void Dispatch(Event* eventObj);
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);
@@ -95,6 +96,7 @@ namespace DCEngine {
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
+    ActionsOwner& getActions() { return this->Actions; }
     // Components as properties
     Components::Transform* getTransform() { return getComponent<Components::Transform>(); }
     //DCE_ENTITY_GET_COMPONENT(Transform);

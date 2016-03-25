@@ -19,7 +19,6 @@
 #include <cassert>
 #include <map>
 
-
 #include <GLM\glm.hpp>
 #include <GLM\matrix.hpp>
 #include <GLM\gtc\type_ptr.hpp>
@@ -45,12 +44,38 @@ namespace DCEngine {
     GUI,
     Keyboard,
     Mouse,
-
     // The amount of systems
     Capacity
   };
   // Alias for the enum
   using ESys = EnumeratedSystem;
+
+  enum class ResourceType {
+    None,
+    Archetype,
+    Bank,
+    CollisionGroup,
+    CollisionTable,
+    Font,
+    Level,
+    Material,
+    PhysicsMaterial,
+    SoundCue,
+    SpriteSource,
+    SpriteLayer,
+    SpriteLayerOrder,
+    ZilchScript,
+  };
+
+  enum class Ease {
+    Linear,
+    QuadIn,
+    QuadInOut,
+    QuadOut,
+    SinIn,
+    SinInOut,
+    SinOut,
+  };
 
   enum class Direction {
     None,
@@ -171,22 +196,6 @@ namespace DCEngine {
     GLboolean lastEnableScissorTest;
   };
 
-  enum class ResourceType {
-    None,
-    Archetype,
-    Bank,
-    CollisionGroup,
-    CollisionTable,
-    Font,
-    Level,
-    Material,
-    PhysicsMaterial,
-    SoundCue,
-    SpriteSource,
-    SpriteLayer,
-    SpriteLayerOrder,
-    ZilchScript,
-  };
 
   struct TransformData {
     Vec3 Translation;

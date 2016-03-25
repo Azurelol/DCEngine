@@ -20,7 +20,7 @@ namespace DCEngine {
     @param editor A reference to the Editor.
     */
     /**************************************************************************/
-    EditorObjects::EditorObjects(Editor & editor) : EditorModule(editor, true), 
+    EditorObjects::EditorObjects(Editor & editor) : EditorModule(editor, true),
       Attaching(false), Detaching(false), Deleting(false)
     {
       // The EditorObjects window starts displayed
@@ -44,7 +44,7 @@ namespace DCEngine {
     void EditorObjects::Display()
     {
       if (!WindowEnabled)
-        return;      
+        return;
 
       // Check if there's an action to be performed
       CheckState();
@@ -54,9 +54,11 @@ namespace DCEngine {
       // Title
       ImGui::Begin("Objects", &WindowEnabled);
       // Capture a list of all objects on the space
-      auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();      
+      auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
+      // Show the attach menu
+      AttachMenu();
       // Swap position
-      ImGui::SameLine();
+      //ImGui::SameLine();
       if (ImGui::Button("Up")) {
         if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Up);
@@ -67,6 +69,7 @@ namespace DCEngine {
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
+      ImGui::Separator();
       unsigned objID = 0;
       // For every object
       for (auto& object : *objects) {
@@ -75,7 +78,8 @@ namespace DCEngine {
           continue;
         ImGui::PushID(objID++);
         // Display the object
-        DisplayObject(object);
+        unsigned id = 0;
+        DisplayObject(object, id);
         ImGui::PopID();
       }
       // Ends the window
@@ -109,13 +113,13 @@ namespace DCEngine {
     @todo   Find a way to swap and parent objects to one another with dragging.
     */
     /**************************************************************************/
-    bool EditorObjects::DisplayObject(GameObjectPtr object)
-    {
+    bool EditorObjects::DisplayObject(GameObjectPtr object, unsigned& id)
+    {      
       bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == object->getObjectID();
       auto objectName = object->Name().c_str();
-
-      // If it has any children, display all children recursively
       auto& children = object->Children();
+
+      // Parent: If it has any children, display all children recursively
       if (!children.empty()) {
         // If you click on the TreeNode..
         //if (ImGui::CollapsingHeader(objectName)) {
@@ -123,57 +127,111 @@ namespace DCEngine {
         //    DisplayObject(child);
         //  }
         //}
-        
-        bool asTree = false;
-        if (asTree) {
-          if (ImGui::TreeNode(objectName)) {
-            // Display all children recursively
-            for (auto& child : children) {
-              DisplayObject(child);
-            }
-            ImGui::TreePop();
-          }
-          if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+
+
+        //// Parent
+        //if (ImGui::Selectable(objectName), selected) {          
+        //  if (Attaching)
+        //    Attach(object);
+        //  EditorRef.SelectObject(object);
+        //  EditorRef.Inspector.Toggle(true);
+        //}
+        //// Display a context menu
+        //ContextMenu(object);
+        //if (ImGui::TreeNode("Children")) {
+        //  // Display all children recursively
+        //  for (auto& child : children) {
+        //    DisplayObject(child, ++id);
+        //  }
+        //  ImGui::TreePop();
+        //}
+
+
+
+
+        bool treeOpened = false; 
+        ImGui::PushID(++id);
+        if (ImGui::TreeNode("")) {
+          treeOpened = true;
+          // Display the parent selectable
+          ImGui::SameLine();
+          if (ImGui::Selectable(objectName), selected) {
+            // Attach
+            if (Attaching)
+              Attach(object);
             EditorRef.SelectObject(object);
             EditorRef.Inspector.Toggle(true);
-          }
-        }
-        else {
-          if (ImGui::BeginMenu(objectName)) {
-            // Display all children recursively
-            for (auto& child : children) {
-              DisplayObject(child);
-            }
-            ImGui::EndMenu();
           }
           // Display a context menu
           ContextMenu(object);
-          if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+
+          // Display all children recursively
+          for (auto& child : children) {
+            DisplayObject(child, ++id);
+          }
+          ImGui::TreePop();
+        }
+        ImGui::PopID();
+        if (!treeOpened) {
+          // Display the parent selectable
+          ImGui::SameLine();
+          ImGui::PushID(object->getObjectID());
+          if (ImGui::Selectable(objectName), selected) {
+            // Attach
+            if (Attaching)
+              Attach(object);
             EditorRef.SelectObject(object);
             EditorRef.Inspector.Toggle(true);
           }
+          ImGui::PopID();
+          // Display a context menu
+          ContextMenu(object);
         }
 
-
+        //// Single click
+        //if (ImGui::Selectable(objectName)) {
+        //  // Select
+        //  EditorRef.SelectObject(object);
+        //  EditorRef.Inspector.Toggle(true);
+        //  // Attach
+        //  if (Attaching)
+        //    Attach(object);                    
+        //}
+        //// Display a context menu
+        //ContextMenu(object);
+        //// If the object was locked..
+        //IsLocked(object);
+        //// If parent
+        //IsParent(object);
+        //// If it was double clicked
+        //if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
+        //  // Display all children recursively
+        //  for (auto& child : children) {
+        //    DisplayObject(child);
+        //  }
+        //}
       }
+      // Child:
       else {
-        if (ImGui::Selectable(objectName, selected)) {
+        // Single click
 
+        //ImGui::PushID(object->getGameObjectID());
+        if (ImGui::Selectable(objectName, selected)) {
+          // Attach
           if (Attaching)
             Attach(object);
-
+          // Select
           EditorRef.SelectObject(object);
           EditorRef.Inspector.Toggle(true);
           return true;
         }
+        //ImGui::PopID();
         // Display a context menu
         ContextMenu(object);
         // If the object was locked..
-        if (object->getLocked()) {
-          ImGui::SameLine();
-          ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "L");
-        }
+        IsLocked(object);
       }
+
       return false;
     }
 
@@ -212,6 +270,32 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Checks if an object is locked, and if it is displays a marker.
+    @param object A pointer to the object.
+    */
+    /**************************************************************************/
+    bool EditorObjects::IsLocked(GameObjectPtr object)
+    {
+      if (object->getLocked()) {
+        ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "L");
+        return true;
+      }
+      return false;
+    }
+
+    bool EditorObjects::IsParent(GameObjectPtr object)
+    {
+      if (!object->Children().empty()) {
+        ImGui::SameLine();
+        ImGui::TextColored(ImVec4(0.0f, 0.0f, 1.0f, 1.0f), "P");
+        return true;
+      }
+      return false;
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Displays an attach menu.
     */
     /**************************************************************************/
@@ -221,20 +305,40 @@ namespace DCEngine {
       auto objectIdentifiers = EditorRef.CurrentSpace->IdentifyAllObjects();
       auto names = objectIdentifiers.NamesAsChars();
       ImGui::PushItemWidth(ImGui::GetWindowWidth() / 2.0f);
-      ImGui::TextColored(ImVec4(255, 0, 0, 255), "Attach To");
-      ImGui::SameLine();
+      
+      auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject());
+      bool attached = false;
+      if (gameObject && gameObject->Parent())
+        attached = true;
+      
+      // Attachable object list
       static int currentAttachable = 0;
-      // Attempt t attach a GameObject if there is one selected
+      // Attempt to attach a GameObject if there is one selected
       if (ImGui::Combo("##Attach", &currentAttachable, names.data(), static_cast<int>(names.size()))) {
         DCTrace << "Attaching to " << objectIdentifiers.Names[currentAttachable] << ", with ID: " << objectIdentifiers.IDs[currentAttachable] << "\n";
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
-          gameObject->AttachTo(objects->at(currentAttachable));
-        }
+        //if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
+        //  gameObject->AttachTo(objects->at(currentAttachable));
+        //}
       }
-      if (ImGui::Button("Detach")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
-          gameObject->Detach();
-        }
+
+      // Button settings
+      ImGui::SameLine();
+      std::string caption = "Attach To";
+      ImVec4 captionColor = ImVec4(255, 0, 0, 255);      
+      if (attached) {
+          caption = "Detach";
+          captionColor = ImVec4(127, 127, 0, 255);
+      }
+      // Button
+      if (ImGui::Button(caption.c_str())) {
+        if (gameObject) {
+          if (!attached) {
+            gameObject->AttachTo(objects->at(currentAttachable));
+          }
+          else {
+            gameObject->Detach();
+          }
+        } 
       }
     }
 
@@ -266,6 +370,40 @@ namespace DCEngine {
         }
         Detaching = false;
       }
+
+      if (Attaching) {
+        // Disable attaching if right mouse button has been clicked.
+        if (ImGui::IsMouseClicked(1)) {
+          Attaching = false;
+        }
+
+        ShowOverlay();
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Shows an overlay depicting state changes.
+    */
+    /**************************************************************************/
+    void EditorObjects::ShowOverlay()
+    {      
+      // Show overlay
+      static bool opened;
+      auto& cursorPos = ImGui::GetMousePos();
+      auto overlaySize = ImVec2(2, 2);
+      ImGui::SetNextWindowPos(cursorPos, ImGuiSetCond_Always);
+      if (!ImGui::Begin("Example: Fixed Overlay", &opened, overlaySize, 0.3f, ImGuiWindowFlags_NoTitleBar
+        | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs))
+      {
+        ImGui::End();
+        return;
+      }
+      std::string action;
+      if (Attaching) action = "Attach";
+      ImGui::Text(action.c_str());
+      ImGui::Text("Mouse Position: (%.1f,%.1f)", ImGui::GetIO().MousePos.x, ImGui::GetIO().MousePos.y);
+      ImGui::End();
     }
 
 

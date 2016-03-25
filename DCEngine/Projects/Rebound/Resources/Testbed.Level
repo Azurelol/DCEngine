@@ -9,184 +9,7 @@
       {
         "Locked": false, 
         "GameObjectID": 2, 
-        "Name": "Sprite", 
-        "Archetype": "", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 3.889119, 
-                "y": 5.223976, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Player": 
-          {
-            "Check": true, 
-            "Inty": 15, 
-            "Into": 3, 
-            "Boo": 2.000000, 
-            "Wham": 
-            {
-              "Vec2": 
-              {
-                "x": 2.000000, 
-                "y": 2.000000
-              }
-            }, 
-            "Blam": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 2.000000, 
-                "z": 3.000000
-              }
-            }
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 3, 
-            "Name": "SpriteText", 
-            "Archetype": "", 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "SpriteText": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "Font": "", 
-                "FontSize": 12, 
-                "Text": "", 
-                "PixelsPerUnit": 64, 
-                "Smoothing": true, 
-                "WordWrap": 0
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 147, 
-        "Name": "Camera", 
-        "Archetype": "", 
+        "Name": "ScriptUnitTest", 
         "Components": 
         {
           "Transform": 
@@ -219,13 +42,16 @@
               }
             }
           }, 
-          "Camera": 
+          "ScriptUnitTest": 
           {
-            "FieldOfView": 90.000000, 
-            "NearPlane": 0.100000, 
-            "FarPlane": 100.000000, 
-            "Size": 90.000000, 
-            "Projection": "Perspective"
+            "TestingLogicUpdate": false, 
+            "TestingInput": true, 
+            "TestingScriptEvents": true, 
+            "TestingColorChange": true, 
+            "TestingActions": true, 
+            "EngineEnum": "A", 
+            "Color": "Red", 
+            "Color2": "Blue"
           }
         }, 
         "Children": 

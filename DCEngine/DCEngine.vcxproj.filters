@@ -208,9 +208,6 @@
     <Filter Include="Core\Systems\Editor\Select">
       <UniqueIdentifier>{f43e998e-4d23-486c-9193-859ea292b8b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Systems\Editor\Properties">
-      <UniqueIdentifier>{9cc9753b-7306-45af-b7a8-aacf89a99996}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Libraries">
       <UniqueIdentifier>{2ce09bdb-9f9a-4d29-8efc-cfc6e38891f6}</UniqueIdentifier>
     </Filter>
@@ -333,6 +330,12 @@
     </Filter>
     <Filter Include="Core\Systems\Editor\Modules\Creator">
       <UniqueIdentifier>{6b02d303-f129-47c4-887e-34694ae92b3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Action\Property">
+      <UniqueIdentifier>{e739d986-40ce-4a74-b973-f1cf5cddec2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Engine\Action\Actions">
+      <UniqueIdentifier>{ccc51a6d-09ef-44c2-869e-7ab485eaa536}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -711,9 +714,6 @@
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp">
       <Filter>Core\Systems\Editor\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine\Actions.cpp">
-      <Filter>Core\Engine\Action</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Engine\ActionSpace.cpp">
       <Filter>Core\Engine\Action</Filter>
     </ClCompile>
@@ -935,6 +935,12 @@
     </ClCompile>
     <ClCompile Include="Core\Objects\Events\ZilchEvent.cpp">
       <Filter>Core\Object\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\ActionProperty.cpp">
+      <Filter>Core\Engine\Action\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\Actions.cpp">
+      <Filter>Core\Engine\Action\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1460,9 +1466,6 @@
     <ClInclude Include="Core\Objects\Entity.hpp">
       <Filter>Core\Object\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine\Actions.hpp">
-      <Filter>Core\Engine\Action</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Engine\Ease.h">
       <Filter>Core\Engine\Action</Filter>
     </ClInclude>
@@ -1573,6 +1576,21 @@
     </ClInclude>
     <ClInclude Include="Core\Resources\ResourceReference.h">
       <Filter>Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\ContentUtils.h">
+      <Filter>Core\Systems\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ActionProperty.h">
+      <Filter>Core\Engine\Action\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\ActionProperty.hpp">
+      <Filter>Core\Engine\Action\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Actions.hpp">
+      <Filter>Core\Engine\Action\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Actions.h">
+      <Filter>Core\Engine\Action\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

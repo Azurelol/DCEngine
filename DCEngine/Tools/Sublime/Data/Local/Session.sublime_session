@@ -20,18 +20,14 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt",
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
-						"buffer_size": 0,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-					"settings":
-					{
-						"buffer_size": 2200,
+<<<<<<< HEAD
+						"buffer_size": 5841,
+=======
+						"buffer_size": 5972,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 						"line_ending": "Windows"
 					}
 				}
@@ -43,16 +39,16 @@
 			"build_varint": "",
 			"command_palette":
 			{
-				"height": 392.0,
+				"height": 0.0,
 				"last_filter": "",
 				"selected_items":
 				[
 				],
-				"width": 392.0
+				"width": 0.0
 			},
 			"console":
 			{
-				"height": 126.0,
+				"height": 0.0,
 				"history":
 				[
 				]
@@ -102,24 +98,33 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Tools/text.txt",
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 0,
+<<<<<<< HEAD
+								"buffer_size": 5841,
+=======
+								"buffer_size": 5972,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
+<<<<<<< HEAD
 										0,
 										0
+=======
+										4954,
+										4954
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 									]
 								],
 								"settings":
@@ -127,36 +132,11 @@
 									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
+<<<<<<< HEAD
 								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 2200,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										738,
-										738
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2
-								},
-								"translation.x": 0.0,
-								"translation.y": 225.0,
+=======
+								"translation.y": 1654.0,
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -201,7 +181,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,901,-1649,139,-717",
+<<<<<<< HEAD
+			"position": "0,0,1,-1,-1,-1,-1,705,623,167,1279",
+=======
+			"position": "0,0,1,-1,-1,-1,-1,1143,1247,301,2282",
+>>>>>>> 0ab1246fe34f7a7ac8eae9f8132e7fffafbf203b
 			"project": "",
 			"replace":
 			{

@@ -27,7 +27,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
-	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
+	    DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
     }
     #endif

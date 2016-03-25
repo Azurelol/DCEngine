@@ -19,7 +19,7 @@
 #include "Types.h"
 #include "../Events/EventReference.h"
 #include "Math.h"
-#include "Action.h"
+#include "Actions.h"
 #include "Profiler.h"
 // Objects
 #include "../Objects/ObjectsInclude.h"
@@ -29,6 +29,7 @@
 #include "../Binding/CoreBinding.h"
 #include "../Binding/CoreBindingTypes.h"
 #include "../Binding/CoreBindingObjects.h"
+#include "..\Binding\CoreBindingEnums.h"
 
 namespace DCEngine {
 

@@ -1,8 +1,7 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="1">
-            <File firstVisibleLine="3256" xOffset="0" scrollWidth="3064" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Doxywarn.txt" backupFilePath="" originalFileLastModifTimestamp="1454642156" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="121" endPos="121" selMode="0" lang="C#" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1457952779" />
+        <mainView activeIndex="0">
+            <File firstVisibleLine="12" xOffset="0" scrollWidth="752" startPos="771" endPos="771" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458081802" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

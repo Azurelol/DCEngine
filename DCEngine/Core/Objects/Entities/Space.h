@@ -43,10 +43,7 @@ namespace DCEngine {
   
   public:
 
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(Space, Entity);
-    #endif
-    
     Space(std::string name, GameSession& gamesession);
     ~Space();
     void Initialize();

@@ -22,6 +22,18 @@ ZilchDefineExternalType(DCEngine::Direction, "Direction", DCEngine::DCEngineCore
   ZilchBindEnumValue(builder, type, DCEngine::Direction::Right, "Right");
 }
 
+ZilchDefineExternalType(DCEngine::Ease, "Ease", DCEngine::DCEngineCore, builder, type)
+{
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::Linear, "Linear");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::QuadIn, "QuadIn");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::QuadOut, "QuadOut");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::QuadInOut, "QuadInOut");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::SinIn, "SinIn");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::SinOut, "SinOut");
+  ZilchBindEnumValue(builder, type, DCEngine::Ease::SinInOut, "SinInOut");
+}
+
 ZilchDefineExternalType(DCEngine::Keys, "Keys", DCEngine::DCEngineCore, builder, type)
 {
   ZilchBindEnum(builder, type, SpecialType::Enumeration);
