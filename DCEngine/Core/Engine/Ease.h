@@ -28,6 +28,22 @@ namespace DCEngine {
       return t * (2 - t);
     }
 
+    static Real Calculate(Real t, Ease ease) {
+      Real easeVal;
+      switch (ease) {
+      case Ease::Linear:
+        easeVal = Easing::Linear(t);
+        break;
+      case Ease::QuadIn:
+        easeVal = Easing::QuadIn(t);
+        break;
+      case Ease::QuadOut:
+        easeVal = Easing::QuadOut(t);
+        break;
+      }
+      return easeVal;
+    }
+
   };
 
 

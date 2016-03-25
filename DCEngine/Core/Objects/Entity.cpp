@@ -19,9 +19,6 @@
 
 namespace DCEngine {
   
-
-
-
   /*!************************************************************************\
   @brief  Entity Definition
   \**************************************************************************/
@@ -37,6 +34,10 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");
 
     // Properties
+    //ZilchBindField(builder, type, &Entity::Actions, "Actions", Zilch::PropertyBinding::Get);
+    //ZilchBindProperty(builder, type, &Entity:)
+    DCE_BINDING_DEFINE_PROPERTY_NOSETTER(Entity, Actions);
+    //DCE_BINDING_DEFINE_FIELD(Entity, Actions)->;
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
     DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
     DCE_BINDING_DEFINE_ATTRIBUTE(Skip);

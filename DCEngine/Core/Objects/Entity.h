@@ -96,6 +96,7 @@ namespace DCEngine {
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
+    ActionsOwner& getActions() { return this->Actions; }
     // Components as properties
     Components::Transform* getTransform() { return getComponent<Components::Transform>(); }
     //DCE_ENTITY_GET_COMPONENT(Transform);

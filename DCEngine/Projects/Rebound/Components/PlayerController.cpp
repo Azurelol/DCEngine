@@ -255,7 +255,8 @@ namespace DCEngine {
       {
         SpriteComponent->FlipX = true;
         MoveLeft();
-        RigidBodyRef->setFriction(GroundFriction);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
@@ -266,7 +267,8 @@ namespace DCEngine {
       {
         SpriteComponent->FlipX = false;
         MoveRight();
-        RigidBodyRef->setFriction(GroundFriction);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
@@ -275,7 +277,8 @@ namespace DCEngine {
       }
       else
       {
-        RigidBodyRef->setFriction(1.3f);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(1.3f);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;

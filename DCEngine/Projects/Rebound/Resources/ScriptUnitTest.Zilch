@@ -20,7 +20,7 @@ class CustomEvent : ZilchEvent {
 // Declaring and defining a custom enumeration
 enum CustomEnum { Red, Green, Blue }
 
-// Declaring a custom component class derived from our engine's component
+// Declaring a custom component class derived from our engine's component                                                                                                                                    
 class ScriptUnitTest : ZilchComponent
 {
     // Adding the event to Zilch's 'Event.EventName' group
@@ -30,7 +30,9 @@ class ScriptUnitTest : ZilchComponent
 	[Property] var TestingLogicUpdate : Boolean = false;
 	[Property] var TestingInput : Boolean = true;	
 	[Property] var TestingScriptEvents : Boolean = true;
-    [Property] var TestingColorChange : Boolean = true;
+  [Property] var TestingColorChange : Boolean = true;
+  [Property] var TestingActions : Boolean = true;
+
     // Testing engine enum
     [Property] var EngineEnum : Keys = Keys.A;    
     // Testing enums, fields and using them.    
@@ -43,6 +45,8 @@ class ScriptUnitTest : ZilchComponent
     // Handles
     var SpriteRef : Sprite;
     var TransformRef : Transform;
+    // Action Testing
+    var InterpolatedReal : Real = Real(1.0);
 
     function Initialize()
     {
@@ -115,11 +119,21 @@ class ScriptUnitTest : ZilchComponent
   	// KeyDown
   	function OnKeyDownEvent(event : KeyDown) {
   		Console.WriteLine("KeyDown: `event.Key` ");
-  		// Testing a simple color change
+  		// Testing a simple Color change
   		if (this.TestingColorChange) {
   			Console.WriteLine("Current Color: `this.Color`");	
   			this.ColorChange(this.Color);
   		}
+      // Test a simple action
+      if (this.TestingActions) {
+        if (event.Key == Keys.S) {
+          this.ActionPropertyTest();
+        }
+        else if (event.Key == Keys.P) {
+          this.ActionPropertyPrint();
+        }
+
+      }
   	}
 
   	// KeyUp
@@ -163,5 +177,18 @@ class ScriptUnitTest : ZilchComponent
   				this.SpriteRef.Color = this.ColorGreeen;
   		}
   	}
+
+  	function ActionPropertyTest() {
+      Console.WriteLine("Starting property test...");
+  	  var seq = Actions.Sequence(this.Owner.Actions);
+      Actions.Delay(seq, 1.5);          
+      Actions.Property(seq, @this.InterpolatedReal, 5.0, 5.0, Ease.Linear);
+  	}
+
+    function ActionPropertyPrint() {
+      Console.WriteLine("InterpolatedReal = `this.InterpolatedReal`");
+    }
+
+
 
 }
