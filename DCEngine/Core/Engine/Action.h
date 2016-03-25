@@ -18,17 +18,7 @@
 
 #define DCE_ACTIONS_ENABLED 1
 
-namespace DCEngine {
-    
-  enum class Ease {
-    Linear,
-    QuadIn,
-    QuadInOut,
-    QuadOut,
-    SinIn,
-    SinInOut,
-    SinOut,
-  };
+namespace DCEngine {  
 
   /*===================*
   *     Action        *
@@ -152,31 +142,6 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @class An ActionProperty is a type of action that modifies the value of
-         a given property over a specified amount of time, using a specified
-         interpolation formula (Ease).
-  */
-  /**************************************************************************/
-  template <typename PropertyType>
-  class ActionProperty : public Action {
-  public:
-    ActionProperty(ActionSetPtr set, PropertyType& prop, PropertyType value, Real duration, Ease ease);
-    float Update(float dt);
-
-  private:
-    PropertyType& Property;
-    PropertyType Difference;
-    PropertyType InitialValue;
-    PropertyType EndValue;
-    Real Duration;
-    Ease Ease_;
-
-    Real CalculateEase(Real t);
-
-  };
-
-  /**************************************************************************/
-  /*!
   @class An ActionOwner is a container of all actions a particular entity
          has. They propagate updates to all actions attached to it.
   */
@@ -226,29 +191,4 @@ namespace DCEngine {
     ActionsContainer InactiveActions;
   };
 
-  /*===================*
-  *     Interface   *
-  *===================*/
-  /**************************************************************************/
-  /*!
-  @class The ActionsClass is the interface class that the client will be using
-         for constructing and interacting with actions.
-  */
-  /**************************************************************************/
-  class Actions : public Zilch::IZilchObject{
-  public:
-    ZilchDeclareBaseType(Actions, Zilch::TypeCopyMode::ReferenceType);
-    // Constructs an action sequence, adding it to 
-    static ActionSetPtr Sequence(ActionSet& owner);
-    static ActionSetPtr Group(ActionSet& owner);
-    static void Delay(ActionSetPtr sets, Real duration);
-    template <typename Class, typename... Args> static void Call(ActionSetPtr sets, void(Class::*func)(Args...), Class* object, Args...);
-    template <typename PropertyType> static void Property(ActionSetPtr sets, PropertyType & propertyRef, PropertyType val, Real duration, Ease ease);
-
-  private:
-    
-  };
-
 }
-
-#include "Actions.hpp"

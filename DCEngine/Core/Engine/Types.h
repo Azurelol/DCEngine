@@ -67,7 +67,15 @@ namespace DCEngine {
     ZilchScript,
   };
 
-
+  enum class Ease {
+    Linear,
+    QuadIn,
+    QuadInOut,
+    QuadOut,
+    SinIn,
+    SinInOut,
+    SinOut,
+  };
 
   enum class Direction {
     None,
