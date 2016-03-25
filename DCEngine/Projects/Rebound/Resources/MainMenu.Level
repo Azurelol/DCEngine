@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 138, 
         "Name": "ExitButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -69,6 +68,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -76,7 +78,6 @@
         "Locked": false, 
         "GameObjectID": 139, 
         "Name": "FullScreen", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -135,6 +136,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -142,7 +146,6 @@
         "Locked": false, 
         "GameObjectID": 140, 
         "Name": "MusicManager", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -183,6 +186,9 @@
             "FadeInTime": 0.000000, 
             "FadeOutTime": 0.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -190,7 +196,6 @@
         "Locked": false, 
         "GameObjectID": 141, 
         "Name": "ConfirmButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -249,6 +254,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -256,7 +264,6 @@
         "Locked": false, 
         "GameObjectID": 142, 
         "Name": "NewGameButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -315,6 +322,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -322,7 +332,6 @@
         "Locked": false, 
         "GameObjectID": 143, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -368,6 +377,9 @@
             "TargetName": "Player", 
             "InterpolationSpeed": 0.040000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -375,7 +387,6 @@
         "Locked": false, 
         "GameObjectID": 144, 
         "Name": "CancelButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -434,6 +445,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -441,7 +455,6 @@
         "Locked": false, 
         "GameObjectID": 145, 
         "Name": "MainMenuManager", 
-        "Archetype": "MainMenuManager", 
         "Components": 
         {
           "Transform": 
@@ -482,6 +495,9 @@
             "LevelCrunk": "Whammu", 
             "TransitionTime": 1.000000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -489,7 +505,6 @@
         "Locked": false, 
         "GameObjectID": 146, 
         "Name": "PreAlpha", 
-        "Archetype": "SpriteText", 
         "Components": 
         {
           "Transform": 
@@ -542,6 +557,9 @@
             "Smoothing": true, 
             "WordWrap": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -549,7 +567,6 @@
         "Locked": false, 
         "GameObjectID": 147, 
         "Name": "ReboundTitle", 
-        "Archetype": "SpriteText", 
         "Components": 
         {
           "Transform": 
@@ -602,6 +619,9 @@
             "Smoothing": true, 
             "WordWrap": 1
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -609,7 +629,6 @@
         "Locked": false, 
         "GameObjectID": 148, 
         "Name": "BackgroundSky", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -662,6 +681,9 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -669,7 +691,6 @@
         "Locked": false, 
         "GameObjectID": 149, 
         "Name": "HowToPlayButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -728,6 +749,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -735,7 +759,6 @@
         "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Light", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -800,6 +823,9 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -807,7 +833,6 @@
         "Locked": false, 
         "GameObjectID": 151, 
         "Name": "CreditsButton", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -866,6 +891,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }
