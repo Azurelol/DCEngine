@@ -168,6 +168,9 @@ namespace DCEngine {
   using String = std::string;
   using Boolean = bool;
   using Integer = int;
+  using Integer2 = glm::i64vec2;
+  using Integer3 = glm::i64vec3;
+  using Integer4 = glm::i64vec4;
   using Real = float;
   using Vec2 = glm::vec2;
   using Vec3 = glm::vec3;

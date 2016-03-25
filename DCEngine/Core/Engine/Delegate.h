@@ -41,5 +41,12 @@ namespace DCEngine {
     }
   };
 
+  class ZilchMemberFunctionDelegate : public Delegate {
+  public:
+    Zilch::Delegate Delegate;
+    Zilch::ExecutableState* State;
+    virtual bool Call();
+  };
+
 
 }

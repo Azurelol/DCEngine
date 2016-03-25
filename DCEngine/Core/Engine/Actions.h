@@ -34,6 +34,7 @@ namespace DCEngine {
     // Call
     template <typename Class, typename... Args> static void Call(ActionSetPtr sets,
       void(Class::*func)(Args...), Class* object, Args...);
+    static void Call(Zilch::Call& call, Zilch::ExceptionReport& report);
     // Properties (C++)
     template <typename PropertyType>
     static void PropertyT(ActionSetPtr setRef, PropertyType & propertyRef, PropertyType val,

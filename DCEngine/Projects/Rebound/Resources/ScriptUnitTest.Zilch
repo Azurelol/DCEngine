@@ -190,8 +190,11 @@ class ScriptUnitTest : ZilchComponent
   	function ActionPropertyTest() {
       Console.WriteLine("Starting property test...");
   	  var seq = Actions.Sequence(this.Owner.Actions);
+      Actions.Call(seq, this.ActionPropertyPrint);
       Actions.Delay(seq, 1.5);
-            
+      Actions.Call(seq, this.ActionCallTest);
+      //Actions.Call(seq, this.ActionCallTestParams(5)); Doesn't work!
+
       if (this.TypeToTest == PropertyType.Integer)
       	Actions.Property(seq, @this.InterpolatedInteger, 10, 5.0, this.EaseFunc);	
       if (this.TypeToTest == PropertyType.Boolean)
@@ -204,6 +207,8 @@ class ScriptUnitTest : ZilchComponent
       	Actions.Property(seq, @this.InterpolatedReal3, Real3(10,10,10), 5.0, this.EaseFunc);	
       else if (this.TypeToTest == PropertyType.Real4)
       	Actions.Property(seq, @this.InterpolatedReal4, Real4(10,10,10,10), 5.0, this.EaseFunc);		
+
+      Actions.Call(seq, this.ActionPropertyPrint);
   	}
 
     function ActionPropertyPrint() {
@@ -219,8 +224,15 @@ class ScriptUnitTest : ZilchComponent
       	Console.WriteLine("InterpolatedReal3 = `this.InterpolatedReal3`");
       else if (this.TypeToTest == PropertyType.Real4)
       	Console.WriteLine("InterpolatedReal4 = `this.InterpolatedReal4`");
-      //Console.WriteLine("InterpolatedInteger = `this.InterpolatedInteger`");
-      
+      //Console.WriteLine("InterpolatedInteger = `this.InterpolatedInteger`");      
+    }
+
+    function ActionCallTest() {
+    	Console.WriteLine("John notice me because I am being called by an ActionCall");
+    }
+
+    function ActionCallTestParams(inty : Integer) {
+		Console.WriteLine("Integer value = `inty`");
     }
 
 

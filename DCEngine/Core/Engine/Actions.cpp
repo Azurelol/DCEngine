@@ -122,9 +122,12 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Actions::Group, ZilchNoOverload, "Group", "owner");
     ZilchBindMethod(builder, type, &Actions::Delay, ZilchNoOverload, "Delay", "setRef, duration");
 
-    //ZilchBindMethod(builder, type, &EaseMeUp, ZilchNoOverload, "EaseMeUp", "ease");
-    //auto f = (void (*)(ActionSetPtr, Real&, Real, Real, Ease)) &Actions::Property;
-
+    // Call
+    Zilch::ParameterArray callParams;
+    callParams.push_back(ZilchTypeId(ActionSetPtr));  
+    callParams.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Call", Actions::Call, callParams, ZilchTypeId(void), 
+                             Zilch::FunctionOptions::Static);
     // Properties
     ZilchBindMethod(builder, type, &Actions::Property, (void(*)(ActionSetPtr, Zilch::Handle, Real, Real, Ease)),
                                                         "Property", "setRef, prty, val, duration, ease");
@@ -155,7 +158,7 @@ namespace DCEngine {
     // Add it to the set
     set->Add(call);
   }
-   
+
   /*============================
         ACTION PROPERTIES  
   ===========================*/  
@@ -194,6 +197,26 @@ namespace DCEngine {
   ===============================*/
   /**************************************************************************/
   /*!
+  @brief Creates an ActionCall.
+  @param set A reference to the ActionSet that this action belongs to.
+  @param duration How long should the delay run for.
+  */
+  /**************************************************************************/
+  void Actions::Call(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto set = reinterpret_cast<ActionSetPtr>(call.Get<ActionSetPtr>(0));
+    auto& deleg = call.GetDelegate(1);
+    // Create the action delegate that will be used
+    auto zilcMemFnDeleg = new ZilchMemberFunctionDelegate();
+    zilcMemFnDeleg->State = call.GetState();
+    zilcMemFnDeleg->Delegate = deleg;
+    // Construct the ActionCall object
+    ActionPtr actionCall(new ActionCall(set, zilcMemFnDeleg));
+    set->Add(actionCall);    
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Creates an ActionProperty (Real)
   @param setRef A reference to the ActionSet that this action belongs to.
   @param handle A handle to the property delegate.
@@ -222,11 +245,7 @@ namespace DCEngine {
     ActionPtr prop(new ActionZilchIntegerProperty(setRef, *propertyDelegate, val, duration, ease));
     setRef->Add(prop);
   }
-
-  void Actions::Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, String val, Real duration, Ease ease)
-  {
-  }
-
+  
   void Actions::Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Vec2 val, Real duration, Ease ease)
   {
     auto propertyDelegate = (Zilch::PropertyDelegateTemplate*)propertyHandle.Dereference();
@@ -247,12 +266,5 @@ namespace DCEngine {
     ActionPtr prop(new ActionZilchFloatProperty<Vec4>(setRef, *propertyDelegate, val, duration, ease));
     setRef->Add(prop);
   }
-
-  //void Actions::Property(ActionSetPtr setRef, Zilch::Any& prty, Real val, Real duration, Ease ease)
-  //{
-  //  auto propertyDelegate = (Zilch::PropertyDelegateTemplate*)((Zilch::Handle*)prty.GetData())->Dereference();
-  //  PropertyZilch(setRef, *propertyDelegate, val, duration, ease);
-  //}
-  //PropertyZilch(setRef, *propertyDelegate, val, duration, ease);
 
 }
