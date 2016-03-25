@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 440, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -66,7 +65,6 @@
         "Locked": false, 
         "GameObjectID": 441, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -129,7 +127,6 @@
         "Locked": false, 
         "GameObjectID": 442, 
         "Name": "Light", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -204,7 +201,6 @@
         "Locked": false, 
         "GameObjectID": 443, 
         "Name": "Player", 
-        "Archetype": "Player", 
         "Components": 
         {
           "Transform": 
@@ -259,7 +255,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -368,7 +363,6 @@
         "Locked": false, 
         "GameObjectID": 444, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -457,7 +451,6 @@
         "Locked": false, 
         "GameObjectID": 445, 
         "Name": "Screen Space Reference", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -520,7 +513,6 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -609,7 +601,6 @@
         "Locked": false, 
         "GameObjectID": 447, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -698,7 +689,6 @@
         "Locked": false, 
         "GameObjectID": 448, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -787,7 +777,6 @@
         "Locked": false, 
         "GameObjectID": 449, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -876,7 +865,6 @@
         "Locked": false, 
         "GameObjectID": 450, 
         "Name": "Alley", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -965,7 +953,6 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1054,7 +1041,6 @@
         "Locked": false, 
         "GameObjectID": 452, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1143,7 +1129,6 @@
         "Locked": false, 
         "GameObjectID": 453, 
         "Name": "Small Building", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1232,7 +1217,6 @@
         "Locked": false, 
         "GameObjectID": 454, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1321,7 +1305,6 @@
         "Locked": false, 
         "GameObjectID": 455, 
         "Name": "Transporter Track", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1410,7 +1393,6 @@
         "Locked": false, 
         "GameObjectID": 456, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1499,7 +1481,6 @@
         "Locked": false, 
         "GameObjectID": 457, 
         "Name": "Shield Generator", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1588,7 +1569,6 @@
         "Locked": false, 
         "GameObjectID": 458, 
         "Name": "Ground", 
-        "Archetype": "Ground", 
         "Components": 
         {
           "Transform": 
@@ -1677,7 +1657,6 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
-        "Archetype": "LockField", 
         "Components": 
         {
           "Transform": 
@@ -1770,7 +1749,6 @@
         "Locked": false, 
         "GameObjectID": 460, 
         "Name": "Sentinel", 
-        "Archetype": "Sentinel", 
         "Components": 
         {
           "Transform": 
@@ -1851,7 +1829,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -1895,7 +1872,6 @@
         "Locked": false, 
         "GameObjectID": 461, 
         "Name": "LockField", 
-        "Archetype": "LockField", 
         "Components": 
         {
           "Transform": 
@@ -1988,7 +1964,6 @@
         "Locked": false, 
         "GameObjectID": 462, 
         "Name": "Scrapper4", 
-        "Archetype": "Scrapper", 
         "Components": 
         {
           "Transform": 
@@ -2069,7 +2044,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2149,7 +2123,6 @@
         "Locked": false, 
         "GameObjectID": 463, 
         "Name": "Scrapper4", 
-        "Archetype": "Scrapper", 
         "Components": 
         {
           "Transform": 
@@ -2230,7 +2203,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2310,7 +2282,6 @@
         "Locked": false, 
         "GameObjectID": 464, 
         "Name": "Scrapper4", 
-        "Archetype": "Scrapper", 
         "Components": 
         {
           "Transform": 
@@ -2391,7 +2362,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2471,7 +2441,6 @@
         "Locked": false, 
         "GameObjectID": 465, 
         "Name": "LockField", 
-        "Archetype": "LockField", 
         "Components": 
         {
           "Transform": 
@@ -2564,7 +2533,6 @@
         "Locked": false, 
         "GameObjectID": 466, 
         "Name": "LockField", 
-        "Archetype": "LockField", 
         "Components": 
         {
           "Transform": 
