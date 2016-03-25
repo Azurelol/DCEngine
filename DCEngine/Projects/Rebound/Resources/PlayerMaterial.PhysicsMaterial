@@ -7,7 +7,7 @@
     {
       "Density": 1.000000, 
       "Restitution": 0.000000, 
-      "Friction": 0.500000
+      "Friction": 1.000000
     }
   }
 }
