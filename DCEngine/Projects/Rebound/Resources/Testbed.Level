@@ -48,7 +48,9 @@
             "TestingInput": true, 
             "TestingScriptEvents": true, 
             "TestingColorChange": true, 
-            "TestingActions": true, 
+            "TestingActionProperty": true, 
+            "TypeToTest": "Real2", 
+            "EaseFunc": "Linear", 
             "EngineEnum": "A", 
             "Color": "Red", 
             "Color2": "Blue"

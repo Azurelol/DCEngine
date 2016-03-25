@@ -16,6 +16,30 @@
 				"selected_items":
 				[
 					[
+						"Ease",
+						"EaseFunc"
+					],
+					[
+						"Interpol",
+						"InterpolatedReal"
+					],
+					[
+						"Inteeer",
+						"InterpolatedReal2"
+					],
+					[
+						"Property",
+						"PropertyType"
+					],
+					[
+						"INter",
+						"InterpolatedBoolean"
+					],
+					[
+						"Interp",
+						"InterpolatedInteger"
+					],
+					[
 						"Action",
 						"ActionPropertyPrint"
 					],
@@ -35,7 +59,7 @@
 					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
-						"buffer_size": 6724,
+						"buffer_size": 8673,
 						"line_ending": "Windows"
 					}
 				}
@@ -90,6 +114,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"TestingActions",
 					"ActionDelay"
 				],
 				"highlight": true,
@@ -117,15 +142,19 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 6724,
+								"buffer_size": 8673,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										6578,
-										6578
+										7383,
+										7383
+									],
+									[
+										7472,
+										7472
 									]
 								],
 								"settings":
@@ -133,7 +162,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 2646.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -178,7 +207,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1017,1252,344,2065",
+			"position": "0,0,1,-1,-1,-1,-1,915,-1821,124,-725",
 			"project": "",
 			"replace":
 			{

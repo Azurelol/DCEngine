@@ -88,23 +88,22 @@ namespace DCEngine {
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
 
-    if (Elapsed >= Duration) {
+    if (DCE_TRACE_ACTIONS_UPDATE)
+      DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
+
+    // Return the time consumed from this action. 
+    auto timeConsumed = 0.0f;
+    if (timeLeft <= dt) {
       if (DCE_TRACE_ACTIONS_UPDATE)
         DCTrace << "ActionProperty::Update: Finished! \n";
       IsFinished = true;
+
+      timeConsumed = dt;
       // Set the boolean value only at the end!
       Zilch::Call call(Property.Set, Systems::ZilchInterface::GetState());
       call.Set(0, EndValue);
       call.Invoke(Report);
     }
-
-    else if (DCE_TRACE_ACTIONS_UPDATE)
-      DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
-
-    // Return the time consumed from this action. 
-    auto timeConsumed = 0.0f;
-    if (timeLeft < dt)
-      timeConsumed = dt;
     else
       timeConsumed = timeLeft;
 
@@ -143,32 +142,30 @@ namespace DCEngine {
   {
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
+    DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
 
     // Calculate the interpolated value
     CurrentValue = InitialValue + Difference * Easing::Calculate((Elapsed / Duration), EaseType);
     // Since it's an integer, cast it
     Zilch::Call call(Property.Set, Systems::ZilchInterface::GetState());
-    Integer valAsInteger = static_cast<Integer>(CurrentValue);
-    call.Set(0, valAsInteger);
-    call.Invoke(Report);
 
-    if (Elapsed >= Duration) {
-      if (DCE_TRACE_ACTIONS_UPDATE)
-        DCTrace << "ActionProperty::Update: Finished! \n";
+    // Return the time consumed from this action. 
+    auto timeConsumed = 0.0f;
+    // If the action is finished
+    if (timeLeft <= dt) {
+      timeConsumed = dt;
       IsFinished = true;
       call.Set(0, EndValue);
       call.Invoke(Report);
     }
-
-    else if (DCE_TRACE_ACTIONS_UPDATE)
-      DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
-
-    // Return the time consumed from this action. 
-    auto timeConsumed = 0.0f;
-    if (timeLeft < dt)
-      timeConsumed = dt;
-    else
+    // If there is time left...
+    else {
       timeConsumed = timeLeft;
+      Integer valAsInteger = static_cast<Integer>(CurrentValue);
+      call.Set(0, valAsInteger);
+      call.Invoke(Report);
+    }
+
 
     return timeConsumed;
   }

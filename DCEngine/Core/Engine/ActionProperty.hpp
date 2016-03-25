@@ -77,31 +77,29 @@ namespace DCEngine {
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
 
-    // Calculate the interpolated value
-    auto updatedVal = InitialValue + Difference * Easing::Calculate((Elapsed / Duration), EaseType);
-    // Set the new value
+    if (DCE_TRACE_ACTIONS_UPDATE)
+          DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
+
     Zilch::Call call(Property.Set, Systems::ZilchInterface::GetState());
-    call.Set(0, updatedVal);
-    call.Invoke(Report);
-
-    if (Elapsed >= Duration) {
-      if (DCE_TRACE_ACTIONS_UPDATE)
-        DCTrace << "ActionProperty::Update: Finished! \n";
-      IsFinished = true;
-      // Set the value to the max
-      call.Set(0, EndValue);
-      call.Invoke(Report);
-    }
-
-    else if (DCE_TRACE_ACTIONS_UPDATE)
-      DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
 
     // Return the time consumed from this action. 
     auto timeConsumed = 0.0f;
-    if (timeLeft < dt)
+    // If finished...
+    if (timeLeft <= dt) {
       timeConsumed = dt;
-    else
+      IsFinished = true;
+      // Set the final value
+      call.Set(0, EndValue);
+      call.Invoke(Report);
+    }
+    else {
       timeConsumed = timeLeft;
+      // Calculate the interpolated value
+      auto updatedVal = InitialValue + Difference * Easing::Calculate((Elapsed / Duration), EaseType);
+      call.Set(0, updatedVal);
+      // Set the new value
+      call.Invoke(Report);
+    }    
 
     return timeConsumed;
   }
