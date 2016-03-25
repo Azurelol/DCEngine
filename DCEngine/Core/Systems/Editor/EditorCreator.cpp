@@ -42,7 +42,7 @@ namespace DCEngine {
       components.push_back("SpriteParticleSystem");
       components.push_back("ParticleEmitter");
       components.push_back("LinearParticleAnimator");
-      Create("Sprite", components);
+      Create("ParticleSystem", components);
     }
 
     /**************************************************************************/

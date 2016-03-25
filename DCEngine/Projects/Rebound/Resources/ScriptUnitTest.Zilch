@@ -47,6 +47,11 @@ class ScriptUnitTest : ZilchComponent
     var TransformRef : Transform;
     // Action Testing
     var InterpolatedReal : Real = Real(1.0);
+    var InterpolatedReal2 : Real2;
+    var InterpolatedReal3 : Real3;
+    var InterpolatedReal4 : Real4;
+    var InterpolatedBoolean : Boolean = false;
+    var InterpolatedInteger : Integer;
 
     function Initialize()
     {
@@ -182,11 +187,11 @@ class ScriptUnitTest : ZilchComponent
       Console.WriteLine("Starting property test...");
   	  var seq = Actions.Sequence(this.Owner.Actions);
       Actions.Delay(seq, 1.5);          
-      Actions.Property(seq, @this.InterpolatedReal, 5.0, 5.0, Ease.Linear);
+      Actions.Property(seq, @this.InterpolatedReal4, Real4(10,10,10,10), 5.0, Ease.Linear);
   	}
 
     function ActionPropertyPrint() {
-      Console.WriteLine("InterpolatedReal = `this.InterpolatedReal`");
+      Console.WriteLine("InterpolatedReal4 = `this.InterpolatedReal4`");
     }
 
 

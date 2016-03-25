@@ -60,7 +60,7 @@ namespace DCEngine {
   void Actions::PropertyZilch(ActionSetPtr set, Zilch::PropertyDelegateTemplate propertyDeleg, PropertyType val, Real duration, Ease ease)
   {    
     // Construct an ActionProperty object
-    ActionPtr prop(new ActionZilchProperty<PropertyType>(set, propertyDeleg, val, duration, ease));
+    ActionPtr prop(new ActionZilchFloatProperty<PropertyType>(set, propertyDeleg, val, duration, ease));
     // Add it to the set
     set->Add(prop);
   }

@@ -48,13 +48,13 @@ namespace DCEngine {
     template <typename PropertyType>
     static void PropertyZilch(ActionSetPtr setRef, Zilch::PropertyDelegateTemplate propertyRef,
                           PropertyType val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Boolean val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Integer val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, String val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Real val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Vec2 val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Vec3 val, Real duration, Ease ease);
-    static void Property(ActionSetPtr setRef, Zilch::Any& prty, Vec4 val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Real val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Boolean val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Integer val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, String val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Vec2 val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Vec3 val, Real duration, Ease ease);
+    static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Vec4 val, Real duration, Ease ease);
 
   private:
 
