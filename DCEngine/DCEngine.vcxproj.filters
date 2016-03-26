@@ -340,6 +340,9 @@
     <Filter Include="Core\Systems\Content\FileScanner">
       <UniqueIdentifier>{80d9a21f-7e88-4987-a7fe-5a860f52d1a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Utilities">
+      <UniqueIdentifier>{b0f447b8-ddce-4ca6-9a31-e7f53f685ed7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -948,6 +951,9 @@
     <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp" />
     <ClCompile Include="Core\Systems\Content\FileScanner.cpp">
       <Filter>Core\Systems\Content\FileScanner</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Utilities\String.cpp">
+      <Filter>Core\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1605,6 +1611,12 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Content\FileScanner.h">
       <Filter>Core\Systems\Content\FileScanner</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utilities\String.h">
+      <Filter>Core\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utilities\UtilitiesInclude.h">
+      <Filter>Core\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
