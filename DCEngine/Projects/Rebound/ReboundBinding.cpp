@@ -43,6 +43,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::Sentinel);
     ZilchInitializeType(Components::Lancer);
     ZilchInitializeType(Components::Shield);
+    ZilchInitializeType(Components::LancerShield);
   }
 
   // Add the Rebound library
@@ -75,7 +76,7 @@ namespace DCEngine {
     factory->AddComponentFactory(Components::Sentinel         ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Sentinel         >>());
     factory->AddComponentFactory(Components::Lancer           ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Lancer           >>());
     factory->AddComponentFactory(Components::Shield           ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Shield           >>());
-
+    factory->AddComponentFactory(Components::LancerShield     ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::LancerShield     >>());
   }
 
 

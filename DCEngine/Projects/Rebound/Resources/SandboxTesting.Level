@@ -8,6 +8,382 @@
       "GameObject": 
       {
         "Locked": false, 
+        "GameObjectID": 906, 
+        "Name": "Player", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -82.127022, 
+                "y": 6.135199, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Asha_Run_1", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 10.000000, 
+            "DrawLayer": 0
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Player", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": true
+          }, 
+          "PlayerController": 
+          {
+            "MoveSpeed": 0.700000, 
+            "JumpPower": 30.000000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "PlayerStand", 
+            "JumpAnimation": "PlayerFall", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
+          }, 
+          "Light": 
+          {
+            "Visible": false, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.400000, 
+            "Range": 5.000000, 
+            "Falloff": 0.300000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 0.000000
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 10, 
+            "StartingHealth": 10
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 915, 
+        "Name": "Lancer", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -132.320313, 
+                "y": 2.643368, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "HealthController": 
+          {
+            "MaxHealth": 0, 
+            "StartingHealth": 0
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 45, 
+            "Name": "LancerShield", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -132.332947, 
+                    "y": 2.905980, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 8.000000, 
+                    "y": 5.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.295000
+                  }
+                }, 
+                "SpriteSource": "Circle", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
         "GameObjectID": 898, 
         "Name": "Floor", 
         "Components": 
@@ -351,9 +727,9 @@
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
@@ -978,168 +1354,6 @@
             }, 
             "InnerAngle": 45.000000, 
             "OuterAngle": 90.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 906, 
-        "Name": "Player", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -82.127022, 
-                "y": 6.135199, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 2.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "PlayerRun", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": true, 
-            "AnimationSpeed": 10.000000, 
-            "DrawLayer": 0
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Player", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": true
-          }, 
-          "PlayerController": 
-          {
-            "MoveSpeed": 0.700000, 
-            "JumpPower": 30.000000, 
-            "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
-            "AirBrakeScalar": 0.950000, 
-            "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
-            "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
-          }, 
-          "Light": 
-          {
-            "Visible": false, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": false, 
-            "Type": "Point", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 0.400000, 
-            "Range": 5.000000, 
-            "Falloff": 0.300000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 10, 
-            "StartingHealth": 10
           }
         }, 
         "Children": 
@@ -2164,128 +2378,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 915, 
-        "Name": "Lancer", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -132.133331, 
-                "y": 2.755555, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 916, 
         "Name": "Sprite", 
         "Components": 
@@ -2786,11 +2878,11 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Type": "Point", 
+            "CastShadows": false, 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 

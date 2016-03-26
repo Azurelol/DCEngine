@@ -36,7 +36,7 @@ namespace DCEngine {
       String PlayerName = "Player";
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
-
+      float ShieldVelocityDifferenceThreshold;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -45,6 +45,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
+      DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold)
 
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}
@@ -65,9 +66,6 @@ namespace DCEngine {
       Vec3 endPosition;
       float jumpTimer = 0;
       float dt;
-      int count = 0;
-
-      void Jump(int direction, float period, float strengthX, float strengthY);
 
       class Global : public IState<Lancer>
       {

@@ -446,6 +446,7 @@
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HealthController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
@@ -676,6 +677,7 @@
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\HealthController.h" />
+    <ClInclude Include="Projects\Rebound\Components\LancerShield.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
     <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
