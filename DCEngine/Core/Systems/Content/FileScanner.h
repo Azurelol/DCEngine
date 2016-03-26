@@ -17,13 +17,18 @@ namespace DCEngine {
 
     class FileScanner : public Module{
     public:
+      //--------------------------------------------------------------//
+      struct FSSettings {
+        unsigned Frequency;
+        std::string DirectoryPath;
+        FSSettings() : Frequency(10) {}
+      };
       using DirectoryScan = std::map<std::string, FileInfo>;
       using ScanPair = std::pair < std::string, FileInfo>;
       using ScanIter = std::map<std::string, FileInfo>::const_iterator;
-
-      FileScanner();
+      //--------------------------------------------------------------//
+      FileScanner(FSSettings& settings);
       ~FileScanner();
-
       void Initialize();
       void ScanByThread();
       void Scan();
@@ -32,6 +37,7 @@ namespace DCEngine {
 
     private:
       DirectoryScan* ScanHistory = nullptr;
+      FSSettings Settings;
       std::thread ScanThread;
       bool Active;
 

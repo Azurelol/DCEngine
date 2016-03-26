@@ -1,4 +1,4 @@
-class Script : ZilchComponent
+class Testing : ZilchComponent
 {
     function Initialize()
     {
