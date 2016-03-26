@@ -35,7 +35,7 @@ namespace DCEngine
 
     float Orientation::GetVectorAngle(Vec3 vector)
     {
-      return glm::atan(vector.y / vector.x);
+      return std::atan2f(vector.x, -vector.y);
     }
 
     void Orientation::LookAtPoint(Vec3 point)
@@ -66,13 +66,15 @@ namespace DCEngine
 
       float DeltaRot = CurrentRot - NextRot;
 
+      CurrentRot -= DeltaRot;
+
       // convert to degrees first
 
       DeltaRot = DeltaRot * 180.0f / 3.14159265359;
 
       this->Owner()->getComponent<Components::Transform>()->Rotation.z -= DeltaRot;
 
-      WorldForward = Vec3(cos(CurrentRot), sin(CurrentRot), 0.0f);
+      WorldForward = direction;
     }
 
     void Orientation::LookAtDirectionWithUp(Vec3 direction)
