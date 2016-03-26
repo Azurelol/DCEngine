@@ -91,10 +91,17 @@
 					}
 				},
 				{
+<<<<<<< HEAD
 					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
 					"settings":
 					{
 						"buffer_size": 1234,
+=======
+					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+					"settings":
+					{
+						"buffer_size": 226,
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
 						"line_ending": "Windows"
 					}
 				}
@@ -251,11 +258,19 @@
 						},
 						{
 							"buffer": 2,
+<<<<<<< HEAD
 							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
 								"buffer_size": 1234,
+=======
+							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 226,
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
 								"regions":
 								{
 								},
@@ -269,7 +284,11 @@
 								"settings":
 								{
 									"bs_sintax": "plain text",
+<<<<<<< HEAD
 									"buffer_scroll_name": "ae5716b1",
+=======
+									"buffer_scroll_name": "f0b19365",
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
 									"function_name_status_row": 0,
 									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
