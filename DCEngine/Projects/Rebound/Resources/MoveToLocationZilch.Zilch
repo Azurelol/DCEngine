@@ -1,0 +1,16 @@
+class MoveToLocationZilch : ZilchComponent
+{
+    var Counter : Real = 0;
+     
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+        Console.Write("Counter = ");
+        Console.WriteLine(this.Counter);
+        this.Counter += 1;
+    }
+}
