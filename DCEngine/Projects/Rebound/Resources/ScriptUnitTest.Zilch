@@ -24,7 +24,7 @@ enum PropertyType { Integer, Real, Real2, Real3, Real4, Boolean }
 // Declaring a custom component class derived from our engine's component                                                                                                                                    
 class ScriptUnitTest : ZilchComponent
 {
-    // Adding the event to Zilch's 'Event.EventName' group
+  // Adding the event to Zilch's 'Event.EventName' group
 	sends CustomEvent : CustomEvent;
 
 	// Properties
@@ -36,25 +36,24 @@ class ScriptUnitTest : ZilchComponent
   [Property] var TypeToTest : PropertyType = PropertyType.Integer;
   [Property] var EaseFunc : Ease = Ease.Linear;
 
-    // Testing engine enum
-    [Property] var EngineEnum : Keys = Keys.A;    
-    // Testing enums, fields and using them.    
-    [Property] var Color : CustomEnum = CustomEnum.Red;
-    [Property] var Color2 : CustomEnum = CustomEnum.Blue;
-    var ColorRed : Real4 = Real4(1, 0, 0, 1);
+  // Testing engine enum
+  [Property] var EngineEnum : Keys = Keys.A;    
+  // Testing enums, fields and using them.    
+  [Property] var Color : CustomEnum = CustomEnum.Red;
+  [Property] var Color2 : CustomEnum = CustomEnum.Blue;
+  var ColorRed : Real4 = Real4(1, 0, 0, 1);
 	var ColorBlue : Real4 = Real4(0, 0, 1, 1);
-    var ColorGreeen : Real4 = Real4(0, 1, 0, 1);
-
-    // Handles
-    var SpriteRef : Sprite;
-    var TransformRef : Transform;
-    // Action Testing
-    var InterpolatedReal : Real = Real(1.0);
-    var InterpolatedReal2 : Real2;
-    var InterpolatedReal3 : Real3;
-    var InterpolatedReal4 : Real4;
-    var InterpolatedBoolean : Boolean = false;
-    var InterpolatedInteger : Integer;
+  var ColorGreeen : Real4 = Real4(0, 1, 0, 1);
+  // Handles
+  var SpriteRef : Sprite;
+  var TransformRef : Transform;
+  // Action Testing
+  var InterpolatedReal : Real = Real(1.0);
+  var InterpolatedReal2 : Real2;
+  var InterpolatedReal3 : Real3;
+  var InterpolatedReal4 : Real4;
+  var InterpolatedBoolean : Boolean = false;
+  var InterpolatedInteger : Integer;
 
     function Initialize()
     {

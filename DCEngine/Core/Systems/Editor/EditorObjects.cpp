@@ -76,12 +76,13 @@ namespace DCEngine {
         // If you are parented, do not display on the root
         if (object->Parent())
           continue;
-        ImGui::PushID(objID++);
+        //ImGui::PushID(objID++);
         // Display the object
-        unsigned id = 0;
-        DisplayObject(object, id);
-        ImGui::PopID();
+        DisplayObject(object, objID);
+        //ImGui::PopID();
       }
+
+
       // Ends the window
       ImGui::End();
 
@@ -114,48 +115,36 @@ namespace DCEngine {
     */
     /**************************************************************************/
     bool EditorObjects::DisplayObject(GameObjectPtr object, unsigned& id)
-    {      
+    {
       bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == object->getObjectID();
       auto objectName = object->Name().c_str();
       auto& children = object->Children();
 
+      ImGui::PushID(object->getObjectID());
       // Parent: If it has any children, display all children recursively
+
+      /*
+      bool showchildren = false
+      if(haschildren) showchildren = treenode()
+
+      selectable()
+      ContextMenu()
+
+      if(showchildren)
+        DisplayChildren()
+      */
+
       if (!children.empty()) {
-        // If you click on the TreeNode..
-        //if (ImGui::CollapsingHeader(objectName)) {
-        //  for (auto& child : children) {
-        //    DisplayObject(child);
-        //  }
-        //}
+        bool treeOpened = false;
 
-
-        //// Parent
-        //if (ImGui::Selectable(objectName), selected) {          
-        //  if (Attaching)
-        //    Attach(object);
-        //  EditorRef.SelectObject(object);
-        //  EditorRef.Inspector.Toggle(true);
-        //}
-        //// Display a context menu
-        //ContextMenu(object);
-        //if (ImGui::TreeNode("Children")) {
-        //  // Display all children recursively
-        //  for (auto& child : children) {
-        //    DisplayObject(child, ++id);
-        //  }
-        //  ImGui::TreePop();
-        //}
-
-
-
-
-        bool treeOpened = false; 
-        ImGui::PushID(++id);
+        // ImGui::PushID(++id);
+        ImGui::PushItemWidth(10);
         if (ImGui::TreeNode("")) {
+          ImGui::PopItemWidth();
           treeOpened = true;
           // Display the parent selectable
           ImGui::SameLine();
-          if (ImGui::Selectable(objectName), selected) {
+          if (ImGui::Selectable(objectName, selected)) {
             // Attach
             if (Attaching)
               Attach(object);
@@ -171,49 +160,26 @@ namespace DCEngine {
           }
           ImGui::TreePop();
         }
-        ImGui::PopID();
+        //ImGui::PopID();
         if (!treeOpened) {
           // Display the parent selectable
           ImGui::SameLine();
-          ImGui::PushID(object->getObjectID());
-          if (ImGui::Selectable(objectName), selected) {
+
+          if (ImGui::Selectable(objectName, selected)) {
             // Attach
             if (Attaching)
               Attach(object);
             EditorRef.SelectObject(object);
             EditorRef.Inspector.Toggle(true);
           }
-          ImGui::PopID();
+          //ImGui::PopID();
           // Display a context menu
           ContextMenu(object);
         }
-
-        //// Single click
-        //if (ImGui::Selectable(objectName)) {
-        //  // Select
-        //  EditorRef.SelectObject(object);
-        //  EditorRef.Inspector.Toggle(true);
-        //  // Attach
-        //  if (Attaching)
-        //    Attach(object);                    
-        //}
-        //// Display a context menu
-        //ContextMenu(object);
-        //// If the object was locked..
-        //IsLocked(object);
-        //// If parent
-        //IsParent(object);
-        //// If it was double clicked
-        //if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0)) {
-        //  // Display all children recursively
-        //  for (auto& child : children) {
-        //    DisplayObject(child);
-        //  }
-        //}
       }
-      // Child:
+
+      // If it has no children:
       else {
-        // Single click
 
         //ImGui::PushID(object->getGameObjectID());
         if (ImGui::Selectable(objectName, selected)) {
@@ -223,7 +189,8 @@ namespace DCEngine {
           // Select
           EditorRef.SelectObject(object);
           EditorRef.Inspector.Toggle(true);
-          return true;
+          //ImGui::PopID();
+          //return true;
         }
         //ImGui::PopID();
         // Display a context menu
@@ -232,6 +199,7 @@ namespace DCEngine {
         IsLocked(object);
       }
 
+      ImGui::PopID();
       return false;
     }
 
@@ -305,12 +273,12 @@ namespace DCEngine {
       auto objectIdentifiers = EditorRef.CurrentSpace->IdentifyAllObjects();
       auto names = objectIdentifiers.NamesAsChars();
       ImGui::PushItemWidth(ImGui::GetWindowWidth() / 2.0f);
-      
+
       auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject());
       bool attached = false;
       if (gameObject && gameObject->Parent())
         attached = true;
-      
+
       // Attachable object list
       static int currentAttachable = 0;
       // Attempt to attach a GameObject if there is one selected
@@ -324,10 +292,10 @@ namespace DCEngine {
       // Button settings
       ImGui::SameLine();
       std::string caption = "Attach To";
-      ImVec4 captionColor = ImVec4(255, 0, 0, 255);      
+      ImVec4 captionColor = ImVec4(255, 0, 0, 255);
       if (attached) {
-          caption = "Detach";
-          captionColor = ImVec4(127, 127, 0, 255);
+        caption = "Detach";
+        captionColor = ImVec4(127, 127, 0, 255);
       }
       // Button
       if (ImGui::Button(caption.c_str())) {
@@ -338,7 +306,7 @@ namespace DCEngine {
           else {
             gameObject->Detach();
           }
-        } 
+        }
       }
     }
 
@@ -387,7 +355,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void EditorObjects::ShowOverlay()
-    {      
+    {
       // Show overlay
       static bool opened;
       auto& cursorPos = ImGui::GetMousePos();

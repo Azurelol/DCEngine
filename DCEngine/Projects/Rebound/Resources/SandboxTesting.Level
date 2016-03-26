@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 898, 
         "Name": "Floor", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -99,7 +98,6 @@
         "Locked": false, 
         "GameObjectID": 899, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -155,7 +153,6 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
-        "Archetype": "Scrapper", 
         "Components": 
         {
           "Transform": 
@@ -236,7 +233,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -316,7 +312,6 @@
         "Locked": false, 
         "GameObjectID": 901, 
         "Name": "Ball", 
-        "Archetype": "Ball", 
         "Components": 
         {
           "Transform": 
@@ -397,7 +392,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -591,7 +585,6 @@
         "Locked": false, 
         "GameObjectID": 902, 
         "Name": "Acid", 
-        "Archetype": "Acid", 
         "Components": 
         {
           "Transform": 
@@ -703,7 +696,6 @@
         "Locked": false, 
         "GameObjectID": 903, 
         "Name": "LockField", 
-        "Archetype": "LockField", 
         "Components": 
         {
           "Transform": 
@@ -796,7 +788,6 @@
         "Locked": false, 
         "GameObjectID": 904, 
         "Name": "PowerField", 
-        "Archetype": "PowerField", 
         "Components": 
         {
           "Transform": 
@@ -889,7 +880,6 @@
         "Locked": false, 
         "GameObjectID": 905, 
         "Name": "Door", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -999,7 +989,6 @@
         "Locked": false, 
         "GameObjectID": 906, 
         "Name": "Player", 
-        "Archetype": "Player", 
         "Components": 
         {
           "Transform": 
@@ -1054,7 +1043,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -1163,7 +1151,6 @@
         "Locked": false, 
         "GameObjectID": 907, 
         "Name": "Sky", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -1226,7 +1213,6 @@
         "Locked": false, 
         "GameObjectID": 908, 
         "Name": "Background", 
-        "Archetype": "DesertBackground", 
         "Components": 
         {
           "Transform": 
@@ -1321,7 +1307,6 @@
         "Locked": false, 
         "GameObjectID": 909, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -1410,7 +1395,6 @@
         "Locked": false, 
         "GameObjectID": 910, 
         "Name": "SkidParticleSystem", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -1590,7 +1574,6 @@
         "Locked": false, 
         "GameObjectID": 911, 
         "Name": "BallParticleSystem", 
-        "Archetype": "BallExplosionParticleSystem2", 
         "Components": 
         {
           "Transform": 
@@ -1770,7 +1753,6 @@
         "Locked": false, 
         "GameObjectID": 912, 
         "Name": "BallParticleSystem", 
-        "Archetype": "BallExplosionParticle", 
         "Components": 
         {
           "Transform": 
@@ -1950,7 +1932,6 @@
         "Locked": false, 
         "GameObjectID": 913, 
         "Name": "Shield", 
-        "Archetype": "Sentinel Shield", 
         "Components": 
         {
           "Transform": 
@@ -2031,7 +2012,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2063,7 +2043,6 @@
         "Locked": false, 
         "GameObjectID": 914, 
         "Name": "Sentinel", 
-        "Archetype": "Sentinel", 
         "Components": 
         {
           "Transform": 
@@ -2144,7 +2123,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2188,7 +2166,6 @@
         "Locked": false, 
         "GameObjectID": 915, 
         "Name": "Lancer", 
-        "Archetype": "Lancer", 
         "Components": 
         {
           "Transform": 
@@ -2243,7 +2220,6 @@
           }, 
           "RigidBody": 
           {
-            "Mass": 10.000000, 
             "Velocity": 
             {
               "Vec3": 
@@ -2312,7 +2288,6 @@
         "Locked": false, 
         "GameObjectID": 916, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -2401,7 +2376,6 @@
         "Locked": false, 
         "GameObjectID": 917, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -2490,7 +2464,6 @@
         "Locked": false, 
         "GameObjectID": 918, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -2579,7 +2552,6 @@
         "Locked": false, 
         "GameObjectID": 919, 
         "Name": "Transform", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -2654,7 +2626,6 @@
         "Locked": false, 
         "GameObjectID": 920, 
         "Name": "Transform", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -2781,7 +2752,6 @@
         "Locked": false, 
         "GameObjectID": 921, 
         "Name": "Light", 
-        "Archetype": "SpotLight", 
         "Components": 
         {
           "Transform": 

@@ -16,6 +16,14 @@
 				"selected_items":
 				[
 					[
+						"Defa",
+						"DefaultVolume"
+					],
+					[
+						"ON",
+						"OnMusicPlayEvent"
+					],
+					[
 						"Actions",
 						"ActionCallTestParams"
 					],
@@ -67,7 +75,15 @@
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
-						"buffer_size": 9110,
+						"buffer_size": 9073,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
+					"settings":
+					{
+						"buffer_size": 2651,
 						"line_ending": "Windows"
 					}
 				}
@@ -151,15 +167,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 9110,
+								"buffer_size": 9073,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										6745,
-										6745
+										7138,
+										7138
 									]
 								],
 								"settings":
@@ -167,10 +183,38 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 2684.0,
+								"translation.y": 2753.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2651,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2117,
+										2117
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 901.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
 							"type": "text"
 						}
 					]
@@ -212,7 +256,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,903,517,112,1613",
+			"position": "0,0,1,-32000,-32000,-1,-1,1064,2376,275,3472",
 			"project": "",
 			"replace":
 			{
