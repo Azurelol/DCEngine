@@ -121,9 +121,8 @@ namespace DCEngine {
       auto& children = object->Children();
 
       ImGui::PushID(object->getObjectID());
-      // Parent: If it has any children, display all children recursively
 
-      /*
+      /* Jacque's pseudo-code
       bool showchildren = false
       if(haschildren) showchildren = treenode()
 
@@ -134,10 +133,9 @@ namespace DCEngine {
         DisplayChildren()
       */
 
+      // Parent: If it has any children, display all children recursively
       if (!children.empty()) {
         bool treeOpened = false;
-
-        // ImGui::PushID(++id);
         ImGui::PushItemWidth(10);
         if (ImGui::TreeNode("")) {
           ImGui::PopItemWidth();
@@ -160,7 +158,6 @@ namespace DCEngine {
           }
           ImGui::TreePop();
         }
-        //ImGui::PopID();
         if (!treeOpened) {
           // Display the parent selectable
           ImGui::SameLine();
@@ -172,7 +169,6 @@ namespace DCEngine {
             Access().SelectObject(object);
             Access().Inspector.Toggle(true);
           }
-          //ImGui::PopID();
           // Display a context menu
           ContextMenu(object);
         }
@@ -181,18 +177,20 @@ namespace DCEngine {
       // If it has no children:
       else {
 
-        //ImGui::PushID(object->getGameObjectID());
-        if (ImGui::Selectable(objectName, selected)) {
+        std::string indent = "  "; 
+        // If it has no parent, indent to match the treenodes' indent 
+        if (!object->Parent()) {
+          indent = "       ";
+        }
+
+        if (ImGui::Selectable(std::string(indent + objectName).c_str(), selected)) {
           // Attach
           if (Attaching)
             Attach(object);
           // Select
           Access().SelectObject(object);
           Access().Inspector.Toggle(true);
-          //ImGui::PopID();
-          //return true;
         }
-        //ImGui::PopID();
         // Display a context menu
         ContextMenu(object);
         // If the object was locked..

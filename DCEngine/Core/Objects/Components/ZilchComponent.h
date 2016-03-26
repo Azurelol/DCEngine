@@ -42,9 +42,9 @@ namespace DCEngine {
       ZilchComponent();
       virtual ~ZilchComponent();
       virtual void Initialize();
+      virtual void Terminate();
       void Serialize(Zilch::JsonBuilder& builder);
-      void Deserialize(Zilch::JsonValue* properties);
-      
+      void Deserialize(Zilch::JsonValue* properties);      
 
     private:
       // Functions
@@ -52,12 +52,6 @@ namespace DCEngine {
       // LogicUpdate method
       bool LogicUpdateDirectly;
       void OnLogicUpdateEvent(Events::LogicUpdate* event);
-
-      //ZilchComponent() : classScript("Example"), zilchId(CTZ_Example) {};
-      //ZilchComponent(std::string scriptName, ZilchComponentTypeId zilchId);
-      //void OnLogicUpdate(Events::LogicUpdate * event);
-      //void CallFunction(std::string);
-      //void ZilchConnect(::DCEngine::Event Event, Entity* EntityConnection, Zilch::Function* funct);
       Zilch::Function* GetFieldOrProperty(std::string functName);
       Zilch::Function* SetFieldOrProperty(std::string functName);
     private:
@@ -69,6 +63,7 @@ namespace DCEngine {
       using ConnectList = std::list<EventPair>;
       std::map<std::type_index, ConnectList> EventFunctions;
       Zilch::Function* InitializeFunc;
+      Zilch::Function* TerminateFunc;
       Zilch::Function* OnLogicUpdateFunc;
       Zilch::Function* DestroyFunc;
 

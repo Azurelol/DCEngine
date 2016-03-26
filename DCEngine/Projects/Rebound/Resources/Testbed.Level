@@ -446,7 +446,7 @@
           {
             "Locked": false, 
             "GameObjectID": 15, 
-            "Name": "Sprite", 
+            "Name": "Sprite2", 
             "Components": 
             {
               "Transform": 
@@ -457,6 +457,68 @@
                   {
                     "x": -2.000000, 
                     "y": -4.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "square", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": true, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 0
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 61, 
+            "Name": "Sprite3", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -34.277832, 
+                    "y": -5.813232, 
                     "z": 0.000000
                   }
                 }, 

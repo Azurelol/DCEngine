@@ -27,6 +27,7 @@
 #include "Events\WindowEvents.h"
 // Game
 #include "Events\GameEvents.h"
+#include "Events\InitializerEvents.h"
 // Scripting
 #include "Events\ScriptingEvents.h"
 #include "Objects\Events\ZilchEvent.h"

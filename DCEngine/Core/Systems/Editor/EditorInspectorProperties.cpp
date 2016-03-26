@@ -316,7 +316,11 @@ namespace DCEngine {
 
           if (ImGui::InputFloat3("##propertyID", vec3f, 3)) {
             Set(ZilchInterface::GetState(), object, handle, property, Zilch::Real3(vec3f));
-            modified = true;
+
+            // Special case: Translation doesn't affect having been modified from archetype
+            if (property->Name.c_str() == "Translation") modified = false;
+            else 
+              modified = true;
           }
           ImGui::PopID();
         }

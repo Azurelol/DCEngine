@@ -15,6 +15,7 @@
 
 namespace DCEngine {
   namespace Systems {
+
     /**************************************************************************/
     /*!
     \brief  Displays the  inspector window.
@@ -119,8 +120,10 @@ namespace DCEngine {
       ///////////////////////////////////////////
       bool componentAdded = AddComponent(selectedEntity);
       // If the entity was modified or a componen was added, save the level
-      if (modified || componentAdded)
+      if (modified || componentAdded) {
+        selectedEntity->setModifiedFromArchetype(true);
         Access().SaveCurrentLevel();
+      }
     }
 
     /**************************************************************************/

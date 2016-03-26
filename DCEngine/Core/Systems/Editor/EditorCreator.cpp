@@ -79,6 +79,9 @@ namespace DCEngine {
     void EditorCreator::CreateFromArchetype(const std::string & archetypeName)
     {
       auto gameObject = Access().CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
+      // Begin as not modified from the archetype
+      gameObject->setModifiedFromArchetype(false);
+      // Select the object
       Access().Select(gameObject);
       Access().Inspector.Toggle(true);
       Access().MoveToViewportCenter(gameObject);

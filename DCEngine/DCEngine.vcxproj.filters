@@ -337,6 +337,9 @@
     <Filter Include="Core\Engine\Action\Actions">
       <UniqueIdentifier>{ccc51a6d-09ef-44c2-869e-7ab485eaa536}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Content\FileScanner">
+      <UniqueIdentifier>{80d9a21f-7e88-4987-a7fe-5a860f52d1a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -941,6 +944,10 @@
     </ClCompile>
     <ClCompile Include="Core\Engine\Actions.cpp">
       <Filter>Core\Engine\Action\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp" />
+    <ClCompile Include="Core\Systems\Content\FileScanner.cpp">
+      <Filter>Core\Systems\Content\FileScanner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1591,6 +1598,13 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Editor\Selector.h">
       <Filter>Core\Systems\Editor\Modules\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\LancerShield.h" />
+    <ClInclude Include="Core\Events\InitializerEvents.h">
+      <Filter>Core\Events\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\FileScanner.h">
+      <Filter>Core\Systems\Content\FileScanner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

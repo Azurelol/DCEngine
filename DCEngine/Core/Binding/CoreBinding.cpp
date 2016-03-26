@@ -59,6 +59,7 @@ namespace DCEngine {
     ZilchInitializeType(SpriteSource);
     ZilchInitializeType(Bank);
     ZilchInitializeType(SoundCue);
+    ZilchInitializeType(SoundInstance);
     ZilchInitializeType(CollisionGroup);
     ZilchInitializeType(CollisionTable);
     ZilchInitializeType(ZilchScript);
@@ -142,6 +143,7 @@ namespace DCEngine {
     // Zilch
     ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(ZilchEvent);    
+
     // Setup extension properties for Entity
     auto interface = Systems::ZilchInterface::Get();
     auto& boundTypes = builder.BoundTypes.values();

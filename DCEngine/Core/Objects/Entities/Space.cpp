@@ -313,13 +313,16 @@ namespace DCEngine {
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
     DCTrace << "\n\n"
             << "/------------------------------------------------/ \n";
-    if (!editorEnabled) {
+
+    if (!editorEnabled) 
+    {
+      // Initialize every object
       for (auto& gameObject : GameObjectContainer) {        
         gameObject->Initialize();    
       }
+      // Announce that all objects have been initialized
+      DispatchGameEvents::AllObjectsInitialized(this);
     }
-
-
 
   }
 

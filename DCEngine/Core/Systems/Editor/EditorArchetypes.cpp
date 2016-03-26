@@ -99,6 +99,12 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Returns the currently selected archetype.
+    @return A pointer to the archetype.
+    */
+    /**************************************************************************/
     GameObject* EditorArchetypes::Current()
     {
       return CurrentArchetype;
@@ -138,9 +144,11 @@ namespace DCEngine {
     {
       // For every level in the project...
       for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
-        // If the GameObject is of the same archetype
-        if (gameObject->getArchetype() == archetypeName)
+        // If the GameObject is of the same archetype and has not been modified
+        bool modified = gameObject->getModifiedFromArchetype();
+        if (gameObject->getArchetype() == archetypeName && !modified) {
           RevertToArchetype(gameObject);
+        }
       }
     }
 

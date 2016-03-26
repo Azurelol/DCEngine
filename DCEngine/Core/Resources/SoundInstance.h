@@ -23,7 +23,7 @@ namespace DCEngine {
     class Audio;
   }
 
-  class SoundInstance {
+  class SoundInstance : public Object {
     friend class Systems::Audio;
   public:
 
@@ -36,7 +36,7 @@ namespace DCEngine {
     SoundCueHandle SoundCue;    
 
     // Methods
-    void SetParameter(Systems::EventParameterHandle parameter, float value);
+    void SetParameter(String parameter, float value);
     void InterpolateVolume(Real newVolume, Real time);
     void InterpolatePitch(Real newPitch, Real time);
     void Resume();
@@ -44,6 +44,7 @@ namespace DCEngine {
     void Stop();
     bool IsPlaying();
     // CTOR
+    ZilchDeclareDerivedType(SoundInstance, Object);
     SoundInstance();
     ~SoundInstance();
 

@@ -32,6 +32,12 @@ namespace DCEngine {
     ZilchBindDestructor(builder, type, ZilchComponent);
     // Methods
     ZilchBindMethod(builder, type, &ZilchComponent::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames)->IsVirtual = true;
+    ZilchBindMethod(builder, type, &ZilchComponent::Terminate, ZilchNoOverload, "Terminate", ZilchNoNames)->IsVirtual = true;    
+    //ZilchBindVirtualMethod(builder, type, &ZilchComponent::Terminate, "Terminate");
+    //Zilch::ParameterArray terminateParams;
+    //builder.AddBoundFunction(type, "Terminate", ZilchComponent::Terminate, 
+    //                        terminateParams, ZilchTypeId(void), Zilch::FunctionOptions::Virtual);
+
     ZilchBindProperty(builder, type, &ZilchComponent::Owner, ZilchNoSetter, "Owner");
     ZilchBindProperty(builder, type, &ZilchComponent::getSpace, ZilchNoSetter, "Space");
     ZilchBindProperty(builder, type, &ZilchComponent::getGameSession, ZilchNoSetter, "GameSession");    
@@ -65,6 +71,7 @@ namespace DCEngine {
   /**************************************************************************/
   ZilchComponent::~ZilchComponent()
   {
+    this->Terminate();
   }
 
   /**************************************************************************/
@@ -75,8 +82,10 @@ namespace DCEngine {
   void ZilchComponent::FindFunctions()
   {
     auto boundType = BoundType();
-    // Find the Initialize function
+
+    // Find the Initialize/Terminate functions
     InitializeFunc = boundType->FindFunction("Initialize", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
+    TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
     // Attempt to find the OnLogicUpdate function
     OnLogicUpdateFunc = boundType->FindFunction("OnLogicUpdate", Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
                                                                                             ZilchTypeId(void), Zilch::FindMemberOptions::None);
@@ -121,19 +130,32 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void ZilchComponent::Initialize()
-  {
-    
-
+  { 
     // Find all bound functions!
     FindFunctions();
-    // If updating directly, subscribe through C++ Logic Update Events
-    //if (LogicUpdateDirectly)
-    //  Daisy->Connect<Events::LogicUpdate>(SpaceRef, &ZilchComponent::OnLogicUpdateEvent, this);
 
     // Invoke the Initialize Method
     Zilch::Call init(InitializeFunc, Systems::ZilchInterface::GetState());
     init.Set<Zilch::Handle>(Zilch::Call::This, Handle());
     init.Invoke(Report);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Terminates the ZilchComponent
+  */
+  /**************************************************************************/
+  void ZilchComponent::Terminate()
+  {
+
+    if (!TerminateFunc)
+      return;
+
+    //DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
+    //// Invoke the Terminate Method
+    //Zilch::Call init(TerminateFunc, Systems::ZilchInterface::GetState());
+    //init.Set<Zilch::Handle>(Zilch::Call::This, Handle());
+    //init.Invoke(Report);
   }
 
   void ZilchComponent::OnLogicUpdateEvent(Events::LogicUpdate * event)

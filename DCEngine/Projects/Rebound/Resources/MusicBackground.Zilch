@@ -1,8 +1,8 @@
 class MusicPlayEvent : ZilchEvent {
 	var Track : String;
-}
+}  
 
-class MusicStopEvent : ZilchEvent {
+class MusicStopEvent : ZilchEvent {                
 
 }
 
@@ -27,6 +27,7 @@ class MusicBackground : ZilchComponent
 	[Property] var DefaultTrack : String;
 	[Property] var DefaultVolume : Real;
 
+  var CurrentInstance : SoundInstance;
 	//var CurrentInstance : SoundInstance;
 
     function Initialize()
@@ -62,7 +63,9 @@ class MusicBackground : ZilchComponent
 			this.Stop();
 		}
    		*/
-	}
+
+      Console.WriteLine("Terminating `this.Name`");
+	   }
 
     function Play(track : String) {
     	// Play the provided string.

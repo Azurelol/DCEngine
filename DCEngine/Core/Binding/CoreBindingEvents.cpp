@@ -14,34 +14,24 @@ back.
 #include "../Objects/Entities/GameObject.h"
 
 namespace DCEngine {
-
-
   namespace Events {
 
     /********************/
-    //Game Events
+    //  Initializer
     /********************/
-    ZilchDefineType(GameFocusIn, "GameFocusIn", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameFocusOut, "GameFocusOut", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameLoad, "GameLoad", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameRequestQuit, "GameRequestQuit", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameStarted, "GameStarted", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameEnded, "GameEnded", DCEngineCore, builder, type)
-    {
-    }
-    ZilchDefineType(GameSetup, "GameSetup", DCEngineCore, builder, type)
-    {
-    }
+    ZilchDefineType(ObjectInitializer, "ObjectInitializer", DCEngineCore, builder, type) {}
+    ZilchDefineType(AllObjectsInitialized, "AllObjectsInitialized", DCEngineCore, builder, type) {}
+
+    /********************/
+    //  Game Events
+    /********************/
+    ZilchDefineType(GameFocusIn, "GameFocusIn", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameFocusOut, "GameFocusOut", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameLoad, "GameLoad", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameRequestQuit, "GameRequestQuit", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameStarted, "GameStarted", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameEnded, "GameEnded", DCEngineCore, builder, type) {}
+    ZilchDefineType(GameSetup, "GameSetup", DCEngineCore, builder, type) {}
 
     /********************/
     //  Key Events
