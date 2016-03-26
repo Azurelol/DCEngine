@@ -7,7 +7,7 @@
     {
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2, 
         "Name": "ScriptUnitTest", 
         "Components": 
@@ -288,7 +288,7 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.304000, 
+            "Intensity": 2.174000, 
             "Range": 52.174004, 
             "Falloff": 0.939000, 
             "DirectionVector": 
@@ -385,8 +385,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 14, 
-        "Name": "Sprite", 
+        "GameObjectID": 18, 
+        "Name": "Sprite1", 
         "Components": 
         {
           "Transform": 
@@ -395,70 +395,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": true, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 15, 
-        "Name": "Sprite", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -2.000000, 
+                "y": -4.000000, 
                 "z": 0.000000
               }
             }, 
@@ -507,7 +445,7 @@
           "GameObject": 
           {
             "Locked": false, 
-            "GameObjectID": 18, 
+            "GameObjectID": 15, 
             "Name": "Sprite", 
             "Components": 
             {
@@ -517,8 +455,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -2.000000, 
+                    "y": -4.000000, 
                     "z": 0.000000
                   }
                 }, 

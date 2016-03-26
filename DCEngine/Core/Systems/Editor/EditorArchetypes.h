@@ -23,7 +23,7 @@ namespace DCEngine {
     class Editor;
     class EditorArchetypes : public EditorModule {
     public:
-      EditorArchetypes(Editor& editor);
+      EditorArchetypes();
       ~EditorArchetypes();
       void Select(ArchetypeHandle archetype);
       void Preview();      

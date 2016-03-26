@@ -50,9 +50,10 @@ namespace DCEngine {
       delete exitEvent;
     }
 
-    void DispatchSystemEvents::EditorInitialize()
+    void DispatchSystemEvents::EditorInitialize(Editor& editor)
     {
       auto event = new Events::EditorInitialize;
+      event->Reference = &editor;
       Daisy->Dispatch<Events::EditorInitialize>(event);
       delete event;
     }

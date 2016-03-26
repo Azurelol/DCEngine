@@ -10,27 +10,25 @@
 /******************************************************************************/
 #pragma once
 
-// Engine
-#include "../../Objects/Object.h"
-#include "../../Objects/ObjectsInclude.h"
-#include "../../Objects/Entities/EntitiesInclude.h"
+#include "EditorModule.h"
+#include "../../Objects/Entities/Space.h"
 
 namespace DCEngine {
   namespace Systems {
     
     class Editor;
-    class Selector {
+    class EditorSelector : public EditorModule {
     public:
 
-      Selector(Editor& editor);
+      void LockAll();
+      void UnlockAll();
+      EditorSelector();
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectMultiple(Vec2 & mousePosition, ObjectContainer selectedObjects, SpacePtr currentSpace);
       void CalculateSelectionBounding(ObjectPtr selectedObject, ObjectContainer selectedObjects);      
       void DrawMultiSelect(SpacePtr currentSpace);
 
     private:
-
-      Editor& Editor;
       // Selection
       Vec3  SelectedBoundingCenter;
       float SelectedBoundingWidth;

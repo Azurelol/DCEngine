@@ -19,7 +19,7 @@ namespace DCEngine {
     \brief  EditorDiagnostics constructor.
     */
     /**************************************************************************/
-    EditorDiagnostics::EditorDiagnostics(Editor & editor) : EditorModule(editor, false)
+    EditorDiagnostics::EditorDiagnostics() : EditorModule(false)
     {
     }
 

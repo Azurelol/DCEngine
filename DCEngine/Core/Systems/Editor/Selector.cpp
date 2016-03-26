@@ -21,7 +21,7 @@ namespace DCEngine {
     @brief  Calculates the bounding area of the currently selected objects.
     */
     /**************************************************************************/
-    void Selector::CalculateSelectionBounding(ObjectPtr selectedObject, ObjectContainer selectedObjects)
+    void EditorSelector::CalculateSelectionBounding(ObjectPtr selectedObject, ObjectContainer selectedObjects)
     {
       if (!IsSelectableGameObject(selectedObject))
         return;
@@ -82,10 +82,34 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Locks all objects in the current level.
+    */
+    /**************************************************************************/
+    void EditorSelector::LockAll()
+    {
+      for (auto& object : *Access().CurrentSpace->AllObjects()) {
+        object->setLocked(true);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Unlocks all objects in the current level.
+    */
+    /**************************************************************************/
+    void EditorSelector::UnlockAll()
+    {
+      for (auto& object : *Access().CurrentSpace->AllObjects()) {
+        object->setLocked(false);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Selector constructor.
     */
     /**************************************************************************/
-    Selector::Selector(Systems::Editor& editor) : Editor(editor)
+    EditorSelector::EditorSelector() : EditorModule(false)
     {
     }
 
@@ -96,7 +120,7 @@ namespace DCEngine {
     @param  object An Object*
     */
     /**************************************************************************/
-    GameObjectPtr Selector::IsSelectableGameObject(ObjectPtr object)
+    GameObjectPtr EditorSelector::IsSelectableGameObject(ObjectPtr object)
     {
       if (auto gameObject = dynamic_cast<GameObjectPtr>(object)) {
         if (gameObject->HasComponent(std::string("Transform"))) {
@@ -113,7 +137,7 @@ namespace DCEngine {
     @param  event The current mouse position.
     */
     /**************************************************************************/
-    void Selector::SelectMultiple(Vec2 & mousePosition, ObjectContainer selectedObjects, SpacePtr currentSpace)
+    void EditorSelector::SelectMultiple(Vec2 & mousePosition, ObjectContainer selectedObjects, SpacePtr currentSpace)
     {
       if (!MultiSelectDragging)
         return;
@@ -150,7 +174,7 @@ namespace DCEngine {
     @brief  Draws the multi-selection bounding area.
     */
     /**************************************************************************/
-    void Selector::DrawMultiSelect(SpacePtr currentSpace)
+    void EditorSelector::DrawMultiSelect(SpacePtr currentSpace)
     {
       if (!MultiSelectDragging)
         return;

@@ -25,7 +25,7 @@ namespace DCEngine {
       void OpenRecentProject();
       void SaveProject();
 
-      EditorProjects(Editor& editor);
+      EditorProjects();
       ~EditorProjects();
 
     protected:

@@ -16,7 +16,7 @@ namespace DCEngine {
     class Editor;
     class EditorCreator : public EditorModule {
     public:
-      EditorCreator(Editor& editor);
+      EditorCreator();
       void CreateTransform();
       void CreateSprite();
       void CreateSpriteText();

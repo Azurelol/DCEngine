@@ -20,7 +20,7 @@ namespace DCEngine {
     public:
 
       void Display();
-      EditorPreferences(Editor& editor);
+      EditorPreferences();
       ~EditorPreferences();
 
     protected:

@@ -1430,9 +1430,6 @@
     <ClInclude Include="Core\Systems\Physics\QuadTree.h">
       <Filter>Core\Systems\Physics\Broadphase</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Editor\Selector.h">
-      <Filter>Core\Systems\Editor\Modules\Selector</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h">
       <Filter>Core\Systems\Editor\Modules</Filter>
     </ClInclude>
@@ -1591,6 +1588,9 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Actions.h">
       <Filter>Core\Engine\Action\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Editor\Selector.h">
+      <Filter>Core\Systems\Editor\Modules\Selector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

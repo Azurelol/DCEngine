@@ -16,7 +16,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    EditorModule::EditorModule(Editor & editor, bool add) : Module("EditorModule"), EditorRef(editor), WillAddWindow(add), WindowEnabled(false)
+    EditorModule::EditorModule(bool add) : Module("EditorModule"), WillAddWindow(add), WindowEnabled(false)
     {
       Daisy->Connect<Events::EditorUpdate>(&EditorModule::OnEditorUpdateEvent, this);
       Daisy->Connect<Events::EditorInitialize>(&EditorModule::OnEditorInitializeEvent, this);
@@ -29,11 +29,12 @@ namespace DCEngine {
     void EditorModule::AddWindow()
     {
       if (WillAddWindow)
-        EditorRef.Add(this);
+        Access().Add(this);
     }
 
     void EditorModule::OnEditorInitializeEvent(Events::EditorInitialize * event)
     {
+      EditorRef = event->Reference;
       AddWindow();
     }
 
@@ -49,6 +50,11 @@ namespace DCEngine {
     void EditorModule::Toggle()
     {
       WindowEnabled = !WindowEnabled;
+    }
+
+    Editor & EditorModule::Access()
+    {
+      return *EditorRef;
     }
 
 

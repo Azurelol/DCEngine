@@ -25,8 +25,7 @@ namespace DCEngine {
     @param editor A reference to the Editor.
     */
     /**************************************************************************/
-    EditorTextEditor::EditorTextEditor(Editor & editor) : EditorModule(editor, true),
-                                                          CurrentScript(nullptr), CurrentShader(nullptr)
+    EditorTextEditor::EditorTextEditor() : EditorModule(true), CurrentScript(nullptr), CurrentShader(nullptr)
     {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
       Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
@@ -134,7 +133,7 @@ namespace DCEngine {
       }
       if (CurrentScript) {
         Load(CurrentScript);
-        EditorRef.Creator.RebuildAllObjectsOnSpace();
+        Access().Creator.RebuildAllObjectsOnSpace();
         DispatchSystemEvents::ScriptingCompile();
       }
     }
@@ -151,7 +150,7 @@ namespace DCEngine {
         CurrentScript->Save(std::string(Text));        
         // Mark Zilch components for rebuilding on the next frame before we recompile them
         //DispatchSystemEvents::EditorRebuildZilchComponents();
-        EditorRef.Creator.RebuildAllObjectsOnSpace();
+        Access().Creator.RebuildAllObjectsOnSpace();
         DispatchSystemEvents::ScriptingCompile();
       }
       else if (CurrentShader) {
@@ -186,12 +185,12 @@ namespace DCEngine {
       }
 
       // Fix me :(
-      //std::string extTextEditorPath = executablePath + "\\Tools\\" + EditorRef.Settings.ExternalTextEditor + ".exe.lnk";
+      //std::string extTextEditorPath = executablePath + "\\Tools\\" + Access().Settings.ExternalTextEditor + ".exe.lnk";
       std::string notepadPath = "\\Notepad++\\notepad++.exe";
       std::string sublimePath = "\\Sublime\\sublime_text.exe";
 
       std::string editorPath;
-      if (EditorRef.Settings.ExternalTextEditor == "Notepad++")
+      if (Access().Settings.ExternalTextEditor == "Notepad++")
         editorPath = notepadPath;
       else
         editorPath = sublimePath;            
@@ -323,7 +322,7 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorTextEditor::OnWindowGainedFocusEvent(Events::WindowGainedFocus * event)
     {
-      if (EditorRef.Settings.CompileOnContextSwitch) {
+      if (Access().Settings.CompileOnContextSwitch) {
         Reload();
       }
     }

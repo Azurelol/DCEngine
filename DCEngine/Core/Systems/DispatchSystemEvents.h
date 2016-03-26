@@ -17,7 +17,7 @@ namespace DCEngine {
 
   namespace Systems {
 
-
+    class Editor;
 
     class DispatchSystemEvents {
     public:
@@ -28,7 +28,7 @@ namespace DCEngine {
       static void EngineExit();
       static void EngineSaveConfigurations();
       
-      static void EditorInitialize();
+      static void EditorInitialize(Editor& editor);
       static void EditorSelectObject(Object* object);
       static void EditorDeselectObject();
       static void EditorSave();

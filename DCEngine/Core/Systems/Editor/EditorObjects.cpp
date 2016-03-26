@@ -20,7 +20,7 @@ namespace DCEngine {
     @param editor A reference to the Editor.
     */
     /**************************************************************************/
-    EditorObjects::EditorObjects(Editor & editor) : EditorModule(editor, true),
+    EditorObjects::EditorObjects() : EditorModule(true),
       Attaching(false), Detaching(false), Deleting(false)
     {
       // The EditorObjects window starts displayed
@@ -60,12 +60,12 @@ namespace DCEngine {
       // Swap position
       //ImGui::SameLine();
       if (ImGui::Button("Up")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject()))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Up);
       }
       ImGui::SameLine();
       if (ImGui::Button("Down")) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject()))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject()))
           ObjectsListSwapPosition(gameObject, Direction::Down);
       }
 
@@ -99,10 +99,10 @@ namespace DCEngine {
     void EditorObjects::ObjectsListSwapPosition(GameObjectPtr object, Direction dir)
     {
       if (dir == Direction::Up) {
-        EditorRef.CurrentSpace->SwapGameObject(object, Direction::Up);
+        Access().CurrentSpace->SwapGameObject(object, Direction::Up);
       }
       else if (dir == Direction::Down) {
-        EditorRef.CurrentSpace->SwapGameObject(object, Direction::Down);
+        Access().CurrentSpace->SwapGameObject(object, Direction::Down);
       }
     }
 
@@ -116,7 +116,7 @@ namespace DCEngine {
     /**************************************************************************/
     bool EditorObjects::DisplayObject(GameObjectPtr object, unsigned& id)
     {
-      bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == object->getObjectID();
+      bool selected = Access().SelectedObject() && Access().SelectedObject()->getObjectID() == object->getObjectID();
       auto objectName = object->Name().c_str();
       auto& children = object->Children();
 
@@ -148,8 +148,8 @@ namespace DCEngine {
             // Attach
             if (Attaching)
               Attach(object);
-            EditorRef.SelectObject(object);
-            EditorRef.Inspector.Toggle(true);
+            Access().SelectObject(object);
+            Access().Inspector.Toggle(true);
           }
           // Display a context menu
           ContextMenu(object);
@@ -169,8 +169,8 @@ namespace DCEngine {
             // Attach
             if (Attaching)
               Attach(object);
-            EditorRef.SelectObject(object);
-            EditorRef.Inspector.Toggle(true);
+            Access().SelectObject(object);
+            Access().Inspector.Toggle(true);
           }
           //ImGui::PopID();
           // Display a context menu
@@ -187,8 +187,8 @@ namespace DCEngine {
           if (Attaching)
             Attach(object);
           // Select
-          EditorRef.SelectObject(object);
-          EditorRef.Inspector.Toggle(true);
+          Access().SelectObject(object);
+          Access().Inspector.Toggle(true);
           //ImGui::PopID();
           //return true;
         }
@@ -270,11 +270,11 @@ namespace DCEngine {
     void EditorObjects::AttachMenu()
     {
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
-      auto objectIdentifiers = EditorRef.CurrentSpace->IdentifyAllObjects();
+      auto objectIdentifiers = Access().CurrentSpace->IdentifyAllObjects();
       auto names = objectIdentifiers.NamesAsChars();
       ImGui::PushItemWidth(ImGui::GetWindowWidth() / 2.0f);
 
-      auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject());
+      auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject());
       bool attached = false;
       if (gameObject && gameObject->Parent())
         attached = true;
@@ -284,7 +284,7 @@ namespace DCEngine {
       // Attempt to attach a GameObject if there is one selected
       if (ImGui::Combo("##Attach", &currentAttachable, names.data(), static_cast<int>(names.size()))) {
         DCTrace << "Attaching to " << objectIdentifiers.Names[currentAttachable] << ", with ID: " << objectIdentifiers.IDs[currentAttachable] << "\n";
-        //if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
+        //if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject())) {
         //  gameObject->AttachTo(objects->at(currentAttachable));
         //}
       }
@@ -313,7 +313,7 @@ namespace DCEngine {
     void EditorObjects::Attach(GameObjectPtr object)
     {
       // If attaching is enabled, attach to the selected object
-      if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject())) {
         gameObject->AttachTo(object);
         ImGui::GetIO().MouseDrawCursor = false;
         Attaching = false;
@@ -328,12 +328,12 @@ namespace DCEngine {
     void EditorObjects::CheckState()
     {
       if (Deleting) {
-        EditorRef.DeleteObject();
+        Access().DeleteObject();
         Deleting = false;
       }
 
       if (Detaching) {
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject())) {
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject())) {
           gameObject->Detach();
         }
         Detaching = false;

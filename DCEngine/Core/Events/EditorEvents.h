@@ -17,6 +17,10 @@ namespace DCEngine {
   // Forward declarations
   //class Object;    
   
+  namespace Systems {
+    class Editor;
+  }
+
   namespace Events {
 
     class EditorEnabled : public Event {
@@ -24,9 +28,12 @@ namespace DCEngine {
       EditorEnabled() : Event("EditorEnabled") {}
     };
 
+
+
     class EditorInitialize : public Event {
     public:
       EditorInitialize() : Event("EditorInitialize") {}
+      Systems::Editor* Reference;
     };
 
     class EditorSelectObject : public Event {

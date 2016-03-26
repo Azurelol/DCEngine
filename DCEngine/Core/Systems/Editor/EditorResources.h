@@ -12,14 +12,15 @@
 #pragma once
 
 #include "../../Objects/Resource.h"
+#include "EditorModule.h"
 
 namespace DCEngine {
   namespace Systems {
 
     class Editor;
-    class EditorResources {
+    class EditorResources : public EditorModule {
     public:
-      EditorResources(Editor& editor);
+      EditorResources();
       template <typename ResourceMap> bool DisplayResourceList(std::string type, ResourceMap* map);
       // Templated genius function
       template <typename ResourceMap>
@@ -36,7 +37,7 @@ namespace DCEngine {
       //    for (auto& resource : map) {
       //      auto resourceName = resource.second->Name().c_str();
 
-      //      bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() 
+      //      bool selected = Access().SelectedObject() && Access().SelectedObject()->getObjectID() 
       //                                                             == resource.second->getObjectID();
       //      if (ImGui::Selectable(resourceName, selected)) {
       //        SingleClickClass.SingleClickFn(resourceName);      
@@ -74,7 +75,6 @@ namespace DCEngine {
       //SpriteLayerOrderPtr SelectedSpriteLayerOrder;
 
     private:
-      Editor& EditorRef;
 
     };
     
@@ -97,10 +97,10 @@ namespace DCEngine {
         //ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Shaders: ");
         for (auto& resource : *map) {
           auto resourceName = resource.second->Name().c_str();
-          bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() == resource.second->getObjectID();
+          bool selected = Access().SelectedObject() && Access().SelectedObject()->getObjectID() == resource.second->getObjectID();
           if (ImGui::Selectable(resourceName, selected) ) {
-            EditorRef.Select(resource.second.get());
-            EditorRef.Inspector.Toggle(true);
+            Access().Select(resource.second.get());
+            Access().Inspector.Toggle(true);
           }
         }
         ImGui::TreePop();
@@ -115,7 +115,7 @@ namespace DCEngine {
           for (auto& resource : *map) {
             auto resourceName = resource.second->Name().c_str();
 
-            bool selected = EditorRef.SelectedObject() && EditorRef.SelectedObject()->getObjectID() 
+            bool selected = Access().SelectedObject() && Access().SelectedObject()->getObjectID() 
                                                                    == resource.second->getObjectID();
             if (ImGui::Selectable(resourceName, selected)) {
               singleClick(resourceName);      

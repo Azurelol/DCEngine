@@ -32,6 +32,8 @@ namespace DCEngine {
 
   namespace Systems {
 
+    
+
     class Editor : public System {
       friend class Engine;
       // Modules. @toodo I would prefer not to friend all my modules to give them private access.
@@ -85,6 +87,7 @@ namespace DCEngine {
       // Settings
       EditorConfig& Settings;
       // Modules
+      EditorSelector Selector;
       EditorCreator Creator;
       EditorResources Resources;
       EditorArchetypes Archetypes;

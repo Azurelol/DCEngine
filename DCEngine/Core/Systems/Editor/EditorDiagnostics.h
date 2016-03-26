@@ -17,7 +17,7 @@ namespace DCEngine {
     public:
 
       void Display();
-      EditorDiagnostics(Editor& editor);
+      EditorDiagnostics();
       ~EditorDiagnostics();
 
 

@@ -15,16 +15,15 @@ then doing serialization of the levels.
 namespace DCEngine {
   namespace Systems {
 
+    static Editor* Reference = nullptr;
+
     /**************************************************************************/
     /*!
     \brief  Constructor.
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig& settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                                          Settings(settings), 
-                                                          Creator(*this), Resources(*this), Archetypes(*this),
-                                                          Projects(*this), Diagnostics(*this), TextEditor(*this),
-                                                          Inspector(*this), Preferences(*this), Objects(*this)
+                                                          Settings(settings)
     {      
     }
 
@@ -45,8 +44,7 @@ namespace DCEngine {
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
-      DispatchSystemEvents::EditorInitialize();
-      
+      DispatchSystemEvents::EditorInitialize(*this);      
     }
 
     /**************************************************************************/

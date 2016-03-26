@@ -20,17 +20,18 @@ namespace DCEngine {
       bool WindowEnabled;
       void Toggle(bool);
       void Toggle();
+      Editor& Access();
       virtual void Display() {};
       virtual void Update() {};
-      EditorModule(Editor& editor, bool add);
+      EditorModule(bool add);
       ~EditorModule();
     protected:
-      Editor& EditorRef;
     private:
       void AddWindow();
       void OnEditorInitializeEvent(Events::EditorInitialize* event);
       void OnEditorUpdateEvent(Events::EditorUpdate* event);
 
+      Editor* EditorRef;
       bool WillAddWindow;
     };
 

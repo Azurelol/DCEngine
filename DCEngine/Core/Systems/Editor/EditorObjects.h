@@ -17,7 +17,7 @@ namespace DCEngine {
     class Editor;
     class EditorObjects : public EditorModule {
     public:
-      EditorObjects(Editor& editor);
+      EditorObjects();
       ~EditorObjects();
     private:
       void Display();

@@ -54,6 +54,9 @@ namespace DCEngine {
           if (ImGui::MenuItem("Duplicate", "CTRL+D")) { Duplicate(); }
           if (ImGui::MenuItem("Delete", "Del")) { DeleteObject(); }
           ImGui::Separator();
+          if (ImGui::MenuItem("Lock All")) { Selector.LockAll(); }
+          if (ImGui::MenuItem("Unlock All")) { Selector.UnlockAll(); }
+          ImGui::Separator();
           if (ImGui::MenuItem("Preferences", "F10")) { Preferences.Toggle(true); }
           ImGui::EndMenu();
         }

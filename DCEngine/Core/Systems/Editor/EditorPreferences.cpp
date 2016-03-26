@@ -20,7 +20,7 @@ namespace DCEngine {
     \brief  EditorPreferences constructor.
     */
     /**************************************************************************/
-    EditorPreferences::EditorPreferences(Editor & editor) : EditorModule(editor, true)
+    EditorPreferences::EditorPreferences() : EditorModule(true)
     {
     }
 

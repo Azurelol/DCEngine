@@ -20,7 +20,7 @@ namespace DCEngine {
     public:
 
       void Display();
-      EditorInspector(Editor& editor);
+      EditorInspector();
 
     private:
 

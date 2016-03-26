@@ -32,7 +32,7 @@ namespace DCEngine {
       void Reload();
       void Save();
       void Print();
-      EditorTextEditor(Editor& editor);
+      EditorTextEditor();
       
       
 
