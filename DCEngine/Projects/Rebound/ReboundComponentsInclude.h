@@ -35,3 +35,4 @@
 #include "Components\AI\Sentinel.h"
 #include "Components\AI\Lancer.h"
 #include "Components\Shield.h"
+#include "Components\LancerShield.h"

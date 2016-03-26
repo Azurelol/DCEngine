@@ -942,6 +942,9 @@
     <ClCompile Include="Core\Engine\Actions.cpp">
       <Filter>Core\Engine\Action\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp">
+      <Filter>Projects\Rebound\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1591,6 +1594,9 @@
     </ClInclude>
     <ClInclude Include="Core\Engine\Actions.h">
       <Filter>Core\Engine\Action\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Projects\Rebound\Components\LancerShield.h">
+      <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
