@@ -1,11 +1,11 @@
 class HealthControler : ZilchComponent
 {
-    function Initialize(init : CogInitializer)
+    function Initialize()
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
-    function OnLogicUpdate(event : UpdateEvent)
+    function OnLogicUpdate(event : LogicUpdate)
     {
     }
 }
