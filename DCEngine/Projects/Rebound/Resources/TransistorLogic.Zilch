@@ -1,0 +1,50 @@
+
+class ToggleEvent : ZilchEvent
+{
+    var Source : Entity = null;
+}
+class TransistorLogic : ZilchComponent
+{
+    sends ToggleEvent : ToggleEvent;
+    
+    [Property]
+    var Target1 : Entity = null;
+    
+    [Property]
+    var Target2 : Entity = null;
+    
+    [Property]
+    var Target3 : Entity = null;
+    
+    [Property]
+    var Target4 : Entity = null;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+    }
+
+    function OnToggleEvent(event : ToggleEvent)
+    {
+        if(this.Target1 != null)
+        {
+            this.Target1.Dispatch(Events.ToggleEvent, new ToggleEvent());//What is stringID of custom events
+        }
+        
+        if(this.Target2 != null)
+        {
+            this.Target2.Dispatch(Events.ToggleEvent, new ToggleEvent());
+        }
+        
+        if(this.Target3 != null)
+        {
+            this.Target3.Dispatch(Events.ToggleEvent, new ToggleEvent());
+        }
+        
+        if(this.Target4 != null)
+        {
+            this.Target4.Dispatch(Events.ToggleEvent, new ToggleEvent());
+        }
+    }
+    
+}

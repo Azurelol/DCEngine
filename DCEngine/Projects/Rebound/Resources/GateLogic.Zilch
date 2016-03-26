@@ -1,0 +1,78 @@
+class GateLogic : ZilchComponent
+{
+    [Property]
+    var Key1 : Entity = null;
+    
+    [Property]
+    var Key2 : Entity = null;
+    
+    [Property]
+    var Key3 : Entity = null;
+    
+    [Property]
+    var Key4 : Entity = null;
+    
+    [Property]
+    var Gate : Entity = null;
+    
+    var Lock1 : Boolean;
+    var Lock2 : Boolean;
+    var Lock3 : Boolean;
+    var Lock4 : Boolean;
+    
+    var Open : Boolean;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+        
+        this.Lock1 = this.Key1 == null;
+        this.Lock2 = this.Key2 == null;
+        this.Lock3 = this.Key3 == null;
+        this.Lock4 = this.Key4 == null;
+        
+        this.Open = false;
+    }
+
+    function OnToggleEvent(event : ToggleEvent)
+    {
+        if(this.Key1 == event.Source)
+        {
+            this.Lock1 = !this.Lock1;
+        }
+        
+        if(this.Key2 == event.Source)
+        {
+            this.Lock2 = !this.Lock2;
+        }
+        
+        if(this.Key3 == event.Source)
+        {
+            this.Lock3 = !this.Lock3;
+        }
+        
+        if(this.Key4 == event.Source)
+        {
+            this.Lock4 = !this.Lock4;
+        }
+        
+        if(this.Gate != null && this.Lock1 && this.Lock2 && this.Lock3 && this.Lock4 && !this.Open)
+        {
+            this.ToggleGate();
+        }
+        
+        if(this.Gate != null && (!this.Lock1 || !this.Lock2 || !this.Lock3 || !this.Lock4) && this.Open)
+        {
+            this.ToggleGate();
+        }
+    }
+    
+    function ToggleGate()
+    {
+        this.Open = !this.Open;
+        
+        var toggle = new ToggleEvent();
+        toggle.Source = this.Owner;
+        this.Gate.Dispatch(Events.ToggleEvent, toggle);
+    }
+}

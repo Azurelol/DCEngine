@@ -1,0 +1,9 @@
+class DamageEvent : DaisyEvent
+{
+    // Group that the damage dealing entity belongs to (Player, Enemy, or Environment).
+    //var Source : DamageSource;
+    // Damage dealt by this event.
+    var Damage : Integer = 0;
+}
+
+enum DamageSource {None, Player, Enemy, Environment}
