@@ -26,6 +26,7 @@
 #include <chrono>
 #include <utility>
 #include <algorithm>
+#include <thread>
 
 /**************************************************************************/
 /*!
@@ -33,13 +34,10 @@
 */
 /**************************************************************************/
 // SFML
-
+#include <SFML\System\Vector2.hpp>
 // Dear ImgUi
 #include <IMGUI/imgui.h>
-
-#include <SFML\System\Vector2.hpp>
 // GLEW
-
 // FMOD
 #include <FMOD\fmod.hpp>
 #include <FMOD\fmod_errors.h>
@@ -58,5 +56,6 @@
 /**************************************************************************/
 #include "../Engine/Types.h"
 #include "../Engine/Macros.h"
+#include "../Utilities/UtilitiesInclude.h"
 //#include "../Engine/Data.h"
 //#include <Windows.h>
