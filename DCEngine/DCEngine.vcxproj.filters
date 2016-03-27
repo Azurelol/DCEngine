@@ -1612,6 +1612,9 @@
     <ClInclude Include="Core\Utilities\UtilitiesInclude.h">
       <Filter>Core\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Core\DaisyVector.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">

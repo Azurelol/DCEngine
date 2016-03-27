@@ -14,6 +14,7 @@ half-line.
 
 // PhysicsCasting objects
 #include "Ray.h"
+#include "../../DaisyVector.h"
 
 namespace DCEngine {
 
@@ -29,6 +30,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastResult {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastResult, Zilch::TypeCopyMode::ReferenceType);
+#endif
     //Collider* Collider;
     float Distance;
     // the position of the ray-line segment collision in world coordinates
@@ -49,6 +53,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastFilter {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastFilter, Zilch::TypeCopyMode::ReferenceType);
+#endif
     bool Include = false;
     std::vector<CollisionGroup> CollisionGroups;
     bool IgnoreStatic = false;

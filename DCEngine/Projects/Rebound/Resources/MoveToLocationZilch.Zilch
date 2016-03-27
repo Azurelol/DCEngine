@@ -7,7 +7,7 @@ class MoveToLocationZilch : ZilchComponent
     [Property]
     var Oscillate : Boolean = false;
     [Property]
-    var CurrentlyMoving : Boolean = false;
+    var StartMoving : Boolean = false;
     [Property]
     var TargetLocation : Real3;
     var StartingLocation : Real3;
@@ -26,7 +26,7 @@ class MoveToLocationZilch : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
         this.StartingLocation = this.Owner.Transform.Translation;
         this.TargetLocation = this.StartingLocation - this.TargetLocation;
-        if(this.CurrentlyMoving)
+        if(this.StartMoving)
         {
             this.SendSelfToggleEvent();
         }

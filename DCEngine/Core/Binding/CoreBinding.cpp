@@ -26,7 +26,8 @@
 #include "CoreBindingEventStrings.h"
 // Engine
 #include "..\Engine\Engine.h"
-
+//Daisy Vector
+#include "../DaisyVector.h"
 
 namespace DCEngine {  
 
@@ -53,6 +54,16 @@ namespace DCEngine {
     ZilchInitializeType(GameSession);
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
+    /*===================*
+    *     Collision      *
+    *===================*/
+    ZilchInitializeType(Ray);
+    ZilchInitializeType(CastResult);
+    ZilchInitializeType(CastFilter);
+    ZilchInitializeType(CollisionBlock);
+    ZilchInitializeType(CollisionFilter);
+    ZilchInitializeType(CollisionTable);
+    //ZilchInitializeType(DaisyVector<CastResult>);
     /*===================*
     *     Resources      *
     *===================*/

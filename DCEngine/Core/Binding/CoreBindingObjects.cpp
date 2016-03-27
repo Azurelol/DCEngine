@@ -134,13 +134,13 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Space::Initialize, ZilchNoOverload, "Initialize", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::Terminate, ZilchNoOverload, "Terminate", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Space::LoadLevel, (void (Space::*)(std::string& level)), "LoadLevel", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Space::LoadLevel, (void (Space::*)(std::string&)), "LoadLevel", "level");
     ZilchBindMethod(builder, type, &Space::ReloadLevel, ZilchNoOverload, "ReloadLevel", ZilchNoNames);
     //ZilchBindMethod(builder, type, &Space::Update, ZilchNoOverload, "Update", ZilchNoNames);
     //ZilchBindMethod(builder, type, &Space::CreateObject, GameObject* , "CreateObject", "archetype");
     ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)()), "CreateObject", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)(std::string)), "CreateObject", ZilchNoNames);
-    ZilchBindMethod(builder, type, &Space::FindObjectByName, (GameObject* (Space::*)(const std::string)), "FindObjectByName", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Space::CreateObject, (GameObject* (Space::*)(std::string)), "CreateObject", "archetypeName");
+    ZilchBindMethod(builder, type, &Space::FindObjectByName, (GameObject* (Space::*)(const std::string)), "FindObjectByName", "name");
     ZilchBindMethod(builder, type, &Space::DestroyAll, ZilchNoOverload, "DestroyAll", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::TestSpace, ZilchNoOverload, "TestSpace", ZilchNoNames);
@@ -166,7 +166,11 @@ namespace DCEngine {
     // Fields
   }
 
+ /* ZilchDeclareExternalBaseType(DaisyVector<CastResult>, Zilch::TypeCopyMode::ReferenceType);
+  ZilchDefineType(DaisyVector<CastResult>, "CastVector", DCEngineCore, builder, type)
+  {
 
+  }*/
   #endif
 
 }
