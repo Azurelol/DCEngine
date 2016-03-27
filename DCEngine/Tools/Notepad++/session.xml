@@ -1,9 +1,7 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="2">
-            <File firstVisibleLine="27" xOffset="0" scrollWidth="551" startPos="984" endPos="984" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459035091" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="565" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459035136" />
-            <File firstVisibleLine="7" xOffset="0" scrollWidth="601" startPos="1270" endPos="1270" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459035279" />
+        <mainView activeIndex="0">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="501" startPos="345" endPos="345" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459037452" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

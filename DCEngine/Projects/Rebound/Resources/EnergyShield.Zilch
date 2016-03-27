@@ -1,0 +1,18 @@
+class EnergyShield : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+	{
+		if(event.OtherObject.BallTemp == null)
+		{
+			var speed = event.OtherObject.RigidBody.Velocity;
+			
+			//if(speed)
+			event.OtherObject.RigidBody.ApplyLinearVelocity(-speed);
+		}
+	}
+}
