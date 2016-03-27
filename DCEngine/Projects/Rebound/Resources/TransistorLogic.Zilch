@@ -1,0 +1,58 @@
+
+class ToggleEvent : ZilchEvent
+{
+    var Source : Entity = null;
+}
+class TransistorLogic : ZilchComponent
+{
+    sends ToggleEvent : ToggleEvent;
+    
+    [Property]
+    var Target1 : String = "";
+    
+    [Property]
+    var Target2 : String = "";
+    
+    [Property]
+    var Target3 : String = "";
+    
+    [Property]
+    var Target4 : String = "";
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+    }
+
+    function OnToggleEvent(event : ToggleEvent)
+    {
+        if(this.Target1 != "")
+        {
+            var tEvent1 = ToggleEvent();
+            tEvent1.Source = this.Owner;
+            this.Space.FindObjectByName(this.Target1).Dispatch(DaisyEvent.ToggleEvent, tEvent1);
+        }
+        
+        if(this.Target2 != "")
+        {
+            var tEvent2 = ToggleEvent();
+            tEvent2.Source = this.Owner;
+            this.Space.FindObjectByName(this.Target2).Dispatch(DaisyEvent.ToggleEvent, tEvent2);
+        }
+        
+        if(this.Target3 != "")
+        {
+            var tEvent3 = ToggleEvent();
+            tEvent3.Source = this.Owner;
+            this.Space.FindObjectByName(this.Target3).Dispatch(DaisyEvent.ToggleEvent, tEvent3);
+        }
+        
+        if(this.Target4 != "")
+        {
+            var tEvent4 = ToggleEvent();
+            tEvent4.Source = this.Owner;
+            this.Space.FindObjectByName(this.Target4).Dispatch(DaisyEvent.ToggleEvent, tEvent4);
+        }
+    }
+    
+}

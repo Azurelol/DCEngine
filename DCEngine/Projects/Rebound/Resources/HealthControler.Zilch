@@ -1,0 +1,61 @@
+class DeathEvent : ZilchEvent {}
+
+class HealthControler : ZilchComponent
+{
+    [Property]
+    var MaxHealth : Real = 0;
+    [Property]
+    var  StartingHealth : Real = 0;
+    [Property]
+    var  IsInvulnerable : Boolean = false;
+    
+    var  Health : Real = 0;
+
+    function Initialize()
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+
+    function ModifyHealth(amount : Real) : Boolean
+    {
+      var oldHealth = this.Health;
+
+      if (!this.IsInvulnerable)
+      {
+        this.Health += amount;
+
+        if (this.Health > this.MaxHealth)
+        {
+          this.Health = this.MaxHealth;
+        }
+        if (this.Health < 0)
+        {
+          this.Health = 0;
+        }
+      }
+
+      if (this.Health == 0)
+      {
+        this.Owner.Dispatch(DaisyEvent.DeathEvent, DeathEvent());
+      }
+
+      if (oldHealth == this.Health)
+        {
+        return false;
+        }
+      else
+        {
+          return true;
+        }
+    }
+
+    function GetHealth() : Real
+    {
+      return this.Health;
+    }
+
+}

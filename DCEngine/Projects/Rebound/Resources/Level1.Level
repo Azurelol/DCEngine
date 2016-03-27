@@ -7,7 +7,7 @@
     {
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
         "Components": 
@@ -62,7 +62,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 127, 
         "Name": "g1", 
         "Components": 
@@ -150,7 +150,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 128, 
         "Name": "g2", 
         "Components": 
@@ -238,7 +238,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 129, 
         "Name": "g3", 
         "Components": 
@@ -326,7 +326,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "g4", 
         "Components": 
@@ -414,7 +414,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 131, 
         "Name": "g5", 
         "Components": 
@@ -502,7 +502,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 132, 
         "Name": "g6", 
         "Components": 
@@ -590,7 +590,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 133, 
         "Name": "g7", 
         "Components": 
@@ -678,7 +678,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 134, 
         "Name": "g8", 
         "Components": 
@@ -766,7 +766,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 135, 
         "Name": "g9", 
         "Components": 
@@ -854,7 +854,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 136, 
         "Name": "g10", 
         "Components": 
@@ -942,7 +942,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 137, 
         "Name": "g11", 
         "Components": 
@@ -1030,7 +1030,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 138, 
         "Name": "g12", 
         "Components": 
@@ -1118,7 +1118,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 139, 
         "Name": "g13", 
         "Components": 
@@ -1206,7 +1206,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 140, 
         "Name": "g14", 
         "Components": 
@@ -1294,7 +1294,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 141, 
         "Name": "g15", 
         "Components": 
@@ -1382,7 +1382,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 142, 
         "Name": "g16", 
         "Components": 
@@ -1470,7 +1470,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 143, 
         "Name": "g17", 
         "Components": 
@@ -1558,7 +1558,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 144, 
         "Name": "g19", 
         "Components": 
@@ -1646,7 +1646,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 145, 
         "Name": "g20", 
         "Components": 
@@ -1734,7 +1734,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 146, 
         "Name": "g21", 
         "Components": 
@@ -1935,8 +1935,8 @@
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "AutoPlayTimer": 2.000000
           }, 
@@ -1984,7 +1984,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 148, 
         "Name": "g24", 
         "Components": 
@@ -2072,7 +2072,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 149, 
         "Name": "g25", 
         "Components": 
@@ -2160,7 +2160,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 150, 
         "Name": "g26", 
         "Components": 
@@ -2248,7 +2248,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 151, 
         "Name": "g27", 
         "Components": 
@@ -2336,7 +2336,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 152, 
         "Name": "g28", 
         "Components": 
@@ -2424,7 +2424,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "g29", 
         "Components": 
@@ -2600,7 +2600,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 233, 
         "Name": "Light", 
         "Components": 
@@ -2674,7 +2674,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 250, 
         "Name": "Shield", 
         "Components": 
@@ -2762,7 +2762,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 232, 
         "Name": "Scrapper4", 
         "Components": 
@@ -2921,7 +2921,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 158, 
         "Name": "g34", 
         "Components": 
@@ -3009,7 +3009,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 159, 
         "Name": "g35", 
         "Components": 
@@ -3097,7 +3097,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 160, 
         "Name": "g36", 
         "Components": 
@@ -3185,7 +3185,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 161, 
         "Name": "g37", 
         "Components": 
@@ -3273,7 +3273,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 162, 
         "Name": "g38", 
         "Components": 
@@ -3361,7 +3361,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 163, 
         "Name": "g39", 
         "Components": 
@@ -3449,7 +3449,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 164, 
         "Name": "g40", 
         "Components": 
@@ -3537,7 +3537,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 165, 
         "Name": "g41", 
         "Components": 
@@ -3625,7 +3625,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 166, 
         "Name": "g42", 
         "Components": 
@@ -3801,7 +3801,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 245, 
         "Name": "Ground", 
         "Components": 
@@ -3908,7 +3908,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 244, 
         "Name": "Light", 
         "Components": 
@@ -3982,7 +3982,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 242, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4056,7 +4056,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 172, 
         "Name": "g48", 
         "Components": 
@@ -4144,7 +4144,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 241, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4218,7 +4218,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 240, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4292,7 +4292,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 239, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4366,7 +4366,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 238, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4440,7 +4440,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 237, 
         "Name": "SmallAcidLight", 
         "Components": 
@@ -4514,7 +4514,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 236, 
         "Name": "AcidLight", 
         "Components": 
@@ -5644,7 +5644,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 235, 
         "Name": "Light", 
         "Components": 
@@ -5718,7 +5718,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 192, 
         "Name": "w2", 
         "Components": 
@@ -5806,7 +5806,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 193, 
         "Name": "w3", 
         "Components": 
@@ -5894,7 +5894,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 194, 
         "Name": "Ball", 
         "Components": 
@@ -6167,7 +6167,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 195, 
         "Name": "w5", 
         "Components": 
@@ -6255,7 +6255,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 196, 
         "Name": "w6", 
         "Components": 
@@ -6343,7 +6343,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 197, 
         "Name": "w7", 
         "Components": 
@@ -6431,7 +6431,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 198, 
         "Name": "w8", 
         "Components": 
@@ -6519,7 +6519,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 199, 
         "Name": "w9", 
         "Components": 
@@ -6607,7 +6607,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 200, 
         "Name": "w10", 
         "Components": 
@@ -6695,7 +6695,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 201, 
         "Name": "w11", 
         "Components": 
@@ -6783,7 +6783,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 202, 
         "Name": "w12", 
         "Components": 
@@ -6871,7 +6871,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 203, 
         "Name": "w13", 
         "Components": 
@@ -6959,7 +6959,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 204, 
         "Name": "w14", 
         "Components": 
@@ -7047,7 +7047,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 205, 
         "Name": "w15", 
         "Components": 
@@ -7135,7 +7135,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 206, 
         "Name": "w16", 
         "Components": 
@@ -7223,7 +7223,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 247, 
         "Name": "g26", 
         "Components": 
@@ -7311,7 +7311,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 208, 
         "Name": "w18", 
         "Components": 
@@ -7399,7 +7399,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 248, 
         "Name": "Transform", 
         "Components": 
@@ -7820,7 +7820,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 214, 
         "Name": "Acid1", 
         "Components": 
@@ -7931,7 +7931,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 215, 
         "Name": "Acid2", 
         "Components": 
@@ -8042,7 +8042,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 216, 
         "Name": "Acid3", 
         "Components": 
@@ -8153,7 +8153,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 217, 
         "Name": "Acid4", 
         "Components": 
@@ -8264,7 +8264,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 218, 
         "Name": "Acid5", 
         "Components": 
@@ -8375,7 +8375,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 219, 
         "Name": "Acid6", 
         "Components": 
@@ -8486,7 +8486,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 220, 
         "Name": "Acid7", 
         "Components": 
@@ -8597,7 +8597,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 246, 
         "Name": "Background", 
         "Components": 
@@ -8691,7 +8691,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 228, 
         "Name": "g32", 
         "Components": 
@@ -8779,7 +8779,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 229, 
         "Name": "g33", 
         "Components": 
@@ -8867,7 +8867,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 224, 
         "Name": "Scrapper4", 
         "Components": 
@@ -9026,7 +9026,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 225, 
         "Name": "Settings", 
         "Components": 
@@ -9076,7 +9076,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 226, 
         "Name": "g30", 
         "Components": 
@@ -9164,7 +9164,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 227, 
         "Name": "g31", 
         "Components": 
@@ -9252,7 +9252,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 222, 
         "Name": "Scrapper4", 
         "Components": 
@@ -9411,7 +9411,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Scrapper4", 
         "Components": 

@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 279, 
-    "Name": "Shield1", 
+    "GameObjectID": 198, 
+    "Name": "Button", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 61.985565, 
-            "y": 2.609283, 
+            "x": -80.303001, 
+            "y": 8.122000, 
             "z": 0.000000
           }
         }, 
@@ -32,7 +32,7 @@
           "Vec3": 
           {
             "x": 1.000000, 
-            "y": 5.200000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -44,10 +44,10 @@
         {
           "Vec4": 
           {
-            "x": 0.200000, 
-            "y": 0.400000, 
-            "z": 0.700000, 
-            "w": 0.500000
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 0.523000, 
+            "w": 1.000000
           }
         }, 
         "SpriteSource": "square", 
@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "DefaultCollisionGroup", 
+        "CollisionGroup": "Terrain", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -79,34 +79,13 @@
             "z": 0.000000
           }
         }, 
-        "Ghost": true, 
+        "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }, 
-      "EnergyShield": 
+      "Button": 
       {
-        "RepulseSpeed": 75, 
-        "Active": true, 
-        "ActiveColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.200000, 
-            "y": 0.400000, 
-            "z": 0.700000, 
-            "w": 0.500000
-          }
-        }, 
-        "InactiveColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.200000, 
-            "y": 0.200000, 
-            "z": 0.700000, 
-            "w": 0.200000
-          }
-        }
+        "TargetName": "Mo"
       }
     }, 
     "Children": 

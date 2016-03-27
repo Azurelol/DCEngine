@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": -14.038826, 
-                "y": 2.010273, 
+                "x": 59.443302, 
+                "y": 1.475992, 
                 "z": 0.000000
               }
             }, 
@@ -1739,10 +1739,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield3"
           }
         }, 
         "Children": 
@@ -1753,7 +1749,7 @@
       {
         "Locked": false, 
         "GameObjectID": 309, 
-        "Name": "Button1", 
+        "Name": "Button2", 
         "Components": 
         {
           "Transform": 
@@ -1832,9 +1828,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "PowerField": 
+          "Button": 
           {
-            "Target": "Door2"
+            "TargetName": "Gate1"
           }
         }, 
         "Children": 
@@ -2030,10 +2026,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield4"
           }
         }, 
         "Children": 
@@ -3090,10 +3082,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -3667,7 +3655,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 250.000000, 
+            "FieldOfView": 169.043015, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -3696,8 +3684,8 @@
             {
               "Vec3": 
               {
-                "x": -10.105946, 
-                "y": 2.177018, 
+                "x": 55.993397, 
+                "y": 1.033307, 
                 "z": 0.000000
               }
             }, 
@@ -3950,6 +3938,9 @@
             "Torque": 0.000000, 
             "Growth": 0.000000, 
             "Dampening": 10.000000
+          }, 
+          "BallTemp": 
+          {
           }
         }, 
         "Children": 
@@ -4326,10 +4317,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4419,9 +4406,10 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocation": 
+          "MoveToLocationZilch": 
           {
-            "Timer": 0.000000, 
+            "Oscillate": false, 
+            "StartMoving": false, 
             "TargetLocation": 
             {
               "Vec3": 
@@ -4431,8 +4419,10 @@
                 "z": 0.000000
               }
             }, 
-            "MoveToLocationTime": 1.000000, 
-            "Moving": false
+            "MinMoveTime": 1.000000, 
+            "MaxMoveTime": 1.000000, 
+            "MinDelay": 0.000000, 
+            "MaxDelay": 0.000000
           }
         }, 
         "Children": 
@@ -4522,9 +4512,10 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocation": 
+          "MoveToLocationZilch": 
           {
-            "Timer": 0.000000, 
+            "Oscillate": false, 
+            "StartMoving": false, 
             "TargetLocation": 
             {
               "Vec3": 
@@ -4534,8 +4525,10 @@
                 "z": 0.000000
               }
             }, 
-            "MoveToLocationTime": 1.000000, 
-            "Moving": false
+            "MinMoveTime": 1.000000, 
+            "MaxMoveTime": 1.000000, 
+            "MinDelay": 0.000000, 
+            "MaxDelay": 0.000000
           }
         }, 
         "Children": 
@@ -4810,10 +4803,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4833,8 +4822,8 @@
             {
               "Vec3": 
               {
-                "x": 9.576765, 
-                "y": 7.511517, 
+                "x": 17.809904, 
+                "y": 6.209835, 
                 "z": 0.000000
               }
             }, 
@@ -4877,10 +4866,6 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "PowerField": 
-          {
-            "Target": "Door1"
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
@@ -4906,6 +4891,10 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Button": 
+          {
+            "TargetName": "Door1"
           }
         }, 
         "Children": 
@@ -4916,7 +4905,7 @@
       {
         "Locked": false, 
         "GameObjectID": 272, 
-        "Name": "Button2", 
+        "Name": "Button3", 
         "Components": 
         {
           "Transform": 
@@ -4926,7 +4915,7 @@
               "Vec3": 
               {
                 "x": 53.198399, 
-                "y": 7.689502, 
+                "y": 7.668521, 
                 "z": 0.000000
               }
             }, 
@@ -4995,9 +4984,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "PowerField": 
+          "Button": 
           {
-            "Target": "Door2"
+            "TargetName": "Gate1"
           }
         }, 
         "Children": 
@@ -5008,7 +4997,7 @@
       {
         "Locked": false, 
         "GameObjectID": 273, 
-        "Name": "Button3", 
+        "Name": "Button4", 
         "Components": 
         {
           "Transform": 
@@ -5061,10 +5050,6 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "PowerField": 
-          {
-            "Target": "Shield1"
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "DefaultCollisionGroup", 
@@ -5090,6 +5075,10 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Button": 
+          {
+            "TargetName": "Shield1"
           }
         }, 
         "Children": 
@@ -5100,7 +5089,7 @@
       {
         "Locked": false, 
         "GameObjectID": 274, 
-        "Name": "Button4", 
+        "Name": "Button5", 
         "Components": 
         {
           "Transform": 
@@ -5153,10 +5142,6 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "PowerField": 
-          {
-            "Target": "Shield2"
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "DefaultCollisionGroup", 
@@ -5182,6 +5167,10 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Button": 
+          {
+            "TargetName": "Shield2"
           }
         }, 
         "Children": 
@@ -5506,9 +5495,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -5521,7 +5510,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5541,13 +5530,34 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "Shield": 
+          "EnergyShield": 
           {
-            "Timer": 0.000000
+            "RepulseSpeed": 75, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.200000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5557,7 +5567,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 280, 
+        "GameObjectID": 279, 
         "Name": "Shield2", 
         "Components": 
         {
@@ -5598,9 +5608,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -5611,13 +5621,9 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "Shield": 
-          {
-            "Timer": 0.000000
-          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5637,9 +5643,34 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "EnergyShield": 
+          {
+            "RepulseSpeed": 75, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.200000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5821,9 +5852,30 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "Shield": 
+          "EnergyShield": 
           {
-            "Timer": 0.000000
+            "RepulseSpeed": 75, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5889,7 +5941,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5909,9 +5961,34 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "EnergyShield": 
+          {
+            "RepulseSpeed": 75, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }
           }
         }, 
         "Children": 
@@ -7216,6 +7293,56 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 106, 
+        "Name": "Gate1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.183979, 
+                "y": 5.047847, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "GateLogic": 
+          {
+            "Key1": "Button2", 
+            "Key2": "Button3", 
+            "Key3": "", 
+            "Key4": "", 
+            "Gate": "Door2"
           }
         }, 
         "Children": 

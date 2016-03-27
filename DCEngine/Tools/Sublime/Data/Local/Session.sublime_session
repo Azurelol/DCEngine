@@ -91,10 +91,24 @@
 					}
 				},
 				{
+<<<<<<< HEAD
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
 						"buffer_size": 8831,
+=======
+<<<<<<< HEAD
+					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
+					"settings":
+					{
+						"buffer_size": 1234,
+=======
+					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+					"settings":
+					{
+						"buffer_size": 226,
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
 						"line_ending": "Windows"
 					}
 				}
@@ -152,7 +166,7 @@
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 203.0
 			},
 			"find_in_files":
 			{
@@ -251,27 +265,57 @@
 						},
 						{
 							"buffer": 2,
+<<<<<<< HEAD
 							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
 								"buffer_size": 8831,
+=======
+<<<<<<< HEAD
+							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1234,
+=======
+							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 226,
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
+<<<<<<< HEAD
 										170,
 										170
+=======
+										0,
+										0
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
 									]
 								],
 								"settings":
 								{
 									"bs_sintax": "plain text",
+<<<<<<< HEAD
 									"buffer_scroll_name": "92b55da8",
 									"function_name_status_row": 4,
 									"spell_check": false,
+=======
+<<<<<<< HEAD
+									"buffer_scroll_name": "ae5716b1",
+=======
+									"buffer_scroll_name": "f0b19365",
+>>>>>>> 0c31cc8e15ede92e5453ddd6cec14578732bd8b0
+									"function_name_status_row": 0,
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
 									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
@@ -286,7 +330,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 203.0
 			},
 			"input":
 			{
@@ -320,11 +364,15 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+<<<<<<< HEAD
 			"position": "0,0,1,-1,-1,-1,-1,958,524,169,1620",
+=======
+			"position": "0,0,1,-1,-1,-1,-1,989,0,200,1096",
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 402.0
 			},
 			"save_all_on_build": true,
 			"select_file":
