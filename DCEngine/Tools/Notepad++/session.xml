@@ -1,14 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
         <mainView activeIndex="1">
-<<<<<<< HEAD
-            <File firstVisibleLine="12" xOffset="0" scrollWidth="752" startPos="771" endPos="771" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458579399" />
-            <File firstVisibleLine="17" xOffset="0" scrollWidth="792" startPos="1173" endPos="1270" selMode="3" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\FadeZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459053099" />
-            <File firstVisibleLine="17" xOffset="0" scrollWidth="888" startPos="1606" endPos="1606" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\MoveToLocationZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459052940" />
-=======
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="552" startPos="451" endPos="451" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459047213" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="559" startPos="738" endPos="738" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459050633" />
->>>>>>> 2738825f88ee2eec29f4f2124f77298bb3215f66
+            <File firstVisibleLine="27" xOffset="0" scrollWidth="792" startPos="990" endPos="990" selMode="0" lang="Normal Text" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\FadeZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459057493" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="7760" startPos="37639" endPos="37639" selMode="0" lang="XML" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\DCEngine.vcxproj.filters" backupFilePath="" originalFileLastModifTimestamp="1459064185" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

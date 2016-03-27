@@ -11,31 +11,7 @@
 #include "ActionProperty.h"
 
 namespace DCEngine {
-
-  /* TEMPLATE DEFINITION */
-  /**************************************************************************/
-  /*!
-  @brief ActionProperty constructor.
-  @param PropertyType The POD or class type of the property;
-  @param set A reference to the set this property is part of.
-  @param property A reference to the property to be modified.
-  @param value The new value to interpolate over the given duration.
-  @param duration How long this property runs for.
-  @param ease What ease this property uses to calculate the interpolation.
-  */
-  /**************************************************************************/
-  template<typename PropertyType>
-  ActionProperty<PropertyType>::ActionProperty(ActionSetPtr set, PropertyType & prop,
-    PropertyType value, Real duration, Ease ease)
-    : Property(prop), InitialValue(Property), EndValue(value), Duration(duration), Ease_(ease)
-  {
-    if (DCE_TRACE_ACTIONS_CTOR)
-      DCTrace << "ActionProperty::ActionProperty: Constructed! \n";
-
-    // Initialize the rest of the values
-    Difference = EndValue - InitialValue;
-  }
-
+  
   /**************************************************************************/
   /*!
   @brief ActionZilchFloatProperty constructor.
@@ -104,75 +80,28 @@ namespace DCEngine {
     return timeConsumed;
   }
 
+  /* TEMPLATE DEFINITION */
   /**************************************************************************/
   /*!
-  @brief ActionZilchFloatPropertyOld constructor.
+  @brief ActionProperty constructor.
   @param PropertyType The POD or class type of the property;
   @param set A reference to the set this property is part of.
-  @param prop A The property delegate.
+  @param property A reference to the property to be modified.
   @param value The new value to interpolate over the given duration.
   @param duration How long this property runs for.
   @param ease What ease this property uses to calculate the interpolation.
   */
   /**************************************************************************/
   template<typename PropertyType>
-  ActionZilchFloatPropertyOld<PropertyType>::ActionZilchFloatPropertyOld(ActionSetPtr set, Zilch::PropertyDelegateTemplate deleg,
-    PropertyType value, Real duration, Ease ease)
-    : Property(deleg), EndValue(value), Duration(duration), Ease_(ease)
+  ActionFloatProperty<PropertyType>::ActionFloatProperty(ActionSetPtr set, PropertyType & prop,
+                                                         PropertyType value, Real duration, Ease ease)
+    : ActionBaseProperty(set, duration, ease), Property(prop), InitialValue(prop), EndValue(value)
   {
     if (DCE_TRACE_ACTIONS_CTOR)
-      DCTrace << "ActionZilchFloatProperty::ActionZilchFloatProperty: Constructed! \n";
+      DCTrace << "ActionProperty::ActionProperty: Constructed! \n";
 
-    // Get the initial value of the property
-    Zilch::Call call(Property.Get, Systems::ZilchInterface::GetState());
-    call.Invoke(Report);
-    InitialValue = call.Get<PropertyType>(Zilch::Call::Return);
-    // Calculate the difference
+    // Initialize the rest of the values
     Difference = EndValue - InitialValue;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Updates the ZilchActionProperty.
-  @param dt The time slice given.
-  */
-  /**************************************************************************/
-  template<typename PropertyType>
-  float ActionZilchFloatPropertyOld<PropertyType>::Update(float dt)
-  {
-    Elapsed += dt;
-    auto timeLeft = Duration - Elapsed;
-
-    // Calculate the interpolated value
-    auto updatedVal = InitialValue + Difference * Easing::Calculate( (Elapsed / Duration), Ease_);
-    // Interpolate
-    //Zilch::PropertyDelegateTemplate deleg;
-    //Zilch::ExecutableState state;
-    //Zilch::ExceptionReport report;
-    //call.Set(0, Property);
-    //call.Invoke();
-
-    // Set the new value
-    Zilch::Call call(Property.Set, Systems::ZilchInterface::GetState());
-    call.Set(0, updatedVal);
-    call.Invoke(Report);
-
-    if (Elapsed >= Duration) {
-      if (DCE_TRACE_ACTIONS_UPDATE)
-        DCTrace << "ActionProperty::Update: Finished! \n";
-      IsFinished = true;
-    }
-    else if (DCE_TRACE_ACTIONS_UPDATE)
-      DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
-
-    // Return the time consumed from this action. 
-    auto timeConsumed = 0.0f;
-    if (timeLeft < dt)
-      timeConsumed = dt;
-    else
-      timeConsumed = timeLeft;
-
-    return timeConsumed;
   }
 
   /**************************************************************************/
@@ -182,29 +111,75 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template<typename PropertyType>
-  float ActionProperty<PropertyType>::Update(float dt)
+  float ActionFloatProperty<PropertyType>::Interpolate(float dt)
   {
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
 
-    Property = InitialValue + Difference * Easing::Calculate( (Elapsed / Duration), Ease_);
-
-    if (Elapsed >= Duration) {
-      if (DCE_TRACE_ACTIONS_UPDATE)
-        DCTrace << "ActionProperty::Update: Finished! \n";
+    // Return the time consumed from this action. 
+    auto timeConsumed = 0.0f;
+    // If finished...
+    if (timeLeft <= dt) {
+      timeConsumed = dt;
       IsFinished = true;
+      // Set the final value
+      Property = EndValue;
     }
-    else if (DCE_TRACE_ACTIONS_UPDATE)
+    else {
+      timeConsumed = timeLeft;
+      // Set the new value
+      Property = InitialValue + Difference * Easing::Calculate((Elapsed / Duration), EaseType);
+    }
+
+    return timeConsumed;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief ActionBooleanProperty constructor.
+  @param set A pointer to the set this action belongs to.
+  @param prop A reference to the property.
+  @param value The desired end value for the property.
+  @param duration The duration of this action.
+  @param ease What ease algorithm to use.
+  */
+  /**************************************************************************/
+  template<typename BooleanType>
+  ActionBooleanProperty<BooleanType>::ActionBooleanProperty(ActionSetPtr set, BooleanType & prop, BooleanType value, Real duration, Ease ease)
+    : ActionBaseProperty(set, duration, ease), Property(prop), EndValue(value)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Updates the ActionProperty.
+  @param dt The time slice given.
+  */
+  /**************************************************************************/
+  template<typename BooleanType>
+  inline float ActionBooleanProperty<BooleanType>::Interpolate(float dt)
+  {
+    Elapsed += dt;
+    auto timeLeft = Duration - Elapsed;
+
+    if (DCE_TRACE_ACTIONS_UPDATE)
       DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
 
     // Return the time consumed from this action. 
     auto timeConsumed = 0.0f;
-    if (timeLeft < dt)
+    if (timeLeft <= dt) {
+      if (DCE_TRACE_ACTIONS_UPDATE)
+        DCTrace << "ActionProperty::Update: Finished! \n";
+      IsFinished = true;
       timeConsumed = dt;
+      // Set the boolean value only at the end!
+      Property = EndValue;
+    }
     else
       timeConsumed = timeLeft;
 
     return timeConsumed;
   }
+
 
 }

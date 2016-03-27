@@ -38,7 +38,7 @@ namespace DCEngine {
     // Properties (C++)
     template <typename PropertyType>
     static void PropertyT(ActionSetPtr setRef, PropertyType & propertyRef, PropertyType val,
-      Real duration, Ease ease);
+                          Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Boolean& prty, Boolean val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Integer& prty, Integer val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Real& prty, Real val, Real duration, Ease ease);
@@ -46,9 +46,6 @@ namespace DCEngine {
     static void Property(ActionSetPtr setRef, Vec3& prty, Vec3 val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Vec4& prty, Vec4 val, Real duration, Ease ease);
     // Properties (Zilch)
-    template <typename PropertyType>
-    static void PropertyZilch(ActionSetPtr setRef, Zilch::PropertyDelegateTemplate propertyRef,
-                          PropertyType val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Real val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Boolean val, Real duration, Ease ease);
     static void Property(ActionSetPtr setRef, Zilch::Handle propertyHandle, Integer val, Real duration, Ease ease);
