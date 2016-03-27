@@ -37,20 +37,20 @@ class FadeToColorZilch : ZilchComponent
     
     function OnToggleColorEvent(event : ToggleColorEvent)
     {
-      Console.WriteLine("Action toggle color!");
+				Console.WriteLine("OnToggleColorEvent Action!");
         var fadeTime = this.RandomGenerator.Range(this.MinFadeTime, this.MaxFadeTime);
         var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
 		
+				Console.WriteLine("`this.Name` is creating sequence!");
         var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Delay(seq, delay);
-        Actions.Property(seq, @this.Owner.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
+        //Actions.Property(seq, @this.Owner.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
         var temp = this.TargetColor;
         this.TargetColor = this.StartingColor;
         this.StartingColor = temp;
-        if(this.Oscillate)
-        {
-             Actions.Call(seq, this.SendSelfToggleColorEvent);
-        }
+        //if(this.Oscillate) Actions.Call(seq, this.SendSelfToggleColorEvent);
+				Console.WriteLine("`this.Name` is done creating sequence!");
+        
     }
     
     function SendSelfToggleColorEvent()

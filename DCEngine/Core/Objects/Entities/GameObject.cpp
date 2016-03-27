@@ -210,18 +210,18 @@ namespace DCEngine {
   {
     // If there is no parent
     if (!parent) {
-      DCTrace << Name() << "::GameObject: Failed to attach, no parent! \n";
+      //DCTrace << Name() << "::GameObject: Failed to attach, no parent! \n";
       return;
     }
     // If trying to attach to self
     if (parent->GameObjectID == this->GameObjectID) {
-      DCTrace << Name() << "::GameObject: Cannot attach to self! \n";
+      //DCTrace << Name() << "::GameObject: Cannot attach to self! \n";
       return;
     }
     // If trying to attach to a child
     for (auto& child : ChildrenContainer) {
       if (child->GameObjectID == parent->GameObjectID) {
-        DCTrace << Name() << "::GameObject: Cannot attach to child! \n";        
+        //DCTrace << Name() << "::GameObject: Cannot attach to child! \n";        
         return;
       }
     }

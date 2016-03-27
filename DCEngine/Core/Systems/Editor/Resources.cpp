@@ -11,7 +11,6 @@
 /******************************************************************************/
 #include "Editor.h"
 #include "../../Engine/Engine.h"
-#include "../Testing.h" // Dollhouse
 
 namespace DCEngine {
   namespace Systems {

@@ -71,35 +71,35 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->Register(*this);
     }
 
-		void GraphicsSpace::RegisterGraphicsComponent(Graphical * graphicsComponent)
-		{
-			GraphicsComponents.push_back(graphicsComponent);
-		}
-		void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
-		{
-			GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
-				GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
-		}
-		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
-		{
-			return GraphicsComponents;
-		}
+    void GraphicsSpace::RegisterGraphicsComponent(Graphical * graphicsComponent)
+    {
+      GraphicsComponents.push_back(graphicsComponent);
+    }
+    void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
+    {
+      GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
+        GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
+    }
+    GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
+    {
+      return GraphicsComponents;
+    }
 
-		void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
-		{
-			LightComponents.push_back(lightComponent);
-		}
+    void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
+    {
+      LightComponents.push_back(lightComponent);
+    }
 
-		void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
-		{
-			LightComponents.erase(std::remove(LightComponents.begin(),
-				LightComponents.end(), lightComponent), LightComponents.end());
-		}
+    void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
+    {
+      LightComponents.erase(std::remove(LightComponents.begin(),
+        LightComponents.end(), lightComponent), LightComponents.end());
+    }
 
-		LightComponentContainer GraphicsSpace::getLightComponents(void)
-		{
-			return LightComponents;
-		}
+    LightComponentContainer GraphicsSpace::getLightComponents(void)
+    {
+      return LightComponents;
+    }
 
     /**************************************************************************/
     /*!
@@ -112,7 +112,7 @@ namespace DCEngine {
     //  //DCTrace << "GraphicsSpace::AddSpriteText - "
     //  //  << spriteText.Owner()->Name() << "\n";
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Registers a Sprite into the GraphicsSpace
@@ -125,7 +125,7 @@ namespace DCEngine {
     //  //DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
     //  //        << sprite.Owner()->Name() << "\n";
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Deregisters a Sprite from the GraphicsSpace
@@ -141,7 +141,7 @@ namespace DCEngine {
     //    SpriteContainer.end(), spritePtr),
     //    SpriteContainer.end());
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Deregisters a SpriteText from the GraphicsSpace
@@ -155,17 +155,17 @@ namespace DCEngine {
     //                            SpriteTextContainer.end(), spriteTextPtr),
     //                            SpriteTextContainer.end());
     //}
-		//
-		//void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
-		//{
-		//	ParticleSystemContainer.push_back(&particleEmitter);
-		//}
-		//
-		//void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
-		//{
-		//	ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
-		//		ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
-		//}
+    //
+    //void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
+    //{
+    //	ParticleSystemContainer.push_back(&particleEmitter);
+    //}
+    //
+    //void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
+    //{
+    //	ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
+    //		ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
+    //}
 
 
     /**************************************************************************/
@@ -231,16 +231,16 @@ namespace DCEngine {
     //std::vector<Sprite*> GraphicsSpace::getSprites() {
     //  return SpriteContainer;
     //}
-		//
+    //
     //SpriteTextContainer GraphicsSpace::getSpriteTextContainer()
     //{
     //  return SpriteTextContainer;
     //}
-		//
-		//std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
-		//{
-		//	return ParticleSystemContainer;
-		//}
+    //
+    //std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
+    //{
+    //	return ParticleSystemContainer;
+    //}
 
   }
 }

@@ -226,6 +226,9 @@ namespace DCEngine {
     #else // Zilch-created components
     // Construct the component through Zilch, getting a handle
     auto componentHandle = Daisy->getSystem<Systems::Factory>()->CreateComponentByNameFromZilch(name, *this);
+    if (componentHandle.IsNull())
+      return nullptr;
+
     // Add the component's handle to the container
     ComponentHandlesContainer.push_back(componentHandle);
     // Get a pointer to it

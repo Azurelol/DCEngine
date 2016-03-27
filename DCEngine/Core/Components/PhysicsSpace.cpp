@@ -91,8 +91,8 @@ namespace DCEngine {
     void PhysicsSpace::AddRigidBody(RigidBody& rigidbody)
     {
       RigidBodiesContainer.push_back(&rigidbody);
-      DCTrace << Owner()->getObjectName()
-        << "::PhysicsSpace::AddRigidBody - " << rigidbody.Owner()->Name() << "\n";
+      //DCTrace << Owner()->getObjectName()
+      //  << "::PhysicsSpace::AddRigidBody - " << rigidbody.Owner()->Name() << "\n";
     }
 
     /**************************************************************************/
@@ -103,8 +103,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PhysicsSpace::RemoveRigidBody(RigidBody& rigidbody)
     {
-      DCTrace << Owner()->getObjectName()
-        << "::PhysicsSpace::RemoveRigidBody - " << rigidbody.Owner()->Name() << "\n";
+      //DCTrace << Owner()->getObjectName()
+      //  << "::PhysicsSpace::RemoveRigidBody - " << rigidbody.Owner()->Name() << "\n";
       RigidBody* ptr = &rigidbody;
       RigidBodiesContainer.erase(std::remove(RigidBodiesContainer.begin(),
         RigidBodiesContainer.end(), ptr),
@@ -120,8 +120,8 @@ namespace DCEngine {
     void PhysicsSpace::AddCollider(Collider* collider)
     {
       CollidersContainer.push_back(collider);
-      DCTrace << Owner()->Name() << "::PhysicsSpace::AddCollider - "
-        << collider->Owner()->Name() << "\n";
+      //DCTrace << Owner()->Name() << "::PhysicsSpace::AddCollider - "
+      //  << collider->Owner()->Name() << "\n";
     }
 
     /**************************************************************************/
@@ -132,8 +132,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PhysicsSpace::RemoveCollider(Collider* collider)
     {
-      DCTrace << Owner()->Name() << "::PhysicsSpace::RemoveCollider - "
-        << collider->Owner()->Name() << "\n";
+      //DCTrace << Owner()->Name() << "::PhysicsSpace::RemoveCollider - "
+      //  << collider->Owner()->Name() << "\n";
       //BoxCollider* ptr = collider;
       CollidersContainer.erase(std::remove(CollidersContainer.begin(),
         CollidersContainer.end(), collider)  ); // ,

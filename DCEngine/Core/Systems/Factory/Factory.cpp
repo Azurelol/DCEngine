@@ -151,6 +151,11 @@ namespace DCEngine {
       // Allocate the component on the heap through Zilch
       Zilch::Handle componentHandle; 
 
+      // If the component could not be found..
+      //if (!boundType)
+      //  return componentHandle;
+
+
       // C++ Components
       if (!Zilch::TypeBinding::IsA(boundType, ZilchComponent::ZilchGetStaticType())) {
         componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);

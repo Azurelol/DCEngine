@@ -1172,9 +1172,6 @@
     <ClInclude Include="Core\Systems\Serialization\Serialization.h">
       <Filter>Core\Systems\Serialization</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Testing.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\GUI\GUI.h">
       <Filter>Core\Systems\GUI</Filter>
     </ClInclude>
@@ -1618,6 +1615,10 @@
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\LancerShield.h">
       <Filter>Projects\Rebound\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\DaisyVector.h" />
+    <ClInclude Include="Core\Events\ContentEvents.h">
+      <Filter>Core\Events\Content</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
