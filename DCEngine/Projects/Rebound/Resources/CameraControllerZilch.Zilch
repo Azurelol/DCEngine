@@ -1,0 +1,50 @@
+class CameraControllerZilch : ZilchComponent
+{
+    var RandomGenerator : Random;
+    
+    [Property]
+    var InterpolationSpeed : Real = 0.06;
+    [Property]
+    var Offset : Real3;
+    //var Player : Cog;
+    var ScreenShakeTimer : Real = 0;
+
+    [Property]
+    var ScreenShakeMagnitude : Real = 3;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.ScreenShakeEvent, this.OnScreenShakeEvent);
+        Daisy.Connect(this.Space, DaisyEvent.ChangeCameraOffsetEvent, this.OnChangeCameraOffsetEvent);
+
+        this.RandomGenerator= new Random();
+                
+                
+        //this.Player = this.Space.
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+        this.ScreenShakeTimer -= event.Dt;
+        if(this.ScreenShakeTimer > 0)
+        {
+            this.Owner.Transform.Translation += Real3(this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude), 
+                                                      this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude),
+                                                                                 0);
+        }
+        //var targetPos = Player.Transform.Translation - this.Owner.Transform.Translation;
+        //targetPos += this.Offset;
+        //this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;
+    }
+    
+    function OnScreenShakeEvent(event : ScreenShakeEvent)
+    {
+        this.ScreenShakeTimer = event.Duration;
+        this.ScreenShakeMagnitude = event.Magnitude;
+    }
+    
+    function OnChangeCameraOffsetEvent(event : ChangeCameraOffsetEvent)
+    {
+        this.Offset = event.Offset;
+    }
+}

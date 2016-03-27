@@ -27,7 +27,7 @@ class FadeToColorZilch : ZilchComponent
         this.StartingColor = this.Owner.Sprite.Color;
         if(this.CurrentlyFading)
         {
-            Actions.Call(this.Owner.Actions, this.SendSelfToggleColorEvent);
+            this.SendSelfToggleColorEvent();
         }
     }
 

@@ -28,7 +28,7 @@ class MoveToLocationZilch : ZilchComponent
         this.TargetLocation = this.StartingLocation - this.TargetLocation;
         if(this.CurrentlyMoving)
         {
-            Actions.Call(this.Owner.Actions, this.SendSelfToggleEvent);
+            this.SendSelfToggleEvent();
         }
     }
 
