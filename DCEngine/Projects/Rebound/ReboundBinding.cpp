@@ -37,7 +37,6 @@ namespace DCEngine {
 	  ZilchInitializeType(Components::ErraticDoor);
 	  ZilchInitializeType(Components::TutorialTextLogic);
 	  ZilchInitializeType(Components::LockField);
-	  ZilchInitializeType(Components::PowerField);
     ZilchInitializeType(Components::Grunt);
     ZilchInitializeType(Components::HealthController);
     ZilchInitializeType(Components::Sentinel);
@@ -70,7 +69,6 @@ namespace DCEngine {
 	  factory->AddComponentFactory(Components::ErraticDoor      ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::ErraticDoor      >>());
 	  factory->AddComponentFactory(Components::TutorialTextLogic::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::TutorialTextLogic>>());
 	  factory->AddComponentFactory(Components::LockField        ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::LockField        >>());
-	  factory->AddComponentFactory(Components::PowerField       ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::PowerField       >>());
     factory->AddComponentFactory(Components::Grunt            ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Grunt            >>());
     factory->AddComponentFactory(Components::HealthController ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::HealthController >>());
     factory->AddComponentFactory(Components::Sentinel         ::ZilchGetStaticType(), std::make_unique<Systems::ComponentFactory<Components::Sentinel         >>());
