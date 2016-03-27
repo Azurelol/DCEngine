@@ -27,7 +27,6 @@
 
 namespace DCEngine {
 	namespace Systems {
-
 		/**************************************************************************/
 		/*!
 		\brief Constructor for the Physics system.

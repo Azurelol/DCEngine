@@ -118,3 +118,11 @@ ZilchDefineExternalType(DCEngine::MouseWheelScrollDirection, "MouseWheelScrollDi
   ZilchBindEnumValue(builder, type, DCEngine::MouseWheelScrollDirection::Up, "Up");
   ZilchBindEnumValue(builder, type, DCEngine::MouseWheelScrollDirection::Down, "Down");
 }
+
+ZilchDefineExternalType(DCEngine::CollisionFlag, "CollisionFlag", DCEngine::DCEngineCore, builder, type)
+{
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+  ZilchBindEnumValue(builder, type, DCEngine::CollisionFlag::SkipDetecting, "SkipDetecting");
+  ZilchBindEnumValue(builder, type, DCEngine::CollisionFlag::SkipResolution, "SkipResolution");
+  ZilchBindEnumValue(builder, type, DCEngine::CollisionFlag::Resolve, "Resolve");
+}
