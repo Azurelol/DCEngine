@@ -36,6 +36,9 @@ namespace DCEngine {
   };
 
   struct CollisionBlock {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CollisionBlock, Zilch::TypeCopyMode::ValueType);
+#endif
     //!< Whether or not to send events to the object of TypeA in a collision 
     //   of TypeA and TypeB
     bool SendEventsToA = true;
@@ -51,6 +54,9 @@ namespace DCEngine {
   };
 
   struct CollisionFilter {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CollisionFilter, Zilch::TypeCopyMode::ReferenceType);
+#endif
     // the pair of groups
     std::pair<std::string, std::string> Pairing;
     // Controls the resolution of collision

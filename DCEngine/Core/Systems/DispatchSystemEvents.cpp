@@ -153,6 +153,49 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::ContentFileMoved(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileMoved();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileMoved>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileUpdated(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileUpdated();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileUpdated>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileFound(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileFound();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileFound>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileDeleted(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileDeleted();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileDeleted>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileScanComplete()
+    {
+      auto event = new Events::ContentFileScanComplete();;
+      Daisy->Dispatch<Events::ContentFileScanComplete>(event);
+      delete event;
+    }
+
 
   }
 }

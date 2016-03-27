@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
-    "Name": "BLue2", 
-    "Archetype": "", 
+    "Locked": false, 
+    "GameObjectID": 106, 
+    "Name": "Gate1", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -17.697104, 
-            "y": 8.849607, 
+            "x": 48.183979, 
+            "y": 5.047847, 
             "z": 0.000000
           }
         }, 
@@ -36,26 +37,17 @@
           }
         }
       }, 
-      "Sprite": 
+      "GateLogic": 
       {
-        "Visible": true, 
-        "Color": 
-        {
-          "Vec4": 
-          {
-            "x": 0.500000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "SpriteSource": "square", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
+        "Key1": "", 
+        "Key2": "", 
+        "Key3": "", 
+        "Key4": "", 
+        "Gate": ""
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

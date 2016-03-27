@@ -23,6 +23,8 @@
 // Engine
 #include "Events\EditorEvents.h"
 #include "Events\EngineEvents.h"
+// Content
+#include "Events\ContentEvents.h"
 // Window
 #include "Events\WindowEvents.h"
 // Game

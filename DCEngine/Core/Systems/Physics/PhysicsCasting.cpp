@@ -20,18 +20,39 @@ and so on.
 #include "../../Components/Transform.h"
 namespace DCEngine
 {
+
+#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(Ray, "Ray", DCEngineCore, builder, type) {
+    ZilchBindField(builder, type, &Ray::Origin, "Origin", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &Ray::Direction, "Direction", Zilch::PropertyBinding::GetSet);
+  }
+  ZilchDefineType(CastResult, "CastResult", DCEngineCore, builder, type) {
+    ZilchBindField(builder, type, &CastResult::Distance, "Distance", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastResult::BodySpacePosition, "CastResult", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastResult::Normal, "Normal", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastResult::ObjectHit, "ObjectHit", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastResult::WorldPosition, "WorldPosition", Zilch::PropertyBinding::GetSet);
+  }
+  ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
+    ZilchBindField(builder, type, &CastFilter::Include, "Include", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastFilter::IgnoreStatic, "IgnoreStatic", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastFilter::IgnoreDynamic, "IgnoreDynamic", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CastFilter::IgnoreGhost, "IgnoreGhost", Zilch::PropertyBinding::GetSet);
+  }
+#endif
   namespace Systems 
   {
 
     bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, const DCEngine::CollisionGroup & group)
     {
-      for (auto &Group : Groups)
+      for (auto Group : Groups)
       {
         if (Group.Name() == group.Name())
         {
           return true;
         }
       }
+      return false;
     }
 
     /**************************************************************************/

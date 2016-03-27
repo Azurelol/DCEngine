@@ -456,7 +456,6 @@
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
-    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Shield.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
@@ -466,6 +465,7 @@
     <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Binding\CoreBindingEventStrings.h" />
+    <ClInclude Include="Core\DaisyVector.h" />
     <ClInclude Include="Core\Engine\ActionProperty.h" />
     <ClInclude Include="Core\Engine\ActionProperty.hpp" />
     <ClInclude Include="Core\Engine\Actions.h" />
@@ -486,6 +486,7 @@
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
+    <ClInclude Include="Core\Events\ContentEvents.h" />
     <ClInclude Include="Core\Events\InitializerEvents.h" />
     <ClInclude Include="Core\Events\InputEvents.h" />
     <ClInclude Include="Core\Events\ScriptingEvents.h" />
@@ -691,7 +692,6 @@
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
-    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
     <ClInclude Include="Projects\Rebound\Components\Shield.h" />

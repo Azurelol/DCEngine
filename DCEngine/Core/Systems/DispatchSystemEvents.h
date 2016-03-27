@@ -45,6 +45,12 @@ namespace DCEngine {
       static void ScriptingCompile();
       static void ScriptingLibraryPatched();
       static void ScriptingErrorMessage(const std::string& message);
+
+      static void ContentFileMoved(const std::string& fileName);
+      static void ContentFileUpdated(const std::string& fileName);
+      static void ContentFileFound(const std::string& fileName);
+      static void ContentFileDeleted(const std::string& fileName);
+      static void ContentFileScanComplete();
       
 
     };

@@ -20,8 +20,11 @@
 
 #include <ZILCH\Zilch.hpp>
 
+#include "../Resources/CollisionTable.h"
+
 ZilchDeclareExternalBaseType(DCEngine::Direction, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::Keys, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::MouseButton, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::MouseWheelScrollDirection, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::Ease, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::CollisionFlag, Zilch::TypeCopyMode::Enum::ValueType);

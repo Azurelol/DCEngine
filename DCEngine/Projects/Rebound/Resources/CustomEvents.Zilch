@@ -6,4 +6,18 @@ class DamageEvent : DaisyEvent
     var Damage : Integer = 0;
 }
 
+class ToggleColorEvent : ZilchEvent
+{
+}
+
+class ScreenShakeEvent : ZilchEvent
+{
+   var Duration : Real;
+   var Magnitude : Real;
+}
+
+class ChangeCameraOffsetEvent : ZilchEvent
+{
+  var Offset : Real3;
+}
 enum DamageSource {None, Player, Enemy, Environment}

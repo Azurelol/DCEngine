@@ -43,6 +43,9 @@ namespace DCEngine {
     if (!DCE_ACTIONS_ENABLED)
       return;
 
+    // Clean up all actions
+    ActiveActions.clear();
+
     if (!ActionSpace::PropagateUpdateDirectly)
       Deregister();
   }

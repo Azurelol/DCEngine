@@ -35,6 +35,8 @@ namespace DCEngine
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, AngularVelocity);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, Mass);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, RotationLocked);
+	  ZilchBindMethod(builder, type, &RigidBody::ApplyLinearVelocity, ZilchNoOverload,
+		  "ApplyLinearVelocity", "vel");
     }
     #endif
 

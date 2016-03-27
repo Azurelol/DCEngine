@@ -26,27 +26,26 @@
 #include "Resolution.h"
 
 namespace DCEngine {
-	namespace Systems {
+  namespace Systems {
+    /**************************************************************************/
+    /*!
+    \brief Constructor for the Physics system.
+    */
+    /**************************************************************************/
+    Physics::Physics() : System(std::string("PhysicsSystem"), EnumeratedSystem::Physics),
+      minX(10000), minY(10000), maxX(-10000), maxY(-10000) {
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Constructor for the Physics system.
-		*/
-		/**************************************************************************/
-		Physics::Physics() : System(std::string("PhysicsSystem"), EnumeratedSystem::Physics),
-			minX(10000), minY(10000), maxX(-10000), maxY(-10000) {
-		}
-
-		/**************************************************************************/
-		/*!
-		\brief Initializes the Physics system.
-		*/
-		/**************************************************************************/
-		void Physics::Initialize()
-		{
+    /**************************************************************************/
+    /*!
+    \brief Initializes the Physics system.
+    */
+    /**************************************************************************/
+    void Physics::Initialize()
+    {
       // Subscribe to events
       Subscribe();
-		}
+    }
 
     /**************************************************************************/
     /*!
@@ -83,18 +82,18 @@ namespace DCEngine {
       this->Paused = false;
     }
 
-		/**************************************************************************/
-		/*!
-		@brief Registers a space to this system.
-    @param physicsSpace A reference to the PhysicsSpace.
-		*/
     /**************************************************************************/
-		void Physics::RegisterSpace(Components::PhysicsSpace & physicsSpace)
-		{
-			physicsSpaces_.push_back(&physicsSpace);
-			DCTrace << "Physics::Register -  " << physicsSpace.Owner()->Name()
-				<< " has registered to the Physics system\n";
-		}
+    /*!
+    @brief Registers a space to this system.
+    @param physicsSpace A reference to the PhysicsSpace.
+    */
+    /**************************************************************************/
+    void Physics::RegisterSpace(Components::PhysicsSpace & physicsSpace)
+    {
+      physicsSpaces_.push_back(&physicsSpace);
+      DCTrace << "Physics::Register -  " << physicsSpace.Owner()->Name()
+        << " has registered to the Physics system\n";
+    }
 
     /**************************************************************************/
     /*!
@@ -114,14 +113,14 @@ namespace DCEngine {
 
 
 
-		/**************************************************************************/
-		/*!
-		@brief The main update function for all physical bodies.
-		@param The delta time.
-		*/
-		/**************************************************************************/
-		void Physics::Update(float dt)
-		{
+    /**************************************************************************/
+    /*!
+    @brief The main update function for all physical bodies.
+    @param The delta time.
+    */
+    /**************************************************************************/
+    void Physics::Update(float dt)
+    {
       SystemTimer profile(this->Name());
 
       // Do not update physics while the engine is paused.
@@ -130,7 +129,7 @@ namespace DCEngine {
 
         Step(dt);
       
-		}
+    }
 
     /**************************************************************************/
     /*!
@@ -187,21 +186,21 @@ namespace DCEngine {
       return objsAtPos;
     }
 
-		/**************************************************************************/
-		/*!
-		@brief The function that actually goes through the spaces and updates objects
-		@param The delta time.
-		@todo Pass the desired FPS to the Physics system in a struct.
-		*/
-		/**************************************************************************/
-		void Physics::Step(float dt)
-		{
+    /**************************************************************************/
+    /*!
+    @brief The function that actually goes through the spaces and updates objects
+    @param The delta time.
+    @todo Pass the desired FPS to the Physics system in a struct.
+    */
+    /**************************************************************************/
+    void Physics::Step(float dt)
+    {
       // Hardcode dt temporarily
       dt = 0.0166f;
       static bool first = true;
-			// Iterate through every space that has the 'PhysicsSpace' component
-			for (auto physpace : physicsSpaces_)
-			{
+      // Iterate through every space that has the 'PhysicsSpace' component
+      for (auto physpace : physicsSpaces_)
+      {
         // If the space is paused, skip physics update
         if (physpace->Owner()->getComponent<Components::TimeSpace>()->getPaused())
           continue;
@@ -212,37 +211,37 @@ namespace DCEngine {
           UpdateTransforms(physpace);
         }
 
-				std::vector<Manifold> contactlist;
+        std::vector<Manifold> contactlist;
         static std::vector<DetectionPairing> pairs;
 
-				BroadPhaseDetection(physpace, pairs);
+        BroadPhaseDetection(physpace, pairs);
 
-	      Integrate(dt, physpace);
+        Integrate(dt, physpace);
 
-		    NarrowPhaseDetection(pairs, contactlist);
+        NarrowPhaseDetection(pairs, contactlist);
 
-				Resolution::Resolve(dt, contactlist);
+        Resolution::Resolve(dt, contactlist);
 
-				PublishResults(physpace);
+        PublishResults(physpace);
 
-				UpdateTransforms(physpace);
-			}
+        UpdateTransforms(physpace);
+      }
 
       first = false;
 
-		}
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief  Iterate through all the rigid bodies and update velocity.
-		@param  The delta time.
-		@param A pointer to the 'PhysicsSpace' component.
-		*/
-		/**************************************************************************/
-		void Physics::Integrate(float dt, Components::PhysicsSpace* physpace)
-		{
+    /**************************************************************************/
+    /*!
+    @brief  Iterate through all the rigid bodies and update velocity.
+    @param  The delta time.
+    @param A pointer to the 'PhysicsSpace' component.
+    */
+    /**************************************************************************/
+    void Physics::Integrate(float dt, Components::PhysicsSpace* physpace)
+    {
       SystemMethodTimer timer("Integrate", EnumeratedSystem::Physics);
-			auto& bodies = physpace->AllRigidBodies();
+      auto& bodies = physpace->AllRigidBodies();
 
 
       for (auto rigidbody : bodies) 
@@ -252,25 +251,25 @@ namespace DCEngine {
           rigidbody->Integrate(dt);
         }
       }
-		}
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief Iterate through all the objects with a 'RigidBody' component and
-		update their position.
-		@param A pointer to the 'PhysicsSpace' component.
-		*/
-		/**************************************************************************/
-		void Physics::PublishResults(Components::PhysicsSpace* physpace)
-		{
+    /**************************************************************************/
+    /*!
+    @brief Iterate through all the objects with a 'RigidBody' component and
+    update their position.
+    @param A pointer to the 'PhysicsSpace' component.
+    */
+    /**************************************************************************/
+    void Physics::PublishResults(Components::PhysicsSpace* physpace)
+    {
       SystemMethodTimer timer("PublishResults", EnumeratedSystem::Physics);
-			auto& bodies = physpace->AllRigidBodies();
+      auto& bodies = physpace->AllRigidBodies();
 
       for (auto rigidbody : bodies) {
         if (rigidbody != nullptr)
           rigidbody->PublishResults();
       }
-		}
+    }
 
     /**************************************************************************/
     /*!
@@ -295,52 +294,52 @@ namespace DCEngine {
       }
     }
 
-		/**************************************************************************/
-		/*!
-		@brief Sets up pairs of objects that might be colliding with one another.
-		@param A pointer to the 'PhysicsSpace' component.
-		*/
-		/**************************************************************************/
+    /**************************************************************************/
+    /*!
+    @brief Sets up pairs of objects that might be colliding with one another.
+    @param A pointer to the 'PhysicsSpace' component.
+    */
+    /**************************************************************************/
     void Physics::BroadPhaseDetection(Components::PhysicsSpace* physpace, std::vector<DetectionPairing> &pairs)
-		{
+    {
       // For all gameobjects with a 'Collider' component
       SystemMethodTimer timer("BroadPhaseDetection", EnumeratedSystem::Physics);
       Components::ColliderContainer& list = physpace->AllColliders();
 
-			//find extent of all objects
-			for (auto collider : list)
-			{
-				Vec3 min;
-				Vec3 max;
-				Components::Transform* transform = collider->Owner()->getComponent<Components::Transform>();
-				Components::BoxCollider* box = collider->Owner()->getComponent<Components::BoxCollider>();
-				if (box)
-				{
-					min = transform->Translation - box->getColliderScale() + box->Offset;
-					max = transform->Translation + box->getColliderScale() + box->Offset;
-				}
-				else
-				{
-					Components::CircleCollider* circle = collider->Owner()->getComponent<Components::CircleCollider>();
-					if (circle)
-					{
-						min = transform->Translation - transform->Scale * circle->Radius + box->Offset;
-						max = transform->Translation - transform->Scale * circle->Radius + box->Offset;
-					}
-				}
-				if (min.x < minX)
-					minX = min.x;
-				if (min.y < minY)
-					minY = min.y;
-				if (max.x > maxX)
-					maxX = max.x;
-				if (max.y > maxY)
-					maxY = max.y;
+      //find extent of all objects
+      for (auto collider : list)
+      {
+        Vec3 min;
+        Vec3 max;
+        Components::Transform* transform = collider->Owner()->getComponent<Components::Transform>();
+        Components::BoxCollider* box = collider->Owner()->getComponent<Components::BoxCollider>();
+        if (box)
+        {
+          min = transform->Translation - box->getColliderScale() + box->Offset;
+          max = transform->Translation + box->getColliderScale() + box->Offset;
+        }
+        else
+        {
+          Components::CircleCollider* circle = collider->Owner()->getComponent<Components::CircleCollider>();
+          if (circle)
+          {
+            min = transform->Translation - transform->Scale * circle->Radius + box->Offset;
+            max = transform->Translation - transform->Scale * circle->Radius + box->Offset;
+          }
+        }
+        if (min.x < minX)
+          minX = min.x;
+        if (min.y < minY)
+          minY = min.y;
+        if (max.x > maxX)
+          maxX = max.x;
+        if (max.y > maxY)
+          maxY = max.y;
 
-			}
+      }
 
-			QuadTree qt(list, Vec2(minX, minY), Vec2(maxX, maxY), QuadTreeBucketSize);
-			pairs = qt.CreatePairs();
+      QuadTree qt(list, Vec2(minX, minY), Vec2(maxX, maxY), QuadTreeBucketSize);
+      pairs = qt.CreatePairs();
 
       Components::BoxCollider*    box1 = NULL;
       Components::BoxCollider*    box2 = NULL;
@@ -419,40 +418,40 @@ namespace DCEngine {
 
 
       //static int listsize = 0;
-			//
+      //
       //if (list.size() == listsize)
       //{
       //  //return;
       //}
-			//
+      //
       //listsize = list.size();
-			//
+      //
       //pairs.clear();
-			//
+      //
       //Components::BoxCollider*    box1 = NULL;
       //Components::BoxCollider*    box2 = NULL;
       //Components::CircleCollider* cir1 = NULL;
       //Components::CircleCollider* cir2 = NULL;
       //int count = 0;
-			//
+      //
       //bool rigid1 = false, rigid2 = false;
-			//
+      //
       //std::string str1, str2;
-			//
+      //
       //DetectionPairing Fill;
-			//
+      //
       ////pairs.resize(list.size() * list.size());
-			//
+      //
       //for (int i = 0; i < list.size(); ++i)
       //{
       //  for (int j = i + 1; j < list.size(); ++j)
       //  {
       //    Fill.obj1 = static_cast<GameObjectPtr>(list[i]->Owner());
       //    Fill.obj2 = static_cast<GameObjectPtr>(list[j]->Owner());
-			//
+      //
       //    auto rigidbody1 = Fill.obj1->getComponent<Components::RigidBody>();
       //    auto rigidbody2 = Fill.obj2->getComponent<Components::RigidBody>();
-			//
+      //
       //    if (rigidbody1 == NULL)
       //    {
       //      rigid1 = false;
@@ -460,13 +459,13 @@ namespace DCEngine {
       //    else
       //    {
       //      rigid1 = true;
-			//
+      //
       //      if (rigidbody1->getDynamicState() == DynamicStateType::Static)
       //      {
       //        rigid1 = false;
       //      }
       //    }
-			//
+      //
       //    if (rigidbody2 == NULL)
       //    {
       //      rigid2 = false;
@@ -474,23 +473,23 @@ namespace DCEngine {
       //    else
       //    {
       //      rigid2 = true;
-			//
+      //
       //      if (rigidbody2->getDynamicState() == DynamicStateType::Static)
       //      {
       //        rigid2 = false;
       //      }
       //    }
-			//
+      //
       //    if (!rigid1 && !rigid2)
       //    {
       //      continue;
       //    }
-			//
+      //
       //    box1 = Fill.obj1->getComponent<Components::BoxCollider>();
       //    box2 = Fill.obj2->getComponent<Components::BoxCollider>();
       //    cir1 = Fill.obj1->getComponent<Components::CircleCollider>();
       //    cir2 = Fill.obj2->getComponent<Components::CircleCollider>();
-			//
+      //
       //    if (box1)
       //    {
       //      str1 = box1->getCollisionGroup();
@@ -499,7 +498,7 @@ namespace DCEngine {
       //    {
       //      str1 = cir1->getCollisionGroup();
       //    }
-			//
+      //
       //    if (box2)
       //    {
       //      str2 = box2->getCollisionGroup();
@@ -508,7 +507,7 @@ namespace DCEngine {
       //    {
       //      str2 = cir2->getCollisionGroup();
       //    }
-			//
+      //
       //    if (str1 == str2)
       //    {
       //      Fill.filter = CollisionFilter();
@@ -521,24 +520,24 @@ namespace DCEngine {
       //    pairs.push_back(Fill);
       //  }
       //}
-		}
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief Detect if collision is happening and store information about it.
-		@param A vector of GameObjects.
-		*/
-		/**************************************************************************/
-		void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist)
-		{
+    /**************************************************************************/
+    /*!
+    @brief Detect if collision is happening and store information about it.
+    @param A vector of GameObjects.
+    */
+    /**************************************************************************/
+    void Physics::NarrowPhaseDetection(std::vector<DetectionPairing> &pairs, std::vector<Manifold> &contactlist)
+    {
       SystemMethodTimer timer("NarrowPhaseDetection", EnumeratedSystem::Physics);
-			GameObject * obj1, *obj2;
+      GameObject * obj1, *obj2;
       std::pair<GameObjectPtr, GameObjectPtr> pair;
-			Manifold collision;
+      Manifold collision;
       CollisionData Collision;
 
-			for (auto Pair : pairs)
-			{
+      for (auto Pair : pairs)
+      {
         obj1 = Pair.obj1;
         obj2 = Pair.obj2;
         Collision.filter = Pair.filter;
@@ -551,15 +550,16 @@ namespace DCEngine {
           continue;
         }
 
-				if (obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::BoxCollider>())
-				{
-					// COLLISION DETECTED
-					if (Collision::BoxtoBox(obj1, obj2, collision))
-					{
+        if (obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::BoxCollider>())
+        {
+          // COLLISION DETECTED
+          if (Collision::BoxtoBox(obj1, obj2, collision))
+          {
             
             // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -576,27 +576,28 @@ namespace DCEngine {
               contactlist.push_back(collision);
             }
 
-					}
-					// NO COLLISION DETECTED
-					else 
+          }
+          // NO COLLISION DETECTED
+          else 
           {
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
               DispatchCollisionEnded(Collision);
               RemovePair(pair);
             }
           }
-				}
-				else if (obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::CircleCollider>())
-				{
-					if (Collision::CircletoCircle(obj1, obj2, collision))
-					{
+        }
+        else if (obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::CircleCollider>())
+        {
+          if (Collision::CircletoCircle(obj1, obj2, collision))
+          {
 
-						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+            // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -613,27 +614,28 @@ namespace DCEngine {
               contactlist.push_back(collision);
             }
 
-					}
-					// NO COLLISION DETECTED
-					else
+          }
+          // NO COLLISION DETECTED
+          else
           {
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
               DispatchCollisionEnded(Collision);
               RemovePair(pair);
             }
-					}
-				}
-				else if ((obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::CircleCollider>()))
-				{
-					if (Collision::CircletoBox(obj1, obj2, collision))
-					{
+          }
+        }
+        else if ((obj1->getComponent<Components::BoxCollider>() && obj2->getComponent<Components::CircleCollider>()))
+        {
+          if (Collision::CircletoBox(obj1, obj2, collision))
+          {
 
-						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+            // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -650,27 +652,28 @@ namespace DCEngine {
               contactlist.push_back(collision);
             }
 
-					}
-					// NO COLLISION DETECTED
-					else
-					{
-						Collision.Object = obj1;
-						Collision.OtherObject = obj2;
+          }
+          // NO COLLISION DETECTED
+          else
+          {
+            Collision.Object = obj1;
+            Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
               DispatchCollisionEnded(Collision);
               RemovePair(pair);
             }
-					}
-				}
-				else if ((obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::BoxCollider>()))
-				{
-					if (Collision::CircletoBox(obj2, obj1, collision))
-					{
+          }
+        }
+        else if ((obj1->getComponent<Components::CircleCollider>() && obj2->getComponent<Components::BoxCollider>()))
+        {
+          if (Collision::CircletoBox(obj2, obj1, collision))
+          {
 
-						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
-						Collision.Object = obj2;
-						Collision.OtherObject = obj1;
+            // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
+            Collision.Object = obj2;
+            Collision.OtherObject = obj1;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -687,77 +690,79 @@ namespace DCEngine {
               contactlist.push_back(collision);
             }
 
-					}
-					// NO COLLISION DETECTED
-					else
-					{
-						Collision.Object = obj2;
-						Collision.OtherObject = obj1;
+          }
+          // NO COLLISION DETECTED
+          else
+          {
+            Collision.Object = obj2;
+            Collision.OtherObject = obj1;
             if (Persisted(pair))
             {
               DispatchCollisionEnded(Collision);
               RemovePair(pair);
             }
-					}
-				}
-			}
-			return;
-		}
+          }
+        }
+      }
+      return;
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief Dispatch the event that signals that a collision has started between
-		an object and another object.
-		@param A struct that contains the collision data detected by the engine.
-		*/
-		/**************************************************************************/
-		void Physics::DispatchCollisionStarted(CollisionData & collisionData)
-		{
-			auto collisionStartedEvent = new Events::CollisionStarted();
-			// Dispatch collision event to the first object
-			collisionStartedEvent->Object = collisionData.Object;
-			collisionStartedEvent->OtherObject = collisionData.OtherObject;
+    /**************************************************************************/
+    /*!
+    @brief Dispatch the event that signals that a collision has started between
+    an object and another object.
+    @param A struct that contains the collision data detected by the engine.
+    */
+    /**************************************************************************/
+    void Physics::DispatchCollisionStarted(CollisionData & collisionData)
+    {
+      auto collisionStartedEvent = new Events::CollisionStarted();
+      // Dispatch collision event to the first object
+      collisionStartedEvent->Object = collisionData.Object;
+      collisionStartedEvent->OtherObject = collisionData.OtherObject;
+      collisionStartedEvent->Normal = collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToA)
       {
         collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
       }
       // Dispatch collision event to the second object
-			collisionStartedEvent->Object = collisionData.OtherObject;
-			collisionStartedEvent->OtherObject = collisionData.Object;
+      collisionStartedEvent->Object = collisionData.OtherObject;
+      collisionStartedEvent->OtherObject = collisionData.Object;
+      collisionStartedEvent->Normal = -collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToB)
       {
         collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
       }
 
       delete collisionStartedEvent;
-		}
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief Dispatch the event that signals that a collision has ended between
-		an object and another object.
-		@param A struct that contains the collision data detected by the engine.
-		*/
-		/**************************************************************************/
-		void Physics::DispatchCollisionEnded(CollisionData & collisionData)
-		{
-			auto collisionEndedEvent = new Events::CollisionEnded();
-			// Dispatch collision event to the first object
-			collisionEndedEvent->Object = collisionData.Object;
-			collisionEndedEvent->OtherObject = collisionData.OtherObject;
+    /**************************************************************************/
+    /*!
+    @brief Dispatch the event that signals that a collision has ended between
+    an object and another object.
+    @param A struct that contains the collision data detected by the engine.
+    */
+    /**************************************************************************/
+    void Physics::DispatchCollisionEnded(CollisionData & collisionData)
+    {
+      auto collisionEndedEvent = new Events::CollisionEnded();
+      // Dispatch collision event to the first object
+      collisionEndedEvent->Object = collisionData.Object;
+      collisionEndedEvent->OtherObject = collisionData.OtherObject;
       if (collisionData.filter.CollisionStartBlock.SendEventsToA)
       {
         collisionData.Object->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
       }
       // Dispatch collision event to the second object
-			collisionEndedEvent->Object = collisionData.OtherObject;
-			collisionEndedEvent->OtherObject = collisionData.Object;
+      collisionEndedEvent->Object = collisionData.OtherObject;
+      collisionEndedEvent->OtherObject = collisionData.Object;
       if (collisionData.filter.CollisionStartBlock.SendEventsToB)
       {
         collisionData.OtherObject->Dispatch<Events::CollisionEnded>(collisionEndedEvent);
       }
       delete collisionEndedEvent;
-		}
+    }
 
     /**************************************************************************/
     /*!
@@ -772,6 +777,7 @@ namespace DCEngine {
       // Dispatch collision event to the first object
       collisionPersistedEvent->Object = collisionData.Object;
       collisionPersistedEvent->OtherObject = collisionData.OtherObject;
+      collisionPersistedEvent->Normal = collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToA)
       {
         collisionData.Object->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);
@@ -779,6 +785,7 @@ namespace DCEngine {
       // Dispatch collision event to the second object
       collisionPersistedEvent->Object = collisionData.OtherObject;
       collisionPersistedEvent->OtherObject = collisionData.Object;
+      collisionPersistedEvent->Normal = -collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToB)
       {
         collisionData.OtherObject->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);
@@ -787,13 +794,13 @@ namespace DCEngine {
     }
 
 
-		/**************************************************************************/
-		/*!
-		\brief Terminate the physics system.
-		*/
-		/**************************************************************************/
-		void Physics::Terminate() {
-		}
+    /**************************************************************************/
+    /*!
+    \brief Terminate the physics system.
+    */
+    /**************************************************************************/
+    void Physics::Terminate() {
+    }
 
     /**************************************************************************/
     /*!
@@ -824,5 +831,5 @@ namespace DCEngine {
         }
       }
     }
-	}
+  }
 }

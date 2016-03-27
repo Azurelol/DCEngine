@@ -2,7 +2,7 @@ class Script : ZilchComponent
 {
     function Initialize()
     {
-        //DaisyConnect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : LogicUpdate)

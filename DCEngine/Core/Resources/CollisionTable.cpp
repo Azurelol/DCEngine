@@ -26,11 +26,41 @@ namespace DCEngine
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
+
+
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(CollisionBlock, "CollisionBlock", DCEngineCore, builder, type) {
+    ZilchBindField(builder, type, &CollisionBlock::SendEventsToA, "SendEventsToA", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CollisionBlock::SendEventsToA, "SendEventsToB", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CollisionBlock::SendEventsToA, "SendEventsToSpace", Zilch::PropertyBinding::GetSet);
+  }
+  ZilchDefineType(CollisionFilter, "CollisionFilter", DCEngineCore, builder, type) {
+
+    ZilchBindField(builder, type, &CollisionFilter::CollisionFlag, "CollisionFlag", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CollisionFilter::CollisionStartBlock, "CollisionStartBlock", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CollisionFilter::CollisionEndBlock, "CollisionEndBlock", Zilch::PropertyBinding::GetSet);
+    ZilchBindField(builder, type, &CollisionFilter::PreSolveBlock, "PreSolveBlock", Zilch::PropertyBinding::GetSet);
+    // the pair of groups
+    std::pair<std::string, std::string> Pairing;
+  }
   ZilchDefineType(CollisionTable, "CollisionTable", DCEngineCore, builder, type) {
+    ZilchBindMethod(builder, type, &CollisionTable::AddGroup, (bool(CollisionTable::*)(CollisionGroup)), "AddGroup", "group");
+    ZilchBindMethod(builder, type, &CollisionTable::AddGroup, (bool(CollisionTable::*)(std::string)), "AddGroup", "group");
+    //ZilchBindMethod(builder, type, &CollisionTable::GetGroups, ZilchNoOverload, "GetGroups", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &CollisionTable::GetPairs, ZilchNoOverload, "GetPairs", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionTable::ScanForGroups, ZilchNoOverload, "ScanForGroups", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionTable::GetFilter, ZilchNoOverload, "GetFilter", "group1, group2");
+    ZilchBindMethod(builder, type, &CollisionTable::SetResolve, ZilchNoOverload, "SetResolve", "group1, group2, state");
+    ZilchBindMethod(builder, type, &CollisionTable::GetStartBlock, ZilchNoOverload, "GetStartBlock", "group1, group2");
+    ZilchBindMethod(builder, type, &CollisionTable::SetStartBlock, ZilchNoOverload, "SetStartBlock", "group1, group2, state");
+    ZilchBindMethod(builder, type, &CollisionTable::GetEndBlock, ZilchNoOverload, "GetEndBlock", "group1, group2");
+    ZilchBindMethod(builder, type, &CollisionTable::SetEndBlock, ZilchNoOverload, "SetEndBlock", "group1, group2, state");
+    ZilchBindMethod(builder, type, &CollisionTable::GetPreSolveBlock, ZilchNoOverload, "GetPreSolveBlock", "group1, group2");
+    ZilchBindMethod(builder, type, &CollisionTable::SetPreSolveBlock, ZilchNoOverload, "SetPreSolveBlock", "group1, group2, state");
   }
 #endif
 
+static CollisionTablePtr Find(std::string);
   /**************************************************************************/
   /*!
   @brief CollisionTable constructor.
