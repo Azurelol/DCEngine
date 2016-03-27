@@ -100,6 +100,8 @@ namespace DCEngine {
       void ParentToPlayer();
       void AttractBall();
       void FreezeBall();
+	  void LockBall();
+	  void UnlockBall();
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(BallController, Component);
