@@ -1,7 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="0">
-            <File firstVisibleLine="12" xOffset="0" scrollWidth="752" startPos="771" endPos="771" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458081802" />
+        <mainView activeIndex="1">
+            <File firstVisibleLine="12" xOffset="0" scrollWidth="752" startPos="771" endPos="771" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458579399" />
+            <File firstVisibleLine="27" xOffset="0" scrollWidth="1640" startPos="2358" endPos="2358" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\ScriptUnitTest.Zilch" backupFilePath="C:\Development\DCEngine\DCEngine\Tools\Notepad++\backup\ScriptUnitTest.Zilch@2016-03-26_201412" originalFileLastModifTimestamp="1459047800" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

@@ -47,22 +47,22 @@ namespace DCEngine {
       AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
         ShaderPath + "GUIShader.vs",
         ShaderPath + "GUIShader.frag")));
-			AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
-				ShaderPath + "ParticleShader.vs",
-				ShaderPath + "ParticleShader.frag")));
-			AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
-				ShaderPath + "ShadowingShader.vs",
-				ShaderPath + "ShadowingShader.frag",
-				ShaderPath + "ShadowingShader.gs")));
-			AddShader(std::string("LightingShader"), ShaderPtr(new Shader(std::string("LightingShader"),
-				ShaderPath + "LightingShader.vs",
-				ShaderPath + "LightingShader.frag")));
-			AddShader(std::string("DebugShader"), ShaderPtr(new Shader(std::string("DebugShader"),
-				ShaderPath + "DebugShader.vs",
-				ShaderPath + "DebugShader.frag")));
-			AddShader(std::string("FinalRenderShader"), ShaderPtr(new Shader(std::string("FinalRenderShader"),
-				ShaderPath + "FinalRenderShader.vs",
-				ShaderPath + "FinalRenderShader.frag")));
+      AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
+        ShaderPath + "ParticleShader.vs",
+        ShaderPath + "ParticleShader.frag")));
+      AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
+        ShaderPath + "ShadowingShader.vs",
+        ShaderPath + "ShadowingShader.frag",
+        ShaderPath + "ShadowingShader.gs")));
+      AddShader(std::string("LightingShader"), ShaderPtr(new Shader(std::string("LightingShader"),
+        ShaderPath + "LightingShader.vs",
+        ShaderPath + "LightingShader.frag")));
+      AddShader(std::string("DebugShader"), ShaderPtr(new Shader(std::string("DebugShader"),
+        ShaderPath + "DebugShader.vs",
+        ShaderPath + "DebugShader.frag")));
+      AddShader(std::string("FinalRenderShader"), ShaderPtr(new Shader(std::string("FinalRenderShader"),
+        ShaderPath + "FinalRenderShader.vs",
+        ShaderPath + "FinalRenderShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;

@@ -486,6 +486,7 @@
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
+    <ClInclude Include="Core\Events\ContentEvents.h" />
     <ClInclude Include="Core\Events\InitializerEvents.h" />
     <ClInclude Include="Core\Events\InputEvents.h" />
     <ClInclude Include="Core\Events\ScriptingEvents.h" />

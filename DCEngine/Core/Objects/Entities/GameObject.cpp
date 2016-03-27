@@ -396,7 +396,7 @@ namespace DCEngine {
         child->ParentRef = nullptr;
         std::swap(child, ChildrenContainer.back());
         ChildrenContainer.pop_back();
-		break;
+    break;
       }
 
     }  
