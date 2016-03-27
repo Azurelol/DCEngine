@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
-    "Name": "PowerField", 
-    "Archetype": "PowerField", 
+    "Locked": false, 
+    "GameObjectID": 288, 
+    "Name": "PowerField1", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 300.437744, 
-            "y": -7.872451, 
+            "x": 88.000000, 
+            "y": 1.500000, 
             "z": 0.000000
           }
         }, 
@@ -58,8 +59,8 @@
       }, 
       "BoxCollider": 
       {
-        "PhysicsMaterial": "", 
         "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
         "Size": 
         {
           "Vec3": 
@@ -84,8 +85,11 @@
       }, 
       "PowerField": 
       {
-        "Target": ""
+        "PowerTarget": "Shield4"
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

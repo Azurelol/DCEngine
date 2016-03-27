@@ -22,7 +22,7 @@ class MoveToLocationZilch : ZilchComponent
      
     function Initialize()
     {
-        this.RandomGenerator= new Random();
+        this.RandomGenerator = Random();
         Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
         this.StartingLocation = this.Owner.Transform.Translation;
         this.TargetLocation = this.StartingLocation - this.TargetLocation;

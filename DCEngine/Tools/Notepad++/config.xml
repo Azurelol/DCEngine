@@ -13,7 +13,13 @@
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" size="4" replaceBySpace="no" />
         <!--App position-->
+<<<<<<< HEAD
         <GUIConfig name="AppPosition" x="2299" y="125" width="1365" height="810" isMaximized="no" />
+=======
+        <<<<<< HEAD
+        <GUIConfig name="AppPosition" x="2299" y="125" width="1365" height="810" isMaximized="no" /=======
+        <GUIConfig name="AppPosition" x="409" y="157" width="1305" height="822" isMaximized="no" />&gt;&gt;&gt;&gt;&gt;&gt;&gt; de4842c77271f4e767df98445ac82a0b6cd3fae1
+>>>>>>> 2738825f88ee2eec29f4f2124f77298bb3215f66
         <!-- For the primary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
              4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
@@ -100,7 +106,15 @@
     <!-- The History of opened files list -->
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" />
     <History nbMaxFile="15" inSubMenu="no" customLength="-1">
+<<<<<<< HEAD
         <File filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\ScriptUnitTest.Zilch" />
+=======
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MoveToLocationZilch.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PressurePlate.Zilch" />
+>>>>>>> 2738825f88ee2eec29f4f2124f77298bb3215f66
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />

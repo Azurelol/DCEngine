@@ -36,7 +36,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
+	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
+	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
+	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
       //ZilchBindMethod(builder, type, &BallController::FreezeBall, ZilchNoOverload, "FreezeBall", ZilchNoNames);
     }
 #endif
@@ -368,6 +371,16 @@ namespace DCEngine {
       TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
       gameObj->AttachTo(PlayerRef);
     }
+
+	void BallController::UnlockBall()
+	{
+		Locked = false;
+	}
+
+	void BallController::LockBall()
+	{
+		Locked = true;
+	}
 
   }
 }
