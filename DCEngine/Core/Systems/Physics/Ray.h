@@ -12,6 +12,9 @@ namespace DCEngine {
   /**************************************************************************/
   struct Ray 
   {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(Ray, Zilch::TypeCopyMode::ValueType);
+#endif
     Vec3 Origin;
     Vec3 Direction;
   };

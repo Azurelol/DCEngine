@@ -465,6 +465,7 @@
     <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Binding\CoreBindingEventStrings.h" />
+    <ClInclude Include="Core\DaisyVector.h" />
     <ClInclude Include="Core\Engine\ActionProperty.h" />
     <ClInclude Include="Core\Engine\ActionProperty.hpp" />
     <ClInclude Include="Core\Engine\Actions.h" />

@@ -1,0 +1,173 @@
+class ZPlayerController : ZilchComponent
+{
+    //sends ToggleEvent : ToggleEvent;
+    
+    [Property]
+    var MoveSpeed : Real = 0.35;
+    [Property]
+    var JumpPower : Real = 8.0;
+    [Property]
+    var JumpFrames : Real = 1.0;
+    [Property]
+    var Health : Real = 10.0;
+    [Property]
+    var AirBrakeScalar : Real = 0.95;
+    [Property]
+    var TurnSpeedScalar : Real = 5.0;
+    [Property]
+    var DoAutoPlay : Boolean = true;
+    [Property]
+    var StandAnimation : String = "PlayerStand";
+    [Property]
+    var JumpAnimation : String = "PlayerFall";
+    [Property]
+    var RunAnimation : String = "PlayerRun";
+    [Property]
+    var AutoPlayTimer : Real = 2.0;
+    
+	var Grounded : Boolean = true;
+	var Jumping : Boolean = false;
+	var Invincible : Boolean = false;
+	var LevelCheatLoaded : Boolean = false;
+	var Musicplay : Boolean = false;
+	var Dead : Boolean = false;
+	var DeathTimer : Real = 0.0;
+	var TimeToDie : Real = 0.7;
+	var FramesOfDamageColor : Real = 10.0;
+	var FramesOfDamageColorApplied : Real = 0.0;
+    var JumpFramesApplied : Real = 0.0;
+    var VelocityXCap : Real = 30.0;
+    var GroundFriction : Real = 0.2;
+
+    var TransformRef : Transform = null;
+    var RigidBodyRef : RigidBody = null;
+    var ColliderRef : BoxCollider = null;
+
+	var SpriteComponent : Sprite = null;
+	var FootstepSound : String;
+	var FootstepSoundEnabled : Boolean = false;
+	
+    function Initialize()
+    {
+	//SEND INIT EVENT FOR CAMERA REFERENCE
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseDownEvent);
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStartedEvent);
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEndedEvent);
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionPersisted, this.OnCollisionPersistedEvent);
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+		
+		this.TransformRef = this.Owner.Transform;
+		this.RigidBodyRef = this.Owner.RigidBody;
+		this.ColliderRef = this.Owner.BoxCollider;
+		this.SpriteComponent = this.Owner.Sprite;
+		
+		
+    }
+    
+    function OnMouseDownEvent(event : MouseDown)
+    {
+
+    }
+
+    function OnMouseUpEvent(event : MouseDown)
+    {
+
+    }
+
+    function OnKeyDownEvent(event : KeyDown)
+    {
+        if(event.Key == Keys.Tilde)
+        {
+            this.LevelCheatLoaded = false;
+        }
+    }
+
+    function OnCollisionStartedEvent(event : CollisionStarted)
+    {
+
+    }
+
+    function OnCollisionEndedEvent(event : CollisionStarted)
+    {
+
+    }
+
+	function OnCollisionPersistedEvent(event : CollisionStarted)
+    {
+
+    }
+
+	function OnLogicUpdateEvent(event : CollisionStarted)
+    {
+
+    }
+
+	function Jump()
+	{
+	
+	}
+	
+	function TakeDamage(damage : Real)
+	{
+	
+	}
+
+	function Die()
+	{
+	
+	}
+
+	function CheckForGround()
+	{
+
+	}
+
+    function PrintTranslation()
+	{
+
+    }
+
+    function PrintVelocity()
+	{
+
+    }
+	
+    function AutoPlay(event : LogicUpdate)
+	{
+
+    }
+	
+	function MoveLeft()
+	{
+	
+	}
+	
+	function MoveRight()
+	{
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
