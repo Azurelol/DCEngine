@@ -25,13 +25,14 @@ namespace DCEngine
 
     bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, const DCEngine::CollisionGroup & group)
     {
-      for (auto &Group : Groups)
+      for (auto Group : Groups)
       {
         if (Group.Name() == group.Name())
         {
           return true;
         }
       }
+      return false;
     }
 
     /**************************************************************************/
