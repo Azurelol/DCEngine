@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 67, 
     "Name": "Shield", 
-    "Archetype": "Shield", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 268.295929, 
-            "y": -2.335855, 
+            "x": 13.407575, 
+            "y": 14.637627, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 2.000000, 
-            "y": 14.000000, 
+            "x": 1.000000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -43,13 +44,13 @@
         {
           "Vec4": 
           {
-            "x": 0.235000, 
-            "y": 0.470000, 
-            "z": 0.745000, 
-            "w": 0.500000
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "char_sent_4", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -58,8 +59,8 @@
       }, 
       "BoxCollider": 
       {
-        "PhysicsMaterial": "", 
         "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
         "Size": 
         {
           "Vec3": 
@@ -81,7 +82,36 @@
         "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
+      }, 
+      "RigidBody": 
+      {
+        "Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "AngularVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Mass": 10.000000, 
+        "RotationLocked": true
+      }, 
+      "Orientation": 
+      {
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

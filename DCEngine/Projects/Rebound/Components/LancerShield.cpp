@@ -22,7 +22,7 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(LancerShield, "LancerShield", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(LancerShield);
-      //DCE_BINDING_DEFINE_PROPERTY(LancerShield, Timer);
+      DCE_BINDING_DEFINE_PROPERTY(LancerShield, ShieldReflectionForce);
     }
     DCE_COMPONENT_DEFINE_DEPENDENCIES(LancerShield, "Transform", "Sprite", "BoxCollider");
 #endif
@@ -61,7 +61,7 @@ namespace DCEngine {
           //event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(-otherVelocity);
 
           event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(Vec3(0,0,0));
-          event->OtherObject->getComponent<Components::RigidBody>()->AddForce(glm::normalize(otherPosition - parentPosition) * 100000.0f);
+          event->OtherObject->getComponent<Components::RigidBody>()->AddForce(glm::normalize(otherPosition - parentPosition) * ShieldReflectionForce);
         }
       }
     }

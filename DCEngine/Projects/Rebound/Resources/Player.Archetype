@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 147, 
     "Name": "Player", 
-    "Archetype": "Player", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -14.135119, 
-            "y": 15.099038, 
+            "x": -13.755283, 
+            "y": 17.302092, 
             "z": 0.000000
           }
         }, 
@@ -49,7 +50,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "PlayerRun", 
+        "SpriteSource": "PlayerStand", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": true, 
@@ -58,7 +59,6 @@
       }, 
       "RigidBody": 
       {
-        "Mass": 10.000000, 
         "Velocity": 
         {
           "Vec3": 
@@ -82,8 +82,8 @@
       }, 
       "BoxCollider": 
       {
-        "PhysicsMaterial": "", 
         "CollisionGroup": "Player", 
+        "PhysicsMaterial": "", 
         "Size": 
         {
           "Vec3": 
@@ -115,8 +115,8 @@
         "AirBrakeScalar": 0.950000, 
         "TurnSpeedScalar": 5.000000, 
         "DoAutoPlay": true, 
-        "StandAnimation": "PlayerStand", 
-        "JumpAnimation": "PlayerFall", 
+        "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+        "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
         "RunAnimation": "Char_Asha_Run_Spritesheet", 
         "AutoPlayTimer": 2.000000
       }, 
@@ -157,6 +157,9 @@
         "MaxHealth": 10, 
         "StartingHealth": 10
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }
