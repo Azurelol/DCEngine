@@ -560,6 +560,7 @@ namespace DCEngine {
             // TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -597,6 +598,7 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -634,6 +636,7 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj1;
 						Collision.OtherObject = obj2;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -671,6 +674,7 @@ namespace DCEngine {
 						// TEMPORARY: SEND EVENT DIRECTLY TO OBJECTS
 						Collision.Object = obj2;
 						Collision.OtherObject = obj1;
+            Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
               DispatchCollisionStarted(Collision);
@@ -717,6 +721,7 @@ namespace DCEngine {
 			// Dispatch collision event to the first object
 			collisionStartedEvent->Object = collisionData.Object;
 			collisionStartedEvent->OtherObject = collisionData.OtherObject;
+      collisionStartedEvent->Normal = collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToA)
       {
         collisionData.Object->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
@@ -724,6 +729,7 @@ namespace DCEngine {
       // Dispatch collision event to the second object
 			collisionStartedEvent->Object = collisionData.OtherObject;
 			collisionStartedEvent->OtherObject = collisionData.Object;
+      collisionStartedEvent->Normal = -collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToB)
       {
         collisionData.OtherObject->Dispatch<Events::CollisionStarted>(collisionStartedEvent);
@@ -772,6 +778,7 @@ namespace DCEngine {
       // Dispatch collision event to the first object
       collisionPersistedEvent->Object = collisionData.Object;
       collisionPersistedEvent->OtherObject = collisionData.OtherObject;
+      collisionPersistedEvent->Normal = collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToA)
       {
         collisionData.Object->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);
@@ -779,6 +786,7 @@ namespace DCEngine {
       // Dispatch collision event to the second object
       collisionPersistedEvent->Object = collisionData.OtherObject;
       collisionPersistedEvent->OtherObject = collisionData.Object;
+      collisionPersistedEvent->Normal = -collisionData.Normal;
       if (collisionData.filter.CollisionStartBlock.SendEventsToB)
       {
         collisionData.OtherObject->Dispatch<Events::CollisionPersisted>(collisionPersistedEvent);

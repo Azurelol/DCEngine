@@ -88,6 +88,7 @@ namespace DCEngine {
       ZilchBindField(builder, type, &CollisionStarted::Object, "Object", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &CollisionStarted::OtherObject, "OtherObject", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &CollisionStarted::IsGhost, "IsGhost", Zilch::PropertyBinding::Get);
+      ZilchBindField(builder, type, &CollisionStarted::Normal, "Normal", Zilch::PropertyBinding::Get);
     }
     ZilchDefineType(CollisionEnded, "CollisionEnded", DCEngineCore, builder, type)
     {
@@ -100,6 +101,7 @@ namespace DCEngine {
       ZilchBindField(builder, type, &CollisionPersisted::Object, "Object", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &CollisionPersisted::OtherObject, "OtherObject", Zilch::PropertyBinding::Get);
       ZilchBindField(builder, type, &CollisionPersisted::IsGhost, "IsGhost", Zilch::PropertyBinding::Get);
+      ZilchBindField(builder, type, &CollisionPersisted::Normal, "Normal", Zilch::PropertyBinding::Get);
     }
 
     /********************/
