@@ -98,13 +98,18 @@
         </GUIConfig>
     </GUIConfigs>
     <!-- The History of opened files list -->
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" />
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Find name="CurrentlyMoving" />
+        <Find name="StartMoving" />
+        <Replace name="StartMoving" />
+    </FindHistory>
     <History nbMaxFile="15" inSubMenu="no" customLength="-1">
         <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" />
         <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" />
         <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" />
         <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MoveToLocationZilch.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PressurePlate.Zilch" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
