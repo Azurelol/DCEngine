@@ -22,7 +22,7 @@ class FadeToColorZilch : ZilchComponent
      
     function Initialize()
     {
-        this.RandomGenerator= new Random();
+        this.RandomGenerator= Random();
         Daisy.Connect(this.Owner, DaisyEvent.ToggleColorEvent, this.OnToggleColorEvent);
         this.StartingColor = this.Owner.Sprite.Color;
         if(this.CurrentlyFading)
@@ -39,15 +39,16 @@ class FadeToColorZilch : ZilchComponent
     {
         var fadeTime = this.RandomGenerator.Range(this.MinFadeTime, this.MaxFadeTime);
         var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
-        var seq = Actions.Sequence(this.Owner.Actions);
-        Actions.Delay(seq, delay);
-        Actions.Property(seq, @this.Owner.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
+		
+        //var seq = Actions.Sequence(this.Owner.Actions);
+        //Actions.Delay(seq, delay);
+        //Actions.Property(seq, @this.Owner.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
         var temp = this.TargetColor;
         this.TargetColor = this.StartingColor;
         this.StartingColor = temp;
         if(this.Oscillate)
         {
-            Actions.Call(seq, this.SendSelfToggleColorEvent);
+        //     Actions.Call(seq, this.SendSelfToggleColorEvent);
         }
     }
     

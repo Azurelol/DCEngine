@@ -1,13 +1,9 @@
 <NotepadPlus>
     <Session activeView="0">
-<<<<<<< HEAD
         <mainView activeIndex="1">
             <File firstVisibleLine="12" xOffset="0" scrollWidth="752" startPos="771" endPos="771" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458579399" />
-            <File firstVisibleLine="27" xOffset="0" scrollWidth="1640" startPos="2358" endPos="2358" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\ScriptUnitTest.Zilch" backupFilePath="C:\Development\DCEngine\DCEngine\Tools\Notepad++\backup\ScriptUnitTest.Zilch@2016-03-26_201412" originalFileLastModifTimestamp="1459047800" />
-=======
-        <mainView activeIndex="0">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="552" startPos="451" endPos="451" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459047213" />
->>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
+            <File firstVisibleLine="17" xOffset="0" scrollWidth="792" startPos="1173" endPos="1270" selMode="3" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\FadeZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459053099" />
+            <File firstVisibleLine="17" xOffset="0" scrollWidth="888" startPos="1606" endPos="1606" selMode="0" lang="C#" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\MoveToLocationZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459052940" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

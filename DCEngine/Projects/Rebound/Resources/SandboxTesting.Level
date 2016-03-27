@@ -3030,7 +3030,7 @@
           "MoveToLocationZilch": 
           {
             "Oscillate": true, 
-            "CurrentlyMoving": true, 
+            "StartMoving": false, 
             "TargetLocation": 
             {
               "Vec3": 

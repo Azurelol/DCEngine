@@ -40,7 +40,8 @@ class MoveToLocationZilch : ZilchComponent
     {
         var moveTime = this.RandomGenerator.Range(this.MinMoveTime, this.MaxMoveTime);
         var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
-        var seq = Actions.Sequence(this.Owner.Actions);
+        
+		var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Delay(seq, delay);
         Actions.Property(seq, @this.Owner.Transform.Translation, this.TargetLocation, moveTime, Ease.Linear);
         var temp = this.TargetLocation;
