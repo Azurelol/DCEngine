@@ -26,6 +26,7 @@ namespace DCEngine {
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
+      Vec3 Normal;
       // ContactPoint Data:
       // Number of contact points
       // A range of contact points
@@ -49,6 +50,7 @@ namespace DCEngine {
       GameObject* Object; //!< The object this event was sent to.
       GameObject* OtherObject; //!< The other object in the collision.
       Boolean IsGhost;
+      Vec3 Normal;
     };
   }
 

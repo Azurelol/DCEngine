@@ -37,6 +37,7 @@ namespace DCEngine {
     GameObject* Object; //!< The object this event was sent to.
     GameObject* OtherObject; //!< The other object in the collision.
     CollisionFilter filter; //!< info on what events to send
+    Vec3 Normal;
   };
 
   namespace PHYSICS
