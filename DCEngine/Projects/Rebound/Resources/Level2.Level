@@ -1739,10 +1739,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield3"
           }
         }, 
         "Children": 
@@ -2030,10 +2026,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield4"
           }
         }, 
         "Children": 
@@ -3090,10 +3082,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4329,10 +4317,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4813,10 +4797,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4879,10 +4859,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "PowerField": 
-          {
-            "Target": "Door1"
           }, 
           "BoxCollider": 
           {
@@ -5064,10 +5040,6 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "PowerField": 
-          {
-            "Target": "Shield1"
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "DefaultCollisionGroup", 
@@ -5155,10 +5127,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield2"
           }, 
           "BoxCollider": 
           {
