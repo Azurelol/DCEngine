@@ -6,4 +6,7 @@ class DamageEvent : DaisyEvent
     var Damage : Integer = 0;
 }
 
+class ToggleColorEvent : ZilchEvent
+{
+}
 enum DamageSource {None, Player, Enemy, Environment}
