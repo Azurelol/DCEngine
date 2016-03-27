@@ -9,7 +9,7 @@
 @copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-// Declaring and defining a custom event using our engine's event system
+// Declaring and defining a custom event using our engine's event system 
 class CustomEvent : ZilchEvent {
 	var IntegerVar : Integer = 1;
 	var BoolVar : Boolean = true;
@@ -35,6 +35,7 @@ class ScriptUnitTest : ZilchComponent
   [Property] var TestingActionProperty : Boolean = true;
   [Property] var TypeToTest : PropertyType = PropertyType.Integer;
   [Property] var EaseFunc : Ease = Ease.Linear;
+  [Property] var Word : String =  "";
 
   // Testing engine enum
   [Property] var EngineEnum : Keys = Keys.A;    
@@ -53,7 +54,9 @@ class ScriptUnitTest : ZilchComponent
   var InterpolatedReal3 : Real3;
   var InterpolatedReal4 : Real4;
   var InterpolatedBoolean : Boolean = false;
-  var InterpolatedInteger : Integer;  
+  var InterpolatedInteger : Integer; 
+
+  var BallControllerRef : BallController;  
 
   function Initialize()
   {
@@ -63,10 +66,10 @@ class ScriptUnitTest : ZilchComponent
 
     	// If possible, save the references
    if (this.Owner.Transform != null) this.TransformRef = this.Owner.Transform;
-   if (this.Owner.Sprite != null) this.SpriteRef = this.Owner.Sprite;
+   if (this.Owner.Sprite != null) this.SpriteRef = this.Owner.Sprite; 
 
- }
-
+   //this.BallControllerRef.FreezeBall();
+  } 
 
     ////////////////////////////////
     // Testing Connect and Dispatch

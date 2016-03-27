@@ -30,7 +30,7 @@ namespace DCEngine {
       FileScanner(FSSettings& settings);
       ~FileScanner();
       void Initialize();
-      void ScanByThread();
+      void RunThreadScan();
       void Scan();
       void OnWindowFocusGainedEvent(Events::WindowGainedFocus* event);
       void OnWindowLostFocusEvent(Events::WindowLostFocus* event);

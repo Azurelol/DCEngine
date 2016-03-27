@@ -343,6 +343,9 @@
     <Filter Include="Core\Utilities">
       <UniqueIdentifier>{b0f447b8-ddce-4ca6-9a31-e7f53f685ed7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Events\Content">
+      <UniqueIdentifier>{66c77a11-d97e-474e-a470-d111d0fcf7d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -1612,8 +1615,13 @@
     <ClInclude Include="Core\Utilities\UtilitiesInclude.h">
       <Filter>Core\Utilities</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Core\Events\ContentEvents.h">
+      <Filter>Core\Events\Content</Filter>
+=======
     <ClInclude Include="Core\DaisyVector.h">
       <Filter>Core</Filter>
+>>>>>>> de4842c77271f4e767df98445ac82a0b6cd3fae1
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

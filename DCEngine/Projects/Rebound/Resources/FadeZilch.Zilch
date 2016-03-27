@@ -22,7 +22,7 @@ class FadeToColorZilch : ZilchComponent
      
     function Initialize()
     {
-        this.RandomGenerator= new Random();
+        this.RandomGenerator= Random();
         Daisy.Connect(this.Owner, DaisyEvent.ToggleColorEvent, this.OnToggleColorEvent);
         this.StartingColor = this.Owner.Sprite.Color;
         if(this.CurrentlyFading)

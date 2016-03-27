@@ -72,10 +72,17 @@ namespace DCEngine
     std::time_t LastModified;  
     FileInfo() : LastModified(0) {} 
     FileInfo(filepath path) :
-      FilePathAbs(Utils::String::ToLower(FilePathAbs.string())),
-      FileName(Utils::String::ToLower(FilePathAbs.filename().string())),
-      FileStem(Utils::String::ToLower(FilePathAbs.stem().string())),
-      Extension(Utils::String::ToLower(FilePathAbs.extension().string())),
+      
+      // Old
+      //FilePathAbs(Utils::String::ToLower(path.string())),
+      //FileName(Utils::String::ToLower(path.filename().string())),
+      //FileStem(Utils::String::ToLower(path.stem().string())),
+      //Extension(Utils::String::ToLower(path.extension().string())),
+
+      FilePathAbs(path.string()),
+      FileName(path.filename().string()),
+      FileStem(path.stem().string()),
+      Extension(path.extension().string()),
       LastModified(FileSystem::LastModified(path)) {}
 
   };

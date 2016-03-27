@@ -14,17 +14,16 @@ class PowerField : ZilchComponent
     {
         if(event.OtherObject.BallTemp != null)
         {
+            //event.OtherObject.Transform.Translation = Real3(0,0,0);
             event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
-            
             this.FreezeBall();
-            
             this.TogglePower();
         }
     }
 	
 	function FreezeBall()
 	{
-		//HALP I HAVE NO IDEA HOW TO DO THIS WITH CURRENT SYSTEM!!!
+		this.Space.FindObjectByName("Ball").BallController.FreezeBall();
 	}
 	
 	function OnCollisionEnded(event : CollisionEnded)

@@ -96,6 +96,7 @@ namespace DCEngine {
           getCall.SetHandleVirtual(Zilch::Call::This, object); // Pass in a handle here        
         getCall.Invoke(report);
 
+
         /*=======================
         // Property: Enumeration
         =======================*/

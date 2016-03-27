@@ -17,6 +17,8 @@ uses.
 #include "ReboundEvents.h"
 // Engine
 #include "../../Core/Engine/Engine.h" // @todo ew
+// Used to add component properties
+#include "..\..\Core\Systems\Reflection\ZilchInterfaceUtilities.h"
 
 namespace DCEngine {
 
@@ -43,6 +45,15 @@ namespace DCEngine {
     ZilchInitializeType(Components::Lancer);
     ZilchInitializeType(Components::Shield);
     ZilchInitializeType(Components::LancerShield);
+
+    // Setup extension properties for Entity
+    auto interface = Systems::ZilchInterface::Get();
+    auto& boundTypes = builder.BoundTypes.values();
+    while (!boundTypes.empty()) {
+      interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), boundTypes.front(),
+        &builder, Systems::GetNativeComponent);
+      boundTypes.popFront();
+    }
   }
 
   // Add the Rebound library

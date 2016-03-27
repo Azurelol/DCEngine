@@ -46,15 +46,15 @@
           {
             "TestingLogicUpdate": false, 
             "TestingInput": true, 
-            "TestingScriptEvents": false, 
-            "TestingColorChange": false, 
-            "TestingActionProperty": false, 
-            "TypeToTest": "Integer", 
+            "TestingScriptEvents": true, 
+            "TestingColorChange": true, 
+            "TestingActionProperty": true, 
+            "TypeToTest": "Real2", 
             "EaseFunc": "Linear", 
             "Word": "", 
-            "EngineEnum": "None", 
+            "EngineEnum": "A", 
             "Color": "Red", 
-            "Color2": "Red"
+            "Color2": "Blue"
           }
         }, 
         "Children": 
