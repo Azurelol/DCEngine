@@ -1739,10 +1739,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield3"
           }
         }, 
         "Children": 
@@ -1832,9 +1828,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "PowerField": 
+          "Button": 
           {
-            "Target": "Door2"
+            "TargetName": "Transistor1"
           }
         }, 
         "Children": 
@@ -2030,10 +2026,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield4"
           }
         }, 
         "Children": 
@@ -3090,10 +3082,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -3950,6 +3938,9 @@
             "Torque": 0.000000, 
             "Growth": 0.000000, 
             "Dampening": 10.000000
+          }, 
+          "BallTemp": 
+          {
           }
         }, 
         "Children": 
@@ -4326,10 +4317,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4810,10 +4797,6 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "PowerField": 
-          {
-            "Target": ""
           }
         }, 
         "Children": 
@@ -4876,10 +4859,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "PowerField": 
-          {
-            "Target": "Door1"
           }, 
           "BoxCollider": 
           {
@@ -4995,9 +4974,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "PowerField": 
+          "Button": 
           {
-            "Target": "Door2"
+            "TargetName": "Transistor"
           }
         }, 
         "Children": 
@@ -5060,10 +5039,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield1"
           }, 
           "BoxCollider": 
           {
@@ -5152,10 +5127,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "PowerField": 
-          {
-            "Target": "Shield2"
           }, 
           "BoxCollider": 
           {
@@ -7216,6 +7187,55 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 106, 
+        "Name": "Transistor1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.183979, 
+                "y": 5.047847, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "TransistorLogic": 
+          {
+            "Target1": "Door", 
+            "Target2": "", 
+            "Target3": "", 
+            "Target4": ""
           }
         }, 
         "Children": 

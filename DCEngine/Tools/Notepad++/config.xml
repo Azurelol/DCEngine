@@ -13,7 +13,7 @@
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" size="4" replaceBySpace="no" />
         <!--App position-->
-        <GUIConfig name="AppPosition" x="2258" y="135" width="1305" height="659" isMaximized="yes" />
+        <GUIConfig name="AppPosition" x="409" y="157" width="1305" height="822" isMaximized="no" />
         <!-- For the primary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
              4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
@@ -87,7 +87,7 @@
         <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
-        <GUIConfig name="stylerTheme" path="C:\Development\DCEngine\DCEngine\Tools\Notepad++\themes\Monokai.xml" />
+        <GUIConfig name="stylerTheme" path="C:\Users\John\Documents\DCEngine\DCEngine\Tools\Notepad++\themes\Obsidian.xml" />
         <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
         <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" newStyleSaveDlg="no" />
         <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="200">
@@ -99,7 +99,13 @@
     </GUIConfigs>
     <!-- The History of opened files list -->
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" />
-    <History nbMaxFile="15" inSubMenu="no" customLength="-1" />
+    <History nbMaxFile="15" inSubMenu="no" customLength="-1">
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" />
+        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" />
+    </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
         <ProjectPanel id="1" workSpaceFile="" />

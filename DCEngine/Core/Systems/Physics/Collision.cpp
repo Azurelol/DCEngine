@@ -1175,11 +1175,19 @@ namespace DCEngine
 
     if (box)
     {
+
       Vec3 topL, topR, botL, botR, Rseg;
 
       float Height = box->getColliderScale().y;
       float Width = box->getColliderScale().x;
       float rot = (3.14159265359f / 180.0f) * Translation->Rotation.z;
+
+
+      if (PointToBoundingCube(line.Origin, Translation->Translation, Translation->Rotation, box->getColliderScale()))
+      {
+        return false;
+      }
+
 
       Distance = FLT_MAX;
       bool retval = false;
@@ -1306,7 +1314,7 @@ namespace DCEngine
     
     
     
-    
+    return false;
     /*
     float D = (O.x - RayEnd.x)*(Begin.y - End.y) - (O.y - RayEnd.y)*(Begin.x - End.x);
     

@@ -798,9 +798,6 @@
     <ClCompile Include="Projects\Rebound\Components\AI\Grunt.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Projects\Rebound\Components\Bomb.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
@@ -1420,9 +1417,6 @@
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Systems\StateMachine\StateMachine.h">
-      <Filter>Projects\Rebound\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Projects\Rebound\Components\PowerField.h">
       <Filter>Projects\Rebound\Components</Filter>
     </ClInclude>
     <ClInclude Include="Projects\Rebound\Components\Bomb.h">
