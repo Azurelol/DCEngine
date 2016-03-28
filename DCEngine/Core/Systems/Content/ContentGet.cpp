@@ -159,6 +159,14 @@ namespace DCEngine {
       return MapCollisionTable.at(table);
     }
 
+    ZilchScriptPtr Content::getZilchScript(const std::string & scriptName)
+    {
+      if (!MapZilchScript.count(scriptName))
+        return nullptr;
+
+      return MapZilchScript.at(scriptName);
+    }
+
     /**************************************************************************/
     /*!
     @brief  Grabs a PhysicsMaterial resource.

@@ -14,6 +14,7 @@ namespace DCEngine {
       std::string ToLower(const char* data_c);
       std::string ToUpper(std::string data);
       std::string ToUpper(const char *data_c);
+      std::vector<std::string> Split(const std::string&, std::string delims);
     
 
 

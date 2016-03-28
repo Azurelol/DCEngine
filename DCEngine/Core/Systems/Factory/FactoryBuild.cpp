@@ -129,6 +129,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Factory::RebuildFromArchetype(EntityPtr entity)
     {
+      // Save its name
+      auto name = entity->Name();
       // If the entity has a transform component, save that data.
       TransformDataPair transformData;
       if (entity->HasComponent("Transform")) {
@@ -141,6 +143,7 @@ namespace DCEngine {
       auto archetype = Daisy->getSystem<Content>()->getArchetype(entity->getArchetype());
       // 3. Rebuild the object from its archetype
       BuildFromArchetype(entity, archetype);
+      entity->setObjectName(name);
 
       // 4. Set back its transform data.
       if (entity->HasComponent("Transform")) {

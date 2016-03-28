@@ -151,9 +151,14 @@ namespace DCEngine {
     /**************************************************************************/
     void Reflection::OnScriptingCompileScriptsEvent(Events::ScriptingCompileScripts * event)
     {
+      // Inform that we are about to recompile scripts!
+      DispatchSystemEvents::ScriptingLibraryAboutToCompile();
+
       // Inform that it's been done
-      if (Handler()->CompileScripts())
+      if (Handler()->CompileScripts()) {
         DispatchSystemEvents::ScriptingLibraryPatched();
+        DispatchSystemEvents::ScriptingLibraryCompiled();
+      }
     }
 
 

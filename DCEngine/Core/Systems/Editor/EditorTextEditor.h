@@ -26,15 +26,13 @@ namespace DCEngine {
         Sublime
       };
 
+      void Initialize();
       void Display();      
       void Load(ZilchScriptPtr script);
       void Load(Shader* shader, Shader::Type type);
-      void Reload();
       void Save();
       void Print();
       EditorTextEditor();
-      
-      
 
     private:      
       std::string Title;
@@ -43,12 +41,27 @@ namespace DCEngine {
       Shader::Type CurrentShaderType;
       unsigned CharLimit = 1024 * 16;
 
+      // Compilation errors
+      struct CompilationError {
+        std::string ScriptName;
+        std::string Message;
+        CompilationError(const std::string& name, const std::string& message)
+                         : ScriptName(name), Message(message) {}
+      };
+      std::vector<CompilationError> CompilationErrors;
+
+      void DisplayCompilationErrors();
       void OpenOnExternalEditor();
       void CheckHotkeys();
       void Clear();
       void Close();
-      // Events
+      void Reload();
+      void Recompile();
+      // Events      
+      void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
       void OnEditorSaveEvent(Events::EditorSave* event);
+      void OnScriptingLibraryAboutToCompile(Events::ScriptingLibraryAboutToCompile* event);
+      void OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled* event);
       void OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage* event);
       void OnGraphicsCompileShadersErrorEvent(Events::GraphicsCompileShadersError* event);
       void OnWindowGainedFocusEvent(Events::WindowGainedFocus* event);

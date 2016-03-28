@@ -58,6 +58,18 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Looks for the ZilchScript resource given the name.
+  @param scriptname The name of the script.
+  @return A pointer to the ZilchScript.
+  */
+  /**************************************************************************/
+  ZilchScriptPtr ZilchScript::Find(const std::string & scriptName)
+  {
+    return Daisy->getSystem<Systems::Content>()->getZilchScript(scriptName);
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Reads the string from.
   */
   /**************************************************************************/

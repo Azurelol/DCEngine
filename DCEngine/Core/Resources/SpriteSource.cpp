@@ -28,7 +28,7 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Smoothing);
     DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Looping);
     DCE_BINDING_DEFINE_PROPERTY(SpriteSource, Fill);
-	  DCE_BINDING_DEFINE_PROPERTY(SpriteSource, TotalFrame);
+    DCE_BINDING_DEFINE_PROPERTY(SpriteSource, TotalFrame);
     // Image
     DCE_BINDING_DEFINE_PROPERTY(SpriteSource, AssetPath);
     DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeImage);
@@ -88,10 +88,10 @@ namespace DCEngine {
 
     // Generate texture
     TextureObj->Generate(image.getSize().x, image.getSize().y, image);
-	  MaxX = image.getSize().x;
-	  MaxY = image.getSize().y;
-	  PicHeight = image.getSize().y;
-	  PicWidth = image.getSize().x;
+    MaxX = image.getSize().x;
+    MaxY = image.getSize().y;
+    PicHeight = image.getSize().y;
+    PicWidth = image.getSize().x;
     // Free image data
     //SOIL_free_image_data(image);
     #endif

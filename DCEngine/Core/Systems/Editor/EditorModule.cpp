@@ -36,6 +36,7 @@ namespace DCEngine {
     {
       EditorRef = event->Reference;
       AddWindow();
+      Initialize();
     }
 
     void EditorModule::OnEditorUpdateEvent(Events::EditorUpdate * event)

@@ -297,10 +297,16 @@ namespace DCEngine {
   void Entity::RemoveAllComponents()
   {
     // C++- Factory-made components
+    for (auto& component : ComponentsContainer) {
+      component->Terminate();
+    }
     ComponentsContainer.clear();
+
     // Zilch-made components
-    for (auto& component : ComponentHandlesContainer)
-      component.Delete();
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      Component::Dereference(componentHandle)->Terminate();
+      componentHandle.Delete();
+    }
     ComponentHandlesContainer.clear();
   }
 
@@ -319,6 +325,8 @@ namespace DCEngine {
         DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
         // Check for dependencies
 
+        // Call it's terminate method
+        component->Terminate();
         // Remove it
         std::swap(component, ComponentsContainer.back());
         ComponentsContainer.pop_back();
@@ -332,6 +340,8 @@ namespace DCEngine {
         DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
         // Check for dependencies
 
+        // Call it's terminate method
+        component->Terminate();
         // Ask Zilch to delete the component 
         componentHandle.Delete();
         // Remove it
