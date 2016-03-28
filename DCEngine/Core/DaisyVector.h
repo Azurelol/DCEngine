@@ -34,6 +34,7 @@ public:
   void clear();
 };
 
+
 template <typename T>
 DaisyVector<T>& DaisyVector<T>::operator= (const DaisyVector<T>& ref)
 {

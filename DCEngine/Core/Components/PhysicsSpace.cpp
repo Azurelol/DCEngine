@@ -38,7 +38,7 @@ namespace DCEngine {
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResult (PhysicsSpace::*)(Ray &)), "CastRay", "ray");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResult(PhysicsSpace::*)(Ray &, CastFilter &)), "CastRay", "ray, filter");
-      /*ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned)), "CastRay", "ray, count");
+      ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned)), "CastRay", "ray, count");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned, CastFilter&)), "CastRay", "ray, count, filter");
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastSegment, (CastResultsRange(PhysicsSpace::*)(Vec3&, Vec3&, unsigned)), "CastSegment", "start, end, count");
@@ -46,7 +46,7 @@ namespace DCEngine {
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastAabb, ZilchNoOverload, "CastAabb", "center, size, count, filter");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastSphere, ZilchNoOverload, "CastSphere", "center, radius, count, filter");
-      ZilchBindMethod(builder, type, &PhysicsSpace::CastCollider, ZilchNoOverload, "CastCollider", "offset, testCollider, filter");*/
+      ZilchBindMethod(builder, type, &PhysicsSpace::CastCollider, ZilchNoOverload, "CastCollider", "offset, testCollider, filter");
     }
     #endif
 
