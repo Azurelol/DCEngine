@@ -1,10 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="3">
-            <File firstVisibleLine="27" xOffset="0" scrollWidth="792" startPos="990" endPos="990" selMode="0" lang="Normal Text" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\FadeZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459069895" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="7760" startPos="37639" endPos="37639" selMode="0" lang="XML" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\DCEngine.vcxproj.filters" backupFilePath="" originalFileLastModifTimestamp="1459067213" />
-            <File firstVisibleLine="48" xOffset="0" scrollWidth="1640" startPos="2505" endPos="2505" selMode="0" lang="C#" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\ScriptUnitTest.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459153859" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="624" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459055299" />
+        <mainView activeIndex="1">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="736" startPos="253" endPos="253" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\AntiEnergyField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459199967" />
+            <File firstVisibleLine="3" xOffset="537" scrollWidth="1357" startPos="209" endPos="209" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459200137" />
         </mainView>
         <subView activeIndex="0" />
     </Session>
