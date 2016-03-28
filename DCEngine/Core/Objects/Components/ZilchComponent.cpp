@@ -71,7 +71,7 @@ namespace DCEngine {
   /**************************************************************************/
   ZilchComponent::~ZilchComponent()
   {
-    this->Terminate();
+    //this->Terminate();
   }
 
   /**************************************************************************/
@@ -151,11 +151,11 @@ namespace DCEngine {
     if (!TerminateFunc)
       return;
 
-    //DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
-    //// Invoke the Terminate Method
-    //Zilch::Call init(TerminateFunc, Systems::ZilchInterface::GetState());
-    //init.Set<Zilch::Handle>(Zilch::Call::This, Handle());
-    //init.Invoke(Report);
+    DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
+    // Invoke the Terminate Method
+    Zilch::Call terminate(TerminateFunc, Systems::ZilchInterface::GetState());
+    terminate.Set<Zilch::Handle>(Zilch::Call::This, Handle());
+    terminate.Invoke(Report);
   }
 
   void ZilchComponent::OnLogicUpdateEvent(Events::LogicUpdate * event)

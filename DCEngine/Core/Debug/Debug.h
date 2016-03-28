@@ -60,8 +60,10 @@ namespace DCEngine
     #define TRACE_SHADER 0
     #define TRACE_AUDIO 0
     
+    // Tools
     #define DCE_EDITOR_TRACE_TOOLS 1
-    
+    // Scripts
+    #define DCE_TRACE_SCRIPTS 0
     // Actions
     #define DCE_TRACE_ACTIONS_CTOR 0
     #define DCE_TRACE_ACTIONS_DTOR 0

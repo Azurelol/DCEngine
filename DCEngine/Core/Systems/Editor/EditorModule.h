@@ -21,6 +21,7 @@ namespace DCEngine {
       void Toggle(bool);
       void Toggle();
       Editor& Access();
+      virtual void Initialize() {}
       virtual void Display() {};
       virtual void Update() {};
       EditorModule(bool add);

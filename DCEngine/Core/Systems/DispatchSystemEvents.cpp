@@ -145,6 +145,20 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::ScriptingLibraryAboutToCompile()
+    {
+      auto event = new Events::ScriptingLibraryAboutToCompile();
+      Daisy->Dispatch<Events::ScriptingLibraryAboutToCompile>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingLibraryCompiled()
+    {
+      auto event = new Events::ScriptingLibraryCompiled();
+      Daisy->Dispatch<Events::ScriptingLibraryCompiled>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::ScriptingErrorMessage(const std::string & message)
     {
       auto event = new Events::ScriptingErrorMessage();
@@ -193,6 +207,13 @@ namespace DCEngine {
     {
       auto event = new Events::ContentFileScanComplete();;
       Daisy->Dispatch<Events::ContentFileScanComplete>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentProjectLoaded()
+    {
+      auto event = new Events::ContentProjectLoaded();;
+      Daisy->Dispatch<Events::ContentProjectLoaded>(event);
       delete event;
     }
 

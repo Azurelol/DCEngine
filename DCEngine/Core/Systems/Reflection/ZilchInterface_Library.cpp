@@ -172,13 +172,15 @@ namespace DCEngine {
         return;
 
       ScriptFiles.push_back(fileName);
-      DCTrace << "ZilchInterface::AddScriptFile: Added '" << fileName << "' \n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::AddScriptFile: Added '" << fileName << "' \n";
     }
 
     void ZilchInterface::AddScript(std::string code, std::string origin)
     {
       Scripts.push_back(ZilchScriptInfo(origin, code));
-      DCTrace << "ZilchInterface::AddScript: Added '" << origin << "' \n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::AddScript: Added '" << origin << "' \n";
     }
 
     /**************************************************************************/
@@ -190,7 +192,8 @@ namespace DCEngine {
     /**************************************************************************/
     bool ZilchInterface::AddCodeFromFile(std::string fileName, Zilch::Project& project)
     {
-      DCTrace << "ZilchInterface::AddCodeFromFile - Adding script: " << fileName << "\n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::AddCodeFromFile - Adding script: " << fileName << "\n";
       bool success = project.AddCodeFromFile(fileName.c_str());
       ErrorIf(!success, std::string("AddCodeFromFile - Failed to add script:  '" + fileName + "'").c_str());
       return success;
@@ -206,7 +209,8 @@ namespace DCEngine {
     /**************************************************************************/
     void ZilchInterface::AddCodeFromString(std::string displayName, std::string code, Zilch::Project& project)
     {
-      DCTrace << "ZilchInterface::AddCodeFromString - Adding script: " << displayName << "\n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::AddCodeFromString - Adding script: " << displayName << "\n";
       project.AddCodeFromString(code.c_str(), displayName.c_str());
     }
 
@@ -221,7 +225,8 @@ namespace DCEngine {
     /**************************************************************************/
     void ZilchInterface::AddLibrary(Zilch::LibraryRef & library)
     {
-      DCTrace << "ZilchInterface::AddLibrary - Adding library: " << library->Name.c_str() << "\n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::AddLibrary - Adding library: " << library->Name.c_str() << "\n";
       ErrorIf(library == nullptr, "ZilchInterface::AddLibrary - Failed to add library!");
       Dependencies.push_back(library);
     }
@@ -265,38 +270,22 @@ namespace DCEngine {
       if (tempLib) {
         if (Patching) {
           State->PatchLibrary(ScriptLibrary);
-          DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
+          if (DCE_TRACE_SCRIPTS)
+            DCTrace << "ZilchInterface::CompileScripts: Successfully patched the script library \n";
         }
         else {
           ScriptLibrary = tempLib;
           AddLibrary(ScriptLibrary);
           Build();
-          DCTrace << "ZilchInterface::CompileScripts: Successfully rebuilt the executable state \n";
+          if (DCE_TRACE_SCRIPTS)
+            DCTrace << "ZilchInterface::CompileScripts: Successfully rebuilt the executable state \n";
         }
         return true;
       }
-      DCTrace << "ZilchInterface::CompileScripts: Failed to compile \n";
+      if (DCE_TRACE_SCRIPTS)
+        DCTrace << "ZilchInterface::CompileScripts: Failed to compile \n";
       return false;
     }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Parse the engine's static libraries.
-    */
-    /**************************************************************************/
-    void ZilchInterface::ParseStaticLibraries()
-    {
-      return;
-      //auto builder = DCEngineCore::GetBuilder();
-      //auto& boundTypes = DCEngineCore::GetLibrary()->BoundTypes.values();
-      ////auto builder5 = DCEngineCore::GetInstance().GetBuilder();
-      //ZilchForEach(auto boundType, boundTypes) {
-      //  SetupTypeProperty(boundType, ZilchTypeId(Component), ZilchTypeId(Entity), builder, GetNativeComponent);
-      //}
-    }
-
-
 
     
   }

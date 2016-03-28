@@ -143,15 +143,17 @@ namespace DCEngine {
       ImGui::InputFloat("SnapAngle", &config.SnapAngle, 1.0f);
       ImGui::SliderFloat4("LockedColor", &config.LockedColor[0], 0.0f, 1.0f);
 
+      // Text editor      
       const char* editors[] = { "Notepad++", "Sublime" };
       static int editorSelected = 0;
       // What a hack
       if (config.ExternalTextEditor == editors[1])
         editorSelected = 1;
-      if (ImGui::Combo("ExternalTextEditor", &editorSelected, editors, IM_ARRAYSIZE(editors))) {
+      if (ImGui::Combo("External Text Editor", &editorSelected, editors, IM_ARRAYSIZE(editors))) {
         config.ExternalTextEditor = editors[editorSelected];
       }
-      ImGui::Checkbox("CompileOnContextSwitch", &config.CompileOnContextSwitch);
+      ImGui::Checkbox("Open Externally", &config.TextEditorOpenExternally);
+      ImGui::Checkbox("Compile On Context Switch", &config.CompileOnContextSwitch);
     }
 
     /**************************************************************************/
@@ -208,7 +210,7 @@ namespace DCEngine {
       ImGui::InputInt("Height", &config.ScreenHeight, 10);
       ImGui::InputInt("Framerate", &config.Framerate, 1);
       ImGui::InputInt("Max Draw Layers", &config.MaxDrawLayers, 1);
-			ImGui::SliderFloat("Exposure", &config.Exposure, 0, 3);
+      ImGui::SliderFloat("Exposure", &config.Exposure, 0, 3);
       ImGui::Checkbox("Fullscreen", &config.Fullscreen);
       ImGui::SliderFloat4("Clear Color", &config.ClearColor[0], 0.0f, 1.0f);
     }

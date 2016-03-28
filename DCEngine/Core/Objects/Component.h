@@ -122,6 +122,7 @@ namespace DCEngine {
     Component(std::string name, Entity& owner);
     virtual ~Component(); // Derived component types need to be deallocated properly
     virtual void Initialize() = 0; // Every component needs to be initialized.
+    virtual void Terminate() {}
     void Destroy();
     virtual void Serialize(Zilch::JsonBuilder& builder);
     virtual void Deserialize(Zilch::JsonValue* properties);

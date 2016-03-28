@@ -27,8 +27,30 @@ namespace DCEngine {
     /**************************************************************************/
     EditorTextEditor::EditorTextEditor() : EditorModule(true), CurrentScript(nullptr), CurrentShader(nullptr)
     {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Initialize the TextEditor.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Initialize()
+    {
+      Daisy->Connect<Events::ContentProjectLoaded>(&EditorTextEditor::OnContentProjectLoadedEvent, this);
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief Subscribe to events when the project has been finally loaded.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
+    {
       Daisy->Connect<Events::EditorSave>(&EditorTextEditor::OnEditorSaveEvent, this);
       Daisy->Connect<Events::ScriptingErrorMessage>(&EditorTextEditor::OnScriptingErrorMessageEvent, this);
+      Daisy->Connect<Events::ScriptingLibraryAboutToCompile>(&EditorTextEditor::OnScriptingLibraryAboutToCompile, this);
+      Daisy->Connect<Events::ScriptingLibraryCompiled>(&EditorTextEditor::OnScriptingLibraryCompiled, this);
       Daisy->Connect<Events::GraphicsCompileShadersError>(&EditorTextEditor::OnGraphicsCompileShadersErrorEvent, this);
       Daisy->Connect<Events::WindowGainedFocus>(&EditorTextEditor::OnWindowGainedFocusEvent, this);
     }
@@ -40,6 +62,9 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorTextEditor::Display()
     {
+      // Displays any current compilation errors
+      DisplayCompilationErrors();
+
       if (!WindowEnabled)
         return;
 
@@ -81,9 +106,17 @@ namespace DCEngine {
     {
       Clear();
       DCTrace << "EditorTextEditor::Load: Loading the script '" << script->Name() << "' \n";
+      CurrentScript = script;
+
+      // Loading only externally
+      if (Access().Settings.TextEditorOpenExternally) {
+        OpenOnExternalEditor();
+        return;
+      }
+
+      // Loading internally
       WindowEnabled = true;
       Title = script->Name() + " - Text Editor";
-      CurrentScript = script;
       CurrentScript->Load();
       std::strcpy(Text, CurrentScript->Read().c_str());
     }
@@ -129,11 +162,26 @@ namespace DCEngine {
       DCTrace << "EditorTextEditor::Reload: Recompiling... \n";
       if (CurrentShader) {
         Load(CurrentShader, CurrentShaderType);
-        DispatchSystemEvents::GraphicsCompileShaders();
       }
       if (CurrentScript) {
         Load(CurrentScript);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Recompiels the currently selected script/shader/
+    */
+    /**************************************************************************/
+    void EditorTextEditor::Recompile()
+    {
+      DCTrace << "EditorTextEditor::Recompile: Recompiling... \n";
+      if (CurrentShader) {
+        DispatchSystemEvents::GraphicsCompileShaders();
+      }
+      if (CurrentScript) {
         Access().Creator.RebuildAllObjectsOnSpace();
+        CompilationErrors.clear();
         DispatchSystemEvents::ScriptingCompile();
       }
     }
@@ -163,6 +211,48 @@ namespace DCEngine {
     void EditorTextEditor::Print()
     {
       DCTrace << " EditorTextEditor::Print: \n";
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Displays the current compilation errors in a small window.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::DisplayCompilationErrors()
+    {
+      if (CompilationErrors.empty())
+        return;
+
+      static bool opened = true;
+      auto overlaySize = ImVec2(200, 100);
+      ImGui::SetNextWindowPos(ImVec2(40,100), ImGuiSetCond_Once);
+      if (!ImGui::Begin("Compilation Errors:", &opened, overlaySize, 0.5f, ImGuiWindowFlags_NoTitleBar))
+      {
+        ImGui::End();
+        return;
+      }
+
+      ImGui::Columns(2, "compilationColumns");
+      ImGui::TextColored(ImVec4(0, 1, 0, 1), "Script") ; ImGui::NextColumn();
+      ImGui::SetColumnOffset(1, 120);
+      ImGui::TextColored(ImVec4(1, 0, 0, 1), "Description"); ImGui::NextColumn();
+      ImGui::Separator();
+      for (auto& error : CompilationErrors) {
+        if (ImGui::Selectable(error.ScriptName.c_str())) {}
+        // If the user double clicks on the script, open it!
+        if (GUI::IsMouseDoubleClicked()) {
+          Load(ZilchScript::Find(error.ScriptName));
+        }
+        ImGui::NextColumn();
+
+        ImGui::Text(error.Message.c_str()); ImGui::NextColumn();
+        ImGui::Separator();
+      }
+
+
+
+      ImGui::End();
+
     }
 
     /**************************************************************************/
@@ -261,6 +351,7 @@ namespace DCEngine {
       WindowEnabled = false;
     }
 
+
     /**************************************************************************/
     /*!
     @brief Saves the Editor's current file if its active.
@@ -280,20 +371,48 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Called when scripts are about to be compiled.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnScriptingLibraryAboutToCompile(Events::ScriptingLibraryAboutToCompile * event)
+    {
+      CompilationErrors.clear();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Once scripts have been successfully recompiled into a new library,
+           reload from file.
+    */
+    /**************************************************************************/
+    void EditorTextEditor::OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled * event)
+    {
+      Reload();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Once a script has failed to compile, display the message.. roughly!
     */
     /**************************************************************************/
     void EditorTextEditor::OnScriptingErrorMessageEvent(Events::ScriptingErrorMessage * event)
     {
-      if (!CurrentScript)
-        return;
+      // Find the name of the script
+      auto parse = Utils::String::Split(event->Message, " ");
+      auto scriptName = FileSystem::FileNoExtension(parse[1]);
+
+      //if (!CurrentScript)
+      //  return;
 
       Windows::PopUpData data;
-      data.Title = "'" + CurrentScript->Name() + "' has failed to compile!";
+      data.Title = "'" + scriptName + "' has failed to compile!";
       data.Message = event->Message;
       data.Confirmation = "Back";
       auto popUp = WindowPtr(new Windows::PopUp(data));
       GUI::Add(popUp);
+
+      // Add the compilation error to be tracked
+      CompilationErrors.push_back(CompilationError(scriptName, event->Message));
     }
 
     /**************************************************************************/
@@ -323,7 +442,8 @@ namespace DCEngine {
     void EditorTextEditor::OnWindowGainedFocusEvent(Events::WindowGainedFocus * event)
     {
       if (Access().Settings.CompileOnContextSwitch) {
-        Reload();
+        Recompile();
+        //Reload();
       }
     }
 

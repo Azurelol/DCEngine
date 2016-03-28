@@ -20,6 +20,17 @@ namespace DCEngine {
       ScriptingLibraryPatched() : Event("ScriptingLibraryPatched") {}
     };
 
+    class ScriptingLibraryAboutToCompile : public Event {
+    public:
+      ScriptingLibraryAboutToCompile() : Event("ScriptingLibraryAboutToCompile") {}
+    };
+
+
+    class ScriptingLibraryCompiled : public Event {
+    public:
+      ScriptingLibraryCompiled() : Event("ScriptingLibraryCompiled") {}
+    };
+
     class ScriptingErrorMessage : public Event {
     public:
       ScriptingErrorMessage() : Event("ScriptingErrorMessage") {}

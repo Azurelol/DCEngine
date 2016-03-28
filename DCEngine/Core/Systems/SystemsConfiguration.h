@@ -103,13 +103,13 @@ namespace DCEngine {
       Vec4 LockedColor;
       //Text Editor
       std::string ExternalTextEditor;
+      bool TextEditorOpenExternally;
       bool CompileOnContextSwitch;
 
 
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-
       Time::Timer AutoSaveTimer;
       bool EditorEnabled = false;
       ProjectProperties* ProjectProperties;
@@ -141,6 +141,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(ProjectsPath);
         DCE_JSON_SERIALIZE(ExternalTextEditor);
         DCE_JSON_SERIALIZE(CompileOnContextSwitch);
+        DCE_JSON_SERIALIZE(TextEditorOpenExternally);
         DCE_JSON_SERIALIZE_VEC4(LockedColor);
       }
 
@@ -156,6 +157,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ExternalTextEditor).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(CompileOnContextSwitch).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(TextEditorOpenExternally).asBool();
         DCE_JSON_DESERIALIZE_VEC4(LockedColor);
       }
       
@@ -180,7 +182,7 @@ namespace DCEngine {
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
       Vec2 ViewportScale = Vec2(1, 1);
       Vec2 ViewportRatio;
-			float Exposure;
+      float Exposure;
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(MaxDrawLayers);
@@ -189,7 +191,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Framerate);
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Caption);
-				DCE_JSON_SERIALIZE(Exposure);
+        DCE_JSON_SERIALIZE(Exposure);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
         root["ClearColorZ"] = ClearColor.z;
@@ -204,7 +206,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
-				DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();

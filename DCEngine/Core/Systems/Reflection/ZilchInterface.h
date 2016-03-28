@@ -37,7 +37,6 @@ namespace DCEngine {
       void AddCodeFromString(std::string code, std::string origin, Zilch::Project& project);
       void AddLibrary(Zilch::LibraryRef& library);
       bool CompileScripts();
-      void ParseStaticLibraries();
       void Build();
       void Clean();
       bool SetupTypeProperty(Zilch::BoundType* type, Zilch::BoundType* baseType, Zilch::BoundType* extensionType, Zilch::BoundType* returnType, 

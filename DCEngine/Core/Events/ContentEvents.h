@@ -48,5 +48,11 @@ namespace DCEngine {
       ContentFileScanComplete() : Event("ContentFileScanComplete") {}
     };
 
+    class ContentProjectLoaded : public Event {
+    public:
+      ContentProjectLoaded() : Event("ContentProjectLoaded") {}
+
+    };
+
   }
 }
