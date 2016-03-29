@@ -45,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 180.000015, 
+            "Exposure": 0.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -103,6 +104,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -260,6 +262,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -806,6 +809,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -5985,6 +5989,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6121,6 +6126,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6195,6 +6201,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6206,7 +6213,7 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 10.000000, 
+            "Intensity": 16.957001, 
             "Range": 72.340004, 
             "Falloff": 1.532000, 
             "DirectionVector": 

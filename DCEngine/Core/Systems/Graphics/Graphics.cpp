@@ -110,7 +110,7 @@ namespace DCEngine {
 					}
 				else
 					GraphicsHandler->RenderLights(0);
-				GraphicsHandler->RenderScene(Settings.Exposure);
+				GraphicsHandler->RenderScene(camera->getExposure());
 				DrawDebug(camera);
 
 				for (auto&& drawList : mDrawList)

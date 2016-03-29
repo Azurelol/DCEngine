@@ -131,6 +131,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1416,6 +1417,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -1490,6 +1492,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1626,6 +1629,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {
@@ -3664,6 +3668,7 @@
           "Camera": 
           {
             "FieldOfView": 169.043015, 
+            "Exposure": 0.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -3837,6 +3842,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -5821,6 +5827,9 @@
                 "w": 0.200000
               }
             }
+          }, 
+          "AntiEnergyField": 
+          {
           }
         }, 
         "Children": 
