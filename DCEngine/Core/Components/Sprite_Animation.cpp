@@ -17,9 +17,7 @@ namespace DCEngine {
 		int Sprite::UpdateAnimationSpeed(void)
 		{
 			if (AnimationSpeed == 0)
-			{
 				return 0;
-			}
 			else
 			{
 				AnimationSpeedFPS = (float)1 / AnimationSpeed;
@@ -37,9 +35,7 @@ namespace DCEngine {
         return false;
       }
       else
-      {
         return true;
-      }
     }
   }
 }

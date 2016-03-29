@@ -195,7 +195,7 @@ namespace DCEngine {
 
       if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
-			GraphicsHandler->DrawSprite(sprite, cam, dt);
+			//GraphicsHandler->DrawSprite(sprite, cam, dt);
 		}
 
 		/**************************************************************************/
@@ -210,7 +210,7 @@ namespace DCEngine {
 		{
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
-			GraphicsHandler->DrawSpriteText(st, cam);
+			//GraphicsHandler->DrawSpriteText(st, cam);
 		}
 
 		void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)

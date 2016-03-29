@@ -142,7 +142,7 @@ namespace DCEngine {
 
 		void Sprite::Update(float dt)
 		{
-			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+			SpriteSourcePtr spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			//Animation update
 			if (UpdateAnimationSpeed())//Check whether the animation speed is 0
 			{
