@@ -128,7 +128,9 @@ namespace DCEngine {
 				member = var + "VisibilityEvents";
 				LightingShader->SetInteger(member.c_str(), light->getVisibilityEvents());
 				member = var + "CastShadows";
-				LightingShader->SetInteger(member.c_str(), light->getCastShadows());
+				LightingShader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "Diffuse";
+				LightingShader->SetInteger(member.c_str(), light->getDiffuse());
 				member = var + "LightType";
 				LightingShader->SetInteger(member.c_str(), light->getTypeAsInt());
 				member = var + "Color";

@@ -60,6 +60,7 @@ namespace DCEngine
   CastResultVector& CastResultVector::operator= (const CastResultVector& ref)
   {
     list = ref.list;
+		return *this;
   }
 
   unsigned CastResultVector::size()
