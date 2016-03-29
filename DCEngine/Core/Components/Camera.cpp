@@ -60,7 +60,7 @@ namespace DCEngine {
     @brief Camera Constructor
     */
     /**************************************************************************/
-    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
+    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner), Exposure(.5) {
       Configure();
     }
 
