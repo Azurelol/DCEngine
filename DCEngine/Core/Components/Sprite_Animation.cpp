@@ -14,24 +14,18 @@ namespace DCEngine {
   namespace Components
   {
 
-    int Sprite::UpdateAnimationSpeed(void)
-    {
-      if (AnimationSpeed == 0)
-      {
-        return 0;
-      }
-      else
-      {
-        AnimationSpeedFPS = (float)1 / AnimationSpeed;
-        return 1;
-      }
-    }
-
-    void Sprite::IncreaseAnimationCounter(float dt)
-    {
-      //DCTrace << std::round(1 / dt) << "\n";
-      AnimationSpeedFPSCounter += dt;
-    }
+		int Sprite::UpdateAnimationSpeed(void)
+		{
+			if (AnimationSpeed == 0)
+			{
+				return 0;
+			}
+			else
+			{
+				AnimationSpeedFPS = (float)1 / AnimationSpeed;
+				return 1;
+			}
+		}
 
     bool Sprite::CheckAnimationIntialized(void)
     {
@@ -46,20 +40,6 @@ namespace DCEngine {
       {
         return true;
       }
-    }
-
-    float Sprite::GetAnimationSpeedFPSCounter(void)
-    {
-      return AnimationSpeedFPSCounter;
-    }
-    float Sprite::GetAnimationSpeedFPS(void)
-    {
-      return AnimationSpeedFPS;
-    }
-
-    void Sprite::ResetSpeedCounter(void)
-    {
-      AnimationSpeedFPSCounter = 0;
     }
   }
 }
