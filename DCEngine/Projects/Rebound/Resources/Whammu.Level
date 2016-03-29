@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 158, 
         "Name": "Sprite", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -56,13 +55,16 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "CrunkAintDead", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -70,7 +72,6 @@
         "Locked": false, 
         "GameObjectID": 159, 
         "Name": "Light", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -109,6 +110,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -120,8 +122,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.000000, 
-            "Range": 20.000000, 
+            "Intensity": 0.285000, 
+            "Range": 59.786003, 
             "Falloff": 0.100000, 
             "DirectionVector": 
             {
@@ -135,6 +137,9 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }

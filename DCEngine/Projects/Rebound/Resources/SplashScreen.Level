@@ -7,8 +7,9 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 170, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -44,17 +45,22 @@
           "Camera": 
           {
             "FieldOfView": 250.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
             "Projection": "Perspective"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 171, 
         "Name": "Logo", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -137,6 +143,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }
