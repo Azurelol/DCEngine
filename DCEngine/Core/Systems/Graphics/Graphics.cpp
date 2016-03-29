@@ -86,9 +86,7 @@ namespace DCEngine {
 
 				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
 				for (auto graphicalComponent : graphicalComponents)
-				{
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
-				}
 
 				std::vector<Components::Light*> lightComponents;
 				if (Settings.LightningEnabled)

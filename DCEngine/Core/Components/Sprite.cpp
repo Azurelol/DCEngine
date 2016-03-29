@@ -237,6 +237,56 @@ namespace DCEngine {
 				shader->SetInteger("currentColumn", 0);
 				shader->SetInteger("currentRow", 0);
 			}
+
+			shader->SetInteger("useLight", false);
+			if (light)
+			{
+				shader->SetInteger("useLight", true);
+				glm::mat4 lightMatrix;
+				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
+
+				lightMatrix = glm::translate(lightMatrix, glm::vec3(
+					lightTransform->Translation.x,
+					lightTransform->Translation.y,
+					lightTransform->Translation.z));
+				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
+					lightTransform->Scale.y, 1.0f));
+
+				std::string var("gLight.");
+				std::string member;
+				member = var + "Visible";
+				shader->SetInteger(member.c_str(), light->getVisible());
+				member = var + "VisibilityCulling";
+				shader->SetInteger(member.c_str(), light->getVisibilityCulling());
+				member = var + "VisibilityEvents";
+				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "CastShadows";
+				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "Diffuse";
+				shader->SetInteger(member.c_str(), light->getDiffuse());
+				member = var + "LightType";
+				shader->SetInteger(member.c_str(), light->getTypeAsInt());
+				member = var + "Color";
+				shader->SetVector4f(member.c_str(), light->getColor());
+				member = var + "Intensity";
+				shader->SetFloat(member.c_str(), light->getIntensity());
+				member = var + "Range";
+				shader->SetFloat(member.c_str(), light->getRange());
+				member = var + "Falloff";
+				shader->SetFloat(member.c_str(), light->getFalloff());
+				member = var + "Direction";
+				shader->SetVector3f(member.c_str(), light->getDirectionVector());
+				member = var + "InnerAngle";
+				shader->SetFloat(member.c_str(), light->getInnerAngle() * 3.141593f / 360.0f);
+				member = var + "OuterAngle";
+				shader->SetFloat(member.c_str(), light->getOuterAngle() * 3.141593f / 360.0f);
+				member = var + "Position";
+				shader->SetVector3f(member.c_str(), lightTransform->Translation);
+				member = var + "Model";
+				shader->SetMatrix4(member.c_str(), lightMatrix);
+			}
+
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			// Set the view matrix 
