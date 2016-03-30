@@ -15,13 +15,20 @@
 
 #version 330 core
 
+layout (location = 0) out vec3 gPosition;
+layout (location = 1) out vec3 gNormal;
+layout (location = 2) out vec4 gColor;
+
+in vec3 WorldCoords;
 in vec2 TexCoords;
-out vec4 color;
 
 uniform sampler2D text; 
 uniform vec4 textColor;
 
-void main() {
+void main()
+{
   vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, TexCoords).r);
-  color = textColor * sampled;
+  gColor = textColor * sampled;
+	gPosition = WorldCoords;
+	gNormal = vec3(0,1,0);
 }

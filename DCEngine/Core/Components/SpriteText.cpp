@@ -90,6 +90,29 @@ namespace DCEngine {
 		{
 		}
 
+		void SpriteText::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
+		{
+			if (!shader)
+				shader = mShader;
+			shader->Use();
+			shader->SetVector4f("textColor", getColor(), true);
+			auto fontName = getFont();
+			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
+			shader->SetInteger("text", 0);
+			glActiveTexture(GL_TEXTURE0);
+			glBindVertexArray(mVAO);
+			auto transform = TransformComponent;
+			glm::mat4 modelMatrix;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::scale(modelMatrix,
+				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
+			shader->SetMatrix4("model", modelMatrix, true);
+			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
+			shader->SetMatrix4("view", camera->GetProjectionMatrix());
+		}
+
 		static void StringWrap(std::string& string, unsigned lineSize)
 		{
 			if (lineSize == 0)
@@ -112,38 +135,18 @@ namespace DCEngine {
 		{
 			//set shader uniforms
 			//mShader->Use();
-			//mShader->SetMatrix4("projection", camera.GetProjectionMatrix());
-			//mShader->SetMatrix4("view", camera.GetProjectionMatrix());
+			
 			// Enable alpha blending for opacity.
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			// Activate the SpriteText shader
-			//this->SpriteTextShader->Use();
-			mShader->SetVector4f("textColor", getColor(), true);
-			glActiveTexture(GL_TEXTURE0);
-			//if (Debug::CheckOpenGLError())
-			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to set active texture!\n";
+			//glEnable(GL_BLEND);
+			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glBindVertexArray(mVAO);
-			//if (Debug::CheckOpenGLError())
-			//	DCTrace << "GraphicsGL::DrawSpriteText - Failed to bind vertex array!\n";
 
 			// Retrieve the Font resource from the content system
-			auto fontName = getFont();
-			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
+			
 
 			// (!) This is used to advance cursors
 			GLfloat x = 0;//static_cast<GLfloat>(TransformComponent->Translation.x);
 			GLfloat y = 0;
-
-			auto transform = TransformComponent;
-			glm::mat4 modelMatrix;
-			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-				transform->Translation.y,
-				transform->Translation.z));
-			modelMatrix = glm::scale(modelMatrix,
-				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
-			mShader->SetMatrix4("model", modelMatrix, true);
-
 			std::string::const_iterator c;
 			unsigned charCount = 0;
 			std::string text = getText();

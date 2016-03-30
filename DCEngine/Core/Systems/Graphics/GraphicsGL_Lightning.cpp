@@ -70,6 +70,8 @@ namespace DCEngine {
 			{
 				for (const auto& obj : drawList)
 				{
+					//obj->SetUniforms(shader, camera, light);
+					//obj->Draw();
 					if (dynamic_cast<Components::Sprite*>(obj))
 					{
 						obj->SetUniforms(shader, camera, light);
