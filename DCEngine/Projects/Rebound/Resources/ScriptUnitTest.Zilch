@@ -35,7 +35,7 @@ class ScriptUnitTest : ZilchComponent
   [Property] var TestingActionProperty : Boolean = true;
   [Property] var TypeToTest : PropertyType = PropertyType.Integer;
   [Property] var EaseFunc : Ease = Ease.Linear;
-  [Property] var Word : String =  "";
+  [Property] var Word : String = "";
 
   // Testing engine enum
   [Property] var EngineEnum : Keys = Keys.A;    
@@ -60,6 +60,9 @@ class ScriptUnitTest : ZilchComponent
 
   function Initialize()
   {
+	  if (this.Word == null)
+		  Console.WriteLine("What");
+	  
    if (this.TestingLogicUpdate) this.ConnectEngineEvents();
    if (this.TestingScriptEvents) this.ConnectScriptEvents();
    if (this.TestingInput) this.ConnectToInputEvents();
