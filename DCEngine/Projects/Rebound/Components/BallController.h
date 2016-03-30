@@ -49,10 +49,10 @@ namespace DCEngine {
       Real Friction = 0.1f; //set from 0 to 1
       Real AttractPower = 400.0f;
       Real AttractYBoost = 3.0f;
-        Real MaxAttractSpeed = 12.50f;
-        Real MinAttractSpeed = 6.0f;
-            Real MaxAttractForce = 12.50f;
-            Real AttractArriveDistance = 200.0f;
+      Real MaxAttractSpeed = 12.50f;
+      Real MinAttractSpeed = 6.0f;
+      Real MaxAttractForce = 12.50f;
+      Real AttractArriveDistance = 200.0f;
       Real SlamPower = ChargeFactor * MaxCharge;
       Real MinimumLightRange = 0.2f;
       Real MaximumLightRange = 2.0f;
@@ -88,6 +88,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, MaxAttractForce);
       DCE_DEFINE_PROPERTY(Real, AttractArriveDistance);
 
+      DCE_DEFINE_PROPERTY(String, FreezeSound);
+      DCE_DEFINE_PROPERTY(String, CommandSound);
+      DCE_DEFINE_PROPERTY(String, CollideSound);
+
 
       BallController(Entity& owner) : Component(std::string("BallController"), owner) {}
       void Initialize();
@@ -100,8 +104,8 @@ namespace DCEngine {
       void ParentToPlayer();
       void AttractBall();
       void FreezeBall();
-	  void LockBall();
-	  void UnlockBall();
+      void LockBall();
+      void UnlockBall();
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(BallController, Component);
@@ -110,6 +114,14 @@ namespace DCEngine {
     private:
       void PrintTranslation();
       void PrintVelocity();
+
+      void SoundFreeze(void);
+      void SoundCommand(void);
+      void SoundCollide(void);
+
+      String FreezeSound = "Freeze";
+      String CommandSound = "Command";
+      String CollideSound = "Collide";
     };
   }
 

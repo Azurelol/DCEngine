@@ -33,8 +33,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportArriveSound);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpSound);
-      DCE_BINDING_DEFINE_PROPERTY(PlayerController, FootstepSound);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, LandSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, FootstepSound);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, CollideSound);
     }
     #endif
@@ -152,18 +152,18 @@ namespace DCEngine {
         Grounded = true;
         // play landing sound.
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
-		auto particle = SpaceRef->CreateObject("LandingParticle");
-		if (particle)
-		{
-			particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
-		}
+        auto particle = SpaceRef->CreateObject("LandingParticle");
+        if (particle)
+        {
+          particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+        }
       }
       if (event->OtherObject->getComponent<Components::LevelManager>())
       {
-		  if (event->OtherObject->getComponent<Components::Fade>())
-		  {
-			  event->OtherObject->getComponent<Components::Fade>()->setFading(true);
-		  }
+        if (event->OtherObject->getComponent<Components::Fade>())
+        {
+          event->OtherObject->getComponent<Components::Fade>()->setFading(true);
+        }
       }
     }
 
@@ -184,11 +184,11 @@ namespace DCEngine {
 
     void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-	  if (PlayerControllerTraceOn)
-	  {
-			PrintTranslation();
-	  }
-	  //Grounded = CheckForGround();
+      if (PlayerControllerTraceOn)
+      {
+        PrintTranslation();
+      }
+      //Grounded = CheckForGround();
       if (glm::abs(RigidBodyRef->getVelocity().x) > VelocityXCap)
       {
         Vec3 currentVel = RigidBodyRef->getVelocity();
@@ -234,7 +234,7 @@ namespace DCEngine {
       {
 
         SpriteComponent->SpriteSource = JumpAnimation;
-		//SpriteComponent->AnimationActive = false;
+        //SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.96f, 0.99f, 1));
@@ -245,10 +245,10 @@ namespace DCEngine {
       {
         if (Grounded)
         {
-			auto Sequence = Actions::Sequence(this->Owner()->Actions);
-			auto seq = Actions::Sequence(Owner()->Actions);
-			Actions::Delay(seq, 0.1f);
-			Actions::Call(seq, &PlayerController::Jump, this);
+          auto Sequence = Actions::Sequence(this->Owner()->Actions);
+          auto seq = Actions::Sequence(Owner()->Actions);
+          Actions::Delay(seq, 0.1f);
+          Actions::Call(seq, &PlayerController::Jump, this);
           Jumping = true;
           Grounded = false;
         }
@@ -268,34 +268,36 @@ namespace DCEngine {
       {
         SpriteComponent->FlipX = true;
         MoveLeft();
-		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
-		mat->setFriction(GroundFriction);
+        auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+        mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  //SpriteComponent->AnimationActive = true;
+          //SpriteComponent->AnimationActive = true;
+          SoundFootstep();
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
       {
         SpriteComponent->FlipX = false;
         MoveRight();
-		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
-		mat->setFriction(GroundFriction);
+        auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+        mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
+          SpriteComponent->AnimationActive = true;
+          SoundFootstep();
         }
       }
       else
       {
-		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
-		mat->setFriction(1.3f);
+        auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+        mat->setFriction(1.3f);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;
-		  //SpriteComponent->AnimationActive = false;
+          //SpriteComponent->AnimationActive = false;
         }
       }
     }
@@ -466,37 +468,39 @@ namespace DCEngine {
       }
 
     }
-	Boolean PlayerController::CheckForGround()
-	{
 
-		DCEngine::CastFilter filter;
-		filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
-		filter.Include = true;
-		auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
-		DCEngine::Ray ray;
-		ray.Direction = Vec3(0, -1, 0);
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
-		auto result = physicsSpace->CastRay(ray);
-		if (result.Distance < 0.05)
-		{
-			return true;
-		}
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(0, -TransformRef->Scale.y / 2, 0);
-		result = physicsSpace->CastRay(ray, filter);
-		if (result.Distance < 0.05)
-		{
-			return true;
-		}
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
-		result = physicsSpace->CastRay(ray, filter);
-		if (result.Distance < 0.05)
-		{
-			return true;
-		}
-		return false;
-	}
+	  Boolean PlayerController::CheckForGround()
+	  {
+		  DCEngine::CastFilter filter;
+		  filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+		  filter.Include = true;
+		  auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
+		  DCEngine::Ray ray;
+		  ray.Direction = Vec3(0, -1, 0);
+		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
+		  auto result = physicsSpace->CastRay(ray);
+		  if (result.Distance < 0.05)
+		  {
+			  return true;
+		  }
+		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(0, -TransformRef->Scale.y / 2, 0);
+		  result = physicsSpace->CastRay(ray, filter);
+		  if (result.Distance < 0.05)
+		  {
+			  return true;
+		  }
+		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
+		  result = physicsSpace->CastRay(ray, filter);
+		  if (result.Distance < 0.05)
+		  {
+			  return true;
+		  }
+		  return false;
+	  }
+
+    void PlayerController::SoundFootstep(void)
+    {
+      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(FootstepSound);
+    }
   }
-
-
-
 }

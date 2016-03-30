@@ -241,7 +241,13 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "LandSound": "Land", 
+            "FootstepSound": "Step", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -639,7 +645,7 @@
               "Vec3": 
               {
                 "x": -160.000000, 
-                "y": 27.000000, 
+                "y": 26.000000, 
                 "z": 0.000000
               }
             }, 
@@ -863,7 +869,10 @@
             "MaxAttractSpeed": 10.000000, 
             "MaxAttractForce": 50.000000, 
             "AttractArriveDistance": 100.000000, 
-            "MinAttractSpeed": 7.500000
+            "MinAttractSpeed": 7.500000, 
+            "CommandSound": "Command", 
+            "CollideSound": "Collide", 
+            "FreezeSound": "Freeze"
           }, 
           "Light": 
           {

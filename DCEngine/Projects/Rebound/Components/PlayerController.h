@@ -74,8 +74,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, TeleportStartSound);
       DCE_DEFINE_PROPERTY(String, TeleportArriveSound);
       DCE_DEFINE_PROPERTY(String, JumpSound);
+      DCE_DEFINE_PROPERTY(String, LandSound);
       DCE_DEFINE_PROPERTY(String, FootstepSound);
-	    DCE_DEFINE_PROPERTY(String, LandSound);
 	    DCE_DEFINE_PROPERTY(String, CollideSound);
 
 
@@ -105,6 +105,7 @@ namespace DCEngine {
       void MoveLeft();
       void MoveRight();
       Boolean FootstepSoundEnabled = false;
+      void SoundFootstep(void);
     };
   }
 

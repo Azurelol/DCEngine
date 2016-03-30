@@ -15,15 +15,10 @@ namespace DCEngine {
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
     ZilchDefineType(MusicManager, "MusicManager", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(MusicManager);
-      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SoundCue);
-      DCE_BINDING_DEFINE_PROPERTY(MusicManager, CurrentTrack); // ->Attributes.push_back(attributeSoundCue);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCurrentTrack, attributeSoundCue);
-      DCE_BINDING_DEFINE_PROPERTY(MusicManager, LastTrack); // ->Attributes.push_back(attributeSoundCue);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyLastTrack, attributeSoundCue);
+      DCE_BINDING_DEFINE_PROPERTY(MusicManager, Track);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, Volume);
-      DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeInTime);
-      DCE_BINDING_DEFINE_PROPERTY(MusicManager, FadeOutTime);
       DCE_BINDING_DEFINE_PROPERTY(MusicManager, PlayOnStart);
+      DCE_BINDING_DEFINE_PROPERTY(MusicManager, StopOnEnd);
     }
 #endif
 
@@ -31,20 +26,19 @@ namespace DCEngine {
     {
       if (this->getObjectID() == PlayingObj)
       {
-        SpaceRef->getComponent<Components::SoundSpace>()->StopCue(CurrentTrack);
+        SpaceRef->getComponent<Components::SoundSpace>()->StopCue(Track);
       }
     }
 
     void MusicManager::Initialize()
     {
-      Connect(Daisy->getKeyboard(), Events::KeyDown, MusicManager::OnKeyDownEvent);
-      Connect(Daisy->getKeyboard(), Events::KeyUp, MusicManager::OnKeyUpEvent);
       Connect(Owner(), Events::PlayMusic, MusicManager::OnPlayMusicEvent);
+      Connect(Owner(), Events::KeyDown, MusicManager::OnKeyDownEvent);
       Connect(SpaceRef, Events::LogicUpdate, MusicManager::OnLogicUpdateEvent);
 
       if (PlayOnStart == true)
       {
-        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(Track);
         PlayingObj = this->getObjectID();
       }
     }
@@ -54,16 +48,9 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::M:
-        SpaceRef->getComponent<Components::SoundSpace>()->PauseCue(CurrentTrack);
-        //Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-        //this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
+        SpaceRef->getComponent<Components::SoundSpace>()->PauseCue(Track);
         break;
       }
-    }
-
-    void MusicManager::OnKeyUpEvent(Events::KeyUp * event)
-    {
-
     }
 
     void MusicManager::OnPlayMusicEvent(Events::PlayMusic* event)
@@ -73,13 +60,7 @@ namespace DCEngine {
 
     void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-    //  if (Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack) && play < 3)
-    //  {
-    //    Daisy->getSystem<Systems::Content>()->getSoundCue(CurrentTrack)->Loop = true;
-    //    this->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CurrentTrack);
-    //  }
 
-    //  ++play;
     }
   }
 }
