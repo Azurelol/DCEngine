@@ -870,9 +870,9 @@
             "MaxAttractForce": 50.000000, 
             "AttractArriveDistance": 100.000000, 
             "MinAttractSpeed": 7.500000, 
-            "CommandSound": "Command", 
-            "CollideSound": "Collide", 
-            "FreezeSound": "Freeze"
+            "CommandSound": "BallCommand", 
+            "CollideSound": "BallCollide", 
+            "FreezeSound": "BallFreeze"
           }, 
           "Light": 
           {

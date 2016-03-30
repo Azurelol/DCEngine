@@ -119,9 +119,9 @@ namespace DCEngine {
       void SoundCommand(void);
       void SoundCollide(void);
 
-      String FreezeSound = "Freeze";
-      String CommandSound = "Command";
-      String CollideSound = "Collide";
+      String FreezeSound  = "BallFreeze";
+      String CommandSound = "BallCommand";
+      String CollideSound = "BallCollide";
     };
   }
 
