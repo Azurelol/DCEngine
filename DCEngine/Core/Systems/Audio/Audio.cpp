@@ -275,7 +275,11 @@ namespace DCEngine {
         DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
         return;
       }
-      AudioHandler->StopSound(soundCue->Data.Channel);
+
+      if (soundCue->Type == SoundCue::SoundCueType::File)
+        AudioHandler->StopSound(soundCue->Data.Channel);
+      else if (soundCue->Type == SoundCue::SoundCueType::Event)
+        AudioHandler->StopSound(soundCue->Data.EventInstance);      
     }
 
     /**************************************************************************/

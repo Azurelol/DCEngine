@@ -142,7 +142,8 @@ namespace DCEngine {
 			glBindVertexArray(mVAO);
 
 			// Retrieve the Font resource from the content system
-			
+      auto fontName = getFont();
+      auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
 
 			// (!) This is used to advance cursors
 			GLfloat x = 0;//static_cast<GLfloat>(TransformComponent->Translation.x);

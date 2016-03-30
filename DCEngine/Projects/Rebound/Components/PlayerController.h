@@ -47,11 +47,17 @@ namespace DCEngine {
       String StandAnimation = "PlayerStand";
       String JumpAnimation = "PlayerFall";
       String RunAnimation = "PlayerRun";
-
+	  
+      String TeleportStartSound = "Teleport";
+      String TeleportArriveSound = "TeleportArrive";
+      String FootstepSound = "Step";
+      String JumpSound = "Jump";
+      String LandSound = "Land";
+      String CollideSound = "Collide";
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
-	  BoxCollider* ColliderRef;
+      BoxCollider* ColliderRef;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, JumpPower);
@@ -64,6 +70,13 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, StandAnimation);
       DCE_DEFINE_PROPERTY(String, JumpAnimation);
       DCE_DEFINE_PROPERTY(String, RunAnimation);
+
+      DCE_DEFINE_PROPERTY(String, TeleportStartSound);
+      DCE_DEFINE_PROPERTY(String, TeleportArriveSound);
+      DCE_DEFINE_PROPERTY(String, JumpSound);
+      DCE_DEFINE_PROPERTY(String, LandSound);
+      DCE_DEFINE_PROPERTY(String, FootstepSound);
+	    DCE_DEFINE_PROPERTY(String, CollideSound);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -91,8 +104,8 @@ namespace DCEngine {
       void AutoPlay(Events::LogicUpdate * event);
       void MoveLeft();
       void MoveRight();
-      std::string FootstepSound;
       Boolean FootstepSoundEnabled = false;
+      void SoundFootstep(void);
     };
   }
 
