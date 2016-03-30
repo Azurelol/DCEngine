@@ -8,7 +8,7 @@ class TransistorLogic : ZilchComponent
     sends ToggleEvent : ToggleEvent;
     
     [Property]
-    var Target1 : String = "";
+    var Target1 : String;
     
     [Property]
     var Target2 : String = "";

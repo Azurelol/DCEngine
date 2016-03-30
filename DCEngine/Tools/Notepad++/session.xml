@@ -1,8 +1,16 @@
 <NotepadPlus>
     <Session activeView="0">
+<<<<<<< HEAD
+        <mainView activeIndex="3">
+            <File firstVisibleLine="24" xOffset="0" scrollWidth="1640" startPos="1752" endPos="1752" selMode="0" lang="C++" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\ScriptUnitTest.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459201434" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="592" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" backupFilePath="" originalFileLastModifTimestamp="1458579399" />
+            <File firstVisibleLine="3" xOffset="0" scrollWidth="768" startPos="201" endPos="201" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459200559" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="384" startPos="139" endPos="139" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Development\DCEngine\DCEngine\Projects\Rebound\Resources\PlayerController.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459273082" />
+=======
         <mainView activeIndex="1">
             <File firstVisibleLine="0" xOffset="0" scrollWidth="736" startPos="253" endPos="253" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\AntiEnergyField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459199967" />
             <File firstVisibleLine="3" xOffset="537" scrollWidth="1357" startPos="209" endPos="209" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459200137" />
+>>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
         </mainView>
         <subView activeIndex="0" />
     </Session>

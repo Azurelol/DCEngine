@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 20.123713, 
+                "y": 6.185567, 
                 "z": 0.000000
               }
             }, 
@@ -36,8 +36,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -76,7 +76,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -163,7 +163,6 @@
           "Camera": 
           {
             "FieldOfView": 90.000000, 
-            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -189,7 +188,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": -0.200000
               }
             }, 
             "Rotation": 
@@ -238,7 +237,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 99, 
         "Name": "Light", 
         "Components": 
@@ -249,8 +248,8 @@
             {
               "Vec3": 
               {
-                "x": -1.919731, 
-                "y": -4.323953, 
+                "x": -1.919732, 
+                "y": -3.911582, 
                 "z": 2.000000
               }
             }, 
@@ -279,7 +278,6 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -354,7 +352,6 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -399,8 +396,8 @@
             {
               "Vec3": 
               {
-                "x": -2.000000, 
-                "y": -4.000000, 
+                "x": -1.257732, 
+                "y": -4.742268, 
                 "z": 0.000000
               }
             }, 
@@ -439,7 +436,7 @@
             "SpriteSource": "square", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
@@ -499,7 +496,7 @@
                 "SpriteSource": "square", 
                 "FlipX": false, 
                 "FlipY": false, 
-                "AnimationActive": false, 
+                "AnimationActive": true, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 0
               }
@@ -561,7 +558,7 @@
                 "SpriteSource": "square", 
                 "FlipX": false, 
                 "FlipY": false, 
-                "AnimationActive": false, 
+                "AnimationActive": true, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 0
               }
@@ -575,7 +572,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 180, 
+        "GameObjectID": 23, 
         "Name": "Sprite", 
         "Components": 
         {
@@ -585,9 +582,9 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": 5.000000, 
                 "y": 0.000000, 
-                "z": 0.100000
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -622,10 +619,10 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "ButtonCredits", 
+            "SpriteSource": "Wow", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
