@@ -14,6 +14,9 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+
+#include "FileScanner.h"
+#include "ContentUtils.h"
 #include "../../Resources/ResourcesInclude.h"
 #include "../../Engine/Data.h"
 
@@ -25,7 +28,6 @@ namespace DCEngine {
   namespace Systems {
 
     // Resource Maps
-    using ResourceMap = std::map<std::string, std::string>;    
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
     using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;
@@ -80,7 +82,6 @@ namespace DCEngine {
       PhysicsMaterialMap* AllPhysicsMaterials();
       SpriteLayerMap* AllSpriteLayers();
       SpriteLayerOrderMap* AllSpriteLayerOrders();
-
       // Remove resource.
       void RemoveResource(ResourcePtr);      
       // Scanners
@@ -106,6 +107,7 @@ namespace DCEngine {
       // Data
       std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
+      std::unique_ptr<FileScanner> ProjectScanner;
       // Default resources
       std::string DefaultImage = "Wow";
       std::string DefaultFont = "Verdana";
@@ -116,7 +118,6 @@ namespace DCEngine {
       std::string DefaultSpriteLayerOrder = SpriteLayerOrder::Default();
       std::string DefaultSound = "Beep";
       std::string DefaultTexture = "SampleTexture";
-
       // Resource maps      
       std::map<std::string, ShaderPtr> ShaderMap;
       std::map<std::string, FontPtr> FontMap;
@@ -132,7 +133,6 @@ namespace DCEngine {
       SpriteLayerOrderMap MapSpriteLayerOrder;
       BankMap MapBank;
       TextureMap MapTextures;
-
       // Map functions
       void AddFont(const std::string& fontName, FontPtr fontPtr);
       void AddArchetype(const std::string& archetypeName, ArchetypePtr archetypePtr);
@@ -149,10 +149,10 @@ namespace DCEngine {
       void AddTexture(const std::string& name, TexturePtr ptr);
       template <typename ResourcePtr, typename ResourceMap>
       void AddResourceToMap(const std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
-
       // Core functions
       Content(std::string& coreAssetsPath);
       void Initialize();
+      void Subscribe();
       void Update(float dt);
       void Terminate();
       // Loading functions
@@ -162,7 +162,13 @@ namespace DCEngine {
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
       void LoadAllResources();
-      void LoadProjectData(const std::string&); //!<             
+      void LoadProjectData(const std::string&);
+      // Events
+      void OnContentFileMoved(Events::ContentFileMoved* event);
+      void OnContentFileUpdated(Events::ContentFileUpdated* event);
+      void OnContentFileDeleted(Events::ContentFileDeleted* event);
+      void OnContentFileFound(Events::ContentFileFound* event);
+      void OnContentFileScanComplete(Events::ContentFileScanComplete* event);
     };
 
 
@@ -182,13 +188,13 @@ namespace DCEngine {
       if (map.count(resourceName)) {
         // Overwrite the current level
         map.erase(resourceName);
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddResourceToMap - " << resourceName << " is already present in the map. Overwriting. \n";
         //return;
       }
 
       map.insert(std::pair<std::string, ResourcePtr>(resourceName, ptr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddResourceToMap - " << resourceName << " was added.\n";
     }
 

@@ -41,11 +41,14 @@ namespace DCEngine {
 
       /* Properties */
       DCE_DEFINE_PROPERTY(String, CollisionGroup);
-
+      DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
       // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
       //String getCollisionGroup() const;
       //void setCollisionGroup(String);
-
+      float getRestitution(void);
+      float getFriction(void);
+      float GetInvMass(void);
+      float GetMass(void);
       // These should be private!
       Collider(Entity& owner, std::string colliderClass);
       ~Collider();
@@ -59,7 +62,8 @@ namespace DCEngine {
       // // The group is a tag used for filter out collisions. The rules
       // // for filtering are on the CollisionFilter that is on the running space.
       CollisionGroupHandle CollisionGroup = String("Default");
-
+      // for filtering are on the CollisionFilter that is on the running space.    
+      PhysicsMaterialHandle PhysicsMaterial;
 			//for quad trees
 			
 

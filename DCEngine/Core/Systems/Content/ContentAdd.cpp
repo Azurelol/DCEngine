@@ -47,13 +47,22 @@ namespace DCEngine {
       AddShader(std::string("GUIShader"), ShaderPtr(new Shader(std::string("GUIShader"),
         ShaderPath + "GUIShader.vs",
         ShaderPath + "GUIShader.frag")));
-			AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
-				ShaderPath + "ParticleShader.vs",
-				ShaderPath + "ParticleShader.frag")));
-			AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
-				ShaderPath + "ShadowingShader.vs",
-				ShaderPath + "ShadowingShader.frag",
-				ShaderPath + "ShadowingShader.gs")));
+      AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
+        ShaderPath + "ParticleShader.vs",
+        ShaderPath + "ParticleShader.frag")));
+      AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
+        ShaderPath + "ShadowingShader.vs",
+        ShaderPath + "ShadowingShader.frag",
+        ShaderPath + "ShadowingShader.gs")));
+      AddShader(std::string("LightingShader"), ShaderPtr(new Shader(std::string("LightingShader"),
+        ShaderPath + "LightingShader.vs",
+        ShaderPath + "LightingShader.frag")));
+      AddShader(std::string("DebugShader"), ShaderPtr(new Shader(std::string("DebugShader"),
+        ShaderPath + "DebugShader.vs",
+        ShaderPath + "DebugShader.frag")));
+      AddShader(std::string("FinalRenderShader"), ShaderPtr(new Shader(std::string("FinalRenderShader"),
+        ShaderPath + "FinalRenderShader.vs",
+        ShaderPath + "FinalRenderShader.frag")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;
@@ -93,7 +102,7 @@ namespace DCEngine {
     void Content::AddFont(const std::string & fontName, FontPtr fontPtr)
     {
       FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddFont - " << fontName << " was added.\n";
     }
 
@@ -111,13 +120,13 @@ namespace DCEngine {
       // Overwrite archetypes
       if (ArchetypeMap.count(archetypeName)) {
         ArchetypeMap.erase(archetypeName);
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map. Overwriting \n";
         //return;
       }
 
       ArchetypeMap.insert(std::pair<const std::string, ArchetypePtr>(archetypeName, archetypePtr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";              
     }
 
@@ -145,13 +154,13 @@ namespace DCEngine {
     {
       // Prevent duplicates
       if (SpriteSourceMap.count(spriteSourceName)) {
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
         return;
       }
 
       SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
     }
 
@@ -166,13 +175,13 @@ namespace DCEngine {
     {
       // Prevent duplicates
       if (SoundCueMap.count(soundCueName)) {
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
         return;
       }
 
       SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
     }
 
@@ -201,13 +210,13 @@ namespace DCEngine {
       if (LevelMap.count(levelName)) {
         // Overwrite the current level
         LevelMap.erase(levelName);       
-        if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+        if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddLevel - " << levelName << " is already present in the map. Overwriting. \n";
         //return;
       }
 
       LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
-      if (DCE_TRACE_FACTORY_RESOURCE_ADD)
+      if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
 
@@ -250,7 +259,11 @@ namespace DCEngine {
     void Content::AddZilchScript(const  std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
     {
       AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
-      // Recompile scripts again so it can be used immediately.
+      // Load the script
+      zilchScriptPtr->Load();
+      // Add the the script to the scripting systems's library
+      zilchScriptPtr->IncludeScript();
+      // Recompile the scripts library again so it can be used immediately.
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
     }
 
@@ -303,6 +316,15 @@ namespace DCEngine {
       AddPhysicsMaterial(DefaultPhysicsMaterial, PhysicsMaterialPtr(new PhysicsMaterial(DefaultPhysicsMaterial)));
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Scans the project's resource path for updated levels.
+    */
+    /**************************************************************************/
+    void Content::ScanForLevels()
+    {
+      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
+    }
 
     /**************************************************************************/
     /*!
@@ -382,10 +404,7 @@ namespace DCEngine {
       //}
     }
 
-    void Content::ScanForLevels()
-    {
-      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
-    }
+
 
     void Content::ScanForArchetypes()
     {

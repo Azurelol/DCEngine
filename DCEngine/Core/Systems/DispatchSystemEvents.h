@@ -17,6 +17,8 @@ namespace DCEngine {
 
   namespace Systems {
 
+    class Editor;
+
     class DispatchSystemEvents {
     public:
 
@@ -24,19 +26,34 @@ namespace DCEngine {
       static void EngineResume();
       static void EnginePause();
       static void EngineExit();
+      static void EngineSaveConfigurations();
       
-      static void EditorInitialize();
+      static void EditorInitialize(Editor& editor);
       static void EditorSelectObject(Object* object);
       static void EditorDeselectObject();
       static void EditorSave();
+      static void EditorRebuildZilchComponents();
       
       static void SetWindowCaption(std::string name);
       static void WindowLostFocus();
       static void WindowGainedFocus();
       
       static void GraphicsCompileShaders();
+      static void GraphicsCompileShadersError(const std::string& message);
+      static void GraphicsToggleLightning();
 
       static void ScriptingCompile();
+      static void ScriptingLibraryPatched();
+      static void ScriptingLibraryAboutToCompile();
+      static void ScriptingLibraryCompiled();
+      static void ScriptingErrorMessage(const std::string& message);
+
+      static void ContentFileMoved(const std::string& fileName);
+      static void ContentFileUpdated(const std::string& fileName);
+      static void ContentFileFound(const std::string& fileName);
+      static void ContentFileDeleted(const std::string& fileName);
+      static void ContentFileScanComplete();
+      static void ContentProjectLoaded();
       
 
     };

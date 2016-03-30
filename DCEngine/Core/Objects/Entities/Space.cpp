@@ -27,6 +27,7 @@ Each space has its own instances of the core systems of the engine.
 namespace DCEngine {
     
 
+
   
   /**************************************************************************/
   /*!
@@ -133,9 +134,16 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Serialize(Zilch::JsonBuilder & builder)
   {
-    // Serialize the underlying Entity object, which includes its components.
-    Entity::Serialize(builder);
     // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    builder.Key("Space");
+    builder.Begin(Zilch::JsonType::Object);
+    {
+      // Serialize the Space
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(Space), this);
+      // Serialize the underlying Entity object, which includes its components.
+      Entity::Serialize(builder);
+    }
   }
 
   /**************************************************************************/
@@ -147,9 +155,13 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::Deserialize(Zilch::JsonValue * properties)
   {
-
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Deserialize the underlying Entity
+    Entity::Deserialize(properties);
+    // Deserialize the GameObject properties
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(Space), this);
   }
-
 
   /**************************************************************************/
   /*!
@@ -170,6 +182,11 @@ namespace DCEngine {
     }
     GameObjectContainer.clear();
 
+  }
+
+  void Space::TestSpace()
+  {
+    DCTrace << "Space::TestScript \n";
   }
 
   /**************************************************************************/
@@ -292,14 +309,19 @@ namespace DCEngine {
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
-
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
-    if (!editorEnabled) {
-      for (auto& gameObject : GameObjectContainer) {
-        DCTrace << "Initializing " << gameObject->Name() << "\n";
+    DCTrace << "\n\n"
+            << "/------------------------------------------------/ \n";
+
+    if (!editorEnabled) 
+    {
+      // Initialize every object
+      for (auto& gameObject : GameObjectContainer) {        
         gameObject->Initialize();    
       }
+      // Announce that all objects have been initialized
+      DispatchGameEvents::AllObjectsInitialized(this);
     }
 
   }
@@ -373,8 +395,8 @@ namespace DCEngine {
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
     // Add it to the recently-created GameObjects container
-    RecentlyCreatedGameObjects.push_back(gameObject);
-
+    // RecentlyCreatedGameObjects.push_back(gameObject);
+    //DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
     return gameObject;
   }
 
@@ -397,8 +419,8 @@ namespace DCEngine {
       return nullptr;
     }
     // Add it to the recently-created GameObjects container
-    RecentlyCreatedGameObjects.push_back(gameObject);
-
+    //RecentlyCreatedGameObjects.push_back(gameObject);
+    //DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
     return gameObject;
   }
 
@@ -450,12 +472,39 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Adds an entity directly to the space.
+  @brief  Returns a container of all gameobjects identifiers.
   */
   /**************************************************************************/
-  void Space::AddObject(GameObjectPtr gameObject) {
-    GameObjectContainer.push_back(gameObject);
-    //ChildrenContainer.push_back(dynamic_cast<Entity*>(gameObject.get()));
+  GameObject::Identifiers Space::IdentifyAllObjects()
+  {
+    GameObject::Identifiers ids;
+    for (auto& gameObject : GameObjectContainer) {
+      ids.Names.push_back(gameObject->Name());
+      ids.IDs.push_back(gameObject->GameObjectID);
+      ids.ParentIDs.push_back(gameObject->ParentID);
+    }
+    return ids;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Adds a GameObject to the space's container of active GameObjects.
+  @param gameObject A pointer to the GameObject to add.
+  @param nextFrame Whether the object should be added to the space on the next frame.
+  */
+  /**************************************************************************/
+  void Space::AddObject(GameObjectPtr gameObject, bool nextFrame) {
+    
+    // Don't add duplicates!
+    if (std::find(GameObjectContainer.begin(), GameObjectContainer.end(), gameObject)
+      != GameObjectContainer.end())
+      return;
+
+    // If you want the object to be added on the next frame
+    if (nextFrame)
+      RecentlyCreatedGameObjects.push_back(gameObject);
+    else
+      GameObjectContainer.push_back(gameObject);
 
     if (DCE_TRACE_GAMEOBJECT_ADD)
       DCTrace << ObjectName << "::AddObject - Added " << gameObject->Name() << " to the space.\n";
@@ -480,7 +529,7 @@ namespace DCEngine {
       }
     }
 
-    bool printObjects = true;
+    bool printObjects = false;
     if (printObjects)
       DCTrace << *this;
 

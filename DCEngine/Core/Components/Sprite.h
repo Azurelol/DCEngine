@@ -69,14 +69,10 @@ namespace DCEngine {
 			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
       
       // Methods
-      void IncreaseAnimationCounter(float dt);
       //return 1, speed is not 0. return 0, speed is 0
       int UpdateAnimationSpeed(void);
       //reutrn 1 if it is the time to goto next frame, else 0
       bool CheckAnimationIntialized(void);
-      float GetAnimationSpeedFPSCounter(void);
-      float GetAnimationSpeedFPS(void);
-      void ResetSpeedCounter(void);
       void SetColorUsing255(Vec3 newColor);
 
 			//graphical inhereted

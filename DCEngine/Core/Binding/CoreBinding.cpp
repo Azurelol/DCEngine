@@ -19,8 +19,15 @@
 #include "..\Objects\Entities\EntitiesInclude.h"
 // Core Components
 #include "..\ComponentsInclude.h"
+// Used to add component properties
+#include "..\Systems\Reflection\ZilchInterfaceUtilities.h"
+// Core Events
+#include "..\EventsInclude.h"
+#include "CoreBindingEventStrings.h"
 // Engine
 #include "..\Engine\Engine.h"
+//Daisy Vector
+#include "../DaisyVector.h"
 
 namespace DCEngine {  
 
@@ -37,20 +44,33 @@ namespace DCEngine {
     *     Objects       *
     *===================*/
     ZilchInitializeType(Object);
+    ZilchInitializeType(Engine);
     ZilchInitializeType(Entity);
     ZilchInitializeType(Resource);
+    ZilchInitializeType(Mouse);
+    ZilchInitializeType(Keyboard);
     ZilchInitializeType(Component);
     ZilchInitializeType(ZilchComponent);
     ZilchInitializeType(GameSession);
     ZilchInitializeType(Space);
     ZilchInitializeType(GameObject);
-
+    /*===================*
+    *     Collision      *
+    *===================*/
+    ZilchInitializeType(Ray);
+    ZilchInitializeType(CastResult);
+    ZilchInitializeType(CastFilter);
+    ZilchInitializeType(CollisionBlock);
+    ZilchInitializeType(CollisionFilter);
+    ZilchInitializeType(CollisionTable);
+    //ZilchInitializeType(DaisyVector<CastResult>);
     /*===================*
     *     Resources      *
     *===================*/
     ZilchInitializeType(SpriteSource);
     ZilchInitializeType(Bank);
     ZilchInitializeType(SoundCue);
+    ZilchInitializeType(SoundInstance);
     ZilchInitializeType(CollisionGroup);
     ZilchInitializeType(CollisionTable);
     ZilchInitializeType(ZilchScript);
@@ -58,7 +78,47 @@ namespace DCEngine {
     ZilchInitializeType(Font);
     ZilchInitializeType(SpriteLayer);
     ZilchInitializeType(SpriteLayerOrder);
-
+    /*===================*
+    *      Actions      *
+    *===================*/
+    ZilchInitializeType(Action);
+    ZilchInitializeType(ActionSet);
+    ZilchInitializeType(ActionGroup);
+    ZilchInitializeType(ActionSequence);
+    ZilchInitializeType(ActionsOwner);
+    ZilchInitializeType(Actions);
+    /*===================*
+    *      Events        *
+    *===================*/
+    ZilchInitializeType(Event);
+    ZilchInitializeType(EventStrings);
+    //Game
+    ZilchInitializeType(Events::GameFocusIn);
+    ZilchInitializeType(Events::GameFocusOut);
+    ZilchInitializeType(Events::GameLoad);
+    ZilchInitializeType(Events::GameRequestQuit);
+    ZilchInitializeType(Events::GameStarted);
+    ZilchInitializeType(Events::GameEnded);
+    ZilchInitializeType(Events::GameSetup);
+    //Key
+    ZilchInitializeType(Events::KeyDown);
+    ZilchInitializeType(Events::KeyUp);
+    //Mouse
+    ZilchInitializeType(Events::MouseDown);
+    ZilchInitializeType(Events::MouseUp);
+    ZilchInitializeType(Events::MouseEnter);
+    ZilchInitializeType(Events::MouseExit);
+    ZilchInitializeType(Events::MouseUpdate);
+    ZilchInitializeType(Events::MouseClickedOn);
+    ZilchInitializeType(Events::MouseScroll);
+    //Collision
+    ZilchInitializeType(Events::CollisionStarted);
+    ZilchInitializeType(Events::CollisionEnded);
+    ZilchInitializeType(Events::CollisionPersisted);
+    //Update
+    ZilchInitializeType(Events::LogicUpdate);
+    ZilchInitializeType(Events::FrameUpdate);
+    ZilchInitializeType(Events::PhysicsUpdate);
     /*===================*
     *     Components     *
     *===================*/
@@ -72,6 +132,7 @@ namespace DCEngine {
     ZilchInitializeType(Components::Transform);
     ZilchInitializeType(Components::RigidBody);
     ZilchInitializeType(Components::BoxCollider);
+    ZilchInitializeType(Components::Orientation);
     // Graphics
     ZilchInitializeType(Components::Sprite);
     ZilchInitializeType(Components::SpriteText);
@@ -90,6 +151,18 @@ namespace DCEngine {
     // Debug
     ZilchInitializeType(Components::DebugActions);
     ZilchInitializeType(Components::DebugAudio);
+    // Zilch
+    ZilchInitializeType(ZilchComponent);
+    ZilchInitializeType(ZilchEvent);    
+
+    // Setup extension properties for Entity
+    auto interface = Systems::ZilchInterface::Get();
+    auto& boundTypes = builder.BoundTypes.values();
+    while (!boundTypes.empty()) {
+      interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), boundTypes.front(),
+                                  &builder, Systems::GetNativeComponent);
+      boundTypes.popFront();
+    }
   }
   
   /**************************************************************************/
@@ -124,12 +197,10 @@ namespace DCEngine {
     AddComponentFactory(Components::Reactive::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::Reactive>>());
     // Audio
     AddComponentFactory(Components::SoundEmitter::ZilchGetStaticType(), std::make_unique<ComponentFactory<Components::SoundEmitter>>());
-
-
-
-
-
-
   }
+
+
+
+
 
 }

@@ -27,7 +27,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
-	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
+	    DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
 
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
@@ -51,28 +51,20 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, PlayerController::OnLogicUpdateEvent);
       //Connect(gameObj, Events::DamageEvent, PlayerController::OnDamageEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); // ew
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
-      SpriteComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
+      SpriteComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       // ColliderRef->	 
       auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       //CollisionTableRef->AddGroup("Player");
-      auto ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::BoxCollider>();
+      auto ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
 
 
       //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
-    }
-
-    void PlayerController::Serialize(Json::Value & root)
-    {
-    }
-
-    void PlayerController::Deserialize(Json::Value & root)
-    {
     }
 
     void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
@@ -242,10 +234,10 @@ namespace DCEngine {
       {
 
         SpriteComponent->SpriteSource = JumpAnimation;
-		SpriteComponent->AnimationActive = false;
+		//SpriteComponent->AnimationActive = false;
         //SpriteComponent->HaveAnimation = false;
         //SpriteComponent->AnimationActive = false;
-        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.98f, 0.99f, 1));
+        RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.96f, 0.99f, 1));
       }
 
 
@@ -253,7 +245,10 @@ namespace DCEngine {
       {
         if (Grounded)
         {
-          Jump();
+			auto Sequence = Actions::Sequence(this->Owner()->Actions);
+			auto seq = Actions::Sequence(Owner()->Actions);
+			Actions::Delay(seq, 0.1f);
+			Actions::Call(seq, &PlayerController::Jump, this);
           Jumping = true;
           Grounded = false;
         }
@@ -273,18 +268,20 @@ namespace DCEngine {
       {
         SpriteComponent->FlipX = true;
         MoveLeft();
-        RigidBodyRef->setFriction(GroundFriction);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
+		  //SpriteComponent->AnimationActive = true;
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
       {
         SpriteComponent->FlipX = false;
         MoveRight();
-        RigidBodyRef->setFriction(GroundFriction);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(GroundFriction);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
@@ -293,11 +290,12 @@ namespace DCEngine {
       }
       else
       {
-        RigidBodyRef->setFriction(1.3f);
+		auto mat = Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(ColliderRef->getPhysicsMaterial());
+		mat->setFriction(1.3f);
         if (Grounded)
         {
           SpriteComponent->SpriteSource = StandAnimation;
-		  SpriteComponent->AnimationActive = false;
+		  //SpriteComponent->AnimationActive = false;
         }
       }
     }
@@ -403,6 +401,8 @@ namespace DCEngine {
     }
     void PlayerController::MoveLeft()
     {
+
+		//////
       float scalar = 0.0f;
 
       if (RigidBodyRef->getVelocity().x > 0)
@@ -475,7 +475,7 @@ namespace DCEngine {
 		auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
 		DCEngine::Ray ray;
 		ray.Direction = Vec3(0, -1, 0);
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
 		auto result = physicsSpace->CastRay(ray);
 		if (result.Distance < 0.05)
 		{
@@ -487,7 +487,7 @@ namespace DCEngine {
 		{
 			return true;
 		}
-		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2, -TransformRef->Scale.y / 2, 0);
+		ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
 		result = physicsSpace->CastRay(ray, filter);
 		if (result.Distance < 0.05)
 		{
@@ -496,5 +496,7 @@ namespace DCEngine {
 		return false;
 	}
   }
+
+
 
 }

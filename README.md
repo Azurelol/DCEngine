@@ -1,18 +1,20 @@
 # DCEngine
 
-This repository is for my DigiPen GAM 200 Engine, "Daisy Chain". 
+This repository is for my DigiPen GAM 250 Engine, "Daisy Chain". 
 
-My GAM 200 team, "Moonward". The developer team:
+My GAM 250 team, "Moonward". The developer team:
 - Christian Sagel
+- William Mao
+- Jason Jorgensen
+- Gabriel Neumann
 - Connor Tilley
 - John Myres
 - Allan Deutsch
-- Chen Shu
 - Blaine Reiner
 
 And our esteemed artists:
 - Mariah Millard
-- Chikara Honda
+- Abigail Snider
 
 This ECS engine me and my team are writing, "Daisy Chain" will be directly based on "reverse-engineering" Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as [DigiPen's Zero Engine](http://zero.digipen.edu/). It is implements graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
 

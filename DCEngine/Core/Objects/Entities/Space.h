@@ -32,19 +32,18 @@ namespace DCEngine {
   namespace Systems {
     class Editor;
     class Factory;
+    class EditorObjects;
   }
 
   class Space : public Entity {
     friend class GameSession;
     friend class Systems::Factory;
     friend class Systems::Editor;    
+    friend class Systems::EditorObjects;
   
   public:
 
-    #if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareDerivedType(Space, Entity);
-    #endif
-    
     Space(std::string name, GameSession& gamesession);
     ~Space();
     void Initialize();
@@ -65,9 +64,11 @@ namespace DCEngine {
     GameObjectPtr CreateObjectAtPosition(ArchetypePtr, const Vec3&);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();
-    void AddObject(GameObjectPtr entity);
+    GameObject::Identifiers IdentifyAllObjects();
+    void AddObject(GameObjectPtr entity, bool nextFrame = false);    
     void RemoveObject(GameObject&);
     void DestroyAll();
+    void TestSpace();
 
     GameSession* getGameSession();
     const GameSession* Owner() { return GameSessionRef; };

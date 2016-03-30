@@ -8,14 +8,15 @@
 */
 /******************************************************************************/
 #pragma once
+#include "EditorModule.h"
 
 namespace DCEngine {
   namespace Systems {
 
     class Editor;
-    class EditorCreator {
+    class EditorCreator : public EditorModule {
     public:
-      EditorCreator(Editor& editor);
+      EditorCreator();
       void CreateTransform();
       void CreateSprite();
       void CreateSpriteText();
@@ -23,10 +24,12 @@ namespace DCEngine {
       void CreateLight();
       void CreateCamera();      
       void CreateFromArchetype(const std::string& archetypeName);
+      void RebuildAllObjectsOnSpace();
 
     private:
       void Create(std::string name, std::vector<std::string>& components);
-      Editor& EditorRef;
+      void OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents* event);
+      void OnScriptingLibraryPatched(Events::ScriptingLibraryPatched* event);
 
     };
 

@@ -26,6 +26,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, PlayerName);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ChargeForce);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldVelocityDifferenceThreshold);
     }
 
     // Dependancies
@@ -46,10 +47,10 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, Lancer::OnCollisionStartedEvent);
       Connect(gameObj, Events::DeathEvent, Lancer::OnDeathEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
       GraphicsSpaceRef = SpaceRef->getComponent<Components::GraphicsSpace>();
 
@@ -104,18 +105,10 @@ namespace DCEngine {
         filter.CollisionGroups.push_back(CollisionGroup("Player"));
         filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
         filter.Include = true;
-
         CastResult castLeft = owner->PhysicsSpaceRef->CastRay(leftRay, filter);
-        //if (castLeft.ObjectHit)
-        //{
-        //  if (castLeft.ObjectHit->getComponent<Components::Transform>()->Translation != owner->TransformRef->Translation)
-        //    owner->GraphicsSpaceRef->DrawLineSegment(leftRay.Origin, castLeft.ObjectHit->getComponent<Components::Transform>()->Translation, Vec4(1, 0, 0, 1));
-        //}
-
 
         if (castLeft.ObjectHit == owner->player)
         {
-          DCTrace << "Lancer: detect player left\n";
           owner->stateMachine->ChangeState(ChargeLeft::Instance());
         }
        
@@ -123,20 +116,9 @@ namespace DCEngine {
         rightRay.Direction = Vec3(1, 0, 0);
         rightRay.Origin = owner->TransformRef->Translation;
         CastResult castRight = owner->PhysicsSpaceRef->CastRay(rightRay, filter);
-        
-        //if (castRight.ObjectHit)
-        //{
-        //  if (castRight.ObjectHit->getComponent<Components::Transform>()->Translation != owner->TransformRef->Translation)
-        //    owner->GraphicsSpaceRef->DrawLineSegment(rightRay.Origin, castRight.ObjectHit->getComponent<Components::Transform>()->Translation, Vec4(0, 1, 0, 1));
-        //}
-        //if (castRight.Distance < 100)
-        //{
-        //  DCTrace << castRight.ObjectHit->Name() << "\n";
-        //  DCTrace << castRight.ObjectHit->getComponent<Components::BoxCollider>()->getCollisionGroup() << "\n";
-        //}
+
         if (castRight.ObjectHit == owner->player)
         {
-          DCTrace << "Lancer: detect player right\n";
           owner->stateMachine->ChangeState(ChargeRight::Instance());
         }
       }

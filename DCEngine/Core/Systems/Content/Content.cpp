@@ -21,29 +21,100 @@ namespace DCEngine {
     @brief Constructor for the Content system.
     */
     /**************************************************************************/
-    Content::Content(std::string& coreAssetsPath) : 
-                     System(std::string("ContentSystem"), EnumeratedSystem::Content),
-                     CoreAssetsPath(coreAssetsPath) {
+    Content::Content(std::string& coreAssetsPath) :
+      System(std::string("ContentSystem"), EnumeratedSystem::Content),
+      CoreAssetsPath(coreAssetsPath) {
       ProjectInfo.reset(new ProjectProperties());
     }
 
     /**************************************************************************/
     /*!
     @brief Initializes the Content system.
-    @note  
     */
     /**************************************************************************/
     void Content::Initialize() {
       if (TRACE_INITIALIZE)
         DCTrace << "Content::Initialize \n";
 
+      // Subscribe to events
+      Subscribe();
       // Hardcode the path momentarily
       ProjectInfo->ResourcePath = "Projects/Rebound/Resources/";
       ProjectInfo->AssetPath = "Projects/Rebound/Assets/";
-
       // Load the default resources of the engine's
       LoadCoreAssets();
     }
+
+    /**************************************************************************/
+    /*!
+    @brief Subscribes to events.
+    */
+    /**************************************************************************/
+    void Content::Subscribe()
+    {
+      Daisy->Connect<Events::ContentFileMoved>(&Content::OnContentFileMoved, this);
+      Daisy->Connect<Events::ContentFileUpdated>(&Content::OnContentFileUpdated, this);
+      Daisy->Connect<Events::ContentFileDeleted>(&Content::OnContentFileDeleted, this);
+      Daisy->Connect<Events::ContentFileFound>(&Content::OnContentFileFound, this);
+      Daisy->Connect<Events::ContentFileScanComplete>(&Content::OnContentFileScanComplete, this);
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been moved.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Content::OnContentFileMoved(Events::ContentFileMoved * event)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been updated.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Content::OnContentFileUpdated(Events::ContentFileUpdated * event)
+    {
+      // If it's a ZilchScript
+      if (event->Extension == ZilchScript::Extension()) {
+        DCTrace << "Content::OnContentFileUpdated: Zilch script has been updated! \n";
+        DispatchSystemEvents::ScriptingCompile();
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been deleted.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Content::OnContentFileDeleted(Events::ContentFileDeleted * event)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Event received when a new file has been found.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Content::OnContentFileFound(Events::ContentFileFound * event)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Event received whena scan has been completed.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
+    void Content::OnContentFileScanComplete(Events::ContentFileScanComplete * event)
+    {
+    }
+
 
     /**************************************************************************/
     /*!
@@ -61,7 +132,7 @@ namespace DCEngine {
       }
       // Load all banks from file, then add them to audio system
       for (auto& bank : MapBank) {
-        bank.second->Load();        
+        bank.second->Load();
         bank.second->Add();
       }
       Daisy->getSystem<Audio>()->Generate();
@@ -69,7 +140,7 @@ namespace DCEngine {
       // Load every SpriteSource's texture
       for (auto& spriteSource : SpriteSourceMap) {
         // Load the SpriteSource's properties data from file
-        spriteSource.second->Load(); 
+        spriteSource.second->Load();
         // Load its texture onto the graphics system
         spriteSource.second->LoadTexture();
       }
@@ -79,14 +150,14 @@ namespace DCEngine {
         font.second->Load();
       }
 
-      // Load every script..
-      for (auto& script : MapZilchScript) {
-        script.second->IncludeScript();
-      }
-      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
+      //// Load every script..
+      //for (auto& script : MapZilchScript) {
+      //  script.second->IncludeScript();
+      //}
+      //Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
 
     }
-    
+
     /**************************************************************************/
     /*!
     @brief Deserializes a ProjectProperties file for project data settings.
@@ -99,8 +170,7 @@ namespace DCEngine {
 
       DCTrace << "Content::LoadProjectData - Finished loading all project data. \n";
     }
-    
-   
+
 
     /**************************************************************************/
     /*!
@@ -118,6 +188,18 @@ namespace DCEngine {
         worked = Serialization::Deserialize(ProjectInfo.get(), projectDataString);
       // Load it
       LoadProjectResources();
+      // Start the file scanner on the current project
+      bool scanning = true;
+      if (scanning) {
+        auto settings = FileScanner::FSSettings();
+        settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
+        settings.Frequency = 1;
+        ProjectScanner.reset(new FileScanner(settings));
+        ProjectScanner->Initialize();
+      }
+      // Announce that it's been loaded
+      DispatchSystemEvents::ContentProjectLoaded();
+
     }
 
     /**************************************************************************/
@@ -148,29 +230,22 @@ namespace DCEngine {
         AddLevel(archetypeName, LevelPtr(new Level(level)));
       }
     }
-    
+
     void Content::LoadProjectResources()
-    {      
+    {
       DCTrace << "Content::LoadProjectResources - \n";
 
       // Scan for the resources... 
       ScanResources();
-
-      //ScanForLevels();
-      //ScanForArchetypes();
-      //ScanForSoundCues();
-      //ScanForSpriteSources();
       // Load the resources
       LoadAllResources();
 
     }
 
-   
-
     /**************************************************************************/
     /*!
     @brief Updates the Content system.
-    @note 
+    @note
     */
     /**************************************************************************/
     void Content::Update(float dt) {

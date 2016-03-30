@@ -1,0 +1,24 @@
+class Button : ZilchComponent
+{
+    [Property]
+    var TargetName : String = "";
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+    {
+		if (event.OtherObject.BallTemp != null && this.TargetName != "")
+		{
+          var tevent = ToggleEvent();
+          tevent.Source = this.Owner;
+					var target = this.Space.FindObjectByName(this.TargetName);
+					if (target != null) {
+						target.Dispatch(DaisyEvent.ToggleEvent, tevent);
+					}
+          //this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
+		}
+    }
+}

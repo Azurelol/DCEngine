@@ -11,8 +11,9 @@ namespace DCEngine {
     @param editor A reference to the Editor system.
     */
     /**************************************************************************/
-    EditorCreator::EditorCreator(Editor & editor) : EditorRef(editor)
+    EditorCreator::EditorCreator() : EditorModule(false)
     {
+      Daisy->Connect<Events::ScriptingLibraryPatched>(&EditorCreator::OnScriptingLibraryPatched, this);
     }
 
     void EditorCreator::CreateTransform()
@@ -41,7 +42,7 @@ namespace DCEngine {
       components.push_back("SpriteParticleSystem");
       components.push_back("ParticleEmitter");
       components.push_back("LinearParticleAnimator");
-      Create("Sprite", components);
+      Create("ParticleSystem", components);
     }
 
     /**************************************************************************/
@@ -77,14 +78,17 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorCreator::CreateFromArchetype(const std::string & archetypeName)
     {
-      auto gameObject = EditorRef.CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
-      EditorRef.Select(gameObject);
-      EditorRef.Inspector.Toggle(true);
-      EditorRef.MoveToViewportCenter(gameObject);
+      auto gameObject = Access().CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
+      // Begin as not modified from the archetype
+      gameObject->setModifiedFromArchetype(false);
+      // Select the object
+      Access().Select(gameObject);
+      Access().Inspector.Toggle(true);
+      Access().MoveToViewportCenter(gameObject);
       // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(gameObject, EditorRef.CurrentSpace,
+      auto command = CommandPtr(new CommandObjectCreation(gameObject, Access().CurrentSpace,
         CommandObjectCreation::Setting::Create));
-      EditorRef.Add(command);
+      Access().Add(command);
     }
 
     /**************************************************************************/
@@ -97,21 +101,58 @@ namespace DCEngine {
     void EditorCreator::Create(std::string name, std::vector<std::string>& components)
     {
       // Create the object
-      auto object = EditorRef.CurrentSpace->CreateObject();
+      auto object = Access().CurrentSpace->CreateObject();
       object->setObjectName(name);
       // Add the components
       for (auto& componentName : components) {
         object->AddComponentByName(componentName);
       }
-      EditorRef.Select(object);
-      EditorRef.Inspector.Toggle(true);
-      EditorRef.MoveToViewportCenter(object);
+      Access().Select(object);
+      Access().Inspector.Toggle(true);
+      Access().MoveToViewportCenter(object);
       // Save the command
-      auto command = CommandPtr(new CommandObjectCreation(object, EditorRef.CurrentSpace,
+      auto command = CommandPtr(new CommandObjectCreation(object, Access().CurrentSpace,
         CommandObjectCreation::Setting::Create));
-      EditorRef.Add(command);
+      Access().Add(command);
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
     }
 
+    void EditorCreator::OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents * event)
+    {
+      RebuildAllObjectsOnSpace();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Whenever the scripting library has been patched, reconstructs
+           all entities that have zilch components.
+    @todo  This could be optimized by having the entity flagged as having
+           script components.
+    */
+    /**************************************************************************/
+    void EditorCreator::OnScriptingLibraryPatched(Events::ScriptingLibraryPatched * event)
+    {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Rebuilds all the GameObjects on the current space
+    */
+    /**************************************************************************/
+    void EditorCreator::RebuildAllObjectsOnSpace()
+    {
+      // For every GameObject in the current space..
+      for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
+        // Check if it has a Zilch component
+        for (auto& component : gameObject->AllComponents()) {
+          // If it's a zilch component, reconstruct this gameobject and look to the next one..
+          if (ZilchComponent::IsZilchComponent(component)) {
+            gameObject->Rebuild();
+            break;
+          }
+        }
+      }
+    }
+    
   }
 }

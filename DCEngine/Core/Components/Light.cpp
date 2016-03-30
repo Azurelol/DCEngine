@@ -43,6 +43,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityCulling);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityEvents);
       DCE_BINDING_DEFINE_PROPERTY(Light, CastShadows);
+			DCE_BINDING_DEFINE_PROPERTY(Light, Diffuse);
 			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Color);
@@ -50,10 +51,12 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyColor, attributeRangeColor);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Intensity);
-      DCE_BINDING_PROPERTY_DEFINE_RANGE(Intensity, 0, 5);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(Intensity, 0, 20);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyIntensity, attributeRangeIntensity);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Range);
+			DCE_BINDING_PROPERTY_DEFINE_RANGE(Range, 0, 200);
+			DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyRange, attributeRangeRange);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Falloff);
       DCE_BINDING_PROPERTY_DEFINE_RANGE(Falloff, 0, 2);
@@ -76,7 +79,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Light::Light(Entity & owner) : Component(std::string("Light"), owner), 
-      Visible(true), CastShadows(true), Type(LightType::Point), 
+      Visible(true), CastShadows(true), Diffuse(false), Type(LightType::Point), 
       Color(1.0f, 1.0f, 1.0f, 1.0f), Range(20.0f), Intensity(1.0f), Falloff(0.1f),
       DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f)
     {

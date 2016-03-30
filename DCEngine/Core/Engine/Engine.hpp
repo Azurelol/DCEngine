@@ -10,7 +10,7 @@
 /******************************************************************************/
 //#pragma once
 #include "Engine.h"
-
+#include <ZILCH\Zilch.hpp>
 namespace DCEngine {
 
   /**************************************************************************/
@@ -21,16 +21,10 @@ namespace DCEngine {
   \param  A pointer to the entity.
   \param  A member function from the component.
   \param  A pointer to the component.
-  \return A shared pointer to the requested system.
   */
   /**************************************************************************/
   template<typename EventClass, typename Class, typename MemberFunction>
   void Engine::Connect(Entity* publisher, MemberFunction fn, Class* inst) {
-
-    //if (TRACE_CONNECT) {
-    //  DCTrace << "[Engine::Connect] - " << comp->Name() << " has connected to "
-    //    << entity->Name() << "\n";
-    //}
 
     // Construct the member function delegate
     auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
@@ -39,13 +33,55 @@ namespace DCEngine {
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = dynamic_cast<EventDelegate*>(memDeg);
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-    publisher->ObserverRegistry[typeid(EventClass)].emplace_back(degPtr);
+    publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
     //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
     // Add a pointer to entiyy
     inst->ActiveDelegateHolders.push_back(publisher);
   }
 
+  //// Called by C++
+  /**************************************************************************/
+  /*!
+  \brief  Subscribes a component to an entity, registering it to its listeners'
+          registry for the specific event.
+  \param  eventName The name of the event.
+  \param  publisher A pointer to the entity to connect to.
+  \param  fn The member function to connect to.
+  \param  inst A pointer to the instance of the receiver.
+  */
+  /**************************************************************************/
+  template<typename EventClass, typename Class, typename MemberFunction>
+  void Engine::Connect(std::string eventName, Entity* publisher, MemberFunction fn, Class* inst) {
+    // Construct the member function delegate
+    auto memDeg = new EventMemberFunctionDelegate<Class, EventClass>();
+    memDeg->FuncPtr = fn;
+    memDeg->Inst = inst;
+    ConnectTo(eventName, publisher, memDeg, inst);
+  }
 
+  //template<typename EventClass>
+  //void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
+
+  //  auto zilchDeg = new EventZilchFunctionDelegate<ZilchComponent>();
+  //  zilchDeg->FuncPtr = fn;
+  //  zilchDeg->Inst = inst;
+
+  //  // Create a base delegate pointer to pass to the entity's container
+  //  auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
+  //  // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
+  //  publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
+  //  // Add a pointer to entiyy
+  //  inst->ActiveDelegateHolders.push_back(publisher);
+  //}
+
+
+  /**************************************************************************/
+  /*!
+  \brief  Unsubscribes a system's member function to an engine event.
+  \param  publisher A pointer to the engine instance.
+  \param  observerA member function from the component.
+  */
+  /**************************************************************************/
   template<typename Publisher, typename Observer>
   inline void Engine::Disconnect(Publisher * publisher, Observer * observer)
   {
@@ -71,7 +107,7 @@ namespace DCEngine {
     // Create a base delegate pointer to pass to the entity's container
     auto degPtr = (EventDelegate*)memDeg;
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-    this->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
+    this->ObserverRegistry[std::type_index(typeid(EventClass))].push_back(degPtr);
   }
 
   /**************************************************************************/
@@ -123,6 +159,34 @@ namespace DCEngine {
     throw std::range_error("The specified system does not exist.");
   }
 
+
+  /**************************************************************************/
+  /*!
+  \brief  Loads a configuration file.
+  \param The event class.
+  \param The event object that is being passed.
+  */
+  /**************************************************************************/
+  template<typename Type>
+  inline bool Engine::LoadConfiguration(Type & config, std::string fileName)
+  {
+    std::string configData;
+
+    // Attempt to load the Graphics Config
+    if (FileSystem::FileReadToString(fileName, configData)) {
+      Serialization::Deserialize(config, configData);
+      DCTrace << "Engine::LoadConfigurationFiles - Successfully loaded '" << fileName << "'! \n";
+      return true;
+    }
+    else {
+      Type defaultConfig;
+      Serialization::Serialize(defaultConfig, configData);
+      FileSystem::FileWriteString(fileName, configData);
+      DCTrace << "Engine::LoadConfigurationFiles - Failed to load '" << fileName << "'! \n";
+    }
+    return false;
+  }
+
   /////////////////////////////////////////
   /*/ MACROS ( I AM SORRY VOLPER, MEAD )/*/
   /////////////////////////////////////////
@@ -145,4 +209,17 @@ namespace DCEngine {
   #define Connect(EntityObj, Event, Function) Daisy->Connect<::DCEngine::Event>( (Entity*)(EntityObj), &Function, this)
 
 
+/*#define CreateZilchConnect(EventName)                                \
+\
+   void ZilchConnect##EventName(Entity* publisher, Zilch::Function* fn, ZilchComponent* fnOwner) \
+   {                                                                                          \
+     Daisy->ZilchConnect<::DCEngine::Events::##EventName>(publisher, fn, fnOwner); \
+   } \*/
+
+  //CreateZilchConnect(LogicUpdate);
+
+  /*void ZilchConnectLogicUpdate(Entity* publisher, Zilch::Function* fn, ZilchComponent* fnOwner)
+  {
+    Daisy->Connect<::DCEngine::Events::LogicUpdate>(publisher, fn, fnOwner);
+  }*/
 }

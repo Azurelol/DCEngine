@@ -158,7 +158,7 @@
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>x64\Debug\sfml-graphics-s-d.lib;x64\Debug\sfml-window-s-d.lib;x64\Debug\sfml-system-s-d.lib;x64\Debug\nfd.lib;comdlg32.lib;comctl32.lib;opengl32.lib;winmm.lib;freetype.lib;jpeg.lib;gdi32.lib;glew32s.lib;x64\fmod64_vc.lib;x64\fmodstudio64_vc.lib;x64\Debug\jsoncpp.lib;x64\freetype26d.lib;x64\libboost_filesystem-vc140-mt-gd-1_59.lib;x64\libboost_system-vc140-mt-gd-1_59.lib;x64\Debug\PocoFoundationmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -219,7 +219,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -244,7 +244,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -255,6 +255,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Binding\CoreBinding.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEnums.cpp" />
+    <ClCompile Include="Core\Binding\CoreBindingEvents.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingObjects.cpp" />
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
@@ -292,6 +294,7 @@
     <ClCompile Include="Core\Components\TransformToolComponent.cpp" />
     <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\Debug\DebugGraphics.cpp" />
+    <ClCompile Include="Core\Engine\ActionProperty.cpp" />
     <ClCompile Include="Core\Engine\ActionSet.cpp" />
     <ClCompile Include="Core\Engine\ActionCall.cpp" />
     <ClCompile Include="Core\Engine\ActionDelay.cpp" />
@@ -300,10 +303,9 @@
     <ClCompile Include="Core\Engine\ActionSpace.cpp" />
     <ClCompile Include="Core\Engine\Command.cpp" />
     <ClCompile Include="Core\Engine\Delegate.cpp" />
-    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
-    <ClCompile Include="Core\Engine\Event.cpp" />
+    <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
     <ClCompile Include="Core\Engine\Profiler.cpp" />
     <ClCompile Include="Core\Engine\SteeringBehavior.cpp" />
@@ -317,6 +319,8 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Objects\Event.cpp" />
+    <ClCompile Include="Core\Objects\Events\ZilchEvent.cpp" />
     <ClCompile Include="Core\Objects\Module.cpp" />
     <ClCompile Include="Core\Objects\Object.cpp" />
     <ClCompile Include="Core\Objects\Resource.cpp" />
@@ -350,6 +354,7 @@
     <ClCompile Include="Core\Systems\Content\Content.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentAdd.cpp" />
     <ClCompile Include="Core\Systems\Content\ContentGet.cpp" />
+    <ClCompile Include="Core\Systems\Content\FileScanner.cpp" />
     <ClCompile Include="Core\Systems\DispatchSystemEvents.cpp" />
     <ClCompile Include="Core\Systems\Editor\CameraControl.cpp" />
     <ClCompile Include="Core\Systems\Editor\Editor.cpp" />
@@ -361,6 +366,8 @@
     <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorObjects.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorPreferences.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorProjects.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTextEditor.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorTool.cpp" />
@@ -377,7 +384,6 @@
     <ClCompile Include="Core\Systems\Editor\EditorResources.cpp" />
     <ClCompile Include="Core\Systems\Editor\Selector.cpp" />
     <ClCompile Include="Core\Systems\Editor\Resources.cpp" />
-    <ClCompile Include="Core\Systems\Editor\Objects.cpp" />
     <ClCompile Include="Core\Systems\Editor\Levels.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourcesAdd.cpp" />
     <ClCompile Include="Core\Systems\Editor\ResourceEditors.cpp" />
@@ -388,6 +394,7 @@
     <ClCompile Include="Core\Systems\Editor\WindowTools.cpp" />
     <ClCompile Include="Core\Systems\Factory\ComponentFactoryMap.cpp" />
     <ClCompile Include="Core\Systems\Factory\Factory.cpp" />
+    <ClCompile Include="Core\Systems\Factory\FactoryBuild.cpp" />
     <ClCompile Include="Core\Systems\Filesystem\FileSystem.cpp" />
     <ClCompile Include="Core\Systems\Graphics\Graphics.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsDebug.cpp" />
@@ -395,6 +402,8 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Configure.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Debug.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Lightning.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsRender.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\GUI\Windows.cpp" />
@@ -410,13 +419,17 @@
     <ClCompile Include="Core\Systems\Physics\Resolution.cpp" />
     <ClCompile Include="Core\Systems\Reflection\Reflection.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterfaceUtilities.cpp" />
+    <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Accessors.cpp" />
     <ClCompile Include="Core\Systems\Reflection\ZilchInterface_Library.cpp" />
     <ClCompile Include="Core\Systems\Serialization\JSONObject.cpp" />
     <ClCompile Include="Core\Systems\Serialization\Serialization.cpp" />
     <ClCompile Include="Core\Systems\Serialization\SerializerJSONCPP.cpp" />
     <ClCompile Include="Core\Systems\System.cpp" />
+    <ClCompile Include="Core\Systems\SystemsConfiguration.cpp" />
     <ClCompile Include="Core\Systems\Window\Window.cpp" />
     <ClCompile Include="Core\Systems\Window\WindowSFML.cpp" />
+    <ClCompile Include="Core\Utilities\String.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_demo.cpp" />
     <ClCompile Include="Dependencies\include\IMGUI\imgui_draw.cpp" />
@@ -435,6 +448,7 @@
     <ClCompile Include="Projects\Rebound\Components\FreezeEnabler.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HazardArea.cpp" />
     <ClCompile Include="Projects\Rebound\Components\HealthController.cpp" />
+    <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LevelManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\LockField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\MainMenuManager.cpp" />
@@ -442,13 +456,19 @@
     <ClCompile Include="Projects\Rebound\Components\MusicManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PauseManager.cpp" />
     <ClCompile Include="Projects\Rebound\Components\PlayerController.cpp" />
-    <ClCompile Include="Projects\Rebound\Components\PowerField.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Shield.cpp" />
     <ClCompile Include="Projects\Rebound\Components\Skeleton.cpp" />
     <ClCompile Include="Projects\Rebound\Components\TutorialTextLogic.cpp" />
     <ClCompile Include="Projects\Rebound\ReboundBinding.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
+    <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
+    <ClInclude Include="Core\Binding\CoreBindingEventStrings.h" />
+    <ClInclude Include="Core\DaisyVector.h" />
+    <ClInclude Include="Core\Engine\ActionProperty.h" />
+    <ClInclude Include="Core\Engine\ActionProperty.hpp" />
+    <ClInclude Include="Core\Engine\Actions.h" />
     <ClInclude Include="Core\Engine\Actions.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
@@ -460,17 +480,30 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Engine\EventDelegate.h" />
+    <ClInclude Include="Core\Engine\MacrosBinding.h" />
+    <ClInclude Include="Core\Engine\MacrosEvents.h" />
     <ClInclude Include="Core\Engine\Profiler.h" />
     <ClInclude Include="Core\Engine\SteeringBehaviors.h" />
     <ClInclude Include="Core\Engine\Timer.h" />
+    <ClInclude Include="Core\Events\ContentEvents.h" />
+    <ClInclude Include="Core\Events\InitializerEvents.h" />
+    <ClInclude Include="Core\Events\InputEvents.h" />
+    <ClInclude Include="Core\Events\ScriptingEvents.h" />
+    <ClInclude Include="Core\Objects\Entities\EntityProperties.h" />
     <ClInclude Include="Core\Objects\Entity.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Core\Objects\Event.h" />
+    <ClInclude Include="Core\Objects\Events\ZilchEvent.h" />
     <ClInclude Include="Core\Objects\Module.h" />
+    <ClInclude Include="Core\Objects\Object.hpp" />
     <ClInclude Include="Core\Resources\SoundCue.h" />
     <ClInclude Include="Core\Resources\SoundInstance.h" />
+    <ClInclude Include="Core\Systems\Content\ContentUtils.h" />
+    <ClInclude Include="Core\Systems\Content\FileScanner.h" />
     <ClInclude Include="Core\Systems\Editor\Editor.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Production|x64'">true</ExcludedFromBuild>
@@ -482,6 +515,8 @@
     <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp" />
     <ClInclude Include="Core\Systems\Editor\EditorModule.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorObjects.h" />
+    <ClInclude Include="Core\Systems\Editor\EditorPreferences.h" />
     <ClInclude Include="Core\Systems\Editor\EditorProjects.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTextEditor.h" />
     <ClInclude Include="Core\Systems\Editor\EditorTool.h" />
@@ -532,28 +567,18 @@
     <ClInclude Include="Core\Engine\Action.h" />
     <ClInclude Include="Core\Engine\Command.h" />
     <ClInclude Include="Core\Engine\Delegate.h" />
-    <ClInclude Include="Core\Engine\EventDelegate.h" />
     <ClInclude Include="Core\Engine\Engine.h" />
-    <ClInclude Include="Core\Engine\Event.h" />
     <ClInclude Include="Core\Engine\Data.h" />
     <ClInclude Include="Core\Engine\Macros.h" />
     <ClInclude Include="Core\Engine\Math.h" />
     <ClInclude Include="Core\Engine\Types.h" />
-    <ClInclude Include="Core\Engine\ZilchEvent.h" />
     <ClInclude Include="Core\EventsInclude.h" />
     <ClInclude Include="Core\Events\CollisionEvents.h" />
     <ClInclude Include="Core\Events\DispatchGameEvents.h" />
     <ClInclude Include="Core\Events\EditorEvents.h" />
     <ClInclude Include="Core\Events\EngineEvents.h" />
-    <ClInclude Include="Core\Events\EventReference.h" />
     <ClInclude Include="Core\Events\GameEvents.h" />
     <ClInclude Include="Core\Events\GraphicsEvents.h" />
-    <ClInclude Include="Core\Events\KeyDownEvent.h" />
-    <ClInclude Include="Core\Events\KeyUpEvent.h" />
-    <ClInclude Include="Core\Events\MouseDown.h" />
-    <ClInclude Include="Core\Events\MouseEvents.h" />
-    <ClInclude Include="Core\Events\MouseScroll.h" />
-    <ClInclude Include="Core\Events\MouseUp.h" />
     <ClInclude Include="Core\Events\SpriteRegistrationEvent.h" />
     <ClInclude Include="Core\Events\UpdateEvents.h" />
     <ClInclude Include="Core\Events\WindowEvents.h" />
@@ -630,10 +655,12 @@
     <ClInclude Include="Core\Systems\StateMachine\IState.h" />
     <ClInclude Include="Core\Systems\StateMachine\StateMachine.h" />
     <ClInclude Include="Core\Systems\System.h" />
+    <ClInclude Include="Core\Systems\SystemsConfiguration.h" />
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
-    <ClInclude Include="Core\Testing.h" />
+    <ClInclude Include="Core\Utilities\String.h" />
+    <ClInclude Include="Core\Utilities\UtilitiesInclude.h" />
     <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />
     <ClInclude Include="Dependencies\include\IMGUI\imgui_internal.h" />
     <ClInclude Include="Projects\CoreEvents.h" />
@@ -656,6 +683,7 @@
     <ClInclude Include="Projects\Rebound\Components\FreezeEnabler.h" />
     <ClInclude Include="Projects\Rebound\Components\HazardArea.h" />
     <ClInclude Include="Projects\Rebound\Components\HealthController.h" />
+    <ClInclude Include="Projects\Rebound\Components\LancerShield.h" />
     <ClInclude Include="Projects\Rebound\Components\LevelManager.h" />
     <ClInclude Include="Projects\Rebound\Components\LockField.h" />
     <ClInclude Include="Projects\Rebound\Components\MainMenuManager.h" />
@@ -663,7 +691,6 @@
     <ClInclude Include="Projects\Rebound\Components\MusicManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PauseManager.h" />
     <ClInclude Include="Projects\Rebound\Components\PlayerController.h" />
-    <ClInclude Include="Projects\Rebound\Components\PowerField.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundComponent.h" />
     <ClInclude Include="Projects\Rebound\Components\ReboundEngineReference.h" />
     <ClInclude Include="Projects\Rebound\Components\Shield.h" />
@@ -680,8 +707,14 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Core\Assets\Shaders\DebugShader.frag" />
+    <None Include="Core\Assets\Shaders\DebugShader.vs" />
+    <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />
+    <None Include="Core\Assets\Shaders\FinalRenderShader.vs" />
     <None Include="Core\Assets\Shaders\GUIShader.frag" />
     <None Include="Core\Assets\Shaders\GUIShader.vs" />
+    <None Include="Core\Assets\Shaders\LightingShader.frag" />
+    <None Include="Core\Assets\Shaders\LightingShader.vs" />
     <None Include="Core\Assets\Shaders\ParticleShader.frag" />
     <None Include="Core\Assets\Shaders\ParticleShader.vs" />
     <None Include="Core\Assets\Shaders\ShadowingShader.frag" />

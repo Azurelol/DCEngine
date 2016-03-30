@@ -1,0 +1,1 @@
+cloc Core --exclude-dir=Physics,Graphics --by-file

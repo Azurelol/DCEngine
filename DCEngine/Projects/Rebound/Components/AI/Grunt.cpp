@@ -57,10 +57,10 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
       Connect(gameObj, Events::DeathEvent, Grunt::OnDeathEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>(); 
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
 
       stateMachine = new StateMachine<Grunt>(this);
       startingPosition = TransformRef->Translation;
@@ -171,7 +171,7 @@ namespace DCEngine {
     {
       owner->jumpTimer = 0;
       owner->SpriteRef->Color = owner->PatrolColor;
-      owner->SpriteRef->FlipX = false;
+      owner->SpriteRef->FlipX = true;
       DCTrace << "Grunt PatrolRight Enter\n";
     }
 
@@ -214,7 +214,7 @@ namespace DCEngine {
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
       owner->SpriteRef->Color = owner->PatrolColor;
-      owner->SpriteRef->FlipX = true;
+      owner->SpriteRef->FlipX = false;
       DCTrace << "Grunt PatrolLeft Enter\n";
     }
 
@@ -267,12 +267,12 @@ namespace DCEngine {
       Vec3 direction = playerPosition - ownerPosition;
       if (direction.x < 0)
       {
-        owner->SpriteRef->FlipX = true;
+        owner->SpriteRef->FlipX = false;
         owner->Jump(-1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
       else
       {
-        owner->SpriteRef->FlipX = false;
+        owner->SpriteRef->FlipX = true;
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 

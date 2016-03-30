@@ -29,6 +29,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldArchetype);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldRadius);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashDistance);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashOutTime);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashInTime);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite", "HealthController");
@@ -48,10 +52,10 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, Sentinel::OnCollisionStartedEvent);
       Connect(gameObj, Events::DeathEvent, Sentinel::OnDeathEvent);
 
-      TransformRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
-      RigidBodyRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::HealthController>();
+      TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+      RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
 
       stateMachine = new StateMachine<Sentinel>(this);
 
@@ -60,6 +64,9 @@ namespace DCEngine {
 
       player = SpaceRef->FindObjectByName(PlayerName);
 
+      
+      shieldLocalTranslation = Vec3(2, 0, 0);
+      isBashing = false;
       CreateShield();
     }
 
@@ -68,7 +75,10 @@ namespace DCEngine {
       stateMachine->Update();
       dt = event->Dt;
 
-      
+      if(!isBashing)
+        UpdateShield();
+
+      shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
     }
 
     void Sentinel::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -87,11 +97,40 @@ namespace DCEngine {
     void Sentinel::CreateShield()
     {
       shield = SpaceRef->CreateObject(ShieldArchetype);
-      //shield->AttachTo(gameObj);
-      //shield->getComponent<Transform>()->setTranslation(Vec3(0, 0, 0));
-      DCTrace << "Created shield archetype! \n";
-      //shield = SpaceRef->CreateObject();
+      shield->AttachTo(gameObj);
+      shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
+      shield->getComponent<Orientation>()->WorldForward = Vec3(1, 0, 0);
+      shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+    }
+
+    void Sentinel::UpdateShield()
+    {
+      Vec3 playerPosition = player->getComponent<Transform>()->Translation;
+      Vec3 thisPosition = TransformRef->Translation;
+
+
+      shield->getComponent<Orientation>()->LookAtPoint(playerPosition);
+
+      Vec3 playerDirection = glm::normalize(playerPosition - thisPosition);
       
+
+      shieldLocalTranslation = playerDirection * ShieldRadius;
+      
+      shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
+    }
+
+    void Sentinel::ShieldBash()
+    {
+      Vec3 playerPosition = player->getComponent<Transform>()->Translation;
+      Vec3 thisPosition = TransformRef->Translation;
+
+      Vec3 playerDirection = glm::normalize(playerPosition - thisPosition);
+      
+      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+      Actions::Property(seq, isBashing, true, 0.0f, Ease::Linear);
+      Actions::Property(seq, shieldLocalTranslation, (ShieldRadius + ShieldBashDistance) * playerDirection, ShieldBashOutTime, Ease::QuadOut);
+      Actions::Property(seq, shieldLocalTranslation, ShieldRadius * playerDirection, ShieldBashInTime, Ease::Linear);
+      Actions::Property(seq, isBashing, false, 0.0f, Ease::Linear);
     }
 
 
@@ -103,6 +142,9 @@ namespace DCEngine {
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
+
+      if ((distanceFromPlayer < (owner->ShieldBashDistance + owner->ShieldRadius)))
+        owner->ShieldBash();
 
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());

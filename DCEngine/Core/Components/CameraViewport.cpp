@@ -118,6 +118,11 @@ namespace DCEngine {
     Camera* CameraViewport::FindDefaultCamera() {
       // Look for a GameObject with the 'Camera' component in the space
       for (auto gameObj : *SpaceRef->AllObjects()) {
+
+        // Skip the editor camera..
+        if (gameObj->Name() == "EditorCamera")
+          continue;
+
         auto camera = gameObj->getComponent<Camera>();
         // Do not set the EditorCamera as the space's default camera.
         if (camera != nullptr && camera->Owner()->Name() != std::string("EditorCamera")) {

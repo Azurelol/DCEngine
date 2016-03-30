@@ -23,11 +23,9 @@ namespace DCEngine {
     @brief Constructor for the Window system.
     */
     /**************************************************************************/
-    Window::Window(std::string& caption, unsigned int framerate, unsigned int width, 
-                   unsigned int height, bool fullScreen) :
+    Window::Window(GraphicsConfig& config, const std::string& caption) :
                       System(std::string("WindowSystem"), EnumeratedSystem::Window),
-                      Caption(caption), Framerate(framerate), Width(width), Height(height),
-                      Fullscreen(fullScreen) {
+                      Settings(config), Caption(caption) {
 
       DCTrace << "*Using SFML Context for Window and Input \n";
       WindowHandler.reset(new WindowSFML(*this));
@@ -96,8 +94,8 @@ namespace DCEngine {
       if (TRACE_ON && TRACE_UPDATE)
         DCTrace << "Window::Update \n";
       // Update the current width's, heig
-      Width = WindowHandler->getWindowDimensions().x;
-      Height = WindowHandler->getWindowDimensions().y;      
+      Settings.ScreenWidth = WindowHandler->getWindowDimensions().x;
+      Settings.ScreenHeight = WindowHandler->getWindowDimensions().y;
       CalculateFPS(dt);
       WindowHandler->Update(dt);
     }
@@ -182,7 +180,7 @@ namespace DCEngine {
     /**************************************************************************/
     glm::vec2 Window::getWindowDimensions()
     {
-      return glm::vec2(Width, Height);
+      return glm::vec2(Settings.ScreenWidth, Settings.ScreenHeight);
     }
 
     /**************************************************************************/

@@ -43,6 +43,11 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_DEFINE_RANGE(FieldOfView, 0, 180);
       DCE_BINDING_DEFINE_PROPERTY(Camera, FieldOfView);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyFieldOfView, attributeRangeFieldOfView);
+
+			DCE_BINDING_DEFINE_PROPERTY(Camera, Exposure);
+			DCE_BINDING_PROPERTY_DEFINE_RANGE(Exposure, 0, 5);
+			DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyExposure, attributeRangeExposure);
+
       DCE_BINDING_DEFINE_PROPERTY(Camera, NearPlane);
       DCE_BINDING_DEFINE_PROPERTY(Camera, FarPlane);
       DCE_BINDING_DEFINE_PROPERTY(Camera, Size);
@@ -55,7 +60,7 @@ namespace DCEngine {
     @brief Camera Constructor
     */
     /**************************************************************************/
-    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner) {
+    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner), Exposure(.5) {
       Configure();
     }
 
@@ -106,8 +111,8 @@ namespace DCEngine {
       }
 
       // Set the references to the Window system's screen width and height
-      ScreenWidth = &Daisy->getSystem<Systems::Window>()->Width;
-      ScreenHeight = &Daisy->getSystem<Systems::Window>()->Height;
+      ScreenWidth = &Daisy->getSystem<Systems::Window>()->Settings.ScreenWidth;
+      ScreenHeight = &Daisy->getSystem<Systems::Window>()->Settings.ScreenHeight;
     }
 
     /**************************************************************************/

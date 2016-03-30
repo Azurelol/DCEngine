@@ -13,7 +13,24 @@ uses.
 #include "../Engine/Engine.h"
 
 namespace DCEngine {
-  
+
+  void DispatchGameEvents::ObjectInitializer(Entity* entity, Entity* parent, Space* space, GameSession* gamesession)
+  {
+    auto event = new Events::ObjectInitializer();
+    event->Parent = parent;
+    event->Space = space;
+    event->GameSession = gamesession;
+    entity->Dispatch<Events::ObjectInitializer>(event);
+    delete event;
+  }
+
+  void DispatchGameEvents::AllObjectsInitialized(Entity* entity)
+  {
+    auto event = new Events::AllObjectsInitialized();
+    entity->Dispatch<Events::AllObjectsInitialized>(event);
+    delete event;
+  }
+
   void DispatchGameEvents::GameFocusIn()
   {
     auto event = new Events::GameFocusIn();

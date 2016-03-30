@@ -11,7 +11,6 @@
 /******************************************************************************/
 #include "Editor.h"
 #include "../../Engine/Engine.h"
-#include "../Testing.h" // Dollhouse
 
 namespace DCEngine {
   namespace Systems {
@@ -307,8 +306,9 @@ namespace DCEngine {
       // Build the script from a template
       if (script->BuildDefaultFromTemplate()) {
         // If successful, open the default text editor and read it!
-        std::string command = "notepad++ " + path;
-        system(command.c_str());
+        TextEditor.Load(script);
+        //std::string command = "notepad++ " + path;
+        //system(command.c_str());
       }     
       
       // Add the script to the content system

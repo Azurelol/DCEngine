@@ -36,6 +36,7 @@ namespace DCEngine {
       // Construct the component factories for each core component type
       ConstructComponentFactoryMap();
       // Construct the component factories for 'Rebound' components
+      //ReboundComponentsAddToLibrary();
       ReboundComponentsAddToFactory();
     }
 
@@ -54,6 +55,8 @@ namespace DCEngine {
       DestroyComponents();
       // Destroy all marked spaces
       DestroySpaces();
+      // Rebuild all specified entities
+      RebuildEntities();
     }
 
     /**************************************************************************/
@@ -85,7 +88,6 @@ namespace DCEngine {
       ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject(name, space, *space.getGameSession())));
       auto gameObjPtr = ActiveGameObjects.back().get();
       gameObjPtr->AddComponentByName(std::string("Transform"));
-      //gameObjPtr->AddComponent<Components::Transform>();
       // If the object needs to be initialized right away
       if (init)
         gameObjPtr->Initialize();
@@ -105,249 +107,7 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr Factory::CreateGameObject(ArchetypePtr archetype, Space & space, bool init)
     {
-      // 1. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
-      auto gameObjPtr = ActiveGameObjects.back().get();
-      // 2. Build it from serialized data
-      BuildFromArchetype(gameObjPtr, archetype);
-
-
-      //// Turn the string from file into JSON data
-      //Zilch::CompilationErrors errors;
-      //Zilch::JsonReader reader;
-      //const Zilch::String what;
-      //Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
-      //                              archetype->Get().c_str(), what, nullptr);
-      //
-      //auto data = *archetypeData->OrderedMembers.data();
-
-      return gameObjPtr;
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds a GameObject from serialized data.
-    @param  serializedData A pointer to the serialized data for the GameObject.
-    @param  space A referene to the Space the GameObject will be created on/
-    @return A pointer to the GameObject created on the space.
-    @todo   Refactor how it's done..
-    */
-    /**************************************************************************/
-    GameObjectPtr Factory::BuildGameObject(SerializedMember * data, Space & space)
-    {      
-      // 1. Construct the GameObject
-      ActiveGameObjects.emplace_back(GameObjectStrongPtr(new GameObject("Object", space, *space.getGameSession())));
-      auto gameObject = ActiveGameObjects.back().get();
-      // 2. Build it from serialized data
-      BuildEntity(gameObject, data);
-
-      return gameObject;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds an Entity from serialized data.
-    @param  entity A pointer to the entity.
-    @param  objectData A pointer to the serialized data for the Entity.
-    @return A pointer to the GameObject created on the space.
-    @todo   Refactor how it's done..
-    */
-    /**************************************************************************/
-    EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
-    {      
-      // 1. For every property... !!! CURRENTLY HARDCODED !!!
-      auto name = objectData->Value->GetMember("Name")->AsString().c_str();
-      entity->setObjectName(name);
-      auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      entity->setArchetype(archetype);
-
-      auto gameObject = objectData->Value;
-      for (auto property : gameObject->OrderedMembers.all()) {
-        // Deserialize it
-        //gameObjPtr->Deserialize(property->Value);
-      }
-
-      // 3. For each of its components..
-      auto components = objectData->Value->GetMember("Components")->OrderedMembers.all();
-      for (auto component : components) {
-        // Construct the Component
-        auto componentName = std::string(component->Key.c_str());
-        auto componentPtr = entity->AddComponentByName(componentName);
-        // If the component was successfully constructed..
-        if (componentPtr) {
-          // Deserialize it
-          auto properties = component->Value;
-          componentPtr->Deserialize(properties);
-        }
-      }
-
-      return entity;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds an entity given serialized data.
-    @param  entity A pointer to the entity.
-    @param archetype A pointer to the archetype.
-    */
-    /**************************************************************************/
-    void Factory::BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype)
-    {
-      // 1. Get the Archetype data
-      Zilch::CompilationErrors errors;
-      Zilch::JsonReader reader;
-      const Zilch::String what;
-      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
-        archetype->Get().c_str(), what, nullptr);
-      auto data = *archetypeData->OrderedMembers.data();
-      // 2. Build the GameObject
-      BuildEntity(entity, data);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Rebuilds an entity from its current archetype, removing all its
-            components and remaking them anew from its archeetype.
-    @param  entity A pointer to the entity.
-    */
-    /**************************************************************************/
-    void Factory::RebuildFromArchetype(EntityPtr entity)
-    {
-      // If the entity has a transform component, save that data.
-      TransformDataPair transformData;
-      if (entity->HasComponent("Transform")) {
-        transformData = entity->getComponent<Components::Transform>()->getTransformDataPair();
-      }
-
-      // 1. Remove all of the entities components
-      entity->RemoveAllComponents();
-      // 2. Grab the Archetype resource from the handle.
-      auto archetype = Daisy->getSystem<Content>()->getArchetype(entity->getArchetype());
-      // 3. Rebuild the object from its archetype
-      BuildFromArchetype(entity, archetype);
-      
-      // 4. Set back its transform data.
-      if (entity->HasComponent("Transform")) {
-        auto transform = entity->getComponent<Components::Transform>();
-        transform->setTranslation(transformData.second.Translation);
-      }
-
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds all the GameObjects from a level into a space.
-    @param  level A pointer to the level resource.
-    @param  space A reference to the Space the GameObject will be created on/
-    @return A pointer to the GameObject created on the space.
-    */
-    /**************************************************************************/
-    bool Factory::BuildFromLevel(LevelPtr level, Space & space)
-    {
-      // Turn the string from file into JSON data
-      Zilch::CompilationErrors errors;
-      Zilch::JsonReader levelReader;
-      const Zilch::String levelAsJson;
-      Zilch::JsonValue* levelData = levelReader.ReadIntoTreeFromString(errors, level->Get().c_str(), levelAsJson, nullptr);
-
-      // If the data failed to load... 
-      if (levelData == nullptr) {
-        DCTrace << "Factory::BuildFromLevel - Failed to load level data from file! \n";
-        return false;
-      }
-      
-      DCTrace << "Factory::BuildFromLevel - Building GameObjects from Level: '" << level->Name() << "' \n";
-
-      // 1. For every GameObject...
-      auto gameObjects = levelData->GetMember("Level")->GetMember("GameObjects");      
-      for (auto gameObjectValue : gameObjects->OrderedMembers.all()) {
-        // 2. Build the GameObject
-        auto gameObjectPtr = BuildGameObject(gameObjectValue, space);
-        // 3. Add it to the space's container of active gameobjects
-        space.AddObject(gameObjectPtr);
-      }
-
-      return true;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds a level from a Space.
-    @param  name The name for the level resource.
-    @param  space A referene to the Space the Level will take objects from.
-    @return A pointer to the created Level resource.
-    */
-    /**************************************************************************/
-    LevelPtr Factory::BuildLevel(std::string level, Space & space)
-    {
-      // Create a builder object to build JSON
-      Zilch::JsonBuilder levelBuilder;
-      
-      levelBuilder.Begin(Zilch::JsonType::Object); {
-        // I. Level
-        levelBuilder.Key("Level");
-        levelBuilder.Begin(Zilch::JsonType::Object); {
-
-          // 1. Name
-          {
-            levelBuilder.Key("Name");            
-            Zilch::String levelName = FileSystem::FileNoExtension(level).c_str();            
-            levelBuilder.Value(levelName);            
-          }
-
-          // 2. Space
-          {
-            //space.Serialize(levelBuilder);
-          }        
-
-          // 2. GameObjects
-          {
-            levelBuilder.Key("GameObjects");
-            levelBuilder.Begin(Zilch::JsonType::Object);
-            for (auto &gameObj : space.GameObjectContainer) {
-              // Do not serialize the editor's camera
-              if (gameObj->Name() == "EditorCamera")
-                continue;
-              gameObj->Serialize(levelBuilder);
-            }
-            levelBuilder.End();
-          }
-        } levelBuilder.End();
-
-      } levelBuilder.End();   
-
-      DCTrace << "Factory::BuildLevel - Saved level: " << level << " to file: data from file! \n";
-      return LevelPtr(new Level(level, 
-                                std::string(levelBuilder.ToString().c_str())) );
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Builds an Archetype.
-    @param  archetype The name of the Archetype.
-    @param  gameObj A pointer to the GameObject.
-    @return A pointer to the Archetype resource.
-    */
-    /**************************************************************************/
-    ArchetypePtr Factory::BuildArchetype(std::string archetype ,GameObjectPtr gameObj)
-    {
-      // Create a builder object to build JSON
-      Zilch::JsonBuilder archetypeBuilder;     
-      archetypeBuilder.Begin(Zilch::JsonType::Object);
-      {
-        //archetypeBuilder.Key("GameObject");
-        //archetypeBuilder.Begin(Zilch::JsonType::Object);
-        //{
-          gameObj->Serialize(archetypeBuilder);
-        //}
-        //archetypeBuilder.End();
-      }      
-      archetypeBuilder.End();
-      
-      //return std::string(archetypeBuilder.ToString().c_str());
-      return ArchetypePtr( new Archetype(archetype,
-                                         std::string(archetypeBuilder.ToString().c_str()) ));
+      return BuildGameObjectFromArchetype(archetype, space, init);
     }
 
     /**************************************************************************/
@@ -383,18 +143,33 @@ namespace DCEngine {
     /**************************************************************************/
     ComponentHandle Factory::CreateComponentByNameFromZilch(const std::string & name, Entity & entity)
     {      
-      auto state = Daisy->getSystem<Reflection>()->Handler()->getState();
+      auto state = Daisy->getSystem<Reflection>()->Handler()->GetState();
       Zilch::ExceptionReport report;
 
       // Get the component's BoundType
       auto boundType = Component::BoundType(name);
       // Allocate the component on the heap through Zilch
-      auto componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);      
+      Zilch::Handle componentHandle; 
+
+      // If the component could not be found..
+      //if (!boundType)
+      //  return componentHandle;
+
+
+      // C++ Components
+      if (!Zilch::TypeBinding::IsA(boundType, ZilchComponent::ZilchGetStaticType())) {
+        componentHandle = state->AllocateHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Zilch::Call ctorCall(boundType->Constructors[0], state);
+        ctorCall.SetHandle(Zilch::Call::This, componentHandle);
       // Call the component's constructor explicitly
-      Zilch::Call ctorCall(boundType->Constructors[0], state);
-      ctorCall.SetHandle(Zilch::Call::This, componentHandle);
-      ctorCall.Set(0, entity);
-      ctorCall.Invoke(report);
+        ctorCall.Set(0, entity);
+        ctorCall.Invoke(report);
+      }
+      // Zilch Components
+      else {  
+        componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
+        Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
+      }
       // Return the handle to this component
       return componentHandle;
     }
@@ -414,6 +189,17 @@ namespace DCEngine {
         throw DCException("Factory::CreateComponentByType - Tried to construct '" + std::string(boundType->Name.c_str()) + "' that's not bound yet!");
 
       return ComponentFactories[boundType].get()->ConstructComponent(entity);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks the component for deletion on the next frame.
+    @param component A reference to the component.
+    */
+    /**************************************************************************/
+    void Factory::MarkComponent(ComponentHandle component)
+    {
+      //ComponentsToBeDeletedByHandle.insert(component);
     }
 
     /**************************************************************************/
@@ -443,7 +229,6 @@ namespace DCEngine {
         component->Owner()->RemoveComponentByName(component->Name());
       }
       ComponentsToBeDeleted.clear();
-
     }
 
     /**************************************************************************/
@@ -488,6 +273,25 @@ namespace DCEngine {
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Marks an entity to have its components rebuilt on the next frame.
+    @param entity A pointer to the entity.
+    */
+    /**************************************************************************/
+    void Factory::MarkForRebuild(EntityPtr entity)
+    {
+      // Create an temporary archetype out of the entity
+      auto archetype = BuildArchetype(entity->Name(), entity);
+      EntitiesToRebuild.insert(EntityBuildData(entity, archetype));
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Marks a space for destruction.
+    @param entity A pointer to the space.
+    */
+    /**************************************************************************/
     void Factory::MarkSpace(Space& space)
     {
       SpacesToBeDeleted.insert(SpacePtr(&space));
@@ -531,14 +335,43 @@ namespace DCEngine {
 
       // This is set back to default, from 'Space::LoadLevel'
       SoundInstance::StopOnDestroyed = false;
-
     }
 
-    GameObjectPtr Factory::BuildAndSerialize(const std::string & fileName) {
-      // Construct the object with defaults
-      GameObjectPtr gameObj(new GameObject());
-      // Open the input file
-      return gameObj;
+    /**************************************************************************/
+    /*!
+    @brief Rebuilds all specified entities.
+    */
+    /**************************************************************************/
+    void Factory::RebuildEntities()
+    {
+      if (EntitiesToRebuild.empty())
+        return;
+
+      // Rebuild all entities
+      for (auto& rebuildData : EntitiesToRebuild) {
+        Rebuild(rebuildData);
+      }
+      EntitiesToRebuild.clear();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Parses JSON data from the Archetype so that it can be used for
+           construction.
+    @param archetype A pointer to the archetype.
+    @return The data, as a pointer.
+    */
+    /**************************************************************************/
+    Zilch::JsonMember * Factory::ArchetypeData(ArchetypePtr archetype)
+    {
+      // 1. Get the Archetype data
+      Zilch::CompilationErrors errors;
+      Zilch::JsonReader reader;
+      const Zilch::String what;
+      Zilch::JsonValue* archetypeData = reader.ReadIntoTreeFromString(errors,
+        archetype->Get().c_str(), what, nullptr);
+      auto data = *archetypeData->OrderedMembers.data();
+      return data;
     }
 
   }

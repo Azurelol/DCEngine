@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
-    "Name": "Shield", 
-    "Archetype": "Sentinel Shield", 
+    "Locked": false, 
+    "GameObjectID": 67, 
+    "Name": "Sentinel Shield", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 10.000000, 
-            "y": 10.000000, 
+            "x": 13.407575, 
+            "y": 14.637627, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 0.500000, 
-            "y": 1.500000, 
+            "x": 1.000000, 
+            "y": 3.000000, 
             "z": 1.000000
           }
         }
@@ -49,7 +50,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "char_sent_4", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -58,8 +59,8 @@
       }, 
       "BoxCollider": 
       {
+        "CollisionGroup": "Enemy", 
         "PhysicsMaterial": "", 
-        "CollisionGroup": "Default", 
         "Size": 
         {
           "Vec3": 
@@ -84,7 +85,6 @@
       }, 
       "RigidBody": 
       {
-        "Mass": 10.000000, 
         "Velocity": 
         {
           "Vec3": 
@@ -105,7 +105,13 @@
         }, 
         "Mass": 10.000000, 
         "RotationLocked": true
+      }, 
+      "Orientation": 
+      {
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

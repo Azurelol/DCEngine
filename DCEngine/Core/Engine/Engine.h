@@ -17,15 +17,19 @@
 #include <functional> // std::function, std::bind
 // Packages
 #include "Types.h"
-#include "Event.h"
+#include "../Events/EventReference.h"
 #include "Math.h"
-#include "Action.h"
+#include "Actions.h"
 #include "Profiler.h"
 // Objects
 #include "../Objects/ObjectsInclude.h"
 #include "../Objects/Entities/EntitiesInclude.h"
 #include "..\Systems\System.h"
 #include "..\Systems\SystemsInclude.h"
+#include "../Binding/CoreBinding.h"
+#include "../Binding/CoreBindingTypes.h"
+#include "../Binding/CoreBindingObjects.h"
+#include "..\Binding\CoreBindingEnums.h"
 
 namespace DCEngine {
 
@@ -43,7 +47,7 @@ namespace DCEngine {
 
     void Register(ActionPtr action);
     void Deregister(ActionPtr action);
-
+    ZilchDeclareDerivedType(Engine, Object);
     Engine();
     Engine(std::string configFile);
     ~Engine();
@@ -57,30 +61,39 @@ namespace DCEngine {
 
     Keyboard* getKeyboard() { return KeyboardHandle.get(); }
     Mouse* getMouse() { return MouseHandle.get(); }
-    Systems::Factory& getFactory() {
-      return *getSystem<Systems::Factory>(EnumeratedSystem::Factory);
-    }
     GameSession* getGameSession() { return CurrentGameSession.get(); }
 
-    // Component Events
+    // Events (Template)
     template <typename EventClass, typename Class, typename MemberFunction>
     void Connect(Entity* publisher, MemberFunction fn, Class* inst);
+    template<typename EventClass, typename Class, typename MemberFunction>
+    void Connect(std::string eventName, Entity* publisher, MemberFunction fn, Class* inst);
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
+    // Events
+    //void ZilchConnect(Zilch::Call& call, Zilch::ExceptionReport& report);  
+    void ConnectTo(const std::string& eventName, Entity* publisher, EventDelegate* deleg, Component* inst);
+    void ZilchDisconnect(Zilch::Call& call, Zilch::ExceptionReport& report);
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Test();
+    
+    
+    //template<typename EventClass>
+    //void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
 
-    template<typename T> std::shared_ptr<T> getSystem(EnumeratedSystem sysType);
     template<typename T> std::shared_ptr<T> getSystem();
     Profiler& Profiler() { return this->Profile; }
+    Systems::ConfigurationFiles& Configuration() { return this->Configurations; }
     //EngineConfigPtr& Configuration() { return EngineConfiguration; }
 
   private:
 
     bool Paused;
     DCEngine::Profiler Profile;
+    Systems::ConfigurationFiles Configurations;
     EngineConfigPtr EngineConfiguration;
     GameSessionPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;
@@ -96,12 +109,13 @@ namespace DCEngine {
     ActionSpace ActionSpace; 
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
 
-    bool LoadEngineConfig();
     void LoadDefaultSpace();
     // Updates
     void Update(float dt);   
     void DispatchUpdateEvents(float dt);    
     void UpdateActions(float dt);
+    void LoadConfigurationFiles(const std::string&);
+    template <typename Type> bool LoadConfiguration(Type& config, std::string fileName);
     // Events
     void Subscribe();
     void OnWindowLostFocusEvent(Events::WindowLostFocus* event);
@@ -110,7 +124,7 @@ namespace DCEngine {
     void OnEngineResumeEvent(Events::EngineResume* event);
     void OnEngineExitEvent(Events::EngineExit* event);
     void OnEnginePauseMenuEvent(Events::EnginePauseMenu* event);
-    
+    void OnEngineSaveConfigurationsEvent(Events::EngineSaveConfigurations* event);    
   }; 
 
   /**************************************************************************/

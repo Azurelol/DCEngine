@@ -45,7 +45,7 @@ namespace DCEngine {
   /**************************************************************************/
   class SpriteLayerOrder : public Resource {
   public:
-    using SpriteLayerContainer = std::list<SpriteLayerHandle>;
+    using SpriteLayerContainer = StringArray;
     SpriteLayerContainer List;
     DCE_DEFINE_PROPERTY(SpriteLayerContainer, List);
     void Add(SpriteLayerHandle spriteLayer);

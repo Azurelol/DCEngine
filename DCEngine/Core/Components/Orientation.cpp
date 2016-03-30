@@ -20,10 +20,22 @@ namespace DCEngine
 {
   namespace Components
   {
+    #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    ZilchDefineType(Orientation, "Orientation", DCEngineCore, builder, type) {
+      // Constructor / Destructor
+      DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Orientation);
+    }
+    #endif
+
+
+    void Orientation::Initialize()
+    {
+      return;
+    }
 
     float Orientation::GetVectorAngle(Vec3 vector)
     {
-      return glm::atan(vector.y / vector.x);
+      return std::atan2f(vector.x, -vector.y);
     }
 
     void Orientation::LookAtPoint(Vec3 point)
@@ -32,9 +44,7 @@ namespace DCEngine
 
       Vec3 temp = glm::normalize(point - Translation);
 
-      this->Owner()->getComponent<Components::Transform>()->Rotation.z = GetVectorAngle(temp);
-
-      WorldForward.x = WorldForward.x;
+      LookAtDirection(temp);
     }
 
     void Orientation::LookAtPointWithUp(Vec3 point)
@@ -48,8 +58,23 @@ namespace DCEngine
 
     void Orientation::LookAtDirection(Vec3 direction)
     {
+      direction = glm::normalize(direction);
 
+      float NextRot = GetVectorAngle(direction);
 
+      float CurrentRot = GetVectorAngle(WorldForward);
+
+      float DeltaRot = CurrentRot - NextRot;
+
+      CurrentRot -= DeltaRot;
+
+      // convert to degrees first
+
+      DeltaRot = DeltaRot * 180.0f / 3.14159265359;
+
+      this->Owner()->getComponent<Components::Transform>()->Rotation.z -= DeltaRot;
+
+      WorldForward = direction;
     }
 
     void Orientation::LookAtDirectionWithUp(Vec3 direction)
@@ -59,7 +84,7 @@ namespace DCEngine
 
     void Orientation::LookAtUp(void)
     {
-
+      LookAtDirection(WorldUp);
     }
 
 

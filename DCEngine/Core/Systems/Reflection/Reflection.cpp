@@ -83,17 +83,28 @@ namespace DCEngine {
     {
       std::vector<Zilch::BoundType*> componentTypes;
 
-      // Loop through every library
+      // Loop through the script library for scripts      
+      auto scriptLibrary = ZilchHandler->ScriptLibrary;
+      if (scriptLibrary) {
+        auto boundTypes = scriptLibrary->BoundTypes.all();
+        ZilchForEach(auto type, boundTypes)
+        {
+          componentTypes.push_back(type.second);          
+        }
+      }
+
+      // Load C++ components
       for (auto library : Handler()->Dependencies.all()) {
         // Grab a container of all the bound types in the library
         auto types = library->BoundTypes.all();
         // For every type in the library
-        ZilchForEach(auto type, types) {
-          // If the type is a C++ component
-          if (Zilch::TypeBinding::IsA(type.second, Component::ZilchGetStaticType()))
-            componentTypes.push_back(type.second);
-          // If the type is a Zilch component
-          if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
+        ZilchForEach(auto type, types) {      
+          //// If the type is a Zilch component
+
+
+          //if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
+          //  componentTypes.push_back(type.second);
+          if (Zilch::TypeBinding::IsA(type.second, ZilchTypeId(Component)))
             componentTypes.push_back(type.second);
         }
       }
@@ -115,7 +126,7 @@ namespace DCEngine {
       // Create an exception report object
       Zilch::ExceptionReport report;
       // Grab the current resource
-      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
+      Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->GetState());
       getCall.SetHandleVirtual(Zilch::Call::This, object);
       getCall.Invoke(report);
       return std::string(getCall.Get<Zilch::String>(Zilch::Call::Return).c_str());
@@ -140,7 +151,14 @@ namespace DCEngine {
     /**************************************************************************/
     void Reflection::OnScriptingCompileScriptsEvent(Events::ScriptingCompileScripts * event)
     {
-      Handler()->CompileScripts();
+      // Inform that we are about to recompile scripts!
+      DispatchSystemEvents::ScriptingLibraryAboutToCompile();
+
+      // Inform that it's been done
+      if (Handler()->CompileScripts()) {
+        DispatchSystemEvents::ScriptingLibraryPatched();
+        DispatchSystemEvents::ScriptingLibraryCompiled();
+      }
     }
 
 

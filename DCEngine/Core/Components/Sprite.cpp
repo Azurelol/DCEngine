@@ -71,8 +71,8 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0), 
-                   AnimationActive(true) {
+    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) 
+                   {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
 
@@ -110,8 +110,6 @@ namespace DCEngine {
     void Sprite::Initialize() {
       if (DCE_TRACE_COMPONENT_INITIALIZE)
         DCTrace << Owner()->Name() << "::" << ObjectName << "::Initialize\n";
-
-
     }
 
     void Sprite::Register()
@@ -144,54 +142,34 @@ namespace DCEngine {
 
 		void Sprite::Update(float dt)
 		{
-			//mShader->Use();
-			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+			SpriteSourcePtr spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			//Animation update
-			
-			HaveAnimation = AnimationActive;
-			if (HaveAnimation == true)//Check whether it has animation
+			if (UpdateAnimationSpeed())//Check whether the animation speed is 0
 			{
-				if (spriteSrc->ColumnCount == 0 || spriteSrc->RowCount == 0) //Check whether the number of frames if 0
+				if (AnimationActive == true)
 				{
-					if (spriteSrc->ColumnCount == 0)
+					AnimationSpeedFPSCounter += dt;
+					if (AnimationSpeedFPSCounter >= AnimationSpeedFPS)
 					{
-						//DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Column is 0, but still enabled HaveAnimation" << "\n";
-					}
-					else
-					{
-						//DCTrace << "GraphicsGL::DrawSprite - Sprite - Animation - Total Row is 0, but still enabled HaveAnimation" << "\n";
-					}
-				}
-				else
-				{
-					if (UpdateAnimationSpeed())//Check whether the animation speed is 0
-					{
-						if (AnimationActive == true)
+						AnimationSpeedFPSCounter = 0;
+						CurrentColumn++;
+						//Check whether it reaches the next line.
+						if (CurrentColumn + spriteSrc->ColumnCount * CurrentRow >= spriteSrc->TotalFrame)
 						{
-							IncreaseAnimationCounter(dt);
-							if (GetAnimationSpeedFPSCounter() >= GetAnimationSpeedFPS())
+							if (spriteSrc->Looping)
 							{
-								ResetSpeedCounter();
-								CurrentColumn++;
-								//Check whether it reaches the next line.
-								if (CurrentColumn >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount)
-								{
-									CurrentRow++;
-									CurrentColumn = 0;
-									if (CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->RowCount)
-									{
-										CurrentRow = 0;
-									}
-								}
-								//Check If it is go into void frame
-								if ((Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame != 0) &&
-									(CurrentColumn + Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->ColumnCount * CurrentRow >= Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource)->TotalFrame))
-								{
-									CurrentColumn = 0;
-									CurrentRow = 0;
-								}
-								//Current frame started from 0
+								CurrentColumn = 0;
+								CurrentRow = 0;
 							}
+							else
+								AnimationActive = false;
+						}
+						else if (CurrentColumn >= spriteSrc->ColumnCount)
+						{
+							CurrentRow++;
+							CurrentColumn = 0;
+							if (CurrentRow >= spriteSrc->RowCount)
+								CurrentRow = 0;
 						}
 					}
 				}
@@ -218,15 +196,13 @@ namespace DCEngine {
 				transform->Translation.z));
 			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
-				transform->Scale.y, 0.0f));
+				transform->Scale.y, 1.0f));
 			shader->SetMatrix4("model", modelMatrix);
 
 			glm::mat4 rotationMatrix;
 			rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 			shader->SetMatrix4("rotation", rotationMatrix);
 
-			//animation uniforms
-			shader->SetInteger("isAnimaitonActivated", 0);
 			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 			if (FlipX == true)
 				shader->SetInteger("flipx", 1);
@@ -238,46 +214,44 @@ namespace DCEngine {
 			else
 				shader->SetInteger("flipy", 0);
 			shader->SetVector4f("spriteColor", Color);
-			shader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
-			shader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
-			shader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
-			shader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+			shader->SetInteger("image", 0);
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			spriteSrc->getTexture().Bind();
-
-			if (HaveAnimation == true)//Check whether it has animation
+			shader->SetInteger("totalColumns", spriteSrc->ColumnCount);
+			shader->SetInteger("totalRows", spriteSrc->RowCount);
+			if (AnimationActive == true)//Check whether it has animation
 			{
 				if (CheckAnimationIntialized() == false)
 				{
-					shader->SetInteger("isAnimaitonActivated", 1);
-					shader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
-					shader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
 					shader->SetInteger("currentColumn", StartColumn);
 					shader->SetInteger("currentRow", StartRow);
 				}
 				else
 				{
-					shader->SetInteger("isAnimaitonActivated", 1);
-					shader->SetFloat("columnLength", (float)1 / spriteSrc->ColumnCount);
-					shader->SetFloat("rowHeight", (float)1 / spriteSrc->RowCount);
 					shader->SetInteger("currentColumn", CurrentColumn);
 					shader->SetInteger("currentRow", CurrentRow);
 				}
 			}
+			else
+			{
+				shader->SetInteger("currentColumn", 0);
+				shader->SetInteger("currentRow", 0);
+			}
 
-			//Lights
-
+			shader->SetInteger("useLight", false);
 			if (light)
 			{
 				shader->SetInteger("useLight", true);
 				glm::mat4 lightMatrix;
 				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
-				lightMatrix = glm::translate(lightMatrix, glm::vec3(lightTransform->Translation.x,
+
+				lightMatrix = glm::translate(lightMatrix, glm::vec3(
+					lightTransform->Translation.x,
 					lightTransform->Translation.y,
 					lightTransform->Translation.z));
 				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
-					lightTransform->Scale.y, 0.0f));
+					lightTransform->Scale.y, 1.0f));
 
 				std::string var("gLight.");
 				std::string member;
@@ -288,7 +262,9 @@ namespace DCEngine {
 				member = var + "VisibilityEvents";
 				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
 				member = var + "CastShadows";
-				shader->SetInteger(member.c_str(), light->getCastShadows());
+				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "Diffuse";
+				shader->SetInteger(member.c_str(), light->getDiffuse());
 				member = var + "LightType";
 				shader->SetInteger(member.c_str(), light->getTypeAsInt());
 				member = var + "Color";
@@ -310,15 +286,12 @@ namespace DCEngine {
 				member = var + "Model";
 				shader->SetMatrix4(member.c_str(), lightMatrix);
 			}
-			else shader->SetInteger("useLight", 0);
 
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			// Set the view matrix 
 			shader->SetMatrix4("view", camera->GetViewMatrix());
 		}
-		
-			
 
 		void Sprite::Draw(void)
 		{
@@ -326,19 +299,12 @@ namespace DCEngine {
       if (!Visible)
         return;
 
-      glEnable(GL_BLEND);
-      glBlendFunc(GL_ONE, GL_ONE);
-			//glDepthFunc(GL_LEQUAL);
-			// Set the active texture
-			
-			
 			glBindVertexArray(mVAO);
 			if(silhouette)
 				glDrawArrays(GL_LINE_LOOP, 0, 4);
 			else
 				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glBindVertexArray(0);
-
 		}
 
 		void Sprite::SetShader()

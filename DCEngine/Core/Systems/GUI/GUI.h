@@ -37,9 +37,13 @@ namespace DCEngine {
       static void SetToolTip(std::string);
       static void PopUp(Windows::PopUpData& data);
       static void Add(WindowPtr window);
-      static bool IsMouseDoubleClicked();
+      static bool IsMouseDoubleClicked();      
+      static bool SliderFloat2(std::string label, ImVec2& vec2, float min, float max);
+      static bool SliderFloat4(std::string label, ImVec4& vec4, float min, float max);
+      static void SetFont(const std::string& fontPath, unsigned pixelSize);
     
     private:
+      GUIConfig& Settings;
                         
       void Remove(WindowPtr Window);
       void ClearInactive();
@@ -48,8 +52,9 @@ namespace DCEngine {
       void StartFrame();
       void Render();
       void Toggle();
+      void UpdateStyle();
 
-      GUI();
+      GUI(GUIConfig&);
       void Update(float dt);
       void Terminate();
       

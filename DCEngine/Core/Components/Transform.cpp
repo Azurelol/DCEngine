@@ -26,9 +26,9 @@ namespace DCEngine {
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Transform);
       // Properties
-      ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
-      ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
-      ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Translation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Rotation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, Scale);
     }
 
     /**************************************************************************/
@@ -115,6 +115,30 @@ namespace DCEngine {
 
         PrevTranslation = Translation;
       }
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief set's the translation with respect to the parent.
+    */
+    /**************************************************************************/
+    void Transform::SetLocalTranslation(const Vec3 & pos)
+    {
+      auto parentref = dynamic_cast<GameObject*>(this->Owner())->Parent();
+
+      if (parentref)
+      {
+        auto Center = parentref->getComponent<Components::Transform>()->Translation;
+
+
+        Translation = Center + pos;
+        return;
+      }
+
+
+      Translation = pos;
+
     }
 
     /**************************************************************************/

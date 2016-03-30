@@ -1,0 +1,44 @@
+class PowerField : ZilchComponent
+{
+	[Property]
+	var PowerTarget : String = "";
+	
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+        
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEnded);
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+    {
+        if(event.OtherObject.BallTemp != null)
+        {
+            event.OtherObject.Transform.Translation = Real3(0,0,0);
+			this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 10, this.Owner.Transform.Translation.Z);
+            //event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
+            this.FreezeBall();
+            this.TogglePower();
+        }
+    }
+	
+	function FreezeBall()
+	{
+		this.Space.FindObjectByName("Ball").BallController.FreezeBall();
+	}
+	
+	function OnCollisionEnded(event : CollisionEnded)
+    {
+        if(event.OtherObject.BallTemp != null)
+        {
+            this.TogglePower();
+        }
+    }
+	
+	function TogglePower()
+	{
+		var tEvent = ToggleEvent();
+		tEvent.Source = this.Owner;
+		this.Space.FindObjectByName(this.PowerTarget).Dispatch(DaisyEvent.ToggleEvent, tEvent);
+	}
+}

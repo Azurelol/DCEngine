@@ -28,8 +28,6 @@ namespace DCEngine {
       /* Initialize */
       DebugFade(Entity& owner) : Component(std::string("DebugFade"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
       /* Events */
       void OnLogicUpdateEvent(Events::LogicUpdate* event);

@@ -16,7 +16,7 @@ namespace DCEngine {
 
   Texture2D::Texture2D(std::string& imageFile) : /* Resource(imageFile), */ 
                        Width(0), Height(0), InternalFormat(GL_RGB), ImageFormat(GL_RGB),
-                       Wrap_S(GL_REPEAT), Wrap_T(GL_REPEAT), FilterMin(GL_LINEAR),
+                       Wrap_S(GL_REPEAT), Wrap_T(GL_REPEAT), FilterMin(GL_LINEAR_MIPMAP_LINEAR),
                        FilterMax(GL_LINEAR)
   {
    
@@ -42,6 +42,7 @@ namespace DCEngine {
     // Generate texture
     glTexImage2D(GL_TEXTURE_2D, 0, this->InternalFormat, width, height, 0,
                  this->ImageFormat, GL_UNSIGNED_BYTE, data.getPixelsPtr());
+		glGenerateMipmap(GL_TEXTURE_2D);
     error = glGetError();
     if (error)
       DCTrace << "Texture2D::Generate - Failed to generate texture!\n";

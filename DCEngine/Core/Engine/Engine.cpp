@@ -28,6 +28,49 @@ namespace DCEngine {
   // A pointer to the 'ENGINE' object
   std::unique_ptr<Engine> Daisy = nullptr;
 
+
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent to an Entity.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  static void ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+    auto publisher = reinterpret_cast<Entity*>(call.Get<Entity*>(0));
+    auto eventType = call.Get<Zilch::String>(1);
+    auto& deleg = call.GetDelegate(2);
+    // Gets the pointers needed
+    //auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+    auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+    // Creates the delegate to be added to the entity
+    auto zilchFnDeleg = new EventZilchFunctionDelegate();
+    zilchFnDeleg->State = call.GetState();
+    zilchFnDeleg->Delegate = deleg;
+
+    Daisy->ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  }
+
+  /*!************************************************************************\
+  @brief  Engine, Daisy, Definition
+  \**************************************************************************/
+  ZilchDefineType(Engine, "Daisy", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Methods
+    ZilchBindMethod(builder, type, &Engine::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
+    ZilchBindProperty(builder, type, &Mouse::Access, ZilchNoSetter, "Mouse", ZilchNoNames)->IsStatic;
+    ZilchBindProperty(builder, type, &Keyboard::Access, ZilchNoSetter, "Keyboard", ZilchNoNames)->IsStatic;
+    DCE_BINDING_DEFINE_METHOD_NO_ARGS(Engine, Test);
+
+    // Connect to entity
+    Zilch::ParameterArray connectEntity;
+    connectEntity.push_back(ZilchTypeId(Entity));
+    connectEntity.push_back(ZilchTypeId(Zilch::String));
+    connectEntity.push_back(Zilch::Core::GetInstance().AnyDelegateType);
+    builder.AddBoundFunction(type, "Connect", DCEngine::ZilchConnect, connectEntity, ZilchTypeId(void), Zilch::FunctionOptions::Static);
+  }
+
   /**************************************************************************/
   /*!
   \brief  Default constructor for the Engine object.
@@ -41,13 +84,7 @@ namespace DCEngine {
     using namespace Debug;
     traceObj.reset(new Trace("Log.txt"));
     // Load the engine's configuration from a file
-    EngineConfiguration.reset(new EngineConfig);
-    std::string configPath = "Daisy.cfg";
-    std::string configString; 
-    if (FileSystem::FileReadToString(configPath, configString))
-      Serialization::Deserialize(EngineConfiguration.get(), configString);
-    else
-      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
+    //LoadConfigurationFiles();
   }
 
   /**************************************************************************/
@@ -67,12 +104,7 @@ namespace DCEngine {
     traceObj.reset(new Trace("Log.txt"));
 
     // Load the engine's configuration from a file
-    EngineConfiguration.reset(new EngineConfig);
-    std::string configString;
-    if (FileSystem::FileReadToString(configFile, configString))
-      Serialization::Deserialize(EngineConfiguration.get(), configString);
-    else
-      DCTrace << "Engine::Engine - Failed to deserlialize config! \n";
+    LoadConfigurationFiles(configFile);
   }
 
   /**************************************************************************/
@@ -101,36 +133,25 @@ namespace DCEngine {
 
     // Autowolves, howl out!
     Active = true;
-
     // Construct the input interface objects
     KeyboardHandle.reset(new Keyboard());
     MouseHandle.reset(new Mouse());
-
     // Systems are added to to the engine's systems container, and configurations passed on.
     Systems.push_back(SystemPtr(new Systems::Content(EngineConfiguration->AssetPath)));
     Systems.push_back(SystemPtr(new Systems::Reflection));
     Systems.push_back(SystemPtr(new Systems::Factory));
-    Systems.push_back(SystemPtr(new Systems::Window(EngineConfiguration->Caption, 
-                                                     EngineConfiguration->Framerate,
-                                                     EngineConfiguration->ResolutionWidth,
-                                                     EngineConfiguration->ResolutionHeight,
-                                                     EngineConfiguration->IsFullScreen)));
+    Systems.push_back(SystemPtr(new Systems::Window(Configurations.Graphics, EngineConfiguration->Caption)));
     Systems.push_back(SystemPtr(new Systems::Input));
-
-    // Editor configuration
-    EditorConfig editorConfig;
-    editorConfig.EditorEnabled = EngineConfiguration->EditorEnabled;
-    editorConfig.ProjectsPath = EngineConfiguration->ProjectsPath;
-    editorConfig.RecentProject = EngineConfiguration->RecentProject;
-    // Graphics configuration
-    GraphicsConfig graphicsConfig;
-    graphicsConfig.MaxDrawLayers = EngineConfiguration->MaxDrawLayers;
+    // Editor configuration @todo change me next!
+    Configurations.Editor.EditorEnabled = EngineConfiguration->EditorEnabled;
+    Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
+    Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
     // Add the systems to the engine's systems container
-    Systems.push_back(SystemPtr(new Systems::Editor(editorConfig)));
+    Systems.push_back(SystemPtr(new Systems::Editor(Configurations.Editor)));
     Systems.push_back(SystemPtr(new Systems::Physics));
-    Systems.push_back(SystemPtr(new Systems::Audio));
-    Systems.push_back(SystemPtr(new Systems::Graphics(graphicsConfig)));
-    Systems.push_back(SystemPtr(new Systems::GUI));        
+    Systems.push_back(SystemPtr(new Systems::Audio(Configurations.Audio)));
+    Systems.push_back(SystemPtr(new Systems::Graphics(Configurations.Graphics)));
+    Systems.push_back(SystemPtr(new Systems::GUI(Configurations.GUI)));        
     // Create the default gamesession object, the "game" itself,  which contains all spaces.
     CurrentGameSession.reset(new GameSession(_projectName));
     // Load the default space to start with
@@ -144,10 +165,10 @@ namespace DCEngine {
     // Subscribe to events
     Subscribe();
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";
-
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     CurrentGameSession->Initialize();      
+
     // Open the last known recent project
     getSystem<Systems::Editor>()->OpenRecentProject();    
     Systems::DispatchSystemEvents::EngineInitialized();
@@ -166,6 +187,7 @@ namespace DCEngine {
     Connect<Events::EngineResume>(&Engine::OnEngineResumeEvent, this);
     Connect<Events::EngineExit>(&Engine::OnEngineExitEvent, this);
     Connect<Events::EnginePauseMenu>(&Engine::OnEnginePauseMenuEvent, this);
+    Connect<Events::EngineSaveConfigurations>(&Engine::OnEngineSaveConfigurationsEvent, this);
   }
 
   void Engine::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
@@ -219,6 +241,15 @@ namespace DCEngine {
     //PauseMenuEnabled = true;    
   }
 
+  void Engine::OnEngineSaveConfigurationsEvent(Events::EngineSaveConfigurations * event)
+  {
+    DCTrace << "Engine::OnEngineSaveConfigurationsEvent - Saving configurations... \n";
+    Configurations.Editor.Save(Systems::EditorConfig::FileName());
+    Configurations.Graphics.Save(Systems::GraphicsConfig::FileName());
+    Configurations.Audio.Save(Systems::AudioConfig::FileName());
+    Configurations.GUI.Save(Systems::GUIConfig::FileName());
+  }
+
   
   
   /**************************************************************************/
@@ -257,9 +288,6 @@ namespace DCEngine {
     for (auto system : Systems) {
       system->Update(dt);
     }
-
-    //if (PauseMenuEnabled)
-    //  PauseMenu();
 
     // Tell window management system to end the frame
     getSystem<Systems::Graphics>()->EndFrame();
@@ -322,6 +350,34 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Deserializes the engine's configuration files.
+  */
+  /**************************************************************************/
+  void Engine::LoadConfigurationFiles(const std::string& configFile)
+  {
+    // Load the engine's configuration from a file
+    EngineConfiguration.reset(new EngineConfig);
+    std::string configString;
+    if (FileSystem::FileReadToString(configFile, configString))
+      Serialization::Deserialize(EngineConfiguration.get(), configString);
+    else
+      DCTrace << "Engine::LoadConfigurationFiles - Failed to deserialize engine configuration! \n";
+
+    // Load the Graphics Config
+    LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
+    // Load the Audio Config
+    LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
+    // Load the Debug Config
+    LoadConfiguration(Configurations.Debug, Systems::DebugConfig::FileName());
+    // Load the GUI Config
+    LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
+    // Load the Editor Config
+    LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
+
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Registers this Action to the engine's ActioNSpace.
   @param A reference to the action.
   */
@@ -371,22 +427,64 @@ namespace DCEngine {
     // Initialize the gamesession. (This will initialize its spaces,
     // and later, its gameobjects)
     CurrentGameSession->Initialize();
-
   }
-
   
   /**************************************************************************/
   /*!
-  @brief  Loads the engine's configuration from a file.
-  @return Success of the operation.
-  @note   If this operation fails, the engine will stop its initialize.
+  @brief Connects an object to an event on an entity.
+  @param eventName The name of the event.
+  @param publisher A reference to the entity to connect to.
+  @param deleg A pointer to the delegate.
+  @param inst The instance of the object which will connect.
+  @note This method is routed to by both C++ and Zilch components.
   */
   /**************************************************************************/
-  bool Engine::LoadEngineConfig()
+  void Engine::ConnectTo(const std::string & eventName, Entity* publisher, EventDelegate * deleg, Component * inst)
   {
-    return false;
+    // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
+    publisher->ObserverRegistryByString[eventName].emplace_back(deleg);
+    // Add a pointer to the publishing entity in the component
+    inst->ActiveDelegateHolders.push_back(publisher);
   }
 
+  /**************************************************************************/
+  /*!
+  @brief Connects a ZilchComponent.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  //void Engine::ZilchConnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  //{
+  //  auto eventType = call.Get<Zilch::String>(0);
+  //  auto& deleg = call.GetDelegate(1);
+  //  // Gets the pointers needed
+  //  auto publisher = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+  //  auto observer = reinterpret_cast<Component*>(deleg.ThisHandle.Dereference());
+  //  // Creates the delegate to be added to the entity
+  //  auto zilchFnDeleg = new EventZilchFunctionDelegate();
+  //  zilchFnDeleg->State = call.GetState();
+  //  zilchFnDeleg->Delegate = deleg;
+
+  //  ConnectTo(eventType.c_str(), publisher, zilchFnDeleg, observer);
+  //}
+
+  /**************************************************************************/
+  /*!
+  @brief Disconnects a ZilchComponent from a particular event on an entity.
+  @param call A reference to the call object.
+  @param report A reference to the report object.
+  */
+  /**************************************************************************/
+  void Engine::ZilchDisconnect(Zilch::Call & call, Zilch::ExceptionReport & report)
+  {
+  }
+
+  void Engine::Test()
+  {
+    DCTrace << "Engine::Test \n";
+  }
+  
   /**************************************************************************/
   /*!
   @brief  Loads the GameSession's default space

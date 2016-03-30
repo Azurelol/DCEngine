@@ -32,6 +32,8 @@ namespace DCEngine {
 
   namespace Systems {
 
+    
+
     class Editor : public System {
       friend class Engine;
       // Modules. @toodo I would prefer not to friend all my modules to give them private access.
@@ -40,6 +42,8 @@ namespace DCEngine {
       friend class EditorResources;
       friend class EditorProjects;
       friend class EditorInspector;
+      friend class EditorTextEditor;
+      friend class EditorObjects;
 
     public:
 
@@ -81,8 +85,9 @@ namespace DCEngine {
       void TransformDrag(Vec2&);
       void TransformDragRelease();      
       // Settings
-      EditorConfig Settings;
+      EditorConfig& Settings;
       // Modules
+      EditorSelector Selector;
       EditorCreator Creator;
       EditorResources Resources;
       EditorArchetypes Archetypes;
@@ -91,6 +96,8 @@ namespace DCEngine {
       EditorDiagnostics Diagnostics;
       EditorTextEditor TextEditor;
       EditorInspector Inspector;
+      EditorPreferences Preferences;
+      EditorObjects Objects;
       std::vector<EditorModulePtr> ActiveModules;
 
       TransformToolData Transformation;
@@ -104,15 +111,10 @@ namespace DCEngine {
       // Windows
       void DisplayMainMenuBar();
       void WidgetLevel();
-      // Objects
-      void WindowObjects();
-      void ObjectsListSwapPosition(GameObjectPtr, Direction);
       // Tools
       void WindowTools();
       // Library
       void WindowLibrary();
-      //template <typename ResourceMap> void DisplayResourceTree(std::string resourceName, ResourceMap resourceMap, Delegate* function);
-      void WindowDiagnostics();
       void WindowSaveLevel();
       void WindowLoadLevel();
       void WindowConsole();
@@ -187,13 +189,14 @@ namespace DCEngine {
       void UpdateCaption();
       void PanCamera(Vec2&);
       void DrawGrid();
+      void ToggleLightning();
       // Create
       // Processes      
       void LaunchProjectFolder();
       void LaunchDocumentation();
       // CTOR
       void WindowSplashScreen();
-      Editor(EditorConfig settings);
+      Editor(EditorConfig& settings);
       void Initialize();
       void Subscribe();
       void Update(float dt);

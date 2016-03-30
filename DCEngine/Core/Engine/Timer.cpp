@@ -74,12 +74,7 @@ namespace DCEngine {
       return false;
 
     }
-
-    /**************************************************************************/
-    /*!
-    @brief Records the elapsed time of the function.
-    */
-    /**************************************************************************/
+    
     void FunctionTimer::Record()
     {
       EndTime = Time::clock::now();

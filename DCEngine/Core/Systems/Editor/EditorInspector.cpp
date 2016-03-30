@@ -15,6 +15,7 @@
 
 namespace DCEngine {
   namespace Systems {
+
     /**************************************************************************/
     /*!
     \brief  Displays the  inspector window.
@@ -25,25 +26,23 @@ namespace DCEngine {
       if (!WindowEnabled)
         return;
 
-      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(200, 300), ImGuiSetCond_FirstUseEver | ImGuiWindowFlags_ShowBorders);
       ImGui::Begin("Properties", &WindowEnabled);
 
       // If there's an object selected, display its properties.
-      if (EditorRef.SelectedObject() != nullptr) {
+      if (Access().SelectedObject() != nullptr) {
         // If the object is an entity
-        if (auto entity = dynamic_cast<EntityPtr>(EditorRef.SelectedObject())) {
+        if (auto entity = dynamic_cast<EntityPtr>(Access().SelectedObject())) {
           DisplayEntityProperties(entity);
         }
         // If the object is a resource
-        else if (auto resource = dynamic_cast<ResourcePtr>(EditorRef.SelectedObject())) {
+        else if (auto resource = dynamic_cast<ResourcePtr>(Access().SelectedObject())) {
           DisplayResourceProperties(resource);
         }
       }
 
       ImGui::End();
     }
-
-
 
     /**************************************************************************/
     /*!
@@ -76,14 +75,14 @@ namespace DCEngine {
       // Upload to Archetype
       if (ImGui::Button("Upload to Archetype")) {
         DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
-        EditorRef.Archetypes.UploadArchetype(selectedEntity->getArchetype());
+        Access().Archetypes.UploadArchetype(selectedEntity->getArchetype());
         //SaveArchetype(selectedEntity->getArchetype());
       }
       ImGui::SameLine();
       // Revert to Archetype
       if (ImGui::Button("Revert to Archetype")) {
         DCTrace << "Editor::WindowProperties - Reverting to Archetype \n";
-        EditorRef.Archetypes.RevertToArchetype(selectedEntity);
+        Access().Archetypes.RevertToArchetype(selectedEntity);
         return;
       }
 
@@ -95,12 +94,12 @@ namespace DCEngine {
       ImGui::Separator();
       ImGui::TextColored(ImVec4(0, 0.5, 1, 1), "Components: ");
       unsigned int inputID = 0;
-      for (auto &component : selectedEntity->AllComponents()) {
+      for (auto& componentHandle : selectedEntity->AllComponentsByHandle()) {
+        auto component = Component::Dereference(componentHandle);
         if (ImGui::TreeNode(component->Name().c_str())) {
-          //ImGui::SetWindowFocus();
           // 3. If the user clicks on a tree-node, display the commponent's properties
           //    through reflection
-          modified = DisplayProperties(component);
+          modified = DisplayProperties(component, componentHandle);
           ImGui::TreePop();
         }
         ImGui::SameLine();
@@ -110,7 +109,7 @@ namespace DCEngine {
         if (ImGui::Button("X")) {
           DCTrace << "Editor::DisplayEntityProperties - Removing component: '" << component->Name()
             << "' from " << selectedEntity->Name() << "\n";
-          component->Destroy();
+          component->Destroy(); // Need to destroy the Zilch-component too.
           //selectedEntity->RemoveComponentByName(component->getObjectName());
         }
         ImGui::PopID();
@@ -121,8 +120,10 @@ namespace DCEngine {
       ///////////////////////////////////////////
       bool componentAdded = AddComponent(selectedEntity);
       // If the entity was modified or a componen was added, save the level
-      if (modified || componentAdded)
-        EditorRef.SaveCurrentLevel();
+      if (modified || componentAdded) {
+        selectedEntity->setModifiedFromArchetype(true);
+        Access().SaveCurrentLevel();
+      }
     }
 
     /**************************************************************************/
@@ -156,13 +157,13 @@ namespace DCEngine {
     {
       if (auto shader = dynamic_cast<Shader*>(resource)) {
         if (!shader->Read(Shader::Type::Vertex).empty())
-          if (ImGui::Button("Vertex")) EditorRef.TextEditor.Load(shader, Shader::Type::Vertex);
+          if (ImGui::Button("Vertex")) Access().TextEditor.Load(shader, Shader::Type::Vertex);
 
         if (!shader->Read(Shader::Type::Fragment).empty())
-          if (ImGui::Button("Fragment")) EditorRef.TextEditor.Load(shader, Shader::Type::Fragment);
+          if (ImGui::Button("Fragment")) Access().TextEditor.Load(shader, Shader::Type::Fragment);
 
         if (!shader->Read(Shader::Type::Geometry).empty())
-          if (ImGui::Button("Geometry")) EditorRef.TextEditor.Load(shader, Shader::Type::Geometry);
+          if (ImGui::Button("Geometry")) Access().TextEditor.Load(shader, Shader::Type::Geometry);
       }
 
       if (auto bank = dynamic_cast<Bank*>(resource)) {
@@ -227,7 +228,8 @@ namespace DCEngine {
       static std::vector<Zilch::BoundType*> components;
       static std::vector<const char*> componentNames;
       // Scan for components only when need be
-      if (!Scanned) {
+      if (1) {
+      //if (!Scanned) {
         componentNames.clear();
         components = Daisy->getSystem<Systems::Reflection>()->AllComponents();
         for (auto component : components) {
@@ -237,7 +239,7 @@ namespace DCEngine {
 
           // Components to skip
           bool skip = false;
-          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical" };
+          std::vector<std::string> skippableComponents{ "Component", "Collider", "Graphical", "ZilchComponent" };
           //skippableComponents.push_back(std::string("ZilchComponet"));
           for (auto& name : skippableComponents) {
             auto componentName = std::string(component->Name.c_str());
@@ -251,8 +253,8 @@ namespace DCEngine {
 
           // If it's a Zilch component, we need to do more to get its underlying type
           if (Zilch::TypeBinding::IsA(component, ZilchComponent::ZilchGetStaticType())) {
+            //componentNames.push_back(component->Name.c_str());
             componentNames.push_back(component->Name.c_str());
-            auto name = component->Name.c_str();
           }
 
           // If it's a C++ component, it's less cumbersome...
@@ -308,7 +310,7 @@ namespace DCEngine {
     @brief  Constructor.
     */
     /**************************************************************************/
-    EditorInspector::EditorInspector(Editor & editor) : EditorModule(editor, true)
+    EditorInspector::EditorInspector() : EditorModule(true)
     {
     }
   }

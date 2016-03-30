@@ -15,17 +15,21 @@
 
 // Base class
 #include "Object.h"
-// Libraries
-#include <map>
-#include <list>
 // Headers
 #include "Component.h"
 //#include "..\ComponentsInclude.h" // Entities need to know of componnets
-#include "../Engine/Event.h"
+#include "Event.h"
 #include "..\EventsInclude.h"
 #include "..\Systems\Serialization\Serialization.h"
 #include "../Engine/Types.h"
 #include "../Engine/Action.h"
+// Macros
+#define DCE_ENTITY_GET_COMPONENT(ComponentName)                    \
+  Components::ComponentName* get##ComponentName() {                            \
+    return this->getComponent<Components::ComponentName>();                    \
+  }
+#define DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(ComponentName)    \
+ZilchBindProperty(builder, type, &Entity::get##ComponentName, ZilchNoSetter, "" #ComponentName)
 
 namespace DCEngine {
 
@@ -38,6 +42,11 @@ namespace DCEngine {
   class Engine; // The engine has complete access to entities.
   class Space;
   class GameSession;
+  
+  // Pointers
+  class Entity;
+  using EntityPtr = Entity*;
+  using EntityVec = std::vector<EntityPtr>;
 
   class Entity : public Object {
     friend class Engine;
@@ -45,6 +54,7 @@ namespace DCEngine {
 
   public:
 
+    static EntityPtr IsA(ObjectPtr object);
     ZilchDeclareDerivedType(Entity, Object);
     Entity(std::string name);
     ~Entity();
@@ -52,33 +62,47 @@ namespace DCEngine {
     void Terminate();
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
-
-    // Properties
+    void Rebuild();
+    // Properties    
     void setArchetype(std::string);
     std::string getArchetype() const;
+    DCE_DEFINE_PROPERTY(bool, ModifiedFromArchetype);
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);
-    bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);
-    //template <typename ComponentClass> bool AddComponent(bool initialize = false);
+    bool AddComponentByType(Zilch::BoundType* boundType, bool initialize = false);    
     template <typename ComponentClass> ComponentClass* getComponent();
+    ComponentPtr getComponent(const std::string& name);
+    ComponentPtr getComponent(Zilch::BoundType* type);
     template <typename ComponentClass> bool HasComponent();
-    bool HasComponent(const std::string& name);
+    bool HasComponent(const std::string& name);    
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveAllComponents();
     void RemoveComponentByName(std::string componentName);
-    void RemoveComponent(ComponentPtr component);
+    void RemoveComponent(ComponentPtr component);    
     ComponentVec AllComponents();
+    ComponentHandleVec& AllComponentsByHandle();
+    
     void Swap(ComponentPtr, Direction);
     void SwapToBack(ComponentPtr);
-
     // Events
     template <typename EventClass> void Dispatch(Event* eventObj);
+    void Dispatch(std::string eventID, Event* event);
+    void Dispatch(Event* eventObj);
     template <typename EventClass> void DispatchUp(Event* eventObj);
     template <typename EventClass> void DispatchDown(Event* eventObj);
+    void RegisterListener(Zilch::Call & call, Zilch::ExceptionReport & report);
+    EventDelegatesInfo PeekEvents();
     EntityType Type() { return type_; }
     // Actions
     ActionsOwner Actions;
+    ActionsOwner& getActions() { return this->Actions; }
+    // Components as properties
+    Components::Transform* getTransform() { return getComponent<Components::Transform>(); }
+    //DCE_ENTITY_GET_COMPONENT(Transform);
+    //DCE_ENTITY_GET_COMPONENT(Sprite);
+    //DCE_ENTITY_GET_COMPONENT(RigidBody);
+    //DCE_ENTITY_GET_COMPONENT(BoxCollider);
 
   protected:
 
@@ -88,23 +112,22 @@ namespace DCEngine {
 
   private:
 
-    //! Use a vector here instead perhaps?
-    std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>> ObserverRegistry;
-    std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
     std::string ArchetypeName;
-    bool IsInitialized = false;
+    bool IsInitialized;
+    bool ModifiedFromArchetype;
+    // Events
+    ObserverRegistryMapStr ObserverRegistryByString;
+    ObserverRegistryMapTypeIndex ObserverRegistry;
+    std::map<unsigned int, std::list<DCEngine::Component*>> RemovalRegistry;
 
-    // Methods
-    ComponentHandle GetComponentHandle(ComponentPtr component);
-    template <typename GenericEvent, typename GenericComponent>
-    unsigned int RegisterListener(GenericComponent*, void (GenericComponent::*)(DCEngine::Event*));
-    template <typename Class> void DeregisterObserver(Class* observer);
+    template <typename Class> void DeregisterObserver(Class* observer);    
     void InformObserversOfDeath();
+    // Components
+    ComponentHandle GetComponentHandle(ComponentPtr component);
 
   };
 
-  using EntityPtr = Entity*;
-  using EntityVec = std::vector<EntityPtr>;
+
 }
 
 #include "Entity.hpp"

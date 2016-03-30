@@ -29,8 +29,6 @@ namespace DCEngine {
 
       ChargeBar(Entity& owner) : Component(std::string("ChargeBar"), owner) {}
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
       void OnMouseDownEvent(Events::MouseDown* event);
       void OnMouseUpEvent(Events::MouseUp* event);
       void ChargeBar::OnLogicUpdateEvent(Events::LogicUpdate * event);

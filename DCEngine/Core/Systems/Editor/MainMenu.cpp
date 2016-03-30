@@ -34,7 +34,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Open Project")) OpenProject();
           if (ImGui::MenuItem("Save Project")) Projects.SaveProject();
           if (ImGui::MenuItem("Show Project Folder")) LaunchProjectFolder();
-          if (ImGui::MenuItem("Project Properties")) Projects.ToggleProperties();
+          if (ImGui::MenuItem("Project Properties")) Projects.Toggle();
           ImGui::Separator();
           if (ImGui::MenuItem("Play Game", "F5")) PlayGame();
           if (ImGui::MenuItem("Stop Game")) StopGame();
@@ -53,6 +53,11 @@ namespace DCEngine {
           ImGui::Separator();
           if (ImGui::MenuItem("Duplicate", "CTRL+D")) { Duplicate(); }
           if (ImGui::MenuItem("Delete", "Del")) { DeleteObject(); }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Lock All")) { Selector.LockAll(); }
+          if (ImGui::MenuItem("Unlock All")) { Selector.UnlockAll(); }
+          ImGui::Separator();
+          if (ImGui::MenuItem("Preferences", "F10")) { Preferences.Toggle(true); }
           ImGui::EndMenu();
         }
 
@@ -103,10 +108,6 @@ namespace DCEngine {
             Windows.SaveLevelEnabled = !Windows.SaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))
             ReloadLevel();
-          //ImGui::Separator();
-          /*if (ImGui::MenuItem("Load Dollhouse"))
-            LoadDollhouse();*/
-            //ReloadLevel();
           ImGui::EndMenu();
         }
 
@@ -117,7 +118,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Library"))
             Windows.LibraryEnabled = !Windows.LibraryEnabled;
           if (ImGui::MenuItem("Objects"))
-            Windows.ObjectsEnabled = !Windows.ObjectsEnabled;
+            Objects.Toggle(true);
           if (ImGui::MenuItem("Tools"))
             Windows.ToolsEnabled = !Windows.ToolsEnabled;
           if (ImGui::MenuItem("Diagnostics"))
@@ -148,7 +149,7 @@ namespace DCEngine {
         }
                 
         if (ImGui::Button("Lightning")) {
-          Settings.LightningEnabled = !Settings.LightningEnabled;
+          DispatchSystemEvents::GraphicsToggleLightning();
         }
 
         ImGui::EndMainMenuBar();

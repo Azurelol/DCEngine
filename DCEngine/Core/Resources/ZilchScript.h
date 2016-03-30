@@ -14,6 +14,9 @@
 
 namespace DCEngine {
 
+  class ZilchScript;
+  using ZilchScriptPtr = std::shared_ptr<ZilchScript>;
+
   class ZilchScript : public Resource {
   public:
 
@@ -21,7 +24,8 @@ namespace DCEngine {
     ZilchScript(std::string scriptFile);
     ~ZilchScript();
     static std::string Extension() { return ".Zilch"; }
-    void Save(std::string& serializedData);
+    void Save(const std::string& serializedData);
+    static ZilchScriptPtr Find(const std::string& scriptName);
     const std::string& Read();
     bool Load();
     bool BuildDefaultFromTemplate();
@@ -31,7 +35,6 @@ namespace DCEngine {
 
   };
 
-  using ZilchScriptPtr = std::shared_ptr<ZilchScript>;
 
 }
 

@@ -27,6 +27,7 @@ namespace DCEngine {
       if (!Windows.ConsoleEnabled)
         return;
 
+      ImGui::SetNextWindowPosCenter(ImGuiSetCond_Once);
       ImGui::Begin("Console", &Windows.ConsoleEnabled);
 
       Settings.ConsoleWindowStringLength = strlen(DCEngine::Debug::traceObj->stream.str().c_str());

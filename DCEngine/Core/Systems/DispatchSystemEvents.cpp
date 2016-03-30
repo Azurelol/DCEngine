@@ -43,9 +43,17 @@ namespace DCEngine {
       delete exitEvent;
     }
 
-    void DispatchSystemEvents::EditorInitialize()
+    void DispatchSystemEvents::EngineSaveConfigurations()
+    {
+      auto exitEvent = new Events::EngineSaveConfigurations();
+      Daisy->Dispatch<Events::EngineSaveConfigurations>(exitEvent);
+      delete exitEvent;
+    }
+
+    void DispatchSystemEvents::EditorInitialize(Editor& editor)
     {
       auto event = new Events::EditorInitialize;
+      event->Reference = &editor;
       Daisy->Dispatch<Events::EditorInitialize>(event);
       delete event;
     }
@@ -69,6 +77,13 @@ namespace DCEngine {
     {
       auto event = new Events::EditorSave;
       Daisy->Dispatch<Events::EditorSave>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::EditorRebuildZilchComponents()
+    {
+      auto event = new Events::EditorRebuildZilchComponents;
+      Daisy->Dispatch<Events::EditorRebuildZilchComponents>(event);
       delete event;
     }
 
@@ -101,10 +116,104 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::GraphicsCompileShadersError(const std::string& message)
+    {
+      auto event = new Events::GraphicsCompileShadersError();
+      event->ErrorMessage = message;
+      Daisy->Dispatch<Events::GraphicsCompileShadersError>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::GraphicsToggleLightning()
+    {
+      auto event = new Events::GraphicsToggleLightning();
+      Daisy->Dispatch<Events::GraphicsToggleLightning>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::ScriptingCompile()
     {
       auto event = new Events::ScriptingCompileScripts();
       Daisy->Dispatch<Events::ScriptingCompileScripts>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingLibraryPatched()
+    {
+      auto event = new Events::ScriptingLibraryPatched();
+      Daisy->Dispatch<Events::ScriptingLibraryPatched>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingLibraryAboutToCompile()
+    {
+      auto event = new Events::ScriptingLibraryAboutToCompile();
+      Daisy->Dispatch<Events::ScriptingLibraryAboutToCompile>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingLibraryCompiled()
+    {
+      auto event = new Events::ScriptingLibraryCompiled();
+      Daisy->Dispatch<Events::ScriptingLibraryCompiled>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ScriptingErrorMessage(const std::string & message)
+    {
+      auto event = new Events::ScriptingErrorMessage();
+      event->Message = message;
+      Daisy->Dispatch<Events::ScriptingErrorMessage>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileMoved(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileMoved();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileMoved>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileUpdated(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileUpdated();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileUpdated>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileFound(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileFound();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileFound>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileDeleted(const std::string & fileName)
+    {
+      auto event = new Events::ContentFileDeleted();
+      event->FileName = FileSystem::FileNoExtension(fileName);
+      event->Extension = FileSystem::FileExtension(fileName);
+      Daisy->Dispatch<Events::ContentFileDeleted>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentFileScanComplete()
+    {
+      auto event = new Events::ContentFileScanComplete();;
+      Daisy->Dispatch<Events::ContentFileScanComplete>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::ContentProjectLoaded()
+    {
+      auto event = new Events::ContentProjectLoaded();;
+      Daisy->Dispatch<Events::ContentProjectLoaded>(event);
       delete event;
     }
 

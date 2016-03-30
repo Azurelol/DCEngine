@@ -1,3 +1,12 @@
+/******************************************************************************/
+/*!
+@file   Windows.cpp
+@author Christian Sagel
+@par    email: c.sagel\@digipen.edu
+@date   3/6/2016
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/
+/******************************************************************************/
 #include "Windows.h"
 
 #include "../../Engine/Engine.h"
@@ -18,10 +27,11 @@ namespace DCEngine {
     void Windows::PopUp::Display()
     {
       // Open the PopUp
-      ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowSize(ImVec2(250, 200), ImGuiWindowFlags_AlwaysAutoResize | 
+                                                 ImGuiWindowFlags_ShowBorders);
       ImGui::OpenPopup(Data.Title.c_str());
-
-      if (ImGui::BeginPopupModal(Data.Title.c_str())) {
+      
+      if (ImGui::BeginPopupModal(Data.Title.c_str(), bool(), ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_ShowBorders)) {
         ImGui::Text(Data.Message.c_str());
 
         // Close the PopUp

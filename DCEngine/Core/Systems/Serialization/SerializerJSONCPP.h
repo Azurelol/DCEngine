@@ -22,7 +22,8 @@ namespace DCEngine {
 
   class SerializerJSONCPP {
   public:
-    
+
+    // Object Pointer
     template <typename ClassType>
     static bool Serialize(ClassType* object, std::string& output) {
       if (object == NULL)
@@ -35,6 +36,18 @@ namespace DCEngine {
       return true;
     }
 
+    // Object Reference
+    template <typename ClassType>
+    static bool Serialize(ClassType& object, std::string& output) {
+      Json::Value serializeRoot;
+      object.Serialize(serializeRoot);
+
+      Json::StyledWriter writer;
+      output = writer.write(serializeRoot);
+      return true;
+    }
+
+    // Object Pointer
     template <typename ClassType>
     static bool Deserialize(ClassType* object, const std::string& input) {
       Json::Value deserializeRoot;
@@ -46,10 +59,27 @@ namespace DCEngine {
         //  DCTrace << error;
         //}
         return false;
-      }
-        
+      }        
 
       object->Deserialize(deserializeRoot);
+      return true;
+    }
+
+    // Object Reference
+    template <typename ClassType>
+    static bool Deserialize(ClassType& object, const std::string& input) {
+      Json::Value deserializeRoot;
+      Json::Reader reader;
+
+      if (!reader.parse(input, deserializeRoot)) {
+        DCTrace << "SerializerJSONCPP::Deserialize - Failed due to: \n";
+        //for (auto error : reader.parse.errors_) {
+        //  DCTrace << error;
+        //}
+        return false;
+      }
+
+      object.Deserialize(deserializeRoot);
       return true;
     }
 

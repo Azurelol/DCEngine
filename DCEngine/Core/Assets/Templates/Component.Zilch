@@ -1,11 +1,11 @@
 class Script : ZilchComponent
 {
-    function Initialize(init : CogInitializer)
+    function Initialize()
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
     }
 
-    function OnLogicUpdate(event : UpdateEvent)
+    function OnLogicUpdate(event : LogicUpdate)
     {
     }
 }

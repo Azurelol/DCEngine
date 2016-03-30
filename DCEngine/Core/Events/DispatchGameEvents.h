@@ -13,8 +13,16 @@ uses.
 
 namespace DCEngine {
 
+  // Forward declarations
+  class Entity;
+  class Space;
+  class GameSession;
+
     class DispatchGameEvents {
-    public:
+    public:      
+      static void ObjectInitializer(Entity* entity, Entity* parent, Space* space, GameSession* gameSession);
+      static void AllObjectsInitialized(Entity* entity);
+
       // When the window gains focus
       static void GameFocusIn();
       // When the window loses focus

@@ -18,32 +18,29 @@ another. This component interacts directly with the physics system.
 namespace DCEngine {
   namespace Components
   {
-    /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+     /**************************************************************************/
+     /*!
+     @brief Provides the definition of this class to Zilch.
+     @note This can only go in the translational unit (.cpp)
+     */
+     /**************************************************************************/
     ZilchDefineType(BoxCollider, "BoxCollider", DCEngineCore, builder, type) {
-      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
-      DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(BoxCollider);
-      //ZilchBindConstructor(builder, type, BoxCollider, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, BoxCollider);
-      // Properties
-      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, PhysicsMaterial);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyPhysicsMaterial, attributePhysicsMaterial);
+      // Resources Properties
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(PhysicsMaterial);
+      DCE_BINDING_DEFINE_ATTRIBUTE(CollisionGroup);   
       DCE_BINDING_DEFINE_PROPERTY(BoxCollider, CollisionGroup);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyCollisionGroup, attributeCollisionGroup);
-      ZilchBindProperty(builder, type, &BoxCollider::getSize, &BoxCollider::setSize, "Size");
-      ZilchBindProperty(builder, type, &BoxCollider::getOffset, &BoxCollider::setOffset, "Offset");
-      ZilchBindProperty(builder, type, &BoxCollider::getGhost, &BoxCollider::setGhost, "Ghost");
-      ZilchBindProperty(builder, type, &BoxCollider::getSendsEvents, &BoxCollider::setSendsEvents, "SendsEvents");
-      ZilchBindProperty(builder, type, &BoxCollider::getIsDrawingCollider, &BoxCollider::setIsDrawingCollider, "IsDrawingCollider");
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, PhysicsMaterial);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyPhysicsMaterial, attributePhysicsMaterial);
+      // Other properties
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, Size);
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, Offset);
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, Ghost);
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, SendsEvents);
+      DCE_BINDING_DEFINE_PROPERTY(BoxCollider, IsDrawingCollider);
     }
-#endif
 
     /**************************************************************************/
     /*!

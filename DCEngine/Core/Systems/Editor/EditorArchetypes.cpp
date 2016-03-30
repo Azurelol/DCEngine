@@ -21,7 +21,7 @@ namespace DCEngine {
 	@param editor A reference to the Editor system.
 	*/
 	/**************************************************************************/
-    EditorArchetypes::EditorArchetypes(Editor & editor) : EditorModule(editor, false), CurrentArchetype(nullptr),
+    EditorArchetypes::EditorArchetypes() : EditorModule(false), CurrentArchetype(nullptr),
                                                           ArchetypeSpace(nullptr)
     {
       Daisy->Connect<Events::EditorDeselectObject>(&EditorArchetypes::OnEditorDeselectObjectEvent, this);
@@ -49,7 +49,7 @@ namespace DCEngine {
     {    
       // Instantiate the archetype
       CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
-	    EditorRef.Select(CurrentArchetype);      
+      Access().Select(CurrentArchetype);
     }
 
     /**************************************************************************/
@@ -73,11 +73,11 @@ namespace DCEngine {
     void EditorArchetypes::UploadArchetype(ArchetypeHandle archetype)
     {
       // Get the current project's archetype path
-      auto path = EditorRef.Settings.ProjectProperties->ProjectPath + EditorRef.Settings.ProjectProperties->ResourcePath
+      auto path = Access().Settings.ProjectProperties->ProjectPath + Access().Settings.ProjectProperties->ResourcePath
                    + archetype + Archetype::Extension();
 
       // Create the archetype
-      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(EditorRef.SelectedObject()));
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(Access().SelectedObject()));
       // Save it
       archetypePtr->Save();
       // Scan for archetypes again
@@ -99,6 +99,12 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Returns the currently selected archetype.
+    @return A pointer to the archetype.
+    */
+    /**************************************************************************/
     GameObject* EditorArchetypes::Current()
     {
       return CurrentArchetype;
@@ -137,10 +143,12 @@ namespace DCEngine {
     void EditorArchetypes::UpdateArchetypeInstances(ArchetypeHandle archetypeName)
     {
       // For every level in the project...
-      for (auto& gameObject : *EditorRef.CurrentSpace->AllObjects()) {
-        // If the GameObject is of the same archetype
-        if (gameObject->getArchetype() == archetypeName)
+      for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
+        // If the GameObject is of the same archetype and has not been modified
+        bool modified = gameObject->getModifiedFromArchetype();
+        if (gameObject->getArchetype() == archetypeName && !modified) {
           RevertToArchetype(gameObject);
+        }
       }
     }
 
@@ -153,7 +161,6 @@ namespace DCEngine {
     void EditorArchetypes::OnEditorDeselectObjectEvent(Events::EditorDeselectObject * event)
     {
       Deselect();
-      DCTrace << "received event!!! \n";
     }
 
 

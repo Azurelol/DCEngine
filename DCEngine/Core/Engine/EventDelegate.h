@@ -32,10 +32,11 @@
 #pragma once
 
 // Libraries
-#include <list> // doubly-linked list
+#include <list>
 #include <functional>
 #include <typeindex>
 #include <typeinfo>
+// Engine
 #include "..\Engine\Types.h"
 
 namespace DCEngine {
@@ -45,7 +46,10 @@ namespace DCEngine {
   class Component;
   class Event;
   class EventDelegate;
-  
+  class ZilchComponent;
+  namespace Systems {
+    class ZilchInterface;
+  }
   /**************************************************************************/
   /*!
   @class EventDelegate Base class for delegates used for the event system.
@@ -59,11 +63,22 @@ namespace DCEngine {
     virtual Object* GetObserver() = 0;
   };
 
+  // Containers
+  using ObserverRegistryMapStr = std::map < std::string, std::list<std::unique_ptr<EventDelegate>>>;
+  using ObserverRegistryMapTypeIndex = std::map<std::type_index, std::list<std::unique_ptr<EventDelegate>>>;
+  struct EventDelegatesInfo {
+    struct EventDelegateInfo {
+      std::string Name;
+      std::vector<std::string> Observers;
+    };
+    std::vector<EventDelegateInfo> Events;
+  };
 
   /**************************************************************************/
   /*!
   @class EventMemberFunctionDelegate Templated class that allows member 
-         functions to connect to an entity's events.
+         functions to connect to an entity's events. This version is used
+         by C++.
   */
   /**************************************************************************/
   template <typename Class, typename EventClass>
@@ -91,11 +106,39 @@ namespace DCEngine {
       (Inst->*FuncPtr)(eventObj);
       return true;
     }
-
-    virtual Object* GetObserver() {
+    Object* GetObserver() {
       return Inst;
     }
+
   };
-  
+
+
+  //// Zilch version
+  //class ScriptDelegate : public EventDelegate {
+  //  void Invoke(Event*);
+  //  Zilch::Delegate* Delegate;
+  //  Zilch::ExecutableState* State;
+  //};
+
+  /**************************************************************************/
+  /*!
+  @class EventZilchFunctionDelegate Templated class that allows member
+  functions to connect to an entity's events. This version is used
+  by C++.
+  */
+  /**************************************************************************/
+  class EventZilchFunctionDelegate : public EventDelegate {
+  public:
+    Zilch::Delegate Delegate;
+    Zilch::ExecutableState* State;
+    virtual bool Call(Event* event);
+    Object* GetObserver();
+  };
+
+
+
+
+
+
 
 }

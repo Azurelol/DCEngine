@@ -19,10 +19,38 @@ entities.
 
 namespace DCEngine {
     
+  /*!************************************************************************\
+  @brief  GameObject Definition
+  \**************************************************************************/
+  ZilchDefineType(GameObject, "GameObject", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindDestructor(builder, type, GameObject);
+    ZilchBindConstructor(builder, type, GameObject, "name, space, gamesession", std::string, Space&, GameSession&);
+    ZilchBindConstructor(builder, type, GameObject, ZilchNoNames);
+    // Methods
+    ZilchBindMethod(builder, type, &GameObject::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::FindChildByName, ZilchNoOverload, "FindChildByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", ZilchNoNames);
+    //ZilchBindMethod(builder, type, &GameObject::Children, ZilchNoOverload, "Children", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachTo, ZilchNoOverload, "AttachTo", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    // Properties
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
+    DCE_BINDING_DEFINE_PROPERTY(GameObject, Locked);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyLocked, attributeHidden);
+    DCE_BINDING_DEFINE_PROPERTY(GameObject, GameObjectID);
+  }
+
   // Initialize the static member variables
   unsigned int GameObject::GameObjectsCreated = 0;
   unsigned int GameObject::GameObjectsDestroyed = 0;
   unsigned int GameObject::GameObjectsActive = 0;
+  std::unordered_set<unsigned int> GameObject::ActiveGameObjectIDs;
   std::string GameObject::GameObjectLastCreated;
   std::string GameObject::GameObjectLastDestroyed;
   // Enable diagnostics
@@ -38,7 +66,7 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
     : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession), ParentRef(nullptr)
-   , GameObjectID(GameObjectsCreated++) 
+   , GameObjectID(GameObjectsCreated++), Locked(false)
   {
 
     if (TRACE_ON && TRACE_CONSTRUCTOR) {
@@ -48,7 +76,8 @@ namespace DCEngine {
         << "\n";
 
     }
-
+       
+    
     type_ = EntityType::GameObject;
 
     // Diagnostics
@@ -119,6 +148,11 @@ namespace DCEngine {
     return GamesessionRef;
   }
 
+  GameObjectPtr GameObject::IsA(EntityPtr entity)
+  {
+    return dynamic_cast<GameObjectPtr>(entity);
+  }
+
 
   /**************************************************************************/
   /*!
@@ -174,6 +208,26 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachTo(GameObjectPtr parent)
   {
+    // If there is no parent
+    if (!parent) {
+      //DCTrace << Name() << "::GameObject: Failed to attach, no parent! \n";
+      return;
+    }
+    // If trying to attach to self
+    if (parent->GameObjectID == this->GameObjectID) {
+      //DCTrace << Name() << "::GameObject: Cannot attach to self! \n";
+      return;
+    }
+    // If trying to attach to a child
+    for (auto& child : ChildrenContainer) {
+      if (child->GameObjectID == parent->GameObjectID) {
+        //DCTrace << Name() << "::GameObject: Cannot attach to child! \n";        
+        return;
+      }
+    }
+
+    // Detach from the current
+    Detach();
     parent->AddChild(GameObjectPtr(this));
   }
 
@@ -186,6 +240,19 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::AttachToRelative(GameObjectPtr parent)
   {
+    // If there is no parent
+    if (!parent)
+      return;
+    // If trying to attach to self
+    if (parent->GameObjectID == this->GameObjectID)
+      return;
+    // If trying to attach to a child
+    for (auto& child : ChildrenContainer) {
+      if (child->GameObjectID == parent->GameObjectID)
+        return;
+    }
+
+    DetachRelative();
     parent->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Components::Transform>()) {
@@ -230,17 +297,46 @@ namespace DCEngine {
   @param builder A reference to the JSON builder.
   @note  This will serialize the GameObject.
   */
-  /**************************************************************************/
+  /**************************************************************************/  
   void GameObject::Serialize(Zilch::JsonBuilder & builder)
   {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+
     // Serialize the type as the key
     builder.Key("GameObject");
-    builder.Begin(Zilch::JsonType::Object); {
+    builder.Begin(Zilch::JsonType::Object); 
+    {
+      // Serialize GameObject properties
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(GameObject), this);
       // Serialize the underlying Entity object, which includes its components.
       Entity::Serialize(builder);
+      // Serialize all its children and their children
+      builder.Key("Children");
+      builder.Begin(Zilch::JsonType::Object);
+      {
+        for (auto& child : ChildrenContainer) {
+          child->Serialize(builder);
+        }
+      }
+      builder.End();
     }
     builder.End();
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Serializes all of the GameObject's children.
+  @param builder A reference to the JSON builder.
+  @param children A reference to the container of all the children
+  @note  This will serialize the GameObject.
+  */
+  /**************************************************************************/
+  void GameObject::SerializeChildren(Zilch::JsonBuilder & builder, GameObjectVec & children)
+  {
+    //for (auto& child : children) {
+    //  child->Serialize(builder);
+    //}
   }
 
   /**************************************************************************/
@@ -257,9 +353,9 @@ namespace DCEngine {
     // Deserialize the underlying Entity
     Entity::Deserialize(properties);
     // Deserialize the GameObject properties
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameObject), this);
   }
-
+  
   /**************************************************************************/
   /*!
   @brief  Marks the GameObject to be destroyed.
@@ -269,6 +365,10 @@ namespace DCEngine {
   {
     // Tell the space to remove this object
     SpaceRef->RemoveObject(*this);
+    // Tell the space to remove all its children
+    for (auto& child : ChildrenContainer) {
+      child->Destroy();
+    }
   }
 
   /**************************************************************************/
@@ -296,10 +396,26 @@ namespace DCEngine {
         child->ParentRef = nullptr;
         std::swap(child, ChildrenContainer.back());
         ChildrenContainer.pop_back();
-		break;
+    break;
       }
 
     }  
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a struct containing data about this GameObject.
+  @return A struct containing the Name, ID, and ParentID.
+  @param  A pointer to a child.
+  */
+  /**************************************************************************/
+  GameObject::Identifier GameObject::Identify()
+  {
+    Identifier identifier;
+    identifier.Name = Name();
+    identifier.ID = GameObjectID;
+    identifier.ParentID = ParentID;
+    return identifier;
   }
 
   /**************************************************************************/

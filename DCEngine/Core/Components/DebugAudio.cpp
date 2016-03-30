@@ -33,6 +33,8 @@ namespace DCEngine {
 
     void DebugAudio::Initialize()
     {
+      Daisy->Connect<Events::KeyDown>(SpaceRef, &DebugAudio::OnKeyDownEvent, this);
+
       Connect(Daisy->getKeyboard(), Events::KeyDown, DebugAudio::OnKeyDownEvent);
       Connect(Daisy->getKeyboard(), Events::KeyUp, DebugAudio::OnKeyUpEvent);
     }

@@ -45,7 +45,7 @@ namespace DCEngine {
 
     builder.Key("Properties");
     builder.Begin(Zilch::JsonType::Object);
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
+    SerializeByType(builder, interface->GetState(), this->ZilchGetDerivedType(), this);
     builder.End();
   }
 
@@ -59,7 +59,7 @@ namespace DCEngine {
   void Resource::Deserialize(Zilch::JsonValue * properties)
   {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
   }
 
   /**************************************************************************/
@@ -106,7 +106,7 @@ namespace DCEngine {
   @param  resourcePath The path of the file containing the resource on disk.
   */
   /**************************************************************************/
-  void Resource::Save(std::string & serializedData)
+  void Resource::Save(const std::string & serializedData)
   {
     SerializedData = serializedData;
     FileSystem::FileWriteString(ResourcePath, SerializedData);

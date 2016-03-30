@@ -9,13 +9,29 @@
 */
 /******************************************************************************/
 #pragma once
+#include "../../Binding/CoreBindingEventStrings.h"
 
 namespace DCEngine {
+    
+  class Component;
+  class Event;
+  
   namespace Systems {
 
-    class StringArray {
-
+    class ZilchInterface;
+    class StringArray {};
+    struct ComponentData {
+      Zilch::BoundType* Type;
+      ZilchInterface* Interface;
     };
+
+    // Components
+    Component* GetComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void GetNativeComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void GetZilchComponent(Zilch::Call& call, Zilch::ExceptionReport& report);
+    // Events
+    Zilch::String GetEventName(Zilch::Call& call, Zilch::ExceptionReport& report);
+    void GetZilchEvent(Zilch::Call& call, Zilch::ExceptionReport& report);
 
   }
 }

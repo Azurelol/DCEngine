@@ -45,6 +45,15 @@ namespace DCEngine {
       return SerializerJSONCPP::Deserialize(object, input);
     }
 
+    template <typename ClassType>
+    static bool Serialize(ClassType& object, std::string& output) {
+      return SerializerJSONCPP::Serialize(object, output);
+    }
+    template <typename ClassType>
+    static bool Deserialize(ClassType& object, const std::string& input) {
+      return SerializerJSONCPP::Deserialize(object, input);
+    }
+
 
 
 

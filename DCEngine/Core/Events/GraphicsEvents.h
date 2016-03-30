@@ -16,10 +16,13 @@ namespace DCEngine {
   namespace Events {
 
     class FullscreenEnabledEvent : public Event {
+    public:
+      FullscreenEnabledEvent() : Event("FullscreenEnabledEvent") {}
     };
 
     class ResizeViewportEvent : public Event {
     public:
+      ResizeViewportEvent() : Event("ResizeViewportEvent") {}
       Vec2 viewportScale;
     };
 

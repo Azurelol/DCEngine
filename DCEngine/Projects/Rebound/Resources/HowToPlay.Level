@@ -7,6 +7,8 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 153, 
         "Name": "Camera", 
         "Archetype": "Camera", 
         "Components": 
@@ -53,6 +55,8 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 154, 
         "Name": "Light", 
         "Archetype": "", 
         "Components": 
@@ -123,6 +127,8 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 155, 
         "Name": "Sprite", 
         "Archetype": "", 
         "Components": 
@@ -181,6 +187,8 @@
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 156, 
         "Name": "BackButtonHTP", 
         "Archetype": "", 
         "Components": 

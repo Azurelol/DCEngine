@@ -25,6 +25,24 @@ namespace DCEngine {
   bool SoundInstance::ReleaseOnDestroyed = true;
   bool SoundInstance::StopOnDestroyed = false;
 
+  /*!************************************************************************\
+  @brief  Zilch Component Definition
+  \**************************************************************************/
+  ZilchDefineType(SoundInstance, "SoundInstance", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor    
+    ZilchBindDestructor(builder, type, SoundInstance);
+    // Methods
+    ZilchBindMethod(builder, type, &SoundInstance::SetParameter, ZilchNoOverload, "SetParameter", "parameter, value");
+    ZilchBindMethod(builder, type, &SoundInstance::InterpolateVolume, ZilchNoOverload, "InterpolateVolume", "newVolume, time");
+    ZilchBindMethod(builder, type, &SoundInstance::InterpolatePitch, ZilchNoOverload, "InterpolatePitch", "newPitch, time");
+    ZilchBindMethod(builder, type, &SoundInstance::Resume, ZilchNoOverload, "Resume", ZilchNoNames);
+    ZilchBindMethod(builder, type, &SoundInstance::Pause, ZilchNoOverload, "Pause", ZilchNoNames);
+    ZilchBindMethod(builder, type, &SoundInstance::Stop, ZilchNoOverload, "Stop", ZilchNoNames);
+    ZilchBindMethod(builder, type, &SoundInstance::IsPlaying, ZilchNoOverload, "IsPlaying", ZilchNoNames);
+    // Properties
+  }
+
   /**************************************************************************/
   /*!
   @brief  SoundInstance constructor.
@@ -147,7 +165,7 @@ namespace DCEngine {
   @param  parameter The event parameter.
   */
   /**************************************************************************/
-  void SoundInstance::SetParameter(Systems::EventParameterHandle parameter, float value)
+  void SoundInstance::SetParameter(String parameter, float value)
   {
     if (SoundHandle.EventInstance)
       SoundHandle.EventInstance->setParameterValue(parameter.c_str(), value);

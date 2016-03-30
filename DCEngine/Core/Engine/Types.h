@@ -44,12 +44,38 @@ namespace DCEngine {
     GUI,
     Keyboard,
     Mouse,
-
     // The amount of systems
     Capacity
   };
   // Alias for the enum
   using ESys = EnumeratedSystem;
+
+  enum class ResourceType {
+    None,
+    Archetype,
+    Bank,
+    CollisionGroup,
+    CollisionTable,
+    Font,
+    Level,
+    Material,
+    PhysicsMaterial,
+    SoundCue,
+    SpriteSource,
+    SpriteLayer,
+    SpriteLayerOrder,
+    ZilchScript,
+  };
+
+  enum class Ease {
+    Linear,
+    QuadIn,
+    QuadInOut,
+    QuadOut,
+    SinIn,
+    SinInOut,
+    SinOut,
+  };
 
   enum class Direction {
     None,
@@ -142,6 +168,9 @@ namespace DCEngine {
   using String = std::string;
   using Boolean = bool;
   using Integer = int;
+  using Integer2 = glm::i64vec2;
+  using Integer3 = glm::i64vec3;
+  using Integer4 = glm::i64vec4;
   using Real = float;
   using Vec2 = glm::vec2;
   using Vec3 = glm::vec3;
@@ -170,22 +199,6 @@ namespace DCEngine {
     GLboolean lastEnableScissorTest;
   };
 
-  enum class ResourceType {
-    None,
-    Archetype,
-    Bank,
-    CollisionGroup,
-    CollisionTable,
-    Font,
-    Level,
-    Material,
-    PhysicsMaterial,
-    SoundCue,
-    SpriteSource,
-    SpriteLayer,
-    SpriteLayerOrder,
-    ZilchScript,
-  };
 
   struct TransformData {
     Vec3 Translation;

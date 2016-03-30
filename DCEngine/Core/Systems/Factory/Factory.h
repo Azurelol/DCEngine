@@ -34,32 +34,38 @@ namespace DCEngine {
     class Factory : public System {    
       friend class Engine;
 
-    public:                  
+    public:             
+
       // GameObjects
       GameObjectPtr CreateGameObject(std::string name, Space& space, bool init); 
       GameObjectPtr CreateGameObject(ArchetypePtr archetype, Space& space, bool init);  
       GameObjectPtr BuildGameObject(SerializedMember* data, Space& space);
       EntityPtr BuildEntity(EntityPtr entity, SerializedMember* objectData);      
+      // Archetypes
+      using EntityBuildData = std::pair<EntityPtr, ArchetypePtr>;
+      ArchetypePtr BuildArchetype(std::string, EntityPtr);
       void BuildFromArchetype(EntityPtr entity, ArchetypePtr archetype);
+      GameObjectPtr BuildGameObjectFromArchetype(ArchetypePtr archetype, Space& space, bool init);
       void RebuildFromArchetype(EntityPtr entity);
-      void MarkGameObject(GameObject& gameObj);
-      void DestroyGameObjects();      
+      void Rebuild(EntityBuildData data);
       // Spaces
       void MarkSpace(Space&);
       void DestroySpaces();
       bool BuildFromLevel(LevelPtr level, Space&);
+      GameObjectPtr BuildGameObjectAndChildren(Zilch::JsonMember* gameObject, Space& space, GameObjectPtr parent, bool nextFrame = false);
       LevelPtr BuildLevel(std::string name, Space&);
-      // Archetypes
-      ArchetypePtr BuildArchetype(std::string, GameObjectPtr);
       // Components
       ComponentStrongPtr CreateComponentByName(const std::string& name, Entity& entity);
       ComponentHandle CreateComponentByNameFromZilch(const std::string& name, Entity& entity);
       ComponentStrongPtr CreateComponentByType(Zilch::BoundType* boundType, Entity& entity);
       template <typename ComponentClass> ComponentPtr CreateComponent(Entity& owner, bool init);
+      void MarkComponent(ComponentHandle component);
       void MarkComponent(Component& component);
       void DestroyComponents();
       // Resources
-      ResourceStrongPtr CreateResource(const std::string& resourceName, bool init);       
+      void MarkGameObject(GameObject& gameObj);
+      void MarkForRebuild(EntityPtr entity);
+      void DestroyGameObjects();         
       void AddComponentFactory(Zilch::BoundType*, std::unique_ptr<AbstractComponentFactory>);
 
     private:
@@ -68,6 +74,8 @@ namespace DCEngine {
       GameObjectStrongVec ActiveGameObjects; //!< Container of active GameObjects
       ComponentVec ActiveComponents; //!< Container of active Components
       std::map<std::string, std::type_index> ComponentClassMap;
+      
+      std::set<EntityBuildData> EntitiesToRebuild;
       std::set<GameObjectPtr> GameObjectsToBeDeleted; 
       std::set<ComponentPtr> ComponentsToBeDeleted;
       std::set<SpacePtr> SpacesToBeDeleted;
@@ -79,7 +87,8 @@ namespace DCEngine {
       void Update(float dt); //!< Delete all objects in the to-be-deleted list
       void Terminate();      
       void ConstructComponentFactoryMap();
-      GameObjectPtr BuildAndSerialize(const std::string& fileName);
+      Zilch::JsonMember* ArchetypeData(ArchetypePtr archetype);
+      void RebuildEntities();
     }; 
 
     /**************************************************************************/

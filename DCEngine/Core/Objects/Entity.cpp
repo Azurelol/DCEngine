@@ -10,24 +10,65 @@
 */
 /******************************************************************************/
 #include "Entity.h"
+#include "Entities\EntityProperties.h"
 
 // Headers
 #include "Entities\Space.h"
 #include "Entities\GameSession.h"
-
 #include "../Engine/Engine.h" 
 
-
-
 namespace DCEngine {
+  
+  /*!************************************************************************\
+  @brief  Entity Definition
+  \**************************************************************************/
+  ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
+    DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Entity, "name", std::string);
+    ZilchBindDestructor(builder, type, Entity);
+    // Methods
+    Zilch::ParameterArray dispatchParams;
+    dispatchParams.push_back(ZilchTypeId(Zilch::String));
+    dispatchParams.push_back(ZilchTypeId(Event));
+    ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");
+
+    // Properties
+    //ZilchBindField(builder, type, &Entity::Actions, "Actions", Zilch::PropertyBinding::Get);
+    //ZilchBindProperty(builder, type, &Entity:)
+    DCE_BINDING_DEFINE_PROPERTY_NOSETTER(Entity, Actions);
+    //DCE_BINDING_DEFINE_FIELD(Entity, Actions)->;
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
+    DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
+    DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeHidden);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeSkip);
+    // Engine-component properties
+    //DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
+    //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Returns the entity pointer to this object.. if it's one.
+  \param object A pointer to the object.
+  \return A valid entity pointer if the object was an entity.
+  */
+  /**************************************************************************/
+  EntityPtr Entity::IsA(ObjectPtr object)
+  {
+    return dynamic_cast<EntityPtr>(object);
+  }
 
   /**************************************************************************/
   /*!
   \brief  Entity constructor.
   */
   /**************************************************************************/
-  Entity::Entity(std::string name) : Object("Entity"), ArchetypeName(""), Actions(*this) {
-    ObjectName = name;
+  Entity::Entity(std::string name) : Object(name), IsInitialized(false), 
+                                     ModifiedFromArchetype(false),
+                                     ArchetypeName(""), Actions(*this) {
   }
 
   /**************************************************************************/
@@ -62,6 +103,8 @@ namespace DCEngine {
       DCTrace << ObjectName << "::Initialize - Failed! Already initialized!\n";
       return;
     }
+    
+    //DCTrace << "Initializing " << Name() << "\n";
 
     // Initialize factory-created components
     for (auto &component : ComponentsContainer)
@@ -72,7 +115,8 @@ namespace DCEngine {
     }
     // Flag this entity as already being initialized
     IsInitialized = true;
-    DCTrace << ObjectName << "::Initialize \n";
+    if (DCE_TRACE_COMPONENT_INITIALIZE)
+      DCTrace << ObjectName << "::Initialize \n";
   }
 
   /**************************************************************************/
@@ -96,19 +140,13 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-
-    // 1. Name
-    //{
-    //  builder.Key("Name");
-    //  builder.Value(this->Name().c_str());
-    //}
-
     // Serialize Object-specific properties
     Object::Serialize(builder);
     // Serialize Entity-specific properties
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType()->BaseType);
+    SerializeByType(builder, interface->GetState(), ZilchTypeId(Entity), this);
     // Serialize all of its components
     builder.Key("Components");
+    //DCTrace << "After Components: \n" << builder.ToString().c_str() << "\n";
     builder.Begin(Zilch::JsonType::Object);
     // Factory-created components
     for (auto& component : ComponentsContainer) {
@@ -133,27 +171,17 @@ namespace DCEngine {
   {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(Entity), this);
   }
 
   /**************************************************************************/
   /*!
-  @brief  Archetype setter.
+  @brief  Reconstructs an entity by rebuilding its components.
   */
   /**************************************************************************/
-  void Entity::setArchetype(std::string archetypeName)
+  void Entity::Rebuild()
   {
-    ArchetypeName = archetypeName;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Archetype getter.
-  */
-  /**************************************************************************/
-  std::string Entity::getArchetype() const
-  {
-    return ArchetypeName;
+    Daisy->getSystem<Systems::Factory>()->MarkForRebuild(this);
   }
 
   /**************************************************************************/
@@ -194,12 +222,20 @@ namespace DCEngine {
 
     // Returns a pointer to the just-added component
     return ComponentsContainer.back().get();
-    #else    
+    
+    #else // Zilch-created components
+    // Construct the component through Zilch, getting a handle
     auto componentHandle = Daisy->getSystem<Systems::Factory>()->CreateComponentByNameFromZilch(name, *this);
-    // Add the component to the container
+    if (componentHandle.IsNull())
+      return nullptr;
+
+    // Add the component's handle to the container
     ComponentHandlesContainer.push_back(componentHandle);
+    // Get a pointer to it
+    auto componentPtr = Component::Dereference(componentHandle);
+    // Save the handle to the component
+    componentPtr->mHandle = componentHandle;
     // Initialize the component if need be
-    auto componentPtr = reinterpret_cast<Component*>(componentHandle.Dereference());
     if (initialize)
       componentPtr->Initialize();
     return componentPtr;
@@ -261,10 +297,16 @@ namespace DCEngine {
   void Entity::RemoveAllComponents()
   {
     // C++- Factory-made components
+    for (auto& component : ComponentsContainer) {
+      component->Terminate();
+    }
     ComponentsContainer.clear();
+
     // Zilch-made components
-    for (auto& component : ComponentHandlesContainer)
-      component.Delete();
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      Component::Dereference(componentHandle)->Terminate();
+      componentHandle.Delete();
+    }
     ComponentHandlesContainer.clear();
   }
 
@@ -283,6 +325,8 @@ namespace DCEngine {
         DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
         // Check for dependencies
 
+        // Call it's terminate method
+        component->Terminate();
         // Remove it
         std::swap(component, ComponentsContainer.back());
         ComponentsContainer.pop_back();
@@ -296,6 +340,8 @@ namespace DCEngine {
         DCTrace << "Entity::RemoveComponentByName - Removing " << componentName << "\n";
         // Check for dependencies
 
+        // Call it's terminate method
+        component->Terminate();
         // Ask Zilch to delete the component 
         componentHandle.Delete();
         // Remove it
@@ -344,6 +390,11 @@ namespace DCEngine {
     return components;
   }
 
+  ComponentHandleVec& Entity::AllComponentsByHandle()
+  {
+    return ComponentHandlesContainer;
+  }
+
   /**************************************************************************/
   /*!
   @brief Moves a component to the back of the entity's components container.
@@ -360,6 +411,82 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  \brief Dispatches an event to the object.
+  \param eventID The name of the event.
+  \param eventObj The event object.
+  */
+  /**************************************************************************/
+  void Entity::Dispatch(std::string eventID, Event * event)
+  {
+    DCTrace << Name() << "::Entity::Dispatch: Dispatching '" << eventID << "'! \n";
+
+    // For every delegate in the registry
+    for (auto& deleg : ObserverRegistryByString) {
+      if (eventID == deleg.first) {
+        // For every delegate in the list for this specific event
+        for (auto& deleg : deleg.second) {
+          deleg->Call(event);
+        }
+      }
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief  Dispatches an event to the object.
+  \param eventObj The event object.
+  */
+  /**************************************************************************/
+  void Entity::Dispatch(Event * eventObj)
+  {
+    // For every delegate in the registry
+    for (auto& event : ObserverRegistryByString) {
+      if (eventObj->Name == event.first) {
+        // For every delegate in the list for this specific event
+        for (auto& deleg : event.second) {
+          deleg->Call(eventObj);
+        }
+      }
+    }
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Constructs a structure containing current information of all
+          active evets.
+  @return A structure containing data of all events.
+  */
+  /**************************************************************************/
+  EventDelegatesInfo Entity::PeekEvents()
+  {
+    auto data = EventDelegatesInfo();
+    // Identified by RTTI
+    for (auto& event : ObserverRegistryByString) {
+      EventDelegatesInfo::EventDelegateInfo info;
+      info.Name = event.first;
+      for (auto& deleg : event.second) {
+        auto componentName = deleg->GetObserver()->Name();
+        auto ownerName = Component::IsA(deleg->GetObserver())->Owner()->Name();
+        info.Observers.push_back(std::string(ownerName + "::" + componentName));
+      }
+      data.Events.push_back(info);
+    }
+    // Identified by string
+    for (auto& event : ObserverRegistry) {
+      EventDelegatesInfo::EventDelegateInfo info;
+      info.Name = event.first.name();
+      for (auto& deleg : event.second) {
+        auto componentName = deleg->GetObserver()->Name();
+        auto ownerName = Component::IsA(deleg->GetObserver())->Owner()->Name();
+        info.Observers.push_back(std::string(ownerName + "::" + componentName));
+      }
+      data.Events.push_back(info);
+    }
+    return data;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief  Returns a reference to the container of all the components this
   Entity has.
   @return A reference to the container of all components.
@@ -370,7 +497,46 @@ namespace DCEngine {
   //  return &ComponentsContainer;
   //}
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a pointer to the specified component.
+  @param name The name of the component/
+  @return A pointer to the component, casted down to its base class.
+  */
+  /**************************************************************************/
+  ComponentPtr Entity::getComponent(const std::string & name)
+  {
+    for (auto& component : ComponentsContainer) {
+      if (component->getObjectName() == name) {
+        return component.get();
+      }
+    }
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+      if (component->getObjectName() == name) {
+        return component;
+      }
+    }
+    return nullptr;
+  }
 
+  /**************************************************************************/
+  /*!
+  @brief Returns a pointer to the specified component.
+  @param type The boundtype of the component.
+  @return A pointer to the component, casted down to its base class.
+  */
+  /**************************************************************************/
+  ComponentPtr Entity::getComponent(Zilch::BoundType * type)
+  {
+    for (auto& componentHandle : ComponentHandlesContainer) {
+      if (Zilch::TypeBinding::IsA(componentHandle.Type, type)) {
+        auto component = reinterpret_cast<Component*>(componentHandle.Dereference());
+        return component;
+      }
+    }
+    return nullptr;
+  }
 
   /**************************************************************************/
   /*!
@@ -428,6 +594,17 @@ namespace DCEngine {
       }
     }
 
+  }
+
+
+  void Entity::setArchetype(std::string name)
+  {
+    ArchetypeName = name;
+  }
+
+  std::string Entity::getArchetype() const
+  {
+    return ArchetypeName;
   }
 
   #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)

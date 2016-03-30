@@ -35,6 +35,24 @@ namespace DCEngine {
         void Remove();
       };
 
+      /**************************************************************************/
+      /*!
+      @class PopUp A simple popup with a title and a message.
+      */
+      /**************************************************************************/
+      class PopUp : public Window {
+      public:
+        PopUp(PopUpData data) : Data(data) {}
+        void Display();
+        PopUpData Data;
+      };
+
+      /**************************************************************************/
+      /*!
+      @class PopUpComponentDependencies A detailed popup for showing a component's
+             dependencies.
+      */
+      /**************************************************************************/
       class PopUpComponentDependencies : public Window {
       public:
         PopUpComponentDependencies(PopUpData data, Component* component) : Data(data), ComponentRef(component) {}
@@ -42,13 +60,6 @@ namespace DCEngine {
       private:
         Component* ComponentRef;
 
-        PopUpData Data;
-      };
-
-      class PopUp : public Window {
-      public:
-        PopUp(PopUpData data) : Data(data) {}
-        void Display();
         PopUpData Data;
       };
     };

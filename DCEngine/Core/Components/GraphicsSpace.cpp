@@ -71,35 +71,35 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->Register(*this);
     }
 
-		void GraphicsSpace::RegisterGraphicsComponent(Graphical * graphicsComponent)
-		{
-			GraphicsComponents.push_back(graphicsComponent);
-		}
-		void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
-		{
-			GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
-				GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
-		}
-		GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
-		{
-			return GraphicsComponents;
-		}
+    void GraphicsSpace::RegisterGraphicsComponent(Graphical * graphicsComponent)
+    {
+      GraphicsComponents.push_back(graphicsComponent);
+    }
+    void GraphicsSpace::RemoveGraphicsComponent(Graphical * graphicsComponent)
+    {
+      GraphicsComponents.erase(std::remove(GraphicsComponents.begin(),
+        GraphicsComponents.end(), graphicsComponent), GraphicsComponents.end());
+    }
+    GraphicsComponentContainer GraphicsSpace::getGraphicsComponents(void)
+    {
+      return GraphicsComponents;
+    }
 
-		void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
-		{
-			LightComponents.push_back(lightComponent);
-		}
+    void GraphicsSpace::RegisterLightComponent(Light * lightComponent)
+    {
+      LightComponents.push_back(lightComponent);
+    }
 
-		void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
-		{
-			LightComponents.erase(std::remove(LightComponents.begin(),
-				LightComponents.end(), lightComponent), LightComponents.end());
-		}
+    void GraphicsSpace::RemoveLightComponent(Light * lightComponent)
+    {
+      LightComponents.erase(std::remove(LightComponents.begin(),
+        LightComponents.end(), lightComponent), LightComponents.end());
+    }
 
-		LightComponentContainer GraphicsSpace::getLightComponents(void)
-		{
-			return LightComponents;
-		}
+    LightComponentContainer GraphicsSpace::getLightComponents(void)
+    {
+      return LightComponents;
+    }
 
     /**************************************************************************/
     /*!
@@ -112,7 +112,7 @@ namespace DCEngine {
     //  //DCTrace << "GraphicsSpace::AddSpriteText - "
     //  //  << spriteText.Owner()->Name() << "\n";
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Registers a Sprite into the GraphicsSpace
@@ -125,7 +125,7 @@ namespace DCEngine {
     //  //DCTrace << Owner()->Name() << "GraphicsSpace::AddSprite - "
     //  //        << sprite.Owner()->Name() << "\n";
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Deregisters a Sprite from the GraphicsSpace
@@ -141,7 +141,7 @@ namespace DCEngine {
     //    SpriteContainer.end(), spritePtr),
     //    SpriteContainer.end());
     //}
-		//
+    //
     ///**************************************************************************/
     ///*!
     //@brief  Deregisters a SpriteText from the GraphicsSpace
@@ -155,43 +155,72 @@ namespace DCEngine {
     //                            SpriteTextContainer.end(), spriteTextPtr),
     //                            SpriteTextContainer.end());
     //}
-		//
-		//void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
-		//{
-		//	ParticleSystemContainer.push_back(&particleEmitter);
-		//}
-		//
-		//void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
-		//{
-		//	ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
-		//		ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
-		//}
+    //
+    //void GraphicsSpace::AddParticleSystem(SpriteParticleSystem & particleEmitter)
+    //{
+    //	ParticleSystemContainer.push_back(&particleEmitter);
+    //}
+    //
+    //void GraphicsSpace::RemoveParticleSystem(SpriteParticleSystem & particleEmitter)
+    //{
+    //	ParticleSystemContainer.erase(std::remove(ParticleSystemContainer.begin(),
+    //		ParticleSystemContainer.end(), &particleEmitter), ParticleSystemContainer.end());
+    //}
 
 
     /**************************************************************************/
     /*!
-    \brief Passes a call requesting a DebugDraw call on to the Graphics System.
+    @brief Draws a circle at the specified position.
+    @param pos The center of the circle.
+    @param radius The radius of the circle.
+    @param color The color of the circle.
+    @param fill Whether the circle should be filled.
     */
     /**************************************************************************/
     void GraphicsSpace::DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill) const
     {
       auto cam = CameraViewportComponent->getCamera();
+      if (!cam)
+        return;
       Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam, fill);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a rectangle at the specified position.
+    @param pos The center of the rectangle.
+    @param radius The width of the rectangle.
+    @param height The height of the rectangle.
+    @param color The color of the rectangle.
+    @param fill Whether the rectangle should be filled.
+    */
+    /**************************************************************************/
     void GraphicsSpace::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill) const
     {
       auto cam = CameraViewportComponent->getCamera();
+      if (!cam)
+        return;
       Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam, fill);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Draws a line from the specified starting position to the end position.
+    @param startPos The starting position of the line.
+    @param endPos The ending position of the line.
+    @param color  The color of the line.
+    */
+    /**************************************************************************/
     void GraphicsSpace::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const
     {
       auto cam = CameraViewportComponent->getCamera();
+      if (!cam)
+        return;
       Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
     }
 
-		
+
+
 
     /**************************************************************************/
     /*!
@@ -202,16 +231,16 @@ namespace DCEngine {
     //std::vector<Sprite*> GraphicsSpace::getSprites() {
     //  return SpriteContainer;
     //}
-		//
+    //
     //SpriteTextContainer GraphicsSpace::getSpriteTextContainer()
     //{
     //  return SpriteTextContainer;
     //}
-		//
-		//std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
-		//{
-		//	return ParticleSystemContainer;
-		//}
+    //
+    //std::vector<SpriteParticleSystem*> GraphicsSpace::getParticleSystem()
+    //{
+    //	return ParticleSystemContainer;
+    //}
 
   }
 }

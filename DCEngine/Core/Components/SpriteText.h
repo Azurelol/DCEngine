@@ -40,6 +40,7 @@ namespace DCEngine {
       void Register();
       void Initialize();
 			void Update(float dt);
+			void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
 			void Draw(void);
       Transform* TransformComponent;
 

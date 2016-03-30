@@ -14,6 +14,7 @@ half-line.
 
 // PhysicsCasting objects
 #include "Ray.h"
+#include "../../DaisyVector.h"
 
 namespace DCEngine {
 
@@ -29,17 +30,44 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastResult {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastResult, Zilch::TypeCopyMode::ReferenceType);
+#endif
     //Collider* Collider;
     float Distance;
     // the position of the ray-line segment collision in world coordinates
     Vec3 BodySpacePosition;
     Vec3 Normal;
-    GameObject* ObjectHit;
+    GameObject* ObjectHit = NULL;
     Vec3 WorldPosition;
   };
 
+
+  class CastResultVector
+  {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastResultVector, Zilch::TypeCopyMode::ReferenceType);
+#endif
+    std::vector<CastResult> list;
+  public:
+    CastResultVector& operator= (const CastResultVector& ref);
+    unsigned size();
+    unsigned capacity() const;
+    bool empty() const;
+    void reserve(unsigned n);
+    void shrink_to_fit();
+    CastResult& operator[] (unsigned n);
+    CastResult& at(unsigned n);
+    CastResult& front();
+    CastResult& back();
+    void push_back(const CastResult& val);
+    void pop_back();
+    void insert(unsigned position, const CastResult& val);
+    void clear();
+  };
+
   // A container of Cast Results
-  using CastResultsRange = std::vector<CastResult>;
+  using CastResultsRange = CastResultVector;
 
   /**************************************************************************/
   /*!
@@ -49,6 +77,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastFilter {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastFilter, Zilch::TypeCopyMode::ReferenceType);
+#endif
     bool Include = false;
     std::vector<CollisionGroup> CollisionGroups;
     bool IgnoreStatic = false;

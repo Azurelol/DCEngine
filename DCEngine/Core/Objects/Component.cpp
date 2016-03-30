@@ -41,7 +41,7 @@ namespace DCEngine {
   /**************************************************************************/
   Component::Component(std::string name, Entity& owner)
     : Object(name), ComponentID(ComponentsCreated++) {
-    ObjectOwner = (Object*)&owner;
+    ObjectOwner = &owner;
 
     // Set references
     SetReferences();
@@ -55,6 +55,40 @@ namespace DCEngine {
     // Diagnostics
     if (DiagnosticsEnabled)
       ComponentLastCreated = ObjectName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Component default constructor.
+  */
+  /**************************************************************************/
+  Component::Component() : Object("Component"), ComponentID(ComponentsCreated++)
+  {
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Sets the references  for this component.
+  @param name The name of this component.
+  @param entity A reference to the owner.
+  */
+  /**************************************************************************/
+  void Component::PostDefaultConstructor(const std::string & name, Entity & entity)
+  {
+    // Set the name
+    setObjectName(name);
+    // Set its owner
+    ObjectOwner = &entity;
+    // Set its references
+    SetReferences();
+    // Diagnostics
+    if (DiagnosticsEnabled)
+      ComponentLastCreated = ObjectName;
+
+    if (DCE_TRACE_COMPONENT_CONSTRUCTOR) {
+      DCTrace << ObjectName << "::Component - Constructor - "
+        << "Owner: '" << ObjectOwner->Name() << "'\n";
+    }
   }
 
   /**************************************************************************/
@@ -80,113 +114,6 @@ namespace DCEngine {
       ComponentLastDestroyed = ObjectName;
   }
 
-  /**************************************************************************/
-  /*!
-  @brief Destroys the component at the beginning of the next frame.
-  */
-  /**************************************************************************/
-  void Component::Destroy()
-  {
-    // Mark the component to be deleted by the factory on the next frame
-    Daisy->getSystem<Systems::Factory>()->MarkComponent(*this);
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Serializes a Component.
-  @param builder A reference to the JSON builder.
-  @note  This will serialize the component and all its properties.
-  */
-  /**************************************************************************/
-  void Component::Serialize(Zilch::JsonBuilder & builder)
-  {
-    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-
-    builder.Key(this->Name().c_str());
-    builder.Begin(Zilch::JsonType::Object);
-    SerializeByType(builder, interface->getState(), this, this->ZilchGetDerivedType());
-    builder.End();
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Deserializes a Component.
-  @param builder A pointer to the object containing the properties.
-  @note  This will deserialize the Component's properties.
-  */
-  /**************************************************************************/
-  void Component::Deserialize(Zilch::JsonValue * properties)
-  {
-    if (DCE_TRACE_COMPONENT_INITIALIZE)
-      DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
-    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
-    DeserializeByType(properties, interface->getState(), this, this->ZilchGetDerivedType());
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief Checks whether the component exists among the list of active
-  components.
-  @param componentName The name of the component.
-  @return Whether the component exists among the list of created components.
-  */
-  /**************************************************************************/
-  bool Component::Exists(std::string componentName)
-  {
-    for (auto& component : AllComponents()) {
-      if (std::string(component->Name.c_str()) == componentName)
-        return true;
-    }
-    return false;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Returns a pointer to the Entity that owns this component.
-  @return An entity pointer.
-  */
-  /**************************************************************************/
-  Entity* Component::Owner() {
-    return dynamic_cast<Entity*>(ObjectOwner);
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Checks whether this component's owner has all the components
-  this component depends on.
-  @return Whether this component's dependencies have been fulfilled.
-  */
-  /**************************************************************************/
-  bool Component::HasDependencies()
-  {
-    // Look for every component dependency in this component's owner
-    for (auto& dependency : Dependencies()) {
-      if (!this->Owner()->HasComponent(dependency))
-        return false;
-    }
-    // All dependencies were found
-    return true;
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Checks whether this component's owner has all the components
-  this component depends on.
-  @return Whether this component's dependencies have been fulfilled.
-  */
-  /**************************************************************************/
-  std::vector<std::string> Component::MissingDependencies()
-  {
-    std::vector<std::string> dependencies;
-    // Look for every component dependency in this component's owner
-    for (auto& dependency : Dependencies()) {
-      if (this->Owner()->HasComponent(dependency) == false)
-        dependencies.push_back(dependency);
-    }
-    // All dependencies were found
-    return dependencies;
-  }
-  
   /**************************************************************************/
   /*!
   @brief Sets the Owner reference for this component.
@@ -219,6 +146,169 @@ namespace DCEngine {
 
   }
 
+
+
+  /**************************************************************************/
+  /*!
+  @brief Destroys the component at the beginning of the next frame.
+  */
+  /**************************************************************************/
+  void Component::Destroy()
+  {
+    // Mark the component to be deleted by the factory on the next frame
+    Daisy->getSystem<Systems::Factory>()->MarkComponent(*this);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Serializes a Component.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the component and all its properties.
+  */
+  /**************************************************************************/
+  void Component::Serialize(Zilch::JsonBuilder & builder)
+  {
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+
+    builder.Key(this->Name().c_str());
+    builder.Begin(Zilch::JsonType::Object);
+    SerializeByType(builder, interface->GetState(), this->ZilchGetDerivedType(), this);
+    builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes a Component.
+  @param builder A pointer to the object containing the properties.
+  @note  This will deserialize the Component's properties.
+  */
+  /**************************************************************************/
+  void Component::Deserialize(Zilch::JsonValue * properties)
+  {
+    if (DCE_TRACE_COMPONENT_INITIALIZE)
+      DCTrace << Owner()->Name() << "::" << ObjectName << "::Deserialize \n";
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    DeserializeByType(properties, interface->GetState(), this->ZilchGetDerivedType(), this);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Checks whether the component exists among the list of active
+  components.
+  @param componentName The name of the component.
+  @return Whether the component exists among the list of created components.
+  */
+  /**************************************************************************/
+  bool Component::Exists(std::string componentName)
+  {
+    for (auto& component : AllComponents()) {
+      if (std::string(component->Name.c_str()) == componentName)
+        return true;
+    }
+    return false;
+  }
+
+  /**************************************************************************/
+  /*!
+  \brief Returns the component pointer to this object.. if it's one.
+  \param object A pointer to the object.
+  \return A valid component pointer if the object was an entity.
+  */
+  /**************************************************************************/
+  ComponentPtr Component::IsA(ObjectPtr object)
+  {
+    return dynamic_cast<ComponentPtr>(object);
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deferences the component handle into a pointer.
+  @param componentHandle The handle to the component.
+  @return A pointer to the component.
+  */
+  /**************************************************************************/
+  ComponentPtr Component::Dereference(ComponentHandle& componentHandle)
+  {
+    return reinterpret_cast<ComponentPtr>(componentHandle.Dereference());
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a a handle to this component.
+  */
+  /**************************************************************************/
+  Zilch::Handle Component::Handle()
+  {
+    return mHandle;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns a pointer to the Entity that owns this component.
+  @return An entity pointer.
+  */
+  /**************************************************************************/
+  Entity* Component::Owner() {
+    return dynamic_cast<Entity*>(ObjectOwner);
+  }
+
+  Space * Component::getSpace() const
+  {
+    return SpaceRef;
+  }
+
+  GameSession * Component::getGameSession() const
+  {
+    return GameSessionRef;
+  }
+
+  Engine * Component::getEngine()
+  {
+    return Daisy.get();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks whether this component's owner has all the components
+  this component depends on.
+  @return Whether this component's dependencies have been fulfilled.
+  */
+  /**************************************************************************/
+  bool Component::HasDependencies()
+  {
+    if (ZilchComponent::IsZilchComponent(this))
+      return true;
+
+    // Look for every component dependency in this component's owner
+    for (auto& dependency : Dependencies()) {
+      if (!this->Owner()->HasComponent(dependency))
+        return false;
+    }
+    // All dependencies were found
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks whether this component's owner has all the components
+  this component depends on.
+  @return Whether this component's dependencies have been fulfilled.
+  */
+  /**************************************************************************/
+  std::vector<std::string> Component::MissingDependencies()
+  {
+    std::vector<std::string> dependencies;
+    // Look for every component dependency in this component's owner
+    for (auto& dependency : Dependencies()) {
+      if (this->Owner()->HasComponent(dependency) == false)
+        dependencies.push_back(dependency);
+    }
+    // All dependencies were found
+    return dependencies;
+  }
+  
+
+
   /**************************************************************************/
   /*!
   @brief  Returns a container containing all the currently bound components.
@@ -239,7 +329,10 @@ namespace DCEngine {
   /**************************************************************************/
   Zilch::BoundType * Component::BoundType(std::string componentName)
   {
-    for (auto componentType : AllComponents()) {
+    auto componentTypes = AllComponents();
+
+
+    for (auto componentType : componentTypes) {
       auto componentTypeName = std::string(componentType->Name.c_str());
       if (componentTypeName == componentName) {
         return componentType;

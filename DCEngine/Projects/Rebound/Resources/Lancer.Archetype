@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 915, 
     "Name": "Lancer", 
-    "Archetype": "Lancer", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 12.244446, 
-            "y": 5.422222, 
+            "x": -132.320313, 
+            "y": 2.643368, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 5.000000, 
-            "y": 5.000000, 
+            "x": 4.000000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -58,7 +59,6 @@
       }, 
       "RigidBody": 
       {
-        "Mass": 10.000000, 
         "Velocity": 
         {
           "Vec3": 
@@ -88,12 +88,13 @@
       "Lancer": 
       {
         "PlayerName": "Player", 
-        "IdleRange": 0.000000
+        "IdleRange": 1000.000000, 
+        "ChargeForce": 100.000000
       }, 
       "BoxCollider": 
       {
+        "CollisionGroup": "Enemy", 
         "PhysicsMaterial": "", 
-        "CollisionGroup": "Default", 
         "Size": 
         {
           "Vec3": 
@@ -115,6 +116,71 @@
         "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
+      }
+    }, 
+    "Children": 
+    {
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 45, 
+        "Name": "LancerShield", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -132.332947, 
+                "y": 2.827627, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.295000
+              }
+            }, 
+            "SpriteSource": "Circle", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
       }
     }
   }

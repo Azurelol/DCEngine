@@ -17,6 +17,7 @@ namespace DCEngine {
 
     class SetWindowCaption : public Event {
     public:
+      SetWindowCaption() : Event("SetWindowCaption") {}
       std::string Caption;
     };
 

@@ -22,7 +22,7 @@ namespace DCEngine {
     void DebugActions::Initialize() {
 
       SpriteComponent = Owner()->getComponent<Components::Sprite>();
-      TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
+      TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       Connect(SpaceRef, Events::LogicUpdate, DebugActions::OnLogicUpdateEvent);
       Connect(Daisy->getKeyboard(), Events::KeyDown, DebugActions::OnKeyDownEvent);  
       DefaultColor = SpriteComponent->getColor();

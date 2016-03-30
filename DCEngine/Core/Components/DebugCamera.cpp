@@ -21,8 +21,8 @@ namespace DCEngine {
   {
     void DebugCamera::Initialize()
     {
-      CameraComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Camera>();
-      TransformComponent = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Transform>();
+      CameraComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Camera>();
+      TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       Connect(Daisy->getKeyboard(), Events::KeyDown, DebugCamera::OnKeyDownEvent);
       Connect(Daisy->getKeyboard(), Events::KeyUp, DebugCamera::OnKeyUpEvent);
     }
