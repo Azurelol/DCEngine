@@ -24,10 +24,13 @@ namespace DCEngine {
 
     MusicManager::~MusicManager()
     {
-      if (this->getObjectID() == PlayingObj)
+      //if (this->getObjectID() == PlayingObj)
+      //{
+      if (trackHandle)
       {
-        SpaceRef->getComponent<Components::SoundSpace>()->StopCue(Track);
-      }
+        trackHandle->Stop();
+      } 
+      //}
     }
 
     void MusicManager::Initialize()
@@ -38,7 +41,7 @@ namespace DCEngine {
 
       if (PlayOnStart == true)
       {
-        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(Track);
+        trackHandle = SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(Track);
         PlayingObj = this->getObjectID();
       }
     }
@@ -48,7 +51,8 @@ namespace DCEngine {
       switch (event->Key) {
 
       case Keys::M:
-        SpaceRef->getComponent<Components::SoundSpace>()->PauseCue(Track);
+        trackHandle->Pause();
+
         break;
       }
     }
@@ -60,7 +64,10 @@ namespace DCEngine {
 
     void MusicManager::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-
+      //if (trackHandle->IsPlaying())
+      //{
+      //  printf("YOOOOOOOOOOO\n");
+      //}
     }
   }
 }

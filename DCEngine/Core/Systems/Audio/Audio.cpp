@@ -209,10 +209,12 @@ namespace DCEngine {
       // Depending on the type of SoundCue, play it through the low level API
       // or as an event belonging to the Studip API
       if (soundCue->Type == SoundCue::SoundCueType::File)
-        AudioHandler->PlaySound(instance->SoundHandle.Handle, &instance->SoundHandle.Channel, instance->Settings);
+        AudioHandler->PlaySound(instance->SoundHandle.Handle, &(instance->SoundHandle.Channel), instance->Settings);
       else if (soundCue->Type == SoundCue::SoundCueType::Event)
-        AudioHandler->PlaySound(instance->StudioEventName, &instance->SoundHandle.EventInstance, instance->Settings);
+        AudioHandler->PlaySound(instance->StudioEventName, &(instance->SoundHandle.EventInstance), instance->Settings);
       
+      
+
       // Return a handle to the SoundInstance
       return instance;
     }

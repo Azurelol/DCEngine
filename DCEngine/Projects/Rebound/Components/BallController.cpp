@@ -94,6 +94,8 @@ namespace DCEngine {
       //  << coords.x << " y: " << coords.y << "\n";
       if (event->ButtonPressed == MouseButton::Right)
       {
+        SoundCommand();
+
         if (ControlScheme == ControlScheme::Connor)
         {
           FreezeBall();
@@ -110,6 +112,7 @@ namespace DCEngine {
         //	Frozen = false;
         //	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         //	}
+        SoundCommand();
 
 
         if (CurrentlyFired)
@@ -159,8 +162,6 @@ namespace DCEngine {
           CurrentlyFired = true;
           RigidBodyRef->setGravityRatio(ShotGravity);
 
-          SoundCommand();
-
           if (BallControllerTraceOn)
           {
             DCTrace << "BallController::OnMouseUpEvent - WorldCoords =" << coords.x << ", " << coords.y << ").\n";
@@ -174,7 +175,6 @@ namespace DCEngine {
       if (event->ButtonReleased == MouseButton::Right && CollidingWithPlayer == false && Locked == false)
       {
         CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::Resolve);
-        SoundCommand();
       }
 
 

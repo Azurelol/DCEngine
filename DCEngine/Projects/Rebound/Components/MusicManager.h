@@ -45,6 +45,9 @@ namespace DCEngine {
       Boolean PlayOnStart = true;
       Boolean StopOnEnd = false;
       int PlayingObj = 0;
+
+      
+      SoundInstanceHandle trackHandle;
     };
 
   }
