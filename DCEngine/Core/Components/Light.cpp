@@ -43,6 +43,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityCulling);
       DCE_BINDING_DEFINE_PROPERTY(Light, VisibilityEvents);
       DCE_BINDING_DEFINE_PROPERTY(Light, CastShadows);
+			DCE_BINDING_DEFINE_PROPERTY(Light, Diffuse);
 			DCE_BINDING_DEFINE_PROPERTY(Light, Type);
 
       DCE_BINDING_DEFINE_PROPERTY(Light, Color);
@@ -78,7 +79,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Light::Light(Entity & owner) : Component(std::string("Light"), owner), 
-      Visible(true), CastShadows(true), Type(LightType::Point), 
+      Visible(true), CastShadows(true), Diffuse(false), Type(LightType::Point), 
       Color(1.0f, 1.0f, 1.0f, 1.0f), Range(20.0f), Intensity(1.0f), Falloff(0.1f),
       DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f)
     {

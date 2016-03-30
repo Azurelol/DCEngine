@@ -42,8 +42,32 @@ namespace DCEngine {
     Vec3 WorldPosition;
   };
 
+
+  class CastResultVector
+  {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CastResultVector, Zilch::TypeCopyMode::ReferenceType);
+#endif
+    std::vector<CastResult> list;
+  public:
+    CastResultVector& operator= (const CastResultVector& ref);
+    unsigned size();
+    unsigned capacity() const;
+    bool empty() const;
+    void reserve(unsigned n);
+    void shrink_to_fit();
+    CastResult& operator[] (unsigned n);
+    CastResult& at(unsigned n);
+    CastResult& front();
+    CastResult& back();
+    void push_back(const CastResult& val);
+    void pop_back();
+    void insert(unsigned position, const CastResult& val);
+    void clear();
+  };
+
   // A container of Cast Results
-  using CastResultsRange = std::vector<CastResult>;
+  using CastResultsRange = CastResultVector;
 
   /**************************************************************************/
   /*!

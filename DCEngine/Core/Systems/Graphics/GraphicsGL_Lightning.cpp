@@ -70,6 +70,8 @@ namespace DCEngine {
 			{
 				for (const auto& obj : drawList)
 				{
+					//obj->SetUniforms(shader, camera, light);
+					//obj->Draw();
 					if (dynamic_cast<Components::Sprite*>(obj))
 					{
 						obj->SetUniforms(shader, camera, light);
@@ -128,7 +130,9 @@ namespace DCEngine {
 				member = var + "VisibilityEvents";
 				LightingShader->SetInteger(member.c_str(), light->getVisibilityEvents());
 				member = var + "CastShadows";
-				LightingShader->SetInteger(member.c_str(), light->getCastShadows());
+				LightingShader->SetInteger(member.c_str(), light->getVisibilityEvents());
+				member = var + "Diffuse";
+				LightingShader->SetInteger(member.c_str(), light->getDiffuse());
 				member = var + "LightType";
 				LightingShader->SetInteger(member.c_str(), light->getTypeAsInt());
 				member = var + "Color";

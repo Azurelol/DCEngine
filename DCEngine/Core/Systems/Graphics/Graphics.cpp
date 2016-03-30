@@ -86,9 +86,7 @@ namespace DCEngine {
 
 				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
 				for (auto graphicalComponent : graphicalComponents)
-				{
 					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
-				}
 
 				std::vector<Components::Light*> lightComponents;
 				if (Settings.LightningEnabled)
@@ -110,7 +108,7 @@ namespace DCEngine {
 					}
 				else
 					GraphicsHandler->RenderLights(0);
-				GraphicsHandler->RenderScene(Settings.Exposure);
+				GraphicsHandler->RenderScene(camera->getExposure());
 				DrawDebug(camera);
 
 				for (auto&& drawList : mDrawList)
@@ -195,7 +193,7 @@ namespace DCEngine {
 
       if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
-			GraphicsHandler->DrawSprite(sprite, cam, dt);
+			//GraphicsHandler->DrawSprite(sprite, cam, dt);
 		}
 
 		/**************************************************************************/
@@ -210,7 +208,7 @@ namespace DCEngine {
 		{
 			if (TRACE_UPDATE)
 				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
-			GraphicsHandler->DrawSpriteText(st, cam);
+			//GraphicsHandler->DrawSpriteText(st, cam);
 		}
 
 		void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)

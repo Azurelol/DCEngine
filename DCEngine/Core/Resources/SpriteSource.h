@@ -46,9 +46,9 @@ namespace DCEngine {
     float FrameRate = 0.0f;
     float PixelsPerUnit = 0.0f;
     //Animation    
-    int ColumnCount = 0;
-    int RowCount = 0;
-	  int TotalFrame = 0;
+    int ColumnCount = 1;
+    int RowCount = 1;
+	  int TotalFrame = 1;
     bool Smoothing = false;
     bool Looping = false;
     bool Fill = false; // Should be enum

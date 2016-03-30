@@ -21,7 +21,23 @@ and so on.
 namespace DCEngine
 {
 
+
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
+  ZilchDefineType(CastResultVector, "CastResultVector", DCEngineCore, builder, type) {
+    ZilchBindMethod(builder, type, &CastResultVector::size, ZilchNoOverload, "size", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::capacity, ZilchNoOverload, "capacity", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::empty, ZilchNoOverload, "empty", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::reserve, ZilchNoOverload, "reserve", "n");
+    ZilchBindMethod(builder, type, &CastResultVector::shrink_to_fit, ZilchNoOverload, "shrink_to_fit", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::at, ZilchNoOverload, "at", "n");
+    ZilchBindMethod(builder, type, &CastResultVector::front, ZilchNoOverload, "front", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::back, ZilchNoOverload, "back", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::push_back, ZilchNoOverload, "push_back", "val");
+    ZilchBindMethod(builder, type, &CastResultVector::pop_back, ZilchNoOverload, "pop_back", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CastResultVector::insert, ZilchNoOverload, "insert", "position, val");
+    ZilchBindMethod(builder, type, &CastResultVector::clear, ZilchNoOverload, "clear", ZilchNoNames);
+
+  }
   ZilchDefineType(Ray, "Ray", DCEngineCore, builder, type) {
     ZilchBindField(builder, type, &Ray::Origin, "Origin", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &Ray::Direction, "Direction", Zilch::PropertyBinding::GetSet);
@@ -40,6 +56,67 @@ namespace DCEngine
     ZilchBindField(builder, type, &CastFilter::IgnoreGhost, "IgnoreGhost", Zilch::PropertyBinding::GetSet);
   }
 #endif
+
+  CastResultVector& CastResultVector::operator= (const CastResultVector& ref)
+  {
+    list = ref.list;
+		return *this;
+  }
+
+  unsigned CastResultVector::size()
+  {
+    return list.size();
+  }
+  unsigned CastResultVector::capacity() const
+  {
+    return list.capacity();
+  }
+  bool CastResultVector::empty() const
+  {
+    return list.empty();
+  }
+  void CastResultVector::reserve(unsigned n)
+  {
+    list.reserve(n);
+  }
+  void CastResultVector::shrink_to_fit()
+  {
+    list.shrink_to_fit();
+  }
+  CastResult& CastResultVector::operator[] (unsigned n)
+  {
+    return list[n];
+  }
+  CastResult& CastResultVector::at(unsigned n)
+  {
+    return list.at(n);
+  }
+  CastResult& CastResultVector::front()
+  {
+    return list.front();
+  }
+  CastResult& CastResultVector::back()
+  {
+    return list.back();
+  }
+  void CastResultVector::push_back(const CastResult& val)
+  {
+    list.push_back(val);
+  }
+  void CastResultVector::pop_back()
+  {
+    list.pop_back();
+  }
+  void CastResultVector::insert(unsigned position, const CastResult& val)
+  {
+    list[position] = val;
+  }
+  void CastResultVector::clear()
+  {
+    list.clear();
+  }
+
+
   namespace Systems 
   {
 

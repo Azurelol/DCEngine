@@ -58,7 +58,7 @@
             "SpriteSource": "PlayerStand", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
@@ -131,6 +131,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -510,6 +511,7 @@
           "Camera": 
           {
             "FieldOfView": 90.000008, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -842,6 +844,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1333,6 +1336,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -1439,8 +1443,8 @@
             {
               "Vec3": 
               {
-                "x": -12.771379, 
-                "y": 26.596876, 
+                "x": -13.626827, 
+                "y": 28.478855, 
                 "z": -1.000000
               }
             }, 
@@ -1476,44 +1480,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Oldworld_Background_1", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "Light": 
-          {
-            "Visible": false, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": false, 
-            "Type": "Ambient", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 0.200000, 
-            "Range": 0.500000, 
-            "Falloff": 0.300000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": -1.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
           }
         }, 
         "Children": 
@@ -2579,6 +2551,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -2749,8 +2722,8 @@
             {
               "Vec3": 
               {
-                "x": -7.388625, 
-                "y": 7.489794, 
+                "x": -2.741103, 
+                "y": 20.962881, 
                 "z": 0.000000
               }
             }, 
@@ -2775,11 +2748,12 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": false, 
-            "Type": "Ambient", 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -2791,8 +2765,8 @@
               }
             }, 
             "Intensity": 0.845000, 
-            "Range": 200.000000, 
-            "Falloff": 1.183000, 
+            "Range": 94.662003, 
+            "Falloff": 1.324000, 
             "DirectionVector": 
             {
               "Vec3": 

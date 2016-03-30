@@ -58,7 +58,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
@@ -131,6 +131,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1416,6 +1417,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -1490,6 +1492,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1626,6 +1629,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {
@@ -3664,6 +3668,7 @@
           "Camera": 
           {
             "FieldOfView": 169.043015, 
+            "Exposure": 0.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -3837,6 +3842,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -5391,6 +5397,35 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "AntiEnergyField": 
+          {
           }
         }, 
         "Children": 
@@ -5792,6 +5827,9 @@
                 "w": 0.200000
               }
             }
+          }, 
+          "AntiEnergyField": 
+          {
           }
         }, 
         "Children": 

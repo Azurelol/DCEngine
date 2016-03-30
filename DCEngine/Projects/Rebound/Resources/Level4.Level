@@ -45,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 250.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -75,7 +76,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -0.001000
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -175,7 +176,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
@@ -248,6 +249,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -297,8 +299,8 @@
             {
               "Vec3": 
               {
-                "x": -198.996643, 
-                "y": 50.241085, 
+                "x": -81.609978, 
+                "y": 87.804825, 
                 "z": 0.000000
               }
             }, 
@@ -327,7 +329,8 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Type": "Ambient", 
+            "Diffuse": true, 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -338,9 +341,9 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.000000, 
-            "Range": 20.000000, 
-            "Falloff": 0.100000, 
+            "Intensity": 1.096000, 
+            "Range": 185.053009, 
+            "Falloff": 0.854000, 
             "DirectionVector": 
             {
               "Vec3": 
@@ -868,6 +871,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -3139,9 +3143,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.482000, 
+                "y": 0.464000, 
+                "z": 0.429000, 
                 "w": 1.000000
               }
             }, 
@@ -6410,7 +6414,11 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 0.000000, 
+            "ShieldBashDistance": 0.000000, 
+            "ShieldBashOutTime": 0.000000, 
+            "ShieldBashInTime": 0.000000
           }
         }, 
         "Children": 
@@ -8131,7 +8139,11 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 0.000000, 
+            "ShieldBashDistance": 0.000000, 
+            "ShieldBashOutTime": 0.000000, 
+            "ShieldBashInTime": 0.000000
           }
         }, 
         "Children": 
@@ -8413,7 +8425,11 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 0.000000, 
+            "ShieldBashDistance": 0.000000, 
+            "ShieldBashOutTime": 0.000000, 
+            "ShieldBashInTime": 0.000000
           }
         }, 
         "Children": 
@@ -8628,7 +8644,11 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 0.000000, 
+            "ShieldBashDistance": 0.000000, 
+            "ShieldBashOutTime": 0.000000, 
+            "ShieldBashInTime": 0.000000
           }
         }, 
         "Children": 
@@ -8751,7 +8771,11 @@
             "PlayerName": "Player", 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield"
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 0.000000, 
+            "ShieldBashDistance": 0.000000, 
+            "ShieldBashOutTime": 0.000000, 
+            "ShieldBashInTime": 0.000000
           }
         }, 
         "Children": 
@@ -8843,7 +8867,7 @@
           }, 
           "PowerField": 
           {
-            "Target": ""
+            "PowerTarget": ""
           }
         }, 
         "Children": 

@@ -20,10 +20,17 @@
 			"buffers":
 			[
 				{
+<<<<<<< HEAD
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 					"settings":
 					{
 						"buffer_size": 9155,
+=======
+					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
+					"settings":
+					{
+						"buffer_size": 223,
+>>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
 						"line_ending": "Windows"
 					}
 				}
@@ -60,6 +67,10 @@
 			},
 			"file_history":
 			[
+<<<<<<< HEAD
+=======
+				"/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Anti-Energy Field.Zilch",
+>>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch"
 			],
@@ -101,11 +112,19 @@
 					[
 						{
 							"buffer": 0,
+<<<<<<< HEAD
 							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
 								"buffer_size": 9155,
+=======
+							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 223,
+>>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
 								"regions":
 								{
 								},
@@ -166,7 +185,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1272,845,438,1811",
+			"position": "0,0,1,-1,-1,-1,-1,1114,670,280,1636",
 			"project": "",
 			"replace":
 			{

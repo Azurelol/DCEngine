@@ -85,8 +85,8 @@ namespace DCEngine {
     ZilchBindConstructor(builder, type, Keyboard, ZilchNoNames);
     ZilchBindDestructor(builder, type, Keyboard);
     // Methods
-    //ZilchBindMethod(builder, type, &Keyboard::KeyIsDown, ZilchNoOverload, "KeyIsDown", Keys);
-    //ZilchBindMethod(builder, type, &Keyboard::KeyIsUp, ZilchNoOverload, "KeyIsUp", Keys);
+    ZilchBindMethod(builder, type, &Keyboard::KeyIsDown, ZilchNoOverload, "KeyIsDown", "key");
+    ZilchBindMethod(builder, type, &Keyboard::KeyIsUp, ZilchNoOverload, "KeyIsUp", "key");
   }
 
   /*!************************************************************************\
