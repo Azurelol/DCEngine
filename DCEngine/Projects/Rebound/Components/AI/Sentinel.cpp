@@ -101,6 +101,8 @@ namespace DCEngine {
       shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
       shield->getComponent<Orientation>()->WorldForward = Vec3(1, 0, 0);
       shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+      CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
+      CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
     }
 
     void Sentinel::UpdateShield()
@@ -200,9 +202,15 @@ namespace DCEngine {
       Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
       Vec3 direction = playerPosition - ownerPosition;
       if (direction.x < 0)
+      {
         owner->RigidBodyRef->setVelocity(Vec3(-owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+        owner->SpriteRef->FlipX = false;
+      }
       else
+      {
         owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+        owner->SpriteRef->FlipX = true;
+      }
 
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
       if (distanceFromPlayer > owner->IdleRange)
