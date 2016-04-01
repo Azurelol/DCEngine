@@ -44,9 +44,9 @@ namespace DCEngine {
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
       Real VelocityXCap = 30.0f;
       Real GroundFriction = 0.2f;
-      String StandAnimation = "PlayerStand";
-      String JumpAnimation = "PlayerFall";
-      String RunAnimation = "PlayerRun";
+      String StandAnimation = "Char_Asha_Idle_Spritesheet";
+      String JumpAnimation = "Char_Asha_Jump_Spritesheet";
+      String RunAnimation = "Char_Asha_Run_Spritesheet";
 
 
       Transform* TransformRef;
