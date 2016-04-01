@@ -831,5 +831,10 @@ namespace DCEngine {
         }
       }
     }
+
+    CastFilter *Physics::MakeCastFilter(void)
+    {
+      return new CastFilter;
+    }
   }
 }

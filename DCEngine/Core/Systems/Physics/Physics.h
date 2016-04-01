@@ -75,7 +75,8 @@ namespace DCEngine {
       CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
       CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter, Components::PhysicsSpace *Space);
 
-			
+      CastFilter *MakeCastFilter(void);
+
 			//class Bucket
 			//{
 			//public:
