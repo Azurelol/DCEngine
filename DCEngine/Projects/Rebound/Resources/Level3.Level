@@ -45,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 180.000015, 
+            "Exposure": 0.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -103,6 +104,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -260,6 +262,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -806,6 +809,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -5955,8 +5959,8 @@
             {
               "Vec3": 
               {
-                "x": -56.976814, 
-                "y": 35.861309, 
+                "x": -72.085976, 
+                "y": 37.989357, 
                 "z": 0.000000
               }
             }, 
@@ -5985,6 +5989,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6091,8 +6096,8 @@
             {
               "Vec3": 
               {
-                "x": -42.038208, 
-                "y": 28.977108, 
+                "x": -7.138175, 
+                "y": 76.007034, 
                 "z": 0.000000
               }
             }, 
@@ -6121,6 +6126,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6165,8 +6171,8 @@
             {
               "Vec3": 
               {
-                "x": 60.652367, 
-                "y": 29.695431, 
+                "x": 72.143837, 
+                "y": -50.744896, 
                 "z": 0.000000
               }
             }, 
@@ -6195,6 +6201,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -6206,9 +6213,9 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 10.000000, 
+            "Intensity": 18.813002, 
             "Range": 72.340004, 
-            "Falloff": 1.532000, 
+            "Falloff": 1.872000, 
             "DirectionVector": 
             {
               "Vec3": 

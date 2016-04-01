@@ -45,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 173.415009, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -1833,8 +1834,8 @@
             {
               "Vec3": 
               {
-                "x": -13.755283, 
-                "y": 17.302092, 
+                "x": -12.962979, 
+                "y": 18.886698, 
                 "z": 0.000000
               }
             }, 
@@ -1873,7 +1874,7 @@
             "SpriteSource": "PlayerStand", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
@@ -1946,6 +1947,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -2641,6 +2643,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -3949,6 +3952,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4023,6 +4027,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4185,6 +4190,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4259,6 +4265,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4333,6 +4340,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4407,6 +4415,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4481,6 +4490,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4555,6 +4565,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -5685,6 +5696,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -6050,6 +6062,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -8658,6 +8671,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {

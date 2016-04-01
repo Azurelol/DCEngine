@@ -63,19 +63,19 @@ namespace DCEngine {
       // Sprites
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Components::Camera& camera, Components::Light* light);
-      void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
-	    void AnimationUpdate(Components::Sprite& sprite, float dt);
-	    int IsNextFrame(Components::Sprite& sprite);
+      //void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
+	    //void AnimationUpdate(Components::Sprite& sprite, float dt);
+	    //int IsNextFrame(Components::Sprite& sprite);
       // SpriteText
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Components::Camera& camera);
-      void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
+      //void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
 			// Particle System
 			void ConfigureParticleBuffers();
 			void SetParticleSystemShader(Components::Camera& camera);
 			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & camera, double dt);
 			// Shadowing System
-			void ConfigureShadowBuffers(void);
+			//void ConfigureShadowBuffers(void);
 			void SetShadowingShaders(Components::Camera& camera, Components::Light* light);
       // Modes
       void DrawModel(GameObject& gameObj);

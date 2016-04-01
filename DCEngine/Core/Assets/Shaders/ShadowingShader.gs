@@ -11,6 +11,7 @@ struct Light
 	bool VisibilityCulling;
 	bool VisibilityEvents;
 	bool CastShadows;
+	bool Diffuse;
 	int LightType;
 	vec4 Color;
 	float Intensity;

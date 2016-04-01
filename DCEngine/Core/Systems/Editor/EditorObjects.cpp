@@ -80,6 +80,11 @@ namespace DCEngine {
         // Display the object
         DisplayObject(object, objID);
         //ImGui::PopID();
+
+        // Update their translations
+        if (object->HasComponent("Transform"))
+          object->getComponent<Components::Transform>()->UpdateTranslation();
+
       }
 
 

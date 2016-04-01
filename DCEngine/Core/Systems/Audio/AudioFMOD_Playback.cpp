@@ -87,10 +87,10 @@ namespace DCEngine {
       if (AvailableEvents.count(eventHandle)) {
         *instance = CreateEventInstance(AvailableEvents.at(eventHandle));
         // Configure it
-        (*instance)->setVolume(settings.Volume);
-        (*instance)->setPitch(settings.Pitch);
+        ErrorCheck((*instance)->setVolume(settings.Volume));
+        ErrorCheck((*instance)->setPitch(settings.Pitch));
         // One-shot sound
-        (*instance)->start();
+        ErrorCheck((*instance)->start());
         return true;
       }
       return false;
