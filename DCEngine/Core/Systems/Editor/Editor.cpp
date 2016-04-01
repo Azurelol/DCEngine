@@ -141,6 +141,7 @@ namespace DCEngine {
     {
       // Editor ON
       if (toggle) {
+        DCTrace << "/------ EDITOR MODE -------/ \n";
         setEnabled(true);
         // Pause the engine (Physics, Input, Events)
         DispatchSystemEvents::EnginePause();
@@ -158,6 +159,7 @@ namespace DCEngine {
       }
       // Editor OFF
       else {
+        DCTrace << "/------ PLAY MODE -------/ \n";
         setEnabled(false);
         // Unpause the engine (Physics, Input, Events)
         DispatchSystemEvents::EngineResume();

@@ -105,6 +105,7 @@ namespace DCEngine {
       std::string ExternalTextEditor;
       bool TextEditorOpenExternally;
       bool CompileOnContextSwitch;
+      bool CompilationPopUps;
 
 
       // Projects
@@ -141,6 +142,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(ProjectsPath);
         DCE_JSON_SERIALIZE(ExternalTextEditor);
         DCE_JSON_SERIALIZE(CompileOnContextSwitch);
+        DCE_JSON_SERIALIZE(CompilationPopUps);
         DCE_JSON_SERIALIZE(TextEditorOpenExternally);
         DCE_JSON_SERIALIZE_VEC4(LockedColor);
       }
@@ -157,6 +159,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ExternalTextEditor).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(CompileOnContextSwitch).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(CompilationPopUps).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(TextEditorOpenExternally).asBool();
         DCE_JSON_DESERIALIZE_VEC4(LockedColor);
       }
