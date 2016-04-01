@@ -1,0 +1,29 @@
+class AntiEnergyField : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+		Daisy.Connect(this.Owner, DaisyEvent.CollisionPersisted, this.OnCollisionPersisted);
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+	{
+		if(event.OtherObject.BallTemp != null)
+		{
+			this.DissipateBall();
+		}
+	}
+	
+	function OnCollisionPersisted(event : CollisionPersisted)
+	{
+		if(event.OtherObject.BallTemp != null)
+		{
+			this.DissipateBall();
+		}
+	}
+	
+	function DissipateBall()
+	{
+		this.Space.FindObjectByName("Ball").BallController.ParentToPlayer();
+	}
+}

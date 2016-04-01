@@ -164,7 +164,7 @@ namespace DCEngine {
 #pragma region ChargeLeft State
     void Lancer::ChargeLeft::Enter(Lancer *owner)
     {
-
+      owner->SpriteRef->FlipX = false;
     }
 
     void Lancer::ChargeLeft::Update(Lancer *owner)
@@ -188,7 +188,7 @@ namespace DCEngine {
 #pragma region ChargeRight State
     void Lancer::ChargeRight::Enter(Lancer *owner)
     {
-
+      owner->SpriteRef->FlipX = true;
     }
 
     void Lancer::ChargeRight::Update(Lancer *owner)

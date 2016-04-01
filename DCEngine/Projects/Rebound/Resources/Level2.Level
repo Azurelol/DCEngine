@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": 59.443302, 
-                "y": 1.475992, 
+                "x": 80.679138, 
+                "y": 1.495564, 
                 "z": 0.000000
               }
             }, 
@@ -58,7 +58,7 @@
             "SpriteSource": "PlayerRun", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 10.000000, 
             "DrawLayer": 0
           }, 
@@ -120,8 +120,8 @@
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "AutoPlayTimer": 2.000000
           }, 
@@ -131,6 +131,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1416,6 +1417,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Spot", 
             "Color": 
             {
@@ -1490,6 +1492,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -1626,6 +1629,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {
@@ -1660,8 +1664,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 289, 
-        "Name": "PowerField2", 
+        "GameObjectID": 288, 
+        "Name": "PowerField1", 
         "Components": 
         {
           "Transform": 
@@ -1739,6 +1743,10 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "PowerField": 
+          {
+            "PowerTarget": "Shield3"
           }
         }, 
         "Children": 
@@ -2003,7 +2011,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -2026,6 +2034,10 @@
             "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "PowerField": 
+          {
+            "PowerTarget": "Shield4"
           }
         }, 
         "Children": 
@@ -3656,6 +3668,7 @@
           "Camera": 
           {
             "FieldOfView": 169.043015, 
+            "Exposure": 0.000000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -3684,8 +3697,8 @@
             {
               "Vec3": 
               {
-                "x": 55.993397, 
-                "y": 1.033307, 
+                "x": 77.229233, 
+                "y": 1.052879, 
                 "z": 0.000000
               }
             }, 
@@ -3829,6 +3842,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": false, 
+            "Diffuse": false, 
             "Type": "Point", 
             "Color": 
             {
@@ -5383,6 +5397,35 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "AntiEnergyField": 
+          {
           }
         }, 
         "Children": 
@@ -5680,7 +5723,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 281, 
+        "GameObjectID": 279, 
         "Name": "Shield3", 
         "Components": 
         {
@@ -5721,9 +5764,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -5736,7 +5779,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5756,13 +5799,37 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "Shield": 
+          "EnergyShield": 
           {
-            "Timer": 0.000000
+            "RepulseSpeed": 75, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.200000
+              }
+            }
+          }, 
+          "AntiEnergyField": 
+          {
           }
         }, 
         "Children": 
@@ -5772,7 +5839,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 282, 
+        "GameObjectID": 279, 
         "Name": "Shield4", 
         "Components": 
         {
@@ -5813,9 +5880,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -5828,7 +5895,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5848,7 +5915,7 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
@@ -5860,20 +5927,20 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
               }
             }, 
             "InactiveColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.200000
               }
             }
           }

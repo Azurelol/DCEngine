@@ -106,13 +106,6 @@ namespace DCEngine {
   }
 
 
-
-  void EaseMeUp(Ease ease) {
-
-  }
-
-
-
   /*!************************************************************************\
   @brief  Actions Zilch Definition
   \**************************************************************************/
@@ -164,32 +157,38 @@ namespace DCEngine {
   ===========================*/  
   void Actions::Property(ActionSetPtr set, Real & prty, Real val, Real duration, Ease ease)
   {
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionFloatProperty<Real>(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   void Actions::Property(ActionSetPtr set, Boolean & prty, Boolean val, Real duration, Ease ease)
   {    
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionBooleanProperty<Boolean>(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   void Actions::Property(ActionSetPtr set, Integer & prty, Integer val, Real duration, Ease ease)
   {
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionIntegerProperty(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   void Actions::Property(ActionSetPtr set, Vec2 & prty, Vec2 val, Real duration, Ease ease)
   {
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionFloatProperty<Vec2>(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   void Actions::Property(ActionSetPtr set, Vec3 & prty, Vec3 val, Real duration, Ease ease)
   {
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionFloatProperty<Vec3>(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   void Actions::Property(ActionSetPtr set, Vec4 & prty, Vec4 val, Real duration, Ease ease)
   {
-    PropertyT(set, prty, val, duration, ease);
+    ActionPtr prop(new ActionFloatProperty<Vec4>(set, prty, val, duration, ease));
+    set->Add(prop);
   }
 
   /*===============================

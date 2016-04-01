@@ -32,10 +32,19 @@ namespace DCEngine {
       float IdleRange; // Past this range, the grunt will be idle, within the range, it will patrol
       float MoveSpeed;
       ArchetypeHandle ShieldArchetype;
+      float ShieldRadius;
+      float ShieldBashDistance;
+      float ShieldBashOutTime;
+      float ShieldBashInTime;
+
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, MoveSpeed);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
+      DCE_DEFINE_PROPERTY(float, ShieldRadius);
+      DCE_DEFINE_PROPERTY(float, ShieldBashDistance);
+      DCE_DEFINE_PROPERTY(float, ShieldBashOutTime);
+      DCE_DEFINE_PROPERTY(float, ShieldBashInTime);
 
       // Methods
       ZilchDeclareDerivedType(Sentinel, Component);
@@ -45,7 +54,6 @@ namespace DCEngine {
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
       void OnDeathEvent(Events::DeathEvent * event);
-      void CreateShield();
 
     private:
       StateMachine<Sentinel> *stateMachine;
@@ -57,6 +65,11 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       HealthController* HealthRef;
+      Vec3 shieldLocalTranslation;
+      bool isBashing;
+      void CreateShield();
+      void UpdateShield();
+      void ShieldBash();
      
       class Global : public IState<Sentinel>
       {

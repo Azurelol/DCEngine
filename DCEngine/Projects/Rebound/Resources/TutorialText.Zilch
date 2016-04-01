@@ -5,9 +5,8 @@ class TutorialText : ZilchComponent
     [Property]
     var TransitionTime: Real = 0;
     var Timer : Real = 0;
-    
-    
-    
+    var TransitionStarted : Boolean = false;
+        
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
@@ -17,15 +16,12 @@ class TutorialText : ZilchComponent
     function OnLogicUpdate(event : LogicUpdate)
     {
       this.Timer += event.Dt;
-      if (this.Timer < 5)
+      if (this.Timer < 5 && !this.TransitionStarted)
       {
-        this.Owner.Sprite.Color -= Real4(0, 0, 0, 1);
-        //DCTrace << "visible\n";
-      }
-      else
-      {
-        this.Owner.Sprite.Color += Real4(0, 0, 0, 1);
-        //DCTrace << "not visible\n";
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ,1), this.TransitionTime, Ease.Linear);
+        this.TransitionStarted = true;
+        //Console.WriteLine("visible\n");
       }
     }
 

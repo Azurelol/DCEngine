@@ -7,6 +7,7 @@ struct Light
 	bool VisibilityCulling;
 	bool VisibilityEvents;
 	bool CastShadows;
+	bool Diffuse;
 	int LightType;
 	vec4 Color;
 	float Intensity;
@@ -55,30 +56,33 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 	else return 0.0;
 }
 
-float GeneratePointLightValues(vec3 fragPos, vec3 fragNormal, vec3 lightPosition, float range, float falloff)
+float GeneratePointLightValues(vec3 fragPos, vec3 fragNormal, Light light)
 {
-	float distance = length(fragPos - lightPosition);
-	return GenerateFalloffFactor(distance, range, falloff)
-	 * GenerateZ0DiffuseFactor(fragPos, fragNormal, lightPosition);
+	float distance = length(fragPos - light.Position);
+	float diffuseFactor = 1;
+	if(light.Diffuse)
+		diffuseFactor = GenerateZ0DiffuseFactor(fragPos, fragNormal, light.Position);
+	return GenerateFalloffFactor(distance, light.Range, light.Falloff) * diffuseFactor;
 }
 
-float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, vec3 lightPosition, float lightRange, float lightFalloff, vec3 lightDirection,
-	float lightInnerAngle, float lightOuterAngle, mat4 model)
+float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, Light light)
 {
-	float diffuseFactor = GenerateZ0DiffuseFactor(fragPos, fragNormal, lightPosition);
-	float distance = length(fragPos - lightPosition);
-	float distanceAttenuation = GenerateFalloffFactor(distance, lightRange, lightFalloff);
+	float diffuseFactor = 1;
+	if(light.Diffuse)
+		diffuseFactor = GenerateZ0DiffuseFactor(fragPos, fragNormal, light.Position);
+	float distance = length(fragPos - light.Position);
+	float distanceAttenuation = GenerateFalloffFactor(distance, light.Range, light.Falloff);
 
-	vec3 lightVector = (fragPos - lightPosition) / distance;
+	vec3 lightVector = (fragPos - light.Position) / distance;
 	float angleFalloff = 0.0;
-	vec4 worldDirection = model * vec4(lightDirection.xyz, 0.0);
+	vec4 worldDirection = light.Model * vec4(light.Direction.xyz, 0.0);
 	float angleDifference = abs(acos(dot(lightVector, normalize(worldDirection.xyz))));
 
-	if(angleDifference > lightOuterAngle)
+	if(angleDifference > light.OuterAngle)
 		return 0.0;
 
-	if(lightInnerAngle < lightOuterAngle)
-		angleFalloff = (angleDifference - lightOuterAngle) / (lightInnerAngle - lightOuterAngle);
+	if(light.InnerAngle < light.OuterAngle)
+		angleFalloff = (angleDifference - light.OuterAngle) / (light.InnerAngle - light.OuterAngle);
 	else
 		angleFalloff = 1;
 
@@ -92,11 +96,10 @@ vec3 GenerateIlluminationValues(vec3 fragPos, vec3 fragNormal)
 	switch(gLight.LightType)
 	{
 	case 0:
-		diffI = GeneratePointLightValues(fragPos, fragNormal, gLight.Position, gLight.Range, gLight.Falloff);
+		diffI = GeneratePointLightValues(fragPos, fragNormal, gLight);
 		break;
 	case 1:
-		diffI = GenerateSpotLightValues(fragPos, fragNormal, gLight.Position, gLight.Range, gLight.Falloff,
-			gLight.Direction, gLight.InnerAngle, gLight.OuterAngle, gLight.Model);
+		diffI = GenerateSpotLightValues(fragPos, fragNormal, gLight);
 		break;
 	default:
 		diffI = 1;

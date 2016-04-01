@@ -2,13 +2,10 @@ class DeathEvent : ZilchEvent {}
 
 class HealthControler : ZilchComponent
 {
-    [Property]
-    var MaxHealth : Real = 0;
-    [Property]
-    var  StartingHealth : Real = 0;
-    [Property]
-    var  IsInvulnerable : Boolean = false;
-    
+    [Property] var MaxHealth : Real = 0;
+    [Property] var  StartingHealth : Real = 0;
+    [Property] var  IsInvulnerable : Boolean = false;
+
     var  Health : Real = 0;
 
     function Initialize()

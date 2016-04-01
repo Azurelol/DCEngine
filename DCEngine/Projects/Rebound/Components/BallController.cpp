@@ -36,10 +36,14 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
-	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
-	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
-	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
+
+      DCE_BINDING_DEFINE_PROPERTY(BallController, CommandSound);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, CollideSound);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeSound);
       //ZilchBindMethod(builder, type, &BallController::FreezeBall, ZilchNoOverload, "FreezeBall", ZilchNoNames);
     }
 #endif
@@ -90,6 +94,8 @@ namespace DCEngine {
       //  << coords.x << " y: " << coords.y << "\n";
       if (event->ButtonPressed == MouseButton::Right)
       {
+        SoundCommand();
+
         if (ControlScheme == ControlScheme::Connor)
         {
           FreezeBall();
@@ -106,6 +112,7 @@ namespace DCEngine {
         //	Frozen = false;
         //	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         //	}
+        SoundCommand();
 
 
         if (CurrentlyFired)
@@ -175,23 +182,36 @@ namespace DCEngine {
 
     void BallController::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
+      Boolean hitPlayer = false;
+      Boolean hitTerrain = false;
+
       RigidBodyRef->setGravityRatio(NormalGravity);
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
+        hitPlayer = true;
         CollidingWithPlayer = true;
         if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
         {
           ParentToPlayer();
         }
       }
+      
       if(event->OtherObject->getComponent<Components::Transform>()->getScale().y > 3 || event->OtherObject->getComponent<Components::Transform>()->getScale().x > 3)  //this is a bad check for terrain, fix later
       {
+        hitTerrain = true;
         auto particle = SpaceRef->CreateObject("BounceParticle");
         if (particle)
         {
           particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + RigidBodyRef->getVelocity() / 50.0f); //bad way to get collision point
         }
       }
+
+      // If collides with any type of enemy
+      if ( (hitPlayer == false) && (hitTerrain == false) )
+      {
+        SoundCollide();
+      }
+      
     }
 
     void BallController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -339,10 +359,12 @@ namespace DCEngine {
 
       Frozen = true;
       SpriteRef->Color = FrozenColor;
+      SoundFreeze();
       if (CurrentlyFired)
       {
         RigidBodyRef->setVelocity(Vec3(0, 0, 0));
         RigidBodyRef->setDynamicState(DynamicStateType::Static);
+        SoundFreeze();
       }
       else
       {
@@ -358,6 +380,9 @@ namespace DCEngine {
       {
         return;
       }
+
+      SoundCommand();
+
       CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
       auto particle = SpaceRef->CreateObject("BallExplosionParticle");
       if (particle)
@@ -372,15 +397,31 @@ namespace DCEngine {
       gameObj->AttachTo(PlayerRef);
     }
 
-	void BallController::UnlockBall()
-	{
-		Locked = false;
-	}
+	  void BallController::UnlockBall()
+	  {
+		  Locked = false;
+	  }
 
-	void BallController::LockBall()
-	{
-		Locked = true;
-	}
+	  void BallController::LockBall()
+	  {
+		  Locked = true;
+	  }
+
+    
+    void BallController::SoundFreeze(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(FreezeSound);
+    }
+    
+    void BallController::SoundCommand(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CommandSound);
+    }
+
+    void BallController::SoundCollide(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+    }
 
   }
 }

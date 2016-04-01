@@ -396,7 +396,7 @@ namespace DCEngine {
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
     // Add it to the recently-created GameObjects container
     // RecentlyCreatedGameObjects.push_back(gameObject);
-    DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
+    //DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";
     return gameObject;
   }
 
@@ -420,7 +420,7 @@ namespace DCEngine {
     }
     // Add it to the recently-created GameObjects container
     //RecentlyCreatedGameObjects.push_back(gameObject);
-    DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
+    //DCTrace << Name() << "::Space::CreateObject: Created '" << archetype->Name() << "' \n";
     return gameObject;
   }
 
@@ -529,7 +529,7 @@ namespace DCEngine {
       }
     }
 
-    bool printObjects = true;
+    bool printObjects = false;
     if (printObjects)
       DCTrace << *this;
 

@@ -3,8 +3,13 @@
   "GameObject": 
   {
     "Locked": false, 
+<<<<<<< HEAD
+    "GameObjectID": 67, 
+    "Name": "Shield", 
+=======
     "GameObjectID": 279, 
     "Name": "Shield1", 
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
     "Components": 
     {
       "Transform": 
@@ -13,8 +18,13 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
+            "x": 13.407575, 
+            "y": 14.637627, 
+=======
             "x": 61.985565, 
             "y": 2.609283, 
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
             "z": 0.000000
           }
         }, 
@@ -32,7 +42,11 @@
           "Vec3": 
           {
             "x": 1.000000, 
+<<<<<<< HEAD
+            "y": 2.000000, 
+=======
             "y": 5.200000, 
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
             "z": 1.000000
           }
         }
@@ -44,13 +58,20 @@
         {
           "Vec4": 
           {
+<<<<<<< HEAD
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+=======
             "x": 0.200000, 
             "y": 0.400000, 
             "z": 0.700000, 
             "w": 0.500000
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "char_sent_4", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -59,7 +80,11 @@
       }, 
       "BoxCollider": 
       {
+<<<<<<< HEAD
+        "CollisionGroup": "Default", 
+=======
         "CollisionGroup": "DefaultCollisionGroup", 
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -83,6 +108,33 @@
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }, 
+<<<<<<< HEAD
+      "RigidBody": 
+      {
+        "Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "AngularVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Mass": 10.000000, 
+        "RotationLocked": true
+      }, 
+      "Orientation": 
+      {
+=======
       "EnergyShield": 
       {
         "RepulseSpeed": 75, 
@@ -107,6 +159,7 @@
             "w": 0.200000
           }
         }
+>>>>>>> 86dd52f52affa0f2ca3cff2648eb62b4d4901da4
       }
     }, 
     "Children": 

@@ -38,7 +38,7 @@ namespace DCEngine {
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResult (PhysicsSpace::*)(Ray &)), "CastRay", "ray");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResult(PhysicsSpace::*)(Ray &, CastFilter &)), "CastRay", "ray, filter");
-      /*ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned)), "CastRay", "ray, count");
+      ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned)), "CastRay", "ray, count");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastRay, (CastResultsRange (PhysicsSpace::*)(Ray&, unsigned, CastFilter&)), "CastRay", "ray, count, filter");
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastSegment, (CastResultsRange(PhysicsSpace::*)(Vec3&, Vec3&, unsigned)), "CastSegment", "start, end, count");
@@ -46,7 +46,7 @@ namespace DCEngine {
 
       ZilchBindMethod(builder, type, &PhysicsSpace::CastAabb, ZilchNoOverload, "CastAabb", "center, size, count, filter");
       ZilchBindMethod(builder, type, &PhysicsSpace::CastSphere, ZilchNoOverload, "CastSphere", "center, radius, count, filter");
-      ZilchBindMethod(builder, type, &PhysicsSpace::CastCollider, ZilchNoOverload, "CastCollider", "offset, testCollider, filter");*/
+      ZilchBindMethod(builder, type, &PhysicsSpace::CastCollider, ZilchNoOverload, "CastCollider", "offset, testCollider, filter");
     }
     #endif
 
@@ -91,8 +91,8 @@ namespace DCEngine {
     void PhysicsSpace::AddRigidBody(RigidBody& rigidbody)
     {
       RigidBodiesContainer.push_back(&rigidbody);
-      DCTrace << Owner()->getObjectName()
-        << "::PhysicsSpace::AddRigidBody - " << rigidbody.Owner()->Name() << "\n";
+      //DCTrace << Owner()->getObjectName()
+      //  << "::PhysicsSpace::AddRigidBody - " << rigidbody.Owner()->Name() << "\n";
     }
 
     /**************************************************************************/
@@ -103,8 +103,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PhysicsSpace::RemoveRigidBody(RigidBody& rigidbody)
     {
-      DCTrace << Owner()->getObjectName()
-        << "::PhysicsSpace::RemoveRigidBody - " << rigidbody.Owner()->Name() << "\n";
+      //DCTrace << Owner()->getObjectName()
+      //  << "::PhysicsSpace::RemoveRigidBody - " << rigidbody.Owner()->Name() << "\n";
       RigidBody* ptr = &rigidbody;
       RigidBodiesContainer.erase(std::remove(RigidBodiesContainer.begin(),
         RigidBodiesContainer.end(), ptr),
@@ -120,8 +120,8 @@ namespace DCEngine {
     void PhysicsSpace::AddCollider(Collider* collider)
     {
       CollidersContainer.push_back(collider);
-      DCTrace << Owner()->Name() << "::PhysicsSpace::AddCollider - "
-        << collider->Owner()->Name() << "\n";
+      //DCTrace << Owner()->Name() << "::PhysicsSpace::AddCollider - "
+      //  << collider->Owner()->Name() << "\n";
     }
 
     /**************************************************************************/
@@ -132,8 +132,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PhysicsSpace::RemoveCollider(Collider* collider)
     {
-      DCTrace << Owner()->Name() << "::PhysicsSpace::RemoveCollider - "
-        << collider->Owner()->Name() << "\n";
+      //DCTrace << Owner()->Name() << "::PhysicsSpace::RemoveCollider - "
+      //  << collider->Owner()->Name() << "\n";
       //BoxCollider* ptr = collider;
       CollidersContainer.erase(std::remove(CollidersContainer.begin(),
         CollidersContainer.end(), collider)  ); // ,

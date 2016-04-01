@@ -59,10 +59,23 @@ namespace DCEngine {
       Daisy->Connect<Events::ContentFileScanComplete>(&Content::OnContentFileScanComplete, this);
     }
 
+
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been moved.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
     void Content::OnContentFileMoved(Events::ContentFileMoved * event)
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been updated.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
     void Content::OnContentFileUpdated(Events::ContentFileUpdated * event)
     {
       // If it's a ZilchScript
@@ -72,14 +85,32 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Event received when a known file has been deleted.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
     void Content::OnContentFileDeleted(Events::ContentFileDeleted * event)
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Event received when a new file has been found.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
     void Content::OnContentFileFound(Events::ContentFileFound * event)
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Event received whena scan has been completed.
+    @param event A pointer to the event.
+    */
+    /**************************************************************************/
     void Content::OnContentFileScanComplete(Events::ContentFileScanComplete * event)
     {
     }
@@ -158,11 +189,17 @@ namespace DCEngine {
       // Load it
       LoadProjectResources();
       // Start the file scanner on the current project
-      //auto settings = FileScanner::FSSettings();
-      //settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
-      //settings.Frequency = 15;
-      //ProjectScanner.reset(new FileScanner(settings));
-      //ProjectScanner->Initialize();
+      bool scanning = true;
+      if (scanning) {
+        auto settings = FileScanner::FSSettings();
+        settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
+        settings.Frequency = 1;
+        ProjectScanner.reset(new FileScanner(settings));
+        ProjectScanner->Initialize();
+      }
+      // Announce that it's been loaded
+      DispatchSystemEvents::ContentProjectLoaded();
+
     }
 
     /**************************************************************************/

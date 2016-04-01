@@ -14,8 +14,9 @@ class PowerField : ZilchComponent
     {
         if(event.OtherObject.BallTemp != null)
         {
-            //event.OtherObject.Transform.Translation = Real3(0,0,0);
-            event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
+            event.OtherObject.Transform.Translation = Real3(0,0,0);
+			this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 10, this.Owner.Transform.Translation.Z);
+            //event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
             this.FreezeBall();
             this.TogglePower();
         }

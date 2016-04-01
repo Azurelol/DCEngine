@@ -22,11 +22,12 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       CollisionTablePtr CollisionTableRef;
+      float ShieldReflectionForce;
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
       // Properties
-      //DCE_DEFINE_PROPERTY(Real, Timer);
+      DCE_DEFINE_PROPERTY(float, ShieldReflectionForce);
 
       // Methods
       LancerShield(Entity& owner) : Component(std::string("LancerShield"), owner) {}

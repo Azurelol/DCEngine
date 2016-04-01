@@ -40,16 +40,18 @@ class MoveToLocationZilch : ZilchComponent
     {
         var moveTime = this.RandomGenerator.Range(this.MinMoveTime, this.MaxMoveTime);
         var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
-        var seq = Actions.Sequence(this.Owner.Actions);
+        
+				// Creating sequence
+				Console.WriteLine("OnToggleEvent Action!");
+				Console.WriteLine("`this.Name` is creating sequence!");
+				var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Delay(seq, delay);
         Actions.Property(seq, @this.Owner.Transform.Translation, this.TargetLocation, moveTime, Ease.Linear);
         var temp = this.TargetLocation;
         this.TargetLocation = this.StartingLocation;
         this.StartingLocation = temp;
-        if(this.Oscillate)
-        {
-            Actions.Call(seq, this.SendSelfToggleEvent);
-        }
+        //if(this.Oscillate) Actions.Call(seq, this.SendSelfToggleEvent);        
+				Console.WriteLine("`this.Name` is done creating sequence!");
     }
     
     function SendSelfToggleEvent()

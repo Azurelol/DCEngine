@@ -37,6 +37,7 @@ namespace DCEngine {
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
       float ShieldVelocityDifferenceThreshold;
+      
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -45,7 +46,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
-      DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold)
+      DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
 
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}

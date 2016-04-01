@@ -56,7 +56,7 @@ namespace DCEngine {
       // Capture a list of all objects on the space
       auto objects = Daisy->getGameSession()->getDefaultSpace()->AllObjects();
       // Show the attach menu
-      AttachMenu();
+      //AttachMenu();
       // Swap position
       //ImGui::SameLine();
       if (ImGui::Button("Up")) {
@@ -80,6 +80,11 @@ namespace DCEngine {
         // Display the object
         DisplayObject(object, objID);
         //ImGui::PopID();
+
+        // Update their translations
+        if (object->HasComponent("Transform"))
+          object->getComponent<Components::Transform>()->UpdateTranslation();
+
       }
 
 

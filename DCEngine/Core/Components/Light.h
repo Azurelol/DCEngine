@@ -38,6 +38,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, VisibilityEvents);
       // If the object is rendered to shadow maps
       DCE_DEFINE_PROPERTY(bool, CastShadows);
+			// If the light illuminates directional faces only
+			DCE_DEFINE_PROPERTY(bool, Diffuse);
       // The type of the light (Point, Spot, Directional, etc...)
       DCE_DEFINE_PROPERTY(LightType, Type);
       int getTypeAsInt();
@@ -66,6 +68,7 @@ namespace DCEngine {
       bool VisibilityCulling;
       bool VisibilityEvents; 
       bool CastShadows;
+			bool Diffuse;
       LightType Type;
       //int Type;
       Vec4 Color;

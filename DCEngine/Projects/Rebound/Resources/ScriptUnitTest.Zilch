@@ -7,7 +7,7 @@
 @brief  Roughly tests all possible scripting actions the average John may
 	    want to use.
 @copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
-*/
+*/                                                                                                            
 /******************************************************************************/
 // Declaring and defining a custom event using our engine's event system 
 class CustomEvent : ZilchEvent {
@@ -35,7 +35,7 @@ class ScriptUnitTest : ZilchComponent
   [Property] var TestingActionProperty : Boolean = true;
   [Property] var TypeToTest : PropertyType = PropertyType.Integer;
   [Property] var EaseFunc : Ease = Ease.Linear;
-  [Property] var Word : String =  "";
+  [Property] var Word : String = "";
 
   // Testing engine enum
   [Property] var EngineEnum : Keys = Keys.A;    
@@ -60,16 +60,25 @@ class ScriptUnitTest : ZilchComponent
 
   function Initialize()
   {
+	  if (this.Word == null)
+		  Console.WriteLine("What");
+	  
    if (this.TestingLogicUpdate) this.ConnectEngineEvents();
    if (this.TestingScriptEvents) this.ConnectScriptEvents();
    if (this.TestingInput) this.ConnectToInputEvents();
 
-    	// If possible, save the references
+   // If possible, save the references
    if (this.Owner.Transform != null) this.TransformRef = this.Owner.Transform;
-   if (this.Owner.Sprite != null) this.SpriteRef = this.Owner.Sprite; 
+   if (this.Owner.Sprite != null) this.SpriteRef = this.Owner.Sprite;
 
-   //this.BallControllerRef.FreezeBall();
+   //this.BallControllerRef.FreezeBall(); 
   } 
+  
+  function Terminate() {
+	  Console.WriteLine("`this.Name` is terminating!");
+  }
+  
+  
 
     ////////////////////////////////
     // Testing Connect and Dispatch

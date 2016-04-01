@@ -73,6 +73,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, NearPlane);
       DCE_DEFINE_PROPERTY(Real, FarPlane);
       DCE_DEFINE_PROPERTY(Real, Size);
+			DCE_DEFINE_PROPERTY(Real, Exposure);
 
       glm::mat4 GetViewMatrix();
       glm::mat4 GetProjectionMatrix();
@@ -87,7 +88,7 @@ namespace DCEngine {
       int* ScreenWidth;
       int* ScreenHeight;
       bool Active;
-
+			float Exposure;
       void Configure();
       void Update();
       // Calculates the front vector from the Camera's (updated) Euler angles

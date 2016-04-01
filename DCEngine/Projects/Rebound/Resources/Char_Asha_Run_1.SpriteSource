@@ -7,12 +7,12 @@
     {
       "FrameRate": 0.000000, 
       "PixelsPerUnit": 0.000000, 
-      "ColumnCount": 0, 
+      "ColumnCount": 1, 
       "RowCount": 3, 
       "Smoothing": false, 
-      "Looping": false, 
+      "Looping": true, 
       "Fill": false, 
-      "TotalFrame": 0, 
+      "TotalFrame": 3, 
       "AssetPath": "Projects\\Rebound\\Assets\\Images\\Char_Asha_Run_1.png"
     }
   }

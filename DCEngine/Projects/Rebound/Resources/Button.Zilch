@@ -10,11 +10,15 @@ class Button : ZilchComponent
 	
 	function OnCollisionStarted(event : CollisionStarted)
     {
-		if(event.OtherObject.BallTemp != null && this.TargetName != "")
+		if (event.OtherObject.BallTemp != null && this.TargetName != "")
 		{
           var tevent = ToggleEvent();
           tevent.Source = this.Owner;
-          this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
+					var target = this.Space.FindObjectByName(this.TargetName);
+					if (target != null) {
+						target.Dispatch(DaisyEvent.ToggleEvent, tevent);
+					}
+          //this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
 		}
     }
 }

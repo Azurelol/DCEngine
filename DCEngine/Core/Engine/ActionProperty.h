@@ -134,15 +134,8 @@ namespace DCEngine {
     BooleanType InitialValue;
     BooleanType EndValue;
   };
-
-  class ActionBoolProperty : public ActionBaseProperty {
-  public:
-    float Interpolate(float dt);
-  private:
-    Boolean InitialValue;
-    Boolean EndValue;
-  };
-
+  
+                                    /* C++ */
   /**************************************************************************/
   /*!
   @class ActionProperty A type of action that modifies the value of
@@ -151,35 +144,47 @@ namespace DCEngine {
   */
   /**************************************************************************/
   template <typename PropertyType>
-  class ActionProperty : public Action {
+  class ActionFloatProperty : public ActionBaseProperty {
   public:
-    ActionProperty(ActionSetPtr set, PropertyType& prop, PropertyType value, Real duration, Ease ease);
-    float Update(float dt);
+    ActionFloatProperty(ActionSetPtr set, PropertyType& prop, PropertyType value, Real duration, Ease ease);
+    float Interpolate(float dt);
 
   private:
     PropertyType& Property;
     PropertyType Difference;
     PropertyType InitialValue;
     PropertyType EndValue;
-    Real Duration;
-    Ease Ease_;
   };
 
-  // Variant for Zilch
-  template <typename PropertyType>
-  class ActionZilchFloatPropertyOld : public Action {
+  /**************************************************************************/
+  /*!
+  @class ActionZilchStringProperty Property class for String values.
+  */
+  /**************************************************************************/
+  template <typename BooleanType>
+  class ActionBooleanProperty : public ActionBaseProperty {
   public:
-    ActionZilchFloatPropertyOld(ActionSetPtr set, Zilch::PropertyDelegateTemplate prop, 
-                                PropertyType value, Real duration, Ease ease);
-    float Update(float dt);
+    ActionBooleanProperty(ActionSetPtr set, BooleanType& prop, BooleanType value, Real duration, Ease ease);
+    float Interpolate(float dt);
   private:
-    Zilch::PropertyDelegateTemplate Property;
-    Zilch::ExceptionReport Report;
-    PropertyType Difference;
-    PropertyType InitialValue;
-    PropertyType EndValue;
-    Real Duration;
-    Ease Ease_;
+    BooleanType& Property;
+    BooleanType EndValue;
+  };
+
+  /**************************************************************************/
+  /*!
+  @class ActionZilchStringProperty Property class for String values.
+  */
+  /**************************************************************************/  
+  class ActionIntegerProperty : public ActionBaseProperty {
+  public:
+    ActionIntegerProperty(ActionSetPtr set, Integer& prop, Integer value, Real duration, Ease ease);
+    float Interpolate(float dt);
+  private:
+    Integer& Property;
+    Integer InitialValue;
+    Integer EndValue;
+    Real Difference;
   };
 
 }
