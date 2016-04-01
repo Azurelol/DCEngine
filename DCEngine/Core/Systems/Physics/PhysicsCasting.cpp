@@ -24,6 +24,7 @@ namespace DCEngine
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(CastResultVector, "CastResultVector", DCEngineCore, builder, type) {
+   // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResultVector);
     ZilchBindMethod(builder, type, &CastResultVector::size, ZilchNoOverload, "size", ZilchNoNames);
     ZilchBindMethod(builder, type, &CastResultVector::capacity, ZilchNoOverload, "capacity", ZilchNoNames);
     ZilchBindMethod(builder, type, &CastResultVector::empty, ZilchNoOverload, "empty", ZilchNoNames);
@@ -38,11 +39,30 @@ namespace DCEngine
     ZilchBindMethod(builder, type, &CastResultVector::clear, ZilchNoOverload, "clear", ZilchNoNames);
 
   }
+  ZilchDefineType(CollisionVector, "CollisionVector", DCEngineCore, builder, type) {
+    // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResultVector);
+    ZilchBindMethod(builder, type, &CollisionVector::size, ZilchNoOverload, "size", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::capacity, ZilchNoOverload, "capacity", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::empty, ZilchNoOverload, "empty", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::reserve, ZilchNoOverload, "reserve", "n");
+    ZilchBindMethod(builder, type, &CollisionVector::shrink_to_fit, ZilchNoOverload, "shrink_to_fit", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::at, ZilchNoOverload, "at", "n");
+    ZilchBindMethod(builder, type, &CollisionVector::front, ZilchNoOverload, "front", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::back, ZilchNoOverload, "back", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::push_back, ZilchNoOverload, "push_back", "val");
+    ZilchBindMethod(builder, type, &CollisionVector::pop_back, ZilchNoOverload, "pop_back", ZilchNoNames);
+    ZilchBindMethod(builder, type, &CollisionVector::insert, ZilchNoOverload, "insert", "position, val");
+    ZilchBindMethod(builder, type, &CollisionVector::clear, ZilchNoOverload, "clear", ZilchNoNames);
+
+  }
   ZilchDefineType(Ray, "Ray", DCEngineCore, builder, type) {
+    ZilchBindConstructor(builder, type, Ray, ZilchNoNames);
+    //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Ray);
     ZilchBindField(builder, type, &Ray::Origin, "Origin", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &Ray::Direction, "Direction", Zilch::PropertyBinding::GetSet);
   }
   ZilchDefineType(CastResult, "CastResult", DCEngineCore, builder, type) {
+   // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResult);
     ZilchBindField(builder, type, &CastResult::Distance, "Distance", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastResult::BodySpacePosition, "CastResult", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastResult::Normal, "Normal", Zilch::PropertyBinding::GetSet);
@@ -50,6 +70,8 @@ namespace DCEngine
     ZilchBindField(builder, type, &CastResult::WorldPosition, "WorldPosition", Zilch::PropertyBinding::GetSet);
   }
   ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
+    ZilchBindConstructor(builder, type, CastFilter, ZilchNoNames);
+    ZilchBindField(builder, type, &CastFilter::CollisionGroups, "CollisionGroups", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::Include, "Include", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::IgnoreStatic, "IgnoreStatic", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::IgnoreDynamic, "IgnoreDynamic", Zilch::PropertyBinding::GetSet);
@@ -116,18 +138,81 @@ namespace DCEngine
     list.clear();
   }
 
+  CollisionVector& CollisionVector::operator= (const CollisionVector& ref)
+  {
+    list = ref.list;
+    return *this;
+  }
+
+  unsigned CollisionVector::size()
+  {
+    return list.size();
+  }
+  unsigned CollisionVector::capacity() const
+  {
+    return list.capacity();
+  }
+  bool CollisionVector::empty() const
+  {
+    return list.empty();
+  }
+  void CollisionVector::reserve(unsigned n)
+  {
+    list.reserve(n);
+  }
+  void CollisionVector::shrink_to_fit()
+  {
+    list.shrink_to_fit();
+  }
+  CollisionGroup& CollisionVector::operator[] (unsigned n)
+  {
+    return list[n];
+  }
+  CollisionGroup& CollisionVector::at(unsigned n)
+  {
+    return list.at(n);
+  }
+  CollisionGroup& CollisionVector::front()
+  {
+    return list.front();
+  }
+  CollisionGroup& CollisionVector::back()
+  {
+    return list.back();
+  }
+  void CollisionVector::push_back(const CollisionGroup& val)
+  {
+    list.push_back(val);
+  }
+  void CollisionVector::pop_back()
+  {
+    list.pop_back();
+  }
+  void CollisionVector::insert(unsigned position, const CollisionGroup& val)
+  {
+    list[position] = val;
+  }
+  void CollisionVector::clear()
+  {
+    list.clear();
+  }
 
   namespace Systems 
   {
 
-    bool isGroup(std::vector<DCEngine::CollisionGroup> &Groups, const DCEngine::CollisionGroup & group)
+    bool isGroup(CollisionVector &Groups, const DCEngine::CollisionGroup & group)
     {
-      for (auto Group : Groups)
+      for (int i = 0; Groups.at(i).Name() != Groups.back().Name(); i++)
       {
+        auto Group = Groups.at(i);
         if (Group.Name() == group.Name())
         {
           return true;
         }
+      }
+      if (Groups.back().Name() == group.Name())
+      {
+        return true;
       }
       return false;
     }

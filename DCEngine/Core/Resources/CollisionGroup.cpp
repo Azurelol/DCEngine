@@ -19,6 +19,9 @@ namespace DCEngine {
   /**************************************************************************/
   #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(CollisionGroup, "CollisionGroup", DCEngineCore, builder, type) {
+    ZilchBindConstructor(builder, type, CollisionGroup ,"collisionGroupFile", std::string);
+    ZilchBindDestructor(builder, type, CollisionGroup);
+
   }
   #endif
 
