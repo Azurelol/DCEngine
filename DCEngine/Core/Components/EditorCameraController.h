@@ -24,6 +24,9 @@ namespace DCEngine {
       Real RotSpeed = 15.0f;
       Real ZoomSpeed = 5.0f;
       Real ZoomRatio = 0.08f;
+	  Real ZoomMin;
+	  Real ZoomMax;
+
       Boolean MoveByKey = false;
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, RotSpeed);

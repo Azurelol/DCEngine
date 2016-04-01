@@ -7,7 +7,7 @@
     {
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 170, 
         "Name": "Camera", 
         "Components": 
@@ -44,7 +44,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 250.000000, 
+            "FieldOfView": 50.137001, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -69,8 +69,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -0.100280, 
+                "y": -0.358238, 
                 "z": 0.100000
               }
             }, 
@@ -87,8 +87,8 @@
             {
               "Vec3": 
               {
-                "x": 50.000000, 
-                "y": 50.000000, 
+                "x": 5.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -103,15 +103,15 @@
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 0.000000
+                "w": 1.000000
               }
             }, 
-            "SpriteSource": "DigipenSplash", 
+            "SpriteSource": "DigiPen_WHITE", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 1
           }, 
           "LevelManager": 
           {
@@ -142,6 +142,68 @@
             "Active": true, 
             "CaptureMouse": true, 
             "Noise": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 6, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.438646, 
+                "y": -1.278512, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 100.000000, 
+                "y": 50.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
         }, 
         "Children": 
