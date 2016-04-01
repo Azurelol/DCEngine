@@ -111,19 +111,10 @@
             "SendsEvents": true, 
             "IsDrawingCollider": true
           }, 
-          "PlayerController": 
+          "HealthController": 
           {
-            "MoveSpeed": 0.700000, 
-            "JumpPower": 30.000000, 
-            "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
-            "AirBrakeScalar": 0.950000, 
-            "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": true, 
-            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
-            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
-            "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
+            "MaxHealth": 10, 
+            "StartingHealth": 10
           }, 
           "Light": 
           {
@@ -157,10 +148,19 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }, 
-          "HealthController": 
+          "ZPlayerController": 
           {
-            "MaxHealth": 10, 
-            "StartingHealth": 10
+            "MoveSpeed": 0.700000, 
+            "JumpPower": 30.000000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
           }
         }, 
         "Children": 

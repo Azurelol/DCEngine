@@ -65,6 +65,28 @@ namespace DCEngine {
     void insert(unsigned position, const CastResult& val);
     void clear();
   };
+  class CollisionVector
+  {
+#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
+    ZilchDeclareBaseType(CollisionVector, Zilch::TypeCopyMode::ReferenceType);
+#endif
+    std::vector<CollisionGroup> list;
+  public:
+    CollisionVector& operator= (const CollisionVector& ref);
+    unsigned size();
+    unsigned capacity() const;
+    bool empty() const;
+    void reserve(unsigned n);
+    void shrink_to_fit();
+    CollisionGroup& operator[] (unsigned n);
+    CollisionGroup& at(unsigned n);
+    CollisionGroup& front();
+    CollisionGroup& back();
+    void push_back(const CollisionGroup& val);
+    void pop_back();
+    void insert(unsigned position, const CollisionGroup& val);
+    void clear();
+  };
 
   // A container of Cast Results
   using CastResultsRange = CastResultVector;
@@ -81,7 +103,7 @@ namespace DCEngine {
     ZilchDeclareBaseType(CastFilter, Zilch::TypeCopyMode::ReferenceType);
 #endif
     bool Include = false;
-    std::vector<CollisionGroup> CollisionGroups;
+    CollisionVector CollisionGroups;
     bool IgnoreStatic = false;
     bool IgnoreDynamic = false;
     bool IgnoreGhost = false;    

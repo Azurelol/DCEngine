@@ -121,7 +121,7 @@ class ZPlayerController : ZilchComponent
 		{
 			this.LevelCheatLoaded = true;
 			level = "YouWon";
-			//LOAD NEW LEVEL (level)
+			this.Space.LoadLevel(level);
 		}
 		if(event.Key == Keys.L)
 		{
@@ -132,13 +132,13 @@ class ZPlayerController : ZilchComponent
 		{
 			this.LevelCheatLoaded = true;
 			level = "Level1";
-			//LOAD NEW LEVEL (level)
+			this.Space.LoadLevel(level);
 		}
 		if(event.Key == Keys.Num2)
 		{
 			this.LevelCheatLoaded = true;
 			level = "Level2";
-			//LOAD NEW LEVEL (level)
+			this.Space.LoadLevel(level);
 		}
 		if(event.Key == Keys.Num3)
 		{
@@ -183,6 +183,7 @@ class ZPlayerController : ZilchComponent
 
 	function OnLogicUpdateEvent(event : LogicUpdate)
     {
+		this.CheckForGround();
 		if(this.RigidBodyRef.Velocity.X > this.VelocityXCap)
 		{
 			var currentVel = this.RigidBodyRef.Velocity;
@@ -202,7 +203,7 @@ class ZPlayerController : ZilchComponent
 			if(this.DeathTimer > this.TimeToDie)
 			{
 				this.Dead = false;
-				//this.SpaceRef.ReloadLevel();
+				this.Space.ReloadLevel();
 			}
 			return;
 		}
@@ -302,7 +303,7 @@ class ZPlayerController : ZilchComponent
 		}
 		this.SpriteComponent.Color = Real4(1, 0, 0, 1);
 		this.Health = this.Health - damage;
-		//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Hit");\
+		//this.Space.SoundSpace.PlayCue("Hit");
 		
 		if(this.Health <= 0)
 		{
@@ -314,18 +315,49 @@ class ZPlayerController : ZilchComponent
 	{
 		this.SpriteComponent.Color = Real4(0, 0, 0, 1);
 		this.Dead = true;
-		//var cameraRef = SpaceRef->FindObjectByName("Camera")
-		//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Death");
-		//if (cameraRef)
-		//{
-		//	cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
-		//}
+		var cameraRef = this.Space.FindObjectByName("Camera");
+		//this.Space.SoundSpace.PlayCue("Death");
+		if (cameraRef != null)
+		{
+			//cameraRef.CameraController.DoScreenShake = true;
+		}
 	}
 
-	//function CheckForGround()
-	//{
-
-	//}
+	function CheckForGround()
+	{
+		var filter : CastFilter = CastFilter();
+		filter.CollisionGroups.Push_back(CollisionGroup("Terrain"));
+		filter.Include = true;
+		var physicsSpace = this.Space.PhysicsSpace;
+		var ray : Ray = Ray();
+		ray.Direction = Real3(0, -1, 0);
+		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		+ Real3(this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
+		var result = physicsSpace.CastRay(ray);
+		if(result.Distance < 0.05)
+		{
+			this.Grounded = true;
+			return;
+		}
+		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		+ Real3(0, -this.TransformRef.Scale.Y / 2, 0);
+		result = physicsSpace.CastRay(ray, filter);
+		if(result.Distance < 0.05)
+		{
+			this.Grounded = true;
+			return;
+		}
+		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		+ Real3(-this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
+		result = physicsSpace.CastRay(ray, filter);
+		if(result.Distance < 0.05)
+		{
+			this.Grounded = true;
+			return;
+		}
+		this.Grounded = false;
+		
+	}
 	
     function AutoPlay(event : LogicUpdate)
 	{

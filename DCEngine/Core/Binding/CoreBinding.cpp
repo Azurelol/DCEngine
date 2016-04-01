@@ -59,10 +59,12 @@ namespace DCEngine {
     *===================*/
     ZilchInitializeType(Ray);
     ZilchInitializeType(CastResult);
+    ZilchInitializeType(CastResultVector);
     ZilchInitializeType(CastFilter);
     ZilchInitializeType(CollisionBlock);
     ZilchInitializeType(CollisionFilter);
     ZilchInitializeType(CollisionTable);
+    ZilchInitializeType(CollisionVector);
     //ZilchInitializeType(DaisyVector<CastResult>);
     /*===================*
     *     Resources      *
