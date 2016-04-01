@@ -1939,7 +1939,13 @@
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "LandSound": "Land", 
+            "FootstepSound": "Step", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -6054,7 +6060,10 @@
             "MaxAttractSpeed": 50.000000, 
             "MaxAttractForce": 100.000000, 
             "AttractArriveDistance": 200.000000, 
-            "MinAttractSpeed": 25.000000
+            "MinAttractSpeed": 25.000000, 
+            "CommandSound": "BallCommand", 
+            "CollideSound": "BallCollide", 
+            "FreezeSound": "BallFreeze"
           }, 
           "Light": 
           {
@@ -9077,11 +9086,10 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "Sole Groove", 
-            "LastTrack": "NO TRACK SET", 
+            "Track": "NO TRACK SET", 
             "Volume": 0.000000, 
-            "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
+            "PlayOnStart": true, 
+            "StopOnEnd": false
           }
         }, 
         "Children": 
