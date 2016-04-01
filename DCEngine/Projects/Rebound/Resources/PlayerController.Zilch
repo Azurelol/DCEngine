@@ -326,36 +326,36 @@ class ZPlayerController : ZilchComponent
 	function CheckForGround()
 	{
 		var filter : CastFilter = CastFilter();
-		filter.CollisionGroups.Push_back(CollisionGroup("Terrain"));
-		filter.Include = true;
-		var physicsSpace = this.Space.PhysicsSpace;
-		var ray : Ray = Ray();
-		ray.Direction = Real3(0, -1, 0);
-		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
-		+ Real3(this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
-		var result = physicsSpace.CastRay(ray);
-		if(result.Distance < 0.05)
-		{
-			this.Grounded = true;
-			return;
-		}
-		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
-		+ Real3(0, -this.TransformRef.Scale.Y / 2, 0);
-		result = physicsSpace.CastRay(ray, filter);
-		if(result.Distance < 0.05)
-		{
-			this.Grounded = true;
-			return;
-		}
-		ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
-		+ Real3(-this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
-		result = physicsSpace.CastRay(ray, filter);
-		if(result.Distance < 0.05)
-		{
-			this.Grounded = true;
-			return;
-		}
-		this.Grounded = false;
+		//filter.CollisionGroups.Push_back(CollisionGroup("Terrain"));
+		//filter.Include = true;
+		//var physicsSpace = this.Space.PhysicsSpace;
+		//var ray : Ray = Ray();
+		//ray.Direction = Real3(0, -1, 0);
+		//ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		//+ Real3(this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
+		//var result = physicsSpace.CastRay(ray);
+		//if(result.Distance < 0.05)
+		//{
+		//	this.Grounded = true;
+		//	return;
+		//}
+		//ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		//+ Real3(0, -this.TransformRef.Scale.Y / 2, 0);
+		//result = physicsSpace.CastRay(ray, filter);
+		//if(result.Distance < 0.05)
+		//{
+		//	this.Grounded = true;
+		//	return;
+		//}
+		//ray.Origin = Real3(this.TransformRef.Translation.X, this.TransformRef.Translation.Y, this.TransformRef.Translation.Z) 
+		//+ Real3(-this.TransformRef.Scale.X / 2.01, -this.TransformRef.Scale.Y / 2, 0);
+		//result = physicsSpace.CastRay(ray, filter);
+		//if(result.Distance < 0.05)
+		//{
+			//this.Grounded = true;
+			//return;
+		//}
+		//this.Grounded = false;
 		
 	}
 	
