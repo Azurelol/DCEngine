@@ -180,11 +180,10 @@
           }, 
           "MusicManager": 
           {
-            "CurrentTrack": "HighPriceVictory", 
-            "LastTrack": "HighThud", 
+            "Track": "NO TRACK SET", 
             "Volume": 0.000000, 
-            "FadeInTime": 0.000000, 
-            "FadeOutTime": 0.000000
+            "PlayOnStart": true, 
+            "StopOnEnd": false
           }
         }, 
         "Children": 
@@ -367,6 +366,7 @@
           "Camera": 
           {
             "FieldOfView": 175.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
@@ -797,6 +797,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {

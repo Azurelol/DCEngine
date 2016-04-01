@@ -93,8 +93,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 0.500000, 
+                "y": 0.900000, 
                 "z": 1.000000
               }
             }, 
@@ -103,7 +103,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -0.050000, 
                 "z": 0.000000
               }
             }, 
@@ -2139,8 +2139,8 @@
             {
               "Vec3": 
               {
-                "x": -67.048370, 
-                "y": 3.239047, 
+                "x": -44.337986, 
+                "y": 2.283299, 
                 "z": 0.000000
               }
             }, 
@@ -2243,10 +2243,10 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 2.000000, 
+            "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 1.000000, 
-            "ShieldBashInTime": 0.500000
+            "ShieldBashOutTime": 0.150000, 
+            "ShieldBashInTime": 0.100000
           }
         }, 
         "Children": 

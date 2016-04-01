@@ -42,7 +42,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     EditorCameraController::EditorCameraController(Entity & owner) 
-         : Component(std::string("EditorCameraController"), owner)
+         : Component(std::string("EditorCameraController"), owner), ZoomMin(2.0f), ZoomMax(100.0f)
     {
       CameraComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Camera>();
       TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
@@ -135,10 +135,10 @@ namespace DCEngine {
 
       if (CameraComponent->getProjection() == ProjectionMode::Perspective) {
         // Scroll up
-        if (event->Delta > 0)
+        if (event->Delta > 0 && TransformComponent->Translation.z - MoveSpeed + distanceFromZ * ZoomRatio > ZoomMin)
           TransformComponent->Translation.z -= MoveSpeed + distanceFromZ * ZoomRatio;
         // Scroll down
-        else if (event->Delta < 0)
+        else if (event->Delta < 0 && TransformComponent->Translation.z + MoveSpeed + distanceFromZ * ZoomRatio < ZoomMax)
           TransformComponent->Translation.z += MoveSpeed + distanceFromZ * ZoomRatio;
       }
 

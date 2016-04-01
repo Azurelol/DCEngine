@@ -404,12 +404,14 @@ namespace DCEngine {
       //if (!CurrentScript)
       //  return;
 
-      Windows::PopUpData data;
-      data.Title = "'" + scriptName + "' has failed to compile!";
-      data.Message = event->Message;
-      data.Confirmation = "Back";
-      auto popUp = WindowPtr(new Windows::PopUp(data));
-      GUI::Add(popUp);
+      if (Access().Settings.CompilationPopUps) {
+        Windows::PopUpData data;
+        data.Title = "'" + scriptName + "' has failed to compile!";
+        data.Message = event->Message;
+        data.Confirmation = "Back";
+        auto popUp = WindowPtr(new Windows::PopUp(data));
+        GUI::Add(popUp);
+      }      
 
       // Add the compilation error to be tracked
       CompilationErrors.push_back(CompilationError(scriptName, event->Message));
