@@ -397,15 +397,15 @@ namespace DCEngine {
       gameObj->AttachTo(PlayerRef);
     }
 
-	  void BallController::UnlockBall()
-	  {
-		  Locked = false;
-	  }
+    void BallController::UnlockBall()
+    {
+      Locked = false;
+    }
 
-	  void BallController::LockBall()
-	  {
-		  Locked = true;
-	  }
+    void BallController::LockBall()
+    {
+      Locked = true;
+    }
 
     
     void BallController::SoundFreeze(void)

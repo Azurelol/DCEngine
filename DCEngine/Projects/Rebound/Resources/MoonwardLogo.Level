@@ -7,8 +7,9 @@
     {
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 14, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -44,17 +45,22 @@
           "Camera": 
           {
             "FieldOfView": 250.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
             "Projection": "Perspective"
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 15, 
         "Name": "Background", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -107,12 +113,16 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
       {
+        "Locked": false, 
+        "GameObjectID": 16, 
         "Name": "Logo", 
-        "Archetype": "", 
         "Components": 
         {
           "Transform": 
@@ -195,6 +205,9 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
         }
       }
     }

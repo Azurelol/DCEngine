@@ -113,11 +113,11 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 1
           }, 
-          "LevelManager": 
+          "Reactive": 
           {
-            "NextLevel": "MoonwardLogo", 
-            "LoadingTime": 5.000000, 
-            "TimerStarted": true
+            "Active": true, 
+            "CaptureMouse": true, 
+            "Noise": false
           }, 
           "Fade": 
           {
@@ -137,11 +137,11 @@
             "Fading": true, 
             "Pulse": false
           }, 
-          "Reactive": 
+          "LevelManager": 
           {
-            "Active": true, 
-            "CaptureMouse": true, 
-            "Noise": false
+            "NextLevel": "", 
+            "LoadingTime": 1.000000, 
+            "TimerStarted": false
           }
         }, 
         "Children": 
