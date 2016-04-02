@@ -20,17 +20,10 @@
 			"buffers":
 			[
 				{
-<<<<<<< HEAD
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch",
 					"settings":
 					{
-						"buffer_size": 9155,
-=======
-					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
-					"settings":
-					{
-						"buffer_size": 223,
->>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
+						"buffer_size": 1331,
 						"line_ending": "Windows"
 					}
 				}
@@ -67,12 +60,6 @@
 			},
 			"file_history":
 			[
-<<<<<<< HEAD
-=======
-				"/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Anti-Energy Field.Zilch",
->>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch"
 			],
 			"find":
 			{
@@ -112,35 +99,27 @@
 					[
 						{
 							"buffer": 0,
-<<<<<<< HEAD
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 9155,
-=======
-							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 223,
->>>>>>> 3355638d2dacbbcf889690e6ffc0018ef2635b06
+								"buffer_size": 1331,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										563,
+										563
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 180.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -185,7 +164,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1114,670,280,1636",
+			"position": "0,0,1,-1,-1,-1,-1,899,-1116,135,-211",
 			"project": "",
 			"replace":
 			{

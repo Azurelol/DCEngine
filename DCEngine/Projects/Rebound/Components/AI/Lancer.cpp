@@ -79,6 +79,7 @@ namespace DCEngine {
 
     void Lancer::OnDeathEvent(Events::DeathEvent * event)
     {
+      DCTrace << "Lancer::OnDeathEvent \n";
       stateMachine->ChangeState(Die::Instance());
     };
 

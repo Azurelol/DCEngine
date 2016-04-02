@@ -20,8 +20,9 @@ class HealthControler : ZilchComponent
 
 	function OnKeyDownEvent(event : KeyDown) {
 	
+		// This guy is kil
 		if (event.Key == Keys.D) {
-			//this.ModifyHealth()
+			this.ModifyHealth(0);
 		}
 	}
     function ModifyHealth(amount : Real) : Boolean

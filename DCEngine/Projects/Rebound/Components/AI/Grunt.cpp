@@ -55,7 +55,12 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Grunt::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
-      Connect(gameObj, Events::DeathEvent, Grunt::OnDeathEvent);
+      //Connect(gameObj, Events::DeathEvent, Grunt::OnDeathEvent);
+      
+      // Connect by string
+      Daisy->Connect<Events::DeathEvent>("DeathEvent", gameObj, &Grunt::OnDeathEvent, this);
+
+      //DCTrace << "Grunt::OnDeathEvent has been received \n";
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
@@ -100,6 +105,7 @@ namespace DCEngine {
 
     void Grunt::OnDeathEvent(Events::DeathEvent * event)
     {
+      DCTrace << "Grunt::OnDeathEvent has been received \n";
       stateMachine->ChangeState(Die::Instance());
     };
 
@@ -120,6 +126,10 @@ namespace DCEngine {
 
     void Grunt::Global::Update(Grunt *owner)
     {
+      // If there is no player, do nothing
+      if (!owner->player)
+        return;
+
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
@@ -146,6 +156,10 @@ namespace DCEngine {
 
     void Grunt::Idle::Update(Grunt *owner)
     {
+      // If there is no player, do nothing
+      if (!owner->player)
+        return;
+
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
@@ -177,6 +191,10 @@ namespace DCEngine {
 
     void Grunt::PatrolRight::Update(Grunt *owner)
     {
+      // If there is no player, do nothing
+      if (!owner->player)
+        return;
+
       Vec3 ownerPosition = owner->TransformRef->Translation;
       Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
       owner->Jump(1, owner->JumpPeriod, owner->JumpStrengthX, owner->JumpStrengthY);
@@ -220,6 +238,10 @@ namespace DCEngine {
 
     void Grunt::PatrolLeft::Update(Grunt *owner)
     {
+      // If there is no player, do nothing
+      if (!owner->player)
+        return;
+
       Vec3 ownerPosition = owner->TransformRef->Translation;
       Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
       owner->Jump(-1, owner->JumpPeriod, owner->JumpStrengthX, owner->JumpStrengthY);
@@ -262,6 +284,10 @@ namespace DCEngine {
 
     void Grunt::Attack::Update(Grunt *owner)
     {
+      // If there is no player, do nothing
+      if (!owner->player)
+        return;
+
       Vec3 ownerPosition = owner->TransformRef->Translation;
       Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
       Vec3 direction = playerPosition - ownerPosition;
@@ -319,12 +345,12 @@ namespace DCEngine {
 
     void Grunt::Die::Exit(Grunt *owner)
     {
-		//create death particle
-		auto particle = owner->SpaceRef->CreateObject("EnemyExplosionParticle");
-		if (particle)
-		{
-			particle->getComponent<Components::Transform>()->setTranslation(owner->TransformRef->Translation); 
-		}
+    //create death particle
+    auto particle = owner->SpaceRef->CreateObject("EnemyExplosionParticle");
+    if (particle)
+    {
+      particle->getComponent<Components::Transform>()->setTranslation(owner->TransformRef->Translation); 
+    }
       // Destroy grunt
 
       owner->gameObj->Destroy();

@@ -34,6 +34,7 @@ namespace DCEngine {
     auto degPtr = dynamic_cast<EventDelegate*>(memDeg);
     // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
     publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
+    //publisher->ObserverRegistryByString[EventClass].emplace_back(deleg);
     //publisher->ObserverRegistry[typeid(EventClass)].push_back(degPtr);
     // Add a pointer to entiyy
     inst->ActiveDelegateHolders.push_back(publisher);
@@ -58,23 +59,7 @@ namespace DCEngine {
     memDeg->Inst = inst;
     ConnectTo(eventName, publisher, memDeg, inst);
   }
-
-  //template<typename EventClass>
-  //void Engine::ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst) {
-
-  //  auto zilchDeg = new EventZilchFunctionDelegate<ZilchComponent>();
-  //  zilchDeg->FuncPtr = fn;
-  //  zilchDeg->Inst = inst;
-
-  //  // Create a base delegate pointer to pass to the entity's container
-  //  auto degPtr = dynamic_cast<EventDelegate*>(zilchDeg);
-  //  // Store the base delegate to the <EventClass, std::list<EventDelegate*> > map
-  //  publisher->ObserverRegistry[std::type_index(typeid(EventClass))].emplace_back(degPtr);
-  //  // Add a pointer to entiyy
-  //  inst->ActiveDelegateHolders.push_back(publisher);
-  //}
-
-
+  
   /**************************************************************************/
   /*!
   \brief  Unsubscribes a system's member function to an engine event.
