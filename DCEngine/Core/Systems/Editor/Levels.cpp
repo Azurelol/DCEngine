@@ -22,6 +22,13 @@ namespace DCEngine {
     /**************************************************************************/
     bool Editor::LoadLevel(std::string level)
     {
+      // Only attempt to load a level if the scripting library is currently working
+      if (!Projects.Ready) {
+        // Launch a popup!
+
+        return false;
+      }
+
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
 
       // Save the currently-loaded level before loading a new one

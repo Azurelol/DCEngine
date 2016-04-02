@@ -106,6 +106,8 @@ namespace DCEngine
       // Keep a record of the previous state
       previousState = currentState;
 
+      currentState->Exit(owner);
+
       // Change the state to the new state
       currentState = newState;
 

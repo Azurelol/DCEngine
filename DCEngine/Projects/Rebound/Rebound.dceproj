@@ -1,6 +1,6 @@
 {
    "Asset Path" : "Assets/",
-   "Default Level" : "Testbed",
+   "Default Level" : "SplashScreen",
    "Default Space" : "",
    "Play" : false,
    "Project Name" : "Rebound",

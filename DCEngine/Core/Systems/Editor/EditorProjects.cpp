@@ -15,12 +15,34 @@
 namespace DCEngine {
   namespace Systems {
 
-    EditorProjects::EditorProjects() : EditorModule(true), WindowProjectsPropertiesEnabled(false), Ready(false)
+    /**************************************************************************/
+    /*!
+    @brief EditorProjects constructor.
+    */
+    /**************************************************************************/
+    EditorProjects::EditorProjects() : EditorModule(true), WindowProjectsPropertiesEnabled(false), 
+                                       Ready(false), InitializingProject(false)
     {
     }
 
+    /**************************************************************************/
+    /*!
+    @brief EditorProjects destructor.
+    */
+    /**************************************************************************/
     EditorProjects::~EditorProjects()
     {
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief EditorProjects initializer.
+    */
+    /**************************************************************************/
+    void EditorProjects::Initialize()
+    {
+      Daisy->Connect<Events::ScriptingLibraryCompiled>(&EditorProjects::OnScriptingLibraryCompiled, this);
+      Daisy->Connect<Events::ScriptingLibraryCompilationFailure>(&EditorProjects::OnScriptingLibraryCompilationFailure, this);
     }
 
     /**************************************************************************/
@@ -46,6 +68,19 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Initializes the current project. This will first attempt to compile
+           all scripts, then if they compile successfully load the default level.
+    */
+    /**************************************************************************/
+    void EditorProjects::InitializeProject()
+    {
+      InitializingProject = true;
+      // Request scripts to be compiled
+      DispatchSystemEvents::ScriptingCompile();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Loads the selected project into the engine.
     @param  path The path of the project.
     */
@@ -61,28 +96,10 @@ namespace DCEngine {
       auto projectName = Access().Settings.ProjectProperties->ProjectName;
       DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
       DispatchSystemEvents::SetWindowCaption(projectName + "- Daisy Chain Engine");
+      
       // Check that the scripting library has been compiled successfully before
       // trying to load the default level.
-
-
-      // Load its default level 
-      auto play = Access().Settings.ProjectProperties->Play;
-      auto load = Access().LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
-      //
-      if (load) {
-        if (play) {
-          Access().ToggleEditor(false);
-        }
-
-        else {
-          DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-          Access().ToggleEditor(true);
-        }
-      }
-      // No default level set, turn on the editor!
-      else
-        Access().ToggleEditor(true);
-
+      InitializeProject();
     }
 
     /**************************************************************************/
@@ -107,13 +124,57 @@ namespace DCEngine {
       DCTrace << "EditorProjects::SaveProject: Saved the current project! \n";
     }
     
-
+    /**************************************************************************/
+    /*!
+    @brief If the scripting library compiles, load the default level.
+    */
+    /**************************************************************************/
     void EditorProjects::OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled * event)
     {
+      Ready = true;
+
+      // If the project is being initialized...
+      if (InitializingProject) {
+        // Load its default level 
+        auto play = Access().Settings.ProjectProperties->Play;
+        auto load = Access().LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
+
+        // If the level loaded successfully
+        if (load) {
+          // If set to play mode, disable the editor
+          if (play)
+            Access().ToggleEditor(false);
+          // Otherwise, load the editor right away
+          else {
+            DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
+            Access().ToggleEditor(true);
+          }
+
+        }
+
+        // No default level set, turn on the editor!
+        else
+          Access().ToggleEditor(true);
+
+        InitializingProject = false;
+      }
+
     }
 
+    /**************************************************************************/
+    /*!
+    @brief If the scripting library fails to compile, do nothing!
+    */
+    /**************************************************************************/
     void EditorProjects::OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure * event)
     {
+      Ready = false;
+      // If the project is being initialized...
+      if (InitializingProject) {
+        DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
+        Access().ToggleEditor(true);
+        InitializingProject = false;
+      }
     }
 
     void EditorProjects::Update()

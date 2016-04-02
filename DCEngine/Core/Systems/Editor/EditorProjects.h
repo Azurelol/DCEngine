@@ -20,19 +20,21 @@ namespace DCEngine {
     class Editor;
     class EditorProjects : public EditorModule {
     public:
+      void Initialize();
       void Display();
       void LoadProject(const std::string& path);
       void OpenRecentProject();
       void SaveProject();
+      bool Ready;
 
       EditorProjects();
       ~EditorProjects();
 
-    protected:
-      
+    protected:      
 
     private:
-      bool Ready;
+      bool InitializingProject;
+      void InitializeProject();
       void OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled* event);
       void OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure* event);
       bool WindowProjectsPropertiesEnabled;
