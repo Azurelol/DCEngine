@@ -28,7 +28,7 @@ uniform vec4 textColor;
 void main()
 {
   vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, TexCoords).r);
-  gColor = textColor * sampled;
 	gPosition = WorldCoords;
 	gNormal = vec3(0,1,0);
+	gColor = textColor * sampled;
 }
