@@ -376,7 +376,7 @@
             "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Diffuse": false, 
             "Type": "Point", 
             "Color": 
@@ -389,7 +389,7 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 2.174000, 
+            "Intensity": 5.427000, 
             "Range": 52.174004, 
             "Falloff": 0.939000, 
             "DirectionVector": 
@@ -464,7 +464,7 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.826000, 
+            "Intensity": 0.406000, 
             "Range": 32.174000, 
             "Falloff": 0.461000, 
             "DirectionVector": 
