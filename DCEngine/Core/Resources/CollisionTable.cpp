@@ -177,6 +177,9 @@ static CollisionTablePtr Find(std::string);
       }
     }
 
+    ScanForGroups();
+
+    return SetResolve(group1, group2, state);
 
     //DCTrace << "CollisionTable::SetResolve - Tried to change resolution of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
@@ -212,6 +215,9 @@ static CollisionTablePtr Find(std::string);
       }
     }
 
+    ScanForGroups();
+
+    return SetStartBlock(group1, group2, state);
 
     DCTrace << "CollisionTable::SetStartBlock - Tried to change start block of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
@@ -246,6 +252,10 @@ static CollisionTablePtr Find(std::string);
       }
     }
 
+    ScanForGroups();
+
+    return SetEndBlock(group1, group2, state);
+
     DCTrace << "CollisionTable::SetEndBlock - Tried to change end block of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
   }
@@ -279,6 +289,9 @@ static CollisionTablePtr Find(std::string);
       }
     }
 
+    ScanForGroups();
+
+    return SetPreSolveBlock(group1, group2, state);
 
     DCTrace << "CollisionTable::SetPreSolveBlock - Tried to change presolve block of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
     return false;
