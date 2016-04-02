@@ -6,7 +6,8 @@ class Button : ZilchComponent
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
-    }
+		Console.WriteLine("button init");
+	}
 	
 	function OnCollisionStarted(event : CollisionStarted)
     {

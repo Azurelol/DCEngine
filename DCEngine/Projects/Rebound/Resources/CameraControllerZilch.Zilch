@@ -1,12 +1,13 @@
 class CameraControllerZilch : ZilchComponent
 {
+    sends PlayerBroadcastEvent : PlayerBroadcastEvent;
     var RandomGenerator : Random;
     
     [Property]
     var InterpolationSpeed : Real = 0.06;
     [Property]
-    var Offset : Real3;
-    //var Player : Cog;
+    var Offset : Real3 = Real3(0,6,0);
+    var Player : Entity = null;
     var ScreenShakeTimer : Real = 0;
 
     [Property]
@@ -14,17 +15,25 @@ class CameraControllerZilch : ZilchComponent
     
     function Initialize()
     {
+		Console.WriteLine("CAMERA init");
         Daisy.Connect(this.Space, DaisyEvent.ScreenShakeEvent, this.OnScreenShakeEvent);
         Daisy.Connect(this.Space, DaisyEvent.ChangeCameraOffsetEvent, this.OnChangeCameraOffsetEvent);
-
-        this.RandomGenerator= new Random();
-                
-                
-        //this.Player = this.Space.
+        Daisy.Connect(this.Space, DaisyEvent.PlayerBroadcastEvent, this.OnPlayerBroadcastEvent);
+		Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+        this.RandomGenerator = new Random();
+		this.Player = this.Space.FindObjectByName("Player");
     }
 
-    function OnLogicUpdate(event : LogicUpdate)
+    function OnLogicUpdateEvent(event : LogicUpdate)
     {
+        if(this.Player == null)
+        {
+          Console.WriteLine("CAMERA CANNOT FIND PLAYER");
+        }
+		else
+		{
+		  Console.WriteLine("CAMERA FOUND PLAYER");
+		}
         this.ScreenShakeTimer -= event.Dt;
         if(this.ScreenShakeTimer > 0)
         {
@@ -32,15 +41,21 @@ class CameraControllerZilch : ZilchComponent
                                                       this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude),
                                                                                  0);
         }
-        //var targetPos = Player.Transform.Translation - this.Owner.Transform.Translation;
-        //targetPos += this.Offset;
-        //this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;
+        var targetPos = this.Player.Transform.Translation - this.Owner.Transform.Translation;
+		targetPos = Real3(targetPos.XY, 0);
+        targetPos += this.Offset;
+        this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;
     }
     
     function OnScreenShakeEvent(event : ScreenShakeEvent)
     {
         this.ScreenShakeTimer = event.Duration;
         this.ScreenShakeMagnitude = event.Magnitude;
+    }
+
+    function OnPlayerBroadcastEvent(event : PlayerBroadcastEvent)
+    {
+        this.Player = event.Player;
     }
     
     function OnChangeCameraOffsetEvent(event : ChangeCameraOffsetEvent)

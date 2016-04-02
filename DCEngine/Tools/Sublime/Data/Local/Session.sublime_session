@@ -20,10 +20,13 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch",
+					"contents": "assclass CameraControllerZilch : ZilchComponent\n{\n    sends PlayerBroadcastEvent : PlayerBroadcastEvent;\n    var RandomGenerator : Random;\n    \n    [Property]\n    var InterpolationSpeed : Real = 0.06;\n    [Property]\n    var Offset : Real3;\n   var Player : GameObject = null;\n    var ScreenShakeTimer : Real = 0;\n\n    [Property]\n    var ScreenShakeMagnitude : Real = 3;\n    \n    function Initialize()\n    {\n        Daisy.Connect(this.Space, DaisyEvent.ScreenShakeEvent, this.OnScreenShakeEvent);\n        Daisy.Connect(this.Space, DaisyEvent.ChangeCameraOffsetEvent, this.OnChangeCameraOffsetEvent);\n        Daisy.Connect(this.Space, DaisyEvent.PlayerBroadcastEvent, this.OnPlayerBroadcastEvent);\n        this.RandomGenerator= new Random();\n        var ev = PlayerBroadcastEvent();\n        //ev.Player = this.Owner;\n        //this.Space.DispatchEvent(\"PlayerBroadcastEvert\", ev);\n        \n    }\n\n    function OnLogicUpdate(event : LogicUpdate)\n    {\n        if(this.Player == null)\n        {\n          Console.WriteLine(\"CAMERA CANNOT FIND PLAYER\");\n        }\n        this.ScreenShakeTimer -= event.Dt;\n        if(this.ScreenShakeTimer > 0)\n        {\n            this.Owner.Transform.Translation += Real3(this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude), \n                                                      this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude),\n                                                                                 0);\n        }\n        //var targetPos = Player.Transform.Translation - this.Owner.Transform.Translation;\n        //targetPos += this.Offset;\n        //this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;\n    }\n    \n    function OnScreenShakeEvent(event : ScreenShakeEvent)\n    {\n        this.ScreenShakeTimer = event.Duration;\n        this.ScreenShakeMagnitude = event.Magnitude;\n    }\n\n    function OnPlayerBroadcastEvent(event : PlayerBroadcastEvent)\n    {\n        this.Player = event.Player;\n    }\n    \n    function OnChangeCameraOffsetEvent(event : ChangeCameraOffsetEvent)\n    {\n        this.Offset = event.Offset;\n    }\n}",
+					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
+					"file_size": 2205,
+					"file_write_time": 131041049781538115,
 					"settings":
 					{
-						"buffer_size": 1331,
+						"buffer_size": 2152,
 						"line_ending": "Windows"
 					}
 				}
@@ -60,6 +63,7 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch"
 			],
 			"find":
 			{
@@ -99,27 +103,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch",
+							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1331,
+								"buffer_size": 2152,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										563,
-										563
+										3,
+										3
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
-								"translation.y": 180.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -164,7 +168,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,899,-1116,135,-211",
+			"position": "0,0,1,-1,-1,-1,-1,1011,272,109,1320",
 			"project": "",
 			"replace":
 			{
