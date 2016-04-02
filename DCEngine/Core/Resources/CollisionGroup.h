@@ -31,6 +31,6 @@ namespace DCEngine {
 
   };
   
-
+  CollisionGroup * MakeCollisionGroup(std::string);
 
 }

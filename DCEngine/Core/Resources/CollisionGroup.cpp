@@ -53,4 +53,10 @@ namespace DCEngine {
 
     return *this;
   }
+
+  CollisionGroup * MakeCollisionGroup(std::string group)
+  {
+    return new CollisionGroup(group);
+  }
+
 }
