@@ -28,6 +28,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, IsAggressive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthX);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpPeriod);
@@ -302,15 +303,18 @@ namespace DCEngine {
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 
-      if (owner->IsPatrolRight)
+      if (!owner->IsAggressive)
       {
-        if (playerPosition.x < owner->startingPosition.x || playerPosition.x > owner->endPosition.x)
-          owner->stateMachine->RevertToPreviousState();
-      }
-      else
-      {
-        if (playerPosition.x > owner->startingPosition.x || playerPosition.x < owner->endPosition.x)
-          owner->stateMachine->RevertToPreviousState();
+        if (owner->IsPatrolRight)
+        {
+          if (playerPosition.x < owner->startingPosition.x || playerPosition.x > owner->endPosition.x)
+            owner->stateMachine->RevertToPreviousState();
+        }
+        else
+        {
+          if (playerPosition.x > owner->startingPosition.x || playerPosition.x < owner->endPosition.x)
+            owner->stateMachine->RevertToPreviousState();
+        }
       }
     }
 

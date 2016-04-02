@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": 80.679138, 
-                "y": 1.495564, 
+                "x": 81.386604, 
+                "y": 1.677907, 
                 "z": 0.000000
               }
             }, 
@@ -168,6 +168,9 @@
           {
             "MaxHealth": 10, 
             "StartingHealth": 10
+          }, 
+          "PlayerTemp": 
+          {
           }
         }, 
         "Children": 
@@ -539,7 +542,7 @@
             {
               "Vec3": 
               {
-                "x": 94.566261, 
+                "x": 94.602676, 
                 "y": -0.992271, 
                 "z": 0.000000
               }
@@ -1586,6 +1589,36 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "PressurePlate": 
+          {
+            "Target": "AntiEnergy1"
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 
@@ -1762,7 +1795,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 309, 
+        "GameObjectID": 274, 
         "Name": "Button2", 
         "Components": 
         {
@@ -1803,8 +1836,8 @@
             {
               "Vec4": 
               {
-                "x": 0.826000, 
-                "y": 0.804000, 
+                "x": 0.800000, 
+                "y": 0.800000, 
                 "z": 0.000000, 
                 "w": 1.000000
               }
@@ -1818,7 +1851,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -1844,6 +1877,26 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.800000, 
+                "y": 0.800000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
             "TargetName": "Gate1"
           }
         }, 
@@ -2503,7 +2556,7 @@
             {
               "Vec3": 
               {
-                "x": 82.032310, 
+                "x": 82.050026, 
                 "y": 7.693838, 
                 "z": 0.000000
               }
@@ -3674,7 +3727,7 @@
           "Camera": 
           {
             "FieldOfView": 169.043015, 
-            "Exposure": 0.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -3703,8 +3756,8 @@
             {
               "Vec3": 
               {
-                "x": 77.229233, 
-                "y": 1.052879, 
+                "x": 77.936699, 
+                "y": 1.235221, 
                 "z": 0.000000
               }
             }, 
@@ -4835,7 +4888,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 271, 
+        "GameObjectID": 274, 
         "Name": "Button1", 
         "Components": 
         {
@@ -4876,8 +4929,8 @@
             {
               "Vec4": 
               {
-                "x": 0.826000, 
-                "y": 0.804000, 
+                "x": 0.800000, 
+                "y": 0.800000, 
                 "z": 0.000000, 
                 "w": 1.000000
               }
@@ -4891,7 +4944,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -4917,6 +4970,26 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.800000, 
+                "y": 0.800000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
             "TargetName": "Door1"
           }
         }, 
@@ -4927,7 +5000,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 272, 
+        "GameObjectID": 274, 
         "Name": "Button3", 
         "Components": 
         {
@@ -4968,8 +5041,8 @@
             {
               "Vec4": 
               {
-                "x": 0.826000, 
-                "y": 0.804000, 
+                "x": 0.800000, 
+                "y": 0.800000, 
                 "z": 0.000000, 
                 "w": 1.000000
               }
@@ -4983,7 +5056,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5009,6 +5082,26 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.800000, 
+                "y": 0.800000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
             "TargetName": "Gate1"
           }
         }, 
@@ -5019,7 +5112,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 273, 
+        "GameObjectID": 274, 
         "Name": "Button4", 
         "Components": 
         {
@@ -5060,8 +5153,8 @@
             {
               "Vec4": 
               {
-                "x": 0.826000, 
-                "y": 0.804000, 
+                "x": 0.800000, 
+                "y": 0.800000, 
                 "z": 0.000000, 
                 "w": 1.000000
               }
@@ -5101,6 +5194,26 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.800000, 
+                "y": 0.800000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
             "TargetName": "Shield1"
           }
         }, 
@@ -5152,8 +5265,8 @@
             {
               "Vec4": 
               {
-                "x": 0.826000, 
-                "y": 0.804000, 
+                "x": 0.800000, 
+                "y": 0.800000, 
                 "z": 0.000000, 
                 "w": 1.000000
               }
@@ -5193,6 +5306,26 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.800000, 
+                "y": 0.800000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
             "TargetName": "Shield2"
           }
         }, 
@@ -5354,7 +5487,7 @@
       {
         "Locked": false, 
         "GameObjectID": 298, 
-        "Name": "BioField1", 
+        "Name": "AntiEnergy1", 
         "Components": 
         {
           "Transform": 
@@ -5395,7 +5528,7 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 1.000000, 
+                "y": 4.000000, 
                 "z": 1.000000, 
                 "w": 0.304000
               }
@@ -5435,6 +5568,27 @@
           }, 
           "AntiEnergyField": 
           {
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 4.000000, 
+                "z": 1.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 4.000000, 
+                "z": 1.000000, 
+                "w": 0.010000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5720,7 +5874,7 @@
                 "x": 0.200000, 
                 "y": 0.200000, 
                 "z": 0.700000, 
-                "w": 0.200000
+                "w": 0.010000
               }
             }
           }
@@ -5839,6 +5993,27 @@
           }, 
           "AntiEnergyField": 
           {
+            "Active": false, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }
           }
         }, 
         "Children": 

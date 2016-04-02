@@ -2,7 +2,7 @@
 {
   "SpriteSource": 
   {
-    "Name": "char_sent", 
+    "Name": "char_sent_2", 
     "Properties": 
     {
       "FrameRate": 0.000000, 
@@ -13,7 +13,7 @@
       "Looping": false, 
       "Fill": false, 
       "TotalFrame": 1, 
-      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Sentinel\\char_sent.png"
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Sentinel\\char_sent_2.png"
     }
   }
 }
