@@ -15,7 +15,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    EditorProjects::EditorProjects() : EditorModule(true), WindowProjectsPropertiesEnabled(false)
+    EditorProjects::EditorProjects() : EditorModule(true), WindowProjectsPropertiesEnabled(false), Ready(false)
     {
     }
 
@@ -50,35 +50,39 @@ namespace DCEngine {
     @param  path The path of the project.
     */
     /**************************************************************************/
-    void EditorProjects::LoadProject(std::string path)
+    void EditorProjects::LoadProject(const std::string& path)
     {
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
-      //Daisy->getSystem<Content>()->LoadProject(path);
-      //// Save a pointer to the project data
-      //Access().Settings.ProjectProperties = Daisy->getSystem<Content>()->ProjectInfo.get();
-      //// Update the window caption to display the current project
-      ///auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
-      ////DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
-      //DispatchSystemEvents::SetWindowCaption("Daisy Chain Engine - " + projectName);
-      //// Load its default level 
-      //auto play = Access().Settings.ProjectProperties->Play;
-      //auto load = Access().LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
+      Daisy->getSystem<Content>()->LoadProject(path);
+      // Save a pointer to the project data
+      Access().Settings.ProjectProperties = &Daisy->getSystem<Content>()->getProjectInfo();
+      // Update the window caption to display the current project
+      auto projectName = Access().Settings.ProjectProperties->ProjectName;
+      DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
+      DispatchSystemEvents::SetWindowCaption(projectName + "- Daisy Chain Engine");
+      // Check that the scripting library has been compiled successfully before
+      // trying to load the default level.
 
-      //if (load) {
-      //  if (play) {
-      //    Access().ToggleEditor(false);
-      //    //PlayGame();
-      //  }
 
-      //  else {
-      //    DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-      //    Access().ToggleEditor(true);
-      //  }
-      //}
-      //// No default level set, turn on the editor!
-      //else
-      //  Access().ToggleEditor(true);
+      // Load its default level 
+      auto play = Access().Settings.ProjectProperties->Play;
+      auto load = Access().LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
+      //
+      if (load) {
+        if (play) {
+          Access().ToggleEditor(false);
+        }
+
+        else {
+          DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
+          Access().ToggleEditor(true);
+        }
+      }
+      // No default level set, turn on the editor!
+      else
+        Access().ToggleEditor(true);
+
     }
 
     /**************************************************************************/
@@ -103,6 +107,14 @@ namespace DCEngine {
       DCTrace << "EditorProjects::SaveProject: Saved the current project! \n";
     }
     
+
+    void EditorProjects::OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled * event)
+    {
+    }
+
+    void EditorProjects::OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure * event)
+    {
+    }
 
     void EditorProjects::Update()
     {

@@ -21,7 +21,7 @@ namespace DCEngine {
     class EditorProjects : public EditorModule {
     public:
       void Display();
-      void LoadProject(std::string);
+      void LoadProject(const std::string& path);
       void OpenRecentProject();
       void SaveProject();
 
@@ -32,6 +32,9 @@ namespace DCEngine {
       
 
     private:
+      bool Ready;
+      void OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled* event);
+      void OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure* event);
       bool WindowProjectsPropertiesEnabled;
       void Update();
 

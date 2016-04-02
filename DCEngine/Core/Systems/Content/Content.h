@@ -101,7 +101,11 @@ namespace DCEngine {
 
       // Maybe.. add the others too.
       void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
-
+      
+      // Projects
+      void LoadProject(const std::string& projectDataPath);
+      void SaveProject(const std::string& projectPath);
+      ProjectProperties& getProjectInfo() { return *(this->ProjectInfo.get()); }
     private:
       
       // Data
@@ -157,8 +161,7 @@ namespace DCEngine {
       void Terminate();
       // Loading functions
       void LoadCoreAssets(); //!< Load default content files for the engine.   
-      void LoadProject(const std::string& projectDataPath);
-      void SaveProject(const std::string& projectPath);
+
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
       void LoadAllResources();

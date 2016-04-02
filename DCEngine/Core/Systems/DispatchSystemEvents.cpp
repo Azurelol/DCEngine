@@ -159,6 +159,13 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::ScriptingLibraryCompilationFailure()
+    {
+      auto event = new Events::ScriptingLibraryCompilationFailure();
+      Daisy->Dispatch<Events::ScriptingLibraryCompilationFailure>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::ScriptingErrorMessage(const std::string & message)
     {
       auto event = new Events::ScriptingErrorMessage();

@@ -30,9 +30,7 @@ namespace DCEngine {
   class Engine;
   class Space;
 
-  namespace Systems {
-
-    
+  namespace Systems {    
 
     class Editor : public System {
       friend class Engine;

@@ -89,6 +89,7 @@ namespace DCEngine {
     struct EditorConfig : public Configuration {
       EditorConfig();
       static std::string FileName() { return "ConfigurationEditor.cfg"; }
+      //----------------------------------------------------------------------/
       // Saving
       bool AutoSave;
       int AutoSaveTime;      
@@ -106,8 +107,7 @@ namespace DCEngine {
       bool TextEditorOpenExternally;
       bool CompileOnContextSwitch;
       bool CompilationPopUps;
-
-
+      //----------------------------------------------------------------------/
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;

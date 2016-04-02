@@ -77,8 +77,6 @@ class ScriptUnitTest : ZilchComponent
   function Terminate() {
 	  Console.WriteLine("`this.Name` is terminating!");
   }
-  
-  
 
     ////////////////////////////////
     // Testing Connect and Dispatch
@@ -152,8 +150,11 @@ class ScriptUnitTest : ZilchComponent
       else if (event.Key == Keys.P) {
         this.ActionPropertyPrint();
       }
-
     }
+	
+	if (event.Key == Keys.C) {
+		this.Space.CreateAtPosition("Acid", Real3(1,1,1));
+	}
   }
 
   	// KeyUp

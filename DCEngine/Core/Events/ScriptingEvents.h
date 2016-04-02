@@ -37,5 +37,12 @@ namespace DCEngine {
       std::string Message;
     };
 
+    class ScriptingLibraryCompilationFailure : public Event {
+    public:
+      ScriptingLibraryCompilationFailure() : Event("ScriptingLibraryCompilationFailure") {}
+    };
+
+
+
   }
 }

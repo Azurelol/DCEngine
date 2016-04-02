@@ -159,6 +159,9 @@ namespace DCEngine {
         DispatchSystemEvents::ScriptingLibraryPatched();
         DispatchSystemEvents::ScriptingLibraryCompiled();
       }
+      else {
+        DispatchSystemEvents::ScriptingLibraryCompilationFailure();
+      }
     }
 
 

@@ -154,6 +154,7 @@ namespace DCEngine {
       }
       ImGui::Checkbox("Open Externally", &config.TextEditorOpenExternally);
       ImGui::Checkbox("Compile On Context Switch", &config.CompileOnContextSwitch);
+      ImGui::Checkbox("Compilation PopUps", &config.CompilationPopUps);
     }
 
     /**************************************************************************/

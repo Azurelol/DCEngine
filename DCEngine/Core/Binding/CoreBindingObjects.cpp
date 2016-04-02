@@ -143,8 +143,8 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Space::FindObjectByName, (GameObject* (Space::*)(const std::string)), "FindObjectByName", "name");
     ZilchBindMethod(builder, type, &Space::DestroyAll, ZilchNoOverload, "DestroyAll", ZilchNoNames);
     ZilchBindMethod(builder, type, &Space::getGameSession, ZilchNoOverload, "getGameSession", ZilchNoNames);
-	//ZilchBindMethod(builder, type, &Space::CreateObjectAtPosition, (GameObject* (Space::*)(std::string, const Vec3&)), "CreateAtPosition", "name, pos");
-	ZilchBindMethod(builder, type, &Space::TestSpace, ZilchNoOverload, "TestSpace", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Space::CreateObjectAtPosition, (GameObject* (Space::*)(std::string, const Vec3&)), "CreateAtPosition", "name, pos");
+    ZilchBindMethod(builder, type, &Space::TestSpace, ZilchNoOverload, "TestSpace", ZilchNoNames);
     //DCE_BINDING_DEFINE_METHOD_NO_ARGS(Space, TestScript);
   }
 

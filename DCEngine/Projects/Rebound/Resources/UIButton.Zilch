@@ -46,9 +46,10 @@ class UIButton : ZilchComponent
     var CurState : ButtonState = ButtonState.Default;
 	
     function Initialize()
-    {
-        //Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
-		//Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
+	{
+		this.Space.CreateAtPosition("Acid", Real3(1,1,1));
+        Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
+		Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
     }
 	
 	function OnMouseEnter(event : MouseEnter)
