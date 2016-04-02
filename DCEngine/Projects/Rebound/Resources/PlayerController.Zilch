@@ -49,7 +49,12 @@ class ZPlayerController : ZilchComponent
 	
     function Initialize()
     {
-	//SEND INIT EVENT FOR CAMERA REFERENCE
+    	//SEND INIT EVENT FOR CAMERA REFERENCE
+        var ev = PlayerBroadcastEvent();
+        ev.Player = this.Owner;
+        this.Space.Dispatch("PlayerBroadcastEvert", ev);
+
+
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDownEvent);
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseDownEvent);
         Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);

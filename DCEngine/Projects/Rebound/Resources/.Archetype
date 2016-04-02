@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 274, 
-    "Name": "Button5", 
+    "GameObjectID": 460, 
+    "Name": "OffsetVolume", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 76.591049, 
-            "y": 4.699968, 
+            "x": -54.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 10.000000, 
+            "y": 10.000000, 
             "z": 1.000000
           }
         }
@@ -44,9 +44,9 @@
         {
           "Vec4": 
           {
-            "x": 0.800000, 
-            "y": 0.800000, 
-            "z": 0.000000, 
+            "x": 0.634000, 
+            "y": 0.000000, 
+            "z": 1.000000, 
             "w": 1.000000
           }
         }, 
@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "DefaultCollisionGroup", 
+        "CollisionGroup": "Default", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -83,29 +83,8 @@
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }, 
-      "Button": 
+      "CameraOffsetVolumeZilch": 
       {
-        "ActiveColor": 
-        {
-          "Vec4": 
-          {
-            "x": 2.000000, 
-            "y": 2.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "InactiveColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.800000, 
-            "y": 0.800000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "TargetName": "Shield2"
       }
     }, 
     "Children": 

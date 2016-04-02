@@ -44,17 +44,26 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 173.415009, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraController": 
+          "CameraControllerZilch": 
           {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.060000
+            "InterpolationSpeed": 0.060000, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 4.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
@@ -8630,7 +8639,7 @@
             {
               "Vec3": 
               {
-                "x": 233.809784, 
+                "x": 220.809998, 
                 "y": 81.522491, 
                 "z": -0.100000
               }

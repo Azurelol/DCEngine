@@ -20,4 +20,9 @@ class ChangeCameraOffsetEvent : ZilchEvent
 {
   var Offset : Real3;
 }
+
+class PlayerBroadcastEvent : ZilchEvent
+{
+    var Player : Entity;
+}
 enum DamageSource {None, Player, Enemy, Environment}
