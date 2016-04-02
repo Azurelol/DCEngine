@@ -10,6 +10,8 @@
 #include "GraphicsGL.h"
 #include "../../Components/Sprite.h"
 
+#include "../../Engine/Engine.h"
+
 namespace DCEngine {
   namespace Systems {
 
@@ -32,6 +34,7 @@ namespace DCEngine {
 
     void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
     {
+      SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
 			glEnable(GL_STENCIL_TEST);
 			glClear(GL_STENCIL_BUFFER_BIT);
 
@@ -91,6 +94,7 @@ namespace DCEngine {
 
 		void GraphicsGL::PreRender(Components::Camera * camera)
 		{
+      SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);

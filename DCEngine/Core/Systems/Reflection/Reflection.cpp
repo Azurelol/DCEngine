@@ -89,7 +89,8 @@ namespace DCEngine {
         auto boundTypes = scriptLibrary->BoundTypes.all();
         ZilchForEach(auto type, boundTypes)
         {
-          componentTypes.push_back(type.second);          
+          if (Zilch::TypeBinding::IsA(type.second, ZilchTypeId(ZilchComponent)))
+            componentTypes.push_back(type.second);          
         }
       }
 
