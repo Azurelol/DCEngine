@@ -2247,7 +2247,8 @@
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
