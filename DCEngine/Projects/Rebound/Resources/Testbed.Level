@@ -116,6 +116,7 @@
             "IdleRange": 0.000000, 
             "PatrolDistance": 0.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 0.000000, 
             "JumpStrengthY": 0.000000, 
             "JumpPeriod": 0.000000, 

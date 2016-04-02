@@ -645,12 +645,13 @@
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
+            "IsAggressive": true, 
             "JumpStrengthX": 5.000000, 
             "JumpStrengthY": 25.000000, 
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 0.500000, 
+            "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
               "Vec4": 
