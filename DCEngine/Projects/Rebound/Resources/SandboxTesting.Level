@@ -2763,7 +2763,7 @@
             "VisibilityEvents": false, 
             "CastShadows": true, 
             "Diffuse": true, 
-            "Type": "Point", 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 
