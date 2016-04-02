@@ -33,6 +33,7 @@ namespace DCEngine {
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
+      bool IsAggressive;
       float JumpStrengthX;
       float JumpStrengthY;
       float JumpPeriod;
@@ -52,6 +53,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
+      DCE_DEFINE_PROPERTY(bool, IsAggressive);
       DCE_DEFINE_PROPERTY(float, JumpStrengthX);
       DCE_DEFINE_PROPERTY(float, JumpStrengthY);
       DCE_DEFINE_PROPERTY(float, JumpPeriod);
