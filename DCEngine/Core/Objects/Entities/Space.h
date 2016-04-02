@@ -61,6 +61,7 @@ namespace DCEngine {
     GameObjectPtr CreateObject(); 
     GameObjectPtr CreateObject(std::string archetypeName);
     GameObjectPtr CreateObject(ArchetypePtr archetype);
+	GameObjectPtr CreateObjectAtPosition(std::string, const Vec3&);
     GameObjectPtr CreateObjectAtPosition(ArchetypePtr, const Vec3&);
     GameObject* FindObjectByName(const std::string name);
     GameObjectVec* AllObjects();

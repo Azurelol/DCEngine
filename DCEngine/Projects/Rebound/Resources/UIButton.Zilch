@@ -1,0 +1,65 @@
+// Used to notify the UIManager component of state changes on its buttons
+class UIButtonEvent : ZilchEvent
+{
+    // Button that underwent a state change
+    var Button : Entity = null;
+    
+    // The current state of the button
+    var State : ButtonState = ButtonState.Default;
+	
+	sends UIButtonEvent : UIButtonEvent;
+}
+
+class UIButton : ZilchComponent
+{
+    // Should theis component be active?
+    [Property]
+    var Active : Boolean = true;
+    
+    // State colors
+    [Property]
+    var DefaultColor : Real4 = Real4();
+    
+    [Property]
+    var HoveredColor : Real4 = Real4();
+    
+    [Property]
+    var ClickedColor : Real4 = Real4();
+    
+    [Property]
+    var InactiveColor : Real4 = Real4();
+    
+	[Property]
+    var TextReferenceName : String = "";
+    /*
+    // State SoundCue resources
+    [Property]
+    var DefaultSound : SoundCue = null;
+    
+    [Property]
+    var HoverSound : SoundCue = null;
+    
+    [Property]
+    var ClickedSound : SoundCue = null;
+    */
+    // Current Stae of the button
+    var CurState : ButtonState = ButtonState.Default;
+	
+    function Initialize()
+    {
+        //Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
+		//Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
+    }
+	
+	function OnMouseEnter(event : MouseEnter)
+	{
+	}
+	
+	function OnMouseExit(event : MouseExit)
+	{
+	}
+
+    
+}
+
+enum ButtonState {Default, Hovered, Clicked}

@@ -45,7 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 180.000015, 
-            "Exposure": 0.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -254,7 +254,13 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "LandSound": "Land", 
+            "FootstepSound": "Step", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -801,7 +807,10 @@
             "MaxAttractSpeed": 10.000000, 
             "MaxAttractForce": 50.000000, 
             "AttractArriveDistance": 100.000000, 
-            "MinAttractSpeed": 7.500000
+            "MinAttractSpeed": 7.500000, 
+            "CommandSound": "BallCommand", 
+            "CollideSound": "BallCollide", 
+            "FreezeSound": "BallFreeze"
           }, 
           "Light": 
           {
@@ -6023,7 +6032,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 68, 
         "Name": "Layout", 
         "Components": 
@@ -6034,8 +6043,8 @@
             {
               "Vec3": 
               {
-                "x": 50.967003, 
-                "y": -10.353834, 
+                "x": -5.848343, 
+                "y": 22.839378, 
                 "z": -0.100000
               }
             }, 
@@ -6052,8 +6061,8 @@
             {
               "Vec3": 
               {
-                "x": 300.000000, 
-                "y": 300.000000, 
+                "x": 350.000000, 
+                "y": 200.000000, 
                 "z": 1.000000
               }
             }
@@ -6071,7 +6080,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "LayoutLevel3", 
+            "SpriteSource": "Level3", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6227,6 +6236,68 @@
             }, 
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 68, 
+        "Name": "Layout2", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 12.682831, 
+                "y": 22.228458, 
+                "z": -1.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 350.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Mid", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
         }, 
         "Children": 
