@@ -56,6 +56,7 @@ namespace DCEngine {
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
+      PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
 
       stateMachine = new StateMachine<Sentinel>(this);
 
@@ -146,7 +147,25 @@ namespace DCEngine {
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
 
       if ((distanceFromPlayer < (owner->ShieldBashDistance + owner->ShieldRadius)))
-        owner->ShieldBash();
+      {
+        Ray ray;
+        ray.Direction = Vec3(-1, 0, 0);
+        ray.Origin = owner->TransformRef->Translation;
+        CastFilter filter;
+        filter.CollisionGroups.push_back(CollisionGroup("Player"));
+        filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+        filter.Include = true;
+        CastResult castLeft = owner->PhysicsSpaceRef->CastRay(ray, filter);
+
+        if(castLeft.ObjectHit == owner->player)
+          owner->ShieldBash();
+
+        ray.Direction = Vec3(1, 0, 0);
+        CastResult castRight = owner->PhysicsSpaceRef->CastRay(ray, filter);
+
+        if (castRight.ObjectHit == owner->player)
+          owner->ShieldBash();
+      }
 
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());

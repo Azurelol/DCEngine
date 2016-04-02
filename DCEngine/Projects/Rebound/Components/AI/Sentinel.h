@@ -21,6 +21,7 @@ namespace DCEngine {
     class RigidBody;
     class Sprite;
     class HealthController;
+    class PhysicsSpace;
     class Sentinel : public Component
     {
 
@@ -64,6 +65,7 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
+      PhysicsSpace* PhysicsSpaceRef;
       HealthController* HealthRef;
       Vec3 shieldLocalTranslation;
       bool isBashing;
