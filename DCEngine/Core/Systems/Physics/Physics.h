@@ -77,16 +77,6 @@ namespace DCEngine {
 
       CastFilter *MakeCastFilter(void);
 
-			//class Bucket
-			//{
-			//public:
-			//	Bucket(Vec3 position, Vec3 scale);
-			//	Split
-			//private:
-			//	std::vector<Components::Collider*> bucket;
-			//};
-			//std::vector<Bucket> bucketList;
-			//static const unsigned MAX_BUCKET_SIZE = 4;
 
     private:
 
@@ -94,6 +84,11 @@ namespace DCEngine {
 			unsigned QuadTreeBucketSize = 6;
       std::vector<Components::PhysicsSpace*> physicsSpaces_;
       std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
+      std::vector<CollisionData> OnCollisionStarteds;
+      std::vector<CollisionData> OnCollisionPersisteds;
+      std::vector<CollisionData> OnCollisionEndeds;
+
+
 
       Physics();
       void Initialize();
@@ -114,6 +109,7 @@ namespace DCEngine {
       void DispatchCollisionStarted(CollisionData& collisionData);
       void DispatchCollisionEnded(CollisionData& collisionData);
       void DispatchCollisionPersisted(CollisionData& collisionData);
+      void SendEvents(void);
 
 			float minX, maxX, minY, maxY;
 

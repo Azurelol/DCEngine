@@ -198,6 +198,11 @@ namespace DCEngine {
       // Hardcode dt temporarily
       dt = 0.0166f;
       static bool first = true;
+      OnCollisionStarteds.clear();
+      OnCollisionPersisteds.clear();
+      OnCollisionEndeds.clear();
+
+
       // Iterate through every space that has the 'PhysicsSpace' component
       for (auto physpace : physicsSpaces_)
       {
@@ -226,6 +231,12 @@ namespace DCEngine {
 
         UpdateTransforms(physpace);
       }
+
+      SendEvents();
+
+      OnCollisionStarteds.clear();
+      OnCollisionPersisteds.clear();
+      OnCollisionEndeds.clear();
 
       first = false;
 
@@ -415,111 +426,6 @@ namespace DCEngine {
 
          pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
       }
-
-
-      //static int listsize = 0;
-      //
-      //if (list.size() == listsize)
-      //{
-      //  //return;
-      //}
-      //
-      //listsize = list.size();
-      //
-      //pairs.clear();
-      //
-      //Components::BoxCollider*    box1 = NULL;
-      //Components::BoxCollider*    box2 = NULL;
-      //Components::CircleCollider* cir1 = NULL;
-      //Components::CircleCollider* cir2 = NULL;
-      //int count = 0;
-      //
-      //bool rigid1 = false, rigid2 = false;
-      //
-      //std::string str1, str2;
-      //
-      //DetectionPairing Fill;
-      //
-      ////pairs.resize(list.size() * list.size());
-      //
-      //for (int i = 0; i < list.size(); ++i)
-      //{
-      //  for (int j = i + 1; j < list.size(); ++j)
-      //  {
-      //    Fill.obj1 = static_cast<GameObjectPtr>(list[i]->Owner());
-      //    Fill.obj2 = static_cast<GameObjectPtr>(list[j]->Owner());
-      //
-      //    auto rigidbody1 = Fill.obj1->getComponent<Components::RigidBody>();
-      //    auto rigidbody2 = Fill.obj2->getComponent<Components::RigidBody>();
-      //
-      //    if (rigidbody1 == NULL)
-      //    {
-      //      rigid1 = false;
-      //    }
-      //    else
-      //    {
-      //      rigid1 = true;
-      //
-      //      if (rigidbody1->getDynamicState() == DynamicStateType::Static)
-      //      {
-      //        rigid1 = false;
-      //      }
-      //    }
-      //
-      //    if (rigidbody2 == NULL)
-      //    {
-      //      rigid2 = false;
-      //    }
-      //    else
-      //    {
-      //      rigid2 = true;
-      //
-      //      if (rigidbody2->getDynamicState() == DynamicStateType::Static)
-      //      {
-      //        rigid2 = false;
-      //      }
-      //    }
-      //
-      //    if (!rigid1 && !rigid2)
-      //    {
-      //      continue;
-      //    }
-      //
-      //    box1 = Fill.obj1->getComponent<Components::BoxCollider>();
-      //    box2 = Fill.obj2->getComponent<Components::BoxCollider>();
-      //    cir1 = Fill.obj1->getComponent<Components::CircleCollider>();
-      //    cir2 = Fill.obj2->getComponent<Components::CircleCollider>();
-      //
-      //    if (box1)
-      //    {
-      //      str1 = box1->getCollisionGroup();
-      //    }
-      //    else
-      //    {
-      //      str1 = cir1->getCollisionGroup();
-      //    }
-      //
-      //    if (box2)
-      //    {
-      //      str2 = box2->getCollisionGroup();
-      //    }
-      //    else
-      //    {
-      //      str2 = cir2->getCollisionGroup();
-      //    }
-      //
-      //    if (str1 == str2)
-      //    {
-      //      Fill.filter = CollisionFilter();
-      //    }
-      //    else
-      //    {
-      //      // need to access the collision table and get info from it
-      //      //Fill.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
-      //    }
-      //    pairs.push_back(Fill);
-      //  }
-      //}
     }
 
     /**************************************************************************/
@@ -562,13 +468,15 @@ namespace DCEngine {
             Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
-              DispatchCollisionStarted(Collision);
+              //DispatchCollisionStarted(Collision);
+              OnCollisionStarteds.push_back(Collision);
               PersistedPairs.push_back(pair);
             }
             else
             {
-              collision.FrictionCof *= 0.9f;
-              DispatchCollisionPersisted(Collision);
+              //collision.FrictionCof *= 0.9f;
+              //DispatchCollisionPersisted(Collision);
+              OnCollisionPersisteds.push_back(Collision);
             }
 
             if (obj1->getComponent<Components::BoxCollider>()->getGhost() == false && obj2->getComponent<Components::BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -584,7 +492,8 @@ namespace DCEngine {
             Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
-              DispatchCollisionEnded(Collision);
+              //DispatchCollisionEnded(Collision);
+              OnCollisionEndeds.push_back(Collision);
               RemovePair(pair);
             }
           }
@@ -600,13 +509,15 @@ namespace DCEngine {
             Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
-              DispatchCollisionStarted(Collision);
+              //DispatchCollisionStarted(Collision);
+              OnCollisionStarteds.push_back(Collision);
               PersistedPairs.push_back(pair);
             }
             else
             {
-              collision.FrictionCof *= 0.9f;
-              DispatchCollisionPersisted(Collision);
+              //collision.FrictionCof *= 0.9f;
+              //DispatchCollisionPersisted(Collision);
+              OnCollisionPersisteds.push_back(Collision);
             }
 
             if (obj1->getComponent<Components::CircleCollider>()->getGhost() == false && obj2->getComponent<Components::CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -622,7 +533,8 @@ namespace DCEngine {
             Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
-              DispatchCollisionEnded(Collision);
+              //DispatchCollisionEnded(Collision);
+              OnCollisionEndeds.push_back(Collision);
               RemovePair(pair);
             }
           }
@@ -638,13 +550,15 @@ namespace DCEngine {
             Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
-              DispatchCollisionStarted(Collision);
+              //DispatchCollisionStarted(Collision);
+              OnCollisionStarteds.push_back(Collision);
               PersistedPairs.push_back(pair);
             }
             else
             {
-              collision.FrictionCof *= 0.9f;
-              DispatchCollisionPersisted(Collision);
+              //collision.FrictionCof *= 0.9f;
+              //DispatchCollisionPersisted(Collision);
+              OnCollisionPersisteds.push_back(Collision);
             }
 
             if (obj1->getComponent<Components::BoxCollider>()->getGhost() == false && obj2->getComponent<Components::CircleCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -660,7 +574,8 @@ namespace DCEngine {
             Collision.OtherObject = obj2;
             if (Persisted(pair))
             {
-              DispatchCollisionEnded(Collision);
+              //DispatchCollisionEnded(Collision);
+              OnCollisionEndeds.push_back(Collision);
               RemovePair(pair);
             }
           }
@@ -676,13 +591,15 @@ namespace DCEngine {
             Collision.Normal = collision.ContactNormal;
             if (!Persisted(pair))
             {
-              DispatchCollisionStarted(Collision);
+              //DispatchCollisionStarted(Collision);
+              OnCollisionStarteds.push_back(Collision);
               PersistedPairs.push_back(pair);
             }
             else
             {
-              collision.FrictionCof *= 0.9f;
-              DispatchCollisionPersisted(Collision);
+              //collision.FrictionCof *= 0.9f;
+              //DispatchCollisionPersisted(Collision);
+              OnCollisionPersisteds.push_back(Collision);
             }
 
             if (obj1->getComponent<Components::CircleCollider>()->getGhost() == false && obj2->getComponent<Components::BoxCollider>()->getGhost() == false && Pair.filter.CollisionFlag == CollisionFlag::Resolve)
@@ -698,7 +615,8 @@ namespace DCEngine {
             Collision.OtherObject = obj1;
             if (Persisted(pair))
             {
-              DispatchCollisionEnded(Collision);
+              //DispatchCollisionEnded(Collision);
+              OnCollisionEndeds.push_back(Collision);
               RemovePair(pair);
             }
           }
@@ -820,6 +738,13 @@ namespace DCEngine {
       return false;
     }
 
+
+    /**************************************************************************/
+    /*!
+    @brief remove a pairing from my vector of pairs.
+    @param A std::pair of pointers.
+    */
+    /**************************************************************************/
     void Physics::RemovePair(std::pair<GameObjectPtr, GameObjectPtr> &pair)
     {
       for (auto i = PersistedPairs.begin(); i != PersistedPairs.end(); ++i)
@@ -832,9 +757,39 @@ namespace DCEngine {
       }
     }
 
+    /**************************************************************************/
+    /*!
+    @brief help function for zilch to make a cast filter.
+    */
+    /**************************************************************************/
     CastFilter *Physics::MakeCastFilter(void)
     {
       return new CastFilter;
     }
+
+    /**************************************************************************/
+    /*!
+    @brief Send all the Collision Events we have Built up over the physics loop.
+    */
+    /**************************************************************************/
+    void Physics::SendEvents(void)
+    {
+      for (auto & event : OnCollisionStarteds)
+      {
+        DispatchCollisionStarted(event);
+      }
+
+      for (auto & event : OnCollisionPersisteds)
+      {
+        DispatchCollisionPersisted(event);
+      }
+
+      for (auto & event : OnCollisionEndeds)
+      {
+        DispatchCollisionEnded(event);
+      }
+    }
+
+
   }
 }
