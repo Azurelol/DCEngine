@@ -12,11 +12,10 @@ uniform vec4 spriteColor;
 
 void main()
 {
-    vec4 sampled = texture(image, TexCoords);
-    float r = sampled.r;
-    if(r < 0.5)
+    float sampled = texture(image, TexCoords).r;
+    if(sampled < 0.1)
       discard;
 	gPosition = vec4(WorldCoords, 1);
 	gNormal = vec4(0,1,0,1);
-	gColor = vec4(sampled.rgb, 1);
+	gColor = vec4(spriteColor.rgb, spriteColor.a * sampled);
 }

@@ -99,7 +99,6 @@ namespace DCEngine {
 			if (!shader)
 				shader = mShader;
 			shader->Use();
-			Debug::CheckOpenGLError("Failed");
 			shader->SetVector4f("spriteColor", getColor(), true);
 			auto fontName = getFont();
 			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
