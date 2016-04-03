@@ -170,8 +170,8 @@
 								"selection":
 								[
 									[
-										1899,
-										1899
+										1648,
+										1648
 									]
 								],
 								"settings":
@@ -179,7 +179,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 585.0,
+								"translation.y": 622.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,

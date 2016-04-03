@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "DefaultCollisionGroup", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -85,7 +85,27 @@
       }, 
       "PowerField": 
       {
-        "PowerTarget": "Shield4"
+        "PowerTarget": "Shield4", 
+        "PoweredColor": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 2.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "InactiveColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.200000, 
+            "z": 0.200000, 
+            "w": 1.000000
+          }
+        }
       }
     }, 
     "Children": 

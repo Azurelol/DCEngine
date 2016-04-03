@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 285, 
-    "Name": "Shield7", 
+    "GameObjectID": 265, 
+    "Name": "Door1", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 136.566299, 
-            "y": 21.000000, 
+            "x": 19.008417, 
+            "y": 2.500321, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 3.000000, 
-            "y": 1.000000, 
+            "x": 0.800000, 
+            "y": 4.000000, 
             "z": 1.000000
           }
         }
@@ -44,10 +44,10 @@
         {
           "Vec4": 
           {
-            "x": 0.235000, 
-            "y": 0.470000, 
-            "z": 0.745000, 
-            "w": 0.500000
+            "x": 0.174000, 
+            "y": 0.500000, 
+            "z": 0.217000, 
+            "w": 1.000000
           }
         }, 
         "SpriteSource": "square", 
@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "Terrain", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -82,6 +82,24 @@
         "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
+      }, 
+      "MoveToLocationZilch": 
+      {
+        "Oscillate": false, 
+        "StartMoving": false, 
+        "TargetLocation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 5.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "MinMoveTime": 1.000000, 
+        "MaxMoveTime": 1.000000, 
+        "MinDelay": 0.000000, 
+        "MaxDelay": 0.000000
       }
     }, 
     "Children": 

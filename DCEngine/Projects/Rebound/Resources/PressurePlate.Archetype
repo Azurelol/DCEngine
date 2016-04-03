@@ -57,6 +57,10 @@
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 0
       }, 
+      "PressurePlate": 
+      {
+        "Target": "AntiEnergy1"
+      }, 
       "BoxCollider": 
       {
         "CollisionGroup": "DefaultCollisionGroup", 
@@ -82,10 +86,6 @@
         "Ghost": true, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
-      }, 
-      "PressurePlate": 
-      {
-        "Target": "AEField1"
       }
     }, 
     "Children": 
