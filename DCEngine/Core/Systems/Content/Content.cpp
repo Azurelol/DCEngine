@@ -193,7 +193,7 @@ namespace DCEngine {
       if (scanning) {
         auto settings = FileScanner::FSSettings();
         settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
-        settings.Frequency = 2;
+        settings.Frequency = 1;
         ProjectScanner.reset(new FileScanner(settings));
         ProjectScanner->Initialize();
       }
