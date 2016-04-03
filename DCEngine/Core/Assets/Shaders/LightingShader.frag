@@ -121,7 +121,6 @@ void main()
 	if(useLight)
 	{
 		lightValue = GenerateIlluminationValues(fragPos, normal);
-		lightValue = lightValue;
 	}
 	FragColor = color * vec4(lightValue, 1);
 }

@@ -86,16 +86,17 @@ namespace DCEngine {
 			glEnable(GL_DEPTH_TEST);
 			//glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
-			if (Settings.LightningEnabled)
-				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			else
-				glClearColor(Settings.ClearColor.x, Settings.ClearColor.y, Settings.ClearColor.z, Settings.ClearColor.w);
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glStencilMask(~0);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
 			glDrawBuffers(4, attachments);
+			//if (Settings.LightningEnabled)
+			//	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			//else
+			//	glClearColor(Settings.ClearColor.x, Settings.ClearColor.y, Settings.ClearColor.z, Settings.ClearColor.w);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}
 
