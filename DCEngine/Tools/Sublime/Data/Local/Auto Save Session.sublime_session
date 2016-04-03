@@ -75,7 +75,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
 					"settings":
 					{
-						"buffer_size": 1885,
+						"buffer_size": 2090,
 						"line_ending": "Windows"
 					}
 				}
@@ -163,15 +163,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1885,
+								"buffer_size": 2090,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1203,
-										1203
+										1648,
+										1648
 									]
 								],
 								"settings":
@@ -179,7 +179,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 405.0,
+								"translation.y": 622.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -224,7 +224,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,950,352,162,1365",
+			"position": "0,0,1,-1,-1,-1,-1,897,441,109,1454",
 			"project": "",
 			"replace":
 			{

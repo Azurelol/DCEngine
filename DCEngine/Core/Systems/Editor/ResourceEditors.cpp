@@ -26,13 +26,21 @@ namespace DCEngine {
       std::string title = "CollisionTable Editor - " + SelectedCollisionTable->Name();
       ImGui::Begin(title.c_str(), &Windows.CollisionTableEditorEnabled);
       
+      unsigned int Guid = 0;
+
+      Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->ScanForGroups();
 
       auto &Groups = Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->GetGroups();
       
       auto &Pairs = Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->GetPairs();
+
       // Create an array from all available collision groups (so that we have random access)
 
       static char GroupName[64];
+
+
+      ImGui::Text("      ");
+      ImGui::SameLine();
 
       for (auto& group : Groups)
       {
@@ -41,20 +49,30 @@ namespace DCEngine {
         ImGui::SameLine();
       }
 
+      char ButtonName[16] = {0};
+
+      int N1 = 0;
+      int N2 = 0;
+
       ImGui::Text(" ");
 
-     static CollisionFilter *Selection = &(Pairs[1]);
+     static CollisionFilter *Selection = &(Pairs[0]);
 
       for (auto& group : Groups) 
       {
         Math::ClampString(group.Name().c_str(), GroupName, 4);
         ImGui::Text(GroupName);
+        ++N1;
+        N2 = 0;
+
         for (auto &pair : Pairs)
         {
           if (pair.Pairing.first == group.Name() || pair.Pairing.second == group.Name())
           {
+            ++N2;
+            sprintf(ButtonName, "%i-%i", N1, N2);
             ImGui::SameLine();
-            if (ImGui::Button(" "))
+            if (ImGui::Button(ButtonName))
             {
               Selection = &pair;
             }
@@ -105,6 +123,7 @@ namespace DCEngine {
       
       ImGui::Text("Collision Started Event:");
 
+      ImGui::Text("Send to A:");
       ImGui::SameLine();
 
       switch (Selection->CollisionStartBlock.SendEventsToA)
@@ -117,23 +136,115 @@ namespace DCEngine {
         break;
       }
 
-      if (ImGui::Button("Resolve"))
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("True"))
       {
-        Selection->CollisionFlag = CollisionFlag::Resolve;
+        Selection->CollisionStartBlock.SendEventsToA = true;
       }
+      ImGui::PopID();
+
       ImGui::SameLine();
-      if (ImGui::Button("Skip Resolution"))
+
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("False"))
       {
-        Selection->CollisionFlag = CollisionFlag::SkipResolution;
+        Selection->CollisionStartBlock.SendEventsToA = false;
       }
+      ImGui::PopID();
+
+
+      ImGui::Text("Send to B:");
       ImGui::SameLine();
-      if (ImGui::Button("Skip Detection"))
+
+      switch (Selection->CollisionStartBlock.SendEventsToB)
       {
-        Selection->CollisionFlag = CollisionFlag::SkipDetecting;
+      case true:
+        ImGui::Text("True");
+        break;
+      case false:
+        ImGui::Text("False");
+        break;
       }
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("True"))
+      {
+        Selection->CollisionStartBlock.SendEventsToB = true;
+      }
+      ImGui::PopID();
+      ImGui::SameLine();
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("False"))
+      {
+        Selection->CollisionStartBlock.SendEventsToB = false;
+      }
+      ImGui::PopID();
+
+
+
+
+      ImGui::Text("Collision Ended Event:");
+
+      ImGui::Text("Send to A:");
+      ImGui::SameLine();
+
+      switch (Selection->CollisionEndBlock.SendEventsToA)
+      {
+      case true:
+        ImGui::Text("True");
+        break;
+      case false:
+        ImGui::Text("False");
+        break;
+      }
+
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("True"))
+      {
+        Selection->CollisionEndBlock.SendEventsToA = true;
+      }
+      ImGui::PopID();
+
+      ImGui::SameLine();
+
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("False"))
+      {
+        Selection->CollisionEndBlock.SendEventsToA = false;
+      }
+      ImGui::PopID();
+
+
+      ImGui::Text("Send to B:");
+      ImGui::SameLine();
+
+      switch (Selection->CollisionEndBlock.SendEventsToB)
+      {
+      case true:
+        ImGui::Text("True");
+        break;
+      case false:
+        ImGui::Text("False");
+        break;
+      }
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("True"))
+      {
+        Selection->CollisionEndBlock.SendEventsToB = true;
+      }
+      ImGui::PopID();
+      ImGui::SameLine();
+      ImGui::PushID(Guid++);
+      if (ImGui::Button("False"))
+      {
+        Selection->CollisionEndBlock.SendEventsToB = false;
+      }
+      ImGui::PopID();
+
+
+
+
 
       ImGui::End();
-
     }
 
     /**************************************************************************/

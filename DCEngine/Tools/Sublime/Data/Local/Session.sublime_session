@@ -75,7 +75,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
 					"settings":
 					{
-						"buffer_size": 1036,
+						"buffer_size": 2090,
 						"line_ending": "Windows"
 					}
 				}
@@ -112,9 +112,9 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Button.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
@@ -163,23 +163,23 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1036,
+								"buffer_size": 2090,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										573,
-										573
+										1899,
+										1899
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": -0.0,
-								"translation.y": 0.0,
+								"translation.x": 0.0,
+								"translation.y": 585.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -224,7 +224,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,940,373,152,1386",
+			"position": "0,0,1,-1,-1,-1,-1,897,441,109,1454",
 			"project": "",
 			"replace":
 			{

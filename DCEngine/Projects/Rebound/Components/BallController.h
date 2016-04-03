@@ -104,6 +104,7 @@ namespace DCEngine {
       void ParentToPlayer();
       void AttractBall();
       void FreezeBall();
+	  void PseudoFreezeBall();
       void LockBall();
       void UnlockBall();
 

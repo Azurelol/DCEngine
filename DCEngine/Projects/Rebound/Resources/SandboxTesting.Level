@@ -254,18 +254,6 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "Enemy", 
@@ -291,6 +279,17 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000, 
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
@@ -651,6 +650,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -691,11 +693,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
           }
         }, 
         "Children": 
@@ -2242,14 +2239,12 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
