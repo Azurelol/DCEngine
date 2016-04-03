@@ -102,7 +102,7 @@ namespace DCEngine {
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;
       float AnimationSpeedFPSCounter = 0;
-			unsigned DrawLayer;
+			//unsigned DrawLayer;
 			bool silhouette;
     };
 

@@ -98,7 +98,7 @@ namespace DCEngine {
 				UpdateObjects(dt);
 
 				GraphicsHandler->PreRender(camera);
-				//GraphicsHandler->RenderDepths(camera);
+
 				if (!lightComponents.empty())
 					for (const auto& light : lightComponents)
 					{
@@ -108,7 +108,9 @@ namespace DCEngine {
 					}
 				else
 					GraphicsHandler->RenderLights(0);
+				
 				GraphicsHandler->RenderScene(camera->getExposure());
+
 				DrawDebug(camera);
 
 				for (auto&& drawList : mDrawList)

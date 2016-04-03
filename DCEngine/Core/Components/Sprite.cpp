@@ -71,7 +71,7 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) 
+    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner)
                    {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
@@ -186,7 +186,8 @@ namespace DCEngine {
 			else silhouette = true;
 			shader->Use();
 
-			shader->SetInteger("isTexture", 1);
+			shader->SetInteger("isTexture", true);
+
 			//set matrix uniforms
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
