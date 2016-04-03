@@ -12,6 +12,7 @@ class UIButtonEvent : ZilchEvent
 
 class UIButton : ZilchComponent
 {
+	
     // Should theis component be active?
     [Property]
     var Active : Boolean = true;
@@ -29,8 +30,8 @@ class UIButton : ZilchComponent
     [Property]
     var InactiveColor : Real4 = Real4();
     
-	[Property]
-    var TextReferenceName : String = "";
+	//[Property]
+    //var TextReferenceName : String = "";
 
     [Property]
     var NormalScale : Real;
@@ -40,7 +41,7 @@ class UIButton : ZilchComponent
 
     [Property]
     var ExpansionTime : Real;
-    
+    /*
     // State SoundCue resources
     [Property]
     var DefaultSound : SoundCue = null;
@@ -50,11 +51,13 @@ class UIButton : ZilchComponent
     
     [Property]
     var ClickedSound : SoundCue = null;
-    
+    */
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;
 
-    var TextReference : Entity = null;
+    //var TextReference : Entity = null;
+
+    
 	
     function Initialize()
 	{
@@ -62,7 +65,7 @@ class UIButton : ZilchComponent
 		Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
 		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
 
-		this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
+		//this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
 		if(this.Active)
 		{
 			this.EnterDefaultState();
@@ -142,12 +145,13 @@ class UIButton : ZilchComponent
 
 	function ReportState()
 	{
-		/*
 		var buttonEvent = UIButtonEvent();
 		buttonEvent.Button = this.Owner;
 		buttonEvent.State = this.CurState;
-		this.Owner.Parent.Dispatch(DaisyEvent.UIButtonEvent, buttonEvent)
-		*/
+		if(this.Owner.Parent != null)
+		{
+			this.Owner.Parent.Dispatch(DaisyEvent.UIButtonEvent, buttonEvent);
+		}
 	}
 
 	function Expand()

@@ -4663,8 +4663,8 @@
             {
               "Vec3": 
               {
-                "x": -8.598355, 
-                "y": 10.638169, 
+                "x": -7.897287, 
+                "y": 8.394748, 
                 "z": 0.000000
               }
             }, 
@@ -6116,16 +6116,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Level3", 
+            "SpriteSource": "Sky", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-<<<<<<< HEAD
             "DrawLayer": 4
-=======
-            "DrawLayer": 5
->>>>>>> fe5a85ccda3091757f79f1c515375d47a61d8c55
           }
         }, 
         "Children": 
@@ -6295,8 +6291,8 @@
             {
               "Vec3": 
               {
-                "x": 12.847780, 
-                "y": 22.393406, 
+                "x": -107.968018, 
+                "y": -66.956337, 
                 "z": -1.000000
               }
             }, 
@@ -6332,75 +6328,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Mid", 
+            "SpriteSource": "Oldworld_Middleground_1", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 5
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 126, 
-        "Name": "SpriteText", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -4.659601, 
-                "y": 13.325244, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 0.200000, 
-                "y": 0.200000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.805000, 
-                "y": 0.439000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "VerdanaBold", 
-            "FontSize": 1, 
-            "Text": "OH MY GOD BECKY, LOOK AT HER BUTT. IT'S SO BIG. sHE'S LIKE ONE OF THOSE RAP GUYS GIRLFFRIENDS.", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 30, 
-            "DrawLayer": 2
           }
         }, 
         "Children": 
