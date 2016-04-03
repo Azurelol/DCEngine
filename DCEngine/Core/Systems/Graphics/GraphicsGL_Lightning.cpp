@@ -90,7 +90,7 @@ namespace DCEngine {
 		void GraphicsGL::PreRender(Components::Camera * camera)
 		{
       SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
-			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);
@@ -102,6 +102,17 @@ namespace DCEngine {
 			glDrawBuffers(3, attachments);
 
 			RenderObjects(camera);
+
+			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+			glBlitFramebuffer(
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			GLuint attachments1[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			glDrawBuffers(3, attachments1);
 		}
 
 		void GraphicsGL::RenderLights(Components::Light * light)

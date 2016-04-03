@@ -53,9 +53,6 @@ namespace DCEngine {
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, FinalColor, 0);
-
-			//GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
-			//glDrawBuffers(4, attachments);
 			
 			GLuint rboDepth;
 			glGenRenderbuffers(1, &rboDepth);
@@ -66,7 +63,48 @@ namespace DCEngine {
 			if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 				std::cout << "Framebuffer not complete!" << std::endl;
 
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glGenFramebuffers(1, &multisampleFBO);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
+
+			// - Position color buffer
+			glGenTextures(1, &msPosTexture);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msPosTexture);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, msPosTexture, 0);
+
+			// - Normal color buffer
+			glGenTextures(1, &msNormalTexture);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msNormalTexture);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D_MULTISAMPLE, msNormalTexture, 0);
+
+			// - Color + Specular color buffer
+			glGenTextures(1, &msColorTexture);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msColorTexture);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D_MULTISAMPLE, msColorTexture, 0);
+
+			glGenTextures(1, &msFinalColor);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msFinalColor);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D_MULTISAMPLE, msFinalColor, 0);
+
+			GLuint msRboDepth;
+			glGenRenderbuffers(1, &msRboDepth);
+			glBindRenderbuffer(GL_RENDERBUFFER, msRboDepth);
+			glRenderbufferStorageMultisample(GL_RENDERBUFFER, Settings.Samples, GL_DEPTH24_STENCIL8, Settings.ScreenWidth, Settings.ScreenHeight);
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, msRboDepth);
+			// - Finally check if framebuffer is complete
+			if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+				std::cout << "Framebuffer not complete!" << std::endl;
 		}
     /**************************************************************************/
     /*!

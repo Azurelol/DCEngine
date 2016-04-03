@@ -44,7 +44,7 @@ namespace DCEngine {
 			glewExperimental = GL_TRUE;
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+			glEnable(GL_MULTISAMPLE);
 			// If OpenGL failed to initialize...
 			if (glewInit() != GLEW_OK) {
 				DCTrace << "Failed to initialize GLEW \n";

@@ -107,7 +107,9 @@ namespace DCEngine {
       ShaderPtr FinalRenderShader, DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
-			GLuint FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+			GLuint multisampleFBO, msPosTexture, msNormalTexture, msColorTexture, msFinalColor,
+				FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;
       OpenGLStateData GLState;
