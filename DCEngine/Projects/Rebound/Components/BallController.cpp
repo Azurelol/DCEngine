@@ -38,7 +38,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
-	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
+    DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -143,7 +143,7 @@ namespace DCEngine {
         {
           // DCTrace << "BallController::OnMouseUpEvent - Slam\n";
           RigidBodyRef->setVelocity(Vec3(0, 0, 0));
-          RigidBodyRef->AddForce(MouseVector * SlamPower);
+          RigidBodyRef->ApplyForce(MouseVector * SlamPower);
         }
         else if (CurrentlyFired)
         {
@@ -156,7 +156,7 @@ namespace DCEngine {
             CurrentCharge = MinCharge;
           }
 
-          RigidBodyRef->AddForce(MouseVector * ChargeFactor * CurrentCharge);
+          RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
 
           Charging = false;
           CurrentCharge = 0;
@@ -335,7 +335,7 @@ namespace DCEngine {
         {
           CenteringVector.y *= AttractYBoost;
         }
-        PlayerRef->getComponent<Components::RigidBody>()->AddForce(-CenteringVector * AttractPower);
+        PlayerRef->getComponent<Components::RigidBody>()->ApplyForce(-CenteringVector * AttractPower);
       }
       else
       {
@@ -375,29 +375,29 @@ namespace DCEngine {
       }
     }
 
-	void BallController::PseudoFreezeBall()
-	{
-		if (Frozen || Locked || !FreezeEnabled)
-		{
-			return;
-		}
+  void BallController::PseudoFreezeBall()
+  {
+    if (Frozen || Locked || !FreezeEnabled)
+    {
+      return;
+    }
 
-		Frozen = true;
-		SpriteRef->Color = FrozenColor;
-		SoundFreeze();
-		if (CurrentlyFired)
-		{
-			RigidBodyRef->setVelocity(Vec3(0, 0, 0));
-			RigidBodyRef->setGravityRatio(0.0);
-			SoundFreeze();
-		}
-		else
-		{
-			//deprecated, leaving in place in case of control scheme change
-			//auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
-			//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
-		}
-	}
+    Frozen = true;
+    SpriteRef->Color = FrozenColor;
+    SoundFreeze();
+    if (CurrentlyFired)
+    {
+      RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+      RigidBodyRef->setGravityRatio(0.0);
+      SoundFreeze();
+    }
+    else
+    {
+      //deprecated, leaving in place in case of control scheme change
+      //auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
+      //Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
+    }
+  }
 
     void BallController::ParentToPlayer()
     {
