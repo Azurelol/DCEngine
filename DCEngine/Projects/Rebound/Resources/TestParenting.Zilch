@@ -28,9 +28,8 @@ class TestParenting : ZilchComponent
     }
     
     function PrintChildren() {
-    	Console.WriteLine("Hi");
     	var children = this.Owner.Children;
-    	Console.WriteLine("`this.Owner.Name` size is: `children.Count`");
+    	Console.WriteLine("`this.Owner.Name` has `children.Count` children!");
 
     	// while
     	Console.WriteLine("WHILE: `this.Owner.Name`'s children are:");
