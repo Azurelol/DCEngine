@@ -35,8 +35,9 @@ namespace DCEngine
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, AngularVelocity);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, Mass);
       DCE_BINDING_DEFINE_PROPERTY(RigidBody, RotationLocked);
-	  ZilchBindMethod(builder, type, &RigidBody::ApplyLinearVelocity, ZilchNoOverload,
-		  "ApplyLinearVelocity", "vel");
+      ZilchBindMethod(builder, type, &RigidBody::ApplyLinearVelocity, ZilchNoOverload, "ApplyLinearVelocity", "vel");
+      ZilchBindMethod(builder, type, &RigidBody::ApplyForce, ZilchNoOverload, "ApplyForce", "force");
+      
     }
     #endif
 
@@ -89,7 +90,7 @@ namespace DCEngine
     @param A force vector.
     */
     /**************************************************************************/
-    void RigidBody::AddForce(Vec3 force)
+    void RigidBody::ApplyForce(Vec3 force)
     {
       AccumulatedForce += force;
     }

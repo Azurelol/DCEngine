@@ -46,7 +46,7 @@ namespace DCEngine
       RigidBody(Entity& owner);
       ~RigidBody();
       void Initialize();
-      void AddForce(Vec3 force);
+      void ApplyForce(Vec3 force);
       void Integrate(float dt);
       void PublishResults(void);
 

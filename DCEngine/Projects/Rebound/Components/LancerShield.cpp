@@ -63,7 +63,7 @@ namespace DCEngine {
           //event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(-otherVelocity);
 
           event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(Vec3(0,0,0));
-          event->OtherObject->getComponent<Components::RigidBody>()->AddForce(glm::normalize(otherPosition - parentPosition) * ShieldReflectionForce);
+          event->OtherObject->getComponent<Components::RigidBody>()->ApplyForce(glm::normalize(otherPosition - parentPosition) * ShieldReflectionForce);
         //}
       }
     }
