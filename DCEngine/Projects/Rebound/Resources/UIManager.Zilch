@@ -1,11 +1,61 @@
 class UIManager : ZilchComponent
 {
+	var ButtonList : Array[Entity] = null;
+
     function Initialize()
     {
-        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
+
+        this.ButtonList = new Array[Entity]();
+        
+        var childList = this.Owner.Children.All;
+        
+        while (childList.IsNotEmpty)
+        {
+            this.ButtonList.Add(childList.Current);
+            
+            Console.WriteLine("Adding child");
+            
+            childList.MoveNext();
+        }
     }
 
-    function OnLogicUpdate(event : LogicUpdate)
+    function OnUIButtonEvent(event : UIButtonEvent)
     {
+    	for (var i = 0; i < this.ButtonList.Count; i += 1)
+        {
+            if(event.Button == this.ButtonList[i])
+            {
+                if(event.State == ButtonState.Default)
+                {
+                    this.OnButtonDefault(this.ButtonList[i]);
+                }
+                
+                if(event.State == ButtonState.Hovered)
+                {
+                    this.OnButtonHovered(this.ButtonList[i]);
+                }
+                
+                if(event.State == ButtonState.Clicked)
+                {
+                    this.OnButtonClicked(this.ButtonList[i]);
+                }
+            }
+        }
+    }
+
+    function OnButtonDefault(button : Entity)
+    {
+    	//Console.WriteLine(button.Name);
+    }
+
+    function OnButtonHovered(button : Entity)
+    {
+    	Console.WriteLine(button.Name);
+    }
+
+    function OnButtonClicked(button : Entity)
+    {
+    	//Console.WriteLine(button.Name);
     }
 }

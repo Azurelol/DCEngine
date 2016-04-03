@@ -142,12 +142,13 @@ class UIButton : ZilchComponent
 
 	function ReportState()
 	{
-		/*
 		var buttonEvent = UIButtonEvent();
 		buttonEvent.Button = this.Owner;
 		buttonEvent.State = this.CurState;
-		this.Owner.Parent.Dispatch(DaisyEvent.UIButtonEvent, buttonEvent)
-		*/
+		if(this.Owner.Parent != null)
+		{
+			this.Owner.Parent.Dispatch(DaisyEvent.UIButtonEvent, buttonEvent);
+		}
 	}
 
 	function Expand()
