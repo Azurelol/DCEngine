@@ -18,9 +18,9 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
-    class HealthController;
     class PhysicsSpace;
     class GraphicsSpace;
+    class LancerShield;
     class Lancer : public Component
     {
 
@@ -29,7 +29,6 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
-      HealthController* HealthRef;
       PhysicsSpace* PhysicsSpaceRef;
       CollisionTablePtr CollisionTableRef;
       GraphicsSpace* GraphicsSpaceRef;
@@ -37,6 +36,7 @@ namespace DCEngine {
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
       float ShieldVelocityDifferenceThreshold;
+      float ShieldActivationSpeed;
       
 
 
@@ -44,9 +44,13 @@ namespace DCEngine {
 
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
+      DCE_DEFINE_PROPERTY(int, startingHealth);
+      DCE_DEFINE_PROPERTY(int, maxHealth);
+      DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
       DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
+      DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
 
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}
@@ -54,7 +58,6 @@ namespace DCEngine {
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
-      void OnDeathEvent(Events::DeathEvent * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Lancer, Component);
@@ -65,8 +68,12 @@ namespace DCEngine {
       GameObject *player;
       Vec3 startingPosition;
       Vec3 endPosition;
-      float jumpTimer = 0;
-      float dt;
+      int health;
+      int startingHealth;
+      int maxHealth;
+      bool IsInvulnerable;
+      LancerShield *shield;
+      bool ModifyHealth(int amount);
 
       class Global : public IState<Lancer>
       {

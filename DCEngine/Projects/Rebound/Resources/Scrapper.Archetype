@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
-    "Name": "Scrapper4", 
-    "Archetype": "Scrapper", 
+    "Locked": false, 
+    "GameObjectID": 900, 
+    "Name": "Scrapper", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 326.356995, 
-            "y": -73.627930, 
+            "x": 51.733334, 
+            "y": 3.466667, 
             "z": 0.000000
           }
         }, 
@@ -30,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 1.500000, 
-            "y": 1.500000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -49,7 +50,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Scrap", 
+        "SpriteSource": "square", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -58,8 +59,8 @@
       }, 
       "BoxCollider": 
       {
-        "PhysicsMaterial": "", 
         "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
         "Size": 
         {
           "Vec3": 
@@ -84,7 +85,6 @@
       }, 
       "RigidBody": 
       {
-        "Mass": 10.000000, 
         "Velocity": 
         {
           "Vec3": 
@@ -109,14 +109,18 @@
       "Grunt": 
       {
         "PlayerName": "Player", 
-        "IdleRange": 20.000038, 
-        "PatrolDistance": 8.000000, 
-        "IsPatrolRight": false, 
-        "JumpStrengthX": 5.599995, 
-        "JumpStrengthY": 4.100003, 
-        "JumpPeriod": 0.500000, 
-        "AttackJumpStrengthX": 20.100040, 
-        "AttackJumpStrengthY": 12.000010, 
+        "StartingHealth": 1, 
+        "MaxHealth": 1, 
+        "IsInvulnerable": false, 
+        "IdleRange": 100.000000, 
+        "PatrolDistance": 20.000000, 
+        "IsPatrolRight": true, 
+        "IsAggressive": true, 
+        "JumpStrengthX": 5.000000, 
+        "JumpStrengthY": 25.000000, 
+        "JumpPeriod": 2.000000, 
+        "AttackJumpStrengthX": 10.000000, 
+        "AttackJumpStrengthY": 15.000000, 
         "AttackJumpPeriod": 1.000000, 
         "IdleColor": 
         {
@@ -148,12 +152,10 @@
             "w": 1.000000
           }
         }
-      }, 
-      "HealthController": 
-      {
-        "MaxHealth": 0, 
-        "StartingHealth": 0
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

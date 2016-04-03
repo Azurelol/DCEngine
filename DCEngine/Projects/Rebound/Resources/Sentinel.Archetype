@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -67.048370, 
-            "y": 3.239047, 
+            "x": -44.337986, 
+            "y": 2.283299, 
             "z": 0.000000
           }
         }, 
@@ -106,21 +106,20 @@
         "Mass": 10.000000, 
         "RotationLocked": true
       }, 
-      "HealthController": 
-      {
-        "MaxHealth": 1, 
-        "StartingHealth": 1
-      }, 
       "Sentinel": 
       {
         "PlayerName": "Player", 
+        "StartingHealth": 1, 
+        "MaxHealth": 1, 
+        "IsInvulnerable": false, 
         "IdleRange": 100.000000, 
         "MoveSpeed": 2.000000, 
         "ShieldArchetype": "Sentinel Shield", 
-        "ShieldRadius": 2.000000, 
+        "ShieldRadius": 1.000000, 
         "ShieldBashDistance": 2.000000, 
-        "ShieldBashOutTime": 1.000000, 
-        "ShieldBashInTime": 0.500000
+        "ShieldBashOutTime": 0.200000, 
+        "ShieldBashInTime": 0.100000, 
+        "ShieldBashCooldown": 1.000000
       }
     }, 
     "Children": 
