@@ -164,7 +164,7 @@ namespace DCEngine {
         Load(CurrentShader, CurrentShaderType);
       }
       if (CurrentScript) {
-        Load(CurrentScript);
+        //Load(CurrentScript);
       }
     }
 

@@ -17468,7 +17468,7 @@ namespace Zilch
       static void Write(const T& value, byte* to)
       {
         // Copy construct our object direclty into the memory location
-        Error("This should detect copy constructors, or we should make the user specify non-copyable");
+        //Error("This should detect copy constructors, or we should make the user specify non-copyable");
         const void* valueMemory = &value;
         memcpy(to, valueMemory, sizeof(T));
         //new (to) T(value);

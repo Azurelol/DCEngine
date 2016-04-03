@@ -136,27 +136,60 @@ namespace DCEngine {
     @return A SoundInstance.
     */
     /**************************************************************************/
-    SoundInstanceHandle Audio::CreateSoundInstance(const SoundCueHandle & soundCueName)
+    SoundInstancePtr Audio::CreateSoundInstance(const SoundCueHandle & soundCueName)
     {
-      SoundInstanceHandle instance(new SoundInstance());
-
       // Pulls the data from the SoundCue and save it on the instance.
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-      instance->Type = soundCue->Type;      
+
+      return CreateSoundInstance(soundCue);
+
+      //SoundInstancePtr instance(new SoundInstance());
+
+      //instance->Type = soundCue->Type;      
+      //// Copy the Playback settings
+      //instance->Settings.Mode = soundCue->Mode;
+      //instance->Settings.Volume = soundCue->Volume;
+      //instance->Settings.VolumeVariation = soundCue->VolumeVariation;
+      //instance->Settings.Pitch = soundCue->Pitch;
+      //instance->Settings.PitchVariation = soundCue->PitchVariation;      
+      //// Copy different things depending on what type of SoundCue we are instantiating from:
+      //if (soundCue->Type == SoundCue::SoundCueType::Event)
+      //  instance->StudioEventName = soundCue->Name();
+      //else if (soundCue->Type == SoundCue::SoundCueType::File)
+      //  instance->SoundHandle.Handle = soundCue->Data.Handle; 
+
+      ///* NOTE: For LL, we only copy the handle to the underlying FMOD::Sound* since we want
+      //         to be using an unique channel to the instance. */
+      //return instance;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a SoundInstance off a given SoundCue.
+    @param  A handle to the SoundCue.
+    @return A SoundInstance.
+    */
+    /**************************************************************************/
+    SoundInstancePtr Audio::CreateSoundInstance(const SoundCuePtr & soundCue)
+    {
+      SoundInstancePtr instance(new SoundInstance());
+
+      // Pulls the data from the SoundCue and save it on the instance.
+      instance->Type = soundCue->Type;
       // Copy the Playback settings
       instance->Settings.Mode = soundCue->Mode;
       instance->Settings.Volume = soundCue->Volume;
       instance->Settings.VolumeVariation = soundCue->VolumeVariation;
       instance->Settings.Pitch = soundCue->Pitch;
-      instance->Settings.PitchVariation = soundCue->PitchVariation;      
+      instance->Settings.PitchVariation = soundCue->PitchVariation;
       // Copy different things depending on what type of SoundCue we are instantiating from:
       if (soundCue->Type == SoundCue::SoundCueType::Event)
         instance->StudioEventName = soundCue->Name();
       else if (soundCue->Type == SoundCue::SoundCueType::File)
-        instance->SoundHandle.Handle = soundCue->Data.Handle; 
+        instance->SoundHandle.Handle = soundCue->Data.Handle;
 
       /* NOTE: For LL, we only copy the handle to the underlying FMOD::Sound* since we want
-               to be using an unique channel to the instance. */
+      to be using an unique channel to the instance. */
       return instance;
     }
 
@@ -193,27 +226,41 @@ namespace DCEngine {
     /*!
     @brief  Plays a sound cue.
     @param  soundCueName The name (string) of the sound in the content system.
+    @return A SoundInstancePtr.
     */
     /**************************************************************************/
-    SoundInstanceHandle Audio::PlaySound(const std::string& soundCueName) {
+    SoundInstancePtr Audio::PlaySound(const std::string& soundCueName) {
 
       DCTrace << "Audio::PlaySound - Playing SoundCue: " << soundCueName << "\n";
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-      // Do not attempt to play if the soundcue could not be found
-      if (!soundCue) {
-        DCTrace << "Audio::PlaySound - Could not find: " << soundCueName << "\n";
+      if (!soundCue)
         return nullptr;
-      }        
+
+      return PlaySound(soundCue);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Plays a sound cue.
+    @param  soundCueName The name (string) of the sound in the content system.
+    @return A SoundInstancePtr.
+    */
+    /**************************************************************************/
+    SoundInstancePtr Audio::PlaySound(SoundCuePtr cue)
+    {
+      // Do not attempt to play if the soundcue could not be found
+      if (!cue) {
+        DCTrace << "Audio::PlaySound - Could not find: " << cue->Name() << "\n";
+        return nullptr;
+      }
       // Create an unique SoundInstance for this SoundCue
-      SoundInstanceHandle instance = CreateSoundInstance(soundCueName);
+      SoundInstancePtr instance = CreateSoundInstance(cue);
       // Depending on the type of SoundCue, play it through the low level API
       // or as an event belonging to the Studip API
-      if (soundCue->Type == SoundCue::SoundCueType::File)
+      if (cue->Type == SoundCue::SoundCueType::File)
         AudioHandler->PlaySound(instance->SoundHandle.Handle, &(instance->SoundHandle.Channel), instance->Settings);
-      else if (soundCue->Type == SoundCue::SoundCueType::Event)
+      else if (cue->Type == SoundCue::SoundCueType::Event)
         AudioHandler->PlaySound(instance->StudioEventName, &(instance->SoundHandle.EventInstance), instance->Settings);
-      
-      
 
       // Return a handle to the SoundInstance
       return instance;

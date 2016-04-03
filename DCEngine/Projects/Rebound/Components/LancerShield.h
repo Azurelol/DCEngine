@@ -41,7 +41,7 @@ namespace DCEngine {
 
     private:
       // Member variables
-      GameObject* parent;
+      GameObjectPtr parent;
     };
   }
 

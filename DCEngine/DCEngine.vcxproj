@@ -319,6 +319,7 @@
     <ClCompile Include="Core\Objects\Entities\Mouse.cpp" />
     <ClCompile Include="Core\Objects\Entities\Space.cpp" />
     <ClCompile Include="Core\Objects\Entity.cpp" />
+    <ClCompile Include="Core\Objects\EntityRange.cpp" />
     <ClCompile Include="Core\Objects\Event.cpp" />
     <ClCompile Include="Core\Objects\Events\ZilchEvent.cpp" />
     <ClCompile Include="Core\Objects\Module.cpp" />
@@ -659,6 +660,8 @@
     <ClInclude Include="Core\Systems\SystemsInclude.h" />
     <ClInclude Include="Core\Systems\Window\Window.h" />
     <ClInclude Include="Core\Systems\Window\WindowSFML.h" />
+    <ClInclude Include="Core\Types\Containers.h" />
+    <ClInclude Include="Core\Types\Enumerations.h" />
     <ClInclude Include="Core\Utilities\String.h" />
     <ClInclude Include="Core\Utilities\UtilitiesInclude.h" />
     <ClInclude Include="Dependencies\include\IMGUI\imconfig.h" />

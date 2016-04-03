@@ -34,7 +34,9 @@ namespace DCEngine {
         DCE_DEFINE_PROPERTY(Real, Pitch);
         DCE_DEFINE_PROPERTY(Boolean, Pause);
 
-        SoundInstanceHandle PlayCue(std::string soundCueName);
+        SoundInstancePtr PlayCue(std::string soundCueName);
+        SoundInstancePtr PlayCue(SoundCuePtr soundCue);
+        SoundInstanceZilchHandle PlayCueZilch(std::string name);
         void PlayCueAt(std::string soundCueName);
         void PauseCue(std::string soundCueName);
         void ResumeCue(std::string soundCueName);

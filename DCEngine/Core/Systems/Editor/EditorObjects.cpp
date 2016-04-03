@@ -159,7 +159,7 @@ namespace DCEngine {
 
           // Display all children recursively
           for (auto& child : children) {
-            DisplayObject(child, ++id);
+            DisplayObject(dynamic_cast<GameObjectPtr>(child), ++id);
           }
           ImGui::TreePop();
         }

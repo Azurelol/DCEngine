@@ -46,6 +46,7 @@ namespace DCEngine {
     ZilchInitializeType(Object);
     ZilchInitializeType(Engine);
     ZilchInitializeType(Entity);
+    ZilchInitializeType(EntityRange);
     ZilchInitializeType(Resource);
     ZilchInitializeType(Mouse);
     ZilchInitializeType(Keyboard);

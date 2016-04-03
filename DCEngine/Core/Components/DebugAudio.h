@@ -20,7 +20,7 @@ namespace DCEngine {
     class DebugAudio : public Component {
     public:
 
-      SoundInstanceHandle MyJam;
+      SoundInstancePtr MyJam;
       SoundCueHandle Track1 = "soulja";
       SoundCueHandle Track2;
       SoundCueHandle Track3;

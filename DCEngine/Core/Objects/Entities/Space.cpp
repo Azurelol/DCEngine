@@ -436,9 +436,9 @@ namespace DCEngine {
   /**************************************************************************/
   GameObjectPtr Space::CreateObjectAtPosition(std::string name, const Vec3 & pos)
   {
-	  // Find the archetype
-	  auto archetype = Archetype::Find(name);
-	  return CreateObjectAtPosition(archetype, pos);
+    // Find the archetype
+    auto archetype = Archetype::Find(name);
+    return CreateObjectAtPosition(archetype, pos);
   }
 
   /**************************************************************************/

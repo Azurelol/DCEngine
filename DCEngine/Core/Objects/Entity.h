@@ -48,6 +48,41 @@ namespace DCEngine {
   using EntityPtr = Entity*;
   using EntityVec = std::vector<EntityPtr>;
 
+  /**************************************************************************/
+  /*!
+  @class EntityRange A range-based container of entity pointers.
+  */
+  /**************************************************************************/
+  //using EntityMap = std::multimap<std::string, EntityPtr>;
+  class EntityRange {
+    using Iterator = EntityVec::iterator;
+    Iterator Begin;
+    Iterator End;
+
+    bool isRange() { return Begin != End; }
+    typename const Iterator beginRange() const { return Begin; }
+    typename const Iterator endRange() const { return End; }
+    typename Iterator beginRange() { return Begin; }
+    typename Iterator endRange() { return End; }
+    size_t sizeRange() const { return End - Begin; }
+  
+  public:
+    EntityRange(const Iterator& begin, const Iterator& end) : Begin(begin), End(end) {}
+    ZilchDeclareBaseType(EntityRange, Zilch::TypeCopyMode::ValueType);
+
+    static void All(Zilch::Call& call, Zilch::ExceptionReport& report);
+    static void MoveNext(Zilch::Call& call, Zilch::ExceptionReport& report);
+    static void Current(Zilch::Call& call, Zilch::ExceptionReport& report);
+    static void IsNotEmpty(Zilch::Call& call, Zilch::ExceptionReport& report);
+    static void Count(Zilch::Call& call, Zilch::ExceptionReport& report);
+
+  };  
+
+  /**************************************************************************/
+  /*!
+  @class Entity The main composition class for the engine.
+  */
+  /**************************************************************************/
   class Entity : public Object {
     friend class Engine;
     friend class Space;
@@ -81,8 +116,7 @@ namespace DCEngine {
     void RemoveComponentByName(std::string componentName);
     void RemoveComponent(ComponentPtr component);    
     ComponentVec AllComponents();
-    ComponentHandleVec& AllComponentsByHandle();
-    
+    ComponentHandleVec& AllComponentsByHandle();    
     void Swap(ComponentPtr, Direction);
     void SwapToBack(ComponentPtr);
     // Events
@@ -97,15 +131,21 @@ namespace DCEngine {
     // Actions
     ActionsOwner Actions;
     ActionsOwner& getActions() { return this->Actions; }
-    // Components as properties
-    Components::Transform* getTransform() { return getComponent<Components::Transform>(); }
-    //DCE_ENTITY_GET_COMPONENT(Transform);
-    //DCE_ENTITY_GET_COMPONENT(Sprite);
-    //DCE_ENTITY_GET_COMPONENT(RigidBody);
-    //DCE_ENTITY_GET_COMPONENT(BoxCollider);
+    // Parenting
+    virtual EntityPtr Parent();
+    virtual EntityPtr FindChildByName(std::string name);
+    virtual EntityVec FindAllChildrenByName(std::string name);
+    virtual EntityVec& Children();
+    virtual EntityRange ChildrenByRange();
+    virtual void AttachTo(EntityPtr parent) {}
+    virtual void AttachToRelative(EntityPtr parent) {}
+    virtual void Detach() {}
+    virtual void DetachRelative() {}
 
   protected:
-
+    EntityPtr ParentRef;
+    EntityVec ChildrenContainer;
+    unsigned ParentID;
     ComponentStrongVec ComponentsContainer; //!< The list of components attached to the entity.  
     ComponentHandleVec ComponentHandlesContainer; //!< The list of components created through Zilch attached to the entity.
     EntityType type_;
@@ -126,8 +166,6 @@ namespace DCEngine {
     ComponentHandle GetComponentHandle(ComponentPtr component);
 
   };
-
-
 }
 
 #include "Entity.hpp"

@@ -67,14 +67,17 @@ namespace DCEngine {
     Space* GetSpace();
     GameSession* GetGameSession();  
     static GameObjectPtr IsA(EntityPtr);
-    GameObjectPtr FindChildByName(std::string name);
-    GameObjectVec FindAllChildrenByName(std::string name);
-    GameObjectVec& Children();    
-    void AttachTo(GameObjectPtr parent);
-    void AttachToRelative(GameObjectPtr parent);
+
+    // Parenting
+    //EntityPtr FindChildByName(std::string name);
+    //EntityVec FindAllChildrenByName(std::string name);
+    //EntityVec& Children();
+    void AttachTo(EntityPtr parent);
+    void AttachToRelative(EntityPtr parent);
     void Detach();
     void DetachRelative();
-    GameObjectPtr Parent() { return ParentRef; }    
+    //EntityPtr Parent();
+
     DCE_DEFINE_PROPERTY(bool, Locked);
     DCE_DEFINE_PROPERTY(unsigned int, GameObjectID);
     void Serialize(Zilch::JsonBuilder& builder);
@@ -93,13 +96,10 @@ namespace DCEngine {
   private:
     static std::unordered_set<unsigned int> ActiveGameObjectIDs;
     unsigned int GameObjectID;    
-    GameObjectPtr ParentRef;
-    unsigned ParentID;
-    GameObjectVec ChildrenContainer;
+    
     Space* SpaceRef;
     GameSession* GamesessionRef;
     bool Locked;    
-
     void AddChild(GameObjectPtr child);
     void RemoveChild(GameObjectPtr child);
     Identifier Identify();

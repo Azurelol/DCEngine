@@ -31,7 +31,7 @@ namespace DCEngine {
     void LancerShield::Initialize()
     {
       auto gameObj = dynamic_cast<GameObject*>(Owner());
-      parent = gameObj->Parent();
+      parent = dynamic_cast<GameObjectPtr>(gameObj->Parent());
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
