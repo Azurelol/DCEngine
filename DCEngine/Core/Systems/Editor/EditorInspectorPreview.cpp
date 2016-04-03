@@ -14,7 +14,7 @@
 namespace DCEngine {
   namespace Systems {
 
-    static SoundInstanceHandle EditorSoundPreview;
+    static SoundInstancePtr EditorSoundPreview;
 
     /**************************************************************************/
     /*!

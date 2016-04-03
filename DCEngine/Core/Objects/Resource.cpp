@@ -43,6 +43,8 @@ namespace DCEngine {
   {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
 
+    //std::vector<int>::iterator
+    
     builder.Key("Properties");
     builder.Begin(Zilch::JsonType::Object);
     SerializeByType(builder, interface->GetState(), this->ZilchGetDerivedType(), this);

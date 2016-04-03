@@ -346,6 +346,9 @@
     <Filter Include="Core\Events\Content">
       <UniqueIdentifier>{66c77a11-d97e-474e-a470-d111d0fcf7d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Types">
+      <UniqueIdentifier>{7759b5ba-90ac-45f7-8f58-f573259bfad1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -957,6 +960,9 @@
     <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\EntityRange.cpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1003,9 +1009,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
       <Filter>Core\Systems\Audio\FMOD</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Types.h">
-      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Component.h">
       <Filter>Core\Object\Component</Filter>
@@ -1619,6 +1622,15 @@
     <ClInclude Include="Core\DaisyVector.h" />
     <ClInclude Include="Core\Events\ContentEvents.h">
       <Filter>Core\Events\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine\Types.h">
+      <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Types\Containers.h">
+      <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Types\Enumerations.h">
+      <Filter>Core\Engine\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

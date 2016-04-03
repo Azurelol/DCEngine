@@ -57,7 +57,9 @@ namespace DCEngine {
     static bool ReleaseOnDestroyed;
   };
 
-  using SoundInstanceHandle = std::shared_ptr<SoundInstance>;
-  using SoundInstanceContainer = std::map<SoundInstanceHandle, SoundCueHandle>;
+  //using SoundInstanceHandle = Zilch::Handle
+  using SoundInstancePtr = std::shared_ptr<SoundInstance>;
+  using SoundInstanceZilchHandle = Zilch::Handle;
+  using SoundInstanceContainer = std::map<SoundInstancePtr, SoundCueHandle>;
 
 }

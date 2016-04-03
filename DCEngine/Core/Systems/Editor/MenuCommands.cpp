@@ -131,8 +131,12 @@ namespace DCEngine {
       DCTrace << "Editor::Duplicate \n";
     }
 
-
-    void AddChildrenToContainer(GameObjectPtr gameObject, GameObjectRawVec& children) {
+    /**************************************************************************/
+    /*!
+    @brief  Adds children to the container??
+    */
+    /**************************************************************************/
+    void AddChildrenToContainer(EntityPtr gameObject, EntityVec& children) {
       for (auto& child : gameObject->Children()) {
         // Add this child to the container
         children.push_back(child);

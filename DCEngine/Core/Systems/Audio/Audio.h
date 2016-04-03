@@ -37,7 +37,8 @@ namespace DCEngine {
 
       void Add(const std::string& bankFile, Systems::BankInfo& data);
       void CreateSound(const std::string& soundFile, FMODSoundHandle& soundPtr);
-      SoundInstanceHandle PlaySound(const std::string& soundCueName);
+      SoundInstancePtr PlaySound(const std::string& soundCueName);
+      SoundInstancePtr PlaySound(SoundCuePtr cue);
       //void PlaySoundOnce(const std::string& soundCueName);
       void ResumeSound(SoundInstance& instance);
       void ResumeSound(const std::string& soundCueName);
@@ -54,7 +55,8 @@ namespace DCEngine {
       std::vector<Components::SoundSpace*> SoundSpaceContainer;
       SoundInstanceContainer ActiveInstances;
 
-      SoundInstanceHandle CreateSoundInstance(const SoundCueHandle& soundCue);
+      SoundInstancePtr CreateSoundInstance(const SoundCueHandle& soundCue);
+      SoundInstancePtr CreateSoundInstance(const SoundCuePtr& soundCue);
       PlaybackSettings RetrievePlaybackSettings(const SoundCueHandle& soundCue);
 
       Audio(AudioConfig& config);

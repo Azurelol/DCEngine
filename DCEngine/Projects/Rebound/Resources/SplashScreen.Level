@@ -139,9 +139,9 @@
           }, 
           "LevelManager": 
           {
-            "NextLevel": "", 
-            "LoadingTime": 1.000000, 
-            "TimerStarted": false
+            "NextLevel": "MainMenu", 
+            "LoadingTime": 3.000000, 
+            "TimerStarted": true
           }
         }, 
         "Children": 
@@ -152,7 +152,7 @@
       {
         "Locked": false, 
         "GameObjectID": 6, 
-        "Name": "Sprite", 
+        "Name": "Background", 
         "Components": 
         {
           "Transform": 

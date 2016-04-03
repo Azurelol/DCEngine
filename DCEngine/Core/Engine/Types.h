@@ -19,150 +19,19 @@
 #include <cassert>
 #include <map>
 
+// GLM
 #include <GLM\glm.hpp>
 #include <GLM\matrix.hpp>
 #include <GLM\gtc\type_ptr.hpp>
 #include <GLM\gtc\matrix_transform.hpp>
+// GLEW
 #define GLEW_STATIC
 #include <GLEW\glew.h>
+// Custom
+#include "../Types/Containers.h"
+#include "../Types/Enumerations.h"
 
 namespace DCEngine {
-  
-  // Reference: http://codereview.stackexchange.com/questions/48344/yet-another-any-class-implementation-named-some
-  
-  enum class EnumeratedSystem {
-    Window,
-    Input,
-    Graphics,
-    Audio,
-    Physics,
-    Factory,
-    Content,
-    Serializer,
-    Reflection,
-    Editor,
-    GUI,
-    Keyboard,
-    Mouse,
-    // The amount of systems
-    Capacity
-  };
-  // Alias for the enum
-  using ESys = EnumeratedSystem;
-
-  enum class ResourceType {
-    None,
-    Archetype,
-    Bank,
-    CollisionGroup,
-    CollisionTable,
-    Font,
-    Level,
-    Material,
-    PhysicsMaterial,
-    SoundCue,
-    SpriteSource,
-    SpriteLayer,
-    SpriteLayerOrder,
-    ZilchScript,
-  };
-
-  enum class Ease {
-    Linear,
-    QuadIn,
-    QuadInOut,
-    QuadOut,
-    SinIn,
-    SinInOut,
-    SinOut,
-  };
-
-  enum class Direction {
-    None,
-    Up,
-    Down,
-    Left,
-    Right,
-  };
-
-  enum class Keys {
-    None,
-    Tilde,
-    Tab,
-    Escape,
-    Space,
-    Return,
-    Backspace,
-    Delete,
-    LControl,
-    RControl,
-    LShift,
-    RShift,
-    Up,
-    Down,
-    Left,
-    Right,
-
-    Q,
-    W,
-    E,
-    R,
-    T,
-    Y,
-    U,
-    I,
-    O,
-    P,
-
-    A,
-    S,
-    D,
-    F,
-    G,
-    H,
-    J,
-    K,
-    L,
-
-    Z,
-    X,
-    C,
-    V,
-    B,
-    N,
-    M,
-
-    Num1,
-    Num2,
-    Num3,
-    Num4,
-    Num5,
-    Num6,
-    Num7,
-    Num8,
-    Num9,
-    Add,
-    Subtract,
-
-    F1,
-    F2,
-    F3,
-    F4,
-    F5,
-    F6,
-    F7,
-    F8,
-    F9,
-    F10,
-    F11,
-    F12,
-  };
-
-  enum class MouseButton {
-    Left,
-    Middle,
-    Right
-  };
 
   // Built-in types
   using String = std::string;

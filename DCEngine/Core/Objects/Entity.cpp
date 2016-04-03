@@ -32,12 +32,18 @@ namespace DCEngine {
     dispatchParams.push_back(ZilchTypeId(Zilch::String));
     dispatchParams.push_back(ZilchTypeId(Event));
     ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");
-
     // Properties
-    //ZilchBindField(builder, type, &Entity::Actions, "Actions", Zilch::PropertyBinding::Get);
-    //ZilchBindProperty(builder, type, &Entity:)
+    ZilchBindProperty(builder, type, &Entity::Parent, ZilchNoSetter, "Parent", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Entity::FindChildByName, ZilchNoOverload, "FindChildByName", "name");
+    //ZilchBindMethod(builder, type, &Entity::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", "name");
+    ZilchBindProperty(builder, type, &Entity::ChildrenByRange, ZilchNoSetter, "Children");
+    ZilchBindMethod(builder, type, &Entity::AttachTo, ZilchNoOverload, "AttachTo", "parent");
+    ZilchBindMethod(builder, type, &Entity::AttachToRelative, ZilchNoOverload, "AttachToRelative", "parent");
+    ZilchBindMethod(builder, type, &Entity::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Entity::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    // Actions
     DCE_BINDING_DEFINE_PROPERTY_NOSETTER(Entity, Actions);
-    //DCE_BINDING_DEFINE_FIELD(Entity, Actions)->;
+    // Archetypes
     ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
     DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
     DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
@@ -56,7 +62,7 @@ namespace DCEngine {
   \return A valid entity pointer if the object was an entity.
   */
   /**************************************************************************/
-  EntityPtr Entity::IsA(ObjectPtr object)
+  EntityPtr Entity::IsA(ObjectPtr object) 
   {
     return dynamic_cast<EntityPtr>(object);
   }
@@ -68,7 +74,7 @@ namespace DCEngine {
   /**************************************************************************/
   Entity::Entity(std::string name) : Object(name), IsInitialized(false), 
                                      ModifiedFromArchetype(false),
-                                     ArchetypeName(""), Actions(*this) {
+                                     ArchetypeName(""), Actions(*this), ParentRef(nullptr) {
   }
 
   /**************************************************************************/
@@ -487,15 +493,65 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief  Returns a reference to the container of all the components this
-  Entity has.
-  @return A reference to the container of all components.
+  @brief Returns a pointer to the parent.
+  @return A pointer to the parent of this GameObject.
   */
   /**************************************************************************/
-  //ComponentStrongVec * Entity::AllComponents()
-  //{
-  //  return &ComponentsContainer;
-  //}
+  EntityPtr Entity::Parent()
+  {
+    return ParentRef;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief   Grab a reference to a specific child of the GameObject.
+  @param   name The name of the child.
+  @return  A reference to the child.
+  */
+  /**************************************************************************/
+  EntityPtr Entity::FindChildByName(std::string name)
+  {
+    for (auto child : ChildrenContainer) {
+      if (child->Name() == name)
+        return child;
+    }
+    return nullptr;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief   Returns a range object containing all of the entity's children.
+  @param   The name of the children.
+  @return  A range.
+  */
+  /**************************************************************************/
+  EntityVec Entity::FindAllChildrenByName(std::string name)
+  {
+    EntityVec childrenByName;
+    for (auto child : ChildrenContainer) {
+      if (child->Name() == name)
+        childrenByName.push_back(child);
+    }
+    return childrenByName;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief   Returns a range object containing all of the entity's children.
+  @return  A range of the entity's children.
+  */
+  /**************************************************************************/
+  EntityVec& Entity::Children()
+  {
+    return ChildrenContainer;
+    
+    
+  }
+
+  EntityRange Entity::ChildrenByRange()
+  {
+    return EntityRange(ChildrenContainer.begin(), ChildrenContainer.end());
+  }
 
   /**************************************************************************/
   /*!
@@ -606,12 +662,6 @@ namespace DCEngine {
   {
     return ArchetypeName;
   }
-
-  #if(DCE_BINDING_OBJECT_CLASSES_INTERNALLY)
-  ZilchDefineType(Entity, "Entity", DCEngineCore, builder, type) {
-    ZilchBindConstructor(builder, type, Entity, "name", std::string);
-    ZilchBindDestructor(builder, type, Entity);
-  }
-  #endif
+  
 
 }

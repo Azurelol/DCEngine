@@ -101,7 +101,7 @@ namespace DCEngine {
 
       if (dynamic_cast<GameObject*>(this->Owner()))
       {
-        GameObjectVec &children = (dynamic_cast<GameObject*>(this->Owner())->Children());
+        auto& children = (dynamic_cast<GameObject*>(this->Owner())->Children());
 
 
         if (Translation != PrevTranslation)
@@ -157,7 +157,7 @@ namespace DCEngine {
 
       if (dynamic_cast<GameObject*>(this->Owner()))
       {
-        GameObjectVec &children = (dynamic_cast<GameObject*>(this->Owner())->Children());
+        auto& children = (dynamic_cast<GameObject*>(this->Owner())->Children());
 
         if (Rotation != PrevRotation)
         {

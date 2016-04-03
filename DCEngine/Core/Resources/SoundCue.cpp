@@ -35,7 +35,6 @@ namespace DCEngine {
   ZilchDefineType(SoundCue, "SoundCue", DCEngineCore, builder, type) {
     DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;  
     DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Sound);
-    //DCE_BINDING_DEFINE_PROPERTY(SoundCue, Mode);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Loop);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, Volume);
     DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyVolume);

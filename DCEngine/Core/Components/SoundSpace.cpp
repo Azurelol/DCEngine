@@ -29,6 +29,7 @@ namespace DCEngine {
       //ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
       //ZilchBindDestructor(builder, type, SoundSpace);
       // Properties
+      //ZilchBindMethod(builder, type, &SoundSpace::PlayCue, (SoundInstancePtr(SoundSpace::*)(std::string)), "PlayCue", "soundCueName");
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pause);
@@ -70,9 +71,21 @@ namespace DCEngine {
             of that playing of the sound cue.
     */
     /**************************************************************************/
-    SoundInstanceHandle SoundSpace::PlayCue(std::string soundCueName)
+    SoundInstancePtr SoundSpace::PlayCue(std::string soundCueName)
     {
       return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
+    }
+
+    SoundInstancePtr SoundSpace::PlayCue(SoundCuePtr soundCue)
+    {
+      return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCue);
+    }
+
+    SoundInstanceZilchHandle SoundSpace::PlayCueZilch(std::string name)
+    {
+      auto cue = PlayCue(name);
+      //Zilch::Handle cueHandle;
+      return SoundInstanceZilchHandle();
     }
 
     /**************************************************************************/

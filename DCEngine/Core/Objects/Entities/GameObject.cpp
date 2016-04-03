@@ -33,12 +33,6 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &GameObject::GetSpace, ZilchNoOverload, "ThisSpace", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::GetGameSession, ZilchNoOverload, "ThisGameSession", ZilchNoNames);
     ZilchBindMethod(builder, type, &GameObject::FindChildByName, ZilchNoOverload, "FindChildByName", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &GameObject::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", ZilchNoNames);
-    //ZilchBindMethod(builder, type, &GameObject::Children, ZilchNoOverload, "Children", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::AttachTo, ZilchNoOverload, "AttachTo", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::AttachToRelative, ZilchNoOverload, "AttachToRelative", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameObject::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
     // Properties
     DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
     DCE_BINDING_DEFINE_PROPERTY(GameObject, Locked);
@@ -65,7 +59,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   GameObject::GameObject(std::string name, Space& space, GameSession& gamesession)
-    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession), ParentRef(nullptr)
+    : Entity(name), SpaceRef(&space), GamesessionRef(&gamesession)
    , GameObjectID(GameObjectsCreated++), Locked(false)
   {
 
@@ -95,7 +89,7 @@ namespace DCEngine {
   @param  A reference to the GameSession.
   */
   /**************************************************************************/
-  GameObject::GameObject() : Entity("GameObject"), ParentRef(nullptr),
+  GameObject::GameObject() : Entity("GameObject"),
                              GameObjectID(GameObjectsCreated++)
   {
     // Diagnostics
@@ -118,7 +112,7 @@ namespace DCEngine {
       Detach();
     // If there are children attached to this GameObject, dettach them
     for (auto child : ChildrenContainer) {
-      child->ParentRef = nullptr;
+      dynamic_cast<GameObjectPtr>(child)->ParentRef = nullptr;
     }
     ChildrenContainer.clear();
 
@@ -154,21 +148,7 @@ namespace DCEngine {
   }
 
 
-  /**************************************************************************/
-  /*!
-  @brief   Grab a reference to a specific child of the GameObject.
-  @param   name The name of the child.
-  @return  A reference to the child.
-  */
-  /**************************************************************************/
-  GameObjectPtr GameObject::FindChildByName(std::string name)
-  {
-    for (auto child : ChildrenContainer) {
-      if (child->Name() == name)
-        return child;
-    }
-    return nullptr;
-  }
+
 
   /**************************************************************************/
   /*!
@@ -178,27 +158,27 @@ namespace DCEngine {
   @return  A reference to the container.
   */
   /**************************************************************************/
-  GameObjectVec GameObject::FindAllChildrenByName(std::string name)
-  {
-    GameObjectVec childrenByName;
-    for (auto child : ChildrenContainer) {
-      if (child->Name() == name)
-        childrenByName.push_back(child);
-    }
-    return childrenByName;
-  }
+ //EntityVec GameObject::FindAllChildrenByName(std::string name)
+ //{
+ //  EntityVec childrenByName;
+ //  for (auto child : ChildrenContainer) {
+ //    if (child->Name() == name)
+ //      childrenByName.push_back(child);
+ //  }
+ //  return childrenByName;
+ //}
 
-  /**************************************************************************/
-  /*!
-  @brief   Grab a reference to the container of all of the GameObject's 
-           children.
-  @return  A reference to the container.
-  */
-  /**************************************************************************/
-  GameObjectVec & GameObject::Children()
-  {
-    return ChildrenContainer;
-  }
+  ///**************************************************************************/
+  ///*!
+  //@brief   Grab a reference to the container of all of the GameObject's 
+  //         children.
+  //@return  A reference to the container.
+  //*/
+  ///**************************************************************************/
+  //EntityVec& GameObject::Children()
+  //{
+  //  return ChildrenContainer;
+  //}
 
   /**************************************************************************/
   /*!
@@ -206,21 +186,23 @@ namespace DCEngine {
   @param  A pointer to a GameObject.
   */
   /**************************************************************************/
-  void GameObject::AttachTo(GameObjectPtr parent)
+  void GameObject::AttachTo(EntityPtr parent)
   {
+    auto parentGOBJ = dynamic_cast<GameObjectPtr>(parent);
+
     // If there is no parent
-    if (!parent) {
+    if (!parentGOBJ) {
       //DCTrace << Name() << "::GameObject: Failed to attach, no parent! \n";
       return;
     }
     // If trying to attach to self
-    if (parent->GameObjectID == this->GameObjectID) {
+    if (parentGOBJ->GameObjectID == this->GameObjectID) {
       //DCTrace << Name() << "::GameObject: Cannot attach to self! \n";
       return;
     }
     // If trying to attach to a child
     for (auto& child : ChildrenContainer) {
-      if (child->GameObjectID == parent->GameObjectID) {
+      if (dynamic_cast<GameObjectPtr>(child)->GameObjectID == parentGOBJ->GameObjectID) {
         //DCTrace << Name() << "::GameObject: Cannot attach to child! \n";        
         return;
       }
@@ -228,7 +210,7 @@ namespace DCEngine {
 
     // Detach from the current
     Detach();
-    parent->AddChild(GameObjectPtr(this));
+    parentGOBJ->AddChild(GameObjectPtr(this));
   }
 
   /**************************************************************************/
@@ -238,22 +220,24 @@ namespace DCEngine {
   @param  A pointer to a GameObject.
   */
   /**************************************************************************/
-  void GameObject::AttachToRelative(GameObjectPtr parent)
+  void GameObject::AttachToRelative(EntityPtr parent)
   {
+    auto parentGOBJ = dynamic_cast<GameObjectPtr>(parent);
+
     // If there is no parent
-    if (!parent)
+    if (!parentGOBJ)
       return;
     // If trying to attach to self
-    if (parent->GameObjectID == this->GameObjectID)
+    if (parentGOBJ->GameObjectID == this->GameObjectID)
       return;
     // If trying to attach to a child
     for (auto& child : ChildrenContainer) {
-      if (child->GameObjectID == parent->GameObjectID)
+      if (dynamic_cast<GameObjectPtr>(child)->GameObjectID == parentGOBJ->GameObjectID)
         return;
     }
 
     DetachRelative();
-    parent->AddChild(GameObjectPtr(this));
+    parentGOBJ->AddChild(GameObjectPtr(this));
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Components::Transform>()) {
       transform->UpdateTranslation();
@@ -270,7 +254,7 @@ namespace DCEngine {
   {
     if (!ParentRef)
       return;
-    ParentRef->RemoveChild(GameObjectPtr(this));
+    dynamic_cast<GameObjectPtr>(ParentRef)->RemoveChild(GameObjectPtr(this));
     ParentRef = nullptr;
   }
 
@@ -283,7 +267,7 @@ namespace DCEngine {
   /**************************************************************************/
   void GameObject::DetachRelative()
   {
-    ParentRef->RemoveChild(GameObjectPtr(this));
+    dynamic_cast<GameObjectPtr>(ParentRef)->RemoveChild(GameObjectPtr(this));
     ParentRef = nullptr;
     // Compute new translation if a transform component is attached
     if (auto transform = getComponent<Components::Transform>()) {
@@ -315,7 +299,7 @@ namespace DCEngine {
       builder.Begin(Zilch::JsonType::Object);
       {
         for (auto& child : ChildrenContainer) {
-          child->Serialize(builder);
+          dynamic_cast<GameObjectPtr>(child)->Serialize(builder);
         }
       }
       builder.End();
@@ -367,7 +351,7 @@ namespace DCEngine {
     SpaceRef->RemoveObject(*this);
     // Tell the space to remove all its children
     for (auto& child : ChildrenContainer) {
-      child->Destroy();
+      dynamic_cast<GameObjectPtr>(child)->Destroy();
     }
   }
 
@@ -393,7 +377,7 @@ namespace DCEngine {
   {
     for (auto& child : ChildrenContainer) {
       if (child == childToRemove) {
-        child->ParentRef = nullptr;
+        dynamic_cast<GameObjectPtr>(child)->ParentRef = nullptr;
         std::swap(child, ChildrenContainer.back());
         ChildrenContainer.pop_back();
     break;
