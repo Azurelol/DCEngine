@@ -99,8 +99,7 @@ namespace DCEngine {
 			auto fontName = getFont();
 			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
 			shader->SetInteger("text", 0);
-			glActiveTexture(GL_TEXTURE0);
-			glBindVertexArray(mVAO);
+
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
@@ -108,7 +107,7 @@ namespace DCEngine {
 				transform->Translation.z));
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
-			shader->SetMatrix4("model", modelMatrix, true);
+			shader->SetMatrix4("model", modelMatrix);
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			shader->SetMatrix4("view", camera->GetProjectionMatrix());
 		}
@@ -133,12 +132,7 @@ namespace DCEngine {
 
 		void SpriteText::Draw(void)
 		{
-			//set shader uniforms
-			//mShader->Use();
-			
 			// Enable alpha blending for opacity.
-			//glEnable(GL_BLEND);
-			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glBindVertexArray(mVAO);
 
 			// Retrieve the Font resource from the content system
@@ -157,7 +151,7 @@ namespace DCEngine {
 				if (*c == '\n')
 				{
 					x = 0;
-					y -= 45 * getFontSize() / 12;
+					y -= 45 * FontSize / 12;
 					continue;
 				}
 				// Access a character glyph from the characters map
@@ -167,8 +161,8 @@ namespace DCEngine {
 				GLfloat xPos = x + ch.Bearing.x;
 				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y);
 				// Calculate the quad's size
-				GLfloat w = ch.Size.x * getFontSize() / 12.0f;
-				GLfloat h = ch.Size.y * getFontSize() / 12.0f;
+				GLfloat w = ch.Size.x * FontSize / 12.0f;
+				GLfloat h = ch.Size.y * FontSize / 12.0f;
 				// Generate a set of 6 vertices to form the 2D quad
 				GLfloat vertices[6][4] = {
 					{ xPos    , yPos + h, 0.0, 0.0 },
@@ -181,6 +175,7 @@ namespace DCEngine {
 				};
 
 				// Update glyph texture over quad
+				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
 
 				// Update content of VBO memory
@@ -190,8 +185,7 @@ namespace DCEngine {
 				// Update quad
 				glDrawArrays(GL_TRIANGLES, 0, 6);
 				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
-				x += float(ch.Advance) * getFontSize() / 12 / 64;
-
+				x += float(ch.Advance) * FontSize / 12 / 64;
 			}
 			// Unbind
 			glBindVertexArray(0);
