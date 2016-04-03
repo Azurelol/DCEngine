@@ -5,7 +5,7 @@
     "Name": "SafetyMedium", 
     "Properties": 
     {
-      "AssetPath": "..\\..\\Downloads\\RealSafety\\SafetyMedium.ttf"
+      "AssetPath": "Projects\\Rebound\\Assets\\Fonts\\SafetyMedium.ttf"
     }
   }
 }
