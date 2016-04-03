@@ -99,7 +99,7 @@ namespace DCEngine {
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void PreRender(Components::Camera* camera);
 			void RenderLights(Components::Light* light = 0);
-			void RenderScene(float exposure);
+			void RenderScene(float exposure, bool lit);
       void DrawDebug();
       
     private:
