@@ -99,8 +99,7 @@ namespace DCEngine {
 			auto fontName = getFont();
 			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
 			shader->SetInteger("text", 0);
-			glActiveTexture(GL_TEXTURE0);
-			glBindVertexArray(mVAO);
+
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
@@ -134,8 +133,6 @@ namespace DCEngine {
 		void SpriteText::Draw(void)
 		{
 			// Enable alpha blending for opacity.
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glBindVertexArray(mVAO);
 
 			// Retrieve the Font resource from the content system
@@ -178,6 +175,7 @@ namespace DCEngine {
 				};
 
 				// Update glyph texture over quad
+				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_2D, ch.CharacterTextureID);
 
 				// Update content of VBO memory
@@ -188,12 +186,10 @@ namespace DCEngine {
 				glDrawArrays(GL_TRIANGLES, 0, 6);
 				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
 				x += float(ch.Advance) * FontSize / 12 / 64;
-
 			}
 			// Unbind
 			glBindVertexArray(0);
 			glBindTexture(GL_TEXTURE_2D, 0);
-			glDisable(GL_BLEND);
 		}
   }
 

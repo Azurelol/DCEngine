@@ -1897,8 +1897,8 @@
             {
               "Vec3": 
               {
-                "x": -0.032443, 
-                "y": 33.074326, 
+                "x": 1.875078, 
+                "y": 17.977665, 
                 "z": -1.000000
               }
             }, 
@@ -4878,8 +4878,8 @@
             {
               "Vec3": 
               {
-                "x": 17.809904, 
-                "y": 6.209835, 
+                "x": 11.516644, 
+                "y": 10.818008, 
                 "z": 0.000000
               }
             }, 
@@ -4911,7 +4911,7 @@
               {
                 "x": 0.826000, 
                 "y": 0.804000, 
-                "z": 0.000000, 
+                "z": 0.927000, 
                 "w": 1.000000
               }
             }, 
@@ -4920,7 +4920,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 1
           }, 
           "BoxCollider": 
           {
@@ -7494,6 +7494,68 @@
             "Key3": "", 
             "Key4": "", 
             "Gate": "Door2"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 170, 
+        "Name": "SpriteText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.491437, 
+                "y": 14.609482, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Verdana", 
+            "FontSize": 12, 
+            "Text": "Hello", 
+            "PixelsPerUnit": 12, 
+            "Smoothing": true, 
+            "WordWrap": 9
           }
         }, 
         "Children": 
