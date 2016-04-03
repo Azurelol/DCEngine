@@ -24,7 +24,7 @@ namespace DCEngine {
     class SpriteText : public Graphical {
       friend class GraphicsGL;
     public:
-      
+
       DCE_DEFINE_PROPERTY(Boolean, Visible);
       DCE_DEFINE_PROPERTY(Vec4, Color);
       DCE_DEFINE_PROPERTY(String, Font);
@@ -33,6 +33,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
       DCE_DEFINE_PROPERTY(Boolean, Smoothing);
 			DCE_DEFINE_PROPERTY(Integer, WordWrap);
+			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
 
       ZilchDeclareDerivedType(SpriteText, Graphical);
       SpriteText(Entity& owner);

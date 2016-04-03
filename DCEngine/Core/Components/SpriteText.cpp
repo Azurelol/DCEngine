@@ -45,6 +45,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, PixelsPerUnit);
       DCE_BINDING_DEFINE_PROPERTY(SpriteText, Smoothing);
 			DCE_BINDING_DEFINE_PROPERTY(SpriteText, WordWrap);
+			DCE_BINDING_DEFINE_PROPERTY(SpriteText, DrawLayer);
+			DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 5);
+			DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyDrawLayer, attributeRangeDrawLayer);
+			DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
     }
     #endif
 
@@ -95,21 +99,29 @@ namespace DCEngine {
 			if (!shader)
 				shader = mShader;
 			shader->Use();
-			shader->SetVector4f("textColor", getColor(), true);
+			Debug::CheckOpenGLError("Failed");
+			shader->SetVector4f("spriteColor", getColor(), true);
 			auto fontName = getFont();
 			auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);
-			shader->SetInteger("text", 0);
+			shader->SetInteger("image", 0);
 
+			shader->SetInteger("currentColumn", 0);
+			shader->SetInteger("currentRow", 0);
+
+			shader->SetInteger("totalColumns", 1);
+			shader->SetInteger("totalRows", 1);
+
+			glActiveTexture(GL_TEXTURE0);
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;
 			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
 				transform->Translation.y,
 				transform->Translation.z));
 			modelMatrix = glm::scale(modelMatrix,
-				glm::vec3(transform->Scale.x / 35, transform->Scale.y / 35, 0.0f));
+				glm::vec3(transform->Scale.x / 12, transform->Scale.y / 12, 1.0f));
 			shader->SetMatrix4("model", modelMatrix);
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
-			shader->SetMatrix4("view", camera->GetProjectionMatrix());
+			shader->SetMatrix4("view", camera->GetViewMatrix());
 		}
 
 		static void StringWrap(std::string& string, unsigned lineSize)
@@ -151,27 +163,24 @@ namespace DCEngine {
 				if (*c == '\n')
 				{
 					x = 0;
-					y -= 45 * FontSize / 12;
+					y -= 50 * FontSize;
 					continue;
 				}
 				// Access a character glyph from the characters map
 				Character ch = font->Characters[*c];
 
 				// Calculate the origin position of the quad 
-				GLfloat xPos = x + ch.Bearing.x;
-				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y);
+				GLfloat xPos = x + ch.Bearing.x * FontSize;
+				GLfloat yPos = y - (ch.Size.y - ch.Bearing.y) * FontSize;
 				// Calculate the quad's size
-				GLfloat w = ch.Size.x * FontSize / 12.0f;
-				GLfloat h = ch.Size.y * FontSize / 12.0f;
+				GLfloat w = ch.Size.x * FontSize;
+				GLfloat h = ch.Size.y * FontSize;
 				// Generate a set of 6 vertices to form the 2D quad
-				GLfloat vertices[6][4] = {
-					{ xPos    , yPos + h, 0.0, 0.0 },
+				GLfloat vertices[4][4] = {
 					{ xPos    , yPos    , 0.0, 1.0 },
 					{ xPos + w, yPos    , 1.0, 1.0 },
-
-					{ xPos    , yPos + h, 0.0, 0.0 },
-					{ xPos + w, yPos    , 1.0, 1.0 },
 					{ xPos + w, yPos + h, 1.0, 0.0 },
+					{ xPos    , yPos + h, 0.0, 0.0 },
 				};
 
 				// Update glyph texture over quad
@@ -183,9 +192,9 @@ namespace DCEngine {
 				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 				// Update quad
-				glDrawArrays(GL_TRIANGLES, 0, 6);
+				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 				// Advance cursors for next glyph (Advance is number of 1/64 pixels)
-				x += float(ch.Advance) * FontSize / 12 / 64;
+				x += (float(ch.Advance) * FontSize) / 64;
 			}
 			// Unbind
 			glBindVertexArray(0);

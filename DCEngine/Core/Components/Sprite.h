@@ -39,7 +39,7 @@ namespace DCEngine {
     class Transform;
     class Sprite : public Graphical {
     public:
-      friend class Graphics;          
+      friend class Graphics;
       
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
