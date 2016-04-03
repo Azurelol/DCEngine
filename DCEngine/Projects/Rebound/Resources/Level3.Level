@@ -44,7 +44,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 180.000015, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -670,8 +670,8 @@
             {
               "Vec3": 
               {
-                "x": 3.848658, 
-                "y": 19.109383, 
+                "x": 15.333081, 
+                "y": 15.221799, 
                 "z": 0.000000
               }
             }, 
@@ -4211,6 +4211,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -4528,8 +4531,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -4593,10 +4596,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
+            "PatrolDistance": 16.000000, 
             "IsPatrolRight": false, 
-            "IsAggressive": false, 
+            "IsAggressive": true, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -4607,9 +4613,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -4617,8 +4623,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -4753,6 +4759,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -4913,6 +4922,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5073,6 +5085,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5233,6 +5248,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5393,6 +5411,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5553,6 +5574,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5713,6 +5737,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -6094,7 +6121,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -6306,7 +6333,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 

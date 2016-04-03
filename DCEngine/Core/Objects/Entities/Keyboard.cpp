@@ -236,6 +236,16 @@ namespace DCEngine {
     return !(KeyIsDown(key));
   }
 
+  bool Keyboard::KeyIsTriggered(Keys key)
+  {
+	  return false;
+  }
+
+  bool Keyboard::KeyIsReleased(Keys key)
+  {
+	  return false;
+  }
+
 
   void Keyboard::Initialize() {
     //Connect(this, Events::KeyPressed, Keyboard::OnKeyPressedEvent);

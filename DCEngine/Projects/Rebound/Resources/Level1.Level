@@ -1580,7 +1580,7 @@
               "Vec3": 
               {
                 "x": 148.723846, 
-                "y": 11.780749, 
+                "y": 10.780749, 
                 "z": 0.000000
               }
             }, 
@@ -1667,8 +1667,8 @@
             {
               "Vec3": 
               {
-                "x": 142.305573, 
-                "y": 32.548405, 
+                "x": 141.305573, 
+                "y": 31.548405, 
                 "z": 0.000000
               }
             }, 
@@ -1755,8 +1755,8 @@
             {
               "Vec3": 
               {
-                "x": 150.189835, 
-                "y": 37.099602, 
+                "x": 148.189835, 
+                "y": 34.099602, 
                 "z": 0.000000
               }
             }, 
@@ -1843,8 +1843,8 @@
             {
               "Vec3": 
               {
-                "x": -12.962979, 
-                "y": 18.886698, 
+                "x": -9.174590, 
+                "y": 19.285355, 
                 "z": 0.000000
               }
             }, 
@@ -1936,25 +1936,10 @@
             "SendsEvents": true, 
             "IsDrawingCollider": true
           }, 
-          "PlayerController": 
+          "HealthController": 
           {
-            "MoveSpeed": 0.700000, 
-            "JumpPower": 30.000000, 
-            "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
-            "AirBrakeScalar": 0.950000, 
-            "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": true, 
-            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
-            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
-            "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000, 
-            "TeleportStartSound": "Teleport", 
-            "TeleportArriveSound": "TeleportArrive", 
-            "JumpSound": "Jump", 
-            "LandSound": "Land", 
-            "FootstepSound": "Step", 
-            "CollideSound": "Collide"
+            "MaxHealth": 10, 
+            "StartingHealth": 10
           }, 
           "Light": 
           {
@@ -1989,10 +1974,26 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }, 
-          "HealthController": 
+          "ZPlayerController": 
           {
-            "MaxHealth": 10, 
-            "StartingHealth": 10
+            "MoveSpeed": 0.250000, 
+            "JumpPower": 19.500000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
+          }, 
+          "SimpleInputManager": 
+          {
+            "JumpKey": "Space", 
+            "AltJumpKey": "W", 
+            "LeftKey": "None", 
+            "RightKey": "None"
           }
         }, 
         "Children": 
@@ -2781,8 +2782,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 232, 
-        "Name": "Scrapper4", 
+        "GameObjectID": 154, 
+        "Name": "g30", 
         "Components": 
         {
           "Transform": 
@@ -2791,8 +2792,8 @@
             {
               "Vec3": 
               {
-                "x": 292.872498, 
-                "y": -89.223083, 
+                "x": 304.908813, 
+                "y": -20.340363, 
                 "z": 0.000000
               }
             }, 
@@ -2809,8 +2810,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 48.000000, 
+                "y": 3.000000, 
                 "z": 1.000000
               }
             }
@@ -2824,11 +2825,11 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 1.000000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Scrap", 
+            "SpriteSource": "square", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2837,7 +2838,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Terrain", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -2860,77 +2861,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -5932,8 +5862,8 @@
             {
               "Vec3": 
               {
-                "x": -12.435654, 
-                "y": 15.437039, 
+                "x": -6.198933, 
+                "y": 15.835693, 
                 "z": 0.000000
               }
             }, 
@@ -8681,7 +8611,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 1
           }, 
           "Light": 
           {
@@ -9006,9 +8936,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -9284,8 +9218,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 222, 
-        "Name": "Scrapper4", 
+        "GameObjectID": 150, 
+        "Name": "gextra", 
         "Components": 
         {
           "Transform": 
@@ -9294,8 +9228,8 @@
             {
               "Vec3": 
               {
-                "x": 326.356995, 
-                "y": -73.627930, 
+                "x": 147.846634, 
+                "y": 1.714506, 
                 "z": 0.000000
               }
             }, 
@@ -9312,326 +9246,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
+                "x": 2.000000, 
                 "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 223, 
-        "Name": "Scrapper4", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 286.368713, 
-                "y": -88.386978, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.500000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 188, 
-        "Name": "g64", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 339.487396, 
-                "y": -21.266142, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 8.000000, 
-                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -9690,8 +9306,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 154, 
-        "Name": "g30", 
+        "GameObjectID": 188, 
+        "Name": "g64", 
         "Components": 
         {
           "Transform": 
@@ -9700,8 +9316,8 @@
             {
               "Vec3": 
               {
-                "x": 304.908813, 
-                "y": -20.340363, 
+                "x": 339.487396, 
+                "y": -21.266142, 
                 "z": 0.000000
               }
             }, 
@@ -9718,8 +9334,8 @@
             {
               "Vec3": 
               {
-                "x": 48.000000, 
-                "y": 3.000000, 
+                "x": 8.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }

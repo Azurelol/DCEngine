@@ -1,0 +1,56 @@
+class MoveLeftInput : ZilchEvent
+{
+	sends MoveLeftInput : MoveLeftInput;
+}
+
+class MoveRightInput : ZilchEvent
+{
+	sends MoveRightInput : MoveRightInput;
+}
+
+class JumpInput : ZilchEvent
+{
+	sends JumpInput : JumpInput;
+}
+
+
+class SimpleInputManager : ZilchComponent
+{
+	[Property]
+	var JumpKey : Keys = Keys.W;
+
+	[Property]
+	var AltJumpKey : Keys = Keys.Space;
+
+	[Property]
+	var LeftKey : Keys = Keys.A;
+
+	[Property]
+	var RightKey : Keys = Keys.D;
+
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    	if(Daisy.Keyboard.KeyIsDown(this.LeftKey))
+    	{
+
+    	}
+
+    	if(Daisy.Keyboard.KeyIsDown(this.RightKey))
+    	{
+
+    	}
+    	/*
+    	if(Daisy.Keyboard.KeyIsPressed(this.JumpKey) || Daisy.Keyboard.KeyIsPressed(this.AltJumpKey))
+    	{
+
+    	}
+
+	*/
+    }
+}
