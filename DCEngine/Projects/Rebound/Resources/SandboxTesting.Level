@@ -1267,7 +1267,27 @@
           }, 
           "PowerField": 
           {
-            "PowerTarget": ""
+            "PowerTarget": "", 
+            "PoweredColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }
           }
         }, 
         "Children": 
