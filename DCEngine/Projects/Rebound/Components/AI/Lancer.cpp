@@ -24,13 +24,17 @@ namespace DCEngine {
     ZilchDefineType(Lancer, "Lancer", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Lancer);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, PlayerName);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, startingHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, maxHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, IsInvulnerable);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ChargeForce);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldVelocityDifferenceThreshold);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldActivationSpeed);
     }
 
     // Dependancies
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Lancer, "Transform", "RigidBody", "Sprite", "HealthController");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Lancer, "Transform", "RigidBody", "Sprite");
 #endif
 
     Lancer::~Lancer()
@@ -45,12 +49,10 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Lancer::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Lancer::OnCollisionStartedEvent);
-      Connect(gameObj, Events::DeathEvent, Lancer::OnDeathEvent);
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
       GraphicsSpaceRef = SpaceRef->getComponent<Components::GraphicsSpace>();
 
@@ -61,27 +63,48 @@ namespace DCEngine {
       stateMachine->SetGlobalState(Global::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
+
+      shield = gameObj->Children().front()->getComponent<LancerShield>();
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
       stateMachine->Update();
-      dt = event->Dt;
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        HealthRef->ModifyHealth(-1);
+        ModifyHealth(-1);
       }
     }
 
-    void Lancer::OnDeathEvent(Events::DeathEvent * event)
+    bool Lancer::ModifyHealth(int amount)
     {
-      DCTrace << "Lancer::OnDeathEvent \n";
-      stateMachine->ChangeState(Die::Instance());
-    };
+      int oldHealth = health;
+
+      if (!IsInvulnerable)
+      {
+        health += amount;
+
+        if (health > maxHealth)
+          health = maxHealth;
+        if (health < 0)
+          health = 0;
+      }
+
+      if (health == 0)
+      {
+        stateMachine->ChangeState(Die::Instance());
+      }
+
+      if (oldHealth == health)
+        return false;
+      else
+        return true;
+    }
+
 
 
 
@@ -122,6 +145,17 @@ namespace DCEngine {
         {
           owner->stateMachine->ChangeState(ChargeRight::Instance());
         }
+      }
+
+      if (abs(owner->RigidBodyRef->getVelocity().x) > owner->ShieldActivationSpeed)
+      {
+        owner->shield->isActive = true;
+        owner->shield->SpriteRef->Visible = true;
+      }
+      else
+      {
+        owner->shield->isActive = false;
+        owner->shield->SpriteRef->Visible = false;
       }
     }
 
@@ -175,8 +209,7 @@ namespace DCEngine {
 
     void Lancer::ChargeLeft::Exit(Lancer *owner)
     {
-      owner->RigidBodyRef->setAcceleration(Vec3(0, 0, 0));
-      owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+
     }
 
     Lancer::ChargeLeft* Lancer::ChargeLeft::Instance()
@@ -199,8 +232,7 @@ namespace DCEngine {
 
     void Lancer::ChargeRight::Exit(Lancer *owner)
     {
-      owner->RigidBodyRef->setAcceleration(Vec3(0, 0, 0));
-      owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+
     }
 
     Lancer::ChargeRight* Lancer::ChargeRight::Instance()

@@ -24,6 +24,9 @@ namespace DCEngine {
     ZilchDefineType(Sentinel, "Sentinel", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Sentinel);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, PlayerName);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, startingHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, maxHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, IsInvulnerable);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, MoveSpeed);
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
@@ -36,7 +39,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashCooldown);
     }
 
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite", "HealthController");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite");
 #endif
 
     Sentinel::~Sentinel()
@@ -51,12 +54,10 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Sentinel::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Sentinel::OnCollisionStartedEvent);
-      Connect(gameObj, Events::DeathEvent, Sentinel::OnDeathEvent);
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
 
       stateMachine = new StateMachine<Sentinel>(this);
@@ -88,14 +89,34 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        HealthRef->ModifyHealth(-1);
+        ModifyHealth(-1);
       }
     }
 
-    void Sentinel::OnDeathEvent(Events::DeathEvent * event)
+    bool Sentinel::ModifyHealth(int amount)
     {
-      stateMachine->ChangeState(Die::Instance());
-    };
+      int oldHealth = health;
+
+      if (!IsInvulnerable)
+      {
+        health += amount;
+
+        if (health > maxHealth)
+          health = maxHealth;
+        if (health < 0)
+          health = 0;
+      }
+
+      if (health == 0)
+      {
+        stateMachine->ChangeState(Die::Instance());
+      }
+
+      if (oldHealth == health)
+        return false;
+      else
+        return true;
+    }
 
     void Sentinel::CreateShield()
     {

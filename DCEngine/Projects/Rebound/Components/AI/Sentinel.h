@@ -20,7 +20,6 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
-    class HealthController;
     class PhysicsSpace;
     class Sentinel : public Component
     {
@@ -40,6 +39,9 @@ namespace DCEngine {
       float ShieldBashCooldown;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
+      DCE_DEFINE_PROPERTY(int, startingHealth);
+      DCE_DEFINE_PROPERTY(int, maxHealth);
+      DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, MoveSpeed);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
@@ -56,7 +58,6 @@ namespace DCEngine {
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
-      void OnDeathEvent(Events::DeathEvent * event);
 
     private:
       StateMachine<Sentinel> *stateMachine;
@@ -68,13 +69,17 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
       PhysicsSpace* PhysicsSpaceRef;
-      HealthController* HealthRef;
       Vec3 shieldLocalTranslation;
+      int health;
+      int startingHealth;
+      int maxHealth;
+      bool IsInvulnerable;
       bool isBashing;
       bool canBash;
       void CreateShield();
       void UpdateShield();
       void ShieldBash();
+      bool ModifyHealth(int amount);
      
       class Global : public IState<Sentinel>
       {
