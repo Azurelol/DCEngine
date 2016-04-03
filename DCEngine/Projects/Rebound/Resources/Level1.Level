@@ -1974,26 +1974,21 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }, 
-          "ZPlayerController": 
+          "BasicController": 
           {
-            "MoveSpeed": 0.250000, 
-            "JumpPower": 19.500000, 
-            "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
-            "AirBrakeScalar": 0.950000, 
-            "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": true, 
-            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
-            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
-            "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
+            "JumpStrength": 24.000000, 
+            "TopSpeed": 13.000000, 
+            "Acceleration": 3.000000, 
+            "DragFactor": 1.100000, 
+            "DragDelay": 0.000000
           }, 
           "SimpleInputManager": 
           {
-            "JumpKey": "Space", 
-            "AltJumpKey": "W", 
-            "LeftKey": "None", 
-            "RightKey": "None"
+            "JumpKey": "W", 
+            "AltJumpKey": "Space", 
+            "LeftKey": "A", 
+            "RightKey": "D", 
+            "JumpInputDelay": 0.500000
           }
         }, 
         "Children": 

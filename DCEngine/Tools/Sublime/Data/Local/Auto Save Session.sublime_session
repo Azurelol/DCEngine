@@ -16,6 +16,18 @@
 				"selected_items":
 				[
 					[
+						"Drag",
+						"DragTimer"
+					],
+					[
+						"Dra",
+						"DragTimer"
+					],
+					[
+						"Jum",
+						"JumpStrength"
+					],
+					[
 						"Ju",
 						"JumpInput"
 					],
@@ -87,7 +99,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 					"settings":
 					{
-						"buffer_size": 1064,
+						"buffer_size": 2004,
 						"line_ending": "Windows"
 					}
 				},
@@ -180,7 +192,7 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
@@ -189,15 +201,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1064,
+								"buffer_size": 2004,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										844,
-										844
+										1889,
+										1889
 									]
 								],
 								"settings":
@@ -205,10 +217,10 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 585.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 0,
 							"type": "text"
 						},
 						{
@@ -236,7 +248,7 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 0,
+							"stack_index": 1,
 							"type": "text"
 						}
 					]
@@ -278,7 +290,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,983,475,103,1775",
+			"position": "0,0,1,-1,-1,-1,-1,1101,679,221,1979",
 			"project": "",
 			"replace":
 			{
