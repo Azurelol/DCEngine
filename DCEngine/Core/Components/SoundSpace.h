@@ -36,7 +36,7 @@ namespace DCEngine {
 
         SoundInstancePtr PlayCue(std::string soundCueName);
         SoundInstancePtr PlayCue(SoundCuePtr soundCue);
-        SoundInstanceZilchHandle PlayCueZilch(std::string name);
+        SoundInstanceHandle PlayCueZilch(std::string name);
         void PlayCueAt(std::string soundCueName);
         void PauseCue(std::string soundCueName);
         void ResumeCue(std::string soundCueName);

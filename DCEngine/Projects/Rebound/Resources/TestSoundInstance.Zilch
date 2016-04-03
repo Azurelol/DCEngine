@@ -1,0 +1,40 @@
+class TestSoundInstance : ZilchComponent
+{
+	[Property] var Music : String;
+	var Instance : SoundInstance;
+
+    function Initialize()
+    {
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+    }
+
+    function OnKeyDownEvent(event : KeyDown) {
+
+    	if (event.Key == Keys.S) {
+    		this.PlaySound();
+    	}
+    	else if (event.Key == Keys.R) {
+    		this.Resume();
+    	}
+    	else if (event.Key == Keys.P) {
+    		this.Pause();
+    	}
+
+    }
+
+    function PrintStatus() {
+    }
+    
+    function PlaySound() {
+    	Console.WriteLine("`this.Owner.Name` is playing `this.Music`");
+    	//this.Instance = this.Space.SoundSpace.PlayCue(this.Music);
+    }
+
+    function Pause() {
+
+    }
+
+    function Resume() {
+
+    }
+}

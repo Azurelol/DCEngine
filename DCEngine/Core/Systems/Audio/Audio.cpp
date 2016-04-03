@@ -140,7 +140,6 @@ namespace DCEngine {
     {
       // Pulls the data from the SoundCue and save it on the instance.
       auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
-
       return CreateSoundInstance(soundCue);
 
       //SoundInstancePtr instance(new SoundInstance());
@@ -161,6 +160,41 @@ namespace DCEngine {
       ///* NOTE: For LL, we only copy the handle to the underlying FMOD::Sound* since we want
       //         to be using an unique channel to the instance. */
       //return instance;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a SoundInstance off a given SoundCue.
+    @param  soundCue The name of the SoundCue.
+    @return A SoundInstanceHandle
+    */
+    /**************************************************************************/
+    SoundInstanceHandle Audio::CreateSoundInstanceHandle(const SoundCueHandle & soundCueName)
+    {
+      // Pulls the data from the SoundCue and save it on the instance.
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(soundCueName));
+      // Allocate the SoundInstance through Zilch
+      auto state = Daisy->getSystem<Reflection>()->Handler()->GetState();
+      Zilch::ExceptionReport report;
+      Zilch::Handle instanceHandle = state->AllocateHeapObject(ZilchTypeId(SoundInstance), 
+                                                               report, Zilch::HeapFlags::ReferenceCounted);
+      // Dereference it so we can use it
+      auto instance = reinterpret_cast<SoundInstance*>(instanceHandle.Dereference());
+      // Pulls the data from the SoundCue and save it on the instance.
+      instance->Type = soundCue->Type;
+      // Copy the Playback settings
+      instance->Settings.Mode = soundCue->Mode;
+      instance->Settings.Volume = soundCue->Volume;
+      instance->Settings.VolumeVariation = soundCue->VolumeVariation;
+      instance->Settings.Pitch = soundCue->Pitch;
+      instance->Settings.PitchVariation = soundCue->PitchVariation;
+      // Copy different things depending on what type of SoundCue we are instantiating from:
+      if (soundCue->Type == SoundCue::SoundCueType::Event)
+        instance->StudioEventName = soundCue->Name();
+      else if (soundCue->Type == SoundCue::SoundCueType::File)
+        instance->SoundHandle.Handle = soundCue->Data.Handle;
+
+      return instanceHandle;
     }
 
     /**************************************************************************/
@@ -264,6 +298,34 @@ namespace DCEngine {
 
       // Return a handle to the SoundInstance
       return instance;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Plays a sound cue, returning a Zilch Handle.
+    @param  name The name (string) of the sound in the content system.
+    @return A SoundInstanceHandle.
+    */
+    /**************************************************************************/
+    SoundInstanceHandle Audio::PlaySoundZilch(const std::string & name)
+    {
+      DCTrace << "Audio::PlaySoundZilch - Playing SoundCue: " << name << "\n";
+      auto soundCue = Daisy->getSystem<Content>()->getSoundCue(std::string(name));
+      if (!soundCue)
+        return Zilch::Handle();
+
+      // Create an unique SoundInstance for this SoundCue through Zilch's MM
+      SoundInstanceHandle instanceHandle = CreateSoundInstanceHandle(name);
+      auto instance = SoundInstance::Dereference(instanceHandle);
+      // Depending on the type of SoundCue, play it through the low level API
+      // or as an event belonging to the Studip API
+      if (instance->Type == SoundCue::SoundCueType::File)
+        AudioHandler->PlaySound(instance->SoundHandle.Handle, &(instance->SoundHandle.Channel), instance->Settings);
+      else if (instance->Type == SoundCue::SoundCueType::Event)
+        AudioHandler->PlaySound(instance->StudioEventName, &(instance->SoundHandle.EventInstance), instance->Settings);
+
+      // Return a handle to the SoundInstance
+      return instanceHandle;
     }
 
     /**************************************************************************/

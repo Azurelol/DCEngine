@@ -39,6 +39,7 @@ namespace DCEngine {
       void CreateSound(const std::string& soundFile, FMODSoundHandle& soundPtr);
       SoundInstancePtr PlaySound(const std::string& soundCueName);
       SoundInstancePtr PlaySound(SoundCuePtr cue);
+      SoundInstanceHandle PlaySoundZilch(const std::string& name);
       //void PlaySoundOnce(const std::string& soundCueName);
       void ResumeSound(SoundInstance& instance);
       void ResumeSound(const std::string& soundCueName);
@@ -56,6 +57,7 @@ namespace DCEngine {
       SoundInstanceContainer ActiveInstances;
 
       SoundInstancePtr CreateSoundInstance(const SoundCueHandle& soundCue);
+      SoundInstanceHandle CreateSoundInstanceHandle(const SoundCueHandle& soundCue);
       SoundInstancePtr CreateSoundInstance(const SoundCuePtr& soundCue);
       PlaybackSettings RetrievePlaybackSettings(const SoundCueHandle& soundCue);
 

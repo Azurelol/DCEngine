@@ -50,8 +50,7 @@ namespace DCEngine {
   /**************************************************************************/
   class SoundCue : public Resource {
 
-  public:
-        
+  public:        
     enum class SoundCueType {
       File, // The SoundCue is generated from a a soun file.
       Event // The SoundCue is generated from a sound Bank.

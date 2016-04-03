@@ -16,7 +16,18 @@
 				"selected_items":
 				[
 					[
-<<<<<<< HEAD
+						"Drag",
+						"DragTimer"
+					],
+					[
+						"Dra",
+						"DragTimer"
+					],
+					[
+						"Jum",
+						"JumpStrength"
+					],
+					[
 						"Ju",
 						"JumpInput"
 					],
@@ -79,36 +90,16 @@
 					[
 						"Bu",
 						"ButtonState"
-=======
-						"K",
-						"KeyDown"
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
 					]
 				]
 			},
 			"buffers":
 			[
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 					"settings":
 					{
-						"buffer_size": 1482,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
-					"settings":
-					{
-<<<<<<< HEAD
-						"buffer_size": 220,
-=======
-<<<<<<< HEAD
-						"buffer_size": 1064,
-=======
-						"buffer_size": 214,
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
->>>>>>> 5b757b57dd2f583744a679febba78d838d658eb4
+						"buffer_size": 747,
 						"line_ending": "Windows"
 					}
 				},
@@ -116,19 +107,7 @@
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
 					"settings":
 					{
-<<<<<<< HEAD
-						"buffer_size": 1293,
-=======
 						"buffer_size": 1214,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
-					"settings":
-					{
-						"buffer_size": 9322,
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
 						"line_ending": "Windows"
 					}
 				}
@@ -165,12 +144,11 @@
 			},
 			"file_history":
 			[
-<<<<<<< HEAD
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleInputManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleInputManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
@@ -179,10 +157,6 @@
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Button.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
-=======
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch"
 			],
 			"find":
@@ -218,33 +192,52 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-<<<<<<< HEAD
-								"buffer_size": 1064,
-=======
-								"buffer_size": 1482,
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
+								"buffer_size": 747,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-<<<<<<< HEAD
-										844,
-										844
-=======
-										262,
-										262
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
+										617,
+										617
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": -0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1214,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1211,
+										39
 									]
 								],
 								"settings":
@@ -257,105 +250,8 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 3,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-<<<<<<< HEAD
-								"buffer_size": 220,
-=======
-<<<<<<< HEAD
-								"buffer_size": 1293,
-=======
-								"buffer_size": 214,
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
->>>>>>> 5b757b57dd2f583744a679febba78d838d658eb4
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										70,
-										70
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-<<<<<<< HEAD
-=======
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1214,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1015,
-										1015
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 126.0,
-								"zoom_level": 1.0
-							},
 							"stack_index": 1,
 							"type": "text"
-						},
-						{
-							"buffer": 3,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 9322,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										134,
-										134
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
-							"type": "text"
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
 						}
 					]
 				}
@@ -396,11 +292,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-<<<<<<< HEAD
-			"position": "0,0,1,-1,-1,-1,-1,983,475,103,1775",
-=======
-			"position": "0,0,1,-1,-1,-1,-1,992,2279,228,3184",
->>>>>>> ec0fee81bfae0c277ae0e223c295ddfb0f43135a
+			"position": "0,0,1,-32000,-32000,-1,-1,751,2053,189,3061",
 			"project": "",
 			"replace":
 			{

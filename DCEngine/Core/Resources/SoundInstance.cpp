@@ -29,8 +29,9 @@ namespace DCEngine {
   @brief  Zilch Component Definition
   \**************************************************************************/
   ZilchDefineType(SoundInstance, "SoundInstance", DCEngineCore, builder, type) {
-    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    //DCE_BINDING_SET_HANDLE_TYPE_POINTER;
     // Constructor / Destructor    
+    ZilchBindConstructor(builder, type, SoundInstance, ZilchNoNames);
     ZilchBindDestructor(builder, type, SoundInstance);
     // Methods
     ZilchBindMethod(builder, type, &SoundInstance::SetParameter, ZilchNoOverload, "SetParameter", "parameter, value");
@@ -157,6 +158,11 @@ namespace DCEngine {
   bool SoundInstance::IsPlaying()
   {
     return !Paused;
+  }
+
+  SoundInstance * SoundInstance::Dereference(const Zilch::Handle& handle)
+  {
+    return reinterpret_cast<SoundInstance*>(handle.Dereference());
   }
 
   /**************************************************************************/

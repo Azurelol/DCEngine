@@ -35,7 +35,9 @@ namespace DCEngine {
     bool Paused = false;
     SoundCueHandle SoundCue;    
 
-    // Methods
+    // Interface
+    static SoundInstance* Dereference(const Zilch::Handle& handle);
+    // Methods    
     void SetParameter(String parameter, float value);
     void InterpolateVolume(Real newVolume, Real time);
     void InterpolatePitch(Real newPitch, Real time);
@@ -59,7 +61,8 @@ namespace DCEngine {
 
   //using SoundInstanceHandle = Zilch::Handle
   using SoundInstancePtr = std::shared_ptr<SoundInstance>;
-  using SoundInstanceZilchHandle = Zilch::Handle;
+  using SoundInstanceHandle = Zilch::Handle;
+  //using SoundInstanceZilchHandle = Zilch::Handle;
   using SoundInstanceContainer = std::map<SoundInstancePtr, SoundCueHandle>;
 
 }
