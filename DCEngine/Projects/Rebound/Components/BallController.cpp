@@ -38,6 +38,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
+	  DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -373,6 +374,30 @@ namespace DCEngine {
         //Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
       }
     }
+
+	void BallController::PseudoFreezeBall()
+	{
+		if (Frozen || Locked || !FreezeEnabled)
+		{
+			return;
+		}
+
+		Frozen = true;
+		SpriteRef->Color = FrozenColor;
+		SoundFreeze();
+		if (CurrentlyFired)
+		{
+			RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+			RigidBodyRef->setGravityRatio(0.0);
+			SoundFreeze();
+		}
+		else
+		{
+			//deprecated, leaving in place in case of control scheme change
+			//auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(mousePosition));
+			//Interpolate(TransformRef->getTranslation(), Vec3(coords.x, coords.y, 0), 1.0f);
+		}
+	}
 
     void BallController::ParentToPlayer()
     {
