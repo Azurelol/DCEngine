@@ -214,7 +214,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 2
           }
         }, 
         "Children": 
@@ -389,8 +389,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 5.427000, 
-            "Range": 52.174004, 
+            "Intensity": 5.662000, 
+            "Range": 53.881004, 
             "Falloff": 0.939000, 
             "DirectionVector": 
             {
