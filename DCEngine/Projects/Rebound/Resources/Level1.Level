@@ -1989,10 +1989,28 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }, 
+<<<<<<< HEAD
           "HealthController": 
           {
             "MaxHealth": 10, 
             "StartingHealth": 10
+=======
+          "BasicController": 
+          {
+            "JumpStrength": 24.000000, 
+            "TopSpeed": 13.000000, 
+            "Acceleration": 3.000000, 
+            "DragFactor": 1.100000, 
+            "DragDelay": 0.000000
+          }, 
+          "SimpleInputManager": 
+          {
+            "JumpKey": "W", 
+            "AltJumpKey": "Space", 
+            "LeftKey": "A", 
+            "RightKey": "D", 
+            "JumpInputDelay": 0.500000
+>>>>>>> 5b757b57dd2f583744a679febba78d838d658eb4
           }
         }, 
         "Children": 

@@ -28,11 +28,11 @@ class CameraControllerZilch : ZilchComponent
     {
         if(this.Player == null)
         {
-          Console.WriteLine("CAMERA CANNOT FIND PLAYER");
+          //Console.WriteLine("CAMERA CANNOT FIND PLAYER");
         }
 		else
 		{
-		  Console.WriteLine("CAMERA FOUND PLAYER");
+		  //Console.WriteLine("CAMERA FOUND PLAYER");
 		}
         this.ScreenShakeTimer -= event.Dt;
         if(this.ScreenShakeTimer > 0)
