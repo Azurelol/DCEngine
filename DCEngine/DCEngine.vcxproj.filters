@@ -1697,7 +1697,11 @@
     <None Include="Core\Assets\Shaders\DebugShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />
-    <None Include="Core\Assets\Shaders\FinalRenderShader.vs" />
+    <None Include="Core\Assets\Shaders\FinalRenderShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\FinalRenderShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

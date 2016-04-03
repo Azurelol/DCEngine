@@ -19,7 +19,6 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
-    class HealthController;
     class Grunt : public Component 
     {
 
@@ -28,11 +27,11 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
-      HealthController* HealthRef;
       String PlayerName = "Player";
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
+      bool IsAggressive;
       float JumpStrengthX;
       float JumpStrengthY;
       float JumpPeriod;
@@ -49,9 +48,13 @@ namespace DCEngine {
 
       // Properties
       DCE_DEFINE_PROPERTY(String, PlayerName);
+      DCE_DEFINE_PROPERTY(int, startingHealth);
+      DCE_DEFINE_PROPERTY(int, maxHealth);
+      DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
+      DCE_DEFINE_PROPERTY(bool, IsAggressive);
       DCE_DEFINE_PROPERTY(float, JumpStrengthX);
       DCE_DEFINE_PROPERTY(float, JumpStrengthY);
       DCE_DEFINE_PROPERTY(float, JumpPeriod);
@@ -68,7 +71,6 @@ namespace DCEngine {
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
-      void OnDeathEvent(Events::DeathEvent * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Grunt, Component);
@@ -77,11 +79,16 @@ namespace DCEngine {
     private:
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
+      int health;
+      int startingHealth;
+      int maxHealth;
+      bool IsInvulnerable;
       Vec3 startingPosition;
       Vec3 endPosition;
       float jumpTimer = 0;
       float dt;
       Vec4 defaultColor;
+      bool ModifyHealth(int amount);
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 

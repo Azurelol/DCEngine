@@ -26,7 +26,7 @@ namespace DCEngine {
 			// - Position color buffer
 			glGenTextures(1, &PosTexture);
 			glBindTexture(GL_TEXTURE_2D, PosTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGBA, GL_FLOAT, NULL);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, PosTexture, 0);
@@ -34,7 +34,7 @@ namespace DCEngine {
 			// - Normal color buffer
 			glGenTextures(1, &NormalTexture);
 			glBindTexture(GL_TEXTURE_2D, NormalTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGB, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGBA, GL_FLOAT, NULL);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER,  GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, NormalTexture, 0);
@@ -54,8 +54,8 @@ namespace DCEngine {
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, FinalColor, 0);
 
-			GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
-			glDrawBuffers(4, attachments);
+			//GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
+			//glDrawBuffers(4, attachments);
 			
 			GLuint rboDepth;
 			glGenRenderbuffers(1, &rboDepth);

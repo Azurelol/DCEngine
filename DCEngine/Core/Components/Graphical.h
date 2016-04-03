@@ -32,7 +32,7 @@ namespace DCEngine {
 			virtual void Draw(void) {}
 			virtual void SetShader(void) {}
 			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
-		private:
+		protected:
 			unsigned DrawLayer;
 
     };

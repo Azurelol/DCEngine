@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 198, 
-    "Name": "Button", 
+    "GameObjectID": 274, 
+    "Name": "Button5", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -80.303001, 
-            "y": 8.122000, 
+            "x": 76.591049, 
+            "y": 4.699968, 
             "z": 0.000000
           }
         }, 
@@ -44,9 +44,9 @@
         {
           "Vec4": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 0.523000, 
+            "x": 0.800000, 
+            "y": 0.800000, 
+            "z": 0.000000, 
             "w": 1.000000
           }
         }, 
@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Terrain", 
+        "CollisionGroup": "DefaultCollisionGroup", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -85,7 +85,27 @@
       }, 
       "Button": 
       {
-        "TargetName": "Mo"
+        "ActiveColor": 
+        {
+          "Vec4": 
+          {
+            "x": 2.000000, 
+            "y": 2.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "InactiveColor": 
+        {
+          "Vec4": 
+          {
+            "x": 0.800000, 
+            "y": 0.800000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "TargetName": "Shield2"
       }
     }, 
     "Children": 

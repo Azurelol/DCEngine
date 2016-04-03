@@ -254,18 +254,6 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000
-          }, 
           "BoxCollider": 
           {
             "CollisionGroup": "Enemy", 
@@ -291,6 +279,17 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000, 
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
@@ -523,10 +522,19 @@
             "Size": 70.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraController": 
+          "CameraControllerZilch": 
           {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.060000
+            "InterpolationSpeed": 0.060000, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 6.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
@@ -642,15 +650,19 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
+            "IsAggressive": true, 
             "JumpStrengthX": 5.000000, 
             "JumpStrengthY": 25.000000, 
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 0.500000, 
+            "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
               "Vec4": 
@@ -681,11 +693,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
           }
         }, 
         "Children": 
@@ -1423,7 +1430,7 @@
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 1.000000, 
+                "z": 0.463000, 
                 "w": 1.000000
               }
             }, 
@@ -1441,7 +1448,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 908, 
         "Name": "Background", 
         "Components": 
@@ -1471,7 +1478,7 @@
               "Vec3": 
               {
                 "x": 600.000000, 
-                "y": 150.000000, 
+                "y": 300.000000, 
                 "z": 1.000000
               }
             }
@@ -2232,21 +2239,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.150000, 
-            "ShieldBashInTime": 0.100000
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -2731,8 +2737,8 @@
             {
               "Vec3": 
               {
-                "x": -2.741103, 
-                "y": 20.962881, 
+                "x": -19.324656, 
+                "y": 47.605309, 
                 "z": 0.000000
               }
             }, 
@@ -2762,7 +2768,7 @@
             "VisibilityEvents": false, 
             "CastShadows": true, 
             "Diffuse": true, 
-            "Type": "Point", 
+            "Type": "Ambient", 
             "Color": 
             {
               "Vec4": 
@@ -3003,7 +3009,190 @@
           }, 
           "Button": 
           {
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
             "TargetName": "DoorTest"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 460, 
+        "Name": "OffsetVolume", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -54.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.634000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "CameraOffsetVolumeZilch": 
+          {
+            "NewOffset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -6.000000, 
+                "z": 0.000000
+              }
+            }
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 56, 
+        "Name": "SpriteText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -39.603958, 
+                "y": 45.145119, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.220000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Verdana", 
+            "FontSize": 12, 
+            "Text": "fa", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 1
           }
         }, 
         "Children": 

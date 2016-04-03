@@ -1,0 +1,13 @@
+
+{
+  "PhysicsMaterial": 
+  {
+    "Name": "BallMaterial", 
+    "Properties": 
+    {
+      "Density": 1.000000, 
+      "Restitution": 0.800000, 
+      "Friction": 1.000000
+    }
+  }
+}

@@ -73,13 +73,8 @@ namespace DCEngine {
 			{
 				for (const auto& obj : drawList)
 				{
-					//obj->SetUniforms(shader, camera, light);
-					//obj->Draw();
-					if (dynamic_cast<Components::Sprite*>(obj))
-					{
-						obj->SetUniforms(shader, camera, light);
-						obj->Draw();
-					}
+					obj->SetUniforms(shader, camera, light);
+					obj->Draw();
 				}
 			}
     }
@@ -96,11 +91,14 @@ namespace DCEngine {
 		{
       SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LESS);
 			glDisable(GL_BLEND);
-
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			
 			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
 			glDrawBuffers(3, attachments);
 

@@ -44,7 +44,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 180.000015, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -670,8 +670,8 @@
             {
               "Vec3": 
               {
-                "x": 3.848658, 
-                "y": 19.109383, 
+                "x": 15.333081, 
+                "y": 15.221799, 
                 "z": 0.000000
               }
             }, 
@@ -4211,9 +4211,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -4527,8 +4531,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -4592,9 +4596,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
+            "PatrolDistance": 16.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": true, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -4605,9 +4613,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -4615,8 +4623,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -4655,8 +4663,8 @@
             {
               "Vec3": 
               {
-                "x": -7.897287, 
-                "y": 8.394748, 
+                "x": -8.598355, 
+                "y": 10.638169, 
                 "z": 0.000000
               }
             }, 
@@ -4751,9 +4759,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -4910,9 +4922,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5069,9 +5085,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5228,9 +5248,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5387,9 +5411,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5546,9 +5574,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5705,9 +5737,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -5840,7 +5876,7 @@
           }, 
           "LevelManager": 
           {
-            "NextLevel": "Level2", 
+            "NextLevel": "Level4", 
             "LoadingTime": 3.000000, 
             "TimerStarted": false
           }, 
@@ -6085,7 +6121,11 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+<<<<<<< HEAD
+            "DrawLayer": 4
+=======
+            "DrawLayer": 5
+>>>>>>> fe5a85ccda3091757f79f1c515375d47a61d8c55
           }
         }, 
         "Children": 
@@ -6255,8 +6295,8 @@
             {
               "Vec3": 
               {
-                "x": 12.682831, 
-                "y": 22.228458, 
+                "x": 12.847780, 
+                "y": 22.393406, 
                 "z": -1.000000
               }
             }, 
@@ -6297,7 +6337,70 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 126, 
+        "Name": "SpriteText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.659601, 
+                "y": 13.325244, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.805000, 
+                "y": 0.439000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "VerdanaBold", 
+            "FontSize": 1, 
+            "Text": "OH MY GOD BECKY, LOOK AT HER BUTT. IT'S SO BIG. sHE'S LIKE ONE OF THOSE RAP GUYS GIRLFFRIENDS.", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 30, 
+            "DrawLayer": 2
           }
         }, 
         "Children": 

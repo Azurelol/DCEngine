@@ -25,9 +25,13 @@ namespace DCEngine {
     ZilchDefineType(Grunt, "Grunt", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Grunt);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PlayerName);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, startingHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, maxHealth);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, IsInvulnerable);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, IsAggressive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthX);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpPeriod);
@@ -40,7 +44,7 @@ namespace DCEngine {
     }
 
     // Dependancies
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite", "HealthController");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite");
 #endif
 
     Grunt::~Grunt()
@@ -55,17 +59,10 @@ namespace DCEngine {
       gameObj = dynamic_cast<GameObject*>(Owner());
       Connect(SpaceRef, Events::LogicUpdate, Grunt::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, Grunt::OnCollisionStartedEvent);
-      //Connect(gameObj, Events::DeathEvent, Grunt::OnDeathEvent);
-      
-      // Connect by string
-      Daisy->Connect<Events::DeathEvent>("DeathEvent", gameObj, &Grunt::OnDeathEvent, this);
-
-      //DCTrace << "Grunt::OnDeathEvent has been received \n";
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
-      HealthRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::HealthController>();
 
       stateMachine = new StateMachine<Grunt>(this);
       startingPosition = TransformRef->Translation;
@@ -99,15 +96,35 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        HealthRef->ModifyHealth(-1);
+        ModifyHealth(-1);
       }
     }
 
-    void Grunt::OnDeathEvent(Events::DeathEvent * event)
+    bool Grunt::ModifyHealth(int amount)
     {
-      DCTrace << "Grunt::OnDeathEvent has been received \n";
-      stateMachine->ChangeState(Die::Instance());
-    };
+      int oldHealth = health;
+
+      if (!IsInvulnerable)
+      {
+        health += amount;
+
+        if (health > maxHealth)
+          health = maxHealth;
+        if (health < 0)
+          health = 0;
+      }
+
+      if (health == 0)
+      {
+        stateMachine->ChangeState(Die::Instance());
+      }
+
+      if (oldHealth == health)
+        return false;
+      else
+        return true;
+    }
+
 
     // Direction should be 1 (right) or -1 (left). 
     void Grunt::Jump(int direction, float period, float strengthX, float strengthY)
@@ -302,15 +319,18 @@ namespace DCEngine {
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 
-      if (owner->IsPatrolRight)
+      if (!owner->IsAggressive)
       {
-        if (playerPosition.x < owner->startingPosition.x || playerPosition.x > owner->endPosition.x)
-          owner->stateMachine->RevertToPreviousState();
-      }
-      else
-      {
-        if (playerPosition.x > owner->startingPosition.x || playerPosition.x < owner->endPosition.x)
-          owner->stateMachine->RevertToPreviousState();
+        if (owner->IsPatrolRight)
+        {
+          if (playerPosition.x < owner->startingPosition.x || playerPosition.x > owner->endPosition.x)
+            owner->stateMachine->RevertToPreviousState();
+        }
+        else
+        {
+          if (playerPosition.x > owner->startingPosition.x || playerPosition.x < owner->endPosition.x)
+            owner->stateMachine->RevertToPreviousState();
+        }
       }
     }
 

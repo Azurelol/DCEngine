@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 914, 
-    "Name": "Sentinel", 
+    "GameObjectID": 285, 
+    "Name": "Shield7", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -44.337986, 
-            "y": 2.283299, 
+            "x": 136.566299, 
+            "y": 21.000000, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 2.000000, 
-            "y": 2.000000, 
+            "x": 3.000000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -44,13 +44,13 @@
         {
           "Vec4": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
+            "x": 0.235000, 
+            "y": 0.470000, 
+            "z": 0.745000, 
+            "w": 0.500000
           }
         }, 
-        "SpriteSource": "char_sent", 
+        "SpriteSource": "square", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -59,7 +59,7 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Enemy", 
+        "CollisionGroup": "Default", 
         "PhysicsMaterial": "", 
         "Size": 
         {
@@ -82,44 +82,6 @@
         "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
-      }, 
-      "RigidBody": 
-      {
-        "Velocity": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "AngularVelocity": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Mass": 10.000000, 
-        "RotationLocked": true
-      }, 
-      "Sentinel": 
-      {
-        "PlayerName": "Player", 
-        "StartingHealth": 1, 
-        "MaxHealth": 1, 
-        "IsInvulnerable": false, 
-        "IdleRange": 100.000000, 
-        "MoveSpeed": 2.000000, 
-        "ShieldArchetype": "Sentinel Shield", 
-        "ShieldRadius": 1.000000, 
-        "ShieldBashDistance": 2.000000, 
-        "ShieldBashOutTime": 0.200000, 
-        "ShieldBashInTime": 0.100000, 
-        "ShieldBashCooldown": 1.000000
       }
     }, 
     "Children": 

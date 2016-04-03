@@ -23,6 +23,7 @@ namespace DCEngine {
       Sprite* SpriteRef;
       CollisionTablePtr CollisionTableRef;
       float ShieldReflectionForce;
+      bool isActive;
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
@@ -41,7 +42,8 @@ namespace DCEngine {
 
     private:
       // Member variables
-      GameObjectPtr parent;
+      GameObject* parent;
+      
     };
   }
 

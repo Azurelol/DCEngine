@@ -39,7 +39,7 @@ namespace DCEngine {
     class Transform;
     class Sprite : public Graphical {
     public:
-      friend class Graphics;          
+      friend class Graphics;
       
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 
@@ -102,7 +102,7 @@ namespace DCEngine {
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;
       float AnimationSpeedFPSCounter = 0;
-			unsigned DrawLayer;
+			//unsigned DrawLayer;
 			bool silhouette;
     };
 

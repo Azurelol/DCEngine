@@ -2,37 +2,75 @@ class PowerField : ZilchComponent
 {
 	[Property]
 	var PowerTarget : String = "";
+
+	[Property]
+	var PoweredColor : Real4 = Real4();
+
+	[Property]
+	var InactiveColor : Real4 = Real4();
+
+	var Powering : Boolean;
 	
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
         
         Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEnded);
+
+        //Daisy.Connect(this.Owner, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+
+        this.Powering = false;
     }
 	
 	function OnCollisionStarted(event : CollisionStarted)
     {
-        if(event.OtherObject.BallTemp != null)
+    	Console.WriteLine("Colliding");
+        if(event.OtherObject.BallTemp != null && !this.Powering)
         {
-            event.OtherObject.Transform.Translation = Real3(0,0,0);
-			this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 10, this.Owner.Transform.Translation.Z);
-            //event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
-            this.FreezeBall();
-            this.TogglePower();
+        	Console.WriteLine("Starting Power");
+        	this.Powering = true;
+
+        	this.TogglePower();
+
+            event.OtherObject.Transform.Translation = this.Owner.Transform.Translation;
+            event.OtherObject.RigidBody.Velocity = Real3();
+
+            var colSeq = Actions.Sequence(this.Owner.Actions);
+
+            Actions.Delay(colSeq, 0.01);
+            Actions.Call(colSeq, this.FreezeBall);
         }
     }
 	
 	function FreezeBall()
 	{
-		this.Space.FindObjectByName("Ball").BallController.FreezeBall();
+		this.Owner.Sprite.Color = this.PoweredColor;
+		this.Space.FindObjectByName("Ball").BallController.PseudoFreezeBall();
 	}
 	
 	function OnCollisionEnded(event : CollisionEnded)
     {
-        if(event.OtherObject.BallTemp != null)
+    	Console.WriteLine("Ending");
+        if(event.OtherObject.BallTemp != null && this.Powering)
         {
+        	Console.WriteLine("Cutting Power");
             this.TogglePower();
+
+            var powDelay = Actions.Sequence(this.Owner.Actions);
+            Actions.Delay(powDelay, 0.1);
+            Actions.Call(powDelay, this.AllowPowering);
         }
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+
+    }
+
+    function AllowPowering()
+    {
+    	this.Powering = false;
+    	this.Owner.Sprite.Color = this.InactiveColor;
     }
 	
 	function TogglePower()

@@ -1,0 +1,73 @@
+
+{
+  "Level": 
+  {
+    "Name": "Testbed", 
+    "GameObjects": 
+    {
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 10, 
+        "Name": "SpriteText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.432989, 
+                "y": -24.742270, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.500000, 
+                "y": 0.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.439000, 
+                "y": 0.000000, 
+                "z": 0.341000, 
+                "w": 0.952000
+              }
+            }, 
+            "Font": "Verdana", 
+            "FontSize": 6, 
+            "Text": "gasp thar she blows", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 13, 
+            "DrawLayer": 3
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ namespace DCEngine {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(LancerShield);
       DCE_BINDING_DEFINE_PROPERTY(LancerShield, ShieldReflectionForce);
     }
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(LancerShield, "Transform", "Sprite", "BoxCollider");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(LancerShield, "Transform", "Sprite", "BoxCollider", "RigidBody");
 #endif
 
 
@@ -43,11 +43,13 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, LancerShield::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, LancerShield::OnCollisionStartedEvent);
 
+      //gameObj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
     }
 
     void LancerShield::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      if (event->OtherObject->Name() == "Player" ||
+      if (isActive &&
+          event->OtherObject->Name() == "Player" ||
           event->OtherObject->Name() == "Ball")
       {
         Vec3 parentVelocity = parent->getComponent<Components::RigidBody>()->getVelocity();
@@ -56,13 +58,13 @@ namespace DCEngine {
         Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();
         float velocityDifferenceThreshold = parent->getComponent<Components::Lancer>()->ShieldVelocityDifferenceThreshold;
 
-        if (parentVelocity.x - otherVelocity.x > velocityDifferenceThreshold)
-        {
+        //if (parentVelocity.x - otherVelocity.x > velocityDifferenceThreshold)
+        //{
           //event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(-otherVelocity);
 
           event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(Vec3(0,0,0));
           event->OtherObject->getComponent<Components::RigidBody>()->AddForce(glm::normalize(otherPosition - parentPosition) * ShieldReflectionForce);
-        }
+        //}
       }
     }
 

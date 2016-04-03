@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 298, 
-    "Name": "AEField1", 
+    "Name": "AntiEnergy1", 
     "Components": 
     {
       "Transform": 
@@ -45,9 +45,9 @@
           "Vec4": 
           {
             "x": 0.000000, 
-            "y": 1.000000, 
+            "y": 4.000000, 
             "z": 1.000000, 
-            "w": 0.304000
+            "w": 1.000000
           }
         }, 
         "SpriteSource": "square", 
@@ -55,7 +55,7 @@
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
+        "DrawLayer": 1
       }, 
       "BoxCollider": 
       {
@@ -91,9 +91,9 @@
           "Vec4": 
           {
             "x": 0.000000, 
-            "y": 1.000000, 
+            "y": 4.000000, 
             "z": 1.000000, 
-            "w": 0.300000
+            "w": 1.000000
           }
         }, 
         "InactiveColor": 
@@ -101,9 +101,9 @@
           "Vec4": 
           {
             "x": 0.000000, 
-            "y": 1.000000, 
+            "y": 4.000000, 
             "z": 1.000000, 
-            "w": 0.100000
+            "w": 0.010000
           }
         }
       }

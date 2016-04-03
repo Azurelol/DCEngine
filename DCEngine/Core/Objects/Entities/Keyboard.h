@@ -36,10 +36,13 @@ namespace DCEngine {
     }
 
     bool KeyIsDown(Keys key);
-    bool KeyIsUp(Keys key);
+	bool KeyIsUp(Keys key);
+	bool KeyIsTriggered(Keys key);
+	bool KeyIsReleased(Keys key);
 
   private:
-
+	// John's extra special array of pressed keys
+	//Keys *CurrentKeyStates
     /* List of keys */
     bool KeyDown_Escape = false;
     bool KeyDown_Space = false;
