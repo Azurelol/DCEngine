@@ -33,6 +33,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashDistance);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashOutTime);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashInTime);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashCooldown);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite", "HealthController");
@@ -68,6 +69,7 @@ namespace DCEngine {
       
       shieldLocalTranslation = Vec3(2, 0, 0);
       isBashing = false;
+      canBash = true;
       CreateShield();
     }
 
@@ -108,6 +110,8 @@ namespace DCEngine {
 
     void Sentinel::UpdateShield()
     {
+      DCTrace << "Sentinel Shield Mass: " << shield->getComponent<BoxCollider>()->GetMass();
+
       Vec3 playerPosition = player->getComponent<Transform>()->Translation;
       Vec3 thisPosition = TransformRef->Translation;
 
@@ -124,6 +128,9 @@ namespace DCEngine {
 
     void Sentinel::ShieldBash()
     {
+      if (!canBash)
+        return;
+
       Vec3 playerPosition = player->getComponent<Transform>()->Translation;
       Vec3 thisPosition = TransformRef->Translation;
 
@@ -131,9 +138,11 @@ namespace DCEngine {
       
       ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
       Actions::Property(seq, isBashing, true, 0.0f, Ease::Linear);
+      Actions::Property(seq, canBash, false, 0.0f, Ease::Linear);
       Actions::Property(seq, shieldLocalTranslation, (ShieldRadius + ShieldBashDistance) * playerDirection, ShieldBashOutTime, Ease::QuadOut);
       Actions::Property(seq, shieldLocalTranslation, ShieldRadius * playerDirection, ShieldBashInTime, Ease::Linear);
       Actions::Property(seq, isBashing, false, 0.0f, Ease::Linear);
+      Actions::Property(seq, canBash, true, ShieldBashCooldown, Ease::Linear);
     }
 
 
@@ -220,15 +229,29 @@ namespace DCEngine {
       Vec3 ownerPosition = owner->TransformRef->Translation;
       Vec3 playerPosition = owner->player->getComponent<Transform>()->Translation;
       Vec3 direction = playerPosition - ownerPosition;
-      if (direction.x < 0)
+
+      Ray ray;
+      ray.Direction = glm::normalize(Vec3(direction.x, 0, 0));
+      ray.Origin = owner->TransformRef->Translation;
+      CastFilter filter;
+      filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+      filter.Include = true;
+      CastResult cast = owner->PhysicsSpaceRef->CastRay(ray, filter);
+
+      if (cast.Distance > owner->ShieldRadius + owner->ShieldBashDistance + owner->player->getComponent<BoxCollider>()->getColliderScale().x)
       {
-        owner->RigidBodyRef->setVelocity(Vec3(-owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
-        owner->SpriteRef->FlipX = false;
-      }
-      else
-      {
-        owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
-        owner->SpriteRef->FlipX = true;
+        if (direction.x < 0)
+        {
+          owner->RigidBodyRef->setVelocity(Vec3(-owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+          owner->SpriteRef->FlipX = false;
+          owner->shield->getComponent<Sprite>()->FlipX = false;
+        }
+        else
+        {
+          owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
+          owner->SpriteRef->FlipX = true;
+          owner->shield->getComponent<Sprite>()->FlipX = true;
+        }
       }
 
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);

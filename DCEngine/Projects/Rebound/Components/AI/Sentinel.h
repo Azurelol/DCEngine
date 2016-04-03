@@ -37,6 +37,7 @@ namespace DCEngine {
       float ShieldBashDistance;
       float ShieldBashOutTime;
       float ShieldBashInTime;
+      float ShieldBashCooldown;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(float, IdleRange);
@@ -46,6 +47,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, ShieldBashDistance);
       DCE_DEFINE_PROPERTY(float, ShieldBashOutTime);
       DCE_DEFINE_PROPERTY(float, ShieldBashInTime);
+      DCE_DEFINE_PROPERTY(float, ShieldBashCooldown);
 
       // Methods
       ZilchDeclareDerivedType(Sentinel, Component);
@@ -69,6 +71,7 @@ namespace DCEngine {
       HealthController* HealthRef;
       Vec3 shieldLocalTranslation;
       bool isBashing;
+      bool canBash;
       void CreateShield();
       void UpdateShield();
       void ShieldBash();
