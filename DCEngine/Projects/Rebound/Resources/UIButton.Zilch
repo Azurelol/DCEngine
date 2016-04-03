@@ -19,25 +19,25 @@ class UIButton : ZilchComponent
     
     // State colors
     [Property]
-    var DefaultColor : Real4 = Real4();
+    var DefaultColor : Real4 = Real4(1,1,1,1);
     
     [Property]
-    var HoveredColor : Real4 = Real4();
+    var HoveredColor : Real4 = Real4(1,1,1,1);
     
     [Property]
-    var ClickedColor : Real4 = Real4();
+    var ClickedColor : Real4 = Real4(1,1,1,1);
     
     [Property]
-    var InactiveColor : Real4 = Real4();
+    var InactiveColor : Real4 = Real4(1,1,1,1);
     
-	//[Property]
-    //var TextReferenceName : String = "";
+	[Property]
+    var TextReferenceName : String = "";
 
     [Property]
-    var NormalScale : Real;
+    var NormalScale : Real2 = Real2(8.0, 1.5);
 
     [Property]
-    var ExpansionScale : Real;
+    var ExpansionScale : Real = 1.0;
 
     [Property]
     var ExpansionTime : Real;
@@ -55,7 +55,7 @@ class UIButton : ZilchComponent
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;
 
-    //var TextReference : Entity = null;
+    var TextReference : Entity = null;
 
     
 	
@@ -64,8 +64,13 @@ class UIButton : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
 		Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
 		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
 
-		//this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
+		if(this.TextReferenceName != "")
+		{
+			this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
+		}
+
 		if(this.Active)
 		{
 			this.EnterDefaultState();
@@ -93,6 +98,14 @@ class UIButton : ZilchComponent
 		}
 	}
 
+	function OnMouseDown(event : MouseDown)
+	{
+		if(this.CurState == ButtonState.Hovered)
+		{
+			this.EnterClickedState();
+		}
+	}
+
 	function OnToggleEvent(event : ToggleEvent)
 	{
 		if(this.CurState == ButtonState.Inactive)
@@ -110,7 +123,12 @@ class UIButton : ZilchComponent
 		this.Active = true;
 		this.CurState = ButtonState.Default;
 		this.Owner.Sprite.Color = this.DefaultColor;
-		//this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.5);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.5);
+		}
+
 		this.Shrink();
 		this.ReportState();
 	}
@@ -119,7 +137,12 @@ class UIButton : ZilchComponent
 	{
 		this.CurState = ButtonState.Hovered;
 		this.Owner.Sprite.Color = this.HoveredColor;
-		//this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
+		}
+
 		//this.Space.SoundSpace.PlayCue(this.HoveredSound);
 		this.Expand();
 		this.ReportState();
@@ -129,7 +152,12 @@ class UIButton : ZilchComponent
 	{
 		this.CurState = ButtonState.Clicked;
 		this.Owner.Sprite.Color = this.ClickedColor;
-		//this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
+		}
+
 		//this.Space.SoundSpace.PlayCue(this.ClickedSound);
 		this.ReportState();
 	}
@@ -139,7 +167,12 @@ class UIButton : ZilchComponent
 		this.Active = false;
 		this.CurState = ButtonState.Inactive;
 		this.Owner.Sprite.Color = this.InactiveColor;
-		//this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.25);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.25);
+		}
+
 		this.ReportState();
 	}
 
@@ -158,7 +191,7 @@ class UIButton : ZilchComponent
 	{
 		var exSeq = Actions.Sequence(this.Owner.Actions);
 
-		Actions.Property(exSeq, @this.Owner.Transform.Scale, this.ExpansionScale, this.ExpansionTime, Ease.QuadOut);
+		Actions.Property(exSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale * this.ExpansionScale, this.ExpansionTime, Ease.QuadOut);
 	}
 
 	function Shrink()

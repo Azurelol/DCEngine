@@ -16,8 +16,14 @@
 				"selected_items":
 				[
 					[
-<<<<<<< HEAD
-=======
+						"M",
+						"MousePressed"
+					],
+					[
+						"Te",
+						"TextReferenceName"
+					],
+					[
 						"On",
 						"OnButtonClicked"
 					],
@@ -26,7 +32,6 @@
 						"OnButtonDefault"
 					],
 					[
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
 						"Drag",
 						"DragTimer"
 					],
@@ -107,32 +112,18 @@
 			"buffers":
 			[
 				{
-<<<<<<< HEAD
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-					"settings":
-					{
-						"buffer_size": 747,
-=======
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 					"settings":
 					{
-						"buffer_size": 3912,
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
+						"buffer_size": 4335,
 						"line_ending": "Windows"
 					}
 				},
 				{
-<<<<<<< HEAD
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
-					"settings":
-					{
-						"buffer_size": 1214,
-=======
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 					"settings":
 					{
-						"buffer_size": 1535,
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
+						"buffer_size": 1565,
 						"line_ending": "Windows"
 					}
 				}
@@ -222,31 +213,19 @@
 					[
 						{
 							"buffer": 0,
-<<<<<<< HEAD
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 747,
-=======
 							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 3912,
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
+								"buffer_size": 4335,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-<<<<<<< HEAD
-										617,
-										617
-=======
-										3467,
-										3467
+										1559,
+										1559
 									]
 								],
 								"settings":
@@ -254,10 +233,10 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 45.0,
+								"translation.y": 855.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 0,
 							"type": "text"
 						},
 						{
@@ -266,66 +245,27 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1535,
+								"buffer_size": 1565,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1495,
-										1495
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
+										1510,
+										1510
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-<<<<<<< HEAD
 								"translation.x": -0.0,
-								"translation.y": 0.0,
-=======
-								"translation.x": 0.0,
 								"translation.y": 270.0,
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-<<<<<<< HEAD
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1214,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1211,
-										39
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 1,
 							"type": "text"
-=======
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
 						}
 					]
 				}
@@ -366,11 +306,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-<<<<<<< HEAD
-			"position": "0,0,1,-32000,-32000,-1,-1,751,2053,189,3061",
-=======
-			"position": "0,0,1,-32000,-32000,-1,-1,965,334,85,1634",
->>>>>>> 8dac37b1f06805e13a74e8a1b29d4f352ce959bc
+			"position": "0,0,1,-1,-1,-1,-1,991,339,111,1639",
 			"project": "",
 			"replace":
 			{

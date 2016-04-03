@@ -51,11 +51,11 @@ class UIManager : ZilchComponent
 
     function OnButtonHovered(button : Entity)
     {
-    	Console.WriteLine(button.Name);
+    	Console.WriteLine("Hovered over `button.Name`");
     }
 
     function OnButtonClicked(button : Entity)
     {
-    	//Console.WriteLine(button.Name);
+    	Console.WriteLine("Clicked on `button.Name`");
     }
 }
