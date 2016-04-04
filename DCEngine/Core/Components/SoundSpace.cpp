@@ -29,13 +29,21 @@ namespace DCEngine {
       //ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
       //ZilchBindDestructor(builder, type, SoundSpace);
       // Properties
-      ZilchBindMethod(builder, type, &SoundSpace::PlayCueZilch, ZilchNoOverload, "PlayCue", "soundCueName");
+
+      Zilch::ParameterArray playCueParams; playCueParams.push_back(ZilchTypeId(Zilch::String));
+      builder.AddBoundFunction(type, "PlayCue", &SoundSpace::ZilchPlayCue, playCueParams, ZilchTypeId(SoundInstance), Zilch::MemberOptions::None);
+      //ZilchBindMethod(builder, type, &SoundSpace::PlayCueByHandle, ZilchNoOverload, "PlayCue", "soundCueName");
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pause);
     }
     #endif
 
+    /**************************************************************************/
+    /*!
+    @brief  SoundSpace constructor.
+    */
+    /**************************************************************************/
     SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner),
       Volume(0), Pitch(0), Pause(0)
     {
@@ -81,9 +89,37 @@ namespace DCEngine {
       return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCue);
     }
 
-    SoundInstanceHandle SoundSpace::PlayCueZilch(std::string name)
+    /**************************************************************************/
+    /*!
+    @brief  Plays a 'SoundCue' through Zilch, returning a handle to it.
+    @param  soundCueName The name of the 'SoundCue' to play.
+    @return A SoundInstance, an object that acts as the particular instance
+    of that playing of the sound cue.
+    */
+    /**************************************************************************/
+    void SoundSpace::ZilchPlayCue(Zilch::Call& call, Zilch::ExceptionReport& report)
     {
-      return Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name);
+      // Grab the string parameter, the name of the cue
+      auto name = call.Get<Zilch::String>(0);
+      // Grab the space it was called upon
+      auto soundSpace = reinterpret_cast<Components::SoundSpace*>(call.GetHandle(Zilch::Call::This).Dereference());      
+      // Get the audio system to play it
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name.c_str());
+      // Return it
+      call.Set(Zilch::Call::Return, instance);      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Plays a 'SoundCue' through the creation of a Zilch Handle.
+    @param  soundCueName The name of the 'SoundCue' to play.
+    @return A SoundInstanceHandle.
+    */
+    /**************************************************************************/
+    SoundInstanceHandle SoundSpace::PlayCueByHandle(std::string name)
+    {
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name);
+      return instance;
     }
 
     /**************************************************************************/
@@ -94,6 +130,7 @@ namespace DCEngine {
     /**************************************************************************/
     void SoundSpace::PauseCue(std::string soundCueName)
     {
+
       Daisy->getSystem<Systems::Audio>()->PauseSound(soundCueName);
     }
 

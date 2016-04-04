@@ -15,12 +15,12 @@
 namespace DCEngine {
   namespace Systems {
 
-	/**************************************************************************/
-	/*!
-	@brief EditorArchetypes constructor.
-	@param editor A reference to the Editor system.
-	*/
-	/**************************************************************************/
+  /**************************************************************************/
+  /*!
+  @brief EditorArchetypes constructor.
+  @param editor A reference to the Editor system.
+  */
+  /**************************************************************************/
     EditorArchetypes::EditorArchetypes() : EditorModule(false), CurrentArchetype(nullptr),
                                                           ArchetypeSpace(nullptr)
     {
@@ -28,23 +28,23 @@ namespace DCEngine {
       Daisy->Connect<Events::EngineInitialized>(&EditorArchetypes::OnEngineInitializedEvent, this);
     }
 
-	/**************************************************************************/
-	/*!
-	@brief EditorArchetypes destructor.
-	*/
-	/**************************************************************************/
+  /**************************************************************************/
+  /*!
+  @brief EditorArchetypes destructor.
+  */
+  /**************************************************************************/
     EditorArchetypes::~EditorArchetypes()
     {
       //if (ArchetypeSpace)      
       //  ArchetypeSpace->Destroy();
     }
 
-	/**************************************************************************/
-	/*!
-	@brief Selects an Archetype, instantiating it.
+  /**************************************************************************/
+  /*!
+  @brief Selects an Archetype, instantiating it.
   @param archetype The name of the archetype.
-	*/
-	/**************************************************************************/
+  */
+  /**************************************************************************/
     void EditorArchetypes::Select(ArchetypeHandle archetype)
     {    
       // Instantiate the archetype

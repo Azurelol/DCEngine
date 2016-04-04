@@ -19,22 +19,28 @@ class TestSoundInstance : ZilchComponent
     	else if (event.Key == Keys.P) {
     		this.Pause();
     	}
+    	else if (event.Key == Keys.Add) {
+    		if (this.Instance != null) this.Instance.InterpolateVolume(1,0);
+    	}
+    	else if (event.Key == Keys.Subtract) {
+    		if (this.Instance != null) this.Instance.InterpolateVolume(0,0);
+    	}
 
     }
 
     function PrintStatus() {
     }
     
-    function PlaySound() {
-    	Console.WriteLine("`this.Owner.Name` is playing `this.Music`");
-    	//this.Instance = this.Space.SoundSpace.PlayCue(this.Music);
+    function PlaySound() {    	
+    	this.Instance = this.Space.SoundSpace.PlayCue(this.Music);
+    	if (this.Instance != null) Console.WriteLine("`this.Owner.Name` is playing `this.Instance.Name`");
     }
 
     function Pause() {
-
+    	this.Instance.Pause();
     }
 
     function Resume() {
-
+    	this.Instance.Resume();
     }
 }
