@@ -103,16 +103,19 @@ namespace DCEngine {
 
 			RenderObjects(camera);
 
-			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-			glBlitFramebuffer(
-				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-				GL_COLOR_BUFFER_BIT, GL_NEAREST);
-
+			for (unsigned i = 0; i < 3; ++i)
+			{
+				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+				glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+				glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBlitFramebuffer(
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					GL_COLOR_BUFFER_BIT, GL_NEAREST);
+			}
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-			GLuint attachments1[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
-			glDrawBuffers(3, attachments1);
+			glDrawBuffers(3, attachments);
 		}
 
 		void GraphicsGL::RenderLights(Components::Light * light)
@@ -195,10 +198,10 @@ namespace DCEngine {
 			glDrawBuffer(GL_COLOR_ATTACHMENT3);
 
 			glBegin(GL_TRIANGLE_FAN);
-			glVertex4f(-1, -1, 0, 0);
-			glVertex4f( 1, -1, 1, 0);
-			glVertex4f( 1,  1, 1, 1);
-			glVertex4f(-1,  1, 0, 1);
+			glVertex4f(-1,-1, 0, 0);
+			glVertex4f( 1,-1, 1, 0);
+			glVertex4f( 1, 1, 1, 1);
+			glVertex4f(-1, 1, 0, 1);
 			glEnd();
 
 			glClear(GL_STENCIL_BUFFER_BIT);
@@ -220,9 +223,9 @@ namespace DCEngine {
 			glBindTexture(GL_TEXTURE_2D, FinalColor);
 
 			glBegin(GL_TRIANGLE_FAN);
-			glVertex4f(-1, -1, 0, 0);
-			glVertex4f(1, -1, 1, 0);
-			glVertex4f(1, 1, 1, 1);
+			glVertex4f(-1,-1, 0, 0);
+			glVertex4f( 1,-1, 1, 0);
+			glVertex4f( 1, 1, 1, 1);
 			glVertex4f(-1, 1, 0, 1);
 			glEnd();
 		}
