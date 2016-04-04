@@ -181,7 +181,7 @@ namespace DCEngine {
       int ScreenHeight;
       int Framerate;
       bool Fullscreen;
-			unsigned Samples;
+      int Samples;
       std::string Caption;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
       Vec2 ViewportScale = Vec2(1, 1);
