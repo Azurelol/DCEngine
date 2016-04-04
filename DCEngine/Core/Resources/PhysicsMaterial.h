@@ -15,6 +15,7 @@ namespace DCEngine {
   
   class PhysicsMaterial;
   using PhysicsMaterialHandle = std::string;
+  using PhysicsMaterialRawPtr = PhysicsMaterial*;
   using PhysicsMaterialPtr = std::shared_ptr<PhysicsMaterial>;
 
   class PhysicsMaterial : public Resource {
@@ -49,7 +50,7 @@ namespace DCEngine {
     PhysicsMaterial(std::string name);
     ~PhysicsMaterial() {}
     static std::string Extension() { return ".PhysicsMaterial"; }
-    static PhysicsMaterialPtr Find(std::string);
+    static PhysicsMaterialRawPtr Find(std::string);
 
   };
 

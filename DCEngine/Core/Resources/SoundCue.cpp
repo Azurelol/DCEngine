@@ -45,7 +45,8 @@ namespace DCEngine {
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, PitchVariation);
     DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyPitchVariation);
     DCE_BINDING_DEFINE_PROPERTY(SoundCue, AssetPath);
-    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeSound);    
+    DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeSound);
+    ZilchBindMethod(builder, type, &SoundCue::Find, ZilchNoOverload, "Find", ZilchNoNames);
   }
   #endif
 
@@ -77,9 +78,9 @@ namespace DCEngine {
   @return A reference to the SoundCue object.
   */
   /**************************************************************************/
-  SoundCuePtr SoundCue::Find(std::string name)
+  SoundCueRawPtr SoundCue::Find(std::string name)
   {
-    return Daisy->getSystem<Systems::Content>()->getSoundCue(name);
+    return Daisy->getSystem<Systems::Content>()->getSoundCue(name).get();
   }
 
 

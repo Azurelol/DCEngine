@@ -18,6 +18,7 @@
 namespace DCEngine {
 
   class SoundCue;
+  using SoundCueRawPtr = SoundCue*;
   using SoundCuePtr = std::shared_ptr<SoundCue>;
   using SoundCueHandle = std::string;
 
@@ -32,7 +33,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct PlaybackSettings {
-    PlaybackSettings() : Volume(1.0f), VolumeVariation(0.0f),
+    PlaybackSettings() : Mode(PlayMode::Single), Volume(1.0f), VolumeVariation(0.0f),
                          Pitch(1.0f), PitchVariation(0.0f),
                          Loop(false) {}
     PlayMode Mode;
@@ -78,7 +79,7 @@ namespace DCEngine {
     SoundCue(std::string soundFile, SoundCueType type);
     void Generate();
     static std::string Extension() { return ".SoundCue"; }
-    static SoundCuePtr Find(std::string);
+    static SoundCueRawPtr Find(std::string);
 
   private:
     std::string AssetPath;

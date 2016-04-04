@@ -32,6 +32,7 @@ namespace DCEngine {
     // Image
     DCE_BINDING_DEFINE_PROPERTY(SpriteSource, AssetPath);
     DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyAssetPath, attributeImage);
+    ZilchBindMethod(builder, type, &SpriteSource::Find, ZilchNoOverload, "Find", ZilchNoNames);
   }
   #endif
 
@@ -120,9 +121,9 @@ namespace DCEngine {
   @return A reference to the SpriteSource object.
   */
   /**************************************************************************/
-  SpriteSourcePtr SpriteSource::Find(std::string name)
+  SpriteSourceRawPtr SpriteSource::Find(std::string name)
   {
-    return Daisy->getSystem<Systems::Content>()->getSpriteSrc(name);
+    return Daisy->getSystem<Systems::Content>()->getSpriteSrc(name).get();
   }
 
 

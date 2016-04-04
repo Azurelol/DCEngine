@@ -28,6 +28,7 @@ namespace DCEngine {
       // Variables
       Vec3 Size = Vec3(1, 1, 1);
       Vec3 Offset = Vec3(0, 0, 0);
+      Vec4 Color;
       Boolean Ghost = false;
       Boolean SendsEvents = true;
       Boolean IsDrawingCollider = false;
@@ -38,6 +39,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Boolean, Ghost);
       DCE_DEFINE_PROPERTY(Boolean, SendsEvents);
       DCE_DEFINE_PROPERTY(Boolean, IsDrawingCollider);
+
 
       // These should be private!
       BoxCollider(Entity& owner);

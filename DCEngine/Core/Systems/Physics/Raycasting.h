@@ -30,9 +30,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastResult {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareBaseType(CastResult, Zilch::TypeCopyMode::ReferenceType);
-#endif
     //Collider* Collider;
     float Distance;
     // the position of the ray-line segment collision in world coordinates
@@ -45,9 +43,7 @@ namespace DCEngine {
 
   class CastResultVector
   {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareBaseType(CastResultVector, Zilch::TypeCopyMode::ReferenceType);
-#endif
     std::vector<CastResult> list;
   public:
     CastResultVector& operator= (const CastResultVector& ref);
@@ -67,10 +63,8 @@ namespace DCEngine {
   };
   class CollisionVector
   {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareBaseType(CollisionVector, Zilch::TypeCopyMode::ReferenceType);
-#endif
-    std::vector<CollisionGroup> list;
+    std::vector<CollisionGroup*> list;
   public:
     CollisionVector& operator= (const CollisionVector& ref);
     unsigned size();
@@ -82,9 +76,9 @@ namespace DCEngine {
     CollisionGroup& at(unsigned n);
     CollisionGroup& front();
     CollisionGroup& back();
-    void push_back(const CollisionGroup& val);
+    void push_back(CollisionGroup* val);
     void pop_back();
-    void insert(unsigned position, const CollisionGroup& val);
+    void insert(unsigned position, CollisionGroup* val);
     void clear();
   };
 
@@ -99,10 +93,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct CastFilter {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareBaseType(CastFilter, Zilch::TypeCopyMode::ReferenceType);
-#endif
     bool Include = false;
+    CollisionGroup* CollisionGroup;
     CollisionVector CollisionGroups;
     bool IgnoreStatic = false;
     bool IgnoreDynamic = false;

@@ -16,6 +16,8 @@
 				"selected_items":
 				[
 					[
+<<<<<<< HEAD
+=======
 						"Ex",
 						"ExpansionScale"
 					],
@@ -28,6 +30,7 @@
 						"TextReferenceName"
 					],
 					[
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 						"On",
 						"OnButtonClicked"
 					],
@@ -116,6 +119,12 @@
 			"buffers":
 			[
 				{
+<<<<<<< HEAD
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+					"settings":
+					{
+						"buffer_size": 747,
+=======
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 					"settings":
 					{
@@ -128,6 +137,7 @@
 					"settings":
 					{
 						"buffer_size": 2133,
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 						"line_ending": "Windows"
 					}
 				}
@@ -164,6 +174,12 @@
 			},
 			"file_history":
 			[
+<<<<<<< HEAD
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+=======
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleInputManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
@@ -172,8 +188,6 @@
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Button.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
@@ -217,19 +231,32 @@
 					[
 						{
 							"buffer": 0,
+<<<<<<< HEAD
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 747,
+=======
 							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
 								"buffer_size": 4417,
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
+<<<<<<< HEAD
+										617,
+										617
+=======
 										4126,
 										4126
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 									]
 								],
 								"settings":
@@ -237,6 +264,9 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
+<<<<<<< HEAD
+								"translation.y": 0.0,
+=======
 								"translation.y": 1170.0,
 								"zoom_level": 1.0
 							},
@@ -266,6 +296,7 @@
 								},
 								"translation.x": 0.0,
 								"translation.y": 540.0,
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -310,7 +341,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+<<<<<<< HEAD
+			"position": "0,0,1,-1,-1,-1,-1,1187,1092,344,2392",
+=======
 			"position": "0,0,1,-32000,-32000,-1,-1,1189,256,309,1556",
+>>>>>>> d39dc39715b2bf62f527a6b79465c4b73d4e54de
 			"project": "",
 			"replace":
 			{

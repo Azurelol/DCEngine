@@ -290,6 +290,82 @@
         "Children": 
         {
         }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 12, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "ZPlayerController": 
+          {
+            "MoveSpeed": 0.350000, 
+            "JumpPower": 8.000000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
       }
     }
   }

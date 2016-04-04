@@ -26,9 +26,7 @@ namespace DCEngine {
 
       public:
 
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
         ZilchDeclareDerivedType(SoundSpace, Component);
-#endif
 
         DCE_DEFINE_PROPERTY(Real, Volume);
         DCE_DEFINE_PROPERTY(Real, Pitch);
@@ -36,7 +34,8 @@ namespace DCEngine {
 
         SoundInstancePtr PlayCue(std::string soundCueName);
         SoundInstancePtr PlayCue(SoundCuePtr soundCue);
-        SoundInstanceHandle PlayCueZilch(std::string name);
+        static void ZilchPlayCue(Zilch::Call& call, Zilch::ExceptionReport& report);
+        SoundInstanceHandle PlayCueByHandle(std::string);
         void PlayCueAt(std::string soundCueName);
         void PauseCue(std::string soundCueName);
         void ResumeCue(std::string soundCueName);

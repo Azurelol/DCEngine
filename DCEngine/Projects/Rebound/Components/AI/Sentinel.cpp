@@ -182,8 +182,8 @@ namespace DCEngine {
         ray.Direction = Vec3(-1, 0, 0);
         ray.Origin = owner->TransformRef->Translation;
         CastFilter filter;
-        filter.CollisionGroups.push_back(CollisionGroup("Player"));
-        filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+        filter.CollisionGroups.push_back(CollisionGroup::Find("Player"));
+        filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
         filter.Include = true;
         CastResult castLeft = owner->PhysicsSpaceRef->CastRay(ray, filter);
 
@@ -255,7 +255,7 @@ namespace DCEngine {
       ray.Direction = glm::normalize(Vec3(direction.x, 0, 0));
       ray.Origin = owner->TransformRef->Translation;
       CastFilter filter;
-      filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+      filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
       filter.Include = true;
       CastResult cast = owner->PhysicsSpaceRef->CastRay(ray, filter);
 

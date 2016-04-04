@@ -51,6 +51,7 @@ namespace DCEngine {
   /**************************************************************************/
   SoundInstance::SoundInstance() : Paused(false), SoundInstanceID(Created++)
   {
+    DCTrace << Name() << "::SoundInstance - CTOR \n";
   }
 
   /**************************************************************************/

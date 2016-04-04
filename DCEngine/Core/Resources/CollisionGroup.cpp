@@ -17,13 +17,12 @@ namespace DCEngine {
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
-  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(CollisionGroup, "CollisionGroup", DCEngineCore, builder, type) {
-    ZilchBindConstructor(builder, type, CollisionGroup ,"collisionGroupFile", std::string);
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    //ZilchBindConstructor(builder, type, CollisionGroup ,"collisionGroupFile", std::string);
     ZilchBindDestructor(builder, type, CollisionGroup);
-
+    ZilchBindMethod(builder, type, &CollisionGroup::Find, ZilchNoOverload, "Find", ZilchNoNames);
   }
-  #endif
 
   /**************************************************************************/
   /*!
@@ -42,9 +41,9 @@ namespace DCEngine {
   @return A reference to the texture object.
   */
   /**************************************************************************/
-  CollisionGroupPtr CollisionGroup::Find(std::string name)
+  CollisionGroupWeakPtr CollisionGroup::Find(std::string name)
   {
-    return Daisy->getSystem<Systems::Content>()->getCollisionGroup(name);
+    return Daisy->getSystem<Systems::Content>()->getCollisionGroup(name).get();
   }
 
   CollisionGroup & CollisionGroup::operator=(const CollisionGroup & rhs)
