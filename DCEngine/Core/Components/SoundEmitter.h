@@ -27,7 +27,6 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Boolean, IsPlaying);
 
       void PlayCue(String soundCue);
-      void Stop();
 
       /* Initialize */
       ZilchDeclareDerivedType(SoundEmitter, Component);

@@ -963,6 +963,9 @@
     <ClCompile Include="Core\Objects\EntityRange.cpp">
       <Filter>Core\Object\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\CastResults.cpp">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1412,9 +1415,6 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h">
       <Filter>Core\Systems\Physics\Resolution</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Raycasting.h">
-      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Ray.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
@@ -1631,6 +1631,9 @@
     </ClInclude>
     <ClInclude Include="Core\Types\Enumerations.h">
       <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\PhysicsCasting.h">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

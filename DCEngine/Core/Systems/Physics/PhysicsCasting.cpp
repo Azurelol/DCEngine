@@ -1,14 +1,14 @@
 /******************************************************************************/
 /*!
-@file   PhysicsCasting.h
+@file   PhysicsCasting.cpp
 @author Christian Sagel
 @par    email: c.sagel\@digipen.edu
 @date   1/26/2016
 @brief  Physics casting can be used to check for the existence of objects based
-on where they are in a Space. The most commonly-used form of physics
-casting is ray casting, which checks for colliders along a ray, but
-there are other varieties that check for colliders within a volume,
-and so on.
+        on where they are in a Space. The most commonly-used form of physics
+        casting is ray casting, which checks for colliders along a ray, but
+        there are other varieties that check for colliders within a volume,
+        and so on.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 @note References:
       http://zero.digipen.edu/ZeroManual/Physics/PhysicsCasting/PhysicsCastingOverview.html
@@ -16,31 +16,15 @@ and so on.
 */
 /******************************************************************************/
 #pragma once
+
 #include "Physics.h"
 #include "../../Components/Transform.h"
 namespace DCEngine
 {
   CastFilter *MakeCastFilter(void);
 
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-  ZilchDefineType(CastResultVector, "CastResultVector", DCEngineCore, builder, type) {
-   // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResultVector);
-    ZilchBindMethod(builder, type, &CastResultVector::size, ZilchNoOverload, "size", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::capacity, ZilchNoOverload, "capacity", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::empty, ZilchNoOverload, "empty", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::reserve, ZilchNoOverload, "reserve", "n");
-    ZilchBindMethod(builder, type, &CastResultVector::shrink_to_fit, ZilchNoOverload, "shrink_to_fit", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::at, ZilchNoOverload, "at", "n");
-    ZilchBindMethod(builder, type, &CastResultVector::front, ZilchNoOverload, "front", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::back, ZilchNoOverload, "back", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::push_back, ZilchNoOverload, "push_back", "val");
-    ZilchBindMethod(builder, type, &CastResultVector::pop_back, ZilchNoOverload, "pop_back", ZilchNoNames);
-    ZilchBindMethod(builder, type, &CastResultVector::insert, ZilchNoOverload, "insert", "position, val");
-    ZilchBindMethod(builder, type, &CastResultVector::clear, ZilchNoOverload, "clear", ZilchNoNames);
-
-  }
   ZilchDefineType(CollisionVector, "CollisionVector", DCEngineCore, builder, type) {
-    // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResultVector);
+    // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResultsRange);
     ZilchBindMethod(builder, type, &CollisionVector::size, ZilchNoOverload, "size", ZilchNoNames);
     ZilchBindMethod(builder, type, &CollisionVector::capacity, ZilchNoOverload, "capacity", ZilchNoNames);
     ZilchBindMethod(builder, type, &CollisionVector::empty, ZilchNoOverload, "empty", ZilchNoNames);
@@ -55,90 +39,14 @@ namespace DCEngine
     ZilchBindMethod(builder, type, &CollisionVector::clear, ZilchNoOverload, "clear", ZilchNoNames);
 
   }
+
   ZilchDefineType(Ray, "Ray", DCEngineCore, builder, type) {
     ZilchBindConstructor(builder, type, Ray, ZilchNoNames);
     //DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Ray);
     ZilchBindField(builder, type, &Ray::Origin, "Origin", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &Ray::Direction, "Direction", Zilch::PropertyBinding::GetSet);
   }
-  ZilchDefineType(CastResult, "CastResult", DCEngineCore, builder, type) {
-   // DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(CastResult);
-    ZilchBindField(builder, type, &CastResult::Distance, "Distance", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastResult::BodySpacePosition, "CastResult", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastResult::Normal, "Normal", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastResult::ObjectHit, "ObjectHit", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastResult::WorldPosition, "WorldPosition", Zilch::PropertyBinding::GetSet);
-  }
-  ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
-    ZilchBindMethod(builder, type, &MakeCastFilter, ZilchNoOverload, "MakeCastFilter", ZilchNoNames);
-    ZilchBindConstructor(builder, type, CastFilter, ZilchNoNames);
-    ZilchBindField(builder, type, &CastFilter::CollisionGroup, "CollisionGroup", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastFilter::CollisionGroups, "CollisionGroups", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastFilter::Include, "Include", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastFilter::IgnoreStatic, "IgnoreStatic", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastFilter::IgnoreDynamic, "IgnoreDynamic", Zilch::PropertyBinding::GetSet);
-    ZilchBindField(builder, type, &CastFilter::IgnoreGhost, "IgnoreGhost", Zilch::PropertyBinding::GetSet);
-  }
-#endif
 
-  CastResultVector& CastResultVector::operator= (const CastResultVector& ref)
-  {
-    list = ref.list;
-    return *this;
-  }
-
-  unsigned CastResultVector::size()
-  {
-    return list.size();
-  }
-  unsigned CastResultVector::capacity() const
-  {
-    return list.capacity();
-  }
-  bool CastResultVector::empty() const
-  {
-    return list.empty();
-  }
-  void CastResultVector::reserve(unsigned n)
-  {
-    list.reserve(n);
-  }
-  void CastResultVector::shrink_to_fit()
-  {
-    list.shrink_to_fit();
-  }
-  CastResult& CastResultVector::operator[] (unsigned n)
-  {
-    return list[n];
-  }
-  CastResult& CastResultVector::at(unsigned n)
-  {
-    return list.at(n);
-  }
-  CastResult& CastResultVector::front()
-  {
-    return list.front();
-  }
-  CastResult& CastResultVector::back()
-  {
-    return list.back();
-  }
-  void CastResultVector::push_back(const CastResult& val)
-  {
-    list.push_back(val);
-  }
-  void CastResultVector::pop_back()
-  {
-    list.pop_back();
-  }
-  void CastResultVector::insert(unsigned position, const CastResult& val)
-  {
-    list[position] = val;
-  }
-  void CastResultVector::clear()
-  {
-    list.clear();
-  }
 
   CollisionVector& CollisionVector::operator= (const CollisionVector& ref)
   {

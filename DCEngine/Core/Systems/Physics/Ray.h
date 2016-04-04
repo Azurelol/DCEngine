@@ -3,6 +3,7 @@
 #include"../../Components/PhysicsSpace.h"
 
 namespace DCEngine {
+
   /**************************************************************************/
   /*!
   @class Ray A ray is a linear arrangement of points that starts at a given location
@@ -12,9 +13,7 @@ namespace DCEngine {
   /**************************************************************************/
   struct Ray 
   {
-#if(DCE_USE_ZILCH_INTERNAL_BINDING) 
     ZilchDeclareBaseType(Ray, Zilch::TypeCopyMode::ValueType);
-#endif
     Vec3 Origin;
     Vec3 Direction;
   };

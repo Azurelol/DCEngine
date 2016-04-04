@@ -11,9 +11,8 @@ physics integration and resolution, for collisions, velocity, etc...
 */
 /******************************************************************************/
 #include "PhysicsSpace.h"
-#include "../Systems/Physics/Physics.h"
+
 #include "EngineReference.h"
-#include "../../Core/Systems/Physics/Physics.h"
 #include "../Resources/CollisionTable.h"
 
 namespace DCEngine {
