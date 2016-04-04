@@ -25,8 +25,10 @@
 
 #include "Resolution.h"
 
-namespace DCEngine {
-  namespace Systems {
+namespace DCEngine 
+{
+  namespace Systems 
+  {
     /**************************************************************************/
     /*!
     \brief Constructor for the Physics system.
@@ -755,16 +757,6 @@ namespace DCEngine {
           return;
         }
       }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief help function for zilch to make a cast filter.
-    */
-    /**************************************************************************/
-    CastFilter *Physics::MakeCastFilter(void)
-    {
-      return new CastFilter;
     }
 
     /**************************************************************************/

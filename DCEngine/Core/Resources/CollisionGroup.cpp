@@ -21,7 +21,7 @@ namespace DCEngine {
   ZilchDefineType(CollisionGroup, "CollisionGroup", DCEngineCore, builder, type) {
     ZilchBindConstructor(builder, type, CollisionGroup ,"collisionGroupFile", std::string);
     ZilchBindDestructor(builder, type, CollisionGroup);
-
+    ZilchBindMethod(builder, type, &MakeCollisionGroup, ZilchNoOverload, "MakeCollisionGroup", "group");
   }
   #endif
 
