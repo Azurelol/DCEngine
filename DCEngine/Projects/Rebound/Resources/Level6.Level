@@ -7266,8 +7266,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 164, 
+        "Locked": false, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -7309,12 +7309,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.500000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "char_sent", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7323,7 +7323,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -7370,25 +7370,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
-            "MoveSpeed": 0.000000, 
-            "ShieldArchetype": "", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "MoveSpeed": 2.000000, 
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -8805,8 +8800,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 176, 
+        "Locked": false, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -8848,12 +8843,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.500000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "char_sent", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8862,7 +8857,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -8909,25 +8904,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
-            "MoveSpeed": 0.000000, 
-            "ShieldArchetype": "", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "MoveSpeed": 2.000000, 
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -9090,8 +9080,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 179, 
+        "Locked": false, 
+        "GameObjectID": 915, 
         "Name": "Lancer", 
         "Components": 
         {
@@ -9133,12 +9123,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9168,25 +9158,9 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
-            "IsInvulnerable": false, 
-            "IdleRange": 0.000000, 
-            "ChargeForce": 0.000000, 
-            "ShieldVelocityDifferenceThreshold": 0.000000, 
-            "ShieldActivationSpeed": 0.000000
-          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -9209,10 +9183,113 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000, 
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 45, 
+            "Name": "LancerShield", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 33.649487, 
+                    "y": 36.948452, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 8.000000, 
+                    "y": 5.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.295000
+                  }
+                }, 
+                "SpriteSource": "Circle", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+                "ShieldReflectionForce": 100000.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
@@ -9463,8 +9540,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 183, 
+        "Locked": false, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -9506,12 +9583,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.500000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "char_sent", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9520,7 +9597,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -9567,25 +9644,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
-            "MoveSpeed": 0.000000, 
-            "ShieldArchetype": "", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "MoveSpeed": 2.000000, 
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -10929,8 +11001,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 198, 
+        "Locked": false, 
+        "GameObjectID": 915, 
         "Name": "Lancer", 
         "Components": 
         {
@@ -10972,12 +11044,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -11007,25 +11079,9 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
-            "IsInvulnerable": false, 
-            "IdleRange": 0.000000, 
-            "ChargeForce": 0.000000, 
-            "ShieldVelocityDifferenceThreshold": 0.000000, 
-            "ShieldActivationSpeed": 0.000000
-          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -11048,10 +11104,113 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000, 
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 45, 
+            "Name": "LancerShield", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 167.382935, 
+                    "y": 24.109655, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 8.000000, 
+                    "y": 5.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.295000
+                  }
+                }, 
+                "SpriteSource": "Circle", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+                "ShieldReflectionForce": 100000.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
