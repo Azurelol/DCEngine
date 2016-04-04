@@ -59,10 +59,10 @@ namespace DCEngine {
     Iterator End;
 
     bool isRange() { return Begin != End; }
-    typename const Iterator beginRange() const { return Begin; }
-    typename const Iterator endRange() const { return End; }
-    typename Iterator beginRange() { return Begin; }
-    typename Iterator endRange() { return End; }
+    const Iterator beginRange() const { return Begin; }
+    const Iterator endRange() const { return End; }
+    Iterator beginRange() { return Begin; }
+    Iterator endRange() { return End; }
     size_t sizeRange() const { return End - Begin; }
   
   public:

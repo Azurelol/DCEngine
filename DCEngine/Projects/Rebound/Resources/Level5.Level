@@ -1876,13 +1876,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -2090,6 +2094,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -2250,6 +2257,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -2410,6 +2420,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -4146,9 +4159,13 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 0.000000
+            "ShieldVelocityDifferenceThreshold": 0.000000, 
+            "ShieldActivationSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -4235,6 +4252,36 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+                "ShieldReflectionForce": 100000.000000
               }
             }, 
             "Children": 
@@ -4331,9 +4378,13 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 0.000000
+            "ShieldVelocityDifferenceThreshold": 0.000000, 
+            "ShieldActivationSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -4420,6 +4471,36 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+                "ShieldReflectionForce": 100000.000000
               }
             }, 
             "Children": 
@@ -5074,13 +5155,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -5201,13 +5286,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -5323,6 +5412,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5483,6 +5575,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5643,6 +5738,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5803,6 +5901,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -5963,6 +6064,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -6123,6 +6227,9 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 

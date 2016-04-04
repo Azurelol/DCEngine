@@ -45,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 171.951004, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
@@ -261,7 +262,13 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "PlayerRun", 
-            "AutoPlayTimer": 2.000000
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "LandSound": "Land", 
+            "FootstepSound": "Step", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -269,6 +276,7 @@
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
+            "Diffuse": false, 
             "Type": "Ambient", 
             "Color": 
             {
@@ -353,7 +361,7 @@
             "SpriteSource": "square", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": true, 
+            "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 

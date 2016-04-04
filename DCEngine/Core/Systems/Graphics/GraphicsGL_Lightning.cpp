@@ -90,12 +90,11 @@ namespace DCEngine {
 		void GraphicsGL::PreRender(Components::Camera * camera)
 		{
       SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
-			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LESS);
-			glDisable(GL_BLEND);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			
@@ -103,6 +102,20 @@ namespace DCEngine {
 			glDrawBuffers(3, attachments);
 
 			RenderObjects(camera);
+
+			for (unsigned i = 0; i < 3; ++i)
+			{
+				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+				glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+				glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBlitFramebuffer(
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					GL_COLOR_BUFFER_BIT, GL_NEAREST);
+			}
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glDrawBuffers(3, attachments);
 		}
 
 		void GraphicsGL::RenderLights(Components::Light * light)
@@ -185,23 +198,24 @@ namespace DCEngine {
 			glDrawBuffer(GL_COLOR_ATTACHMENT3);
 
 			glBegin(GL_TRIANGLE_FAN);
-			glVertex4f(-1, -1, 0, 0);
-			glVertex4f( 1, -1, 1, 0);
-			glVertex4f( 1,  1, 1, 1);
-			glVertex4f(-1,  1, 0, 1);
+			glVertex4f(-1,-1, 0, 0);
+			glVertex4f( 1,-1, 1, 0);
+			glVertex4f( 1, 1, 1, 1);
+			glVertex4f(-1, 1, 0, 1);
 			glEnd();
 
 			glClear(GL_STENCIL_BUFFER_BIT);
 			glDisable(GL_STENCIL_TEST);
 		}
 
-		void GraphicsGL::RenderScene(float exposure)
+		void GraphicsGL::RenderScene(float exposure, bool lit)
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDrawBuffer(GL_FRONT);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glDisable(GL_BLEND);
 			FinalRenderShader->Use();
+			FinalRenderShader->SetInteger("useLight", lit);
 			FinalRenderShader->SetFloat("Exposure", exposure);
 
 			FinalRenderShader->SetInteger("LightedFrag", 0);
@@ -209,9 +223,9 @@ namespace DCEngine {
 			glBindTexture(GL_TEXTURE_2D, FinalColor);
 
 			glBegin(GL_TRIANGLE_FAN);
-			glVertex4f(-1, -1, 0, 0);
-			glVertex4f(1, -1, 1, 0);
-			glVertex4f(1, 1, 1, 1);
+			glVertex4f(-1,-1, 0, 0);
+			glVertex4f( 1,-1, 1, 0);
+			glVertex4f( 1, 1, 1, 1);
 			glVertex4f(-1, 1, 0, 1);
 			glEnd();
 		}

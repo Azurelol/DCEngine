@@ -6428,13 +6428,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -6826,9 +6830,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -6985,9 +6993,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -7144,9 +7156,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -7395,9 +7411,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -7830,9 +7850,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -7989,9 +8013,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -8153,13 +8181,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -8275,9 +8307,13 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
+            "IsAggressive": false, 
             "JumpStrengthX": 5.599995, 
             "JumpStrengthY": 4.100003, 
             "JumpPeriod": 0.500000, 
@@ -8439,13 +8475,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -8658,13 +8698,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -8785,13 +8829,17 @@
           "Sentinel": 
           {
             "PlayerName": "Player", 
+            "StartingHealth": 0, 
+            "MaxHealth": 0, 
+            "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
             "ShieldRadius": 0.000000, 
             "ShieldBashDistance": 0.000000, 
             "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000
+            "ShieldBashInTime": 0.000000, 
+            "ShieldBashCooldown": 0.000000
           }
         }, 
         "Children": 
@@ -8883,7 +8931,27 @@
           }, 
           "PowerField": 
           {
-            "PowerTarget": ""
+            "PowerTarget": "", 
+            "PoweredColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }
           }
         }, 
         "Children": 

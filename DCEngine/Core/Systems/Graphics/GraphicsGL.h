@@ -63,9 +63,6 @@ namespace DCEngine {
       // Sprites
       void ConfigureSpriteVAO();      
       void SetSpriteShader(Components::Camera& camera, Components::Light* light);
-      //void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
-	    //void AnimationUpdate(Components::Sprite& sprite, float dt);
-	    //int IsNextFrame(Components::Sprite& sprite);
       // SpriteText
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Components::Camera& camera);
@@ -99,7 +96,7 @@ namespace DCEngine {
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void PreRender(Components::Camera* camera);
 			void RenderLights(Components::Light* light = 0);
-			void RenderScene(float exposure);
+			void RenderScene(float exposure, bool lit);
       void DrawDebug();
       
     private:
@@ -107,7 +104,8 @@ namespace DCEngine {
       ShaderPtr FinalRenderShader, DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
-			GLuint FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+			GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;
       OpenGLStateData GLState;

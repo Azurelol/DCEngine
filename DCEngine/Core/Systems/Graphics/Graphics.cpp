@@ -100,16 +100,22 @@ namespace DCEngine {
 				GraphicsHandler->PreRender(camera);
 
 				if (!lightComponents.empty())
+				{
 					for (const auto& light : lightComponents)
 					{
 						if (light->getCastShadows())
 							GraphicsHandler->RenderShadows(camera, light);
 						GraphicsHandler->RenderLights(light);
 					}
+					GraphicsHandler->RenderScene(camera->getExposure(), true);
+				}
 				else
+				{
 					GraphicsHandler->RenderLights(0);
+					GraphicsHandler->RenderScene(camera->getExposure(), false);
+				}
 				
-				GraphicsHandler->RenderScene(camera->getExposure());
+				
 
 				DrawDebug(camera);
 

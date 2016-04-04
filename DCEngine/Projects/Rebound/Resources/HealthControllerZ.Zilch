@@ -1,21 +1,28 @@
 class DeathEvent : ZilchEvent {}
 
-class HealthControler : ZilchComponent
+class HealthControllerZ : ZilchComponent
 {
     [Property] var MaxHealth : Real = 0;
     [Property] var  StartingHealth : Real = 0;
     [Property] var  IsInvulnerable : Boolean = false;
+	[Property] var  InvTime : Real = 0;
+	var CurrentTime : Real = 0;
 
     var  Health : Real = 0;
 
     function Initialize()
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-		Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
     }
 
     function OnLogicUpdate(event : LogicUpdate)
     {
+      if(this.CurrentTime  > 0)
+      {
+        this.CurrentTime -= event.Dt;
+      }
+      
     }
 
 	function OnKeyDownEvent(event : KeyDown) {
@@ -27,6 +34,12 @@ class HealthControler : ZilchComponent
 	}
     function ModifyHealth(amount : Real) : Boolean
     {
+      if(this.CurrentTime  > 0)
+      {
+        return false;
+      }
+      
+      this.CurrentTime = this.InvTime;
       var oldHealth = this.Health;
 
       if (!this.IsInvulnerable)
