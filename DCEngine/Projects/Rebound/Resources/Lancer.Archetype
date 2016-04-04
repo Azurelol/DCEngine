@@ -206,29 +206,6 @@
           "LancerShield": 
           {
             "ShieldReflectionForce": 100000.000000
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
           }
         }, 
         "Children": 

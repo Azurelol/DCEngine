@@ -1,0 +1,20 @@
+class FinalBossHealth : ZilchComponent
+{
+    [Property]
+    var DamageValue : Real = 0;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStartedEvent);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+    
+    function OnCollisionStartedEvent(event : CollisionStarted)
+    {
+      
+    }
+}
