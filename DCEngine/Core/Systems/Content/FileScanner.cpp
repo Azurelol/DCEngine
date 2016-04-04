@@ -63,7 +63,7 @@ namespace DCEngine {
     /**************************************************************************/
     void FileScanner::OnWindowFocusGainedEvent(Events::WindowGainedFocus * event)
     {
-      Scan();
+      //Scan();
     }
 
     /**************************************************************************/
@@ -73,7 +73,7 @@ namespace DCEngine {
     /**************************************************************************/
     void FileScanner::OnWindowLostFocusEvent(Events::WindowLostFocus * event)
     {
-      Scan();
+      //Scan();
     }
     /**************************************************************************/
     /*!

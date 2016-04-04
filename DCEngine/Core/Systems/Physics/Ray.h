@@ -1,6 +1,6 @@
 #pragma once
 
-#include"../../Components/PhysicsSpace.h"
+//#include"../../Components/PhysicsSpace.h"
 
 namespace DCEngine {
 

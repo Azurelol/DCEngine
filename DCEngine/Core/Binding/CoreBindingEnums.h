@@ -24,6 +24,7 @@
 
 ZilchDeclareExternalBaseType(DCEngine::Direction, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::Keys, Zilch::TypeCopyMode::Enum::ValueType);
+ZilchDeclareExternalBaseType(DCEngine::StopMode, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::MouseButton, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::MouseWheelScrollDirection, Zilch::TypeCopyMode::Enum::ValueType);
 ZilchDeclareExternalBaseType(DCEngine::Ease, Zilch::TypeCopyMode::Enum::ValueType);

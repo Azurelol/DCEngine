@@ -68,6 +68,11 @@ namespace DCEngine {
     Right,
   };
 
+  enum class StopMode {
+    Immediate,
+    AllowFadeOut
+  };
+
   enum class Keys {
     None,
     Tilde,

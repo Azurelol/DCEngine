@@ -33,11 +33,10 @@ namespace DCEngine {
         DCE_DEFINE_PROPERTY(Boolean, Pause);
 
         void PlayCueAt(std::string soundCueName);
-        SoundInstancePtr PlayCue(std::string soundCueName);
-        SoundInstancePtr PlayCue(SoundCuePtr soundCue);
-        SoundInstanceHandle PlayCueByHandle(std::string);
+        SoundInstanceWeakPtr PlayCue(std::string soundCueName);
+        SoundInstanceWeakPtr PlayCue(SoundCuePtr soundCue);
+        SoundInstanceWeakPtr PlayCueByHandle(std::string);
         static void ZilchPlayCue(Zilch::Call& call, Zilch::ExceptionReport& report);
-
 
         SoundSpace::SoundSpace(Entity & owner);
         void Initialize();

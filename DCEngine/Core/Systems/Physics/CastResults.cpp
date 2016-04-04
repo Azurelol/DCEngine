@@ -10,6 +10,9 @@
 /******************************************************************************/
 #include "PhysicsCasting.h"
 
+#include "Physics.h"
+#include "../../Components/Transform.h"
+
 namespace DCEngine {
 
   ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
