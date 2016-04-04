@@ -57,5 +57,27 @@ class UIManager : ZilchComponent
     function OnButtonClicked(button : Entity)
     {
     	Console.WriteLine("Clicked on `button.Name`");
+
+    	if(button.Name == "NewGameButton")
+    	{
+    		this.Space.LoadLevel("Level1");
+    	}
+    	else if(button.Name == "HowToPlayButton")
+    	{
+    		this.Space.LoadLevel("HowToPlay");
+    	}
+    	else if(button.Name == "OptionsButton")
+    	{
+    		Console.WriteLine("WE NEED AN OPTIONS LEVEL!");
+    		//this.Space.LoadLevel("Level1");
+    	}
+    	else if(button.Name == "CreditsButton")
+    	{
+    		this.Space.LoadLevel("CreditsLevel");
+    	}
+    	else if(button.Name == "QuitGameButton")
+    	{
+    		Console.WriteLine("NEED TO HOOK UP CONFIRMATION");
+    	}
     }
 }
