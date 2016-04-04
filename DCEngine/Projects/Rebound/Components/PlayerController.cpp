@@ -472,7 +472,7 @@ namespace DCEngine {
 	  Boolean PlayerController::CheckForGround()
 	  {
 		  DCEngine::CastFilter filter;
-		  filter.CollisionGroups.push_back(CollisionGroup("Terrain"));
+		  filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
 		  filter.Include = true;
 		  auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
 		  DCEngine::Ray ray;

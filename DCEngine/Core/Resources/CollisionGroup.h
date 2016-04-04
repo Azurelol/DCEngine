@@ -15,6 +15,7 @@ namespace DCEngine {
 
   class CollisionGroup;
   using CollisionGroupHandle = std::string;
+  using CollisionGroupWeakPtr = CollisionGroup*;
   using CollisionGroupPtr = std::shared_ptr<CollisionGroup>;
 
   class CollisionGroup : public Resource {
@@ -24,7 +25,7 @@ namespace DCEngine {
     CollisionGroup(std::string name);
     ~CollisionGroup() {}
     static std::string Extension() { return ".CollisionGroup"; }
-    static CollisionGroupPtr Find(std::string);
+    static CollisionGroupWeakPtr Find(std::string);
 
     CollisionGroup &operator=(const CollisionGroup & rhs);
 

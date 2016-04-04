@@ -180,6 +180,7 @@ namespace DCEngine {
                                                                report, Zilch::HeapFlags::ReferenceCounted);
       // Dereference it so we can use it
       auto instance = reinterpret_cast<SoundInstance*>(instanceHandle.Dereference());
+      instance->setObjectName(soundCueName);
       // Pulls the data from the SoundCue and save it on the instance.
       instance->Type = soundCue->Type;
       // Copy the Playback settings

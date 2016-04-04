@@ -236,10 +236,10 @@ namespace DCEngine {
       SelectedObjects.clear();
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Deselect();
-	    // Deselect Archetypes
-	    //Archetypes.Deselect();
+      // Deselect Archetypes
+      //Archetypes.Deselect();
       DispatchSystemEvents::EditorDeselectObject();
-	  
+    
     }
 
     /**************************************************************************/

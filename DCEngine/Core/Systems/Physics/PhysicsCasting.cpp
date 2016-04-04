@@ -71,6 +71,7 @@ namespace DCEngine
   }
   ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
     ZilchBindConstructor(builder, type, CastFilter, ZilchNoNames);
+    ZilchBindField(builder, type, &CastFilter::CollisionGroup, "CollisionGroup", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::CollisionGroups, "CollisionGroups", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::Include, "Include", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::IgnoreStatic, "IgnoreStatic", Zilch::PropertyBinding::GetSet);
@@ -82,7 +83,7 @@ namespace DCEngine
   CastResultVector& CastResultVector::operator= (const CastResultVector& ref)
   {
     list = ref.list;
-		return *this;
+    return *this;
   }
 
   unsigned CastResultVector::size()
@@ -166,21 +167,21 @@ namespace DCEngine
   }
   CollisionGroup& CollisionVector::operator[] (unsigned n)
   {
-    return list[n];
+    return *list[n];
   }
   CollisionGroup& CollisionVector::at(unsigned n)
   {
-    return list.at(n);
+    return *list.at(n);
   }
   CollisionGroup& CollisionVector::front()
   {
-    return list.front();
+    return *list.front();
   }
   CollisionGroup& CollisionVector::back()
   {
-    return list.back();
+    return *list.back();
   }
-  void CollisionVector::push_back(const CollisionGroup& val)
+  void CollisionVector::push_back(CollisionGroup* val)
   {
     list.push_back(val);
   }
@@ -188,7 +189,7 @@ namespace DCEngine
   {
     list.pop_back();
   }
-  void CollisionVector::insert(unsigned position, const CollisionGroup& val)
+  void CollisionVector::insert(unsigned position, CollisionGroup* val)
   {
     list[position] = val;
   }
@@ -265,6 +266,9 @@ namespace DCEngine
     /**************************************************************************/
     CastResult Physics::CastRay(Ray & ray, CastFilter & filter, Components::PhysicsSpace *Space)
     {
+      // Hack: Adding the single collision group to
+      filter.CollisionGroups.push_back(filter.CollisionGroup);
+
       CastResult retval;
 
       retval.Distance = FLT_MAX;

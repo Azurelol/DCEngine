@@ -250,58 +250,19 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "PlayerController": 
+          "ZPlayerController": 
           {
-            "MoveSpeed": 0.700000, 
-            "JumpPower": 60.000000, 
+            "MoveSpeed": 0.350000, 
+            "JumpPower": 8.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
-            "RunAnimation": "PlayerRun", 
-            "AutoPlayTimer": 2.000000, 
-            "TeleportStartSound": "Teleport", 
-            "TeleportArriveSound": "TeleportArrive", 
-            "JumpSound": "Jump", 
-            "LandSound": "Land", 
-            "FootstepSound": "Step", 
-            "CollideSound": "Collide"
-          }, 
-          "Light": 
-          {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": true, 
-            "Diffuse": false, 
-            "Type": "Ambient", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 5.000000, 
-            "Range": 29.200035, 
-            "Falloff": 0.100000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": -2.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.600000, 
-            "OuterAngle": 0.800000
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000
           }
         }, 
         "Children": 

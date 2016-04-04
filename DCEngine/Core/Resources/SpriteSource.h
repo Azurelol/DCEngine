@@ -23,6 +23,7 @@
 namespace DCEngine {
 
   class SpriteSource;
+  using SpriteSourceRawPtr = SpriteSource*;
   using SpriteSourcePtr = std::shared_ptr<SpriteSource>;
 
   class SpriteSource : public Resource {
@@ -48,7 +49,7 @@ namespace DCEngine {
     //Animation    
     int ColumnCount = 1;
     int RowCount = 1;
-	  int TotalFrame = 1;
+    int TotalFrame = 1;
     bool Smoothing = false;
     bool Looping = false;
     bool Fill = false; // Should be enum
@@ -62,10 +63,10 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(bool, Smoothing);
     DCE_DEFINE_PROPERTY(bool, Looping);
     DCE_DEFINE_PROPERTY(bool, Fill);
-	  DCE_DEFINE_PROPERTY(int, TotalFrame);
+    DCE_DEFINE_PROPERTY(int, TotalFrame);
 
     // Methods
-    static SpriteSourcePtr Find(std::string);
+    static SpriteSourceRawPtr Find(std::string);
     SpriteSource(std::string spriteFile);
     static std::string Extension() { return ".SpriteSource"; }
     void LoadTexture();    

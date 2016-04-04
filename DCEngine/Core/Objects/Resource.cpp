@@ -21,6 +21,20 @@ even if the name of the resource is changed.
 
 namespace DCEngine {
 
+
+  /*!************************************************************************\
+  @brief  Resource Definition
+  \**************************************************************************/
+  ZilchDefineType(Resource, "Resource", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, Resource, "type, name, resourcePath", std::string, std::string, std::string);
+    ZilchBindDestructor(builder, type, Resource);
+    // Properties
+    DCE_BINDING_DEFINE_PROPERTY(Resource, ResourcePath);
+
+  }
+
   /**************************************************************************/
   /*!
   @brief  Resource constructor.

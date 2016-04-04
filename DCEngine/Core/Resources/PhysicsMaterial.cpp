@@ -18,21 +18,30 @@ namespace DCEngine {
   @brief Provides the definition of this class to Zilch for reflection.
   */
   /**************************************************************************/
-  #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(PhysicsMaterial, "PhysicsMaterial", DCEngineCore, builder, type) {
     DCE_BINDING_DEFINE_PROPERTY(PhysicsMaterial, Density);
     DCE_BINDING_DEFINE_PROPERTY(PhysicsMaterial, Restitution);
     DCE_BINDING_DEFINE_PROPERTY(PhysicsMaterial, Friction);
+    ZilchBindMethod(builder, type, &PhysicsMaterial::Find, ZilchNoOverload, "Find", ZilchNoNames);
   }
-  #endif
 
+  /**************************************************************************/
+  /*!
+  @brief PhysicsMaterial constructor.
+  */
+  /**************************************************************************/
   PhysicsMaterial::PhysicsMaterial(std::string physicsMaterialFile) : Resource("PhysicsMaterial", 
                                    FileSystem::FileNoExtension(physicsMaterialFile), physicsMaterialFile), Restitution(0)
   {
   }
 
-  PhysicsMaterialPtr PhysicsMaterial::Find(std::string name)
+  /**************************************************************************/
+  /*!
+  @brief Finds a given PhysicsMaterial.
+  */
+  /**************************************************************************/
+  PhysicsMaterialRawPtr PhysicsMaterial::Find(std::string name)
   {
-    return Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(name);
+    return Daisy->getSystem<Systems::Content>()->getPhysicsMaterial(name).get();
   }
 }

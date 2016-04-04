@@ -16,6 +16,14 @@
 				"selected_items":
 				[
 					[
+						"Check",
+						"CheckForGround"
+					],
+					[
+						"Collison",
+						"CollisionEnded"
+					],
+					[
 						"On",
 						"OnButtonClicked"
 					],
@@ -110,6 +118,14 @@
 						"buffer_size": 1079,
 						"line_ending": "Windows"
 					}
+				},
+				{
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+					"settings":
+					{
+						"buffer_size": 10500,
+						"line_ending": "Windows"
+					}
 				}
 			],
 			"build_system": "",
@@ -161,7 +177,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -175,6 +191,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"CheckForGround"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -192,7 +209,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
@@ -208,8 +225,8 @@
 								"selection":
 								[
 									[
-										536,
-										536
+										394,
+										394
 									]
 								],
 								"settings":
@@ -220,6 +237,35 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 10500,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										8198,
+										8198
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 4811.0,
+								"zoom_level": 1.0
+							},
 							"stack_index": 0,
 							"type": "text"
 						}
@@ -228,7 +274,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -262,11 +308,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,936,-1466,93,-166",
+			"position": "0,0,1,-32000,-32000,-1,-1,936,-1466,93,-166",
 			"project": "",
 			"replace":
 			{
-				"height": 0.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":
