@@ -44,7 +44,7 @@ namespace DCEngine {
 			glewExperimental = GL_TRUE;
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+			glEnable(GL_MULTISAMPLE);
 			// If OpenGL failed to initialize...
 			if (glewInit() != GLEW_OK) {
 				DCTrace << "Failed to initialize GLEW \n";
@@ -93,10 +93,9 @@ namespace DCEngine {
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
 			glDrawBuffers(4, attachments);
-			//if (Settings.LightningEnabled)
-			//	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			//else
-			//	glClearColor(Settings.ClearColor.x, Settings.ClearColor.y, Settings.ClearColor.z, Settings.ClearColor.w);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
+			glDrawBuffers(4, attachments);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}
 
