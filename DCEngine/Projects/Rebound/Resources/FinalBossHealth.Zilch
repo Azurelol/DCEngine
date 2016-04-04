@@ -11,9 +11,21 @@ class FinalBossHealth : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
+      if(this.Owner.HealthControllerZ.Health <= 0)
+      {
+        this.Die();
+      }
     }
     
     function OnCollisionStartedEvent(event : CollisionStarted)
+    {
+      if(event.OtherObject.BallController != null)
+      {
+        this.Owner.HealthControllerZ.ModifyHealth(this.DamageValue);
+      }
+    }
+    
+    function Die()
     {
       
     }

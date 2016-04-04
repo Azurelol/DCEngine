@@ -20,7 +20,7 @@ and so on.
 #include "../../Components/Transform.h"
 namespace DCEngine
 {
-
+  CastFilter *MakeCastFilter(void);
 
 #if(DCE_USE_ZILCH_INTERNAL_BINDING)
   ZilchDefineType(CastResultVector, "CastResultVector", DCEngineCore, builder, type) {
@@ -70,6 +70,7 @@ namespace DCEngine
     ZilchBindField(builder, type, &CastResult::WorldPosition, "WorldPosition", Zilch::PropertyBinding::GetSet);
   }
   ZilchDefineType(CastFilter, "CastFilter", DCEngineCore, builder, type) {
+    ZilchBindMethod(builder, type, &MakeCastFilter, ZilchNoOverload, "MakeCastFilter", ZilchNoNames);
     ZilchBindConstructor(builder, type, CastFilter, ZilchNoNames);
     ZilchBindField(builder, type, &CastFilter::CollisionGroup, "CollisionGroup", Zilch::PropertyBinding::GetSet);
     ZilchBindField(builder, type, &CastFilter::CollisionGroups, "CollisionGroups", Zilch::PropertyBinding::GetSet);
@@ -196,6 +197,16 @@ namespace DCEngine
   void CollisionVector::clear()
   {
     list.clear();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief help function for zilch to make a cast filter.
+  */
+  /**************************************************************************/
+  CastFilter *MakeCastFilter(void)
+  {
+    return new CastFilter;
   }
 
   namespace Systems 
