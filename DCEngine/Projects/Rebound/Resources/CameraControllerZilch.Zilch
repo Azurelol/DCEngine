@@ -42,6 +42,7 @@ class CameraControllerZilch : ZilchComponent
                                                                                  0);
         }
         var targetPos = this.Player.Transform.Translation - this.Owner.Transform.Translation;
+		targetPos += Real3(this.Player.RigidBody.Velocity.X / 3, 0, 0);
 		targetPos = Real3(targetPos.XY, 0);
         targetPos += this.Offset;
         this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;
