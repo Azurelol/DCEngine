@@ -95,6 +95,36 @@ namespace DCEngine {
       delete event;
     }
 
+    void DispatchSystemEvents::WindowResize(const Vec2 & dimensions)
+    {
+      auto event = new Events::WindowResize;
+      event->Dimensions = dimensions;
+      Daisy->Dispatch<Events::WindowResize>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::WindowFullScreenToggle(bool toggled)
+    {
+      auto event = new Events::WindowFullScreenToggle();
+      event->Enabled = toggled;
+      Daisy->Dispatch<Events::WindowFullScreenToggle>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::WindowFullScreenEnabled()
+    {
+      auto event = new Events::WindowFullScreenEnabled();
+      Daisy->Dispatch<Events::WindowFullScreenEnabled>(event);
+      delete event;
+    }
+
+    void DispatchSystemEvents::WindowFullScreenDisabled()
+    {
+      auto event = new Events::WindowFullScreenDisabled();
+      Daisy->Dispatch<Events::WindowFullScreenDisabled>(event);
+      delete event;
+    }
+
     void DispatchSystemEvents::WindowLostFocus()
     {
       auto event = new Events::WindowLostFocus();

@@ -186,7 +186,10 @@ namespace DCEngine
     CastResult Physics::CastRay(Ray & ray, CastFilter & filter, Components::PhysicsSpace *Space)
     {
       // Hack: Adding the single collision group to
-      filter.CollisionGroups.push_back(filter.CollisionGroup);
+      if (filter.CollisionGroup != nullptr)
+      {
+        filter.CollisionGroups.push_back((filter.CollisionGroup));
+      }
 
       CastResult retval;
 

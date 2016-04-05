@@ -466,8 +466,8 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "SafetyMedium", 
-            "FontSize": 5, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 4, 
             "Text": "So sorry", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 

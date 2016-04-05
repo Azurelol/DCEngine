@@ -69,6 +69,16 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    \brief  Update.
+    */
+    /**************************************************************************/
+    void DispatchResize(sf::Event& event) {
+      Vec2 newSize(event.size.width, event.size.height);
+      DispatchSystemEvents::WindowResize(newSize);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Polls for all input events..
     @todo   Currently intruded upon by ImGui input code.
     */
@@ -113,6 +123,10 @@ namespace DCEngine {
         PollTextEntered(_event);
         break;
 
+      case sf::Event::Resized:
+        DispatchResize(_event);
+        break;
+
       // KEYS: alt+tab, ctrl+alt+delete
       case sf::Event::LostFocus:
         if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
@@ -132,6 +146,7 @@ namespace DCEngine {
 
       // Gained focus
       case sf::Event::GainedFocus:
+        
         ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
         DispatchSystemEvents::WindowGainedFocus();
         break;

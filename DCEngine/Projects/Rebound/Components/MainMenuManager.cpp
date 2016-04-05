@@ -131,9 +131,9 @@ namespace DCEngine {
     {
       if (DisplayConfirmationActive)
         return;
-      DCTrace << "MainMenuManager::OnFullScreenSwitch \n";
-      auto fsevent = new Events::FullscreenEnabledEvent();
-      Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
+      DCTrace << "MainMenuManager::OnFullScreenSwitch \n";      
+      auto fsevent = new Events::WindowFullScreenToggle();      
+      Daisy->Dispatch<Events::WindowFullScreenToggle>(fsevent);
       delete fsevent;
     }
 

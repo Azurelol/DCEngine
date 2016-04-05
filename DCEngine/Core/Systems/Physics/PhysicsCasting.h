@@ -57,7 +57,7 @@ namespace DCEngine {
   struct CastFilter {
     ZilchDeclareBaseType(CastFilter, Zilch::TypeCopyMode::ReferenceType);
     bool Include = false;
-    CollisionGroup* CollisionGroup;
+    CollisionGroup* CollisionGroup = nullptr;
     CollisionVector CollisionGroups;
     bool IgnoreStatic = false;
     bool IgnoreDynamic = false;
