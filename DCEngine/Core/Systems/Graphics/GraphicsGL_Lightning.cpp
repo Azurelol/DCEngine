@@ -77,7 +77,7 @@ namespace DCEngine {
 
 			glEnable(GL_DEPTH_CLAMP);
 			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LESS);
+			glDepthFunc(GL_NOTEQUAL);
 			glDepthMask(GL_FALSE);
 			glDisable(GL_CULL_FACE);
 			glDrawBuffer(GL_NONE);
