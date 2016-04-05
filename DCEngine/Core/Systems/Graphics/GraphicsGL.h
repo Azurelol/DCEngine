@@ -67,7 +67,6 @@ namespace DCEngine {
       // SpriteText
       void ConfigureSpriteTextVAO();
       void SetSpriteTextShader(Components::Camera& camera);
-      //void DrawSpriteText(DCEngine::Components::SpriteText& st, DCEngine::Components::Camera& camera);
 			// Particle System
 			void ConfigureParticleBuffers();
 			void SetParticleSystemShader(Components::Camera& camera);

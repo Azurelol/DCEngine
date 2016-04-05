@@ -185,9 +185,7 @@ namespace DCEngine {
 			}
 			else silhouette = true;
 			shader->Use();
-
-			shader->SetInteger("isTexture", true);
-
+			shader->SetInteger("isTexture", 1);
 			//set matrix uniforms
 			auto transform = TransformComponent;
 			glm::mat4 modelMatrix;

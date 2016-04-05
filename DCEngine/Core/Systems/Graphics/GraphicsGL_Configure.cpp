@@ -42,7 +42,7 @@ namespace DCEngine {
 			// - Color + Specular color buffer
 			glGenTextures(1, &ColorTexture);
 			glBindTexture(GL_TEXTURE_2D, ColorTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGBA, GL_FLOAT, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Settings.ScreenWidth, Settings.ScreenHeight, 0, GL_RGBA, GL_FLOAT, NULL);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, ColorTexture, 0);
@@ -88,7 +88,7 @@ namespace DCEngine {
 			// - Color + Specular color buffer
 			glGenTextures(1, &msColorTexture);
 			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msColorTexture);
-			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F,
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA,
 				Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D_MULTISAMPLE,
 				msColorTexture, 0);
