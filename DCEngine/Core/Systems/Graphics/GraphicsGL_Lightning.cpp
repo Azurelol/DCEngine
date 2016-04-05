@@ -15,23 +15,6 @@
 namespace DCEngine {
   namespace Systems {
 
-		void GraphicsGL::RenderDepths(Components::Camera * camera)
-		{
-			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LESS);
-			glDrawBuffer(GL_NONE);
-			for (const auto& drawList : *mDrawList)
-				for (const auto& obj : drawList)
-					if (dynamic_cast<Components::Sprite*>(obj))
-						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
-						{
-							obj->SetUniforms(0, camera, 0);
-							obj->Draw();
-						}
-			glDisable(GL_DEPTH_TEST);
-			glDrawBuffer(GL_FRONT);
-		}
-
     void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
     {
       SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);

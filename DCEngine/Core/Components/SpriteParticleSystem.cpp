@@ -202,6 +202,8 @@ namespace DCEngine {
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
 			src->getTexture().Bind();
 
+			mShader->SetVector4f("spriteColor", Tint);
+
 			// Set the projection matrix
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			// Set the view matrix 

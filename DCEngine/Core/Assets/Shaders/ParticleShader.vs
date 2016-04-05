@@ -12,7 +12,6 @@ uniform float CutMaxX;
 uniform float CutMaxY;
 
 out vec2 TexCoords; 
-out vec4 fragColor;
 out vec3 WorldCoord;
 
 void main()
@@ -38,6 +37,5 @@ void main()
 
 	vec4 temp = model * vec4(vertex.xy, 0, 1);
 	WorldCoord = temp.xyz;
-	fragColor = color;
 	gl_Position = projection * view * temp;
 }
