@@ -148,6 +148,7 @@ namespace DCEngine {
       // Load every Font
       for (auto& font : FontMap) {
         font.second->Load();
+        font.second->Add();
       }
 
       //// Load every script..
