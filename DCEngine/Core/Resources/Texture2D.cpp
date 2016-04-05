@@ -16,7 +16,7 @@ namespace DCEngine {
 
   Texture2D::Texture2D(std::string& imageFile) : /* Resource(imageFile), */ 
                        Width(0), Height(0), InternalFormat(GL_RGB), ImageFormat(GL_RGB),
-                       Wrap_S(GL_REPEAT), Wrap_T(GL_REPEAT), FilterMin(GL_LINEAR_MIPMAP_LINEAR),
+                       Wrap_S(GL_CLAMP_TO_EDGE), Wrap_T(GL_CLAMP_TO_EDGE), FilterMin(GL_LINEAR_MIPMAP_LINEAR),
                        FilterMax(GL_LINEAR)
   {
    
