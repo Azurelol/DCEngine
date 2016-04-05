@@ -202,7 +202,7 @@
             "VisibilityEvents": false, 
             "CastShadows": true, 
             "Diffuse": false, 
-            "Type": "Ambient", 
+            "Type": "Point", 
             "Color": 
             {
               "Vec4": 
@@ -213,9 +213,9 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 1.000000, 
-            "Range": 20.000000, 
-            "Falloff": 0.100000, 
+            "Intensity": 3.013000, 
+            "Range": 200.000015, 
+            "Falloff": 0.635000, 
             "DirectionVector": 
             {
               "Vec3": 

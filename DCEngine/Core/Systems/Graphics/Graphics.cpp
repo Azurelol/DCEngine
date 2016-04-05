@@ -114,8 +114,6 @@ namespace DCEngine {
 					GraphicsHandler->RenderLights(0);
 					GraphicsHandler->RenderScene(camera->getExposure(), false);
 				}
-				
-				
 
 				DrawDebug(camera);
 

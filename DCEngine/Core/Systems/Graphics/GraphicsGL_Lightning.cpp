@@ -15,40 +15,6 @@
 namespace DCEngine {
   namespace Systems {
 
-    void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
-    {
-      SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
-			glEnable(GL_STENCIL_TEST);
-			glClear(GL_STENCIL_BUFFER_BIT);
-
-			glEnable(GL_DEPTH_CLAMP);
-			glEnable(GL_DEPTH_TEST);
-			glDisable(GL_CULL_FACE);
-			glDepthFunc(GL_LESS);
-			glDepthMask(GL_FALSE);
-			glDrawBuffer(GL_NONE);
-			glStencilFunc(GL_ALWAYS, 0, 0xff);
-			
-			if (light->getVisibilityCulling())
-				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
-			else
-				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-
-			for (const auto& drawList : *mDrawList)
-				for (const auto& obj : drawList)
-					if (dynamic_cast<Components::Sprite*>(obj))
-						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
-						{
-							obj->SetUniforms(ShadowingShader, camera, light);
-							obj->Draw();
-						}
-
-			// Restore local stuff
-			glDepthMask(GL_TRUE);
-			glDrawBuffer(GL_FRONT);
-			glEnable(GL_CULL_FACE);
-			glDisable(GL_DEPTH_CLAMP);
-    }
 
     void GraphicsGL::RenderObjects(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
     {
@@ -60,14 +26,6 @@ namespace DCEngine {
 					obj->Draw();
 				}
 			}
-    }
-
-    void GraphicsGL::RenderBackground(ShaderPtr shader, Components::Camera * camera)
-    {
-    }
-
-    void GraphicsGL::RenderZ0Scene(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
-    {
     }
 
 		void GraphicsGL::PreRender(Components::Camera * camera)
@@ -97,12 +55,54 @@ namespace DCEngine {
 					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 					GL_COLOR_BUFFER_BIT, GL_NEAREST);
 			}
+			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+			glBlitFramebuffer(
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			glDrawBuffers(3, attachments);
 		}
 
+		void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
+		{
+			SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
+			glEnable(GL_STENCIL_TEST);
+			glClear(GL_STENCIL_BUFFER_BIT);
+
+			glEnable(GL_DEPTH_CLAMP);
+			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LESS);
+			glDepthMask(GL_FALSE);
+			glDisable(GL_CULL_FACE);
+			glDrawBuffer(GL_NONE);
+			glStencilFunc(GL_ALWAYS, 0, 0xff);
+
+			if (light->getVisibilityCulling())
+				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+			else
+				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+
+			for (const auto& drawList : *mDrawList)
+				for (const auto& obj : drawList)
+					if (dynamic_cast<Components::Sprite*>(obj))
+						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
+						{
+							obj->SetUniforms(ShadowingShader, camera, light);
+							obj->Draw();
+						}
+
+			// Restore local stuff
+			glDepthMask(GL_TRUE);
+			glDrawBuffer(GL_FRONT);
+			glEnable(GL_CULL_FACE);
+			glDisable(GL_DEPTH_CLAMP);
+		}
+
 		void GraphicsGL::RenderLights(Components::Light * light)
 		{
+			SystemMethodTimer timer("RenderLights", EnumeratedSystem::Graphics);
 			LightingShader->Use();
 			glDisable(GL_STENCIL_TEST);
 			if(light)
@@ -193,6 +193,7 @@ namespace DCEngine {
 
 		void GraphicsGL::RenderScene(float exposure, bool lit)
 		{
+			SystemMethodTimer timer("RenderScene", EnumeratedSystem::Graphics);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDrawBuffer(GL_FRONT);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
