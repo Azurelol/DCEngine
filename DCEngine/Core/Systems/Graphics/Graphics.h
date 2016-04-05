@@ -20,119 +20,120 @@ receives rendering requests and draws on the window.
 #include "../../Components/SpriteParticleSystem.h"
 
 namespace DCEngine {
-	class Engine;
+  class Engine;
 
-	class Camera;
-	class Sprite;
-	class SpriteText;
-	class DebugDrawObject;
+  class Camera;
+  class Sprite;
+  class SpriteText;
+  class DebugDrawObject;
 
-	namespace Systems {
-		class WindowSFML;
+  namespace Systems {
+    class WindowSFML;
 
-		class Graphics : public System {
-			friend class Engine;
-			friend class WindowSFML;
-			friend class GraphicsGL;
-		public:
+    class Graphics : public System {
+      friend class Engine;
+      friend class WindowSFML;
+      friend class GraphicsGL;
+    public:
       // Registration
-			void Register(Components::GraphicsSpace& graphicsSpace);
-			void Deregister(Components::GraphicsSpace& graphicsSpace);
+      void Register(Components::GraphicsSpace& graphicsSpace);
+      void Deregister(Components::GraphicsSpace& graphicsSpace);
       // Draw
-			void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
-			void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
-			void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera& cam, double dt);
-			//void DrawModel(Components::Model& model, Components::Camera& cam);
-			void DrawDebug(DebugDrawObject& debugDraw);
-			// DebugDraw
-			void DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill = false);
-			void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
-			void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
+      void DrawSprite(Components::Sprite& sprite, Components::Camera& camera, float dt);
+      void DrawSpriteText(Components::SpriteText& st, Components::Camera& cam);
+      void DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera& cam, double dt);
+      //void DrawModel(Components::Model& model, Components::Camera& cam);
+      void DrawDebug(DebugDrawObject& debugDraw);
+      // DebugDraw
+      void DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& cam, bool fill = false);
+      void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
+      void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
-		private:
+    private:
 
       GraphicsConfig& Settings;		
-			static std::unique_ptr<GraphicsGL> GraphicsHandler;
-			std::vector<Components::GraphicsSpace*> ActiveGraphicsSpaces;			
+      static std::unique_ptr<GraphicsGL> GraphicsHandler;
+      std::vector<Components::GraphicsSpace*> ActiveGraphicsSpaces;			
       // Matrixes
-			Mat4 ProjMatrix;
-			Mat4 ViewMatrix;
-			Mat4 ViewProjMatrix;		
-			// Base methods
-			void StartFrame();
-			void EndFrame();
-			void BackupState();
-			void RestoreState();
-			// Events
+      Mat4 ProjMatrix;
+      Mat4 ViewMatrix;
+      Mat4 ViewProjMatrix;		
+      // Base methods
+      void StartFrame();
+      void EndFrame();
+      void BackupState();
+      void RestoreState();
+      // Events
       void OnGraphicsCompileShadersEvent(Events::GraphicsCompileShaders* event);      
-			void OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent* event);
-			void OnResizeViewportEvent(Events::ResizeViewportEvent* event);
+      void OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled* event);
+      void OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled* event);
+      void OnWindowResizeEvent(Events::WindowResize* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
-			Graphics(GraphicsConfig& settings);
-			void Initialize();
-			void Subscribe();
-			//Main Methods
-			void Update(float dt);
-			void UpdateObjects(float dt);
-			void RenderShadows(Components::Camera* camera, Components::Light* light);
-			void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
-			void RenderBackground(ShaderPtr shader, Components::Camera* camera);
-			void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
-			void DrawDebug(Components::Camera* camera);
-			void Terminate();
+      Graphics(GraphicsConfig& settings);
+      void Initialize();
+      void Subscribe();
+      //Main Methods
+      void Update(float dt);
+      void UpdateObjects(float dt);
+      void RenderShadows(Components::Camera* camera, Components::Light* light);
+      void RenderScene(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
+      void RenderBackground(ShaderPtr shader, Components::Camera* camera);
+      void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
+      void DrawDebug(Components::Camera* camera);
+      void Terminate();
 
-			//2D draw list
-			//int TotalObjNumG = 0;
-			//int TotalObjTranspNumG = 0;
-			std::vector<std::vector<Components::Graphical*>> mDrawList;
-			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
+      //2D draw list
+      //int TotalObjNumG = 0;
+      //int TotalObjTranspNumG = 0;
+      std::vector<std::vector<Components::Graphical*>> mDrawList;
+      void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 
 
       /*============
        DEBUG OBJECT
       =============*/
-			class DebugObject
-			{
-			public:
-				DebugObject(const Vec4&, const Vec3&);
-				virtual void Draw(void) const = 0;
-			protected:
-				Vec4 color;
-				Vec3 position;
-			};
-			class DebugLine : public DebugObject
-			{
-			public:
-				DebugLine(const Vec4&, const Vec3&, const Vec3&);
-				virtual void Draw(void) const;
-			private:
-				Vec3 endPosition;
-			};
-			class DebugRectangle : public DebugObject
-			{
-			public:
-				DebugRectangle(const Vec4&, const Vec3&, const Vec2&, bool fill);
-				virtual void Draw(void) const;
-			private:
-				Vec2 scale;
-				bool fill;
-			};
-			class DebugCircle : public DebugObject
-			{
-			public:
-				DebugCircle(const Vec4&, const Vec3&, float);
-				virtual void Draw(void) const;
-			private:
-				float radius;
-			};
+      class DebugObject
+      {
+      public:
+        DebugObject(const Vec4&, const Vec3&);
+        virtual void Draw(void) const = 0;
+      protected:
+        Vec4 color;
+        Vec3 position;
+      };
+      class DebugLine : public DebugObject
+      {
+      public:
+        DebugLine(const Vec4&, const Vec3&, const Vec3&);
+        virtual void Draw(void) const;
+      private:
+        Vec3 endPosition;
+      };
+      class DebugRectangle : public DebugObject
+      {
+      public:
+        DebugRectangle(const Vec4&, const Vec3&, const Vec2&, bool fill);
+        virtual void Draw(void) const;
+      private:
+        Vec2 scale;
+        bool fill;
+      };
+      class DebugCircle : public DebugObject
+      {
+      public:
+        DebugCircle(const Vec4&, const Vec3&, float);
+        virtual void Draw(void) const;
+      private:
+        float radius;
+      };
       // Draw Lists
-			std::vector<DebugLine> mDebugLineList;
-			std::vector<DebugRectangle> mDebugRectangleList;
-			std::vector<DebugCircle> mDebugCircleList;
-		};
+      std::vector<DebugLine> mDebugLineList;
+      std::vector<DebugRectangle> mDebugRectangleList;
+      std::vector<DebugCircle> mDebugCircleList;
+    };
 
 
-	}
+  }
 
 }

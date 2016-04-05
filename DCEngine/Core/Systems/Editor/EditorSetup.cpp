@@ -67,16 +67,16 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::ApplyEditorWindowLayout()
     {
-      auto viewportResize = new Events::ResizeViewportEvent();
+      auto viewportResize = new Events::WindowResize();
       if (Settings.EditorEnabled) {
-        viewportResize->viewportScale.x = 1;
-        viewportResize->viewportScale.y = 1;
+        viewportResize->Dimensions.x = 1;
+        viewportResize->Dimensions.y = 1;
       }
       else {
-        viewportResize->viewportScale.x = Settings.ViewportResize.x;
-        viewportResize->viewportScale.y = Settings.ViewportResize.y;
+        viewportResize->Dimensions.x = Settings.ViewportResize.x;
+        viewportResize->Dimensions.y = Settings.ViewportResize.y;
       }
-      Daisy->Dispatch<Events::ResizeViewportEvent>(viewportResize);
+      Daisy->Dispatch<Events::WindowResize>(viewportResize);
       delete viewportResize;
     }
 

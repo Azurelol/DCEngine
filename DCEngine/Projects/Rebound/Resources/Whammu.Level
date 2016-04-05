@@ -135,7 +135,8 @@
             "Text": "HELLO SON", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
-            "WordWrap": 0
+            "WordWrap": 0, 
+            "DrawLayer": 0
           }
         }, 
         "Children": 

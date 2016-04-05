@@ -120,6 +120,14 @@
 					}
 				},
 				{
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+					"settings":
+					{
+						"buffer_size": 2003,
+						"line_ending": "Windows"
+					}
+				},
+				{
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 					"settings":
 					{
@@ -135,12 +143,16 @@
 			"build_varint": "",
 			"command_palette":
 			{
-				"height": 0.0,
-				"last_filter": "",
+				"height": 81.0,
+				"last_filter": "c++",
 				"selected_items":
 				[
+					[
+						"c++",
+						"Set Syntax: C++"
+					]
 				],
-				"width": 0.0
+				"width": 392.0
 			},
 			"console":
 			{
@@ -211,7 +223,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
@@ -239,11 +251,39 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 0,
+							"stack_index": 1,
 							"type": "text"
 						},
 						{
 							"buffer": 1,
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2003,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1556,
+										1556
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": -0.0,
+								"translation.y": 630.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
 							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 							"semi_transient": false,
 							"settings":
@@ -269,7 +309,7 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 2,
 							"type": "text"
 						}
 					]
@@ -311,7 +351,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,1027,2059,160,3359",
+			"position": "0,0,1,-32000,-32000,-1,-1,971,1999,104,3299",
 			"project": "",
 			"replace":
 			{

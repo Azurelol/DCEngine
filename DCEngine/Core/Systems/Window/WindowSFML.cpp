@@ -76,6 +76,7 @@ namespace DCEngine {
         WindowInterface.Settings.ScreenHeight = heightRecord;
         WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Default, ContextSettings);
+        DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
         widthRecord = WindowInterface.Settings.ScreenWidth;
@@ -84,6 +85,7 @@ namespace DCEngine {
         WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
         WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+        DispatchSystemEvents::WindowFullScreenEnabled();
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
@@ -116,12 +118,14 @@ namespace DCEngine {
           sf::VideoMode::getDesktopMode().height),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
         Mode = WindowMode::Fullscreen;
+        DispatchSystemEvents::WindowFullScreenEnabled();
       }
       // Or if it starts as windowed
       else {
         WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Default, ContextSettings));
         Mode = WindowMode::Default;
+        DispatchSystemEvents::WindowFullScreenDisabled();
       }
 
       WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
@@ -143,8 +147,6 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-
-      
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
       if (EventObj.type == sf::Event::Closed)
