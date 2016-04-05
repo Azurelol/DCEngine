@@ -1976,7 +1976,7 @@
           }, 
           "BasicController": 
           {
-            "JumpStrength": 24.000000, 
+            "JumpStrength": 28.000000, 
             "TopSpeed": 13.000000, 
             "Acceleration": 3.000000, 
             "DragFactor": 1.100000, 
