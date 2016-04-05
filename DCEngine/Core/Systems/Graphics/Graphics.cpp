@@ -15,223 +15,299 @@
 #include "../../Debug/DebugGraphics.h"
 
 namespace DCEngine {
-	namespace Systems {
+  namespace Systems {
 
-		std::unique_ptr<GraphicsGL> Graphics::GraphicsHandler;
+    std::unique_ptr<GraphicsGL> Graphics::GraphicsHandler;
 
-		/**************************************************************************/
-		/*!
-		\brief Default constructor for the Graphics System.
-		\note  It sets several values for the OpenGL interface...
-		*/
-		/**************************************************************************/
-		Graphics::Graphics(GraphicsConfig& settings) : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics), Settings(settings) {
+    /**************************************************************************/
+    /*!
+    \brief Default constructor for the Graphics System.
+    \note  It sets several values for the OpenGL interface...
+    */
+    /**************************************************************************/
+    Graphics::Graphics(GraphicsConfig& settings) : System(std::string("GraphicsSystem"), EnumeratedSystem::Graphics), Settings(settings) {
       //Settings.MaxDrawLayers = 5;
-			mDrawList.resize(Settings.MaxDrawLayers);
-			DCTrace << "*Using OpenGL for Graphics \n";
-			GraphicsHandler.reset(new GraphicsGL(Settings));
-		}
+      mDrawList.resize(Settings.MaxDrawLayers);
+      DCTrace << "*Using OpenGL for Graphics \n";
+      GraphicsHandler.reset(new GraphicsGL(Settings));
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Initializes the Graphics system.
-		*/
-		/**************************************************************************/
-		void Graphics::Initialize() {
-			if (TRACE_ON && TRACE_INITIALIZE)
-				DCTrace << "Graphics::Initialize \n";
-			GraphicsHandler->Initialize();
-			GraphicsHandler->mDrawList = &mDrawList;
-			// Subscribe to events
-			Subscribe();
-		}
+    /**************************************************************************/
+    /*!
+    \brief Initializes the Graphics system.
+    */
+    /**************************************************************************/
+    void Graphics::Initialize() {
+      if (TRACE_ON && TRACE_INITIALIZE)
+        DCTrace << "Graphics::Initialize \n";
+      GraphicsHandler->Initialize();
+      GraphicsHandler->mDrawList = &mDrawList;
+      // Subscribe to events
+      Subscribe();
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Subscribe to events.
-		*/
-		/**************************************************************************/
-		void Graphics::Subscribe()
-		{
-			Daisy->Connect<Events::ResizeViewportEvent>(&Graphics::OnResizeViewportEvent, this);
-			Daisy->Connect<Events::FullscreenEnabledEvent>(&Graphics::OnFullscreenEnabledEvent, this);
+    /**************************************************************************/
+    /*!
+    \brief Subscribe to events.
+    */
+    /**************************************************************************/
+    void Graphics::Subscribe()
+    {
+      Daisy->Connect<Events::WindowResize>(&Graphics::OnWindowResizeEvent, this);
+      Daisy->Connect<Events::WindowFullScreenEnabled>(&Graphics::OnWindowFullScreenEnabledEvent, this);
+      Daisy->Connect<Events::WindowFullScreenDisabled>(&Graphics::OnWindowFullScreenDisabledEvent, this);
       Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
       Daisy->Connect<Events::GraphicsToggleLightning>(&Graphics::OnGraphicsToggleLightningEvent, this);
-		}
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Updates the graphics system, rendering each graphical object..
-		\param The delta time.
-		\note  The projection/view uniforms are set once for each shader,
-		while the others change depending on the object.
-		*/
-		/**************************************************************************/
-		void Graphics::Update(float dt) {
-			if (TRACE_UPDATE)
-				DCTrace << "Graphics::Update \n";
+    /**************************************************************************/
+    /*!
+    \brief Updates the graphics system, rendering each graphical object..
+    \param The delta time.
+    \note  The projection/view uniforms are set once for each shader,
+    while the others change depending on the object.
+    */
+    /**************************************************************************/
+    void Graphics::Update(float dt) {
+      if (TRACE_UPDATE)
+        DCTrace << "Graphics::Update \n";
           
       // Start the profiler
       SystemTimer profile(this->Name());
 
-			// For every Space with a 'GraphicsSpace' component...
-			for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
+      // For every Space with a 'GraphicsSpace' component...
+      for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
 
-				// Get the default camera from the 'CameraViewport' component
-				Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+        // Get the default camera from the 'CameraViewport' component
+        Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
-				// Do not update the space if no camera has been set
-				if (camera == nullptr)
-					continue;
+        // Do not update the space if no camera has been set
+        if (camera == nullptr)
+          continue;
 
-				std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
-				for (auto graphicalComponent : graphicalComponents)
-					mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+        std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+        for (auto graphicalComponent : graphicalComponents)
+          mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 
-				std::vector<Components::Light*> lightComponents;
-				if (Settings.LightningEnabled)
-					lightComponents = gfxSpace->getLightComponents();
+        std::vector<Components::Light*> lightComponents;
+        if (Settings.LightningEnabled)
+          lightComponents = gfxSpace->getLightComponents();
 
-				lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
-					[] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
+        lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+          [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
 
-				UpdateObjects(dt);
+        UpdateObjects(dt);
 
-				GraphicsHandler->PreRender(camera);
+        GraphicsHandler->PreRender(camera);
 
-				if (!lightComponents.empty())
-				{
-					for (const auto& light : lightComponents)
-					{
-						if (light->getCastShadows())
-							GraphicsHandler->RenderShadows(camera, light);
-						GraphicsHandler->RenderLights(light);
-					}
-					GraphicsHandler->RenderScene(camera->getExposure(), true);
-				}
-				else
-				{
-					GraphicsHandler->RenderLights(0);
-					GraphicsHandler->RenderScene(camera->getExposure(), false);
-				}
+        if (!lightComponents.empty())
+        {
+          for (const auto& light : lightComponents)
+          {
+            if (light->getCastShadows())
+              GraphicsHandler->RenderShadows(camera, light);
+            GraphicsHandler->RenderLights(light);
+          }
+          GraphicsHandler->RenderScene(camera->getExposure(), true);
+        }
+        else
+        {
+          GraphicsHandler->RenderLights(0);
+          GraphicsHandler->RenderScene(camera->getExposure(), false);
+        }
+        
+        
 
-				DrawDebug(camera);
+        DrawDebug(camera);
 
-				for (auto&& drawList : mDrawList)
-					drawList.clear();
-				//if (!lightComponents.empty())
-				//{
-				//	glDrawBuffer(GL_NONE);
-				//	RenderZ0Scene(camera, 0);
-				//	for (const auto& light : lightComponents)
-				//	{
-				//		if (light->getCastShadows())
-				//		{
-				//			glDepthFunc(GL_LESS);
-				//			glDrawBuffer(GL_NONE);
-				//			glEnable(GL_STENCIL_TEST);
-				//
-				//			RenderShadows(camera, light);
-				//
-				//			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
-				//			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-				//		}
-				//		glDrawBuffer(GL_FRONT_AND_BACK);
-				//		glDepthFunc(GL_LEQUAL);
-				//
-				//		glEnable(GL_BLEND);
-				//		glBlendFunc(GL_ONE, GL_ONE);
-				//		RenderScene(camera, light);
-				//
-				//		glClear(GL_STENCIL_BUFFER_BIT);
-				//	}
-				//}
-				//else
-				//{
-				//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				//	RenderScene(camera);
-				//}
-				
-			}
-		}
+        for (auto&& drawList : mDrawList)
+          drawList.clear();
+        //if (!lightComponents.empty())
+        //{
+        //	glDrawBuffer(GL_NONE);
+        //	RenderZ0Scene(camera, 0);
+        //	for (const auto& light : lightComponents)
+        //	{
+        //		if (light->getCastShadows())
+        //		{
+        //			glDepthFunc(GL_LESS);
+        //			glDrawBuffer(GL_NONE);
+        //			glEnable(GL_STENCIL_TEST);
+        //
+        //			RenderShadows(camera, light);
+        //
+        //			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
+        //			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+        //		}
+        //		glDrawBuffer(GL_FRONT_AND_BACK);
+        //		glDepthFunc(GL_LEQUAL);
+        //
+        //		glEnable(GL_BLEND);
+        //		glBlendFunc(GL_ONE, GL_ONE);
+        //		RenderScene(camera, light);
+        //
+        //		glClear(GL_STENCIL_BUFFER_BIT);
+        //	}
+        //}
+        //else
+        //{
+        //	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        //	RenderScene(camera);
+        //}
+        
+      }
+    }
 
 
-		/**************************************************************************/
-		/*!
-		@brief Registers a space to this graphics system.
-		@param A reference to the 'GraphicsSpace' component in the Space.
-		*/
-		/**************************************************************************/
-		void Graphics::Register(Components::GraphicsSpace& graphicsSpace) {
-			ActiveGraphicsSpaces.push_back(&graphicsSpace);
-			DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
-				<< " has registered to the Graphics system\n";
-		}
+    /**************************************************************************/
+    /*!
+    @brief Registers a space to this graphics system.
+    @param A reference to the 'GraphicsSpace' component in the Space.
+    */
+    /**************************************************************************/
+    void Graphics::Register(Components::GraphicsSpace& graphicsSpace) {
+      ActiveGraphicsSpaces.push_back(&graphicsSpace);
+      DCTrace << "Graphics::Register -  " << graphicsSpace.Owner()->Name()
+        << " has registered to the Graphics system\n";
+    }
 
-		/**************************************************************************/
-		/*!
-		@brief Deregisters a space to this graphics system.
-		@param A reference to the 'GraphicsSpace' component in the Space.
-		*/
-		/**************************************************************************/
-		void Graphics::Deregister(Components::GraphicsSpace & graphicsSpace)
-		{
-			DCTrace << "Graphics::Deregister -  " << graphicsSpace.Owner()->Name()
-				<< " has deregistered from the Graphics system\n";
-			auto graphicsSpacePtr = &graphicsSpace;
-			ActiveGraphicsSpaces.erase(std::remove(ActiveGraphicsSpaces.begin(),
-				ActiveGraphicsSpaces.end(), graphicsSpacePtr),
-				ActiveGraphicsSpaces.end());
-		}
+    /**************************************************************************/
+    /*!
+    @brief Deregisters a space to this graphics system.
+    @param A reference to the 'GraphicsSpace' component in the Space.
+    */
+    /**************************************************************************/
+    void Graphics::Deregister(Components::GraphicsSpace & graphicsSpace)
+    {
+      DCTrace << "Graphics::Deregister -  " << graphicsSpace.Owner()->Name()
+        << " has deregistered from the Graphics system\n";
+      auto graphicsSpacePtr = &graphicsSpace;
+      ActiveGraphicsSpaces.erase(std::remove(ActiveGraphicsSpaces.begin(),
+        ActiveGraphicsSpaces.end(), graphicsSpacePtr),
+        ActiveGraphicsSpaces.end());
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Draws a sprite, by forwarding the data to OpenGL.
-		\param A reference to the GameObject.
-		\param A reference to the camera object in the Space.
-		\note
-		*/
-		/**************************************************************************/
-		void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
-			
-      if (!sprite.Visible)
-        return;
+    /**************************************************************************/
+    /*!
+    \brief Draws a sprite, by forwarding the data to OpenGL.
+    \param A reference to the GameObject.
+    \param A reference to the camera object in the Space.
+    \note
+    */
+    /**************************************************************************/
+    void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
+      
+      // For every Space with a 'GraphicsSpace' component...
+      for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
 
+        // Get the default camera from the 'CameraViewport' component
+        Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+
+        // Do not update the space if no camera has been set
+        if (camera == nullptr)
+          continue;
+
+        std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+        for (auto graphicalComponent : graphicalComponents)
+          mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+
+        std::vector<Components::Light*> lightComponents;
+        if (Settings.LightningEnabled)
+          lightComponents = gfxSpace->getLightComponents();
+
+        lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+          [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
+
+        UpdateObjects(dt);
+
+        GraphicsHandler->PreRender(camera);
+
+        if (!lightComponents.empty())
+        {
+          for (const auto& light : lightComponents)
+          {
+            if (light->getCastShadows())
+              GraphicsHandler->RenderShadows(camera, light);
+            GraphicsHandler->RenderLights(light);
+          }
+          GraphicsHandler->RenderScene(camera->getExposure(), true);
+        }
+        else
+        {
+          GraphicsHandler->RenderLights(0);
+          GraphicsHandler->RenderScene(camera->getExposure(), false);
+        }
+
+        DrawDebug(camera);
+
+        for (auto&& drawList : mDrawList)
+          drawList.clear();
+        //if (!lightComponents.empty())
+        //{
+        //	glDrawBuffer(GL_NONE);
+        //	RenderZ0Scene(camera, 0);
+        //	for (const auto& light : lightComponents)
+        //	{
+        //		if (light->getCastShadows())
+        //		{
+        //			glDepthFunc(GL_LESS);
+        //			glDrawBuffer(GL_NONE);
+        //			glEnable(GL_STENCIL_TEST);
+        //
+        //			RenderShadows(camera, light);
+        //
+        //			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
+        //			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+        //		}
+        //		glDrawBuffer(GL_FRONT_AND_BACK);
+        //		glDepthFunc(GL_LEQUAL);
+        //
+        //		glEnable(GL_BLEND);
+        //		glBlendFunc(GL_ONE, GL_ONE);
+        //		RenderScene(camera, light);
+        //
+        //		glClear(GL_STENCIL_BUFFER_BIT);
+        //	}
+        //}
+        //else
+        //{
+        //	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        //	RenderScene(camera);
+        //}
+        
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief Draws a 'SpriteText', by forwarding the data to OpenGL.
+    \param A reference to the SpriteText component.
+    \param A reference to the camera object in the Space.
+    \note
+    */
+    /**************************************************************************/
+    void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
+    {
       if (TRACE_UPDATE)
-				DCTrace << "Graphics::DrawSprite - Drawing " << sprite.Owner()->Name() << "\n";
-			//GraphicsHandler->DrawSprite(sprite, cam, dt);
-		}
+        DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+      //GraphicsHandler->DrawSpriteText(st, cam);
+    }
 
-		/**************************************************************************/
-		/*!
-		\brief Draws a 'SpriteText', by forwarding the data to OpenGL.
-		\param A reference to the SpriteText component.
-		\param A reference to the camera object in the Space.
-		\note
-		*/
-		/**************************************************************************/
-		void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
-		{
-			if (TRACE_UPDATE)
-				DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
-			//GraphicsHandler->DrawSpriteText(st, cam);
-		}
+    void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
+    {
+      GraphicsHandler->DrawParticles(particles, cam, dt);
+    }
 
-		void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
-		{
-			GraphicsHandler->DrawParticles(particles, cam, dt);
-		}
-
-		/**************************************************************************/
-		/*!
-		\brief Draws a 'DebugDrawObject', by forwarding the data to OpenGL.
-		\param A reference to the DebugDrawObject.
-		\note
-		*/
-		/**************************************************************************/
-		void Graphics::DrawDebug(DebugDrawObject & debugDraw)
-		{
-		}
+    /**************************************************************************/
+    /*!
+    \brief Draws a 'DebugDrawObject', by forwarding the data to OpenGL.
+    \param A reference to the DebugDrawObject.
+    \note
+    */
+    /**************************************************************************/
+    void Graphics::DrawDebug(DebugDrawObject & debugDraw)
+    {
+    }
 
     /**************************************************************************/
     /*!
@@ -243,11 +319,11 @@ namespace DCEngine {
     @param fill Whether the circle should be filled.
     */
     /**************************************************************************/
-		void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& camera, bool fill)
-		{
-			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
-			mDebugCircleList.push_back(DebugCircle(color, pos, radius));
-		}
+    void Graphics::DrawCircle(const Vec3& pos, Real& radius, const Vec4& color, Components::Camera& camera, bool fill)
+    {
+      GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
+      mDebugCircleList.push_back(DebugCircle(color, pos, radius));
+    }
 
     /**************************************************************************/
     /*!
@@ -260,11 +336,11 @@ namespace DCEngine {
     @param fill Whether the rectangle should be filled.
     */
     /**************************************************************************/
-		void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& camera, bool fill)
-		{
-			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
-			mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height), fill));
-		}
+    void Graphics::DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& camera, bool fill)
+    {
+      GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
+      mDebugRectangleList.push_back(DebugRectangle(color, pos, Vec2(width, height), fill));
+    }
 
     /**************************************************************************/
     /*!
@@ -274,60 +350,60 @@ namespace DCEngine {
     @param color  The color of the line.
     */
     /**************************************************************************/
-		void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& camera)
-		{
-			GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
-			mDebugLineList.push_back(DebugLine(color, startPos, endPos));
-		}
+    void Graphics::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& camera)
+    {
+      GraphicsHandler->SetShaderProjViewUniforms(GraphicsHandler->SpriteShader, camera);
+      mDebugLineList.push_back(DebugLine(color, startPos, endPos));
+    }
 
     /**************************************************************************/
     /*!
     \brief Terminates the Graphics System.
     */
     /**************************************************************************/
-		void Graphics::Terminate() {
-			DCTrace << "Graphics::Terminate \n";
-			GraphicsHandler->Terminate();
-		}
+    void Graphics::Terminate() {
+      DCTrace << "Graphics::Terminate \n";
+      GraphicsHandler->Terminate();
+    }
 
     /**************************************************************************/
     /*!
     \brief Starts the current frame.
     */
     /**************************************************************************/
-		void Graphics::StartFrame() {
-			GraphicsHandler->StartFrame();
-		}
+    void Graphics::StartFrame() {
+      GraphicsHandler->StartFrame();
+    }
 
     /**************************************************************************/
     /*!
     \brief Ends the current frame.
     */
     /**************************************************************************/
-		void Graphics::EndFrame() {
-			GraphicsHandler->EndFrame();
-		}
+    void Graphics::EndFrame() {
+      GraphicsHandler->EndFrame();
+    }
 
     /**************************************************************************/
     /*!
     \brief Saves the current OpenGL state.
     */
     /**************************************************************************/
-		void Graphics::BackupState()
-		{
-			GraphicsHandler->BackupState();
-		}
+    void Graphics::BackupState()
+    {
+      GraphicsHandler->BackupState();
+    }
 
     /**************************************************************************/
     /*!
     \brief Restores the previous OpenGL state.
     */
     /**************************************************************************/
-		void Graphics::RestoreState()
-		{
-			GraphicsHandler->RestoreState();
-			GraphicsHandler->ConfigureSpriteVAO();
-		}
+    void Graphics::RestoreState()
+    {
+      GraphicsHandler->RestoreState();
+      GraphicsHandler->ConfigureSpriteVAO();
+    }
 
     /**************************************************************************/
     /*!
@@ -339,22 +415,55 @@ namespace DCEngine {
       GraphicsHandler->CompileShaders();
     }
 
-    void Graphics::OnFullscreenEnabledEvent(Events::FullscreenEnabledEvent * event)
-		{
+    /**************************************************************************/
+    /*!
+    \brief Event received whenever fullscreen has been enabled.
+    */
+    /**************************************************************************/
+    void Graphics::OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled * event)
+    {
+      std::string willNoticeMe = "Will I am enabled";
+    }
 
-		}
+    /**************************************************************************/
+    /*!
+    \brief Event received whenever fullscreen has been disabled.
+    */
+    /**************************************************************************/
+    void Graphics::OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled * event)
+    {
+      std::string willNoticeMe = "Will I am disabled";
+    }
 
-		void Graphics::OnResizeViewportEvent(Events::ResizeViewportEvent * event)
-		{
-			Settings.ViewportScale = event->viewportScale;
-			DCTrace << "Graphics::OnResizeViewportEvent - Width: " << Settings.ViewportScale.x
-				<< " Height " << Settings.ViewportScale.y << "\n";
+    /**************************************************************************/
+    /*!
+    \brief Event received whenever the window has been resized.
+    */
+    /**************************************************************************/
+    void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
+    {
+      Settings.ViewportScale = event->Dimensions;
+      DCTrace << "Graphics::OnWindowResizeEvent - Width: " << Settings.ViewportScale.x
+        << " Height " << Settings.ViewportScale.y << "\n";
+    }
 
-		}
-
+    /**************************************************************************/
+    /*!
+    \brief Event received whenever lightning is enabled or disaled.
+    */
+    /**************************************************************************/
     void Graphics::OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning * event)
     {
       Settings.LightningEnabled = !Settings.LightningEnabled;
     }
-	}
+
+    void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
+    {
+      //GraphicsHandler->TotalObjNum = TotalObjNumG;
+      //GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
+    }
+
+
+  
+  }
 }

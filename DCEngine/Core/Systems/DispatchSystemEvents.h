@@ -35,6 +35,10 @@ namespace DCEngine {
       static void EditorRebuildZilchComponents();
       
       static void SetWindowCaption(std::string name);
+      static void WindowResize(const Vec2&);
+      static void WindowFullScreenToggle(bool enabled);
+      static void WindowFullScreenEnabled();
+      static void WindowFullScreenDisabled();
       static void WindowLostFocus();
       static void WindowGainedFocus();
       

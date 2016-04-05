@@ -15,15 +15,26 @@
 namespace DCEngine {
   namespace Events {
 
-    class FullscreenEnabledEvent : public Event {
+    class WindowFullScreenToggle : public Event {
     public:
-      FullscreenEnabledEvent() : Event("FullscreenEnabledEvent") {}
+      bool Enabled;
+      WindowFullScreenToggle() : Event("WindowFullScreenToggle"), Enabled(true) {}
     };
 
-    class ResizeViewportEvent : public Event {
+    class WindowFullScreenEnabled : public Event {
     public:
-      ResizeViewportEvent() : Event("ResizeViewportEvent") {}
-      Vec2 viewportScale;
+      WindowFullScreenEnabled() : Event("WindowFullScreenEnabled") {}
+    };
+
+    class WindowFullScreenDisabled : public Event {
+    public:
+      WindowFullScreenDisabled() : Event("WindowFullScreenDisabled") {}
+    };
+    
+    class WindowResize : public Event {
+    public:
+      WindowResize() : Event("WindowResize") {}
+      Vec2 Dimensions;
     };
 
   }

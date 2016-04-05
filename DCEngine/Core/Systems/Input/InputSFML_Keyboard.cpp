@@ -562,8 +562,8 @@ namespace DCEngine {
     /**************************************************************************/
     void ToggleFullscreen()
     {
-      auto fsevent = new Events::FullscreenEnabledEvent();
-      Daisy->Dispatch<Events::FullscreenEnabledEvent>(fsevent);
+      auto fsevent = new Events::WindowFullScreenToggle();
+      Daisy->Dispatch<Events::WindowFullScreenToggle>(fsevent);
       delete fsevent;
 
     }

@@ -123,7 +123,7 @@
 					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 					"settings":
 					{
-						"buffer_size": 2003,
+						"buffer_size": 2004,
 						"line_ending": "Windows"
 					}
 				},
@@ -260,15 +260,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2003,
+								"buffer_size": 2004,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1556,
-										1556
+										1557,
+										1557
 									]
 								],
 								"settings":
@@ -351,7 +351,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,971,1999,104,3299",
+			"position": "0,0,1,-1,-1,-1,-1,971,1999,104,3299",
 			"project": "",
 			"replace":
 			{
