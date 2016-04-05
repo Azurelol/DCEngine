@@ -2,7 +2,7 @@
 {
   "SpriteSource": 
   {
-    "Name": "ReboundLogoLowRes", 
+    "Name": "Level1_Background_02", 
     "Properties": 
     {
       "FrameRate": 0.000000, 
@@ -13,7 +13,7 @@
       "Looping": false, 
       "Fill": false, 
       "TotalFrame": 1, 
-      "AssetPath": "..\\..\\Pictures\\ReboundLogoLowRes.png"
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Level1\\Level1_Background_02.png"
     }
   }
 }

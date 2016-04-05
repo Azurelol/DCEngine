@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 896, 
         "Name": "Camera", 
-        "Archetype": "Camera", 
         "Components": 
         {
           "Transform": 
@@ -46,6 +45,7 @@
           "Camera": 
           {
             "FieldOfView": 250.000000, 
+            "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
