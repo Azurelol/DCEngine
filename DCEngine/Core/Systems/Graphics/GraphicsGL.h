@@ -55,6 +55,7 @@ namespace DCEngine {
     public:
       // Shader Control
 			void ConfigureFBO();
+			void FreeFBO();
       void CompileShaders();
       // Uniforms
       void SetShaderProjViewUniforms(ShaderPtr shader, Components::Camera& camera);
@@ -89,11 +90,8 @@ namespace DCEngine {
       void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color);
       // Lightning
-			void RenderDepths(Components::Camera* camera);
       void RenderShadows(Components::Camera* camera, Components::Light* light);
       void RenderObjects(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
-      void RenderBackground(ShaderPtr shader, Components::Camera* camera);
-      void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
 			void PreRender(Components::Camera* camera);
 			void RenderLights(Components::Light* light = 0);
 			void RenderScene(float exposure, bool lit);

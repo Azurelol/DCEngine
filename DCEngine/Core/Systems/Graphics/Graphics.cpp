@@ -349,19 +349,12 @@ namespace DCEngine {
 			Settings.ViewportScale = event->viewportScale;
 			DCTrace << "Graphics::OnResizeViewportEvent - Width: " << Settings.ViewportScale.x
 				<< " Height " << Settings.ViewportScale.y << "\n";
+
 		}
 
     void Graphics::OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning * event)
     {
       Settings.LightningEnabled = !Settings.LightningEnabled;
     }
-
-		void Graphics::SendCountToGL(int TotalObjNumG, int TotalObjTranspNumG)
-		{
-			//GraphicsHandler->TotalObjNum = TotalObjNumG;
-			//GraphicsHandler->TotalTranspObjNum = TotalObjTranspNumG;
-		}
-
-
 	}
 }
