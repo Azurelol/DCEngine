@@ -47,7 +47,7 @@ namespace DCEngine {
       int PlayingObj = 0;
 
       
-      SoundInstancePtr trackHandle;
+      SoundInstanceWeakPtr trackHandle;
     };
 
   }

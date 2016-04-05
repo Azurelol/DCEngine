@@ -61,15 +61,6 @@ namespace DCEngine {
       SpaceRef->getComponent<SoundSpace>()->PlayCue(soundCue);
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Stops the currently playing 'Soundue'
-    */
-    /**************************************************************************/
-    void SoundEmitter::Stop()
-    {
-      SpaceRef->getComponent<SoundSpace>()->StopCue(CurrentSoundCue);
-    }
 
 
 

@@ -301,6 +301,7 @@ namespace DCEngine {
 
     // Make sure all sounds are stopped when loading a level
     SoundInstance::StopOnDestroyed = true;
+    this->getComponent<Components::SoundSpace>()->Clear();
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level

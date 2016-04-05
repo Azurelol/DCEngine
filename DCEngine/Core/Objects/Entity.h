@@ -53,7 +53,6 @@ namespace DCEngine {
   @class EntityRange A range-based container of entity pointers.
   */
   /**************************************************************************/
-  //using EntityMap = std::multimap<std::string, EntityPtr>;
   class EntityRange {
     using Iterator = EntityVec::iterator;
     Iterator Begin;

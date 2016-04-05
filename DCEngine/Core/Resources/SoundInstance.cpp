@@ -51,6 +51,7 @@ namespace DCEngine {
   /**************************************************************************/
   SoundInstance::SoundInstance() : Paused(false), SoundInstanceID(Created++)
   {
+    DCTrace << Name() << "::SoundInstance - CTOR \n";
   }
 
   /**************************************************************************/
@@ -62,7 +63,7 @@ namespace DCEngine {
   {
     // Switched on and off when transitioning between Play into Editor mode
     if (StopOnDestroyed)
-      this->Stop();    
+      this->Stop(StopMode::Immediate);    
 
     // If the engine's audio system is not active, do not attempt to release.
     // Reference: http://www.fmod.org/questions/question/forum-40474/
@@ -140,10 +141,18 @@ namespace DCEngine {
   @brief A function that stops the SoundInstance.
   */
   /**************************************************************************/
-  void SoundInstance::Stop()
+  void SoundInstance::Stop(StopMode mode)
   {
-    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
-      SoundHandle.EventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance) {
+      switch (mode) {
+      case StopMode::Immediate:
+        SoundHandle.EventInstance->stop(FMOD_STUDIO_STOP_IMMEDIATE);
+        break;
+      case StopMode::AllowFadeOut:
+        SoundHandle.EventInstance->stop(FMOD_STUDIO_STOP_ALLOWFADEOUT);
+        break;
+      }
+    }
     else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel) 
       SoundHandle.Channel->stop();
   }

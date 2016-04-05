@@ -181,6 +181,7 @@ namespace DCEngine {
       int ScreenHeight;
       int Framerate;
       bool Fullscreen;
+      int Samples;
       std::string Caption;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
       Vec2 ViewportScale = Vec2(1, 1);
@@ -195,6 +196,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Caption);
         DCE_JSON_SERIALIZE(Exposure);
+				DCE_JSON_SERIALIZE(Samples);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
         root["ClearColorZ"] = ClearColor.z;
@@ -210,6 +212,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
+				DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();

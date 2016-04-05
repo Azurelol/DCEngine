@@ -29,15 +29,22 @@ namespace DCEngine {
       //ZilchBindConstructor(builder, type, SoundSpace, "owner", Entity&);
       //ZilchBindDestructor(builder, type, SoundSpace);
       // Properties
-      ZilchBindMethod(builder, type, &SoundSpace::PlayCueZilch, ZilchNoOverload, "PlayCue", "soundCueName");
+
+      Zilch::ParameterArray playCueParams; playCueParams.push_back(ZilchTypeId(Zilch::String));
+      builder.AddBoundFunction(type, "PlayCue", &SoundSpace::ZilchPlayCue, playCueParams, ZilchTypeId(SoundInstance), Zilch::MemberOptions::None);
+      //ZilchBindMethod(builder, type, &SoundSpace::PlayCue, (, "PlayCue", "soundCueName");
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pause);
     }
     #endif
 
-    SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner),
-      Volume(0), Pitch(0), Pause(0)
+    /**************************************************************************/
+    /*!
+    @brief  SoundSpace constructor.
+    */
+    /**************************************************************************/
+    SoundSpace::SoundSpace(Entity & owner) : Component(std::string("SoundSpace"), owner)     
     {
     }
 
@@ -48,7 +55,6 @@ namespace DCEngine {
     /**************************************************************************/
     void SoundSpace::Initialize() {
       Connect(SpaceRef, Events::LogicUpdate, SoundSpace::OnLogicUpdate);
-      TestMusic();
 
       // Register this space to the sound system
       Daisy->getSystem<Systems::Audio>()->Register(*this);
@@ -65,73 +71,93 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief  Destroys all active sound instances played through this SoundSpace.
+    */
+    /**************************************************************************/
+    void SoundSpace::Clear()
+    {
+      for (auto& instance : ActiveSoundInstances) {
+        //SoundInstance::Dereference(instance)->Stop();
+        instance.Delete();
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        instance->Stop();
+        delete instance.get();
+      }
+      ActiveSoundInstances.clear();
+      ActiveSoundInstancePtrs.clear();
+    }
+
+    /**************************************************************************/
+    /*!
     @brief  Plays a 'SoundCue', returning a SoundInstance handle to it.
     @param  soundCueName The name of the 'SoundCue' to play.
     @return A SoundInstance, an object that acts as the particular instance
             of that playing of the sound cue.
     */
     /**************************************************************************/
-    SoundInstancePtr SoundSpace::PlayCue(std::string soundCueName)
+    SoundInstanceWeakPtr SoundSpace::PlayCue(std::string soundCueName)
     {
-      return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
-    }
-
-    SoundInstancePtr SoundSpace::PlayCue(SoundCuePtr soundCue)
-    {
-      return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCue);
-    }
-
-    SoundInstanceHandle SoundSpace::PlayCueZilch(std::string name)
-    {
-      return Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name);
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
+      ActiveSoundInstancePtrs.push_back(instance);
+      return instance.get();
     }
 
     /**************************************************************************/
     /*!
-    @brief  Pauses a 'SoundCue', returning a SoundInstance handle to it.
+    @brief  Plays a 'SoundCue', returning a SoundInstance handle to it.
+    @param  soundCue A pointer to the SoundCue.
+    @return A SoundInstance, an object that acts as the particular instance
+            of that playing of the sound cue.
+    */
+    /**************************************************************************/
+    SoundInstanceWeakPtr SoundSpace::PlayCue(SoundCuePtr soundCue)
+    {
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySound(soundCue);
+      ActiveSoundInstancePtrs.push_back(instance);
+      return instance.get();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Plays a 'SoundCue' through the creation of a Zilch Handle.
     @param  soundCueName The name of the 'SoundCue' to play.
+    @return A SoundInstanceHandle.
     */
     /**************************************************************************/
-    void SoundSpace::PauseCue(std::string soundCueName)
+    SoundInstanceWeakPtr SoundSpace::PlayCueByHandle(std::string name)
     {
-      Daisy->getSystem<Systems::Audio>()->PauseSound(soundCueName);
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name);
+      ActiveSoundInstances.push_back(instance);
+      return SoundInstance::Dereference(instance);
     }
 
     /**************************************************************************/
     /*!
-    @brief  Resumes a 'SoundCue', returning a SoundInstance handle to it.
+    @brief  Plays a 'SoundCue' through Zilch, returning a handle to it.
     @param  soundCueName The name of the 'SoundCue' to play.
+    @return A SoundInstance, an object that acts as the particular instance
+    of that playing of the sound cue.
     */
     /**************************************************************************/
-    void SoundSpace::ResumeCue(std::string soundCueName)
+    void SoundSpace::ZilchPlayCue(Zilch::Call& call, Zilch::ExceptionReport& report)
     {
-      Daisy->getSystem<Systems::Audio>()->ResumeSound(soundCueName);
+      // Grab the name of the SoundCue as well as the SoundSpace to play it from
+      auto name = call.Get<Zilch::String>(0);
+      auto soundSpace = reinterpret_cast<Components::SoundSpace*>(call.GetHandle(Zilch::Call::This).Dereference());      
+      // Create and instance, playing the sound immediately
+      auto instance = Daisy->getSystem<Systems::Audio>()->PlaySoundZilch(name.c_str());
+      soundSpace->ActiveSoundInstances.push_back(instance);
+      // Return it
+      call.Set(Zilch::Call::Return, instance);      
     }
-
-    /**************************************************************************/
-    /*!
-    @brief  Stops a 'SoundCue' from playing.
-    @param  soundCueName The name of the 'SoundCue' to stop.
-    */
-    /**************************************************************************/
-    void SoundSpace::StopCue(std::string soundCueName)
-    {
-      // Do nothing if no name was passed
-      if (soundCueName.empty())
-        return;
-
-      Daisy->getSystem<Systems::Audio>()->StopSound(soundCueName);
-    }
+    
 
 
-    /* Testers */
 
-    void SoundSpace::TestMusic() {
-      // THIS IS MY JAM
-      //using namespace Systems;
-      //std::string myJam = "spacejam.mp3";
-      //Daisy->getSystem<Systems::Audio>(EnumeratedSystem::Audio)->PlayMusic(myJam);
-    }
+
+
+
 
 
   }

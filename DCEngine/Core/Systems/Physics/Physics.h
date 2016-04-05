@@ -22,7 +22,7 @@
 #include "Manifold.h"
 #include "Collision.h"
 // PhysicsCasting
-#include "Raycasting.h"
+#include "PhysicsCasting.h"
 
 namespace DCEngine {
 
@@ -74,14 +74,12 @@ namespace DCEngine {
       CastResultsRange CastAabb(Vec3& center, Vec3& size, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
       CastResultsRange CastSphere(Vec3& center, float radius, unsigned count, CastFilter& filter, Components::PhysicsSpace *Space);
       CastResultsRange CastCollider(Vec3& offset, Components::Collider& testCollider, CastFilter& filter, Components::PhysicsSpace *Space);
-
-      CastFilter *MakeCastFilter(void);
-
+      
 
     private:
 
       bool Paused = false;
-			unsigned QuadTreeBucketSize = 6;
+      unsigned QuadTreeBucketSize = 6;
       std::vector<Components::PhysicsSpace*> physicsSpaces_;
       std::vector<std::pair<GameObjectPtr, GameObjectPtr>> PersistedPairs;
       std::vector<CollisionData> OnCollisionStarteds;
@@ -111,7 +109,7 @@ namespace DCEngine {
       void DispatchCollisionPersisted(CollisionData& collisionData);
       void SendEvents(void);
 
-			float minX, maxX, minY, maxY;
+      float minX, maxX, minY, maxY;
 
     };
 

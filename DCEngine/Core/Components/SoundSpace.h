@@ -26,35 +26,29 @@ namespace DCEngine {
 
       public:
 
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
         ZilchDeclareDerivedType(SoundSpace, Component);
-#endif
 
         DCE_DEFINE_PROPERTY(Real, Volume);
         DCE_DEFINE_PROPERTY(Real, Pitch);
         DCE_DEFINE_PROPERTY(Boolean, Pause);
 
-        SoundInstancePtr PlayCue(std::string soundCueName);
-        SoundInstancePtr PlayCue(SoundCuePtr soundCue);
-        SoundInstanceHandle PlayCueZilch(std::string name);
         void PlayCueAt(std::string soundCueName);
-        void PauseCue(std::string soundCueName);
-        void ResumeCue(std::string soundCueName);
-        void StopCue(std::string soundCueName);
+        SoundInstanceWeakPtr PlayCue(std::string soundCueName);
+        SoundInstanceWeakPtr PlayCue(SoundCuePtr soundCue);
+        SoundInstanceWeakPtr PlayCueByHandle(std::string);
+        static void ZilchPlayCue(Zilch::Call& call, Zilch::ExceptionReport& report);
 
         SoundSpace::SoundSpace(Entity & owner);
         void Initialize();
 
       private:
-        StringVec CuesCurrentlyPlaying;
-        Real Volume; // Change the volume for all sounds in the space
-        Real Pitch; // Pitch scale for all sounds in the space
-        bool Pause; // Pause all sounds in the space
-
-        void OnLogicUpdate(Events::LogicUpdate* event);
-        void Update() {}
-
-        void TestMusic();
+        bool Pause;
+        Real Volume;
+        Real Pitch;
+        std::vector<SoundInstanceHandle> ActiveSoundInstances;
+        std::vector<SoundInstancePtr> ActiveSoundInstancePtrs;
+        void OnLogicUpdate(Events::LogicUpdate* event);        
+        void Clear();
 
       };
     }

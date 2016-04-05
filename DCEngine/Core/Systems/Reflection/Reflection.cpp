@@ -100,11 +100,6 @@ namespace DCEngine {
         auto types = library->BoundTypes.all();
         // For every type in the library
         ZilchForEach(auto type, types) {      
-          //// If the type is a Zilch component
-
-
-          //if (Zilch::TypeBinding::IsA(type.second, ZilchComponent::ZilchGetStaticType()) )
-          //  componentTypes.push_back(type.second);
           if (Zilch::TypeBinding::IsA(type.second, ZilchTypeId(Component)))
             componentTypes.push_back(type.second);
         }

@@ -48,7 +48,8 @@ namespace DCEngine {
     @param owner A reference to this component's owner.
     */
     /**************************************************************************/
-    BoxCollider::BoxCollider(Entity & owner) : Collider(owner, "BoxCollider")//: Component(std::string("BoxCollider"), owner)
+    BoxCollider::BoxCollider(Entity & owner) : Collider(owner, "BoxCollider") 
+                                               , Size(1,1,1), Offset(0,0,0), Color(1,0,0,1)
     {
       Register();
     }
@@ -108,11 +109,10 @@ namespace DCEngine {
     void BoxCollider::DrawCollider()
     {
       auto debugScale = Vec2(getColliderScale().x, getColliderScale().y);
-      Vec4 temp(1.0f, 0.0f, 0.0f, 1.0f);
       SpaceRef->getComponent<GraphicsSpace>()->DrawRectangle(Vec3(TransformComponent->Translation + Offset),
         debugScale.x, //TransformComponent->Scale.x * Size.x,
         debugScale.y, //TransformComponent->Scale.y * Size.y,
-        temp); // Red
+        Color); // Red
     }
 
     /**************************************************************************/
@@ -122,9 +122,13 @@ namespace DCEngine {
     /**************************************************************************/
     void BoxCollider::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      // Move the GameObject??
     }
 
+    /**************************************************************************/
+    /*!
+    \brief  CollisionEvents
+    */
+    /**************************************************************************/
     void BoxCollider::OnCollisionEndedEvent(Events::CollisionEnded * event)
     {
 
