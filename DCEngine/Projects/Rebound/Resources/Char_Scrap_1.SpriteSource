@@ -2,7 +2,7 @@
 {
   "SpriteSource": 
   {
-    "Name": "Char_Lanc_4", 
+    "Name": "Char_Scrap_1", 
     "Properties": 
     {
       "FrameRate": 0.000000, 
@@ -13,7 +13,7 @@
       "Looping": false, 
       "Fill": false, 
       "TotalFrame": 1, 
-      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Lancer\\Char_Lanc_4.png"
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Scrapper\\Char_Scrap_1.png"
     }
   }
 }

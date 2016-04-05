@@ -6317,7 +6317,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 361, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -6358,8 +6358,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -6420,25 +6420,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -6724,7 +6719,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 365, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -6765,8 +6760,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -6780,8 +6775,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -6830,18 +6825,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -6873,11 +6868,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -6887,7 +6877,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 366, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -6928,8 +6918,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -6943,8 +6933,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -6993,18 +6983,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -7036,11 +7026,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -7050,7 +7035,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 367, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -7091,8 +7076,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -7106,8 +7091,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7156,18 +7141,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -7199,11 +7184,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -7305,7 +7285,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 369, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -7346,8 +7326,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -7361,8 +7341,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7411,18 +7391,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -7454,11 +7434,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -7744,7 +7719,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 373, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -7785,8 +7760,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -7800,8 +7775,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7850,18 +7825,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -7893,11 +7868,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -7907,7 +7877,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 374, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -7948,8 +7918,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -7963,8 +7933,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8013,18 +7983,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -8056,11 +8026,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -8070,7 +8035,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 375, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -8111,8 +8076,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -8173,25 +8138,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -8201,7 +8161,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 376, 
+        "GameObjectID": 900, 
         "Name": "Scrapper4", 
         "Components": 
         {
@@ -8242,8 +8202,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -8257,8 +8217,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8307,18 +8267,18 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 20.000038, 
-            "PatrolDistance": 8.000000, 
-            "IsPatrolRight": false, 
-            "IsAggressive": false, 
-            "JumpStrengthX": 5.599995, 
-            "JumpStrengthY": 4.100003, 
-            "JumpPeriod": 0.500000, 
-            "AttackJumpStrengthX": 20.100040, 
-            "AttackJumpStrengthY": 12.000010, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
             "AttackJumpPeriod": 1.000000, 
             "IdleColor": 
             {
@@ -8350,11 +8310,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "HealthController": 
-          {
-            "MaxHealth": 0, 
-            "StartingHealth": 0
           }
         }, 
         "Children": 
@@ -8364,7 +8319,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 377, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -8405,8 +8360,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -8467,25 +8422,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -8587,7 +8537,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 379, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -8628,8 +8578,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -8690,25 +8640,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -8718,7 +8663,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 380, 
+        "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Components": 
         {
@@ -8759,8 +8704,8 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
@@ -8821,25 +8766,20 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "HealthController": 
-          {
-            "MaxHealth": 1, 
-            "StartingHealth": 1
-          }, 
           "Sentinel": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 0, 
-            "MaxHealth": 0, 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
             "IsInvulnerable": false, 
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 0.000000, 
-            "ShieldBashDistance": 0.000000, 
-            "ShieldBashOutTime": 0.000000, 
-            "ShieldBashInTime": 0.000000, 
-            "ShieldBashCooldown": 0.000000
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
