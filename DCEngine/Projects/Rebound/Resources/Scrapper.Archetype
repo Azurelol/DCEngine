@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 900, 
-    "Name": "Scrapper", 
+    "Name": "Scrapper4", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 51.733334, 
-            "y": 3.466667, 
+            "x": -10.105388, 
+            "y": -47.143784, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 1.500000, 
+            "y": 1.500000, 
             "z": 1.000000
           }
         }
@@ -44,13 +44,13 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
             "z": 1.000000, 
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "Char_Scrap", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
@@ -59,8 +59,8 @@
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Default", 
-        "PhysicsMaterial": "", 
+        "CollisionGroup": "Enemy", 
+        "PhysicsMaterial": "DefaultPhysicsMaterial", 
         "Size": 
         {
           "Vec3": 
