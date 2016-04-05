@@ -44,6 +44,8 @@ namespace DCEngine {
 
 			RenderObjects(camera);
 
+			//transfer multisample fbo to regular fbo
+			///transfer color buffers
 			for (unsigned i = 0; i < 3; ++i)
 			{
 				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
@@ -55,12 +57,14 @@ namespace DCEngine {
 					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 					GL_COLOR_BUFFER_BIT, GL_NEAREST);
 			}
+			///transfer depth buffer
 			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
 			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
 			glBlitFramebuffer(
 				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+			///return control flow to regular fbo
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			glDrawBuffers(3, attachments);
 		}
