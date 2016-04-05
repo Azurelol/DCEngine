@@ -18,7 +18,7 @@
 #include "SoundCue.h"
 
 namespace DCEngine {
-
+  
   namespace Systems {
     class Audio;
   }
@@ -26,6 +26,8 @@ namespace DCEngine {
   class SoundInstance : public Object {
     friend class Systems::Audio;
   public:
+
+
 
     // Member variables
     SoundCue::SoundCueType Type;
@@ -43,7 +45,7 @@ namespace DCEngine {
     void InterpolatePitch(Real newPitch, Real time);
     void Resume();
     void Pause();
-    void Stop();
+    void Stop(StopMode mode = StopMode::AllowFadeOut);
     bool IsPlaying();
     // CTOR
     ZilchDeclareDerivedType(SoundInstance, Object);
@@ -60,6 +62,7 @@ namespace DCEngine {
   };
 
   //using SoundInstanceHandle = Zilch::Handle
+  using SoundInstanceWeakPtr = SoundInstance*;
   using SoundInstancePtr = std::shared_ptr<SoundInstance>;
   using SoundInstanceHandle = Zilch::Handle;
   //using SoundInstanceZilchHandle = Zilch::Handle;

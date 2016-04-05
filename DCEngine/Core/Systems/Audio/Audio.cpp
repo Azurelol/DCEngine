@@ -176,7 +176,7 @@ namespace DCEngine {
       // Allocate the SoundInstance through Zilch
       auto state = Daisy->getSystem<Reflection>()->Handler()->GetState();
       Zilch::ExceptionReport report;
-      Zilch::Handle instanceHandle = state->AllocateHeapObject(ZilchTypeId(SoundInstance), 
+      Zilch::Handle instanceHandle = state->AllocateDefaultConstructedHeapObject(ZilchTypeId(SoundInstance), 
                                                                report, Zilch::HeapFlags::ReferenceCounted);
       // Dereference it so we can use it
       auto instance = reinterpret_cast<SoundInstance*>(instanceHandle.Dereference());

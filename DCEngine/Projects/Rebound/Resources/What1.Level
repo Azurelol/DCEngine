@@ -284,7 +284,7 @@
           }, 
           "TestSoundInstance": 
           {
-            "Music": "DesertLab"
+            "Music": ""
           }
         }, 
         "Children": 
@@ -347,20 +347,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "ZPlayerController": 
-          {
-            "MoveSpeed": 0.350000, 
-            "JumpPower": 8.000000, 
-            "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
-            "AirBrakeScalar": 0.950000, 
-            "TurnSpeedScalar": 5.000000, 
-            "DoAutoPlay": true, 
-            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
-            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
-            "RunAnimation": "Char_Asha_Run_Spritesheet", 
-            "AutoPlayTimer": 2.000000
           }
         }, 
         "Children": 

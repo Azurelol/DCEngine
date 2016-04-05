@@ -1,6 +1,6 @@
 class TestSoundInstance : ZilchComponent
 {
-	[Property] var Music : String;
+	[Property] var Music : String = "";
 	var Instance : SoundInstance;
 
     function Initialize()

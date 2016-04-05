@@ -15,12 +15,11 @@
 #include "ComponentReference.h"
 
 // PhysicsCasting
-#include "../Systems/Physics/Raycasting.h"
+#include "../Systems/Physics/PhysicsCasting.h"
 // Components
 #include "../Components/BoxCollider.h"
 #include "../Components/RigidBody.h"
 // Resources
-#include "../Resources/CollisionGroup.h"
 #include "../Resources/CollisionTable.h"
 
 namespace DCEngine {
