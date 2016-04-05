@@ -112,18 +112,19 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
+					"contents": "/*******************************************************************************\n//<<\n         $CW: \n         $NC: \n        $OUT: \n       $LEAK: \n        $FHC: \n        $FNC: \n      $CRASH: \n       $HANG: \n         $ID: \n         $CQ: \n    $MEMBUGS: \n         $EC: \n\n      $SCORE: 80\n      $OUTOF: 80\n      $HOURS: 6\n     $ISSUES: Psuedocode didn't mention while loop\n\n  $SHIPPABLE: YES\n $PERFECTOUT: YES\n\n   $COMMENTS:\n\n>>//\n*******************************************************************************/\n/*!******************************************************************\\\n * @file   ALGraph.cpp\n * @author Johannes Peter\n * @par    email: j.peter\\@digipen.edu\n * @par    DigiPen login: j.peter\n * @par    Course: CS280\n * @par    Assignment #06\n * @date   11/24/2015\n * @brief  \n *    This is the Implementation of the ALGraph Class.\n *\n * @par Required Functions included:\n *    - ALGraph()             - standard constructor.\n *    - ~ALGraph()            - default destructor.\n *    - AddDEdge()            - adding a directed edge.\n *    - AddUEdge()            - adding an undirected edge.\n *    - SearchFrom()          - search from a given start node via traversal method (extra credit).\n *    - Dijkstra()            - get Dijkstra result info for a given start node.\n *    - GetAList()            - get internal adjacency list for driver.\n *    - ImplementedSearches() - if extra credit was implemented (not implemented)\n * \n * @par Helper Functions included:\n *    - AdjacencyComp        - functor class for comparing AdjacencyInfo in priority queue.\n *    - AllNodesEvaled()     - check if a vector of graph nodes has been evaluated.\n *    \n * Hours spent on this assignment: \n *    - 6 hours\n * \n * Specific portions that gave you the most trouble:\n *    - The pseudocode did not mention that the while loop should also check if Priority list is empty.\n *\n\\********************************************************************/\n\n#include \"ALGraph.h\"\n\n// As described in instructions.\nstatic const unsigned INFINITY_ = static_cast<unsigned>(-1);\n\n\n/*!******************************************************************\n@brief\n  Default Constructor.\n@param      size\n  The number of nodes in graph.\n*********************************************************************/\nALGraph::ALGraph(unsigned size) : Alist_(size, EdgeQueue(comp_))\n{\n}\n\n\n/*!*******************************************************************\n@brief\n  Default Destructor.\n*********************************************************************/\nALGraph::~ALGraph()\n{\n  // Alist_ is on the stack and should be destroyed cleanly, but just in case:\n  Alist_.clear();\n}\n\n\n/*!*******************************************************************\n@brief\n  Add a directed edge to the graph.\n@param      source\n  Source node.\n@param      destination\n  Destination node.\n@param      weight\n  Weight between nodes.\n*********************************************************************/\nvoid ALGraph::AddDEdge(unsigned source, unsigned destination, unsigned weight)\n{\n  // Construct on the stack\n  AdjacencyInfo info;\n  info.id = destination;\n  info.weight = weight;\n\n  // Push to back with copy constructor\n  Alist_[source-1].push(info);\n}\n\n\n/*!*******************************************************************\n@brief\n  Add an undirected edge to the graph. basically adds two opposite directed edges.\n@param      node1\n  First node of the edge.\n@param      node2\n  Second node of the edge.\n@param      weight\n  Weight between nodes.\n*********************************************************************/\nvoid ALGraph::AddUEdge(unsigned node1, unsigned node2, unsigned weight)\n{\n  AddDEdge(node1, node2, weight);\n  AddDEdge(node2, node1, weight);\n}\n\n\n/*!*******************************************************************\n@brief\n  Search from a given start node via a traversal method (Extra credit).\n@param      start_node\n  The node to search from.\n@param      method\n  The search method.\n@return\n  All reachable nodes, in order of the given traversal method.\n*********************************************************************/\nstd::vector<unsigned> ALGraph::SearchFrom(unsigned start_node, TRAVERSAL_METHOD method) const\n{\n  // to avoid warnings\n  (void)(start_node);\n  (void)(method);\n\n  return std::vector<unsigned>();\n}\n\n\n/*!*******************************************************************\n@brief\n  Get the path data for a given start node using the Dijkstra algorithm.\n@param      start_node\n  The node to start on.\n@return\n  The cost and path data to get from the start node to every node.\n*********************************************************************/\nstd::vector<DijkstraInfo> ALGraph::Dijkstra(unsigned start_node) const\n{\n  unsigned start_index = start_node - 1; // For convenience and sanity\n \n  // Set up the dijkstraInfo we'll use as the default.\n  DijkstraInfo defaultInfo;\n  defaultInfo.cost = INFINITY_;           // All nodes except start init to infinit cost\n\n  // Initialize all costs \n  std::vector<DijkstraInfo> info(Alist_.size(), defaultInfo);\n\n  // Set starting node's cost to 0\n  info[start_index].cost = 0;\n  info[start_index].path.push_back(start_node);\n\n  // The Priority queue used for the remainder of Dijkstra\n  EdgeQueue PQ(comp_);\n\n  // Noodes that have been evaluated\n  std::vector<bool> NodesEval(Alist_.size(), false);\n  NodesEval[start_index] = true;\n\n\n  // Get all nodes adjacent to source\n  EdgeQueue source_neighbors = Alist_[start_index];\n\n// For each node, y, adjacent to source\n  while(!source_neighbors.empty())\n  {\n    AdjacencyInfo y = source_neighbors.top();\n    unsigned y_index = y.id - 1; // For convenience and sanity\n\n//   1. Relax the node. That is, set y's cost to the cost of all edges from source to y.\n    if(info[y_index].cost > y.weight)\n      info[y_index].cost = y.weight; // If we have multiple edges from source to y, only store shortest.\n\n//   2. Place y into a priority queue based on its total cost. (Lower is better)\n    PQ.push(y);\n\n//   3. Add source node as predecessor of y.\n    info[y_index].path.push_back(start_node);\n    info[y_index].path.push_back(y.id);\n\n    source_neighbors.pop();\n// End For\n  }\n\n\n// While there are nodes in the graph that haven't been evaluated\n  while(!AllNodesEvaled(NodesEval) && !PQ.empty())\n  {\n//   Remove a node, x, from the PQ (lowest total cost)\n    AdjacencyInfo x = PQ.top();\n    unsigned x_index = x.id - 1; // For convenience and sanity\n\n    PQ.pop();\n\n//   If the node has already been evaluated\n    if(NodesEval[x_index])\n    {\n//     Discard the node\n//     Go to top of while \n      continue;\n    }\n//   Else\n    else\n    {\n//     Mark x as evaluated.\n      NodesEval[x_index] = true;\n\n      // Get all nodes adjacent to x\n      EdgeQueue x_neighbors = Alist_[x_index];\n\n//     For each neighbor, y, of x\n      while(!x_neighbors.empty())\n      {\n//       Relax y\n        AdjacencyInfo y = x_neighbors.top();\n        unsigned y_index = y.id - 1; // For convenience and sanity\n\n        unsigned y_cost = info[x_index].cost + y.weight;\n\n//       If new cost to reach y is less\n        if(y_cost < info[y_index].cost)\n        {\n//         Update list of nodes (path) to y from source.\n          info[y_index].path = info[x_index].path;\n          info[y_index].path.push_back(y.id);\n          info[y_index].cost = y_cost;\n\n//         Place y in the PQ.\n          y.weight = y_cost;\n          PQ.push(y);\n//       End If\n        }\n        x_neighbors.pop();\n//     End For\n      }\n//   End If\n    }\n// End While\n  }\n  return info;\n}\n\n\n/*!*******************************************************************\n@brief\n  Get internal adacency list for driver.\n@return\n  A copy of the internal adjacency list.\n*********************************************************************/\nALIST ALGraph::GetAList() const\n{\n  // Set up the return ALIST\n  ALIST a(Alist_.size());\n\n  // Iterate over our list of priority queues to copy to the return ALIST\n  for(unsigned int i = 0; i < Alist_.size(); ++i)\n  {\n    // Copy the priority queue, since we can't iterate over it otherwise.\n    EdgeQueue s = Alist_[i];\n\n    // Iterate over each priority queue and copy it to the return ALIST\n    while(!s.empty())\n    {\n      a[i].push_back(s.top());\n      s.pop();\n    }\n  }\n\n  return a;\n}\n\n\n/*!*******************************************************************\n@brief\n  Tell driver if we implemented the extra credit search function.\n@return\n  If extra credit was implemented (no im my case).\n*********************************************************************/\nbool ALGraph::ImplementedSearches()\n{\n  return false;\n}\n\n\n/*!*******************************************************************\n@brief\n  Check if a vector of graph nodes has been evaluated\n@param      evaled\n  Vector where each index represents the graph nodes.\n@return\n  If the given graph node vector is all evaluated or not.\n*********************************************************************/\nbool ALGraph::AllNodesEvaled(const std::vector<bool> &evaled) const\n{\n  for(auto eval : evaled)\n    if(!eval)\n      return false;\n\n  return true;\n}",
 					"settings":
 					{
-						"buffer_size": 627,
-						"line_ending": "Windows"
+						"buffer_size": 9087,
+						"line_ending": "Windows",
+						"name": "/*************************************************"
 					}
 				},
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
 					"settings":
 					{
-						"buffer_size": 1084,
+						"buffer_size": 1482,
 						"line_ending": "Windows"
 					}
 				}
@@ -135,12 +136,16 @@
 			"build_varint": "",
 			"command_palette":
 			{
-				"height": 0.0,
-				"last_filter": "",
+				"height": 81.0,
+				"last_filter": "c++",
 				"selected_items":
 				[
+					[
+						"c++",
+						"Set Syntax: C++"
+					]
 				],
-				"width": 0.0
+				"width": 392.0
 			},
 			"console":
 			{
@@ -160,6 +165,9 @@
 			},
 			"file_history":
 			[
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
@@ -179,7 +187,7 @@
 			],
 			"find":
 			{
-				"height": 22.0
+				"height": 203.0
 			},
 			"find_in_files":
 			{
@@ -211,29 +219,59 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 627,
+								"buffer_size": 9087,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										206,
-										206
+										6284,
+										6242
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"auto_name": "/*************************************************",
+									"syntax": "Packages/C++/C++.sublime-syntax",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2481.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1482,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -241,43 +279,13 @@
 							},
 							"stack_index": 0,
 							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1084,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1081,
-										1081
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
 						}
 					]
 				}
 			],
 			"incremental_find":
 			{
-				"height": 22.0
+				"height": 203.0
 			},
 			"input":
 			{
@@ -311,11 +319,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,1027,2059,160,3359",
+			"position": "0,0,1,-1,-1,-1,-1,981,620,114,1920",
 			"project": "",
 			"replace":
 			{
-				"height": 40.0
+				"height": 402.0
 			},
 			"save_all_on_build": true,
 			"select_file":

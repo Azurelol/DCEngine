@@ -1936,10 +1936,25 @@
             "SendsEvents": true, 
             "IsDrawingCollider": true
           }, 
-          "HealthController": 
+          "PlayerController": 
           {
-            "MaxHealth": 10, 
-            "StartingHealth": 10
+            "MoveSpeed": 0.700000, 
+            "JumpPower": 30.000000, 
+            "JumpFrames": 1.000000, 
+            "Health": 10.000000, 
+            "AirBrakeScalar": 0.950000, 
+            "TurnSpeedScalar": 5.000000, 
+            "DoAutoPlay": true, 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
+            "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "AutoPlayTimer": 2.000000, 
+            "TeleportStartSound": "Teleport", 
+            "TeleportArriveSound": "TeleportArrive", 
+            "JumpSound": "Jump", 
+            "LandSound": "Land", 
+            "FootstepSound": "Step", 
+            "CollideSound": "Collide"
           }, 
           "Light": 
           {
@@ -1974,21 +1989,10 @@
             "InnerAngle": 0.000000, 
             "OuterAngle": 0.000000
           }, 
-          "BasicController": 
+          "HealthController": 
           {
-            "JumpStrength": 28.000000, 
-            "TopSpeed": 13.000000, 
-            "Acceleration": 3.000000, 
-            "DragFactor": 1.100000, 
-            "DragDelay": 0.000000
-          }, 
-          "SimpleInputManager": 
-          {
-            "JumpKey": "W", 
-            "AltJumpKey": "Space", 
-            "LeftKey": "A", 
-            "RightKey": "D", 
-            "JumpInputDelay": 0.500000
+            "MaxHealth": 10, 
+            "StartingHealth": 10
           }
         }, 
         "Children": 
