@@ -15,20 +15,74 @@
 namespace DCEngine {
   namespace Systems {
 
-    void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
+
+    void GraphicsGL::RenderObjects(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
     {
-      SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
+			for (const auto& drawList : *mDrawList)
+			{
+				for (const auto& obj : drawList)
+				{
+					obj->SetUniforms(shader, camera, light);
+					obj->Draw();
+				}
+			}
+    }
+
+		void GraphicsGL::PreRender(Components::Camera * camera)
+		{
+      SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
+
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(GL_LESS);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			
+			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			glDrawBuffers(3, attachments);
+
+			RenderObjects(camera);
+
+			//transfer multisample fbo to regular fbo
+			///transfer color buffers
+			for (unsigned i = 0; i < 3; ++i)
+			{
+				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+				glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+				glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBlitFramebuffer(
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					GL_COLOR_BUFFER_BIT, GL_NEAREST);
+			}
+			///transfer depth buffer
+			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+			glBlitFramebuffer(
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+			///return control flow to regular fbo
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glDrawBuffers(3, attachments);
+		}
+
+		void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
+		{
+			SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
 			glEnable(GL_STENCIL_TEST);
 			glClear(GL_STENCIL_BUFFER_BIT);
 
 			glEnable(GL_DEPTH_CLAMP);
 			glEnable(GL_DEPTH_TEST);
-			glDisable(GL_CULL_FACE);
-			glDepthFunc(GL_LESS);
+			glDepthFunc(GL_NOTEQUAL);
 			glDepthMask(GL_FALSE);
+			glDisable(GL_CULL_FACE);
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
-			
+
 			if (light->getVisibilityCulling())
 				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
 			else
@@ -48,61 +102,11 @@ namespace DCEngine {
 			glDrawBuffer(GL_FRONT);
 			glEnable(GL_CULL_FACE);
 			glDisable(GL_DEPTH_CLAMP);
-    }
-
-    void GraphicsGL::RenderObjects(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
-    {
-			for (const auto& drawList : *mDrawList)
-			{
-				for (const auto& obj : drawList)
-				{
-					obj->SetUniforms(shader, camera, light);
-					obj->Draw();
-				}
-			}
-    }
-
-    void GraphicsGL::RenderBackground(ShaderPtr shader, Components::Camera * camera)
-    {
-    }
-
-    void GraphicsGL::RenderZ0Scene(Components::Camera * camera, Components::Light * light, ShaderPtr shader)
-    {
-    }
-
-		void GraphicsGL::PreRender(Components::Camera * camera)
-		{
-      SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
-			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
-
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_LESS);
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			
-			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
-			glDrawBuffers(3, attachments);
-
-			RenderObjects(camera);
-
-			for (unsigned i = 0; i < 3; ++i)
-			{
-				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-				glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
-				glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-				glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
-				glBlitFramebuffer(
-					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-					GL_COLOR_BUFFER_BIT, GL_NEAREST);
-			}
-			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-			glDrawBuffers(3, attachments);
 		}
 
 		void GraphicsGL::RenderLights(Components::Light * light)
 		{
+			SystemMethodTimer timer("RenderLights", EnumeratedSystem::Graphics);
 			LightingShader->Use();
 			glDisable(GL_STENCIL_TEST);
 			if(light)
@@ -193,6 +197,7 @@ namespace DCEngine {
 
 		void GraphicsGL::RenderScene(float exposure, bool lit)
 		{
+			SystemMethodTimer timer("RenderScene", EnumeratedSystem::Graphics);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDrawBuffer(GL_FRONT);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

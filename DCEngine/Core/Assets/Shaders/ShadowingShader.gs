@@ -31,24 +31,24 @@ uniform mat4 projection;
 float EPSILON = 0.0001;
 
 // Emit a quad using a triangle strip
-void EmitQuad(vec3 StartVertex, vec3 EndVertex)
+void EmitQuad(vec3 StartVertex, vec3 EndVertex, mat4 viewProj)
 {
     // Vertex #1: the starting vertex (just a tiny bit below the original edge)
     vec3 LightDir = normalize(StartVertex - gLight.Position); 
-    gl_Position = projection * view * vec4(StartVertex, 1.0);
+    gl_Position = viewProj * vec4(StartVertex, 1.0);
     EmitVertex();
 
     // Vertex #2: the starting vertex projected to infinity
-    gl_Position = projection * view * vec4(LightDir, 0.0);
+    gl_Position = viewProj * vec4(LightDir, 0.0);
     EmitVertex();
 
     // Vertex #3: the ending vertex (just a tiny bit below the original edge)
     LightDir = normalize(EndVertex - gLight.Position);
-    gl_Position = projection * view * vec4(EndVertex, 1.0);
+    gl_Position = viewProj * vec4(EndVertex, 1.0);
     EmitVertex();
 
     // Vertex #4: the ending vertex projected to infinity
-    gl_Position = projection * view * vec4(LightDir, 0.0);
+    gl_Position = viewProj * vec4(LightDir, 0.0);
     EmitVertex();
 
     EndPrimitive(); 
@@ -57,5 +57,6 @@ void EmitQuad(vec3 StartVertex, vec3 EndVertex)
 
 void main()
 {
-	EmitQuad(WorldPos[0], WorldPos[1]);
+	mat4 viewProj = projection * view;
+	EmitQuad(WorldPos[0], WorldPos[1], viewProj);
 }

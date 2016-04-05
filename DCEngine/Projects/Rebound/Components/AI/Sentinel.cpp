@@ -131,7 +131,7 @@ namespace DCEngine {
 
     void Sentinel::UpdateShield()
     {
-      DCTrace << "Sentinel Shield Mass: " << shield->getComponent<BoxCollider>()->GetMass();
+      //DCTrace << "Sentinel Shield Mass: " << shield->getComponent<BoxCollider>()->GetMass();
 
       Vec3 playerPosition = player->getComponent<Transform>()->Translation;
       Vec3 thisPosition = TransformRef->Translation;
