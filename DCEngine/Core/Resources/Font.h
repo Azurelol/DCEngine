@@ -52,7 +52,7 @@ namespace DCEngine {
     Font(std::string fontFile);
     static std::string Extension() { return ".Font"; }
     void GenerateCharacters(FT_Face face);
-    bool Load();
+    bool Add();
 
   private:
     std::string AssetPath;

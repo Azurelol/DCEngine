@@ -51,7 +51,7 @@ namespace DCEngine {
   @param The name of the font file.
   */
   /**************************************************************************/
-  bool Font::Load() {
+  bool Font::Add() {
     FT_Library ft;
 
     // Initialize the FreeType library
@@ -64,7 +64,7 @@ namespace DCEngine {
     //std::string fontPath = "Core/Resources/Fonts/";
     //fontPath.append(FontFileName);
     FT_Face face;
-    if (FT_New_Face(ft, ResourcePath.c_str(), 0, &face)) {
+    if (FT_New_Face(ft, AssetPath.c_str(), 0, &face)) {
       DCTrace << "Font::Load - Error! Failed to load font \n";
       return false;
     }

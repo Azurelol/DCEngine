@@ -57,7 +57,8 @@ namespace DCEngine {
     @brief SpriteText constructor.
     */
     /**************************************************************************/
-    SpriteText::SpriteText(Entity & owner) : Graphical(std::string("SpriteText"), owner)
+    SpriteText::SpriteText(Entity & owner) : Graphical(std::string("SpriteText"), owner), 
+                                             Color(1,1,1,1)
     {
       Register();
     }
