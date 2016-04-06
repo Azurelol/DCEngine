@@ -1938,7 +1938,8 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.700000, 
+            "MoveSpeed": 1.000000, 
+            "VelocityXCap": 7.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
@@ -9359,7 +9360,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 119, 
         "Name": "Midground", 
         "Components": 
@@ -9372,7 +9373,7 @@
               {
                 "x": 156.742783, 
                 "y": 3.456068, 
-                "z": -0.051000
+                "z": -0.010000
               }
             }, 
             "Rotation": 
@@ -9495,8 +9496,8 @@
               "Vec3": 
               {
                 "x": 155.241577, 
-                "y": 8.688337, 
-                "z": -0.100000
+                "y": 4.688337, 
+                "z": -0.300000
               }
             }, 
             "Rotation": 
@@ -9545,7 +9546,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 120, 
         "Name": "Background1", 
         "Components": 
@@ -9558,7 +9559,7 @@
               {
                 "x": 156.309021, 
                 "y": 6.113880, 
-                "z": -0.200000
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -9620,7 +9621,7 @@
               {
                 "x": 157.242004, 
                 "y": 6.551495, 
-                "z": -0.010000
+                "z": -0.000000
               }
             }, 
             "Rotation": 

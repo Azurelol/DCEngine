@@ -60,6 +60,7 @@ namespace DCEngine {
       BoxCollider* ColliderRef;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
+	  DCE_DEFINE_PROPERTY(Real, VelocityXCap);
       DCE_DEFINE_PROPERTY(Real, JumpPower);
       DCE_DEFINE_PROPERTY(Real, JumpFrames);
       DCE_DEFINE_PROPERTY(Real, Health);

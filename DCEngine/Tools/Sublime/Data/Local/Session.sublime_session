@@ -16,6 +16,22 @@
 				"selected_items":
 				[
 					[
+						"Tex",
+						"TextWipeDelayFrames"
+					],
+					[
+						"Curr",
+						"CurrentlyHovering"
+					],
+					[
+						"Ref",
+						"RefText"
+					],
+					[
+						"Da",
+						"DaisyEvent"
+					],
+					[
 						"Check",
 						"CheckForGround"
 					],
@@ -112,26 +128,18 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 					"settings":
 					{
-						"buffer_size": 627,
+						"buffer_size": 4422,
 						"line_ending": "Windows"
 					}
 				},
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 					"settings":
 					{
-						"buffer_size": 2003,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-					"settings":
-					{
-						"buffer_size": 1084,
+						"buffer_size": 3885,
 						"line_ending": "Windows"
 					}
 				}
@@ -172,6 +180,9 @@
 			},
 			"file_history":
 			[
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
@@ -191,7 +202,7 @@
 			],
 			"find":
 			{
-				"height": 22.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -228,19 +239,19 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 627,
+								"buffer_size": 4422,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										206,
-										206
+										846,
+										846
 									]
 								],
 								"settings":
@@ -248,7 +259,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 405.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 1,
@@ -256,47 +267,19 @@
 						},
 						{
 							"buffer": 1,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2003,
+								"buffer_size": 3885,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1556,
-										1556
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": -0.0,
-								"translation.y": 630.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1084,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1081,
-										1081
+										160,
+										160
 									]
 								],
 								"settings":
@@ -309,7 +292,7 @@
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 2,
+							"stack_index": 0,
 							"type": "text"
 						}
 					]
@@ -317,7 +300,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 22.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -351,11 +334,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,971,1999,104,3299",
+			"position": "0,0,1,-32000,-32000,-1,-1,995,504,128,1804",
 			"project": "",
 			"replace":
 			{
-				"height": 40.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":
