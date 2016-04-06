@@ -273,7 +273,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-          //SpriteComponent->AnimationActive = true;
+          SpriteComponent->AnimationActive = true;
           SoundFootstep();
         }
       }
