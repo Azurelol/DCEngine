@@ -418,10 +418,11 @@
                 "TextReferenceName": "NGText", 
                 "NormalScale": 
                 {
-                  "Vec2": 
+                  "Vec3": 
                   {
                     "x": 8.000000, 
-                    "y": 8.000000
+                    "y": 8.000000, 
+                    "z": 0.000000
                   }
                 }, 
                 "ExpansionScale": 1.050000, 
@@ -604,10 +605,11 @@
                 "TextReferenceName": "HTPText", 
                 "NormalScale": 
                 {
-                  "Vec2": 
+                  "Vec3": 
                   {
                     "x": 8.000000, 
-                    "y": 8.000000
+                    "y": 8.000000, 
+                    "z": 0.000000
                   }
                 }, 
                 "ExpansionScale": 1.050000, 
@@ -790,10 +792,11 @@
                 "TextReferenceName": "OText", 
                 "NormalScale": 
                 {
-                  "Vec2": 
+                  "Vec3": 
                   {
                     "x": 8.000000, 
-                    "y": 8.000000
+                    "y": 8.000000, 
+                    "z": 0.000000
                   }
                 }, 
                 "ExpansionScale": 1.050000, 
@@ -976,10 +979,11 @@
                 "TextReferenceName": "CText", 
                 "NormalScale": 
                 {
-                  "Vec2": 
+                  "Vec3": 
                   {
                     "x": 8.000000, 
-                    "y": 8.000000
+                    "y": 8.000000, 
+                    "z": 0.000000
                   }
                 }, 
                 "ExpansionScale": 1.050000, 
@@ -1162,10 +1166,11 @@
                 "TextReferenceName": "QGText", 
                 "NormalScale": 
                 {
-                  "Vec2": 
+                  "Vec3": 
                   {
                     "x": 6.000000, 
-                    "y": 1.800000
+                    "y": 1.800000, 
+                    "z": 0.000000
                   }
                 }, 
                 "ExpansionScale": 1.050000, 

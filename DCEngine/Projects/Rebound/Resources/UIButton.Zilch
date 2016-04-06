@@ -34,7 +34,7 @@ class UIButton : ZilchComponent
     var TextReferenceName : String = "";
 
     [Property]
-    var NormalScale : Real2 = Real2(8.0, 1.5);
+    var NormalScale : Real3 = Real3(8.0, 1.5, 1.0);
 
     [Property]
     var ExpansionScale : Real = 1.0;

@@ -1,18 +1,7 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="9">
-            <File firstVisibleLine="50" xOffset="100" scrollWidth="1216" startPos="2217" endPos="2292" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\PlayerController.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459634080" />
-            <File firstVisibleLine="21" xOffset="0" scrollWidth="1096" startPos="2058" endPos="2058" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\CameraControllerZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459730108" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="696" startPos="192" endPos="192" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\CustomEvents.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459631378" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\HazardAreaZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459557393" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="768" startPos="671" endPos="671" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\CameraOffsetVolumeZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459636629">
-                <Mark line="7" />
-            </File>
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="632" startPos="224" endPos="224" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\BallTemp.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459040684" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="704" startPos="283" endPos="283" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459049235" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="784" startPos="112" endPos="112" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459639825" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\Collector.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459053123" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="80" startPos="34" endPos="34" selMode="0" lang="Normal Text" encoding="-1" filename="new 1" backupFilePath="D:\DCEngine\DCEngine\Tools\Notepad++\backup\new 1@2016-04-04_053507" originalFileLastModifTimestamp="0" />
+        <mainView activeIndex="0">
+            <File firstVisibleLine="22" xOffset="0" scrollWidth="1015" startPos="882" endPos="882" selMode="0" lang="C#" encoding="-1" filename="G:\Repositories\Daisy Chain Engine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" backupFilePath="G:\Repositories\Daisy Chain Engine\DCEngine\Tools\Notepad++\backup\UIButton.Zilch@2016-04-05_191131" originalFileLastModifTimestamp="1459908636" />
         </mainView>
         <subView activeIndex="0" />
     </Session>
