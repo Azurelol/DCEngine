@@ -6035,7 +6035,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": 5.000000, 
                 "z": -1.250000
               }
             }, 
@@ -6076,7 +6076,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 1
           }
         }, 
         "Children": 
@@ -6247,7 +6247,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": 6.000000, 
                 "z": -1.350000
               }
             }, 
@@ -6288,7 +6288,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 1
           }
         }, 
         "Children": 
@@ -6309,7 +6309,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": 5.000000, 
                 "z": -1.500000
               }
             }, 
@@ -6350,7 +6350,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 0
           }
         }, 
         "Children": 
@@ -6371,7 +6371,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -4.000000, 
+                "y": 0.000000, 
                 "z": -0.500000
               }
             }, 
@@ -6412,7 +6412,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 3
           }
         }, 
         "Children": 
@@ -6434,7 +6434,7 @@
               {
                 "x": 8.621223, 
                 "y": 15.400234, 
-                "z": 0.000000
+                "z": -0.200000
               }
             }, 
             "Rotation": 
@@ -6474,7 +6474,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -6494,9 +6494,9 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
+                "x": 1.000000, 
+                "y": 5.000000, 
+                "z": -0.300000
               }
             }, 
             "Rotation": 
@@ -6536,7 +6536,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -6557,8 +6557,8 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": -5.000000, 
-                "z": 0.000000
+                "y": 0.000000, 
+                "z": -0.400000
               }
             }, 
             "Rotation": 
@@ -6598,7 +6598,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 3
           }
         }, 
         "Children": 

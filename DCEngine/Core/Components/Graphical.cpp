@@ -42,7 +42,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
 		Graphical::Graphical(std::string graphicalComponent, Entity & owner) : Component(graphicalComponent, owner),
-			DrawLayer(0)
+			DrawLayer(4)
     {
     }
 
