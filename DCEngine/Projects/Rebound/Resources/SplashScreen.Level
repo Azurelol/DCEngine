@@ -122,7 +122,7 @@
           "Fade": 
           {
             "Timer": 0.000000, 
-            "FadeTime": 4.000000, 
+            "FadeTime": 2.500000, 
             "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
@@ -140,7 +140,7 @@
           "LevelManager": 
           {
             "NextLevel": "MainMenu", 
-            "LoadingTime": 3.000000, 
+            "LoadingTime": 5.000000, 
             "TimerStarted": true
           }
         }, 

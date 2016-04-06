@@ -301,18 +301,17 @@ namespace DCEngine {
       auto path = Settings.ProjectProperties->ProjectPath + Settings.ProjectProperties->ResourcePath
                   + name + ZilchScript::Extension();
       FileSystem::CorrectPath(path);
-      auto script = ZilchScriptPtr(new ZilchScript(path));
+      auto script = ZilchScriptPtr(new ZilchScript(path));      
       
       // Build the script from a template
       if (script->BuildDefaultFromTemplate()) {
         // If successful, open the default text editor and read it!
         TextEditor.Load(script);
-        //std::string command = "notepad++ " + path;
-        //system(command.c_str());
       }     
       
       // Add the script to the content system
-      Daisy->getSystem<Content>()->AddZilchScript(name, script);      
+      Daisy->getSystem<Content>()->AddAndLoadZilchScript(name, script);
+
 
       return script.get();
     }

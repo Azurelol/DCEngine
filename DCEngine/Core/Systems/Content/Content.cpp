@@ -126,7 +126,7 @@ namespace DCEngine {
     void Content::LoadAllResources()
     {
       // Generate every SoundCue from file
-      for (auto& soundCue : SoundCueMap) {
+      for (auto& soundCue : MapSoundCue) {
         soundCue.second->Load();
         soundCue.second->Generate();
       }
@@ -138,7 +138,7 @@ namespace DCEngine {
       Daisy->getSystem<Audio>()->Generate();
 
       // Load every SpriteSource's texture
-      for (auto& spriteSource : SpriteSourceMap) {
+      for (auto& spriteSource : MapSpriteSource) {
         // Load the SpriteSource's properties data from file
         spriteSource.second->Load();
         // Load its texture onto the graphics system
@@ -146,16 +146,17 @@ namespace DCEngine {
       }
 
       // Load every Font
-      for (auto& font : FontMap) {
+      for (auto& font : MapFont) {
         font.second->Load();
         font.second->Add();
       }
 
-      //// Load every script..
-      //for (auto& script : MapZilchScript) {
-      //  script.second->IncludeScript();
-      //}
-      //Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
+      // Load every script..
+      for (auto& script : MapZilchScript) {
+        script.second->Load();
+        script.second->IncludeScript();
+      }
+      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
 
     }
 

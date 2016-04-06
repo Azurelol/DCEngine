@@ -34,7 +34,7 @@ namespace DCEngine {
     /**************************************************************************/
     ShaderPtr Content::getShader(const std::string shaderName)
     {
-      return ShaderMap.at(shaderName);
+      return MapShader.at(shaderName);
     }
 
     /**************************************************************************/
@@ -46,12 +46,12 @@ namespace DCEngine {
     FontPtr Content::getFont(const std::string & fontName)
     {
       // Check if the resource is present in the map
-      if (!FontMap.count(fontName)) {
+      if (!MapFont.count(fontName)) {
         // Return a default font
-        return FontMap.at(DefaultFont);
+        return MapFont.at(DefaultFont);
       }
 
-      return FontMap.at(fontName);
+      return MapFont.at(fontName);
     }
 
     /**************************************************************************/
@@ -63,16 +63,16 @@ namespace DCEngine {
     SpriteSourcePtr Content::getSpriteSrc(const std::string & spriteName)
     {
       // Check if the resource is present in the map
-      if (!SpriteSourceMap.count(spriteName)) {
+      if (!MapSpriteSource.count(spriteName)) {
         //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
         // Return a default '404 image not found.
-        return SpriteSourceMap.at(DefaultImage);
+        return MapSpriteSource.at(DefaultImage);
       }
 
       //SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
       //if (spriteSource == nullptr)
       //  throw DCException("Content::GetSpriteSource -" + spriteName + " was not found!");
-      return SpriteSourceMap.at(spriteName);
+      return MapSpriteSource.at(spriteName);
     }
 
     /**************************************************************************/
@@ -84,13 +84,13 @@ namespace DCEngine {
     SoundCuePtr Content::getSoundCue(const std::string & soundCueName)
     {
       // Check if the resource is present in the map
-      if (!SoundCueMap.count(soundCueName)) {
+      if (!MapSoundCue.count(soundCueName)) {
         //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
         // Return a default '404 image not found.
         //return SoundCueMap.at(DefaultSound);
         return nullptr;
       }
-      return SoundCueMap.at(soundCueName);
+      return MapSoundCue.at(soundCueName);
     }
 
     /**************************************************************************/
@@ -101,11 +101,11 @@ namespace DCEngine {
     /**************************************************************************/
     ArchetypePtr Content::getArchetype(const std::string & archetypeName)
     {
-      if (!ArchetypeMap.count(archetypeName)) {
+      if (!MapArchetype.count(archetypeName)) {
         DCTrace << "Content::getArchetype: The archetype '" << archetypeName << "' was not found! \n";
         return nullptr;
       }
-      return ArchetypeMap.at(archetypeName);
+      return MapArchetype.at(archetypeName);
     }
 
     /**************************************************************************/
@@ -117,14 +117,14 @@ namespace DCEngine {
     LevelPtr Content::getLevel(const std::string & levelName)
     {
       // Check if the resource is present in the map
-      if (!LevelMap.count(levelName)) {
+      if (!MapLevel.count(levelName)) {
         DCTrace << "Content::getLevel - " << levelName << " was not found!\n";
         return nullptr;
       }
       // If it does, first load it
-      LevelMap.at(levelName)->Load();
+      MapLevel.at(levelName)->Load();
       // Then return it
-      return LevelMap.at(levelName);
+      return MapLevel.at(levelName);
     }
 
     /**************************************************************************/
@@ -206,12 +206,12 @@ namespace DCEngine {
 
     SpriteSourceMap * Content::AllSpriteSources()
     {
-      return &SpriteSourceMap;
+      return &MapSpriteSource;
     }
 
     SoundCueMap * Content::AllSoundCues()
     {
-      return &SoundCueMap;
+      return &MapSoundCue;
     }
 
     BankMap * Content::AllBanks()
@@ -221,22 +221,22 @@ namespace DCEngine {
 
     ShaderMap * Content::AllShaders()
     {
-      return &ShaderMap;
+      return &MapShader;
     }
 
     FontMap * Content::AllFonts()
     {
-      return &FontMap;
+      return &MapFont;
     }
 
     ArchetypeMap * Content::AllArchetypes()
     {
-      return &ArchetypeMap;
+      return &MapArchetype;
     }
 
     LevelMap * Content::AllLevels()
     {
-      return &LevelMap;
+      return &MapLevel;
     }
 
     ZilchScriptMap * Content::AllZilchScripts()

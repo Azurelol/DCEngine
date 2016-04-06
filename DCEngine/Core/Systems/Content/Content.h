@@ -16,6 +16,7 @@
 #include "../System.h"
 
 #include "FileScanner.h"
+#include "AssetLoader.h"
 #include "ContentUtils.h"
 #include "../../Resources/ResourcesInclude.h"
 #include "../../Engine/Data.h"
@@ -26,7 +27,7 @@ namespace DCEngine {
   class Factory;
   
   namespace Systems {
-
+    
     // Resource Maps
     using SpriteSourceMap = std::map<std::string, SpriteSourcePtr>;
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
@@ -82,8 +83,6 @@ namespace DCEngine {
       PhysicsMaterialMap* AllPhysicsMaterials();
       SpriteLayerMap* AllSpriteLayers();
       SpriteLayerOrderMap* AllSpriteLayerOrders();
-      // Remove resource.
-      void RemoveResource(ResourcePtr);      
       // Scanners
       void ScanResources();
       void ScanForLevels();
@@ -123,12 +122,12 @@ namespace DCEngine {
       std::string DefaultSound = "Beep";
       std::string DefaultTexture = "SampleTexture";
       // Resource maps      
-      std::map<std::string, ShaderPtr> ShaderMap;
-      std::map<std::string, FontPtr> FontMap;
-      SoundCueMap SoundCueMap;
-      SpriteSourceMap SpriteSourceMap;      
-      ArchetypeMap ArchetypeMap;
-      LevelMap LevelMap;
+      std::map<std::string, ShaderPtr> MapShader;
+      FontMap MapFont;
+      SoundCueMap MapSoundCue;
+      SpriteSourceMap MapSpriteSource;
+      ArchetypeMap MapArchetype;
+      LevelMap MapLevel;
       CollisionGroupMap MapCollisionGroup;
       CollisionTableMap MapCollisionTable;
       ZilchScriptMap MapZilchScript;
@@ -137,7 +136,23 @@ namespace DCEngine {
       SpriteLayerOrderMap MapSpriteLayerOrder;
       BankMap MapBank;
       TextureMap MapTextures;
-      // Map functions
+      // Newer, shinier add functions
+      template <typename ResourcePtr, typename ResourceMap>
+      void AddResourceToMap(const std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
+      void AddFont(const std::string& resourcePath);
+      void AddArchetype(const std::string& resourcePath);
+      void AddShader(const std::string& resourcePath);
+      void AddSpriteSource(const std::string& resourcePath);
+      void AddSoundCue(const std::string& resourcePath);
+      void AddBank(const std::string& resourcePath);
+      void AddLevel(const std::string& resourcePath);
+      void AddCollisionGroup(const std::string& resourcePath);
+      void AddCollisionTable(const std::string& resourcePath);
+      void AddPhysicsMaterial(const std::string& resourcePath);
+      void AddZilchScript(const std::string& resourcePath);
+      void AddSpriteLayer(const std::string& resourcePath);
+      void AddSpriteLayerOrder(const std::string& resourcePath);
+      // Old add functions
       void AddFont(const std::string& fontName, FontPtr fontPtr);
       void AddArchetype(const std::string& archetypeName, ArchetypePtr archetypePtr);
       void AddShader(const std::string& shaderName, ShaderPtr shaderPtr);
@@ -147,12 +162,10 @@ namespace DCEngine {
       void AddCollisionGroup(const std::string& collisionGroupName, CollisionGroupPtr collisionGroupPtr);
       void AddCollisionTable(const std::string& collisionTableName, CollisionTablePtr collisionTablePtr);
       void AddPhysicsMaterial(const std::string& physicsMaterialName, PhysicsMaterialPtr physicsMaterialPtr);
-      void AddZilchScript(const std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
+      void AddAndLoadZilchScript(const std::string& zilchScriptName, ZilchScriptPtr zilchScriptPtr);
       void AddSpriteLayer(const std::string& name, SpriteLayerPtr ptr);
       void AddSpriteLayerOrder(const std::string& name, SpriteLayerOrderPtr ptr);
       void AddTexture(const std::string& name, TexturePtr ptr);
-      template <typename ResourcePtr, typename ResourceMap>
-      void AddResourceToMap(const std::string& resourceName, ResourcePtr ptr, ResourceMap& map);
       // Core functions
       Content(std::string& coreAssetsPath);
       void Initialize();

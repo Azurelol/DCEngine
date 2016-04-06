@@ -206,7 +206,7 @@ namespace DCEngine {
     void Editor::DeleteResource(ResourcePtr resource)
     {
       DCTrace << "Editor::DeleteResource - Deleting resource: " << resource->Name() << "\n";
-      Daisy->getSystem<Content>()->RemoveResource(resource);
+      //Daisy->getSystem<Content>()->RemoveResource(resource);
 
       // If the deleted resource is the current level.. 
       if (auto level = dynamic_cast<Level*>(resource)) {

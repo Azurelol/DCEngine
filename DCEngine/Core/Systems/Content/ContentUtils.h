@@ -23,6 +23,7 @@ namespace DCEngine {
     using Name##Handle = std::string              
 
     using ResourceHandle = std::string;
+      
 
     template <typename ResourceType>
     class ResourceMap {

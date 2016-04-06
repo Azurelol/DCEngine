@@ -63,18 +63,7 @@ namespace DCEngine {
       AddShader(std::string("FinalRenderShader"), ShaderPtr(new Shader(std::string("FinalRenderShader"),
         ShaderPath + "FinalRenderShader.vs",
         ShaderPath + "FinalRenderShader.frag")));
-
-      // Load shaders
-      //std::vector<std::string> coreShaders;
-      //if (!FileSystem::DirectoryExtractFilePaths(EngineInfo->ShaderPath, coreShaders))
-      //  throw DCException("Content::LoadCoreAssets - Failed to load shader files!");
-      //for (auto shader : coreShaders) {
-      //  auto shaderName = FileSystem::FileExtractWithoutExtension(shader);
-      //  AddShader(shaderName, ShaderPtr(new Shader(shaderName,
-      //            EngineInfo->ShaderPath + "SpriteShader.vs", 
-      //            EngineInfo->ShaderPath + "SpriteShader.frag")));
-      //}
-
+      
       // Scan for default assets and generate resources
       ScanAndGenerateResources();
       // Load sprites
@@ -92,6 +81,102 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    @brief Adds a resource to the map.
+    */
+    /**************************************************************************/
+    void Content::AddFont(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = FontPtr(new Font(resourcePath));
+      AddResourceToMap<FontPtr, FontMap>(resourceName, resourcePtr, MapFont);
+    }
+
+    void Content::AddArchetype(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = ArchetypePtr(new Archetype(resourcePath));
+      AddResourceToMap<ArchetypePtr, ArchetypeMap>(resourceName, resourcePtr, MapArchetype);
+    }
+
+    void Content::AddShader(const std::string & resourcePath)
+    {
+      //auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      //auto resourcePtr = ShaderPtr(new Shader(resourcePath));
+      //AddResourceToMap<ShaderPtr, ShaderMap>(resourceName, resourcePtr, MapShader);
+    }
+
+    void Content::AddSpriteSource(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = SpriteSourcePtr(new SpriteSource(resourcePath));
+      AddResourceToMap<SpriteSourcePtr, SpriteSourceMap>(resourceName, resourcePtr, MapSpriteSource);
+    }
+
+    void Content::AddSoundCue(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = SoundCuePtr(new SoundCue(resourcePath, SoundCue::SoundCueType::File));
+      AddResourceToMap<SoundCuePtr, SoundCueMap>(resourceName, resourcePtr, MapSoundCue);
+    }
+
+    void Content::AddBank(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = BankPtr(new Bank(resourcePath));
+      AddResourceToMap<BankPtr, BankMap>(resourceName, resourcePtr, MapBank);
+    }
+
+    void Content::AddLevel(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = LevelPtr(new Level(resourcePath));
+      AddResourceToMap<LevelPtr, LevelMap>(resourceName, resourcePtr, MapLevel);
+    }
+
+    void Content::AddCollisionGroup(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = CollisionGroupPtr(new CollisionGroup(resourcePath));
+      AddResourceToMap<CollisionGroupPtr, CollisionGroupMap>(resourceName, resourcePtr, MapCollisionGroup);
+    }
+
+    void Content::AddCollisionTable(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = CollisionTablePtr(new CollisionTable (resourcePath));
+      AddResourceToMap<CollisionTablePtr, CollisionTableMap>(resourceName, resourcePtr, MapCollisionTable);
+    }
+
+    void Content::AddPhysicsMaterial(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = PhysicsMaterialPtr(new PhysicsMaterial(resourcePath));
+      AddResourceToMap<PhysicsMaterialPtr, PhysicsMaterialMap>(resourceName, resourcePtr, MapPhysicsMaterial);
+    }
+
+    void Content::AddZilchScript(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = ZilchScriptPtr(new ZilchScript(resourcePath));
+      AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(resourceName, resourcePtr, MapZilchScript);
+    }
+
+    void Content::AddSpriteLayer(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = SpriteLayerPtr(new SpriteLayer(resourcePath));
+      AddResourceToMap<SpriteLayerPtr, SpriteLayerMap>(resourceName, resourcePtr, MapSpriteLayer);
+    }
+
+    void Content::AddSpriteLayerOrder(const std::string & resourcePath)
+    {
+      auto resourceName = FileSystem::FileNoExtension(resourcePath);
+      auto resourcePtr = SpriteLayerOrderPtr(new SpriteLayerOrder(resourcePath));
+      AddResourceToMap<SpriteLayerOrderPtr, SpriteLayerOrderMap>(resourceName, resourcePtr, MapSpriteLayerOrder);
+    }
+
+    /**************************************************************************/
+    /*!
     @brief Adds a Font to the font resource map.
     @param The name of the Font.
     @param The pointer to the Font resource.
@@ -101,7 +186,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddFont(const std::string & fontName, FontPtr fontPtr)
     {
-      FontMap.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
+      MapFont.insert(std::pair<std::string, FontPtr>(fontName, fontPtr));
       if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddFont - " << fontName << " was added.\n";
     }
@@ -117,15 +202,17 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddArchetype(const std::string & archetypeName, ArchetypePtr archetypePtr)
     {
+
+
       // Overwrite archetypes
-      if (ArchetypeMap.count(archetypeName)) {
-        ArchetypeMap.erase(archetypeName);
+      if (MapArchetype.count(archetypeName)) {
+        MapArchetype.erase(archetypeName);
         if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddArchetype - " << archetypeName << " is already present in the map. Overwriting \n";
         //return;
       }
 
-      ArchetypeMap.insert(std::pair<const std::string, ArchetypePtr>(archetypeName, archetypePtr));
+      MapArchetype.insert(std::pair<const std::string, ArchetypePtr>(archetypeName, archetypePtr));
       if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddArchetype - " << archetypeName << " was added.\n";              
     }
@@ -139,7 +226,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddShader(const std::string & shaderName, ShaderPtr shaderPtr)
     {
-      ShaderMap.insert(std::pair<std::string, ShaderPtr>(shaderName, shaderPtr));
+      MapShader.insert(std::pair<std::string, ShaderPtr>(shaderName, shaderPtr));
       DCTrace << "Content::AddShader - " << shaderName << " was added.\n";
     }
 
@@ -153,13 +240,13 @@ namespace DCEngine {
     void Content::AddSpriteSource(const std::string & spriteSourceName, SpriteSourcePtr spriteSourcePtr)
     {
       // Prevent duplicates
-      if (SpriteSourceMap.count(spriteSourceName)) {
+      if (MapSpriteSource.count(spriteSourceName)) {
         if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " is already present in the map.\n";
         return;
       }
 
-      SpriteSourceMap.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
+      MapSpriteSource.insert(std::pair<std::string, SpriteSourcePtr>(spriteSourceName, spriteSourcePtr));
       if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddSpriteSource - " << spriteSourceName << " was added.\n";
     }
@@ -174,13 +261,13 @@ namespace DCEngine {
     void Content::AddSoundCue(std::string & soundCueName, SoundCuePtr soundcuePtr)
     {
       // Prevent duplicates
-      if (SoundCueMap.count(soundCueName)) {
+      if (MapSoundCue.count(soundCueName)) {
         if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddSoundCue - " << soundCueName << " is already present in the map.\n";
         return;
       }
 
-      SoundCueMap.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
+      MapSoundCue.insert(std::pair<std::string, SoundCuePtr>(soundCueName, soundcuePtr));
       if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddSoundCue - " << soundCueName << " was added.\n";
     }
@@ -207,15 +294,15 @@ namespace DCEngine {
     void Content::AddLevel(const std::string & levelName, LevelPtr levelPtr)
     {
       // Prevent duplicates
-      if (LevelMap.count(levelName)) {
+      if (MapLevel.count(levelName)) {
         // Overwrite the current level
-        LevelMap.erase(levelName);       
+        MapLevel.erase(levelName);
         if (Debug::TraceFactoryResourceAdd)
           DCTrace << "Content::AddLevel - " << levelName << " is already present in the map. Overwriting. \n";
         //return;
       }
 
-      LevelMap.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
+      MapLevel.insert(std::pair<std::string, LevelPtr>(levelName, levelPtr));
       if (Debug::TraceFactoryResourceAdd)
         DCTrace << "Content::AddLevel - " << levelName << " was added.\n";
     }
@@ -256,7 +343,7 @@ namespace DCEngine {
     @param The pointer to the ZilchScript resource.
     */
     /**************************************************************************/
-    void Content::AddZilchScript(const  std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
+    void Content::AddAndLoadZilchScript(const  std::string & zilchScriptName, ZilchScriptPtr zilchScriptPtr)
     {
       AddResourceToMap<ZilchScriptPtr, ZilchScriptMap>(zilchScriptName, zilchScriptPtr, MapZilchScript);
       // Load the script
@@ -277,31 +364,7 @@ namespace DCEngine {
       AddResourceToMap<SpriteLayerOrderPtr, SpriteLayerOrderMap>(name, ptr, MapSpriteLayerOrder);
     }
 
-
-    /**************************************************************************/
-    /*!
-    @brief Removes the specified resource from the Content system.
-    @param resource A pointer to the specified resource.
-    @note  The resource will be removed from the resource map to which it
-    belongs and its dat file deleted.
-    */
-    /**************************************************************************/
-    void Content::RemoveResource(ResourcePtr resource)
-    {
-      // Level
-      if (dynamic_cast<Level*>(resource)) {
-        // Delete it from file
-
-        // 
-
-        // Scan again
-      }
-      // Archetype
-      else if (dynamic_cast<Archetype*>(resource)) {
-
-      }
-    }
-
+    
     /**************************************************************************/
     /*!
     @brief Generates default resources to be used by the engine.
@@ -318,224 +381,9 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Scans the project's resource path for updated levels.
+    @brief Returns a reference to the ProjectSettings data struct.
     */
     /**************************************************************************/
-    void Content::ScanForLevels()
-    {
-      ScanForLevels(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the project's resource path for resources to add to the engine.
-    */
-    /**************************************************************************/
-    void Content::ScanResources()
-    {
-      auto resourcePath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;    
-      // 1. Scan for all resources in the specified directory
-      std::vector<std::string> resources;
-      if (!FileSystem::DirectoryListFilePaths(resourcePath, resources)) {
-        auto exceptionInfo = std::string("Content::ScanResources - Failed to find the resource directory: " + ProjectInfo->ResourcePath);
-        throw DCException(exceptionInfo);
-      }
-
-      // 2. Parse the resources and add them to their appropiate maps
-      for (auto resource : resources) {
-        // 1. Get the resource's name and extension
-        auto resourceName = FileSystem::FileNoExtension(resource);
-        auto extension = FileSystem::FileExtension(resource);
-        // 2. Depending on the extension, add the specific resource:
-        if (extension == SpriteSource::Extension())
-          AddSpriteSource(resourceName, SpriteSourcePtr(new SpriteSource(resource)));
-        else if (extension == SpriteLayer::Extension())
-          AddSpriteLayer(resourceName, SpriteLayerPtr(new SpriteLayer(resource)));
-        else if (extension == SpriteLayerOrder::Extension())
-          AddSpriteLayerOrder(resourceName, SpriteLayerOrderPtr(new SpriteLayerOrder(resource)));
-        else if (extension == Font::Extension())
-          AddFont(resourceName, FontPtr(new Font(resource)));
-        else if (extension == SoundCue::Extension())
-          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource, SoundCue::SoundCueType::File)));
-        else if (extension == Level::Extension())
-          AddLevel(resourceName, LevelPtr(new Level(resource)));        
-        else if (extension == Archetype::Extension())
-          AddArchetype(resourceName, ArchetypePtr(new Archetype(resource)));
-        else if (extension == CollisionGroup::Extension())
-          AddCollisionGroup(resourceName, CollisionGroupPtr(new CollisionGroup(resource)));
-        else if (extension == CollisionTable::Extension())
-          AddCollisionTable(resourceName, CollisionTablePtr(new CollisionTable(resource)));
-        else if (extension == PhysicsMaterial::Extension())
-          AddPhysicsMaterial(resourceName, PhysicsMaterialPtr(new PhysicsMaterial(resource)));
-        else if (extension == ZilchScript::Extension())
-          AddZilchScript(resourceName, ZilchScriptPtr(new ZilchScript(resource)));
-        else if (extension == Bank::Extension())
-          AddBank(resourceName, BankPtr(new Bank(resource)));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the engine's asset path for resources to generate and add
-            to the engine.
-    @todo   Make it scan recursively.
-    */
-    /**************************************************************************/
-    void Content::ScanAndGenerateResources()
-    {
-      //auto SpritePath = CoreAssetsPath + "Sprites/";
-      //auto SoundPath = CoreAssetsPath + "Sounds/";
-      //auto FontPath = CoreAssetsPath + "Fonts/";
-      //// 1. Scan for all resources in the specified directory
-      //std::vector<std::string> resources;
-      //if (!FileSystem::DirectoryListFilePaths(resourcePath, resources)) {
-      //  auto exceptionInfo = std::string("Content::ScanResources - Failed to find the resource directory: " + ProjectInfo->ResourcePath);
-      //  throw DCException(exceptionInfo);
-      //}
-
-      //// 2. Parse the resources and add them to their appropiate maps
-      //for (auto resource : resources) {
-      //  // 1. Get the resource's name and extension
-      //  auto resourceName = FileSystem::FileNoExtension(resource);
-      //  auto extension = FileSystem::FileExtension(resource);
-      //  // 2. Depending on the extension, add the specific resource:
-      //  if (extension == SpriteSource::Extension())
-      //    AddSpriteSource(resourceName, SpriteSourcePtr(new SpriteSource(resource)));
-      //}
-    }
-
-
-
-    void Content::ScanForArchetypes()
-    {
-      ScanForArchetypes(ProjectInfo->ProjectPath + ProjectInfo->ResourcePath);
-    }
-
-    void Content::ScanForSpriteSources()
-    {
-      ScanForSpriteSources(ProjectInfo->ProjectPath + ProjectInfo->AssetPath + "Images/");
-    }
-
-    void Content::ScanForSoundCues()
-    {
-      ScanForSoundCues(ProjectInfo->ProjectPath + ProjectInfo->AssetPath + "Sounds/");
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the Level Path for level files.
-    */
-    /**************************************************************************/
-    void Content::ScanForLevels(std::string levelPath)
-    {
-      DCTrace << "Content::ScanForLevels - Scanning for levels on the current project at: " << levelPath << "\n";
-      //std::string LevelPath("Projects/Rebound/Resources/Levels/");
-
-      // Load sound files
-      std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(levelPath, levels, Level::Extension())) {
-        auto exceptionInfo = std::string("Content::ScanForLevels - Failed to find level directory: " + levelPath);
-        throw DCException(exceptionInfo);
-      }
-      for (auto level : levels) {
-        auto soundName = FileSystem::FileNoExtension(level);
-        AddLevel(soundName, LevelPtr(new Level(level)));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the specified path for archetype files.
-    */
-    /**************************************************************************/
-    void Content::ScanForArchetypes(std::string archetypePath)
-    {
-      DCTrace << "Content::ScanForArchetypes - Scanning for archetypes on the current project \n";
-      //std::string ArchetypePath("Projects/Rebound/Resources/Archetypes/");
-
-      // Load sound files
-      std::vector<std::string> archetypes;
-      if (!FileSystem::DirectoryListFilePaths(archetypePath, archetypes, Archetype::Extension())) {
-        auto exceptionInfo = std::string("Content::ScanForArchetypes - Failed to find archetype directory: " + archetypePath);
-        throw DCException(exceptionInfo);      
-      }
-      for (auto archetype : archetypes) {
-        auto archetypeName = FileSystem::FileNoExtension(archetype);
-        AddArchetype(archetypeName, ArchetypePtr(new Archetype(archetype)));
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the specified path for SpriteSource files.
-    */
-    /**************************************************************************/
-    void Content::ScanForSpriteSources(std::string  spriteSourcePath)
-    {
-      DCTrace << "Content::ScanForSpriteSources - Scanning for spritesources on the current project \n";
-
-      // Load sprites
-      std::vector<std::string> sprites;
-      if (!FileSystem::DirectoryListFilePaths(spriteSourcePath, sprites)) {
-        auto exceptionInfo = std::string("Content::ScanForSpriteSources - Failed to find sprite directory: " + spriteSourcePath);
-        throw DCException(exceptionInfo);
-      }
-        
-      for (auto sprite : sprites) {
-        auto spriteName = FileSystem::FileNoExtension(sprite);
-        auto spriteSource = SpriteSourcePtr(new SpriteSource(sprite));
-        spriteSource->setAssetPath(sprite);
-        AddSpriteSource(spriteName, spriteSource);
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the specified path for SoundCue files.
-    */
-    /**************************************************************************/
-    void Content::ScanForSoundCues(std::string soundCuePath)
-    {
-      // Load sound files
-      std::vector<std::string> soundCues;
-      if (!FileSystem::DirectoryListFilePaths(soundCuePath, soundCues)) {
-        auto exceptionInfo = std::string("Content::ScanForSoundCues - Failed to find sound directory: " + soundCuePath);
-        throw DCException(exceptionInfo);
-      }
-      for (auto sound : soundCues) {
-        auto soundName = FileSystem::FileNoExtension(sound);
-        auto soundCue = SoundCuePtr(new SoundCue(sound, SoundCue::SoundCueType::File));
-        soundCue->setAssetPath(sound);
-        AddSoundCue(soundName, soundCue);
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Scans the specified path for Font files.
-    */
-    /**************************************************************************/
-    void Content::ScanForFonts(std::string fontPath)
-    {
-      DCTrace << "Content::ScanForFonts - Scanning the current project \n";
-
-      // Load sprites
-      std::vector<std::string> fonts;
-      if (!FileSystem::DirectoryListFilePaths(fontPath, fonts)) {
-        auto exceptionInfo = std::string("Content::ScanForFonts - Failed to find font directory: " + fontPath);
-        throw DCException(exceptionInfo);
-      }
-
-      for (auto font : fonts) {
-        auto fontName = FileSystem::FileNoExtension(font);
-        auto fontResource = FontPtr(new Font(font));
-        fontResource->setAssetPath(font);
-        AddFont(fontName, fontResource);
-      }
-    }
-
-
-
     ProjectDataPtr & Content::ProjectSettings()
     {
       return ProjectInfo;
