@@ -33,6 +33,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, RotSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomSpeed);
+	  DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomMax);
     }
     #endif
 
@@ -42,7 +43,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     EditorCameraController::EditorCameraController(Entity & owner) 
-         : Component(std::string("EditorCameraController"), owner), ZoomMin(2.0f), ZoomMax(100.0f)
+         : Component(std::string("EditorCameraController"), owner), ZoomMin(2.0f), ZoomMax(200.0f)
     {
       CameraComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Camera>();
       TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();

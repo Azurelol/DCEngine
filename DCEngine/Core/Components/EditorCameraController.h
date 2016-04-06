@@ -31,6 +31,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, RotSpeed);
       DCE_DEFINE_PROPERTY(Real, ZoomSpeed);
+	  DCE_DEFINE_PROPERTY(Real, ZoomMax);
       // Initialize
       ZilchDeclareDerivedType(EditorCameraController, Component);
       EditorCameraController(Entity& owner);
