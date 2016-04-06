@@ -6828,7 +6828,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
