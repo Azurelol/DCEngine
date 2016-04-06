@@ -21,7 +21,7 @@ void main()
   else 
     Tmpcolor = spriteColor;
 
-	if(Tmpcolor.a < 0.01)
+	if(Tmpcolor.a <= 0.02)
     discard;
 
   // Store the fragment position vector in the first gbuffer texture
