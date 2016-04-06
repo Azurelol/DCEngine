@@ -259,8 +259,8 @@
             {
               "Vec3": 
               {
-                "x": 4.027092, 
-                "y": 3.577544, 
+                "x": 4.499448, 
+                "y": 1.898058, 
                 "z": 0.000000
               }
             }, 
@@ -277,8 +277,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 2.000000, 
+                "x": 18.000000, 
+                "y": 3.500000, 
                 "z": 1.000000
               }
             }
@@ -305,6 +305,7 @@
           }, 
           "UIManager": 
           {
+            "RefTextName": "HighlightText"
           }
         }, 
         "Children": 
@@ -359,7 +360,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "CircleTL", 
+                "SpriteSource": "UI_Menu_2", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -425,8 +426,8 @@
                     "z": 0.000000
                   }
                 }, 
-                "ExpansionScale": 1.050000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.100000, 
+                "ExpansionTime": 0.100000
               }
             }, 
             "Children": 
@@ -444,8 +445,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 1.940863, 
-                        "y": -5.308443, 
+                        "x": 2.584223, 
+                        "y": -4.764062, 
                         "z": 0.001000
                       }
                     }, 
@@ -462,8 +463,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.100000, 
-                        "y": 0.100000, 
+                        "x": 0.050000, 
+                        "y": 0.050000, 
                         "z": 1.000000
                       }
                     }
@@ -481,8 +482,8 @@
                         "w": 1.000000
                       }
                     }, 
-                    "Font": "Verdana", 
-                    "FontSize": 2, 
+                    "Font": "SafetyMedium", 
+                    "FontSize": 3, 
                     "Text": "New Game", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -546,7 +547,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "CircleTR", 
+                "SpriteSource": "UI_Menu_3", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -612,8 +613,8 @@
                     "z": 0.000000
                   }
                 }, 
-                "ExpansionScale": 1.050000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.100000, 
+                "ExpansionTime": 0.100000
               }
             }, 
             "Children": 
@@ -631,7 +632,7 @@
                     {
                       "Vec3": 
                       {
-                        "x": 6.565355, 
+                        "x": 7.565355, 
                         "y": -10.105119, 
                         "z": 0.001000
                       }
@@ -649,8 +650,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.100000, 
-                        "y": 0.100000, 
+                        "x": 0.050000, 
+                        "y": 0.050000, 
                         "z": 1.000000
                       }
                     }
@@ -668,8 +669,8 @@
                         "w": 1.000000
                       }
                     }, 
-                    "Font": "Verdana", 
-                    "FontSize": 2, 
+                    "Font": "SafetyMedium", 
+                    "FontSize": 3, 
                     "Text": "How To Play", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -733,7 +734,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "CircleBL", 
+                "SpriteSource": "UI_Menu_1", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -799,8 +800,8 @@
                     "z": 0.000000
                   }
                 }, 
-                "ExpansionScale": 1.050000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.100000, 
+                "ExpansionTime": 0.100000
               }
             }, 
             "Children": 
@@ -818,8 +819,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -2.434647, 
-                        "y": -10.105119, 
+                        "x": -2.649101, 
+                        "y": -10.072125, 
                         "z": 0.001000
                       }
                     }, 
@@ -836,8 +837,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.100000, 
-                        "y": 0.100000, 
+                        "x": 0.050000, 
+                        "y": 0.050000, 
                         "z": 1.000000
                       }
                     }
@@ -855,8 +856,8 @@
                         "w": 1.000000
                       }
                     }, 
-                    "Font": "Verdana", 
-                    "FontSize": 2, 
+                    "Font": "SafetyMedium", 
+                    "FontSize": 3, 
                     "Text": "Options", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -920,7 +921,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "CircleBR", 
+                "SpriteSource": "UI_Menu_4", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -986,8 +987,8 @@
                     "z": 0.000000
                   }
                 }, 
-                "ExpansionScale": 1.050000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.100000, 
+                "ExpansionTime": 0.100000
               }
             }, 
             "Children": 
@@ -1005,8 +1006,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 2.565353, 
-                        "y": -15.105122, 
+                        "x": 2.928176, 
+                        "y": -15.328714, 
                         "z": 0.001000
                       }
                     }, 
@@ -1023,8 +1024,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.100000, 
-                        "y": 0.100000, 
+                        "x": 0.050000, 
+                        "y": 0.050000, 
                         "z": 1.000000
                       }
                     }
@@ -1042,8 +1043,8 @@
                         "w": 1.000000
                       }
                     }, 
-                    "Font": "Verdana", 
-                    "FontSize": 2, 
+                    "Font": "SafetyMedium", 
+                    "FontSize": 3, 
                     "Text": "Credits", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -1107,7 +1108,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
+                "SpriteSource": "UI_Button_Square", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -1192,8 +1193,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -13.977355, 
-                        "y": -19.845011, 
+                        "x": -13.481449, 
+                        "y": -19.654278, 
                         "z": 0.001000
                       }
                     }, 
@@ -1210,8 +1211,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.100000, 
-                        "y": 0.100000, 
+                        "x": 0.050000, 
+                        "y": 0.050000, 
                         "z": 1.000000
                       }
                     }
@@ -1229,8 +1230,8 @@
                         "w": 1.000000
                       }
                     }, 
-                    "Font": "Verdana", 
-                    "FontSize": 2, 
+                    "Font": "SafetyMedium", 
+                    "FontSize": 3, 
                     "Text": "Quit Game", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -1323,69 +1324,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 148, 
-        "Name": "Middleground", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": -0.500000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 150.000000, 
-                "y": 100.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Oldworld_Middleground_1", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 590, 
         "Name": "Background", 
         "Components": 
@@ -1396,8 +1335,8 @@
             {
               "Vec3": 
               {
-                "x": 0.019659, 
-                "y": -0.322227, 
+                "x": 14.588736, 
+                "y": -26.584902, 
                 "z": -1.000000
               }
             }, 
@@ -1433,7 +1372,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Oldworld_Background_1", 
+            "SpriteSource": "Level5", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -1447,7 +1386,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 82, 
         "Name": "CenterData", 
         "Components": 
@@ -1476,8 +1415,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 4.000000, 
+                "x": 6.000000, 
+                "y": 6.000000, 
                 "z": 1.000000
               }
             }
@@ -1505,6 +1444,69 @@
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 334, 
+            "Name": "HighlightText", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.881822, 
+                    "y": -9.730527, 
+                    "z": 0.010000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.040000, 
+                    "y": 0.040000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 3, 
+                "Text": "View and change the game's settings", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 20, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }
     }

@@ -2,9 +2,19 @@ class UIManager : ZilchComponent
 {
 	var ButtonList : Array[Entity] = null;
 
+    var RefText : Entity = null;
+
+    [Property]
+    var RefTextName : String = "";
+
+    var CurrentlyHovering : Boolean;
+
+    var TextWipeDelayFrames : Integer;
+
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
 
         this.ButtonList = new Array[Entity]();
         
@@ -18,6 +28,14 @@ class UIManager : ZilchComponent
             
             childList.MoveNext();
         }
+
+        if(this.RefTextName != "")
+        {
+            this.RefText = this.Space.FindObjectByName(this.RefTextName);
+        }
+
+        this.CurrentlyHovering = false;
+        this.TextWipeDelayFrames = 2;
     }
 
     function OnUIButtonEvent(event : UIButtonEvent)
@@ -44,40 +62,88 @@ class UIManager : ZilchComponent
         }
     }
 
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+        if(this.RefText == null || this.RefText.SpriteText == null)
+        {
+            return;
+        }
+
+        if(!this.CurrentlyHovering && this.TextWipeDelayFrames < 0)
+        {
+            this.RefText.SpriteText.Text = "";
+            this.TextWipeDelayFrames = 2;
+        }
+        else if(!this.CurrentlyHovering)
+        {
+            this.TextWipeDelayFrames -= 1;
+        }
+
+        
+    }
+
     function OnButtonDefault(button : Entity)
     {
     	//Console.WriteLine(button.Name);
+        this.CurrentlyHovering = false;
     }
 
     function OnButtonHovered(button : Entity)
     {
-    	Console.WriteLine("Hovered over `button.Name`");
+        if(this.RefText == null || this.RefText.SpriteText == null)
+        {
+            return;
+        }
+
+    	if(button.Name == "NewGameButton")
+        {
+            this.RefText.SpriteText.Text = "Play Rebound";
+        }
+        else if(button.Name == "HowToPlayButton")
+        {
+            this.RefText.SpriteText.Text = "View the game's controls";
+        }
+        else if(button.Name == "OptionsButton")
+        {
+            this.RefText.SpriteText.Text = "Change the game's settings";
+        }
+        else if(button.Name == "CreditsButton")
+        {
+            this.RefText.SpriteText.Text = "Learn about the team";
+        }
+        else if(button.Name == "QuitGameButton")
+        {
+            this.RefText.SpriteText.Text = "Leave the game";
+        }
+
+        this.CurrentlyHovering = true;
     }
 
     function OnButtonClicked(button : Entity)
     {
-    	Console.WriteLine("Clicked on `button.Name`");
-
     	if(button.Name == "NewGameButton")
     	{
     		this.Space.LoadLevel("Level1");
     	}
     	else if(button.Name == "HowToPlayButton")
     	{
-    		this.Space.LoadLevel("HowToPlay");
+            Console.WriteLine("HOW TO PLAY LOGIC TBD");
+    		//this.Space.LoadLevel("HowToPlay");
     	}
     	else if(button.Name == "OptionsButton")
     	{
-    		Console.WriteLine("WE NEED AN OPTIONS LEVEL!");
+    		Console.WriteLine("OPTIONS LOGIC TBD");
     		//this.Space.LoadLevel("Level1");
     	}
     	else if(button.Name == "CreditsButton")
     	{
-    		this.Space.LoadLevel("CreditsLevel");
+    		Console.WriteLine("CREDITS LOGIC TBD");
     	}
     	else if(button.Name == "QuitGameButton")
     	{
     		Console.WriteLine("NEED TO HOOK UP CONFIRMATION");
     	}
+
+        this.CurrentlyHovering = true;
     }
 }

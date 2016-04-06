@@ -126,7 +126,7 @@ class UIButton : ZilchComponent
 
 		if(this.TextReference != null)
 		{
-			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.5);
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
 		}
 
 		this.Shrink();
@@ -140,7 +140,7 @@ class UIButton : ZilchComponent
 
 		if(this.TextReference != null)
 		{
-			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.9);
 		}
 
 		//this.Space.SoundSpace.PlayCue(this.HoveredSound);

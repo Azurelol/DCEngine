@@ -5,12 +5,12 @@
     "Name": "Char_Asha_Jump_Spritesheet", 
     "Properties": 
     {
-      "FrameRate": 4.000000, 
+      "FrameRate": 24.000000, 
       "PixelsPerUnit": 0.000000, 
       "ColumnCount": 4, 
       "RowCount": 1, 
       "Smoothing": false, 
-      "Looping": false, 
+      "Looping": true, 
       "Fill": false, 
       "TotalFrame": 4, 
       "AssetPath": "Projects\\Rebound\\Assets\\Images\\Char_Asha_Jump_Spritesheet.png"

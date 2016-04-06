@@ -19,6 +19,7 @@ namespace DCEngine {
     ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
+	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, VelocityXCap);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, Health);
@@ -149,7 +150,7 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::Transform>()->getTranslation().y + event->OtherObject->getComponent<Components::Transform>()->getScale().y / 2 < TransformRef->getTranslation().y)
       {
-        Grounded = true;
+        //Grounded = true;
         // play landing sound.
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
         auto particle = SpaceRef->CreateObject("LandingParticle");
@@ -188,7 +189,7 @@ namespace DCEngine {
       {
         PrintTranslation();
       }
-      //Grounded = CheckForGround();
+      Grounded = CheckForGround();
       if (glm::abs(RigidBodyRef->getVelocity().x) > VelocityXCap)
       {
         Vec3 currentVel = RigidBodyRef->getVelocity();
@@ -247,7 +248,7 @@ namespace DCEngine {
         {
           auto Sequence = Actions::Sequence(this->Owner()->Actions);
           auto seq = Actions::Sequence(Owner()->Actions);
-          Actions::Delay(seq, 0.1f);
+         // Actions::Delay(seq, 0.1f);
           Actions::Call(seq, &PlayerController::Jump, this);
           Jumping = true;
           Grounded = false;
@@ -322,6 +323,7 @@ namespace DCEngine {
   	  // play jump sound
       //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
       SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
+	  Grounded = false;
     }
 
     void PlayerController::TakeDamage(int damage)
@@ -477,22 +479,28 @@ namespace DCEngine {
 		  auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
 		  DCEngine::Ray ray;
 		  ray.Direction = Vec3(0, -1, 0);
-		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
+		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 		  auto result = physicsSpace->CastRay(ray);
-		  if (result.Distance < 0.05)
+		  DCTrace << "raydist1 = " << result.Distance << "\n";
+		  if (result.Distance < 0.005)
 		  {
+			  int x = 9001;
 			  return true;
 		  }
 		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(0, -TransformRef->Scale.y / 2, 0);
 		  result = physicsSpace->CastRay(ray, filter);
-		  if (result.Distance < 0.05)
+		  DCTrace << "raydist2 = " << result.Distance << "\n";
+		  if (result.Distance < 0.005)
 		  {
+			  int x = 9001;
 			  return true;
 		  }
-		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.01, -TransformRef->Scale.y / 2, 0);
+		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 		  result = physicsSpace->CastRay(ray, filter);
-		  if (result.Distance < 0.05)
+		  DCTrace << "raydist3 = " << result.Distance << "\n";
+		  if (result.Distance < 0.005)
 		  {
+			  int x = 9001;
 			  return true;
 		  }
 		  return false;
