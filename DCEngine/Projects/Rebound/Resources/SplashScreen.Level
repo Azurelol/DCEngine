@@ -119,24 +119,6 @@
             "CaptureMouse": true, 
             "Noise": false
           }, 
-          "Fade": 
-          {
-            "Timer": 0.000000, 
-            "FadeTime": 2.500000, 
-            "FadeTimeGrowth": 1.000000, 
-            "TargetColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Fading": true, 
-            "Pulse": false
-          }, 
           "LevelManager": 
           {
             "NextLevel": "MainMenu", 
@@ -146,6 +128,128 @@
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 71, 
+            "Name": "FadeOut", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.130641, 
+                    "y": 0.026333, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "FadeToColorZilch": 
+              {
+                "Activate": true, 
+                "Target": "Parent", 
+                "TargetColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 0.000000
+                  }
+                }, 
+                "MinFadeTime": 0.000000, 
+                "MaxFadeTime": 0.000000, 
+                "MinDelay": 0.000000, 
+                "MaxDelay": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 10, 
+            "Name": "FadeIn", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "FadeToColorZilch": 
+              {
+                "Activate": true, 
+                "Target": "Parent", 
+                "TargetColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "MinFadeTime": 1.000000, 
+                "MaxFadeTime": 2.000000, 
+                "MinDelay": 1.000000, 
+                "MaxDelay": 1.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 

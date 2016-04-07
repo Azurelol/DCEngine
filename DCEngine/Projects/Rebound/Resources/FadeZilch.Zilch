@@ -1,34 +1,34 @@
+enum FadeType { FadeIn, FadeOut }
+enum TargetObject { Self, Parent }
 class FadeToColorZilch : ZilchComponent
 {
-    sends ToggleColorEvent : ToggleColorEvent;
-    
-    var RandomGenerator : Random;
-    
-    [Property]
-    var Oscillate : Boolean = false;
-    [Property]
-    var CurrentlyFading : Boolean = false;
-    [Property]
-    var TargetColor : Real4;
-    var StartingColor : Real4;
-    [Property]
-    var MinFadeTime: Real = 1;
-    [Property]
-    var MaxFadeTime: Real = 1;
-    [Property]
-    var MinDelay: Real = 0; 
-    [Property]
-    var MaxDelay: Real = 0; 
+    sends ToggleColorEvent : ToggleColorEvent;    
+    var RandomGenerator : Random;    
+
+    [Property] var Activate : Boolean = false;
+    [Property] var Target : TargetObject = TargetObject.Self; var TargetObj : Entity;    
+    //[Property] var Oscillate : Boolean = false;    
+    [Property] var TargetColor : Real4; var StartingColor : Real4;
+    [Property] var MinFadeTime: Real = 1;
+    [Property] var MaxFadeTime: Real = 1;
+    [Property] var MinDelay: Real = 1; 
+    [Property] var MaxDelay: Real = 1; 
      
     function Initialize()
     {
+        // Set the target object
+        if (this.Target == TargetObject.Parent && this.Owner.Parent != null)
+            this.TargetObj = this.Owner.Parent;
+        else
+            this.TargetObj = this.Owner;
+        // Save the starting color
+        this.StartingColor = this.TargetObj.Sprite.Color;
+        // Create the random generator
         this.RandomGenerator= Random();
+        // Connect to events
         Daisy.Connect(this.Owner, DaisyEvent.ToggleColorEvent, this.OnToggleColorEvent);
-        this.StartingColor = this.Owner.Sprite.Color;
-        if(this.CurrentlyFading)
-        {
-            this.SendSelfToggleColorEvent();
-        }
+        // If activated, toggle immediately
+        if(this.Activate) this.SendSelfToggleColorEvent();
     }
 
     function OnLogicUpdate(event : LogicUpdate)
@@ -37,20 +37,21 @@ class FadeToColorZilch : ZilchComponent
     
     function OnToggleColorEvent(event : ToggleColorEvent)
     {
-				Console.WriteLine("OnToggleColorEvent Action!");
+		//Console.WriteLine("OnToggleColorEvent Action!");
         var fadeTime = this.RandomGenerator.Range(this.MinFadeTime, this.MaxFadeTime);
         var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
 		
-				Console.WriteLine("`this.Name` is creating sequence!");
+		//Console.WriteLine("`this.Name` is creating sequence!");
+
         var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Delay(seq, delay);
-        //Actions.Property(seq, @this.Owner.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
+        Actions.Property(seq, @this.TargetObj.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);
+        
         var temp = this.TargetColor;
         this.TargetColor = this.StartingColor;
         this.StartingColor = temp;
         //if(this.Oscillate) Actions.Call(seq, this.SendSelfToggleColorEvent);
-				Console.WriteLine("`this.Name` is done creating sequence!");
-        
+		//Console.WriteLine("`this.Name` is done creating sequence!");        
     }
     
     function SendSelfToggleColorEvent()

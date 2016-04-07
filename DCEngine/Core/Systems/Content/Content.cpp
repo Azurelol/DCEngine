@@ -141,9 +141,30 @@ namespace DCEngine {
       for (auto& spriteSource : MapSpriteSource) {
         // Load the SpriteSource's properties data from file
         spriteSource.second->Load();
-        // Load its texture onto the graphics system
+      }
+
+      // Sort the spriteSources by file size
+      FileData::SortBiggest sortFunc;
+      FileQueue sortedSpriteSources(sortFunc);
+      for (auto& spriteSource : MapSpriteSource) {
+        auto fileData = FileData(spriteSource.first, FileSystem::FileSize(spriteSource.second->getAssetPath()));
+        sortedSpriteSources.push(fileData);
+      }
+      int ssThreadsNum = 4;
+      std::vector<std::vector<FileData>> ssPartitions(ssThreadsNum);
+      int i = 0;
+      while (!sortedSpriteSources.empty()) {
+        auto file = sortedSpriteSources.top(); sortedSpriteSources.pop();
+        // Insert into the partitions evenly
+        ssPartitions[i++ % ssPartitions.size()].push_back(file);
+      }
+
+      auto spriteSourceLoad = std::bind(&SpriteSource::LoadTexture);
+      // Load its texture onto the graphics system
+      for (auto& spriteSource : MapSpriteSource) {
         spriteSource.second->LoadTexture();
       }
+
 
       // Load every Font
       for (auto& font : MapFont) {
