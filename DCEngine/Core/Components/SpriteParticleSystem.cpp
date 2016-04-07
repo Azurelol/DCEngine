@@ -28,7 +28,8 @@ namespace DCEngine {
     */
     /**************************************************************************/
     #if(DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDefineType(SpriteParticleSystem, "SpriteParticleSystem", DCEngineCore, builder, type) {      
+    ZilchDefineType(SpriteParticleSystem, "SpriteParticleSystem", DCEngineCore, builder, type) {
+			DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(SpriteParticleSystem);
       // Properties
@@ -45,6 +46,11 @@ namespace DCEngine {
 
 			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, Additive);
 			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, Lock);
+
+			DCE_BINDING_DEFINE_PROPERTY(SpriteParticleSystem, DrawLayer);
+			DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 5);
+			DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyDrawLayer, attributeRangeDrawLayer);
+			DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
     }
     #endif
 

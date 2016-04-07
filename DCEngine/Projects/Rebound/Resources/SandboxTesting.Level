@@ -929,6 +929,120 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Texture": "", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 0, 
+            "Size": 1.000000, 
+            "SizeVariance": 1.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
