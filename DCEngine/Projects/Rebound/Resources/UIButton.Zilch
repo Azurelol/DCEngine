@@ -20,9 +20,15 @@ class UIButton : ZilchComponent
     // State colors
     [Property]
     var DefaultColor : Real4 = Real4(1,1,1,1);
+	
+	[Property]
+	var DefaultZ : Real = 0.0;
     
     [Property]
     var HoveredColor : Real4 = Real4(1,1,1,1);
+	
+	[Property]
+	var HoveredZ : Real = 0.0;
     
     [Property]
     var ClickedColor : Real4 = Real4(1,1,1,1);
@@ -123,6 +129,7 @@ class UIButton : ZilchComponent
 		this.Active = true;
 		this.CurState = ButtonState.Default;
 		this.Owner.Sprite.Color = this.DefaultColor;
+		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.DefaultZ);
 
 		if(this.TextReference != null)
 		{
@@ -137,6 +144,7 @@ class UIButton : ZilchComponent
 	{
 		this.CurState = ButtonState.Hovered;
 		this.Owner.Sprite.Color = this.HoveredColor;
+		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.HoveredZ);
 
 		if(this.TextReference != null)
 		{

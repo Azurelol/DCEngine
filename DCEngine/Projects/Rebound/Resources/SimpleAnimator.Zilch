@@ -1,0 +1,204 @@
+class AnimEvent : ZilchEvent
+{
+    sends AnimEvent : AnimEvent;
+}
+
+class SimpleAnimator : ZilchComponent
+{
+    [Property]
+    var AnimateOnInitialize : Boolean = false;
+    // How long should system wait before acting?
+    [Property]
+    var SystemDelay : Real = 0.0;
+    
+    [Property]
+    var LoopSystem : Boolean = false;
+	
+    // Transparency changes
+	[Property]
+	var UseFadeIn : Boolean = false;
+	
+	[Property]
+	var UseFadeOut : Boolean = false;
+	
+    [Property]
+    var FadeSpeed : Real = 0.0;
+    
+    [Property]
+    var FadeEase : Ease = Ease.Linear;
+    
+    // Translation changes
+    [Property]
+    var MoveIterations : Integer = 0;
+    
+    [Property]
+    var MoveX : Real = 0.0;
+    
+    [Property]
+    var MoveY : Real = 0.0;
+    
+    [Property]
+    var MoveDelay : Real = 0.0;
+    
+    [Property]
+    var MoveSpeed : Real = 0.0;
+    
+    [Property]
+    var MoveEase : Ease = Ease.Linear;
+    
+    // Scale changes
+    [Property]
+    var ScaleIterations : Integer = 0;
+    
+    [Property]
+    var ScaleRatio : Real = 1.0;
+    
+    [Property]
+    var ScaleDelay : Real = 0.0;
+    
+    [Property]
+    var ScaleSpeed : Real = 0.0;
+    
+    [Property]
+    var ScaleEase : Ease = Ease.Linear;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, Events.AnimEvent, this.OnAnimEvent);
+        
+        if(this.AnimateOnInitialize)
+        {
+            this.StartAnimation();
+        }
+    }
+
+    function OnAnimEvent(event : AnimEvent)
+    {
+        this.StartAnimation;
+    }
+
+    function StartAnimation()
+    {
+        var masterSeq = Actions.Sequence(this.Owner.Actions);
+        var masterGrp = Actions.Group(this.Owner.Actions);
+        
+        Actions.Delay(masterSeq, this.SystemDelay);
+        Actions.Delay(masterGrp, this.SystemDelay);
+        
+		if(this.UseFadeIn)
+		{
+			Actions.Call(masterSeq, this.FadeIn);
+			Actions.Delay(masterGrp, this.FadeSpeed);
+		}
+		
+		Actions.Delay(masterSeq, this.FadeSpeed + (this.ScaleSpeed * this.ScaleIterations * 2) + (this.MoveSpeed * this.MoveIterations * 2));
+		
+        Actions.Call(masterGrp, this.PerformScale);
+        Actions.Call(masterGrp, this.PerformMove);
+        
+		if(this.UseFadeOut)
+		{
+			Actions.Call(masterSeq, this.FadeOut);
+		}
+        
+        if(this.LoopSystem)
+        {
+            Actions.Call(masterSeq, this.StartAnimation);
+        }
+    }
+    
+    function FadeIn()
+    {
+        var fadeSeq = Actions.Sequence(this.Owner.Actions);
+        
+        if(this.Owner.Sprite != null)
+        {
+            Actions.Property(fadeSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ, 1.0), this.FadeSpeed, this.FadeEase);
+        }
+        
+        if(this.Owner.SpriteText != null)
+        {
+            Actions.Property(fadeSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ, 1.0), this.FadeSpeed, this.FadeEase);
+        }
+    }
+    
+    function FadeOut()
+    {
+        var fadeSeq = Actions.Sequence(this.Owner.Actions);
+        
+        if(this.Owner.Sprite != null)
+        {
+            Actions.Property(fadeSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ, 0.0), this.FadeSpeed, this.FadeEase);
+        }
+        
+        if(this.Owner.SpriteText != null)
+        {
+            Actions.Property(fadeSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ, 0.0), this.FadeSpeed, this.FadeEase);
+        }
+    }
+    
+    function PerformScale()
+    {
+        var pScaleSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(pScaleSeq, this.ScaleDelay);
+        
+        for(var i = 0; i < this.ScaleIterations; ++i)
+        {
+            Actions.Call(pScaleSeq, this.ScaleUp);
+            Actions.Delay(pScaleSeq, this.ScaleSpeed);
+            
+            Actions.Call(pScaleSeq, this.ScaleDown);
+            Actions.Delay(pScaleSeq, this.ScaleSpeed);
+        }
+    }
+    
+    function PerformMove()
+    {
+        var pMoveSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(pMoveSeq, this.MoveDelay);
+        
+        for(var i = 0; i < this.MoveIterations; ++i)
+        {
+            Actions.Call(pMoveSeq, this.MoveTo);
+            Actions.Delay(pMoveSeq, this.MoveSpeed);
+            
+            Actions.Call(pMoveSeq, this.MoveBack);
+            Actions.Delay(pMoveSeq, this.MoveSpeed);
+        }
+    }
+    
+    function ScaleUp()
+    {
+        var scaleSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(scaleSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale * this.ScaleRatio, this.ScaleSpeed, this.ScaleEase);
+    }
+    
+    function ScaleDown()
+    {
+        Console.WriteLine("down");
+        var scaleSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(scaleSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale / this.ScaleRatio, this.ScaleSpeed, this.ScaleEase);
+    }
+    
+    function MoveTo()
+    {
+        var movSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(movSeq, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X + this.MoveX, this.Owner.Transform.Translation.Y + this.MoveY, this.Owner.Transform.Translation.Z),
+        this.MoveSpeed, this.MoveEase);
+    }
+    
+    function MoveBack()
+    {
+        var movSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(movSeq, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X - this.MoveX, this.Owner.Transform.Translation.Y - this.MoveY, this.Owner.Transform.Translation.Z),
+        this.MoveSpeed, this.MoveEase);
+    }
+}

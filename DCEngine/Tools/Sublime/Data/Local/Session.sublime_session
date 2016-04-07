@@ -16,20 +16,12 @@
 				"selected_items":
 				[
 					[
-						"Tex",
-						"TextWipeDelayFrames"
+						"Target",
+						"TargetObj"
 					],
 					[
-						"Curr",
-						"CurrentlyHovering"
-					],
-					[
-						"Ref",
-						"RefText"
-					],
-					[
-						"Da",
-						"DaisyEvent"
+						"Tare",
+						"TargetObject"
 					],
 					[
 						"Check",
@@ -128,15 +120,7 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-					"settings":
-					{
-						"buffer_size": 4422,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 					"settings":
 					{
 						"buffer_size": 3885,
@@ -180,9 +164,11 @@
 			},
 			"file_history":
 			[
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
+				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
@@ -202,7 +188,7 @@
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 218.0
 			},
 			"find_in_files":
 			{
@@ -216,6 +202,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"CurrentlyFading",
 					"CheckForGround"
 				],
 				"highlight": true,
@@ -234,40 +221,12 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 4422,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										846,
-										846
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 405.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
@@ -278,15 +237,13 @@
 								"selection":
 								[
 									[
-										160,
-										160
+										0,
+										0
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -300,7 +257,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 218.0
 			},
 			"input":
 			{
@@ -334,11 +291,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,995,504,128,1804",
+			"position": "0,0,1,-1,-1,-1,-1,974,364,107,1664",
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 432.0
 			},
 			"save_all_on_build": true,
 			"select_file":

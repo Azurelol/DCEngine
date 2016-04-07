@@ -6,15 +6,17 @@ class UIManager : ZilchComponent
 
     [Property]
     var RefTextName : String = "";
-
-    var CurrentlyHovering : Boolean;
-
-    var TextWipeDelayFrames : Integer;
+	
+	var HoveredReceived : Integer;
+	var DefaultReceived : Integer;
 
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+		
+		this.HoveredReceived = 0;
+		this.DefaultReceived = 0;
 
         this.ButtonList = new Array[Entity]();
         
@@ -33,9 +35,6 @@ class UIManager : ZilchComponent
         {
             this.RefText = this.Space.FindObjectByName(this.RefTextName);
         }
-
-        this.CurrentlyHovering = false;
-        this.TextWipeDelayFrames = 2;
     }
 
     function OnUIButtonEvent(event : UIButtonEvent)
@@ -68,24 +67,16 @@ class UIManager : ZilchComponent
         {
             return;
         }
-
-        if(!this.CurrentlyHovering && this.TextWipeDelayFrames < 0)
-        {
-            this.RefText.SpriteText.Text = "";
-            this.TextWipeDelayFrames = 2;
-        }
-        else if(!this.CurrentlyHovering)
-        {
-            this.TextWipeDelayFrames -= 1;
-        }
-
-        
+		
+		if(this.DefaultReceived - this.HoveredReceived > 4)
+		{
+			this.RefText.SpriteText.Text = "";
+		}
     }
 
     function OnButtonDefault(button : Entity)
     {
-    	//Console.WriteLine(button.Name);
-        this.CurrentlyHovering = false;
+		this.DefaultReceived += 1;
     }
 
     function OnButtonHovered(button : Entity)
@@ -97,15 +88,15 @@ class UIManager : ZilchComponent
 
     	if(button.Name == "NewGameButton")
         {
-            this.RefText.SpriteText.Text = "Play Rebound";
+            this.RefText.SpriteText.Text = "     Play Rebound";
         }
         else if(button.Name == "HowToPlayButton")
         {
-            this.RefText.SpriteText.Text = "View the game's controls";
+            this.RefText.SpriteText.Text = "  View the game's              controls";
         }
         else if(button.Name == "OptionsButton")
         {
-            this.RefText.SpriteText.Text = "Change the game's settings";
+            this.RefText.SpriteText.Text = "Change the game's             settings";
         }
         else if(button.Name == "CreditsButton")
         {
@@ -113,10 +104,9 @@ class UIManager : ZilchComponent
         }
         else if(button.Name == "QuitGameButton")
         {
-            this.RefText.SpriteText.Text = "Leave the game";
+            this.RefText.SpriteText.Text = "    Leave the game";
         }
-
-        this.CurrentlyHovering = true;
+		this.HoveredReceived += 1;
     }
 
     function OnButtonClicked(button : Entity)
@@ -143,7 +133,5 @@ class UIManager : ZilchComponent
     	{
     		Console.WriteLine("NEED TO HOOK UP CONFIRMATION");
     	}
-
-        this.CurrentlyHovering = true;
     }
 }

@@ -248,7 +248,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 28, 
         "Name": "MenuManager", 
         "Components": 
@@ -285,7 +285,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -386,6 +386,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
@@ -396,6 +397,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "HoveredZ": 0.010000, 
                 "ClickedColor": 
                 {
                   "Vec4": 
@@ -573,6 +575,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
@@ -583,6 +586,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "HoveredZ": 0.010000, 
                 "ClickedColor": 
                 {
                   "Vec4": 
@@ -632,8 +636,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 7.565355, 
-                        "y": -10.105119, 
+                        "x": 7.842339, 
+                        "y": -9.984624, 
                         "z": 0.001000
                       }
                     }, 
@@ -671,10 +675,10 @@
                     }, 
                     "Font": "SafetyMedium", 
                     "FontSize": 3, 
-                    "Text": "How To Play", 
+                    "Text": "How To    Play", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
-                    "WordWrap": 0, 
+                    "WordWrap": 7, 
                     "DrawLayer": 3
                   }
                 }, 
@@ -760,6 +764,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
@@ -770,6 +775,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "HoveredZ": 0.010000, 
                 "ClickedColor": 
                 {
                   "Vec4": 
@@ -819,8 +825,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -2.649101, 
-                        "y": -10.072125, 
+                        "x": -2.081160, 
+                        "y": -10.060570, 
                         "z": 0.001000
                       }
                     }, 
@@ -947,6 +953,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
@@ -957,6 +964,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "HoveredZ": 0.010000, 
                 "ClickedColor": 
                 {
                   "Vec4": 
@@ -1134,6 +1142,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
@@ -1144,6 +1153,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "HoveredZ": 0.000000, 
                 "ClickedColor": 
                 {
                   "Vec4": 
@@ -1335,8 +1345,8 @@
             {
               "Vec3": 
               {
-                "x": 14.588736, 
-                "y": -26.584902, 
+                "x": 12.710083, 
+                "y": -27.604733, 
                 "z": -1.000000
               }
             }, 
@@ -1399,7 +1409,7 @@
               {
                 "x": 4.000000, 
                 "y": -9.945000, 
-                "z": 0.010000
+                "z": 0.020000
               }
             }, 
             "Rotation": 
@@ -1459,7 +1469,7 @@
                   {
                     "x": 1.881822, 
                     "y": -9.730527, 
-                    "z": 0.010000
+                    "z": 0.020000
                   }
                 }, 
                 "Rotation": 
@@ -1507,6 +1517,89 @@
             {
             }
           }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 470, 
+        "Name": "Title", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.504822, 
+                "y": 1.898643, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 18.000000, 
+                "y": 3.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "ReboundLogoLowRes", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "SimpleAnimator": 
+          {
+            "AnimateOnInitialize": true, 
+            "SystemDelay": 0.000000, 
+            "LoopSystem": true, 
+            "UseFadeIn": false, 
+            "UseFadeOut": false, 
+            "FadeSpeed": 0.000000, 
+            "FadeEase": "Linear", 
+            "MoveIterations": 1, 
+            "MoveX": 0.000000, 
+            "MoveY": 0.200000, 
+            "MoveDelay": 0.000000, 
+            "MoveSpeed": 1.000000, 
+            "MoveEase": "QuadOut", 
+            "ScaleIterations": 0, 
+            "ScaleRatio": 1.050000, 
+            "ScaleDelay": 0.000000, 
+            "ScaleSpeed": 1.000000, 
+            "ScaleEase": "QuadOut"
+          }
+        }, 
+        "Children": 
+        {
         }
       }
     }
