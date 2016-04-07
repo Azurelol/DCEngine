@@ -9,10 +9,10 @@ class FadeToColorZilch : ZilchComponent
     [Property] var Target : TargetObject = TargetObject.Self; var TargetObj : Entity;    
     //[Property] var Oscillate : Boolean = false;    
     [Property] var TargetColor : Real4; var StartingColor : Real4;
-    [Property] var MinFadeTime: Real = 1;
-    [Property] var MaxFadeTime: Real = 1;
-    [Property] var MinDelay: Real = 1; 
-    [Property] var MaxDelay: Real = 1; 
+    [Property] var FadeTime: Real = 1;
+    [Property] var FadeVariance: Real = 0;
+    [Property] var DelayTime: Real = 1; 
+    [Property] var DelayVariance: Real = 0; 
      
     function Initialize()
     {
@@ -38,11 +38,10 @@ class FadeToColorZilch : ZilchComponent
     function OnToggleColorEvent(event : ToggleColorEvent)
     {
 		//Console.WriteLine("OnToggleColorEvent Action!");
-        var fadeTime = this.RandomGenerator.Range(this.MinFadeTime, this.MaxFadeTime);
-        var delay = this.RandomGenerator.Range(this.MinDelay, this.MaxDelay);
+        var fadeTime = this.RandomGenerator.Variance(this.FadeTime, this.FadeVariance);
+        var delay = this.RandomGenerator.Variance(this.DelayTime, this.DelayVariance);
 		
 		//Console.WriteLine("`this.Name` is creating sequence!");
-
         var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Delay(seq, delay);
         Actions.Property(seq, @this.TargetObj.Sprite.Color, this.TargetColor, fadeTime, Ease.Linear);

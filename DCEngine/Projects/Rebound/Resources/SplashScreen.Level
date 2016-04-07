@@ -60,7 +60,7 @@
       {
         "Locked": false, 
         "GameObjectID": 171, 
-        "Name": "Logo", 
+        "Name": "DigiPen Logo", 
         "Components": 
         {
           "Transform": 
@@ -69,8 +69,8 @@
             {
               "Vec3": 
               {
-                "x": -0.130641, 
-                "y": 0.026333, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.100000
               }
             }, 
@@ -122,7 +122,7 @@
           "LevelManager": 
           {
             "NextLevel": "MainMenu", 
-            "LoadingTime": 6.000000, 
+            "LoadingTime": 8.000000, 
             "TimerStarted": true
           }
         }, 
@@ -133,6 +133,67 @@
             "Locked": false, 
             "GameObjectID": 10, 
             "Name": "FadeIn", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.130641, 
+                    "y": -0.026333, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "FadeToColorZilch": 
+              {
+                "Activate": true, 
+                "Target": "Parent", 
+                "TargetColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "FadeTime": 1.500000, 
+                "FadeVariance": 0.000000, 
+                "DelayTime": 1.000000, 
+                "DelayVariance": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 48, 
+            "Name": "FadeOut", 
             "Components": 
             {
               "Transform": 
@@ -173,22 +234,103 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 0.000000
                   }
                 }, 
-                "MinFadeTime": 1.000000, 
-                "MaxFadeTime": 2.000000, 
-                "MinDelay": 1.000000, 
-                "MaxDelay": 1.000000
+                "FadeTime": 1.000000, 
+                "FadeVariance": 0.000000, 
+                "DelayTime": 3.000000, 
+                "DelayVariance": 0.000000
               }
             }, 
             "Children": 
             {
             }
           }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 47, 
+        "Name": "Moonward Logo", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.500000, 
+                "y": 2.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "SpriteSource": "MoonwardLogo", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "FadeToColorZilch": 
+          {
+            "Activate": true, 
+            "Target": "Self", 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "FadeTime": 1.500000, 
+            "FadeVariance": 0.000000, 
+            "DelayTime": 5.000000, 
+            "DelayVariance": 0.000000
+          }
+        }, 
+        "Children": 
+        {
         }
       }, 
       "GameObject": 
@@ -204,7 +346,7 @@
             {
               "Vec3": 
               {
-                "x": 3.438646, 
+                "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -247,12 +389,58 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "FadeToColorZilch": 
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 16, 
+        "Name": "Light", 
+        "Components": 
+        {
+          "Transform": 
           {
-            "Activate": true, 
-            "Target": "Self", 
-            "TargetColor": 
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": false, 
+            "Type": "Spot", 
+            "Color": 
             {
               "Vec4": 
               {
@@ -262,10 +450,20 @@
                 "w": 1.000000
               }
             }, 
-            "MinFadeTime": 1.000000, 
-            "MaxFadeTime": 2.000000, 
-            "MinDelay": 3.000000, 
-            "MaxDelay": 3.000000
+            "Intensity": 5.294000, 
+            "Range": 40.000000, 
+            "Falloff": 1.378000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.000000, 
+            "OuterAngle": 180.000015
           }
         }, 
         "Children": 

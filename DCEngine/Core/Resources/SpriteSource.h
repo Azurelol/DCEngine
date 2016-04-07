@@ -69,6 +69,8 @@ namespace DCEngine {
     static SpriteSourceRawPtr Find(std::string);
     SpriteSource(std::string spriteFile);
     static std::string Extension() { return ".SpriteSource"; }
+    bool LoadImageFromFile();
+    bool GenerateTexture();
     void LoadTexture();    
 
     #if (USE_SFML_TEXTURE)
@@ -79,6 +81,7 @@ namespace DCEngine {
     
 
   private:
+    sf::Image* Image;
     std::string AssetPath;
     #if (USE_SFML_TEXTURE)
     std::unique_ptr<sf::Texture> TextureObj;

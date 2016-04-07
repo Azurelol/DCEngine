@@ -75,8 +75,6 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Update(float dt)
   {
-    
-
     for (auto& action : AllActions) {
 
       // If it's paused, do not update its actions

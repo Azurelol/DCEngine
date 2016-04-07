@@ -65,10 +65,11 @@ class SimpleAnimator : ZilchComponent
     function Initialize()
     {
         Daisy.Connect(this.Owner, Events.AnimEvent, this.OnAnimEvent);
-        
+
+
         if(this.AnimateOnInitialize)
         {
-            this.StartAnimation();
+            //this.StartAnimation();
         }
     }
 

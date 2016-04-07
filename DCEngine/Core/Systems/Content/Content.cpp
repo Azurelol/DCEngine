@@ -149,11 +149,7 @@ namespace DCEngine {
       }
       Daisy->getSystem<Audio>()->Generate();
 
-      // Load every SpriteSource's texture
-      for (auto& spriteSource : MapSpriteSource) {
-        // Load the SpriteSource's properties data from file
-        spriteSource.second->Load();
-      }
+
 
 
       // We will create 4 threads to load images
@@ -185,8 +181,19 @@ namespace DCEngine {
       //}
 
       //------------------------------------------------------------------------//
+      
+      //// Load every SpriteSource's texture
+      //for (auto& spriteSource : MapSpriteSource) {
+      //  // Load the SpriteSource's properties data from file
+      //  spriteSource.second->Load();
+      //  spriteSource.second->LoadImageFromFile();
+      //  spriteSource.second->GenerateTexture();
+      //}
+
+      
       // Load its texture onto the graphics system
       for (auto& spriteSource : MapSpriteSource) {
+        spriteSource.second->Load();
         spriteSource.second->LoadTexture();
       }
 

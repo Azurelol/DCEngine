@@ -55,6 +55,57 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Loads an image from file into memory.
+  @return True if the image was successfully loaded, false otherwise.
+  */
+  /**************************************************************************/
+  bool SpriteSource::LoadImageFromFile()
+  {
+    // ??
+    bool alpha = true;
+    if (alpha) {
+      TextureObj->InternalFormat = GL_RGBA;
+      TextureObj->ImageFormat = GL_RGBA;
+    }
+
+    // Load image
+    Image = new sf::Image;
+    Image->loadFromFile(AssetPath);
+    Image->flipVertically();
+
+    // If the image file failed to load, throw an exception
+    if (Image->getPixelsPtr() == NULL) {
+      DCTrace << Name() << "SpriteSource::LoadImageFromFile - Failed to load image file!\n";
+      return false;
+    }
+
+    DCTrace << Name() << "SpriteSource::LoadImageFromFile - Image was successfully loaded!\n";
+    return true;
+    
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Generates a texture for OpenGL from an image file.
+  @return True if the texture was successfully generated, false otherwise.
+  */
+  /**************************************************************************/
+  bool SpriteSource::GenerateTexture()
+  {
+    // Generate the texture using the image
+    TextureObj->Generate(Image->getSize().x, Image->getSize().y, *Image);
+    MaxX = Image->getSize().x;
+    MaxY = Image->getSize().y;
+    PicHeight = Image->getSize().y;
+    PicWidth =  Image->getSize().x;
+    // Delete the image now that we are done with it
+    delete Image;
+
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Loads a texture!
   @param The name of the image (texture) file.
   @todo  Replace the bool alpha.
