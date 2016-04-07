@@ -103,7 +103,7 @@
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.000000
               }
             }, 
             "SpriteSource": "DigiPen_WHITE", 
@@ -122,73 +122,12 @@
           "LevelManager": 
           {
             "NextLevel": "MainMenu", 
-            "LoadingTime": 5.000000, 
+            "LoadingTime": 6.000000, 
             "TimerStarted": true
           }
         }, 
         "Children": 
         {
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 71, 
-            "Name": "FadeOut", 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -0.130641, 
-                    "y": 0.026333, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "FadeToColorZilch": 
-              {
-                "Activate": true, 
-                "Target": "Parent", 
-                "TargetColor": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000, 
-                    "w": 0.000000
-                  }
-                }, 
-                "MinFadeTime": 0.000000, 
-                "MaxFadeTime": 0.000000, 
-                "MinDelay": 0.000000, 
-                "MaxDelay": 0.000000
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
           "GameObject": 
           {
             "Locked": false, 
@@ -308,6 +247,25 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "FadeToColorZilch": 
+          {
+            "Activate": true, 
+            "Target": "Self", 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "MinFadeTime": 1.000000, 
+            "MaxFadeTime": 2.000000, 
+            "MinDelay": 3.000000, 
+            "MaxDelay": 3.000000
           }
         }, 
         "Children": 

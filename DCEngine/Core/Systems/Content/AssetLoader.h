@@ -46,30 +46,53 @@ namespace DCEngine {
     class AssetLoader {
     public:
       struct ALSettings {
+        unsigned ThreadCount;
+        ALSettings(unsigned count) : ThreadCount(count) {}
       };
 
-      
-      // Static method
-      static bool LoadS(const FilePaths& resourcePaths, std::function<void(const std::string&)> addMethod) {
-        for (auto& path : resourcePaths) {
-          addMethod(path);
-        }
-        return true;
-      }
+      AssetLoader(const ALSettings& settings);
+      ~AssetLoader();
+
+      template<typename ResourceMap, typename ResourcePtr>
+      bool Load(const ResourceMap & resources, std::function<void()> addMethod);
 
 
-      bool Load(const FilePaths& resourcePaths, std::function<void(const std::string&)> addMethod) {
-        for (auto& path : resourcePaths) {
-          addMethod(path);
-        }
-        return true;
-      }
+      // Interface
+      static bool AddResource(const FilePaths& resourcePaths, std::function<void(const std::string&)> addMethod);
 
     private:
+      ALSettings Settings;
       bool Active;
-      std::thread Thread;
+      std::vector<std::thread> Threads;
+      bool ThreadedLoad(const FilePaths& resourcePaths, std::function<void(void)> addMethod);
 
     };
+
+    /**************************************************************************/
+    /*!
+    @brief Loads the specified resource by dividing the tasks among many threads.
+    @param resourcePaths The paths to the resource.
+    @param loadMethod The method which to use to load.
+    */
+    /**************************************************************************/
+    template<typename ResourceMap, typename ResourcePtr>
+    inline bool AssetLoader::Load(const ResourceMap & resources, std::function<void()> addMethod)
+    {
+      // Sort the resources' assets by file size
+      FileData::SortBiggest sortBiggest;
+      FileQueue sortedResources(sortBiggest);      
+      for (auto& resource : resources) {
+        sortedResources.push(FileData(resource.first, FileSystem::FileSize(resource.second->getAssetPath())));
+      }
+      // Add them to as many vectors we have partitions
+      std::vector<std::vector<ResourcePtr>> partitions(Settings.ThreadCount);
+      while (!sortedResources.empty()) {
+        auto currentResource = sortedResources.top(); sortedResources.pop();
+
+      }
+      
+      return false;
+    }
 
   }
 }
